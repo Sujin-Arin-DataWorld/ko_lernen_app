@@ -1,0 +1,838 @@
+{
+  "status": "PROPOSED_TOPIC_BACKLOG_NOT_RUNTIME_CONTENT",
+  "scope": "54개 생활 주제 묶음. 기존 178개 장면의 누락 목록이나 제작 완료 수량이 아님. 각 묶음은 여러 장면 후보로 확장 가능.",
+  "categories": [
+    {
+      "id": "daily",
+      "name": "음식·소비·생활 서비스"
+    },
+    {
+      "id": "home",
+      "name": "주거·이동·행정·돈 관리"
+    },
+    {
+      "id": "study",
+      "name": "대학·학교·학업"
+    },
+    {
+      "id": "career",
+      "name": "회사·커리어·협업"
+    },
+    {
+      "id": "social",
+      "name": "친구·연애·만남·갈등"
+    },
+    {
+      "id": "family",
+      "name": "가족·세대·지역 생활"
+    },
+    {
+      "id": "culture",
+      "name": "음악·드라마·문화·취미"
+    },
+    {
+      "id": "digital",
+      "name": "전화·인터뷰·SNS·디지털 생활"
+    },
+    {
+      "id": "wellbeing",
+      "name": "건강·돌발 상황·배려"
+    }
+  ],
+  "topics": [
+    {
+      "id": "life_01",
+      "category": "daily",
+      "title": "음식점·카페",
+      "actors": [
+        "lena",
+        "christian",
+        "server"
+      ],
+      "task": "메뉴·식재료를 확인하고 주문 오류를 정중히 고친다.",
+      "levels": "A1–B1",
+      "note": "말을 바꾸는 상황에서도 요청과 책임을 구분",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_02",
+      "category": "daily",
+      "title": "마트·시장·단골 가게",
+      "actors": [
+        "dongsun",
+        "lena",
+        "clerk"
+      ],
+      "task": "가격·수량·대체 상품을 확인하고 장보기 역할을 나눈다.",
+      "levels": "A1–B1",
+      "note": "가게 사장의 경험과 소비자의 선택을 모두 존중",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_03",
+      "category": "daily",
+      "title": "휴대폰 음식 주문",
+      "actors": [
+        "jun",
+        "andrea",
+        "customer"
+      ],
+      "task": "배달 주소·요청 사항·예상 시간을 확인하고 가족의 메뉴를 합의한다.",
+      "levels": "A1–B1",
+      "note": "준도 주문을 맡을 수 있고 부모도 확인을 부탁",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_04",
+      "category": "daily",
+      "title": "인터넷 쇼핑·반품",
+      "actors": [
+        "lena",
+        "hyuna",
+        "clerk"
+      ],
+      "task": "사이즈·상품 설명을 비교하고 다른 상품이 온 이유를 문의한다.",
+      "levels": "A2–B2",
+      "note": "불만을 상대 공격 없이 설명",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_05",
+      "category": "daily",
+      "title": "배송·수령·분실 확인",
+      "actors": [
+        "sujin",
+        "delivery_worker",
+        "neighbor"
+      ],
+      "task": "배송 상태와 수령 위치를 확인하고 오해를 풀어 준다.",
+      "levels": "A2–B2",
+      "note": "모르는 이웃에게 근거 없이 책임을 돌리지 않음",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_06",
+      "category": "daily",
+      "title": "예약·취소·이용권",
+      "actors": [
+        "maya",
+        "daniel",
+        "clerk"
+      ],
+      "task": "예약 변경·노쇼·공유 이용권의 조건을 확인하고 대안을 고른다.",
+      "levels": "A2–B2",
+      "note": "정책을 확인하며 가능한 선택을 협의",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_07",
+      "category": "home",
+      "title": "셰어하우스 공용 공간",
+      "actors": [
+        "lena",
+        "hyuna"
+      ],
+      "task": "청소·손님 방문·소음 기준을 정하고 다시 조율한다.",
+      "levels": "A2–C1",
+      "note": "친한 사람에게도 생활 경계를 설명",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_08",
+      "category": "home",
+      "title": "집 구하기·계약 문의",
+      "actors": [
+        "christian",
+        "lena",
+        "landlord"
+      ],
+      "task": "집 조건과 비용을 비교하고 이해하지 못한 항목을 질문한다.",
+      "levels": "A2–B2",
+      "note": "계약 효력이나 권리를 창작 대사로 단정하지 않음",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_09",
+      "category": "home",
+      "title": "수리·공과금·서비스 기사",
+      "actors": [
+        "byeongcheol",
+        "sujin",
+        "clerk"
+      ],
+      "task": "고장 증상·방문 시간을 설명하고 비용 내역을 확인한다.",
+      "levels": "A2–B2",
+      "note": "병철의 경험이 실용적인 도움으로 읽힘",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_10",
+      "category": "home",
+      "title": "교통·길 찾기·막차",
+      "actors": [
+        "christian",
+        "lena",
+        "driver"
+      ],
+      "task": "경로·출구·환승·늦은 약속의 도착 시간을 확인한다.",
+      "levels": "A1–B1",
+      "note": "기술에 능한 크리스티안도 길을 물을 수 있음",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_11",
+      "category": "home",
+      "title": "여행·숙소·일정 차이",
+      "actors": [
+        "christian",
+        "sujin",
+        "clerk"
+      ],
+      "task": "휴가 예산과 여행 취향을 맞추고 변경된 계획을 설명한다.",
+      "levels": "A2–C1",
+      "note": "연인이 모든 취향을 공유할 필요 없음",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_12",
+      "category": "home",
+      "title": "은행·구독·공공기관",
+      "actors": [
+        "andrea",
+        "lena",
+        "official"
+      ],
+      "task": "결제 내역·자동 갱신·서류의 필요한 정보를 문의한다.",
+      "levels": "A2–B2",
+      "note": "개인정보·제도 조건은 실제 확인이 필요한 정보로 취급",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_13",
+      "category": "study",
+      "title": "대학 수강·시설·시간표",
+      "actors": [
+        "christian",
+        "lena",
+        "student"
+      ],
+      "task": "수업·도서관·조별 모임의 시간과 위치를 확인한다.",
+      "levels": "A1–B1",
+      "note": "한국 생활 적응을 성인 학업 상황에 연결",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_14",
+      "category": "study",
+      "title": "대학교 팀 과제",
+      "actors": [
+        "lena",
+        "christian",
+        "student"
+      ],
+      "task": "역할·마감·인용 자료를 정하고 기여도 불균형을 이야기한다.",
+      "levels": "A2–C1",
+      "note": "친구 관계와 과제 책임을 분리",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_15",
+      "category": "study",
+      "title": "교수님과의 대화",
+      "actors": [
+        "hyuna",
+        "professor"
+      ],
+      "task": "피드백의 의미를 확인하고 과제 범위·수정 방향을 상담한다.",
+      "levels": "A2–C2",
+      "note": "교수의 권한과 학생의 판단을 함께 드러냄",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_16",
+      "category": "study",
+      "title": "발표·토론·질문",
+      "actors": [
+        "christian",
+        "lena",
+        "hyuna"
+      ],
+      "task": "주장을 설명하고 질문을 받아 근거·한계를 구분한다.",
+      "levels": "B1–C2",
+      "note": "레벨은 담화 난도이며 인물의 전문 지식과 별개",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_17",
+      "category": "study",
+      "title": "진로·인턴십·포트폴리오",
+      "actors": [
+        "christian",
+        "minho",
+        "interviewer"
+      ],
+      "task": "경험을 설명하고 직무·학습 기회·면접 기대를 확인한다.",
+      "levels": "B1–C1",
+      "note": "민호의 멘토링이 채용 약속으로 바뀌지 않음",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_18",
+      "category": "study",
+      "title": "고등학교 과제·동아리",
+      "actors": [
+        "jun",
+        "school_teacher",
+        "andrea"
+      ],
+      "task": "동아리 발표와 과제 일정을 정하고 도움을 요청한다.",
+      "levels": "A2–B2",
+      "note": "준이 대학·직장 과제를 대신하는 화자가 되지 않음",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_19",
+      "category": "career",
+      "title": "신입·회의·업무 확인",
+      "actors": [
+        "maya",
+        "andrea",
+        "coworker"
+      ],
+      "task": "업무의 우선순위·담당·마감을 다시 확인한다.",
+      "levels": "A2–B2",
+      "note": "질문하는 신입에게도 판단과 역량이 있음",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_20",
+      "category": "career",
+      "title": "피드백·실수 수습",
+      "actors": [
+        "sujin",
+        "minho",
+        "coworker"
+      ],
+      "task": "영향을 설명하고 수정 범위·지원·다음 행동을 합의한다.",
+      "levels": "B1–C1",
+      "note": "전 상사와 현재 동료의 장면 권한을 구분",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_21",
+      "category": "career",
+      "title": "일정·갈등·거절",
+      "actors": [
+        "maya",
+        "daniel"
+      ],
+      "task": "변경된 촬영 일정과 무리한 요청을 설명하고 대안을 제시한다.",
+      "levels": "B1–C2",
+      "note": "불편한 말을 유머만으로 회피하지 않음",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_22",
+      "category": "career",
+      "title": "이직·성과·번아웃",
+      "actors": [
+        "sujin",
+        "hyuna",
+        "andrea"
+      ],
+      "task": "커리어 목표와 업무 부담을 이야기하고 선택 기준을 정한다.",
+      "levels": "B1–C2",
+      "note": "회사 고민을 특정 인물의 완벽한 조언으로 해결하지 않음",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_23",
+      "category": "career",
+      "title": "네트워킹·멘토링",
+      "actors": [
+        "maya",
+        "andrea",
+        "christian"
+      ],
+      "task": "자기소개·관심 분야·후속 만남을 제안하고 요청의 범위를 정한다.",
+      "levels": "A2–C1",
+      "note": "소개를 부탁하되 인맥을 채용 보장으로 쓰지 않음",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_24",
+      "category": "career",
+      "title": "프리랜서 견적·납기·계약",
+      "actors": [
+        "daniel",
+        "maya",
+        "customer"
+      ],
+      "task": "결과물·수정 횟수·예산·일정을 확인하고 추가 요청을 협의한다.",
+      "levels": "B1–C2",
+      "note": "직업의 실제 책임과 생계를 다룸",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_25",
+      "category": "social",
+      "title": "친구 약속·초대·거절",
+      "actors": [
+        "sujin",
+        "maya",
+        "lena"
+      ],
+      "task": "시간을 정하고 거절이나 일정 변경을 짧고 솔직하게 말한다.",
+      "levels": "A1–B2",
+      "note": "친절함을 무조건 수락과 동일시하지 않음",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_26",
+      "category": "social",
+      "title": "친구 갈등·늦은 답장",
+      "actors": [
+        "hyuna",
+        "sujin"
+      ],
+      "task": "오해의 근거를 확인하고 기대와 경계를 설명한다.",
+      "levels": "A2–C2",
+      "note": "관계가 한 번의 오해로 자동 파국이 되지 않음",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_27",
+      "category": "social",
+      "title": "취미 모임·새 친구",
+      "actors": [
+        "lena",
+        "maya",
+        "christian"
+      ],
+      "task": "처음 만난 사람에게 관심사를 묻고 모임 참여를 제안한다.",
+      "levels": "A1–B2",
+      "note": "기존 인맥 밖의 일반 인물도 자연스럽게 등장",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_28",
+      "category": "social",
+      "title": "연인 사이의 만남",
+      "actors": [
+        "sujin",
+        "christian"
+      ],
+      "task": "데이트 장소·연락 빈도·각자의 취향을 맞춘다.",
+      "levels": "A1–B2",
+      "note": "수진도 부탁하거나 양보를 요청하는 동등한 연인",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_29",
+      "category": "social",
+      "title": "연인 갈등·사과·회복",
+      "actors": [
+        "sujin",
+        "christian"
+      ],
+      "task": "감정과 사건을 구분하고 필요한 행동·연락 기준을 합의한다.",
+      "levels": "B1–C2",
+      "note": "고정된 성별 역할과 강제 이별·화해 결말을 피함",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_30",
+      "category": "social",
+      "title": "호감·장거리·미래 선택",
+      "actors": [
+        "lena",
+        "daniel",
+        "sujin",
+        "christian"
+      ],
+      "task": "관심을 표현하거나 학업·커리어로 생긴 거리의 의미를 이야기한다.",
+      "levels": "B1–C2",
+      "note": "레나의 호감은 일방적이며 커플 간 미래 선택과 장면을 분리",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_31",
+      "category": "family",
+      "title": "연인 소개·가족 식사",
+      "actors": [
+        "dongsun",
+        "byeongcheol",
+        "sujin",
+        "christian"
+      ],
+      "task": "처음의 호칭·식사 취향·방문 시간을 조율한다.",
+      "levels": "A1–B2",
+      "note": "크리스티안을 이미 사위나 결혼 예정자로 부르지 않음",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_32",
+      "category": "family",
+      "title": "부부 일정·가사·양육",
+      "actors": [
+        "andrea",
+        "minho"
+      ],
+      "task": "출장·집안일·자녀 일정의 책임을 다시 나눈다.",
+      "levels": "A2–C1",
+      "note": "두 사람 모두 직장과 가족에서 결정권을 가짐",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_33",
+      "category": "family",
+      "title": "청소년 자율·디지털 규칙",
+      "actors": [
+        "jun",
+        "andrea",
+        "minho"
+      ],
+      "task": "친구 약속·게임 시간·개인정보의 경계를 합의한다.",
+      "levels": "A2–C1",
+      "note": "부모가 일방적으로 금지하거나 준이 무조건 반항하지 않음",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_34",
+      "category": "family",
+      "title": "두 언어·문화·가족 통화",
+      "actors": [
+        "jun",
+        "andrea",
+        "christian"
+      ],
+      "task": "언어를 바꾸는 이유와 가족·친구 앞에서의 불편함을 설명한다.",
+      "levels": "A2–C2",
+      "note": "이중언어 사용자가 항상 두 문화의 통역을 맡지 않음",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_35",
+      "category": "family",
+      "title": "부모의 생활·건강·도움",
+      "actors": [
+        "dongsun",
+        "byeongcheol",
+        "sujin"
+      ],
+      "task": "건강 예약·생활 계획·도움의 범위와 서로의 시간을 이야기한다.",
+      "levels": "A2–C1",
+      "note": "나이만으로 무능력하거나 돌봄 대상이 되지 않음",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_36",
+      "category": "family",
+      "title": "가게 운영·단골·지역 연결",
+      "actors": [
+        "dongsun",
+        "maya",
+        "customer"
+      ],
+      "task": "새 상품 소개·수선 약속·가게 SNS 게시물을 협의한다.",
+      "levels": "A2–C1",
+      "note": "동선은 운영의 주체, 마야는 홍보 조언자",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_37",
+      "category": "culture",
+      "title": "음악·K-pop·공연",
+      "actors": [
+        "maya",
+        "lena",
+        "jun"
+      ],
+      "task": "취향·티켓·공연 예절·팬 활동의 기대를 이야기한다.",
+      "levels": "A1–C1",
+      "note": "기본 취향 대화와 비평을 난도에 맞게 구분",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_38",
+      "category": "culture",
+      "title": "드라마·영화·스포일러",
+      "actors": [
+        "dongsun",
+        "daniel",
+        "sujin"
+      ],
+      "task": "감상과 인물 해석을 나누고 스포일러 여부를 먼저 확인한다.",
+      "levels": "A2–C2",
+      "note": "실제 작품의 줄거리·대사는 검증과 권리 검토가 필요한 별도 소재",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_39",
+      "category": "culture",
+      "title": "전시·박물관·지역 답사",
+      "actors": [
+        "hyuna",
+        "byeongcheol",
+        "daniel"
+      ],
+      "task": "관찰한 것을 묻고 개인 기억과 자료의 해석을 구분한다.",
+      "levels": "A2–C2",
+      "note": "병철의 역사 취미를 전문 자격과 혼동하지 않음",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_40",
+      "category": "culture",
+      "title": "운동·등산·참여 조정",
+      "actors": [
+        "sujin",
+        "andrea",
+        "hyuna"
+      ],
+      "task": "준비물·속도·날씨·컨디션을 확인하고 계획을 바꾼다.",
+      "levels": "A1–B2",
+      "note": "수진·안드레아의 등산 인맥에 실제 공동 과제가 생김",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_41",
+      "category": "culture",
+      "title": "게임·코딩·창작 동아리",
+      "actors": [
+        "jun",
+        "christian",
+        "minho"
+      ],
+      "task": "게임 취향·작은 코딩 문제·발표 목표를 설명하고 도움을 요청한다.",
+      "levels": "A2–B2",
+      "note": "준의 강점과 경험 부족을 함께 표현",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_42",
+      "category": "culture",
+      "title": "촬영·인터뷰·문화 콘텐츠",
+      "actors": [
+        "daniel",
+        "hyuna",
+        "maya"
+      ],
+      "task": "질문 취지·촬영 동의·편집 방향·출처를 확인한다.",
+      "levels": "B1–C2",
+      "note": "대학 연구 인터뷰·영상 인터뷰·채용 면접을 구분",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_43",
+      "category": "digital",
+      "title": "전화·메시지·음성사서함",
+      "actors": [
+        "christian",
+        "andrea",
+        "clerk"
+      ],
+      "task": "상대와 용건을 확인하고 잘 못 들은 정보를 되묻는다.",
+      "levels": "A1–B2",
+      "note": "정보가 화면 없이 전달될 때 확인 발화를 연습",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_44",
+      "category": "digital",
+      "title": "업무 이메일·채용 인터뷰",
+      "actors": [
+        "sujin",
+        "christian",
+        "interviewer"
+      ],
+      "task": "경험·지원 동기·일정·후속 요청을 간결하게 전달한다.",
+      "levels": "B1–C2",
+      "note": "공식 문체와 실제 대화 말투를 각각 유지",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_45",
+      "category": "digital",
+      "title": "SNS·게시물·사진 동의",
+      "actors": [
+        "jun",
+        "maya",
+        "daniel"
+      ],
+      "task": "게시 범위·태그·사진 사용을 확인하고 삭제나 수정을 부탁한다.",
+      "levels": "A2–C2",
+      "note": "당사자에게 게시물의 통제권을 줌",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_46",
+      "category": "digital",
+      "title": "리뷰·온라인 커뮤니티",
+      "actors": [
+        "lena",
+        "dongsun",
+        "moderator"
+      ],
+      "task": "경험·사실·추측을 구분하고 오해·불만을 설명한다.",
+      "levels": "B1–C2",
+      "note": "가게나 고객을 단정적으로 비난하는 대사를 강제하지 않음",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_47",
+      "category": "digital",
+      "title": "앱·기기·개인정보",
+      "actors": [
+        "sujin",
+        "christian",
+        "dongsun"
+      ],
+      "task": "설정·접근 권한·로그인 문제를 확인하고 필요한 도움을 요청한다.",
+      "levels": "A2–B2",
+      "note": "동선도 판단하는 사용자이고 기술자는 모든 것을 대신하지 않음",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_48",
+      "category": "digital",
+      "title": "사칭·결제 오류·정보 확인",
+      "actors": [
+        "jun",
+        "andrea",
+        "official"
+      ],
+      "task": "의심스러운 메시지의 사실 여부와 문의 경로를 확인한다.",
+      "levels": "B1–C1",
+      "note": "실제 사기 실행 절차나 검증되지 않은 제도 설명을 만들지 않음",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_49",
+      "category": "wellbeing",
+      "title": "병원·약국 예약과 문의",
+      "actors": [
+        "andrea",
+        "doctor",
+        "pharmacist"
+      ],
+      "task": "증상·예약·설명의 이해 여부를 말하고 다시 질문한다.",
+      "levels": "A2–B2",
+      "note": "처방·효능·치료 결과를 확정하는 의료 조언을 쓰지 않음",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_50",
+      "category": "wellbeing",
+      "title": "알레르기·접근성·요청",
+      "actors": [
+        "lena",
+        "server",
+        "neighbor"
+      ],
+      "task": "식재료·시설·필요한 배려를 설명하고 가능한 대안을 묻는다.",
+      "levels": "A1–B2",
+      "note": "요청을 민폐나 갈등 장치로만 다루지 않음",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_51",
+      "category": "wellbeing",
+      "title": "분실·고장·예상 밖 변경",
+      "actors": [
+        "christian",
+        "daniel",
+        "official"
+      ],
+      "task": "잃어버린 물건·변경된 이동 계획을 설명하고 도움을 구한다.",
+      "levels": "A2–B2",
+      "note": "당황한 상황에서 핵심 정보를 골라 전달",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_52",
+      "category": "wellbeing",
+      "title": "스트레스·상담·휴식",
+      "actors": [
+        "hyuna",
+        "sujin",
+        "counselor"
+      ],
+      "task": "지금 어려운 점과 필요한 지원을 설명하고 쉴 계획을 정한다.",
+      "levels": "B1–C1",
+      "note": "상담을 진단·치료 효과가 보장된 대화로 쓰지 않음",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_53",
+      "category": "wellbeing",
+      "title": "도움·돌봄·일정의 경계",
+      "actors": [
+        "sujin",
+        "dongsun",
+        "andrea"
+      ],
+      "task": "상대의 필요를 확인하고 가능한 도움과 어려운 범위를 말한다.",
+      "levels": "A2–C2",
+      "note": "가족·친구 관계에서 역할과 책임을 협의",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    },
+    {
+      "id": "life_54",
+      "category": "wellbeing",
+      "title": "기후·쓰레기·공동체",
+      "actors": [
+        "hyuna",
+        "lena",
+        "resident"
+      ],
+      "task": "분리배출·동네 활동·환경 문제에서 일상 선택을 협의한다.",
+      "levels": "A2–C2",
+      "note": "기관·지역의 실제 기준은 제작 시 확인",
+      "scenePolicy": "상황에 맞는 2~3명만 활성 화자로 선택; 이 목록의 인물을 모두 한 장면에 넣지 않음."
+    }
+  ],
+  "levelPolicy": "표의 범위는 우선 배치할 언어 난도. 모든 주제를 A1–C2 전 레벨에 복제하거나 인물의 지식 수준을 레벨에 맞춰 바꾸지 않음.",
+  "priorities": [
+    {
+      "order": 1,
+      "title": "등장 0건인 가족 4명의 첫 장면",
+      "topics": [
+        "life_31",
+        "life_32",
+        "life_33",
+        "life_36",
+        "life_39",
+        "life_41"
+      ],
+      "why": "새 역할을 실제 생활 행동으로 검증"
+    },
+    {
+      "order": 2,
+      "title": "현재 주연의 관계와 협업을 보강",
+      "topics": [
+        "life_14",
+        "life_15",
+        "life_21",
+        "life_23",
+        "life_26",
+        "life_28",
+        "life_29"
+      ],
+      "why": "과제·교수 상담·직장·연애·친구의 현실적 목적 확인"
+    },
+    {
+      "order": 3,
+      "title": "사용자가 요청한 디지털 생활과 통화",
+      "topics": [
+        "life_03",
+        "life_04",
+        "life_43",
+        "life_44",
+        "life_45",
+        "life_46"
+      ],
+      "why": "화면 밖과 온라인에서의 소통을 함께 확장"
+    }
+  ]
+}

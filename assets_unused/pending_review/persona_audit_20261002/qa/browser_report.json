@@ -1,0 +1,107 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "11 persona buttons and 11 accessible diagram nodes",
+      "passed": true
+    },
+    {
+      "name": "27 edges, only 3 dashed new pairings",
+      "passed": true
+    },
+    {
+      "name": "54 proposed topic cards initially",
+      "passed": true
+    },
+    {
+      "name": "8 draft conversation examples",
+      "passed": true
+    },
+    {
+      "name": "Jun source/proposal ages distinct",
+      "passed": true
+    },
+    {
+      "name": "Jun selection filters connected topics",
+      "passed": true
+    },
+    {
+      "name": "Jun selection highlights its edges",
+      "passed": true
+    },
+    {
+      "name": "relation filter shows correct family subset",
+      "passed": true
+    },
+    {
+      "name": "diagram keyboard selection works",
+      "passed": true
+    },
+    {
+      "name": "overview reset restores all 54 topics",
+      "passed": true
+    },
+    {
+      "name": "academic category has six topic families",
+      "passed": true
+    },
+    {
+      "name": "search finds professor conversation",
+      "passed": true
+    },
+    {
+      "name": "no external network libraries required",
+      "passed": true
+    },
+    {
+      "name": "linked source available: PERSONA_AUDIT.md",
+      "passed": true
+    },
+    {
+      "name": "linked source available: PERSONA_REDESIGN_PROPOSAL.md",
+      "passed": true
+    },
+    {
+      "name": "linked source available: LIFE_COVERAGE.md",
+      "passed": true
+    },
+    {
+      "name": "linked source available: SCENE_SAMPLES.md",
+      "passed": true
+    },
+    {
+      "name": "linked source available: persona_proposal.json",
+      "passed": true
+    },
+    {
+      "name": "linked source available: persona_usage.json",
+      "passed": true
+    },
+    {
+      "name": "390px page has no global horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "persona buttons retain at least 48px targets",
+      "passed": true
+    },
+    {
+      "name": "mobile Jun detail remains legible",
+      "passed": true
+    },
+    {
+      "name": "no browser JavaScript errors",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "desktop": [
+    1440,
+    1120
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "scope": "Standalone review viewer; not app/device/CEFR/TTS QA"
+}

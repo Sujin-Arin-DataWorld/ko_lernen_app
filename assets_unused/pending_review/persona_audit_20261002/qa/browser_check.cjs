@@ -1,0 +1,57 @@
+const fs=require("fs");
+const path=require("path");
+const {chromium}=require(process.env.PLAYWRIGHT_MODULE || "playwright");
+(async()=>{
+ const root=path.resolve(__dirname,"..");
+ const baseUrl=(process.env.PERSONA_REVIEW_URL || "http://127.0.0.1:8000").replace(/\/$/,"");
+ const proposal=JSON.parse(fs.readFileSync(path.join(root,"persona_proposal.json"),"utf8"));
+ const coverage=JSON.parse(fs.readFileSync(path.join(root,"life_coverage.json"),"utf8"));
+ const browser=await chromium.launch({headless:true});
+ const page=await browser.newPage({viewport:{width:1440,height:1120}});
+ const errors=[];page.on("pageerror",e=>errors.push(e.message));
+ const checks=[];function check(name,ok){checks.push({name,passed:!!ok});if(!ok)throw new Error(name);}
+ await page.goto(baseUrl+"/review.html",{waitUntil:"networkidle"});
+ check("11 persona buttons and 11 accessible diagram nodes",await page.locator("#people button").count()===11 && await page.locator("#graph .node").count()===11);
+ check("27 edges, only 3 dashed new pairings",await page.locator("#graph .edge").count()===27 && await page.locator("#graph .edge.new").count()===3);
+ check("54 proposed topic cards initially",await page.locator("#topicCards .topic").count()===54);
+ check("8 draft conversation examples",await page.locator("#samples .sample").count()===8);
+ await page.screenshot({path:path.join(__dirname,"desktop-overview.png")});
+ await page.locator("button[data-person=jun]").click();
+ check("Jun source/proposal ages distinct",/현재 9세·초3 → 추천 16세·고1/.test(await page.locator("#detail").innerText()));
+ const expectedJun=coverage.topics.filter(t=>t.actors.includes("jun")).length;
+ check("Jun selection filters connected topics",await page.locator("#topicCards .topic").count()===expectedJun);
+ check("Jun selection highlights its edges",await page.locator("#graph .edge.focused").count()===proposal.relationships.filter(r=>[r.a,r.b].includes("jun")).length);
+ await page.locator("#relationType").selectOption("family");
+ check("relation filter shows correct family subset",await page.locator("#graph .edge").count()===proposal.relationships.filter(r=>r.type==="family").length);
+ await page.locator("#relationType").selectOption("all");
+ await page.locator("#graph g[aria-label='동선 인물과 관계 보기']").focus();
+ await page.keyboard.press("Enter");
+ check("diagram keyboard selection works",/동선/.test(await page.locator("#detail h2").innerText()));
+ await page.locator("#reset").click();
+ check("overview reset restores all 54 topics",await page.locator("#topicCards .topic").count()===54);
+ await page.locator("#category").selectOption("study");
+ check("academic category has six topic families",await page.locator("#topicCards .topic").count()===6);
+ await page.locator("#category").selectOption("all");
+ await page.locator("#search").fill("교수");
+ check("search finds professor conversation",await page.locator("#topicCards .topic").count()>0 && /교수님과의 대화/.test(await page.locator("#topicCards").innerText()));
+ await page.locator("#search").fill("");
+ check("no external network libraries required",await page.locator("script[src],link[rel=stylesheet]").count()===0);
+ for(const file of ["PERSONA_AUDIT.md","PERSONA_REDESIGN_PROPOSAL.md","LIFE_COVERAGE.md","SCENE_SAMPLES.md","persona_proposal.json","persona_usage.json"]){
+  const response=await page.request.get(baseUrl+"/"+file);
+  check("linked source available: "+file,response.ok());
+ }
+ await page.setViewportSize({width:390,height:844});
+ await page.evaluate(()=>window.scrollTo(0,0));
+ check("390px page has no global horizontal overflow",await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth));
+ check("persona buttons retain at least 48px targets",await page.locator("#people button").evaluateAll(nodes=>nodes.every(n=>n.getBoundingClientRect().height>=48)));
+ await page.screenshot({path:path.join(__dirname,"mobile-overview.png")});
+ await page.locator("button[data-person=jun]").click();
+ await page.locator("#detail").scrollIntoViewIfNeeded();
+ check("mobile Jun detail remains legible",await page.locator("#detail h2").isVisible());
+ await page.screenshot({path:path.join(__dirname,"mobile-jun-detail.png")});
+ check("no browser JavaScript errors",errors.length===0);
+ await browser.close();
+ const report={status:"passed",checks,errors,desktop:[1440,1120],mobile:[390,844],scope:"Standalone review viewer; not app/device/CEFR/TTS QA"};
+ fs.writeFileSync(path.join(__dirname,"browser_report.json"),JSON.stringify(report,null,2)+"\n");
+ console.log(JSON.stringify({status:"passed",checks:checks.length,errors}));
+})().catch(e=>{console.error(e.stack);process.exit(1);});

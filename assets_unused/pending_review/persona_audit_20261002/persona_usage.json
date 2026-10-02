@@ -1,0 +1,3479 @@
+{
+  "status": "audit; persona redesign decisions pending; no runtime or profile writes",
+  "baselineHead": "bd479d969865ca24333219f4392d8e9cf9477254",
+  "storyBaselineYear": 2026,
+  "sceneCount": 178,
+  "recurringCharacterCount": 11,
+  "genericRoleCount": 18,
+  "characters": [
+    {
+      "id": "christian",
+      "displayNames": {
+        "ko": "크리스티안",
+        "de": "Christian",
+        "en": "Christian"
+      },
+      "voice": "male",
+      "background": {
+        "origin": "독일",
+        "role": "한국의 교환학생",
+        "major": "IT",
+        "relativeAge": "수진보다 세 살 어림"
+      },
+      "personality": [
+        "친절하다",
+        "도움을 주려 한다",
+        "일상에서는 가끔 덤벙댄다",
+        "IT 문제에는 꼼꼼하고 유능하다"
+      ],
+      "writerHints": [
+        "모르는 것을 아는 척하지 않는다",
+        "실수하면 변명보다 먼저 인정한다",
+        "기술 문제를 설명할 때만 말이 또렷해진다"
+      ],
+      "mbtiHint": {
+        "value": "ISFJ",
+        "weight": "low"
+      },
+      "interests": [
+        "앱 개발",
+        "한국 음악",
+        "기차 여행",
+        "카페"
+      ],
+      "relationships": {
+        "sujin": "처음에는 지인, 이후 친구가 되고 천천히 연애 감정이 생겨 현재 1년째 사귀는 사이(절제된 애정 표현 유지)",
+        "lena": "같은 독일 교환학생 친구",
+        "dongsun": "여자 친구의 어머니; 첫 인사 이후 편하게 대해 주신다",
+        "byeongcheol": "여자 친구의 아버지; 아직은 서로 어색하다",
+        "jun": "안드레아네 아들; 코딩과 게임 얘기를 나누는 놀이 상대"
+      },
+      "speechStyle": {
+        "ko": {
+          "baseRegister": "해요체(공손)",
+          "markers": [
+            "확인 질문: …맞아요?",
+            "확인 질문: …죠?",
+            "반응: 아, 네!",
+            "반응(A2+): 아, 그렇구나",
+            "사과·인정 먼저: 아, 죄송해요. 제가…",
+            "단어 찾기 망설임: 음… 그… 이거요"
+          ],
+          "sentenceHabits": [
+            "IT 얘기에서만 문장이 또렷하고 길어진다",
+            "확인을 구하는 질문으로 문장을 맺는다"
+          ],
+          "avoid": [
+            "자신감 넘치는 단정",
+            "명령형 문장"
+          ]
+        },
+        "de": {
+          "baseRegister": "höflich, bleibt lange beim Sie",
+          "markers": [
+            "Zögerlaute: ähm, glaube ich"
+          ],
+          "sentenceHabits": [
+            "fragt oft nach Bestätigung",
+            "wird bei IT-Themen klarer und länger"
+          ],
+          "avoid": [
+            "bestimmte, kommandoartige Aussagen"
+          ]
+        },
+        "en": {
+          "baseRegister": "polite, hedging",
+          "markers": [
+            "hedges: I think, maybe"
+          ],
+          "sentenceHabits": [
+            "asks confirming questions",
+            "gets clear and fluent only when talking about IT"
+          ],
+          "avoid": [
+            "confident flat statements",
+            "commands"
+          ]
+        },
+        "byLevel": {
+          "A1": [
+            "아, 네!",
+            "맞아요?",
+            "죄송해요."
+          ],
+          "A2": [
+            "아, 그렇구나.",
+            "잠깐만요, 제가 볼게요."
+          ],
+          "B1+": [
+            "제 생각에는… 아마도….",
+            "기술 설명은 단계별로 차근차근 한다."
+          ]
+        }
+      },
+      "fixedFacts": {
+        "age": 24,
+        "role": "교환학생(IT)",
+        "residence": "서울"
+      },
+      "runtimeUsage": {
+        "participantScenes": 49,
+        "learnerRoleScenes": 43,
+        "speakingScenes": 49,
+        "a1": 23,
+        "a2": 10,
+        "b1": 7,
+        "b2": 4,
+        "c1": 1,
+        "c2": 4
+      },
+      "runtimeScenes": [
+        {
+          "id": "airport_arrival",
+          "level": "a1",
+          "titleKo": "공항에서 첫 인사",
+          "relationshipContext": "처음 만난 입국 담당자와 여행자"
+        },
+        {
+          "id": "bakery_payment_bag",
+          "level": "a1",
+          "titleKo": "빵집에서 봉투 묻고 답하기",
+          "relationshipContext": "손님과 직원"
+        },
+        {
+          "id": "bakery_queue",
+          "level": "a1",
+          "titleKo": "빵집에서 줄을 잘못 섰을 때",
+          "relationshipContext": "처음 보는 크리스티안과 수진"
+        },
+        {
+          "id": "break_glass_apology",
+          "level": "a1",
+          "titleKo": "실수로 잔을 깨뜨렸을 때",
+          "relationshipContext": "아직 조심스러운 친구 크리스티안과 수진"
+        },
+        {
+          "id": "clarify_repeat",
+          "level": "a1",
+          "titleKo": "지하철 출구를 다시 묻기",
+          "relationshipContext": "여행자와 역 직원"
+        },
+        {
+          "id": "first_class_meeting",
+          "level": "a1",
+          "titleKo": "첫 수업에서 옆자리 학생 만나기",
+          "relationshipContext": "처음 만난 크리스티안과 레나"
+        },
+        {
+          "id": "home_morning_routine",
+          "level": "a1",
+          "titleKo": "아침 준비하며 물건 찾기",
+          "relationshipContext": "친한 교환학생 친구 크리스티안과 레나"
+        },
+        {
+          "id": "introduce_yourself",
+          "level": "a1",
+          "titleKo": "처음 만나 자기소개하기",
+          "relationshipContext": "처음 만난 크리스티안과 수진"
+        },
+        {
+          "id": "mart_grocery",
+          "level": "a1",
+          "titleKo": "마트에서 두부 찾기",
+          "relationshipContext": "손님과 마트 직원"
+        },
+        {
+          "id": "meeting_time",
+          "level": "a1",
+          "titleKo": "약속 시간을 다시 확인하기",
+          "relationshipContext": "아직 존댓말을 쓰는 크리스티안과 수진"
+        },
+        {
+          "id": "subway_step_apology",
+          "level": "a1",
+          "titleKo": "지하철에서 발을 밟았을 때",
+          "relationshipContext": "서로 모르는 승객 두 사람"
+        },
+        {
+          "id": "survival_day_capstone",
+          "level": "a1",
+          "titleKo": "한국에서 보낸 첫 주말 아침",
+          "relationshipContext": "친한 교환학생 친구 크리스티안과 레나"
+        },
+        {
+          "id": "taxi_kakao",
+          "level": "a1",
+          "titleKo": "택시에서 여기 세워 달라고 말하기",
+          "relationshipContext": "승객과 택시 기사"
+        },
+        {
+          "id": "umbrella_weather",
+          "level": "a1",
+          "titleKo": "비 오는 날 우산 같이 쓰기",
+          "relationshipContext": "친해지는 중인 크리스티안과 수진"
+        },
+        {
+          "id": "a1_theme_park_date_choices",
+          "level": "a1",
+          "titleKo": "뭐부터 탈까?",
+          "relationshipContext": "romantic_partners"
+        },
+        {
+          "id": "a1_w10_taxi_stay",
+          "level": "a1",
+          "titleKo": "택시 타고 숙소까지 가기",
+          "relationshipContext": "service"
+        },
+        {
+          "id": "a1_w10_eat",
+          "level": "a1",
+          "titleKo": "카페에서 커피와 샌드위치 주문하기",
+          "relationshipContext": "service"
+        },
+        {
+          "id": "a1_w10_repeat",
+          "level": "a1",
+          "titleKo": "약국에서 다시 천천히 말해 달라고 하기",
+          "relationshipContext": "service"
+        },
+        {
+          "id": "a1_w10_partner",
+          "level": "a1",
+          "titleKo": "여자친구 집에 처음 인사드리러 가기",
+          "relationshipContext": "romantic_partner"
+        },
+        {
+          "id": "a1_w10_numbers",
+          "level": "a1",
+          "titleKo": "미용실에서 시간과 가격 확인하기",
+          "relationshipContext": "service"
+        },
+        {
+          "id": "a1_w10_phone",
+          "level": "a1",
+          "titleKo": "전화로 식당 자리 예약하기",
+          "relationshipContext": "service"
+        },
+        {
+          "id": "a1_w10_wayfinding",
+          "level": "a1",
+          "titleKo": "지나가는 사람에게 은행 가는 길 묻기",
+          "relationshipContext": "stranger"
+        },
+        {
+          "id": "a1_w10_fandom",
+          "level": "a1",
+          "titleKo": "굿즈 가게에서 좋아하는 가수 이야기하기",
+          "relationshipContext": "close_friend"
+        },
+        {
+          "id": "delivery_dinner_spicy",
+          "level": "a2",
+          "titleKo": "배달 음식이 너무 매울 때",
+          "relationshipContext": "친구 수진과 크리스티안"
+        },
+        {
+          "id": "forgot_house_key",
+          "level": "a2",
+          "titleKo": "집 열쇠를 두고 나온 날",
+          "relationshipContext": "친한 크리스티안과 레나"
+        },
+        {
+          "id": "forgot_presentation_cable",
+          "level": "a2",
+          "titleKo": "발표 케이블을 안 가져왔을 때",
+          "relationshipContext": "조별 과제 동료 크리스티안과 레나"
+        },
+        {
+          "id": "package_wrong_door",
+          "level": "a2",
+          "titleKo": "택배가 옆집 앞에 놓였을 때",
+          "relationshipContext": "처음 대화하는 이웃과 크리스티안"
+        },
+        {
+          "id": "pharmacy_cold_medicine",
+          "level": "a2",
+          "titleKo": "약국에서 감기 증상 말하기",
+          "relationshipContext": "손님과 약사"
+        },
+        {
+          "id": "plans_with_friend",
+          "level": "a2",
+          "titleKo": "주말에 전시 보러 가기",
+          "relationshipContext": "친구가 된 크리스티안과 수진"
+        },
+        {
+          "id": "samgyeopsal_first_time",
+          "level": "a2",
+          "titleKo": "삼겹살집에서 굽는 순서 묻기",
+          "relationshipContext": "친구 크리스티안과 수진"
+        },
+        {
+          "id": "a2_theme_park_date_break",
+          "level": "a2",
+          "titleKo": "잠깐 쉬었다 갈까?",
+          "relationshipContext": "romantic_partners"
+        },
+        {
+          "id": "a2_w10_apt",
+          "level": "a2",
+          "titleKo": "분리수거 하는 날",
+          "relationshipContext": "peer"
+        },
+        {
+          "id": "a2_w10_partner",
+          "level": "a2",
+          "titleKo": "추석에 인사드리기 전에",
+          "relationshipContext": "romantic_partner"
+        },
+        {
+          "id": "shared_document_old_version",
+          "level": "b1",
+          "titleKo": "공유 문서의 예전 버전을 고쳤을 때",
+          "relationshipContext": "조별 과제 동료 크리스티안과 레나"
+        },
+        {
+          "id": "ai_summary_wrong_fact",
+          "level": "b1",
+          "titleKo": "AI 요약에 틀린 내용이 섞였을 때",
+          "relationshipContext": "조별 과제 동료 크리스티안과 현아"
+        },
+        {
+          "id": "apartment_recycling_mixup",
+          "level": "b1",
+          "titleKo": "분리배출을 잘못해서 이웃이 말했을 때",
+          "relationshipContext": "한국 생활이 익숙해지는 크리스티안과 이웃"
+        },
+        {
+          "id": "birthday_expectation_gap",
+          "level": "b1",
+          "titleKo": "생일을 크게 챙길 줄 몰랐을 때",
+          "relationshipContext": "친한 크리스티안과 수진"
+        },
+        {
+          "id": "date_or_friendly_coffee",
+          "level": "b1",
+          "titleKo": "이 커피 약속이 데이트인지 헷갈릴 때",
+          "relationshipContext": "친구가 되었지만 서로 호감이 있는 크리스티안과 수진"
+        },
+        {
+          "id": "b1_theme_park_date_thrill",
+          "level": "b1",
+          "titleKo": "두 번이나 돌았어",
+          "relationshipContext": "romantic_partners"
+        },
+        {
+          "id": "b1_w10_partner",
+          "level": "b1",
+          "titleKo": "혼자만의 시간이 필요할 때",
+          "relationshipContext": "romantic_partner"
+        },
+        {
+          "id": "partner_family_titles",
+          "level": "b2",
+          "titleKo": "연인의 가족을 처음 만날 때 호칭 정하기",
+          "relationshipContext": "연애를 시작한 크리스티안과 수진"
+        },
+        {
+          "id": "rental_repair_deposit",
+          "level": "b2",
+          "titleKo": "퇴거 전 수리비 책임을 협의하기",
+          "relationshipContext": "세입자 크리스티안과 집주인"
+        },
+        {
+          "id": "b2_theme_park_date_safety",
+          "level": "b2",
+          "titleKo": "타기 전에 꼭 확인해",
+          "relationshipContext": "romantic_partners"
+        },
+        {
+          "id": "b2_w10_partner",
+          "level": "b2",
+          "titleKo": "미리 알려 주는 게 좋겠어",
+          "relationshipContext": "romantic_partner"
+        },
+        {
+          "id": "c1_theme_park_date_next_time",
+          "level": "c1",
+          "titleKo": "다음에 올 이유",
+          "relationshipContext": "romantic_partners"
+        },
+        {
+          "id": "family_memory_conflict",
+          "level": "c2",
+          "titleKo": "가족이 같은 과거를 다르게 기억할 때",
+          "relationshipContext": "연인 크리스티안과 수진"
+        },
+        {
+          "id": "relationship_story_reframing",
+          "level": "c2",
+          "titleKo": "연애의 시작을 서로 다르게 말할 때",
+          "relationshipContext": "연인 크리스티안과 수진"
+        },
+        {
+          "id": "c2_theme_park_date_reflection",
+          "level": "c2",
+          "titleKo": "웃음이 가득한 이유",
+          "relationshipContext": "romantic_partners"
+        },
+        {
+          "id": "c2_w10_history",
+          "level": "c2",
+          "titleKo": "사과 한마디로 끝날 수 있을까",
+          "relationshipContext": "romantic_partners"
+        }
+      ]
+    },
+    {
+      "id": "sujin",
+      "displayNames": {
+        "ko": "수진",
+        "de": "Sujin",
+        "en": "Sujin"
+      },
+      "voice": "female",
+      "background": {
+        "origin": "한국",
+        "role": "데이터 분석가이자 앱 개발자",
+        "major": "데이터·소프트웨어",
+        "relativeAge": "크리스티안보다 세 살 많음"
+      },
+      "personality": [
+        "관찰력이 좋다",
+        "쓸데없이 돌려 말하지 않는다",
+        "상대가 곤란할 때 조용히 챙긴다",
+        "기준이 분명하다"
+      ],
+      "writerHints": [
+        "정답을 강의하듯 설명하지 않는다",
+        "친해질수록 짧은 농담이 늘어난다",
+        "호감은 과장된 고백보다 행동과 말끝에서 보인다"
+      ],
+      "mbtiHint": {
+        "value": "INTJ",
+        "weight": "low"
+      },
+      "interests": [
+        "앱 만들기",
+        "데이터 시각화",
+        "디저트 카페",
+        "전시"
+      ],
+      "relationships": {
+        "christian": "세 살 어린 지인에서 친구, 천천히 연애로 발전해 현재 1년째 사귀는 중(절제된 애정 표현 유지)",
+        "maya": "한국 관련 콘텐츠를 만들다 알게 된 친구",
+        "hyuna": "사회·문화 주제를 자주 의논하는 친구",
+        "dongsun": "어머니",
+        "byeongcheol": "아버지",
+        "minho": "1년 전 함께 일했던 팀장. 팀을 나온 뒤로는 연락이 뜸하다.",
+        "andrea": "주말 등산 모임에서 알게 된 사이(민호의 아내인 줄은 모른다)"
+      },
+      "speechStyle": {
+        "ko": {
+          "baseRegister": "해요체 기본, 친해지면 반말 섞임(A2+)",
+          "markers": [
+            "짧고 명확한 문장, 결론 먼저",
+            "건조한 한 줄 농담: 그럼 그렇지.",
+            "챙김은 행동으로: 이거 드세요.",
+            "챙김은 행동으로: 제가 할게요."
+          ],
+          "sentenceHabits": [
+            "수식어 없이 핵심만 말한다",
+            "설명은 두 문장을 넘기지 않는다"
+          ],
+          "avoid": [
+            "강의식 설명",
+            "과장된 표현"
+          ]
+        },
+        "de": {
+          "baseRegister": "knapp, präzise",
+          "markers": [
+            "trockener Humor",
+            "Sie bei Fremden, du erst nach Vertrautheit"
+          ],
+          "sentenceHabits": [
+            "kommt sofort zum Punkt, keine Ausschmückung"
+          ],
+          "avoid": [
+            "lange erklärende Vorträge",
+            "Übertreibung"
+          ]
+        },
+        "en": {
+          "baseRegister": "crisp, understated",
+          "markers": [
+            "dry one-liners",
+            "shows care through action, not words"
+          ],
+          "sentenceHabits": [
+            "leads with the conclusion, no filler"
+          ],
+          "avoid": [
+            "lecturing",
+            "exaggeration"
+          ]
+        },
+        "byLevel": {
+          "A1": [
+            "네.",
+            "이거요.",
+            "제가 해요."
+          ],
+          "A2": [
+            "그럼 그렇지.",
+            "괜찮아, 천천히 해.",
+            "제가 할게요."
+          ],
+          "B1+": [
+            "핵심만 두 문장으로 말한다."
+          ]
+        }
+      },
+      "fixedFacts": {
+        "age": 27,
+        "role": "데이터 분석가·앱 개발자",
+        "residence": "서울"
+      },
+      "runtimeUsage": {
+        "participantScenes": 48,
+        "speakingScenes": 48,
+        "a1": 7,
+        "learnerRoleScenes": 27,
+        "a2": 6,
+        "b1": 8,
+        "b2": 6,
+        "c1": 9,
+        "c2": 12
+      },
+      "runtimeScenes": [
+        {
+          "id": "bakery_queue",
+          "level": "a1",
+          "titleKo": "빵집에서 줄을 잘못 섰을 때",
+          "relationshipContext": "처음 보는 크리스티안과 수진"
+        },
+        {
+          "id": "break_glass_apology",
+          "level": "a1",
+          "titleKo": "실수로 잔을 깨뜨렸을 때",
+          "relationshipContext": "아직 조심스러운 친구 크리스티안과 수진"
+        },
+        {
+          "id": "introduce_yourself",
+          "level": "a1",
+          "titleKo": "처음 만나 자기소개하기",
+          "relationshipContext": "처음 만난 크리스티안과 수진"
+        },
+        {
+          "id": "meeting_time",
+          "level": "a1",
+          "titleKo": "약속 시간을 다시 확인하기",
+          "relationshipContext": "아직 존댓말을 쓰는 크리스티안과 수진"
+        },
+        {
+          "id": "umbrella_weather",
+          "level": "a1",
+          "titleKo": "비 오는 날 우산 같이 쓰기",
+          "relationshipContext": "친해지는 중인 크리스티안과 수진"
+        },
+        {
+          "id": "a1_theme_park_date_choices",
+          "level": "a1",
+          "titleKo": "뭐부터 탈까?",
+          "relationshipContext": "romantic_partners"
+        },
+        {
+          "id": "a1_w10_partner",
+          "level": "a1",
+          "titleKo": "여자친구 집에 처음 인사드리러 가기",
+          "relationshipContext": "romantic_partner"
+        },
+        {
+          "id": "delivery_dinner_spicy",
+          "level": "a2",
+          "titleKo": "배달 음식이 너무 매울 때",
+          "relationshipContext": "친구 수진과 크리스티안"
+        },
+        {
+          "id": "favorite_drama_chat",
+          "level": "a2",
+          "titleKo": "한국 생활과 좋아하는 드라마 이야기하기",
+          "relationshipContext": "친해지는 중인 마야와 수진"
+        },
+        {
+          "id": "plans_with_friend",
+          "level": "a2",
+          "titleKo": "주말에 전시 보러 가기",
+          "relationshipContext": "친구가 된 크리스티안과 수진"
+        },
+        {
+          "id": "samgyeopsal_first_time",
+          "level": "a2",
+          "titleKo": "삼겹살집에서 굽는 순서 묻기",
+          "relationshipContext": "친구 크리스티안과 수진"
+        },
+        {
+          "id": "a2_theme_park_date_break",
+          "level": "a2",
+          "titleKo": "잠깐 쉬었다 갈까?",
+          "relationshipContext": "romantic_partners"
+        },
+        {
+          "id": "a2_w10_partner",
+          "level": "a2",
+          "titleKo": "추석에 인사드리기 전에",
+          "relationshipContext": "romantic_partner"
+        },
+        {
+          "id": "birthday_expectation_gap",
+          "level": "b1",
+          "titleKo": "생일을 크게 챙길 줄 몰랐을 때",
+          "relationshipContext": "친한 크리스티안과 수진"
+        },
+        {
+          "id": "date_or_friendly_coffee",
+          "level": "b1",
+          "titleKo": "이 커피 약속이 데이트인지 헷갈릴 때",
+          "relationshipContext": "친구가 되었지만 서로 호감이 있는 크리스티안과 수진"
+        },
+        {
+          "id": "food_delivery_wrong_order",
+          "level": "b1",
+          "titleKo": "배달 음식이 다른 메뉴로 왔을 때",
+          "relationshipContext": "고객과 상담 직원"
+        },
+        {
+          "id": "noisy_neighbor_evening",
+          "level": "b1",
+          "titleKo": "늦은 밤 이웃집 음악이 클 때",
+          "relationshipContext": "처음 대화하는 수진과 이웃"
+        },
+        {
+          "id": "b1_theme_park_date_thrill",
+          "level": "b1",
+          "titleKo": "두 번이나 돌았어",
+          "relationshipContext": "romantic_partners"
+        },
+        {
+          "id": "b1_w10_partner",
+          "level": "b1",
+          "titleKo": "혼자만의 시간이 필요할 때",
+          "relationshipContext": "romantic_partner"
+        },
+        {
+          "id": "b1_w10_cancellation",
+          "level": "b1",
+          "titleKo": "헬스장 회원권 해지하기",
+          "relationshipContext": "service"
+        },
+        {
+          "id": "b1_w10_friends",
+          "level": "b1",
+          "titleKo": "갑자기 취소한 약속",
+          "relationshipContext": "close_friend"
+        },
+        {
+          "id": "ai_image_disclosure",
+          "level": "b2",
+          "titleKo": "AI로 만든 이미지를 광고에 쓸 때",
+          "relationshipContext": "마야와 수진, 프로젝트 동료"
+        },
+        {
+          "id": "delivery_refund_evidence",
+          "level": "b2",
+          "titleKo": "배달 지연 환불 범위를 협의하기",
+          "relationshipContext": "이용자 수진과 상담 직원"
+        },
+        {
+          "id": "partner_family_titles",
+          "level": "b2",
+          "titleKo": "연인의 가족을 처음 만날 때 호칭 정하기",
+          "relationshipContext": "연애를 시작한 크리스티안과 수진"
+        },
+        {
+          "id": "recycling_policy_pilot",
+          "level": "b2",
+          "titleKo": "아파트 음식물 쓰레기 방식을 바꾸기",
+          "relationshipContext": "주민 수진과 이웃들"
+        },
+        {
+          "id": "b2_theme_park_date_safety",
+          "level": "b2",
+          "titleKo": "타기 전에 꼭 확인해",
+          "relationshipContext": "romantic_partners"
+        },
+        {
+          "id": "b2_w10_partner",
+          "level": "b2",
+          "titleKo": "미리 알려 주는 게 좋겠어",
+          "relationshipContext": "romantic_partner"
+        },
+        {
+          "id": "ai_interview_screening_transparency",
+          "level": "c1",
+          "titleKo": "AI 면접 평가를 지원자에게 어떻게 알릴지",
+          "relationshipContext": "리더 안드레아와 데이터 분석가 수진"
+        },
+        {
+          "id": "anonymous_survey_trust",
+          "level": "c1",
+          "titleKo": "익명 직원 설문이 정말 익명인지 묻기",
+          "relationshipContext": "재무 리더 안드레아와 데이터 분석가 수진"
+        },
+        {
+          "id": "deepfake_verification",
+          "level": "c1",
+          "titleKo": "딥페이크 의심 영상을 보도하기 전",
+          "relationshipContext": "편집자와 데이터 분석가 수진"
+        },
+        {
+          "id": "kiosk_generation_access",
+          "level": "c1",
+          "titleKo": "무인 주문기가 세대별로 다르게 어려울 때",
+          "relationshipContext": "데이터 분석가 수진과 매장 담당자"
+        },
+        {
+          "id": "platform_moderation_appeal",
+          "level": "c1",
+          "titleKo": "커뮤니티 글이 자동으로 숨겨졌을 때",
+          "relationshipContext": "운영자 수진과 주민 이용자"
+        },
+        {
+          "id": "youth_housing_plain_language",
+          "level": "c1",
+          "titleKo": "청년 주거 지원 안내가 너무 어려울 때",
+          "relationshipContext": "데이터 분석가 수진과 공공기관 담당자"
+        },
+        {
+          "id": "c1_theme_park_date_next_time",
+          "level": "c1",
+          "titleKo": "다음에 올 이유",
+          "relationshipContext": "romantic_partners"
+        },
+        {
+          "id": "c1_w10_uncertainty",
+          "level": "c1",
+          "titleKo": "아직 확정되지 않은 수치를 고객에게 전하는 법",
+          "relationshipContext": "team_lead_and_analyst"
+        },
+        {
+          "id": "c1_w10_friends",
+          "level": "c1",
+          "titleKo": "오래된 친구 사이, 달라진 형편 이야기하기",
+          "relationshipContext": "longtime_close_friends"
+        },
+        {
+          "id": "ai_hiring_appeal",
+          "level": "c2",
+          "titleKo": "AI 채용 탈락에 이의를 제기할 권리",
+          "relationshipContext": "재무 리더 안드레아와 데이터 분석가 수진, 지원자 대표"
+        },
+        {
+          "id": "automated_benefit_denial",
+          "level": "c2",
+          "titleKo": "복지 신청이 자동으로 거절됐을 때 책임을 묻기",
+          "relationshipContext": "분석가 수진과 기관 담당자, 당사자 대표"
+        },
+        {
+          "id": "causal_claim_headline",
+          "level": "c2",
+          "titleKo": "상관관계를 원인처럼 쓴 기사 제목",
+          "relationshipContext": "데이터 분석가 수진과 편집자"
+        },
+        {
+          "id": "family_memory_conflict",
+          "level": "c2",
+          "titleKo": "가족이 같은 과거를 다르게 기억할 때",
+          "relationshipContext": "연인 크리스티안과 수진"
+        },
+        {
+          "id": "medical_uncertainty_consent",
+          "level": "c2",
+          "titleKo": "불확실한 치료 효과를 동의 과정에서 설명하기",
+          "relationshipContext": "연구자와 참여자 대표 수진"
+        },
+        {
+          "id": "passive_voice_accountability",
+          "level": "c2",
+          "titleKo": "보도자료의 수동태가 책임 주체를 지울 때",
+          "relationshipContext": "편집자와 담당자, 분석가 수진"
+        },
+        {
+          "id": "poll_question_framing",
+          "level": "c2",
+          "titleKo": "여론조사 질문이 원하는 답을 만들 때",
+          "relationshipContext": "분석가 수진과 편집자"
+        },
+        {
+          "id": "relationship_story_reframing",
+          "level": "c2",
+          "titleKo": "연애의 시작을 서로 다르게 말할 때",
+          "relationshipContext": "연인 크리스티안과 수진"
+        },
+        {
+          "id": "welfare_fraud_presumption",
+          "level": "c2",
+          "titleKo": "부정 수급 방지 담론이 신청자를 의심하게 만들 때",
+          "relationshipContext": "기관 담당자와 시민 대표 수진"
+        },
+        {
+          "id": "c2_theme_park_date_reflection",
+          "level": "c2",
+          "titleKo": "웃음이 가득한 이유",
+          "relationshipContext": "romantic_partners"
+        },
+        {
+          "id": "c2_w10_history",
+          "level": "c2",
+          "titleKo": "사과 한마디로 끝날 수 있을까",
+          "relationshipContext": "romantic_partners"
+        },
+        {
+          "id": "c2_w10_limitation",
+          "level": "c2",
+          "titleKo": "소멸시효가 지나면 정말 끝인가",
+          "relationshipContext": "claimant_and_official"
+        }
+      ]
+    },
+    {
+      "id": "maya",
+      "displayNames": {
+        "ko": "마야",
+        "de": "Maya",
+        "en": "Maya"
+      },
+      "voice": "female",
+      "background": {
+        "origin": "미국",
+        "role": "K-pop 마케팅 회사 신입",
+        "major": "마케팅·미디어"
+      },
+      "personality": [
+        "사람을 쉽게 사귄다",
+        "아이디어가 빠르다",
+        "일에서 실수하면 크게 배우는 편이다",
+        "과장된 홍보 문구를 경계한다"
+      ],
+      "writerHints": [
+        "SNS 용어는 실제 업무 장면에서만 쓴다",
+        "낙천적이지만 실수의 영향을 가볍게 넘기지 않는다"
+      ],
+      "mbtiHint": {
+        "value": "ENFP",
+        "weight": "low"
+      },
+      "interests": [
+        "K-pop",
+        "릴스 기획",
+        "공연",
+        "새로운 음식"
+      ],
+      "relationships": {
+        "sujin": "한국 관련 콘텐츠를 함께 만들며 친해짐",
+        "daniel": "영상 프로젝트를 종종 함께함",
+        "andrea": "같은 업계 선배·후배"
+      },
+      "speechStyle": {
+        "ko": {
+          "baseRegister": "텐션 높은 해요체",
+          "markers": [
+            "감탄사: 와!",
+            "감탄사: 진짜요?",
+            "이름을 자주 부름: 수진 씨!",
+            "느낌표로 끝나는 문장",
+            "대박(A2+)"
+          ],
+          "sentenceHabits": [
+            "질문이 빠르고 많다",
+            "SNS 용어는 실제 업무 장면에서만 쓴다"
+          ],
+          "avoid": [
+            "침착한 장문 설명"
+          ]
+        },
+        "de": {
+          "baseRegister": "enthusiastisch",
+          "markers": [
+            "Ausrufe: Echt jetzt?!",
+            "schnelles du",
+            "ruft Namen oft"
+          ],
+          "sentenceHabits": [
+            "viele schnelle Fragen hintereinander"
+          ],
+          "avoid": [
+            "ruhige, lange Erklärungen"
+          ]
+        },
+        "en": {
+          "baseRegister": "upbeat American English",
+          "markers": [
+            "No way!",
+            "So cool!",
+            "calls names often"
+          ],
+          "sentenceHabits": [
+            "fires off quick questions"
+          ],
+          "avoid": [
+            "calm, long-form explanation"
+          ]
+        },
+        "byLevel": {
+          "A1": [
+            "와!",
+            "진짜요?",
+            "수진 씨, 이거 봐요!"
+          ],
+          "A2": [
+            "대박.",
+            "완전 좋아요."
+          ],
+          "B1+": [
+            "아이디어를 빠르게 쏟아낸다.",
+            "실수 앞에서는 갑자기 진지해진다."
+          ]
+        }
+      },
+      "fixedFacts": {
+        "age": 25,
+        "role": "K-pop 마케팅 회사 신입",
+        "residence": "서울"
+      },
+      "runtimeUsage": {
+        "participantScenes": 42,
+        "speakingScenes": 42,
+        "a1": 5,
+        "learnerRoleScenes": 30,
+        "a2": 8,
+        "b1": 7,
+        "b2": 12,
+        "c1": 8,
+        "c2": 2
+      },
+      "runtimeScenes": [
+        {
+          "id": "dance_class_register",
+          "level": "a1",
+          "titleKo": "댄스 수업에서 말투 알아듣기",
+          "relationshipContext": "강사와 처음 온 레나, 친한 마야"
+        },
+        {
+          "id": "favorite_korean_music",
+          "level": "a1",
+          "titleKo": "좋아하는 한국 음악 묻기",
+          "relationshipContext": "막 친해지기 시작한 레나와 마야"
+        },
+        {
+          "id": "kakao_contact_after_class",
+          "level": "a1",
+          "titleKo": "수업 뒤 카카오톡으로 연락하기",
+          "relationshipContext": "처음 친해진 레나와 마야"
+        },
+        {
+          "id": "korea_stay_smalltalk",
+          "level": "a1",
+          "titleKo": "한국 생활이 어떤지 묻기",
+          "relationshipContext": "막 알게 된 레나와 마야"
+        },
+        {
+          "id": "a1_w10_fandom",
+          "level": "a1",
+          "titleKo": "굿즈 가게에서 좋아하는 가수 이야기하기",
+          "relationshipContext": "close_friend"
+        },
+        {
+          "id": "email_attachment_twice",
+          "level": "a2",
+          "titleKo": "첨부파일을 두 번 빠뜨린 이메일",
+          "relationshipContext": "신입 마야와 친절하지만 바쁜 동료"
+        },
+        {
+          "id": "favorite_drama_chat",
+          "level": "a2",
+          "titleKo": "한국 생활과 좋아하는 드라마 이야기하기",
+          "relationshipContext": "친해지는 중인 마야와 수진"
+        },
+        {
+          "id": "friend_cancelled_plan",
+          "level": "a2",
+          "titleKo": "갑자기 약속을 취소했을 때",
+          "relationshipContext": "친한 마야와 레나"
+        },
+        {
+          "id": "group_chat_photo_permission",
+          "level": "a2",
+          "titleKo": "단체 사진을 올리기 전에 묻기",
+          "relationshipContext": "친구 마야와 레나"
+        },
+        {
+          "id": "running_late",
+          "level": "a2",
+          "titleKo": "늦는다고 카카오톡 보내기",
+          "relationshipContext": "친한 레나와 마야"
+        },
+        {
+          "id": "a2_w10_buy",
+          "level": "a2",
+          "titleKo": "시장에서 장보기",
+          "relationshipContext": "service"
+        },
+        {
+          "id": "a2_w10_friends",
+          "level": "a2",
+          "titleKo": "저녁 먹고 노래방 갈까?",
+          "relationshipContext": "close_friend"
+        },
+        {
+          "id": "a2_w10_fandom",
+          "level": "a2",
+          "titleKo": "굿즈 숍에서 줄 서기",
+          "relationshipContext": "close_friend"
+        },
+        {
+          "id": "company_instagram_wrong_account",
+          "level": "b1",
+          "titleKo": "회사 인스타 계정으로 개인 글을 올렸을 때",
+          "relationshipContext": "신입 마야와 팀 동료"
+        },
+        {
+          "id": "reel_caption_misunderstanding",
+          "level": "b1",
+          "titleKo": "릴스 자막이 가게를 비꼰 것처럼 보였을 때",
+          "relationshipContext": "프로젝트 동료 마야와 다니엘"
+        },
+        {
+          "id": "shared_cup_recycling",
+          "level": "b1",
+          "titleKo": "공용 주방 일회용 컵을 줄이기",
+          "relationshipContext": "동료 마야와 안드레아"
+        },
+        {
+          "id": "speech_level_after_friendship",
+          "level": "b1",
+          "titleKo": "친해진 뒤 말을 놓을지 묻기",
+          "relationshipContext": "몇 달째 친구로 지낸 레나와 마야"
+        },
+        {
+          "id": "team_update_indirect_speech",
+          "level": "b1",
+          "titleKo": "회의 시간이 바뀌었다고 전달하기",
+          "relationshipContext": "신입 마야와 같은 팀 동료"
+        },
+        {
+          "id": "work_message_too_direct",
+          "level": "b1",
+          "titleKo": "메신저 답장이 너무 딱딱하게 보였을 때",
+          "relationshipContext": "신입 마야와 선배 안드레아"
+        },
+        {
+          "id": "b1_w10_fandom",
+          "level": "b1",
+          "titleKo": "티켓팅에 실패했을 때",
+          "relationshipContext": "close_friend"
+        },
+        {
+          "id": "accessible_festival_route",
+          "level": "b2",
+          "titleKo": "축제 동선을 휠체어도 이용할 수 있게 바꾸기",
+          "relationshipContext": "기획자 마야와 주민 참여자"
+        },
+        {
+          "id": "ai_image_disclosure",
+          "level": "b2",
+          "titleKo": "AI로 만든 이미지를 광고에 쓸 때",
+          "relationshipContext": "마야와 수진, 프로젝트 동료"
+        },
+        {
+          "id": "brand_private_account_boundary",
+          "level": "b2",
+          "titleKo": "회사 계정과 개인 계정의 경계를 정하기",
+          "relationshipContext": "마야와 안드레아"
+        },
+        {
+          "id": "direct_feedback_misread",
+          "level": "b2",
+          "titleKo": "솔직한 피드백이 무례하게 들렸을 때",
+          "relationshipContext": "프로젝트 동료 다니엘과 마야"
+        },
+        {
+          "id": "feedback_specific_example",
+          "level": "b2",
+          "titleKo": "모호한 업무 피드백을 구체화하기",
+          "relationshipContext": "신입 마야와 선배 안드레아"
+        },
+        {
+          "id": "fremdschaemen_live",
+          "level": "b2",
+          "titleKo": "친구의 과한 라이브 방송을 보며 민망할 때",
+          "relationshipContext": "친한 마야와 레나"
+        },
+        {
+          "id": "meeting_disagreement_evidence",
+          "level": "b2",
+          "titleKo": "회의에서 조회 수만으로 성과를 판단할지 논쟁하기",
+          "relationshipContext": "마야와 안드레아를 포함한 동료"
+        },
+        {
+          "id": "meeting_opening_context",
+          "level": "b2",
+          "titleKo": "처음 참석한 회의에서 목적 확인하기",
+          "relationshipContext": "처음 함께 일하는 마야와 안드레아"
+        },
+        {
+          "id": "portfolio_interview_gap",
+          "level": "b2",
+          "titleKo": "면접에서 포트폴리오 공백 설명하기",
+          "relationshipContext": "지원자 마야와 면접관"
+        },
+        {
+          "id": "wedding_invitation_expectation",
+          "level": "b2",
+          "titleKo": "결혼식 초대의 뜻을 오해했을 때",
+          "relationshipContext": "동료 마야와 안드레아"
+        },
+        {
+          "id": "b2_w10_travel",
+          "level": "b2",
+          "titleKo": "결항 후 책임자에게 요청하기",
+          "relationshipContext": "service"
+        },
+        {
+          "id": "b2_w10_fandom",
+          "level": "b2",
+          "titleKo": "모금액 공개, 어디까지가 적당할까",
+          "relationshipContext": "peer"
+        },
+        {
+          "id": "after_hours_messages",
+          "level": "c1",
+          "titleKo": "퇴근 후 연락의 경계를 팀에서 정하기",
+          "relationshipContext": "팀 리더 안드레아와 팀원 마야"
+        },
+        {
+          "id": "fan_translation_credit",
+          "level": "c1",
+          "titleKo": "팬 번역의 노동과 공로를 어떻게 표시할지",
+          "relationshipContext": "마야와 자막 번역 참여자들"
+        },
+        {
+          "id": "tradition_reinterpreted_stage",
+          "level": "c1",
+          "titleKo": "전통 공연을 현대적으로 바꿀 때",
+          "relationshipContext": "기획자 마야와 연구자 현아"
+        },
+        {
+          "id": "training_data_copyright",
+          "level": "c1",
+          "titleKo": "AI 학습 데이터의 출처를 설명해야 할 때",
+          "relationshipContext": "마야, 다니엘, 법무가 아닌 프로젝트 담당자"
+        },
+        {
+          "id": "workload_allocation_hidden_labor",
+          "level": "c1",
+          "titleKo": "눈에 잘 안 보이는 업무까지 나누기",
+          "relationshipContext": "팀 리더 안드레아와 마야, 동료"
+        },
+        {
+          "id": "c1_w10_access",
+          "level": "c1",
+          "titleKo": "계약서 폴더 접근 권한을 요청할 때",
+          "relationshipContext": "team_lead_and_marketing_associate"
+        },
+        {
+          "id": "c1_w10_facework",
+          "level": "c1",
+          "titleKo": "실수를 지적하되 체면은 지켜 주기",
+          "relationshipContext": "team_lead_and_junior_colleague"
+        },
+        {
+          "id": "c1_w10_fandom",
+          "level": "c1",
+          "titleKo": "팬과 아티스트 사이, 어디까지가 선일까",
+          "relationshipContext": "close_friends_and_fellow_fans"
+        },
+        {
+          "id": "diaspora_name_identity",
+          "level": "c2",
+          "titleKo": "이름의 발음과 소속감을 스스로 정할 권리",
+          "relationshipContext": "기획자 마야와 참가자 대표"
+        },
+        {
+          "id": "c2_w10_aesthetic",
+          "level": "c2",
+          "titleKo": "작품의 의미는 누가 정하는가",
+          "relationshipContext": "artist_and_curator"
+        }
+      ]
+    },
+    {
+      "id": "hyuna",
+      "displayNames": {
+        "ko": "현아",
+        "de": "Hyuna",
+        "en": "Hyuna"
+      },
+      "voice": "female",
+      "background": {
+        "origin": "한국",
+        "role": "도시·문화 연구 대학원생",
+        "major": "도시문화 연구",
+        "experience": "독일 체류 경험이 있음"
+      },
+      "personality": [
+        "맥락을 오래 본다",
+        "단정적인 일반화를 싫어한다",
+        "조용하지만 논쟁을 피하지 않는다"
+      ],
+      "writerHints": [
+        "사회 문제에서는 당사자와 제도를 분리해 본다",
+        "친구 대화에서는 논문 말투를 쓰지 않는다"
+      ],
+      "mbtiHint": {
+        "value": "INFJ",
+        "weight": "low"
+      },
+      "interests": [
+        "도시 산책",
+        "지역 문화",
+        "독일 맥주",
+        "독립 영화"
+      ],
+      "relationships": {
+        "sujin": "오래 대화가 통하는 친구",
+        "andrea": "독일과 한국의 생활 경험을 비교해 보는 지인",
+        "daniel": "지역 촬영 방식에 대해 의견을 나누는 사이; 연구 인터뷰 대상이기도 하다",
+        "lena": "같은 셰어하우스 이웃(둘 다 수진을 아는 줄은 서로 모른다)"
+      },
+      "speechStyle": {
+        "ko": {
+          "baseRegister": "차분한 해요체",
+          "markers": [
+            "맥락 설명: 그건 …라서요",
+            "일반화 회피: 사람마다 달라요",
+            "되묻는 질문"
+          ],
+          "sentenceHabits": [
+            "부드럽게 말하되 논쟁을 피하지 않는다",
+            "친구 대화에서는 논문 말투를 쓰지 않는다"
+          ],
+          "avoid": [
+            "단정적 일반화",
+            "유행어"
+          ]
+        },
+        "de": {
+          "baseRegister": "ruhig, differenziert",
+          "markers": [
+            "kommt darauf an",
+            "stellt Rückfragen"
+          ],
+          "sentenceHabits": [
+            "vermeidet Verallgemeinerungen"
+          ],
+          "avoid": [
+            "kategorische Aussagen",
+            "Slang"
+          ]
+        },
+        "en": {
+          "baseRegister": "measured, nuanced",
+          "markers": [
+            "it depends on the person",
+            "asks clarifying questions"
+          ],
+          "sentenceHabits": [
+            "avoids sweeping generalizations"
+          ],
+          "avoid": [
+            "blunt generalizations",
+            "trendy slang"
+          ]
+        },
+        "byLevel": {
+          "A1": [
+            "글쎄요.",
+            "왜요?",
+            "그래요?"
+          ],
+          "A2": [
+            "사람마다 달라요.",
+            "그건 좀 다른 것 같아요."
+          ],
+          "B1+": [
+            "당사자의 맥락과 제도를 분리해서 설명한다."
+          ]
+        }
+      },
+      "fixedFacts": {
+        "age": 29,
+        "role": "도시·문화 연구 대학원생",
+        "residence": "서울"
+      },
+      "runtimeUsage": {
+        "participantScenes": 33,
+        "learnerRoleScenes": 24,
+        "speakingScenes": 33,
+        "a2": 1,
+        "b1": 4,
+        "b2": 2,
+        "c1": 15,
+        "c2": 11
+      },
+      "runtimeScenes": [
+        {
+          "id": "a2_w10_friends",
+          "level": "a2",
+          "titleKo": "저녁 먹고 노래방 갈까?",
+          "relationshipContext": "close_friend"
+        },
+        {
+          "id": "ai_summary_wrong_fact",
+          "level": "b1",
+          "titleKo": "AI 요약에 틀린 내용이 섞였을 때",
+          "relationshipContext": "조별 과제 동료 크리스티안과 현아"
+        },
+        {
+          "id": "ktx_sold_out_alternative",
+          "level": "b1",
+          "titleKo": "KTX가 매진됐을 때 다른 방법 찾기",
+          "relationshipContext": "함께 여행하는 다니엘과 현아"
+        },
+        {
+          "id": "running_injury_training_plan",
+          "level": "b1",
+          "titleKo": "달리다 무릎이 아픈데 대회를 앞뒀을 때",
+          "relationshipContext": "러닝 친구 다니엘과 현아"
+        },
+        {
+          "id": "b1_w10_friends",
+          "level": "b1",
+          "titleKo": "갑자기 취소한 약속",
+          "relationshipContext": "close_friend"
+        },
+        {
+          "id": "community_event_compromise",
+          "level": "b2",
+          "titleKo": "동네 행사 시간과 소음을 절충하기",
+          "relationshipContext": "행사 기획자와 인근 주민, 참여자 현아"
+        },
+        {
+          "id": "b2_w10_hiring",
+          "level": "b2",
+          "titleKo": "약점도 솔직하게, 조건도 정확하게",
+          "relationshipContext": "job_candidate"
+        },
+        {
+          "id": "ai_translation_voice_loss",
+          "level": "c1",
+          "titleKo": "AI 번역이 인터뷰이의 말투를 지웠을 때",
+          "relationshipContext": "영상 제작자 다니엘과 연구자 현아"
+        },
+        {
+          "id": "delivery_rider_safety_tradeoff",
+          "level": "c1",
+          "titleKo": "빠른 배달과 라이더 안전을 함께 논의하기",
+          "relationshipContext": "플랫폼 담당자, 라이더, 이용자 대표 현아"
+        },
+        {
+          "id": "gentrification_storefront",
+          "level": "c1",
+          "titleKo": "골목이 유명해진 뒤 임대료가 오를 때",
+          "relationshipContext": "연구자 현아와 가게 운영자, 주민"
+        },
+        {
+          "id": "heatwave_shelter_access",
+          "level": "c1",
+          "titleKo": "폭염 쉼터가 있어도 이용하기 어려울 때",
+          "relationshipContext": "현아와 주민, 담당자"
+        },
+        {
+          "id": "museum_label_multiple_views",
+          "level": "c1",
+          "titleKo": "박물관 설명문에 누구의 관점을 담을지",
+          "relationshipContext": "현아와 큐레이터 역할의 담당자"
+        },
+        {
+          "id": "nightlife_noise_balance",
+          "level": "c1",
+          "titleKo": "야간 상권과 주민 수면권을 함께 다루기",
+          "relationshipContext": "현아, 상인, 주민, 담당자"
+        },
+        {
+          "id": "public_consultation_access",
+          "level": "c1",
+          "titleKo": "주민 의견 수렴이 실제 참여가 되려면",
+          "relationshipContext": "연구자 현아와 공무원, 주민"
+        },
+        {
+          "id": "research_limits_presentation",
+          "level": "c1",
+          "titleKo": "연구 결과의 한계를 발표에서 숨기지 않기",
+          "relationshipContext": "현아와 지도 교수"
+        },
+        {
+          "id": "school_phone_rule",
+          "level": "c1",
+          "titleKo": "학교 스마트폰 규제를 설계할 때",
+          "relationshipContext": "교사, 학생 대표, 학부모와 관찰자 현아"
+        },
+        {
+          "id": "tradition_reinterpreted_stage",
+          "level": "c1",
+          "titleKo": "전통 공연을 현대적으로 바꿀 때",
+          "relationshipContext": "기획자 마야와 연구자 현아"
+        },
+        {
+          "id": "c1_w10_conflict_interest",
+          "level": "c1",
+          "titleKo": "심사에서 이해관계를 미리 밝히기",
+          "relationshipContext": "review_committee_members"
+        },
+        {
+          "id": "c1_w10_clinical",
+          "level": "c1",
+          "titleKo": "임상 연구 참여 동의서 설명 듣기",
+          "relationshipContext": "researcher_and_prospective_participant"
+        },
+        {
+          "id": "c1_w10_methodology",
+          "level": "c1",
+          "titleKo": "설문 표본이 결론을 뒷받침하는지 따지기",
+          "relationshipContext": "graduate_student_and_advisor"
+        },
+        {
+          "id": "c1_w10_friends",
+          "level": "c1",
+          "titleKo": "오래된 친구 사이, 달라진 형편 이야기하기",
+          "relationshipContext": "longtime_close_friends"
+        },
+        {
+          "id": "c1_w10_fandom",
+          "level": "c1",
+          "titleKo": "팬과 아티스트 사이, 어디까지가 선일까",
+          "relationshipContext": "close_friends_and_fellow_fans"
+        },
+        {
+          "id": "autonomous_delivery_liability",
+          "level": "c2",
+          "titleKo": "자율 배송 사고의 책임을 한 사람에게 돌릴 수 있는가",
+          "relationshipContext": "플랫폼 담당자, 운영사, 시민 대표 현아"
+        },
+        {
+          "id": "central_local_disaster_responsibility",
+          "level": "c2",
+          "titleKo": "재난 대응 실패의 중앙·지방 책임을 나누기",
+          "relationshipContext": "중앙·지방 담당자와 시민 대표 현아"
+        },
+        {
+          "id": "climate_model_local_decision",
+          "level": "c2",
+          "titleKo": "기후 모델의 불확실성을 지역 결정에 쓰기",
+          "relationshipContext": "연구자 현아와 도시 담당자"
+        },
+        {
+          "id": "fact_check_label_power",
+          "level": "c2",
+          "titleKo": "팩트체크 라벨이 논쟁을 끝내는 권력이 될 때",
+          "relationshipContext": "연구자 현아와 플랫폼 담당자"
+        },
+        {
+          "id": "hidden_gem_local_impact",
+          "level": "c2",
+          "titleKo": "‘숨은 명소’ 영상이 지역을 바꾼 뒤",
+          "relationshipContext": "영상 제작자 다니엘, 연구자 현아, 주민"
+        },
+        {
+          "id": "housing_tax_intergenerational",
+          "level": "c2",
+          "titleKo": "주택 보유세 논쟁의 세대 프레임",
+          "relationshipContext": "진행자와 연구자 현아"
+        },
+        {
+          "id": "protest_order_and_rights",
+          "level": "c2",
+          "titleKo": "집회 질서와 표현의 자유를 같은 틀에서 논증하기",
+          "relationshipContext": "연구자 현아와 정책 담당자, 시민"
+        },
+        {
+          "id": "replication_failure_response",
+          "level": "c2",
+          "titleKo": "연구 재현에 실패했을 때 원 논문을 평가하기",
+          "relationshipContext": "연구자 현아와 교수, 동료"
+        },
+        {
+          "id": "we_translation_identity",
+          "level": "c2",
+          "titleKo": "‘우리’가 포함하고 배제하는 사람을 번역하기",
+          "relationshipContext": "서로 편하게 말하는 현아와 다니엘"
+        },
+        {
+          "id": "c2_w10_impact",
+          "level": "c2",
+          "titleKo": "평균은 누구의 경험을 가리는가",
+          "relationshipContext": "researcher_and_hearing_moderator"
+        },
+        {
+          "id": "c2_w10_friends",
+          "level": "c2",
+          "titleKo": "우정으로 시작한 사업, 이제는 정리할 때",
+          "relationshipContext": "longtime_friends_and_business_partners"
+        }
+      ]
+    },
+    {
+      "id": "andrea",
+      "displayNames": {
+        "ko": "안드레아",
+        "de": "Andrea",
+        "en": "Andrea"
+      },
+      "voice": "female",
+      "background": {
+        "origin": "독일",
+        "role": "외국계 기업 재무 리더",
+        "experience": "한국 거주 10년",
+        "family": "한국인 남편"
+      },
+      "personality": [
+        "업무 기준이 엄격하다",
+        "겉으로 무심해 보여도 실무적으로 돕는다",
+        "책임과 권한을 구분한다"
+      ],
+      "writerHints": [
+        "츤데레는 모욕이나 냉대로 쓰지 않는다",
+        "업무 장면에서 근거 없는 승인 절차를 만들지 않는다"
+      ],
+      "mbtiHint": {
+        "value": "ESTJ",
+        "weight": "low"
+      },
+      "interests": [
+        "재무",
+        "와인",
+        "한국 생활 팁",
+        "주말 등산"
+      ],
+      "relationships": {
+        "maya": "같은 업계의 선배",
+        "hyuna": "독일·한국 생활 경험을 나누는 지인",
+        "minho": "남편",
+        "jun": "아들",
+        "sujin": "주말 등산 모임에서 알게 된 사이"
+      },
+      "speechStyle": {
+        "ko": {
+          "baseRegister": "격식(업무는 -습니다, 사적은 해요체)",
+          "markers": [
+            "지시·순서형: 먼저 …하세요. 그다음에…",
+            "칭찬은 짧고 뒤에 조건: 잘했어요. 다음엔 시간 지키세요."
+          ],
+          "sentenceHabits": [
+            "한국 생활 팁을 자연스럽게 얹는다",
+            "업무와 사적 어조를 뚜렷이 구분한다"
+          ],
+          "avoid": [
+            "냉대·모욕",
+            "감정 과장"
+          ]
+        },
+        "de": {
+          "baseRegister": "Sie, direkt",
+          "markers": [
+            "Fachbegriffe",
+            "kurze Sätze"
+          ],
+          "sentenceHabits": [
+            "gibt Anweisungen in klarer Reihenfolge"
+          ],
+          "avoid": [
+            "Herabwürdigung",
+            "übertriebene Emotion"
+          ]
+        },
+        "en": {
+          "baseRegister": "direct, professional",
+          "markers": [
+            "step-by-step instructions",
+            "short sentences"
+          ],
+          "sentenceHabits": [
+            "praise is brief and comes with a condition"
+          ],
+          "avoid": [
+            "belittling",
+            "emotional excess"
+          ]
+        },
+        "byLevel": {
+          "A1": [
+            "먼저 이거 하세요.",
+            "시간 지키세요."
+          ],
+          "A2": [
+            "잘했어요.",
+            "다음엔 …하세요."
+          ],
+          "B1+": [
+            "결정의 근거와 절차를 명확히 밝힌다."
+          ]
+        }
+      },
+      "fixedFacts": {
+        "age": 40,
+        "role": "외국계 기업 재무 리더",
+        "residence": "서울"
+      },
+      "runtimeUsage": {
+        "participantScenes": 17,
+        "speakingScenes": 17,
+        "b1": 3,
+        "learnerRoleScenes": 6,
+        "b2": 6,
+        "c1": 5,
+        "c2": 3
+      },
+      "runtimeScenes": [
+        {
+          "id": "shared_cup_recycling",
+          "level": "b1",
+          "titleKo": "공용 주방 일회용 컵을 줄이기",
+          "relationshipContext": "동료 마야와 안드레아"
+        },
+        {
+          "id": "work_message_too_direct",
+          "level": "b1",
+          "titleKo": "메신저 답장이 너무 딱딱하게 보였을 때",
+          "relationshipContext": "신입 마야와 선배 안드레아"
+        },
+        {
+          "id": "b1_w10_bill",
+          "level": "b1",
+          "titleKo": "영수증에 잘못 찍힌 금액",
+          "relationshipContext": "service"
+        },
+        {
+          "id": "brand_private_account_boundary",
+          "level": "b2",
+          "titleKo": "회사 계정과 개인 계정의 경계를 정하기",
+          "relationshipContext": "마야와 안드레아"
+        },
+        {
+          "id": "feedback_specific_example",
+          "level": "b2",
+          "titleKo": "모호한 업무 피드백을 구체화하기",
+          "relationshipContext": "신입 마야와 선배 안드레아"
+        },
+        {
+          "id": "meeting_disagreement_evidence",
+          "level": "b2",
+          "titleKo": "회의에서 조회 수만으로 성과를 판단할지 논쟁하기",
+          "relationshipContext": "마야와 안드레아를 포함한 동료"
+        },
+        {
+          "id": "meeting_opening_context",
+          "level": "b2",
+          "titleKo": "처음 참석한 회의에서 목적 확인하기",
+          "relationshipContext": "처음 함께 일하는 마야와 안드레아"
+        },
+        {
+          "id": "wedding_invitation_expectation",
+          "level": "b2",
+          "titleKo": "결혼식 초대의 뜻을 오해했을 때",
+          "relationshipContext": "동료 마야와 안드레아"
+        },
+        {
+          "id": "b2_w10_privacy",
+          "level": "b2",
+          "titleKo": "안 쓰는 계정, 정보까지 삭제 요청하기",
+          "relationshipContext": "service"
+        },
+        {
+          "id": "after_hours_messages",
+          "level": "c1",
+          "titleKo": "퇴근 후 연락의 경계를 팀에서 정하기",
+          "relationshipContext": "팀 리더 안드레아와 팀원 마야"
+        },
+        {
+          "id": "ai_interview_screening_transparency",
+          "level": "c1",
+          "titleKo": "AI 면접 평가를 지원자에게 어떻게 알릴지",
+          "relationshipContext": "리더 안드레아와 데이터 분석가 수진"
+        },
+        {
+          "id": "anonymous_survey_trust",
+          "level": "c1",
+          "titleKo": "익명 직원 설문이 정말 익명인지 묻기",
+          "relationshipContext": "재무 리더 안드레아와 데이터 분석가 수진"
+        },
+        {
+          "id": "workload_allocation_hidden_labor",
+          "level": "c1",
+          "titleKo": "눈에 잘 안 보이는 업무까지 나누기",
+          "relationshipContext": "팀 리더 안드레아와 마야, 동료"
+        },
+        {
+          "id": "c1_w10_facework",
+          "level": "c1",
+          "titleKo": "실수를 지적하되 체면은 지켜 주기",
+          "relationshipContext": "team_lead_and_junior_colleague"
+        },
+        {
+          "id": "ai_hiring_appeal",
+          "level": "c2",
+          "titleKo": "AI 채용 탈락에 이의를 제기할 권리",
+          "relationshipContext": "재무 리더 안드레아와 데이터 분석가 수진, 지원자 대표"
+        },
+        {
+          "id": "emergency_price_controls",
+          "level": "c2",
+          "titleKo": "재난 시 생필품 가격 제한의 역효과를 논의하기",
+          "relationshipContext": "재무 전문가 안드레아와 공공 담당자"
+        },
+        {
+          "id": "c2_w10_mandate",
+          "level": "c2",
+          "titleKo": "위임장에 적힌 범위, 어디까지 대신할 수 있나",
+          "relationshipContext": "client_and_notary_official"
+        }
+      ]
+    },
+    {
+      "id": "lena",
+      "displayNames": {
+        "ko": "레나",
+        "de": "Lena",
+        "en": "Lena"
+      },
+      "voice": "female",
+      "background": {
+        "origin": "독일",
+        "role": "한국의 교환학생",
+        "major": "글로벌 비즈니스"
+      },
+      "personality": [
+        "사교적이다",
+        "처음 보는 활동도 해보는 편이다",
+        "사람 사이의 어색함을 빨리 눈치챈다"
+      ],
+      "writerHints": [
+        "모든 장면을 밝게만 끝내지 않는다",
+        "친근함과 무례함의 경계를 질문할 수 있다"
+      ],
+      "mbtiHint": {
+        "value": "ESFP",
+        "weight": "low"
+      },
+      "interests": [
+        "교환학생 모임",
+        "댄스",
+        "한국 드라마",
+        "여행"
+      ],
+      "relationships": {
+        "christian": "같은 독일 교환학생 친구",
+        "maya": "음악과 공연 취향을 나누는 친구",
+        "hyuna": "같은 셰어하우스 이웃",
+        "daniel": "마음이 있지만 아직 말하지 못한 상대",
+        "sujin": "크리스티안을 통해 알게 된 사이"
+      },
+      "speechStyle": {
+        "ko": {
+          "baseRegister": "밝고 친근한 해요체",
+          "markers": [
+            "제안형: 같이 …할까요?",
+            "제안형: …가요!",
+            "감정 공유: 저도요!",
+            "감정 공유: 아쉬워요"
+          ],
+          "sentenceHabits": [
+            "어색함을 눈치채면 화제를 바꾼다",
+            "드라마 대사를 인용한다(A2+)"
+          ],
+          "avoid": [
+            "모든 장면을 늘 밝게만 끝내기"
+          ]
+        },
+        "de": {
+          "baseRegister": "freundlich, schnell beim du",
+          "markers": [
+            "Lass uns…",
+            "teilt Gefühle offen"
+          ],
+          "sentenceHabits": [
+            "wechselt das Thema bei Unbehagen"
+          ],
+          "avoid": [
+            "jede Szene künstlich fröhlich beenden"
+          ]
+        },
+        "en": {
+          "baseRegister": "warm, inviting",
+          "markers": [
+            "Let's…",
+            "shares feelings openly"
+          ],
+          "sentenceHabits": [
+            "changes the subject when things get awkward"
+          ],
+          "avoid": [
+            "forcing every scene to end brightly"
+          ]
+        },
+        "byLevel": {
+          "A1": [
+            "같이 갈까요?",
+            "저도요!"
+          ],
+          "A2": [
+            "아쉬워요.",
+            "드라마에서 봤어요."
+          ],
+          "B1+": [
+            "친근함과 무례함의 경계를 스스로 묻는다."
+          ]
+        }
+      },
+      "fixedFacts": {
+        "age": 23,
+        "role": "교환학생(글로벌 비즈니스)",
+        "residence": "서울"
+      },
+      "runtimeUsage": {
+        "participantScenes": 38,
+        "learnerRoleScenes": 27,
+        "speakingScenes": 38,
+        "a1": 9,
+        "a2": 14,
+        "b1": 9,
+        "b2": 4,
+        "c2": 2
+      },
+      "runtimeScenes": [
+        {
+          "id": "bunshik_tteokbokki",
+          "level": "a1",
+          "titleKo": "분식집에서 떡볶이 주문하기",
+          "relationshipContext": "손님과 식당 직원"
+        },
+        {
+          "id": "cafe_dessert_sold_out",
+          "level": "a1",
+          "titleKo": "카페 디저트가 없을 때",
+          "relationshipContext": "손님과 카페 직원"
+        },
+        {
+          "id": "dance_class_register",
+          "level": "a1",
+          "titleKo": "댄스 수업에서 말투 알아듣기",
+          "relationshipContext": "강사와 처음 온 레나, 친한 마야"
+        },
+        {
+          "id": "favorite_korean_music",
+          "level": "a1",
+          "titleKo": "좋아하는 한국 음악 묻기",
+          "relationshipContext": "막 친해지기 시작한 레나와 마야"
+        },
+        {
+          "id": "first_class_meeting",
+          "level": "a1",
+          "titleKo": "첫 수업에서 옆자리 학생 만나기",
+          "relationshipContext": "처음 만난 크리스티안과 레나"
+        },
+        {
+          "id": "home_morning_routine",
+          "level": "a1",
+          "titleKo": "아침 준비하며 물건 찾기",
+          "relationshipContext": "친한 교환학생 친구 크리스티안과 레나"
+        },
+        {
+          "id": "kakao_contact_after_class",
+          "level": "a1",
+          "titleKo": "수업 뒤 카카오톡으로 연락하기",
+          "relationshipContext": "처음 친해진 레나와 마야"
+        },
+        {
+          "id": "korea_stay_smalltalk",
+          "level": "a1",
+          "titleKo": "한국 생활이 어떤지 묻기",
+          "relationshipContext": "막 알게 된 레나와 마야"
+        },
+        {
+          "id": "survival_day_capstone",
+          "level": "a1",
+          "titleKo": "한국에서 보낸 첫 주말 아침",
+          "relationshipContext": "친한 교환학생 친구 크리스티안과 레나"
+        },
+        {
+          "id": "clothing_refund_size",
+          "level": "a2",
+          "titleKo": "옷 사이즈를 바꾸기",
+          "relationshipContext": "손님과 매장 직원"
+        },
+        {
+          "id": "convenience_parcel_pickup",
+          "level": "a2",
+          "titleKo": "편의점 택배 찾기",
+          "relationshipContext": "손님과 편의점 직원"
+        },
+        {
+          "id": "forgot_house_key",
+          "level": "a2",
+          "titleKo": "집 열쇠를 두고 나온 날",
+          "relationshipContext": "친한 크리스티안과 레나"
+        },
+        {
+          "id": "forgot_presentation_cable",
+          "level": "a2",
+          "titleKo": "발표 케이블을 안 가져왔을 때",
+          "relationshipContext": "조별 과제 동료 크리스티안과 레나"
+        },
+        {
+          "id": "friend_cancelled_plan",
+          "level": "a2",
+          "titleKo": "갑자기 약속을 취소했을 때",
+          "relationshipContext": "친한 마야와 레나"
+        },
+        {
+          "id": "group_chat_photo_permission",
+          "level": "a2",
+          "titleKo": "단체 사진을 올리기 전에 묻기",
+          "relationshipContext": "친구 마야와 레나"
+        },
+        {
+          "id": "gym_class_cancel",
+          "level": "a2",
+          "titleKo": "운동 수업을 취소하기",
+          "relationshipContext": "회원과 직원"
+        },
+        {
+          "id": "jeju_bus_missed",
+          "level": "a2",
+          "titleKo": "제주에서 막차를 놓쳤을 때",
+          "relationshipContext": "여행 중인 레나와 다니엘"
+        },
+        {
+          "id": "library_card_problem",
+          "level": "a2",
+          "titleKo": "도서관 카드가 인식되지 않을 때",
+          "relationshipContext": "이용자와 도서관 직원"
+        },
+        {
+          "id": "running_late",
+          "level": "a2",
+          "titleKo": "늦는다고 카카오톡 보내기",
+          "relationshipContext": "친한 레나와 마야"
+        },
+        {
+          "id": "taxi_slow_down",
+          "level": "a2",
+          "titleKo": "택시가 무서울 만큼 빠를 때",
+          "relationshipContext": "승객과 택시 기사"
+        },
+        {
+          "id": "a2_w10_money",
+          "level": "a2",
+          "titleKo": "은행 계좌 만들기",
+          "relationshipContext": "service"
+        },
+        {
+          "id": "a2_w10_enrolment",
+          "level": "a2",
+          "titleKo": "필라테스 수업 등록하기",
+          "relationshipContext": "service"
+        },
+        {
+          "id": "a2_w10_fandom",
+          "level": "a2",
+          "titleKo": "굿즈 숍에서 줄 서기",
+          "relationshipContext": "close_friend"
+        },
+        {
+          "id": "shared_document_old_version",
+          "level": "b1",
+          "titleKo": "공유 문서의 예전 버전을 고쳤을 때",
+          "relationshipContext": "조별 과제 동료 크리스티안과 레나"
+        },
+        {
+          "id": "cancelled_trip_hurt_feelings",
+          "level": "b1",
+          "titleKo": "여행 약속을 혼자 바꿔 서운할 때",
+          "relationshipContext": "친한 레나와 다니엘"
+        },
+        {
+          "id": "community_festival_shift",
+          "level": "b1",
+          "titleKo": "동네 축제 봉사 시간을 바꿔야 할 때",
+          "relationshipContext": "봉사자 레나와 담당자"
+        },
+        {
+          "id": "jeju_rain_plan_change",
+          "level": "b1",
+          "titleKo": "제주 여행 일정이 비 때문에 꼬였을 때",
+          "relationshipContext": "함께 여행하는 레나와 다니엘"
+        },
+        {
+          "id": "speech_level_after_friendship",
+          "level": "b1",
+          "titleKo": "친해진 뒤 말을 놓을지 묻기",
+          "relationshipContext": "몇 달째 친구로 지낸 레나와 마야"
+        },
+        {
+          "id": "subscription_cancel_charge",
+          "level": "b1",
+          "titleKo": "구독을 해지했는데 결제됐을 때",
+          "relationshipContext": "이용자와 상담 직원"
+        },
+        {
+          "id": "b1_w10_repair",
+          "level": "b1",
+          "titleKo": "세탁기가 안 돌아갈 때",
+          "relationshipContext": "service"
+        },
+        {
+          "id": "b1_w10_form",
+          "level": "b1",
+          "titleKo": "빠뜨린 서류와 마감일",
+          "relationshipContext": "service"
+        },
+        {
+          "id": "b1_w10_fandom",
+          "level": "b1",
+          "titleKo": "티켓팅에 실패했을 때",
+          "relationshipContext": "close_friend"
+        },
+        {
+          "id": "fremdschaemen_live",
+          "level": "b2",
+          "titleKo": "친구의 과한 라이브 방송을 보며 민망할 때",
+          "relationshipContext": "친한 마야와 레나"
+        },
+        {
+          "id": "library_quiet_zone_conflict",
+          "level": "b2",
+          "titleKo": "도서관 통화 구역을 두고 갈등할 때",
+          "relationshipContext": "학생 레나와 다른 이용자"
+        },
+        {
+          "id": "b2_w10_health",
+          "level": "b2",
+          "titleKo": "약 부작용, 미리 확인하기",
+          "relationshipContext": "service"
+        },
+        {
+          "id": "b2_w10_authorities",
+          "level": "b2",
+          "titleKo": "체류 기간 연장, 늦기 전에 묻기",
+          "relationshipContext": "official"
+        },
+        {
+          "id": "c2_w10_aesthetic",
+          "level": "c2",
+          "titleKo": "작품의 의미는 누가 정하는가",
+          "relationshipContext": "artist_and_curator"
+        },
+        {
+          "id": "c2_w10_fandom",
+          "level": "c2",
+          "titleKo": "2차 창작, 어디까지 내 것이라 할 수 있을까",
+          "relationshipContext": "fan_creator_and_community_moderator"
+        }
+      ]
+    },
+    {
+      "id": "daniel",
+      "displayNames": {
+        "ko": "다니엘",
+        "de": "Daniel",
+        "en": "Daniel"
+      },
+      "voice": "male",
+      "background": {
+        "origin": "스페인",
+        "role": "프리랜서 영상 제작자",
+        "major": "영상·미디어"
+      },
+      "personality": [
+        "쾌활하다",
+        "사람을 편하게 만든다",
+        "작업의 영향에 대해서는 오래 생각한다",
+        "실수를 유머로만 덮지 않는다"
+      ],
+      "writerHints": [
+        "촬영 동의와 지역 영향은 실제 선택권으로 다룬다",
+        "인스타그램은 직업과 취미의 맥락에서만 쓴다"
+      ],
+      "mbtiHint": {
+        "value": "ENFP",
+        "weight": "low"
+      },
+      "interests": [
+        "달리기",
+        "기차 여행",
+        "인스타그램",
+        "지역 영상"
+      ],
+      "relationships": {
+        "maya": "영상 프로젝트 동료",
+        "hyuna": "지역을 찍는 방식에 관해 자주 의견을 나눔",
+        "sujin": "마야의 캠페인 프로젝트에서 알게 된 사이",
+        "lena": "마야의 교환학생 친구; 본인은 레나의 마음을 모른다"
+      },
+      "speechStyle": {
+        "ko": {
+          "baseRegister": "쾌활한 해요체",
+          "markers": [
+            "사람 편하게: 괜찮아요, 천천히요",
+            "이미지·촬영 비유: 이거 찍으면 예쁘겠어요"
+          ],
+          "sentenceHabits": [
+            "유머 뒤에 진지한 한마디를 덧붙인다",
+            "현장 어휘를 자연스럽게 쓴다"
+          ],
+          "avoid": [
+            "실수를 유머로만 덮기"
+          ]
+        },
+        "de": {
+          "baseRegister": "warm, spielerisch",
+          "markers": [
+            "schnelles du",
+            "Foto-/Filmvergleiche"
+          ],
+          "sentenceHabits": [
+            "ernstes Wort nach dem Scherz"
+          ],
+          "avoid": [
+            "Fehler nur mit Humor überspielen"
+          ]
+        },
+        "en": {
+          "baseRegister": "playful, easygoing",
+          "markers": [
+            "quick informal tone",
+            "photo/film comparisons"
+          ],
+          "sentenceHabits": [
+            "adds one serious line after the joke"
+          ],
+          "avoid": [
+            "covering mistakes with humor alone"
+          ]
+        },
+        "byLevel": {
+          "A1": [
+            "천천히 해요.",
+            "여기 예뻐요!",
+            "여기서 찍어요!"
+          ],
+          "A2": [
+            "괜찮아요, 천천히요.",
+            "이거 찍을까요?",
+            "하하, 다시 해요."
+          ],
+          "B1+": [
+            "촬영 동의와 지역 영향은 진지하게 다룬다."
+          ]
+        }
+      },
+      "fixedFacts": {
+        "age": 30,
+        "role": "프리랜서 영상 제작자",
+        "residence": "서울"
+      },
+      "runtimeUsage": {
+        "participantScenes": 26,
+        "speakingScenes": 26,
+        "a2": 3,
+        "learnerRoleScenes": 20,
+        "b1": 9,
+        "b2": 7,
+        "c1": 2,
+        "c2": 5
+      },
+      "runtimeScenes": [
+        {
+          "id": "jeju_bus_missed",
+          "level": "a2",
+          "titleKo": "제주에서 막차를 놓쳤을 때",
+          "relationshipContext": "여행 중인 레나와 다니엘"
+        },
+        {
+          "id": "train_seat_swap",
+          "level": "a2",
+          "titleKo": "기차 좌석을 잘못 앉았을 때",
+          "relationshipContext": "서로 모르는 승객과 다니엘"
+        },
+        {
+          "id": "a2_w10_booking",
+          "level": "a2",
+          "titleKo": "식당 예약 전화하기",
+          "relationshipContext": "service"
+        },
+        {
+          "id": "cancelled_trip_hurt_feelings",
+          "level": "b1",
+          "titleKo": "여행 약속을 혼자 바꿔 서운할 때",
+          "relationshipContext": "친한 레나와 다니엘"
+        },
+        {
+          "id": "jeju_rain_plan_change",
+          "level": "b1",
+          "titleKo": "제주 여행 일정이 비 때문에 꼬였을 때",
+          "relationshipContext": "함께 여행하는 레나와 다니엘"
+        },
+        {
+          "id": "ktx_sold_out_alternative",
+          "level": "b1",
+          "titleKo": "KTX가 매진됐을 때 다른 방법 찾기",
+          "relationshipContext": "함께 여행하는 다니엘과 현아"
+        },
+        {
+          "id": "park_pet_manners",
+          "level": "b1",
+          "titleKo": "공원에서 목줄이 긴 강아지를 만났을 때",
+          "relationshipContext": "러너 다니엘과 반려견을 데리고 나온 이웃"
+        },
+        {
+          "id": "reel_caption_misunderstanding",
+          "level": "b1",
+          "titleKo": "릴스 자막이 가게를 비꼰 것처럼 보였을 때",
+          "relationshipContext": "프로젝트 동료 마야와 다니엘"
+        },
+        {
+          "id": "running_injury_training_plan",
+          "level": "b1",
+          "titleKo": "달리다 무릎이 아픈데 대회를 앞뒀을 때",
+          "relationshipContext": "러닝 친구 다니엘과 현아"
+        },
+        {
+          "id": "secondhand_hidden_defect",
+          "level": "b1",
+          "titleKo": "중고 거래 물건에 설명 없는 흠집이 있을 때",
+          "relationshipContext": "처음 만난 판매자와 다니엘"
+        },
+        {
+          "id": "b1_w10_insurance",
+          "level": "b1",
+          "titleKo": "실손보험 청구가 되는지 확인하기",
+          "relationshipContext": "service"
+        },
+        {
+          "id": "b1_w10_incident",
+          "level": "b1",
+          "titleKo": "가벼운 접촉 사고 뒤에",
+          "relationshipContext": "peer"
+        },
+        {
+          "id": "direct_feedback_misread",
+          "level": "b2",
+          "titleKo": "솔직한 피드백이 무례하게 들렸을 때",
+          "relationshipContext": "프로젝트 동료 다니엘과 마야"
+        },
+        {
+          "id": "filming_permission",
+          "level": "b2",
+          "titleKo": "가게 안을 촬영하기 전에 허락받기",
+          "relationshipContext": "영상 제작자 다니엘과 카페 직원"
+        },
+        {
+          "id": "freelance_scope_change",
+          "level": "b2",
+          "titleKo": "수정 요청이 계약 범위를 넘었을 때",
+          "relationshipContext": "프리랜서 다니엘과 고객사 담당자"
+        },
+        {
+          "id": "neighborhood_filming_notice",
+          "level": "b2",
+          "titleKo": "골목 촬영 전에 주민에게 알리기",
+          "relationshipContext": "영상 제작자 다니엘과 주민"
+        },
+        {
+          "id": "train_delay_connection",
+          "level": "b2",
+          "titleKo": "기차 지연으로 환승이 어려울 때",
+          "relationshipContext": "여행자 다니엘과 직원"
+        },
+        {
+          "id": "b2_w10_negotiate",
+          "level": "b2",
+          "titleKo": "촬영 조건, 다시 협상하기",
+          "relationshipContext": "client"
+        },
+        {
+          "id": "b2_w10_notice",
+          "level": "b2",
+          "titleKo": "과태료 이의신청, 다시 접수하기",
+          "relationshipContext": "official"
+        },
+        {
+          "id": "ai_translation_voice_loss",
+          "level": "c1",
+          "titleKo": "AI 번역이 인터뷰이의 말투를 지웠을 때",
+          "relationshipContext": "영상 제작자 다니엘과 연구자 현아"
+        },
+        {
+          "id": "training_data_copyright",
+          "level": "c1",
+          "titleKo": "AI 학습 데이터의 출처를 설명해야 할 때",
+          "relationshipContext": "마야, 다니엘, 법무가 아닌 프로젝트 담당자"
+        },
+        {
+          "id": "hidden_gem_local_impact",
+          "level": "c2",
+          "titleKo": "‘숨은 명소’ 영상이 지역을 바꾼 뒤",
+          "relationshipContext": "영상 제작자 다니엘, 연구자 현아, 주민"
+        },
+        {
+          "id": "we_translation_identity",
+          "level": "c2",
+          "titleKo": "‘우리’가 포함하고 배제하는 사람을 번역하기",
+          "relationshipContext": "서로 편하게 말하는 현아와 다니엘"
+        },
+        {
+          "id": "c2_w10_record",
+          "level": "c2",
+          "titleKo": "화재로 사라진 등기부, 소유권을 어떻게 증명할까",
+          "relationshipContext": "citizen_and_archive_official"
+        },
+        {
+          "id": "c2_w10_jurisdiction",
+          "level": "c2",
+          "titleKo": "책임을 서로 미루기 전에 관할부터 정하기",
+          "relationshipContext": "citizen_and_two_offices"
+        },
+        {
+          "id": "c2_w10_friends",
+          "level": "c2",
+          "titleKo": "우정으로 시작한 사업, 이제는 정리할 때",
+          "relationshipContext": "longtime_friends_and_business_partners"
+        }
+      ]
+    },
+    {
+      "id": "minho",
+      "displayNames": {
+        "ko": "민호",
+        "de": "Minho",
+        "en": "Minho"
+      },
+      "voice": "male",
+      "background": {
+        "origin": "한국",
+        "role": "IT 회사 팀장",
+        "relativeAge": "40대 초",
+        "family": "안드레아의 남편, 준의 아버지"
+      },
+      "personality": [
+        "차분하다",
+        "결정을 미루지 않는다",
+        "집에서는 장난기가 는다"
+      ],
+      "writerHints": [
+        "권위로 팀원을 누르지 않는다",
+        "수진과의 과거를 굳이 먼저 꺼내지 않는다"
+      ],
+      "mbtiHint": {
+        "value": "ISTJ",
+        "weight": "low"
+      },
+      "interests": [
+        "요리",
+        "캠핑",
+        "야구"
+      ],
+      "relationships": {
+        "andrea": "아내",
+        "jun": "아들",
+        "sujin": "1년 전 함께 일했던 팀원. 수진이 퇴사한 뒤로는 연락이 뜸하다."
+      },
+      "speechStyle": {
+        "ko": {
+          "baseRegister": "부드러운 존댓말, 회의체",
+          "markers": [
+            "회의체 정리: 그럼 이렇게 정리하죠",
+            "집에서는 요리 얘기를 꺼낸다",
+            "아내 앞에서는 농담이 늘어난다"
+          ],
+          "sentenceHabits": [
+            "결정은 짧게 정리해서 말한다",
+            "가족 앞에서만 표정이 풀어진다"
+          ],
+          "avoid": [
+            "권위적 명령"
+          ]
+        },
+        "de": {
+          "baseRegister": "höflich, sachlich",
+          "markers": [
+            "fasst Entscheidungen kurz zusammen: Dann fassen wir das so zusammen",
+            "wird zu Hause lockerer, mehr Scherze bei seiner Frau"
+          ],
+          "sentenceHabits": [
+            "bleibt im Job sachlich und kurz"
+          ],
+          "avoid": [
+            "autoritäre Befehle"
+          ]
+        },
+        "en": {
+          "baseRegister": "soft-spoken, professional",
+          "markers": [
+            "meeting wrap-up: so let's settle it like this",
+            "jokes more around his wife"
+          ],
+          "sentenceHabits": [
+            "keeps work talk brief and settled"
+          ],
+          "avoid": [
+            "authoritarian commands"
+          ]
+        },
+        "byLevel": {
+          "A1": [
+            "안녕하세요.",
+            "이거 맛있어요.",
+            "그럼 이렇게 해요."
+          ],
+          "A2": [
+            "그럼 이렇게 정리하죠.",
+            "요리는 제가 할게요."
+          ],
+          "B1+": [
+            "집에서는 농담이 늘고, 회사에서는 결정을 짧게 정리한다."
+          ]
+        }
+      },
+      "fixedFacts": {
+        "age": 42,
+        "role": "IT 회사 팀장",
+        "residence": "서울"
+      },
+      "runtimeUsage": {},
+      "runtimeScenes": []
+    },
+    {
+      "id": "dongsun",
+      "displayNames": {
+        "ko": "동선",
+        "de": "Dongsun",
+        "en": "Dongsun"
+      },
+      "voice": "female",
+      "background": {
+        "origin": "한국",
+        "role": "쥬얼리 가게 사장(수원 남문 근처 가게, 액세서리·귀금속 소매, 단골이 많다)",
+        "relativeAge": "60대",
+        "family": "수진의 어머니, 병철의 아내",
+        "residence": "수원"
+      },
+      "personality": [
+        "전형적인 한국 아줌마의 친화력·정이 있다",
+        "처음 보는 사람도 금방 챙긴다",
+        "예의는 지키되 격식은 안 차린다",
+        "진짜 웃기다(상황 유머, 자기 자신도 웃음 소재로)",
+        "사랑스럽고 사람들이 다 좋아한다",
+        "딸 남자 친구 앞에서 딸 어릴 때 이야기를 꺼내 수진을 당황시킨다"
+      ],
+      "writerHints": [
+        "유머는 사람을 깎아내리지 않고 상황에서 나온다",
+        "크리스티안에게 존댓말이지만 금방 '아들'처럼 챙긴다(배고프지? 이거 먹어요)",
+        "가게 장면은 쇼핑·숫자·색·선물 어휘 소스다(A1: 귀걸이·반지·목걸이·얼마예요)",
+        "사투리를 과하게 쓰지 않는다"
+      ],
+      "mbtiHint": {
+        "value": "ESFJ",
+        "weight": "low"
+      },
+      "interests": [
+        "가게 단골 이야기",
+        "드라마",
+        "시장 구경",
+        "수진 어릴 때 사진"
+      ],
+      "relationships": {
+        "sujin": "딸",
+        "byeongcheol": "남편",
+        "christian": "딸의 남자 친구; 5분 만에 '아들'처럼 챙긴다"
+      },
+      "speechStyle": {
+        "ko": {
+          "baseRegister": "딸에게는 반말, 크리스티안에게는 해요체→금방 친근",
+          "markers": [
+            "감탄+웃음: 아이고, 왜 이렇게 예뻐",
+            "반복 권유: 먹어, 먹어",
+            "친근한 호칭: 우리 크리스티안",
+            "전화는 '밥 먹었어?'로 시작"
+          ],
+          "sentenceHabits": [
+            "딸 남자 친구 앞에서 딸 어릴 때 이야기를 꺼낸다",
+            "가게 장면에서는 흥정·숫자·색 표현이 자연스럽게 나온다"
+          ],
+          "avoid": [
+            "냉소",
+            "며느리 압박형 발언"
+          ]
+        },
+        "de": {
+          "baseRegister": "warm, kontaktfreudig, wird schnell vertraut",
+          "markers": [
+            "lacht über die Situation, auch über sich selbst",
+            "bietet wiederholt Essen an: Iss, iss"
+          ],
+          "sentenceHabits": [
+            "erzählt Kindheitsgeschichten der Tochter vor ihrem Freund"
+          ],
+          "avoid": [
+            "Sarkasmus",
+            "Druck bezüglich Heirat/Schwiegertochter-Rolle"
+          ]
+        },
+        "en": {
+          "baseRegister": "warm, quick to make people feel like family",
+          "markers": [
+            "laughs at the situation, including herself",
+            "repeats food offers: Eat, eat"
+          ],
+          "sentenceHabits": [
+            "tells the daughter's childhood stories in front of her boyfriend"
+          ],
+          "avoid": [
+            "sarcasm",
+            "pressuring daughter-in-law expectations"
+          ]
+        },
+        "byLevel": {
+          "A1": [
+            "이거 먹어요.",
+            "이거 예뻐요. 싸요!"
+          ],
+          "A2": [
+            "수진이 어릴 때는요…",
+            "다음에 또 와요, 꼭!"
+          ],
+          "B1+": [
+            "웃음 뒤에 딸 걱정을 한 문장으로 얹는다."
+          ]
+        }
+      },
+      "fixedFacts": {
+        "age": 61,
+        "role": "쥬얼리 가게 사장(수원 남문 근처)",
+        "residence": "수원"
+      },
+      "runtimeUsage": {},
+      "runtimeScenes": []
+    },
+    {
+      "id": "byeongcheol",
+      "displayNames": {
+        "ko": "병철",
+        "de": "Byeongcheol",
+        "en": "Byeongcheol"
+      },
+      "voice": "male",
+      "background": {
+        "origin": "한국",
+        "role": "전기기술사(전기 설비 안전 점검·감리, 현장 경험이 많다)",
+        "relativeAge": "60대 중반",
+        "family": "수진의 아버지, 동선의 남편",
+        "residence": "수원"
+      },
+      "personality": [
+        "선비 스타일이다 — 평소 말수가 적고 점잖고 원칙적이다",
+        "역사 얘기를 좋아한다(수원 화성·정조, 근현대사, 유적지 답사)",
+        "술이 들어가면 말이 많아지고 역사 강의가 시작된다",
+        "취하면 춤을 춘다(가족의 웃음 포인트, 본인은 다음 날 기억 못 하는 척한다)",
+        "손재주가 좋고 안전을 강조한다"
+      ],
+      "writerHints": [
+        "평소 장면과 술자리 장면의 말투 대비를 쓴다",
+        "역사 얘기는 크리스티안에게 한국 문화를 설명하는 소스로 쓴다(B1+, 정조와 수원 화성 중심 — 다른 왕과 수원을 엮지 않는다)",
+        "안전·전기 어휘는 집 장면 A2에서 쓴다(고장·수리·불 켜요/꺼요)",
+        "훈계로 흐르지 않게 한다; 취한 장면은 유쾌하게만 다룬다(과음 미화 금지, 본인도 '조금만'이라고 말하고 어긴다)"
+      ],
+      "mbtiHint": {
+        "value": "ISTP",
+        "weight": "low"
+      },
+      "interests": [
+        "역사책",
+        "답사",
+        "바둑",
+        "막걸리"
+      ],
+      "relationships": {
+        "sujin": "딸",
+        "dongsun": "아내",
+        "christian": "예비 사위 후보; 평소엔 말이 없다가 술자리에서야 말문이 열린다"
+      },
+      "speechStyle": {
+        "ko": {
+          "baseRegister": "평소는 격식 있는 해요체/-습니다, 딸에겐 짧은 반말",
+          "markers": [
+            "평소: 짧은 문장, 격식체 — 그건 이렇게 하는 게 맞습니다",
+            "딸에게 짧은 반말: 왔냐",
+            "술자리: 문장이 길어지고 '그게 말이지…'로 시작",
+            "술자리: '옛날에는…'으로 역사 이야기를 꺼낸다",
+            "술자리: 크리스티안에게 역사로 질문한다 — 독일에도 이런 역사가 있어요?"
+          ],
+          "sentenceHabits": [
+            "평소와 술자리의 말투 대비가 뚜렷하다",
+            "감정 표현은 행동으로 한다(과일 깎아 주기)"
+          ],
+          "avoid": [
+            "사투리 과다",
+            "권위적 명령",
+            "긴 문장(A1)"
+          ]
+        },
+        "de": {
+          "baseRegister": "nüchtern wortkarg und förmlich, nach Alkohol gesprächig",
+          "markers": [
+            "nüchtern: kurze, förmliche Sätze",
+            "nach Alkohol: erzählt lange Geschichten, beginnt mit 'Früher war...'"
+          ],
+          "sentenceHabits": [
+            "deutlicher Kontrast zwischen nüchtern und angetrunken"
+          ],
+          "avoid": [
+            "autoritäre Belehrung des Schwiegersohns",
+            "Verherrlichung von Alkohol"
+          ]
+        },
+        "en": {
+          "baseRegister": "terse and formal sober, talkative after a drink",
+          "markers": [
+            "sober: short, formal sentences",
+            "after a drink: long stories starting with 'Back in the day...'"
+          ],
+          "sentenceHabits": [
+            "sharp contrast between sober and tipsy registers"
+          ],
+          "avoid": [
+            "lecturing a future son-in-law",
+            "glorifying heavy drinking"
+          ]
+        },
+        "byLevel": {
+          "A1": [
+            "밥 먹어요.",
+            "불 꺼요.",
+            "이거 위험해요."
+          ],
+          "A2": [
+            "왔냐.",
+            "이거 고쳐 줄게.",
+            "옛날에는 여기가 궁궐이었어요."
+          ],
+          "B1+": [
+            "술자리 역사 강의(정조가 왜 수원을 아꼈는지)가 길어지면 동선의 '또 시작이다' 한마디로 마무리된다(부부 콤비 유머)."
+          ]
+        }
+      },
+      "fixedFacts": {
+        "age": 64,
+        "role": "전기기술사",
+        "residence": "수원"
+      },
+      "runtimeUsage": {},
+      "runtimeScenes": []
+    },
+    {
+      "id": "jun",
+      "displayNames": {
+        "ko": "준",
+        "de": "Jun",
+        "en": "Jun"
+      },
+      "voice": "male",
+      "ageGroup": "child",
+      "background": {
+        "origin": "한국",
+        "role": "초등학교 3학년 학생",
+        "relativeAge": "9세",
+        "family": "안드레아·민호의 아들",
+        "languages": "독일어·한국어 이중언어"
+      },
+      "personality": [
+        "호기심이 많다",
+        "숫자와 게임을 좋아한다",
+        "엄마 앞에서는 응석을 부린다"
+      ],
+      "writerHints": [
+        "어른스러운 문장을 쓰지 않는다",
+        "엄마에게만 독일어를 섞는다"
+      ],
+      "mbtiHint": {
+        "value": "ENTP",
+        "weight": "low"
+      },
+      "interests": [
+        "게임",
+        "축구",
+        "레고",
+        "숫자 세기"
+      ],
+      "relationships": {
+        "andrea": "엄마",
+        "minho": "아빠",
+        "christian": "코딩과 게임 얘기를 나누는 놀이 상대"
+      },
+      "speechStyle": {
+        "ko": {
+          "baseRegister": "반말, 짧은 문장",
+          "markers": [
+            "왜?",
+            "진짜?",
+            "숫자·게임 얘기"
+          ],
+          "sentenceHabits": [
+            "엄마에게는 독일어를 섞어 말한다(DE 예문에서만)",
+            "어른 어휘를 쓰지 않는다",
+            "부모·크리스티안에게만, A2부터 반말을 쓴다; A1은 해요체나 감탄사만 쓴다"
+          ],
+          "avoid": [
+            "어른 어휘"
+          ]
+        },
+        "de": {
+          "baseRegister": "kindlich, Deutsch-Koreanisch gemischt",
+          "markers": [
+            "Warum?",
+            "Echt?",
+            "mischt Deutsch mit Mama"
+          ],
+          "sentenceHabits": [
+            "kurze, einfache Sätze"
+          ],
+          "avoid": [
+            "Erwachsenenwortschatz"
+          ]
+        },
+        "en": {
+          "baseRegister": "childlike, short sentences",
+          "markers": [
+            "Why?",
+            "Really?",
+            "talks about numbers and games"
+          ],
+          "sentenceHabits": [
+            "mixes German only when talking to his mom"
+          ],
+          "avoid": [
+            "adult vocabulary"
+          ]
+        },
+        "byLevel": {
+          "A1": [
+            "왜?",
+            "진짜?",
+            "몇 개예요?"
+          ],
+          "A2": [
+            "이거 게임 진짜 재밌어.",
+            "나 이거 잘해."
+          ],
+          "B1+": [
+            "엄마한테만 독일어를 섞어서 말한다."
+          ]
+        }
+      },
+      "fixedFacts": {
+        "age": 9,
+        "role": "초등학교 3학년 학생",
+        "residence": "서울"
+      },
+      "runtimeUsage": {},
+      "runtimeScenes": []
+    }
+  ],
+  "relationshipGraph": {
+    "schemaVersion": 1,
+    "edges": [
+      {
+        "a": "sujin",
+        "b": "christian",
+        "type": "romantic_partners",
+        "knownTo": "both",
+        "since": "2025",
+        "koLabel": "연인(사귄 지 약 1년)",
+        "byLevel": {
+          "A1": [
+            "같이 카페에 간다.",
+            "같이 공부한다."
+          ],
+          "A2": [
+            "사귄 지 100일이 되었다.",
+            "선물을 준비한다.",
+            "데이트를 계획한다.",
+            "수진의 부모님을 처음 뵙는 자리를 준비한다."
+          ],
+          "B1+": [
+            "세 살 나이 차이를 이야기한다.",
+            "독일 귀국과 한국 인턴 사이에서 고민한다.",
+            "장거리 연애 가능성을 의논한다."
+          ]
+        },
+        "tensions": [
+          "나이 차이",
+          "독일 귀국 vs 한국 인턴",
+          "장거리 연애"
+        ]
+      },
+      {
+        "a": "christian",
+        "b": "lena",
+        "type": "friends",
+        "knownTo": "both",
+        "since": "2025",
+        "koLabel": "같은 교환학생 프로그램 친구",
+        "byLevel": {
+          "A1": [
+            "같이 학교에 간다."
+          ],
+          "A2": [
+            "교환학생 모임에 같이 간다."
+          ],
+          "B1+": [
+            "레나가 크리스티안과 수진 사이에서 가끔 어색해한다."
+          ]
+        },
+        "tensions": [
+          "가끔 셋이 있을 때 레나가 어색해한다"
+        ]
+      },
+      {
+        "a": "sujin",
+        "b": "maya",
+        "type": "friends",
+        "knownTo": "both",
+        "since": "2025",
+        "koLabel": "일로 친해진 친구",
+        "byLevel": {
+          "A1": [
+            "같이 카페에 간다."
+          ],
+          "A2": [
+            "마야의 회사 일을 도와준다."
+          ],
+          "B1+": [
+            "K-pop 캠페인 데이터 분석을 외주로 맡으며 친해진 과정을 이야기한다."
+          ]
+        },
+        "tensions": []
+      },
+      {
+        "a": "maya",
+        "b": "daniel",
+        "type": "colleagues",
+        "knownTo": "both",
+        "since": "2025",
+        "koLabel": "같은 캠페인 영상 동료",
+        "byLevel": {
+          "A1": [
+            "같이 사진을 찍는다."
+          ],
+          "A2": [
+            "영상 촬영 일정을 의논한다."
+          ],
+          "B1+": [
+            "캠페인 결과에 대해 서로 피드백을 준다."
+          ]
+        },
+        "tensions": []
+      },
+      {
+        "a": "sujin",
+        "b": "daniel",
+        "type": "acquaintances",
+        "knownTo": "both",
+        "since": "2025",
+        "koLabel": "같은 프로젝트에서 알게 된 사이",
+        "byLevel": {
+          "A1": [
+            "인사를 나눈다."
+          ],
+          "A2": [
+            "같은 캠페인 뒤풀이에서 만난다."
+          ],
+          "B1+": [
+            "수진·마야·다니엘이 같은 프로젝트 출신이라는 걸 이야기한다."
+          ]
+        },
+        "tensions": []
+      },
+      {
+        "a": "maya",
+        "b": "andrea",
+        "type": "mentor",
+        "knownTo": "both",
+        "since": "2024",
+        "koLabel": "같은 업계 선배·후배",
+        "byLevel": {
+          "A1": [
+            "같이 인사한다."
+          ],
+          "A2": [
+            "회사 이야기를 나눈다."
+          ],
+          "B1+": [
+            "안드레아가 마야 회사의 재무를 자문한 경험을 이야기한다."
+          ]
+        },
+        "tensions": []
+      },
+      {
+        "a": "hyuna",
+        "b": "sujin",
+        "type": "friends",
+        "knownTo": "both",
+        "since": "대학 시절",
+        "koLabel": "대학 동기, 오래된 친구",
+        "byLevel": {
+          "A1": [
+            "같이 밥을 먹는다."
+          ],
+          "A2": [
+            "오랜만에 만나 안부를 묻는다."
+          ],
+          "B1+": [
+            "사회·문화 주제를 자주 의논한다."
+          ]
+        },
+        "tensions": []
+      },
+      {
+        "a": "hyuna",
+        "b": "daniel",
+        "type": "acquaintances",
+        "knownTo": "both",
+        "since": "2025",
+        "koLabel": "지역 촬영 방식을 논의하는 사이",
+        "byLevel": {
+          "A1": [
+            "같이 동네를 걷는다."
+          ],
+          "A2": [
+            "사진 찍는 장소를 추천한다."
+          ],
+          "B1+": [
+            "현아의 연구 인터뷰 대상으로 다니엘의 촬영 윤리를 논의한다."
+          ]
+        },
+        "tensions": []
+      },
+      {
+        "a": "hyuna",
+        "b": "andrea",
+        "type": "acquaintances",
+        "knownTo": "both",
+        "since": "2023",
+        "koLabel": "독일·한국 생활을 비교하는 지인",
+        "byLevel": {
+          "A1": [
+            "같이 커피를 마신다."
+          ],
+          "A2": [
+            "서로의 나라 생활을 물어본다."
+          ],
+          "B1+": [
+            "독일과 한국의 제도·문화를 비교해 토론한다."
+          ]
+        },
+        "tensions": []
+      },
+      {
+        "a": "andrea",
+        "b": "minho",
+        "type": "married",
+        "knownTo": "both",
+        "since": "2015",
+        "koLabel": "부부",
+        "byLevel": {
+          "A1": [
+            "같이 저녁을 먹는다."
+          ],
+          "A2": [
+            "준의 학교 행사에 같이 간다."
+          ],
+          "B1+": [
+            "서로의 회사 일과 육아 역할을 조율한다."
+          ]
+        },
+        "tensions": []
+      },
+      {
+        "a": "sujin",
+        "b": "minho",
+        "type": "former_colleagues",
+        "knownTo": "both",
+        "since": "2023",
+        "koLabel": "전 팀장·팀원(어색한 사이)",
+        "byLevel": {
+          "A1": [
+            "인사만 나눈다."
+          ],
+          "A2": [
+            "오랜만에 안부를 묻는다."
+          ],
+          "B1+": [
+            "안드레아의 저녁 초대에서 민호가 예전 팀장이었다는 사실이 드러나며 어색함을 어떻게 풀지 이야기한다."
+          ]
+        },
+        "tensions": [
+          "어색함",
+          "과거 직장 관계",
+          "퇴사 이후 끊긴 연락"
+        ]
+      },
+      {
+        "a": "sujin",
+        "b": "andrea",
+        "type": "acquaintances",
+        "knownTo": "both",
+        "since": "2025",
+        "koLabel": "주말 등산 모임 지인",
+        "byLevel": {
+          "A1": [
+            "같이 등산한다."
+          ],
+          "A2": [
+            "등산 모임 일정을 정한다."
+          ],
+          "B1+": [
+            "안드레아의 저녁 초대에서 남편이 민호라는 걸 알고 놀란다."
+          ]
+        },
+        "tensions": []
+      },
+      {
+        "a": "lena",
+        "b": "hyuna",
+        "type": "housemates",
+        "knownTo": "both",
+        "since": "2025",
+        "koLabel": "같은 셰어하우스 이웃",
+        "byLevel": {
+          "A1": [
+            "같이 청소한다."
+          ],
+          "A2": [
+            "둘 다 수진을 안다는 걸 우연히 알게 된다: 우리 둘 다 수진 씨 알아요?"
+          ],
+          "B1+": [
+            "셰어하우스 생활 방식 차이에 대해 이야기한다."
+          ]
+        },
+        "tensions": []
+      },
+      {
+        "a": "lena",
+        "b": "sujin",
+        "type": "acquaintances",
+        "knownTo": "both",
+        "since": "2025",
+        "koLabel": "크리스티안을 통해 알게 된 사이",
+        "byLevel": {
+          "A1": [
+            "가끔 인사한다."
+          ],
+          "A2": [
+            "같이 카페에 간다."
+          ],
+          "B1+": [
+            "크리스티안과 수진의 관계에 대해 편하게 이야기한다."
+          ]
+        },
+        "tensions": []
+      },
+      {
+        "a": "lena",
+        "b": "daniel",
+        "type": "one_sided_interest",
+        "knownTo": "one",
+        "since": "2025",
+        "koLabel": "레나의 일방적 호감(다니엘은 모름)",
+        "byLevel": {
+          "A1": [
+            "같이 사진을 찍는다."
+          ],
+          "A2": [
+            "레나가 다니엘 이야기를 할 때 조금 들뜬다."
+          ],
+          "B1+": [
+            "레나가 자기 마음을 말할지 고민한다(결말을 강요하지 않는다)."
+          ]
+        },
+        "tensions": [
+          "다니엘이 모르는 짝사랑"
+        ]
+      },
+      {
+        "a": "dongsun",
+        "b": "sujin",
+        "type": "family",
+        "knownTo": "both",
+        "since": "출생",
+        "koLabel": "모녀",
+        "byLevel": {
+          "A1": [
+            "같이 장을 본다."
+          ],
+          "A2": [
+            "전화로 안부를 묻는다."
+          ],
+          "B1+": [
+            "딸의 연애·진로에 대해 걱정 섞인 질문을 한다."
+          ]
+        },
+        "tensions": []
+      },
+      {
+        "a": "dongsun",
+        "b": "christian",
+        "type": "family_in_law_candidate",
+        "knownTo": "both",
+        "since": "2025",
+        "koLabel": "예비 사위 후보; 5분 만에 친해진다",
+        "byLevel": {
+          "A1": [
+            "가게에서 귀걸이를 보여 준다.",
+            "왕갈비를 같이 먹는다."
+          ],
+          "A2": [
+            "수원 첫 방문 때 가게에서 귀걸이 선물을 같이 고른다."
+          ],
+          "B1+": [
+            "명절에 크리스티안을 가족처럼 챙긴다."
+          ]
+        },
+        "tensions": []
+      },
+      {
+        "a": "byeongcheol",
+        "b": "sujin",
+        "type": "family",
+        "knownTo": "both",
+        "since": "출생",
+        "koLabel": "부녀",
+        "byLevel": {
+          "A1": [
+            "같이 밥을 먹는다."
+          ],
+          "A2": [
+            "전화로 짧게 안부를 묻는다."
+          ],
+          "B1+": [
+            "말을 아끼면서도 딸의 선택을 존중한다."
+          ]
+        },
+        "tensions": []
+      },
+      {
+        "a": "byeongcheol",
+        "b": "christian",
+        "type": "family_in_law_candidate",
+        "knownTo": "both",
+        "since": "2025",
+        "koLabel": "예비 사위 후보; 평소엔 말이 없다가 술자리에서야 말문이 열린다",
+        "byLevel": {
+          "A1": [
+            "같이 인사한다.",
+            "화성 성곽길을 걷는다."
+          ],
+          "A2": [
+            "수원 첫 방문 저녁 자리에서 처음엔 어색한 침묵이 흐른다."
+          ],
+          "B1+": [
+            "정조가 왜 수원을 아꼈는지 술자리 역사 이야기로 말문이 트인다.",
+            "크리스티안의 진로는 직접 묻지 않고 동선을 통해 간접적으로 묻는다."
+          ]
+        },
+        "tensions": [
+          "말없는 아버지 앞에서 어색한 침묵"
+        ]
+      },
+      {
+        "a": "dongsun",
+        "b": "byeongcheol",
+        "type": "married",
+        "knownTo": "both",
+        "since": "1994",
+        "koLabel": "부부(콤비 유머)",
+        "byLevel": {
+          "A1": [
+            "같이 가게 일을 한다."
+          ],
+          "A2": [
+            "저녁마다 그날 있었던 일을 이야기한다."
+          ],
+          "B1+": [
+            "평소엔 동선이 말하고 병철이 짧게 받지만, 술자리에선 역전되어 병철이 역사 얘기로 다변가가 되고 춤까지 춘다.",
+            "동선이 '또 시작이다', '춤은 안 돼'로 마무리한다."
+          ]
+        },
+        "tensions": [
+          "크리스티안을 받아들이는 속도 차이(동선은 빠르고 병철은 신중하다)"
+        ]
+      },
+      {
+        "a": "jun",
+        "b": "christian",
+        "type": "playmates",
+        "knownTo": "both",
+        "since": "2025",
+        "koLabel": "코딩 놀이 상대",
+        "byLevel": {
+          "A1": [
+            "같이 숫자를 센다.",
+            "같이 게임을 한다."
+          ],
+          "A2": [
+            "간단한 코딩 놀이를 같이 한다."
+          ],
+          "B1+": [
+            "준이 크리스티안에게 학교에서 있었던 일을 이야기한다."
+          ]
+        },
+        "tensions": []
+      },
+      {
+        "a": "andrea",
+        "b": "jun",
+        "type": "family",
+        "knownTo": "both",
+        "since": "출생",
+        "koLabel": "모자",
+        "byLevel": {
+          "A1": [
+            "같이 저녁을 먹는다."
+          ],
+          "A2": [
+            "학교 숙제를 봐 준다."
+          ],
+          "B1+": [
+            "일과 육아 사이에서 시간을 어떻게 나눌지 이야기한다."
+          ]
+        },
+        "tensions": []
+      },
+      {
+        "a": "minho",
+        "b": "jun",
+        "type": "family",
+        "knownTo": "both",
+        "since": "출생",
+        "koLabel": "부자",
+        "byLevel": {
+          "A1": [
+            "같이 캠핑을 간다."
+          ],
+          "A2": [
+            "주말에 같이 요리한다."
+          ],
+          "B1+": [
+            "아빠가 회사 일로 바쁠 때 서운함을 표현한다."
+          ]
+        },
+        "tensions": []
+      }
+    ],
+    "hiddenLinks": [
+      {
+        "edges": [
+          "sujin-minho",
+          "sujin-andrea"
+        ],
+        "knownTo": "none",
+        "fact": "수진은 주말 등산 모임에서 안드레아를 알지만, 안드레아의 남편이 자신의 전 팀장 민호인 줄은 모른다.",
+        "revealLevel": "B1",
+        "revealScene": "안드레아의 저녁 초대 자리에서 남편 민호를 소개받은 수진이 예전 팀장임을 알아본다."
+      },
+      {
+        "edges": [
+          "lena-hyuna"
+        ],
+        "knownTo": "none",
+        "fact": "레나와 현아는 같은 셰어하우스 이웃이지만, 둘 다 수진을 안다는 사실은 서로 모른다.",
+        "revealLevel": "A2",
+        "revealScene": "셰어하우스에서 우연히 수진 이야기가 나오며 '우리 둘 다 수진 씨 알아요?'로 서로 알아챈다."
+      },
+      {
+        "edges": [
+          "lena-daniel"
+        ],
+        "knownTo": "one",
+        "fact": "레나는 다니엘에게 마음이 있지만 다니엘은 전혀 눈치채지 못한다.",
+        "revealLevel": "B1",
+        "revealScene": "레나가 다니엘 이야기를 할 때 조금 들뜨는 장면으로만 암시한다; 고백이나 결말로 이어가지 않는다(결말 강요 금지)."
+      }
+    ],
+    "storyArcs": {
+      "A1": [
+        "크리스티안과 수진이 카페에서 처음 이야기를 나눈다.",
+        "크리스티안과 수진이 수원 가는 기차·버스를 타고, 화성 성곽길을 산책하고, 저녁으로 수원 왕갈비를 먹는다.",
+        "레나가 길을 묻는 사람에게 방향을 알려준다.",
+        "준이 크리스티안과 숫자로 게임 점수를 센다.",
+        "가족 사진을 보여주며 서로를 소개한다."
+      ],
+      "A2": [
+        "크리스티안과 수진이 사귄 지 100일을 축하한다.",
+        "레나와 현아가 셰어하우스에서 둘 다 수진을 안다는 걸 알게 된다.",
+        "크리스티안이 수원을 처음 방문해 동선의 가게에서 귀걸이 선물을 같이 고르고, 병철과 화성 성곽길을 걷는다.",
+        "준의 학교 행사에 안드레아와 민호가 함께 간다.",
+        "마야가 다니엘이 촬영한 캠페인 영상 피드백을 준다."
+      ],
+      "B1": [
+        "안드레아의 저녁 초대에서 수진이 민호가 예전 팀장이었다는 걸 알아챈다.",
+        "저녁 술자리에서 정조가 왜 수원을 아꼈는지 이야기하며 병철의 말문이 트이고, 결국 취한 병철이 춤을 춰서 수진이 부끄러워하고 크리스티안은 오히려 호감을 느낀다.",
+        "크리스티안이 독일 귀국과 한국 인턴 사이에서 고민한다.",
+        "다니엘이 지역 주민들에게 촬영 동의를 구한다.",
+        "도시·문화를 연구하는 현아가 화성 답사에 관심을 보이다가 수진 가족과 우연히 연결된다."
+      ],
+      "B2": [
+        "크리스티안이 비자 연장 문제로 고민한다.",
+        "크리스티안과 수진이 장거리 연애 가능성을 의논한다.",
+        "안드레아가 직장에서 역할과 책임 문제로 갈등한다.",
+        "현아가 다니엘의 촬영과 관련한 연구 윤리 문제를 다시 논의한다."
+      ],
+      "C1+": [
+        "현아와 안드레아가 독일과 한국의 육아휴직 제도를 비교한다.",
+        "마야와 안드레아가 두 나라의 직장 문화 차이를 토론한다.",
+        "다니엘과 현아가 지역 개발과 관광 윤리를 논의한다."
+      ]
+    },
+    "consistencyRules": {
+      "timeAxis": "2026",
+      "fixedFacts": {
+        "christian": {
+          "age": 24,
+          "role": "교환학생(IT)",
+          "residence": "서울"
+        },
+        "sujin": {
+          "age": 27,
+          "role": "데이터 분석가·앱 개발자",
+          "residence": "서울"
+        },
+        "maya": {
+          "age": 25,
+          "role": "K-pop 마케팅 회사 신입",
+          "residence": "서울"
+        },
+        "hyuna": {
+          "age": 29,
+          "role": "도시·문화 연구 대학원생",
+          "residence": "서울"
+        },
+        "andrea": {
+          "age": 40,
+          "role": "외국계 기업 재무 리더",
+          "residence": "서울"
+        },
+        "lena": {
+          "age": 23,
+          "role": "교환학생(글로벌 비즈니스)",
+          "residence": "서울"
+        },
+        "daniel": {
+          "age": 30,
+          "role": "프리랜서 영상 제작자",
+          "residence": "서울"
+        },
+        "minho": {
+          "age": 42,
+          "role": "IT 회사 팀장",
+          "residence": "서울"
+        },
+        "dongsun": {
+          "age": 61,
+          "role": "쥬얼리 가게 사장(수원 남문 근처)",
+          "residence": "수원"
+        },
+        "byeongcheol": {
+          "age": 64,
+          "role": "전기기술사",
+          "residence": "수원"
+        },
+        "jun": {
+          "age": 9,
+          "role": "초등학교 3학년 학생",
+          "residence": "서울"
+        }
+      },
+      "rules": [
+        "나이·직업·거주지는 fixedFacts 표를 정본으로 삼는다; 새 시나리오에서 임의로 바꾸지 않는다.",
+        "수진의 고향·부모님 거주지는 수원이다; 수진 본인은 서울에서 직장을 다니며 산다. 크리스티안은 서울의 교환학생이다.",
+        "정조와 수원 화성의 관계는 사실(1794~1796년 축성, 유네스코 세계유산)에 근거해서만 쓴다; 다른 왕과 수원을 엮는 서술은 넣지 않는다.",
+        "시간축은 2026년 기준이며, '~년 전' 표현은 이 축에서 역산한다.",
+        "레벨이 낮을수록 관계는 사실만 다루고, 갈등·긴장(tensions)은 B1부터 대사에 드러낸다. A1·A2 시나리오는 tensions 필드를 참고만 하고 대사에 노출하지 않는다."
+      ]
+    }
+  },
+  "zeroRuntimeUse": [
+    "minho",
+    "dongsun",
+    "byeongcheol",
+    "jun"
+  ],
+  "oneWayProfileDeclarations": [
+    {
+      "a": "lena",
+      "b": "maya",
+      "description": "음악과 공연 취향을 나누는 친구",
+      "inGraph": false
+    },
+    {
+      "a": "lena",
+      "b": "sujin",
+      "description": "크리스티안을 통해 알게 된 사이",
+      "inGraph": true
+    },
+    {
+      "a": "daniel",
+      "b": "sujin",
+      "description": "마야의 캠페인 프로젝트에서 알게 된 사이",
+      "inGraph": true
+    }
+  ],
+  "profilePairsMissingFromGraph": [
+    [
+      "lena",
+      "maya"
+    ]
+  ],
+  "graphPairsMissingFromProfiles": [],
+  "sources": [
+    {
+      "path": "tools/content_factory/canonical_scenarios/character_profiles.json",
+      "sha256": "21dddd070e0bad532a3bfe4866930b8261ee379743992e93e77e558a2dc1e91f"
+    },
+    {
+      "path": "assets/data/scenarios_a1.json",
+      "sha256": "bc173ffc3c27929483a00ddfd3eba98f1f95049c8e74a44076f64de2b96f7c8c"
+    },
+    {
+      "path": "assets/data/scenarios_a2.json",
+      "sha256": "1a42f350eda096d60bcaa09f8208ca578897e9aa9b87ea4227cecc6ec1353a07"
+    },
+    {
+      "path": "assets/data/scenarios_b1.json",
+      "sha256": "1cb331247f58ba3bbf5761d1400eab56bd29f46b288efdf6dc60b3b4151d14cf"
+    },
+    {
+      "path": "assets/data/scenarios_b2.json",
+      "sha256": "20b0647a3f1177d14836fb44ed54904a6d59d54c60b2f6460d52b71fc29c946b"
+    },
+    {
+      "path": "assets/data/scenarios_c1.json",
+      "sha256": "2ce503d593db72d1e78209ea4b6f85a56f2f53b8d2bddcffdb4b40580d94a1cc"
+    },
+    {
+      "path": "assets/data/scenarios_c2.json",
+      "sha256": "af9d9aff7ce36cfe31d20383654d63a3ca4254d569d392428e9314fe6d3abf89"
+    }
+  ]
+}
