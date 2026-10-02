@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "scope": "assets/data/kkeunmari_pool.json",
-  "method": "Primary model directly read the first 120 runtime-visible word/gloss pairs; bilingual noun-sense edits are authored, not claimed as native-human approval. No new dictionary evidence or lexical sense is inferred from exclusion. Level review remains pending.",
+  "method": "Primary model directly read 220 designated runtime-visible word/gloss pairs; bilingual noun-sense edits are authored, not claimed as native-human approval. No new dictionary evidence or lexical sense is inferred from exclusion. Level review remains pending.",
   "sourceSha256": "73e59ee78d6585a4f8c71a2124b4db2cf7d47aca6bd531b4090529a1c343e3e9",
   "entries": [
     {
@@ -2401,6 +2401,1876 @@
         "german",
         "english"
       ]
+    },
+    {
+      "word": "할아버지",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "할아버지",
+        "first": "할",
+        "last": "지",
+        "level": "A1",
+        "german": "Großvater",
+        "topic": "",
+        "next_count": 28,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Großvater",
+        "english": "grandfather"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "남편",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "남편",
+        "first": "남",
+        "last": "편",
+        "level": "A1",
+        "german": "Ehemann",
+        "topic": "Familie",
+        "next_count": 7,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Ehemann",
+        "english": "husband"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "생일",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "생일",
+        "first": "생",
+        "last": "일",
+        "level": "A1",
+        "german": "Geburtstag",
+        "topic": "",
+        "next_count": 25,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Geburtstag",
+        "english": "birthday"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "돈은",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "돈은",
+        "first": "돈",
+        "last": "은",
+        "level": "A1",
+        "german": "Geld ist",
+        "topic": "",
+        "next_count": 3,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "위로",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "위로",
+        "first": "위",
+        "last": "로",
+        "level": "A1",
+        "german": "Nach oben",
+        "topic": "",
+        "next_count": 13,
+        "is_dead_end": false
+      },
+      "reason": "The displayed “Nach oben” sense is an adverbial direction phrase, not a stand-alone noun prompt. The spelling has other dictionary senses, which are not inferred here."
+    },
+    {
+      "word": "미리",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "미리",
+        "first": "미",
+        "last": "리",
+        "level": "A1",
+        "german": "Im Voraus",
+        "topic": "",
+        "next_count": 11,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "명이",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "명이",
+        "first": "명",
+        "last": "이",
+        "level": "A1",
+        "german": "Anzahl",
+        "topic": "",
+        "next_count": 48,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "지도",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "지도",
+        "first": "지",
+        "last": "도",
+        "level": "A1",
+        "german": "Karte",
+        "topic": "",
+        "next_count": 16,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Karte",
+        "english": "map"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "확인",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "확인",
+        "first": "확",
+        "last": "인",
+        "level": "A1",
+        "german": "Bestätigen",
+        "topic": "",
+        "next_count": 31,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Bestätigung",
+        "english": "confirmation"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "파티",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "파티",
+        "first": "파",
+        "last": "티",
+        "level": "A1",
+        "german": "Party",
+        "topic": "",
+        "next_count": 1,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Party",
+        "english": "party"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "미스터",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "미스터",
+        "first": "미",
+        "last": "터",
+        "level": "A1",
+        "german": "Herr",
+        "topic": "",
+        "next_count": 3,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Mister / Herr",
+        "english": "mister; Mr."
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "살인",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "살인",
+        "first": "살",
+        "last": "인",
+        "level": "A1",
+        "german": "Mord",
+        "topic": "",
+        "next_count": 31,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Mord",
+        "english": "murder"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "우선",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "우선",
+        "first": "우",
+        "last": "선",
+        "level": "A1",
+        "german": "Zunächst einmal",
+        "topic": "",
+        "next_count": 10,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "심장",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "심장",
+        "first": "심",
+        "last": "장",
+        "level": "A1",
+        "german": "Herz",
+        "topic": "",
+        "next_count": 17,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Herz",
+        "english": "heart"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "고양이",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "고양이",
+        "first": "고",
+        "last": "이",
+        "level": "A1",
+        "german": "Katze",
+        "topic": "",
+        "next_count": 48,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Katze",
+        "english": "cat"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "동생",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "동생",
+        "first": "동",
+        "last": "생",
+        "level": "A1",
+        "german": "jüngerer Bruder",
+        "topic": "",
+        "next_count": 12,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "jüngeres Geschwister",
+        "english": "younger sibling"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "적도",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "적도",
+        "first": "적",
+        "last": "도",
+        "level": "A1",
+        "german": "Äquator",
+        "topic": "",
+        "next_count": 16,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Äquator",
+        "english": "equator"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "다리",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "다리",
+        "first": "다",
+        "last": "리",
+        "level": "A1",
+        "german": "Bein",
+        "topic": "Körper",
+        "next_count": 11,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Bein; Brücke",
+        "english": "leg; bridge"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "주면",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "주면",
+        "first": "주",
+        "last": "면",
+        "level": "A1",
+        "german": "wenn",
+        "topic": "",
+        "next_count": 5,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "릴리",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "릴리",
+        "first": "릴",
+        "last": "리",
+        "level": "A1",
+        "german": "Lily",
+        "topic": "",
+        "next_count": 11,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "카메라",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "카메라",
+        "first": "카",
+        "last": "라",
+        "level": "A1",
+        "german": "Kamera",
+        "topic": "",
+        "next_count": 6,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Kamera",
+        "english": "camera"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "만나",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "만나",
+        "first": "만",
+        "last": "나",
+        "level": "A1",
+        "german": "Treffen",
+        "topic": "",
+        "next_count": 20,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "마크",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "마크",
+        "first": "마",
+        "last": "크",
+        "level": "A1",
+        "german": "Mark",
+        "topic": "",
+        "next_count": 6,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "게임",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "게임",
+        "first": "게",
+        "last": "임",
+        "level": "A1",
+        "german": "Spiel",
+        "topic": "",
+        "next_count": 5,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Spiel",
+        "english": "game"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "강한",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "강한",
+        "first": "강",
+        "last": "한",
+        "level": "A1",
+        "german": "stark",
+        "topic": "",
+        "next_count": 14,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "수정",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "수정",
+        "first": "수",
+        "last": "정",
+        "level": "A1",
+        "german": "Änderung",
+        "topic": "",
+        "next_count": 19,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Korrektur; Änderung",
+        "english": "correction; revision"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "클라라",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "클라라",
+        "first": "클",
+        "last": "라",
+        "level": "A1",
+        "german": "Clara",
+        "topic": "",
+        "next_count": 6,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "삼촌",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "삼촌",
+        "first": "삼",
+        "last": "촌",
+        "level": "A1",
+        "german": "Onkel",
+        "topic": "",
+        "next_count": 0,
+        "is_dead_end": true
+      },
+      "copy": {
+        "german": "Onkel",
+        "english": "uncle"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "질문",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "질문",
+        "first": "질",
+        "last": "문",
+        "level": "A1",
+        "german": "Frage",
+        "topic": "",
+        "next_count": 8,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Frage",
+        "english": "question"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "아파",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "아파",
+        "first": "아",
+        "last": "파",
+        "level": "A1",
+        "german": "Es tut weh",
+        "topic": "",
+        "next_count": 15,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "에서",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "에서",
+        "first": "에",
+        "last": "서",
+        "level": "A1",
+        "german": "in",
+        "topic": "",
+        "next_count": 11,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "글로리아",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "글로리아",
+        "first": "글",
+        "last": "아",
+        "level": "A1",
+        "german": "Gloria",
+        "topic": "",
+        "next_count": 45,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "즉시",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "즉시",
+        "first": "즉",
+        "last": "시",
+        "level": "A1",
+        "german": "Sofort",
+        "topic": "",
+        "next_count": 35,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "시작",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "시작",
+        "first": "시",
+        "last": "작",
+        "level": "A1",
+        "german": "Start",
+        "topic": "",
+        "next_count": 8,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Beginn; Start",
+        "english": "beginning; start"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "나머지",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "나머지",
+        "first": "나",
+        "last": "지",
+        "level": "A1",
+        "german": "der Rest",
+        "topic": "",
+        "next_count": 28,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Rest",
+        "english": "remainder; rest"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "도와",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "도와",
+        "first": "도",
+        "last": "와",
+        "level": "A1",
+        "german": "Hilfe",
+        "topic": "",
+        "next_count": 8,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "요원",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "요원",
+        "first": "요",
+        "last": "원",
+        "level": "A1",
+        "german": "Agent",
+        "topic": "",
+        "next_count": 7,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Agent/in; Einsatzkraft",
+        "english": "agent; operative"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "나올",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "나올",
+        "first": "나",
+        "last": "올",
+        "level": "A1",
+        "german": "erscheinen",
+        "topic": "",
+        "next_count": 2,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "무지",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "무지",
+        "first": "무",
+        "last": "지",
+        "level": "A1",
+        "german": "Unwissenheit",
+        "topic": "",
+        "next_count": 28,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Unwissenheit",
+        "english": "ignorance"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "회사",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "회사",
+        "first": "회",
+        "last": "사",
+        "level": "A2",
+        "german": "Firma / Unternehmen",
+        "topic": "Beruf",
+        "next_count": 41,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Firma; Unternehmen",
+        "english": "company; firm"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "선물",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "선물",
+        "first": "선",
+        "last": "물",
+        "level": "A1",
+        "german": "Geschenk",
+        "topic": "",
+        "next_count": 5,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Geschenk",
+        "english": "gift"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "건배",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "건배",
+        "first": "건",
+        "last": "배",
+        "level": "A1",
+        "german": "Prost",
+        "topic": "",
+        "next_count": 12,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Trinkspruch; Prost",
+        "english": "toast; cheers"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "검사",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "검사",
+        "first": "검",
+        "last": "사",
+        "level": "A1",
+        "german": "Prüfung",
+        "topic": "",
+        "next_count": 41,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Untersuchung; Kontrolle; Staatsanwalt/Staatsanwältin",
+        "english": "inspection; examination; prosecutor"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "나만",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "나만",
+        "first": "나",
+        "last": "만",
+        "level": "A1",
+        "german": "Nur ich",
+        "topic": "",
+        "next_count": 6,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "관해",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "관해",
+        "first": "관",
+        "last": "해",
+        "level": "A1",
+        "german": "In diesem Zusammenhang",
+        "topic": "",
+        "next_count": 20,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "해라",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "해라",
+        "first": "해",
+        "last": "라",
+        "level": "A1",
+        "german": "Mach es",
+        "topic": "",
+        "next_count": 6,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "거란",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "거란",
+        "first": "거",
+        "last": "란",
+        "level": "A1",
+        "german": "Khitan",
+        "topic": "",
+        "next_count": 0,
+        "is_dead_end": true
+      },
+      "reason": "This is a historical ethnonym, not usable A1 core vocabulary for this word-chain prompt. The exclusion does not dispute its dictionary validity."
+    },
+    {
+      "word": "오후",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "오후",
+        "first": "오",
+        "last": "후",
+        "level": "A1",
+        "german": "Nachmittag",
+        "topic": "",
+        "next_count": 9,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Nachmittag",
+        "english": "afternoon"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "바람",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "바람",
+        "first": "바",
+        "last": "람",
+        "level": "A1",
+        "german": "Wind",
+        "topic": "",
+        "next_count": 0,
+        "is_dead_end": true
+      },
+      "copy": {
+        "german": "Wind",
+        "english": "wind"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "전하",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "전하",
+        "first": "전",
+        "last": "하",
+        "level": "A1",
+        "german": "Eure Hoheit",
+        "topic": "",
+        "next_count": 29,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Eure Hoheit",
+        "english": "Your Highness"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "발사",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "발사",
+        "first": "발",
+        "last": "사",
+        "level": "A1",
+        "german": "Start",
+        "topic": "",
+        "next_count": 41,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Start; Abschuss",
+        "english": "launch; firing"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "물이",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "물이",
+        "first": "물",
+        "last": "이",
+        "level": "A1",
+        "german": "Wasser",
+        "topic": "",
+        "next_count": 48,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "종일",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "종일",
+        "first": "종",
+        "last": "일",
+        "level": "A1",
+        "german": "den ganzen Tag",
+        "topic": "",
+        "next_count": 25,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "den ganzen Tag",
+        "english": "all day"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "레이",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "레이",
+        "first": "레",
+        "last": "이",
+        "level": "A1",
+        "german": "Ray",
+        "topic": "",
+        "next_count": 48,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "점심",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "점심",
+        "first": "점",
+        "last": "심",
+        "level": "A1",
+        "german": "Mittag / Mittagessen",
+        "topic": "Zeit",
+        "next_count": 5,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Mittagessen",
+        "english": "lunch"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "최고",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "최고",
+        "first": "최",
+        "last": "고",
+        "level": "A1",
+        "german": "Am besten",
+        "topic": "",
+        "next_count": 23,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "das Beste; Höchstwert",
+        "english": "the best; highest"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "가라",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "가라",
+        "first": "가",
+        "last": "라",
+        "level": "A1",
+        "german": "Geh!",
+        "topic": "",
+        "next_count": 6,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "리가",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "리가",
+        "first": "리",
+        "last": "가",
+        "level": "A1",
+        "german": "Riga",
+        "topic": "",
+        "next_count": 45,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "도시",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "도시",
+        "first": "도",
+        "last": "시",
+        "level": "A1",
+        "german": "Stadt",
+        "topic": "",
+        "next_count": 35,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Stadt",
+        "english": "city"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "아래",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "아래",
+        "first": "아",
+        "last": "래",
+        "level": "A1",
+        "german": "unten / unter",
+        "topic": "Position",
+        "next_count": 0,
+        "is_dead_end": true
+      },
+      "copy": {
+        "german": "unten; unterhalb",
+        "english": "below; under"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "자리",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "자리",
+        "first": "자",
+        "last": "리",
+        "level": "A1",
+        "german": "Platz",
+        "topic": "",
+        "next_count": 11,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Platz; Sitzplatz",
+        "english": "place; seat"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "저의",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "저의",
+        "first": "저",
+        "last": "의",
+        "level": "A1",
+        "german": "Mein",
+        "topic": "",
+        "next_count": 17,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "명의",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "명의",
+        "first": "명",
+        "last": "의",
+        "level": "A1",
+        "german": "Anzahl",
+        "topic": "",
+        "next_count": 17,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "자막",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "자막",
+        "first": "자",
+        "last": "막",
+        "level": "A1",
+        "german": "Untertitel",
+        "topic": "",
+        "next_count": 2,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Untertitel",
+        "english": "subtitles"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "냄새",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "냄새",
+        "first": "냄",
+        "last": "새",
+        "level": "A1",
+        "german": "Geruch",
+        "topic": "",
+        "next_count": 2,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Geruch",
+        "english": "smell"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "갈래",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "갈래",
+        "first": "갈",
+        "last": "래",
+        "level": "A1",
+        "german": "Zweig",
+        "topic": "",
+        "next_count": 0,
+        "is_dead_end": true
+      },
+      "copy": {
+        "german": "Zweig; Ast",
+        "english": "branch; twig"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "아내",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "아내",
+        "first": "아",
+        "last": "내",
+        "level": "A1",
+        "german": "Ehefrau",
+        "topic": "Familie",
+        "next_count": 13,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Ehefrau",
+        "english": "wife"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "무기",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "무기",
+        "first": "무",
+        "last": "기",
+        "level": "A1",
+        "german": "Waffen",
+        "topic": "",
+        "next_count": 25,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Waffe",
+        "english": "weapon"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "지역",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "지역",
+        "first": "지",
+        "last": "역",
+        "level": "A1",
+        "german": "Region",
+        "topic": "",
+        "next_count": 4,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Region; Gebiet",
+        "english": "region; area"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "폐하",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "폐하",
+        "first": "폐",
+        "last": "하",
+        "level": "A1",
+        "german": "Eure Majestät",
+        "topic": "",
+        "next_count": 29,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Eure Majestät",
+        "english": "Your Majesty"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "인생",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "인생",
+        "first": "인",
+        "last": "생",
+        "level": "A1",
+        "german": "Das Leben",
+        "topic": "",
+        "next_count": 12,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Leben",
+        "english": "life"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "최근",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "최근",
+        "first": "최",
+        "last": "근",
+        "level": "A1",
+        "german": "In letzter Zeit",
+        "topic": "",
+        "next_count": 5,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "경우",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "경우",
+        "first": "경",
+        "last": "우",
+        "level": "A1",
+        "german": "Fall",
+        "topic": "",
+        "next_count": 10,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Fall; Situation",
+        "english": "case; situation"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "안해",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "안해",
+        "first": "안",
+        "last": "해",
+        "level": "A1",
+        "german": "Nicht",
+        "topic": "",
+        "next_count": 20,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "가기",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "가기",
+        "first": "가",
+        "last": "기",
+        "level": "A1",
+        "german": "Weiter",
+        "topic": "",
+        "next_count": 25,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "전쟁",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "전쟁",
+        "first": "전",
+        "last": "쟁",
+        "level": "A1",
+        "german": "Krieg",
+        "topic": "",
+        "next_count": 0,
+        "is_dead_end": true
+      },
+      "copy": {
+        "german": "Krieg",
+        "english": "war"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "손이",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "손이",
+        "first": "손",
+        "last": "이",
+        "level": "A1",
+        "german": "Hand",
+        "topic": "",
+        "next_count": 48,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "장난",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "장난",
+        "first": "장",
+        "last": "난",
+        "level": "A1",
+        "german": "Scherz",
+        "topic": "",
+        "next_count": 2,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Scherz; Streich",
+        "english": "joke; prank"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "스콧",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "스콧",
+        "first": "스",
+        "last": "콧",
+        "level": "A1",
+        "german": "Scott",
+        "topic": "",
+        "next_count": 0,
+        "is_dead_end": true
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "쿠키",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "쿠키",
+        "first": "쿠",
+        "last": "키",
+        "level": "A1",
+        "german": "Cookies",
+        "topic": "",
+        "next_count": 2,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Keks; Cookie",
+        "english": "cookie"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "카라",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "카라",
+        "first": "카",
+        "last": "라",
+        "level": "A1",
+        "german": "Kara",
+        "topic": "",
+        "next_count": 6,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "담배",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "담배",
+        "first": "담",
+        "last": "배",
+        "level": "A1",
+        "german": "Zigaretten",
+        "topic": "",
+        "next_count": 12,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Zigarette; Tabak",
+        "english": "cigarette; tobacco"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "전해",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "전해",
+        "first": "전",
+        "last": "해",
+        "level": "A1",
+        "german": "Elektrolyse",
+        "topic": "",
+        "next_count": 20,
+        "is_dead_end": false
+      },
+      "reason": "The displayed “Elektrolyse” gloss does not establish a usable stand-alone noun sense for this word-chain prompt."
+    },
+    {
+      "word": "찰리",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "찰리",
+        "first": "찰",
+        "last": "리",
+        "level": "A1",
+        "german": "Charlie",
+        "topic": "",
+        "next_count": 11,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "영국",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "영국",
+        "first": "영",
+        "last": "국",
+        "level": "A1",
+        "german": "Großbritannien",
+        "topic": "",
+        "next_count": 5,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Vereinigtes Königreich (UK)",
+        "english": "United Kingdom (UK)"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "매번",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "매번",
+        "first": "매",
+        "last": "번",
+        "level": "A1",
+        "german": "Jedes Mal",
+        "topic": "",
+        "next_count": 6,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "jedes Mal",
+        "english": "every time"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "보스",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "보스",
+        "first": "보",
+        "last": "스",
+        "level": "A1",
+        "german": "Boss",
+        "topic": "",
+        "next_count": 25,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Boss",
+        "english": "boss"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "오신",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "오신",
+        "first": "오",
+        "last": "신",
+        "level": "A1",
+        "german": "Ankunft",
+        "topic": "",
+        "next_count": 20,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "말로",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "말로",
+        "first": "말",
+        "last": "로",
+        "level": "A1",
+        "german": "mit Worten",
+        "topic": "",
+        "next_count": 13,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "가방",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "가방",
+        "first": "가",
+        "last": "방",
+        "level": "A1",
+        "german": "Tasche",
+        "topic": "",
+        "next_count": 11,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Tasche",
+        "english": "bag"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "개가",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "개가",
+        "first": "개",
+        "last": "가",
+        "level": "A1",
+        "german": "Der Hund",
+        "topic": "",
+        "next_count": 45,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "뉴욕",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "뉴욕",
+        "first": "뉴",
+        "last": "욕",
+        "level": "A1",
+        "german": "New York",
+        "topic": "",
+        "next_count": 1,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "우와",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "우와",
+        "first": "우",
+        "last": "와",
+        "level": "A1",
+        "german": "Wow",
+        "topic": "",
+        "next_count": 8,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "물건",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "물건",
+        "first": "물",
+        "last": "건",
+        "level": "A1",
+        "german": "Gegenstand",
+        "topic": "",
+        "next_count": 8,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Gegenstand; Sache",
+        "english": "object; thing"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "금지",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "금지",
+        "first": "금",
+        "last": "지",
+        "level": "A1",
+        "german": "Verbot",
+        "topic": "",
+        "next_count": 28,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Verbot",
+        "english": "prohibition; ban"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "마을",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "마을",
+        "first": "마",
+        "last": "을",
+        "level": "A1",
+        "german": "Dorf",
+        "topic": "",
+        "next_count": 0,
+        "is_dead_end": true
+      },
+      "copy": {
+        "german": "Dorf",
+        "english": "village"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "누나",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "누나",
+        "first": "누",
+        "last": "나",
+        "level": "A1",
+        "german": "ältere Schwester (Sicht des Mannes)",
+        "topic": "Familie",
+        "next_count": 20,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "ältere Schwester (aus Sicht eines Mannes)",
+        "english": "older sister (said by a man)"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "계신",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "계신",
+        "first": "계",
+        "last": "신",
+        "level": "A1",
+        "german": "anwesend",
+        "topic": "",
+        "next_count": 20,
+        "is_dead_end": false
+      },
+      "reason": "The entry is a conjugated form, case-marked fragment, adverb, interjection, or a proper name; it is not a stand-alone noun prompt for the word-chain game. Its independent dictionary spelling is not being invalidated."
+    },
+    {
+      "word": "아가야",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "아가야",
+        "first": "아",
+        "last": "야",
+        "level": "A1",
+        "german": "Mein Kind",
+        "topic": "",
+        "next_count": 6,
+        "is_dead_end": false
+      },
+      "reason": "This is an address form (“아가” plus a vocative ending), not a stand-alone noun prompt for the learner word pool."
+    },
+    {
+      "word": "자가",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "자가",
+        "first": "자",
+        "last": "가",
+        "level": "A1",
+        "german": "Selbst",
+        "topic": "",
+        "next_count": 45,
+        "is_dead_end": false
+      },
+      "reason": "The displayed “Selbst” gloss does not match a stand-alone noun sense here; the syllable string commonly functions as a bound noun suffix."
     }
   ]
 }

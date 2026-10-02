@@ -13164,9 +13164,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/content_audit_manifest.json": {
-    "mtime": 1790954641.9466677,
-    "seen": 1790960099.681994,
-    "ast_hash": "96960a838ce2d8427c17b27ec0966296",
+    "mtime": 1790961674.9930847,
+    "seen": 1790963302.295712,
+    "ast_hash": "65977890e5f8c9a6ec9aec4427a99438",
     "semantic_hash": ""
   },
   "docs/store/firebase-backend-release-gates.md": {
@@ -13326,9 +13326,9 @@
     "semantic_hash": ""
   },
   "functions/tts/canonical_manifest.json": {
-    "mtime": 1790960183.6383088,
-    "seen": 1790961064.242511,
-    "ast_hash": "4a6b98174c4ac478bf5ec9b0a5fb1051",
+    "mtime": 1790961612.0489528,
+    "seen": 1790963302.2584739,
+    "ast_hash": "16630c9db6af046a0205d491cf31fbd5",
     "semantic_hash": ""
   },
   "functions/tts/privacy_migration.js": {
@@ -20802,9 +20802,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/review/kkeunmari_editorial_revisions_20261002.json": {
-    "mtime": 1790954331.291065,
-    "seen": 1790954514.469932,
-    "ast_hash": "0263b0a47e7dfd6a58488d53f12d6a2f",
+    "mtime": 1790961549.752641,
+    "seen": 1790963302.306227,
+    "ast_hash": "ba515a4145145d9b27a753ed115f5ffd",
     "semantic_hash": ""
   },
   "tools/content_factory/smalltalk_editorial_revisions.py": {
