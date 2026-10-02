@@ -1026,22 +1026,23 @@
         "en": "Jun"
       },
       "voice": "male",
-      "ageGroup": "child",
+      "ageGroup": "teenager",
       "background": {
         "origin": "한국",
-        "role": "초등학교 3학년 학생",
-        "relativeAge": "9세",
+        "role": "고등학교 1학년 학생",
+        "relativeAge": "16세",
         "family": "안드레아·민호의 아들",
         "languages": "독일어·한국어 이중언어"
       },
       "personality": [
         "호기심이 많다",
-        "숫자와 게임을 좋아한다",
-        "엄마 앞에서는 응석을 부린다"
+        "코딩과 게임을 좋아한다",
+        "자기 의견을 말하지만 부모와 타협도 배운다"
       ],
       "writerHints": [
-        "어른스러운 문장을 쓰지 않는다",
-        "엄마에게만 독일어를 섞는다"
+        "16세·고1의 학교·친구·취미·가족 생활을 중심으로 쓴다",
+        "대학 과제·직장 업무·교수 상담의 화자를 대신하지 않는다",
+        "엄마와의 친밀한 대화에서는 가끔 독일어를 섞는다"
       ],
       "mbtiHint": {
         "value": "ENTP",
@@ -1049,14 +1050,15 @@
       },
       "interests": [
         "게임",
+        "코딩",
         "축구",
-        "레고",
-        "숫자 세기"
+        "음악",
+        "학교 동아리"
       ],
       "relationships": {
         "andrea": "엄마",
         "minho": "아빠",
-        "christian": "코딩과 게임 얘기를 나누는 놀이 상대"
+        "christian": "코딩과 게임 이야기를 나누는 가까운 지인"
       },
       "speechStyle": {
         "ko": {
@@ -1067,16 +1069,17 @@
             "숫자·게임 얘기"
           ],
           "sentenceHabits": [
-            "엄마에게는 독일어를 섞어 말한다(DE 예문에서만)",
-            "어른 어휘를 쓰지 않는다",
-            "부모·크리스티안에게만, A2부터 반말을 쓴다; A1은 해요체나 감탄사만 쓴다"
+            "엄마와의 대화에서는 가끔 독일어를 섞는다(DE 예문에서만)",
+            "또래에게는 자연스러운 반말, 낯선 어른과 교사에게는 해요체를 쓴다",
+            "문장 난도는 학습 레벨에 맞추고 아기 말투를 쓰지 않는다"
           ],
           "avoid": [
-            "어른 어휘"
+            "아기 말투",
+            "대학생·직장인의 책임을 맡기는 설정"
           ]
         },
         "de": {
-          "baseRegister": "kindlich, Deutsch-Koreanisch gemischt",
+          "baseRegister": "jugendlich, locker; mit seiner Mutter gelegentlich Deutsch",
           "markers": [
             "Warum?",
             "Echt?",
@@ -1086,11 +1089,12 @@
             "kurze, einfache Sätze"
           ],
           "avoid": [
-            "Erwachsenenwortschatz"
+            "Babysprache",
+            "Universitäts- oder Berufsrolle"
           ]
         },
         "en": {
-          "baseRegister": "childlike, short sentences",
+          "baseRegister": "casual and concise; occasionally mixes German with his mom",
           "markers": [
             "Why?",
             "Really?",
@@ -1100,7 +1104,8 @@
             "mixes German only when talking to his mom"
           ],
           "avoid": [
-            "adult vocabulary"
+            "baby talk",
+            "university or workplace role"
           ]
         },
         "byLevel": {
@@ -1803,8 +1808,8 @@
           "residence": "수원"
         },
         "jun": {
-          "age": 9,
-          "role": "초등학교 3학년 학생",
+          "age": 16,
+          "role": "고등학교 1학년 학생",
           "residence": "서울"
         }
       },

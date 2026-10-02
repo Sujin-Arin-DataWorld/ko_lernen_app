@@ -1,3 +1,4 @@
+import hashlib
 import json
 import io
 import os
@@ -5,6 +6,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 
 sys.path.insert(0, os.path.dirname(__file__))
@@ -161,10 +163,25 @@ class TtsGeneratorContractTest(unittest.TestCase):
         self.assertEqual(manifest["cacheRevision"], "v3")
         self.assertEqual(manifest["scenarioCount"], 178)
         self.assertEqual(len(manifest["items"]), 178)
-        # Task 7 (지시서 4.4 / 스윕 tts-07), W10 Wave 2로 178편 갱신: 176개
-        # 유니크 첫 문장 mp3가 실제로 assets/tts/v3/ 에 다운로드돼 커밋됐다 —
-        # 178개 항목(2개가 같은 storagePath 공유) 전부 bundled:true 여야 한다.
-        self.assertEqual(manifest["bundledCount"], 178)
+        # The persona-reviewed corpus has seven explicit remote fallbacks.
+        # Every other first line must retain its exact committed bundle bytes.
+        self.assertEqual(manifest["bundledCount"], 171)
+        fallback_ids = {
+            "a1_w10_partner",
+            "a2_w10_partner",
+            "b1_w10_form",
+            "b2_w10_health",
+            "b2_w10_privacy",
+            "c1_theme_park_date_next_time",
+            "c2_w10_jurisdiction",
+        }
+        self.assertEqual(
+            {item["scenarioId"] for item in manifest["items"] if not item["bundled"]},
+            fallback_ids,
+        )
+        bundled = [item for item in manifest["items"] if item["bundled"]]
+        self.assertEqual(len(bundled), 171)
+        self.assertEqual(len({item["bundledAssetPath"] for item in bundled}), 169)
         ids = [item["scenarioId"] for item in manifest["items"]]
         self.assertEqual(len(ids), len(set(ids)))
         order = [
@@ -186,20 +203,27 @@ class TtsGeneratorContractTest(unittest.TestCase):
         self.assertTrue(
             all(len(item["sourceSha256"]) == 64 for item in manifest["items"])
         )
-        self.assertTrue(all(item["bundled"] for item in manifest["items"]))
         self.assertTrue(
             all(
                 item["bundledAssetPath"] is not None
                 and item["bundledAssetPath"].startswith("assets/tts/v3/")
-                for item in manifest["items"]
+                for item in bundled
             )
         )
         self.assertTrue(
             all(
                 item["bundledSha256"] is not None and len(item["bundledSha256"]) == 64
-                for item in manifest["items"]
+                for item in bundled
             )
         )
+        for item in bundled:
+            asset = Path(generate_tts.ROOT) / item["bundledAssetPath"]
+            self.assertTrue(asset.is_file(), item["scenarioId"])
+            self.assertEqual(
+                hashlib.sha256(asset.read_bytes()).hexdigest(),
+                item["bundledSha256"],
+                item["scenarioId"],
+            )
 
     def test_first_line_manifest_selects_first_dialog_and_legacy_voice_rule(self):
         payload = {

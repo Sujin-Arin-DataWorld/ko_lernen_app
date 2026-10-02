@@ -29,6 +29,9 @@ class SoriButton extends StatelessWidget {
   final String? semanticLabel;
   final IconData? icon;
 
+  /// A tactile object emblem, used only when it describes this action.
+  final String? illustrationAsset;
+
   /// 라벨 **뒤**에 붙는 아이콘. 방향성이 있는 액션("Weiter →")에서 다음 단계로
   /// 간다는 의미를 아이콘으로 한 번 더 준다. [icon]과 동시 사용 가능.
   final IconData? trailingIcon;
@@ -52,6 +55,7 @@ class SoriButton extends StatelessWidget {
     required this.label,
     this.semanticLabel,
     this.icon,
+    this.illustrationAsset,
     this.trailingIcon,
     this.onTap,
     this.variant = SoriButtonVariant.filled,
@@ -69,6 +73,7 @@ class SoriButton extends StatelessWidget {
     required this.label,
     this.semanticLabel,
     this.icon,
+    this.illustrationAsset,
     this.trailingIcon,
     this.onTap,
     this.size = SoriButtonSize.lg,
@@ -86,6 +91,7 @@ class SoriButton extends StatelessWidget {
     required this.label,
     this.semanticLabel,
     this.icon,
+    this.illustrationAsset,
     this.trailingIcon,
     this.onTap,
     this.size = SoriButtonSize.md,
@@ -103,6 +109,7 @@ class SoriButton extends StatelessWidget {
     required this.label,
     this.semanticLabel,
     this.icon,
+    this.illustrationAsset,
     this.trailingIcon,
     this.onTap,
     this.size = SoriButtonSize.md,
@@ -118,7 +125,7 @@ class SoriButton extends StatelessWidget {
   double get _height => switch (size) {
     SoriButtonSize.lg => 56,
     SoriButtonSize.md => 48,
-    SoriButtonSize.sm => 40,
+    SoriButtonSize.sm => 48,
   };
 
   double get _fontSize => switch (size) {
@@ -145,7 +152,8 @@ class SoriButton extends StatelessWidget {
     final isLight = s.brightness == Brightness.light;
     final disabled = onTap == null;
     final comfortScale = soriComfortScale(MediaQuery.sizeOf(context).width);
-    final visualHeight = _height * comfortScale;
+    final visualHeight =
+        (illustrationAsset != null ? 64 : _height) * comfortScale;
     // 글자 배율은 SoriTypeScale(MaterialApp.builder) 이 유일하게 담당한다 —
     // 여기서 곱하면 comfort 가 두 번 겹친다(2026-08-19).
     final visualFontSize = _fontSize;
@@ -206,8 +214,38 @@ class SoriButton extends StatelessWidget {
             mainAxisSize: fullWidth ? MainAxisSize.max : MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              if (illustrationAsset != null) ...[
+                Container(
+                  width: 42,
+                  height: 42,
+                  padding: const EdgeInsets.all(3),
+                  decoration: BoxDecoration(
+                    color: SoriColors.lightBg,
+                    borderRadius: SoriRadius.brSm,
+                  ),
+                  child: Image.asset(
+                    illustrationAsset!,
+                    fit: BoxFit.contain,
+                    excludeFromSemantics: true,
+                  ),
+                ),
+                const SizedBox(width: Spacing.sm),
+              ],
               if (icon != null) ...[
-                Icon(icon, size: visualFontSize + 3 * comfortScale, color: fg),
+                Container(
+                  padding: const EdgeInsets.all(5),
+                  decoration: variant == SoriButtonVariant.filled
+                      ? BoxDecoration(
+                          color: fg.withValues(alpha: .13),
+                          shape: BoxShape.circle,
+                        )
+                      : null,
+                  child: Icon(
+                    icon,
+                    size: visualFontSize + 3 * comfortScale,
+                    color: fg,
+                  ),
+                ),
                 SizedBox(width: Spacing.sm * comfortScale),
               ],
               Flexible(
@@ -290,6 +328,10 @@ class SoriButton extends StatelessWidget {
       child: SoriPressable(
         onTap: loading ? null : onTap,
         haptic: feedbackOnTap ? SoriHaptic.selection : null,
+        pressScale: .99,
+        surfaceDepth: variant == SoriButtonVariant.filled ? 4 : 0,
+        surfaceRadius: _radius * comfortScale,
+        surfaceEdgeColor: Color.lerp(bg, SoriColors.lightText, .45),
         child: wrapped,
       ),
     );

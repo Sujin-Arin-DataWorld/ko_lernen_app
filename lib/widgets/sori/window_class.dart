@@ -169,6 +169,12 @@ abstract final class SoriAdaptiveWidth {
   /// The featured catalog's 128dp artwork fits beside its title and description.
   static const double catalogFeaturedRow = 285;
 
+  /// Two image shortcuts need readable titles after their inner padding.
+  static const double catalogShortcutGrid = 260;
+
+  /// Compact catalog cards stack artwork before long German labels.
+  static const double catalogCardArtRow = 240;
+
   /// Learning-focus artwork and the mission title share a readable content row.
   static const double learningFocusHeroRow = 300;
 

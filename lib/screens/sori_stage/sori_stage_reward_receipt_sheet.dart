@@ -12,6 +12,9 @@ import '../../widgets/sori/hanok_v3_preview.dart';
 import '../../widgets/sori/reward_icon.dart';
 import '../../widgets/sori/sheet.dart';
 import '../../widgets/sori/tokens.dart';
+import '../../widgets/sori/activity_illustration.dart';
+import '../../widgets/sori/mascot.dart';
+import '../../widgets/sori/motion.dart';
 import 'sori_stage_common.dart';
 
 class SoriStageRewardReceiptSheet extends StatefulWidget {
@@ -132,6 +135,25 @@ class _SoriStageRewardReceiptSheetState
                 if (receipt.items.any(
                   (item) => item.kind == SoriRewardKind.yeopjeon,
                 )) ...[
+                  SoriEntrance(
+                    duration: SoriMotion.slow,
+                    slideY: 6,
+                    startScale: .99,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: SoriActivityColors.actionGold,
+                        borderRadius: SoriRadius.brLg,
+                      ),
+                      padding: const EdgeInsets.all(Spacing.lg),
+                      child: Image.asset(
+                        SoriArtwork.yeopjeon,
+                        height: 160,
+                        fit: BoxFit.contain,
+                        excludeFromSemantics: true,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: Spacing.md),
                   Text(
                     t.yeopjeonEarned(
                       receipt.items
@@ -221,10 +243,16 @@ class _SoriStageRewardReceiptSheetState
                     },
                   ),
                 ],
-                for (final item in receipt.items) _RewardLine(item: item),
+                for (final item in receipt.items.where(
+                  (item) => item.kind != SoriRewardKind.yeopjeon,
+                ))
+                  _RewardLine(item: item),
+                const SizedBox(height: Spacing.md),
+                const SoriCultureComment(role: SoriCulturalRole.haechi),
                 const SizedBox(height: Spacing.lg),
                 SoriButton(
                   label: t.soriStageReceiptContinue,
+                  trailingIcon: Icons.arrow_forward_rounded,
                   onTap: () => Navigator.pop(context),
                   fullWidth: true,
                 ),

@@ -5,6 +5,7 @@ import '../models/sori_stage_progression.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import '../widgets/sori/activity_illustration.dart';
 
 import '../controllers/listening_playback_controller.dart';
 import '../data/chaekgado_shelf.dart';
@@ -346,7 +347,7 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
                 height: 156,
                 width: double.infinity,
                 child: Image.asset(
-                  chaekgadoCardAsset(imageKey),
+                  SoriArtwork.card(chaekgadoCardAsset(imageKey)),
                   fit: BoxFit.contain,
                   errorBuilder: (_, _, _) => const Icon(
                     Icons.headphones_rounded,
@@ -382,6 +383,19 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
             label: t.listeningParticipants,
             value: speakers,
           ),
+          Wrap(
+            spacing: Spacing.sm,
+            runSpacing: Spacing.sm,
+            children: [
+              for (final speaker
+                  in _scenario.dialog.map((line) => line.speaker).toSet())
+                if (speaker != 'user' && SoriArtwork.person(speaker) != null)
+                  SoriPersonPortrait(
+                    id: speaker,
+                    label: _speakerName(t, speaker),
+                  ),
+            ],
+          ),
           if (_scenario.playerCharacterId.isNotEmpty) ...[
             const SizedBox(height: Spacing.sm),
             _IntroFact(
@@ -410,6 +424,7 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
       key: const ValueKey('listening-dialogue-start'),
       label: t.listeningDialogueStart,
       icon: Icons.play_arrow_rounded,
+      illustrationAsset: SoriArtwork.speaker,
       accent: SoriColors.contentCta,
       fullWidth: true,
       onTap: () {

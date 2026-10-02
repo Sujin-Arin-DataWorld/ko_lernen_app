@@ -13,7 +13,6 @@ import '../../models/feedback_completion.dart';
 import '../../models/quest.dart';
 import '../../models/sori_stage_progression.dart';
 import '../../services/decoration_reward_service.dart';
-import '../../services/palette_service.dart';
 import '../../services/sori_stage_progression_service.dart';
 import '../../services/sori_stage_reward_receipt_service.dart';
 import '../../services/storage_service.dart';
@@ -395,9 +394,9 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
           kind: kind,
           // teal kill-switch: 흰 배경 위 한지 매트 클립은 액자가 된다 →
           // 다크와 같은 정적 마스코트 경로로.
-          forceStatic:
-              widget.forceStaticHero ||
-              paletteVariantNotifier.value == PaletteVariant.teal,
+          // The approved tactile portrait replaces the old raster video
+          // appearance. Dignity is preserved through one restrained entrance.
+          forceStatic: true,
         );
       },
     );
@@ -517,6 +516,16 @@ class _TodayContent extends StatelessWidget {
           padding: padding,
           children: [
             header,
+            if (!todayUnavailable &&
+                !snapshot.walletUnavailable &&
+                snapshot.wallet != null)
+              Align(
+                alignment: Alignment.centerRight,
+                child: YeopjeonWalletBadge(
+                  wallet: snapshot.wallet!,
+                  onReturned: onRefresh,
+                ),
+              ),
             stagger(
               LearningFocusScope.maybeOf(context) != null
                   ? SoriLearningFocus(
@@ -644,7 +653,7 @@ class _TodayMissionStage extends StatelessWidget {
                 aspectRatio: 21 / 9,
                 child: Image.asset(
                   activityIllustrationAsset(entry.id),
-                  fit: BoxFit.cover,
+                  fit: BoxFit.contain,
                   errorBuilder: (_, _, _) => const SizedBox.shrink(),
                 ),
               ),
@@ -706,6 +715,10 @@ class _TodayMissionStage extends StatelessWidget {
                 ],
                 const SizedBox(height: Spacing.xl),
                 SoriButton(
+                  illustrationAsset: SoriArtwork.action(entry?.id ?? 'course'),
+                  trailingIcon: Icons.arrow_forward_rounded,
+                  accent: SoriActivityColors.actionGold,
+                  fullWidth: true,
                   // 제목이 이미 무엇인지 말한다 — CTA 는 "Starten" 한 단어.
                   // 미션이 없을 때는 기존 안내형 라벨 유지.
                   label: destination == null || entry == null
