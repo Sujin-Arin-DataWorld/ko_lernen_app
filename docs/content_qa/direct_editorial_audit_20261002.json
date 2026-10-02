@@ -36560,7 +36560,7 @@
       "learning_phases.json"
     ],
     "ttsBoundary": "Storage keys are complete; individual clip listening and device playback are not claimed.",
-    "scenarioPersonaReview": "A1: 29, A2: 28, B1: 31, and B2: 30 live scenarios directly reviewed. C1-C2: 60 live scenarios remain."
+    "scenarioPersonaReview": "A1: 29, A2: 28, B1: 31, B2: 30, and C1: 30 live scenarios directly reviewed. C2: 30 live scenarios remain."
   },
   "scenarioPersonaReviewProgress": {
     "reviewReference": "GitHub PR #438 merged as 797160b0664172b2956be0e202bb5df9b246b65c",
@@ -36870,6 +36870,10 @@
           {
             "scenarioId": "b2_w10_privacy",
             "decision": "The scene separates a deletion request, retention assessment, identity check, and notice of outcome; it does not promise deletion of every record."
+          },
+          {
+            "scenarioId": "b2_quest_alignment",
+            "decision": "The eight changed B2 in-scene listening and sentence-building records now use the revised dialogue as their Korean source and their German and English answer text; no superseded medication, visa, privacy, notice, or ride-safety line remains."
           }
         ],
         "retained": "The other 22 B2 scenes keep their current wording because their speaker goal, relationship, register, and KO-DE-EN meaning are appropriate to B2.",
@@ -36882,6 +36886,108 @@
           "remoteObjects": 21932,
           "missingObjects": 0,
           "staleObjects": 9007,
+          "humanListeningClaim": false,
+          "followUpQuestAlignment": {
+            "canonicalManifestRebuilt": true,
+            "firstLineManifestRebuilt": true,
+            "combinedB2C1StorageObjectsUploaded": 30,
+            "expectedCanonicalClips": 12924,
+            "remoteObjects": 21962,
+            "missingObjects": 0,
+            "staleObjects": 9038,
+            "humanListeningClaim": false
+          }
+        }
+      },
+      {
+        "level": "C1",
+        "status": "directly_reviewed",
+        "scenarioCount": 30,
+        "scenarioIds": [
+          "after_hours_messages",
+          "ai_interview_screening_transparency",
+          "ai_translation_voice_loss",
+          "anonymous_survey_trust",
+          "deepfake_verification",
+          "delivery_rider_safety_tradeoff",
+          "fan_translation_credit",
+          "gentrification_storefront",
+          "heatwave_shelter_access",
+          "kiosk_generation_access",
+          "museum_label_multiple_views",
+          "nightlife_noise_balance",
+          "platform_moderation_appeal",
+          "public_consultation_access",
+          "research_limits_presentation",
+          "school_phone_rule",
+          "tradition_reinterpreted_stage",
+          "training_data_copyright",
+          "workload_allocation_hidden_labor",
+          "youth_housing_plain_language",
+          "c1_theme_park_date_next_time",
+          "c1_w10_uncertainty",
+          "c1_w10_access",
+          "c1_w10_labor",
+          "c1_w10_conflict_interest",
+          "c1_w10_clinical",
+          "c1_w10_methodology",
+          "c1_w10_facework",
+          "c1_w10_friends",
+          "c1_w10_fandom"
+        ],
+        "reviewedFields": [
+          "Korean dialogue and tone",
+          "German and English localization",
+          "speaker relationship and register",
+          "vocabulary extraction",
+          "listening/translation/sentence-building answer alignment",
+          "linked listening-lesson prompt, evidence, answer, and explanation",
+          "academic, medical, institutional, privacy, consent, and persona claims"
+        ],
+        "findingsApplied": [
+          {
+            "scenarioId": "c1_theme_park_date_next_time",
+            "decision": "The intimate scene keeps its playful tone but now uses C1-level phrasing, a reciprocal future plan, and aligned dialogue, scenario tasks, and listening prompts."
+          },
+          {
+            "scenarioId": "c1_w10_uncertainty",
+            "decision": "A range and sample size are presented to support sound interpretation, not to promise that the client will face no later problems."
+          },
+          {
+            "scenarioId": "c1_w10_access",
+            "decision": "Maya requests the smallest necessary contract scope; a same-day review result is conditional rather than promised."
+          },
+          {
+            "scenarioId": "c1_w10_conflict_interest",
+            "decision": "Hyuna discloses the relationship and leaves every item related to that applicant to other reviewers; the remaining scope and procedure are recorded."
+          },
+          {
+            "scenarioId": "c1_w10_clinical",
+            "decision": "The research conversation separates known and unresolved risks, does not predict an individual outcome, and directs care and withdrawal questions to consent materials and the relevant care team."
+          },
+          {
+            "scenarioId": "c1_w10_facework",
+            "decision": "Andrea names a checkable data mismatch, recognizes the report’s actual strengths, and offers support without judging Maya’s overall ability or removing her agency."
+          },
+          {
+            "scenarioId": "c1_w10_friends",
+            "decision": "Sujin thanks Hyuna for the disclosure and proposes a shared cost arrangement rather than blaming or deciding for her."
+          },
+          {
+            "scenarioId": "c1_w10_fandom",
+            "decision": "The discussion centers consent, privacy, and a crossed boundary instead of labeling or reducing the person involved."
+          }
+        ],
+        "retained": "The other 22 C1 scenes keep their current wording because their speaker goal, relationship, register, level, and KO-DE-EN meaning are appropriate to C1.",
+        "notClaimed": "This is a direct editorial read, not independent native-speaker approval or individual audio listening.",
+        "tts": {
+          "canonicalManifestRebuilt": true,
+          "firstLineManifestRebuilt": true,
+          "combinedB2C1StorageObjectsUploaded": 30,
+          "expectedCanonicalClips": 12924,
+          "remoteObjects": 21962,
+          "missingObjects": 0,
+          "staleObjects": 9038,
           "humanListeningClaim": false
         }
       }

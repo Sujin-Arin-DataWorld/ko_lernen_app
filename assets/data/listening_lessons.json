@@ -21361,14 +21361,14 @@
       "level": "c1",
       "topicId": "c1_dating",
       "title": {
-        "ko": "다음에 올 이유",
+        "ko": "다음에 다시 올 이유",
         "de": "Ein Grund, wiederzukommen",
         "en": "A reason to come back"
       },
       "intro": {
-        "ko": "꼭 타고 싶었던 놀이기구가 운영하지 않는 듯합니다. 둘은 아쉬움을 다음 데이트 약속으로 바꿉니다.",
-        "de": "Eine Fahrt, die sie unbedingt ausprobieren wollten, scheint heute geschlossen zu sein. Aus der Enttäuschung wird ein Plan fürs nächste Date.",
-        "en": "A ride they really wanted to try seems to be closed. They turn the disappointment into a plan for their next date."
+        "ko": "꼭 타고 싶었던 놀이기구가 오늘은 운행하지 않는 듯합니다. 둘은 아쉬움을 다음 데이트 계획으로 바꿉니다.",
+        "de": "Eine Fahrt, die sie unbedingt ausprobieren wollten, scheint heute nicht in Betrieb zu sein. Sie verwandeln die Enttäuschung in einen Plan für ihr nächstes Date.",
+        "en": "A ride they really wanted to try seems not to be running today. They turn the disappointment into a plan for their next date."
       },
       "contentIds": [
         "c1_theme_park_date_next_time"
@@ -21384,29 +21384,29 @@
             "en": "Which interpretation preserves the conditions and intentions in the conversation?"
           },
           "explanation": {
-            "ko": "근거는 “괜찮아. 다음에 또 오자. 다시 올 이유가 생겼잖아.”예요. 따라서 “아쉬운 일을 다음에 다시 올 이유로 바꿔 받아들여요.”가 맞아요. “놀이기구가 닫혀서 다시는 오지 않기로 해요.”와 “크리스마스 마켓을 직접 확인했다고 말해요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „괜찮아. 다음에 또 오자. 다시 올 이유가 생겼잖아.“ (Macht nichts. Wir kommen wieder. Jetzt haben wir doch einen Grund dafür.). Daraus folgt: Die Enttäuschung wird zu einem Anlass für einen weiteren Besuch. Die Alternativen „Weil die Attraktion geschlossen ist, wollen sie nie wiederkommen.“ und „Sie sagen, den Weihnachtsmarkt selbst gesehen zu haben.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “괜찮아. 다음에 또 오자. 다시 올 이유가 생겼잖아.” (It's okay. Let's come back. Now we have a reason to.). This supports: They reframe the disappointment as a reason to visit again. The alternatives “The closed ride makes them decide never to return.” and “They say they have personally seen the Christmas market.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “기대했던 만큼 아쉽다. 그래도 다음에 다시 올 명분이 생긴 셈이네.”예요. 따라서 “아쉬움을 다음에 다시 만날 구체적인 이유로 바꿔 받아들여요.”가 맞아요. 다른 선택지는 대화의 조건이나 다음 행동을 바꿔요.",
+            "de": "Der Beleg lautet: „기대했던 만큼 아쉽다. 그래도 다음에 다시 올 명분이 생긴 셈이네.“ (Je mehr ich mich darauf gefreut habe, desto größer ist die Enttäuschung. Immerhin haben wir jetzt einen Anlass, wiederzukommen.). Deshalb ist „Die Enttäuschung wird in einen konkreten Anlass verwandelt, sich wiederzutreffen.“ richtig. Die anderen Optionen verändern Bedingungen oder den nächsten Schritt im Gespräch.",
+            "en": "The evidence is “기대했던 만큼 아쉽다. 그래도 다음에 다시 올 명분이 생긴 셈이네.” (The more I had looked forward to it, the more disappointing this is. Still, we now have a reason to come back.). This supports: “They turn the disappointment into a concrete reason to see each other again..” The other options change a condition or the next step in the conversation."
           },
           "sourceIds": [
             "c1_theme_park_date_next_time"
           ],
-          "evidenceKo": "괜찮아. 다음에 또 오자. 다시 올 이유가 생겼잖아.",
+          "evidenceKo": "기대했던 만큼 아쉽다. 그래도 다음에 다시 올 명분이 생긴 셈이네.",
           "options": [
             {
-              "ko": "아쉬운 일을 다음에 다시 올 이유로 바꿔 받아들여요.",
-              "de": "Die Enttäuschung wird zu einem Anlass für einen weiteren Besuch.",
-              "en": "They reframe the disappointment as a reason to visit again."
+              "ko": "아쉬움을 다음에 다시 만날 구체적인 이유로 바꿔 받아들여요.",
+              "de": "Die Enttäuschung wird in einen konkreten Anlass verwandelt, sich wiederzutreffen.",
+              "en": "They turn the disappointment into a concrete reason to see each other again."
             },
             {
               "ko": "놀이기구가 닫혀서 다시는 오지 않기로 해요.",
-              "de": "Weil die Attraktion geschlossen ist, wollen sie nie wiederkommen.",
-              "en": "The closed ride makes them decide never to return."
+              "de": "Weil die Fahrt geschlossen ist, beschließen sie, nie wiederzukommen.",
+              "en": "Because the ride is closed, they decide never to come back."
             },
             {
-              "ko": "크리스마스 마켓을 직접 확인했다고 말해요.",
-              "de": "Sie sagen, den Weihnachtsmarkt selbst gesehen zu haben.",
-              "en": "They say they have personally seen the Christmas market."
+              "ko": "크리스마스 마켓을 이미 직접 확인했다고 말해요.",
+              "de": "Sie sagen, dass sie den Weihnachtsmarkt bereits selbst gesehen haben.",
+              "en": "They say they have already seen the Christmas market in person."
             }
           ],
           "correctIndex": 0
@@ -21421,30 +21421,33 @@
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "들은 말은 “어, 뭐야. 오늘은 운영 안 하나 봐.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „어, 뭐야. 오늘은 운영 안 하나 봐.“: Oh, was ist denn? Die Fahrt scheint heute nicht in Betrieb zu sein. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “어, 뭐야. 오늘은 운영 안 하나 봐.”: Wait, what? It looks like the ride isn't running today. The other options represent different turns in this scene, with different content or conversational functions."
+            "ko": "들은 말은 “아쉽네. 오늘은 운행하지 않는 모양이야.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
+            "de": "Zu hören ist „아쉽네. 오늘은 운행하지 않는 모양이야.“: Schade. Sie scheint heute nicht in Betrieb zu sein.. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “아쉽네. 오늘은 운행하지 않는 모양이야.”: That is a shame. It seems not to be running today.. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "c1_theme_park_date_next_time"
           ],
-          "evidenceKo": "어, 뭐야. 오늘은 운영 안 하나 봐.",
-          "audioKo": "어, 뭐야. 오늘은 운영 안 하나 봐.",
+          "evidenceKo": "아쉽네. 오늘은 운행하지 않는 모양이야.",
+          "audioKo": "아쉽네. 오늘은 운행하지 않는 모양이야.",
           "options": [
             {
-              "ko": "어, 뭐야. 오늘은 운영 안 하나 봐.",
-              "de": "Oh, was ist denn? Die Fahrt scheint heute nicht in Betrieb zu sein.",
-              "en": "Wait, what? It looks like the ride isn't running today."
+              "speaker": "christian",
+              "ko": "아쉽네. 오늘은 운행하지 않는 모양이야.",
+              "de": "Schade. Sie scheint heute nicht in Betrieb zu sein.",
+              "en": "That is a shame. It seems not to be running today."
             },
             {
-              "ko": "오, 좋아. 그러면 그때 또 츄러스를 먹을 수 있겠군.",
-              "de": "Oh, sehr gut. Dann kann ich also wieder Churros essen.",
-              "en": "Oh, perfect. So that means I get to have churros again."
+              "speaker": "christian",
+              "ko": "좋아. 다만 네가 츄러스부터 찾을 건 이미 예상돼.",
+              "de": "Gern. Wobei ich schon ahne, dass du zuerst nach Churros suchen wirst.",
+              "en": "Gladly. Though I can already guess that you will look for churros first."
             },
             {
-              "ko": "결국 네 목적은 츄러스였구나.",
-              "de": "Am Ende ging es dir also doch um die Churros.",
-              "en": "So the churros were your real goal all along."
+              "speaker": "user",
+              "ko": "그 정도의 동기는 다음 약속을 잡기에 충분하지.",
+              "de": "Als Motivation für das nächste Date reicht das doch.",
+              "en": "That is enough motivation to make the next plan."
             }
           ],
           "correctIndex": 0
@@ -21455,20 +21458,20 @@
           "skill": "sentence",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
-            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Oh, sehr gut. Dann kann ich also wieder Churros essen.",
-            "en": "Put the words in the same order as the recording. Meaning: Oh, perfect. So that means I get to have churros again."
+            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Als Motivation für das nächste Date reicht das doch.",
+            "en": "Put the words in the same order as the recording. Meaning: That is enough motivation to make the next plan."
           },
           "explanation": {
-            "ko": "이 과제는 들은 어순을 재현해요: “오, 좋아. 그러면 그때 또 츄러스를 먹을 수 있겠군.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
-            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „오, 좋아. 그러면 그때 또 츄러스를 먹을 수 있겠군.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
-            "en": "This task reconstructs the recorded word order: “오, 좋아. 그러면 그때 또 츄러스를 먹을 수 있겠군.”. Other ways to express a similar meaning are not the target of this listening task."
+            "ko": "이 과제는 들은 어순을 재현해요: “그 정도의 동기는 다음 약속을 잡기에 충분하지.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
+            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „그 정도의 동기는 다음 약속을 잡기에 충분하지.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
+            "en": "This task reconstructs the recorded word order: “그 정도의 동기는 다음 약속을 잡기에 충분하지.”. Other ways to express a similar meaning are not the target of this listening task."
           },
           "sourceIds": [
             "c1_theme_park_date_next_time"
           ],
-          "evidenceKo": "오, 좋아. 그러면 그때 또 츄러스를 먹을 수 있겠군.",
-          "audioKo": "오, 좋아. 그러면 그때 또 츄러스를 먹을 수 있겠군.",
-          "targetKo": "오, 좋아. 그러면 그때 또 츄러스를 먹을 수 있겠군."
+          "evidenceKo": "그 정도의 동기는 다음 약속을 잡기에 충분하지.",
+          "audioKo": "그 정도의 동기는 다음 약속을 잡기에 충분하지.",
+          "targetKo": "그 정도의 동기는 다음 약속을 잡기에 충분하지."
         },
         {
           "id": "listening.c1.c1_theme_park_date_next_time.response",
@@ -21476,33 +21479,33 @@
           "skill": "response",
           "prompt": {
             "ko": "대화를 들은 사람이 “놀이기구가 닫혀서 다시는 오지 않기로 해요.”라고 정리했다고 해 보세요. 원래 대화의 조건과 의도를 지키며 바로잡는 응답은 무엇인가요?",
-            "de": "Stell dir vor, jemand fasst das Gespräch so zusammen: „Weil die Attraktion geschlossen ist, wollen sie nie wiederkommen.“ Welche Antwort korrigiert das und wahrt die ursprünglichen Bedingungen und Absichten?",
-            "en": "Imagine someone summarizes the conversation as follows: “The closed ride makes them decide never to return.” Which response corrects this while preserving the original conditions and intentions?"
+            "de": "Stell dir vor, jemand fasst das Gespräch so zusammen: „Weil die Fahrt geschlossen ist, beschließen sie, nie wiederzukommen.“ Welche Antwort korrigiert das und wahrt die ursprünglichen Bedingungen und Absichten?",
+            "en": "Imagine someone summarizes the conversation as follows: “Because the ride is closed, they decide never to come back.” Which response corrects this while preserving the original conditions and intentions?"
           },
           "explanation": {
-            "ko": "근거는 “괜찮아. 다음에 또 오자. 다시 올 이유가 생겼잖아.”예요. 따라서 “아쉬운 일을 다음에 다시 올 이유로 바꿔 받아들여요.”가 맞아요. “놀이기구가 닫혀서 다시는 오지 않기로 해요.”와 “크리스마스 마켓을 직접 확인했다고 말해요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „괜찮아. 다음에 또 오자. 다시 올 이유가 생겼잖아.“ (Macht nichts. Wir kommen wieder. Jetzt haben wir doch einen Grund dafür.). Daraus folgt: Die Enttäuschung wird zu einem Anlass für einen weiteren Besuch. Die Alternativen „Weil die Attraktion geschlossen ist, wollen sie nie wiederkommen.“ und „Sie sagen, den Weihnachtsmarkt selbst gesehen zu haben.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “괜찮아. 다음에 또 오자. 다시 올 이유가 생겼잖아.” (It's okay. Let's come back. Now we have a reason to.). This supports: They reframe the disappointment as a reason to visit again. The alternatives “The closed ride makes them decide never to return.” and “They say they have personally seen the Christmas market.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “기대했던 만큼 아쉽다. 그래도 다음에 다시 올 명분이 생긴 셈이네.”예요. 따라서 “아쉬움을 다음에 다시 만날 구체적인 이유로 바꿔 받아들여요.”가 맞아요. 다른 선택지는 대화의 조건이나 다음 행동을 바꿔요.",
+            "de": "Der Beleg lautet: „기대했던 만큼 아쉽다. 그래도 다음에 다시 올 명분이 생긴 셈이네.“ (Je mehr ich mich darauf gefreut habe, desto größer ist die Enttäuschung. Immerhin haben wir jetzt einen Anlass, wiederzukommen.). Deshalb ist „Die Enttäuschung wird in einen konkreten Anlass verwandelt, sich wiederzutreffen.“ richtig. Die anderen Optionen verändern Bedingungen oder den nächsten Schritt im Gespräch.",
+            "en": "The evidence is “기대했던 만큼 아쉽다. 그래도 다음에 다시 올 명분이 생긴 셈이네.” (The more I had looked forward to it, the more disappointing this is. Still, we now have a reason to come back.). This supports: “They turn the disappointment into a concrete reason to see each other again..” The other options change a condition or the next step in the conversation."
           },
           "sourceIds": [
             "c1_theme_park_date_next_time"
           ],
-          "evidenceKo": "괜찮아. 다음에 또 오자. 다시 올 이유가 생겼잖아.",
+          "evidenceKo": "기대했던 만큼 아쉽다. 그래도 다음에 다시 올 명분이 생긴 셈이네.",
           "options": [
             {
-              "ko": "아쉬운 일을 다음에 다시 올 이유로 바꿔 받아들여요.",
-              "de": "Die Enttäuschung wird zu einem Anlass für einen weiteren Besuch.",
-              "en": "They reframe the disappointment as a reason to visit again."
+              "ko": "아쉬움을 다음에 다시 만날 구체적인 이유로 바꿔 받아들여요.",
+              "de": "Die Enttäuschung wird in einen konkreten Anlass verwandelt, sich wiederzutreffen.",
+              "en": "They turn the disappointment into a concrete reason to see each other again."
             },
             {
               "ko": "놀이기구가 닫혀서 다시는 오지 않기로 해요.",
-              "de": "Weil die Attraktion geschlossen ist, wollen sie nie wiederkommen.",
-              "en": "The closed ride makes them decide never to return."
+              "de": "Weil die Fahrt geschlossen ist, beschließen sie, nie wiederzukommen.",
+              "en": "Because the ride is closed, they decide never to come back."
             },
             {
-              "ko": "크리스마스 마켓을 직접 확인했다고 말해요.",
-              "de": "Sie sagen, den Weihnachtsmarkt selbst gesehen zu haben.",
-              "en": "They say they have personally seen the Christmas market."
+              "ko": "크리스마스 마켓을 이미 직접 확인했다고 말해요.",
+              "de": "Sie sagen, dass sie den Weihnachtsmarkt bereits selbst gesehen haben.",
+              "en": "They say they have already seen the Christmas market in person."
             }
           ],
           "correctIndex": 0
@@ -21763,20 +21766,20 @@
           "skill": "sentence",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
-            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Ja, ich prüfe es und schicke es Ihnen bis heute Nachmittag gesondert zu.",
-            "en": "Put the words in the same order as the recording. Meaning: Yes, I'll review it and send it to you separately by this afternoon."
+            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Ja. Wenn es möglich ist, sende ich Ihnen das Ergebnis der Prüfung bis heute Nachmittag separat zu.",
+            "en": "Put the words in the same order as the recording. Meaning: Yes. If possible, I will send you the review result separately by this afternoon."
           },
           "explanation": {
-            "ko": "이 과제는 들은 어순을 재현해요: “네, 검토해서 오후까지 따로 보내 드리겠습니다.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
-            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „네, 검토해서 오후까지 따로 보내 드리겠습니다.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
-            "en": "This task reconstructs the recorded word order: “네, 검토해서 오후까지 따로 보내 드리겠습니다.”. Other ways to express a similar meaning are not the target of this listening task."
+            "ko": "이 과제는 들은 어순을 재현해요: “네. 가능하면 오후까지 검토 결과를 따로 보내 드리겠습니다.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
+            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „네. 가능하면 오후까지 검토 결과를 따로 보내 드리겠습니다.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
+            "en": "This task reconstructs the recorded word order: “네. 가능하면 오후까지 검토 결과를 따로 보내 드리겠습니다.”. Other ways to express a similar meaning are not the target of this listening task."
           },
           "sourceIds": [
             "c1_w10_access"
           ],
-          "evidenceKo": "네, 검토해서 오후까지 따로 보내 드리겠습니다.",
-          "audioKo": "네, 검토해서 오후까지 따로 보내 드리겠습니다.",
-          "targetKo": "네, 검토해서 오후까지 따로 보내 드리겠습니다."
+          "evidenceKo": "네. 가능하면 오후까지 검토 결과를 따로 보내 드리겠습니다.",
+          "audioKo": "네. 가능하면 오후까지 검토 결과를 따로 보내 드리겠습니다.",
+          "targetKo": "네. 가능하면 오후까지 검토 결과를 따로 보내 드리겠습니다."
         },
         {
           "id": "listening.c1.c1_w10_access.response",
@@ -22000,29 +22003,29 @@
             "en": "Which interpretation preserves the conditions and intentions in the conversation?"
           },
           "explanation": {
-            "ko": "근거는 “네, 저도 같은 생각입니다. 다만 나머지 네 건은 계속 참여하고 싶습니다.”예요. 따라서 “이해관계가 있는 한 건에서는 빠지고 나머지 심사에는 참여해요.”가 맞아요. “후배가 지원했으므로 다섯 건 모두 심사할 수 없어요.”와 “관계를 밝혔으므로 그 후배 심사에도 계속 참여해요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „네, 저도 같은 생각입니다. 다만 나머지 네 건은 계속 참여하고 싶습니다.“ (Ja, das sehe ich genauso. Bei den übrigen vier Bewerbungen möchte ich aber weiter mitwirken.). Daraus folgt: Bei dem betroffenen Fall erfolgt ein Rückzug; die übrigen Fälle werden weiter mitgeprüft. Die Alternativen „Wegen der früheren Zusammenarbeit darf keiner der fünf Fälle mehr geprüft werden.“ und „Nach Offenlegung der Beziehung wird auch der betroffene Fall weiter mitbewertet.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “네, 저도 같은 생각입니다. 다만 나머지 네 건은 계속 참여하고 싶습니다.” (Yes, I agree. But I'd still like to take part in the other four.). This supports: The reviewer withdraws from the affected case while continuing with the others. The alternatives “The past connection means the reviewer cannot assess any of the five cases.” and “Disclosing the relationship means continuing to assess the connected applicant too.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.”예요. 따라서 “이해관계가 있는 지원자 관련 자료에서는 빠지고 나머지 심사에는 참여해요.”가 맞아요. 다른 선택지는 대화의 조건이나 다음 행동을 바꿔요.",
+            "de": "Der Beleg lautet: „네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.“ (Ja. Von allen Unterlagen zu dieser Bewerberin halte ich mich fern und prüfe die übrigen vier nach denselben Kriterien.). Deshalb ist „Von allen Unterlagen zu der Bewerberin mit Interessenkonflikt hält sich die Person fern und wirkt an den übrigen Bewertungen mit.“ richtig. Die anderen Optionen verändern Bedingungen oder den nächsten Schritt im Gespräch.",
+            "en": "The evidence is “네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.” (Yes. I will step away from all material about that applicant and assess the other four by the same criteria.). This supports: “They step away from all material about the applicant where there is a conflict of interest and participate in the other reviews..” The other options change a condition or the next step in the conversation."
           },
           "sourceIds": [
             "c1_w10_conflict_interest"
           ],
-          "evidenceKo": "네, 저도 같은 생각입니다. 다만 나머지 네 건은 계속 참여하고 싶습니다.",
+          "evidenceKo": "네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.",
           "options": [
             {
-              "ko": "이해관계가 있는 한 건에서는 빠지고 나머지 심사에는 참여해요.",
-              "de": "Bei dem betroffenen Fall erfolgt ein Rückzug; die übrigen Fälle werden weiter mitgeprüft.",
-              "en": "The reviewer withdraws from the affected case while continuing with the others."
+              "ko": "이해관계가 있는 지원자 관련 자료에서는 빠지고 나머지 심사에는 참여해요.",
+              "de": "Von allen Unterlagen zu der Bewerberin mit Interessenkonflikt hält sich die Person fern und wirkt an den übrigen Bewertungen mit.",
+              "en": "They step away from all material about the applicant where there is a conflict of interest and participate in the other reviews."
+            },
+            {
+              "ko": "관계를 밝혔으므로 그 지원자 심사에도 계속 참여해요.",
+              "de": "Weil die Beziehung offengelegt wurde, bleibt die Person auch an der Bewertung dieser Bewerberin beteiligt.",
+              "en": "Because the relationship was disclosed, they continue to evaluate that applicant."
             },
             {
               "ko": "후배가 지원했으므로 다섯 건 모두 심사할 수 없어요.",
-              "de": "Wegen der früheren Zusammenarbeit darf keiner der fünf Fälle mehr geprüft werden.",
-              "en": "The past connection means the reviewer cannot assess any of the five cases."
-            },
-            {
-              "ko": "관계를 밝혔으므로 그 후배 심사에도 계속 참여해요.",
-              "de": "Nach Offenlegung der Beziehung wird auch der betroffene Fall weiter mitbewertet.",
-              "en": "Disclosing the relationship means continuing to assess the connected applicant too."
+              "de": "Weil eine frühere Kollegin sich beworben hat, darf die Person keine der fünf Bewerbungen prüfen.",
+              "en": "Because a former junior colleague applied, they cannot review any of the five applications."
             }
           ],
           "correctIndex": 0
@@ -22037,30 +22040,33 @@
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "들은 말은 “지원자의 배경을 불문하고 같은 기준으로 보시면 문제없습니다.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „지원자의 배경을 불문하고 같은 기준으로 보시면 문제없습니다.“: Solange Sie unabhängig vom Hintergrund der Bewerberin dieselben Kriterien anwenden, ist das kein Problem. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “지원자의 배경을 불문하고 같은 기준으로 보시면 문제없습니다.”: As long as you apply the same standard regardless of the applicant's background, that's fine. The other options represent different turns in this scene, with different content or conversational functions."
+            "ko": "들은 말은 “그 지원자 관련 의견은 기록하지 않고 다른 위원들이 검토하게 하죠. 나머지 네 건은 계속 참여해 주세요.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
+            "de": "Zu hören ist „그 지원자 관련 의견은 기록하지 않고 다른 위원들이 검토하게 하죠. 나머지 네 건은 계속 참여해 주세요.“: Zu dieser Bewerberin halten wir keine Stellungnahme von Ihnen fest; die anderen Gutachter prüfen sie. An den übrigen vier Bewertungen können Sie weiter mitwirken.. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “그 지원자 관련 의견은 기록하지 않고 다른 위원들이 검토하게 하죠. 나머지 네 건은 계속 참여해 주세요.”: We will not record an opinion from you about that applicant; the other reviewers will assess that file. You can continue with the other four reviews.. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "c1_w10_conflict_interest"
           ],
-          "evidenceKo": "지원자의 배경을 불문하고 같은 기준으로 보시면 문제없습니다.",
-          "audioKo": "지원자의 배경을 불문하고 같은 기준으로 보시면 문제없습니다.",
+          "evidenceKo": "그 지원자 관련 의견은 기록하지 않고 다른 위원들이 검토하게 하죠. 나머지 네 건은 계속 참여해 주세요.",
+          "audioKo": "그 지원자 관련 의견은 기록하지 않고 다른 위원들이 검토하게 하죠. 나머지 네 건은 계속 참여해 주세요.",
           "options": [
             {
-              "ko": "지원자의 배경을 불문하고 같은 기준으로 보시면 문제없습니다.",
-              "de": "Solange Sie unabhängig vom Hintergrund der Bewerberin dieselben Kriterien anwenden, ist das kein Problem.",
-              "en": "As long as you apply the same standard regardless of the applicant's background, that's fine."
+              "speaker": "professor",
+              "ko": "그 지원자 관련 의견은 기록하지 않고 다른 위원들이 검토하게 하죠. 나머지 네 건은 계속 참여해 주세요.",
+              "de": "Zu dieser Bewerberin halten wir keine Stellungnahme von Ihnen fest; die anderen Gutachter prüfen sie. An den übrigen vier Bewertungen können Sie weiter mitwirken.",
+              "en": "We will not record an opinion from you about that applicant; the other reviewers will assess that file. You can continue with the other four reviews."
             },
             {
-              "ko": "이 지원자는 경력은 짧은 한편 최근 발표한 논문의 질은 높습니다.",
-              "de": "Diese Bewerberin hat zwar wenig Erfahrung, aber die Qualität ihrer letzten Publikation ist hoch.",
-              "en": "This applicant has limited experience, but her recent paper is very strong."
-            },
-            {
+              "speaker": "user",
               "ko": "지원자 중 한 명이 예전에 같이 연구했던 후배입니다.",
               "de": "Eine der Bewerberinnen ist eine frühere Kollegin, mit der ich zusammen geforscht habe.",
               "en": "One of the applicants is a former junior colleague I used to do research with."
+            },
+            {
+              "speaker": "professor",
+              "ko": "좋습니다. 그 범위와 절차를 기록해 두겠습니다.",
+              "de": "Gut. Ich halte diesen Umfang und das Verfahren fest.",
+              "en": "Good. I will record that scope and procedure."
             }
           ],
           "correctIndex": 0
@@ -22071,54 +22077,54 @@
           "skill": "sentence",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
-            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Ja, das sehe ich genauso. Bei den übrigen vier Bewerbungen möchte ich aber weiter mitwirken.",
-            "en": "Put the words in the same order as the recording. Meaning: Yes, I agree. But I'd still like to take part in the other four."
+            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Ja. Von allen Unterlagen zu dieser Bewerberin halte ich mich fern und prüfe die übrigen vier nach denselben Kriterien.",
+            "en": "Put the words in the same order as the recording. Meaning: Yes. I will step away from all material about that applicant and assess the other four by the same criteria."
           },
           "explanation": {
-            "ko": "이 과제는 들은 어순을 재현해요: “네, 저도 같은 생각입니다. 다만 나머지 네 건은 계속 참여하고 싶습니다.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
-            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „네, 저도 같은 생각입니다. 다만 나머지 네 건은 계속 참여하고 싶습니다.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
-            "en": "This task reconstructs the recorded word order: “네, 저도 같은 생각입니다. 다만 나머지 네 건은 계속 참여하고 싶습니다.”. Other ways to express a similar meaning are not the target of this listening task."
+            "ko": "이 과제는 들은 어순을 재현해요: “네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
+            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
+            "en": "This task reconstructs the recorded word order: “네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.”. Other ways to express a similar meaning are not the target of this listening task."
           },
           "sourceIds": [
             "c1_w10_conflict_interest"
           ],
-          "evidenceKo": "네, 저도 같은 생각입니다. 다만 나머지 네 건은 계속 참여하고 싶습니다.",
-          "audioKo": "네, 저도 같은 생각입니다. 다만 나머지 네 건은 계속 참여하고 싶습니다.",
-          "targetKo": "네, 저도 같은 생각입니다. 다만 나머지 네 건은 계속 참여하고 싶습니다."
+          "evidenceKo": "네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.",
+          "audioKo": "네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.",
+          "targetKo": "네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다."
         },
         {
           "id": "listening.c1.c1_w10_conflict_interest.response",
           "type": "choice",
           "skill": "response",
           "prompt": {
-            "ko": "대화를 들은 사람이 “후배가 지원했으므로 다섯 건 모두 심사할 수 없어요.”라고 정리했다고 해 보세요. 원래 대화의 조건과 의도를 지키며 바로잡는 응답은 무엇인가요?",
-            "de": "Stell dir vor, jemand fasst das Gespräch so zusammen: „Wegen der früheren Zusammenarbeit darf keiner der fünf Fälle mehr geprüft werden.“ Welche Antwort korrigiert das und wahrt die ursprünglichen Bedingungen und Absichten?",
-            "en": "Imagine someone summarizes the conversation as follows: “The past connection means the reviewer cannot assess any of the five cases.” Which response corrects this while preserving the original conditions and intentions?"
+            "ko": "대화를 들은 사람이 “관계를 밝혔으므로 그 지원자 심사에도 계속 참여해요.”라고 정리했다고 해 보세요. 원래 대화의 조건과 의도를 지키며 바로잡는 응답은 무엇인가요?",
+            "de": "Stell dir vor, jemand fasst das Gespräch so zusammen: „Weil die Beziehung offengelegt wurde, bleibt die Person auch an der Bewertung dieser Bewerberin beteiligt.“ Welche Antwort korrigiert das und wahrt die ursprünglichen Bedingungen und Absichten?",
+            "en": "Imagine someone summarizes the conversation as follows: “Because the relationship was disclosed, they continue to evaluate that applicant.” Which response corrects this while preserving the original conditions and intentions?"
           },
           "explanation": {
-            "ko": "근거는 “네, 저도 같은 생각입니다. 다만 나머지 네 건은 계속 참여하고 싶습니다.”예요. 따라서 “이해관계가 있는 한 건에서는 빠지고 나머지 심사에는 참여해요.”가 맞아요. “후배가 지원했으므로 다섯 건 모두 심사할 수 없어요.”와 “관계를 밝혔으므로 그 후배 심사에도 계속 참여해요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „네, 저도 같은 생각입니다. 다만 나머지 네 건은 계속 참여하고 싶습니다.“ (Ja, das sehe ich genauso. Bei den übrigen vier Bewerbungen möchte ich aber weiter mitwirken.). Daraus folgt: Bei dem betroffenen Fall erfolgt ein Rückzug; die übrigen Fälle werden weiter mitgeprüft. Die Alternativen „Wegen der früheren Zusammenarbeit darf keiner der fünf Fälle mehr geprüft werden.“ und „Nach Offenlegung der Beziehung wird auch der betroffene Fall weiter mitbewertet.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “네, 저도 같은 생각입니다. 다만 나머지 네 건은 계속 참여하고 싶습니다.” (Yes, I agree. But I'd still like to take part in the other four.). This supports: The reviewer withdraws from the affected case while continuing with the others. The alternatives “The past connection means the reviewer cannot assess any of the five cases.” and “Disclosing the relationship means continuing to assess the connected applicant too.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.”예요. 따라서 “이해관계가 있는 지원자 관련 자료에서는 빠지고 나머지 심사에는 참여해요.”가 맞아요. 다른 선택지는 대화의 조건이나 다음 행동을 바꿔요.",
+            "de": "Der Beleg lautet: „네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.“ (Ja. Von allen Unterlagen zu dieser Bewerberin halte ich mich fern und prüfe die übrigen vier nach denselben Kriterien.). Deshalb ist „Von allen Unterlagen zu der Bewerberin mit Interessenkonflikt hält sich die Person fern und wirkt an den übrigen Bewertungen mit.“ richtig. Die anderen Optionen verändern Bedingungen oder den nächsten Schritt im Gespräch.",
+            "en": "The evidence is “네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.” (Yes. I will step away from all material about that applicant and assess the other four by the same criteria.). This supports: “They step away from all material about the applicant where there is a conflict of interest and participate in the other reviews..” The other options change a condition or the next step in the conversation."
           },
           "sourceIds": [
             "c1_w10_conflict_interest"
           ],
-          "evidenceKo": "네, 저도 같은 생각입니다. 다만 나머지 네 건은 계속 참여하고 싶습니다.",
+          "evidenceKo": "네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.",
           "options": [
             {
-              "ko": "이해관계가 있는 한 건에서는 빠지고 나머지 심사에는 참여해요.",
-              "de": "Bei dem betroffenen Fall erfolgt ein Rückzug; die übrigen Fälle werden weiter mitgeprüft.",
-              "en": "The reviewer withdraws from the affected case while continuing with the others."
+              "ko": "이해관계가 있는 지원자 관련 자료에서는 빠지고 나머지 심사에는 참여해요.",
+              "de": "Von allen Unterlagen zu der Bewerberin mit Interessenkonflikt hält sich die Person fern und wirkt an den übrigen Bewertungen mit.",
+              "en": "They step away from all material about the applicant where there is a conflict of interest and participate in the other reviews."
+            },
+            {
+              "ko": "관계를 밝혔으므로 그 지원자 심사에도 계속 참여해요.",
+              "de": "Weil die Beziehung offengelegt wurde, bleibt die Person auch an der Bewertung dieser Bewerberin beteiligt.",
+              "en": "Because the relationship was disclosed, they continue to evaluate that applicant."
             },
             {
               "ko": "후배가 지원했으므로 다섯 건 모두 심사할 수 없어요.",
-              "de": "Wegen der früheren Zusammenarbeit darf keiner der fünf Fälle mehr geprüft werden.",
-              "en": "The past connection means the reviewer cannot assess any of the five cases."
-            },
-            {
-              "ko": "관계를 밝혔으므로 그 후배 심사에도 계속 참여해요.",
-              "de": "Nach Offenlegung der Beziehung wird auch der betroffene Fall weiter mitbewertet.",
-              "en": "Disclosing the relationship means continuing to assess the connected applicant too."
+              "de": "Weil eine frühere Kollegin sich beworben hat, darf die Person keine der fünf Bewerbungen prüfen.",
+              "en": "Because a former junior colleague applied, they cannot review any of the five applications."
             }
           ],
           "correctIndex": 0
@@ -22131,14 +22137,14 @@
       "level": "c1",
       "topicId": "c1_clinical",
       "title": {
-        "ko": "임상 연구 참여 동의서 설명 듣기",
-        "de": "Die Einwilligungserklärung für eine klinische Studie erklärt bekommen",
-        "en": "Hearing the informed consent explanation for a clinical study"
+        "ko": "임상 연구 참여 전 정보 확인하기",
+        "de": "Vor der Teilnahme an einer klinischen Studie Informationen klären",
+        "en": "Clarifying information before joining a clinical study"
       },
       "intro": {
-        "ko": "현아가 새로운 치료법 연구에 참여할지 고민하며 연구자에게 위험과 대안을 묻습니다.",
-        "de": "Hyuna überlegt, an einer Studie zu einer neuen Behandlungsmethode teilzunehmen, und fragt die Forscherin nach Risiken und Alternativen.",
-        "en": "Hyuna is considering joining a study on a new treatment and asks the researcher about the risks and alternatives."
+        "ko": "현아는 새로운 치료법 연구 참여를 결정하기 전에 알려진 위험, 아직 불확실한 점, 다른 진료 선택지를 연구자에게 확인합니다.",
+        "de": "Bevor Hyuna über die Teilnahme an einer Studie zu einer neuen Behandlung entscheidet, klärt sie mit der Forscherin bekannte Risiken, offene Unsicherheiten und andere Versorgungsoptionen.",
+        "en": "Before deciding whether to join a study on a new treatment, Hyuna asks the researcher about known risks, remaining uncertainties, and other care options."
       },
       "contentIds": [
         "c1_w10_clinical"
@@ -22154,29 +22160,29 @@
             "en": "Which interpretation preserves the conditions and intentions in the conversation?"
           },
           "explanation": {
-            "ko": "근거는 “맞습니다. 장기 부작용은 아직 다 파악되지 않았습니다.”예요. 따라서 “초기 부작용 정보만으로 장기 안전성을 확정할 수 없어요.”가 맞아요. “초기 부작용이 가벼우므로 장기 부작용도 모두 알려졌어요.”와 “연구를 거절하면 기존 치료도 선택할 수 없어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „맞습니다. 장기 부작용은 아직 다 파악되지 않았습니다.“ (Richtig. Langzeitnebenwirkungen sind noch nicht vollständig erfasst.). Daraus folgt: Frühe Angaben zu Nebenwirkungen belegen noch keine langfristige Sicherheit. Die Alternativen „Weil frühe Nebenwirkungen mild sind, sind auch alle Langzeitfolgen bekannt.“ und „Bei Ablehnung der Studie steht auch die bisherige Behandlung nicht mehr offen.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “맞습니다. 장기 부작용은 아직 다 파악되지 않았습니다.” (That's right. Long-term side effects aren't fully known yet.). This supports: Early side-effect findings do not establish long-term safety. The alternatives “Mild early side effects mean all long-term effects are known.” and “Declining the study removes the option of existing treatment.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “알려진 위험과 아직 확인되지 않은 점은 동의 설명서와 함께 안내해 드릴 수 있습니다. 다만 개인에게 어떤 영향이 있을지는 단정할 수 없습니다.”예요. 따라서 “알려진 위험과 아직 확인되지 않은 점을 구분해 설명하고, 개인에게 미칠 영향은 단정하지 않아요.”가 맞아요. 다른 선택지는 대화의 조건이나 다음 행동을 바꿔요.",
+            "de": "Der Beleg lautet: „알려진 위험과 아직 확인되지 않은 점은 동의 설명서와 함께 안내해 드릴 수 있습니다. 다만 개인에게 어떤 영향이 있을지는 단정할 수 없습니다.“ (Bekannte Risiken und noch ungeklärte Punkte können wir anhand der Einwilligungsunterlagen besprechen. Welche Auswirkungen die Teilnahme für Sie persönlich hat, lässt sich jedoch nicht sicher vorhersagen.). Deshalb ist „Bekannte Risiken und offene Unsicherheiten werden getrennt erklärt; die persönlichen Auswirkungen werden nicht sicher vorhergesagt.“ richtig. Die anderen Optionen verändern Bedingungen oder den nächsten Schritt im Gespräch.",
+            "en": "The evidence is “알려진 위험과 아직 확인되지 않은 점은 동의 설명서와 함께 안내해 드릴 수 있습니다. 다만 개인에게 어떤 영향이 있을지는 단정할 수 없습니다.” (We can discuss known risks and unresolved questions using the consent materials. We cannot, however, predict with certainty what taking part will mean for you personally.). This supports: “Known risks and unresolved uncertainties are explained separately; the personal impact is not predicted with certainty..” The other options change a condition or the next step in the conversation."
           },
           "sourceIds": [
             "c1_w10_clinical"
           ],
-          "evidenceKo": "맞습니다. 장기 부작용은 아직 다 파악되지 않았습니다.",
+          "evidenceKo": "알려진 위험과 아직 확인되지 않은 점은 동의 설명서와 함께 안내해 드릴 수 있습니다. 다만 개인에게 어떤 영향이 있을지는 단정할 수 없습니다.",
           "options": [
             {
-              "ko": "초기 부작용 정보만으로 장기 안전성을 확정할 수 없어요.",
-              "de": "Frühe Angaben zu Nebenwirkungen belegen noch keine langfristige Sicherheit.",
-              "en": "Early side-effect findings do not establish long-term safety."
+              "ko": "알려진 위험과 아직 확인되지 않은 점을 구분해 설명하고, 개인에게 미칠 영향은 단정하지 않아요.",
+              "de": "Bekannte Risiken und offene Unsicherheiten werden getrennt erklärt; die persönlichen Auswirkungen werden nicht sicher vorhergesagt.",
+              "en": "Known risks and unresolved uncertainties are explained separately; the personal impact is not predicted with certainty."
             },
             {
-              "ko": "초기 부작용이 가벼우므로 장기 부작용도 모두 알려졌어요.",
-              "de": "Weil frühe Nebenwirkungen mild sind, sind auch alle Langzeitfolgen bekannt.",
-              "en": "Mild early side effects mean all long-term effects are known."
+              "ko": "연구자가 개인에게 어떤 영향이 있을지 확정해서 말해요.",
+              "de": "Die Forscherin sagt verbindlich voraus, welche Auswirkungen die Teilnahme für die Person haben wird.",
+              "en": "The researcher predicts with certainty what taking part will mean for the individual."
             },
             {
-              "ko": "연구를 거절하면 기존 치료도 선택할 수 없어요.",
-              "de": "Bei Ablehnung der Studie steht auch die bisherige Behandlung nicht mehr offen.",
-              "en": "Declining the study removes the option of existing treatment."
+              "ko": "참여하지 않으면 어떤 진료 선택지도 확인할 수 없어요.",
+              "de": "Wenn die Person nicht teilnimmt, kann sie keine Versorgungsoptionen mehr klären.",
+              "en": "If the person does not participate, they cannot check any care options."
             }
           ],
           "correctIndex": 0
@@ -22191,30 +22197,33 @@
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "들은 말은 “초기 결과에 국한하면 가벼운 두통과 어지럼증 정도입니다.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „초기 결과에 국한하면 가벼운 두통과 어지럼증 정도입니다.“: Nach den bisherigen Ergebnissen sind es vor allem leichte Kopfschmerzen und Schwindel. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “초기 결과에 국한하면 가벼운 두통과 어지럼증 정도입니다.”: Based on the early results, the known side effects are mainly mild headaches and dizziness. The other options represent different turns in this scene, with different content or conversational functions."
+            "ko": "들은 말은 “알려진 위험과 아직 확인되지 않은 점은 동의 설명서와 함께 안내해 드릴 수 있습니다. 다만 개인에게 어떤 영향이 있을지는 단정할 수 없습니다.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
+            "de": "Zu hören ist „알려진 위험과 아직 확인되지 않은 점은 동의 설명서와 함께 안내해 드릴 수 있습니다. 다만 개인에게 어떤 영향이 있을지는 단정할 수 없습니다.“: Bekannte Risiken und noch ungeklärte Punkte können wir anhand der Einwilligungsunterlagen besprechen. Welche Auswirkungen die Teilnahme für Sie persönlich hat, lässt sich jedoch nicht sicher vorhersagen.. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “알려진 위험과 아직 확인되지 않은 점은 동의 설명서와 함께 안내해 드릴 수 있습니다. 다만 개인에게 어떤 영향이 있을지는 단정할 수 없습니다.”: We can discuss known risks and unresolved questions using the consent materials. We cannot, however, predict with certainty what taking part will mean for you personally.. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "c1_w10_clinical"
           ],
-          "evidenceKo": "초기 결과에 국한하면 가벼운 두통과 어지럼증 정도입니다.",
-          "audioKo": "초기 결과에 국한하면 가벼운 두통과 어지럼증 정도입니다.",
+          "evidenceKo": "알려진 위험과 아직 확인되지 않은 점은 동의 설명서와 함께 안내해 드릴 수 있습니다. 다만 개인에게 어떤 영향이 있을지는 단정할 수 없습니다.",
+          "audioKo": "알려진 위험과 아직 확인되지 않은 점은 동의 설명서와 함께 안내해 드릴 수 있습니다. 다만 개인에게 어떤 영향이 있을지는 단정할 수 없습니다.",
           "options": [
             {
-              "ko": "초기 결과에 국한하면 가벼운 두통과 어지럼증 정도입니다.",
-              "de": "Nach den bisherigen Ergebnissen sind es vor allem leichte Kopfschmerzen und Schwindel.",
-              "en": "Based on the early results, the known side effects are mainly mild headaches and dizziness."
+              "speaker": "researcher",
+              "ko": "알려진 위험과 아직 확인되지 않은 점은 동의 설명서와 함께 안내해 드릴 수 있습니다. 다만 개인에게 어떤 영향이 있을지는 단정할 수 없습니다.",
+              "de": "Bekannte Risiken und noch ungeklärte Punkte können wir anhand der Einwilligungsunterlagen besprechen. Welche Auswirkungen die Teilnahme für Sie persönlich hat, lässt sich jedoch nicht sicher vorhersagen.",
+              "en": "We can discuss known risks and unresolved questions using the consent materials. We cannot, however, predict with certainty what taking part will mean for you personally."
             },
             {
+              "speaker": "researcher",
               "ko": "이 연구는 새로운 약물의 효과를 확인하는 임상시험입니다.",
-              "de": "Diese Studie soll die Wirkung eines neuen Medikaments überprüfen.",
-              "en": "This is a clinical trial evaluating the effects of a new drug."
+              "de": "Diese Studie untersucht die Wirkung eines neuen Medikaments.",
+              "en": "This clinical study examines the effects of a new medicine."
             },
             {
-              "ko": "그 결과를 감안하더라도 안심할 수 있는 건 아니겠죠.",
-              "de": "Trotz dieser Ergebnisse kann man also noch nicht völlig beruhigt sein, richtig?",
-              "en": "So even with those results, we can't be completely reassured yet, right?"
+              "speaker": "researcher",
+              "ko": "네. 가능한 선택지는 현재 건강 상태와 연구 기준을 함께 봐야 합니다. 담당 의료진에게 문의할 방법을 안내해 드리겠습니다.",
+              "de": "Ja. Welche Optionen möglich sind, hängt von Ihrem aktuellen Gesundheitszustand und den Studienkriterien ab. Ich erkläre Ihnen, wie Sie Ihr Behandlungsteam dazu erreichen können.",
+              "en": "Yes. The options that may be available depend on your current health and the study criteria. I will explain how to contact your care team about them."
             }
           ],
           "correctIndex": 0
@@ -22225,54 +22234,54 @@
           "skill": "sentence",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
-            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Selbstverständlich. Auch bei einem Abbruch entstehen Ihnen keinerlei Nachteile.",
-            "en": "Put the words in the same order as the recording. Meaning: Of course. There's absolutely no disadvantage if you withdraw."
+            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Ich möchte auch vorab wissen, wie das Verfahren aussieht, falls ich die Teilnahme später beenden möchte.",
+            "en": "Put the words in the same order as the recording. Meaning: I would also like to know in advance what the process is if I later want to stop participating."
           },
           "explanation": {
-            "ko": "이 과제는 들은 어순을 재현해요: “물론입니다. 중단하셔도 불이익은 전혀 없습니다.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
-            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „물론입니다. 중단하셔도 불이익은 전혀 없습니다.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
-            "en": "This task reconstructs the recorded word order: “물론입니다. 중단하셔도 불이익은 전혀 없습니다.”. Other ways to express a similar meaning are not the target of this listening task."
+            "ko": "이 과제는 들은 어순을 재현해요: “참여를 시작한 뒤 그만두고 싶을 때의 절차도 미리 알고 싶습니다.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
+            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „참여를 시작한 뒤 그만두고 싶을 때의 절차도 미리 알고 싶습니다.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
+            "en": "This task reconstructs the recorded word order: “참여를 시작한 뒤 그만두고 싶을 때의 절차도 미리 알고 싶습니다.”. Other ways to express a similar meaning are not the target of this listening task."
           },
           "sourceIds": [
             "c1_w10_clinical"
           ],
-          "evidenceKo": "물론입니다. 중단하셔도 불이익은 전혀 없습니다.",
-          "audioKo": "물론입니다. 중단하셔도 불이익은 전혀 없습니다.",
-          "targetKo": "물론입니다. 중단하셔도 불이익은 전혀 없습니다."
+          "evidenceKo": "참여를 시작한 뒤 그만두고 싶을 때의 절차도 미리 알고 싶습니다.",
+          "audioKo": "참여를 시작한 뒤 그만두고 싶을 때의 절차도 미리 알고 싶습니다.",
+          "targetKo": "참여를 시작한 뒤 그만두고 싶을 때의 절차도 미리 알고 싶습니다."
         },
         {
           "id": "listening.c1.c1_w10_clinical.response",
           "type": "choice",
           "skill": "response",
           "prompt": {
-            "ko": "대화를 들은 사람이 “초기 부작용이 가벼우므로 장기 부작용도 모두 알려졌어요.”라고 정리했다고 해 보세요. 원래 대화의 조건과 의도를 지키며 바로잡는 응답은 무엇인가요?",
-            "de": "Stell dir vor, jemand fasst das Gespräch so zusammen: „Weil frühe Nebenwirkungen mild sind, sind auch alle Langzeitfolgen bekannt.“ Welche Antwort korrigiert das und wahrt die ursprünglichen Bedingungen und Absichten?",
-            "en": "Imagine someone summarizes the conversation as follows: “Mild early side effects mean all long-term effects are known.” Which response corrects this while preserving the original conditions and intentions?"
+            "ko": "대화를 들은 사람이 “연구자가 개인에게 어떤 영향이 있을지 확정해서 말해요.”라고 정리했다고 해 보세요. 원래 대화의 조건과 의도를 지키며 바로잡는 응답은 무엇인가요?",
+            "de": "Stell dir vor, jemand fasst das Gespräch so zusammen: „Die Forscherin sagt verbindlich voraus, welche Auswirkungen die Teilnahme für die Person haben wird.“ Welche Antwort korrigiert das und wahrt die ursprünglichen Bedingungen und Absichten?",
+            "en": "Imagine someone summarizes the conversation as follows: “The researcher predicts with certainty what taking part will mean for the individual.” Which response corrects this while preserving the original conditions and intentions?"
           },
           "explanation": {
-            "ko": "근거는 “맞습니다. 장기 부작용은 아직 다 파악되지 않았습니다.”예요. 따라서 “초기 부작용 정보만으로 장기 안전성을 확정할 수 없어요.”가 맞아요. “초기 부작용이 가벼우므로 장기 부작용도 모두 알려졌어요.”와 “연구를 거절하면 기존 치료도 선택할 수 없어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „맞습니다. 장기 부작용은 아직 다 파악되지 않았습니다.“ (Richtig. Langzeitnebenwirkungen sind noch nicht vollständig erfasst.). Daraus folgt: Frühe Angaben zu Nebenwirkungen belegen noch keine langfristige Sicherheit. Die Alternativen „Weil frühe Nebenwirkungen mild sind, sind auch alle Langzeitfolgen bekannt.“ und „Bei Ablehnung der Studie steht auch die bisherige Behandlung nicht mehr offen.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “맞습니다. 장기 부작용은 아직 다 파악되지 않았습니다.” (That's right. Long-term side effects aren't fully known yet.). This supports: Early side-effect findings do not establish long-term safety. The alternatives “Mild early side effects mean all long-term effects are known.” and “Declining the study removes the option of existing treatment.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “알려진 위험과 아직 확인되지 않은 점은 동의 설명서와 함께 안내해 드릴 수 있습니다. 다만 개인에게 어떤 영향이 있을지는 단정할 수 없습니다.”예요. 따라서 “알려진 위험과 아직 확인되지 않은 점을 구분해 설명하고, 개인에게 미칠 영향은 단정하지 않아요.”가 맞아요. 다른 선택지는 대화의 조건이나 다음 행동을 바꿔요.",
+            "de": "Der Beleg lautet: „알려진 위험과 아직 확인되지 않은 점은 동의 설명서와 함께 안내해 드릴 수 있습니다. 다만 개인에게 어떤 영향이 있을지는 단정할 수 없습니다.“ (Bekannte Risiken und noch ungeklärte Punkte können wir anhand der Einwilligungsunterlagen besprechen. Welche Auswirkungen die Teilnahme für Sie persönlich hat, lässt sich jedoch nicht sicher vorhersagen.). Deshalb ist „Bekannte Risiken und offene Unsicherheiten werden getrennt erklärt; die persönlichen Auswirkungen werden nicht sicher vorhergesagt.“ richtig. Die anderen Optionen verändern Bedingungen oder den nächsten Schritt im Gespräch.",
+            "en": "The evidence is “알려진 위험과 아직 확인되지 않은 점은 동의 설명서와 함께 안내해 드릴 수 있습니다. 다만 개인에게 어떤 영향이 있을지는 단정할 수 없습니다.” (We can discuss known risks and unresolved questions using the consent materials. We cannot, however, predict with certainty what taking part will mean for you personally.). This supports: “Known risks and unresolved uncertainties are explained separately; the personal impact is not predicted with certainty..” The other options change a condition or the next step in the conversation."
           },
           "sourceIds": [
             "c1_w10_clinical"
           ],
-          "evidenceKo": "맞습니다. 장기 부작용은 아직 다 파악되지 않았습니다.",
+          "evidenceKo": "알려진 위험과 아직 확인되지 않은 점은 동의 설명서와 함께 안내해 드릴 수 있습니다. 다만 개인에게 어떤 영향이 있을지는 단정할 수 없습니다.",
           "options": [
             {
-              "ko": "초기 부작용 정보만으로 장기 안전성을 확정할 수 없어요.",
-              "de": "Frühe Angaben zu Nebenwirkungen belegen noch keine langfristige Sicherheit.",
-              "en": "Early side-effect findings do not establish long-term safety."
+              "ko": "알려진 위험과 아직 확인되지 않은 점을 구분해 설명하고, 개인에게 미칠 영향은 단정하지 않아요.",
+              "de": "Bekannte Risiken und offene Unsicherheiten werden getrennt erklärt; die persönlichen Auswirkungen werden nicht sicher vorhergesagt.",
+              "en": "Known risks and unresolved uncertainties are explained separately; the personal impact is not predicted with certainty."
             },
             {
-              "ko": "초기 부작용이 가벼우므로 장기 부작용도 모두 알려졌어요.",
-              "de": "Weil frühe Nebenwirkungen mild sind, sind auch alle Langzeitfolgen bekannt.",
-              "en": "Mild early side effects mean all long-term effects are known."
+              "ko": "연구자가 개인에게 어떤 영향이 있을지 확정해서 말해요.",
+              "de": "Die Forscherin sagt verbindlich voraus, welche Auswirkungen die Teilnahme für die Person haben wird.",
+              "en": "The researcher predicts with certainty what taking part will mean for the individual."
             },
             {
-              "ko": "연구를 거절하면 기존 치료도 선택할 수 없어요.",
-              "de": "Bei Ablehnung der Studie steht auch die bisherige Behandlung nicht mehr offen.",
-              "en": "Declining the study removes the option of existing treatment."
+              "ko": "참여하지 않으면 어떤 진료 선택지도 확인할 수 없어요.",
+              "de": "Wenn die Person nicht teilnimmt, kann sie keine Versorgungsoptionen mehr klären.",
+              "en": "If the person does not participate, they cannot check any care options."
             }
           ],
           "correctIndex": 0
@@ -22462,29 +22471,29 @@
             "en": "Which interpretation preserves the conditions and intentions in the conversation?"
           },
           "explanation": {
-            "ko": "근거는 “실수는 짚고 넘어가되, 마야 씨 실력을 낮게 보는 건 아닙니다.”예요. 따라서 “수치 오류의 지적과 작성자의 능력 평가를 구분해요.”가 맞아요. “체면을 지키려면 수치 오류는 말하지 않아야 해요.”와 “수치 하나가 틀렸으므로 작성자의 실력이 부족하다고 해요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „실수는 짚고 넘어가되, 마야 씨 실력을 낮게 보는 건 아닙니다.“ (Den Fehler sollten wir zwar ansprechen, aber das heißt nicht, dass ich Ihre Fähigkeiten geringer einschätze.). Daraus folgt: Der Hinweis auf einen Zahlenfehler wird von einem Urteil über die Fähigkeiten getrennt. Die Alternativen „Um das Gesicht zu wahren, darf der Zahlenfehler nicht erwähnt werden.“ und „Ein falscher Wert wird als Beweis mangelnder Fähigkeiten gewertet.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “실수는 짚고 넘어가되, 마야 씨 실력을 낮게 보는 건 아닙니다.” (I do want to address the mistake, but that doesn't mean I think any less of your abilities.). This supports: Pointing out a numerical error is distinguished from judging the writer's ability. The alternatives “Preserving face requires not mentioning the numerical error.” and “One incorrect figure is treated as proof of poor ability.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “이 수치만 정확히 맞추면 보고서 전체의 신뢰도가 높아집니다.”예요. 따라서 “수치 오류는 구체적으로 바로잡되, 보고서 전체의 구성과 근거 정리는 인정해요.”가 맞아요. 다른 선택지는 대화의 조건이나 다음 행동을 바꿔요.",
+            "de": "Der Beleg lautet: „이 수치만 정확히 맞추면 보고서 전체의 신뢰도가 높아집니다.“ (Wenn wir nur diese Zahl korrekt abgleichen, wird der gesamte Bericht verlässlicher.). Deshalb ist „Die Zahlenabweichung wird konkret korrigiert, während Struktur und Begründungen des Berichts anerkannt werden.“ richtig. Die anderen Optionen verändern Bedingungen oder den nächsten Schritt im Gespräch.",
+            "en": "The evidence is “이 수치만 정확히 맞추면 보고서 전체의 신뢰도가 높아집니다.” (If we verify this one figure accurately, the whole report will be more reliable.). This supports: “The numerical mismatch is corrected specifically while the report’s structure and reasoning are recognized..” The other options change a condition or the next step in the conversation."
           },
           "sourceIds": [
             "c1_w10_facework"
           ],
-          "evidenceKo": "실수는 짚고 넘어가되, 마야 씨 실력을 낮게 보는 건 아닙니다.",
+          "evidenceKo": "이 수치만 정확히 맞추면 보고서 전체의 신뢰도가 높아집니다.",
           "options": [
             {
-              "ko": "수치 오류의 지적과 작성자의 능력 평가를 구분해요.",
-              "de": "Der Hinweis auf einen Zahlenfehler wird von einem Urteil über die Fähigkeiten getrennt.",
-              "en": "Pointing out a numerical error is distinguished from judging the writer's ability."
+              "ko": "수치 오류는 구체적으로 바로잡되, 보고서 전체의 구성과 근거 정리는 인정해요.",
+              "de": "Die Zahlenabweichung wird konkret korrigiert, während Struktur und Begründungen des Berichts anerkannt werden.",
+              "en": "The numerical mismatch is corrected specifically while the report’s structure and reasoning are recognized."
             },
             {
               "ko": "체면을 지키려면 수치 오류는 말하지 않아야 해요.",
-              "de": "Um das Gesicht zu wahren, darf der Zahlenfehler nicht erwähnt werden.",
-              "en": "Preserving face requires not mentioning the numerical error."
+              "de": "Um das Gesicht zu wahren, darf die Zahlenabweichung nicht angesprochen werden.",
+              "en": "To preserve face, they should not mention the numerical mismatch."
             },
             {
               "ko": "수치 하나가 틀렸으므로 작성자의 실력이 부족하다고 해요.",
-              "de": "Ein falscher Wert wird als Beweis mangelnder Fähigkeiten gewertet.",
-              "en": "One incorrect figure is treated as proof of poor ability."
+              "de": "Weil eine Zahl falsch ist, wird die Fähigkeit der Verfasserin insgesamt als unzureichend bewertet.",
+              "en": "Because one figure is wrong, they judge the writer’s overall ability as inadequate."
             }
           ],
           "correctIndex": 0
@@ -22499,27 +22508,29 @@
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "들은 말은 “이번이 마야 씨 첫 단독 보고서라는 점에서 이 정도면 잘한 편입니다.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „이번이 마야 씨 첫 단독 보고서라는 점에서 이 정도면 잘한 편입니다.“: Da das Ihr allererster eigenständiger Bericht ist, ist das schon richtig gut gelungen. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “이번이 마야 씨 첫 단독 보고서라는 점에서 이 정도면 잘한 편입니다.”: Given that this is your first report on your own, it turned out very well. The other options represent different turns in this scene, with different content or conversational functions."
+            "ko": "들은 말은 “보고서의 구성과 근거 정리는 잘 되어 있어요.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
+            "de": "Zu hören ist „보고서의 구성과 근거 정리는 잘 되어 있어요.“: Die Struktur des Berichts und die Begründungen sind gut ausgearbeitet.. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “보고서의 구성과 근거 정리는 잘 되어 있어요.”: The report is well structured and its supporting reasoning is clear.. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "c1_w10_facework"
           ],
-          "evidenceKo": "이번이 마야 씨 첫 단독 보고서라는 점에서 이 정도면 잘한 편입니다.",
-          "audioKo": "이번이 마야 씨 첫 단독 보고서라는 점에서 이 정도면 잘한 편입니다.",
+          "evidenceKo": "보고서의 구성과 근거 정리는 잘 되어 있어요.",
+          "audioKo": "보고서의 구성과 근거 정리는 잘 되어 있어요.",
           "options": [
             {
-              "ko": "이번이 마야 씨 첫 단독 보고서라는 점에서 이 정도면 잘한 편입니다.",
-              "de": "Da das Ihr allererster eigenständiger Bericht ist, ist das schon richtig gut gelungen.",
-              "en": "Given that this is your first report on your own, it turned out very well."
+              "ko": "보고서의 구성과 근거 정리는 잘 되어 있어요.",
+              "de": "Die Struktur des Berichts und die Begründungen sind gut ausgearbeitet.",
+              "en": "The report is well structured and its supporting reasoning is clear."
             },
             {
-              "ko": "실수는 짚고 넘어가되, 마야 씨 실력을 낮게 보는 건 아닙니다.",
-              "de": "Den Fehler sollten wir zwar ansprechen, aber das heißt nicht, dass ich Ihre Fähigkeiten geringer einschätze.",
-              "en": "I do want to address the mistake, but that doesn't mean I think any less of your abilities."
+              "speaker": "user",
+              "ko": "이 수치만 정확히 맞추면 보고서 전체의 신뢰도가 높아집니다.",
+              "de": "Wenn wir nur diese Zahl korrekt abgleichen, wird der gesamte Bericht verlässlicher.",
+              "en": "If we verify this one figure accurately, the whole report will be more reliable."
             },
             {
+              "speaker": "user",
               "ko": "다만 세 번째 표의 수치 하나가 지난달 자료랑 안 맞습니다.",
               "de": "Allerdings stimmt eine Zahl in der dritten Tabelle nicht mit den Daten vom letzten Monat überein.",
               "en": "But one figure in the third table doesn't match last month's data."
@@ -22533,20 +22544,20 @@
           "skill": "sentence",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
-            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Prüfen wir es ab jetzt vor der Abgabe einfach noch einmal gemeinsam.",
-            "en": "Put the words in the same order as the recording. Meaning: Let's just double-check together once more before submitting from now on."
+            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Gleichen Sie vor der nächsten Abgabe die Quelldaten der Tabelle noch einmal ab. Wenn nötig, sehe ich sie mir gern mit Ihnen an.",
+            "en": "Put the words in the same order as the recording. Meaning: Before the next submission, compare the table with the source data once more. I can review it with you if you need me to."
           },
           "explanation": {
-            "ko": "이 과제는 들은 어순을 재현해요: “다음부터는 제출 전에 저와 한 번만 더 확인해요.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
-            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „다음부터는 제출 전에 저와 한 번만 더 확인해요.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
-            "en": "This task reconstructs the recorded word order: “다음부터는 제출 전에 저와 한 번만 더 확인해요.”. Other ways to express a similar meaning are not the target of this listening task."
+            "ko": "이 과제는 들은 어순을 재현해요: “다음 제출 전에는 표의 원자료를 한 번 더 대조해 보세요. 필요하면 제가 같이 보겠습니다.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
+            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „다음 제출 전에는 표의 원자료를 한 번 더 대조해 보세요. 필요하면 제가 같이 보겠습니다.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
+            "en": "This task reconstructs the recorded word order: “다음 제출 전에는 표의 원자료를 한 번 더 대조해 보세요. 필요하면 제가 같이 보겠습니다.”. Other ways to express a similar meaning are not the target of this listening task."
           },
           "sourceIds": [
             "c1_w10_facework"
           ],
-          "evidenceKo": "다음부터는 제출 전에 저와 한 번만 더 확인해요.",
-          "audioKo": "다음부터는 제출 전에 저와 한 번만 더 확인해요.",
-          "targetKo": "다음부터는 제출 전에 저와 한 번만 더 확인해요."
+          "evidenceKo": "다음 제출 전에는 표의 원자료를 한 번 더 대조해 보세요. 필요하면 제가 같이 보겠습니다.",
+          "audioKo": "다음 제출 전에는 표의 원자료를 한 번 더 대조해 보세요. 필요하면 제가 같이 보겠습니다.",
+          "targetKo": "다음 제출 전에는 표의 원자료를 한 번 더 대조해 보세요. 필요하면 제가 같이 보겠습니다."
         },
         {
           "id": "listening.c1.c1_w10_facework.response",
@@ -22554,33 +22565,33 @@
           "skill": "response",
           "prompt": {
             "ko": "대화를 들은 사람이 “체면을 지키려면 수치 오류는 말하지 않아야 해요.”라고 정리했다고 해 보세요. 원래 대화의 조건과 의도를 지키며 바로잡는 응답은 무엇인가요?",
-            "de": "Stell dir vor, jemand fasst das Gespräch so zusammen: „Um das Gesicht zu wahren, darf der Zahlenfehler nicht erwähnt werden.“ Welche Antwort korrigiert das und wahrt die ursprünglichen Bedingungen und Absichten?",
-            "en": "Imagine someone summarizes the conversation as follows: “Preserving face requires not mentioning the numerical error.” Which response corrects this while preserving the original conditions and intentions?"
+            "de": "Stell dir vor, jemand fasst das Gespräch so zusammen: „Um das Gesicht zu wahren, darf die Zahlenabweichung nicht angesprochen werden.“ Welche Antwort korrigiert das und wahrt die ursprünglichen Bedingungen und Absichten?",
+            "en": "Imagine someone summarizes the conversation as follows: “To preserve face, they should not mention the numerical mismatch.” Which response corrects this while preserving the original conditions and intentions?"
           },
           "explanation": {
-            "ko": "근거는 “실수는 짚고 넘어가되, 마야 씨 실력을 낮게 보는 건 아닙니다.”예요. 따라서 “수치 오류의 지적과 작성자의 능력 평가를 구분해요.”가 맞아요. “체면을 지키려면 수치 오류는 말하지 않아야 해요.”와 “수치 하나가 틀렸으므로 작성자의 실력이 부족하다고 해요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „실수는 짚고 넘어가되, 마야 씨 실력을 낮게 보는 건 아닙니다.“ (Den Fehler sollten wir zwar ansprechen, aber das heißt nicht, dass ich Ihre Fähigkeiten geringer einschätze.). Daraus folgt: Der Hinweis auf einen Zahlenfehler wird von einem Urteil über die Fähigkeiten getrennt. Die Alternativen „Um das Gesicht zu wahren, darf der Zahlenfehler nicht erwähnt werden.“ und „Ein falscher Wert wird als Beweis mangelnder Fähigkeiten gewertet.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “실수는 짚고 넘어가되, 마야 씨 실력을 낮게 보는 건 아닙니다.” (I do want to address the mistake, but that doesn't mean I think any less of your abilities.). This supports: Pointing out a numerical error is distinguished from judging the writer's ability. The alternatives “Preserving face requires not mentioning the numerical error.” and “One incorrect figure is treated as proof of poor ability.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “이 수치만 정확히 맞추면 보고서 전체의 신뢰도가 높아집니다.”예요. 따라서 “수치 오류는 구체적으로 바로잡되, 보고서 전체의 구성과 근거 정리는 인정해요.”가 맞아요. 다른 선택지는 대화의 조건이나 다음 행동을 바꿔요.",
+            "de": "Der Beleg lautet: „이 수치만 정확히 맞추면 보고서 전체의 신뢰도가 높아집니다.“ (Wenn wir nur diese Zahl korrekt abgleichen, wird der gesamte Bericht verlässlicher.). Deshalb ist „Die Zahlenabweichung wird konkret korrigiert, während Struktur und Begründungen des Berichts anerkannt werden.“ richtig. Die anderen Optionen verändern Bedingungen oder den nächsten Schritt im Gespräch.",
+            "en": "The evidence is “이 수치만 정확히 맞추면 보고서 전체의 신뢰도가 높아집니다.” (If we verify this one figure accurately, the whole report will be more reliable.). This supports: “The numerical mismatch is corrected specifically while the report’s structure and reasoning are recognized..” The other options change a condition or the next step in the conversation."
           },
           "sourceIds": [
             "c1_w10_facework"
           ],
-          "evidenceKo": "실수는 짚고 넘어가되, 마야 씨 실력을 낮게 보는 건 아닙니다.",
+          "evidenceKo": "이 수치만 정확히 맞추면 보고서 전체의 신뢰도가 높아집니다.",
           "options": [
             {
-              "ko": "수치 오류의 지적과 작성자의 능력 평가를 구분해요.",
-              "de": "Der Hinweis auf einen Zahlenfehler wird von einem Urteil über die Fähigkeiten getrennt.",
-              "en": "Pointing out a numerical error is distinguished from judging the writer's ability."
+              "ko": "수치 오류는 구체적으로 바로잡되, 보고서 전체의 구성과 근거 정리는 인정해요.",
+              "de": "Die Zahlenabweichung wird konkret korrigiert, während Struktur und Begründungen des Berichts anerkannt werden.",
+              "en": "The numerical mismatch is corrected specifically while the report’s structure and reasoning are recognized."
             },
             {
               "ko": "체면을 지키려면 수치 오류는 말하지 않아야 해요.",
-              "de": "Um das Gesicht zu wahren, darf der Zahlenfehler nicht erwähnt werden.",
-              "en": "Preserving face requires not mentioning the numerical error."
+              "de": "Um das Gesicht zu wahren, darf die Zahlenabweichung nicht angesprochen werden.",
+              "en": "To preserve face, they should not mention the numerical mismatch."
             },
             {
               "ko": "수치 하나가 틀렸으므로 작성자의 실력이 부족하다고 해요.",
-              "de": "Ein falscher Wert wird als Beweis mangelnder Fähigkeiten gewertet.",
-              "en": "One incorrect figure is treated as proof of poor ability."
+              "de": "Weil eine Zahl falsch ist, wird die Fähigkeit der Verfasserin insgesamt als unzureichend bewertet.",
+              "en": "Because one figure is wrong, they judge the writer’s overall ability as inadequate."
             }
           ],
           "correctIndex": 0
@@ -22770,29 +22781,29 @@
             "en": "Which interpretation preserves the conditions and intentions in the conversation?"
           },
           "explanation": {
-            "ko": "근거는 “친밀감에 기대서 사생활까지 요구하면 그건 애정이 아니라 침해야.”예요. 따라서 “좋아하는 마음이 사생활을 요구할 권리를 주지는 않아요.”가 맞아요. “팬의 애정이 있으면 몰래 찍어도 괜찮아요.”와 “팬이라면 사생활에 관한 이견은 말할 수 없어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „친밀감에 기대서 사생활까지 요구하면 그건 애정이 아니라 침해야.“ (Wenn man sich auf vermeintliche Nähe beruft und dadurch Anspruch auf das Privatleben erhebt, ist das keine Zuneigung mehr, sondern ein Übergriff.). Daraus folgt: Zuneigung begründet keinen Anspruch auf das Privatleben. Die Alternativen „Zuneigung als Fan rechtfertigt heimliche Aufnahmen.“ und „Fans dürfen keine abweichende Meinung zur Privatsphäre äußern.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “친밀감에 기대서 사생활까지 요구하면 그건 애정이 아니라 침해야.” (Using a sense of closeness to claim access to someone's private life isn't affection; it's an intrusion.). This supports: Affection does not create an entitlement to someone's private life. The alternatives “A fan's affection justifies secret filming.” and “Fans may not express disagreement about privacy.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “친밀하다고 느낀다고 해서 사생활까지 볼 권리가 생기는 건 아니야. 그건 선을 넘는 일이야.”예요. 따라서 “좋아하는 마음이 사생활을 볼 권리를 주지는 않고, 경계를 넘는 행동은 따로 봐야 해요.”가 맞아요. 다른 선택지는 대화의 조건이나 다음 행동을 바꿔요.",
+            "de": "Der Beleg lautet: „친밀하다고 느낀다고 해서 사생활까지 볼 권리가 생기는 건 아니야. 그건 선을 넘는 일이야.“ (Nur weil man sich jemandem nahe fühlt, entsteht kein Recht auf dessen Privatleben. Das überschreitet eine Grenze.). Deshalb ist „Zuneigung gibt kein Recht auf Einblick in das Privatleben; grenzüberschreitendes Verhalten muss getrennt betrachtet werden.“ richtig. Die anderen Optionen verändern Bedingungen oder den nächsten Schritt im Gespräch.",
+            "en": "The evidence is “친밀하다고 느낀다고 해서 사생활까지 볼 권리가 생기는 건 아니야. 그건 선을 넘는 일이야.” (Feeling close to someone does not create a right to see their private life. That crosses a boundary.). This supports: “Admiration does not create a right to see someone’s private life; boundary-crossing behavior needs to be considered separately..” The other options change a condition or the next step in the conversation."
           },
           "sourceIds": [
             "c1_w10_fandom"
           ],
-          "evidenceKo": "친밀감에 기대서 사생활까지 요구하면 그건 애정이 아니라 침해야.",
+          "evidenceKo": "친밀하다고 느낀다고 해서 사생활까지 볼 권리가 생기는 건 아니야. 그건 선을 넘는 일이야.",
           "options": [
             {
-              "ko": "좋아하는 마음이 사생활을 요구할 권리를 주지는 않아요.",
-              "de": "Zuneigung begründet keinen Anspruch auf das Privatleben.",
-              "en": "Affection does not create an entitlement to someone's private life."
+              "ko": "좋아하는 마음이 사생활을 볼 권리를 주지는 않고, 경계를 넘는 행동은 따로 봐야 해요.",
+              "de": "Zuneigung gibt kein Recht auf Einblick in das Privatleben; grenzüberschreitendes Verhalten muss getrennt betrachtet werden.",
+              "en": "Admiration does not create a right to see someone’s private life; boundary-crossing behavior needs to be considered separately."
             },
             {
               "ko": "팬의 애정이 있으면 몰래 찍어도 괜찮아요.",
-              "de": "Zuneigung als Fan rechtfertigt heimliche Aufnahmen.",
-              "en": "A fan's affection justifies secret filming."
+              "de": "Wenn Fans Zuneigung empfinden, dürfen sie heimlich filmen.",
+              "en": "If fans feel affection, filming in secret is acceptable."
             },
             {
               "ko": "팬이라면 사생활에 관한 이견은 말할 수 없어요.",
-              "de": "Fans dürfen keine abweichende Meinung zur Privatsphäre äußern.",
-              "en": "Fans may not express disagreement about privacy."
+              "de": "Als Fan darf man keine abweichende Meinung zum Privatleben äußern.",
+              "en": "As a fan, you cannot voice a differing view about privacy."
             }
           ],
           "correctIndex": 0
@@ -22807,27 +22818,29 @@
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "들은 말은 “친밀감에 기대서 사생활까지 요구하면 그건 애정이 아니라 침해야.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „친밀감에 기대서 사생활까지 요구하면 그건 애정이 아니라 침해야.“: Wenn man sich auf vermeintliche Nähe beruft und dadurch Anspruch auf das Privatleben erhebt, ist das keine Zuneigung mehr, sondern ein Übergriff. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “친밀감에 기대서 사생활까지 요구하면 그건 애정이 아니라 침해야.”: Using a sense of closeness to claim access to someone's private life isn't affection; it's an intrusion. The other options represent different turns in this scene, with different content or conversational functions."
+            "ko": "들은 말은 “친밀하다고 느낀다고 해서 사생활까지 볼 권리가 생기는 건 아니야. 그건 선을 넘는 일이야.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
+            "de": "Zu hören ist „친밀하다고 느낀다고 해서 사생활까지 볼 권리가 생기는 건 아니야. 그건 선을 넘는 일이야.“: Nur weil man sich jemandem nahe fühlt, entsteht kein Recht auf dessen Privatleben. Das überschreitet eine Grenze.. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “친밀하다고 느낀다고 해서 사생활까지 볼 권리가 생기는 건 아니야. 그건 선을 넘는 일이야.”: Feeling close to someone does not create a right to see their private life. That crosses a boundary.. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "c1_w10_fandom"
           ],
-          "evidenceKo": "친밀감에 기대서 사생활까지 요구하면 그건 애정이 아니라 침해야.",
-          "audioKo": "친밀감에 기대서 사생활까지 요구하면 그건 애정이 아니라 침해야.",
+          "evidenceKo": "친밀하다고 느낀다고 해서 사생활까지 볼 권리가 생기는 건 아니야. 그건 선을 넘는 일이야.",
+          "audioKo": "친밀하다고 느낀다고 해서 사생활까지 볼 권리가 생기는 건 아니야. 그건 선을 넘는 일이야.",
           "options": [
             {
-              "ko": "친밀감에 기대서 사생활까지 요구하면 그건 애정이 아니라 침해야.",
-              "de": "Wenn man sich auf vermeintliche Nähe beruft und dadurch Anspruch auf das Privatleben erhebt, ist das keine Zuneigung mehr, sondern ein Übergriff.",
-              "en": "Using a sense of closeness to claim access to someone's private life isn't affection; it's an intrusion."
+              "ko": "친밀하다고 느낀다고 해서 사생활까지 볼 권리가 생기는 건 아니야. 그건 선을 넘는 일이야.",
+              "de": "Nur weil man sich jemandem nahe fühlt, entsteht kein Recht auf dessen Privatleben. Das überschreitet eine Grenze.",
+              "en": "Feeling close to someone does not create a right to see their private life. That crosses a boundary."
             },
             {
+              "speaker": "user",
               "ko": "이 영상 봤어? 사생활 부분까지 다 찍혀서 퍼졌더라.",
               "de": "Hast du das Video gesehen? Sogar Privates wurde gefilmt und verbreitet.",
               "en": "Did you see this video? Even private moments were filmed and spread online."
             },
             {
+              "speaker": "hyuna",
               "ko": "좋아. 팬으로서 좋아하는 마음과 상대의 사생활은 별개라고 말해 봐.",
               "de": "Gut. Sag einfach, dass die eigene Zuneigung als Fan und die Privatsphäre der anderen Person zwei verschiedene Dinge sind.",
               "en": "Good. Just say that being a fan and respecting someone's privacy are two separate things."
@@ -22862,33 +22875,33 @@
           "skill": "response",
           "prompt": {
             "ko": "대화를 들은 사람이 “팬의 애정이 있으면 몰래 찍어도 괜찮아요.”라고 정리했다고 해 보세요. 원래 대화의 조건과 의도를 지키며 바로잡는 응답은 무엇인가요?",
-            "de": "Stell dir vor, jemand fasst das Gespräch so zusammen: „Zuneigung als Fan rechtfertigt heimliche Aufnahmen.“ Welche Antwort korrigiert das und wahrt die ursprünglichen Bedingungen und Absichten?",
-            "en": "Imagine someone summarizes the conversation as follows: “A fan's affection justifies secret filming.” Which response corrects this while preserving the original conditions and intentions?"
+            "de": "Stell dir vor, jemand fasst das Gespräch so zusammen: „Wenn Fans Zuneigung empfinden, dürfen sie heimlich filmen.“ Welche Antwort korrigiert das und wahrt die ursprünglichen Bedingungen und Absichten?",
+            "en": "Imagine someone summarizes the conversation as follows: “If fans feel affection, filming in secret is acceptable.” Which response corrects this while preserving the original conditions and intentions?"
           },
           "explanation": {
-            "ko": "근거는 “친밀감에 기대서 사생활까지 요구하면 그건 애정이 아니라 침해야.”예요. 따라서 “좋아하는 마음이 사생활을 요구할 권리를 주지는 않아요.”가 맞아요. “팬의 애정이 있으면 몰래 찍어도 괜찮아요.”와 “팬이라면 사생활에 관한 이견은 말할 수 없어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „친밀감에 기대서 사생활까지 요구하면 그건 애정이 아니라 침해야.“ (Wenn man sich auf vermeintliche Nähe beruft und dadurch Anspruch auf das Privatleben erhebt, ist das keine Zuneigung mehr, sondern ein Übergriff.). Daraus folgt: Zuneigung begründet keinen Anspruch auf das Privatleben. Die Alternativen „Zuneigung als Fan rechtfertigt heimliche Aufnahmen.“ und „Fans dürfen keine abweichende Meinung zur Privatsphäre äußern.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “친밀감에 기대서 사생활까지 요구하면 그건 애정이 아니라 침해야.” (Using a sense of closeness to claim access to someone's private life isn't affection; it's an intrusion.). This supports: Affection does not create an entitlement to someone's private life. The alternatives “A fan's affection justifies secret filming.” and “Fans may not express disagreement about privacy.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “친밀하다고 느낀다고 해서 사생활까지 볼 권리가 생기는 건 아니야. 그건 선을 넘는 일이야.”예요. 따라서 “좋아하는 마음이 사생활을 볼 권리를 주지는 않고, 경계를 넘는 행동은 따로 봐야 해요.”가 맞아요. 다른 선택지는 대화의 조건이나 다음 행동을 바꿔요.",
+            "de": "Der Beleg lautet: „친밀하다고 느낀다고 해서 사생활까지 볼 권리가 생기는 건 아니야. 그건 선을 넘는 일이야.“ (Nur weil man sich jemandem nahe fühlt, entsteht kein Recht auf dessen Privatleben. Das überschreitet eine Grenze.). Deshalb ist „Zuneigung gibt kein Recht auf Einblick in das Privatleben; grenzüberschreitendes Verhalten muss getrennt betrachtet werden.“ richtig. Die anderen Optionen verändern Bedingungen oder den nächsten Schritt im Gespräch.",
+            "en": "The evidence is “친밀하다고 느낀다고 해서 사생활까지 볼 권리가 생기는 건 아니야. 그건 선을 넘는 일이야.” (Feeling close to someone does not create a right to see their private life. That crosses a boundary.). This supports: “Admiration does not create a right to see someone’s private life; boundary-crossing behavior needs to be considered separately..” The other options change a condition or the next step in the conversation."
           },
           "sourceIds": [
             "c1_w10_fandom"
           ],
-          "evidenceKo": "친밀감에 기대서 사생활까지 요구하면 그건 애정이 아니라 침해야.",
+          "evidenceKo": "친밀하다고 느낀다고 해서 사생활까지 볼 권리가 생기는 건 아니야. 그건 선을 넘는 일이야.",
           "options": [
             {
-              "ko": "좋아하는 마음이 사생활을 요구할 권리를 주지는 않아요.",
-              "de": "Zuneigung begründet keinen Anspruch auf das Privatleben.",
-              "en": "Affection does not create an entitlement to someone's private life."
+              "ko": "좋아하는 마음이 사생활을 볼 권리를 주지는 않고, 경계를 넘는 행동은 따로 봐야 해요.",
+              "de": "Zuneigung gibt kein Recht auf Einblick in das Privatleben; grenzüberschreitendes Verhalten muss getrennt betrachtet werden.",
+              "en": "Admiration does not create a right to see someone’s private life; boundary-crossing behavior needs to be considered separately."
             },
             {
               "ko": "팬의 애정이 있으면 몰래 찍어도 괜찮아요.",
-              "de": "Zuneigung als Fan rechtfertigt heimliche Aufnahmen.",
-              "en": "A fan's affection justifies secret filming."
+              "de": "Wenn Fans Zuneigung empfinden, dürfen sie heimlich filmen.",
+              "en": "If fans feel affection, filming in secret is acceptable."
             },
             {
               "ko": "팬이라면 사생활에 관한 이견은 말할 수 없어요.",
-              "de": "Fans dürfen keine abweichende Meinung zur Privatsphäre äußern.",
-              "en": "Fans may not express disagreement about privacy."
+              "de": "Als Fan darf man keine abweichende Meinung zum Privatleben äußern.",
+              "en": "As a fan, you cannot voice a differing view about privacy."
             }
           ],
           "correctIndex": 0

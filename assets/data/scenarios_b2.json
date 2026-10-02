@@ -4339,9 +4339,9 @@
             "concept_b2_precise_requests"
           ],
           "data": {
-            "targetKo": "놀이기구마다 규정이 다를 수 있어.",
-            "promptDe": "Die Regeln können je nach Fahrgeschäft unterschiedlich sein.",
-            "promptEn": "The rules can differ from ride to ride.",
+            "targetKo": "맞아. 놀이기구마다 규정이 다를 수 있으니까.",
+            "promptDe": "Stimmt. Die Regeln können je nach Fahrgeschäft unterschiedlich sein.",
+            "promptEn": "Right. The rules can differ from ride to ride.",
             "distractors": [
               "물품 보관함을",
               "지갑이"
@@ -4771,23 +4771,27 @@
           "id": "quest_b2_w10_notice_hear",
           "type": "hoerverstehen",
           "data": {
-            "audioKo": "민원이 한 번 기각된 이상 같은 근거로는 재심사가 어렵습니다.",
+            "audioKo": "이미 받은 결과와 사진을 바탕으로 어떤 절차가 가능한지는 결과 안내문과 담당 기관에 다시 확인하셔야 합니다.",
             "options": [
               {
-                "de": "Da der Einspruch bereits einmal abgelehnt wurde, ist eine erneute Prüfung mit derselben Begründung schwierig.",
-                "en": "Since the objection has already been rejected once, a re-review on the same grounds is difficult."
+                "ko": "이미 받은 결과와 사진을 바탕으로 어떤 절차가 가능한지는 결과 안내문과 담당 기관에 다시 확인하셔야 합니다.",
+                "de": "Welche Schritte auf Grundlage des bereits erhaltenen Bescheids und der Fotos möglich sind, müssen Sie noch einmal anhand der Mitteilung und bei der zuständigen Stelle klären.",
+                "en": "You need to check the decision notice and the responsible office again to find out which steps may be available based on the decision and photos."
               },
               {
-                "de": "Ja, hier ist die Zuständige für Parkverstoß-Anliegen. Worum geht es?",
-                "en": "Yes, this is the parking enforcement complaints desk. What can I help you with?"
+                "ko": "지난주에 제출한 이의신청이 기각됐다는 문자를 받아서 다시 연락드렸습니다.",
+                "de": "Ich habe letzte Woche eine SMS bekommen, dass mein eingereichter Einspruch abgelehnt wurde, deshalb melde ich mich noch einmal.",
+                "en": "I got a text last week saying my submitted objection was rejected, so I'm calling again."
               },
               {
+                "ko": "네, 확인해 보니 표지판이 있는 구간이라 단속이 정당하다고 봤습니다.",
                 "de": "Ja, laut unserer Prüfung war das ein Bereich mit Beschilderung, deshalb wurde die Kontrolle als rechtmäßig eingestuft.",
                 "en": "Yes, based on our review, that was an area with signage, so the enforcement was judged valid."
               },
               {
-                "de": "Ja, Sie können den Einspruch erneut einreichen, wenn Sie das Foto und den Inhalt dieses Gesprächs mit aufführen.",
-                "en": "Yes, you can resubmit the objection if you include the photo and the content of this call."
+                "ko": "네. 결과 안내문에 적힌 방법과 기한을 확인하시고, 사진을 포함해 문의해 보세요.",
+                "de": "Ja. Prüfen Sie die in der Mitteilung genannten Wege und Fristen und fragen Sie unter Beifügung der Fotos nach.",
+                "en": "Yes. Check the methods and deadlines listed in the decision notice, and ask with the photos attached."
               }
             ],
             "correctIndex": 0
@@ -4820,12 +4824,12 @@
           "id": "quest_b2_w10_notice_build",
           "type": "satzBauen",
           "data": {
-            "targetKo": "알겠습니다. 오늘 안에 새 신청서를 작성해서 보내겠습니다.",
-            "promptDe": "Verstanden. Ich werde noch heute einen neuen Antrag erstellen und einreichen.",
-            "promptEn": "Understood. I'll write up a new application and submit it today.",
+            "targetKo": "알겠습니다. 결과 안내문을 확인한 뒤 필요한 절차를 문의하겠습니다.",
+            "promptDe": "Verstanden. Ich prüfe die Mitteilung und erkundige mich dann nach dem nötigen Verfahren.",
+            "promptEn": "Understood. I'll review the decision notice and then ask about the required procedure.",
             "distractors": [
               "표지판이",
-              "기각됐다는"
+              "결과 안내문을"
             ]
           }
         }
@@ -5233,23 +5237,27 @@
           "id": "quest_b2_w10_health_hear",
           "type": "hoerverstehen",
           "data": {
-            "audioKo": "네, 처방 범위 안에서 졸림이 덜한 종류로 바꿔 드리겠습니다. 다만 효과가 조금 늦게 나타날 수 있습니다.",
+            "audioKo": "가능한 복용 방법이나 대체 약이 있는지 처방의와 확인해 보겠습니다. 확인하기 전까지는 처방대로 복용해 주세요.",
             "options": [
               {
-                "de": "Ja, ich tausche es innerhalb des verordneten Rahmens gegen eine Sorte mit weniger Müdigkeit aus. Allerdings kann die Wirkung etwas später einsetzen.",
-                "en": "Yes, within what's allowed by the prescription, I'll swap it for a kind with less drowsiness. However, the effect may kick in a bit later."
+                "ko": "가능한 복용 방법이나 대체 약이 있는지 처방의와 확인해 보겠습니다. 확인하기 전까지는 처방대로 복용해 주세요.",
+                "de": "Ich kläre mit der verschreibenden Praxis, ob eine andere Einnahmeweise oder ein Ersatzmedikament möglich ist. Bis das geklärt ist, nehmen Sie das Medikament bitte wie verordnet ein.",
+                "en": "I will check with the prescribing clinician whether another way of taking it or an alternative medicine is possible. Until that is clarified, please take it as prescribed."
               },
               {
-                "de": "Ich habe das Rezept geprüft. Sie nehmen es dreimal täglich nach dem Essen.",
-                "en": "I've checked the prescription. Take it three times a day after meals."
+                "ko": "처방전은 확인했습니다. 이 약은 졸릴 수 있으니, 복용 시간이나 다른 선택지는 처방 내용과 현재 상태를 확인한 뒤 안내해 드릴게요.",
+                "de": "Ich habe das Rezept geprüft. Dieses Medikament kann müde machen; zu Einnahmezeit oder anderen Möglichkeiten kann ich Sie beraten, nachdem wir die Verordnung und Ihre aktuelle Situation geklärt haben.",
+                "en": "I have checked the prescription. This medicine can cause drowsiness, so I can advise you on timing or other options after we check the prescription and your current situation."
               },
               {
-                "de": "Dieses Antihistaminikum kann müde machen, aber wenn Sie deswegen besorgt sind, können Sie es auch nur abends nehmen.",
-                "en": "This antihistamine can make you drowsy, but if you're worried about that, you can just take it in the evening only."
+                "ko": "졸릴 수 있는 약이 있습니다. 다만 복용 시간을 바꾸거나 다른 약으로 바꾸기 전에는 처방 내용과 현재 상태를 먼저 확인해야 해요.",
+                "de": "Ein Medikament kann müde machen. Bevor Sie die Einnahmezeit ändern oder auf ein anderes Medikament wechseln, müssen wir aber zuerst die Verordnung und Ihre aktuelle Situation prüfen.",
+                "en": "One of the medicines can cause drowsiness. Before changing the timing or switching medicines, we need to check the prescription and your current situation first."
               },
               {
-                "de": "Richtig, es dauert nur etwas länger, die Wirkung ist dieselbe.",
-                "en": "Right, it just takes a bit longer, but the effect is the same."
+                "ko": "네. 확인 결과와 주의할 점을 함께 안내해 드릴게요.",
+                "de": "Ja. Ich erkläre Ihnen dann sowohl das Ergebnis als auch die Punkte, auf die Sie achten sollten.",
+                "en": "Yes. I will explain both the result and what to watch out for."
               }
             ],
             "correctIndex": 0
@@ -5282,12 +5290,12 @@
           "id": "quest_b2_w10_health_build",
           "type": "satzBauen",
           "data": {
-            "targetKo": "알겠습니다. 그럼 그 약으로 부탁드립니다.",
-            "promptDe": "Verstanden. Dann nehme ich bitte dieses Medikament.",
-            "promptEn": "Got it. Then I'll go with that medicine, please.",
+            "targetKo": "알겠습니다. 확인된 내용을 알려 주세요.",
+            "promptDe": "Verstanden. Bitte teilen Sie mir mit, was Sie herausfinden.",
+            "promptEn": "Understood. Please let me know what you find out.",
             "distractors": [
-              "처방전",
-              "항히스타민제는"
+              "처방 내용",
+              "대체 약이"
             ]
           }
         }
@@ -5938,23 +5946,27 @@
           "id": "quest_b2_w10_authorities_hear",
           "type": "hoerverstehen",
           "data": {
-            "audioKo": "기한을 놓치다가는 불법체류로 처리되어서 벌금은 물론 앞으로 비자 발급에도 불이익이 있을 수 있습니다.",
+            "audioKo": "기한과 절차는 관련 안내문이나 공식 웹사이트에서 다시 확인하셔야 합니다. 가능한 빨리 신청 가능 여부를 확인해 보세요.",
             "options": [
               {
-                "de": "Wenn Sie die Frist verpassen, kann das als illegaler Aufenthalt gewertet werden, wodurch nicht nur eine Geldstrafe, sondern auch Nachteile bei künftigen Visa entstehen können.",
-                "en": "If you miss the deadline, it can be treated as an illegal stay, which can result in a fine as well as disadvantages for future visa issuance."
+                "ko": "기한과 절차는 관련 안내문이나 공식 웹사이트에서 다시 확인하셔야 합니다. 가능한 빨리 신청 가능 여부를 확인해 보세요.",
+                "de": "Fristen und Verfahren sollten Sie noch einmal in den einschlägigen Hinweisen oder auf der offiziellen Website prüfen. Klären Sie möglichst bald, ob ein Antrag möglich ist.",
+                "en": "You should check the deadlines and procedure again in the relevant guidance or on the official website. Confirm as soon as possible whether an application is possible."
               },
               {
+                "ko": "안녕하세요. 오늘은 어떤 업무로 오셨어요?",
                 "de": "Guten Tag. Weswegen sind Sie heute hier?",
                 "en": "Hello. What brings you in today?"
               },
               {
-                "de": "Sie können den Antrag ab vier Monaten vor dem Ablaufdatum stellen, müssen ihn aber unbedingt vor dem Ablaufdatum einreichen.",
-                "en": "You can apply starting four months before the expiration date, but you must be sure to submit it before the expiration date."
+                "ko": "신청 시기와 필요한 서류는 체류 자격과 현재 상황에 따라 달라질 수 있어요. 여권과 현재 체류 정보를 먼저 확인해 볼게요.",
+                "de": "Antragszeitpunkt und Unterlagen können je nach Aufenthaltsstatus und aktueller Situation unterschiedlich sein. Wir sehen uns zuerst Ihren Pass und Ihre aktuellen Aufenthaltsdaten an.",
+                "en": "The timing and documents can vary by residence status and current situation. Let's first check your passport and current stay information."
               },
               {
-                "de": "Sie benötigen eine Immatrikulationsbescheinigung und einen Kontostandsnachweis. Sollte der Kontostand zu niedrig sein, können Sie das durch eine Quittung über die gezahlte Studiengebühr ersetzen.",
-                "en": "You need a certificate of enrollment and a bank balance certificate. If your balance is low, you can substitute a tuition payment receipt."
+                "ko": "확인한 뒤 필요한 서류와 다음 절차를 안내해 드리겠습니다.",
+                "de": "Nachdem wir das geprüft haben, erkläre ich Ihnen die nötigen Unterlagen und die nächsten Schritte.",
+                "en": "After we check that, I will explain the documents needed and the next steps."
               }
             ],
             "correctIndex": 0
@@ -5987,12 +5999,12 @@
           "id": "quest_b2_w10_authorities_build",
           "type": "satzBauen",
           "data": {
-            "targetKo": "알겠습니다. 서류는 이번 주 안에 준비해서 다시 오겠습니다.",
-            "promptDe": "Verstanden. Ich bereite die Unterlagen diese Woche vor und komme dann wieder.",
-            "promptEn": "Understood. I'll prepare the documents this week and come back.",
+            "targetKo": "알겠습니다. 필요한 내용이 확인되면 그에 맞춰 준비하겠습니다.",
+            "promptDe": "Verstanden. Sobald geklärt ist, was nötig ist, bereite ich alles entsprechend vor.",
+            "promptEn": "Understood. Once it is clear what is needed, I will prepare accordingly.",
             "distractors": [
-              "통장 잔고",
-              "만료일"
+              "현재 체류",
+              "신청 방법"
             ]
           }
         }
@@ -6171,23 +6183,27 @@
           "id": "quest_b2_w10_privacy_hear",
           "type": "hoerverstehen",
           "data": {
-            "audioKo": "삭제하면 이전 주문 내역도 복구가 불가능한데 괜찮으신가요?",
+            "audioKo": "네, 확인해 보니 이름과 연락처, 결제 내역이 남아 있습니다. 다만 법적 또는 계약상 보관해야 하는 정보가 있는지 먼저 확인해야 합니다.",
             "options": [
               {
-                "de": "Wenn wir löschen, ist auch die frühere Bestellhistorie nicht wiederherstellbar. Ist das für Sie in Ordnung?",
-                "en": "Once deleted, your past order history also can't be restored. Is that all right with you?"
+                "ko": "네, 확인해 보니 이름과 연락처, 결제 내역이 남아 있습니다. 다만 법적 또는 계약상 보관해야 하는 정보가 있는지 먼저 확인해야 합니다.",
+                "de": "Ja, ich sehe hier Ihren Namen, Ihre Kontaktdaten und Zahlungsvorgänge. Zuerst müssen wir aber prüfen, ob Daten aus rechtlichen oder vertraglichen Gründen aufbewahrt werden müssen.",
+                "en": "Yes. I can see your name, contact information, and payment history. First, though, we need to check whether any information must be retained for legal or contractual reasons."
               },
               {
-                "de": "Ja, laut unserer Prüfung sind Name, Kontaktdaten und Zahlungsverlauf noch gespeichert.",
-                "en": "Yes, based on our check, your name, contact information, and payment history are still stored."
+                "ko": "그럼 삭제할 수 있는 정보와 계속 보관되는 정보가 무엇인지 알려 주세요.",
+                "de": "Dann teilen Sie mir bitte mit, welche Daten gelöscht werden können und welche weiter aufbewahrt werden.",
+                "en": "Then please tell me which information can be deleted and which will continue to be retained."
               },
               {
-                "de": "Dann werden wir nach der Identitätsprüfung mit der Löschung fortfahren.",
-                "en": "Then we'll proceed with the deletion after identity verification."
+                "ko": "먼저 확인한 뒤 삭제할 수 있는 정보와 계속 보관되는 정보를 안내해 드리겠습니다.",
+                "de": "Nach der Prüfung erläutere ich Ihnen, welche Daten gelöscht werden können und welche weiter aufbewahrt werden.",
+                "en": "After checking, I will explain which information can be deleted and which will continue to be retained."
               },
               {
-                "de": "Wir senden Ihnen einen Bestätigungslink an die bei der Anmeldung verwendete E-Mail-Adresse.",
-                "en": "We'll send a verification link to the email address you signed up with."
+                "ko": "네. 본인 확인 후 요청을 접수하고, 처리 결과를 등록된 이메일로 보내 드리겠습니다.",
+                "de": "Ja. Nach der Identitätsprüfung nehmen wir Ihren Antrag auf und senden das Ergebnis an die hinterlegte E-Mail-Adresse.",
+                "en": "Yes. After identity verification, we will record your request and send the outcome to the email address on file."
               }
             ],
             "correctIndex": 0
