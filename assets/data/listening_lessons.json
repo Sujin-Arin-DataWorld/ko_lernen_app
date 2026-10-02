@@ -26054,20 +26054,20 @@
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "들은 말은 “기다리는 시간이 길다고 치더라도 그 기대가 사라지는 건 아니네.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „기다리는 시간이 길다고 치더라도 그 기대가 사라지는 건 아니네.“: Selbst wenn man die lange Wartezeit einräumt, verschwindet diese Vorfreude nicht. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “기다리는 시간이 길다고 치더라도 그 기대가 사라지는 건 아니네.”: Even assuming the wait is long, that anticipation doesn't disappear. The other options represent different turns in this scene, with different content or conversational functions."
+            "ko": "들은 말은 “기다림이 길어도 그 기대가 사라지는 건 아니네.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
+            "de": "Zu hören ist „기다림이 길어도 그 기대가 사라지는 건 아니네.“: Auch wenn man lange wartet, verschwindet diese Vorfreude nicht. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “기다림이 길어도 그 기대가 사라지는 건 아니네.”: Even with a long wait, that anticipation does not disappear. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "c2_theme_park_date_reflection"
           ],
-          "evidenceKo": "기다리는 시간이 길다고 치더라도 그 기대가 사라지는 건 아니네.",
-          "audioKo": "기다리는 시간이 길다고 치더라도 그 기대가 사라지는 건 아니네.",
+          "evidenceKo": "기다림이 길어도 그 기대가 사라지는 건 아니네.",
+          "audioKo": "기다림이 길어도 그 기대가 사라지는 건 아니네.",
           "options": [
             {
-              "ko": "기다리는 시간이 길다고 치더라도 그 기대가 사라지는 건 아니네.",
-              "de": "Selbst wenn man die lange Wartezeit einräumt, verschwindet diese Vorfreude nicht.",
-              "en": "Even assuming the wait is long, that anticipation doesn't disappear."
+              "ko": "기다림이 길어도 그 기대가 사라지는 건 아니네.",
+              "de": "Auch wenn man lange wartet, verschwindet diese Vorfreude nicht.",
+              "en": "Even with a long wait, that anticipation doesn't disappear."
             },
             {
               "ko": "무서움을 피하는 대신 같이 통과해서 더 기억에 남는 걸지도 몰라.",
@@ -26615,9 +26615,9 @@
         "en": "Can one apology really settle it?"
       },
       "intro": {
-        "ko": "크리스티안과 수진은 오래된 마을 피해 사건에 대한 뒤늦은 사과 소식을 보며 진정한 화해에 무엇이 필요한지 이야기합니다.",
-        "de": "Christian und Sujin sehen die Nachricht von einer verspäteten Entschuldigung für einen alten Vorfall im Dorf und sprechen darüber, was echte Versöhnung braucht.",
-        "en": "Christian and Sujin watch news of a belated apology for an old incident in a village and talk about what real reconciliation requires."
+        "ko": "크리스티안과 수진은 오래된 마을 피해 사건에 대한 뒤늦은 사과 소식을 보며, 피해를 겪은 사람들에게 무엇이 필요할지 이야기합니다.",
+        "de": "Christian und Sujin sehen die Nachricht von einer verspäteten Entschuldigung für einen alten Schadensfall im Dorf und sprechen darüber, was die Betroffenen brauchen könnten.",
+        "en": "Christian and Sujin see news of a belated apology for an old harmful event in a village and discuss what the people affected might need."
       },
       "contentIds": [
         "c2_w10_history"
@@ -26633,19 +26633,19 @@
             "en": "Which interpretation preserves the conditions and intentions in the conversation?"
           },
           "explanation": {
-            "ko": "근거는 “듣고 보니 사과, 설명, 재발 방지, 이 세 가지가 다 있어야겠다.”예요. 따라서 “사과에 설명과 재발 방지가 함께 따라야 한다고 봐요.”가 맞아요. “사과가 늦었으므로 책임도 사라졌다고 봐요.”와 “사과문만 있으면 직접 설명할 필요는 없다고 봐요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „듣고 보니 사과, 설명, 재발 방지, 이 세 가지가 다 있어야겠다.“ (Wenn ich so darüber nachdenke, braucht es wohl alle drei: Entschuldigung, Erklärung und Maßnahmen gegen eine Wiederholung.). Daraus folgt: Zur Entschuldigung sollen Erklärung und Vorbeugung hinzukommen. Die Alternativen „Die späte Entschuldigung lässt ihrer Ansicht nach die Verantwortung entfallen.“ und „Ein schriftliches Bedauern macht eine persönliche Erklärung ihrer Ansicht nach unnötig.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “듣고 보니 사과, 설명, 재발 방지, 이 세 가지가 다 있어야겠다.” (Now that I think about it, you'd need all three: apology, explanation, and steps to prevent it happening again.). This supports: They see explanation and prevention as necessary alongside an apology. The alternatives “They think a late apology removes responsibility.” and “They think a written apology removes the need for a direct explanation.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “듣고 보니 사과, 설명, 재발 방지에 더해 당사자들의 목소리를 듣는 일도 필요하겠다.”예요. 따라서 “사과, 설명, 재발 방지와 함께 당사자의 목소리도 들어야 한다고 봐요.”가 맞아요. “사과가 늦었으므로 책임도 사라졌다고 봐요.”와 “문서 한 장이면 당사자에게 무엇이 필요한지 물을 필요는 없다고 봐요.”는 이 대화의 조건을 바꾼 해석이에요.",
+            "de": "Der Beleg lautet: „듣고 보니 사과, 설명, 재발 방지에 더해 당사자들의 목소리를 듣는 일도 필요하겠다.“ (Wenn ich so darüber nachdenke, braucht es neben Entschuldigung, Erklärung und Maßnahmen gegen eine Wiederholung auch die Stimmen der Betroffenen.). Daraus folgt: Neben Entschuldigung, Erklärung und Vorbeugung sollen auch die Stimmen der Betroffenen gehört werden. Die Alternativen „Die späte Entschuldigung lässt ihrer Ansicht nach die Verantwortung entfallen.“ und „Ein Schreiben mache es unnötig, die Betroffenen nach ihren Bedürfnissen zu fragen.“ verändern die Bedingung im Gespräch.",
+            "en": "The evidence is “듣고 보니 사과, 설명, 재발 방지에 더해 당사자들의 목소리를 듣는 일도 필요하겠다.” (Now that I think about it, beyond an apology, explanation, and prevention, it also takes listening to the people affected.). This supports: Alongside an apology, explanation, and prevention, they see listening to the people affected as necessary. The alternatives “They think a late apology removes responsibility.” and “They think one statement removes the need to ask people affected what they need.” change a condition in the dialogue."
           },
           "sourceIds": [
             "c2_w10_history"
           ],
-          "evidenceKo": "듣고 보니 사과, 설명, 재발 방지, 이 세 가지가 다 있어야겠다.",
+          "evidenceKo": "듣고 보니 사과, 설명, 재발 방지에 더해 당사자들의 목소리를 듣는 일도 필요하겠다.",
           "options": [
             {
-              "ko": "사과에 설명과 재발 방지가 함께 따라야 한다고 봐요.",
-              "de": "Zur Entschuldigung sollen Erklärung und Vorbeugung hinzukommen.",
-              "en": "They see explanation and prevention as necessary alongside an apology."
+              "ko": "사과, 설명, 재발 방지와 함께 당사자의 목소리도 들어야 한다고 봐요.",
+              "de": "Neben Entschuldigung, Erklärung und Vorbeugung sollen auch die Stimmen der Betroffenen gehört werden.",
+              "en": "They see listening to the people affected as necessary alongside an apology, explanation, and prevention."
             },
             {
               "ko": "사과가 늦었으므로 책임도 사라졌다고 봐요.",
@@ -26653,9 +26653,9 @@
               "en": "They think a late apology removes responsibility."
             },
             {
-              "ko": "사과문만 있으면 직접 설명할 필요는 없다고 봐요.",
-              "de": "Ein schriftliches Bedauern macht eine persönliche Erklärung ihrer Ansicht nach unnötig.",
-              "en": "They think a written apology removes the need for a direct explanation."
+              "ko": "문서 한 장이면 당사자에게 무엇이 필요한지 물을 필요는 없다고 봐요.",
+              "de": "Ein Schreiben mache es unnötig, die Betroffenen nach ihren Bedürfnissen zu fragen.",
+              "en": "They think one statement removes the need to ask people affected what they need."
             }
           ],
           "correctIndex": 0
@@ -26670,30 +26670,30 @@
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "들은 말은 “책임을 인정한다면 피해자 가족한테 직접 설명하는 자리도 있어야지.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „책임을 인정한다면 피해자 가족한테 직접 설명하는 자리도 있어야지.“: Wenn man die Verantwortung anerkennt, sollte es auch ein Treffen geben, bei dem den Familien der Opfer direkt erklärt wird, was passiert ist. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “책임을 인정한다면 피해자 가족한테 직접 설명하는 자리도 있어야지.”: If they're going to acknowledge responsibility, there should also be a meeting where they explain directly to the victims' families what happened. The other options represent different turns in this scene, with different content or conversational functions."
+            "ko": "들은 말은 “책임을 인정한다면 피해자 가족에게 직접 설명할 기회를 만들고, 무엇이 필요한지도 먼저 들어야 하지 않을까.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
+            "de": "Zu hören ist „책임을 인정한다면 피해자 가족에게 직접 설명할 기회를 만들고, 무엇이 필요한지도 먼저 들어야 하지 않을까.“: Wenn Verantwortung anerkannt wird, sollte es eine Gelegenheit geben, es den Familien der Betroffenen direkt zu erklären und zuerst anzuhören, was sie brauchen. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “책임을 인정한다면 피해자 가족에게 직접 설명할 기회를 만들고, 무엇이 필요한지도 먼저 들어야 하지 않을까.”: If responsibility is acknowledged, there should be a chance to explain it directly to the affected families and first hear what they need. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "c2_w10_history"
           ],
-          "evidenceKo": "책임을 인정한다면 피해자 가족한테 직접 설명하는 자리도 있어야지.",
-          "audioKo": "책임을 인정한다면 피해자 가족한테 직접 설명하는 자리도 있어야지.",
+          "evidenceKo": "책임을 인정한다면 피해자 가족에게 직접 설명할 기회를 만들고, 무엇이 필요한지도 먼저 들어야 하지 않을까.",
+          "audioKo": "책임을 인정한다면 피해자 가족에게 직접 설명할 기회를 만들고, 무엇이 필요한지도 먼저 들어야 하지 않을까.",
           "options": [
             {
-              "ko": "책임을 인정한다면 피해자 가족한테 직접 설명하는 자리도 있어야지.",
-              "de": "Wenn man die Verantwortung anerkennt, sollte es auch ein Treffen geben, bei dem den Familien der Opfer direkt erklärt wird, was passiert ist.",
-              "en": "If they're going to acknowledge responsibility, there should also be a meeting where they explain directly to the victims' families what happened."
+              "ko": "책임을 인정한다면 피해자 가족에게 직접 설명할 기회를 만들고, 무엇이 필요한지도 먼저 들어야 하지 않을까.",
+              "de": "Wenn Verantwortung anerkannt wird, sollte es eine Gelegenheit geben, es den Familien der Betroffenen direkt zu erklären und zuerst anzuhören, was sie brauchen.",
+              "en": "If responsibility is acknowledged, there should be a chance to explain it directly to the affected families and first hear what they need."
             },
             {
-              "ko": "듣고 보니 사과, 설명, 재발 방지, 이 세 가지가 다 있어야겠다.",
-              "de": "Wenn ich so darüber nachdenke, braucht es wohl alle drei: Entschuldigung, Erklärung und Maßnahmen gegen eine Wiederholung.",
-              "en": "Now that I think about it, you'd need all three: apology, explanation, and steps to prevent it happening again."
+              "ko": "사과, 설명, 재발 방지에 더해 당사자들의 목소리를 듣는 일도 필요하겠다.",
+              "de": "Wenn ich so darüber nachdenke, braucht es neben Entschuldigung, Erklärung und Maßnahmen gegen eine Wiederholung auch die Stimmen der Betroffenen.",
+              "en": "Now that I think about it, beyond an apology, explanation, and prevention, it also takes listening to the people affected."
             },
             {
-              "ko": "그러네. 그냥 문서로 끝내면 또 형식적이라는 말 나올 거야.",
-              "de": "Stimmt. Wenn es bei einem Schreiben bleibt, wird es wieder heißen, das Ganze sei nur Formsache.",
-              "en": "True. If it ends with just a written statement, people will say again that it's only a formality."
+              "ko": "그러네. 문서 한 장으로 끝낼 게 아니라, 그분들이 무엇을 충분하다고 느끼는지도 물어야겠어.",
+              "de": "Stimmt. Statt es bei einem Schreiben zu belassen, müsste man auch fragen, was die Betroffenen selbst als ausreichend empfinden.",
+              "en": "Right. Rather than ending with one statement, they would also need to ask what the people affected themselves consider sufficient."
             }
           ],
           "correctIndex": 0
@@ -26704,20 +26704,20 @@
           "skill": "sentence",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
-            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Und ich glaube, wirkliche Versöhnung bedeutet auch, offenzulegen, warum es damals überhaupt so weit kam.",
-            "en": "Put the words in the same order as the recording. Meaning: And I think real reconciliation also means uncovering why it happened that way back then."
+            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Und wir müssten offenlegen, warum es damals dazu kam, und klären, was sich ändern muss, damit sich so etwas nicht wiederholt.",
+            "en": "Put the words in the same order as the recording. Meaning: And we would need to make clear why it happened then and what must change so it does not happen again."
           },
           "explanation": {
-            "ko": "이 과제는 들은 어순을 재현해요: “그리고 왜 그때 그렇게 됐는지 원인도 같이 밝혀야 진짜 화해 아닐까.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
-            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „그리고 왜 그때 그렇게 됐는지 원인도 같이 밝혀야 진짜 화해 아닐까.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
-            "en": "This task reconstructs the recorded word order: “그리고 왜 그때 그렇게 됐는지 원인도 같이 밝혀야 진짜 화해 아닐까.”. Other ways to express a similar meaning are not the target of this listening task."
+            "ko": "이 과제는 들은 어순을 재현해요: “그리고 왜 그때 그렇게 됐는지 밝히고, 다시 같은 일이 일어나지 않게 무엇을 바꿀지도 확인해야겠지.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
+            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „그리고 왜 그때 그렇게 됐는지 밝히고, 다시 같은 일이 일어나지 않게 무엇을 바꿀지도 확인해야겠지.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
+            "en": "This task reconstructs the recorded word order: “그리고 왜 그때 그렇게 됐는지 밝히고, 다시 같은 일이 일어나지 않게 무엇을 바꿀지도 확인해야겠지.”. Other ways to express a similar meaning are not the target of this listening task."
           },
           "sourceIds": [
             "c2_w10_history"
           ],
-          "evidenceKo": "그리고 왜 그때 그렇게 됐는지 원인도 같이 밝혀야 진짜 화해 아닐까.",
-          "audioKo": "그리고 왜 그때 그렇게 됐는지 원인도 같이 밝혀야 진짜 화해 아닐까.",
-          "targetKo": "그리고 왜 그때 그렇게 됐는지 원인도 같이 밝혀야 진짜 화해 아닐까."
+          "evidenceKo": "그리고 왜 그때 그렇게 됐는지 밝히고, 다시 같은 일이 일어나지 않게 무엇을 바꿀지도 확인해야겠지.",
+          "audioKo": "그리고 왜 그때 그렇게 됐는지 밝히고, 다시 같은 일이 일어나지 않게 무엇을 바꿀지도 확인해야겠지.",
+          "targetKo": "그리고 왜 그때 그렇게 됐는지 밝히고, 다시 같은 일이 일어나지 않게 무엇을 바꿀지도 확인해야겠지."
         },
         {
           "id": "listening.c2.c2_w10_history.response",
@@ -26729,19 +26729,19 @@
             "en": "Imagine someone summarizes the conversation as follows: “They think a late apology removes responsibility.” Which response corrects this while preserving the original conditions and intentions?"
           },
           "explanation": {
-            "ko": "근거는 “듣고 보니 사과, 설명, 재발 방지, 이 세 가지가 다 있어야겠다.”예요. 따라서 “사과에 설명과 재발 방지가 함께 따라야 한다고 봐요.”가 맞아요. “사과가 늦었으므로 책임도 사라졌다고 봐요.”와 “사과문만 있으면 직접 설명할 필요는 없다고 봐요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „듣고 보니 사과, 설명, 재발 방지, 이 세 가지가 다 있어야겠다.“ (Wenn ich so darüber nachdenke, braucht es wohl alle drei: Entschuldigung, Erklärung und Maßnahmen gegen eine Wiederholung.). Daraus folgt: Zur Entschuldigung sollen Erklärung und Vorbeugung hinzukommen. Die Alternativen „Die späte Entschuldigung lässt ihrer Ansicht nach die Verantwortung entfallen.“ und „Ein schriftliches Bedauern macht eine persönliche Erklärung ihrer Ansicht nach unnötig.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “듣고 보니 사과, 설명, 재발 방지, 이 세 가지가 다 있어야겠다.” (Now that I think about it, you'd need all three: apology, explanation, and steps to prevent it happening again.). This supports: They see explanation and prevention as necessary alongside an apology. The alternatives “They think a late apology removes responsibility.” and “They think a written apology removes the need for a direct explanation.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “듣고 보니 사과, 설명, 재발 방지에 더해 당사자들의 목소리를 듣는 일도 필요하겠다.”예요. 따라서 “사과, 설명, 재발 방지와 함께 당사자의 목소리도 들어야 한다고 봐요.”가 맞아요. “사과가 늦었으므로 책임도 사라졌다고 봐요.”와 “문서 한 장이면 당사자에게 무엇이 필요한지 물을 필요는 없다고 봐요.”는 이 대화의 조건을 바꾼 해석이에요.",
+            "de": "Der Beleg lautet: „듣고 보니 사과, 설명, 재발 방지에 더해 당사자들의 목소리를 듣는 일도 필요하겠다.“ (Wenn ich so darüber nachdenke, braucht es neben Entschuldigung, Erklärung und Maßnahmen gegen eine Wiederholung auch die Stimmen der Betroffenen.). Daraus folgt: Neben Entschuldigung, Erklärung und Vorbeugung sollen auch die Stimmen der Betroffenen gehört werden. Die Alternativen „Die späte Entschuldigung lässt ihrer Ansicht nach die Verantwortung entfallen.“ und „Ein Schreiben mache es unnötig, die Betroffenen nach ihren Bedürfnissen zu fragen.“ verändern die Bedingung im Gespräch.",
+            "en": "The evidence is “듣고 보니 사과, 설명, 재발 방지에 더해 당사자들의 목소리를 듣는 일도 필요하겠다.” (Now that I think about it, beyond an apology, explanation, and prevention, it also takes listening to the people affected.). This supports: Alongside an apology, explanation, and prevention, they see listening to the people affected as necessary. The alternatives “They think a late apology removes responsibility.” and “They think one statement removes the need to ask people affected what they need.” change a condition in the dialogue."
           },
           "sourceIds": [
             "c2_w10_history"
           ],
-          "evidenceKo": "듣고 보니 사과, 설명, 재발 방지, 이 세 가지가 다 있어야겠다.",
+          "evidenceKo": "듣고 보니 사과, 설명, 재발 방지에 더해 당사자들의 목소리를 듣는 일도 필요하겠다.",
           "options": [
             {
-              "ko": "사과에 설명과 재발 방지가 함께 따라야 한다고 봐요.",
-              "de": "Zur Entschuldigung sollen Erklärung und Vorbeugung hinzukommen.",
-              "en": "They see explanation and prevention as necessary alongside an apology."
+              "ko": "사과, 설명, 재발 방지와 함께 당사자의 목소리도 들어야 한다고 봐요.",
+              "de": "Neben Entschuldigung, Erklärung und Vorbeugung sollen auch die Stimmen der Betroffenen gehört werden.",
+              "en": "They see listening to the people affected as necessary alongside an apology, explanation, and prevention."
             },
             {
               "ko": "사과가 늦었으므로 책임도 사라졌다고 봐요.",
@@ -26749,9 +26749,9 @@
               "en": "They think a late apology removes responsibility."
             },
             {
-              "ko": "사과문만 있으면 직접 설명할 필요는 없다고 봐요.",
-              "de": "Ein schriftliches Bedauern macht eine persönliche Erklärung ihrer Ansicht nach unnötig.",
-              "en": "They think a written apology removes the need for a direct explanation."
+              "ko": "문서 한 장이면 당사자에게 무엇이 필요한지 물을 필요는 없다고 봐요.",
+              "de": "Ein Schreiben mache es unnötig, die Betroffenen nach ihren Bedürfnissen zu fragen.",
+              "en": "They think one statement removes the need to ask people affected what they need."
             }
           ],
           "correctIndex": 0
@@ -27095,24 +27095,24 @@
             "en": "Which interpretation preserves the conditions and intentions in the conversation?"
           },
           "explanation": {
-            "ko": "근거는 “제가 시설과 담당자예요. 배관 소유 확인부터 해 드릴게요.”예요. 따라서 “경계만 따지기보다 배관 소유를 확인해 담당을 찾으려 해요.”가 맞아요. “행정 구역이 정해지면 배관 소유를 확인할 필요가 없어요.”와 “두 부서가 거절했으므로 더는 담당을 확인하지 않아요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „제가 시설과 담당자예요. 배관 소유 확인부터 해 드릴게요.“ (Ich bin in der Anlagenverwaltung dafür zuständig. Ich prüfe zuerst, wem die Leitung gehört.). Daraus folgt: Statt nur Gebietsgrenzen zu diskutieren, wird die Zuständigkeit über das Eigentum an der Leitung geklärt. Die Alternativen „Bei bekannter Gebietsgrenze muss das Eigentum an der Leitung nicht geprüft werden.“ und „Nach zwei Ablehnungen wird die Zuständigkeit nicht weiter geklärt.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “제가 시설과 담당자예요. 배관 소유 확인부터 해 드릴게요.” (I'm responsible for this in facilities management. Let me first check who owns the pipe.). This supports: They seek to establish responsibility by checking pipe ownership rather than only district boundaries. The alternatives “Knowing the district boundary removes the need to check pipe ownership.” and “After two refusals, responsibility will no longer be investigated.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “저는 시설 관리 담당자입니다. 먼저 배관의 관리 주체를 확인하겠습니다.”예요. 따라서 “경계만 따지기보다 배관을 실제로 관리하는 주체를 확인해 담당을 찾으려 해요.”가 맞아요. “행정 구역이 정해지면 배관을 관리하는 주체를 확인할 필요가 없어요.”와 “두 부서가 거절했으므로 더는 담당을 확인하지 않아요.”는 이 대화의 조건을 바꾼 해석이에요.",
+            "de": "Der Beleg lautet: „저는 시설 관리 담당자입니다. 먼저 배관의 관리 주체를 확인하겠습니다.“ (Ich bin für die Anlagenverwaltung zuständig. Ich prüfe zuerst, wer die Leitung verwaltet.). Daraus folgt: Statt nur Gebietsgrenzen zu betrachten, wird geklärt, wer die Leitung tatsächlich verwaltet. Die Alternativen „Bei bekannter Gebietsgrenze muss nicht mehr geklärt werden, wer die Leitung verwaltet.“ und „Nach zwei Ablehnungen wird die Zuständigkeit nicht weiter geklärt.“ verändern die Bedingung im Gespräch.",
+            "en": "The evidence is “저는 시설 관리 담당자입니다. 먼저 배관의 관리 주체를 확인하겠습니다.” (I am responsible for facilities management. I will first check who manages the pipe.). This supports: Rather than looking only at district boundaries, they are checking who actually manages the pipe. The alternatives “Knowing the district boundary removes the need to check who manages the pipe.” and “After two refusals, responsibility will no longer be investigated.” change a condition in the dialogue."
           },
           "sourceIds": [
             "c2_w10_jurisdiction"
           ],
-          "evidenceKo": "제가 시설과 담당자예요. 배관 소유 확인부터 해 드릴게요.",
+          "evidenceKo": "저는 시설 관리 담당자입니다. 먼저 배관의 관리 주체를 확인하겠습니다.",
           "options": [
             {
-              "ko": "경계만 따지기보다 배관 소유를 확인해 담당을 찾으려 해요.",
-              "de": "Statt nur Gebietsgrenzen zu diskutieren, wird die Zuständigkeit über das Eigentum an der Leitung geklärt.",
-              "en": "They seek to establish responsibility by checking pipe ownership rather than only district boundaries."
+              "ko": "경계만 따지기보다 배관을 실제로 관리하는 주체를 확인해 담당을 찾으려 해요.",
+              "de": "Statt nur Gebietsgrenzen zu betrachten, wird geklärt, wer die Leitung tatsächlich verwaltet.",
+              "en": "Rather than looking only at district boundaries, they are checking who actually manages the pipe to identify the responsible office."
             },
             {
-              "ko": "행정 구역이 정해지면 배관 소유를 확인할 필요가 없어요.",
-              "de": "Bei bekannter Gebietsgrenze muss das Eigentum an der Leitung nicht geprüft werden.",
-              "en": "Knowing the district boundary removes the need to check pipe ownership."
+              "ko": "행정 구역이 정해지면 배관을 관리하는 주체를 확인할 필요가 없어요.",
+              "de": "Bei bekannter Gebietsgrenze muss nicht mehr geklärt werden, wer die Leitung verwaltet.",
+              "en": "Knowing the district boundary removes the need to check who manages the pipe."
             },
             {
               "ko": "두 부서가 거절했으므로 더는 담당을 확인하지 않아요.",
@@ -27132,30 +27132,30 @@
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "들은 말은 “행정 구역과 무관하게 배관 자체는 저희 시설이 아니라서요.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „행정 구역과 무관하게 배관 자체는 저희 시설이 아니라서요.“: Unabhängig vom Verwaltungsbezirk gehört die Leitung selbst nicht zu unseren Anlagen. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “행정 구역과 무관하게 배관 자체는 저희 시설이 아니라서요.”: Regardless of the administrative district, the pipe itself isn't our facility. The other options represent different turns in this scene, with different content or conversational functions."
+            "ko": "들은 말은 “행정 구역과 별개로, 배관 자체는 저희가 관리하는 시설이 아닙니다.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
+            "de": "Zu hören ist „행정 구역과 별개로, 배관 자체는 저희가 관리하는 시설이 아닙니다.“: Unabhängig vom Verwaltungsbezirk verwalten wir die Leitung selbst nicht. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “행정 구역과 별개로, 배관 자체는 저희가 관리하는 시설이 아닙니다.”: Regardless of the administrative district, we don't manage the pipe itself. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "c2_w10_jurisdiction"
           ],
-          "evidenceKo": "행정 구역과 무관하게 배관 자체는 저희 시설이 아니라서요.",
-          "audioKo": "행정 구역과 무관하게 배관 자체는 저희 시설이 아니라서요.",
+          "evidenceKo": "행정 구역과 별개로, 배관 자체는 저희가 관리하는 시설이 아닙니다.",
+          "audioKo": "행정 구역과 별개로, 배관 자체는 저희가 관리하는 시설이 아닙니다.",
           "options": [
             {
-              "ko": "행정 구역과 무관하게 배관 자체는 저희 시설이 아니라서요.",
-              "de": "Unabhängig vom Verwaltungsbezirk gehört die Leitung selbst nicht zu unseren Anlagen.",
-              "en": "Regardless of the administrative district, the pipe itself isn't our facility."
+              "ko": "행정 구역과 별개로, 배관 자체는 저희가 관리하는 시설이 아닙니다.",
+              "de": "Unabhängig vom Verwaltungsbezirk verwalten wir die Leitung selbst nicht.",
+              "en": "Regardless of the administrative district, we don't manage the pipe itself."
             },
             {
-              "ko": "그 하수구는 옆 동네 경계에 있어서 저희 담당이 아니에요.",
+              "ko": "그 하수구는 옆 동네 경계에 있어서 저희 담당이 아닙니다.",
               "de": "Der Abwasserkanal liegt an der Grenze zum Nachbarbezirk. Das fällt nicht in unseren Zuständigkeitsbereich.",
-              "en": "That drain is right at the border with the next district, so it's not our department's responsibility."
+              "en": "That drain is right at the border with the next district, so it isn't this office's responsibility."
             },
             {
-              "ko": "제가 시설과 담당자예요. 배관 소유 확인부터 해 드릴게요.",
-              "de": "Ich bin in der Anlagenverwaltung dafür zuständig. Ich prüfe zuerst, wem die Leitung gehört.",
-              "en": "I'm responsible for this in facilities management. Let me first check who owns the pipe."
+              "ko": "저는 시설 관리 담당자입니다. 먼저 배관의 관리 주체를 확인하겠습니다.",
+              "de": "Ich bin für die Anlagenverwaltung zuständig. Ich prüfe zuerst, wer die Leitung verwaltet.",
+              "en": "I am responsible for facilities management. I will first check who manages the pipe."
             }
           ],
           "correctIndex": 0
@@ -27166,49 +27166,49 @@
           "skill": "sentence",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
-            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Ja, ich kläre es noch heute und melde mich wieder bei Ihnen.",
-            "en": "Put the words in the same order as the recording. Meaning: Yes, I'll check it today and get back to you."
+            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Ja. Ich prüfe heute, was sich klären lässt, und informiere Sie dann über das Ergebnis und die nächsten Schritte.",
+            "en": "Put the words in the same order as the recording. Meaning: Yes. I will review what can be clarified today and then explain the result and the next steps."
           },
           "explanation": {
-            "ko": "이 과제는 들은 어순을 재현해요: “네, 오늘 안에 확인해서 다시 연락드릴게요.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
-            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „네, 오늘 안에 확인해서 다시 연락드릴게요.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
-            "en": "This task reconstructs the recorded word order: “네, 오늘 안에 확인해서 다시 연락드릴게요.”. Other ways to express a similar meaning are not the target of this listening task."
+            "ko": "이 과제는 들은 어순을 재현해요: “네. 오늘 안에 확인할 수 있는 범위를 살펴본 뒤, 결과와 다음 절차를 안내드리겠습니다.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
+            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „네. 오늘 안에 확인할 수 있는 범위를 살펴본 뒤, 결과와 다음 절차를 안내드리겠습니다.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
+            "en": "This task reconstructs the recorded word order: “네. 오늘 안에 확인할 수 있는 범위를 살펴본 뒤, 결과와 다음 절차를 안내드리겠습니다.”. Other ways to express a similar meaning are not the target of this listening task."
           },
           "sourceIds": [
             "c2_w10_jurisdiction"
           ],
-          "evidenceKo": "네, 오늘 안에 확인해서 다시 연락드릴게요.",
-          "audioKo": "네, 오늘 안에 확인해서 다시 연락드릴게요.",
-          "targetKo": "네, 오늘 안에 확인해서 다시 연락드릴게요."
+          "evidenceKo": "네. 오늘 안에 확인할 수 있는 범위를 살펴본 뒤, 결과와 다음 절차를 안내드리겠습니다.",
+          "audioKo": "네. 오늘 안에 확인할 수 있는 범위를 살펴본 뒤, 결과와 다음 절차를 안내드리겠습니다.",
+          "targetKo": "네. 오늘 안에 확인할 수 있는 범위를 살펴본 뒤, 결과와 다음 절차를 안내드리겠습니다."
         },
         {
           "id": "listening.c2.c2_w10_jurisdiction.response",
           "type": "choice",
           "skill": "response",
           "prompt": {
-            "ko": "대화를 들은 사람이 “행정 구역이 정해지면 배관 소유를 확인할 필요가 없어요.”라고 정리했다고 해 보세요. 원래 대화의 조건과 의도를 지키며 바로잡는 응답은 무엇인가요?",
-            "de": "Stell dir vor, jemand fasst das Gespräch so zusammen: „Bei bekannter Gebietsgrenze muss das Eigentum an der Leitung nicht geprüft werden.“ Welche Antwort korrigiert das und wahrt die ursprünglichen Bedingungen und Absichten?",
-            "en": "Imagine someone summarizes the conversation as follows: “Knowing the district boundary removes the need to check pipe ownership.” Which response corrects this while preserving the original conditions and intentions?"
+            "ko": "대화를 들은 사람이 “행정 구역이 정해지면 배관을 관리하는 주체를 확인할 필요가 없어요.”라고 정리했다고 해 보세요. 원래 대화의 조건과 의도를 지키며 바로잡는 응답은 무엇인가요?",
+            "de": "Stell dir vor, jemand fasst das Gespräch so zusammen: „Bei bekannter Gebietsgrenze muss nicht mehr geklärt werden, wer die Leitung verwaltet.“ Welche Antwort korrigiert das und wahrt die ursprünglichen Bedingungen und Absichten?",
+            "en": "Imagine someone summarizes the conversation as follows: “Knowing the district boundary removes the need to check who manages the pipe.” Which response corrects this while preserving the original conditions and intentions?"
           },
           "explanation": {
-            "ko": "근거는 “제가 시설과 담당자예요. 배관 소유 확인부터 해 드릴게요.”예요. 따라서 “경계만 따지기보다 배관 소유를 확인해 담당을 찾으려 해요.”가 맞아요. “행정 구역이 정해지면 배관 소유를 확인할 필요가 없어요.”와 “두 부서가 거절했으므로 더는 담당을 확인하지 않아요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „제가 시설과 담당자예요. 배관 소유 확인부터 해 드릴게요.“ (Ich bin in der Anlagenverwaltung dafür zuständig. Ich prüfe zuerst, wem die Leitung gehört.). Daraus folgt: Statt nur Gebietsgrenzen zu diskutieren, wird die Zuständigkeit über das Eigentum an der Leitung geklärt. Die Alternativen „Bei bekannter Gebietsgrenze muss das Eigentum an der Leitung nicht geprüft werden.“ und „Nach zwei Ablehnungen wird die Zuständigkeit nicht weiter geklärt.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “제가 시설과 담당자예요. 배관 소유 확인부터 해 드릴게요.” (I'm responsible for this in facilities management. Let me first check who owns the pipe.). This supports: They seek to establish responsibility by checking pipe ownership rather than only district boundaries. The alternatives “Knowing the district boundary removes the need to check pipe ownership.” and “After two refusals, responsibility will no longer be investigated.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “저는 시설 관리 담당자입니다. 먼저 배관의 관리 주체를 확인하겠습니다.”예요. 따라서 “경계만 따지기보다 배관을 실제로 관리하는 주체를 확인해 담당을 찾으려 해요.”가 맞아요. “행정 구역이 정해지면 배관을 관리하는 주체를 확인할 필요가 없어요.”와 “두 부서가 거절했으므로 더는 담당을 확인하지 않아요.”는 이 대화의 조건을 바꾼 해석이에요.",
+            "de": "Der Beleg lautet: „저는 시설 관리 담당자입니다. 먼저 배관의 관리 주체를 확인하겠습니다.“ (Ich bin für die Anlagenverwaltung zuständig. Ich prüfe zuerst, wer die Leitung verwaltet.). Daraus folgt: Statt nur Gebietsgrenzen zu betrachten, wird geklärt, wer die Leitung tatsächlich verwaltet. Die Alternativen „Bei bekannter Gebietsgrenze muss nicht mehr geklärt werden, wer die Leitung verwaltet.“ und „Nach zwei Ablehnungen wird die Zuständigkeit nicht weiter geklärt.“ verändern die Bedingung im Gespräch.",
+            "en": "The evidence is “저는 시설 관리 담당자입니다. 먼저 배관의 관리 주체를 확인하겠습니다.” (I am responsible for facilities management. I will first check who manages the pipe.). This supports: Rather than looking only at district boundaries, they are checking who actually manages the pipe. The alternatives “Knowing the district boundary removes the need to check who manages the pipe.” and “After two refusals, responsibility will no longer be investigated.” change a condition in the dialogue."
           },
           "sourceIds": [
             "c2_w10_jurisdiction"
           ],
-          "evidenceKo": "제가 시설과 담당자예요. 배관 소유 확인부터 해 드릴게요.",
+          "evidenceKo": "저는 시설 관리 담당자입니다. 먼저 배관의 관리 주체를 확인하겠습니다.",
           "options": [
             {
-              "ko": "경계만 따지기보다 배관 소유를 확인해 담당을 찾으려 해요.",
-              "de": "Statt nur Gebietsgrenzen zu diskutieren, wird die Zuständigkeit über das Eigentum an der Leitung geklärt.",
-              "en": "They seek to establish responsibility by checking pipe ownership rather than only district boundaries."
+              "ko": "경계만 따지기보다 배관을 실제로 관리하는 주체를 확인해 담당을 찾으려 해요.",
+              "de": "Statt nur Gebietsgrenzen zu betrachten, wird geklärt, wer die Leitung tatsächlich verwaltet.",
+              "en": "Rather than looking only at district boundaries, they are checking who actually manages the pipe to identify the responsible office."
             },
             {
-              "ko": "행정 구역이 정해지면 배관 소유를 확인할 필요가 없어요.",
-              "de": "Bei bekannter Gebietsgrenze muss das Eigentum an der Leitung nicht geprüft werden.",
-              "en": "Knowing the district boundary removes the need to check pipe ownership."
+              "ko": "행정 구역이 정해지면 배관을 관리하는 주체를 확인할 필요가 없어요.",
+              "de": "Bei bekannter Gebietsgrenze muss nicht mehr geklärt werden, wer die Leitung verwaltet.",
+              "en": "Knowing the district boundary removes the need to check who manages the pipe."
             },
             {
               "ko": "두 부서가 거절했으므로 더는 담당을 확인하지 않아요.",

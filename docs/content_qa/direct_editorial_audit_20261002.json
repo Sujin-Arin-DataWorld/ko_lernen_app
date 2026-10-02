@@ -36560,7 +36560,7 @@
       "learning_phases.json"
     ],
     "ttsBoundary": "Storage keys are complete; individual clip listening and device playback are not claimed.",
-    "scenarioPersonaReview": "A1: 29, A2: 28, B1: 31, B2: 30, and C1: 30 live scenarios directly reviewed. C2: 30 live scenarios remain."
+    "scenarioPersonaReview": "All 178 live scenarios (A1: 29, A2: 28, B1: 31, B2: 30, C1: 30, C2: 30) were directly reviewed against the PR #438 persona criteria. Future content additions and an independent native-speaker or educator review remain open."
   },
   "scenarioPersonaReviewProgress": {
     "reviewReference": "GitHub PR #438 merged as 797160b0664172b2956be0e202bb5df9b246b65c",
@@ -36988,6 +36988,78 @@
           "remoteObjects": 21962,
           "missingObjects": 0,
           "staleObjects": 9038,
+          "humanListeningClaim": false
+        }
+      },
+      {
+        "level": "C2",
+        "status": "directly_reviewed",
+        "scenarioCount": 30,
+        "scenarioIds": [
+          "ai_hiring_appeal",
+          "automated_benefit_denial",
+          "autonomous_delivery_liability",
+          "causal_claim_headline",
+          "central_local_disaster_responsibility",
+          "climate_model_local_decision",
+          "diaspora_name_identity",
+          "emergency_price_controls",
+          "fact_check_label_power",
+          "family_memory_conflict",
+          "hidden_gem_local_impact",
+          "housing_tax_intergenerational",
+          "medical_uncertainty_consent",
+          "passive_voice_accountability",
+          "poll_question_framing",
+          "protest_order_and_rights",
+          "relationship_story_reframing",
+          "replication_failure_response",
+          "we_translation_identity",
+          "welfare_fraud_presumption",
+          "c2_theme_park_date_reflection",
+          "c2_w10_record",
+          "c2_w10_mandate",
+          "c2_w10_impact",
+          "c2_w10_history",
+          "c2_w10_aesthetic",
+          "c2_w10_limitation",
+          "c2_w10_jurisdiction",
+          "c2_w10_friends",
+          "c2_w10_fandom"
+        ],
+        "reviewedFields": [
+          "Korean dialogue and tone",
+          "German and English localization",
+          "speaker relationship and register",
+          "vocabulary extraction",
+          "listening/translation/sentence-building answer alignment",
+          "linked listening-lesson prompt, evidence, answer, and explanation",
+          "academic, institutional, legal, consent, public-policy, and persona claims"
+        ],
+        "findingsApplied": [
+          {
+            "scenarioId": "c2_theme_park_date_reflection",
+            "decision": "The intimate exchange now uses the spoken Korean concessive 기다림이 길어도 rather than a formal debate-style form. The C2 concessive pattern remains in its dedicated grammar task, and the scene tasks and linked listening source match the revised dialogue."
+          },
+          {
+            "scenarioId": "c2_w10_history",
+            "decision": "The conversation no longer defines reconciliation over the heads of people harmed by the event. It keeps responsibility, explanation, and prevention while making a direct explanation and listening to affected families part of the discussion; scenario tasks and all linked listening prompts, evidence, options, and explanations match."
+          },
+          {
+            "scenarioId": "c2_w10_jurisdiction",
+            "decision": "The malformed facilities-role line now identifies a facilities manager, distinguishes district boundaries from the infrastructure operator, and limits the same-day commitment to what can actually be clarified. The scenario and linked listening lesson use the same source lines and conditional next step."
+          }
+        ],
+        "retained": "The other 27 C2 scenes keep their current wording because their speaker goal, relationship, register, level, and KO-DE-EN meaning are appropriate to C2.",
+        "notClaimed": "This is a direct editorial read, not independent native-speaker approval or individual audio listening.",
+        "tts": {
+          "canonicalManifestRebuilt": true,
+          "firstLineManifestRebuilt": true,
+          "newStorageObjectsUploaded": 13,
+          "expectedCanonicalClips": 12921,
+          "remoteObjects": 21975,
+          "missingObjects": 0,
+          "staleObjects": 9054,
           "humanListeningClaim": false
         }
       }
