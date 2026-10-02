@@ -1,0 +1,168 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "check": "all 11 stable persona ids preserved",
+      "passed": true
+    },
+    {
+      "check": "ten adult ages preserved; Jun 9 source -> 16 recommendation",
+      "passed": true
+    },
+    {
+      "check": "all persona voice contracts preserved",
+      "passed": true
+    },
+    {
+      "check": "proposal explicitly unpromoted",
+      "passed": true
+    },
+    {
+      "check": "27 unique relationships with valid endpoints",
+      "passed": true
+    },
+    {
+      "check": "only three newly invented pairings",
+      "passed": true
+    },
+    {
+      "check": "existing 23 graph pairs retained",
+      "passed": true
+    },
+    {
+      "check": "Lena-Maya is profile relation restoration",
+      "passed": true
+    },
+    {
+      "check": "54 unique proposed topics across 9 categories",
+      "passed": true
+    },
+    {
+      "check": "topic actor references valid",
+      "passed": true
+    },
+    {
+      "check": "priority references valid",
+      "passed": true
+    },
+    {
+      "check": "all four previously unused family personas have proposed topics",
+      "passed": true
+    },
+    {
+      "check": "178 actual source scenes retained",
+      "passed": true
+    },
+    {
+      "check": "source unchanged: persona-details-20261002/tools/content_factory/canonical_scenarios/character_profiles.json",
+      "passed": true
+    },
+    {
+      "check": "source unchanged: persona-details-20261002/tools/content_factory/canonical_scenarios/character_profiles.json",
+      "passed": true
+    },
+    {
+      "check": "source unchanged: persona-details-20261002/assets/data/scenarios_a1.json",
+      "passed": true
+    },
+    {
+      "check": "source unchanged: persona-details-20261002/assets/data/scenarios_a1.json",
+      "passed": true
+    },
+    {
+      "check": "source unchanged: persona-details-20261002/assets/data/scenarios_a2.json",
+      "passed": true
+    },
+    {
+      "check": "source unchanged: persona-details-20261002/assets/data/scenarios_a2.json",
+      "passed": true
+    },
+    {
+      "check": "source unchanged: persona-details-20261002/assets/data/scenarios_b1.json",
+      "passed": true
+    },
+    {
+      "check": "source unchanged: persona-details-20261002/assets/data/scenarios_b1.json",
+      "passed": true
+    },
+    {
+      "check": "source unchanged: persona-details-20261002/assets/data/scenarios_b2.json",
+      "passed": true
+    },
+    {
+      "check": "source unchanged: persona-details-20261002/assets/data/scenarios_b2.json",
+      "passed": true
+    },
+    {
+      "check": "source unchanged: persona-details-20261002/assets/data/scenarios_c1.json",
+      "passed": true
+    },
+    {
+      "check": "source unchanged: persona-details-20261002/assets/data/scenarios_c1.json",
+      "passed": true
+    },
+    {
+      "check": "source unchanged: persona-details-20261002/assets/data/scenarios_c2.json",
+      "passed": true
+    },
+    {
+      "check": "source unchanged: persona-details-20261002/assets/data/scenarios_c2.json",
+      "passed": true
+    },
+    {
+      "check": "runtime model/asset Git content preserved: lib/models/scenario_character.dart",
+      "passed": true
+    },
+    {
+      "check": "runtime model/asset Git content preserved: lib/models/scenario.dart",
+      "passed": true
+    },
+    {
+      "check": "runtime model/asset Git content preserved: assets/illustrations/mascot/tiger_front.png",
+      "passed": true
+    },
+    {
+      "check": "runtime model/asset Git content preserved: assets/illustrations/mascot/magpie_front.png",
+      "passed": true
+    },
+    {
+      "check": "8 explicit draft dialogue samples",
+      "passed": true
+    },
+    {
+      "check": "review viewer exists and embeds proposal status",
+      "passed": true
+    }
+  ],
+  "sources": [
+    {
+      "path": "tools/content_factory/canonical_scenarios/character_profiles.json",
+      "sha256": "21dddd070e0bad532a3bfe4866930b8261ee379743992e93e77e558a2dc1e91f"
+    },
+    {
+      "path": "assets/data/scenarios_a1.json",
+      "sha256": "bc173ffc3c27929483a00ddfd3eba98f1f95049c8e74a44076f64de2b96f7c8c"
+    },
+    {
+      "path": "assets/data/scenarios_a2.json",
+      "sha256": "1a42f350eda096d60bcaa09f8208ca578897e9aa9b87ea4227cecc6ec1353a07"
+    },
+    {
+      "path": "assets/data/scenarios_b1.json",
+      "sha256": "1cb331247f58ba3bbf5761d1400eab56bd29f46b288efdf6dc60b3b4151d14cf"
+    },
+    {
+      "path": "assets/data/scenarios_b2.json",
+      "sha256": "20b0647a3f1177d14836fb44ed54904a6d59d54c60b2f6460d52b71fc29c946b"
+    },
+    {
+      "path": "assets/data/scenarios_c1.json",
+      "sha256": "2ce503d593db72d1e78209ea4b6f85a56f2f53b8d2bddcffdb4b40580d94a1cc"
+    },
+    {
+      "path": "assets/data/scenarios_c2.json",
+      "sha256": "af9d9aff7ce36cfe31d20383654d63a3ca4254d569d392428e9314fe6d3abf89"
+    }
+  ],
+  "scope": "review artifact consistency and unchanged source bytes; not Flutter/runtime/CEFR/TTS QA"
+}

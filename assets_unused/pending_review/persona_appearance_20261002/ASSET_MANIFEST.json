@@ -1,0 +1,77 @@
+{
+  "status": "REVIEW_ONLY_NOT_RUNTIME",
+  "sourceFolder": "assets_unused/pending_review/dancheong_3d_concept_20261002",
+  "sourceImagesPreservedByteForByte": true,
+  "assets": [
+    {
+      "path": "characters/sujin_v2_short_bob.png",
+      "sha256": "d8b54abb44c4de062470ee2ba392f6eea6d8e8817cdad161dc6091456a4093fe",
+      "bytes": 555923,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "characters/christian.png",
+      "sha256": "7aafb4ba6304d3512859748fff0404b5839252165e2a937a41892e2d02c0d1e5",
+      "bytes": 610893,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "characters/dongsun.png",
+      "sha256": "18dce3c9454ddc504b3626062a87ba8bedf2db54b98d3d0f4bc0004ebe6f6809",
+      "bytes": 631086,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "characters/byeongcheol.png",
+      "sha256": "183e3741c79c6946d21e56bdbbac7c0b57e6315b83e2b3c401028650b29b1954",
+      "bytes": 679574,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "characters/jun.png",
+      "sha256": "89e10a9abf67662b5c3b559142d615fe2af9f16474364898d463167cf81a85e1",
+      "bytes": 668670,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    }
+  ]
+}

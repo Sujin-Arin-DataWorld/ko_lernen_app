@@ -1,0 +1,63 @@
+{
+  "mode": "built-in image_gen",
+  "status": "REVIEW_ONLY_NO_RUNTIME_PROMOTION",
+  "date": "2026-10-02",
+  "rasterEditing": "All image generation and edits performed with native image_gen; no Python pixel editing.",
+  "referenceLogNote": "For early calls, reference lists below are reconstructed from the saved prompt and known inputs; prompts remain verbatim. screenPrompts and squarePrompts refs are exact structured arguments.",
+  "scope": "Selected five persona appearance candidates only; original reference-log caveat retained.",
+  "runs": [
+    {
+      "id": "sujin_v2",
+      "mode": "built-in image_gen",
+      "prompt": "Use case: identity-preserve. Asset type: transparent standalone 3D persona cutout for Hangul Sori.\nEDIT TARGET: the referenced local Sujin image. Change ONLY the hairstyle and hair color.\nSujin is a 27-year-old Korean woman. Her new hairstyle is a sophisticated short bob at the boundary between a pixie cut and a bob: ends at the jaw/ear, shaped and tapered softly at the nape, a graceful side part, short layered side-swept fringe swept away from the forehead. She HAS fringe, but most of her forehead is clearly visible. Rich natural dark-brown hair with subtle brown highlights, not jet black. No shoulder-length hair, no blunt fringe across the forehead, no bald forehead with all hair slicked back, no boyish buzz cut.\nPreserve her exact face identity, brown eyes, understated expression, age, adult proportions, body pose, teal tailored blazer, ivory shirt, charcoal trousers, shoes, watch, closed notebook, full-body composition, soft upper-left light and matte 3D material from the edit target.\nKeep the same polished friendly 3D world. One person only, head to shoes, generous margins. Actual transparent alpha background, no floor, no cast shadow, no text or watermark.",
+      "references": [
+        "C:/dev/hangulsori/ko_lernen_app_worktrees/dancheong-3d-concept-20261002/assets_unused/pending_review/dancheong_3d_concept_20261002/characters/sujin.png"
+      ],
+      "savedRelativePath": "characters/sujin_v2_short_bob.png",
+      "selection": "selected"
+    },
+    {
+      "id": "jun",
+      "mode": "built-in image_gen",
+      "prompt": "Use case: stylized-concept. Asset type: standalone transparent 3D persona for Hangul Sori Korean learning.\nInput image 1 is ONLY the shared 3D art quality, matte material, adult anatomy, clothing fabric and upper-left warm soft studio-light reference. Create a distinct original person, do NOT copy Sujin's face, hair or outfit.\nPremium friendly animated-film 3D, sophisticated and restrained, roughly 6-heads-tall adult stylization. Full body from top of head to shoes, one person centered with ample margins, slight three-quarter stance facing viewer. Clear mature anatomy, modest eye size, subtle expression; no chibi or glossy plastic, no exaggerated doll cheeks, no caricature. Dancheong world: cream #FAF6EC, celadon #1F7A6B, muted vermilion #A0524A, gold #D4A22E, slate blue #5A7BA0, ink #1A1F1D. No floor, no cast shadow, no background, no text, labels, watermark or logos. True transparent alpha.\nCharacter: JUN, 16-year-old Korean-German bilingual high-school first-year boy. A distinct teenage son, neither adult professional nor young child. Lanky adolescent anatomy with naturally long arms and legs and a somewhat smaller build than the adult men, proportionate head and modest eyes. Natural short dark-brown hair with a soft tapered silhouette and tidy fringe, brown eyes, curious composed expression and a slight smile. Wearing a light cream casual overshirt over muted-gold T-shirt, slate-blue straight jeans and simple neutral sneakers, carrying one small CLOSED blank exercise notebook at his side. No school logos, no text. No baby body, giant head, stubby limbs, cute toddler cheeks or adult business suit. Preserve the shared sophisticated matte 3D world.",
+      "references": [
+        "C:/dev/hangulsori/ko_lernen_app_worktrees/dancheong-3d-concept-20261002/assets_unused/pending_review/dancheong_3d_concept_20261002/characters/sujin_v2_short_bob.png"
+      ],
+      "savedRelativePath": "characters/jun.png",
+      "selection": "selected"
+    },
+    {
+      "id": "christian_square",
+      "mode": "built-in image_gen",
+      "prompt": "Create a NEW square-canvas isolated 3D character render based on reference 1's exact person, with the clean cutout presentation of reference 2. This is a foreground-only transparent asset. Retain the person's exact face, hair, age, clothes, colors, posture and full body including shoes. Square 1:1 canvas, figure centered with generous clear margin on all four sides, full body tall in the square. The ONLY visible pixels are the physical person; lighting is on the person's surfaces, not in the air. All exterior canvas pixels are fully transparent alpha=0, the physical person is opaque alpha=255. No atmosphere, no colored halo, no glow, no gradient aura, no vignette, no blurry backing, no backdrop, no floor or cast shadow, no sparkles. Do not preserve any blurry luminous area from reference 1: remove it entirely. Warm soft upper-left light, restrained matte fabrics and skin, elegant adult proportions matching reference 2. Reference 2 is Sujin for presentation style only; do not copy her identity or clothes. Reference 1 is the sole identity to render. Christian is a white 24-year-old blond man. Eyes are muted sage-dark-blue gray, not emerald green. No text.",
+      "references": [
+        "C:/dev/hangulsori/ko_lernen_app_worktrees/dancheong-3d-concept-20261002/assets_unused/pending_review/dancheong_3d_concept_20261002/characters/christian_v1.png",
+        "C:/dev/hangulsori/ko_lernen_app_worktrees/dancheong-3d-concept-20261002/assets_unused/pending_review/dancheong_3d_concept_20261002/characters/sujin_v2_short_bob.png"
+      ],
+      "savedRelativePath": "characters/christian.png",
+      "selection": "selected"
+    },
+    {
+      "id": "dongsun_square",
+      "mode": "built-in image_gen",
+      "prompt": "Create a NEW square-canvas isolated 3D character render based on reference 1's exact person, with the clean cutout presentation of reference 2. This is a foreground-only transparent asset. Retain the person's exact face, hair, age, clothes, colors, posture and full body including shoes. Square 1:1 canvas, figure centered with generous clear margin on all four sides, full body tall in the square. The ONLY visible pixels are the physical person; lighting is on the person's surfaces, not in the air. All exterior canvas pixels are fully transparent alpha=0, the physical person is opaque alpha=255. No atmosphere, no colored halo, no glow, no gradient aura, no vignette, no blurry backing, no backdrop, no floor or cast shadow, no sparkles. Do not preserve any blurry luminous area from reference 1: remove it entirely. Warm soft upper-left light, restrained matte fabrics and skin, elegant adult proportions matching reference 2. Reference 2 is Sujin for presentation style only; do not copy her identity or clothes. Reference 1 is the sole identity to render. Dongsun is a Korean 61-year-old woman with a fashionable neat chin-length dark-brown bob, subtle gray, and natural mature features. No text.",
+      "references": [
+        "C:/dev/hangulsori/ko_lernen_app_worktrees/dancheong-3d-concept-20261002/assets_unused/pending_review/dancheong_3d_concept_20261002/characters/dongsun_v1.png",
+        "C:/dev/hangulsori/ko_lernen_app_worktrees/dancheong-3d-concept-20261002/assets_unused/pending_review/dancheong_3d_concept_20261002/characters/sujin_v2_short_bob.png"
+      ],
+      "savedRelativePath": "characters/dongsun.png",
+      "selection": "selected"
+    },
+    {
+      "id": "byeongcheol_square",
+      "mode": "built-in image_gen",
+      "prompt": "Create a NEW square-canvas isolated 3D character render based on reference 1's exact person, with the clean cutout presentation of reference 2. This is a foreground-only transparent asset. Retain the person's exact face, hair, age, clothes, colors, posture and full body including shoes. Square 1:1 canvas, figure centered with generous clear margin on all four sides, full body tall in the square. The ONLY visible pixels are the physical person; lighting is on the person's surfaces, not in the air. All exterior canvas pixels are fully transparent alpha=0, the physical person is opaque alpha=255. No atmosphere, no colored halo, no glow, no gradient aura, no vignette, no blurry backing, no backdrop, no floor or cast shadow, no sparkles. Do not preserve any blurry luminous area from reference 1: remove it entirely. Warm soft upper-left light, restrained matte fabrics and skin, elegant adult proportions matching reference 2. Reference 2 is Sujin for presentation style only; do not copy her identity or clothes. Reference 1 is the sole identity to render. Byeongcheol is a Korean 64-year-old man with a neat short natural side part, salt-and-pepper temples and natural mature features. No text.",
+      "references": [
+        "C:/dev/hangulsori/ko_lernen_app_worktrees/dancheong-3d-concept-20261002/assets_unused/pending_review/dancheong_3d_concept_20261002/characters/byeongcheol_v1.png",
+        "C:/dev/hangulsori/ko_lernen_app_worktrees/dancheong-3d-concept-20261002/assets_unused/pending_review/dancheong_3d_concept_20261002/characters/sujin_v2_short_bob.png"
+      ],
+      "savedRelativePath": "characters/byeongcheol.png",
+      "selection": "selected"
+    }
+  ]
+}
