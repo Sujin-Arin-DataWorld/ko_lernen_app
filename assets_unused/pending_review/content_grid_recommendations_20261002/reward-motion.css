@@ -1,0 +1,42 @@
+/* Bright reward surfaces; no dark theme. Preview economy is memory-only. */
+.coin-badge{display:flex;align-items:center;gap:5px;min-height:48px;min-width:64px;padding:5px 9px 5px 4px;background:#FFF7DD;border:1px solid #E6D9AF;border-radius:16px;color:#795A12}
+.coin-badge img{width:30px;height:32px;object-fit:contain}.coin-badge strong{font-size:14px;font-weight:600}
+.wallet-peek,.gift-peek{width:100%;display:flex;gap:12px;align-items:center;text-align:left;background:#F9EFD8;border:1px solid #E4D5AB;border-radius:20px;padding:14px;color:var(--ink);margin-top:16px;box-shadow:0 2px 0 #E7DCBD;min-height:96px}
+.wallet-peek>img{width:63px;height:66px;object-fit:contain}.wallet-peek>span,.gift-peek>span{flex:1;min-width:0}
+.wallet-peek small,.gift-peek small{display:block;font-size:11px;color:var(--muted);line-height:1.65}.wallet-peek strong{font-size:20px;line-height:1.6;display:block;font-weight:600}
+.wallet-peek>.icon,.gift-peek>.icon{width:20px;height:20px;color:#795A12;flex-shrink:0}
+.gift-peek{background:#E4EFF4;border-color:#CCDDE5;box-shadow:0 2px 0 #CEDFE6;min-height:88px}.gift-peek>img{width:58px;height:62px;object-fit:contain}.gift-peek strong{font-size:14px;line-height:1.5;display:block}.gift-peek small{margin-top:4px}
+.reward-top{display:flex;gap:10px;align-items:center;justify-content:space-between;margin:0 0 14px}.reward-top>.icon-button{margin-left:-8px}.reward-top>.coin-badge{margin-left:auto}
+.reward-top>.pill{font-size:10px}
+.wallet-stage{text-align:center;background:#FFF5D8;border:1px solid #E9D8A3;border-radius:24px;padding:20px 12px;margin-top:24px}
+.wallet-stage>img{display:block;width:190px;height:170px;object-fit:contain;margin:2px auto}.wallet-amount{font-size:36px;display:block;font-weight:600;line-height:1.5}.wallet-amount small{font-size:17px}
+.construction-goal{margin-top:24px}.construction-goal h3{font-size:17px;line-height:1.5;font-weight:600;margin:0 0 16px}.construction-goal p{font-size:13px;color:var(--muted);line-height:1.8;margin:12px 0 20px}
+.goal-meter{height:12px;background:#E1E7D9;border-radius:20px;overflow:hidden}.goal-meter span{height:100%;background:var(--green);display:block;border-radius:inherit;transition:width 240ms var(--ease)}
+.wallet-rules{font-size:13px;margin:20px 0}.wallet-rules summary{min-height:48px;cursor:pointer;padding:13px 0;color:var(--green)}.wallet-rules p{color:var(--muted);line-height:1.8;margin:0}
+.reward-disclaimer{font-size:11px;line-height:1.8;color:var(--muted);text-align:center;margin:20px 0 0}
+.reward-preview-action{margin-top:22px}
+.page[data-view=reward]{min-height:100%;display:flex;flex-direction:column;background:linear-gradient(150deg,#FFFBEE,#FAEAC4)}
+.reward-stage{text-align:center;padding:20px 0 16px;flex:1}.reward-stage .eyebrow{color:#795A12;letter-spacing:.05em}
+.reward-stage h2{font-size:27px;line-height:1.45;font-weight:600;margin:20px auto 8px;max-width:310px;letter-spacing:-.5px}
+.reward-object{position:relative;max-width:300px;margin:0 auto;height:210px;display:flex;align-items:center;justify-content:center}
+.reward-object>img{width:242px;height:230px;object-fit:contain;animation:reward-arrive 340ms var(--ease) both}
+.reward-spark{position:absolute;color:#B08B28;font-size:22px;animation:reward-glint 480ms ease-out both;pointer-events:none}.reward-spark.s1{left:16px;top:62px}.reward-spark.s2{right:18px;bottom:44px;font-size:14px}
+.earned-amount{font-size:40px;font-weight:600;color:#795A12;line-height:1.3;display:block;margin:8px 0 24px;letter-spacing:-1px}.earned-amount span{font-size:23px;letter-spacing:0}
+.reward-total{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px;background:#FFFDF3;border:1px solid #E4D6AD;border-radius:17px;font-size:13px;text-align:left}.reward-total>span:last-child{display:flex;align-items:center;gap:12px}.reward-total strong{font-size:22px;color:#795A12}.reward-total .icon{width:18px;height:18px;color:#7C846F}
+.reward-footer{margin-top:auto}.reward-footer .reward-disclaimer{margin-top:12px}
+.quest-preview{margin-top:32px}.quest-receipt{margin:20px 0 30px;padding:22px;background:#FFF7DC;border:1px solid #E3D097;border-radius:22px;position:relative}.quest-receipt h3{font-size:18px;font-weight:600;margin:0 0 24px}.quest-meter{height:14px;background:#E7D9B6;border-radius:20px;position:relative;margin-right:26px}.quest-meter>span{display:block;height:100%;width:100%;background:#C99A2E;border-radius:inherit;animation:quest-fill 280ms var(--ease) both}.quest-meter>img{width:55px;height:55px;object-fit:contain;position:absolute;right:-26px;top:-24px}.quest-count{display:block;margin:12px 0 0;font-size:12px;font-weight:600;color:#795A12}
+.page[data-view=bojagi]{background:linear-gradient(150deg,#F0F7F6,#DFEDF4);min-height:100%}
+.gift-stage{text-align:center;padding:24px 0}.gift-stage h2,.gift-chosen h2{font-size:25px;line-height:1.5;font-weight:600;margin:16px 0 18px}.gift-stage p,.gift-chosen p{font-size:13px;color:var(--muted);line-height:1.8}
+.gift-knot{width:100%;height:265px;display:flex;align-items:center;justify-content:center;border:0;background:transparent;border-radius:24px;transition:transform 100ms var(--ease)}.gift-knot img{width:260px;height:260px;object-fit:contain;filter:drop-shadow(0 12px 8px #274f5812)}.gift-knot:active{transform:translateY(3px) scale(.985)}
+.opened-gift{height:142px;display:flex;justify-content:center;align-items:center}.opened-gift img{width:155px;height:155px;object-fit:contain;animation:unwrap-reveal 300ms var(--ease) both}
+.gift-candidates{display:grid;gap:12px;margin:0 0 20px}.gift-candidate{display:flex;gap:14px;align-items:center;min-height:92px;width:100%;border:1px solid #CCDAD7;background:#FFFDF7;border-radius:18px;padding:8px 14px;color:var(--ink);text-align:left;box-shadow:0 3px 0 #C8D8D2;animation:unwrap-reveal 220ms var(--ease) both;animation-delay:calc(var(--candidate)*50ms)}.gift-candidate img{width:72px;height:76px;object-fit:contain;flex-shrink:0}.gift-candidate strong{font-size:14px;line-height:1.6;font-weight:500;flex:1;min-width:0}.gift-candidate>.icon{width:18px;height:18px;flex-shrink:0;color:var(--green)}.gift-candidate:active{transform:translateY(2px);box-shadow:0 1px 0 #C8D8D2}
+.gift-chosen{text-align:center;padding:24px 0}.gift-chosen>img{display:block;margin:6px auto;width:235px;height:230px;object-fit:contain;animation:reward-arrive 300ms var(--ease) both}.gift-chosen>strong{font-size:18px;font-weight:600;display:block}
+@keyframes reward-arrive{from{opacity:.3;transform:translateY(12px) scale(.95)}to{opacity:1;transform:none}}
+@keyframes reward-glint{0%{opacity:0;transform:scale(.7)}60%{opacity:.9;transform:scale(1.1)}100%{opacity:.55;transform:scale(1)}}
+@keyframes quest-fill{from{width:0}to{width:100%}}
+@keyframes unwrap-reveal{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.large-text .wallet-peek small,.large-text .gift-peek small,.large-text .gift-stage p,.large-text .gift-chosen p,.large-text .construction-goal p,.large-text .wallet-rules{font-size:17px}
+.large-text .gift-candidate strong{font-size:19px}.large-text .coin-badge strong{font-size:18px}.large-text .reward-stage h2,.large-text .gift-stage h2,.large-text .gift-chosen h2{font-size:31px}
+.large-text .top-actions{gap:5px}.large-text .topbar .pill{font-size:11px}
+.reduced .gift-knot,.reduced .gift-candidate,.reduced .reward-object>img,.reduced .gift-chosen>img{transform:none!important}
+@media(prefers-reduced-motion:reduce){.gift-knot,.gift-candidate,.reward-object>img,.gift-chosen>img{transform:none!important}}

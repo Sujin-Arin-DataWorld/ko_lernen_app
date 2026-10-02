@@ -1,0 +1,14 @@
+{
+  "scope": "Separate local review copy; no runtime app or parent prototype mutations.",
+  "sourceMainHead": "797160b0664172b2956be0e202bb5df9b246b65c",
+  "art": {
+    "grammar": {
+      "path": "assets/grammar.png",
+      "sha256": "da3232e17af967fef0395965c86fadace006226f15796ee3aa6d83a9763bcd3f"
+    },
+    "hangul": {
+      "path": "assets/hangul.png",
+      "sha256": "234de0b865ce72a4052541d32abebc9743d8906fbd7f316b4c8a6362c33d2029"
+    }
+  }
+}

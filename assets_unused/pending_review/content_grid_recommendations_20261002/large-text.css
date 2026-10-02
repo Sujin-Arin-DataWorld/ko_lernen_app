@@ -1,0 +1,17 @@
+/* Review-only large-text check: keep hit areas and scroll, never shrink copy to fit. */
+.large-text .hero p,.large-text .page-intro,.large-text .answer,
+.large-text .feedback,.large-text .role-cue,.large-text .context-line,
+.large-text .retained-translation,.large-text .achievement-row{font-size:20px}
+.large-text .bubble .ko,.large-text .retained-phrase{font-size:29px}
+.large-text .bubble .translation,.large-text .conversation-choice small{font-size:19px}
+.large-text .conversation-choice{font-size:24px}
+.large-text .question,.large-text .primary,.large-text .secondary{font-size:23px}
+.large-text .hero-context{flex-wrap:wrap;font-size:17px}
+.large-text .duration{font-size:15px}
+.large-text .practice-tile strong{font-size:21px}
+.large-text .practice-tile small{font-size:17px}
+.large-text .hero h3,.large-text .lesson-heading{font-size:34px}
+.large-text .context-line{flex-wrap:wrap}
+.large-text .my-turn{font-size:18px}
+.large-text .sub-actions{flex-wrap:wrap}
+.large-text .sub-actions .text-button,.large-text .text-button{font-size:18px}

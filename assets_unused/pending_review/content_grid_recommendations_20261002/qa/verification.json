@@ -1,0 +1,39 @@
+{
+  "scope": "Independent pending-review bundle; runtime integration is not included.",
+  "sourceReferenceHead": "797160b0664172b2956be0e202bb5df9b246b65c",
+  "catalogSourceHashes": {
+    "assets/data/korean_vocab.csv": true,
+    "lib/data/sori_activity_catalog.dart": true,
+    "lib/data/pack_artwork_catalog.dart": true,
+    "lib/services/vocab_pack_service.dart": true,
+    "lib/l10n/app_de.arb": true,
+    "lib/l10n/app_en.arb": true
+  },
+  "newArt": {
+    "grammar": {
+      "size": [
+        1254,
+        1254
+      ],
+      "transparent": true,
+      "bytesPreserved": true
+    },
+    "hangul": {
+      "size": [
+        1254,
+        1254
+      ],
+      "transparent": true,
+      "bytesPreserved": true
+    }
+  },
+  "logicTests": 17,
+  "layoutCases": 8,
+  "interactionChecks": [
+    "Grammar opens its canonical activity detail",
+    "Hangul recommendation opens its canonical activity detail",
+    "Dismissal keeps four tiles and removes suggestion",
+    "Demo history does not alter local preview usage history"
+  ],
+  "integrationBoundary": "Records only local prototype interactions. Production user/account/activity engines are not connected."
+}

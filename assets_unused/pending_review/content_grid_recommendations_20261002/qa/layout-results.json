@@ -1,0 +1,218 @@
+[
+  {
+    "count": 4,
+    "demo": null,
+    "discovery": null,
+    "font": true,
+    "images": true,
+    "inventory": {
+      "games": 8,
+      "learn": 13,
+      "packs": 252
+    },
+    "labelInside": true,
+    "labels": [
+      "Hören",
+      "Dialog",
+      "Wörter",
+      "Grammatik"
+    ],
+    "locale": "de",
+    "minTap": 138,
+    "nav": 5,
+    "overflow": false,
+    "reduced": false,
+    "subtitles": 0,
+    "transform": "none",
+    "width": 320
+  },
+  {
+    "count": 4,
+    "demo": null,
+    "discovery": null,
+    "font": true,
+    "images": true,
+    "inventory": {
+      "games": 8,
+      "learn": 13,
+      "packs": 252
+    },
+    "labelInside": true,
+    "labels": [
+      "Hören",
+      "Dialog",
+      "Wörter",
+      "Grammatik"
+    ],
+    "locale": "de",
+    "minTap": 158,
+    "nav": 5,
+    "overflow": false,
+    "reduced": false,
+    "subtitles": 0,
+    "transform": "none",
+    "width": 390
+  },
+  {
+    "count": 4,
+    "demo": null,
+    "discovery": null,
+    "font": true,
+    "images": true,
+    "inventory": {
+      "games": 8,
+      "learn": 13,
+      "packs": 252
+    },
+    "labelInside": true,
+    "labels": [
+      "Listening",
+      "Dialogue",
+      "Vocabulary",
+      "Grammar"
+    ],
+    "locale": "en",
+    "minTap": 158,
+    "nav": 5,
+    "overflow": false,
+    "reduced": false,
+    "subtitles": 0,
+    "transform": "none",
+    "width": 390
+  },
+  {
+    "count": 4,
+    "demo": null,
+    "discovery": null,
+    "font": true,
+    "images": true,
+    "inventory": {
+      "games": 8,
+      "learn": 13,
+      "packs": 252
+    },
+    "labelInside": true,
+    "labels": [
+      "듣기",
+      "대화",
+      "단어",
+      "문법"
+    ],
+    "locale": "ko",
+    "minTap": 157.99993896484375,
+    "nav": 5,
+    "overflow": false,
+    "reduced": false,
+    "subtitles": 0,
+    "transform": "none",
+    "width": 390
+  },
+  {
+    "count": 4,
+    "demo": null,
+    "discovery": null,
+    "font": true,
+    "images": true,
+    "inventory": {
+      "games": 8,
+      "learn": 13,
+      "packs": 252
+    },
+    "labelInside": true,
+    "labels": [
+      "Hören",
+      "Dialog",
+      "Wörter",
+      "Grammatik"
+    ],
+    "locale": "de",
+    "minTap": 158,
+    "nav": 5,
+    "overflow": false,
+    "reduced": false,
+    "subtitles": 0,
+    "transform": "none",
+    "width": 480
+  },
+  {
+    "count": 4,
+    "demo": "discover",
+    "discovery": "hangul",
+    "font": true,
+    "images": true,
+    "inventory": {
+      "games": 8,
+      "learn": 13,
+      "packs": 252
+    },
+    "labelInside": true,
+    "labels": [
+      "Wiederholen",
+      "Small Talk",
+      "Hören",
+      "Blitz-Paare"
+    ],
+    "locale": "de",
+    "minTap": 138,
+    "nav": 5,
+    "overflow": false,
+    "reduced": true,
+    "subtitles": 0,
+    "transform": "none",
+    "width": 320
+  },
+  {
+    "count": 4,
+    "demo": "frequent",
+    "discovery": null,
+    "font": true,
+    "images": true,
+    "inventory": {
+      "games": 8,
+      "learn": 13,
+      "packs": 252
+    },
+    "labelInside": true,
+    "labels": [
+      "Wiederholen",
+      "Small Talk",
+      "Hören",
+      "Blitz-Paare"
+    ],
+    "locale": "de",
+    "minTap": 158,
+    "nav": 5,
+    "overflow": false,
+    "reduced": false,
+    "subtitles": 0,
+    "transform": "none",
+    "width": 390
+  },
+  {
+    "count": 4,
+    "demo": "discover",
+    "discovery": "hangul",
+    "font": true,
+    "images": true,
+    "inventory": {
+      "games": 8,
+      "learn": 13,
+      "packs": 252
+    },
+    "labelInside": true,
+    "labels": [
+      "Wiederholen",
+      "Small Talk",
+      "Hören",
+      "Blitz-Paare"
+    ],
+    "locale": "de",
+    "minTap": 158,
+    "nav": 5,
+    "overflow": false,
+    "reduced": false,
+    "subtitles": 0,
+    "transform": "none",
+    "width": 390
+  }
+]
