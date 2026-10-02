@@ -223,9 +223,9 @@
       },
       "grammar": {
         "nikl_rows": 56,
-        "match": 3,
+        "match": 5,
         "level_mismatch": 10,
-        "missing_in_app": 43,
+        "missing_in_app": 41,
         "brief_highlights": {
           "match": 3,
           "missing": 5
@@ -233,8 +233,8 @@
         "discourse_features": {
           "covered": 3
         },
-        "no_scenario_anchor": 9,
-        "app_grammar_count": 23
+        "no_scenario_anchor": 11,
+        "app_grammar_count": 25
       },
       "speechActs": {
         "covered": 9,
@@ -248,8 +248,7 @@
       },
       "vocabDomains": {
         "beyond_matrix": 6,
-        "covered": 5,
-        "missing": 1
+        "covered": 6
       },
       "registers": {
         "absent": 4,
@@ -262,22 +261,22 @@
     "app_earlier": 3,
     "missing": 2
   },
-  "gap_total": 516,
+  "gap_total": 515,
   "gap_counts": {
     "functional_grammar:missing": 2,
-    "grammar_anchor:no_scenario_anchor": 161,
+    "grammar_anchor:no_scenario_anchor": 163,
     "grammar_brief:level_mismatch": 32,
     "grammar_brief:missing": 23,
     "grammar_discourse:missing": 3,
     "grammar_nikl:level_mismatch": 34,
-    "grammar_nikl:missing_in_app": 176,
+    "grammar_nikl:missing_in_app": 174,
     "register:absent": 7,
     "speech_act:missing": 7,
     "speech_act:recognition_missing": 4,
     "speech_act:thin": 17,
     "text_type:missing": 8,
     "text_type:structural_gap": 38,
-    "vocab_domain:missing": 3,
+    "vocab_domain:missing": 2,
     "vocab_domain:thin": 1
   },
   "draftHoldings": {
@@ -10618,6 +10617,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:b2_w10_privacy",
           "scenario:delivery_refund_evidence",
           "scenario:filming_permission",
           "scenario:freelance_scope_change",
@@ -11001,6 +11001,7 @@
         "mode": "P",
         "contentCandidates": [
           "scenario:b2_w10_fandom",
+          "scenario:b2_w10_notice",
           "scenario:brand_private_account_boundary",
           "scenario:meeting_disagreement_evidence",
           "unit:b2_02_professional_opinion",
@@ -11135,7 +11136,6 @@
         },
         "mode": "P",
         "contentCandidates": [
-          "scenario:b2_w10_health",
           "scenario:freelance_scope_change",
           "scenario:rental_repair_deposit",
           "unit:b2_04_complaint_resolution",
@@ -11286,7 +11286,6 @@
         },
         "mode": "P",
         "contentCandidates": [
-          "scenario:b2_w10_notice",
           "scenario:partner_family_titles",
           "unit:b2_01_formal_opening"
         ],

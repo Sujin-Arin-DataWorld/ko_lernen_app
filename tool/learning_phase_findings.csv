@@ -186,6 +186,6 @@ C16_lexis,info,C2,KP29,KP29 · argumentation_evaluation_lexis,"Phase 가 쓰는 
 C16_lexis,info,C2,KP29,KP29 · arts_history_memory_lexis,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 문학적 목소리, 독백, 관습적 표현, 시대적 맥락",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,C2,KP29,KP29 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 시야를 넓히다, 맥락을 벗어나다, 무게를 두다, 설득력을 얻다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,C2,KP29,KP29 · language_metalanguage,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 종결형, 장르 제약, 수사 의문, 용례 분포",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-C16_lexis,info,C2,KP30,KP30 · etiquette_honorific_lexis,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 주체 높임, 상대 높임, 호칭 체계, 말투 전환",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,C2,KP30,KP30 · etiquette_honorific_lexis,"Phase 가 쓰는 어휘 3 개가 앱 어휘(C2 이하)에 없다: 상대 높임, 호칭 체계, 말투 전환",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,C2,KP30,KP30 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 격식을 갖추다, 말을 가려 하다, 뜻을 헤아리다, 가교 역할을 하다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,C2,KP30,KP30 · language_metalanguage,"Phase 가 쓰는 어휘 3 개가 앱 어휘(C2 이하)에 없다: 문체 효과, 명제 보존, 화용적 함축",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다

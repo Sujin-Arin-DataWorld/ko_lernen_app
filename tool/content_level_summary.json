@@ -4,16 +4,16 @@
       "fallback_over2": 0,
       "over1": 166,
       "over2": 28,
-      "total": 2341,
-      "under2": 453,
+      "total": 2353,
+      "under2": 466,
       "unknown": 0
     },
     "grammar": {
       "fallback_over2": 0,
       "over1": 11,
       "over2": 3,
-      "total": 261,
-      "under2": 40,
+      "total": 263,
+      "under2": 42,
       "unknown": 0
     },
     "media": {
@@ -36,8 +36,8 @@
       "fallback_over2": 0,
       "over1": 163,
       "over2": 19,
-      "total": 2861,
-      "under2": 644,
+      "total": 2873,
+      "under2": 657,
       "unknown": 0
     },
     "scenario": {
@@ -50,17 +50,17 @@
     },
     "smalltalk": {
       "fallback_over2": 1,
-      "over1": 101,
-      "over2": 19,
-      "total": 582,
-      "under2": 112,
+      "over1": 91,
+      "over2": 23,
+      "total": 586,
+      "under2": 128,
       "unknown": 0
     },
     "vocab": {
       "fallback_over2": 66,
       "over1": 313,
       "over2": 158,
-      "total": 2944,
+      "total": 2956,
       "under2": 229,
       "unknown": 57
     }

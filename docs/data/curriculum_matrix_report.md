@@ -124,16 +124,16 @@
 | B2 | speechAct | `B2:speechAct:persuade_argue_justify:P` | P | scenario:accessible_festival_route, scenario:meeting_disagreement_evidence, unit:b2_02_professional_opinion, unit:b2_04_complaint_resolution | no_approved_semantic_binding | `phase_task_path_connected` | KP16:writing:01, KP18:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:negotiate_compromise_conditions:P` | P | scenario:ai_image_disclosure, scenario:b2_w10_hiring, scenario:b2_w10_negotiate, scenario:b2_w10_partner, scenario:community_event_compromise, scenario:delivery_refund_evidence … | no_approved_semantic_binding | `phase_task_path_connected` | KP16:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:complain_object_appeal:P` | P | scenario:b2_w10_notice, scenario:b2_w10_travel, scenario:rental_repair_deposit, unit:b2_04_complaint_resolution | no_approved_semantic_binding | `phase_task_path_connected` | KP15:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| B2 | speechAct | `B2:speechAct:structure_discourse_open_close_scope:P` | P | scenario:delivery_refund_evidence, scenario:filming_permission, scenario:freelance_scope_change, scenario:meeting_opening_context, scenario:neighborhood_filming_notice, unit:b2_01_formal_opening … | no_approved_semantic_binding | `phase_task_path_connected` | KP14:writing:01, KP15:writing:01, KP18:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| B2 | speechAct | `B2:speechAct:structure_discourse_open_close_scope:P` | P | scenario:b2_w10_privacy, scenario:delivery_refund_evidence, scenario:filming_permission, scenario:freelance_scope_change, scenario:meeting_opening_context, scenario:neighborhood_filming_notice … | no_approved_semantic_binding | `phase_task_path_connected` | KP14:writing:01, KP15:writing:01, KP18:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:manage_turns_interrupt_hold_floor:P` | P | scenario:meeting_opening_context | no_approved_semantic_binding | `phase_task_path_connected` | KP17:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:mediate_between_parties:P` | P | scenario:neighborhood_filming_notice, unit:b2_02_professional_opinion | no_approved_semantic_binding | `phase_task_path_connected` | KP17:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:evaluate_assess_critique:P` | P | scenario:b2_w10_hiring, scenario:meeting_disagreement_evidence, unit:b2_05_interview | no_approved_semantic_binding | `phase_task_path_connected` | KP15:writing:01, KP18:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:define_distinguish_terms:P` | P | scenario:brand_private_account_boundary, unit:b2_03_precise_requests | no_approved_semantic_binding | `phase_task_path_connected` | KP14:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| B2 | speechAct | `B2:speechAct:express_opinion_agree_disagree:P` | P | scenario:b2_w10_fandom, scenario:brand_private_account_boundary, scenario:meeting_disagreement_evidence, unit:b2_02_professional_opinion, unit:b2_03_precise_requests, unit:b2_05_interview | no_approved_semantic_binding | `phase_task_path_connected` | KP17:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| B2 | speechAct | `B2:speechAct:express_opinion_agree_disagree:P` | P | scenario:b2_w10_fandom, scenario:b2_w10_notice, scenario:brand_private_account_boundary, scenario:meeting_disagreement_evidence, unit:b2_02_professional_opinion, unit:b2_03_precise_requests … | no_approved_semantic_binding | `phase_task_path_connected` | KP17:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:express_certainty_doubt_hedging:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP15:speaking:01, KP18:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| B2 | speechAct | `B2:speechAct:compare_contrast_alternatives:P` | P | scenario:b2_w10_health, scenario:freelance_scope_change, scenario:rental_repair_deposit, unit:b2_04_complaint_resolution, unit:b2_06_advanced_capstone | no_approved_semantic_binding | `phase_task_path_connected` | KP14:writing:01, KP16:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| B2 | speechAct | `B2:speechAct:compare_contrast_alternatives:P` | P | scenario:freelance_scope_change, scenario:rental_repair_deposit, unit:b2_04_complaint_resolution, unit:b2_06_advanced_capstone | no_approved_semantic_binding | `phase_task_path_connected` | KP14:writing:01, KP16:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:request_ask_someone_to_do:P` | P | scenario:b2_w10_privacy, scenario:b2_w10_travel, scenario:freelance_scope_change, unit:b2_03_precise_requests | no_approved_semantic_binding | `phase_task_path_connected` | KP14:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| B2 | speechAct | `B2:speechAct:adjust_register_speech_style:P` | P | scenario:b2_w10_notice, scenario:partner_family_titles, unit:b2_01_formal_opening | no_approved_semantic_binding | `phase_task_path_connected` | KP17:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| B2 | speechAct | `B2:speechAct:adjust_register_speech_style:P` | P | scenario:partner_family_titles, unit:b2_01_formal_opening | no_approved_semantic_binding | `phase_task_path_connected` | KP17:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:refuse_set_boundaries:P` | P | scenario:accessible_festival_route, scenario:b2_w10_partner, scenario:brand_private_account_boundary | no_approved_semantic_binding | `phase_task_path_connected` | KP16:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:analyse_framing_implicature_presupposition:R` | R | — | no_approved_semantic_binding | `phase_task_path_connected` | KP15:listening:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | textType | `B2:textType:essay_opinion_argumentative:R` | R | — | no_approved_semantic_binding | `phase_task_path_connected` | KP16:reading:01, KP18:reading:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
@@ -213,9 +213,9 @@
 
 ## 1. 기존 앱 인벤토리 및 후보 매칭 (학습 완료 판정 아님)
 
-- 콘텐츠 규모: 어휘 2944 · 문법 261 · 시나리오 178 · 코스유닛 48 · cloze 2341 · satz 2861 · 스몰토크 582 · 미디어 136 · 발음 84 · 문화노트 36
+- 콘텐츠 규모: 어휘 2956 · 문법 263 · 시나리오 178 · 코스유닛 48 · cloze 2353 · satz 2873 · 스몰토크 586 · 미디어 136 · 발음 84 · 문화노트 36
 - 매트릭스 규모: 주제 32 · 기능 39 · 텍스트 유형 31 · 어휘 영역 26 · 기능 문법 34 · 국제통용 문법 336
-- 갭 행 합계: **516** (`tool/curriculum_matrix_gaps.csv`)
+- 갭 행 합계: **515** (`tool/curriculum_matrix_gaps.csv`)
 
 | 레벨 | 주제(필수) ✅/🟡/❌ | 국제통용 문법 match/mismatch/missing | 브리프 하이라이트 ✅/🟡/❌ | 담화 특징 ✅/❌ | 기능(산출) ✅/🟡/❌ | 텍스트 유형 ✅/🟡/❌/⛔ | 어휘 영역 ✅/🟡/❌ | 문체 ✅/❌ | 시나리오 미연결 문법/전체 |
 |---|---|---|---|---|---|---|---|---|---|
@@ -224,7 +224,7 @@
 | B1 | 18/0/0 | 14/9/44 (of 67) | 7/10/4 | 4/0 | 11/3/1 | 1/0/2/6 | 8/1/0 | 4/0 | 28/39 |
 | B2 | 17/0/0 | 15/9/43 (of 67) | 5/3/9 | 3/1 | 12/1/1 | 1/0/1/7 | 7/0/0 | 4/0 | 38/53 |
 | C1 | 12/0/0 | 6/6/44 (of 56) | 1/9/4 | 3/1 | 9/2/1 | 2/0/0/7 | 4/0/2 | 3/1 | 8/28 |
-| C2 | 12/0/0 | 3/10/43 (of 56) | 3/0/5 | 3/0 | 9/1/2 | 1/0/1/8 | 5/0/1 | 3/4 | 9/23 |
+| C2 | 12/0/0 | 5/10/41 (of 56) | 3/0/5 | 3/0 | 9/1/2 | 1/0/1/8 | 6/0/0 | 3/4 | 11/25 |
 
 ### 1.1 구조적 결손(레벨 무관)
 
@@ -764,16 +764,16 @@
 | ✅ covered | `persuade_argue_justify` 설득·논증·정당화하기 | suasion | production | 2 | 2 |
 | ✅ covered | `negotiate_compromise_conditions` 협상·절충·조건 조율하기 | suasion | production | 10 | 4 |
 | ✅ covered | `complain_object_appeal` 불만 제기·이의 신청하기 | suasion | production | 3 | 1 |
-| ✅ covered | `structure_discourse_open_close_scope` 대화 열고 닫기·범위 정하기 | discourse | production | 5 | 3 |
+| ✅ covered | `structure_discourse_open_close_scope` 대화 열고 닫기·범위 정하기 | discourse | production | 6 | 3 |
 | 🟡 thin | `manage_turns_interrupt_hold_floor` 발언권 관리·끼어들기 | discourse | production | 1 | 0 |
 | ✅ covered | `mediate_between_parties` 당사자 사이 중재·조정하기 | discourse | production | 1 | 1 |
 | ✅ covered | `evaluate_assess_critique` 평가·비판·한계 지적하기 | attitude | production | 2 | 1 |
 | ✅ covered | `define_distinguish_terms` 용어 정의·개념 구분하기 | discourse | production | 1 | 1 |
-| ✅ covered | `express_opinion_agree_disagree` 의견 말하고 동의·반대하기 | attitude | production | 3 | 3 |
+| ✅ covered | `express_opinion_agree_disagree` 의견 말하고 동의·반대하기 | attitude | production | 4 | 3 |
 | ❌ missing | `express_certainty_doubt_hedging` 확신·의심·완곡 표현하기 | attitude | production | 0 | 0 |
-| ✅ covered | `compare_contrast_alternatives` 비교·대조·대안 검토하기 | information | production | 3 | 2 |
+| ✅ covered | `compare_contrast_alternatives` 비교·대조·대안 검토하기 | information | production | 2 | 2 |
 | ✅ covered | `request_ask_someone_to_do` 요청·부탁하기 | suasion | production | 3 | 1 |
-| ✅ covered | `adjust_register_speech_style` 말투·존댓말·호칭 조절하기 | discourse | production | 2 | 1 |
+| ✅ covered | `adjust_register_speech_style` 말투·존댓말·호칭 조절하기 | discourse | production | 1 | 1 |
 | ✅ covered | `refuse_set_boundaries` 거절하고 경계 정하기 | suasion | production | 3 | 0 |
 | ❌ recognition_missing | `analyse_framing_implicature_presupposition` 프레임·함축·전제 분석하기 | discourse | recognition | 0 | 0 |
 
@@ -973,10 +973,10 @@
 | ✅ covered | `technology_digital_ai` 기술·디지털·AI·데이터 | 자동화 책임·알고리즘 이의 제기 | 48 | 4 | 4 | 2 | 0 | 55 | model_knowledge |
 | ✅ optional_covered | `environment_sustainability` 환경·기후·지속가능성 | 기후 불확실성과 지역 결정 | 0 | 0 | 1 | 0 | 0 | 0 | model_knowledge |
 | ✅ optional_covered | `health_body` 건강·신체·병원·약국 | 치료 효과 불확실성 설명 | 0 | 0 | 1 | 0 | 6 | 0 | model_knowledge |
-| 🟡 optional_thin | `work_career` 직업·직장·취업 | 동업 정리·신뢰 재협상 | 0 | 0 | 0 | 0 | 16 | 0 | model_knowledge |
+| 🟡 optional_thin | `work_career` 직업·직장·취업 | 동업 정리·신뢰 재협상 | 0 | 0 | 0 | 0 | 20 | 0 | model_knowledge |
 | ➕ beyond_matrix | `communication_phone_digital` 전화·메신저·인터넷 소통 |  | 0 | 0 | 0 | 0 | 2 | 0 |  |
 | ➕ beyond_matrix | `daily_life_routines` 일상생활·하루 일과 |  | 0 | 0 | 0 | 0 | 16 | 0 |  |
-| ➕ beyond_matrix | `education_study` 교육·학교·학습 |  | 0 | 0 | 1 | 0 | 12 | 0 |  |
+| ➕ beyond_matrix | `education_study` 교육·학교·학습 |  | 0 | 0 | 1 | 0 | 16 | 0 |  |
 | ➕ beyond_matrix | `feelings_character` 감정·성격·외모 묘사 |  | 0 | 0 | 1 | 0 | 5 | 0 |  |
 | ➕ beyond_matrix | `food_drink` 식음료·식당 |  | 0 | 0 | 0 | 0 | 2 | 0 |  |
 | ➕ beyond_matrix | `free_time_hobbies_sport` 여가·취미·운동 |  | 0 | 0 | 1 | 0 | 16 | 0 |  |
@@ -984,14 +984,14 @@
 | ➕ beyond_matrix | `money_finance_contracts` 돈·요금·계약·보험 |  | 12 | 1 | 2 | 0 | 0 | 12 |  |
 | ➕ beyond_matrix | `services_public_admin` 공공 서비스·관공서·은행·우체국 |  | 0 | 1 | 4 | 0 | 2 | 0 |  |
 | ➕ beyond_matrix | `shopping_consumption` 쇼핑·소비·결제 |  | 0 | 0 | 0 | 0 | 2 | 0 |  |
-| ➕ beyond_matrix | `social_etiquette_customs` 예절·관습·명절·호칭 |  | 0 | 0 | 0 | 0 | 4 | 0 |  |
+| ➕ beyond_matrix | `social_etiquette_customs` 예절·관습·명절·호칭 |  | 12 | 1 | 0 | 0 | 4 | 12 |  |
 | ➕ beyond_matrix | `transport_wayfinding` 교통·길 찾기 |  | 0 | 0 | 0 | 0 | 2 | 0 |  |
 | ➕ beyond_matrix | `travel_accommodation` 여행·숙박 |  | 0 | 0 | 0 | 0 | 2 | 0 |  |
 | ➕ beyond_matrix | `weather_nature_climate` 날씨·계절·자연 |  | 0 | 0 | 0 | 0 | 2 | 0 |  |
 
-### C2 문법 — 국제통용 56항목: match 3 · level_mismatch 10 · missing 43 (앱 C2 문법 23개)
+### C2 문법 — 국제통용 56항목: match 5 · level_mismatch 10 · missing 41 (앱 C2 문법 25개)
 
-**앱에 없는 국제통용 항목:** -거들랑1(연결어미) · -건만(연결어미) · -노라면(연결어미) · -느니만큼(연결어미) · -는다고1(연결어미) · -되(연결어미) · -디1(연결어미) · -으련마는(연결어미) · -은들(연결어미) · -을라치면(연결어미) · -이라야(연결어미) · -자니3(연결어미) · -자면1(연결어미) · 깨나(조사) · 을랑(조사) · 이라면(조사) · -거들랑2(종결어미) · -구려2(종결어미) · -그려(종결어미) · -네1(종결어미) · -는가2(종결어미) · -는구려(종결어미) · -는구만(종결어미) · -는구먼(종결어미) · -던가1(종결어미) · -던가2(종결어미) · -라2(종결어미) · -소(종결어미) · -으니4(종결어미) · -으리라(종결어미) · -으리오(종결어미) · -으오(종결어미) · -기 일쑤이다(표현) · -기 짝이 없다(표현) · -는다던가1(표현) · -어 치우다(표현) · -으래서야(표현) · -으려도(표현) · -으리라고(표현) · -으리라는(표현) · -을 바에(표현) · -자면2(표현) · 이라고는(표현)
+**앱에 없는 국제통용 항목:** -거들랑1(연결어미) · -건만(연결어미) · -노라면(연결어미) · -느니만큼(연결어미) · -는다고1(연결어미) · -되(연결어미) · -디1(연결어미) · -으련마는(연결어미) · -은들(연결어미) · -을라치면(연결어미) · -이라야(연결어미) · -자니3(연결어미) · -자면1(연결어미) · 깨나(조사) · 을랑(조사) · 이라면(조사) · -거들랑2(종결어미) · -구려2(종결어미) · -그려(종결어미) · -네1(종결어미) · -는가2(종결어미) · -는구려(종결어미) · -는구만(종결어미) · -는구먼(종결어미) · -던가1(종결어미) · -던가2(종결어미) · -라2(종결어미) · -소(종결어미) · -으니4(종결어미) · -으리라(종결어미) · -으리오(종결어미) · -으오(종결어미) · -기 짝이 없다(표현) · -는다던가1(표현) · -어 치우다(표현) · -으래서야(표현) · -으려도(표현) · -으리라고(표현) · -으리라는(표현) · -자면2(표현) · 이라고는(표현)
 
 **레벨 불일치(앱은 다른 레벨에 둠):** -기로서니→B2 · 마는→A1 · 이라고2→B1 · -게3→A2 · -게4→A2 · -나2→A2 · -던2→B1 · -는 한이 있어도→C1 · -는다는→B2 · 는 마당에→C1
 
@@ -1012,7 +1012,7 @@
 | ✅ covered | 태도 차이(-기는커녕/-기는 고사하고/-(으)ㄹ망정/-(으)ㄹ지언정/-거니와/-건대) | grammar_c2_even_if_concession, grammar_c2_wishing_to | C2 |
 | ✅ covered | 함축·완곡·아이러니·거리두기·문어/구어 조절 | grammar_c2_as_if_framing, grammar_c2_even_assuming, grammar_c2_expected_assumption, grammar_c2_merely_on_grounds … | C2 |
 
-**⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 C2 문법 (9/23):** `grammar_c2_as_already_set`, `grammar_c2_as_if_framing`, `grammar_c2_defined_as`, `grammar_c2_even_if_concession`, `grammar_c2_expected_assumption`, `grammar_c2_if_indeed`, `grammar_c2_premise_review_batch20`, `grammar_c2_take_as_premise`, `grammar_c2_wishing_to`
+**⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 C2 문법 (11/25):** `grammar_c2_as_already_set`, `grammar_c2_as_if_framing`, `grammar_c2_defined_as`, `grammar_c2_even_if_concession`, `grammar_c2_expected_assumption`, `grammar_c2_if_indeed`, `grammar_c2_often_ends_badly`, `grammar_c2_premise_review_batch20`, `grammar_c2_rather_than_assume`, `grammar_c2_take_as_premise`, `grammar_c2_wishing_to`
 
 ### C2 기능(화행)
 
@@ -1054,7 +1054,7 @@
 | ✅ covered | `institutional_legal_lexis` 제도·법률·행정 담화 어휘 | 108 |
 | ✅ covered | `arts_history_memory_lexis` 예술·역사·기억 담화 어휘 | 36 |
 | ✅ covered | `language_metalanguage` 언어·문법·화법 메타언어 | 24 |
-| ❌ missing | `etiquette_honorific_lexis` 예절·높임·호칭 어휘 | 0 |
+| ✅ covered | `etiquette_honorific_lexis` 예절·높임·호칭 어휘 | 12 |
 | ✅ covered | `fixed_expressions_collocations` 관용 표현·연어·담화 표지(품사=표현) | 103 |
 | ➕ beyond_matrix | `family_kinship_address_terms` 가족·친족 호칭·관계어 | 24 |
 | ➕ beyond_matrix | `media_pop_culture_vocab` 미디어·대중문화 어휘 | 12 |
