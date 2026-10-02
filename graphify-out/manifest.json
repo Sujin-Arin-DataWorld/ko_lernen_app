@@ -6384,9 +6384,9 @@
     "semantic_hash": ""
   },
   "tool/test_generate_tts.py": {
-    "mtime": 1790970043.5536203,
-    "seen": 1790976295.8798668,
-    "ast_hash": "52c0f2ac9bfc49e4ae83225a657de34a",
+    "mtime": 1790977578.1882536,
+    "seen": 1790977864.9540133,
+    "ast_hash": "3b92e223a1601dcf89628da602c6a142",
     "semantic_hash": ""
   },
   "tool/test_relevel_vocab.py": {
@@ -10506,9 +10506,9 @@
     "semantic_hash": ""
   },
   "docs/data/scene_asset_report.md": {
-    "mtime": 1790970037.8147697,
-    "seen": 1790976295.8840399,
-    "ast_hash": "6f9bdd40414729a1480615dce13efea2",
+    "mtime": 1790977519.005383,
+    "seen": 1790977865.2863407,
+    "ast_hash": "9727b99f6ea7a5657a230fe6f424fb03",
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-08-26-w1-content-quickfixes.md": {
@@ -12888,9 +12888,9 @@
     "semantic_hash": ""
   },
   "docs/data/scene_asset_inventory.json": {
-    "mtime": 1790970037.8137648,
-    "seen": 1790976295.8724911,
-    "ast_hash": "75ab468ed979e5007faba392f297306f",
+    "mtime": 1790977519.0033834,
+    "seen": 1790977864.5260584,
+    "ast_hash": "88f552317cb24e1630656c575a4ce476",
     "semantic_hash": ""
   },
   "tool/build_scene_art_manifest.py": {
@@ -15078,9 +15078,9 @@
     "semantic_hash": ""
   },
   "tool/curriculum_matrix_summary.json": {
-    "mtime": 1790970043.432946,
-    "seen": 1790976295.8795087,
-    "ast_hash": "dc4dfc09088d0e68781fb3e300453bae",
+    "mtime": 1790977522.1402082,
+    "seen": 1790977864.9228382,
+    "ast_hash": "0ae76cbc343fb33e31895f8fff7fbf31",
     "semantic_hash": ""
   },
   "tool/learning_phase_contracts.py": {
@@ -15174,9 +15174,9 @@
     "semantic_hash": ""
   },
   "docs/data/curriculum_matrix_report.md": {
-    "mtime": 1790970037.6821823,
-    "seen": 1790976295.8836906,
-    "ast_hash": "1d16cee67ad46ad4e0ad9ec8b5fc109b",
+    "mtime": 1790977522.117918,
+    "seen": 1790977865.2674925,
+    "ast_hash": "f7b236cfe12b2424cca0d35c1809cf64",
     "semantic_hash": ""
   },
   "docs/data/korean_learning_phases_part1_2_sources.md": {
