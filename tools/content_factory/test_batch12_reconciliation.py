@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import relevel_ledger
 import validate_promoted_batch as promoted
+import smalltalk_editorial_revisions as editorial
 
 MANIFEST = ROOT / "tools/content_factory/drafts/batch_12_manifest.json"
 RECEIPT = ROOT / "tools/content_factory/review/batch_12_reconciliation_20260917.json"
@@ -31,8 +32,8 @@ class Batch12ReconciliationTest(unittest.TestCase):
         self.assertIn("Mir ist aufgefallen", reply["de"])
         self.assertIn("I realized", reply["en"])
         follow = self.phrases["smalltalk_c1_0027"]["followUp"]
-        self.assertIn("dürfte", follow["de"])
-        self.assertIn("probably", follow["en"])
+        self.assertRegex(follow["de"], r"\b(dürfte|könnte)\b")
+        self.assertRegex(follow["en"], r"\b(probably|could)\b")
 
     def test_missing_information_does_not_assert_absence_of_remedy_or_deadline(self):
         remedy = self.phrases["smalltalk_c2_0026"]["followUp"]
@@ -92,7 +93,11 @@ class Batch12ReconciliationTest(unittest.TestCase):
             compared = promoted._relevel_normalized_live(kind, ident, live, draft, levels)
             with self.subTest(id=ident):
                 self.assertEqual(item["beforeSha256"], promoted._fingerprint(draft))
-                self.assertEqual(item["actualAfterSha256"], promoted._fingerprint(live))
+                entry = editorial.revisions().get(ident) if kind == "smalltalk" else None
+                historical = entry["before"] if entry else live
+                if entry:
+                    self.assertEqual(entry["afterSha256"], promoted._fingerprint(live))
+                self.assertEqual(item["actualAfterSha256"], promoted._fingerprint(historical))
                 if item["revisionRegistered"]:
                     self.assertTrue(promoted._require_reviewed_copy_revision(
                         kind=kind, ident=ident, draft=draft, live=compared,

@@ -7028,8 +7028,8 @@
       "level": "c1",
       "kind": "question",
       "ko": "새 안내 방식이 실제로 접근성을 높였는지 어떻게 확인할까요?",
-      "de": "Wie prüfen wir, ob die neue Information tatsächlich barriereärmer ist?",
-      "en": "How can we check whether the new information actually improved accessibility?",
+      "de": "Wie können wir prüfen, ob die neue Art der Informationsvermittlung die Zugänglichkeit tatsächlich verbessert hat?",
+      "en": "How can we check whether the new way of providing information has actually improved accessibility?",
       "reply": {
         "ko": "변경 전후에 어디서 막혔는지 이용자에게 직접 물어보는 게 좋겠어요.",
         "de": "Wir sollten Nutzer direkt fragen, wo sie vor und nach der Änderung auf Hindernisse gestoßen sind.",
@@ -7060,7 +7060,7 @@
       "de": "Welche Frage sollten wir Betroffenen stellen, bevor wir eine Lösung festlegen?",
       "en": "What should we ask affected people before deciding on an improvement?",
       "reply": {
-        "ko": "무엇이 불편한지보다 어떤 순간에 선택권이 사라지는지 묻고 싶어요.",
+        "ko": "무엇이 불편한지만 묻기보다 어떤 순간에 선택권이 사라지는지도 묻고 싶어요.",
         "de": "Ich würde nicht nur nach Unbequemlichkeit fragen, sondern danach, wann Wahlmöglichkeiten verloren gehen.",
         "en": "Rather than only ask what is inconvenient, I would ask when their choices disappear."
       },
@@ -7090,8 +7090,8 @@
       "en": "Does this result support the hypothesis, or is the evidence still too limited?",
       "reply": {
         "ko": "방향은 맞지만 표본이 작아서 결론은 유보하는 게 좋겠어요.",
-        "de": "Die Richtung passt, aber wegen der kleinen Stichprobe sollten wir das Urteil zurückstellen.",
-        "en": "The direction fits, but the sample is small, so we should withhold the conclusion."
+        "de": "Das Ergebnis geht in die erwartete Richtung, aber wegen der kleinen Stichprobe sollten wir eine Schlussfolgerung noch zurückstellen.",
+        "en": "The result points in the expected direction, but the sample is small, so we should withhold a conclusion."
       },
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
@@ -7143,13 +7143,13 @@
       "category": "transport",
       "level": "c1",
       "kind": "question",
-      "ko": "엘리베이터가 멈췄는데 계단을 이용하기 어려운 분께 어떤 대안을 안내해야 할까요?",
+      "ko": "엘리베이터가 고장 났는데 계단을 이용하기 어려운 분께 어떤 대안을 안내해야 할까요?",
       "de": "Der Aufzug ist außer Betrieb. Welche Alternative sollten wir jemandem nennen, dem Treppensteigen schwerfällt?",
-      "en": "The elevator has stopped. What alternative should we suggest to someone who has difficulty using the stairs?",
+      "en": "The elevator is out of order. What alternative should we suggest to someone who has difficulty using the stairs?",
       "reply": {
-        "ko": "이유만 설명하지 말고 이용 가능한 다른 출입구와 도움 요청 방법을 함께 안내해야 해요.",
-        "de": "Wir sollten nicht nur den Grund nennen, sondern einen zugänglichen Eingang und eine Kontaktmöglichkeit anbieten.",
-        "en": "We should not just explain why, but provide an accessible entrance and a way to request assistance."
+        "ko": "상황을 설명하고, 이용 가능한 다른 출입구가 있는지 확인한 뒤 도움 요청 방법도 안내해야 해요.",
+        "de": "Wir sollten die Situation erklären, prüfen, ob es einen anderen zugänglichen Eingang gibt, und auch erläutern, wie Hilfe angefordert werden kann.",
+        "en": "We should explain the situation, check whether another accessible entrance is available, and tell them how to request help."
       },
       "relationshipContext": "service",
       "safeAlternativeQuestions": [
@@ -7185,8 +7185,8 @@
         {
           "turnKind": "question",
           "ko": "연구가 다룬 대상과 제 상황을 나눠 볼까요?",
-          "de": "Wollen wir die untersuchte Gruppe und Ihre Situation getrennt betrachten?",
-          "en": "Shall we separate the population in the study from your own situation?"
+          "de": "Wollen wir die untersuchte Gruppe und meine eigene Situation getrennt betrachten?",
+          "en": "Shall we consider the population in the study and my own situation separately?"
         }
       ],
       "followUp": {
@@ -7264,8 +7264,8 @@
       "en": "Very little is confirmed. What should the first announcement make clear?",
       "reply": {
         "ko": "아는 것과 모르는 것, 다음 갱신 시간을 먼저 말해야 해요.",
-        "de": "Zuerst sollten wir sagen, was bekannt ist, was nicht und wann die nächste Aktualisierung kommt.",
-        "en": "We should first state what we know, what we do not, and when the next update will come."
+        "de": "Zuerst müssen wir sagen, was bekannt ist, was nicht und wann die nächste Aktualisierung kommt.",
+        "en": "We need to state what we know, what we do not know, and when the next update will come."
       },
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
@@ -7322,8 +7322,8 @@
       "en": "We found an error in a published figure. What should the correction include?",
       "reply": {
         "ko": "잘못된 값과 바른 값, 결론에 미치는 영향을 함께 밝혀야 해요.",
-        "de": "Wir sollten den falschen und den korrekten Wert sowie die Auswirkung auf die Schlussfolgerung nennen.",
-        "en": "We should state the incorrect value, the corrected value, and how the change affects the conclusion."
+        "de": "Wir müssen den falschen und den korrekten Wert sowie die Auswirkung auf die Schlussfolgerung nennen.",
+        "en": "We need to state the incorrect value, the corrected value, and how the change affects the conclusion."
       },
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
@@ -7359,13 +7359,13 @@
         {
           "turnKind": "question",
           "ko": "다음 발표 시점을 함께 약속할까요?",
-          "de": "Sollen wir gleichzeitig den Zeitpunkt der nächsten Mitteilung nennen?",
+          "de": "Sollen wir uns zugleich auf einen Zeitpunkt für die nächste Mitteilung festlegen?",
           "en": "Shall we commit to a time for the next announcement too?"
         }
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "그러면 빈 정보를 소문이 대신 채우는 시간을 줄일 수 있겠네요.",
+        "ko": "그러면 소문이 정보의 빈자리를 채우는 시간을 줄일 수 있겠네요.",
         "de": "So bleibt weniger Zeit, in der Gerüchte die Informationslücke füllen.",
         "en": "That could reduce the time in which rumors fill the information gap."
       }
@@ -7409,8 +7409,8 @@
       "en": "Installation is cheap, but the running costs are high. Should we still choose the equipment?",
       "reply": {
         "ko": "사용 기간 전체의 비용과 고장 났을 때의 대안을 같이 비교해야 해요.",
-        "de": "Wir sollten die Gesamtkosten über die Nutzungsdauer und die Alternative bei Ausfällen vergleichen.",
-        "en": "We should compare the total cost over its lifetime and the alternatives if it breaks down."
+        "de": "Wir müssen die Gesamtkosten über die Nutzungsdauer und die Alternativen bei einem Ausfall vergleichen.",
+        "en": "We need to compare the total cost over its lifetime and the alternatives if it breaks down."
       },
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
@@ -7438,8 +7438,8 @@
       "en": "Can we bring over a successful program from another city without changing it?",
       "reply": {
         "ko": "인구 구성과 이동 방식이 달라서 먼저 작은 구역에서 시험해야 해요.",
-        "de": "Wegen anderer Bevölkerungs- und Mobilitätsstrukturen sollten wir es zuerst in einem kleinen Gebiet testen.",
-        "en": "The population and travel patterns differ, so we should pilot it in a small area first."
+        "de": "Wegen anderer Bevölkerungs- und Mobilitätsstrukturen müssen wir es zuerst in einem kleinen Gebiet testen.",
+        "en": "The population and travel patterns differ, so we need to pilot it in a small area first."
       },
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
@@ -7468,7 +7468,7 @@
       "reply": {
         "ko": "시간과 비용, 보이지 않는 수고를 따로 적어서 나눠 봐야 해요.",
         "de": "Wir sollten Zeit, Kosten und unsichtbare Arbeit getrennt erfassen und verteilen.",
-        "en": "We should list time, cost, and invisible labor separately, then distribute them."
+        "en": "We need to list the time, costs, and less visible work separately, then share out the responsibilities."
       },
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -8087,7 +8087,7 @@
       "reply": {
         "ko": "확인된 경향은 말하되 전체 집단의 의견으로 일반화해서는 안 됩니다.",
         "de": "Wir können die beobachtete Tendenz nennen, dürfen sie aber nicht auf die gesamte Bevölkerung verallgemeinern.",
-        "en": "We can state the observed trend, but we should not generalize it to the whole population."
+        "en": "We can state the observed trend, but must not generalize it to the whole population."
       },
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
@@ -8130,7 +8130,7 @@
       "followUp": {
         "turnKind": "reaction",
         "ko": "대안 설명을 비교하면 인과관계를 성급히 단정하는 일을 줄일 수 있겠어요.",
-        "de": "Der Vergleich alternativer Erklärungen verhindert vorschnelle Kausalaussagen.",
+        "de": "Der Vergleich alternativer Erklärungen kann vorschnelle Kausalaussagen verringern.",
         "en": "Comparing alternative explanations should reduce premature causal claims."
       },
       "sourceSeedId": "seed_c1_survey_limits",
@@ -10127,13 +10127,13 @@
       "category": "partner_family",
       "level": "c1",
       "kind": "question",
-      "ko": "우리 며느리라는 말이 저를 가족으로 넣는 건지 자리에 묶는 건지 모르겠어요.",
+      "ko": "“우리 며느리”라는 호칭이 저를 가족의 일원으로 받아들이는 말인지, 특정 역할에 묶어 두는 말인지 모르겠어요.",
       "de": "Ich bin unsicher, ob die Bezeichnung „unsere Schwiegertochter“ mich in die Familie einbezieht oder auf eine Rolle festlegt.",
       "en": "I can't tell whether being called “our daughter-in-law” includes me in the family or confines me to a role.",
       "reply": {
-        "ko": "그 말에는 두 가지가 같이 들어 있어요.",
-        "de": "In dem Wort steckt beides zugleich.",
-        "en": "The word carries both at once.",
+        "ko": "가족으로 받아들인다는 뜻과 역할을 기대한다는 뜻이 함께 담길 수 있죠.",
+        "de": "Die Anrede kann sowohl Zugehörigkeit ausdrücken als auch Erwartungen an eine bestimmte Rolle wecken.",
+        "en": "The term can express belonging while also carrying expectations about a particular role.",
         "turnKind": "response"
       },
       "relationshipContext": "family",
@@ -10146,10 +10146,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "그 관점은 생각 못 했어요.",
-        "de": "So hatte ich das noch nicht betrachtet.",
-        "en": "I hadn't looked at it that way."
+        "ko": "그럼 어떤 상황에서 그 호칭을 쓰는지도 살펴봐야겠네요.",
+        "de": "Dann sollten wir auch darauf achten, in welchen Situationen diese Anrede verwendet wird.",
+        "en": "Then we should also consider the situations in which the term is used.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -10161,9 +10161,9 @@
       "de": "Mein Platz scheint nichts zu sein, was einmal feststeht, sondern etwas, das immer wieder neu ausgehandelt wird.",
       "en": "My place doesn't seem to get fixed once. It keeps getting renegotiated.",
       "reply": {
-        "ko": "그렇게 보는 게 맞아요.",
-        "de": "So kann man es durchaus sehen.",
-        "en": "That's a fair way to see it.",
+        "ko": "관계가 달라지면 그 안에서의 역할도 다시 조율될 수 있죠.",
+        "de": "Wenn sich Beziehungen verändern, können auch die Rollen darin neu ausgehandelt werden.",
+        "en": "As relationships change, the roles within them can be renegotiated too.",
         "turnKind": "response"
       },
       "relationshipContext": "family",
@@ -10176,10 +10176,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "그 관점은 생각 못 했어요.",
-        "de": "So hatte ich das noch nicht betrachtet.",
-        "en": "I hadn't looked at it that way."
+        "ko": "그럼 제 생각도 계속 이야기해 봐야겠네요.",
+        "de": "Dann sollte ich meine Sicht auch weiterhin zur Sprache bringen.",
+        "en": "Then I should keep voicing my own perspective too.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -10187,13 +10187,13 @@
       "category": "partner_family",
       "level": "c1",
       "kind": "question",
-      "ko": "명절에 보이지 않는 일까지 세면 누가 제일 많이 하고 있을까요?",
-      "de": "Wenn man die unsichtbare Arbeit an Feiertagen mitzählt, wer macht dann am meisten?",
-      "en": "If you count the invisible work at holidays, who's actually doing the most?",
+      "ko": "명절에 눈에 잘 띄지 않는 준비와 돌봄까지 포함하면, 누가 가장 많은 일을 맡고 있을까요?",
+      "de": "Wer übernimmt an Feiertagen die meiste Arbeit, wenn wir auch die weniger sichtbare Vorbereitung und Fürsorge berücksichtigen?",
+      "en": "Who takes on the most work during holidays if we also include the less visible preparation and care?",
       "reply": {
-        "ko": "아무도 세어 본 적이 없다는 게 답이겠죠.",
-        "de": "Dass es nie jemand gezählt hat, ist wohl die Antwort.",
-        "en": "The fact that nobody's ever counted is probably the answer.",
+        "ko": "누가 계획하고 챙기는지까지 기록해야 실제 분담을 비교할 수 있겠죠.",
+        "de": "Erst wenn wir auch festhalten, wer plant und sich um alles kümmert, können wir die tatsächliche Arbeitsteilung vergleichen.",
+        "en": "We would need to record who does the planning and takes care of things to compare how the work is actually shared.",
         "turnKind": "response"
       },
       "relationshipContext": "family",
@@ -10206,10 +10206,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "그 관점은 생각 못 했어요.",
-        "de": "So hatte ich das noch nicht betrachtet.",
-        "en": "I hadn't looked at it that way."
+        "ko": "그럼 눈에 보이는 일과 보이지 않는 일을 함께 적어 볼까요?",
+        "de": "Wollen wir dann sichtbare und weniger sichtbare Aufgaben gemeinsam auflisten?",
+        "en": "Shall we list both the visible and less visible tasks together?",
+        "turnKind": "reaction"
       }
     },
     {
@@ -10217,9 +10217,9 @@
       "category": "partner_family",
       "level": "c1",
       "kind": "opener",
-      "ko": "공평은 그때그때 착해지는 게 아니라 미리 설계하는 문제인 것 같아요.",
-      "de": "Fairness entsteht wohl nicht aus gutem Willen im Moment, sondern muss vorher geplant werden.",
-      "en": "Fairness isn't about being generous in the moment. It has to be designed in advance.",
+      "ko": "공평한 분담은 그때그때 호의를 보이는 데 그치지 않고, 미리 함께 계획하는 문제인 것 같아요.",
+      "de": "Eine gerechte Arbeitsteilung scheint mir mehr zu erfordern als guten Willen im jeweiligen Moment: Wir müssen sie vorher gemeinsam planen.",
+      "en": "A fair division of work seems to require more than goodwill in the moment; we need to plan it together in advance.",
       "reply": {
         "ko": "그럼 올해부터 같이 짜 봐요.",
         "de": "Dann planen wir es dieses Jahr zusammen.",
@@ -10236,10 +10236,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "그 관점은 생각 못 했어요.",
-        "de": "So hatte ich das noch nicht betrachtet.",
-        "en": "I hadn't looked at it that way."
+        "ko": "좋아요. 각자 맡을 수 있는 일부터 이야기해 봐요.",
+        "de": "Gern. Sprechen wir zuerst darüber, welche Aufgaben jeder übernehmen kann.",
+        "en": "Great. Let us start by discussing what each person can take on.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -10603,12 +10603,13 @@
       "level": "c1",
       "kind": "question",
       "ko": "이 표를 공개할 때 한계를 어디에 적는 게 덜 오해될까요?",
-      "de": "Wohin sollen wir die Grenzen setzen, damit die Tabelle weniger missverstanden wird?",
-      "en": "Where should we put the limits so this table is less misunderstood?",
+      "de": "Wo sollten wir die Einschränkungen erläutern, damit die Veröffentlichung dieser Tabelle möglichst wenig zu Missverständnissen führt?",
+      "en": "Where should we explain the limitations to reduce the risk of this table being misunderstood when it is published?",
       "reply": {
-        "ko": "첫 문단에 한 줄, 각주에 표본을 같이 두면 좋겠어요.",
-        "de": "Eine Zeile im ersten Absatz und die Stichprobe in der Fußnote.",
-        "en": "One line in the first paragraph and the sample in a footnote."
+        "ko": "첫 문단에 한계를 요약하고, 각주에는 표본 정보를 덧붙이면 좋겠어요.",
+        "de": "Wir könnten die Einschränkungen im ersten Absatz zusammenfassen und Angaben zur Stichprobe in einer Fußnote ergänzen.",
+        "en": "We could summarize the limitations in the opening paragraph and add details about the sample in a footnote.",
+        "turnKind": "response"
       },
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -10620,10 +10621,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "그러면 다음에 이어서 이야기해요.",
-        "de": "Dann sprechen wir später weiter.",
-        "en": "Then we can continue later."
+        "ko": "그럼 독자가 수치를 보기 전에 한계도 알 수 있게 정리해 볼게요.",
+        "de": "Dann ordne ich es so an, dass die Leser die Einschränkungen schon vor den Zahlen kennen.",
+        "en": "Then I will arrange it so readers know the limitations before seeing the figures.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -10635,9 +10636,10 @@
       "de": "Wollen wir gemeinsam prüfen, ob dieser Hinweis das Risiko überzeichnet?",
       "en": "Shall we read this notice together to see if it overstates the risk?",
       "reply": {
-        "ko": "절대 건수를 옆에 두면 톤이 가라앉을 거예요.",
-        "de": "Wenn die absolute Zahl danebensteht, wirkt die Formulierung weniger alarmistisch.",
-        "en": "Adding the absolute count would make the wording less alarmist."
+        "ko": "절대 건수와 비교 기준도 함께 제시하면 위험의 크기를 판단하기 쉬워질 거예요.",
+        "de": "Mit absoluten Fallzahlen und einem Vergleichsmaßstab lässt sich das Ausmaß des Risikos leichter beurteilen.",
+        "en": "Providing absolute counts and a basis for comparison would make the scale of the risk easier to judge.",
+        "turnKind": "response"
       },
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -10649,10 +10651,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "그러면 다음에 이어서 이야기해요.",
-        "de": "Dann sprechen wir später weiter.",
-        "en": "Then we can continue later."
+        "ko": "그럼 표현의 강도와 수치가 함께 맞는지 확인해 볼게요.",
+        "de": "Dann prüfe ich, ob die Stärke der Formulierung zu den Zahlen passt.",
+        "en": "Then I will check whether the strength of the wording matches the figures.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -10843,9 +10845,9 @@
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "연령대가 다르면 결론도 달라지겠네요.",
-        "de": "Bei einer anderen Altersgruppe dürfte die Schlussfolgerung auch anders ausfallen.",
-        "en": "With a different age group, the conclusion would probably differ too."
+        "ko": "연령대가 다르면 결론도 달라질 수 있겠네요.",
+        "de": "Bei einer anderen Altersgruppe könnte auch die Schlussfolgerung anders ausfallen.",
+        "en": "With a different age group, the conclusion could differ too."
       }
     },
     {
@@ -10931,7 +10933,7 @@
       "level": "c1",
       "kind": "question",
       "ko": "그 계정 번역은 몇 분이서 돌아가면서 하세요?",
-      "de": "Wie viele von euch wechseln sich bei den Übersetzungen für diesen Account ab?",
+      "de": "Wie viele Personen wechseln sich bei den Übersetzungen für diesen Account ab?",
       "en": "How many of you take turns on the translations for that account?",
       "reply": {
         "ko": "요즘은 사실상 두 명이 다 하고 있어요.",
@@ -10941,10 +10943,10 @@
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
           "ko": "컴백 기간에는 인원을 더 늘리세요?",
-          "de": "Holt ihr während eines Comebacks noch mehr Leute dazu?",
-          "en": "Do you add more people during a comeback?"
+          "de": "Kommen während eines Comebacks noch mehr Leute dazu?",
+          "en": "Do you add more people during a comeback?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
@@ -10972,10 +10974,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "그 정도면 시험 기간에도 버티겠네요.",
-        "de": "So dürfte auch die Prüfungszeit zu schaffen sein.",
-        "en": "That should hold up even during exams."
+        "ko": "시험 기간에 감당할 수 있는지도 함께 봐야겠네요.",
+        "de": "Dann sollten wir auch prüfen, ob das Pensum während der Prüfungszeit zu schaffen ist.",
+        "en": "Then we should also check whether the workload is manageable during exams.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -11054,10 +11056,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "그건 그래도 빨리 되니 다행이네요.",
-        "de": "Immerhin geht das schnell.",
-        "en": "At least that part is quick."
+        "ko": "차단이라도 바로 적용된다면 도움이 되겠네요.",
+        "de": "Wenn wenigstens die Blockierung sofort greift, wäre das hilfreich.",
+        "en": "It would help if at least the block took effect right away.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -11071,10 +11073,10 @@
       "relationshipContext": "close_friend",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
           "ko": "그때 누구한테 알려 두세요?",
-          "de": "Wem sagen Sie vorher Bescheid?",
-          "en": "Who do you tell beforehand?"
+          "de": "Wem sagst du vorher Bescheid?",
+          "en": "Who do you tell beforehand?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
@@ -11393,10 +11395,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "그 두 지표를 같이 봐야 정책 대상을 찾겠네요.",
-        "de": "Erst beide Kennzahlen zusammen zeigen die Zielgruppe der Maßnahme.",
-        "en": "We need both indicators to identify who the policy should reach."
+        "ko": "그 지표들과 계약 시점별 차이를 함께 봐야 지원이 필요한 대상을 찾겠네요.",
+        "de": "Wir müssen diese Kennzahlen und die Unterschiede nach Vertragsbeginn gemeinsam betrachten, um den Unterstützungsbedarf zu erkennen.",
+        "en": "We need to consider those indicators alongside differences by lease date to identify who needs support.",
+        "turnKind": "reaction"
       },
       "id": "smalltalk_c1_0033",
       "level": "c1"
@@ -11406,7 +11408,7 @@
       "kind": "reaction",
       "relationshipContext": "peer",
       "ko": "지원액이 커도 신청이 너무 복잡하면 필요한 사람이 빠질 수 있어요.",
-      "de": "Auch eine hohe Förderung verfehlt Bedürftige, wenn der Antrag zu kompliziert ist.",
+      "de": "Auch eine hohe Förderung kann Menschen, die sie brauchen, verfehlen, wenn der Antrag zu kompliziert ist.",
       "en": "Even generous support can miss people who need it if applying is too complex.",
       "reply": {
         "ko": "효과와 접근성을 별도 지표로 봐야겠어요.",
@@ -11434,9 +11436,9 @@
       "category": "work_study",
       "kind": "question",
       "relationshipContext": "coworker",
-      "ko": "AI 도입 뒤에 빨라진 것 말고 누가 더 자주 빠지는지도 봤어요?",
-      "de": "Wurde nach der KI-Einführung außer dem Tempo auch geprüft, wer häufiger ausscheidet?",
-      "en": "After AI was introduced, did they check who gets filtered out more often, not just speed?",
+      "ko": "AI 도입 뒤에 선별 속도뿐 아니라 어떤 지원자들이 더 자주 탈락하는지도 살펴봤어요?",
+      "de": "Wurde nach der KI-Einführung neben dem Auswahltempo auch geprüft, welche Bewerbenden häufiger ausscheiden?",
+      "en": "After AI was introduced, did they examine which applicants are rejected more often, as well as how fast screening is?",
       "reply": {
         "ko": "직무별 표본이 작아서 아직 단정하기 어렵대요.",
         "de": "Die Stichproben je Beruf seien zu klein für ein klares Urteil.",
@@ -11502,10 +11504,10 @@
       },
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
           "ko": "돌봄이나 주거 정보는 한곳에서 받을 수 있어요?",
-          "de": "Gibt es Betreuung und Wohninfos aus einer Hand?",
-          "en": "Can people get care and housing information in one place?"
+          "de": "Kann man Informationen zu Betreuung und Wohnen an einer Stelle erhalten?",
+          "en": "Can people get care and housing information in one place?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
@@ -11538,10 +11540,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "정책의 대상이 아니라 참여자로 대화해야겠네요.",
-        "de": "Sie sollten als Beteiligte statt nur als Zielgruppe sprechen.",
-        "en": "They should be part of the conversation, not merely its target."
+        "ko": "그럼 당사자를 정책의 대상에 머물게 하지 않고, 논의에 참여할 수 있도록 해야겠네요.",
+        "de": "Dann sollten wir die Betroffenen an der Diskussion beteiligen, statt sie nur als Zielgruppe der Politik zu betrachten.",
+        "en": "Then we should involve the people concerned in the discussion, rather than treating them only as policy recipients.",
+        "turnKind": "reaction"
       },
       "id": "smalltalk_c1_0038",
       "level": "c1"
@@ -11551,19 +11553,20 @@
       "kind": "question",
       "relationshipContext": "coworker",
       "ko": "해외 팬이 만든 자막은 누가 검토하고 얼마나 자주 고쳐요?",
-      "de": "Wer prüft fanerstellte Untertitel im Ausland und wie oft werden sie korrigiert?",
-      "en": "Who reviews overseas fan-made subtitles, and how often are they corrected?",
+      "de": "Wer prüft die Untertitel, die Fans aus dem Ausland erstellen, und wie oft werden sie korrigiert?",
+      "en": "Who reviews the subtitles made by overseas fans, and how often are they corrected?",
       "reply": {
         "ko": "지금은 팬 모더레이터 한 명에게 거의 다 맡기고 있어요.",
-        "de": "Derzeit bleibt fast alles an einer Fan-Moderatorin hängen.",
-        "en": "Right now, almost all of it falls to one fan moderator."
+        "de": "Derzeit bleibt fast alles an einer Person aus der Fanmoderation hängen.",
+        "en": "Right now, almost all of it falls to one fan moderator.",
+        "turnKind": "response"
       },
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
           "ko": "전문 번역 예산이나 교대 인력이 있어요?",
-          "de": "Gibt es Budget für Übersetzung oder eine Vertretung?",
-          "en": "Is there a translation budget or backup coverage?"
+          "de": "Gibt es ein Budget für professionelle Übersetzungen oder Personal für eine Ablösung?",
+          "en": "Is there a budget for professional translation or staff who can take turns?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
@@ -11580,8 +11583,8 @@
       "kind": "reaction",
       "relationshipContext": "coworker",
       "ko": "조회수가 높아도 추천 화면에 오래 노출됐다면 선호와는 구분해야 해요.",
-      "de": "Hohe Aufrufe müssen von Vorliebe getrennt werden, wenn der Inhalt lange empfohlen wurde.",
-      "en": "High views need to be separated from preference if the content was heavily recommended.",
+      "de": "Hohe Aufrufzahlen müssen von tatsächlichen Vorlieben unterschieden werden, wenn der Inhalt lange in den Empfehlungen sichtbar war.",
+      "en": "High view counts need to be distinguished from actual preference if the content was shown in recommendations for a long time.",
       "reply": {
         "ko": "완주율과 검색 유입도 같이 확인해 볼게요.",
         "de": "Ich prüfe zusätzlich Abschlussrate und Zugriffe über die Suche.",
@@ -11589,10 +11592,10 @@
       },
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
           "ko": "지역 행사 참여로 이어진 비율도 있어요?",
-          "de": "Gibt es eine Quote für Übergänge zu lokalen Veranstaltungen?",
-          "en": "Is there a rate for conversion to local events?"
+          "de": "Ist bekannt, welcher Anteil anschließend an lokalen Veranstaltungen teilgenommen hat?",
+          "en": "Is there a rate for conversion to local events?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
@@ -11986,9 +11989,9 @@
       "category": "job_hunting",
       "level": "c1",
       "kind": "question",
-      "ko": "자동 선별의 정확도가 높다는 말에 집단별 오류도 포함됐나요?",
-      "de": "Umfasst die angegebene Genauigkeit der automatisierten Auswahl auch Fehler nach Gruppen?",
-      "en": "Does the reported accuracy of automated screening include errors across groups?",
+      "ko": "자동 선별의 정확도가 높다는 발표에 집단별 오류 분석도 포함됐나요?",
+      "de": "Enthielt die Aussage über die hohe Genauigkeit der automatisierten Auswahl auch eine Analyse der Fehler nach Gruppen?",
+      "en": "Did the report of high accuracy in automated screening also include an analysis of errors by group?",
       "reply": {
         "ko": "전체 평균만 있고 경력 공백이 있는 지원자는 따로 보지 않았어요.",
         "de": "Es gab nur einen Gesamtdurchschnitt; Bewerbende mit Erwerbsunterbrechungen wurden nicht separat betrachtet.",
@@ -12049,16 +12052,16 @@
       "en": "How did you separate recommendation exposure from actual preference?",
       "reply": {
         "ko": "검색 유입과 완주율을 따로 보고 지역 행사 참여도 비교했어요.",
-        "de": "Wir haben Suchzugriffe und Abschlussrate getrennt betrachtet und mit lokaler Veranstaltungsteilnahme verglichen.",
-        "en": "We separated search traffic and completion rate, then compared local event participation."
+        "de": "Wir haben Suchzugriffe und Abschlussrate getrennt betrachtet und auch die Teilnahme an lokalen Veranstaltungen verglichen.",
+        "en": "We examined search traffic and completion rate separately, and also compared participation in local events."
       },
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
           "ko": "팬 번역의 무급 노동도 성과 비용에 포함했어요?",
-          "de": "Wurde unbezahlte Fanarbeit auch als Aufwand der Reichweite erfasst?",
-          "en": "Was unpaid fan labor also counted as a cost of that reach?"
+          "de": "Wurde auch die unbezahlte Übersetzungsarbeit der Fans als Aufwand für diese Reichweite erfasst?",
+          "en": "Was unpaid fan translation also counted as a cost of achieving that reach?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
@@ -12316,17 +12319,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "야간 최저기온 자료도 함께 볼 수 있을까요?",
+          "de": "Können wir auch die Daten zur nächtlichen Tiefsttemperatur ansehen?",
+          "en": "Could we look at the nighttime low-temperature data too?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 낮과 밤의 조건을 함께 비교해 봐야겠네요.",
+        "de": "Dann sollten wir die Bedingungen am Tag und in der Nacht gemeinsam vergleichen.",
+        "en": "Then we should compare daytime and nighttime conditions together.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -12345,17 +12348,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "문자를 읽기 어려운 주민에게는 어떻게 안내했나요?",
+          "de": "Wie wurden Einwohner informiert, die SMS nur schwer lesen können?",
+          "en": "How were residents who have difficulty reading text messages informed?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 발송 여부뿐 아니라 실제로 이해할 수 있었는지도 봐야겠네요.",
+        "de": "Dann sollten wir nicht nur den Versand, sondern auch die tatsächliche Verständlichkeit prüfen.",
+        "en": "Then we should check not only whether the alerts were sent, but also whether people could understand them.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -12364,8 +12367,8 @@
       "category": "mood",
       "kind": "question",
       "ko": "번아웃 설문에서 업무량과 통제감을 따로 물었나요?",
-      "de": "Wurden Arbeitsmenge und Handlungsspielraum in der Burn-out-Befragung getrennt erfasst?",
-      "en": "Did the burnout survey ask separately about workload and control?",
+      "de": "Wurden Arbeitsmenge und das Gefühl, die eigene Arbeit beeinflussen zu können, in der Burn-out-Befragung getrennt erfasst?",
+      "en": "Did the burnout survey ask separately about workload and the sense of control over one’s work?",
       "reply": {
         "ko": "총점만 보면 서로 다른 원인이 가려질 수 있어요.",
         "de": "Ein Gesamtwert kann unterschiedliche Ursachen verdecken.",
@@ -12374,17 +12377,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "업무량과 통제감의 문항을 따로 볼 수 있나요?",
+          "de": "Können wir die Fragen zu Arbeitsmenge und Kontrollgefühl getrennt ansehen?",
+          "en": "Can we look at the workload and sense-of-control questions separately?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 총점과 세부 문항을 함께 확인해 볼게요.",
+        "de": "Dann prüfe ich den Gesamtwert zusammen mit den einzelnen Fragen.",
+        "en": "Then I will examine the total score alongside the individual questions.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -12403,17 +12406,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "지원 체계를 다룬 항목도 있었나요?",
+          "de": "Gab es auch Punkte zum Unterstützungssystem?",
+          "en": "Were there items about the support system too?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 개인의 대응과 조직의 조건을 함께 살펴봐야겠네요.",
+        "de": "Dann sollten wir individuelle Reaktionen und organisatorische Bedingungen gemeinsam betrachten.",
+        "en": "Then we should examine individual responses alongside organizational conditions.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -12432,17 +12435,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "돌봄 때문에 참여하지 못한 사람도 확인했나요?",
+          "de": "Wurde auch erfasst, wer wegen Betreuungspflichten nicht teilnehmen konnte?",
+          "en": "Did they also identify people who could not attend because of care responsibilities?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "무료 입장과 실제 참여 가능성은 구분해야겠네요.",
+        "de": "Freier Eintritt und die tatsächliche Möglichkeit zur Teilnahme müssen also unterschieden werden.",
+        "en": "Then we need to distinguish free admission from the practical ability to attend.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -12461,17 +12464,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "주말에 일하는 사람의 이용 조건도 조사했나요?",
+          "de": "Wurden auch die Nutzungsbedingungen für Menschen untersucht, die am Wochenende arbeiten?",
+          "en": "Did they also examine access conditions for people who work on weekends?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 주말 이용률만으로 전체 수요를 말하기는 어렵겠네요.",
+        "de": "Dann lässt sich der gesamte Bedarf kaum allein aus der Wochenendnutzung ableiten.",
+        "en": "Then weekend use alone would not tell us the overall demand.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -12490,17 +12493,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "실제 결제 금액을 비교할 자료도 있나요?",
+          "de": "Gibt es auch Daten zum Vergleich der tatsächlich bezahlten Beträge?",
+          "en": "Is there also data for comparing the amounts actually paid?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 메뉴 가격과 최종 결제 금액을 나눠서 봐야겠네요.",
+        "de": "Dann sollten wir Menüpreise und endgültige Zahlbeträge getrennt betrachten.",
+        "en": "Then we should examine menu prices and final payments separately.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -12509,8 +12512,8 @@
       "category": "food",
       "kind": "question",
       "ko": "지역 음식의 ‘전통성’을 누가 정의했는지 자료에 나와 있나요?",
-      "de": "Geht aus dem Material hervor, wer die Tradition eines regionalen Gerichts definiert hat?",
-      "en": "Does the material say who defined the authenticity of the regional dish?",
+      "de": "Geht aus dem Material hervor, wer definiert hat, was an dem regionalen Gericht als traditionell gilt?",
+      "en": "Does the material say who defined what makes the regional dish traditional?",
       "reply": {
         "ko": "조리하는 사람과 지역 주민의 설명이 함께 있는지 봐야 해요.",
         "de": "Wir sollten prüfen, ob sowohl Kochende als auch Anwohnende zu Wort kommen.",
@@ -12519,17 +12522,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "조리하는 사람의 설명도 직접 인용돼 있나요?",
+          "de": "Werden die Menschen, die das Gericht zubereiten, auch direkt zitiert?",
+          "en": "Are the people who prepare the dish quoted directly too?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 전통을 설명하는 사람들의 관점부터 비교해 볼게요.",
+        "de": "Dann vergleiche ich zuerst die Sichtweisen der Menschen, die die Tradition beschreiben.",
+        "en": "Then I will start by comparing the perspectives of the people describing the tradition.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -12542,23 +12545,24 @@
       "en": "How well does a streaming chart reflect actual listening preferences?",
       "reply": {
         "ko": "추천 노출과 반복 재생의 영향을 분리해야 해요.",
-        "de": "Der Einfluss von Empfehlungssichtbarkeit und Wiederholungen muss getrennt werden.",
-        "en": "We need to separate recommendation exposure from repeat plays."
+        "de": "Wir müssen den Einfluss der Sichtbarkeit in Empfehlungen und den Einfluss wiederholter Wiedergabe gesondert betrachten.",
+        "en": "We need to examine the effects of recommendation exposure and repeat plays separately.",
+        "turnKind": "response"
       },
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "추천 화면의 노출 횟수도 공개됐나요?",
+          "de": "Wurde auch die Zahl der Einblendungen in den Empfehlungen veröffentlicht?",
+          "en": "Was the number of appearances in recommendations published too?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 순위와 청취 취향을 바로 같은 것으로 볼 수는 없겠네요.",
+        "de": "Dann können wir das Ranking nicht unmittelbar mit Hörvorlieben gleichsetzen.",
+        "en": "Then we cannot directly equate chart position with listening preference.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -12571,23 +12575,24 @@
       "en": "Was international fans' translation work counted as part of the campaign's results?",
       "reply": {
         "ko": "도달률만 세지 말고 시간과 보상도 기록해야 해요.",
-        "de": "Neben der Reichweite sollten auch Zeitaufwand und Vergütung dokumentiert werden.",
-        "en": "Time and compensation should be recorded alongside reach."
+        "de": "Wir dürfen nicht nur die Reichweite zählen, sondern müssen auch Zeitaufwand und Vergütung dokumentieren.",
+        "en": "We must record time and compensation as well as reach.",
+        "turnKind": "response"
       },
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "번역에 든 시간과 보상도 기록했나요?",
+          "de": "Wurden auch Übersetzungszeit und Vergütung dokumentiert?",
+          "en": "Were translation time and compensation recorded too?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 성과를 설명할 때 그 노동의 비용도 함께 제시해야겠네요.",
+        "de": "Dann müssen wir bei der Darstellung des Erfolgs auch den Aufwand dieser Arbeit nennen.",
+        "en": "Then we need to include the cost of that work when explaining the results.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -12606,17 +12611,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "지출이 지역 업체에 얼마나 남았는지도 조사했나요?",
+          "de": "Wurde auch untersucht, wie viel von den Ausgaben bei lokalen Betrieben blieb?",
+          "en": "Did they also examine how much of the spending stayed with local businesses?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 방문객 수와 지역에 남는 이익을 따로 확인해 볼게요.",
+        "de": "Dann prüfe ich Besucherzahlen und lokal verbleibenden Nutzen getrennt.",
+        "en": "Then I will check visitor numbers and the benefits retained locally separately.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -12635,17 +12640,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "주민이 일상적으로 쓰는 길도 자료에 나와 있나요?",
+          "de": "Sind auch die alltäglichen Wege der Anwohnenden in den Daten enthalten?",
+          "en": "Does the data also include residents’ everyday routes?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 관광객을 분산시키는 효과와 주민의 이동 조건을 함께 봐야겠네요.",
+        "de": "Dann sollten wir die Verteilung der Touristen und die Mobilitätsbedingungen der Anwohnenden gemeinsam prüfen.",
+        "en": "Then we should examine both the dispersal of tourists and residents’ travel conditions.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -12657,24 +12662,24 @@
       "de": "Wurden Antragstellende gefragt, warum die Betreuungsleistung wenig genutzt wird?",
       "en": "Were applicants asked why the care support has low uptake?",
       "reply": {
-        "ko": "자격 부족인지 정보 부족인지 구분해야 해요.",
+        "ko": "신청 자격이 없었던 것인지, 정보를 얻지 못했던 것인지 구분해야 해요.",
         "de": "Es muss zwischen fehlender Berechtigung und fehlender Information unterschieden werden.",
         "en": "We need to distinguish ineligibility from lack of information."
       },
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "이용하지 못한 사람의 이유도 조사했나요?",
+          "de": "Wurden auch die Gründe der Menschen untersucht, die das Angebot nicht nutzen konnten?",
+          "en": "Did they also investigate why some people could not use the service?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 신청 자격과 안내의 접근성을 따로 확인해 봐야겠네요.",
+        "de": "Dann sollten wir Berechtigung und Zugänglichkeit der Informationen getrennt prüfen.",
+        "en": "Then we should check eligibility and access to information separately.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -12693,17 +12698,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "주거비와 노동 시간을 함께 분석한 자료가 있나요?",
+          "de": "Gibt es Daten, die Wohnkosten und Arbeitszeiten gemeinsam analysieren?",
+          "en": "Is there data analyzing housing costs and working hours together?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 개인의 선택과 그 선택을 제약하는 조건을 함께 봐야겠네요.",
+        "de": "Dann sollten wir individuelle Entscheidungen und ihre Rahmenbedingungen gemeinsam betrachten.",
+        "en": "Then we should examine personal choices alongside the conditions constraining them.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -12722,17 +12727,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "평가자가 같은 행동을 어떻게 점수화하는지도 봤나요?",
+          "de": "Wurde auch geprüft, wie verschiedene Bewertende dasselbe Verhalten bewerten?",
+          "en": "Did they also examine how different assessors score the same behavior?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 기준을 구체화하고 평가자 간 차이도 확인해 봐야겠네요.",
+        "de": "Dann sollten wir die Kriterien konkretisieren und Unterschiede zwischen Bewertenden prüfen.",
+        "en": "Then we should make the criteria specific and examine differences between assessors.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -12751,17 +12756,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "집단별 오판 사례도 따로 볼 수 있나요?",
+          "de": "Können wir Fehlbewertungen nach Gruppen getrennt ansehen?",
+          "en": "Can we examine misjudgments by group separately?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 전체 수치와 집단별 결과를 나눠서 확인할게요.",
+        "de": "Dann prüfe ich Gesamtwerte und Ergebnisse nach Gruppen getrennt.",
+        "en": "Then I will examine the overall figures and group-specific results separately.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -12780,17 +12785,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "경력 공백의 사유를 직접 설명할 수 있는 칸이 있나요?",
+          "de": "Gibt es ein Feld, in dem Bewerbende ihre Erwerbsunterbrechung selbst erklären können?",
+          "en": "Is there a field where applicants can explain their career gap themselves?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 설명을 제출하는 방법과 재검토 절차를 함께 확인해야겠네요.",
+        "de": "Dann sollten wir die Möglichkeit zur Erklärung und das Nachprüfungsverfahren gemeinsam prüfen.",
+        "en": "Then we should check both how to submit an explanation and how to request review.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -12809,17 +12814,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "지역별 신규 계약 비중도 공개됐나요?",
+          "de": "Wurde auch der Anteil der Neuverträge nach Region veröffentlicht?",
+          "en": "Was the share of new leases by region published too?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 표본 구성을 확인한 뒤 평균값을 해석해 볼게요.",
+        "de": "Dann interpretiere ich den Durchschnitt erst nach Prüfung der Stichprobenzusammensetzung.",
+        "en": "Then I will interpret the average after checking the sample composition.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -12828,8 +12833,8 @@
       "category": "hospital",
       "kind": "question",
       "ko": "예약 대기 시간은 진료과별로 따로 공개됐나요?",
-      "de": "Wurden Wartezeiten getrennt nach Fachgebiet veröffentlicht?",
-      "en": "Were wait times published separately by specialty?",
+      "de": "Wurden die Wartezeiten zwischen Terminvereinbarung und Behandlung getrennt nach Fachgebiet veröffentlicht?",
+      "en": "Were the wait times from booking to treatment published separately by specialty?",
       "reply": {
         "ko": "평균 하나로는 긴급도와 지역 차이가 가려져요.",
         "de": "Ein einziger Durchschnitt verdeckt Dringlichkeit und regionale Unterschiede.",
@@ -12838,17 +12843,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "예약부터 진료까지의 시간을 지역별로 볼 수 있나요?",
+          "de": "Lässt sich die Zeit zwischen Terminvereinbarung und Behandlung nach Region aufschlüsseln?",
+          "en": "Can we see the time from booking to treatment by region?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 진료과와 긴급도, 지역을 나눠서 비교해 봐야겠네요.",
+        "de": "Dann sollten wir nach Fachgebiet, Dringlichkeit und Region getrennt vergleichen.",
+        "en": "Then we should compare the results by specialty, urgency and region.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -12867,17 +12872,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "전화 예약이나 현장 도움을 받을 수 있나요?",
+          "de": "Gibt es eine telefonische Terminvereinbarung oder Hilfe vor Ort?",
+          "en": "Can people book by phone or get help in person?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 디지털 예약 외의 경로도 실제로 이용할 수 있는지 확인해야겠네요.",
+        "de": "Dann sollten wir prüfen, ob die Alternativen zur digitalen Buchung tatsächlich nutzbar sind.",
+        "en": "Then we should check whether alternatives to digital booking are actually usable.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -12885,28 +12890,29 @@
       "level": "c1",
       "category": "transport",
       "kind": "question",
-      "ko": "정시율 개선이 환승이 잦은 승객에게도 체감됐나요?",
+      "ko": "정시율 개선을 환승이 잦은 승객도 체감했나요?",
       "de": "Kam die bessere Pünktlichkeit auch bei Fahrgästen mit vielen Umstiegen an?",
-      "en": "Did improved punctuality benefit passengers with many transfers?",
+      "en": "Did passengers who transfer frequently notice the improvement in punctuality?",
       "reply": {
-        "ko": "노선 평균뿐 아니라 끊어진 연결도 분석해야 해요.",
+        "ko": "노선별 평균뿐 아니라 환승을 놓친 경우도 분석해야 해요.",
         "de": "Neben Linienmittelwerten müssen auch verpasste Anschlüsse analysiert werden.",
-        "en": "Missed connections need analysis alongside route averages."
+        "en": "Missed connections need analysis alongside route averages.",
+        "turnKind": "response"
       },
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "환승을 놓친 승객의 대기 시간도 집계했나요?",
+          "de": "Wurden auch die Wartezeiten nach verpassten Anschlüssen erfasst?",
+          "en": "Did they also count waiting times after missed connections?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 노선의 정시율과 전체 여정의 시간을 함께 봐야겠네요.",
+        "de": "Dann sollten wir Linienpünktlichkeit und die Dauer der gesamten Fahrt gemeinsam betrachten.",
+        "en": "Then we should examine route punctuality alongside the time for the whole journey.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -12925,17 +12931,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "검증 결과는 언제 갱신됐나요?",
+          "de": "Wann wurden die Prüfergebnisse aktualisiert?",
+          "en": "When were the verification results updated?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 표시 문구와 실제 검증 범위를 대조해 볼게요.",
+        "de": "Dann vergleiche ich die Formulierung des Labels mit dem tatsächlichen Prüfumfang.",
+        "en": "Then I will compare the label’s wording with what was actually verified.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -12943,7 +12949,7 @@
       "level": "c1",
       "category": "shopping",
       "kind": "question",
-      "ko": "할인율이 기준 가격을 어떻게 정했는지 설명하나요?",
+      "ko": "할인 안내에 기준 가격을 어떻게 정했는지 나와 있나요?",
       "de": "Wird erklärt, wie der Referenzpreis für den Rabatt festgelegt wurde?",
       "en": "Does it explain how the reference price for the discount was set?",
       "reply": {
@@ -12954,17 +12960,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "비교한 가격의 기간도 나와 있나요?",
+          "de": "Ist auch der Zeitraum für den Preisvergleich angegeben?",
+          "en": "Does it also state the period used for the price comparison?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 할인율을 보기 전에 기준 가격부터 확인해야겠네요.",
+        "de": "Dann sollten wir zuerst den Referenzpreis prüfen, bevor wir den Rabatt beurteilen.",
+        "en": "Then we should check the reference price before judging the discount.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -12973,27 +12979,28 @@
       "category": "phone",
       "kind": "question",
       "ko": "요금제 추천이 사용량보다 판매 수수료의 영향을 받지는 않나요?",
-      "de": "Wird die Tarifempfehlung eher vom Verbrauch oder von Verkaufsprovisionen beeinflusst?",
-      "en": "Is the plan recommendation driven by usage or sales commissions?",
+      "de": "Wird die Tarifempfehlung womöglich stärker von Verkaufsprovisionen als vom Verbrauch beeinflusst?",
+      "en": "Might the plan recommendation be influenced more by sales commissions than by usage?",
       "reply": {
         "ko": "추천 근거와 이해관계를 함께 공개해야 해요.",
-        "de": "Empfehlungsgrundlage und Interessenkonflikte sollten gemeinsam offengelegt werden.",
-        "en": "The basis for the recommendation and any conflicts should be disclosed together."
+        "de": "Wir müssen die Empfehlungsgrundlage und die beteiligten Interessen gemeinsam offenlegen.",
+        "en": "We need to disclose both the basis for the recommendation and the interests involved.",
+        "turnKind": "response"
       },
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "추천 요금제마다 판매 수수료가 다른가요?",
+          "de": "Unterscheiden sich die Verkaufsprovisionen je nach empfohlenem Tarif?",
+          "en": "Do the sales commissions differ between recommended plans?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 사용량에 따른 추천과 판매상의 이해관계를 따로 확인해야겠네요.",
+        "de": "Dann sollten wir verbrauchsbezogene Empfehlungen und Verkaufsinteressen getrennt prüfen.",
+        "en": "Then we should examine usage-based recommendations and sales interests separately.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -13007,22 +13014,23 @@
       "reply": {
         "ko": "동의 전에 목적과 선택권을 알 수 있어야 해요.",
         "de": "Zweck und Wahlmöglichkeiten müssen vor der Einwilligung verständlich sein.",
-        "en": "Purpose and choices should be clear before consent."
+        "en": "People need to be able to understand the purpose and their choices before consenting.",
+        "turnKind": "response"
       },
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "녹음에 동의하지 않을 때의 선택지도 안내됐나요?",
+          "de": "Wurden auch die Möglichkeiten erklärt, wenn man der Aufzeichnung nicht zustimmt?",
+          "en": "Were the options for declining the recording explained too?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 녹음 목적과 보관 기간, 선택지를 함께 확인할게요.",
+        "de": "Dann prüfe ich Aufzeichnungszweck, Aufbewahrungsdauer und Wahlmöglichkeiten gemeinsam.",
+        "en": "Then I will check the recording’s purpose, retention period and available choices together.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -13041,17 +13049,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "대피를 도와줄 인력과 연락처도 안내돼 있나요?",
+          "de": "Sind auch Unterstützungspersonal und Kontaktmöglichkeiten für die Evakuierung angegeben?",
+          "en": "Does the guidance also identify support staff and contact methods for evacuation?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 경로 안내만으로 실제 대피가 가능한지는 별도로 살펴봐야겠네요.",
+        "de": "Dann sollten wir gesondert prüfen, ob eine Wegbeschreibung allein die Evakuierung tatsächlich ermöglicht.",
+        "en": "Then we should separately examine whether route directions alone make evacuation feasible.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -13070,17 +13078,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
-          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
-          "en": "Shall we check one more condition needed for that judgment?"
+          "ko": "늦은 경보와 오경보의 피해를 각각 비교했나요?",
+          "de": "Wurden die Schäden verspäteter Warnungen und die Schäden von Fehlalarmen getrennt verglichen?",
+          "en": "Did they compare the harm from delayed warnings and false alarms separately?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
-        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
-        "en": "Separating the evidence from its scope will make the claim more precise."
+        "ko": "그럼 경보의 정확도와 시점에 따른 피해를 함께 평가해야겠네요.",
+        "de": "Dann sollten wir Warngenauigkeit und zeitabhängige Schäden gemeinsam bewerten.",
+        "en": "Then we should evaluate warning accuracy alongside the harm associated with timing.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -14551,17 +14559,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
-          "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
-          "en": "Shall we check one more condition needed for that assessment?"
+          "ko": "AI가 바꾼 부분과 검토한 사람도 표시돼 있나요?",
+          "de": "Sind die von KI veränderten Teile und die prüfende Person ebenfalls angegeben?",
+          "en": "Are the parts changed by AI and the reviewer identified too?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
-        "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
-        "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+        "ko": "그럼 AI 사용 여부와 실제 수정 내용을 구분해서 확인해야겠네요.",
+        "de": "Dann sollten wir KI-Einsatz und tatsächliche Änderungen getrennt prüfen.",
+        "en": "Then we should check the use of AI separately from the changes actually made.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -14569,9 +14577,9 @@
       "level": "c1",
       "category": "screen",
       "kind": "question",
-      "ko": "인간 감독이 실제 결정권을 갖고 있나요?",
-      "de": "Hat die menschliche Aufsicht tatsächlich Entscheidungsbefugnis?",
-      "en": "Does human oversight have real decision-making authority?",
+      "ko": "감독하는 사람에게 실제 결정권이 있나요?",
+      "de": "Haben die Personen, die das System überwachen, tatsächlich Entscheidungsbefugnis?",
+      "en": "Do the people overseeing the system have real decision-making authority?",
       "reply": {
         "ko": "자동 결과를 바꾸고 이유를 기록할 권한이 있는지 확인해야 합니다.",
         "de": "Es ist zu prüfen, ob Ergebnisse geändert und Gründe dokumentiert werden dürfen.",
@@ -14580,17 +14588,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
-          "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
-          "en": "Shall we check one more condition needed for that assessment?"
+          "ko": "검토자가 자동 결과를 바꾼 사례도 기록돼 있나요?",
+          "de": "Sind auch Fälle dokumentiert, in denen Prüfende das automatische Ergebnis geändert haben?",
+          "en": "Are cases where reviewers changed the automated result recorded too?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
-        "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
-        "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+        "ko": "그럼 감독이라는 이름과 실제 변경 권한이 일치하는지 봐야겠네요.",
+        "de": "Dann sollten wir prüfen, ob die Bezeichnung als Aufsicht zur tatsächlichen Änderungsbefugnis passt.",
+        "en": "Then we should check whether the oversight label matches the actual authority to change the result.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -14603,23 +14611,23 @@
       "en": "Can algorithmic bias be detected from outcome rates alone?",
       "reply": {
         "ko": "데이터 구성과 누락된 집단, 운영 맥락도 함께 살펴야 합니다.",
-        "de": "Auch Datenzusammensetzung, fehlende Gruppen und Einsatzkontext sind relevant.",
-        "en": "Data composition, missing groups, and deployment context also matter."
+        "de": "Wir müssen auch Datenzusammensetzung, fehlende Gruppen und Einsatzkontext untersuchen.",
+        "en": "We need to examine data composition, missing groups and deployment context as well."
       },
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
-          "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
-          "en": "Shall we check one more condition needed for that assessment?"
+          "ko": "데이터에서 빠진 집단도 확인했나요?",
+          "de": "Wurden auch Gruppen ermittelt, die in den Daten fehlen?",
+          "en": "Did they identify groups missing from the data too?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
-        "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
-        "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+        "ko": "그럼 결과 비율을 해석하기 전에 데이터 구성을 확인해야겠네요.",
+        "de": "Dann sollten wir vor der Interpretation der Ergebnisquoten die Datenzusammensetzung prüfen.",
+        "en": "Then we should check the data composition before interpreting the outcome rates.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -14638,17 +14646,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
-          "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
-          "en": "Shall we check one more condition needed for that assessment?"
+          "ko": "이용자가 이의를 제기할 때 필요한 정보도 포함돼 있나요?",
+          "de": "Enthält die Erklärung auch die Informationen, die Nutzer für einen Einwand benötigen?",
+          "en": "Does the explanation include the information users need to challenge a result?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
-        "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
-        "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+        "ko": "그럼 설명의 목적과 듣는 사람에 따라 필요한 내용을 나눠 봐야겠네요.",
+        "de": "Dann sollten wir die nötigen Inhalte nach Erklärungszweck und Zielgruppe unterscheiden.",
+        "en": "Then we should distinguish what is needed according to the purpose of the explanation and its audience.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -14661,23 +14669,23 @@
       "en": "How should unpaid fan translation work be documented?",
       "reply": {
         "ko": "도달률뿐 아니라 시간, 동의, 출처 표시와 보상 여부를 기록해야 합니다.",
-        "de": "Neben Reichweite sollten Zeit, Einwilligung, Nennung und Vergütung erfasst werden.",
-        "en": "Record time, consent, credit, and compensation as well as reach."
+        "de": "Neben der Reichweite müssen Zeitaufwand, Einwilligung, Quellenangabe und der Vergütungsstatus dokumentiert werden.",
+        "en": "We need to record time, consent, attribution and whether compensation was provided, as well as reach."
       },
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
-          "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
-          "en": "Shall we check one more condition needed for that assessment?"
+          "ko": "기여자의 동의와 보상 여부도 기록할까요?",
+          "de": "Sollen wir auch Einwilligung und Vergütung der Beteiligten dokumentieren?",
+          "en": "Should we record contributors’ consent and whether they were compensated too?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
-        "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
-        "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+        "ko": "그럼 번역에 든 시간과 사용 동의, 출처 표시를 함께 정리할게요.",
+        "de": "Dann dokumentiere ich Übersetzungszeit, Zustimmung zur Nutzung und Quellenangabe gemeinsam.",
+        "en": "Then I will document translation time, permission for use and attribution together.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -14696,17 +14704,17 @@
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
-          "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
-          "en": "Shall we check one more condition needed for that assessment?"
+          "ko": "원문과 자막을 나란히 비교할 자료도 있나요?",
+          "de": "Gibt es auch Material, das Original und Untertitel nebeneinanderstellt?",
+          "en": "Is there material comparing the original and subtitles side by side too?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
-        "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
-        "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+        "ko": "그럼 자막과 홍보 문구에서 어떤 맥락이 생략됐는지 비교해 볼게요.",
+        "de": "Dann vergleiche ich, welcher Kontext in Untertiteln und Werbetexten ausgelassen wurde.",
+        "en": "Then I will compare which context was omitted from subtitles and promotional wording.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -16113,10 +16121,10 @@
       "relationshipContext": "romantic_partner",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
           "ko": "오늘 제일 속이 시원했던 순간이 언제였어?",
           "de": "In welchem Moment hast du dich heute am befreitesten gefühlt?",
-          "en": "When did you feel the most released today?"
+          "en": "When did you feel most relieved today?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
@@ -16137,10 +16145,10 @@
       "relationshipContext": "romantic_partner",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "인쇄하지 않고 화면만 찍어 둘까?",
-          "de": "Wollen wir es nur vom Bildschirm abfotografieren, statt es auszudrucken?",
-          "en": "Should we just take a picture of the screen instead of printing it?"
+          "ko": "인쇄하지 않고 디지털 사진으로 저장할 수 있는지 물어볼까?",
+          "de": "Wollen wir fragen, ob wir es als digitales Foto speichern können, statt es ausdrucken zu lassen?",
+          "en": "Shall we ask whether we can save a digital version instead of having it printed?",
+          "turnKind": "question"
         }
       ],
       "followUp": {

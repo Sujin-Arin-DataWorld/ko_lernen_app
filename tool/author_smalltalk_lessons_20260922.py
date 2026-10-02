@@ -165,7 +165,7 @@ b2|theme_park_date|afterwards|127,128|스트레스 해소와 사진 선택~Stres
 '''
 ROWS += '''
 c1|weather|coverage|45,46|날씨 대책의 효과와 전달~Wirkung und Reichweite von Wetterschutz~Weather measures and warning coverage|폭염 대책 평가에서 평균 기온만 봐도 충분한지 질문해요.~Du hinterfragst, ob die Durchschnittstemperatur zur Bewertung von Hitzemaßnahmen ausreicht.~You question whether average temperature alone is enough to evaluate heatwave measures.
-c1|mood|responsibility|47,48|번아웃의 원인과 책임~Ursachen und Verantwortung bei Burnout~Causes and responsibility for burnout|번아웃 설문에서 업무량과 통제감을 구별해 물었는지 확인해요.~Du prüfst, ob eine Burnout-Umfrage Arbeitsmenge und Kontrolle getrennt erfasst hat.~You check whether a burnout survey asked separately about workload and sense of control.
+c1|mood|responsibility|47,48|번아웃의 원인과 책임~Ursachen und Verantwortung bei Burnout~Causes and responsibility for burnout|번아웃 설문에서 업무량과 통제감을 구별해 물었는지 확인해요.~Du prüfst, ob eine Burnout-Umfrage Arbeitsmenge und wahrgenommene Kontrolle getrennt erfasst hat.~You check whether a burnout survey asked separately about workload and sense of control.
 c1|weekend|access|49,50|주말 공간의 접근성~Zugang zu Wochenendangeboten~Access to weekend activities|행사가 무료라는 이유만으로 누구나 실제로 참여할 수 있다고 보는지 질문해요.~Du fragst, ob freier Eintritt tatsächlich Zugang für alle gewährleistet.~You question whether free admission actually guarantees access to an event.
 c1|food|definition|51,52|음식 통계와 전통의 기준~Essenspreise und Tradition definieren~Defining food prices and tradition|외식 물가 통계에 배달비와 최소 주문 금액도 들어갔는지 물어봐요.~Du fragst, ob Liefergebühren und Mindestbestellwerte im Preisindex enthalten sind.~You ask whether delivery fees and minimum order amounts are included in the dining-out price index.
 c1|daily|access|1,2,7,16|이용자의 접근과 부담~Zugang und Belastung der Betroffenen~Access and burdens for users|새 안내 방식을 도입했어요. 접근성이 실제로 나아졌는지 확인할 방법을 의논해요.~Eine neue Informationsform wurde eingeführt. Du suchst eine Prüfung ihrer tatsächlichen Zugänglichkeit.~A new information format has been introduced. You discuss how to check whether it really improved accessibility.
@@ -191,7 +191,7 @@ c1|interview|assessment|59,60|면접 평가 기준 살피기~Interviewkriterien 
 c1|job_hunting|screening|42,61|자동 선별의 오류~Fehler automatischer Vorauswahl~Errors in automated screening|자동 선별 정확도를 말할 때 집단별 오류까지 검토했는지 물어봐요.~Du fragst, ob die behauptete Auswahlgenauigkeit auch Fehler nach Gruppen berücksichtigt.~You ask whether claims of screening accuracy also account for errors across groups.
 c1|moving|data|41,62|월세 평균의 범위~Was Mietdurchschnitte erfassen~What rent averages cover|월세 평균 자료를 보고 신규 계약이 충분히 포함됐는지 확인해요.~Du prüfst, ob neue Mietverträge in den Durchschnittsdaten ausreichend vertreten sind.~You check whether new rental contracts are adequately represented in the average rent data.
 c1|hospital|access|63,64|진료 대기와 예약 접근~Wartezeiten und Buchungszugang~Waiting times and booking access|예약 대기 시간을 진료과별로 나누어 공개했는지 물어봐요.~Du fragst, ob Terminwartezeiten getrennt nach Fachabteilungen veröffentlicht wurden.~You ask whether appointment waiting times were published separately by department.
-c1|transport|access|5,65|이동의 접근성~Zugängliche Mobilität~Accessible travel|엘리베이터가 고장 났어요. 계단 이용이 어려운 사람에게 안내할 대안을 의논해요.~Der Aufzug steht still. Du suchst eine Alternative für Menschen, denen Treppen schwerfallen.~The elevator has stopped. You discuss alternatives for someone who has difficulty using stairs.
+c1|transport|access|5,65|이동의 접근성~Zugängliche Mobilität~Accessible travel|엘리베이터가 고장 났어요. 계단 이용이 어려운 사람에게 안내할 대안을 의논해요.~Der Aufzug ist außer Betrieb. Du besprichst Alternativen für Menschen, denen das Treppensteigen schwerfällt.~The elevator is out of order. You discuss alternatives for someone who has difficulty using stairs.
 c1|shopping|claims|66,67|친환경과 할인 주장 확인~Umwelt- und Rabattangaben prüfen~Checking environmental and discount claims|친환경 표시의 기준과 검증 기관이 공개됐는지 물어봐요.~Du fragst nach veröffentlichten Kriterien und der Prüfstelle hinter einem Umweltlabel.~You ask whether an environmental label's criteria and verifying body are disclosed.
 c1|phone|transparency|68,69|추천과 녹음의 투명성~Transparenz bei Beratung und Aufzeichnung~Transparency in recommendations and recording|요금제 추천이 실제 사용량보다 판매 수수료에 영향을 받는 건 아닌지 확인해요.~Du hinterfragst, ob Provisionen die Tarifempfehlung stärker beeinflussen als die Nutzung.~You question whether sales commissions influence the plan recommendation more than usage does.
 c1|emergency|warnings|70,71|대피 안내와 경보의 위험~Evakuierung und Warnrisiken~Evacuation guidance and warning risks|대피 안내가 이동이 어려운 사람까지 고려했는지 물어봐요.~Du fragst, ob die Evakuierungsanleitung Menschen mit eingeschränkter Mobilität berücksichtigt.~You ask whether evacuation guidance considers people with limited mobility.
@@ -379,42 +379,42 @@ b2.partner_family.boundaries|이미 거절한 뒤로 사이가 어색한데 먼�
 b2.theme_park_date.preferences|너도 유령의 집을 좋아해서 결국 둘이 즐겁게 다녀왔지.|나는 유령의 집이 싫었는데 네가 억지로 데려가서 결국 들어갔지.
 b2.theme_park_date.belongings|안녕하세요. 갈색 지갑을 주웠는데 분실물로 맡길 수 있을까요?|안녕하세요. 갈색 지갑을 새로 사고 싶은데 기념품점에 있나요?
 b2.theme_park_date.afterwards|소리를 전혀 지르지 않아서 목은 편한데 스트레스가 더 쌓였어.|오늘은 소리를 많이 질렀는데 목은 괜찮고 스트레스는 그대로야.
-c1.weather.coverage|폭염 대책의 효과는 평균 기온만 낮아지면 충분히 확인된 거겠죠?|폭염 대책을 평가할 때 평균 기온 자료는 전혀 볼 필요가 없겠죠?
-c1.mood.responsibility|업무량과 통제감은 같은 개념이므로 설문에서 구별할 필요가 없어요.|번아웃 설문 결과만으로 업무량을 모두 줄이기로 이미 결정했나요?
-c1.weekend.access|주말 행사는 입장료가 없으니 다른 접근 장벽도 모두 사라졌어요.|주말 행사에 무료로 온 사람은 참여 이유를 따로 물을 수 없죠?
-c1.food.definition|외식 물가 지수에서 음식값을 빼고 배달비만 비교했나요?|배달비가 올랐다는 이유로 최소 주문 금액도 이미 올렸나요?
-c1.daily.access|새 안내 방식을 도입했으니 접근성 향상은 확인할 필요가 없겠죠?|새 안내 방식이 더 저렴한지만 확인하면 이용자 반응은 생략해도 되겠죠?
-c1.daily.uncertainty|확정된 내용이 적어도 첫 공지에서는 모든 결과를 확실한 사실로 발표할까요?|확인된 내용과 미확인 내용을 구분하지 않고 첫 공지를 만들까요?
-c1.daily.continuity|좋은 취지의 행사라도 한 번으로 끝내려면 무엇을 없애야 할까요?|행사가 지속됐는지는 따지지 말고 첫날 참석자만 세면 되겠죠?
-c1.daily.housing|평균 월세가 안정적이면 신규 계약의 월세도 모두 같아졌다는 뜻인가요?|신규 계약만 조사해서 기존 계약의 월세는 모두 제외했다는 뜻인가요?
-c1.daily.settlement|인력이 부족한 지역에서는 자격 인정 상담을 받지 못하도록 정했나요?|자격 인정 상담을 받은 사람은 모두 그 지역에 정착했다고 볼 수 있나요?
-c1.screen.evidence|그 영상의 조회수가 연구 표본 수와 같다고 나와 있었어요?|그 영상에 나온 연구는 표본 없이 진행됐다고 확인됐어요?
-c1.screen.ai|AI로 만든 콘텐츠는 표시가 있으면 정확성도 자동으로 보장되겠죠?|AI 제작 여부는 표시하지 않는 편이 이용자에게 더 투명하겠죠?
-c1.music.metrics|스트리밍 순위가 높으면 모든 청취자의 취향이 같다는 뜻이죠?|실제 청취 취향과 상관없이 순위 발표 날짜만 확인하면 될까요?
-c1.hobby.limits|게임 시간 제한을 도입했다는 사실만으로 효과가 입증된 거겠죠?|게임 시간 제한이 효과 없다고 정해 놓고 자료를 골라도 될까요?
-c1.travel.impact|관광객 수가 늘었으니 주민 모두의 소득도 늘었다고 단정해도 되겠죠?|지역 경제 효과는 관광객 수와 관련된 자료를 전부 빼야 알 수 있을까요?
-c1.work_study.evidence|자료가 부족해도 이 결과만으로 가설이 완전히 입증됐다고 발표할까요?|가설과 맞는 결과가 나왔으니 추가 자료는 모두 무의미하겠죠?
-c1.work_study.reporting|발표 흐름을 위해 연구의 한계는 전부 숨겨도 괜찮을까요?|연구의 한계만 설명하고 연구 결과는 발표하지 않는 게 목적이죠?
-c1.work_study.cost|설치비가 싸니 유지비가 아무리 높아도 이 장비가 가장 저렴하겠죠?|유지비가 높다는 이유만으로 설치비도 비쌌다고 기록해도 될까요?
-c1.work_study.ai|AI 도입 뒤 속도만 빨라졌으면 누락되는 사람은 더 볼 필요가 없겠죠?|누가 빠지는지는 이미 확인됐으니 처리 속도만 처음 조사한 건가요?
-c1.family.care|돌봄 지원 이용률이 낮으니 신청자에게 묻지 않고 수요가 없다고 결론 냈나요?|신청자에게 이용률을 높이라고 부탁했으니 낮은 이유는 해결된 건가요?
-c1.health.evidence|제 경험과 다르니 연구 결과는 모두 틀렸다고 말하면 될까요?|연구 결과와 다르면 제 개인 경험은 없었던 일로 설명해야 할까요?
-c1.kpop.labor|그 계정의 번역은 돌아가며 하지 않고 한 분이 모두 맡으세요?|그 계정은 몇 분마다 번역문을 자동으로 올리나요?
-c1.kpop.reach|추천 화면에 오래 나와 조회수가 높다면 실제 선호도도 반드시 높아요.|조회수가 높다는 것은 추천 화면 노출과 아무 관계가 없다는 증거예요.
-c1.dating.safety|그 앱은 신고를 받으면 결과를 알리지 않기로 이미 정했나요?|그 앱에서 신고 결과를 받으면 처음 신고를 다시 취소해야 하나요?
-c1.interview.assessment|문화 적합성은 행동과 관계없이 평가자의 느낌으로 정하면 되나요?|평가표에 문화 적합성이 있으면 집단별 오류는 이미 없는 거겠죠?
-c1.job_hunting.screening|전체 선별 정확도가 높으면 집단별 오류는 따로 볼 필요 없겠죠?|집단별 지원자 수만 공개하면 집단별 오류까지 공개한 셈이죠?
-c1.moving.data|평균 월세가 안정적이니 신규 계약 월세도 반드시 내려갔겠죠?|신규 계약은 모두 빼야 평균 월세를 정확하게 구할 수 있나요?
-c1.hospital.access|진료과별 차이는 중요하지 않으니 대기 시간은 전체 평균만 공개하면 돼요.|대기 시간이 짧아졌다는 이유로 진료과별 예약을 모두 없앴나요?
-c1.transport.access|엘리베이터가 멈췄어도 계단이 있으니 대안 안내는 생략해도 되겠죠?|계단을 이용하기 어려운 분께는 기다리지 말고 반드시 계단으로 가시라고 할까요?
-c1.shopping.claims|친환경 표시가 붙어 있으면 기준과 검증 기관은 확인하지 않아도 되나요?|검증 기관의 이름만 있으면 친환경 기준은 공개할 필요가 없나요?
-c1.phone.transparency|판매 수수료가 높은 요금제가 사용량에도 반드시 가장 잘 맞겠죠?|사용량에 맞는 요금제인지와 관계없이 판매 수수료만 비교해 볼까요?
-c1.emergency.warnings|대피 안내가 있으면 이동이 어려운 사람도 같은 경로를 반드시 이용할 수 있죠?|이동이 어려운 사람은 대피 대상에서 제외했다고 안내하면 되나요?
-c1.partner_family.identity|우리 며느리라는 말은 언제나 소속만 뜻하니 역할의 부담은 전혀 없어요.|우리 며느리라는 말을 들었으니 가족들이 저를 배제한다는 게 확실해요.
-c1.partner_family.fairness|명절에 눈에 보이는 일만 세면 보이지 않는 일의 분담도 알 수 있겠죠?|명절에는 보이지 않는 일을 누가 했는지와 관계없이 모두 같은 양을 했다고 볼까요?
-c1.theme_park_date.return|어, 오늘은 이 놀이기구가 운행하네. 타고 싶지 않았는데 다행이야.|오늘은 운행하지 않는다고 내가 직접 정했어. 처음부터 탈 생각은 없었어.
-c1.theme_park_date.uncertainty|저 동전을 모두 모아서 직원들 커피를 사 주기로 공식적으로 약속했어.|저 동전이 모두 직원들 돈이라는 걸 확인했으니 바로 가져다주면 돼.
-c1.theme_park_date.reflection|놀이공원에서 크게 웃고 소리치면 누구나 반드시 스트레스가 완전히 없어져.|놀이공원에서는 조용히 있어야만 스트레스가 풀린다는 사실이 증명됐어.
+c1.weather.coverage|폭염 대책을 시행한 지역의 평균 기온은 지난해보다 낮아졌나요?|폭염 대책이 시행된 기간을 평균 기온 자료로 확인할 수 있을까요?
+c1.mood.responsibility|번아웃 설문에서 업무량과 통제감을 하나의 항목으로 묶어 물었나요?|업무량보다 통제감이 번아웃에 더 큰 영향을 미쳤다는 결과인가요?
+c1.weekend.access|주말 행사를 유료로 바꾸면 참여 인원은 얼마나 줄어들까요?|주말 행사에 참여한 사람들이 무료 입장을 선택 이유로 꼽았나요?
+c1.food.definition|외식 물가 지수에서 배달비와 최소 주문 금액을 제외한 이유가 나와 있나요?|배달비와 최소 주문 금액의 변화가 주문량에 미친 영향도 조사했나요?
+c1.daily.access|새 안내 방식을 도입하는 데 든 비용은 어떻게 계산할까요?|새 안내 방식의 접근성을 평가할 일정은 언제 확정할까요?
+c1.daily.uncertainty|확정된 내용이 적으니 첫 공지는 조금 더 확인한 뒤 내는 게 어떨까요?|첫 공지가 나온 뒤에는 누가 추가 질문을 받을까요?
+c1.daily.continuity|좋은 취지의 행사가 처음 시작된 계기는 무엇이었을까요?|이번 행사를 한 번으로 마무리한다면 어떤 평가 자료를 남겨야 할까요?
+c1.daily.housing|평균 월세가 안정적이라는 말은 신규 계약만 따로 조사한 결과인가요?|신규 계약의 월세가 기존 계약보다 높았는지도 비교했어요?
+c1.daily.settlement|인력이 부족한 지역에서 자격 인정 상담을 받은 사람은 얼마나 돼요?|자격 인정 상담을 확대하면 인력 부족이 얼마나 줄어들까요?
+c1.screen.evidence|그 영상에 소개된 연구는 표본을 어떤 방식으로 모집했어요?|그 영상의 조회수가 연구 결과 발표 뒤에 얼마나 늘었어요?
+c1.screen.ai|AI로 만든 콘텐츠라는 표시를 어디에 넣는 게 좋을까요?|AI로 만든 콘텐츠라는 표시가 이용자의 신뢰도에 영향을 주었나요?
+c1.music.metrics|스트리밍 순위를 청취 취향 조사에 반영하면 결과가 얼마나 달라지나요?|스트리밍 순위가 바뀐 뒤 청취 취향도 달라졌나요?
+c1.hobby.limits|게임 시간 제한이 효과를 내려면 어느 정도로 설정해야 할까요?|게임 시간 제한을 도입하게 된 근거 자료를 보신 적 있어요?
+c1.travel.impact|지역 경제가 성장해서 관광객 수가 늘었다고 볼 수 있을까요?|관광객 수가 늘어난 지역의 경제 효과를 어떤 지표로 비교했나요?
+c1.work_study.evidence|가설을 뒷받침하는 자료를 더 모으려면 어떤 조사가 필요할까요?|이 결과가 가설과 어긋나는 원인을 지금 논의해도 될까요?
+c1.work_study.reporting|연구의 한계를 발표 자료의 어느 부분에 넣으면 좋을까요?|발표 시간이 부족한데 연구 결과를 어디까지 요약해야 할까요?
+c1.work_study.cost|유지비는 낮지만 설치비가 높은 장비를 골라도 될까요?|설치비와 유지비를 모두 낮추려면 장비 구성을 어떻게 바꿀까요?
+c1.work_study.ai|AI 도입 뒤 탈락률을 줄이기 위해 선별 속도를 낮췄어요?|AI 도입 뒤 어떤 지원자들의 선별 시간이 더 길어졌는지 살펴봤어요?
+c1.family.care|돌봄 지원의 이용률을 높일 방법을 신청자에게 물었나요?|돌봄 지원을 신청하지 않은 사람들의 사유도 조사했나요?
+c1.health.evidence|제 개인 경험이 연구 결과와 일치할 때도 따로 밝혀야 할까요?|연구 결과와 다른 개인 경험은 어떤 방법으로 조사하면 좋을까요?
+c1.kpop.labor|그 계정의 번역은 몇 분이서 동시에 검토하세요?|그 계정에서는 번역 담당자를 얼마나 자주 바꾸세요?
+c1.kpop.reach|조회수가 높아진 뒤 추천 화면에 더 오래 노출됐는지 확인해야 해요.|추천 화면 노출이 줄어든 뒤에도 조회수가 유지되는지 먼저 살펴봐요.
+c1.dating.safety|그 앱은 신고하면 접수됐다는 안내를 바로 보내 주나요?|그 앱은 신고 결과에 이의를 제기할 방법도 알려 주나요?
+c1.interview.assessment|면접 평가표의 문화 적합성은 전체 점수에서 얼마나 비중을 차지하나요?|문화 적합성 평가에서 평가자 사이의 점수 차이를 어떻게 조정하나요?
+c1.job_hunting.screening|자동 선별의 정확도가 높다는 발표에 집단별 지원자 비율도 포함됐나요?|자동 선별에서 집단별 오류가 생긴 원인까지 분석했나요?
+c1.moving.data|평균 월세 수치에 신규 계약만 들어가 있었어요?|신규 계약의 월세 수치는 어느 기간의 자료와 비교했어요?
+c1.hospital.access|진료과별 예약 대기 시간을 앞으로 공개할 계획이 있나요?|예약 대기 시간을 줄인 진료과에는 어떤 지원을 했나요?
+c1.transport.access|계단 이용이 어려운 분께 엘리베이터 수리 일정을 어떻게 설명해야 할까요?|엘리베이터가 정상 운행 중인데도 계단 이용을 권할 이유가 있을까요?
+c1.shopping.claims|친환경 표시를 얻는 데 든 검증 비용이 공개돼 있나요?|친환경 표시의 기준을 바꿀 때 어느 기관에 문의해야 하나요?
+c1.phone.transparency|요금제 추천을 받은 뒤 사용량이 달라졌는지도 확인했나요?|판매 수수료를 제외한 요금제 가격부터 비교해 볼까요?
+c1.emergency.warnings|재난 대피 안내가 이동이 어려운 사람에게도 전달됐나요?|이동이 어려운 사람을 위한 대피 안내를 누가 작성했나요?
+c1.partner_family.identity|“우리 며느리”라는 호칭을 들으면 특정 역할보다 소속감이 더 크게 느껴져요.|“우리 며느리”라는 호칭 대신 제 이름을 불러 주셨으면 좋겠어요.
+c1.partner_family.fairness|명절 준비를 더 공평하게 나누려면 어떤 일을 줄여야 할까요?|명절에 눈에 보이는 일만 비교하면 누가 가장 많은 일을 했을까요?
+c1.theme_park_date.return|오늘은 이 놀이기구를 운행하지 않는다고 직원이 알려 줬어. 다음에 타면 되지.|이 놀이기구는 운행하는 것 같은데 오늘은 내가 타고 싶지 않네.
+c1.theme_park_date.uncertainty|바닥에 떨어진 동전을 모으면 직원들 커피값은 나오겠어. 안내 데스크에 모아 줘도 되는지 물어볼까?|저 동전이 누구 것인지 모르겠네. 분실물로 신고하는 게 좋을까?
+c1.theme_park_date.reflection|놀이공원에 오면 스트레스가 풀리기는 하는데 왜 그런지는 잘 모르겠어.|놀이공원에서는 크게 소리치기보다 조용히 풍경을 볼 때 마음이 편해지는 것 같아.
 '''
 
 SCENE_OPTIONS += '''
@@ -491,7 +491,7 @@ SOURCE_TRANSLATION_CORRECTIONS = {
     'smalltalk_a1_0003': {'de': 'Ich bin heute gut gelaunt.'},
     'smalltalk_c1_0005': {
         'de': 'Der Aufzug ist außer Betrieb. Welche Alternative sollten wir jemandem nennen, dem Treppensteigen schwerfällt?',
-        'en': 'The elevator has stopped. What alternative should we suggest to someone who has difficulty using the stairs?',
+        'en': 'The elevator is out of order. What alternative should we suggest to someone who has difficulty using the stairs?',
     },
     'smalltalk_c2_0049': {
         'de': 'Wessen Einkommen und Zeitkosten setzt ein als angemessen bezeichneter Preis voraus?',
