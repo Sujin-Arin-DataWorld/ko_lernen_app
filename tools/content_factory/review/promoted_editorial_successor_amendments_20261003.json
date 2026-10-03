@@ -4233,6 +4233,1588 @@
       "predecessorSuccessorSha256": "d4c06b41d00f91ee172ddb69f4211628aee14b15ab8c9498dfb6d46d68da83ae",
       "normalization": "Existing exact promotion and relevel comparison projection",
       "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_37_c2_argument_scope_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c2_0264",
+      "before": {
+        "id": "cloze_c2_0264",
+        "sourceVocabId": "vocab_c2_0254",
+        "level": "c2",
+        "topic": "Argumentation und Verfahrensgestaltung",
+        "fullKo": "어떤 정수가 4의 배수라는 사실은 그 정수가 짝수이기 위한 충분조건이지만 필요조건은 아니다.",
+        "answer": "충분조건",
+        "sentenceKo": "어떤 정수가 4의 배수라는 사실은 그 정수가 짝수이기 위한 ＿＿＿이지만 필요조건은 아니다.",
+        "de": "Dass eine ganze Zahl durch vier teilbar ist, ist eine hinreichende, aber keine notwendige Bedingung dafür, dass sie gerade ist.",
+        "en": "An integer being a multiple of four is a sufficient, but not necessary, condition for it to be even.",
+        "distractors": [
+          "필요조건",
+          "논리적 귀결",
+          "단서 조항"
+        ],
+        "courseUnitId": "c2_03_automation_redress"
+      },
+      "after": {
+        "id": "cloze_c2_0264",
+        "sourceVocabId": "vocab_c2_0254",
+        "level": "c2",
+        "topic": "Argumentation und Verfahrensgestaltung",
+        "fullKo": "어떤 정수가 4의 배수라는 사실은 그 정수가 짝수이기 위한 충분조건이지만 필요조건은 아니다.",
+        "answer": "충분조건",
+        "sentenceKo": "어떤 정수가 4의 배수라는 사실은 그 정수가 짝수이기 위한 ＿＿＿이지만 필요조건은 아니다.",
+        "de": "Dass eine ganze Zahl durch vier teilbar ist, ist eine hinreichende, aber keine notwendige Bedingung dafür, dass sie gerade ist.",
+        "en": "An integer being a multiple of four is a sufficient, but not necessary, condition for it to be even.",
+        "distractors": [
+          "동치 조건",
+          "논리적 귀결",
+          "단서 조항"
+        ],
+        "courseUnitId": "c2_03_automation_redress"
+      },
+      "fields": [
+        "distractors"
+      ],
+      "beforeSha256": "dfe3b35f9aef09e32cb2070013dc0f58c746ecb8a04d606ab5cba75346ff2c05",
+      "afterSha256": "6634353679a07ad0f57cafacf15d52fa74fa9b838a8c0640f6d9c894f807314f",
+      "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained",
+      "genesisPredecessor": {
+        "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+        "draft": "tools/content_factory/drafts/batch_37_c2_argument_scope_cloze.json",
+        "review": "tools/content_factory/review/batch_37_c2_argument_scope_cloze_review.csv",
+        "draftSha256": "dfe3b35f9aef09e32cb2070013dc0f58c746ecb8a04d606ab5cba75346ff2c05",
+        "reviewRowSha256": "9f6a1166cb1252775560bebb36c9dbed9c24dee510c6bf69448d50be51a2ce27"
+      }
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_35_c2_honorific_context_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c2_0251",
+      "before": {
+        "id": "cloze_c2_0251",
+        "sourceVocabId": "vocab_c2_0241",
+        "level": "c2",
+        "topic": "Ehrensprache",
+        "fullKo": "대화 분석에서는 이름이나 직함 같은 호칭어가 두 사람의 관계를 드러내는 단서가 될 수 있다.",
+        "answer": "호칭어",
+        "sentenceKo": "대화 분석에서는 이름이나 직함 같은 ＿＿＿가 두 사람의 관계를 드러내는 단서가 될 수 있다.",
+        "de": "In der Gesprächsanalyse können Anredeformen wie Namen oder Titel Hinweise auf die Beziehung zwischen zwei Personen geben.",
+        "en": "In conversation analysis, terms of address such as names or titles can offer clues to the relationship between two people.",
+        "distractors": [
+          "종결 표현",
+          "상황 의존성",
+          "발화 전략"
+        ],
+        "courseUnitId": "c2_01_interpretation_institutions"
+      },
+      "after": {
+        "id": "cloze_c2_0251",
+        "sourceVocabId": "vocab_c2_0241",
+        "level": "c2",
+        "topic": "Ehrensprache",
+        "fullKo": "대화 분석에서는 이름이나 직함 같은 호칭어가 두 사람의 관계를 드러내는 단서가 될 수 있다.",
+        "answer": "호칭어가",
+        "sentenceKo": "대화 분석에서는 이름이나 직함 같은 ＿＿＿ 두 사람의 관계를 드러내는 단서가 될 수 있다.",
+        "de": "In der Gesprächsanalyse können Anredeformen wie Namen oder Titel Hinweise auf die Beziehung zwischen zwei Personen geben.",
+        "en": "In conversation analysis, terms of address such as names or titles can offer clues to the relationship between two people.",
+        "distractors": [
+          "종결 표현이",
+          "상황 의존성이",
+          "발화 전략이"
+        ],
+        "courseUnitId": "c2_01_interpretation_institutions"
+      },
+      "fields": [
+        "answer",
+        "distractors",
+        "sentenceKo"
+      ],
+      "beforeSha256": "f6772614f49d90b9c373610fcf9e6fb9bde51f1833a772392610c39624e231bc",
+      "afterSha256": "10787e93fd880d0472eb18b7f01bbb81eba890a68d0e601ed615e346ace23a54",
+      "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained",
+      "genesisPredecessor": {
+        "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+        "draft": "tools/content_factory/drafts/batch_35_c2_honorific_context_cloze.json",
+        "review": "tools/content_factory/review/batch_35_c2_honorific_context_cloze_review.csv",
+        "draftSha256": "f6772614f49d90b9c373610fcf9e6fb9bde51f1833a772392610c39624e231bc",
+        "reviewRowSha256": "d4530c98930f0fc08d8c4604649004716b545f6c7857e7c496217790062afb55"
+      }
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_35_c2_honorific_context_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c2_0253",
+      "before": {
+        "id": "cloze_c2_0253",
+        "sourceVocabId": "vocab_c2_0243",
+        "level": "c2",
+        "topic": "Ehrensprache",
+        "fullKo": "연구는 높임법을 지위의 반영으로만 설명하기보다, 화자가 상대와의 거리를 조절하는 자원으로 분석했다.",
+        "answer": "높임법",
+        "sentenceKo": "연구는 ＿＿＿을 지위의 반영으로만 설명하기보다, 화자가 상대와의 거리를 조절하는 자원으로 분석했다.",
+        "de": "Die Studie analysierte koreanische Höflichkeitsformen als sprachliche Mittel zur Regulierung der Distanz zum Gegenüber, statt sie lediglich als Ausdruck des sozialen Status zu erklären.",
+        "en": "The study analyzed Korean honorifics as a resource for regulating distance from the addressee rather than explaining them solely as a reflection of social status.",
+        "distractors": [
+          "발화 의도",
+          "상황 의존성",
+          "종결 표현"
+        ],
+        "courseUnitId": "c2_01_interpretation_institutions"
+      },
+      "after": {
+        "id": "cloze_c2_0253",
+        "sourceVocabId": "vocab_c2_0243",
+        "level": "c2",
+        "topic": "Ehrensprache",
+        "fullKo": "연구는 높임법을 지위의 반영으로만 설명하기보다, 화자가 상대와의 거리를 조절하는 자원으로 분석했다.",
+        "answer": "높임법을",
+        "sentenceKo": "연구는 ＿＿＿ 지위의 반영으로만 설명하기보다, 화자가 상대와의 거리를 조절하는 자원으로 분석했다.",
+        "de": "Die Studie analysierte koreanische Höflichkeitsformen als sprachliche Mittel zur Regulierung der Distanz zum Gegenüber, statt sie lediglich als Ausdruck des sozialen Status zu erklären.",
+        "en": "The study analyzed Korean honorifics as a resource for regulating distance from the addressee rather than explaining them solely as a reflection of social status.",
+        "distractors": [
+          "발화 의도를",
+          "상황 의존성을",
+          "종결 표현을"
+        ],
+        "courseUnitId": "c2_01_interpretation_institutions"
+      },
+      "fields": [
+        "answer",
+        "distractors",
+        "sentenceKo"
+      ],
+      "beforeSha256": "26d73e8409ac1717518923e67f0aad3e3b518139502258a292a2769943fae27e",
+      "afterSha256": "6a9f44526900cc8adcfb60a848c420feb8694d2cb26acbd35578e107d1c21e68",
+      "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained",
+      "genesisPredecessor": {
+        "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+        "draft": "tools/content_factory/drafts/batch_35_c2_honorific_context_cloze.json",
+        "review": "tools/content_factory/review/batch_35_c2_honorific_context_cloze_review.csv",
+        "draftSha256": "26d73e8409ac1717518923e67f0aad3e3b518139502258a292a2769943fae27e",
+        "reviewRowSha256": "39ecf8cbf29fb1313c8f8ff57fe9500109e4ffcb941d431680cd8591920a5109"
+      }
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_35_c2_honorific_context_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c2_0254",
+      "before": {
+        "id": "cloze_c2_0254",
+        "sourceVocabId": "vocab_c2_0244",
+        "level": "c2",
+        "topic": "Ehrensprache",
+        "fullKo": "‘선생님께서 오신다’에서는 조사 ‘께서’와 선어말 어미 ‘시’를 통해 주체 높임이 나타난다.",
+        "answer": "주체 높임",
+        "sentenceKo": "‘선생님께서 오신다’에서는 조사 ‘께서’와 선어말 어미 ‘시’를 통해 ＿＿＿이 나타난다.",
+        "de": "In ‘선생님께서 오신다’ wird die Lehrkraft als Satzsubjekt durch die Partikel ‘께서’ und das Präfinalsuffix ‘시’ sprachlich geehrt.",
+        "en": "In ‘선생님께서 오신다,’ subject honorification is expressed through the particle ‘께서’ and the prefinal ending ‘시.’",
+        "distractors": [
+          "상대 높임법",
+          "격식체",
+          "화용론"
+        ],
+        "courseUnitId": "c2_01_interpretation_institutions"
+      },
+      "after": {
+        "id": "cloze_c2_0254",
+        "sourceVocabId": "vocab_c2_0244",
+        "level": "c2",
+        "topic": "Ehrensprache",
+        "fullKo": "‘선생님께서 오신다’에서는 조사 ‘께서’와 선어말 어미 ‘시’를 통해 주체 높임이 나타난다.",
+        "answer": "주체 높임이",
+        "sentenceKo": "‘선생님께서 오신다’에서는 조사 ‘께서’와 선어말 어미 ‘시’를 통해 ＿＿＿ 나타난다.",
+        "de": "In ‘선생님께서 오신다’ wird die Lehrkraft als Satzsubjekt durch die Partikel ‘께서’ und das Präfinalsuffix ‘시’ sprachlich geehrt.",
+        "en": "In ‘선생님께서 오신다,’ subject honorification is expressed through the particle ‘께서’ and the prefinal ending ‘시.’",
+        "distractors": [
+          "상대 높임법이",
+          "격식체가",
+          "화용론이"
+        ],
+        "courseUnitId": "c2_01_interpretation_institutions"
+      },
+      "fields": [
+        "answer",
+        "distractors",
+        "sentenceKo"
+      ],
+      "beforeSha256": "97d315b012c9fa009cf196147af53feed7b065f30935aabf639892e23a3b3bde",
+      "afterSha256": "8d1bdaf61f08246e25065bc7c1c5b2a207ce37fa038e5da7be4f7c8ff3d2cbca",
+      "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained",
+      "genesisPredecessor": {
+        "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+        "draft": "tools/content_factory/drafts/batch_35_c2_honorific_context_cloze.json",
+        "review": "tools/content_factory/review/batch_35_c2_honorific_context_cloze_review.csv",
+        "draftSha256": "97d315b012c9fa009cf196147af53feed7b065f30935aabf639892e23a3b3bde",
+        "reviewRowSha256": "298f9fbcf06f05bca85fb37e8f9c69858f3dcf7b19dc5f2f9d8cc341bfe1db41"
+      }
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_35_c2_honorific_context_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c2_0257",
+      "before": {
+        "id": "cloze_c2_0257",
+        "sourceVocabId": "vocab_c2_0247",
+        "level": "c2",
+        "topic": "Ehrensprache",
+        "fullKo": "뉴스 진행자는 보도 내용을 전달할 때 격식체를 사용하지만, 인터뷰 상대에게 질문할 때는 해요체로 전환하기도 한다.",
+        "answer": "격식체",
+        "sentenceKo": "뉴스 진행자는 보도 내용을 전달할 때 ＿＿＿를 사용하지만, 인터뷰 상대에게 질문할 때는 해요체로 전환하기도 한다.",
+        "de": "Nachrichtenmoderierende verwenden bei der Berichterstattung einen formellen Sprechstil, wechseln bei Fragen an Interviewgäste aber mitunter in den höflichen Haeyo-Stil.",
+        "en": "News presenters use a formal speech style when delivering reports, but sometimes switch to the polite haeyo style when asking interview guests questions.",
+        "distractors": [
+          "화용론",
+          "발화 전략",
+          "상황 의존성"
+        ],
+        "courseUnitId": "c2_01_interpretation_institutions"
+      },
+      "after": {
+        "id": "cloze_c2_0257",
+        "sourceVocabId": "vocab_c2_0247",
+        "level": "c2",
+        "topic": "Ehrensprache",
+        "fullKo": "뉴스 진행자는 보도 내용을 전달할 때 격식체를 사용하지만, 인터뷰 상대에게 질문할 때는 해요체로 전환하기도 한다.",
+        "answer": "격식체를",
+        "sentenceKo": "뉴스 진행자는 보도 내용을 전달할 때 ＿＿＿ 사용하지만, 인터뷰 상대에게 질문할 때는 해요체로 전환하기도 한다.",
+        "de": "Nachrichtenmoderierende verwenden bei der Berichterstattung einen formellen Sprechstil, wechseln bei Fragen an Interviewgäste aber mitunter in den höflichen Haeyo-Stil.",
+        "en": "News presenters use a formal speech style when delivering reports, but sometimes switch to the polite haeyo style when asking interview guests questions.",
+        "distractors": [
+          "화용론을",
+          "발화 전략을",
+          "상황 의존성을"
+        ],
+        "courseUnitId": "c2_01_interpretation_institutions"
+      },
+      "fields": [
+        "answer",
+        "distractors",
+        "sentenceKo"
+      ],
+      "beforeSha256": "01f0284290f8b3fd5dabb4153ab71d3623fa9f0c3f2ce19bd8d4bf70b4c0f448",
+      "afterSha256": "db3946c3bb9ca02b2f377de7aa5b7ddf404d5c5acef89867148ff20b3bac6d95",
+      "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained",
+      "genesisPredecessor": {
+        "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+        "draft": "tools/content_factory/drafts/batch_35_c2_honorific_context_cloze.json",
+        "review": "tools/content_factory/review/batch_35_c2_honorific_context_cloze_review.csv",
+        "draftSha256": "01f0284290f8b3fd5dabb4153ab71d3623fa9f0c3f2ce19bd8d4bf70b4c0f448",
+        "reviewRowSha256": "2e47accc96d16e44cc98311be3e1477afa20ab53126cbfafcf641921120d5eb1"
+      }
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_35_c2_honorific_context_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c2_0258",
+      "before": {
+        "id": "cloze_c2_0258",
+        "sourceVocabId": "vocab_c2_0248",
+        "level": "c2",
+        "topic": "Ehrensprache",
+        "fullKo": "비평문은 소설 속 ‘괜찮아’라는 말의 발화 의도를 위로로 단정하지 않고, 앞선 갈등 장면과 연결해 해석했다.",
+        "answer": "발화 의도",
+        "sentenceKo": "비평문은 소설 속 ‘괜찮아’라는 말의 ＿＿＿를 위로로 단정하지 않고, 앞선 갈등 장면과 연결해 해석했다.",
+        "de": "Die Kritik deutete die Sprechabsicht hinter dem ‘괜찮아’ im Roman im Zusammenhang mit der vorangegangenen Konfliktszene, statt den Satz eindeutig als Trost einzuordnen.",
+        "en": "The critical essay interpreted the communicative intent of ‘괜찮아’ in the novel in relation to the preceding conflict scene rather than assuming it was meant as comfort.",
+        "distractors": [
+          "호칭 관습",
+          "종결 표현",
+          "간접성"
+        ],
+        "courseUnitId": "c2_01_interpretation_institutions"
+      },
+      "after": {
+        "id": "cloze_c2_0258",
+        "sourceVocabId": "vocab_c2_0248",
+        "level": "c2",
+        "topic": "Ehrensprache",
+        "fullKo": "비평문은 소설 속 ‘괜찮아’라는 말의 발화 의도를 위로로 단정하지 않고, 앞선 갈등 장면과 연결해 해석했다.",
+        "answer": "발화 의도를",
+        "sentenceKo": "비평문은 소설 속 ‘괜찮아’라는 말의 ＿＿＿ 위로로 단정하지 않고, 앞선 갈등 장면과 연결해 해석했다.",
+        "de": "Die Kritik deutete die Sprechabsicht hinter dem ‘괜찮아’ im Roman im Zusammenhang mit der vorangegangenen Konfliktszene, statt den Satz eindeutig als Trost einzuordnen.",
+        "en": "The critical essay interpreted the communicative intent of ‘괜찮아’ in the novel in relation to the preceding conflict scene rather than assuming it was meant as comfort.",
+        "distractors": [
+          "호칭 관습을",
+          "종결 표현을",
+          "간접성을"
+        ],
+        "courseUnitId": "c2_01_interpretation_institutions"
+      },
+      "fields": [
+        "answer",
+        "distractors",
+        "sentenceKo"
+      ],
+      "beforeSha256": "cb176a36747de0e0b18fee8d7ef1790f29c90b40cff0ebe17fd03a57066bb1e8",
+      "afterSha256": "52ede89729765cf77921afe18ca425f280fd516e4e92763f27aafc2c875a0768",
+      "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained",
+      "genesisPredecessor": {
+        "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+        "draft": "tools/content_factory/drafts/batch_35_c2_honorific_context_cloze.json",
+        "review": "tools/content_factory/review/batch_35_c2_honorific_context_cloze_review.csv",
+        "draftSha256": "cb176a36747de0e0b18fee8d7ef1790f29c90b40cff0ebe17fd03a57066bb1e8",
+        "reviewRowSha256": "6a43b4b4b8f74dabb613e170155adddb9982be367531d62e68d2df502797a200"
+      }
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_35_c2_honorific_context_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c2_0259",
+      "before": {
+        "id": "cloze_c2_0259",
+        "sourceVocabId": "vocab_c2_0249",
+        "level": "c2",
+        "topic": "Ehrensprache",
+        "fullKo": "화용론은 ‘여기 좀 춥네요’가 단순한 온도 진술인지 창문을 닫아 달라는 요청인지 대화 맥락에서 설명한다.",
+        "answer": "화용론",
+        "sentenceKo": "＿＿＿은 ‘여기 좀 춥네요’가 단순한 온도 진술인지 창문을 닫아 달라는 요청인지 대화 맥락에서 설명한다.",
+        "de": "Die Pragmatik erklärt anhand des Gesprächskontexts, ob ‘Hier ist es etwas kalt’ lediglich die Temperatur beschreibt oder eine Bitte ist, das Fenster zu schließen.",
+        "en": "Pragmatics uses the conversational context to explain whether ‘It's a little cold in here’ is simply a statement about temperature or a request to close the window.",
+        "distractors": [
+          "발화 전략",
+          "호칭어",
+          "격식체"
+        ],
+        "courseUnitId": "c2_01_interpretation_institutions"
+      },
+      "after": {
+        "id": "cloze_c2_0259",
+        "sourceVocabId": "vocab_c2_0249",
+        "level": "c2",
+        "topic": "Ehrensprache",
+        "fullKo": "화용론은 ‘여기 좀 춥네요’가 단순한 온도 진술인지 창문을 닫아 달라는 요청인지 대화 맥락에서 설명한다.",
+        "answer": "화용론은",
+        "sentenceKo": "＿＿＿ ‘여기 좀 춥네요’가 단순한 온도 진술인지 창문을 닫아 달라는 요청인지 대화 맥락에서 설명한다.",
+        "de": "Die Pragmatik erklärt anhand des Gesprächskontexts, ob ‘Hier ist es etwas kalt’ lediglich die Temperatur beschreibt oder eine Bitte ist, das Fenster zu schließen.",
+        "en": "Pragmatics uses the conversational context to explain whether ‘It's a little cold in here’ is simply a statement about temperature or a request to close the window.",
+        "distractors": [
+          "발화 전략은",
+          "호칭어는",
+          "격식체는"
+        ],
+        "courseUnitId": "c2_01_interpretation_institutions"
+      },
+      "fields": [
+        "answer",
+        "distractors",
+        "sentenceKo"
+      ],
+      "beforeSha256": "ef3f40403855ef3118334cca333353d48ba82e59b4309f3ffcd0ac58ae5b41d5",
+      "afterSha256": "64bce59b72dbad70c377518dbd5b1df21e329ab995a87e73e03a7c8d7382f6d5",
+      "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained",
+      "genesisPredecessor": {
+        "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+        "draft": "tools/content_factory/drafts/batch_35_c2_honorific_context_cloze.json",
+        "review": "tools/content_factory/review/batch_35_c2_honorific_context_cloze_review.csv",
+        "draftSha256": "ef3f40403855ef3118334cca333353d48ba82e59b4309f3ffcd0ac58ae5b41d5",
+        "reviewRowSha256": "d0110a065417115f8e432a186354921ba9e8402271a31d9a3474e31a6e7052c1"
+      }
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_35_c2_honorific_context_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c2_0260",
+      "before": {
+        "id": "cloze_c2_0260",
+        "sourceVocabId": "vocab_c2_0250",
+        "level": "c2",
+        "topic": "Ehrensprache",
+        "fullKo": "논문은 부탁의 간접성이 배려로 받아들여질 수 있지만, 위계가 강한 조직에서는 오히려 압박으로 해석될 수 있다고 분석한다.",
+        "answer": "간접성",
+        "sentenceKo": "논문은 부탁의 ＿＿＿이 배려로 받아들여질 수 있지만, 위계가 강한 조직에서는 오히려 압박으로 해석될 수 있다고 분석한다.",
+        "de": "Die Studie legt dar, dass indirekte Bitten als rücksichtsvoll verstanden werden können, in stark hierarchischen Organisationen aber auch als Druck.",
+        "en": "The paper argues that indirectness in a request may be taken as consideration, but can instead be interpreted as pressure in a strongly hierarchical organization.",
+        "distractors": [
+          "주체 높임",
+          "격식체",
+          "호칭어"
+        ],
+        "courseUnitId": "c2_01_interpretation_institutions"
+      },
+      "after": {
+        "id": "cloze_c2_0260",
+        "sourceVocabId": "vocab_c2_0250",
+        "level": "c2",
+        "topic": "Ehrensprache",
+        "fullKo": "논문은 부탁의 간접성이 배려로 받아들여질 수 있지만, 위계가 강한 조직에서는 오히려 압박으로 해석될 수 있다고 분석한다.",
+        "answer": "간접성이",
+        "sentenceKo": "논문은 부탁의 ＿＿＿ 배려로 받아들여질 수 있지만, 위계가 강한 조직에서는 오히려 압박으로 해석될 수 있다고 분석한다.",
+        "de": "Die Studie legt dar, dass indirekte Bitten als rücksichtsvoll verstanden werden können, in stark hierarchischen Organisationen aber auch als Druck.",
+        "en": "The paper argues that indirectness in a request may be taken as consideration, but can instead be interpreted as pressure in a strongly hierarchical organization.",
+        "distractors": [
+          "주체 높임이",
+          "격식체가",
+          "호칭어가"
+        ],
+        "courseUnitId": "c2_01_interpretation_institutions"
+      },
+      "fields": [
+        "answer",
+        "distractors",
+        "sentenceKo"
+      ],
+      "beforeSha256": "facd8b3db2e310817a036eb422d3d34f8fac4eda8143dc33f651363012824899",
+      "afterSha256": "ccbd98d9fb5d5f8c6fa25de3bf4acc8738c9a67992b3a39236df1619c546be1d",
+      "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained",
+      "genesisPredecessor": {
+        "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+        "draft": "tools/content_factory/drafts/batch_35_c2_honorific_context_cloze.json",
+        "review": "tools/content_factory/review/batch_35_c2_honorific_context_cloze_review.csv",
+        "draftSha256": "facd8b3db2e310817a036eb422d3d34f8fac4eda8143dc33f651363012824899",
+        "reviewRowSha256": "d74910408fb94ecfbec47fea0c2aa69c0d6fec43b7497ca3e5a66a170a6395bf"
+      }
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_35_c2_honorific_context_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c2_0262",
+      "before": {
+        "id": "cloze_c2_0262",
+        "sourceVocabId": "vocab_c2_0252",
+        "level": "c2",
+        "topic": "Ehrensprache",
+        "fullKo": "교재는 ‘잘하셨네요’가 칭찬과 비꼼으로 모두 쓰일 수 있다는 예를 들어, 의미 해석의 상황 의존성을 설명한다.",
+        "answer": "상황 의존성",
+        "sentenceKo": "교재는 ‘잘하셨네요’가 칭찬과 비꼼으로 모두 쓰일 수 있다는 예를 들어, 의미 해석의 ＿＿＿을 설명한다.",
+        "de": "Das Lehrbuch erklärt die Situationsabhängigkeit der Bedeutungsinterpretation am Beispiel von ‘잘하셨네요’, das sowohl als Lob als auch als Spott verwendet werden kann.",
+        "en": "The textbook explains context dependence in interpreting meaning through the example of ‘잘하셨네요’, which can be used both as praise and as sarcasm.",
+        "distractors": [
+          "화용론",
+          "발화 의도",
+          "종결 표현"
+        ],
+        "courseUnitId": "c2_01_interpretation_institutions"
+      },
+      "after": {
+        "id": "cloze_c2_0262",
+        "sourceVocabId": "vocab_c2_0252",
+        "level": "c2",
+        "topic": "Ehrensprache",
+        "fullKo": "교재는 ‘잘하셨네요’가 칭찬과 비꼼으로 모두 쓰일 수 있다는 예를 들어, 의미 해석의 상황 의존성을 설명한다.",
+        "answer": "상황 의존성을",
+        "sentenceKo": "교재는 ‘잘하셨네요’가 칭찬과 비꼼으로 모두 쓰일 수 있다는 예를 들어, 의미 해석의 ＿＿＿ 설명한다.",
+        "de": "Das Lehrbuch erklärt die Situationsabhängigkeit der Bedeutungsinterpretation am Beispiel von ‘잘하셨네요’, das sowohl als Lob als auch als Spott verwendet werden kann.",
+        "en": "The textbook explains context dependence in interpreting meaning through the example of ‘잘하셨네요’, which can be used both as praise and as sarcasm.",
+        "distractors": [
+          "화용론을",
+          "발화 의도를",
+          "종결 표현을"
+        ],
+        "courseUnitId": "c2_01_interpretation_institutions"
+      },
+      "fields": [
+        "answer",
+        "distractors",
+        "sentenceKo"
+      ],
+      "beforeSha256": "a9580260a9365f1d0f7fd60d9b41fb9328fb5f0ebad7bce5e2736750cf846112",
+      "afterSha256": "32a6b05a0b560b526953c3d1f451edbe6529a7680c5dfc3a2137224f5cbe6ee9",
+      "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained",
+      "genesisPredecessor": {
+        "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+        "draft": "tools/content_factory/drafts/batch_35_c2_honorific_context_cloze.json",
+        "review": "tools/content_factory/review/batch_35_c2_honorific_context_cloze_review.csv",
+        "draftSha256": "a9580260a9365f1d0f7fd60d9b41fb9328fb5f0ebad7bce5e2736750cf846112",
+        "reviewRowSha256": "a757146802785b0e01b597ec57ffec4afbb19f3e7e3e69e1df472c344ccec04a"
+      }
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_36_priority_surfaces_manifest.json",
+      "kind": "scenario",
+      "id": "c2_public_redress_briefing_2026",
+      "before": {
+        "id": "c2_public_redress_briefing_2026",
+        "level": "c2",
+        "emoji": "🏛️",
+        "register": "business",
+        "speechStyle": "business",
+        "title": {
+          "ko": "자동 결정 이의 절차를 공개 브리핑하기",
+          "de": "Das Einspruchsverfahren für automatische Entscheidungen öffentlich erläutern",
+          "en": "Publicly briefing the appeal process for automated decisions"
+        },
+        "intro": {
+          "ko": "공개 설명회에서 자동 결과에 이의를 제기하는 기준과 절차의 한계를 분명히 설명하고 질문을 정리해요.",
+          "de": "Bei einer öffentlichen Erläuterung erklärst du die Kriterien und Grenzen eines Einspruchs gegen ein automatisiertes Ergebnis klar und ordnest die Fragen.",
+          "en": "At a public briefing, you clearly explain the criteria and limits of an appeal against an automated result and organize questions."
+        },
+        "courseUnitId": "c2_03_automation_redress",
+        "playerCharacterId": "andrea",
+        "participantIds": [
+          "andrea",
+          "sujin",
+          "resident"
+        ],
+        "relationshipContext": "formal public briefing with a resident asking about a procedure",
+        "intent": "Clarify an appeal pathway without promising an outcome, paraphrase the concern, and preserve unanswered questions for the record.",
+        "vocab": [
+          {
+            "korean": "이의 제기",
+            "note": {
+              "ko": "결정에 동의하지 않아 다시 살펴 달라고 요청함",
+              "de": "Einspruch",
+              "en": "appeal"
+            }
+          },
+          {
+            "korean": "적용된 기준",
+            "note": {
+              "ko": "결정할 때 실제로 쓴 기준",
+              "de": "angewandte Kriterien",
+              "en": "criteria that were applied"
+            }
+          },
+          {
+            "korean": "추가 자료",
+            "note": {
+              "ko": "더 확인하려고 내는 정보",
+              "de": "zusätzliche Unterlagen",
+              "en": "additional materials"
+            }
+          },
+          {
+            "korean": "적용 범위",
+            "note": {
+              "ko": "어디까지 해당하는지 나타내는 범위",
+              "de": "Geltungsbereich",
+              "en": "scope of application"
+            }
+          },
+          {
+            "korean": "예외",
+            "note": {
+              "ko": "일반 규칙과 다르게 다루는 경우",
+              "de": "Ausnahme",
+              "en": "exception"
+            }
+          },
+          {
+            "korean": "기록으로 남기다",
+            "note": {
+              "ko": "나중에 확인할 수 있게 적어 두다",
+              "de": "dokumentieren",
+              "en": "to keep on record"
+            }
+          }
+        ],
+        "conceptIds": [
+          "concept_c2_automation_redress"
+        ],
+        "surfaceFormIds": [
+          "presentation_briefing_talk"
+        ],
+        "grammarIds": [
+          "grammar_c2_only_adequate_explanation"
+        ],
+        "grammarBlock": {
+          "title": {
+            "ko": "N(이)라야",
+            "de": "nur wenn es N ist",
+            "en": "only if it is N"
+          },
+          "explanation": {
+            "ko": "필요한 조건을 강하게 한정할 때 써요. 이 장면에서는 실제로 이용할 수 있는 설명이 필요하다는 뜻이에요.",
+            "de": "Die Form grenzt eine notwendige Bedingung stark ein. Hier heißt sie, dass die Erklärung tatsächlich nutzbar sein muss.",
+            "en": "The form strongly limits a necessary condition. Here it means that the explanation must be genuinely usable."
+          }
+        },
+        "dialog": [
+          {
+            "speaker": "user",
+            "ko": "지금부터 자동 결과에 이의를 제기하는 절차를 설명드리겠습니다. 질문은 한 번에 하나씩 받겠습니다.",
+            "de": "Ich erläutere nun das Verfahren, mit dem Sie gegen ein automatisiertes Ergebnis Einspruch einlegen können. Ich nehme die Fragen jeweils einzeln entgegen.",
+            "en": "I will now explain the process for appealing an automated result. I will take questions one at a time."
+          },
+          {
+            "speaker": "resident",
+            "ko": "결과가 틀렸다고 느껴도, 무엇을 근거로 다시 봐 달라고 해야 하는지 모르겠습니다.",
+            "de": "Auch wenn sich das Ergebnis falsch anfühlt, weiß ich nicht, auf welcher Grundlage ich um eine erneute Prüfung bitten soll.",
+            "en": "Even if the result feels wrong, I do not know what grounds I should give when asking for a review."
+          },
+          {
+            "speaker": "user",
+            "ko": "말씀하신 취지는 결과 자체만이 아니라, 이의 제기의 기준이 보이지 않는다는 뜻으로 이해했습니다.",
+            "de": "Ich verstehe Ihr Anliegen so, dass nicht nur das Ergebnis selbst, sondern auch die Kriterien für einen Einspruch nicht erkennbar sind.",
+            "en": "I understand your concern to be that not only the result itself, but also the criteria for an appeal, are not visible."
+          },
+          {
+            "speaker": "resident",
+            "ko": "네. 자료를 내도 같은 기준으로 다시 판단한다면 무엇이 달라지는지도 알고 싶습니다.",
+            "de": "Ja. Ich möchte auch wissen, was sich ändert, wenn nach Einreichen von Unterlagen erneut nach denselben Kriterien entschieden wird.",
+            "en": "Yes. I also want to know what changes if the decision is reviewed using the same criteria even after I submit materials."
+          },
+          {
+            "speaker": "sujin",
+            "ko": "그 점은 분명히 구분해야 합니다. 추가 자료가 결정에 영향을 줄 수 있는 경우와, 기준의 설명을 요청하는 경우는 절차가 다릅니다.",
+            "de": "Das müssen wir klar unterscheiden: Fälle, in denen zusätzliche Unterlagen die Entscheidung beeinflussen können, folgen einem anderen Verfahren als die Bitte um Erläuterung der Kriterien.",
+            "en": "We need to distinguish that clearly. Cases where additional materials can affect the decision follow a different process from requests for an explanation of the criteria."
+          },
+          {
+            "speaker": "user",
+            "ko": "따라서 통지에는 적용된 기준, 이의 사유, 그리고 추가 확인이 가능한 범위를 함께 적겠습니다.",
+            "de": "Deshalb werden wir in der Mitteilung die angewandten Kriterien, den Einspruchsgrund und den Bereich nennen, in dem eine weitere Prüfung möglich ist.",
+            "en": "Therefore, the notice will state the criteria applied, the grounds for appeal, and the scope in which further review is possible."
+          },
+          {
+            "speaker": "resident",
+            "ko": "그 범위가 좁으면 이의 제기가 형식에 그칠 수도 있지 않습니까?",
+            "de": "Wenn dieser Bereich eng ist, könnte der Einspruch nicht bloß Formsache bleiben?",
+            "en": "If that scope is narrow, could an appeal end up being only a formality?"
+          },
+          {
+            "speaker": "user",
+            "ko": "그 우려는 타당합니다. 범위를 한정하는 이유와 예외가 되는 경우도 공개하고, 답변되지 않은 질문은 기록으로 남기겠습니다.",
+            "de": "Diese Sorge ist berechtigt. Wir werden auch offenlegen, warum der Bereich begrenzt wird und welche Ausnahmen es gibt, und unbeantwortete Fragen dokumentieren.",
+            "en": "That concern is valid. We will also disclose why the scope is limited and what counts as an exception, and keep unanswered questions on record."
+          }
+        ],
+        "quests": [
+          {
+            "id": "quest_c2_public_redress_briefing_2026_hear",
+            "type": "hoerverstehen",
+            "data": {
+              "audioKo": "말씀하신 취지는 결과 자체만이 아니라, 이의 제기의 기준이 보이지 않는다는 뜻으로 이해했습니다.",
+              "options": [
+                {
+                  "de": "Ich verstehe Ihr Anliegen so, dass nicht nur das Ergebnis selbst, sondern auch die Kriterien für einen Einspruch nicht erkennbar sind.",
+                  "en": "I understand your concern to be that not only the result itself, but also the criteria for an appeal, are not visible."
+                },
+                {
+                  "de": "Ich nehme die Fragen jeweils einzeln entgegen.",
+                  "en": "I will take questions one at a time."
+                },
+                {
+                  "de": "Diese Sorge ist berechtigt.",
+                  "en": "That concern is valid."
+                },
+                {
+                  "de": "Das müssen wir klar unterscheiden.",
+                  "en": "We need to distinguish that clearly."
+                }
+              ],
+              "correctIndex": 0
+            }
+          },
+          {
+            "id": "quest_c2_public_redress_briefing_2026_translate",
+            "type": "uebersetzen",
+            "data": {
+              "promptDe": "Deshalb werden wir in der Mitteilung die angewandten Kriterien, den Einspruchsgrund und den Bereich nennen, in dem eine weitere Prüfung möglich ist.",
+              "promptEn": "Therefore, the notice will state the criteria applied, the grounds for appeal, and the scope in which further review is possible.",
+              "options": [
+                {
+                  "ko": "따라서 통지에는 적용된 기준, 이의 사유, 그리고 추가 확인이 가능한 범위를 함께 적겠습니다."
+                },
+                {
+                  "ko": "그 범위가 좁으면 이의 제기가 형식에 그칠 수도 있지 않습니까?"
+                },
+                {
+                  "ko": "그 점은 분명히 구분해야 합니다."
+                },
+                {
+                  "ko": "질문은 한 번에 하나씩 받겠습니다."
+                }
+              ],
+              "correctIndex": 0
+            }
+          },
+          {
+            "id": "quest_c2_public_redress_briefing_2026_build",
+            "type": "satzBauen",
+            "conceptIds": [
+              "concept_c2_automation_redress"
+            ],
+            "data": {
+              "targetKo": "그 우려는 타당합니다. 범위를 한정하는 이유와 예외가 되는 경우도 공개하고, 답변되지 않은 질문은 기록으로 남기겠습니다.",
+              "audioKo": "그 우려는 타당합니다. 범위를 한정하는 이유와 예외가 되는 경우도 공개하고, 답변되지 않은 질문은 기록으로 남기겠습니다.",
+              "promptDe": "Diese Sorge ist berechtigt. Wir werden auch offenlegen, warum der Bereich begrenzt wird und welche Ausnahmen es gibt, und unbeantwortete Fragen dokumentieren.",
+              "promptEn": "That concern is valid. We will also disclose why the scope is limited and what counts as an exception, and keep unanswered questions on record.",
+              "distractors": [
+                "추가 자료가",
+                "같은 기준으로",
+                "한 번에 하나씩"
+              ]
+            }
+          }
+        ],
+        "culturalNote": null,
+        "xpReward": 175
+      },
+      "after": {
+        "id": "c2_public_redress_briefing_2026",
+        "level": "c2",
+        "emoji": "🏛️",
+        "register": "business",
+        "speechStyle": "business",
+        "title": {
+          "ko": "자동 결정 이의 절차를 공개 브리핑하기",
+          "de": "Das Einspruchsverfahren für automatische Entscheidungen öffentlich erläutern",
+          "en": "Publicly briefing the appeal process for automated decisions"
+        },
+        "intro": {
+          "ko": "공개 설명회에서 자동 결과에 이의를 제기하는 기준과 절차의 한계를 분명히 설명하고 질문을 정리해요.",
+          "de": "Bei einer öffentlichen Erläuterung erklärst du die Kriterien und Grenzen eines Einspruchs gegen ein automatisiertes Ergebnis klar und ordnest die Fragen.",
+          "en": "At a public briefing, you clearly explain the criteria and limits of an appeal against an automated result and organize questions."
+        },
+        "courseUnitId": "c2_03_automation_redress",
+        "playerCharacterId": "andrea",
+        "participantIds": [
+          "andrea",
+          "sujin",
+          "resident"
+        ],
+        "relationshipContext": "formal public briefing with a resident asking about a procedure",
+        "intent": "Clarify an appeal pathway without promising an outcome, paraphrase the concern, and preserve unanswered questions for the record.",
+        "vocab": [
+          {
+            "korean": "이의 제기",
+            "note": {
+              "ko": "결정에 동의하지 않아 다시 살펴 달라고 요청함",
+              "de": "Einspruch",
+              "en": "appeal"
+            }
+          },
+          {
+            "korean": "적용된 기준",
+            "note": {
+              "ko": "결정할 때 실제로 쓴 기준",
+              "de": "angewandte Kriterien",
+              "en": "criteria that were applied"
+            }
+          },
+          {
+            "korean": "추가 자료",
+            "note": {
+              "ko": "더 확인하려고 내는 정보",
+              "de": "zusätzliche Unterlagen",
+              "en": "additional materials"
+            }
+          },
+          {
+            "korean": "적용 범위",
+            "note": {
+              "ko": "어디까지 해당하는지 나타내는 범위",
+              "de": "Geltungsbereich",
+              "en": "scope of application"
+            }
+          },
+          {
+            "korean": "예외",
+            "note": {
+              "ko": "일반 규칙과 다르게 다루는 경우",
+              "de": "Ausnahme",
+              "en": "exception"
+            }
+          },
+          {
+            "korean": "기록으로 남기다",
+            "note": {
+              "ko": "나중에 확인할 수 있게 적어 두다",
+              "de": "dokumentieren",
+              "en": "to keep on record"
+            }
+          }
+        ],
+        "conceptIds": [
+          "concept_c2_automation_redress"
+        ],
+        "surfaceFormIds": [
+          "presentation_briefing_talk"
+        ],
+        "grammarIds": [
+          "grammar_c2_only_adequate_explanation"
+        ],
+        "grammarBlock": {
+          "title": {
+            "ko": "N(이)라야",
+            "de": "nur wenn es N ist",
+            "en": "only if it is N"
+          },
+          "explanation": {
+            "ko": "필요한 조건을 강하게 한정할 때 써요. 이 장면에서는 실제로 이용할 수 있는 설명이 필요하다는 뜻이에요.",
+            "de": "Die Form grenzt eine notwendige Bedingung stark ein. Hier heißt sie, dass die Erklärung tatsächlich nutzbar sein muss.",
+            "en": "The form strongly limits a necessary condition. Here it means that the explanation must be genuinely usable."
+          }
+        },
+        "dialog": [
+          {
+            "speaker": "user",
+            "ko": "지금부터 자동 결과에 이의를 제기하는 절차를 설명드리겠습니다. 질문은 한 번에 하나씩 받겠습니다.",
+            "de": "Ich erläutere nun das Verfahren, mit dem Sie gegen ein automatisiertes Ergebnis Einspruch einlegen können. Ich nehme die Fragen jeweils einzeln entgegen.",
+            "en": "I'll now explain the process for appealing an automated result. I'll take questions one at a time."
+          },
+          {
+            "speaker": "resident",
+            "ko": "결과가 틀렸다고 느껴도, 무엇을 근거로 다시 봐 달라고 해야 하는지 모르겠습니다.",
+            "de": "Auch wenn sich das Ergebnis falsch anfühlt, weiß ich nicht, auf welcher Grundlage ich um eine erneute Prüfung bitten soll.",
+            "en": "Even if the result feels wrong, I do not know what grounds I should give when asking for a review."
+          },
+          {
+            "speaker": "user",
+            "ko": "말씀하신 취지는 결과 자체만이 아니라, 이의 제기의 기준이 보이지 않는다는 뜻으로 이해했습니다.",
+            "de": "Ich verstehe Ihr Anliegen so, dass nicht nur das Ergebnis selbst, sondern auch die Kriterien für einen Einspruch nicht erkennbar sind.",
+            "en": "I understand your concern to be that not only the result itself, but also the criteria for an appeal, are not visible."
+          },
+          {
+            "speaker": "resident",
+            "ko": "네. 자료를 내도 같은 기준으로 다시 판단한다면 무엇이 달라지는지도 알고 싶습니다.",
+            "de": "Ja. Ich möchte auch wissen, was sich ändert, wenn nach Einreichen von Unterlagen erneut nach denselben Kriterien entschieden wird.",
+            "en": "Yes. I also want to know what changes if the decision is reviewed using the same criteria even after I submit materials."
+          },
+          {
+            "speaker": "sujin",
+            "ko": "그 점은 분명히 구분해야 합니다. 추가 자료가 결정에 영향을 줄 수 있는 경우와, 기준의 설명을 요청하는 경우는 절차가 다릅니다.",
+            "de": "Das müssen wir klar unterscheiden: Fälle, in denen zusätzliche Unterlagen die Entscheidung beeinflussen können, folgen einem anderen Verfahren als die Bitte um Erläuterung der Kriterien.",
+            "en": "We need to distinguish that clearly. Cases where additional materials can affect the decision follow a different process from requests for an explanation of the criteria."
+          },
+          {
+            "speaker": "user",
+            "ko": "따라서 통지에는 적용된 기준, 이의 사유, 그리고 추가 확인이 가능한 범위를 함께 적겠습니다.",
+            "de": "Deshalb werden wir in der Mitteilung die angewandten Kriterien, den Einspruchsgrund und den Bereich nennen, in dem eine weitere Prüfung möglich ist.",
+            "en": "Therefore, the notice will state the criteria applied, the grounds for appeal, and the scope in which further review is possible."
+          },
+          {
+            "speaker": "resident",
+            "ko": "그 범위가 좁으면 이의 제기가 형식에 그칠 수도 있지 않습니까?",
+            "de": "Wenn dieser Bereich eng ist, könnte der Einspruch nicht bloß Formsache bleiben?",
+            "en": "If that scope is narrow, could an appeal end up being only a formality?"
+          },
+          {
+            "speaker": "user",
+            "ko": "그 우려는 타당합니다. 범위를 한정하는 이유와 예외가 되는 경우도 공개하고, 답변되지 않은 질문은 기록으로 남기겠습니다.",
+            "de": "Diese Sorge ist berechtigt. Wir werden auch offenlegen, warum der Bereich begrenzt wird und welche Ausnahmen es gibt, und unbeantwortete Fragen dokumentieren.",
+            "en": "That concern is valid. We will also disclose why the scope is limited and what counts as an exception, and keep unanswered questions on record."
+          }
+        ],
+        "quests": [
+          {
+            "id": "quest_c2_public_redress_briefing_2026_hear",
+            "type": "hoerverstehen",
+            "data": {
+              "audioKo": "말씀하신 취지는 결과 자체만이 아니라, 이의 제기의 기준이 보이지 않는다는 뜻으로 이해했습니다.",
+              "options": [
+                {
+                  "de": "Ich verstehe Ihr Anliegen so, dass nicht nur das Ergebnis selbst, sondern auch die Kriterien für einen Einspruch nicht erkennbar sind.",
+                  "en": "I understand your concern to be that not only the result itself, but also the criteria for an appeal, are not visible."
+                },
+                {
+                  "de": "Ich nehme die Fragen jeweils einzeln entgegen.",
+                  "en": "I'll take questions one at a time."
+                },
+                {
+                  "de": "Diese Sorge ist berechtigt.",
+                  "en": "That concern is valid."
+                },
+                {
+                  "de": "Das müssen wir klar unterscheiden.",
+                  "en": "We need to distinguish that clearly."
+                }
+              ],
+              "correctIndex": 0
+            }
+          },
+          {
+            "id": "quest_c2_public_redress_briefing_2026_translate",
+            "type": "uebersetzen",
+            "data": {
+              "promptDe": "Deshalb werden wir in der Mitteilung die angewandten Kriterien, den Einspruchsgrund und den Bereich nennen, in dem eine weitere Prüfung möglich ist.",
+              "promptEn": "Therefore, the notice will state the criteria applied, the grounds for appeal, and the scope in which further review is possible.",
+              "options": [
+                {
+                  "ko": "따라서 통지에는 적용된 기준, 이의 사유, 그리고 추가 확인이 가능한 범위를 함께 적겠습니다."
+                },
+                {
+                  "ko": "그 범위가 좁으면 이의 제기가 형식에 그칠 수도 있지 않습니까?"
+                },
+                {
+                  "ko": "그 점은 분명히 구분해야 합니다."
+                },
+                {
+                  "ko": "질문은 한 번에 하나씩 받겠습니다."
+                }
+              ],
+              "correctIndex": 0
+            }
+          },
+          {
+            "id": "quest_c2_public_redress_briefing_2026_build",
+            "type": "satzBauen",
+            "conceptIds": [
+              "concept_c2_automation_redress"
+            ],
+            "data": {
+              "targetKo": "그 우려는 타당합니다. 범위를 한정하는 이유와 예외가 되는 경우도 공개하고, 답변되지 않은 질문은 기록으로 남기겠습니다.",
+              "audioKo": "그 우려는 타당합니다. 범위를 한정하는 이유와 예외가 되는 경우도 공개하고, 답변되지 않은 질문은 기록으로 남기겠습니다.",
+              "promptDe": "Diese Sorge ist berechtigt. Wir werden auch offenlegen, warum der Bereich begrenzt wird und welche Ausnahmen es gibt, und unbeantwortete Fragen dokumentieren.",
+              "promptEn": "That concern is valid. We will also disclose why the scope is limited and what counts as an exception, and keep unanswered questions on record.",
+              "distractors": [
+                "추가 자료가",
+                "같은 기준으로",
+                "한 번에 하나씩"
+              ]
+            }
+          }
+        ],
+        "culturalNote": null,
+        "xpReward": 175
+      },
+      "fields": [
+        "dialog",
+        "quests"
+      ],
+      "beforeSha256": "58469d74898b992a8cc4630a92008c45045121b37cf0c719732fa29af6744d92",
+      "afterSha256": "1afe6261c5e8a99bed1a35a0b914860c80f365023e615ad2b0dbbed8fea4bcd5",
+      "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+      "sourceGitPath": "assets/data/scenarios_c2.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained",
+      "genesisPredecessor": {
+        "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+        "draft": "tools/content_factory/drafts/batch_36_priority_surfaces_scenarios.json",
+        "review": "tools/content_factory/review/batch_36_priority_surfaces_scenarios.csv",
+        "draftSha256": "58469d74898b992a8cc4630a92008c45045121b37cf0c719732fa29af6744d92",
+        "reviewRowSha256": "b72514ee2001c54f4d7483632491bf8f62369d4097370fc21561e51f9d9dbad7"
+      }
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_37_c2_argument_scope_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c2_0263",
+      "before": {
+        "id": "cloze_c2_0263",
+        "sourceVocabId": "vocab_c2_0253",
+        "level": "c2",
+        "topic": "Argumentation und Verfahrensgestaltung",
+        "fullKo": "민주적 의사결정에서 정보 공개는 시민 참여의 필요조건이지만, 공개만으로 실질적인 참여가 보장되는 것은 아니다.",
+        "answer": "필요조건",
+        "sentenceKo": "민주적 의사결정에서 정보 공개는 시민 참여의 ＿＿＿이지만, 공개만으로 실질적인 참여가 보장되는 것은 아니다.",
+        "de": "Bei demokratischen Entscheidungen ist die Offenlegung von Informationen eine notwendige Bedingung für Bürgerbeteiligung, garantiert für sich genommen aber noch keine tatsächliche Mitwirkung.",
+        "en": "In democratic decision-making, disclosure of information is a necessary condition for civic participation, but disclosure alone does not guarantee meaningful participation.",
+        "distractors": [
+          "충분조건",
+          "자격 요건",
+          "적용 범위"
+        ],
+        "courseUnitId": "c2_03_automation_redress"
+      },
+      "after": {
+        "id": "cloze_c2_0263",
+        "sourceVocabId": "vocab_c2_0253",
+        "level": "c2",
+        "topic": "Argumentation und Verfahrensgestaltung",
+        "fullKo": "민주적 의사결정에서 정보 공개는 시민 참여의 필요조건이지만, 공개만으로 실질적인 참여가 보장되는 것은 아니다.",
+        "answer": "필요조건이",
+        "sentenceKo": "민주적 의사결정에서 정보 공개는 시민 참여의 ＿＿＿지만, 공개만으로 실질적인 참여가 보장되는 것은 아니다.",
+        "de": "Bei demokratischen Entscheidungen ist die Offenlegung von Informationen eine notwendige Bedingung für Bürgerbeteiligung, garantiert für sich genommen aber noch keine tatsächliche Mitwirkung.",
+        "en": "In democratic decision-making, disclosure of information is a necessary condition for civic participation, but disclosure alone does not guarantee meaningful participation.",
+        "distractors": [
+          "충분조건이",
+          "자격 요건이",
+          "적용 범위"
+        ],
+        "courseUnitId": "c2_03_automation_redress"
+      },
+      "fields": [
+        "answer",
+        "distractors",
+        "sentenceKo"
+      ],
+      "beforeSha256": "a980e6be9cd2a4eccb67d5f5e313428c7f2f71df0790a08b648667ca5f8229eb",
+      "afterSha256": "8626074d09fbdb2b91b90cb65fcc4a040c5405f4f98cafca4b36aa572efa35bd",
+      "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained",
+      "genesisPredecessor": {
+        "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+        "draft": "tools/content_factory/drafts/batch_37_c2_argument_scope_cloze.json",
+        "review": "tools/content_factory/review/batch_37_c2_argument_scope_cloze_review.csv",
+        "draftSha256": "a980e6be9cd2a4eccb67d5f5e313428c7f2f71df0790a08b648667ca5f8229eb",
+        "reviewRowSha256": "ce20147b11a4e102e30754f3a77bccbea26f7defec13681c2e7da2f60c48b843"
+      }
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_37_c2_argument_scope_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c2_0265",
+      "before": {
+        "id": "cloze_c2_0265",
+        "sourceVocabId": "vocab_c2_0255",
+        "level": "c2",
+        "topic": "Argumentation und Verfahrensgestaltung",
+        "fullKo": "연구진은 찬반으로 나누기 어려운 경계 사례를 별도로 분석해, 기존 분류 기준의 한계를 검토했다.",
+        "answer": "경계 사례",
+        "sentenceKo": "연구진은 찬반으로 나누기 어려운 ＿＿＿를 별도로 분석해, 기존 분류 기준의 한계를 검토했다.",
+        "de": "Das Forschungsteam analysierte Grenzfälle, die sich nur schwer in Zustimmung oder Ablehnung einordnen ließen, gesondert und untersuchte so die Grenzen der bisherigen Klassifikationskriterien.",
+        "en": "The research team separately analyzed borderline cases that were difficult to classify as support or opposition, examining the limitations of the existing classification criteria.",
+        "distractors": [
+          "자격 요건",
+          "단서 조항",
+          "논리적 귀결"
+        ],
+        "courseUnitId": "c2_03_automation_redress"
+      },
+      "after": {
+        "id": "cloze_c2_0265",
+        "sourceVocabId": "vocab_c2_0255",
+        "level": "c2",
+        "topic": "Argumentation und Verfahrensgestaltung",
+        "fullKo": "연구진은 찬반으로 나누기 어려운 경계 사례를 별도로 분석해, 기존 분류 기준의 한계를 검토했다.",
+        "answer": "경계 사례를",
+        "sentenceKo": "연구진은 찬반으로 나누기 어려운 ＿＿＿ 별도로 분석해, 기존 분류 기준의 한계를 검토했다.",
+        "de": "Das Forschungsteam analysierte Grenzfälle, die sich nur schwer in Zustimmung oder Ablehnung einordnen ließen, gesondert und untersuchte so die Grenzen der bisherigen Klassifikationskriterien.",
+        "en": "The research team separately analyzed borderline cases that were difficult to classify as support or opposition, examining the limitations of the existing classification criteria.",
+        "distractors": [
+          "자격 요건을",
+          "단서 조항을",
+          "논리적 귀결을"
+        ],
+        "courseUnitId": "c2_03_automation_redress"
+      },
+      "fields": [
+        "answer",
+        "distractors",
+        "sentenceKo"
+      ],
+      "beforeSha256": "52545f321879f6c79c04346fec845b81ec7de8aaecd5f5c557b88a6a353e47f4",
+      "afterSha256": "5df343f3f14742770b9e56aa2e5aff52eabcc4508b7efcccdb238ae2fb1f9468",
+      "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained",
+      "genesisPredecessor": {
+        "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+        "draft": "tools/content_factory/drafts/batch_37_c2_argument_scope_cloze.json",
+        "review": "tools/content_factory/review/batch_37_c2_argument_scope_cloze_review.csv",
+        "draftSha256": "52545f321879f6c79c04346fec845b81ec7de8aaecd5f5c557b88a6a353e47f4",
+        "reviewRowSha256": "13af16a45d30328f2dcdb2784f47ce5128740beacd1edb4e510822634bc2d45a"
+      }
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_37_c2_argument_scope_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c2_0266",
+      "before": {
+        "id": "cloze_c2_0266",
+        "sourceVocabId": "vocab_c2_0256",
+        "level": "c2",
+        "topic": "Argumentation und Verfahrensgestaltung",
+        "fullKo": "칼럼은 평균 소득이 높아졌다고 해서 모든 가구의 생활이 나아졌다는 논리적 귀결이 성립하는 것은 아니라고 지적한다.",
+        "answer": "논리적 귀결",
+        "sentenceKo": "칼럼은 평균 소득이 높아졌다고 해서 모든 가구의 생활이 나아졌다는 ＿＿＿이 성립하는 것은 아니라고 지적한다.",
+        "de": "Die Kolumne weist darauf hin, dass aus einem gestiegenen Durchschnittseinkommen nicht logisch folgt, dass sich die Lebensverhältnisse aller Haushalte verbessert haben.",
+        "en": "The column points out that a rise in average income does not logically entail an improvement in living conditions for every household.",
+        "distractors": [
+          "필요조건",
+          "적용 범위",
+          "규범"
+        ],
+        "courseUnitId": "c2_03_automation_redress"
+      },
+      "after": {
+        "id": "cloze_c2_0266",
+        "sourceVocabId": "vocab_c2_0256",
+        "level": "c2",
+        "topic": "Argumentation und Verfahrensgestaltung",
+        "fullKo": "칼럼은 평균 소득이 높아졌다고 해서 모든 가구의 생활이 나아졌다는 논리적 귀결이 성립하는 것은 아니라고 지적한다.",
+        "answer": "논리적 귀결이",
+        "sentenceKo": "칼럼은 평균 소득이 높아졌다고 해서 모든 가구의 생활이 나아졌다는 ＿＿＿ 성립하는 것은 아니라고 지적한다.",
+        "de": "Die Kolumne weist darauf hin, dass aus einem gestiegenen Durchschnittseinkommen nicht logisch folgt, dass sich die Lebensverhältnisse aller Haushalte verbessert haben.",
+        "en": "The column points out that a rise in average income does not logically entail an improvement in living conditions for every household.",
+        "distractors": [
+          "필요조건이",
+          "적용 범위가",
+          "규범이"
+        ],
+        "courseUnitId": "c2_03_automation_redress"
+      },
+      "fields": [
+        "answer",
+        "distractors",
+        "sentenceKo"
+      ],
+      "beforeSha256": "c68107a3284052add5419be2bbff5260d894ce8127ae26812a59d0f40650a760",
+      "afterSha256": "cf75e30d234dcd97907cf65e41ed99b42bf09fb50b7232007de313b64ee12cfc",
+      "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained",
+      "genesisPredecessor": {
+        "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+        "draft": "tools/content_factory/drafts/batch_37_c2_argument_scope_cloze.json",
+        "review": "tools/content_factory/review/batch_37_c2_argument_scope_cloze_review.csv",
+        "draftSha256": "c68107a3284052add5419be2bbff5260d894ce8127ae26812a59d0f40650a760",
+        "reviewRowSha256": "0645f42e4630391517c92b391e1c6e9e6ec704b4e9e02177a63e2f22cccadd8a"
+      }
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_37_c2_argument_scope_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c2_0267",
+      "before": {
+        "id": "cloze_c2_0267",
+        "sourceVocabId": "vocab_c2_0257",
+        "level": "c2",
+        "topic": "Argumentation und Verfahrensgestaltung",
+        "fullKo": "개정안은 규정의 적용 범위를 공공 기관으로 한정하되, 민간 위탁 업무도 포함할지는 추가로 논의하도록 했다.",
+        "answer": "적용 범위",
+        "sentenceKo": "개정안은 규정의 ＿＿＿를 공공 기관으로 한정하되, 민간 위탁 업무도 포함할지는 추가로 논의하도록 했다.",
+        "de": "Der Änderungsvorschlag beschränkt den Geltungsbereich der Regelung auf öffentliche Einrichtungen; ob auch an private Stellen ausgelagerte Aufgaben einbezogen werden, soll noch diskutiert werden.",
+        "en": "The proposed amendment limits the scope of the regulation to public institutions, while leaving the inclusion of privately contracted services for further discussion.",
+        "distractors": [
+          "자격 요건",
+          "경계 사례",
+          "규범"
+        ],
+        "courseUnitId": "c2_03_automation_redress"
+      },
+      "after": {
+        "id": "cloze_c2_0267",
+        "sourceVocabId": "vocab_c2_0257",
+        "level": "c2",
+        "topic": "Argumentation und Verfahrensgestaltung",
+        "fullKo": "개정안은 규정의 적용 범위를 공공 기관으로 한정하되, 민간 위탁 업무도 포함할지는 추가로 논의하도록 했다.",
+        "answer": "적용 범위를",
+        "sentenceKo": "개정안은 규정의 ＿＿＿ 공공 기관으로 한정하되, 민간 위탁 업무도 포함할지는 추가로 논의하도록 했다.",
+        "de": "Der Änderungsvorschlag beschränkt den Geltungsbereich der Regelung auf öffentliche Einrichtungen; ob auch an private Stellen ausgelagerte Aufgaben einbezogen werden, soll noch diskutiert werden.",
+        "en": "The proposed amendment limits the scope of the regulation to public institutions, while leaving the inclusion of privately contracted services for further discussion.",
+        "distractors": [
+          "자격 요건을",
+          "경계 사례를",
+          "규범을"
+        ],
+        "courseUnitId": "c2_03_automation_redress"
+      },
+      "fields": [
+        "answer",
+        "distractors",
+        "sentenceKo"
+      ],
+      "beforeSha256": "4343571e68615d9ceb711df8c75324c5924e0eac652c230f3a563c32608fecb5",
+      "afterSha256": "f8fbcbec9ca1d3f7b713848d8dbf1d38e5a3390814d498ff9ba88a26f4600b0c",
+      "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained",
+      "genesisPredecessor": {
+        "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+        "draft": "tools/content_factory/drafts/batch_37_c2_argument_scope_cloze.json",
+        "review": "tools/content_factory/review/batch_37_c2_argument_scope_cloze_review.csv",
+        "draftSha256": "4343571e68615d9ceb711df8c75324c5924e0eac652c230f3a563c32608fecb5",
+        "reviewRowSha256": "8278454a93a66337812ffdd20a4bd54cdd2edd9623ae72b4028dac59dad81e02"
+      }
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_37_c2_argument_scope_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c2_0268",
+      "before": {
+        "id": "cloze_c2_0268",
+        "sourceVocabId": "vocab_c2_0258",
+        "level": "c2",
+        "topic": "Argumentation und Verfahrensgestaltung",
+        "fullKo": "계약서에는 자료의 외부 제공을 금지하면서도 연구 목적의 사용은 별도 승인을 거쳐 허용한다는 단서 조항이 있다.",
+        "answer": "단서 조항",
+        "sentenceKo": "계약서에는 자료의 외부 제공을 금지하면서도 연구 목적의 사용은 별도 승인을 거쳐 허용한다는 ＿＿＿이 있다.",
+        "de": "Der Vertrag verbietet die Weitergabe von Unterlagen an Außenstehende, enthält aber eine Vorbehaltsklausel, die eine Nutzung zu Forschungszwecken nach gesonderter Genehmigung erlaubt.",
+        "en": "The contract prohibits sharing the material externally, but includes a proviso allowing its use for research purposes with separate approval.",
+        "distractors": [
+          "적용 범위",
+          "논리적 귀결",
+          "충분조건"
+        ],
+        "courseUnitId": "c2_03_automation_redress"
+      },
+      "after": {
+        "id": "cloze_c2_0268",
+        "sourceVocabId": "vocab_c2_0258",
+        "level": "c2",
+        "topic": "Argumentation und Verfahrensgestaltung",
+        "fullKo": "계약서에는 자료의 외부 제공을 금지하면서도 연구 목적의 사용은 별도 승인을 거쳐 허용한다는 단서 조항이 있다.",
+        "answer": "단서 조항이",
+        "sentenceKo": "계약서에는 자료의 외부 제공을 금지하면서도 연구 목적의 사용은 별도 승인을 거쳐 허용한다는 ＿＿＿ 있다.",
+        "de": "Der Vertrag verbietet die Weitergabe von Unterlagen an Außenstehende, enthält aber eine Vorbehaltsklausel, die eine Nutzung zu Forschungszwecken nach gesonderter Genehmigung erlaubt.",
+        "en": "The contract prohibits sharing the material externally, but includes a proviso allowing its use for research purposes with separate approval.",
+        "distractors": [
+          "적용 범위가",
+          "논리적 귀결이",
+          "충분조건이"
+        ],
+        "courseUnitId": "c2_03_automation_redress"
+      },
+      "fields": [
+        "answer",
+        "distractors",
+        "sentenceKo"
+      ],
+      "beforeSha256": "7e5dccee60f37eb156e0fb78b8858e626bdf6097f686be3fbd5ae2e021344fa6",
+      "afterSha256": "3a426aae8476b5ee92a9891b3c098bc1103e2a8bd9fb5c4df584316180294a6e",
+      "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained",
+      "genesisPredecessor": {
+        "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+        "draft": "tools/content_factory/drafts/batch_37_c2_argument_scope_cloze.json",
+        "review": "tools/content_factory/review/batch_37_c2_argument_scope_cloze_review.csv",
+        "draftSha256": "7e5dccee60f37eb156e0fb78b8858e626bdf6097f686be3fbd5ae2e021344fa6",
+        "reviewRowSha256": "078dd1e5a14892759c81fa7ff8c253aea2137c5a99d1e6a15d1a5489934f6107"
+      }
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_37_c2_argument_scope_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c2_0269",
+      "before": {
+        "id": "cloze_c2_0269",
+        "sourceVocabId": "vocab_c2_0259",
+        "level": "c2",
+        "topic": "Argumentation und Verfahrensgestaltung",
+        "fullKo": "채용 공고는 학위와 실무 경력을 자격 요건으로 제시하되, 두 요건을 모두 충족해야 하는지는 명확히 밝히지 않았다.",
+        "answer": "자격 요건",
+        "sentenceKo": "채용 공고는 학위와 실무 경력을 ＿＿＿으로 제시하되, 두 요건을 모두 충족해야 하는지는 명확히 밝히지 않았다.",
+        "de": "Die Stellenanzeige nennt einen Hochschulabschluss und Berufserfahrung als Voraussetzungen, lässt aber offen, ob beide erfüllt sein müssen.",
+        "en": "The job advertisement lists a degree and practical experience as eligibility requirements, but does not clearly state whether both must be met.",
+        "distractors": [
+          "적용 범위",
+          "단서 조항",
+          "필요조건"
+        ],
+        "courseUnitId": "c2_03_automation_redress"
+      },
+      "after": {
+        "id": "cloze_c2_0269",
+        "sourceVocabId": "vocab_c2_0259",
+        "level": "c2",
+        "topic": "Argumentation und Verfahrensgestaltung",
+        "fullKo": "채용 공고는 학위와 실무 경력을 자격 요건으로 제시하되, 두 요건을 모두 충족해야 하는지는 명확히 밝히지 않았다.",
+        "answer": "자격 요건으로",
+        "sentenceKo": "채용 공고는 학위와 실무 경력을 ＿＿＿ 제시하되, 두 요건을 모두 충족해야 하는지는 명확히 밝히지 않았다.",
+        "de": "Die Stellenanzeige nennt einen Hochschulabschluss und Berufserfahrung als Voraussetzungen, lässt aber offen, ob beide erfüllt sein müssen.",
+        "en": "The job advertisement lists a degree and practical experience as eligibility requirements, but does not clearly state whether both must be met.",
+        "distractors": [
+          "적용 범위로",
+          "단서 조항으로",
+          "심사 결과로"
+        ],
+        "courseUnitId": "c2_03_automation_redress"
+      },
+      "fields": [
+        "answer",
+        "distractors",
+        "sentenceKo"
+      ],
+      "beforeSha256": "868dfe138bcb9595f707846a4d9fada88bc9f00ed735ebb055d293fae3f1587e",
+      "afterSha256": "cb1336cc01fef02adfb907ed827caa3a78f76decb6da2a988a73a6869bcabbc1",
+      "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained",
+      "genesisPredecessor": {
+        "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+        "draft": "tools/content_factory/drafts/batch_37_c2_argument_scope_cloze.json",
+        "review": "tools/content_factory/review/batch_37_c2_argument_scope_cloze_review.csv",
+        "draftSha256": "868dfe138bcb9595f707846a4d9fada88bc9f00ed735ebb055d293fae3f1587e",
+        "reviewRowSha256": "ca1866387700bb4c6ad214ef9739e01049d0024ee2f52bb70c9627ebf0b69f20"
+      }
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_37_c2_argument_scope_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c2_0270",
+      "before": {
+        "id": "cloze_c2_0270",
+        "sourceVocabId": "vocab_c2_0260",
+        "level": "c2",
+        "topic": "Argumentation und Verfahrensgestaltung",
+        "fullKo": "책은 시대마다 달라지는 가족 규범을 비교하며, 특정한 가족 형태를 보편적 기준으로 삼을 수 있는지 묻는다.",
+        "answer": "규범",
+        "sentenceKo": "책은 시대마다 달라지는 가족 ＿＿＿을 비교하며, 특정한 가족 형태를 보편적 기준으로 삼을 수 있는지 묻는다.",
+        "de": "Das Buch vergleicht Familiennormen aus verschiedenen Epochen und fragt, ob eine bestimmte Familienform als universeller Maßstab dienen kann.",
+        "en": "The book compares family norms across different periods and asks whether a particular family form can serve as a universal standard.",
+        "distractors": [
+          "논리적 귀결",
+          "자격 요건",
+          "경계 사례"
+        ],
+        "courseUnitId": "c2_03_automation_redress"
+      },
+      "after": {
+        "id": "cloze_c2_0270",
+        "sourceVocabId": "vocab_c2_0260",
+        "level": "c2",
+        "topic": "Argumentation und Verfahrensgestaltung",
+        "fullKo": "책은 시대마다 달라지는 가족 규범을 비교하며, 특정한 가족 형태를 보편적 기준으로 삼을 수 있는지 묻는다.",
+        "answer": "규범을",
+        "sentenceKo": "책은 시대마다 달라지는 가족 ＿＿＿ 비교하며, 특정한 가족 형태를 보편적 기준으로 삼을 수 있는지 묻는다.",
+        "de": "Das Buch vergleicht Familiennormen aus verschiedenen Epochen und fragt, ob eine bestimmte Familienform als universeller Maßstab dienen kann.",
+        "en": "The book compares family norms across different periods and asks whether a particular family form can serve as a universal standard.",
+        "distractors": [
+          "논리적 귀결을",
+          "자격 요건을",
+          "경계 사례를"
+        ],
+        "courseUnitId": "c2_03_automation_redress"
+      },
+      "fields": [
+        "answer",
+        "distractors",
+        "sentenceKo"
+      ],
+      "beforeSha256": "2a75ae19fa177d981553b0c08c4db938888c3273f84cd21cc9534e3da07570d0",
+      "afterSha256": "b111f20bd7a9dd0bde5ca7010b838f35ae30f25ae83db22568e966891bb9b39c",
+      "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained",
+      "genesisPredecessor": {
+        "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+        "draft": "tools/content_factory/drafts/batch_37_c2_argument_scope_cloze.json",
+        "review": "tools/content_factory/review/batch_37_c2_argument_scope_cloze_review.csv",
+        "draftSha256": "2a75ae19fa177d981553b0c08c4db938888c3273f84cd21cc9534e3da07570d0",
+        "reviewRowSha256": "73656838960e4fb297d8e4967db0ee77665e74d4d59affc33bb547686d0e82eb"
+      }
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_37_c2_argument_scope_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c2_0272",
+      "before": {
+        "id": "cloze_c2_0272",
+        "sourceVocabId": "vocab_c2_0262",
+        "level": "c2",
+        "topic": "Argumentation und Verfahrensgestaltung",
+        "fullKo": "보고서는 재택근무가 생산성을 높였다는 결론에, 조사 대상이 사무직에 한정돼 있다는 단서를 달았다.",
+        "answer": "단서",
+        "sentenceKo": "보고서는 재택근무가 생산성을 높였다는 결론에, 조사 대상이 사무직에 한정돼 있다는 ＿＿＿를 달았다.",
+        "de": "Der Bericht versah die Schlussfolgerung, dass Arbeit im Homeoffice die Produktivität erhöht habe, mit dem Vorbehalt, dass nur Büroangestellte untersucht worden waren.",
+        "en": "The report added a caveat to its conclusion that working from home had increased productivity: the study had covered only office workers.",
+        "distractors": [
+          "규범",
+          "범위",
+          "조건"
+        ],
+        "courseUnitId": "c2_03_automation_redress"
+      },
+      "after": {
+        "id": "cloze_c2_0272",
+        "sourceVocabId": "vocab_c2_0262",
+        "level": "c2",
+        "topic": "Argumentation und Verfahrensgestaltung",
+        "fullKo": "보고서는 재택근무가 생산성을 높였다는 결론에, 조사 대상이 사무직에 한정돼 있다는 단서를 달았다.",
+        "answer": "단서를",
+        "sentenceKo": "보고서는 재택근무가 생산성을 높였다는 결론에, 조사 대상이 사무직에 한정돼 있다는 ＿＿＿ 달았다.",
+        "de": "Der Bericht versah die Schlussfolgerung, dass Arbeit im Homeoffice die Produktivität erhöht habe, mit dem Vorbehalt, dass nur Büroangestellte untersucht worden waren.",
+        "en": "The report added a caveat to its conclusion that working from home had increased productivity: the study had covered only office workers.",
+        "distractors": [
+          "의무를",
+          "기한을",
+          "허가를"
+        ],
+        "courseUnitId": "c2_03_automation_redress"
+      },
+      "fields": [
+        "answer",
+        "distractors",
+        "sentenceKo"
+      ],
+      "beforeSha256": "e955b525e9d2bd8ead6ca8038847ef9eaa168d55c4a36217c49c481d73c020f8",
+      "afterSha256": "d6a8e1e9052d225d6e79214c30e64fd7a0819d87ba358b68f7fb93e7c5a2691c",
+      "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained",
+      "genesisPredecessor": {
+        "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+        "draft": "tools/content_factory/drafts/batch_37_c2_argument_scope_cloze.json",
+        "review": "tools/content_factory/review/batch_37_c2_argument_scope_cloze_review.csv",
+        "draftSha256": "e955b525e9d2bd8ead6ca8038847ef9eaa168d55c4a36217c49c481d73c020f8",
+        "reviewRowSha256": "340f627001b57c3c2cecc7ada52ef70269932a1909852a3633e8c73537c017ec"
+      }
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_37_c2_argument_scope_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c2_0273",
+      "before": {
+        "id": "cloze_c2_0273",
+        "sourceVocabId": "vocab_c2_0263",
+        "level": "c2",
+        "topic": "Argumentation und Verfahrensgestaltung",
+        "fullKo": "문학 평론은 등장인물의 침묵을 동의로 해석하기에 앞서, 그가 말할 수 없었던 사회적 맥락을 살펴야 한다고 강조한다.",
+        "answer": "맥락",
+        "sentenceKo": "문학 평론은 등장인물의 침묵을 동의로 해석하기에 앞서, 그가 말할 수 없었던 사회적 ＿＿＿을 살펴야 한다고 강조한다.",
+        "de": "Die Literaturkritik betont, dass vor einer Deutung des Schweigens einer Figur als Zustimmung der gesellschaftliche Kontext betrachtet werden muss, in dem diese Figur nicht sprechen konnte.",
+        "en": "The literary commentary emphasizes that before interpreting a character's silence as agreement, one must examine the social context that prevented the character from speaking.",
+        "distractors": [
+          "규범",
+          "단서",
+          "조건"
+        ],
+        "courseUnitId": "c2_03_automation_redress"
+      },
+      "after": {
+        "id": "cloze_c2_0273",
+        "sourceVocabId": "vocab_c2_0263",
+        "level": "c2",
+        "topic": "Argumentation und Verfahrensgestaltung",
+        "fullKo": "문학 평론은 등장인물의 침묵을 동의로 해석하기에 앞서, 그가 말할 수 없었던 사회적 맥락을 살펴야 한다고 강조한다.",
+        "answer": "맥락을",
+        "sentenceKo": "문학 평론은 등장인물의 침묵을 동의로 해석하기에 앞서, 그가 말할 수 없었던 사회적 ＿＿＿ 살펴야 한다고 강조한다.",
+        "de": "Die Literaturkritik betont, dass vor einer Deutung des Schweigens einer Figur als Zustimmung der gesellschaftliche Kontext betrachtet werden muss, in dem diese Figur nicht sprechen konnte.",
+        "en": "The literary commentary emphasizes that before interpreting a character's silence as agreement, one must examine the social context that prevented the character from speaking.",
+        "distractors": [
+          "합의를",
+          "통계를",
+          "성과를"
+        ],
+        "courseUnitId": "c2_03_automation_redress"
+      },
+      "fields": [
+        "answer",
+        "distractors",
+        "sentenceKo"
+      ],
+      "beforeSha256": "f0cc5ec2fde8eb27b64eb3db380fcf386ec0ed94ea8e32bf0ae727e1c951d4e6",
+      "afterSha256": "855e9bb9c0a4649aab6b1f869873b53b99fa5b506895b78c9f8cbff716c4d370",
+      "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained",
+      "genesisPredecessor": {
+        "sourceGitCommit": "80f82470fc4efe9074dabf97effcd84fcb115a19",
+        "draft": "tools/content_factory/drafts/batch_37_c2_argument_scope_cloze.json",
+        "review": "tools/content_factory/review/batch_37_c2_argument_scope_cloze_review.csv",
+        "draftSha256": "f0cc5ec2fde8eb27b64eb3db380fcf386ec0ed94ea8e32bf0ae727e1c951d4e6",
+        "reviewRowSha256": "cd4a35a6bdc3d20860aa0aab8706400d7b637164d8b4a0a486b5fa2ac14881d3"
+      }
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_21_theme_park_date_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a2_0089",
+      "before": {
+        "id": "smalltalk_a2_0089",
+        "category": "theme_park_date",
+        "level": "a2",
+        "kind": "question",
+        "ko": "와, 저기 봐봐. 너무 귀여워! 같이 사진 찍을까?",
+        "de": "Wow, schau mal da. Wie süß! Wollen wir zusammen ein Foto machen?",
+        "en": "Wow, look over there. So cute! Want to take a picture together?",
+        "relationshipContext": "romantic_partner",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "멀리서 사진만 찍을까?",
+            "de": "Wollen wir nur aus der Entfernung ein Foto machen?",
+            "en": "Should we just take a photo from a distance?"
+          }
+        ],
+        "followUp": {
+          "ko": "사진을 찍어도 된다고 하면 캐릭터 옆에 서자.",
+          "de": "Wenn wir ein Foto machen dürfen, stellen wir uns neben die Figur.",
+          "en": "If we are allowed to take a photo, let us stand next to the character.",
+          "turnKind": "reaction"
+        },
+        "reply": {
+          "ko": "좋아. 먼저 사진 찍어도 되는지 물어보자.",
+          "de": "Gerne. Fragen wir zuerst, ob das okay ist.",
+          "en": "Sure. Let's ask if it's okay first."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0089",
+        "category": "theme_park_date",
+        "level": "a2",
+        "kind": "question",
+        "ko": "와, 저기 봐봐. 너무 귀여워! 같이 사진 찍을까?",
+        "de": "Wow, schau mal da. Wie süß! Wollen wir zusammen ein Foto machen?",
+        "en": "Wow, look over there. So cute! Want to take a picture together?",
+        "relationshipContext": "romantic_partner",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "멀리서 사진만 찍을까?",
+            "de": "Wollen wir nur aus der Entfernung ein Foto machen?",
+            "en": "Should we just take a photo from a distance?"
+          }
+        ],
+        "followUp": {
+          "ko": "허락을 받으면 캐릭터 옆에서 사진을 찍자.",
+          "de": "Wenn wir die Erlaubnis haben, machen wir das Foto neben der Figur.",
+          "en": "If we get permission, let's take the photo next to the character.",
+          "turnKind": "reaction"
+        },
+        "reply": {
+          "ko": "좋아. 먼저 사진 찍어도 되는지 물어보자.",
+          "de": "Gerne. Fragen wir zuerst, ob das okay ist.",
+          "en": "Sure. Let's ask if it's okay first."
+        }
+      },
+      "fields": [
+        "followUp"
+      ],
+      "beforeSha256": "3fb9d8d3881c787f8475f3eeef5ea4092c60d063ef8090a2a4bd5ffdd50cdc0e",
+      "afterSha256": "496994d841376b9e3bbd532406b3864d0f7bccb0a3fc833883e642595ac7f403",
+      "sourceGitCommit": "b7a6efe3317a24e8490a87570a189c24893fd553",
+      "sourceGitPath": "assets/data/smalltalk.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained",
+      "genesisPredecessor": {
+        "sourceGitCommit": "b7a6efe3317a24e8490a87570a189c24893fd553",
+        "draft": "tools/content_factory/drafts/theme_park_date_smalltalk_v1.json",
+        "review": "tools/content_factory/review/theme_park_date_smalltalk_v1.csv",
+        "draftSha256": "cb9ebeb79fcb574965816120dedf3a770d469d6daac37fc081b6612ced5b18bf",
+        "reviewRowSha256": "a08bd0cff631298dec1d257bd44a6fd75b17686cf577e77df9985b7110e2e814",
+        "copyRevisionSha256": "8f4c6b0c2dfea7dc7b1309d2f30ff235302ae92361b8e0ccb0f23e55cb170e11"
+      }
     }
   ]
 }

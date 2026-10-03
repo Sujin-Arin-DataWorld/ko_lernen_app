@@ -1974,9 +1974,9 @@
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "잘 잤다니 다행이에요.",
-        "de": "Schön, dass du gut geschlafen hast.",
-        "en": "I'm glad you slept well."
+        "ko": "아, 좋네요!",
+        "de": "Ach, das freut mich!",
+        "en": "Oh, that's good to hear!"
       }
     },
     {
@@ -2590,9 +2590,9 @@
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "잘 지내신다니 다행이에요.",
-        "de": "Schön, dass es ihnen gut geht.",
-        "en": "I'm glad they're doing well."
+        "ko": "아, 좋네요!",
+        "de": "Ach, das freut mich!",
+        "en": "Oh, that's good to hear!"
       }
     },
     {
@@ -15335,9 +15335,9 @@
         }
       ],
       "followUp": {
-        "ko": "사진을 찍어도 된다고 하면 캐릭터 옆에 서자.",
-        "de": "Wenn wir ein Foto machen dürfen, stellen wir uns neben die Figur.",
-        "en": "If we are allowed to take a photo, let us stand next to the character.",
+        "ko": "허락을 받으면 캐릭터 옆에서 사진을 찍자.",
+        "de": "Wenn wir die Erlaubnis haben, machen wir das Foto neben der Figur.",
+        "en": "If we get permission, let's take the photo next to the character.",
         "turnKind": "reaction"
       },
       "reply": {
@@ -16435,6 +16435,218 @@
         "ko": "나는 목은 아프지만 마음은 가벼워진 날이라고 할래.",
         "de": "Ich würde sagen: ein Tag, nach dem der Hals wehtut, aber das Herz leichter ist.",
         "en": "I'd call it a day that left my throat sore but my heart lighter."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0087",
+      "level": "c2",
+      "category": "work_study",
+      "kind": "question",
+      "ko": "새 팀에서는 서로를 어떻게 부르면 좋을지 먼저 정해 볼까요?",
+      "de": "Sollen wir zuerst festlegen, wie wir uns im neuen Team ansprechen möchten?",
+      "en": "Shall we agree first on how we'd like to address one another on the new team?",
+      "reply": {
+        "ko": "저는 이름 뒤에 씨를 붙여 주시면 가장 편할 것 같아요.",
+        "de": "Am wohlsten fühle ich mich, wenn Sie mich mit meinem Namen und 씨 ansprechen.",
+        "en": "I'd be most comfortable if you used 씨 after my name."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "직함보다 이름 뒤에 씨를 붙여 부르는 게 괜찮을까요?",
+          "de": "Wäre es in Ordnung, wenn wir einander eher mit Namen und 씨 als mit Titeln ansprechen?",
+          "en": "Would it be okay to use each other's names followed by 씨 instead of job titles?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아요. 다른 분들도 같은 방식이 편한지 확인해 볼게요.",
+        "de": "Gut. Dann fragen wir auch die anderen, ob sie sich mit dieser Anrede wohlfühlen.",
+        "en": "Great. Then we can check whether the others are comfortable with the same form of address."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0088",
+      "level": "c2",
+      "category": "work_study",
+      "kind": "reaction",
+      "ko": "회의에서는 직함을 쓰되, 평소에는 이름 뒤에 씨를 붙여 부르는 방식이 더 편하다면 그렇게 해도 괜찮아요.",
+      "de": "Im Meeting können wir Titel verwenden. Wenn es sonst angenehmer ist, uns mit Namen und 씨 anzusprechen, können wir es so halten.",
+      "en": "We can use job titles in meetings. If names followed by 씨 feel more comfortable otherwise, we can use that.",
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "회의 밖에서는 이름 뒤에 씨를 붙여 불러도 될까요?",
+          "de": "Dürfen wir uns außerhalb des Meetings mit Namen und 씨 ansprechen?",
+          "en": "Can we use names followed by 씨 outside the meeting?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "상황에 따라 방식을 나눈 이유가 서로에게 분명해지겠네요.",
+        "de": "So ist für alle klar, warum wir die Anrede je nach Situation unterschiedlich handhaben.",
+        "en": "That makes it clear to everyone why we handle forms of address differently in different situations."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0089",
+      "level": "c2",
+      "category": "work_study",
+      "kind": "question",
+      "ko": "반말로 전환할지 말지는 친밀도만으로 판단하기보다, 현재 관계와 업무 맥락을 함께 확인하는 편이 좋겠죠?",
+      "de": "Statt allein nach der Vertrautheit zu entscheiden, ob wir zum Banmal wechseln, sollten wir wohl auch die aktuelle Beziehung und den Arbeitskontext klären, oder?",
+      "en": "Rather than deciding on a switch to banmal from familiarity alone, we should also check the current relationship and work context, right?",
+      "reply": {
+        "ko": "네. 속도를 정하기보다 서로의 선호를 먼저 확인하면 오해가 줄어들 수 있어요.",
+        "de": "Ja. Wenn wir erst die jeweiligen Vorlieben klären, statt das Tempo vorzugeben, vermeiden wir eher Missverständnisse.",
+        "en": "Yes. If we check each other's preferences before setting the pace, we can avoid misunderstandings."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "지금처럼 해요체로 이야기하는 게 편하신가요?",
+          "de": "Ist es Ihnen angenehm, wenn wir vorerst wie bisher im 해요체 sprechen?",
+          "en": "Are you comfortable keeping the 해요체 style for now?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그럼 바꾸고 싶어질 때도 먼저 물어볼게요.",
+        "de": "Dann frage ich auch erst nach, wenn ich etwas ändern möchte.",
+        "en": "Then I'll ask first when I want to change it too."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0090",
+      "level": "c2",
+      "category": "work_study",
+      "kind": "reaction",
+      "ko": "같은 표현도 발화 의도와 대화 맥락에 따라 다르게 해석될 수 있으니, 한 가지 규칙으로 단정하지 않는 게 좋겠어요.",
+      "de": "Dieselbe Formulierung kann je nach Sprechabsicht und Gesprächskontext anders verstanden werden. Deshalb sollten wir nicht von einer einzigen Regel ausgehen.",
+      "en": "The same wording can be interpreted differently depending on the speaker's intent and the conversation context, so we should not assume there is one rule for every situation.",
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "이 상황에서는 어떤 말투가 가장 자연스럽게 들릴까요?",
+          "de": "Welche Sprechweise klingt in dieser Situation am natürlichsten?",
+          "en": "Which way of speaking sounds most natural in this situation?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "답을 하나로 정하기보다, 그렇게 느끼는 이유를 함께 확인해 보는 게 도움이 되겠네요.",
+        "de": "Statt eine einzige Antwort festzulegen, hilft es eher, gemeinsam zu klären, warum es so wirkt.",
+        "en": "Rather than settle on one answer, it helps to work out together why it comes across that way."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0091",
+      "level": "c2",
+      "category": "phone",
+      "kind": "question",
+      "ko": "이의 신청을 하려면 먼저 어떤 자료가 필요한지 안내받을 수 있을까요?",
+      "de": "Könnte ich zunächst erfahren welche Unterlagen ich für einen Einspruch brauche?",
+      "en": "Could I first be told what materials I need for an appeal?",
+      "reply": {
+        "ko": "통지문과 판단에 영향을 줄 수 있는 자료를 함께 확인해 보겠습니다.",
+        "de": "Wir sehen uns die Mitteilung und die Unterlagen an die die Entscheidung beeinflussen könnten.",
+        "en": "We can look at the notice together with materials that could affect the decision."
+      },
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "어떤 경우에 추가 자료를 낼 수 있는지도 알려 주실 수 있나요?",
+          "de": "Könnten Sie mir auch sagen in welchen Fällen zusätzliche Unterlagen eingereicht werden können?",
+          "en": "Could you also tell me in which cases additional materials can be submitted?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그 자료가 절차에 어떻게 쓰이는지도 함께 설명해 주세요.",
+        "de": "Bitte erläutern Sie auch wie diese Unterlagen im Verfahren verwendet werden.",
+        "en": "Please also explain how those materials are used in the process."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0092",
+      "level": "c2",
+      "category": "phone",
+      "kind": "reaction",
+      "ko": "통지문에 적힌 기준이 제 경우에도 적용되는지 확인하고 싶습니다.",
+      "de": "Ich möchte prüfen ob die in der Mitteilung genannten Kriterien auch in meinem Fall gelten.",
+      "en": "I would like to check whether the criteria stated in the notice also apply in my case.",
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "제 경우에 적용된 기준을 문서로 받을 수 있을까요?",
+          "de": "Könnte ich die in meinem Fall angewandten Kriterien schriftlich erhalten?",
+          "en": "Could I receive the criteria applied in my case in writing?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "확인할 수 없는 부분은 답변이 필요하다고 기록해 두겠습니다.",
+        "de": "Punkte die sich nicht prüfen lassen halte ich als Fragen fest die beantwortet werden müssen.",
+        "en": "I will record any point that cannot be checked as a question requiring an answer."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0093",
+      "level": "c2",
+      "category": "phone",
+      "kind": "question",
+      "ko": "추가 자료를 내도 같은 기준으로 판단한다면 재검토의 범위는 어디까지인가요?",
+      "de": "Wie weit reicht die Überprüfung wenn trotz zusätzlicher Unterlagen nach denselben Kriterien entschieden wird?",
+      "en": "How far does the review extend if the same criteria are used even after additional materials are submitted?",
+      "reply": {
+        "ko": "자료가 판단에 영향을 줄 수 있는지와 기준의 설명을 요청하는지는 나누어 안내하겠습니다.",
+        "de": "Wir erläutern getrennt ob Unterlagen die Entscheidung beeinflussen können und wie eine Erklärung der Kriterien verlangt werden kann.",
+        "en": "We will explain separately whether materials can affect the decision and how to request an explanation of the criteria."
+      },
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "재검토가 결과 변경을 약속하는 절차는 아니라는 뜻인가요?",
+          "de": "Heißt das dass die Überprüfung keine Änderung des Ergebnisses verspricht?",
+          "en": "Does that mean the review does not promise a change in the result?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "약속할 수 있는 범위와 확인할 수 있는 범위를 구분해 주셔서 이해가 됩니다.",
+        "de": "Die Unterscheidung zwischen dem was zugesichert und dem was geprüft werden kann hilft mir weiter.",
+        "en": "Distinguishing what can be promised from what can be checked helps me understand."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0094",
+      "level": "c2",
+      "category": "phone",
+      "kind": "reaction",
+      "ko": "예외가 있다면 단서만 짧게 말하기보다 어디에 적용되는지 함께 알려 주시면 좋겠습니다.",
+      "de": "Wenn es Ausnahmen gibt wäre es hilfreich nicht nur den Vorbehalt kurz zu nennen sondern auch zu erklären wo er gilt.",
+      "en": "If there are exceptions, it would help to explain where they apply rather than only mention the caveat briefly.",
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 예외가 제 이의 신청에도 해당하는지 확인할 방법이 있을까요?",
+          "de": "Gibt es eine Möglichkeit zu prüfen ob diese Ausnahme auch für meinen Einspruch gilt?",
+          "en": "Is there a way to check whether that exception also applies to my appeal?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그 부분은 적용 범위와 함께 문서로 안내하겠습니다.",
+        "de": "Diesen Punkt erläutern wir schriftlich zusammen mit dem Geltungsbereich.",
+        "en": "We will explain that point in writing together with the scope of application."
       }
     }
   ]

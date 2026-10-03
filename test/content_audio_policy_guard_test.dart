@@ -121,10 +121,10 @@ void main() {
     final manifest =
         jsonDecode(manifestFile.readAsStringSync()) as Map<String, dynamic>;
     expect(manifestFile.existsSync(), isTrue);
-    expect(manifest['scenarioCount'], 181);
+    expect(manifest['scenarioCount'], 186);
     expect(
       manifest['bundledCount'],
-      181,
+      186,
       reason:
           'bundledCount counts every scenario, including the three approved '
           'persona additions; shared first lines reuse one immutable MP3.',

@@ -1,0 +1,173 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "satz_c2_0253",
+      "sourceVocabId": "vocab_c2_0241",
+      "level": "c2",
+      "vocabKo": "호칭어",
+      "targetKo": "대화 분석에서는 이름이나 직함 같은 호칭어가 두 사람의 관계를 드러내는 단서가 될 수 있다.",
+      "promptDe": "In der Gesprächsanalyse können Anredeformen wie Namen oder Titel Hinweise auf die Beziehung zwischen zwei Personen geben.",
+      "promptEn": "In conversation analysis, terms of address such as names or titles can offer clues to the relationship between two people.",
+      "distractors": [
+        "말없이",
+        "정해 놓고"
+      ],
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "id": "satz_c2_0254",
+      "sourceVocabId": "vocab_c2_0242",
+      "level": "c2",
+      "vocabKo": "호칭 관습",
+      "targetKo": "인터뷰 기사는 직원을 모두 이름으로 부르는 회사의 사례를 통해, 수평적인 호칭 관습과 실제 의사결정 구조가 일치하는지 묻는다.",
+      "promptDe": "Anhand eines Unternehmens, in dem alle Beschäftigten mit Namen angesprochen werden, fragt der Interviewartikel, ob hierarchiefreie Anredekonventionen mit den tatsächlichen Entscheidungsstrukturen übereinstimmen.",
+      "promptEn": "Using the example of a company where every employee is addressed by name, the interview article asks whether non-hierarchical address conventions match the actual decision-making structure.",
+      "distractors": [
+        "모두 같으니",
+        "정해진 대로"
+      ],
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "id": "satz_c2_0255",
+      "sourceVocabId": "vocab_c2_0243",
+      "level": "c2",
+      "vocabKo": "높임법",
+      "targetKo": "연구는 높임법을 지위의 반영으로만 설명하기보다, 화자가 상대와의 거리를 조절하는 자원으로 분석했다.",
+      "promptDe": "Die Studie analysierte koreanische Höflichkeitsformen als sprachliche Mittel zur Regulierung der Distanz zum Gegenüber, statt sie lediglich als Ausdruck des sozialen Status zu erklären.",
+      "promptEn": "The study analyzed Korean honorifics as a resource for regulating distance from the addressee rather than explaining them solely as a reflection of social status.",
+      "distractors": [
+        "규칙 하나를",
+        "혼자서만"
+      ],
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "id": "satz_c2_0256",
+      "sourceVocabId": "vocab_c2_0244",
+      "level": "c2",
+      "vocabKo": "주체 높임",
+      "targetKo": "‘선생님께서 오신다’에서는 조사 ‘께서’와 선어말 어미 ‘시’를 통해 주체 높임이 나타난다.",
+      "promptDe": "In ‘선생님께서 오신다’ wird die Lehrkraft als Satzsubjekt durch die Partikel ‘께서’ und das Präfinalsuffix ‘시’ sprachlich geehrt.",
+      "promptEn": "In ‘선생님께서 오신다,’ subject honorification is expressed through the particle ‘께서’ and the prefinal ending ‘시.’",
+      "distractors": [
+        "듣는 사람을",
+        "말하는 사람을"
+      ],
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "id": "satz_c2_0257",
+      "sourceVocabId": "vocab_c2_0245",
+      "level": "c2",
+      "vocabKo": "상대 높임법",
+      "targetKo": "‘선생님이 오세요’와 ‘선생님이 오십니다’는 주체를 똑같이 높이지만, 상대 높임법에서는 격식성의 차이를 보인다.",
+      "promptDe": "‘선생님이 오세요’ und ‘선생님이 오십니다’ ehren das Satzsubjekt gleichermaßen, unterscheiden sich aber im Grad der Förmlichkeit gegenüber der angesprochenen Person.",
+      "promptEn": "‘선생님이 오세요’ and ‘선생님이 오십니다’ honor the subject equally, but differ in formality in their use of addressee honorification.",
+      "distractors": [
+        "문장 끝을",
+        "글쓴이를"
+      ],
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "id": "satz_c2_0258",
+      "sourceVocabId": "vocab_c2_0246",
+      "level": "c2",
+      "vocabKo": "종결 표현",
+      "targetKo": "대화록에서는 ‘지금 보내세요’가 ‘지금 보내 주시겠어요?’로 수정되어, 종결 표현의 변화가 요청의 어조에 미치는 영향을 보여 준다.",
+      "promptDe": "Im Gesprächsprotokoll wird ‘지금 보내세요’ durch ‘지금 보내 주시겠어요?’ ersetzt. Das zeigt, wie eine veränderte Satzschlussform den Ton einer Bitte beeinflusst.",
+      "promptEn": "In the transcript, ‘지금 보내세요’ is revised to ‘지금 보내 주시겠어요?’, showing how a change in the sentence-final expression affects the tone of a request.",
+      "distractors": [
+        "단어 순서를",
+        "말의 속도를"
+      ],
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "id": "satz_c2_0259",
+      "sourceVocabId": "vocab_c2_0247",
+      "level": "c2",
+      "vocabKo": "격식체",
+      "targetKo": "뉴스 진행자는 보도 내용을 전달할 때 격식체를 사용하지만, 인터뷰 상대에게 질문할 때는 해요체로 전환하기도 한다.",
+      "promptDe": "Nachrichtenmoderierende verwenden bei der Berichterstattung einen formellen Sprechstil, wechseln bei Fragen an Interviewgäste aber mitunter in den höflichen Haeyo-Stil.",
+      "promptEn": "News presenters use a formal speech style when delivering reports, but sometimes switch to the polite haeyo style when asking interview guests questions.",
+      "distractors": [
+        "대화가 길어도",
+        "목소리가 커도"
+      ],
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "id": "satz_c2_0260",
+      "sourceVocabId": "vocab_c2_0248",
+      "level": "c2",
+      "vocabKo": "발화 의도",
+      "targetKo": "비평문은 소설 속 ‘괜찮아’라는 말의 발화 의도를 위로로 단정하지 않고, 앞선 갈등 장면과 연결해 해석했다.",
+      "promptDe": "Die Kritik deutete die Sprechabsicht hinter dem ‘괜찮아’ im Roman im Zusammenhang mit der vorangegangenen Konfliktszene, statt den Satz eindeutig als Trost einzuordnen.",
+      "promptEn": "The critical essay interpreted the communicative intent of ‘괜찮아’ in the novel in relation to the preceding conflict scene rather than assuming it was meant as comfort.",
+      "distractors": [
+        "문장 길이를",
+        "목소리 크기를"
+      ],
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "id": "satz_c2_0261",
+      "sourceVocabId": "vocab_c2_0249",
+      "level": "c2",
+      "vocabKo": "화용론",
+      "targetKo": "화용론은 ‘여기 좀 춥네요’가 단순한 온도 진술인지 창문을 닫아 달라는 요청인지 대화 맥락에서 설명한다.",
+      "promptDe": "Die Pragmatik erklärt anhand des Gesprächskontexts, ob ‘Hier ist es etwas kalt’ lediglich die Temperatur beschreibt oder eine Bitte ist, das Fenster zu schließen.",
+      "promptEn": "Pragmatics uses the conversational context to explain whether ‘It's a little cold in here’ is simply a statement about temperature or a request to close the window.",
+      "distractors": [
+        "맞춤법에서는",
+        "사전에서는"
+      ],
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "id": "satz_c2_0262",
+      "sourceVocabId": "vocab_c2_0250",
+      "level": "c2",
+      "vocabKo": "간접성",
+      "targetKo": "논문은 부탁의 간접성이 배려로 받아들여질 수 있지만, 위계가 강한 조직에서는 오히려 압박으로 해석될 수 있다고 분석한다.",
+      "promptDe": "Die Studie legt dar, dass indirekte Bitten als rücksichtsvoll verstanden werden können, in stark hierarchischen Organisationen aber auch als Druck.",
+      "promptEn": "The paper argues that indirectness in a request may be taken as consideration, but can instead be interpreted as pressure in a strongly hierarchical organization.",
+      "distractors": [
+        "정확한 표현은",
+        "직접적인 말은"
+      ],
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "id": "satz_c2_0263",
+      "sourceVocabId": "vocab_c2_0251",
+      "level": "c2",
+      "vocabKo": "발화 전략",
+      "targetKo": "토론에서는 상대의 결론을 곧바로 반박하기에 앞서 전제부터 확인하는 발화 전략으로 쟁점을 좁혔다.",
+      "promptDe": "In der Debatte wurde der Streitpunkt mit einer Sprechstrategie eingegrenzt, die zunächst die Prämissen prüfte, statt sofort die Schlussfolgerung des Gegenübers zu widerlegen.",
+      "promptEn": "The discussion narrowed the point of contention through a communication strategy that checked the premises before directly challenging the other side's conclusion.",
+      "distractors": [
+        "침묵하는",
+        "동의하는"
+      ],
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "id": "satz_c2_0264",
+      "sourceVocabId": "vocab_c2_0252",
+      "level": "c2",
+      "vocabKo": "상황 의존성",
+      "targetKo": "교재는 ‘잘하셨네요’가 칭찬과 비꼼으로 모두 쓰일 수 있다는 예를 들어, 의미 해석의 상황 의존성을 설명한다.",
+      "promptDe": "Das Lehrbuch erklärt die Situationsabhängigkeit der Bedeutungsinterpretation am Beispiel von ‘잘하셨네요’, das sowohl als Lob als auch als Spott verwendet werden kann.",
+      "promptEn": "The textbook explains context dependence in interpreting meaning through the example of ‘잘하셨네요’, which can be used both as praise and as sarcasm.",
+      "distractors": [
+        "문법 규칙만",
+        "사전 뜻만"
+      ],
+      "courseUnitId": "c2_01_interpretation_institutions"
+    }
+  ]
+}

@@ -6498,6 +6498,219 @@
         }
       },
       "xpReward": 145
+    },
+    {
+      "id": "b2_meeting_hold_for_evidence_2026",
+      "level": "b2",
+      "emoji": "📊",
+      "register": "business",
+      "speechStyle": "business",
+      "title": {
+        "ko": "근거가 더 필요하다고 설명하기",
+        "de": "Erklären, warum weitere Belege nötig sind",
+        "en": "Explaining why more evidence is needed"
+      },
+      "intro": {
+        "ko": "회의에서 제안을 바로 확정하기보다, 현재 자료의 범위와 다음 확인 방법을 짧게 설명해요.",
+        "de": "In einer Besprechung erklärst du kurz den Umfang der vorhandenen Daten und den nächsten Prüfschritt, statt einen Vorschlag sofort festzulegen.",
+        "en": "In a meeting, you briefly explain the limits of the current data and the next way to check it instead of finalizing a proposal immediately."
+      },
+      "courseUnitId": "b2_02_professional_opinion",
+      "playerCharacterId": "maya",
+      "participantIds": [
+        "maya",
+        "andrea"
+      ],
+      "relationshipContext": "colleagues evaluating a proposal in a meeting",
+      "intent": "Acknowledge the schedule, name the evidence gap, and propose a limited interim decision.",
+      "shelf": "b2_meeting",
+      "backdrop": "office",
+      "vocab": [
+        {
+          "korean": "확정하다",
+          "note": {
+            "ko": "더 바꾸지 않기로 결정하다",
+            "de": "festlegen",
+            "en": "to finalize"
+          }
+        },
+        {
+          "korean": "자료",
+          "note": {
+            "ko": "판단에 쓰는 정보",
+            "de": "Daten / Unterlagen",
+            "en": "data / materials"
+          }
+        },
+        {
+          "korean": "효과",
+          "note": {
+            "ko": "어떤 일이 낳는 결과",
+            "de": "Wirkung",
+            "en": "effect"
+          }
+        },
+        {
+          "korean": "특정 시간",
+          "note": {
+            "ko": "정해진 한때",
+            "de": "bestimmte Zeit",
+            "en": "specific time"
+          }
+        },
+        {
+          "korean": "임시 결정",
+          "note": {
+            "ko": "나중에 다시 볼 수 있는 결정",
+            "de": "vorläufige Entscheidung",
+            "en": "interim decision"
+          }
+        },
+        {
+          "korean": "보완 자료",
+          "note": {
+            "ko": "부족한 부분을 채우는 정보",
+            "de": "ergänzende Unterlagen",
+            "en": "additional evidence"
+          }
+        }
+      ],
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "surfaceFormIds": [
+        "presentation_briefing_talk"
+      ],
+      "grammarIds": [
+        "grammar_b2_formal_reason"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-기 때문에",
+          "de": "formeller Grund",
+          "en": "formal reason"
+        },
+        "explanation": {
+          "ko": "회의에서 판단의 근거를 조금 더 공식적으로 말할 때 쓸 수 있어요.",
+          "de": "Mit V-기 때문에 kann man in einer Besprechung einen Grund etwas formeller nennen.",
+          "en": "Use V-기 때문에 to state a reason more formally in a meeting."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "andrea",
+          "ko": "오늘 안에 이 제안을 확정하면 좋겠습니다.",
+          "de": "Ich würde den Vorschlag gern noch heute festlegen.",
+          "en": "I would like to finalize this proposal today."
+        },
+        {
+          "speaker": "user",
+          "ko": "일정은 이해합니다만, 현재 자료만으로 효과를 단정하기는 어렵습니다.",
+          "de": "Ich verstehe den Zeitplan, aber anhand der bisherigen Daten lässt sich die Wirkung nur schwer eindeutig beurteilen.",
+          "en": "I understand the schedule, but it is hard to judge the effect conclusively from the current data alone."
+        },
+        {
+          "speaker": "andrea",
+          "ko": "어떤 자료가 더 필요합니까?",
+          "de": "Welche Daten brauchen wir zusätzlich?",
+          "en": "What additional data do we need?"
+        },
+        {
+          "speaker": "user",
+          "ko": "이용자 수는 늘었지만, 이용이 특정 시간에만 몰렸는지도 함께 봐야 합니다.",
+          "de": "Die Zahl der Nutzenden ist gestiegen, aber wir sollten auch prüfen, ob sich die Nutzung nur auf bestimmte Zeiten konzentriert.",
+          "en": "The number of users has increased, but we should also check whether use is concentrated only at certain times."
+        },
+        {
+          "speaker": "andrea",
+          "ko": "그 부분은 다음 보고서에서 보자는 뜻인가요?",
+          "de": "Meinen Sie, wir sollten diesen Punkt erst im nächsten Bericht ansehen?",
+          "en": "Do you mean we should look at that point only in the next report?"
+        },
+        {
+          "speaker": "user",
+          "ko": "아닙니다. 오늘은 범위를 좁혀 임시 결정으로 남기고, 다음 회의에서 보완 자료를 검토하자는 제안입니다.",
+          "de": "Nein. Ich schlage vor, heute eine enger gefasste vorläufige Entscheidung festzuhalten und die ergänzenden Unterlagen in der nächsten Sitzung zu prüfen.",
+          "en": "No. I propose that we record a narrower interim decision today and review the additional evidence at the next meeting."
+        },
+        {
+          "speaker": "andrea",
+          "ko": "좋습니다. 결정 범위와 다음 확인 항목을 함께 적어 두겠습니다.",
+          "de": "Gut. Dann halten wir den Entscheidungsrahmen und die nächsten Prüfpunkte gemeinsam fest.",
+          "en": "Good. We will record the scope of the decision and the next checks together."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_meeting_hold_for_evidence_2026_hear",
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "일정은 이해합니다만, 현재 자료만으로 효과를 단정하기는 어렵습니다.",
+            "options": [
+              {
+                "de": "Ich verstehe den Zeitplan, aber anhand der bisherigen Daten lässt sich die Wirkung nur schwer eindeutig beurteilen.",
+                "en": "I understand the schedule, but it is hard to judge the effect conclusively from the current data alone."
+              },
+              {
+                "de": "Welche Daten brauchen wir zusätzlich?",
+                "en": "What additional data do we need?"
+              },
+              {
+                "de": "Ich würde den Vorschlag gern noch heute festlegen.",
+                "en": "I would like to finalize this proposal today."
+              },
+              {
+                "de": "Gut. Dann halten wir den Entscheidungsrahmen fest.",
+                "en": "Good. We will record the scope of the decision."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_meeting_hold_for_evidence_2026_translate",
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Nein. Ich schlage vor, heute eine enger gefasste vorläufige Entscheidung festzuhalten und die ergänzenden Unterlagen in der nächsten Sitzung zu prüfen.",
+            "promptEn": "No. I propose that we record a narrower interim decision today and review the additional evidence at the next meeting.",
+            "options": [
+              {
+                "ko": "아닙니다. 오늘은 범위를 좁혀 임시 결정으로 남기고, 다음 회의에서 보완 자료를 검토하자는 제안입니다."
+              },
+              {
+                "ko": "오늘 안에 이 제안을 확정하면 좋겠습니다."
+              },
+              {
+                "ko": "어떤 자료가 더 필요합니까?"
+              },
+              {
+                "ko": "그 부분은 다음 보고서에서 보자는 뜻인가요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_meeting_hold_for_evidence_2026_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "targetKo": "이용자 수는 늘었지만, 이용이 특정 시간에만 몰렸는지도 함께 봐야 합니다.",
+            "audioKo": "이용자 수는 늘었지만, 이용이 특정 시간에만 몰렸는지도 함께 봐야 합니다.",
+            "promptDe": "Die Zahl der Nutzenden ist gestiegen, aber wir sollten auch prüfen, ob sich die Nutzung nur auf bestimmte Zeiten konzentriert.",
+            "promptEn": "The number of users has increased, but we should also check whether use is concentrated only at certain times.",
+            "distractors": [
+              "임시 결정",
+              "다음 회의에서",
+              "결정 범위"
+            ]
+          }
+        }
+      ],
+      "culturalNote": null,
+      "xpReward": 145
     }
   ]
 }

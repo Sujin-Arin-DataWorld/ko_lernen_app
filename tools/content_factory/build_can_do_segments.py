@@ -4376,6 +4376,7 @@ def _validate_smalltalk_review_history(
                 CONTENT_HUMANIZATION_LEDGER_REF,
                 SMALLTALK_TRANSLATION_LEDGER_REF,
                 smalltalk_editorial_revisions.LEDGER_REF,
+                smalltalk_editorial_revisions.SUCCESSOR_REF,
             }:
                 raise ValueError(f"smalltalk {phrase_id!r} copy revision ledger is invalid")
             previous_fingerprint = decision.get("previousPhraseFingerprintSha256")
@@ -4400,6 +4401,7 @@ def _validate_smalltalk_review_history(
                 if decision["copyRevisionLedger"] in {
                     SMALLTALK_TRANSLATION_LEDGER_REF,
                     smalltalk_editorial_revisions.LEDGER_REF,
+                    smalltalk_editorial_revisions.SUCCESSOR_REF,
                 }:
                     raise ValueError(
                         f"smalltalk {phrase_id!r} translation correction changed "

@@ -1,0 +1,171 @@
+{
+  "version": 1,
+  "batch": "37",
+  "status": "merged",
+  "provenance": {
+    "scope": "C2 vocabulary, grammar, small talk, Cloze, and Satzbau for evaluating conditions, scope, exceptions, and appeal procedures.",
+    "rights": "original_clean_room",
+    "requiresJinReview": true,
+    "modelLanguageQa": "MODEL_QA_PASS",
+    "humanLanguageQaClaim": false,
+    "triadReview": "Korean is canonical. German and English were independently localized and checked for proposition, modality, evidence, register, agency, and information parity.",
+    "registerDecision": "The small-talk items model a formal service-call relation and consistently use German Sie forms.",
+    "reviewBoundary": "No TTS synthesis, Firebase Storage upload, or release action is included in this content transaction.",
+    "approval": {
+      "authority": "Jin",
+      "approvedAt": "2026-10-02",
+      "scope": "all records promoted to bundled app content"
+    },
+    "mergedAt": "2026-10-02",
+    "exampleRegisterDecision": "Vocabulary examples use explicitly authored textbook, research, news-analysis, and literary-criticism contexts; dialogue items preserve their conversational register.",
+    "contextReviewLedger": "tools/content_factory/review/batch_35_37_genre_context_20261003.json"
+  },
+  "artifacts": [
+    {
+      "kind": "vocab",
+      "draft": "tools/content_factory/drafts/batch_37_c2_argument_scope_vocab.csv",
+      "collection": null,
+      "review": "tools/content_factory/review/batch_37_c2_argument_scope_vocab_review.csv",
+      "count": 12,
+      "levels": {
+        "c2": 12
+      }
+    },
+    {
+      "kind": "grammar",
+      "draft": "tools/content_factory/drafts/batch_37_c2_argument_scope_grammar.csv",
+      "collection": null,
+      "review": "tools/content_factory/review/batch_37_c2_argument_scope_grammar_review.csv",
+      "count": 1,
+      "levels": {
+        "c2": 1
+      }
+    },
+    {
+      "kind": "smalltalk",
+      "draft": "tools/content_factory/drafts/batch_37_c2_argument_scope_smalltalk.json",
+      "collection": "phrases",
+      "review": "tools/content_factory/review/batch_37_c2_argument_scope_smalltalk_review.csv",
+      "count": 4,
+      "levels": {
+        "c2": 4
+      }
+    },
+    {
+      "kind": "cloze",
+      "draft": "tools/content_factory/drafts/batch_37_c2_argument_scope_cloze.json",
+      "collection": "items",
+      "review": "tools/content_factory/review/batch_37_c2_argument_scope_cloze_review.csv",
+      "count": 12,
+      "levels": {
+        "c2": 12
+      }
+    },
+    {
+      "kind": "satz",
+      "draft": "tools/content_factory/drafts/batch_37_c2_argument_scope_satz.json",
+      "collection": "items",
+      "review": "tools/content_factory/review/batch_37_c2_argument_scope_satz_review.csv",
+      "count": 12,
+      "levels": {
+        "c2": 12
+      }
+    }
+  ],
+  "recordCount": 41,
+  "vocabPacks": [
+    {
+      "packId": "c2_argument_scope_1",
+      "level": "c2",
+      "orderInLevel": 22,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "논증의 조건과 범위",
+        "de": "Bedingungen und Geltungsbereich",
+        "en": "Conditions and Scope"
+      },
+      "curriculum": {
+        "courseUnitId": "c2_03_automation_redress",
+        "conceptIds": [
+          "concept_c2_automation_redress"
+        ]
+      },
+      "motif": "taegeuk",
+      "motifEnum": "DancheongMotif.taegeuk"
+    }
+  ],
+  "grammarIntents": [
+    {
+      "id": "grammar_c2_only_adequate_explanation",
+      "level": "c2",
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ]
+    }
+  ],
+  "smalltalkCategoryMappings": [
+    {
+      "level": "c2",
+      "category": "phone",
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ]
+    }
+  ],
+  "clozeTopicMappings": [
+    {
+      "level": "c2",
+      "topic": "Argumentation und Verfahrensgestaltung",
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ]
+    }
+  ],
+  "satzDependencies": [
+    {
+      "level": "c2",
+      "vocabPackId": "c2_argument_scope_1",
+      "count": 12
+    }
+  ],
+  "requiresCompleteSentenceDerivations": true,
+  "sentenceDerivationSets": [
+    {
+      "level": "c2",
+      "vocabIdRange": [
+        253,
+        264
+      ],
+      "clozeIdRange": [
+        263,
+        274
+      ],
+      "satzIdRange": [
+        265,
+        276
+      ]
+    }
+  ],
+  "mergeOrder": [
+    "vocab with curriculum companion mapping",
+    "grammar with grammarRuleMap companion mapping",
+    "smalltalk with category companion mapping",
+    "cloze with topic companion mapping",
+    "satz after same-level vocabulary exists"
+  ],
+  "nonMergeGuards": [
+    "Every ledger row is draft until this explicit priority-content approval is recorded.",
+    "No TTS synthesis or Firebase Storage upload is authorized by this batch."
+  ]
+}

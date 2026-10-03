@@ -1687,6 +1687,7 @@ class _LexiconRow:
     grade: int
     headword: str
     homograph: int
+    pos: str = ""
 
 
 def _percentile(values: Sequence[int], pct: float) -> Optional[float]:
@@ -1834,7 +1835,8 @@ class CefrLexicon:
             headword = row["headword"].strip()
             grade = int(row["grade"])
             homograph = int(row.get("homograph") or 0)
-            entry = _LexiconRow(grade=grade, headword=headword, homograph=homograph)
+            entry = _LexiconRow(grade=grade, headword=headword, homograph=homograph,
+                                pos=(row.get("pos") or "").strip())
             kiiq_any_lists.setdefault(headword, []).append(entry)
         kiiq_any = {
             k: tuple(sorted(v, key=lambda r: r.grade)) for k, v in kiiq_any_lists.items()
@@ -2055,6 +2057,20 @@ class CefrLexicon:
         # upgrade to 'high' by dropping the override).
         return WordGrade(best.grade, best.cefr, best.source, best.matched, best.confidence_override)
 
+    def _pronoun_particle_lookup(self, word: str) -> Optional[WordGrade]:
+        """Prefer a listed pronoun + particle to a guessed predicate homograph.
+
+        NIKL POS evidence identifies the pronoun; no headword grade changes.
+        For example 우리는 contains 우리 + 는, while 우리다/우리면 still
+        follow the predicate lookup. Exact whole-word hits retain priority.
+        """
+        for particle in _PARTICLES_BY_LEN_DESC:
+            if word.endswith(particle) and len(word) > len(particle):
+                stem = word[:-len(particle)]
+                if any(row.pos == "대명사" for row in self._kiiq_any.get(stem, ())):
+                    return self._kiiq_derived_chain(stem)
+        return None
+
     def _lemma_fallback_chain(self, word: str) -> WordGrade:
         """R7 item 1: a bare headword lookup (word_grade called directly,
         not via _resolve_eojeol) may itself be an inflected/honorific
@@ -2071,6 +2087,9 @@ class CefrLexicon:
         the last-resort candidate, and re-entering `word_grade` with the
         exact input that reached this tier would recurse forever, so that
         identity candidate is skipped outright instead."""
+        pronoun = self._pronoun_particle_lookup(word)
+        if pronoun is not None:
+            return pronoun
         for candidate in _lemma_candidates(word):
             if candidate == word:
                 continue
@@ -2484,6 +2503,9 @@ class CefrLexicon:
         exact = self._exact_headword_lookup(token)
         if exact.grade is not None:
             return WordGrade(exact.grade, exact.cefr, exact.source, token, exact.confidence_override)
+        pronoun = self._pronoun_particle_lookup(token)
+        if pronoun is not None:
+            return pronoun
         for candidate in _lemma_candidates(token):
             wg = self.word_grade(candidate)
             if wg.grade is not None:
@@ -2681,6 +2703,9 @@ def _compile_segment(seg: str) -> str:
 
 
 _SENTENCE_PUNCT_TAIL = "?!.…"
+_RIEUL_CODA_SYLLABLES = "".join(
+    chr(code) for code in range(0xAC00, 0xD7A4) if (code - 0xAC00) % 28 == _TAIL_RIEUL
+)
 
 
 def compile_pattern_regex(raw_pattern: str, strip_slot_prefix: bool = True) -> re.Pattern:
@@ -2703,6 +2728,20 @@ def compile_pattern_regex(raw_pattern: str, strip_slot_prefix: bool = True) -> r
     tokens = [t for t in tokens if t]
     compiled = [_compile_segment(t) for t in tokens]
     body = r"\s*".join(c for c in compiled if c)
+    # In vowel stems, volitional ㄹ is fused into the preceding syllable
+    # (갈래요/쓰실래요), rather than written as a standalone ㄹ. Retain
+    # the source A2 rule when excluding the homographic reported tail.
+    body = body.replace(
+        "(을|ㄹ)래요", rf"(?:을|ㄹ|[{_RIEUL_CODA_SYLLABLES}])래요"
+    )
+    # Optional copular 이 in quoted (이)래요 must not consume the tail of
+    # volitional -(으)ㄹ래요 (쓰실래요/먹을래요). Explicit 이래요 remains
+    # valid after any noun, including ㄹ-final nouns such as 물이래요.
+    # Negative quoted -지 말래요 contracts -지 말라고 해요 rather than
+    # expressing volition, so retain that complete structure as well.
+    body = body.replace(
+        "(이)?래요", rf"(?:지\s*말래요|이래요|(?<![{_RIEUL_CODA_SYLLABLES}])래요)"
+    )
     return re.compile(body)
 
 
@@ -2819,6 +2858,7 @@ class _GrammarRule:
     cefr: str
     regex: re.Pattern
     short_fragment: bool = False
+    volitional_raeyo: bool = False
 
 
 class GrammarIndex:
@@ -2853,7 +2893,8 @@ class GrammarIndex:
             regex = compile_pattern_regex(pattern, strip_slot_prefix=True)
             if regex.pattern:
                 rules.append(
-                    _GrammarRule(pid, grade, GRADE_TO_CEFR[grade], regex, literal_len <= 2)
+                    _GrammarRule(pid, grade, GRADE_TO_CEFR[grade], regex, literal_len <= 2,
+                                 volitional_raeyo="ㄹ래요" in pattern)
                 )
         for row in nikl_rows:
             # '조사' (bare particles) and single-syllable 어미 fragments are
@@ -2893,7 +2934,8 @@ class GrammarIndex:
                     continue
                 pid = f"nikl_g{grade}_{_slug(form)}" + (f"_v{idx}" if idx else "")
                 rules.append(
-                    _GrammarRule(pid, grade, GRADE_TO_CEFR[grade], regex, literal_len <= 2)
+                    _GrammarRule(pid, grade, GRADE_TO_CEFR[grade], regex, literal_len <= 2,
+                                 volitional_raeyo="ㄹ래요" in variant)
                 )
         return cls(rules)
 
@@ -2913,6 +2955,11 @@ class GrammarIndex:
             for match in rule.regex.finditer(text):
                 if match.start() == match.end():
                     continue  # ignore degenerate all-optional matches
+                # -지 말래요 is a contracted negative reported imperative,
+                # even though 말 shares the ㄹ-coda surface of volition.
+                if (rule.volitional_raeyo and match.group(0) == "말래요"
+                        and re.search(r"지\s*$", text[:match.start()])):
+                    continue
                 if rule.short_fragment and not _ends_at_eojeol_boundary(text, match.end()):
                     continue
                 raw.append(

@@ -103,7 +103,7 @@ void main() {
             for (final reference in _rows(cluster['contentReferences']))
               if (reference['kind'] == 'scenario') reference['id']! as String,
         };
-        expect(runtimeScenarioIds, hasLength(181));
+        expect(runtimeScenarioIds, hasLength(186));
         expect(
           runtimeScenarioIds,
           containsAll({

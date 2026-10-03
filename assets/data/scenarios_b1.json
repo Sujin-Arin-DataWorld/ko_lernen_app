@@ -6618,6 +6618,219 @@
         }
       },
       "xpReward": 127
+    },
+    {
+      "id": "b1_team_briefing_revised_schedule_2026",
+      "level": "b1",
+      "emoji": "🗂️",
+      "register": "business",
+      "speechStyle": "business",
+      "title": {
+        "ko": "수정된 일정표를 짧게 브리핑하기",
+        "de": "Einen überarbeiteten Zeitplan kurz vorstellen",
+        "en": "Giving a short briefing on a revised schedule"
+      },
+      "intro": {
+        "ko": "회의가 시작되기 전, 이전 버전의 일정표가 공유된 사실을 알리고 현실적인 수습 순서를 제안해요.",
+        "de": "Vor Beginn einer Besprechung erklärst du, dass eine frühere Version des Zeitplans geteilt wurde, und schlägst eine realistische Reihenfolge zur Korrektur vor.",
+        "en": "Before a meeting begins, you explain that an earlier version of the schedule was shared and propose a practical sequence to correct it."
+      },
+      "courseUnitId": "b1_03_work_softening",
+      "playerCharacterId": "andrea",
+      "participantIds": [
+        "andrea",
+        "sujin"
+      ],
+      "relationshipContext": "coworkers preparing a meeting",
+      "intent": "Explain the effect of a version error without blaming anyone and propose the next steps.",
+      "shelf": "b1_team",
+      "backdrop": "office",
+      "vocab": [
+        {
+          "korean": "정정",
+          "note": {
+            "ko": "잘못된 내용을 바로잡음",
+            "de": "Korrektur",
+            "en": "correction"
+          }
+        },
+        {
+          "korean": "수정본",
+          "note": {
+            "ko": "고친 뒤의 문서",
+            "de": "überarbeitete Fassung",
+            "en": "revised version"
+          }
+        },
+        {
+          "korean": "이전 버전",
+          "note": {
+            "ko": "더 앞서 만든 문서",
+            "de": "frühere Version",
+            "en": "earlier version"
+          }
+        },
+        {
+          "korean": "영향",
+          "note": {
+            "ko": "어떤 일 때문에 달라지는 결과",
+            "de": "Auswirkung",
+            "en": "impact"
+          }
+        },
+        {
+          "korean": "검토",
+          "note": {
+            "ko": "내용을 자세히 확인함",
+            "de": "Prüfung",
+            "en": "review"
+          }
+        },
+        {
+          "korean": "미루다",
+          "note": {
+            "ko": "정한 때보다 뒤로 옮기다",
+            "de": "verschieben",
+            "en": "to postpone"
+          }
+        }
+      ],
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "surfaceFormIds": [
+        "presentation_briefing_talk"
+      ],
+      "grammarIds": [
+        "grammar_b1_background_contrast"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-는데",
+          "de": "Hintergrund / Kontrast",
+          "en": "Background / contrast"
+        },
+        "explanation": {
+          "ko": "사정을 먼저 설명한 뒤 제안을 이어 갈 때 쓸 수 있어요.",
+          "de": "Mit V-는데 kann man erst den Hintergrund nennen und danach einen Vorschlag anschließen.",
+          "en": "Use V-는데 to give background before continuing with a proposal."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "andrea",
+          "ko": "회의 전에 한 가지 정정할 게 있습니다. 공유한 일정표에 파일 검토 시간이 빠졌습니다.",
+          "de": "Vor der Besprechung muss ich eine Sache korrigieren. Im geteilten Zeitplan fehlt die Zeit für die Dateiprüfung.",
+          "en": "Before the meeting, I need to correct one thing. The shared schedule is missing time for the file review."
+        },
+        {
+          "speaker": "user",
+          "ko": "제가 어제 수정본을 보냈는데, 이전 버전이 올라간 것 같습니다.",
+          "de": "Ich habe gestern die überarbeitete Fassung geschickt, aber offenbar wurde die frühere Version hochgeladen.",
+          "en": "I sent the revised version yesterday, but it looks like the earlier version was uploaded."
+        },
+        {
+          "speaker": "andrea",
+          "ko": "그럼 오늘 발표 순서에 영향이 있나요?",
+          "de": "Hat das Auswirkungen auf die Reihenfolge der heutigen Präsentation?",
+          "en": "Does that affect the order of today’s presentation?"
+        },
+        {
+          "speaker": "user",
+          "ko": "큰 변경은 아니지만, 검토 없이 발표하면 질문에 바로 답하기 어려울 수 있습니다.",
+          "de": "Es ist keine große Änderung, aber ohne Prüfung könnte es schwierig sein, Fragen sofort zu beantworten.",
+          "en": "It is not a major change, but without a review it may be hard to answer questions right away."
+        },
+        {
+          "speaker": "andrea",
+          "ko": "어떤 순서가 현실적일까요?",
+          "de": "Welche Reihenfolge wäre realistisch?",
+          "en": "What order would be realistic?"
+        },
+        {
+          "speaker": "user",
+          "ko": "먼저 수정된 일정표를 공유하고, 발표는 열 분 뒤로 미루면 좋겠습니다.",
+          "de": "Ich würde zuerst den korrigierten Zeitplan teilen und die Präsentation um zehn Minuten verschieben.",
+          "en": "I suggest sharing the corrected schedule first and moving the presentation back by ten minutes."
+        },
+        {
+          "speaker": "andrea",
+          "ko": "좋습니다. 그 사실을 참석자에게 알리고, 시작 전에 한 번 더 확인하죠.",
+          "de": "Gut. Wir informieren die Teilnehmenden darüber und prüfen es vor Beginn noch einmal.",
+          "en": "Good. We’ll let the participants know and check it once more before we start."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_team_briefing_revised_schedule_2026_hear",
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "제가 어제 수정본을 보냈는데, 이전 버전이 올라간 것 같습니다.",
+            "options": [
+              {
+                "de": "Ich habe gestern die überarbeitete Fassung geschickt, aber offenbar wurde die frühere Version hochgeladen.",
+                "en": "I sent the revised version yesterday, but it looks like the earlier version was uploaded."
+              },
+              {
+                "de": "Welche Reihenfolge wäre realistisch?",
+                "en": "What order would be realistic?"
+              },
+              {
+                "de": "Vor der Besprechung muss ich eine Sache korrigieren.",
+                "en": "Before the meeting, I need to correct one thing."
+              },
+              {
+                "de": "Gut. Wir informieren die Teilnehmenden darüber.",
+                "en": "Good. We’ll let the participants know."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_team_briefing_revised_schedule_2026_translate",
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Ich würde zuerst den korrigierten Zeitplan teilen und die Präsentation um zehn Minuten verschieben.",
+            "promptEn": "I suggest sharing the corrected schedule first and moving the presentation back by ten minutes.",
+            "options": [
+              {
+                "ko": "먼저 수정된 일정표를 공유하고, 발표는 열 분 뒤로 미루면 좋겠습니다."
+              },
+              {
+                "ko": "그럼 오늘 발표 순서에 영향이 있나요?"
+              },
+              {
+                "ko": "큰 변경은 아니지만, 검토 없이 발표하면 질문에 바로 답하기 어려울 수 있습니다."
+              },
+              {
+                "ko": "좋습니다. 그 사실을 참석자에게 알리고, 시작 전에 한 번 더 확인하죠."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_team_briefing_revised_schedule_2026_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "targetKo": "큰 변경은 아니지만, 검토 없이 발표하면 질문에 바로 답하기 어려울 수 있습니다.",
+            "audioKo": "큰 변경은 아니지만, 검토 없이 발표하면 질문에 바로 답하기 어려울 수 있습니다.",
+            "promptDe": "Es ist keine große Änderung, aber ohne Prüfung könnte es schwierig sein, Fragen sofort zu beantworten.",
+            "promptEn": "It is not a major change, but without a review it may be hard to answer questions right away.",
+            "distractors": [
+              "이전 버전이",
+              "열 분 뒤로",
+              "참석자에게"
+            ]
+          }
+        }
+      ],
+      "culturalNote": null,
+      "xpReward": 130
     }
   ]
 }

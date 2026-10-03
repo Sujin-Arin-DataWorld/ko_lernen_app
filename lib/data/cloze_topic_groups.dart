@@ -113,6 +113,7 @@ final class ClozeTopicGroups {
     'Abstrakte Begriffe': ClozeTopicGroupId.languageMedia,
     'Denken': ClozeTopicGroupId.languageMedia,
     'Diskurs & Macht': ClozeTopicGroupId.languageMedia,
+    'Ehrensprache': ClozeTopicGroupId.languageMedia,
     'Entscheidungen & Perspektiven': ClozeTopicGroupId.languageMedia,
     'Erinnerung & Erzählperspektive': ClozeTopicGroupId.languageMedia,
     'Erinnerungsnarrativ': ClozeTopicGroupId.languageMedia,
@@ -127,6 +128,8 @@ final class ClozeTopicGroups {
     'Sprache, Deutung & Macht': ClozeTopicGroupId.languageMedia,
     '인구 담론과 제도 책임': ClozeTopicGroupId.societyInstitutions,
     '주거비와 사회 통합': ClozeTopicGroupId.societyInstitutions,
+    'Argumentation und Verfahrensgestaltung':
+        ClozeTopicGroupId.societyInstitutions,
     'Beteiligungsdesign': ClozeTopicGroupId.societyInstitutions,
     'Bürgerversammlung': ClozeTopicGroupId.societyInstitutions,
     'Diskurs, Macht & Verantwortung': ClozeTopicGroupId.societyInstitutions,

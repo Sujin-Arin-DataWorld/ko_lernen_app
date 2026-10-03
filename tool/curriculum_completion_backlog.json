@@ -13,26 +13,26 @@
       "c11DepthRows": 5,
       "c18RequirementReferences": 85,
       "c18WarningRows": 72,
-      "matrixRows": 516,
-      "missingSampleWordEntries": 196,
-      "otherPhaseFindingRows": 113
+      "matrixRows": 512,
+      "missingSampleWordEntries": 183,
+      "otherPhaseFindingRows": 110
     },
     "modeRequirements": {
       "P": 25,
       "R": 30,
-      "unassigned": 784
+      "unassigned": 764
     },
-    "sampleWordContextOccurrences": 312,
+    "sampleWordContextOccurrences": 299,
     "sampleWordContextsByLevel": {
       "A1": 25,
       "A2": 35,
       "B1": 56,
       "B2": 41,
       "C1": 79,
-      "C2": 76
+      "C2": 63
     },
-    "uniqueMissingSampleWords": 196,
-    "uniqueWorkItems": 839,
+    "uniqueMissingSampleWords": 183,
+    "uniqueWorkItems": 819,
     "warningRequirementReferencesMerged": 85,
     "warningsInformational": 5,
     "warningsMerged": 72
@@ -60,7 +60,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 516,
+          "csvRow": 512,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -92,7 +92,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 517,
+          "csvRow": 513,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -1931,7 +1931,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/13",
+          "jsonPointer": "/lexis/missingWords/12",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -1988,7 +1988,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/24",
+          "jsonPointer": "/lexis/missingWords/22",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -2039,7 +2039,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/32",
+          "jsonPointer": "/lexis/missingWords/29",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -2078,7 +2078,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/39",
+          "jsonPointer": "/lexis/missingWords/34",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -2177,7 +2177,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/40",
+          "jsonPointer": "/lexis/missingWords/35",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -2234,7 +2234,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/42",
+          "jsonPointer": "/lexis/missingWords/37",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -2333,7 +2333,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/45",
+          "jsonPointer": "/lexis/missingWords/40",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -2378,7 +2378,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/46",
+          "jsonPointer": "/lexis/missingWords/41",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -2423,7 +2423,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/78",
+          "jsonPointer": "/lexis/missingWords/72",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -2468,7 +2468,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/95",
+          "jsonPointer": "/lexis/missingWords/88",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -2513,7 +2513,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/106",
+          "jsonPointer": "/lexis/missingWords/99",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -2558,7 +2558,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/109",
+          "jsonPointer": "/lexis/missingWords/102",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -2657,7 +2657,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/110",
+          "jsonPointer": "/lexis/missingWords/103",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -2714,7 +2714,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/114",
+          "jsonPointer": "/lexis/missingWords/107",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -2813,7 +2813,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/126",
+          "jsonPointer": "/lexis/missingWords/119",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -2858,7 +2858,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/156",
+          "jsonPointer": "/lexis/missingWords/146",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -2897,7 +2897,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/162",
+          "jsonPointer": "/lexis/missingWords/152",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -5630,7 +5630,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/36",
+          "jsonPointer": "/lexis/missingWords/31",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -5669,7 +5669,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/63",
+          "jsonPointer": "/lexis/missingWords/57",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -5720,7 +5720,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/81",
+          "jsonPointer": "/lexis/missingWords/74",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -5771,7 +5771,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/82",
+          "jsonPointer": "/lexis/missingWords/75",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -5828,7 +5828,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/104",
+          "jsonPointer": "/lexis/missingWords/97",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -5885,7 +5885,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/107",
+          "jsonPointer": "/lexis/missingWords/100",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -5936,7 +5936,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/119",
+          "jsonPointer": "/lexis/missingWords/112",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -5987,7 +5987,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/140",
+          "jsonPointer": "/lexis/missingWords/131",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -6044,7 +6044,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/141",
+          "jsonPointer": "/lexis/missingWords/132",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -6083,7 +6083,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/164",
+          "jsonPointer": "/lexis/missingWords/153",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -6134,7 +6134,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/168",
+          "jsonPointer": "/lexis/missingWords/157",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -6185,7 +6185,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/190",
+          "jsonPointer": "/lexis/missingWords/177",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -6341,7 +6341,7 @@
         "existing_unlinked"
       ],
       "reasons": [
-        "missing: scenarios=0;units=0"
+        "thin: scenarios=1;units=0"
       ],
       "sourceReferences": [
         {
@@ -10529,7 +10529,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/10",
+          "jsonPointer": "/lexis/missingWords/9",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -10580,7 +10580,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/23",
+          "jsonPointer": "/lexis/missingWords/21",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -10625,7 +10625,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/56",
+          "jsonPointer": "/lexis/missingWords/51",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -10688,7 +10688,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/96",
+          "jsonPointer": "/lexis/missingWords/89",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -10733,7 +10733,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/128",
+          "jsonPointer": "/lexis/missingWords/121",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -10784,7 +10784,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/135",
+          "jsonPointer": "/lexis/missingWords/127",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -10847,7 +10847,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/147",
+          "jsonPointer": "/lexis/missingWords/138",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -10892,7 +10892,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/192",
+          "jsonPointer": "/lexis/missingWords/179",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -11449,7 +11449,7 @@
         "existing_unlinked"
       ],
       "reasons": [
-        "missing: mode=P;count=0;surfaces=scenario"
+        "thin: mode=P;count=1;surfaces=scenario"
       ],
       "sourceReferences": [
         {
@@ -11996,36 +11996,6 @@
       "axis": "grammar_anchor",
       "classificationStatus": "needs_review",
       "classifications": [],
-      "id": "grammar_b2_formal_reason",
-      "koreanGuidance": "현재 시나리오/미디어 앵커가 없다는 후보 진단입니다. 다른 런타임 표면까지 확인하기 전 접근 불가나 내용 결손을 확정하지 않습니다.",
-      "labels": [
-        "grammar.csv row never shown in a scenario or media line"
-      ],
-      "level": "B2",
-      "mode": "unassigned",
-      "phaseIds": [],
-      "provisionalClassifications": [
-        "runtime_missing"
-      ],
-      "reasons": [
-        "no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids"
-      ],
-      "sourceReferences": [
-        {
-          "csvRow": 247,
-          "path": "tool/curriculum_matrix_gaps.csv"
-        }
-      ],
-      "suggestedActions": [
-        "link_to_scenario_grammarIds"
-      ],
-      "warningChecks": [],
-      "workKey": "B2|grammar_anchor|grammar_b2_formal_reason|unassigned"
-    },
-    {
-      "axis": "grammar_anchor",
-      "classificationStatus": "needs_review",
-      "classifications": [],
       "id": "grammar_b2_formal_reference",
       "koreanGuidance": "현재 시나리오/미디어 앵커가 없다는 후보 진단입니다. 다른 런타임 표면까지 확인하기 전 접근 불가나 내용 결손을 확정하지 않습니다.",
       "labels": [
@@ -12042,7 +12012,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 248,
+          "csvRow": 247,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12072,7 +12042,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 249,
+          "csvRow": 248,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12102,7 +12072,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 250,
+          "csvRow": 249,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12132,7 +12102,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 251,
+          "csvRow": 250,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12162,7 +12132,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 252,
+          "csvRow": 251,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12192,7 +12162,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 253,
+          "csvRow": 252,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12222,7 +12192,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 254,
+          "csvRow": 253,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12252,7 +12222,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 255,
+          "csvRow": 254,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12282,7 +12252,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 256,
+          "csvRow": 255,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12312,7 +12282,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 257,
+          "csvRow": 256,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12342,7 +12312,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 259,
+          "csvRow": 258,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12372,7 +12342,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 260,
+          "csvRow": 259,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12402,7 +12372,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 258,
+          "csvRow": 257,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12432,7 +12402,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 261,
+          "csvRow": 260,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12462,7 +12432,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 262,
+          "csvRow": 261,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12492,7 +12462,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 263,
+          "csvRow": 262,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12522,7 +12492,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 264,
+          "csvRow": 263,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12552,7 +12522,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 265,
+          "csvRow": 264,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12582,7 +12552,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 266,
+          "csvRow": 265,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12612,7 +12582,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 267,
+          "csvRow": 266,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12642,7 +12612,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 268,
+          "csvRow": 267,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12672,7 +12642,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 269,
+          "csvRow": 268,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12702,7 +12672,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 270,
+          "csvRow": 269,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12734,7 +12704,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 271,
+          "csvRow": 270,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12764,7 +12734,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 272,
+          "csvRow": 271,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12794,7 +12764,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 273,
+          "csvRow": 272,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12826,7 +12796,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 274,
+          "csvRow": 273,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12858,7 +12828,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 275,
+          "csvRow": 274,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12888,7 +12858,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 276,
+          "csvRow": 275,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12920,7 +12890,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 277,
+          "csvRow": 276,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12952,7 +12922,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 278,
+          "csvRow": 277,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -12984,7 +12954,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 279,
+          "csvRow": 278,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13016,7 +12986,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 280,
+          "csvRow": 279,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13048,7 +13018,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 281,
+          "csvRow": 280,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13080,7 +13050,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 282,
+          "csvRow": 281,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13112,7 +13082,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 283,
+          "csvRow": 282,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13144,7 +13114,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 284,
+          "csvRow": 283,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13174,7 +13144,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 285,
+          "csvRow": 284,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13206,7 +13176,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 286,
+          "csvRow": 285,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13238,7 +13208,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 287,
+          "csvRow": 286,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13270,7 +13240,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 288,
+          "csvRow": 287,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13300,7 +13270,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 289,
+          "csvRow": 288,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13332,7 +13302,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 290,
+          "csvRow": 289,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13364,7 +13334,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 291,
+          "csvRow": 290,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13396,7 +13366,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 292,
+          "csvRow": 291,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13426,7 +13396,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 293,
+          "csvRow": 292,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13456,7 +13426,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 294,
+          "csvRow": 293,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13488,7 +13458,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 295,
+          "csvRow": 294,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13520,7 +13490,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 296,
+          "csvRow": 295,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13552,7 +13522,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 297,
+          "csvRow": 296,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13584,7 +13554,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 298,
+          "csvRow": 297,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13616,7 +13586,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 299,
+          "csvRow": 298,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13648,7 +13618,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 300,
+          "csvRow": 299,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13680,7 +13650,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 301,
+          "csvRow": 300,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13712,7 +13682,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 302,
+          "csvRow": 301,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13744,7 +13714,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 303,
+          "csvRow": 302,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13776,7 +13746,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 304,
+          "csvRow": 303,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13808,7 +13778,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 305,
+          "csvRow": 304,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13840,7 +13810,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 306,
+          "csvRow": 305,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13872,7 +13842,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 307,
+          "csvRow": 306,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13904,7 +13874,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 308,
+          "csvRow": 307,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13936,7 +13906,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 309,
+          "csvRow": 308,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -13968,7 +13938,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 310,
+          "csvRow": 309,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14000,7 +13970,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 311,
+          "csvRow": 310,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14032,7 +14002,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 312,
+          "csvRow": 311,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14064,7 +14034,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 313,
+          "csvRow": 312,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14096,7 +14066,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 314,
+          "csvRow": 313,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14126,7 +14096,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 315,
+          "csvRow": 314,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14158,7 +14128,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 316,
+          "csvRow": 315,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14190,7 +14160,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 317,
+          "csvRow": 316,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14220,7 +14190,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 318,
+          "csvRow": 317,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14252,7 +14222,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 319,
+          "csvRow": 318,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14284,7 +14254,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 320,
+          "csvRow": 319,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14314,7 +14284,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 321,
+          "csvRow": 320,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14346,7 +14316,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 322,
+          "csvRow": 321,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14378,7 +14348,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 323,
+          "csvRow": 322,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14410,7 +14380,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 324,
+          "csvRow": 323,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14442,7 +14412,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 325,
+          "csvRow": 324,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14474,7 +14444,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 326,
+          "csvRow": 325,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14506,7 +14476,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 327,
+          "csvRow": 326,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14538,7 +14508,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 328,
+          "csvRow": 327,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14570,7 +14540,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 329,
+          "csvRow": 328,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14602,7 +14572,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 330,
+          "csvRow": 329,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14632,7 +14602,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 331,
+          "csvRow": 330,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14662,7 +14632,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 332,
+          "csvRow": 331,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14694,7 +14664,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 333,
+          "csvRow": 332,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14726,7 +14696,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 334,
+          "csvRow": 333,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -14758,7 +14728,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 335,
+          "csvRow": 334,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -15311,7 +15281,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/17",
+          "jsonPointer": "/lexis/missingWords/16",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -15374,7 +15344,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/72",
+          "jsonPointer": "/lexis/missingWords/66",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -15419,7 +15389,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/120",
+          "jsonPointer": "/lexis/missingWords/113",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -15482,7 +15452,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/165",
+          "jsonPointer": "/lexis/missingWords/154",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -15514,7 +15484,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 336,
+          "csvRow": 335,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -15546,7 +15516,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 337,
+          "csvRow": 336,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -15578,7 +15548,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 338,
+          "csvRow": 337,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -15613,7 +15583,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 339,
+          "csvRow": 338,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -15666,7 +15636,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 340,
+          "csvRow": 339,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -15712,7 +15682,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 341,
+          "csvRow": 340,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -15766,7 +15736,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 341,
+          "csvRow": 340,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -15819,7 +15789,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 342,
+          "csvRow": 341,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -15865,7 +15835,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 343,
+          "csvRow": 342,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -15912,11 +15882,11 @@
         "existing_unlinked"
       ],
       "reasons": [
-        "missing: mode=P;count=0;surfaces=scenario"
+        "thin: mode=P;count=1;surfaces=scenario"
       ],
       "sourceReferences": [
         {
-          "csvRow": 344,
+          "csvRow": 343,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -15951,7 +15921,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 345,
+          "csvRow": 344,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -16005,7 +15975,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 345,
+          "csvRow": 344,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -16058,7 +16028,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 346,
+          "csvRow": 345,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -16099,7 +16069,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 347,
+          "csvRow": 346,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16129,7 +16099,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 348,
+          "csvRow": 347,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16159,7 +16129,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 349,
+          "csvRow": 348,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16189,7 +16159,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 350,
+          "csvRow": 349,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16219,7 +16189,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 351,
+          "csvRow": 350,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16249,7 +16219,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 352,
+          "csvRow": 351,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16279,7 +16249,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 353,
+          "csvRow": 352,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16309,7 +16279,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 354,
+          "csvRow": 353,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16341,7 +16311,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 355,
+          "csvRow": 354,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16371,7 +16341,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 356,
+          "csvRow": 355,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16401,7 +16371,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 357,
+          "csvRow": 356,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16431,7 +16401,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 358,
+          "csvRow": 357,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16461,7 +16431,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 359,
+          "csvRow": 358,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16493,7 +16463,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 360,
+          "csvRow": 359,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16525,7 +16495,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 361,
+          "csvRow": 360,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16555,7 +16525,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 362,
+          "csvRow": 361,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16585,7 +16555,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 363,
+          "csvRow": 362,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16615,7 +16585,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 364,
+          "csvRow": 363,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16645,7 +16615,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 365,
+          "csvRow": 364,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16675,7 +16645,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 366,
+          "csvRow": 365,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16707,7 +16677,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 367,
+          "csvRow": 366,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16739,7 +16709,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 368,
+          "csvRow": 367,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16771,7 +16741,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 369,
+          "csvRow": 368,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16803,7 +16773,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 370,
+          "csvRow": 369,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16835,7 +16805,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 371,
+          "csvRow": 370,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16867,7 +16837,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 372,
+          "csvRow": 371,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16899,7 +16869,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 373,
+          "csvRow": 372,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16931,7 +16901,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 374,
+          "csvRow": 373,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16963,7 +16933,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 375,
+          "csvRow": 374,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -16995,7 +16965,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 376,
+          "csvRow": 375,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17027,7 +16997,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 377,
+          "csvRow": 376,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17059,7 +17029,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 378,
+          "csvRow": 377,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17091,7 +17061,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 379,
+          "csvRow": 378,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17123,7 +17093,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 380,
+          "csvRow": 379,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17155,7 +17125,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 381,
+          "csvRow": 380,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17187,7 +17157,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 382,
+          "csvRow": 381,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17219,7 +17189,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 383,
+          "csvRow": 382,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17249,7 +17219,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 384,
+          "csvRow": 383,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17281,7 +17251,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 385,
+          "csvRow": 384,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17311,7 +17281,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 386,
+          "csvRow": 385,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17343,7 +17313,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 387,
+          "csvRow": 386,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17375,7 +17345,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 388,
+          "csvRow": 387,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17407,7 +17377,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 389,
+          "csvRow": 388,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17439,7 +17409,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 390,
+          "csvRow": 389,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17471,7 +17441,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 391,
+          "csvRow": 390,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17503,7 +17473,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 392,
+          "csvRow": 391,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17535,7 +17505,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 394,
+          "csvRow": 393,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17567,7 +17537,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 393,
+          "csvRow": 392,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17599,7 +17569,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 395,
+          "csvRow": 394,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17631,7 +17601,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 396,
+          "csvRow": 395,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17663,7 +17633,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 397,
+          "csvRow": 396,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17695,7 +17665,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 398,
+          "csvRow": 397,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17727,7 +17697,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 399,
+          "csvRow": 398,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17759,7 +17729,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 400,
+          "csvRow": 399,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17789,7 +17759,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 401,
+          "csvRow": 400,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17821,7 +17791,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 402,
+          "csvRow": 401,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17853,7 +17823,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 403,
+          "csvRow": 402,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17885,7 +17855,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 404,
+          "csvRow": 403,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17915,7 +17885,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 405,
+          "csvRow": 404,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17947,7 +17917,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 406,
+          "csvRow": 405,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -17979,7 +17949,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 407,
+          "csvRow": 406,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -18011,7 +17981,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 408,
+          "csvRow": 407,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -18043,7 +18013,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 409,
+          "csvRow": 408,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -18075,7 +18045,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 410,
+          "csvRow": 409,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -18105,7 +18075,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 411,
+          "csvRow": 410,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -18137,7 +18107,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 412,
+          "csvRow": 411,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -18167,7 +18137,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 413,
+          "csvRow": 412,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -18199,7 +18169,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 414,
+          "csvRow": 413,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -18231,7 +18201,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 415,
+          "csvRow": 414,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -18263,7 +18233,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 416,
+          "csvRow": 415,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -18295,7 +18265,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 417,
+          "csvRow": 416,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -18327,7 +18297,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 418,
+          "csvRow": 417,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -19123,7 +19093,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 419,
+          "csvRow": 418,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -19240,7 +19210,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/9",
+          "jsonPointer": "/lexis/missingWords/8",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -19279,7 +19249,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/11",
+          "jsonPointer": "/lexis/missingWords/10",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -19318,7 +19288,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/12",
+          "jsonPointer": "/lexis/missingWords/11",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -19357,7 +19327,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/15",
+          "jsonPointer": "/lexis/missingWords/14",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -19396,7 +19366,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/18",
+          "jsonPointer": "/lexis/missingWords/17",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -19435,7 +19405,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/21",
+          "jsonPointer": "/lexis/missingWords/19",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -19474,7 +19444,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/25",
+          "jsonPointer": "/lexis/missingWords/23",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -19513,7 +19483,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/26",
+          "jsonPointer": "/lexis/missingWords/24",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -19552,7 +19522,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/27",
+          "jsonPointer": "/lexis/missingWords/25",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -19591,7 +19561,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/29",
+          "jsonPointer": "/lexis/missingWords/26",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -19630,7 +19600,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/30",
+          "jsonPointer": "/lexis/missingWords/27",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -19669,7 +19639,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/31",
+          "jsonPointer": "/lexis/missingWords/28",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -19708,7 +19678,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/37",
+          "jsonPointer": "/lexis/missingWords/32",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -19747,7 +19717,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/43",
+          "jsonPointer": "/lexis/missingWords/38",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -19786,7 +19756,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/49",
+          "jsonPointer": "/lexis/missingWords/44",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -19825,7 +19795,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/50",
+          "jsonPointer": "/lexis/missingWords/45",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -19864,7 +19834,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/52",
+          "jsonPointer": "/lexis/missingWords/47",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -19903,7 +19873,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/53",
+          "jsonPointer": "/lexis/missingWords/48",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -19942,7 +19912,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/59",
+          "jsonPointer": "/lexis/missingWords/53",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -19981,7 +19951,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/60",
+          "jsonPointer": "/lexis/missingWords/54",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20020,7 +19990,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/61",
+          "jsonPointer": "/lexis/missingWords/55",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20059,7 +20029,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/65",
+          "jsonPointer": "/lexis/missingWords/59",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20098,7 +20068,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/67",
+          "jsonPointer": "/lexis/missingWords/61",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20137,7 +20107,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/68",
+          "jsonPointer": "/lexis/missingWords/62",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20176,7 +20146,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/71",
+          "jsonPointer": "/lexis/missingWords/65",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20215,7 +20185,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/73",
+          "jsonPointer": "/lexis/missingWords/67",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20254,7 +20224,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/75",
+          "jsonPointer": "/lexis/missingWords/69",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20293,7 +20263,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/76",
+          "jsonPointer": "/lexis/missingWords/70",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20332,7 +20302,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/77",
+          "jsonPointer": "/lexis/missingWords/71",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20371,7 +20341,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/80",
+          "jsonPointer": "/lexis/missingWords/73",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20410,7 +20380,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/83",
+          "jsonPointer": "/lexis/missingWords/76",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20449,7 +20419,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/84",
+          "jsonPointer": "/lexis/missingWords/77",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20488,7 +20458,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/87",
+          "jsonPointer": "/lexis/missingWords/80",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20527,7 +20497,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/92",
+          "jsonPointer": "/lexis/missingWords/85",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20566,7 +20536,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/94",
+          "jsonPointer": "/lexis/missingWords/87",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20605,7 +20575,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/97",
+          "jsonPointer": "/lexis/missingWords/90",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20644,7 +20614,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/98",
+          "jsonPointer": "/lexis/missingWords/91",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20683,7 +20653,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/102",
+          "jsonPointer": "/lexis/missingWords/95",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20722,7 +20692,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/103",
+          "jsonPointer": "/lexis/missingWords/96",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20761,7 +20731,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/105",
+          "jsonPointer": "/lexis/missingWords/98",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20800,7 +20770,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/108",
+          "jsonPointer": "/lexis/missingWords/101",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20839,7 +20809,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/112",
+          "jsonPointer": "/lexis/missingWords/105",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20878,7 +20848,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/115",
+          "jsonPointer": "/lexis/missingWords/108",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20917,7 +20887,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/117",
+          "jsonPointer": "/lexis/missingWords/110",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20956,7 +20926,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/121",
+          "jsonPointer": "/lexis/missingWords/114",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -20995,7 +20965,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/124",
+          "jsonPointer": "/lexis/missingWords/117",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21034,7 +21004,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/125",
+          "jsonPointer": "/lexis/missingWords/118",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21073,7 +21043,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/127",
+          "jsonPointer": "/lexis/missingWords/120",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21112,7 +21082,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/129",
+          "jsonPointer": "/lexis/missingWords/122",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21151,7 +21121,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/131",
+          "jsonPointer": "/lexis/missingWords/124",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21190,7 +21160,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/133",
+          "jsonPointer": "/lexis/missingWords/125",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21229,7 +21199,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/136",
+          "jsonPointer": "/lexis/missingWords/128",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21268,7 +21238,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/139",
+          "jsonPointer": "/lexis/missingWords/130",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21307,7 +21277,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/143",
+          "jsonPointer": "/lexis/missingWords/134",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21346,7 +21316,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/144",
+          "jsonPointer": "/lexis/missingWords/135",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21385,7 +21355,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/145",
+          "jsonPointer": "/lexis/missingWords/136",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21424,7 +21394,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/146",
+          "jsonPointer": "/lexis/missingWords/137",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21463,7 +21433,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/148",
+          "jsonPointer": "/lexis/missingWords/139",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21502,7 +21472,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/149",
+          "jsonPointer": "/lexis/missingWords/140",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21541,7 +21511,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/153",
+          "jsonPointer": "/lexis/missingWords/143",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21580,7 +21550,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/155",
+          "jsonPointer": "/lexis/missingWords/145",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21619,7 +21589,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/157",
+          "jsonPointer": "/lexis/missingWords/147",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21658,7 +21628,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/160",
+          "jsonPointer": "/lexis/missingWords/150",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21697,7 +21667,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/161",
+          "jsonPointer": "/lexis/missingWords/151",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21736,7 +21706,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/167",
+          "jsonPointer": "/lexis/missingWords/156",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21775,7 +21745,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/169",
+          "jsonPointer": "/lexis/missingWords/158",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21814,7 +21784,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/171",
+          "jsonPointer": "/lexis/missingWords/160",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21853,7 +21823,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/175",
+          "jsonPointer": "/lexis/missingWords/163",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21892,7 +21862,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/178",
+          "jsonPointer": "/lexis/missingWords/165",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21931,7 +21901,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/182",
+          "jsonPointer": "/lexis/missingWords/169",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -21970,7 +21940,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/184",
+          "jsonPointer": "/lexis/missingWords/171",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22009,7 +21979,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/185",
+          "jsonPointer": "/lexis/missingWords/172",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22048,7 +22018,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/187",
+          "jsonPointer": "/lexis/missingWords/174",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22087,7 +22057,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/193",
+          "jsonPointer": "/lexis/missingWords/180",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22126,7 +22096,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/195",
+          "jsonPointer": "/lexis/missingWords/182",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -22158,7 +22128,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 420,
+          "csvRow": 419,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -22190,7 +22160,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 421,
+          "csvRow": 420,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -22222,7 +22192,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 422,
+          "csvRow": 421,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -22257,7 +22227,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 423,
+          "csvRow": 422,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -22311,7 +22281,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 423,
+          "csvRow": 422,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -22365,7 +22335,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 424,
+          "csvRow": 423,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -22419,7 +22389,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 425,
+          "csvRow": 424,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -22474,7 +22444,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 426,
+          "csvRow": 425,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -22535,7 +22505,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 427,
+          "csvRow": 426,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -22581,7 +22551,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 428,
+          "csvRow": 427,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -22636,7 +22606,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 429,
+          "csvRow": 428,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -22698,7 +22668,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 429,
+          "csvRow": 428,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -22749,7 +22719,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 430,
+          "csvRow": 429,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -22781,7 +22751,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 431,
+          "csvRow": 430,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -22811,7 +22781,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 432,
+          "csvRow": 431,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -22841,7 +22811,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 433,
+          "csvRow": 432,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -22871,7 +22841,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 434,
+          "csvRow": 433,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -22901,7 +22871,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 435,
+          "csvRow": 434,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -22931,7 +22901,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 436,
+          "csvRow": 435,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -22961,7 +22931,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 437,
+          "csvRow": 436,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -22970,6 +22940,36 @@
       ],
       "warningChecks": [],
       "workKey": "C2|grammar_anchor|grammar_c2_if_indeed|unassigned"
+    },
+    {
+      "axis": "grammar_anchor",
+      "classificationStatus": "needs_review",
+      "classifications": [],
+      "id": "grammar_c2_often_ends_badly",
+      "koreanGuidance": "현재 시나리오/미디어 앵커가 없다는 후보 진단입니다. 다른 런타임 표면까지 확인하기 전 접근 불가나 내용 결손을 확정하지 않습니다.",
+      "labels": [
+        "grammar.csv row never shown in a scenario or media line"
+      ],
+      "level": "C2",
+      "mode": "unassigned",
+      "phaseIds": [],
+      "provisionalClassifications": [
+        "runtime_missing"
+      ],
+      "reasons": [
+        "no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids"
+      ],
+      "sourceReferences": [
+        {
+          "csvRow": 437,
+          "path": "tool/curriculum_matrix_gaps.csv"
+        }
+      ],
+      "suggestedActions": [
+        "link_to_scenario_grammarIds"
+      ],
+      "warningChecks": [],
+      "workKey": "C2|grammar_anchor|grammar_c2_often_ends_badly|unassigned"
     },
     {
       "axis": "grammar_anchor",
@@ -23005,7 +23005,7 @@
       "axis": "grammar_anchor",
       "classificationStatus": "needs_review",
       "classifications": [],
-      "id": "grammar_c2_take_as_premise",
+      "id": "grammar_c2_rather_than_assume",
       "koreanGuidance": "현재 시나리오/미디어 앵커가 없다는 후보 진단입니다. 다른 런타임 표면까지 확인하기 전 접근 불가나 내용 결손을 확정하지 않습니다.",
       "labels": [
         "grammar.csv row never shown in a scenario or media line"
@@ -23022,6 +23022,36 @@
       "sourceReferences": [
         {
           "csvRow": 439,
+          "path": "tool/curriculum_matrix_gaps.csv"
+        }
+      ],
+      "suggestedActions": [
+        "link_to_scenario_grammarIds"
+      ],
+      "warningChecks": [],
+      "workKey": "C2|grammar_anchor|grammar_c2_rather_than_assume|unassigned"
+    },
+    {
+      "axis": "grammar_anchor",
+      "classificationStatus": "needs_review",
+      "classifications": [],
+      "id": "grammar_c2_take_as_premise",
+      "koreanGuidance": "현재 시나리오/미디어 앵커가 없다는 후보 진단입니다. 다른 런타임 표면까지 확인하기 전 접근 불가나 내용 결손을 확정하지 않습니다.",
+      "labels": [
+        "grammar.csv row never shown in a scenario or media line"
+      ],
+      "level": "C2",
+      "mode": "unassigned",
+      "phaseIds": [],
+      "provisionalClassifications": [
+        "runtime_missing"
+      ],
+      "reasons": [
+        "no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids"
+      ],
+      "sourceReferences": [
+        {
+          "csvRow": 440,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23051,7 +23081,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 440,
+          "csvRow": 441,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23083,7 +23113,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 441,
+          "csvRow": 442,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23115,7 +23145,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 442,
+          "csvRow": 443,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23147,7 +23177,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 443,
+          "csvRow": 444,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23179,7 +23209,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 444,
+          "csvRow": 445,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23211,7 +23241,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 445,
+          "csvRow": 446,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23243,7 +23273,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 446,
+          "csvRow": 447,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23275,7 +23305,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 447,
+          "csvRow": 448,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23307,7 +23337,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 448,
+          "csvRow": 449,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23337,7 +23367,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 449,
+          "csvRow": 450,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23367,7 +23397,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 450,
+          "csvRow": 451,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23399,7 +23429,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 451,
+          "csvRow": 452,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23431,38 +23461,6 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 452,
-          "path": "tool/curriculum_matrix_gaps.csv"
-        }
-      ],
-      "suggestedActions": [
-        "add_grammar_row"
-      ],
-      "warningChecks": [],
-      "workKey": "C2|grammar_nikl|G6:-그려|unassigned"
-    },
-    {
-      "axis": "grammar_nikl",
-      "classificationStatus": "needs_review",
-      "classifications": [],
-      "id": "G6:-기 일쑤이다",
-      "koreanGuidance": "자동 문법 대조 결과입니다. 형태·원 급·의미 대응과 기존 카드/맥락 연결을 검토한 뒤에만 결손을 확정합니다.",
-      "labels": [
-        "표현"
-      ],
-      "level": "C2",
-      "mode": "unassigned",
-      "phaseIds": [],
-      "provisionalClassifications": [
-        "content_missing",
-        "existing_unlinked",
-        "matching_error"
-      ],
-      "reasons": [
-        "missing_in_app: nikl_kiiq_2017"
-      ],
-      "sourceReferences": [
-        {
           "csvRow": 453,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
@@ -23471,7 +23469,7 @@
         "add_grammar_row"
       ],
       "warningChecks": [],
-      "workKey": "C2|grammar_nikl|G6:-기 일쑤이다|unassigned"
+      "workKey": "C2|grammar_nikl|G6:-그려|unassigned"
     },
     {
       "axis": "grammar_nikl",
@@ -24491,10 +24489,10 @@
       "axis": "grammar_nikl",
       "classificationStatus": "needs_review",
       "classifications": [],
-      "id": "G6:-을 바에",
+      "id": "G6:-을라치면",
       "koreanGuidance": "자동 문법 대조 결과입니다. 형태·원 급·의미 대응과 기존 카드/맥락 연결을 검토한 뒤에만 결손을 확정합니다.",
       "labels": [
-        "표현 -ㄹ 바에"
+        "연결어미 -ㄹ라치면"
       ],
       "level": "C2",
       "mode": "unassigned",
@@ -24517,71 +24515,7 @@
         "add_grammar_row"
       ],
       "warningChecks": [],
-      "workKey": "C2|grammar_nikl|G6:-을 바에|unassigned"
-    },
-    {
-      "axis": "grammar_nikl",
-      "classificationStatus": "needs_review",
-      "classifications": [],
-      "id": "G6:-을라치면",
-      "koreanGuidance": "자동 문법 대조 결과입니다. 형태·원 급·의미 대응과 기존 카드/맥락 연결을 검토한 뒤에만 결손을 확정합니다.",
-      "labels": [
-        "연결어미 -ㄹ라치면"
-      ],
-      "level": "C2",
-      "mode": "unassigned",
-      "phaseIds": [],
-      "provisionalClassifications": [
-        "content_missing",
-        "existing_unlinked",
-        "matching_error"
-      ],
-      "reasons": [
-        "missing_in_app: nikl_kiiq_2017"
-      ],
-      "sourceReferences": [
-        {
-          "csvRow": 487,
-          "path": "tool/curriculum_matrix_gaps.csv"
-        }
-      ],
-      "suggestedActions": [
-        "add_grammar_row"
-      ],
-      "warningChecks": [],
       "workKey": "C2|grammar_nikl|G6:-을라치면|unassigned"
-    },
-    {
-      "axis": "grammar_nikl",
-      "classificationStatus": "needs_review",
-      "classifications": [],
-      "id": "G6:-이라야",
-      "koreanGuidance": "자동 문법 대조 결과입니다. 형태·원 급·의미 대응과 기존 카드/맥락 연결을 검토한 뒤에만 결손을 확정합니다.",
-      "labels": [
-        "연결어미 -라야, -이라야만, -라야만"
-      ],
-      "level": "C2",
-      "mode": "unassigned",
-      "phaseIds": [],
-      "provisionalClassifications": [
-        "content_missing",
-        "existing_unlinked",
-        "matching_error"
-      ],
-      "reasons": [
-        "missing_in_app: nikl_kiiq_2017"
-      ],
-      "sourceReferences": [
-        {
-          "csvRow": 488,
-          "path": "tool/curriculum_matrix_gaps.csv"
-        }
-      ],
-      "suggestedActions": [
-        "add_grammar_row"
-      ],
-      "warningChecks": [],
-      "workKey": "C2|grammar_nikl|G6:-이라야|unassigned"
     },
     {
       "axis": "grammar_nikl",
@@ -24605,7 +24539,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 489,
+          "csvRow": 487,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24637,7 +24571,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 490,
+          "csvRow": 488,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24669,7 +24603,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 491,
+          "csvRow": 489,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24701,7 +24635,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 492,
+          "csvRow": 490,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24731,7 +24665,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 493,
+          "csvRow": 491,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24761,7 +24695,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 494,
+          "csvRow": 492,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24793,7 +24727,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 495,
+          "csvRow": 493,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24823,7 +24757,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 496,
+          "csvRow": 494,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24855,7 +24789,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 497,
+          "csvRow": 495,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24887,7 +24821,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 498,
+          "csvRow": 496,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24961,102 +24895,6 @@
       "axis": "phase_warning",
       "classificationStatus": "needs_review",
       "classifications": [],
-      "id": "C16_lexis:KP25 · argumentation_evaluation_lexis",
-      "koreanGuidance": "Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.",
-      "labels": [
-        "KP25 · argumentation_evaluation_lexis"
-      ],
-      "level": "C2",
-      "mode": "unassigned",
-      "phaseIds": [
-        "KP25"
-      ],
-      "provisionalClassifications": [],
-      "reasons": [
-        "C16_lexis: Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 필요조건, 충분조건, 경계 사례, 논리적 귀결"
-      ],
-      "sourceReferences": [
-        {
-          "csvRow": 172,
-          "path": "tool/learning_phase_findings.csv"
-        }
-      ],
-      "suggestedActions": [
-        "korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다"
-      ],
-      "warningChecks": [
-        "C16_lexis"
-      ],
-      "workKey": "C2|phase_warning|C16_lexis:KP25 · argumentation_evaluation_lexis|unassigned"
-    },
-    {
-      "axis": "phase_warning",
-      "classificationStatus": "needs_review",
-      "classifications": [],
-      "id": "C16_lexis:KP25 · fixed_expressions_collocations",
-      "koreanGuidance": "Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.",
-      "labels": [
-        "KP25 · fixed_expressions_collocations"
-      ],
-      "level": "C2",
-      "mode": "unassigned",
-      "phaseIds": [
-        "KP25"
-      ],
-      "provisionalClassifications": [],
-      "reasons": [
-        "C16_lexis: Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 범위를 한정하다, 단서를 달다, 맥락을 살피다, 한데 묶다"
-      ],
-      "sourceReferences": [
-        {
-          "csvRow": 173,
-          "path": "tool/learning_phase_findings.csv"
-        }
-      ],
-      "suggestedActions": [
-        "korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다"
-      ],
-      "warningChecks": [
-        "C16_lexis"
-      ],
-      "workKey": "C2|phase_warning|C16_lexis:KP25 · fixed_expressions_collocations|unassigned"
-    },
-    {
-      "axis": "phase_warning",
-      "classificationStatus": "needs_review",
-      "classifications": [],
-      "id": "C16_lexis:KP25 · institutional_legal_lexis",
-      "koreanGuidance": "Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.",
-      "labels": [
-        "KP25 · institutional_legal_lexis"
-      ],
-      "level": "C2",
-      "mode": "unassigned",
-      "phaseIds": [
-        "KP25"
-      ],
-      "provisionalClassifications": [],
-      "reasons": [
-        "C16_lexis: Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 적용 범위, 단서 조항, 자격 요건, 규범"
-      ],
-      "sourceReferences": [
-        {
-          "csvRow": 174,
-          "path": "tool/learning_phase_findings.csv"
-        }
-      ],
-      "suggestedActions": [
-        "korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다"
-      ],
-      "warningChecks": [
-        "C16_lexis"
-      ],
-      "workKey": "C2|phase_warning|C16_lexis:KP25 · institutional_legal_lexis|unassigned"
-    },
-    {
-      "axis": "phase_warning",
-      "classificationStatus": "needs_review",
-      "classifications": [],
       "id": "C16_lexis:KP25 · language_metalanguage",
       "koreanGuidance": "Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.",
       "labels": [
@@ -25073,7 +24911,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 175,
+          "csvRow": 172,
           "path": "tool/learning_phase_findings.csv"
         }
       ],
@@ -25105,7 +24943,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 176,
+          "csvRow": 173,
           "path": "tool/learning_phase_findings.csv"
         }
       ],
@@ -25137,7 +24975,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 177,
+          "csvRow": 174,
           "path": "tool/learning_phase_findings.csv"
         }
       ],
@@ -25169,7 +25007,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 178,
+          "csvRow": 175,
           "path": "tool/learning_phase_findings.csv"
         }
       ],
@@ -25201,7 +25039,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 179,
+          "csvRow": 176,
           "path": "tool/learning_phase_findings.csv"
         }
       ],
@@ -25233,7 +25071,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 180,
+          "csvRow": 177,
           "path": "tool/learning_phase_findings.csv"
         }
       ],
@@ -25265,7 +25103,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 181,
+          "csvRow": 178,
           "path": "tool/learning_phase_findings.csv"
         }
       ],
@@ -25297,7 +25135,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 182,
+          "csvRow": 179,
           "path": "tool/learning_phase_findings.csv"
         }
       ],
@@ -25329,7 +25167,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 183,
+          "csvRow": 180,
           "path": "tool/learning_phase_findings.csv"
         }
       ],
@@ -25361,7 +25199,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 184,
+          "csvRow": 181,
           "path": "tool/learning_phase_findings.csv"
         }
       ],
@@ -25393,7 +25231,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 185,
+          "csvRow": 182,
           "path": "tool/learning_phase_findings.csv"
         }
       ],
@@ -25425,7 +25263,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 186,
+          "csvRow": 183,
           "path": "tool/learning_phase_findings.csv"
         }
       ],
@@ -25457,7 +25295,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 187,
+          "csvRow": 184,
           "path": "tool/learning_phase_findings.csv"
         }
       ],
@@ -25489,7 +25327,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 188,
+          "csvRow": 185,
           "path": "tool/learning_phase_findings.csv"
         }
       ],
@@ -25517,11 +25355,11 @@
       ],
       "provisionalClassifications": [],
       "reasons": [
-        "C16_lexis: Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 주체 높임, 상대 높임, 호칭 체계, 말투 전환"
+        "C16_lexis: Phase 가 쓰는 어휘 3 개가 앱 어휘(C2 이하)에 없다: 상대 높임, 호칭 체계, 말투 전환"
       ],
       "sourceReferences": [
         {
-          "csvRow": 189,
+          "csvRow": 186,
           "path": "tool/learning_phase_findings.csv"
         }
       ],
@@ -25553,7 +25391,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 190,
+          "csvRow": 187,
           "path": "tool/learning_phase_findings.csv"
         }
       ],
@@ -25585,7 +25423,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 191,
+          "csvRow": 188,
           "path": "tool/learning_phase_findings.csv"
         }
       ],
@@ -25619,7 +25457,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 499,
+          "csvRow": 497,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -25651,7 +25489,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 500,
+          "csvRow": 498,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -25683,7 +25521,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 501,
+          "csvRow": 499,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -25715,7 +25553,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 502,
+          "csvRow": 500,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -25885,45 +25723,6 @@
       "axis": "sample_lexis",
       "classificationStatus": "needs_review",
       "classifications": [],
-      "id": "경계 사례",
-      "koreanGuidance": "Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.",
-      "labels": [
-        "경계 사례"
-      ],
-      "level": "C2",
-      "mode": "unassigned",
-      "phaseIds": [],
-      "provisionalClassifications": [
-        "content_missing",
-        "existing_unlinked"
-      ],
-      "reasons": [
-        "sampleLexis missing from current app vocabulary audit"
-      ],
-      "sampleLexisContexts": [
-        {
-          "domainId": "argumentation_evaluation_lexis",
-          "jsonPointer": "/phases/24/vocabDomains/1/sampleLexis/2/ko",
-          "level": "C2",
-          "phaseId": "KP25"
-        }
-      ],
-      "sourceReferences": [
-        {
-          "jsonPointer": "/lexis/missingWords/8",
-          "path": "tool/learning_phase_summary.json"
-        }
-      ],
-      "suggestedActions": [
-        "Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다."
-      ],
-      "warningChecks": [],
-      "workKey": "C2|sample_lexis|경계 사례|unassigned"
-    },
-    {
-      "axis": "sample_lexis",
-      "classificationStatus": "needs_review",
-      "classifications": [],
       "id": "관습적 표현",
       "koreanGuidance": "Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.",
       "labels": [
@@ -25949,7 +25748,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/14",
+          "jsonPointer": "/lexis/missingWords/13",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -25988,7 +25787,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/16",
+          "jsonPointer": "/lexis/missingWords/15",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -25997,45 +25796,6 @@
       ],
       "warningChecks": [],
       "workKey": "C2|sample_lexis|권리 충돌|unassigned"
-    },
-    {
-      "axis": "sample_lexis",
-      "classificationStatus": "needs_review",
-      "classifications": [],
-      "id": "규범",
-      "koreanGuidance": "Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.",
-      "labels": [
-        "규범"
-      ],
-      "level": "C2",
-      "mode": "unassigned",
-      "phaseIds": [],
-      "provisionalClassifications": [
-        "content_missing",
-        "existing_unlinked"
-      ],
-      "reasons": [
-        "sampleLexis missing from current app vocabulary audit"
-      ],
-      "sampleLexisContexts": [
-        {
-          "domainId": "institutional_legal_lexis",
-          "jsonPointer": "/phases/24/vocabDomains/0/sampleLexis/3/ko",
-          "level": "C2",
-          "phaseId": "KP25"
-        }
-      ],
-      "sourceReferences": [
-        {
-          "jsonPointer": "/lexis/missingWords/19",
-          "path": "tool/learning_phase_summary.json"
-        }
-      ],
-      "suggestedActions": [
-        "Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다."
-      ],
-      "warningChecks": [],
-      "workKey": "C2|sample_lexis|규범|unassigned"
     },
     {
       "axis": "sample_lexis",
@@ -26066,7 +25826,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/20",
+          "jsonPointer": "/lexis/missingWords/18",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -26105,7 +25865,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/22",
+          "jsonPointer": "/lexis/missingWords/20",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -26114,45 +25874,6 @@
       ],
       "warningChecks": [],
       "workKey": "C2|sample_lexis|근거의 한계|unassigned"
-    },
-    {
-      "axis": "sample_lexis",
-      "classificationStatus": "needs_review",
-      "classifications": [],
-      "id": "논리적 귀결",
-      "koreanGuidance": "Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.",
-      "labels": [
-        "논리적 귀결"
-      ],
-      "level": "C2",
-      "mode": "unassigned",
-      "phaseIds": [],
-      "provisionalClassifications": [
-        "content_missing",
-        "existing_unlinked"
-      ],
-      "reasons": [
-        "sampleLexis missing from current app vocabulary audit"
-      ],
-      "sampleLexisContexts": [
-        {
-          "domainId": "argumentation_evaluation_lexis",
-          "jsonPointer": "/phases/24/vocabDomains/1/sampleLexis/3/ko",
-          "level": "C2",
-          "phaseId": "KP25"
-        }
-      ],
-      "sourceReferences": [
-        {
-          "jsonPointer": "/lexis/missingWords/28",
-          "path": "tool/learning_phase_summary.json"
-        }
-      ],
-      "suggestedActions": [
-        "Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다."
-      ],
-      "warningChecks": [],
-      "workKey": "C2|sample_lexis|논리적 귀결|unassigned"
     },
     {
       "axis": "sample_lexis",
@@ -26183,7 +25904,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/33",
+          "jsonPointer": "/lexis/missingWords/30",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -26192,84 +25913,6 @@
       ],
       "warningChecks": [],
       "workKey": "C2|sample_lexis|다의성|unassigned"
-    },
-    {
-      "axis": "sample_lexis",
-      "classificationStatus": "needs_review",
-      "classifications": [],
-      "id": "단서 조항",
-      "koreanGuidance": "Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.",
-      "labels": [
-        "단서 조항"
-      ],
-      "level": "C2",
-      "mode": "unassigned",
-      "phaseIds": [],
-      "provisionalClassifications": [
-        "content_missing",
-        "existing_unlinked"
-      ],
-      "reasons": [
-        "sampleLexis missing from current app vocabulary audit"
-      ],
-      "sampleLexisContexts": [
-        {
-          "domainId": "institutional_legal_lexis",
-          "jsonPointer": "/phases/24/vocabDomains/0/sampleLexis/1/ko",
-          "level": "C2",
-          "phaseId": "KP25"
-        }
-      ],
-      "sourceReferences": [
-        {
-          "jsonPointer": "/lexis/missingWords/34",
-          "path": "tool/learning_phase_summary.json"
-        }
-      ],
-      "suggestedActions": [
-        "Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다."
-      ],
-      "warningChecks": [],
-      "workKey": "C2|sample_lexis|단서 조항|unassigned"
-    },
-    {
-      "axis": "sample_lexis",
-      "classificationStatus": "needs_review",
-      "classifications": [],
-      "id": "단서를 달다",
-      "koreanGuidance": "Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.",
-      "labels": [
-        "단서를 달다"
-      ],
-      "level": "C2",
-      "mode": "unassigned",
-      "phaseIds": [],
-      "provisionalClassifications": [
-        "content_missing",
-        "existing_unlinked"
-      ],
-      "reasons": [
-        "sampleLexis missing from current app vocabulary audit"
-      ],
-      "sampleLexisContexts": [
-        {
-          "domainId": "fixed_expressions_collocations",
-          "jsonPointer": "/phases/24/vocabDomains/3/sampleLexis/1/ko",
-          "level": "C2",
-          "phaseId": "KP25"
-        }
-      ],
-      "sourceReferences": [
-        {
-          "jsonPointer": "/lexis/missingWords/35",
-          "path": "tool/learning_phase_summary.json"
-        }
-      ],
-      "suggestedActions": [
-        "Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다."
-      ],
-      "warningChecks": [],
-      "workKey": "C2|sample_lexis|단서를 달다|unassigned"
     },
     {
       "axis": "sample_lexis",
@@ -26300,7 +25943,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/38",
+          "jsonPointer": "/lexis/missingWords/33",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -26339,7 +25982,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/41",
+          "jsonPointer": "/lexis/missingWords/36",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -26378,7 +26021,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/44",
+          "jsonPointer": "/lexis/missingWords/39",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -26417,7 +26060,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/47",
+          "jsonPointer": "/lexis/missingWords/42",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -26456,7 +26099,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/48",
+          "jsonPointer": "/lexis/missingWords/43",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -26495,7 +26138,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/51",
+          "jsonPointer": "/lexis/missingWords/46",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -26534,7 +26177,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/54",
+          "jsonPointer": "/lexis/missingWords/49",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -26573,7 +26216,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/55",
+          "jsonPointer": "/lexis/missingWords/50",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -26612,7 +26255,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/57",
+          "jsonPointer": "/lexis/missingWords/52",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -26621,45 +26264,6 @@
       ],
       "warningChecks": [],
       "workKey": "C2|sample_lexis|맥락을 벗어나다|unassigned"
-    },
-    {
-      "axis": "sample_lexis",
-      "classificationStatus": "needs_review",
-      "classifications": [],
-      "id": "맥락을 살피다",
-      "koreanGuidance": "Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.",
-      "labels": [
-        "맥락을 살피다"
-      ],
-      "level": "C2",
-      "mode": "unassigned",
-      "phaseIds": [],
-      "provisionalClassifications": [
-        "content_missing",
-        "existing_unlinked"
-      ],
-      "reasons": [
-        "sampleLexis missing from current app vocabulary audit"
-      ],
-      "sampleLexisContexts": [
-        {
-          "domainId": "fixed_expressions_collocations",
-          "jsonPointer": "/phases/24/vocabDomains/3/sampleLexis/2/ko",
-          "level": "C2",
-          "phaseId": "KP25"
-        }
-      ],
-      "sourceReferences": [
-        {
-          "jsonPointer": "/lexis/missingWords/58",
-          "path": "tool/learning_phase_summary.json"
-        }
-      ],
-      "suggestedActions": [
-        "Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다."
-      ],
-      "warningChecks": [],
-      "workKey": "C2|sample_lexis|맥락을 살피다|unassigned"
     },
     {
       "axis": "sample_lexis",
@@ -26690,7 +26294,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/62",
+          "jsonPointer": "/lexis/missingWords/56",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -26729,7 +26333,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/64",
+          "jsonPointer": "/lexis/missingWords/58",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -26768,7 +26372,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/66",
+          "jsonPointer": "/lexis/missingWords/60",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -26807,7 +26411,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/69",
+          "jsonPointer": "/lexis/missingWords/63",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -26846,7 +26450,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/70",
+          "jsonPointer": "/lexis/missingWords/64",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -26885,7 +26489,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/74",
+          "jsonPointer": "/lexis/missingWords/68",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -26894,45 +26498,6 @@
       ],
       "warningChecks": [],
       "workKey": "C2|sample_lexis|반문|unassigned"
-    },
-    {
-      "axis": "sample_lexis",
-      "classificationStatus": "needs_review",
-      "classifications": [],
-      "id": "범위를 한정하다",
-      "koreanGuidance": "Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.",
-      "labels": [
-        "범위를 한정하다"
-      ],
-      "level": "C2",
-      "mode": "unassigned",
-      "phaseIds": [],
-      "provisionalClassifications": [
-        "content_missing",
-        "existing_unlinked"
-      ],
-      "reasons": [
-        "sampleLexis missing from current app vocabulary audit"
-      ],
-      "sampleLexisContexts": [
-        {
-          "domainId": "fixed_expressions_collocations",
-          "jsonPointer": "/phases/24/vocabDomains/3/sampleLexis/0/ko",
-          "level": "C2",
-          "phaseId": "KP25"
-        }
-      ],
-      "sourceReferences": [
-        {
-          "jsonPointer": "/lexis/missingWords/79",
-          "path": "tool/learning_phase_summary.json"
-        }
-      ],
-      "suggestedActions": [
-        "Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다."
-      ],
-      "warningChecks": [],
-      "workKey": "C2|sample_lexis|범위를 한정하다|unassigned"
     },
     {
       "axis": "sample_lexis",
@@ -26963,7 +26528,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/85",
+          "jsonPointer": "/lexis/missingWords/78",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -27002,7 +26567,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/86",
+          "jsonPointer": "/lexis/missingWords/79",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -27041,7 +26606,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/88",
+          "jsonPointer": "/lexis/missingWords/81",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -27080,7 +26645,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/89",
+          "jsonPointer": "/lexis/missingWords/82",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -27119,7 +26684,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/90",
+          "jsonPointer": "/lexis/missingWords/83",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -27158,7 +26723,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/91",
+          "jsonPointer": "/lexis/missingWords/84",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -27197,7 +26762,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/93",
+          "jsonPointer": "/lexis/missingWords/86",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -27236,7 +26801,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/99",
+          "jsonPointer": "/lexis/missingWords/92",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -27275,7 +26840,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/100",
+          "jsonPointer": "/lexis/missingWords/93",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -27314,7 +26879,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/101",
+          "jsonPointer": "/lexis/missingWords/94",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -27353,7 +26918,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/111",
+          "jsonPointer": "/lexis/missingWords/104",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -27392,7 +26957,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/113",
+          "jsonPointer": "/lexis/missingWords/106",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -27431,7 +26996,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/116",
+          "jsonPointer": "/lexis/missingWords/109",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -27470,7 +27035,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/118",
+          "jsonPointer": "/lexis/missingWords/111",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -27509,7 +27074,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/122",
+          "jsonPointer": "/lexis/missingWords/115",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -27548,7 +27113,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/123",
+          "jsonPointer": "/lexis/missingWords/116",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -27587,7 +27152,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/130",
+          "jsonPointer": "/lexis/missingWords/123",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -27596,45 +27161,6 @@
       ],
       "warningChecks": [],
       "workKey": "C2|sample_lexis|인용 조건|unassigned"
-    },
-    {
-      "axis": "sample_lexis",
-      "classificationStatus": "needs_review",
-      "classifications": [],
-      "id": "자격 요건",
-      "koreanGuidance": "Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.",
-      "labels": [
-        "자격 요건"
-      ],
-      "level": "C2",
-      "mode": "unassigned",
-      "phaseIds": [],
-      "provisionalClassifications": [
-        "content_missing",
-        "existing_unlinked"
-      ],
-      "reasons": [
-        "sampleLexis missing from current app vocabulary audit"
-      ],
-      "sampleLexisContexts": [
-        {
-          "domainId": "institutional_legal_lexis",
-          "jsonPointer": "/phases/24/vocabDomains/0/sampleLexis/2/ko",
-          "level": "C2",
-          "phaseId": "KP25"
-        }
-      ],
-      "sourceReferences": [
-        {
-          "jsonPointer": "/lexis/missingWords/132",
-          "path": "tool/learning_phase_summary.json"
-        }
-      ],
-      "suggestedActions": [
-        "Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다."
-      ],
-      "warningChecks": [],
-      "workKey": "C2|sample_lexis|자격 요건|unassigned"
     },
     {
       "axis": "sample_lexis",
@@ -27665,7 +27191,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/134",
+          "jsonPointer": "/lexis/missingWords/126",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -27704,7 +27230,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/137",
+          "jsonPointer": "/lexis/missingWords/129",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -27713,45 +27239,6 @@
       ],
       "warningChecks": [],
       "workKey": "C2|sample_lexis|재현|unassigned"
-    },
-    {
-      "axis": "sample_lexis",
-      "classificationStatus": "needs_review",
-      "classifications": [],
-      "id": "적용 범위",
-      "koreanGuidance": "Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.",
-      "labels": [
-        "적용 범위"
-      ],
-      "level": "C2",
-      "mode": "unassigned",
-      "phaseIds": [],
-      "provisionalClassifications": [
-        "content_missing",
-        "existing_unlinked"
-      ],
-      "reasons": [
-        "sampleLexis missing from current app vocabulary audit"
-      ],
-      "sampleLexisContexts": [
-        {
-          "domainId": "institutional_legal_lexis",
-          "jsonPointer": "/phases/24/vocabDomains/0/sampleLexis/0/ko",
-          "level": "C2",
-          "phaseId": "KP25"
-        }
-      ],
-      "sourceReferences": [
-        {
-          "jsonPointer": "/lexis/missingWords/138",
-          "path": "tool/learning_phase_summary.json"
-        }
-      ],
-      "suggestedActions": [
-        "Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다."
-      ],
-      "warningChecks": [],
-      "workKey": "C2|sample_lexis|적용 범위|unassigned"
     },
     {
       "axis": "sample_lexis",
@@ -27782,7 +27269,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/142",
+          "jsonPointer": "/lexis/missingWords/133",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -27821,7 +27308,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/150",
+          "jsonPointer": "/lexis/missingWords/141",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -27830,45 +27317,6 @@
       ],
       "warningChecks": [],
       "workKey": "C2|sample_lexis|종결형|unassigned"
-    },
-    {
-      "axis": "sample_lexis",
-      "classificationStatus": "needs_review",
-      "classifications": [],
-      "id": "주체 높임",
-      "koreanGuidance": "Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.",
-      "labels": [
-        "주체 높임"
-      ],
-      "level": "C2",
-      "mode": "unassigned",
-      "phaseIds": [],
-      "provisionalClassifications": [
-        "content_missing",
-        "existing_unlinked"
-      ],
-      "reasons": [
-        "sampleLexis missing from current app vocabulary audit"
-      ],
-      "sampleLexisContexts": [
-        {
-          "domainId": "etiquette_honorific_lexis",
-          "jsonPointer": "/phases/29/vocabDomains/0/sampleLexis/0/ko",
-          "level": "C2",
-          "phaseId": "KP30"
-        }
-      ],
-      "sourceReferences": [
-        {
-          "jsonPointer": "/lexis/missingWords/151",
-          "path": "tool/learning_phase_summary.json"
-        }
-      ],
-      "suggestedActions": [
-        "Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다."
-      ],
-      "warningChecks": [],
-      "workKey": "C2|sample_lexis|주체 높임|unassigned"
     },
     {
       "axis": "sample_lexis",
@@ -27899,7 +27347,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/152",
+          "jsonPointer": "/lexis/missingWords/142",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -27938,7 +27386,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/154",
+          "jsonPointer": "/lexis/missingWords/144",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -27977,7 +27425,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/158",
+          "jsonPointer": "/lexis/missingWords/148",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28016,7 +27464,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/159",
+          "jsonPointer": "/lexis/missingWords/149",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28025,45 +27473,6 @@
       ],
       "warningChecks": [],
       "workKey": "C2|sample_lexis|체면 손상|unassigned"
-    },
-    {
-      "axis": "sample_lexis",
-      "classificationStatus": "needs_review",
-      "classifications": [],
-      "id": "충분조건",
-      "koreanGuidance": "Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.",
-      "labels": [
-        "충분조건"
-      ],
-      "level": "C2",
-      "mode": "unassigned",
-      "phaseIds": [],
-      "provisionalClassifications": [
-        "content_missing",
-        "existing_unlinked"
-      ],
-      "reasons": [
-        "sampleLexis missing from current app vocabulary audit"
-      ],
-      "sampleLexisContexts": [
-        {
-          "domainId": "argumentation_evaluation_lexis",
-          "jsonPointer": "/phases/24/vocabDomains/1/sampleLexis/1/ko",
-          "level": "C2",
-          "phaseId": "KP25"
-        }
-      ],
-      "sourceReferences": [
-        {
-          "jsonPointer": "/lexis/missingWords/163",
-          "path": "tool/learning_phase_summary.json"
-        }
-      ],
-      "suggestedActions": [
-        "Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다."
-      ],
-      "warningChecks": [],
-      "workKey": "C2|sample_lexis|충분조건|unassigned"
     },
     {
       "axis": "sample_lexis",
@@ -28094,7 +27503,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/166",
+          "jsonPointer": "/lexis/missingWords/155",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28133,7 +27542,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/170",
+          "jsonPointer": "/lexis/missingWords/159",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28172,7 +27581,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/172",
+          "jsonPointer": "/lexis/missingWords/161",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28211,7 +27620,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/173",
+          "jsonPointer": "/lexis/missingWords/162",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28220,45 +27629,6 @@
       ],
       "warningChecks": [],
       "workKey": "C2|sample_lexis|평행선을 달리다|unassigned"
-    },
-    {
-      "axis": "sample_lexis",
-      "classificationStatus": "needs_review",
-      "classifications": [],
-      "id": "필요조건",
-      "koreanGuidance": "Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.",
-      "labels": [
-        "필요조건"
-      ],
-      "level": "C2",
-      "mode": "unassigned",
-      "phaseIds": [],
-      "provisionalClassifications": [
-        "content_missing",
-        "existing_unlinked"
-      ],
-      "reasons": [
-        "sampleLexis missing from current app vocabulary audit"
-      ],
-      "sampleLexisContexts": [
-        {
-          "domainId": "argumentation_evaluation_lexis",
-          "jsonPointer": "/phases/24/vocabDomains/1/sampleLexis/0/ko",
-          "level": "C2",
-          "phaseId": "KP25"
-        }
-      ],
-      "sourceReferences": [
-        {
-          "jsonPointer": "/lexis/missingWords/174",
-          "path": "tool/learning_phase_summary.json"
-        }
-      ],
-      "suggestedActions": [
-        "Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다."
-      ],
-      "warningChecks": [],
-      "workKey": "C2|sample_lexis|필요조건|unassigned"
     },
     {
       "axis": "sample_lexis",
@@ -28289,7 +27659,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/176",
+          "jsonPointer": "/lexis/missingWords/164",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28298,45 +27668,6 @@
       ],
       "warningChecks": [],
       "workKey": "C2|sample_lexis|한 치도 물러서지 않다|unassigned"
-    },
-    {
-      "axis": "sample_lexis",
-      "classificationStatus": "needs_review",
-      "classifications": [],
-      "id": "한데 묶다",
-      "koreanGuidance": "Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.",
-      "labels": [
-        "한데 묶다"
-      ],
-      "level": "C2",
-      "mode": "unassigned",
-      "phaseIds": [],
-      "provisionalClassifications": [
-        "content_missing",
-        "existing_unlinked"
-      ],
-      "reasons": [
-        "sampleLexis missing from current app vocabulary audit"
-      ],
-      "sampleLexisContexts": [
-        {
-          "domainId": "fixed_expressions_collocations",
-          "jsonPointer": "/phases/24/vocabDomains/3/sampleLexis/3/ko",
-          "level": "C2",
-          "phaseId": "KP25"
-        }
-      ],
-      "sourceReferences": [
-        {
-          "jsonPointer": "/lexis/missingWords/177",
-          "path": "tool/learning_phase_summary.json"
-        }
-      ],
-      "suggestedActions": [
-        "Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다."
-      ],
-      "warningChecks": [],
-      "workKey": "C2|sample_lexis|한데 묶다|unassigned"
     },
     {
       "axis": "sample_lexis",
@@ -28367,7 +27698,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/179",
+          "jsonPointer": "/lexis/missingWords/166",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28406,7 +27737,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/180",
+          "jsonPointer": "/lexis/missingWords/167",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28445,7 +27776,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/181",
+          "jsonPointer": "/lexis/missingWords/168",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28484,7 +27815,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/183",
+          "jsonPointer": "/lexis/missingWords/170",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28523,7 +27854,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/186",
+          "jsonPointer": "/lexis/missingWords/173",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28562,7 +27893,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/188",
+          "jsonPointer": "/lexis/missingWords/175",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28601,7 +27932,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/189",
+          "jsonPointer": "/lexis/missingWords/176",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28640,7 +27971,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/191",
+          "jsonPointer": "/lexis/missingWords/178",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28679,7 +28010,7 @@
       ],
       "sourceReferences": [
         {
-          "jsonPointer": "/lexis/missingWords/194",
+          "jsonPointer": "/lexis/missingWords/181",
           "path": "tool/learning_phase_summary.json"
         }
       ],
@@ -28711,7 +28042,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 503,
+          "csvRow": 501,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -28743,7 +28074,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 504,
+          "csvRow": 502,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -28752,38 +28083,6 @@
       ],
       "warningChecks": [],
       "workKey": "C2|speech_act|manage_turns_interrupt_hold_floor|unassigned"
-    },
-    {
-      "axis": "speech_act",
-      "classificationStatus": "needs_review",
-      "classifications": [],
-      "id": "reformulate_paraphrase_rewrite",
-      "koreanGuidance": "진단은 후보입니다. 실제 자료·연습·평가·런타임 근거를 확인해 분류합니다.",
-      "labels": [
-        "바꿔 말하기·문장 고쳐 쓰기"
-      ],
-      "level": "C2",
-      "mode": "unassigned",
-      "phaseIds": [],
-      "provisionalClassifications": [
-        "assessment_missing",
-        "content_missing",
-        "existing_unlinked"
-      ],
-      "reasons": [
-        "thin: scenarios=1;units=0"
-      ],
-      "sourceReferences": [
-        {
-          "csvRow": 505,
-          "path": "tool/curriculum_matrix_gaps.csv"
-        }
-      ],
-      "suggestedActions": [
-        "add_scenario_with_this_intent"
-      ],
-      "warningChecks": [],
-      "workKey": "C2|speech_act|reformulate_paraphrase_rewrite|unassigned"
     },
     {
       "axis": "text_type",
@@ -28810,7 +28109,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 506,
+          "csvRow": 503,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -28864,7 +28163,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 506,
+          "csvRow": 503,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -28918,7 +28217,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 507,
+          "csvRow": 504,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -28973,7 +28272,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 508,
+          "csvRow": 505,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -29034,7 +28333,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 508,
+          "csvRow": 505,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -29080,7 +28379,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 509,
+          "csvRow": 506,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -29136,7 +28435,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 510,
+          "csvRow": 507,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -29206,7 +28505,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 511,
+          "csvRow": 508,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -29253,11 +28552,11 @@
         "existing_unlinked"
       ],
       "reasons": [
-        "missing: mode=P;count=0;surfaces=scenario"
+        "thin: mode=P;count=1;surfaces=scenario"
       ],
       "sourceReferences": [
         {
-          "csvRow": 512,
+          "csvRow": 509,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -29292,7 +28591,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 513,
+          "csvRow": 510,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -29346,7 +28645,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 514,
+          "csvRow": 511,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -29374,47 +28673,15 @@
         "C18_surface"
       ],
       "workKey": "C2|text_type|review_critique_text|P"
-    },
-    {
-      "axis": "vocab_domain",
-      "classificationStatus": "needs_review",
-      "classifications": [],
-      "id": "etiquette_honorific_lexis",
-      "koreanGuidance": "진단은 후보입니다. 실제 자료·연습·평가·런타임 근거를 확인해 분류합니다.",
-      "labels": [
-        "예절·높임·호칭 어휘"
-      ],
-      "level": "C2",
-      "mode": "unassigned",
-      "phaseIds": [],
-      "provisionalClassifications": [
-        "assessment_missing",
-        "content_missing",
-        "existing_unlinked"
-      ],
-      "reasons": [
-        "missing: words=0"
-      ],
-      "sourceReferences": [
-        {
-          "csvRow": 515,
-          "path": "tool/curriculum_matrix_gaps.csv"
-        }
-      ],
-      "suggestedActions": [
-        "add_pack_in_domain"
-      ],
-      "warningChecks": [],
-      "workKey": "C2|vocab_domain|etiquette_honorific_lexis|unassigned"
     }
   ],
   "purpose": "W0b3 review-first triage queue; not completed curriculum, a definitive missing-card count, or a full requirement denominator.",
   "schemaVersion": 1,
   "sourceHashConvention": "UTF-8 bytes with CRLF normalized to LF",
   "sourceSha256": {
-    "tool/curriculum_matrix_gaps.csv": "c9fc73c0132f479e533488cf3a4dafcd7bc65d9c09d780a2e9a44c5235fb4f7c",
-    "tool/learning_phase_findings.csv": "292b2c66122451c329a9801ec88a2e054031cde8a4841e2e8466df21ad2a76de",
-    "tool/learning_phase_summary.json": "ae37ca748f434e72438d28f6b9316bcb896be343af3364f3b417a569a1e79824",
+    "tool/curriculum_matrix_gaps.csv": "1316e27250d8a426340f945e1493f77aed7efeaf6a2a575ecf14aa08857ca82c",
+    "tool/learning_phase_findings.csv": "34cfe20922bfcd0e8b50966489d425affa1cd443036910970f8137571dbad41b",
+    "tool/learning_phase_summary.json": "f773367a2f014b0eca81399f71f86ae4c80d9db3e76af93cfba569647b0c2fc4",
     "tools/content_factory/cefr_matrix/ko.json": "c642d91721753ea990a5b7c0373b9cb1da8923ae984e0c583de2825fc26cb4cf",
     "tools/content_factory/cefr_matrix/phases.json": "b61c70b52e7f773c76336c5ab65638ca4c1af2d39fcf2f26f6793d06333a64d9",
     "tools/content_factory/lexicon/nikl_kiiq_2017_grammar.csv": "c7455e22537b8b841529a7da155510a4607ba5b8f33c1516045fa8566dd25014"

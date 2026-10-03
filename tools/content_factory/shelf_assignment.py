@@ -141,6 +141,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "a1_phone_text_instead",
         "a1_phone_wrong_number",
         "a1_w10_phone",
+        "a1_message_contact_after_class_2026",
     ),
     "a1_wayfinding": (
         "a1_wayfinding_exit_number",
@@ -201,6 +202,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "a2_plan": (
         "a2_hours_six", "a2_rain_cancel", "friend_birthday",
         "plans_with_friend", "running_late", "a2_plan_weather_change",
+        "a2_message_change_of_plan_2026",
         "a2_minho_weekend_cooking_plan", "a2_jun_game_time_change",
     ),
     "a2_partner": (
@@ -304,6 +306,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "b1_volunteer_gap", "company_dinner_hoeshik",
         "b1_work_deadline_soft_request",
         "b1_job_offer_conditions_batch20",
+        "b1_team_briefing_revised_schedule_2026",
     ),
     "b1_neighbor": (
         "b1_guest_notice", "b1_laundry_turn", "b1_quiet_exam",
@@ -335,6 +338,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "b2_agenda_swap", "b2_minutes_draft", "b2_quorum_wait",
         "b2_time_box", "b2_hold_share", "business_meeting_intro",
         "b2_decision_criteria_workshop",
+        "b2_meeting_hold_for_evidence_2026",
     ),
     "b2_evidence": (
         "b2_chart_axes", "b2_metric_clear", "b2_cross_check",
@@ -491,6 +495,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "c2_daily_automation_redress",
         "c2_work_ai_accountability_board",
         "c2_automated_redress_record_batch20",
+        "c2_public_redress_briefing_2026",
     ),
     "c2_record": (
         "c2_archive_gap", "c2_trace_log",

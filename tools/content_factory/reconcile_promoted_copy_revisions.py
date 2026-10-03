@@ -78,6 +78,9 @@ def reconcile(
         "copyRevisionLedgerSha256": hashlib.sha256((root / promoted.COPY_REVISION_LEDGER).read_bytes()).hexdigest(),
     }
     ledger = promoted._json(path) if path.exists() else {**identity, "entries": []}
+    # Existing chains retain their original Git anchor. A first amendment
+    # to a later frozen batch binds its newer source in its own exact receipt.
+    identity["predecessorGitCommit"] = ledger["predecessorGitCommit"]
     if any(ledger.get(key) != value for key, value in identity.items()):
         raise ValueError("amendment ledger has a different frozen predecessor")
     entries = {(e["manifest"], e["kind"], e["id"]): e for e in ledger["entries"]}
@@ -141,6 +144,25 @@ def reconcile(
                             kind=kind, draft=draft, live=reviewed, batch_revisions=batch_fields
                         ):
                             raise ValueError(f"{kind}:{ident}: unresolved original copy gate")
+                    if prior is None:
+                        review_rows = promoted._csv(root / artifact["review"])[1]
+                        review = next(item for item in review_rows if item["id"] == ident)
+                        successor["genesisPredecessor"] = {
+                            "sourceGitCommit": source_commit,
+                            "draft": artifact["draft"], "review": artifact["review"],
+                            "draftSha256": promoted._fingerprint(draft),
+                            "reviewRowSha256": promoted._fingerprint(review),
+                        }
+                        if before != draft:
+                            revision = revisions.get((kind, ident))
+                            if revision is None:
+                                raise ValueError(f"{kind}:{ident}: missing exact original copy revision")
+                            successor["genesisPredecessor"]["copyRevisionSha256"] = promoted._fingerprint(revision)
+                        promoted._validate_genesis_editorial_predecessor(
+                            kind=kind, ident=ident, amendment=successor, manifest=manifest, root=root,
+                        )
+                    elif source_commit != identity["predecessorGitCommit"]:
+                        raise ValueError(f"{kind}:{ident}: existing editorial chain keeps its original Git anchor")
                 if successor == entries.get(key):
                     continue
                 changed += 1

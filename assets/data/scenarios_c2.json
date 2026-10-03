@@ -6408,6 +6408,226 @@
         }
       },
       "xpReward": 150
+    },
+    {
+      "id": "c2_public_redress_briefing_2026",
+      "level": "c2",
+      "emoji": "🏛️",
+      "register": "business",
+      "speechStyle": "business",
+      "title": {
+        "ko": "자동 결정 이의 절차를 공개 브리핑하기",
+        "de": "Das Einspruchsverfahren für automatische Entscheidungen öffentlich erläutern",
+        "en": "Publicly briefing the appeal process for automated decisions"
+      },
+      "intro": {
+        "ko": "공개 설명회에서 자동 결과에 이의를 제기하는 기준과 절차의 한계를 분명히 설명하고 질문을 정리해요.",
+        "de": "Bei einer öffentlichen Erläuterung erklärst du die Kriterien und Grenzen eines Einspruchs gegen ein automatisiertes Ergebnis klar und ordnest die Fragen.",
+        "en": "At a public briefing, you clearly explain the criteria and limits of an appeal against an automated result and organize questions."
+      },
+      "courseUnitId": "c2_03_automation_redress",
+      "playerCharacterId": "andrea",
+      "participantIds": [
+        "andrea",
+        "sujin",
+        "resident"
+      ],
+      "relationshipContext": "formal public briefing with a resident asking about a procedure",
+      "intent": "Clarify an appeal pathway without promising an outcome, paraphrase the concern, and preserve unanswered questions for the record.",
+      "shelf": "c2_automation",
+      "backdrop": "office",
+      "vocab": [
+        {
+          "korean": "이의 제기",
+          "note": {
+            "ko": "결정에 동의하지 않아 다시 살펴 달라고 요청함",
+            "de": "Einspruch",
+            "en": "appeal"
+          }
+        },
+        {
+          "korean": "적용된 기준",
+          "note": {
+            "ko": "결정할 때 실제로 쓴 기준",
+            "de": "angewandte Kriterien",
+            "en": "criteria that were applied"
+          }
+        },
+        {
+          "korean": "추가 자료",
+          "note": {
+            "ko": "더 확인하려고 내는 정보",
+            "de": "zusätzliche Unterlagen",
+            "en": "additional materials"
+          }
+        },
+        {
+          "korean": "적용 범위",
+          "note": {
+            "ko": "어디까지 해당하는지 나타내는 범위",
+            "de": "Geltungsbereich",
+            "en": "scope of application"
+          }
+        },
+        {
+          "korean": "예외",
+          "note": {
+            "ko": "일반 규칙과 다르게 다루는 경우",
+            "de": "Ausnahme",
+            "en": "exception"
+          }
+        },
+        {
+          "korean": "기록으로 남기다",
+          "note": {
+            "ko": "나중에 확인할 수 있게 적어 두다",
+            "de": "dokumentieren",
+            "en": "to keep on record"
+          }
+        }
+      ],
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ],
+      "surfaceFormIds": [
+        "presentation_briefing_talk"
+      ],
+      "grammarIds": [
+        "grammar_c2_only_adequate_explanation"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N(이)라야",
+          "de": "nur wenn es N ist",
+          "en": "only if it is N"
+        },
+        "explanation": {
+          "ko": "필요한 조건을 강하게 한정할 때 써요. 이 장면에서는 실제로 이용할 수 있는 설명이 필요하다는 뜻이에요.",
+          "de": "Die Form grenzt eine notwendige Bedingung stark ein. Hier heißt sie, dass die Erklärung tatsächlich nutzbar sein muss.",
+          "en": "The form strongly limits a necessary condition. Here it means that the explanation must be genuinely usable."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "지금부터 자동 결과에 이의를 제기하는 절차를 설명드리겠습니다. 질문은 한 번에 하나씩 받겠습니다.",
+          "de": "Ich erläutere nun das Verfahren, mit dem Sie gegen ein automatisiertes Ergebnis Einspruch einlegen können. Ich nehme die Fragen jeweils einzeln entgegen.",
+          "en": "I'll now explain the process for appealing an automated result. I'll take questions one at a time."
+        },
+        {
+          "speaker": "resident",
+          "ko": "결과가 틀렸다고 느껴도, 무엇을 근거로 다시 봐 달라고 해야 하는지 모르겠습니다.",
+          "de": "Auch wenn sich das Ergebnis falsch anfühlt, weiß ich nicht, auf welcher Grundlage ich um eine erneute Prüfung bitten soll.",
+          "en": "Even if the result feels wrong, I do not know what grounds I should give when asking for a review."
+        },
+        {
+          "speaker": "user",
+          "ko": "말씀하신 취지는 결과 자체만이 아니라, 이의 제기의 기준이 보이지 않는다는 뜻으로 이해했습니다.",
+          "de": "Ich verstehe Ihr Anliegen so, dass nicht nur das Ergebnis selbst, sondern auch die Kriterien für einen Einspruch nicht erkennbar sind.",
+          "en": "I understand your concern to be that not only the result itself, but also the criteria for an appeal, are not visible."
+        },
+        {
+          "speaker": "resident",
+          "ko": "네. 자료를 내도 같은 기준으로 다시 판단한다면 무엇이 달라지는지도 알고 싶습니다.",
+          "de": "Ja. Ich möchte auch wissen, was sich ändert, wenn nach Einreichen von Unterlagen erneut nach denselben Kriterien entschieden wird.",
+          "en": "Yes. I also want to know what changes if the decision is reviewed using the same criteria even after I submit materials."
+        },
+        {
+          "speaker": "sujin",
+          "ko": "그 점은 분명히 구분해야 합니다. 추가 자료가 결정에 영향을 줄 수 있는 경우와, 기준의 설명을 요청하는 경우는 절차가 다릅니다.",
+          "de": "Das müssen wir klar unterscheiden: Fälle, in denen zusätzliche Unterlagen die Entscheidung beeinflussen können, folgen einem anderen Verfahren als die Bitte um Erläuterung der Kriterien.",
+          "en": "We need to distinguish that clearly. Cases where additional materials can affect the decision follow a different process from requests for an explanation of the criteria."
+        },
+        {
+          "speaker": "user",
+          "ko": "따라서 통지에는 적용된 기준, 이의 사유, 그리고 추가 확인이 가능한 범위를 함께 적겠습니다.",
+          "de": "Deshalb werden wir in der Mitteilung die angewandten Kriterien, den Einspruchsgrund und den Bereich nennen, in dem eine weitere Prüfung möglich ist.",
+          "en": "Therefore, the notice will state the criteria applied, the grounds for appeal, and the scope in which further review is possible."
+        },
+        {
+          "speaker": "resident",
+          "ko": "그 범위가 좁으면 이의 제기가 형식에 그칠 수도 있지 않습니까?",
+          "de": "Wenn dieser Bereich eng ist, könnte der Einspruch nicht bloß Formsache bleiben?",
+          "en": "If that scope is narrow, could an appeal end up being only a formality?"
+        },
+        {
+          "speaker": "user",
+          "ko": "그 우려는 타당합니다. 범위를 한정하는 이유와 예외가 되는 경우도 공개하고, 답변되지 않은 질문은 기록으로 남기겠습니다.",
+          "de": "Diese Sorge ist berechtigt. Wir werden auch offenlegen, warum der Bereich begrenzt wird und welche Ausnahmen es gibt, und unbeantwortete Fragen dokumentieren.",
+          "en": "That concern is valid. We will also disclose why the scope is limited and what counts as an exception, and keep unanswered questions on record."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c2_public_redress_briefing_2026_hear",
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "말씀하신 취지는 결과 자체만이 아니라, 이의 제기의 기준이 보이지 않는다는 뜻으로 이해했습니다.",
+            "options": [
+              {
+                "de": "Ich verstehe Ihr Anliegen so, dass nicht nur das Ergebnis selbst, sondern auch die Kriterien für einen Einspruch nicht erkennbar sind.",
+                "en": "I understand your concern to be that not only the result itself, but also the criteria for an appeal, are not visible."
+              },
+              {
+                "de": "Ich nehme die Fragen jeweils einzeln entgegen.",
+                "en": "I'll take questions one at a time."
+              },
+              {
+                "de": "Diese Sorge ist berechtigt.",
+                "en": "That concern is valid."
+              },
+              {
+                "de": "Das müssen wir klar unterscheiden.",
+                "en": "We need to distinguish that clearly."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_public_redress_briefing_2026_translate",
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Deshalb werden wir in der Mitteilung die angewandten Kriterien, den Einspruchsgrund und den Bereich nennen, in dem eine weitere Prüfung möglich ist.",
+            "promptEn": "Therefore, the notice will state the criteria applied, the grounds for appeal, and the scope in which further review is possible.",
+            "options": [
+              {
+                "ko": "따라서 통지에는 적용된 기준, 이의 사유, 그리고 추가 확인이 가능한 범위를 함께 적겠습니다."
+              },
+              {
+                "ko": "그 범위가 좁으면 이의 제기가 형식에 그칠 수도 있지 않습니까?"
+              },
+              {
+                "ko": "그 점은 분명히 구분해야 합니다."
+              },
+              {
+                "ko": "질문은 한 번에 하나씩 받겠습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_public_redress_briefing_2026_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c2_automation_redress"
+          ],
+          "data": {
+            "targetKo": "그 우려는 타당합니다. 범위를 한정하는 이유와 예외가 되는 경우도 공개하고, 답변되지 않은 질문은 기록으로 남기겠습니다.",
+            "audioKo": "그 우려는 타당합니다. 범위를 한정하는 이유와 예외가 되는 경우도 공개하고, 답변되지 않은 질문은 기록으로 남기겠습니다.",
+            "promptDe": "Diese Sorge ist berechtigt. Wir werden auch offenlegen, warum der Bereich begrenzt wird und welche Ausnahmen es gibt, und unbeantwortete Fragen dokumentieren.",
+            "promptEn": "That concern is valid. We will also disclose why the scope is limited and what counts as an exception, and keep unanswered questions on record.",
+            "distractors": [
+              "추가 자료가",
+              "같은 기준으로",
+              "한 번에 하나씩"
+            ]
+          }
+        }
+      ],
+      "culturalNote": null,
+      "xpReward": 175
     }
   ]
 }

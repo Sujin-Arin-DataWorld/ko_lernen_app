@@ -33,13 +33,16 @@ class PersonaListeningTransactionTest(unittest.TestCase):
         (data / 'listening_lessons.json').write_text(json.dumps(self.original, ensure_ascii=False), encoding='utf-8')
         return data
 
-    def test_append_preserves_all_178_original_records_and_ids(self):
+    def test_append_preserves_all_original_records_and_ids(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             data = self.stage(root)
             integration._stage_listening(root, data, {**self.manifest, 'status': 'approved'}, self.scenes)
             catalog = json.loads((data / 'listening_lessons.json').read_text(encoding='utf-8'))
-            self.assertEqual(len(self.original['lessons']), 178)
+            self.assertEqual(
+                len(self.original['lessons']),
+                len(author.load_sources()) - len(self.scenes),
+            )
             self.assertEqual(catalog['lessons'][:-3], self.original['lessons'])
             self.assertEqual(catalog['lessons'][-3:], self.draft['lessons'])
             merged = {**self.manifest, 'status': 'merged'}
@@ -63,7 +66,7 @@ class PersonaListeningTransactionTest(unittest.TestCase):
     def test_new_three_have_exact_reproducible_authored_source(self):
         result = author.build()
         self.assertEqual(result['lessons'][-3:], self.draft['lessons'])
-        self.assertEqual(len(result['lessons']), 181)
+        self.assertEqual(len(result['lessons']), len(author.load_sources()))
         new_source_ids = {s['id'] for s in self.scenes}
         old_sources = [s for s in author.load_sources() if s['id'] not in new_source_ids]
         with patch.object(author, 'load_sources', return_value=old_sources), patch.object(author, 'reviewed_supplements', return_value={}):
