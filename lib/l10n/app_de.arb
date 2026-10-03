@@ -5471,5 +5471,10 @@
   "hanokDownloadsSettingsSection": "Offline-Bilder",
   "hanokDownloadsSettingsTitle": "Hanok-Downloads",
   "hanokDownloadsSettingsSubtitle": "In der App enthaltene und nach Gebäude heruntergeladene Bilder verwalten",
-  "yeopjeonConstructionComplete": "Dieses Gebäude ist fertig!"
+  "yeopjeonConstructionComplete": "Dieses Gebäude ist fertig!",
+  "settingsGroupAccount": "Profil & Konto",
+  "settingsGroupLearning": "Lernen",
+  "settingsGroupControls": "Sprache, Ton & Bedienung",
+  "settingsGroupPrivacy": "Speicher & Datenschutz",
+  "settingsGroupHelp": "Hilfe & App-Infos"
 }
