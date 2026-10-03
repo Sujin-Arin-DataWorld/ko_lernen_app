@@ -26,6 +26,7 @@ from integrate_scenario_batch import integrate
 import relevel_ledger
 from rr_romanize import romanize_korean
 from validate_promoted_batch import validate as validate_promoted_batch
+import validate_promoted_batch as promotion
 import scenario_store
 
 
@@ -69,6 +70,13 @@ class PackSourceTest(unittest.TestCase):
         packs = builder.load_packs()
         self.assertEqual(len(packs), 48)
         vocab, live_korean, _by_level_words, _used_satz, _live_scenarios = builder.load_live()
+        # Keep authored pack records frozen. A deliberate headword correction
+        # must be an exact, validated editorial successor of the same live ID.
+        validate_promoted_batch(BATCH_09_MANIFEST)
+        successors = promotion._editorial_successors(
+            root=builder.ROOT, manifest_path=BATCH_09_MANIFEST,
+        )
+        live_by_id = {row["id"]: row for row in vocab}
         authored_pack_ids = {pack["packId"] for pack in packs}
         # tools/content_factory/data/packs/<packId>.json is a frozen record
         # of what a pack was *authored* with (task T2.9a report; relevel_
@@ -117,9 +125,22 @@ class PackSourceTest(unittest.TestCase):
                     )
                 )
                 self.assertTrue(appears, f"{pack['packId']}: {korean} absent from {example_ko}")
-                self.assertNotIn(korean, other_live_korean, pack["packId"])
-                self.assertIn(korean, live_korean, pack["packId"])
-                headwords.append(korean)
+                live_headword = korean
+                corrections = [
+                    entry for (kind, _ident), entry in successors.items()
+                    if kind == "vocab"
+                    and entry["before"].get("pack_id") == pack["packId"]
+                    and entry["before"].get("korean") == korean
+                    and entry["after"].get("korean") != korean
+                ]
+                self.assertLessEqual(len(corrections), 1, pack["packId"])
+                if corrections:
+                    entry = corrections[0]
+                    live_headword = entry["after"]["korean"]
+                    self.assertEqual(live_by_id[entry["id"]]["korean"], live_headword)
+                self.assertNotIn(live_headword, other_live_korean, pack["packId"])
+                self.assertIn(live_headword, live_korean, pack["packId"])
+                headwords.append(live_headword)
         self.assertEqual(len(headwords), 576)
         self.assertEqual(len(set(headwords)), 576)
         # Batch 09/10 originally authored exactly 8 packs per level, but a

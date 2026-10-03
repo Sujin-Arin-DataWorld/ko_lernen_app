@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "kind": "scenario_tts_storage_verification",
+  "generationId": "advanced-vocab-register-20261003",
+  "scope": "corpus",
+  "candidateSetSha256": "b8ac1440074324dd5cd0bdb2dbf2a18276429a838209bb011942bfbb943da0db",
+  "ttsManifestSha256": "31b6a12516384a9779cdb67441e95f13f83963f8e4c8d7ae338db7229093c6de",
+  "expectedCount": 403,
+  "verifiedCachePathCount": 403,
+  "missingCount": 0,
+  "cacheRevision": "v3",
+  "verificationMode": "firebase_storage_nonempty_mp3_listing",
+  "minimumObjectBytes": 256,
+  "bucket": "ko-lernen-app.firebasestorage.app",
+  "verifiedAt": "2026-10-03T10:53:20.681683+00:00"
+}
