@@ -1,0 +1,209 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "cloze_c2_0263",
+      "sourceVocabId": "vocab_c2_0253",
+      "level": "c2",
+      "topic": "Argumentation und Verfahrensgestaltung",
+      "fullKo": "민주적 의사결정에서 정보 공개는 시민 참여의 필요조건이지만, 공개만으로 실질적인 참여가 보장되는 것은 아니다.",
+      "answer": "필요조건",
+      "sentenceKo": "민주적 의사결정에서 정보 공개는 시민 참여의 ＿＿＿이지만, 공개만으로 실질적인 참여가 보장되는 것은 아니다.",
+      "de": "Bei demokratischen Entscheidungen ist die Offenlegung von Informationen eine notwendige Bedingung für Bürgerbeteiligung, garantiert für sich genommen aber noch keine tatsächliche Mitwirkung.",
+      "en": "In democratic decision-making, disclosure of information is a necessary condition for civic participation, but disclosure alone does not guarantee meaningful participation.",
+      "distractors": [
+        "충분조건",
+        "자격 요건",
+        "적용 범위"
+      ],
+      "courseUnitId": "c2_03_automation_redress"
+    },
+    {
+      "id": "cloze_c2_0264",
+      "sourceVocabId": "vocab_c2_0254",
+      "level": "c2",
+      "topic": "Argumentation und Verfahrensgestaltung",
+      "fullKo": "어떤 정수가 4의 배수라는 사실은 그 정수가 짝수이기 위한 충분조건이지만 필요조건은 아니다.",
+      "answer": "충분조건",
+      "sentenceKo": "어떤 정수가 4의 배수라는 사실은 그 정수가 짝수이기 위한 ＿＿＿이지만 필요조건은 아니다.",
+      "de": "Dass eine ganze Zahl durch vier teilbar ist, ist eine hinreichende, aber keine notwendige Bedingung dafür, dass sie gerade ist.",
+      "en": "An integer being a multiple of four is a sufficient, but not necessary, condition for it to be even.",
+      "distractors": [
+        "필요조건",
+        "논리적 귀결",
+        "단서 조항"
+      ],
+      "courseUnitId": "c2_03_automation_redress"
+    },
+    {
+      "id": "cloze_c2_0265",
+      "sourceVocabId": "vocab_c2_0255",
+      "level": "c2",
+      "topic": "Argumentation und Verfahrensgestaltung",
+      "fullKo": "연구진은 찬반으로 나누기 어려운 경계 사례를 별도로 분석해, 기존 분류 기준의 한계를 검토했다.",
+      "answer": "경계 사례",
+      "sentenceKo": "연구진은 찬반으로 나누기 어려운 ＿＿＿를 별도로 분석해, 기존 분류 기준의 한계를 검토했다.",
+      "de": "Das Forschungsteam analysierte Grenzfälle, die sich nur schwer in Zustimmung oder Ablehnung einordnen ließen, gesondert und untersuchte so die Grenzen der bisherigen Klassifikationskriterien.",
+      "en": "The research team separately analyzed borderline cases that were difficult to classify as support or opposition, examining the limitations of the existing classification criteria.",
+      "distractors": [
+        "자격 요건",
+        "단서 조항",
+        "논리적 귀결"
+      ],
+      "courseUnitId": "c2_03_automation_redress"
+    },
+    {
+      "id": "cloze_c2_0266",
+      "sourceVocabId": "vocab_c2_0256",
+      "level": "c2",
+      "topic": "Argumentation und Verfahrensgestaltung",
+      "fullKo": "칼럼은 평균 소득이 높아졌다고 해서 모든 가구의 생활이 나아졌다는 논리적 귀결이 성립하는 것은 아니라고 지적한다.",
+      "answer": "논리적 귀결",
+      "sentenceKo": "칼럼은 평균 소득이 높아졌다고 해서 모든 가구의 생활이 나아졌다는 ＿＿＿이 성립하는 것은 아니라고 지적한다.",
+      "de": "Die Kolumne weist darauf hin, dass aus einem gestiegenen Durchschnittseinkommen nicht logisch folgt, dass sich die Lebensverhältnisse aller Haushalte verbessert haben.",
+      "en": "The column points out that a rise in average income does not logically entail an improvement in living conditions for every household.",
+      "distractors": [
+        "필요조건",
+        "적용 범위",
+        "규범"
+      ],
+      "courseUnitId": "c2_03_automation_redress"
+    },
+    {
+      "id": "cloze_c2_0267",
+      "sourceVocabId": "vocab_c2_0257",
+      "level": "c2",
+      "topic": "Argumentation und Verfahrensgestaltung",
+      "fullKo": "개정안은 규정의 적용 범위를 공공 기관으로 한정하되, 민간 위탁 업무도 포함할지는 추가로 논의하도록 했다.",
+      "answer": "적용 범위",
+      "sentenceKo": "개정안은 규정의 ＿＿＿를 공공 기관으로 한정하되, 민간 위탁 업무도 포함할지는 추가로 논의하도록 했다.",
+      "de": "Der Änderungsvorschlag beschränkt den Geltungsbereich der Regelung auf öffentliche Einrichtungen; ob auch an private Stellen ausgelagerte Aufgaben einbezogen werden, soll noch diskutiert werden.",
+      "en": "The proposed amendment limits the scope of the regulation to public institutions, while leaving the inclusion of privately contracted services for further discussion.",
+      "distractors": [
+        "자격 요건",
+        "경계 사례",
+        "규범"
+      ],
+      "courseUnitId": "c2_03_automation_redress"
+    },
+    {
+      "id": "cloze_c2_0268",
+      "sourceVocabId": "vocab_c2_0258",
+      "level": "c2",
+      "topic": "Argumentation und Verfahrensgestaltung",
+      "fullKo": "계약서에는 자료의 외부 제공을 금지하면서도 연구 목적의 사용은 별도 승인을 거쳐 허용한다는 단서 조항이 있다.",
+      "answer": "단서 조항",
+      "sentenceKo": "계약서에는 자료의 외부 제공을 금지하면서도 연구 목적의 사용은 별도 승인을 거쳐 허용한다는 ＿＿＿이 있다.",
+      "de": "Der Vertrag verbietet die Weitergabe von Unterlagen an Außenstehende, enthält aber eine Vorbehaltsklausel, die eine Nutzung zu Forschungszwecken nach gesonderter Genehmigung erlaubt.",
+      "en": "The contract prohibits sharing the material externally, but includes a proviso allowing its use for research purposes with separate approval.",
+      "distractors": [
+        "적용 범위",
+        "논리적 귀결",
+        "충분조건"
+      ],
+      "courseUnitId": "c2_03_automation_redress"
+    },
+    {
+      "id": "cloze_c2_0269",
+      "sourceVocabId": "vocab_c2_0259",
+      "level": "c2",
+      "topic": "Argumentation und Verfahrensgestaltung",
+      "fullKo": "채용 공고는 학위와 실무 경력을 자격 요건으로 제시하되, 두 요건을 모두 충족해야 하는지는 명확히 밝히지 않았다.",
+      "answer": "자격 요건",
+      "sentenceKo": "채용 공고는 학위와 실무 경력을 ＿＿＿으로 제시하되, 두 요건을 모두 충족해야 하는지는 명확히 밝히지 않았다.",
+      "de": "Die Stellenanzeige nennt einen Hochschulabschluss und Berufserfahrung als Voraussetzungen, lässt aber offen, ob beide erfüllt sein müssen.",
+      "en": "The job advertisement lists a degree and practical experience as eligibility requirements, but does not clearly state whether both must be met.",
+      "distractors": [
+        "적용 범위",
+        "단서 조항",
+        "필요조건"
+      ],
+      "courseUnitId": "c2_03_automation_redress"
+    },
+    {
+      "id": "cloze_c2_0270",
+      "sourceVocabId": "vocab_c2_0260",
+      "level": "c2",
+      "topic": "Argumentation und Verfahrensgestaltung",
+      "fullKo": "책은 시대마다 달라지는 가족 규범을 비교하며, 특정한 가족 형태를 보편적 기준으로 삼을 수 있는지 묻는다.",
+      "answer": "규범",
+      "sentenceKo": "책은 시대마다 달라지는 가족 ＿＿＿을 비교하며, 특정한 가족 형태를 보편적 기준으로 삼을 수 있는지 묻는다.",
+      "de": "Das Buch vergleicht Familiennormen aus verschiedenen Epochen und fragt, ob eine bestimmte Familienform als universeller Maßstab dienen kann.",
+      "en": "The book compares family norms across different periods and asks whether a particular family form can serve as a universal standard.",
+      "distractors": [
+        "논리적 귀결",
+        "자격 요건",
+        "경계 사례"
+      ],
+      "courseUnitId": "c2_03_automation_redress"
+    },
+    {
+      "id": "cloze_c2_0271",
+      "sourceVocabId": "vocab_c2_0261",
+      "level": "c2",
+      "topic": "Argumentation und Verfahrensgestaltung",
+      "fullKo": "연구진은 분석 범위를 수도권의 대중교통 이용자로 한정하고, 결과를 전국에 일반화하는 데에는 신중해야 한다고 밝혔다.",
+      "answer": "한정하고",
+      "sentenceKo": "연구진은 분석 범위를 수도권의 대중교통 이용자로 ＿＿＿, 결과를 전국에 일반화하는 데에는 신중해야 한다고 밝혔다.",
+      "de": "Das Forschungsteam beschränkte die Analyse auf Personen, die im Hauptstadtgebiet öffentliche Verkehrsmittel nutzen, und erklärte, dass die Ergebnisse nur mit Vorsicht auf das ganze Land übertragen werden sollten.",
+      "en": "The research team limited the analysis to public transport users in the capital region and stated that caution was needed in generalizing the findings nationwide.",
+      "distractors": [
+        "확대하고",
+        "나누고",
+        "묶고"
+      ],
+      "courseUnitId": "c2_03_automation_redress"
+    },
+    {
+      "id": "cloze_c2_0272",
+      "sourceVocabId": "vocab_c2_0262",
+      "level": "c2",
+      "topic": "Argumentation und Verfahrensgestaltung",
+      "fullKo": "보고서는 재택근무가 생산성을 높였다는 결론에, 조사 대상이 사무직에 한정돼 있다는 단서를 달았다.",
+      "answer": "단서",
+      "sentenceKo": "보고서는 재택근무가 생산성을 높였다는 결론에, 조사 대상이 사무직에 한정돼 있다는 ＿＿＿를 달았다.",
+      "de": "Der Bericht versah die Schlussfolgerung, dass Arbeit im Homeoffice die Produktivität erhöht habe, mit dem Vorbehalt, dass nur Büroangestellte untersucht worden waren.",
+      "en": "The report added a caveat to its conclusion that working from home had increased productivity: the study had covered only office workers.",
+      "distractors": [
+        "규범",
+        "범위",
+        "조건"
+      ],
+      "courseUnitId": "c2_03_automation_redress"
+    },
+    {
+      "id": "cloze_c2_0273",
+      "sourceVocabId": "vocab_c2_0263",
+      "level": "c2",
+      "topic": "Argumentation und Verfahrensgestaltung",
+      "fullKo": "문학 평론은 등장인물의 침묵을 동의로 해석하기에 앞서, 그가 말할 수 없었던 사회적 맥락을 살펴야 한다고 강조한다.",
+      "answer": "맥락",
+      "sentenceKo": "문학 평론은 등장인물의 침묵을 동의로 해석하기에 앞서, 그가 말할 수 없었던 사회적 ＿＿＿을 살펴야 한다고 강조한다.",
+      "de": "Die Literaturkritik betont, dass vor einer Deutung des Schweigens einer Figur als Zustimmung der gesellschaftliche Kontext betrachtet werden muss, in dem diese Figur nicht sprechen konnte.",
+      "en": "The literary commentary emphasizes that before interpreting a character's silence as agreement, one must examine the social context that prevented the character from speaking.",
+      "distractors": [
+        "규범",
+        "단서",
+        "조건"
+      ],
+      "courseUnitId": "c2_03_automation_redress"
+    },
+    {
+      "id": "cloze_c2_0274",
+      "sourceVocabId": "vocab_c2_0264",
+      "level": "c2",
+      "topic": "Argumentation und Verfahrensgestaltung",
+      "fullKo": "칼럼은 실업과 불안정 고용을 한데 묶어 설명하면, 일자리가 없는 문제와 일자리의 질 문제를 구분하기 어렵다고 지적한다.",
+      "answer": "묶어",
+      "sentenceKo": "칼럼은 실업과 불안정 고용을 한데 ＿＿＿ 설명하면, 일자리가 없는 문제와 일자리의 질 문제를 구분하기 어렵다고 지적한다.",
+      "de": "Die Kolumne weist darauf hin, dass sich fehlende Arbeitsplätze und die Qualität vorhandener Arbeitsplätze schwer auseinanderhalten lassen, wenn Arbeitslosigkeit und unsichere Beschäftigung zusammengefasst werden.",
+      "en": "The column points out that grouping unemployment and insecure employment together makes it difficult to distinguish a lack of jobs from problems with job quality.",
+      "distractors": [
+        "나누어",
+        "비교해",
+        "제외해"
+      ],
+      "courseUnitId": "c2_03_automation_redress"
+    }
+  ]
+}

@@ -680,18 +680,25 @@ cloze,cloze_c2_0246,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_demography_account
 cloze,cloze_c2_0247,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_demography_accountability_2026_1,downgrade_candidate
 cloze,cloze_c2_0248,c2,b1,-3,under2 lex_p90=3.2,can_do_ref,c2_demography_accountability_2026_1,downgrade_candidate
 cloze,cloze_c2_0249,c2,b2,-2,under2 lex_p90=4.3,can_do_ref,c2_demography_accountability_2026_1,downgrade_candidate
-cloze,cloze_c2_0251,c2,a2,-4,under2 lex_p90=2.0,,c2_honorific_context_1,downgrade_candidate
-cloze,cloze_c2_0252,c2,b2,-2,under2 grammar=grammar_b2_according_to:4,,c2_honorific_context_1,downgrade_candidate
-cloze,cloze_c2_0253,c2,b1,-3,under2 lex_p90=2.9,,c2_honorific_context_1,downgrade_candidate
-cloze,cloze_c2_0254,c2,b1,-3,under2 lex_p90=3.0,,c2_honorific_context_1,downgrade_candidate
-cloze,cloze_c2_0255,c2,b2,-2,under2 lex_p90=4.2,,c2_honorific_context_1,downgrade_candidate
-cloze,cloze_c2_0256,c2,b2,-2,under2 lex_p90=4.0,,c2_honorific_context_1,downgrade_candidate
-cloze,cloze_c2_0257,c2,b1,-3,under2 lex_p90=3.1,,c2_honorific_context_1,downgrade_candidate
-cloze,cloze_c2_0258,c2,b1,-3,under2 grammar=nikl_g3_어도_v4:3,,c2_honorific_context_1,downgrade_candidate
-cloze,cloze_c2_0259,c2,b2,-2,under2 grammar=grammar_b2_according_to:4,,c2_honorific_context_1,downgrade_candidate
-cloze,cloze_c2_0260,c2,b2,-2,under2 grammar=grammar_b2_according_to:4,,c2_honorific_context_1,downgrade_candidate
-cloze,cloze_c2_0261,c2,b2,-2,under2 lex_p90=4.0,,c2_honorific_context_1,downgrade_candidate
-cloze,cloze_c2_0262,c2,b2,-2,under2 grammar=grammar_b2_according_to:4,,c2_honorific_context_1,downgrade_candidate
+cloze,cloze_c2_0252,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_honorific_context_1,downgrade_candidate
+cloze,cloze_c2_0253,c2,b2,-2,under2 lex_p90=4.4,can_do_ref,c2_honorific_context_1,downgrade_candidate
+cloze,cloze_c2_0254,c2,b2,-2,under2 lex_p90=4.2,can_do_ref,c2_honorific_context_1,downgrade_candidate
+cloze,cloze_c2_0255,c2,b2,-2,under2 lex_p90=4.2,can_do_ref,c2_honorific_context_1,downgrade_candidate
+cloze,cloze_c2_0256,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_honorific_context_1,downgrade_candidate
+cloze,cloze_c2_0257,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_honorific_context_1,downgrade_candidate
+cloze,cloze_c2_0258,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_honorific_context_1,downgrade_candidate
+cloze,cloze_c2_0259,c2,b2,-2,under2 lex_p90=3.9,can_do_ref,c2_honorific_context_1,downgrade_candidate
+cloze,cloze_c2_0260,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_honorific_context_1,downgrade_candidate
+cloze,cloze_c2_0262,c2,b1,-3,under2 lex_p90=3.0,can_do_ref,c2_honorific_context_1,downgrade_candidate
+cloze,cloze_c2_0263,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_argument_scope_1,downgrade_candidate
+cloze,cloze_c2_0264,c2,b1,-3,under2 grammar=nikl_g3_기_위해_v2:3,can_do_ref,c2_argument_scope_1,downgrade_candidate
+cloze,cloze_c2_0265,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_argument_scope_1,downgrade_candidate
+cloze,cloze_c2_0266,c2,b2,-2,under2 grammar=nikl_g4_고_해서:4,can_do_ref,c2_argument_scope_1,downgrade_candidate
+cloze,cloze_c2_0267,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_argument_scope_1,downgrade_candidate
+cloze,cloze_c2_0268,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_argument_scope_1,downgrade_candidate
+cloze,cloze_c2_0270,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_argument_scope_1,downgrade_candidate
+cloze,cloze_c2_0271,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_argument_scope_1,downgrade_candidate
+cloze,cloze_c2_0272,c2,b2,-2,under2 grammar=nikl_g4_고서_v1:4,can_do_ref,c2_argument_scope_1,downgrade_candidate
 grammar,grammar_a1_degree_question,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,can_do_ref,,step_up_or_swap
 grammar,grammar_a1_long_negation,a1,b1,2,over2 lex_p90=2.8,can_do_ref,,bundle_move
 grammar,grammar_a1_topic_contrast,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,can_do_ref,,step_up_or_swap
@@ -746,9 +753,9 @@ grammar,grammar_c2_no_matter_how,c2,a2,-4,under2 lex_p90=2.3,can_do_ref,,downgra
 grammar,grammar_c2_no_more_than_doing,c2,a2,-4,under2 lex_p90=2.0,can_do_ref,,downgrade_candidate
 grammar,grammar_c2_no_reduction_batch20,c2,b2,-2,under2 lex_p90=4.5,can_do_ref,,downgrade_candidate
 grammar,grammar_c2_nothing_more_than,c2,b2,-2,under2 lex_p90=4.1,can_do_ref,,downgrade_candidate
-grammar,grammar_c2_often_ends_badly,c2,b2,-2,under2 lex_p90=3.5,,,downgrade_candidate
+grammar,grammar_c2_often_ends_badly,c2,b2,-2,under2 lex_p90=3.5,can_do_ref,,downgrade_candidate
 grammar,grammar_c2_premise_review_batch20,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,,downgrade_candidate
-grammar,grammar_c2_rather_than_assume,c2,b1,-3,under2 grammar=grammar_b1_tendency:3,,,downgrade_candidate
+grammar,grammar_c2_rather_than_assume,c2,b1,-3,under2 grammar=grammar_b1_tendency:3,can_do_ref,,downgrade_candidate
 grammar,grammar_c2_regardless_of_kin,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,,downgrade_candidate
 grammar,grammar_c2_responsibility_remains,c2,b2,-2,under2 grammar=nikl_g4_고_해서:4,can_do_ref,,downgrade_candidate
 grammar,grammar_c2_wishing_to,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,,downgrade_candidate
@@ -1688,18 +1695,26 @@ satz,satz_c2_0246,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_2026_social_topics_1
 satz,satz_c2_0249,c2,b2,-2,under2 lex_p90=4.2,can_do_ref,c2_demography_accountability_2026_1,downgrade_candidate
 satz,satz_c2_0251,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_demography_accountability_2026_1,downgrade_candidate
 satz,satz_c2_0252,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_demography_accountability_2026_1,downgrade_candidate
-satz,satz_c2_0253,c2,a2,-4,under2 lex_p90=2.0,,c2_honorific_context_1,downgrade_candidate
-satz,satz_c2_0254,c2,b2,-2,under2 grammar=grammar_b2_according_to:4,,c2_honorific_context_1,downgrade_candidate
-satz,satz_c2_0255,c2,b1,-3,under2 lex_p90=2.9,,c2_honorific_context_1,downgrade_candidate
-satz,satz_c2_0256,c2,b1,-3,under2 lex_p90=3.0,,c2_honorific_context_1,downgrade_candidate
-satz,satz_c2_0257,c2,b2,-2,under2 lex_p90=4.2,,c2_honorific_context_1,downgrade_candidate
-satz,satz_c2_0258,c2,b2,-2,under2 lex_p90=4.0,,c2_honorific_context_1,downgrade_candidate
-satz,satz_c2_0259,c2,b1,-3,under2 lex_p90=3.1,,c2_honorific_context_1,downgrade_candidate
-satz,satz_c2_0260,c2,b1,-3,under2 grammar=nikl_g3_어도_v4:3,,c2_honorific_context_1,downgrade_candidate
-satz,satz_c2_0261,c2,b2,-2,under2 grammar=grammar_b2_according_to:4,,c2_honorific_context_1,downgrade_candidate
-satz,satz_c2_0262,c2,b2,-2,under2 grammar=grammar_b2_according_to:4,,c2_honorific_context_1,downgrade_candidate
-satz,satz_c2_0263,c2,b2,-2,under2 lex_p90=4.0,,c2_honorific_context_1,downgrade_candidate
-satz,satz_c2_0264,c2,b2,-2,under2 grammar=grammar_b2_according_to:4,,c2_honorific_context_1,downgrade_candidate
+satz,satz_c2_0254,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_honorific_context_1,downgrade_candidate
+satz,satz_c2_0255,c2,b2,-2,under2 lex_p90=4.4,can_do_ref,c2_honorific_context_1,downgrade_candidate
+satz,satz_c2_0256,c2,b2,-2,under2 lex_p90=4.2,can_do_ref,c2_honorific_context_1,downgrade_candidate
+satz,satz_c2_0257,c2,b2,-2,under2 lex_p90=4.2,can_do_ref,c2_honorific_context_1,downgrade_candidate
+satz,satz_c2_0258,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_honorific_context_1,downgrade_candidate
+satz,satz_c2_0259,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_honorific_context_1,downgrade_candidate
+satz,satz_c2_0260,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_honorific_context_1,downgrade_candidate
+satz,satz_c2_0261,c2,b2,-2,under2 lex_p90=3.9,can_do_ref,c2_honorific_context_1,downgrade_candidate
+satz,satz_c2_0262,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_honorific_context_1,downgrade_candidate
+satz,satz_c2_0264,c2,b1,-3,under2 lex_p90=3.0,can_do_ref,c2_honorific_context_1,downgrade_candidate
+satz,satz_c2_0265,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_argument_scope_1,downgrade_candidate
+satz,satz_c2_0266,c2,b1,-3,under2 grammar=nikl_g3_기_위해_v2:3,can_do_ref,c2_argument_scope_1,downgrade_candidate
+satz,satz_c2_0267,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_argument_scope_1,downgrade_candidate
+satz,satz_c2_0268,c2,b2,-2,under2 grammar=nikl_g4_고_해서:4,can_do_ref,c2_argument_scope_1,downgrade_candidate
+satz,satz_c2_0269,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_argument_scope_1,downgrade_candidate
+satz,satz_c2_0270,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_argument_scope_1,downgrade_candidate
+satz,satz_c2_0272,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_argument_scope_1,downgrade_candidate
+satz,satz_c2_0273,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_argument_scope_1,downgrade_candidate
+satz,satz_c2_0274,c2,b2,-2,under2 grammar=nikl_g4_고서_v1:4,can_do_ref,c2_argument_scope_1,downgrade_candidate
+scenario,a1_message_contact_after_class_2026,a1,a2,1,over1 dialog_p75=2.0,can_do_ref,,step_up_or_swap
 scenario,a1_theme_park_date_choices,a1,a2,1,over1 dialog_p75=2.0,can_do_ref,,step_up_or_swap
 scenario,a1_w10_eat,a1,a2,1,over1 dialog_p75=2.0,can_do_ref,,step_up_or_swap
 scenario,a1_w10_fandom,a1,a2,1,over1 grammar_ids_max=2,can_do_ref,,step_up_or_swap
@@ -1991,10 +2006,14 @@ smalltalk,smalltalk_c2_0083,c2,b2,-2,under2 length,can_do_ref,,downgrade_candida
 smalltalk,smalltalk_c2_0084,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,,downgrade_candidate
 smalltalk,smalltalk_c2_0085,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,,downgrade_candidate
 smalltalk,smalltalk_c2_0086,c2,b2,-2,under2 length,can_do_ref,,downgrade_candidate
-smalltalk,smalltalk_c2_0087,c2,a2,-4,under2 grammar=grammar_a2_conditional:2,,,downgrade_candidate
-smalltalk,smalltalk_c2_0088,c2,b2,-2,under2 grammar=grammar_b2_according_to:4,,,downgrade_candidate
-smalltalk,smalltalk_c2_0089,c2,b1,-3,under2 grammar=grammar_b1_tendency:3,,,downgrade_candidate
-smalltalk,smalltalk_c2_0090,c2,b2,-2,under2 grammar=grammar_b2_according_to:4,,,downgrade_candidate
+smalltalk,smalltalk_c2_0087,c2,a2,-4,under2 grammar=grammar_a2_conditional:2,can_do_ref,,downgrade_candidate
+smalltalk,smalltalk_c2_0088,c2,b2,-2,under2 grammar=grammar_b2_according_to:4,can_do_ref,,downgrade_candidate
+smalltalk,smalltalk_c2_0089,c2,b1,-3,under2 grammar=grammar_b1_tendency:3,can_do_ref,,downgrade_candidate
+smalltalk,smalltalk_c2_0090,c2,b2,-2,under2 grammar=grammar_b2_according_to:4,can_do_ref,,downgrade_candidate
+smalltalk,smalltalk_c2_0091,c2,b1,-3,under2 lex_p90=3.0,can_do_ref,,downgrade_candidate
+smalltalk,smalltalk_c2_0092,c2,b1,-3,under2 lex_p90=3.0,can_do_ref,,downgrade_candidate
+smalltalk,smalltalk_c2_0093,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,,downgrade_candidate
+smalltalk,smalltalk_c2_0094,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,,downgrade_candidate
 vocab,vocab_a1_0011,a1,a2,1,over1,satz_ref+can_do_ref,a1_self_intro,step_up_or_swap
 vocab,vocab_a1_0026,a1,a2,1,over1,can_do_ref,a1_misc_1,step_up_or_swap
 vocab,vocab_a1_0034,a1,a2,1,over1,can_do_ref,a1_family_1,step_up_or_swap
@@ -2938,3 +2957,7 @@ vocab,vocab_c2_0229,c2,b1,-3,under2,can_do_ref,c2_demography_accountability_2026
 vocab,vocab_c2_0232,c2,b2,-2,under2,can_do_ref,c2_demography_accountability_2026_1,downgrade_candidate
 vocab,vocab_c2_0234,c2,b2,-2,under2,can_do_ref,c2_demography_accountability_2026_1,downgrade_candidate
 vocab,vocab_c2_0239,c2,,,unknown,satz_ref+can_do_ref,c2_demography_accountability_2026_1,keep
+vocab,vocab_c2_0253,c2,b1,-3,under2 src=compound,satz_ref+can_do_ref,c2_argument_scope_1,downgrade_candidate
+vocab,vocab_c2_0254,c2,,,unknown,satz_ref+can_do_ref,c2_argument_scope_1,keep
+vocab,vocab_c2_0255,c2,b2,-2,under2,satz_ref+can_do_ref,c2_argument_scope_1,downgrade_candidate
+vocab,vocab_c2_0257,c2,b2,-2,under2,satz_ref+can_do_ref,c2_argument_scope_1,downgrade_candidate

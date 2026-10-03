@@ -108,7 +108,7 @@ A2,speech_act,advise_recommend_warn,조언·추천·경고하기,missing,scenari
 A2,speech_act,congratulate_sympathise_comfort,축하·위로하기,thin,scenarios=0;units=1,add_scenario_with_this_intent
 A2,speech_act,express_certainty_doubt_hedging,확신·의심·완곡 표현하기,recognition_missing,scenarios=0;units=0,add_scenario_with_this_intent
 A2,speech_act,express_obligation_permission,의무·허가·금지 말하기,thin,scenarios=1;units=0,add_scenario_with_this_intent
-A2,speech_act,express_opinion_agree_disagree,의견 말하고 동의·반대하기,missing,scenarios=0;units=0,add_scenario_with_this_intent
+A2,speech_act,express_opinion_agree_disagree,의견 말하고 동의·반대하기,thin,scenarios=1;units=0,add_scenario_with_this_intent
 A2,speech_act,invite_accept_decline,초대·수락·거절하기,thin,scenarios=1;units=0,add_scenario_with_this_intent
 A2,speech_act,order_buy_pay,주문·구매·결제하기,thin,scenarios=1;units=0,add_scenario_with_this_intent
 A2,speech_act,report_relay_information,들은 정보 전달하기(간접화법),thin,scenarios=1;units=0,add_scenario_with_this_intent
@@ -226,7 +226,7 @@ B1,text_type,explanatory_informational_text,설명문·안내 텍스트,structur
 B1,text_type,lecture_speech_monologue,강연·연설·긴 독백,structural_gap,mode=R;count=0;surfaces=none,verify_genre_content_and_placement
 B1,text_type,narrative_story_diary,이야기·일기·서사문,structural_gap,mode=P;count=0;surfaces=none,verify_genre_content_and_placement
 B1,text_type,news_article_report,신문 기사·보도문,structural_gap,mode=R;count=0;surfaces=none,verify_genre_content_and_placement
-B1,text_type,presentation_briefing_talk,발표·브리핑,missing,mode=P;count=0;surfaces=scenario,add_items_of_this_genre
+B1,text_type,presentation_briefing_talk,발표·브리핑,thin,mode=P;count=1;surfaces=scenario,add_items_of_this_genre
 B1,text_type,review_critique_text,리뷰·비평문,structural_gap,mode=P;count=0;surfaces=none,verify_genre_content_and_placement
 B1,text_type,social_media_post_comment,SNS 게시물·댓글·포럼,missing,mode=R;count=0;surfaces=scenario,add_items_of_this_genre
 B1,vocab_domain,language_metalanguage,언어·문법·화법 메타언어,thin,words=7,add_pack_in_domain
@@ -244,7 +244,6 @@ B2,grammar_anchor,grammar_b2_criterion_view_batch20,grammar.csv row never shown 
 B2,grammar_anchor,grammar_b2_definition,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b2_formal_concession,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b2_formal_intention,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
-B2,grammar_anchor,grammar_b2_formal_reason,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b2_formal_reference,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b2_formal_written_request,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b2_futility,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
@@ -341,7 +340,7 @@ B2,text_type,email_letter_formal,격식 이메일·공문,structural_gap,mode=P;
 B2,text_type,essay_opinion_argumentative,논설문·의견문(에세이),structural_gap,mode=R/P;count=0;surfaces=none,verify_genre_content_and_placement
 B2,text_type,literary_text,문학 텍스트,structural_gap,mode=R;count=0;surfaces=none,verify_genre_content_and_placement
 B2,text_type,news_article_report,신문 기사·보도문,structural_gap,mode=R;count=0;surfaces=none,verify_genre_content_and_placement
-B2,text_type,presentation_briefing_talk,발표·브리핑,missing,mode=P;count=0;surfaces=scenario,add_items_of_this_genre
+B2,text_type,presentation_briefing_talk,발표·브리핑,thin,mode=P;count=1;surfaces=scenario,add_items_of_this_genre
 B2,text_type,report_proposal_official,보고서·제안서·공식 문서,structural_gap,mode=R/P;count=0;surfaces=none,verify_genre_content_and_placement
 B2,text_type,review_critique_text,리뷰·비평문,structural_gap,mode=P;count=0;surfaces=none,verify_genre_content_and_placement
 C1,grammar_anchor,grammar_b2_formal_regarding,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
@@ -485,7 +484,6 @@ C2,grammar_nikl,-으리오,종결어미 -리오,missing_in_app,nikl_kiiq_2017,ad
 C2,grammar_nikl,-으오,종결어미 -오,missing_in_app,nikl_kiiq_2017,add_grammar_row
 C2,grammar_nikl,-은들,"연결어미 -ㄴ들2, 인들",missing_in_app,nikl_kiiq_2017,add_grammar_row
 C2,grammar_nikl,-을라치면,연결어미 -ㄹ라치면,missing_in_app,nikl_kiiq_2017,add_grammar_row
-C2,grammar_nikl,-이라야,"연결어미 -라야, -이라야만, -라야만",missing_in_app,nikl_kiiq_2017,add_grammar_row
 C2,grammar_nikl,-자니3,"연결어미 -자2,-자니까3",missing_in_app,nikl_kiiq_2017,add_grammar_row
 C2,grammar_nikl,-자면1,연결어미,missing_in_app,nikl_kiiq_2017,add_grammar_row
 C2,grammar_nikl,-자면2,표현,missing_in_app,nikl_kiiq_2017,add_grammar_row
@@ -502,14 +500,13 @@ C2,register,hao_semiformal,recognition,absent,scenarios=0,add_scenario_in_regist
 C2,register,written_plain_haeche,production,absent,scenarios=0,add_scenario_in_register
 C2,speech_act,adjust_register_speech_style,말투·존댓말·호칭 조절하기,missing,scenarios=0;units=0,add_scenario_with_this_intent
 C2,speech_act,manage_turns_interrupt_hold_floor,발언권 관리·끼어들기,missing,scenarios=0;units=0,add_scenario_with_this_intent
-C2,speech_act,reformulate_paraphrase_rewrite,바꿔 말하기·문장 고쳐 쓰기,thin,scenarios=1;units=0,add_scenario_with_this_intent
 C2,text_type,academic_specialised_text,학술·전문 텍스트,structural_gap,mode=R/P;count=0;surfaces=none,verify_genre_content_and_placement
 C2,text_type,contract_terms_legal_text,계약서·약관·법률 텍스트,structural_gap,mode=R;count=0;surfaces=none,verify_genre_content_and_placement
 C2,text_type,essay_opinion_argumentative,논설문·의견문(에세이),structural_gap,mode=R/P;count=0;surfaces=none,verify_genre_content_and_placement
 C2,text_type,lecture_speech_monologue,강연·연설·긴 독백,structural_gap,mode=R;count=0;surfaces=none,verify_genre_content_and_placement
 C2,text_type,literary_text,문학 텍스트,structural_gap,mode=R;count=0;surfaces=none,verify_genre_content_and_placement
 C2,text_type,news_article_report,신문 기사·보도문,structural_gap,mode=R;count=0;surfaces=none,verify_genre_content_and_placement
-C2,text_type,presentation_briefing_talk,발표·브리핑,missing,mode=P;count=0;surfaces=scenario,add_items_of_this_genre
+C2,text_type,presentation_briefing_talk,발표·브리핑,thin,mode=P;count=1;surfaces=scenario,add_items_of_this_genre
 C2,text_type,report_proposal_official,보고서·제안서·공식 문서,structural_gap,mode=P;count=0;surfaces=none,verify_genre_content_and_placement
 C2,text_type,review_critique_text,리뷰·비평문,structural_gap,mode=P;count=0;surfaces=none,verify_genre_content_and_placement
 *,functional_grammar,nominal_style_academic,명사문체·학술체,missing,ko=C1;app_earliest=None;missing_ids=,add_or_relevel_anchor_grammar

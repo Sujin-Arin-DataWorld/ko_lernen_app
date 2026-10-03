@@ -16542,6 +16542,112 @@
         "de": "Statt eine einzige Antwort festzulegen, hilft es eher, gemeinsam zu klären, warum es so wirkt.",
         "en": "Rather than settle on one answer, it helps to work out together why it comes across that way."
       }
+    },
+    {
+      "id": "smalltalk_c2_0091",
+      "level": "c2",
+      "category": "phone",
+      "kind": "question",
+      "ko": "이의 신청을 하려면 먼저 어떤 자료가 필요한지 안내받을 수 있을까요?",
+      "de": "Könnte ich zunächst erfahren welche Unterlagen ich für einen Einspruch brauche?",
+      "en": "Could I first be told what materials I need for an appeal?",
+      "reply": {
+        "ko": "통지문과 판단에 영향을 줄 수 있는 자료를 함께 확인해 보겠습니다.",
+        "de": "Wir sehen uns die Mitteilung und die Unterlagen an die die Entscheidung beeinflussen könnten.",
+        "en": "We can look at the notice together with materials that could affect the decision."
+      },
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "어떤 경우에 추가 자료를 낼 수 있는지도 알려 주실 수 있나요?",
+          "de": "Könnten Sie mir auch sagen in welchen Fällen zusätzliche Unterlagen eingereicht werden können?",
+          "en": "Could you also tell me in which cases additional materials can be submitted?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그 자료가 절차에 어떻게 쓰이는지도 함께 설명해 주세요.",
+        "de": "Bitte erläutern Sie auch wie diese Unterlagen im Verfahren verwendet werden.",
+        "en": "Please also explain how those materials are used in the process."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0092",
+      "level": "c2",
+      "category": "phone",
+      "kind": "reaction",
+      "ko": "통지문에 적힌 기준이 제 경우에도 적용되는지 확인하고 싶습니다.",
+      "de": "Ich möchte prüfen ob die in der Mitteilung genannten Kriterien auch in meinem Fall gelten.",
+      "en": "I would like to check whether the criteria stated in the notice also apply in my case.",
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "제 경우에 적용된 기준을 문서로 받을 수 있을까요?",
+          "de": "Könnte ich die in meinem Fall angewandten Kriterien schriftlich erhalten?",
+          "en": "Could I receive the criteria applied in my case in writing?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "확인할 수 없는 부분은 답변이 필요하다고 기록해 두겠습니다.",
+        "de": "Punkte die sich nicht prüfen lassen halte ich als Fragen fest die beantwortet werden müssen.",
+        "en": "I will record any point that cannot be checked as a question requiring an answer."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0093",
+      "level": "c2",
+      "category": "phone",
+      "kind": "question",
+      "ko": "추가 자료를 내도 같은 기준으로 판단한다면 재검토의 범위는 어디까지인가요?",
+      "de": "Wie weit reicht die Überprüfung wenn trotz zusätzlicher Unterlagen nach denselben Kriterien entschieden wird?",
+      "en": "How far does the review extend if the same criteria are used even after additional materials are submitted?",
+      "reply": {
+        "ko": "자료가 판단에 영향을 줄 수 있는지와 기준의 설명을 요청하는지는 나누어 안내하겠습니다.",
+        "de": "Wir erläutern getrennt ob Unterlagen die Entscheidung beeinflussen können und wie eine Erklärung der Kriterien verlangt werden kann.",
+        "en": "We will explain separately whether materials can affect the decision and how to request an explanation of the criteria."
+      },
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "재검토가 결과 변경을 약속하는 절차는 아니라는 뜻인가요?",
+          "de": "Heißt das dass die Überprüfung keine Änderung des Ergebnisses verspricht?",
+          "en": "Does that mean the review does not promise a change in the result?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "약속할 수 있는 범위와 확인할 수 있는 범위를 구분해 주셔서 이해가 됩니다.",
+        "de": "Die Unterscheidung zwischen dem was zugesichert und dem was geprüft werden kann hilft mir weiter.",
+        "en": "Distinguishing what can be promised from what can be checked helps me understand."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0094",
+      "level": "c2",
+      "category": "phone",
+      "kind": "reaction",
+      "ko": "예외가 있다면 단서만 짧게 말하기보다 어디에 적용되는지 함께 알려 주시면 좋겠습니다.",
+      "de": "Wenn es Ausnahmen gibt wäre es hilfreich nicht nur den Vorbehalt kurz zu nennen sondern auch zu erklären wo er gilt.",
+      "en": "If there are exceptions, it would help to explain where they apply rather than only mention the caveat briefly.",
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 예외가 제 이의 신청에도 해당하는지 확인할 방법이 있을까요?",
+          "de": "Gibt es eine Möglichkeit zu prüfen ob diese Ausnahme auch für meinen Einspruch gilt?",
+          "en": "Is there a way to check whether that exception also applies to my appeal?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그 부분은 적용 범위와 함께 문서로 안내하겠습니다.",
+        "de": "Diesen Punkt erläutern wir schriftlich zusammen mit dem Geltungsbereich.",
+        "en": "We will explain that point in writing together with the scope of application."
+      }
     }
   ]
 }

@@ -52,7 +52,7 @@ void main() {
     }
 
     expect(files, hasLength(6));
-    expect(scenarioCount, 178);
+    expect(scenarioCount, 183);
     expect(problems, isEmpty, reason: problems.take(20).join('\n'));
     expect(longestKoreanLine, greaterThanOrEqualTo(60));
     expect(

@@ -4,43 +4,43 @@
   "sources": [
     {
       "kind": "vocab",
-      "count": 2956,
+      "count": 2968,
       "source": "korean_vocab.csv",
       "requiresExplicitId": true
     },
     {
       "kind": "grammar",
-      "count": 263,
+      "count": 264,
       "source": "grammar.csv",
       "requiresExplicitId": true
     },
     {
       "kind": "scenario",
-      "count": 178,
+      "count": 183,
       "source": "scenarios",
       "requiresExplicitId": true
     },
     {
       "kind": "scenarioQuest",
-      "count": 547,
+      "count": 562,
       "source": "scenarios",
       "requiresExplicitId": false
     },
     {
       "kind": "smalltalk",
-      "count": 586,
+      "count": 590,
       "source": "smalltalk.json",
       "requiresExplicitId": true
     },
     {
       "kind": "cloze",
-      "count": 2353,
+      "count": 2365,
       "source": "cloze.json",
       "requiresExplicitId": true
     },
     {
       "kind": "satz",
-      "count": 2873,
+      "count": 2885,
       "source": "satz_sentences.json",
       "requiresExplicitId": true
     },

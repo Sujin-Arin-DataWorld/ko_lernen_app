@@ -241,7 +241,7 @@ def _write_fixture(root: Path) -> None:
     scenarios = {
         "a1": [
             {"id": "s_food", "level": "a1", "title": {"ko": "식당에서 주문하기"}, "intent": "원하는 음식을 주문한다", "shelf": "a1_eat", "backdrop": "restaurant", "register": "polite", "grammarIds": ["g_topic"], "dialog": []},
-            {"id": "s_phone", "level": "a1", "title": {"ko": "전화로 식당 예약하기"}, "intent": "예약을 주문한다", "shelf": "a1_eat", "backdrop": "home", "register": "polite", "grammarIds": ["g_dangling"], "dialog": []},
+            {"id": "s_phone", "level": "a1", "title": {"ko": "식당 예약 바꾸기"}, "intent": "예약을 주문한다", "shelf": "a1_eat", "backdrop": "home", "register": "polite", "surfaceFormIds": ["phone"], "grammarIds": ["g_dangling"], "dialog": []},
         ],
         "a2": [
             {"id": "s_museum", "level": "a2", "title": {"ko": "박물관 안내"}, "intent": "ask_for_a_map", "shelf": "a2_x", "backdrop": "home", "register": "business", "grammarIds": [], "dialog": []},
@@ -332,6 +332,11 @@ class FixtureAuditTest(unittest.TestCase):
         a2 = {r["id"]: r for r in self.result.text_types["A2"]}
         self.assertEqual(a2["phone"]["status"], "missing")
 
+    def test_declared_spoken_surface_form_is_evidence(self):
+        row = next(r for r in self.result.text_types["A1"] if r["id"] == "phone")
+        self.assertEqual(row["count"], 1)
+        self.assertEqual(row["items"], ["scenario:s_phone"])
+
     def test_absent_draft_input_is_explicit_and_not_completion(self):
         inventory = self.corpus.draft_inventory
         self.assertTrue(inventory["metadata"]["inputAbsent"])
@@ -391,10 +396,10 @@ class FixtureAuditTest(unittest.TestCase):
             self.assertEqual(diagnostics["unassigned_culture_notes"], ["no-level"])
 
     def test_requirements_keep_modes_distinct_and_never_promote_candidates(self):
-        # `phone` is a legacy scenario-title hit in the default fixture.  It
-        # remains a legacy placement reference, never a verified P task.
-        legacy_phone = next(row for row in self.result.text_types["A1"] if row["id"] == "phone")
-        self.assertEqual(legacy_phone["count"], 1)
+        # `phone` is an explicit spoken-surface declaration in the default
+        # fixture. It remains a placement reference, never a verified P task.
+        declared_phone = next(row for row in self.result.text_types["A1"] if row["id"] == "phone")
+        self.assertEqual(declared_phone["count"], 1)
         default_rows = {r["requirementKey"]: r for r in self.result.evidence_requirements}
         phone = default_rows["A1:textType:phone:P"]
         self.assertEqual(phone["evidenceStage"], "unverified_unmapped")

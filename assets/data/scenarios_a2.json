@@ -6072,6 +6072,213 @@
       },
       "shelf": "a2_fandom",
       "backdrop": "market"
+    },
+    {
+      "id": "a2_message_change_of_plan_2026",
+      "level": "a2",
+      "emoji": "📱",
+      "register": "casual",
+      "speechStyle": "casual",
+      "title": {
+        "ko": "메시지로 약속 시간을 바꾸기",
+        "de": "Per Nachricht die Verabredung verschieben",
+        "en": "Changing the time of a plan by message"
+      },
+      "intro": {
+        "ko": "버스가 늦게 와서 친구에게 약속 시간을 바꾸자고 메시지를 보내요.",
+        "de": "Weil der Bus zu spät kommt, schreibst du einer Freundin, um die Uhrzeit eurer Verabredung zu ändern.",
+        "en": "Because the bus is late, you message a friend to change the time of your plan."
+      },
+      "courseUnitId": "a2_03_chat_relationships",
+      "playerCharacterId": "lena",
+      "participantIds": [
+        "lena",
+        "maya"
+      ],
+      "relationshipContext": "friends coordinating a plan by message",
+      "intent": "Explain a delay, propose a new time, and agree on a meeting place.",
+      "shelf": "a2_plan",
+      "backdrop": "station",
+      "vocab": [
+        {
+          "korean": "늦게 오다",
+          "note": {
+            "ko": "정한 시간보다 뒤에 도착하다",
+            "de": "zu spät kommen",
+            "en": "to arrive late"
+          }
+        },
+        {
+          "korean": "약속",
+          "note": {
+            "ko": "같이 만나기로 한 일",
+            "de": "Verabredung",
+            "en": "plan / appointment"
+          }
+        },
+        {
+          "korean": "대신",
+          "note": {
+            "ko": "다른 것을 고를 때 쓰는 말",
+            "de": "stattdessen",
+            "en": "instead"
+          }
+        },
+        {
+          "korean": "역 앞",
+          "note": {
+            "ko": "역 건물의 앞쪽",
+            "de": "vor dem Bahnhof",
+            "en": "in front of the station"
+          }
+        },
+        {
+          "korean": "도착하다",
+          "note": {
+            "ko": "어떤 곳에 이르다",
+            "de": "ankommen",
+            "en": "to arrive"
+          }
+        },
+        {
+          "korean": "기다리다",
+          "note": {
+            "ko": "다른 사람이 올 때까지 있다",
+            "de": "warten",
+            "en": "to wait"
+          }
+        }
+      ],
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "surfaceFormIds": [
+        "instant_message_chat"
+      ],
+      "grammarIds": [
+        "grammar_a2_probability"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ 것 같다",
+          "de": "Vermutung",
+          "en": "Guess / likelihood"
+        },
+        "explanation": {
+          "ko": "늦을 것 같아처럼 아직 확실하지 않은 일을 조심스럽게 말할 수 있어요.",
+          "de": "Mit 늦을 것 같아 kann man vorsichtig sagen, dass etwas wahrscheinlich passieren wird.",
+          "en": "Use 늦을 것 같아 to say cautiously that something will probably happen."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "미안해. 버스가 너무 늦게 와서 여섯 시에는 못 갈 것 같아.",
+          "de": "Tut mir leid. Der Bus kommt so spät, dass ich es um sechs wohl nicht schaffe.",
+          "en": "Sorry. The bus is so late that I don’t think I can make it by six."
+        },
+        {
+          "speaker": "maya",
+          "ko": "괜찮아. 그럼 여섯 시 반에 만날래?",
+          "de": "Kein Problem. Wollen wir uns dann um halb sieben treffen?",
+          "en": "That’s okay. Shall we meet at half past six then?"
+        },
+        {
+          "speaker": "user",
+          "ko": "응, 좋아. 카페 대신 역 앞에서 만날까?",
+          "de": "Ja, gut. Treffen wir uns statt im Café vor dem Bahnhof?",
+          "en": "Yes, good. Shall we meet in front of the station instead of at the café?"
+        },
+        {
+          "speaker": "maya",
+          "ko": "좋아. 비도 오니까 역 안에서 기다릴게.",
+          "de": "Gut. Weil es auch regnet, warte ich drinnen im Bahnhof.",
+          "en": "Good. Since it’s raining too, I’ll wait inside the station."
+        },
+        {
+          "speaker": "user",
+          "ko": "고마워. 도착하기 전에 다시 메시지할게.",
+          "de": "Danke. Ich schreibe dir noch einmal, bevor ich ankomme.",
+          "en": "Thanks. I’ll message you again before I arrive."
+        },
+        {
+          "speaker": "maya",
+          "ko": "응, 천천히 와. 길 조심하고.",
+          "de": "Okay, komm in Ruhe. Pass auf dich auf dem Weg auf.",
+          "en": "Okay, take your time. Be careful on the way."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a2_message_change_of_plan_2026_hear",
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "괜찮아. 그럼 여섯 시 반에 만날래?",
+            "options": [
+              {
+                "de": "Kein Problem. Wollen wir uns dann um halb sieben treffen?",
+                "en": "That’s okay. Shall we meet at half past six then?"
+              },
+              {
+                "de": "Danke. Ich schreibe dir noch einmal, bevor ich ankomme.",
+                "en": "Thanks. I’ll message you again before I arrive."
+              },
+              {
+                "de": "Gut. Weil es auch regnet, warte ich drinnen im Bahnhof.",
+                "en": "Good. Since it’s raining too, I’ll wait inside the station."
+              },
+              {
+                "de": "Ja, gut. Treffen wir uns statt im Café vor dem Bahnhof?",
+                "en": "Yes, good. Shall we meet in front of the station instead of at the café?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_message_change_of_plan_2026_translate",
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Ja, gut. Treffen wir uns statt im Café vor dem Bahnhof?",
+            "promptEn": "Yes, good. Shall we meet in front of the station instead of at the café?",
+            "options": [
+              {
+                "ko": "응, 좋아. 카페 대신 역 앞에서 만날까?"
+              },
+              {
+                "ko": "미안해. 버스가 너무 늦게 와서 여섯 시에는 못 갈 것 같아."
+              },
+              {
+                "ko": "좋아. 비도 오니까 역 안에서 기다릴게."
+              },
+              {
+                "ko": "응, 천천히 와. 길 조심하고."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_message_change_of_plan_2026_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a2_relationships"
+          ],
+          "data": {
+            "targetKo": "고마워. 도착하기 전에 다시 메시지할게.",
+            "audioKo": "고마워. 도착하기 전에 다시 메시지할게.",
+            "promptDe": "Danke. Ich schreibe dir noch einmal, bevor ich ankomme.",
+            "promptEn": "Thanks. I’ll message you again before I arrive.",
+            "distractors": [
+              "여섯 시에는",
+              "역 안에서",
+              "길 조심하고"
+            ]
+          }
+        }
+      ],
+      "culturalNote": null,
+      "xpReward": 100
     }
   ]
 }

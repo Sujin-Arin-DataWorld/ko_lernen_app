@@ -29,8 +29,8 @@ def validate():
     assert data == build(), "Catalog differs from the reproducible authored source"
     sources = {s["id"]: s for s in load_sources()}
     lessons = data["lessons"]
-    assert len(lessons) == len(sources) == 178
-    assert len({l["id"] for l in lessons}) == 178
+    assert len(lessons) == len(sources) == 183
+    assert len({l["id"] for l in lessons}) == 183
     assert collections.Counter(cid for l in lessons for cid in l["contentIds"]) == collections.Counter(sources.keys())
     question_ids = set()
 
@@ -123,12 +123,12 @@ def validate():
             q = lesson["questions"][0]
             assert "의도" in q["prompt"]["ko"]
             assert all(o["ko"] != source["intro"]["ko"] for o in q["options"])
-    assert len(question_ids) == 712
+    assert len(question_ids) == 732
     return {
         "lessons": len(lessons), "questions": len(question_ids),
         "levels": dict(collections.Counter(l["level"] for l in lessons)),
         "skills": dict(collections.Counter(q["skill"] for l in lessons for q in l["questions"])),
-        "advancedInferenceItems": 90,
+        "advancedInferenceItems": 92,
         "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
         "status": "STRUCTURAL_PASS; model-authored language QA, no human approval claimed",
     }

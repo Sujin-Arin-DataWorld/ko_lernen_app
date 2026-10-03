@@ -538,6 +538,10 @@
       "level": "a1"
     },
     {
+      "id": "seed_scenario_a1_message_contact_after_class_2026_v1",
+      "level": "a1"
+    },
+    {
       "id": "seed_scenario_a1_theme_park_date_choices_v1",
       "level": "a1"
     },
@@ -1874,6 +1878,10 @@
       "level": "a2"
     },
     {
+      "id": "seed_scenario_a2_message_change_of_plan_2026_v1",
+      "level": "a2"
+    },
+    {
       "id": "seed_scenario_a2_theme_park_date_break_v1",
       "level": "a2"
     },
@@ -2959,6 +2967,10 @@
     },
     {
       "id": "seed_scenario_apartment_recycling_mixup_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_team_briefing_revised_schedule_2026_v1",
       "level": "b1"
     },
     {
@@ -4187,6 +4199,10 @@
     },
     {
       "id": "seed_scenario_ai_image_disclosure_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_meeting_hold_for_evidence_2026_v1",
       "level": "b2"
     },
     {
@@ -8042,6 +8058,102 @@
       "level": "c2"
     },
     {
+      "id": "seed_cloze_cloze_c2_0251_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0252_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0253_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0254_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0255_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0256_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0257_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0258_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0259_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0260_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0261_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0262_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0263_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0264_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0265_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0266_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0267_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0268_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0269_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0270_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0271_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0272_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0273_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0274_v1",
+      "level": "c2"
+    },
+    {
       "id": "seed_grammar_grammar_c2_as_already_set_v1",
       "level": "c2"
     },
@@ -8078,11 +8190,23 @@
       "level": "c2"
     },
     {
+      "id": "seed_grammar_grammar_c2_often_ends_badly_v1",
+      "level": "c2"
+    },
+    {
       "id": "seed_grammar_grammar_c2_on_the_premise_v1",
       "level": "c2"
     },
     {
+      "id": "seed_grammar_grammar_c2_only_adequate_explanation_v1",
+      "level": "c2"
+    },
+    {
       "id": "seed_grammar_grammar_c2_premise_review_batch20_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_grammar_grammar_c2_rather_than_assume_v1",
       "level": "c2"
     },
     {
@@ -8934,6 +9058,102 @@
       "level": "c2"
     },
     {
+      "id": "seed_satz_satz_c2_0253_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0254_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0255_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0256_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0257_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0258_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0259_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0260_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0261_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0262_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0263_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0264_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0265_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0266_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0267_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0268_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0269_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0270_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0271_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0272_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0273_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0274_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0275_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0276_v1",
+      "level": "c2"
+    },
+    {
       "id": "seed_scenario_ai_hiring_appeal_v1",
       "level": "c2"
     },
@@ -8943,6 +9163,10 @@
     },
     {
       "id": "seed_scenario_autonomous_delivery_liability_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_public_redress_briefing_2026_v1",
       "level": "c2"
     },
     {
@@ -9334,11 +9558,47 @@
       "level": "c2"
     },
     {
+      "id": "seed_smalltalk_smalltalk_c2_0087_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0088_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0089_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0090_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0091_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0092_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0093_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0094_v1",
+      "level": "c2"
+    },
+    {
       "id": "seed_vocab_pack_c2_2026_social_topics_1_v1",
       "level": "c2"
     },
     {
       "id": "seed_vocab_pack_c2_appeal_path_1_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_vocab_pack_c2_argument_scope_1_v1",
       "level": "c2"
     },
     {
@@ -9367,6 +9627,10 @@
     },
     {
       "id": "seed_vocab_pack_c2_framing_analysis_1_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_vocab_pack_c2_honorific_context_1_v1",
       "level": "c2"
     },
     {
@@ -10336,6 +10600,13 @@
       "level": "a1",
       "sourceSeedId": "seed_grammar_grammar_b1_obligation_v1",
       "courseUnitId": "a1_10_health_safety"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_message_contact_after_class_2026",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_message_contact_after_class_2026_v1",
+      "courseUnitId": "a1_07_contact_address"
     },
     {
       "kind": "scenario",
@@ -12677,6 +12948,13 @@
     },
     {
       "kind": "scenario",
+      "id": "a2_message_change_of_plan_2026",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_message_change_of_plan_2026_v1",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "kind": "scenario",
       "id": "a2_theme_park_date_break",
       "level": "a2",
       "sourceSeedId": "seed_scenario_a2_theme_park_date_break_v1",
@@ -14578,6 +14856,13 @@
       "level": "b1",
       "sourceSeedId": "seed_scenario_apartment_recycling_mixup_v1",
       "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_team_briefing_revised_schedule_2026",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_team_briefing_revised_schedule_2026_v1",
+      "courseUnitId": "b1_03_work_softening"
     },
     {
       "kind": "scenario",
@@ -16726,6 +17011,13 @@
       "id": "ai_image_disclosure",
       "level": "b2",
       "sourceSeedId": "seed_scenario_ai_image_disclosure_v1",
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_meeting_hold_for_evidence_2026",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_meeting_hold_for_evidence_2026_v1",
       "courseUnitId": "b2_02_professional_opinion"
     },
     {
@@ -19919,6 +20211,174 @@
       "level": "c1",
       "sourceSeedId": "seed_cloze_cloze_c1_0250_v1",
       "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0251",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0251_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0252",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0252_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0253",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0253_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0254",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0254_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0255",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0255_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0256",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0256_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0257",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0257_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0258",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0258_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0259",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0259_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0260",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0260_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0261",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0261_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0262",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0262_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0263",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0263_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0264",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0264_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0265",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0265_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0266",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0266_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0267",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0267_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0268",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0268_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0269",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0269_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0270",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0270_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0271",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0271_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0272",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0272_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0273",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0273_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0274",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0274_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
     },
     {
       "kind": "grammar",
@@ -24731,6 +25191,13 @@
     },
     {
       "kind": "grammar",
+      "id": "grammar_c2_often_ends_badly",
+      "level": "c2",
+      "sourceSeedId": "seed_grammar_grammar_c2_often_ends_badly_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "grammar",
       "id": "grammar_c2_on_the_premise",
       "level": "c2",
       "sourceSeedId": "seed_grammar_grammar_c2_on_the_premise_v1",
@@ -24738,9 +25205,23 @@
     },
     {
       "kind": "grammar",
+      "id": "grammar_c2_only_adequate_explanation",
+      "level": "c2",
+      "sourceSeedId": "seed_grammar_grammar_c2_only_adequate_explanation_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "grammar",
       "id": "grammar_c2_premise_review_batch20",
       "level": "c2",
       "sourceSeedId": "seed_grammar_grammar_c2_premise_review_batch20_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_c2_rather_than_assume",
+      "level": "c2",
+      "sourceSeedId": "seed_grammar_grammar_c2_rather_than_assume_v1",
       "courseUnitId": "c2_01_interpretation_institutions"
     },
     {
@@ -26571,6 +27052,174 @@
       "courseUnitId": "c2_01_interpretation_institutions"
     },
     {
+      "kind": "satz",
+      "id": "satz_c2_0253",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0253_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0254",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0254_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0255",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0255_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0256",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0256_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0257",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0257_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0258",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0258_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0259",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0259_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0260",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0260_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0261",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0261_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0262",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0262_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0263",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0263_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0264",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0264_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0265",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0265_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0266",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0266_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0267",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0267_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0268",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0268_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0269",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0269_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0270",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0270_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0271",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0271_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0272",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0272_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0273",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0273_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0274",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0274_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0275",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0275_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0276",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0276_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
       "kind": "scenario",
       "id": "ai_hiring_appeal",
       "level": "c2",
@@ -26589,6 +27238,13 @@
       "id": "autonomous_delivery_liability",
       "level": "c2",
       "sourceSeedId": "seed_scenario_autonomous_delivery_liability_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_public_redress_briefing_2026",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_public_redress_briefing_2026_v1",
       "courseUnitId": "c2_02_technology_public_ethics"
     },
     {
@@ -27383,6 +28039,62 @@
       "courseUnitId": "c2_01_interpretation_institutions"
     },
     {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0087",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0087_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0088",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0088_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0089",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0089_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0090",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0090_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0091",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0091_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0092",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0092_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0093",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0093_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0094",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0094_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
       "kind": "vocabPack",
       "id": "c2_2026_social_topics_1",
       "level": "c2",
@@ -27394,6 +28106,13 @@
       "id": "c2_appeal_path_1",
       "level": "c2",
       "sourceSeedId": "seed_vocab_pack_c2_appeal_path_1_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "c2_argument_scope_1",
+      "level": "c2",
+      "sourceSeedId": "seed_vocab_pack_c2_argument_scope_1_v1",
       "courseUnitId": "c2_02_technology_public_ethics"
     },
     {
@@ -27443,6 +28162,13 @@
       "id": "c2_framing_analysis_1",
       "level": "c2",
       "sourceSeedId": "seed_vocab_pack_c2_framing_analysis_1_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "c2_honorific_context_1",
+      "level": "c2",
+      "sourceSeedId": "seed_vocab_pack_c2_honorific_context_1_v1",
       "courseUnitId": "c2_01_interpretation_institutions"
     },
     {
@@ -27525,12 +28251,12 @@
   ],
   "coverage": {
     "directReferenceCounts": {
-      "vocabPack": 252,
-      "grammar": 261,
-      "smalltalk": 582,
-      "scenario": 179,
-      "cloze": 791,
-      "satz": 516,
+      "vocabPack": 254,
+      "grammar": 264,
+      "smalltalk": 590,
+      "scenario": 184,
+      "cloze": 815,
+      "satz": 540,
       "project": 8
     },
     "inheritedReferenceCounts": {

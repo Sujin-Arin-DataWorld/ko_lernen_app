@@ -375,6 +375,8 @@ DancheongMotif motifForPackId(String packId) {
     'a2_messenger_phone' => DancheongMotif.chilbo,
     // Reviewed A1-C2 content packs using the existing motif pipeline.
     'c2_honorific_context' => DancheongMotif.moran,
+    // Reviewed A1-C2 content packs using the existing motif pipeline.
+    'c2_argument_scope' => DancheongMotif.taegeuk,
     _ => DancheongMotif.lotus,
   };
 }

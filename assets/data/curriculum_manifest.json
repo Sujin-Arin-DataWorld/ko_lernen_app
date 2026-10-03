@@ -2254,6 +2254,30 @@
         "concept_a1_payment_delivery"
       ],
       "usageContext": "payment_notice"
+    },
+    {
+      "id": "instant_message_chat",
+      "ko": "메신저·문자",
+      "headword": "메신저",
+      "meaning": {
+        "ko": "짧은 메시지로 주고받는 실생활 대화",
+        "de": "Alltagskommunikation per Messenger oder SMS",
+        "en": "Everyday communication by instant message or text"
+      },
+      "conceptIds": [],
+      "usageContext": "written_interaction"
+    },
+    {
+      "id": "presentation_briefing_talk",
+      "ko": "발표·브리핑",
+      "headword": "브리핑",
+      "meaning": {
+        "ko": "핵심 정보와 근거를 정리해 전달하는 말하기",
+        "de": "Mündliche Darstellung zentraler Informationen und Gründe",
+        "en": "Spoken presentation that organizes key information and grounds"
+      },
+      "conceptIds": [],
+      "usageContext": "spoken_production"
     }
   ],
   "formFamilies": [
@@ -2574,7 +2598,8 @@
     "a1_counters": "a1_05_numbers_time",
     "a1_determiners": "a1_05_numbers_time",
     "a2_messenger_phone": "a2_03_chat_relationships",
-    "c2_honorific_context": "c2_01_interpretation_institutions"
+    "c2_honorific_context": "c2_01_interpretation_institutions",
+    "c2_argument_scope": "c2_03_automation_redress"
   },
   "contentLinks": [
     {
@@ -4543,6 +4568,51 @@
         "concept_c2_fandom_discourse"
       ],
       "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_message_contact_after_class_2026",
+      "courseUnitId": "a1_07_contact_address",
+      "conceptIds": [
+        "concept_a1_contact_address"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_message_change_of_plan_2026",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_team_briefing_revised_schedule_2026",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_meeting_hold_for_evidence_2026",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_public_redress_briefing_2026",
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ],
+      "role": "assess"
     }
   ],
   "grammarRuleMap": {
@@ -6123,6 +6193,12 @@
       "conceptIds": [
         "concept_c2_discourse_institutions"
       ]
+    },
+    "grammar_c2_only_adequate_explanation": {
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ]
     }
   },
   "smalltalkCategoryUnitMap": {
@@ -7194,7 +7270,8 @@
     "a1:tiere": "a1_05_numbers_time",
     "a2:natur & draußen": "a2_03_chat_relationships",
     "a2:menschen & berufe": "a2_06_study_work",
-    "c2:ehrensprache": "c2_01_interpretation_institutions"
+    "c2:ehrensprache": "c2_01_interpretation_institutions",
+    "c2:argumentation und verfahrensgestaltung": "c2_03_automation_redress"
   },
   "scenarioCorpusGeneration": "canonical_120_v1",
   "scenarioCorpusSupplements": [

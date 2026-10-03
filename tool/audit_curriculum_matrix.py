@@ -745,7 +745,18 @@ def collect_text_type_evidence(matrix: Matrix, corpus: Corpus) -> Tuple[Dict[str
             if not lv:
                 continue
             sid = str(scn.get("id") or "")
-            hit = bool(m.get("scenarioAll"))
+            # ``surfaceFormIds`` is an author-reviewed, runtime-visible
+            # declaration.  Prefer it to guessing from a title, shelf, or
+            # backdrop when a scenario explicitly names its spoken genre.
+            # Written forms remain excluded above: dialogue turns alone do
+            # not constitute a learner-facing message, email, or document.
+            declared_forms = {
+                str(form).strip()
+                for form in (scn.get("surfaceFormIds") or [])
+                if str(form).strip()
+            }
+            hit = tid in declared_forms
+            hit = hit or bool(m.get("scenarioAll"))
             hit = hit or bool(_contains_any(_title_ko(scn), m.get("titleKo", [])))
             hit = hit or (_shelf_slug(scn.get("shelf")) in set(m.get("shelfSlugs", [])))
             hit = hit or (str(scn.get("backdrop") or "") in set(m.get("backdrops", [])))

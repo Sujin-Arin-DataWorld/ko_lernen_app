@@ -93,8 +93,8 @@ void main() {
     }
     final stock = ScenarioQuestStock.fromCorpus(corpus);
     final exposed = corpus.where(stock.allowsScenario).toList();
-    expect(corpus.length, 178);
-    expect(exposed.length, 172);
+    expect(corpus.length, 183);
+    expect(exposed.length, 177);
     expect(
       corpus
           .where((s) => !stock.allowsScenario(s))
@@ -109,6 +109,6 @@ void main() {
         );
       }
     }
-    expect(corpus.fold(0, (n, scenario) => n + scenario.quests.length), 547);
+    expect(corpus.fold(0, (n, scenario) => n + scenario.quests.length), 562);
   });
 }

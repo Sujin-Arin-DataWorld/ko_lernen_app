@@ -17,7 +17,9 @@
       "approvedAt": "2026-10-02",
       "scope": "all records promoted to bundled app content"
     },
-    "mergedAt": "2026-10-02"
+    "mergedAt": "2026-10-02",
+    "exampleRegisterDecision": "Vocabulary examples use explicitly authored textbook, research, news-analysis, and literary-criticism contexts; dialogue items preserve their conversational register.",
+    "contextReviewLedger": "tools/content_factory/review/batch_35_37_genre_context_20261003.json"
   },
   "artifacts": [
     {

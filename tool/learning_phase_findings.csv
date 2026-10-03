@@ -169,9 +169,6 @@ C16_lexis,info,C1,KP23,KP23 · language_metalanguage,"Phase 가 쓰는 어휘 4 
 C16_lexis,info,C1,KP24,KP24 · arts_history_memory_lexis,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C1 이하)에 없다: 서술자, 작품 해석, 비평, 문학적 관습",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,C1,KP24,KP24 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C1 이하)에 없다: 말에 뼈가 있다, 말문을 열다, 속내를 드러내다, 한 귀로 흘리다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,C1,KP24,KP24 · language_metalanguage,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C1 이하)에 없다: 냉소, 반어, 공유 전제, 화자 태도",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-C16_lexis,info,C2,KP25,KP25 · argumentation_evaluation_lexis,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 필요조건, 충분조건, 경계 사례, 논리적 귀결",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-C16_lexis,info,C2,KP25,KP25 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 범위를 한정하다, 단서를 달다, 맥락을 살피다, 한데 묶다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-C16_lexis,info,C2,KP25,KP25 · institutional_legal_lexis,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 적용 범위, 단서 조항, 자격 요건, 규범",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,C2,KP25,KP25 · language_metalanguage,"Phase 가 쓰는 어휘 3 개가 앱 어휘(C2 이하)에 없다: 개념 정의, 외연, 지시 범위",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,C2,KP26,KP26 · argumentation_evaluation_lexis,"Phase 가 쓰는 어휘 4 개가 앱 어휘(C2 이하)에 없다: 해석의 정합성, 평가 기준, 텍스트 근거, 반대 해석",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,C2,KP26,KP26 · arts_history_memory_lexis,"Phase 가 쓰는 어휘 3 개가 앱 어휘(C2 이하)에 없다: 서사 시점, 역사적 기억, 재현",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
