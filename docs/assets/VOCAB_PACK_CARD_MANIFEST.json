@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "generatedFrom": "assets/data/korean_vocab.csv",
   "snapshotDate": "2026-09-10",
-  "packCount": 252,
+  "packCount": 254,
   "dedicatedAssetCount": 184,
   "notes": [
     "The approved plan snapshot contained 223 packs; the live CSV now contains 224.",
@@ -9491,6 +9491,82 @@
       ],
       "status": "approved_motif_fallback",
       "sha256": "0175f487466403589dc4fe5a09e968716453fa9ee30bdcf9c543eec6a2e08b0c",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "c2_honorific_context_1",
+      "level": "C2",
+      "rewardMotif": "moran",
+      "primaryAsset": "assets/illustrations/packs/moran.webp",
+      "subjectKo": "호칭어 · 호칭 관습 · 높임법 · 주체 높임",
+      "subjectPromptEn": "a modern still life expressing term of address, address convention, Korean honorifics, subject honorification",
+      "evidenceWordIds": [
+        "vocab_c2_0241",
+        "vocab_c2_0242",
+        "vocab_c2_0243",
+        "vocab_c2_0244",
+        "vocab_c2_0245",
+        "vocab_c2_0246",
+        "vocab_c2_0247",
+        "vocab_c2_0248",
+        "vocab_c2_0249",
+        "vocab_c2_0250",
+        "vocab_c2_0251",
+        "vocab_c2_0252"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "e120500576dd0f8d540eec20855005f60d79007d827e4d89716ed0cd15a5dd42",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "c2_argument_scope_1",
+      "level": "C2",
+      "rewardMotif": "taegeuk",
+      "primaryAsset": "assets/illustrations/packs/taegeuk.webp",
+      "subjectKo": "필요조건 · 충분조건 · 경계 사례 · 논리적 귀결",
+      "subjectPromptEn": "a modern still life expressing necessary condition, sufficient condition, borderline case, logical consequence",
+      "evidenceWordIds": [
+        "vocab_c2_0253",
+        "vocab_c2_0254",
+        "vocab_c2_0255",
+        "vocab_c2_0256",
+        "vocab_c2_0257",
+        "vocab_c2_0258",
+        "vocab_c2_0259",
+        "vocab_c2_0260",
+        "vocab_c2_0261",
+        "vocab_c2_0262",
+        "vocab_c2_0263",
+        "vocab_c2_0264"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "134b57e57d590f67a44a308718a801971bc96c6a9647ee859c42c3f279585091",
       "qa": {
         "fourThree": {
           "status": "pass",

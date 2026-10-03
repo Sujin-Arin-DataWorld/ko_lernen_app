@@ -1,6 +1,6 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.81
+- **Version:** 1.82
 - **Created:** 2026-08-21
 - **Branch:** `session/uiux-bible-6-full-closeout-2026-08-22`
 - **Base:** `origin/main@2c25079623a1f52296f48f66a35e91aafb37592e`
@@ -195,7 +195,7 @@ current ratchet:
 
 | Measure | Current state | Locked interpretation |
 |---|---:|---|
-| Registered route cases | 84 | Every case is inventoried below |
+| Registered route cases | 86 | Every case is inventoried below |
 | `lib/screens` Dart files | 97 | Includes route, embedded, preview, and quest surfaces |
 | `lib/widgets/sori` Dart files | 128 | Existing system; no parallel system permitted |
 | Test files | 470 | Includes the permanent full-closeout inventory guard |
@@ -271,6 +271,8 @@ listed dependency.
 | `/review` | `ReviewSessionScreen` / Study | Preserve approved Deck and SRS evidence | SRS order/ledger/flip gate | R/D deck battery | H / 3A |
 | `/review/hub` | `ReviewHubScreen` / Std | Keep the review launch, due count, and Today summary coherent | daily-ledger selection and handoff to `/review`; review-session SRS/XP/completion | R/S/D review hub | H / 3A |
 | `/smalltalk` | `ContentLearningHub` / Study; `SmalltalkScreen` for course context | Topic lessons and review; preserve explicit course evidence boundary | course evidence and speech/content | content learning + R/D smalltalk | H / 3C |
+| `/smalltalk/context` | `SmalltalkContextScreen` / Study | Situation, intent, valid expression effects and follow-up assembly; masked scholar guides transfer practice | versioned context cases, durable practice history, existing persona voice resolver; no course mastery or rewards | context content/widget + history recovery tests | H / 3C |
+| `/hanok/practice` | `HanokPracticeScreen` / Study | Sarangbang collection separates viewed, assisted and independent practice; typed transfer and exact puzzle replay | read-only history presentation; unsupported content preserved; replay has no XP or coins | history collection + Silben replay tests | H / 4C |
 | `/content/goals` | `ContentGoalSettingsScreen` / Study | Per-content and per-level daily targets, free browse | content learning storage | content learning UI/service | 3C |
 | `/scenarios` | `ScenariosListScreen` / Std | Preserve shelf art; reduce residual local type/card styles | scenario availability/catalog | R/S/D scenario shelf | M / 3C |
 | `/quests` | `QuestsScreen` / Std | Shared reward/empty/progress language | quest tracker, reward evidence | R/D quest battery | H / 3D |

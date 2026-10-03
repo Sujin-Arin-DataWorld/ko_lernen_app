@@ -218,6 +218,7 @@ c2|work_study|dissent|1,3,8,11|합의 속 소수 의견~Minderheitspositionen im
 c2|work_study|interpretation|6,23|해석의 여지와 권한~Interpretationsspielraum und Befugnisse~Room for interpretation and authority|결말을 열어 둔 작품을 어느 범위까지 해석할 수 있는지 질문해요.~Du fragst nach den Grenzen der Interpretation bei einem Werk mit offenem Ende.~You ask how far interpretation can go with a work that leaves its ending open.
 c2|work_study|automation|13,15|자동 결정의 추적과 신뢰~Automatische Entscheidungen nachvollziehen~Tracing and trusting automated decisions|나중에 자동 결정의 이유를 추적할 수 있도록 지금 무엇을 기록할지 물어봐요.~Du fragst, was jetzt dokumentiert werden muss, damit eine automatische Entscheidung später nachvollziehbar bleibt.~You ask what must be recorded now so the reasons for an automated decision can be traced later.
 c2|work_study|policy|37,38,73,76|정책의 성과와 선택권~Politikwirkung und Wahlfreiheit~Policy outcomes and freedom of choice|기사에서 통합 성공을 어떤 지표로 측정했는지 확인해요.~Du fragst, woran ein Artikel erfolgreiche Integration gemessen hat.~You ask how an article measured successful integration.
+c2|work_study|forms_of_address|87,88,89,90|우리 팀의 호칭 정하기~Anreden im Team gemeinsam klären~Agreeing on forms of address in the team|새 팀에서 함께 일하기 시작했어요. 서로를 어떻게 부를지 함께 정하자고 제안해요.~Du fängst in einem neuen Team an. Du schlägst vor, gemeinsam zu klären, wie ihr einander ansprechen möchtet.~You are starting work in a new team. You suggest agreeing together on how to address one another.
 c2|family|responsibility|55,56|가족 담론과 공공 책임~Familiendiskurs und öffentliche Verantwortung~Family discourse and public responsibility|저출생을 국가 경쟁력의 위기로만 말할 때 누구의 삶이 수단이 되는지 질문해요.~Du fragst, wessen Leben instrumentalisiert wird, wenn niedrige Geburtenzahlen nur als nationale Wettbewerbskrise gelten.~You ask whose lives are treated as instruments when low birth rates are framed solely as a crisis of national competitiveness.
 c2|health|classification|57,58|위험 분류와 정책 비용~Risikokategorien und politische Kosten~Risk classifications and policy costs|건강 앱에서 위험군으로 분류되었을 때 누가 이의를 제기할 수 있는지 물어봐요.~Du fragst, wer die Risikogruppen-Einstufung einer Gesundheits-App anfechten kann.~You ask who can challenge a health app's classification of someone as high-risk.
 c2|kpop|norms|31,32|팬 공동체의 말과 기준~Sprache und Normen in Fangruppen~Language and norms in fan communities|문제가 된 표현에 대해 공동체 내부에서 왜 문제인지 설명한 적이 있는지 물어봐요.~Du fragst, ob innerhalb der Gruppe erklärt wurde, warum ein Ausdruck problematisch ist.~You ask whether anyone within the community has explained why an expression is problematic.
@@ -230,6 +231,7 @@ c2|hospital|consent|63,64|진료 알고리즘과 동의~Behandlungsalgorithmen u
 c2|transport|distribution|65,66|이동 정책의 비교 기준~Verkehrspolitik und Vergleichsmaßstäbe~Transport policies and comparison standards|혼잡 요금이 이동 대안이 적은 사람에게 어떤 부담을 넘기는지 질문해요.~Du fragst, welche Belastung eine Staugebühr auf Menschen mit wenigen Verkehrsalternativen verlagert.~You ask what burden congestion pricing shifts onto people with few travel alternatives.
 c2|shopping|choice|67,68|혜택이라는 말과 선택권~Vorteilsversprechen und Wahlfreiheit~Claims of benefits and consumer choice|개인화 가격을 맞춤 혜택이라고 이름 붙이면 차별의 가능성까지 없어지는지 질문해요.~Du fragst, ob die Bezeichnung maßgeschneiderter Vorteil das Diskriminierungsrisiko personalisierter Preise beseitigt.~You question whether calling personalized pricing a tailored benefit removes its potential for discrimination.
 c2|phone|remedy|25,26|요금 이의와 실제 구제~Rechnungseinspruch und wirksame Abhilfe~Billing appeals and effective remedies|자동 계산된 요금에 이의를 제기하면 사람이 재검토하는지 물어봐요.~Du fragst, ob ein Mensch eine automatisch berechnete Gebühr nach einem Einspruch erneut prüft.~You ask whether a person reviews an automatically calculated charge after an appeal.
+c2|phone|appeal_requirements|91,92,93,94|이의 신청 전에 확인할 것~Vor dem Einspruch nachfragen~Questions before an appeal|이의 신청을 준비하며 전화로 문의해요. 먼저 어떤 자료가 필요한지 안내를 요청해요.~Du bereitest einen Einspruch vor und rufst an. Zuerst möchtest du erfahren, welche Unterlagen du brauchst.~You call while preparing an appeal. First, you ask what documents you need.
 c2|emergency|power|69,70|비상 권한의 종료와 책임~Ende von Notstandsbefugnissen und Verantwortung~Ending emergency powers and assigning responsibility|비상 권한에 종료 조건이 없으면 예외가 어떻게 상시 제도로 굳어지는지 질문해요.~Du fragst, wie fehlende Endbedingungen Notstandsbefugnisse zur Dauereinrichtung machen.~You ask how emergency powers without an end condition can turn an exception into a permanent system.
 c2|partner_family|decisions|19,20|결정과 전달의 권한~Entscheiden und Entscheidungen mitteilen~Making and communicating decisions|결정하는 사람과 그 결정을 말로 전하는 사람이 다른 것 같다고 의견을 구해요.~Du vermutest, dass Entscheidung und Verkündung bei verschiedenen Personen liegen, und fragst nach einer Einschätzung.~You ask for a view on your impression that the person making decisions differs from the person voicing them.
 c2|partner_family|authorship|21,22|역할을 넘어 내 이름으로~Mehr als eine Familienrolle~Being more than a family role|계속 이름 대신 가족 내 역할로 불리면 훗날 어떻게 기억될지 질문해요.~Du fragst, wie du später in Erinnerung bleibst, wenn man dich nur mit einer Rolle statt deinem Namen bezeichnet.~You ask how you will be remembered if you are addressed only by your role rather than your name.
@@ -436,6 +438,7 @@ c2.work_study.dissent|다수안이 채택된 이유를 회의록에 어디까지
 c2.work_study.interpretation|결말을 열어 둔 작품에서 어떤 해석이 가장 설득력 있다고 봐야 할까요?|작가가 결말을 열어 둔 이유는 어떤 자료로 확인할 수 있을까요?
 c2.work_study.automation|자동 결정의 근거가 이미 기록돼 있다면 나중에 어떤 절차로 열람할 수 있을까요?|자동 결정이 이루어진 뒤에는 기록을 어느 기간까지 보관해야 할까요?
 c2.work_study.policy|그 기사에서 통합 성공을 측정한 지표는 누가 정했어요?|그 기사에 나온 통합 정책의 효과는 언제부터 나타났어요?
+c2.work_study.forms_of_address|새 팀에서는 서로의 직함을 어디에서 확인할 수 있을까요?|새 팀에서는 서로를 부르는 방식을 이미 정해 두었나요?
 c2.family.responsibility|저출생을 국가 경쟁력 위기로 설명하면 어떤 정책이 우선될까요?|저출생 담론에서 개인의 삶을 목적 그 자체로 다룬 사례는 무엇인가요?
 c2.health.classification|건강 앱의 위험군 분류에 이의를 제기하면 어떤 근거를 확인할 수 있나요?|건강 앱의 위험군 분류를 검토하는 사람은 어떤 전문성을 갖춰야 하나요?
 c2.kpop.norms|그 표현이 왜 문제인지 공동체 밖에서도 설명된 적 있어요?|그 표현의 문제를 공동체 안에서 누가 먼저 제기했어요?
@@ -448,6 +451,7 @@ c2.hospital.consent|진료 우선순위 알고리즘에 오류가 났을 때 병
 c2.transport.distribution|혼잡 요금이 이동 선택권이 많은 사람의 이동량을 얼마나 줄이나요?|이동 대안이 적은 사람에게 혼잡 요금을 돌려주면 어떤 효과가 있나요?
 c2.shopping.choice|개인화 가격이 맞춤 혜택인지 판단하려면 어떤 비교 기준이 필요할까요?|개인화 가격을 같은 가격으로 바꾸면 고객의 혜택도 줄어들까요?
 c2.phone.remedy|자동 계산된 요금에 이의를 제기한 뒤 재검토 결과는 어떻게 전달되나요?|사람이 다시 검토한 요금에 이의를 제기하면 자동으로 재계산하나요?
+c2.phone.appeal_requirements|이의 신청에 필요한 자료를 언제까지 내야 하는지 안내받을 수 있을까요?|이의 신청을 한 뒤 결과를 어떻게 확인하는지 안내받을 수 있을까요?
 c2.emergency.power|비상 권한의 종료 조건을 정한 뒤에도 예외가 계속 적용되는 이유는 무엇인가요?|상시 제도로 바뀐 비상 권한을 종료하려면 어떤 조건이 필요할까요?
 c2.partner_family.decisions|결정을 내린 사람이 직접 말로 옮기는 편이 더 낫다고 보세요?|결정을 전달하는 사람도 결정 과정에 참여하는지 확인해 볼까요?
 c2.partner_family.authorship|가족 안에서 제 역할이 바뀌면 저를 기억하는 방식도 달라질까요?|제 이름으로 불릴 때와 역할로 불릴 때 어느 쪽이 더 편할까요?
@@ -593,7 +597,7 @@ def scene_options():
             key, a, b = line.split('|')
             assert key not in result, key
             result[key] = [a, b]
-    assert len(result) == 207
+    assert len(result) == 209
     return result
 
 def build():

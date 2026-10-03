@@ -1224,6 +1224,10 @@ class Storage {
   static String? _contentLearningConfirmedRaw;
   static final contentLearningChanges = ValueNotifier<int>(0);
   static const contentLearningPreferenceKey = 'kl_content_learning_v1';
+  static Future<void>? _hanokPracticeMutation;
+  static String? _hanokPracticeConfirmedRaw;
+  static final hanokPracticeChanges = ValueNotifier<int>(0);
+  static const hanokPracticePreferenceKey = 'kl_hanok_practice_v1';
   static int _catalogHistoryMutationCount = 0;
   static int _catalogHistoryGeneration = 0;
   static int _catalogHistoryResetting = 0;
@@ -1737,6 +1741,7 @@ class Storage {
   @visibleForTesting
   static void resetForTesting() {
     _contentLearningConfirmedRaw = null;
+    _hanokPracticeConfirmedRaw = null;
     CatalogHistoryLease.resetForTesting();
     final privacyDrain = PrivacyChoiceStorage.drain();
     final privacyHasWrites = PrivacyChoiceStorage._native.isNotEmpty;
@@ -1749,6 +1754,10 @@ class Storage {
       drains.add(pendingContentLearning);
     }
     _contentLearningMutation = null;
+    if (_hanokPracticeMutation case final pendingPractice?) {
+      drains.add(pendingPractice);
+    }
+    _hanokPracticeMutation = null;
     final previousResetDrain = _srsResetDrainBarrier;
     if (_srsResetDrainPending && previousResetDrain != null) {
       drains.add(previousResetDrain);
@@ -1897,7 +1906,9 @@ class Storage {
   /// 과 달리 `_prefs` 핸들은 유지하므로 재초기화가 필요 없다.
   static void resetCachesAfterExternalWrite() {
     _contentLearningConfirmedRaw = null;
+    _hanokPracticeConfirmedRaw = null;
     contentLearningChanges.value++;
+    hanokPracticeChanges.value++;
     // A draining migration may invalidate caches while deletion still owns
     // the reset fence. Only the reset's finalizer may release that fence.
     PrivacyChoiceStorage.retire(close: _learningResetCount > 0);
@@ -6517,6 +6528,84 @@ class Storage {
     return operation;
   }
 
+  static String get hanokPracticeRawJson {
+    if (_unknownStrictKeys.contains(hanokPracticePreferenceKey)) {
+      throw const PreferenceOutcomeUnknownException(hanokPracticePreferenceKey);
+    }
+    if (_hanokPracticeConfirmedRaw case final confirmed?) {
+      return confirmed;
+    }
+    final raw = _prefs?.get(hanokPracticePreferenceKey);
+    if (raw != null && raw is! String) {
+      throw const FormatException('Invalid local Hanok practice data.');
+    }
+    return _hanokPracticeConfirmedRaw = raw as String? ?? '';
+  }
+
+  /// One durable transaction contains cursor, answers and daily completion.
+  /// Reset drains admitted transactions and rejects new ones before deletion.
+  static Future<void> mutateHanokPractice(
+    String Function(String before) mutate, {
+    PreferenceStringStore? preferences,
+    void Function()? assertCurrentWrite,
+  }) {
+    if (_learningResetCount > 0) {
+      return Future.error(const StaleLocalDataLifetimeException());
+    }
+    final lease = LocalDataLifetime.capture();
+    final operation = (_hanokPracticeMutation ?? Future<void>.value()).then((
+      _,
+    ) async {
+      lease.assertCurrent();
+      assertCurrentWrite?.call();
+      final store = preferences ?? _stringStore();
+      // The callback derives its value only after this reload, so unlike
+      // precomputed setters it can safely recover an unknown outcome here.
+      if (_unknownStrictKeys.contains(hanokPracticePreferenceKey)) {
+        await _refreshUnknownStringKeys(store, [hanokPracticePreferenceKey]);
+        lease.assertCurrent();
+        assertCurrentWrite?.call();
+        _hanokPracticeConfirmedRaw = null;
+      }
+      final before = await _prepareStringMutation(
+        store,
+        hanokPracticePreferenceKey,
+      );
+      _hanokPracticeConfirmedRaw = before.value ?? '';
+      final encoded = mutate(before.value ?? '');
+      if (encoded == (before.value ?? '')) {
+        return;
+      }
+      lease.assertCurrent();
+      assertCurrentWrite?.call();
+      await _ssStrict(
+        hanokPracticePreferenceKey,
+        encoded,
+        preferences: store,
+        beforeState: before,
+        assertCurrentWrite: () {
+          lease.assertCurrent();
+          assertCurrentWrite?.call();
+        },
+      );
+      _hanokPracticeConfirmedRaw = encoded;
+      hanokPracticeChanges.value++;
+    });
+    _hanokPracticeMutation = operation.then<void>(
+      (_) {},
+      onError: (Object _, StackTrace __) {},
+    );
+    final drain = _hanokPracticeMutation!;
+    unawaited(
+      drain.then((_) {
+        if (identical(_hanokPracticeMutation, drain)) {
+          _hanokPracticeMutation = null;
+        }
+      }),
+    );
+    return operation;
+  }
+
   static Future<void> setIlDuWorldStateRawJsonStrict(
     String json, {
     PreferenceStringStore? preferences,
@@ -8200,6 +8289,8 @@ class Storage {
         await Future.wait([
           if (_contentLearningMutation case final pendingContentLearning?)
             pendingContentLearning,
+          if (_hanokPracticeMutation case final pendingPractice?)
+            pendingPractice,
           if (_dataMigrationMutation case final migration?) migration,
           PrivacyChoiceStorage.drain(),
           if (_packProgressMutationCount > 0) _packProgressMutation,

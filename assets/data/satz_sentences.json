@@ -1204,7 +1204,7 @@
     {
       "id": "satz_a1_0057",
       "level": "a1",
-      "targetKo": "같은 학교에 가요.",
+      "targetKo": "같은 학교에 다녀요.",
       "promptDe": "Wir gehen zur gleichen Schule.",
       "promptEn": "We go to the same school.",
       "distractors": [
@@ -5444,9 +5444,9 @@
     {
       "id": "satz_a1_0064",
       "level": "a1",
-      "targetKo": "제가 먼저 인사드리겠습니다.",
-      "promptDe": "Ich begrüße Sie zuerst.",
-      "promptEn": "Let me say hello first.",
+      "targetKo": "문 앞에서 숨을 고르고 인사드리겠습니다.",
+      "promptDe": "Vor der Tür atme ich einmal durch und begrüße sie dann.",
+      "promptEn": "I catch my breath at the door, then I greet them.",
       "distractors": [
         "버스에서",
         "벌이라"
@@ -5540,9 +5540,9 @@
     {
       "id": "satz_a1_0072",
       "level": "a1",
-      "targetKo": "저는 성함을 물었어요.",
-      "promptDe": "Ich habe nach dem Namen gefragt.",
-      "promptEn": "I asked for their name.",
+      "targetKo": "성함을 묻기 전에 수진 씨가 저를 봤어요.",
+      "promptDe": "Bevor ich nach dem Namen fragte, sah mich Sujin an.",
+      "promptEn": "Before I asked their name, Sujin looked at me.",
       "distractors": [
         "다녀요",
         "마셔요"
@@ -5552,9 +5552,9 @@
     {
       "id": "satz_a1_0073",
       "level": "a1",
-      "targetKo": "실례지만, 몇 살이세요?",
-      "promptDe": "Entschuldigen Sie, wie alt sind Sie?",
-      "promptEn": "Excuse me, how old are you?",
+      "targetKo": "할머니, 몇 살이세요?",
+      "promptDe": "Oma, wie alt sind Sie?",
+      "promptEn": "Grandma, how old are you?",
       "distractors": [
         "짧아서",
         "가방이"
@@ -5888,9 +5888,9 @@
     {
       "id": "satz_a1_0101",
       "level": "a1",
-      "targetKo": "저에게 수저를 주세요.",
-      "promptDe": "Bitte geben Sie mir Löffel und Stäbchen.",
-      "promptEn": "Please give me a spoon and chopsticks.",
+      "targetKo": "수저가 두 벌이라 어느 게 제 것인지 봤어요.",
+      "promptDe": "Es lagen zwei Garnituren da, also schaute ich, welche meine war.",
+      "promptEn": "There were two sets, so I checked which one was mine.",
       "distractors": [
         "현관에서",
         "현우"
@@ -5900,9 +5900,9 @@
     {
       "id": "satz_a1_0102",
       "level": "a1",
-      "targetKo": "밑반찬이 정말 많아요.",
-      "promptDe": "Es gibt wirklich viele Beilagen.",
-      "promptEn": "There are really many side dishes.",
+      "targetKo": "밑반찬이 열 가지가 나와서 놀랐어요.",
+      "promptDe": "Es kamen zehn Beilagen auf den Tisch, das hat mich überrascht.",
+      "promptEn": "Ten side dishes came out, which surprised me.",
       "distractors": [
         "주소를",
         "팀"
@@ -5912,9 +5912,9 @@
     {
       "id": "satz_a1_0103",
       "level": "a1",
-      "targetKo": "밥을 더 드세요.",
-      "promptDe": "Bitte essen Sie noch etwas Reis.",
-      "promptEn": "Please have some more rice.",
+      "targetKo": "더 드세요 소리를 세 번 듣고 수저를 다시 들었어요.",
+      "promptDe": "Als sie mich zum dritten Mal zum Nachnehmen aufforderten, griff ich wieder zu.",
+      "promptEn": "After the third time they told me to eat more, I picked my spoon back up.",
       "distractors": [
         "뭐라고",
         "미소를"
@@ -5936,9 +5936,9 @@
     {
       "id": "satz_a1_0105",
       "level": "a1",
-      "targetKo": "이 음식은 맛있어요.",
-      "promptDe": "Dieses Essen ist lecker.",
-      "promptEn": "This food is delicious.",
+      "targetKo": "맛있어요. 그래서 수진 씨가 웃었어요.",
+      "promptDe": "Es ist lecker. Deshalb musste Sujin lachen.",
+      "promptEn": "It's delicious. So Sujin laughed.",
       "distractors": [
         "착해요",
         "무슨"
@@ -5948,9 +5948,9 @@
     {
       "id": "satz_a1_0106",
       "level": "a1",
-      "targetKo": "오늘 집밥이 맛있어요.",
-      "promptDe": "Das Essen zu Hause ist heute lecker.",
-      "promptEn": "The home-cooked meal is delicious today.",
+      "targetKo": "집밥이 식당보다 반찬이 많아요.",
+      "promptDe": "Zu Hause gibt es mehr Beilagen als im Restaurant.",
+      "promptEn": "Home cooking comes with more side dishes than a restaurant.",
       "distractors": [
         "연습하고",
         "열고"
@@ -5960,9 +5960,9 @@
     {
       "id": "satz_a1_0107",
       "level": "a1",
-      "targetKo": "국물이 정말 뜨거워요.",
-      "promptDe": "Die Brühe ist wirklich heiß.",
-      "promptEn": "The broth is really hot.",
+      "targetKo": "국물을 소리 안 나게 떠먹으려고 애썼어요.",
+      "promptDe": "Ich gab mir Mühe, die Brühe geräuschlos zu löffeln.",
+      "promptEn": "I tried hard to spoon the broth without making noise.",
       "distractors": [
         "짧은",
         "찌는"
@@ -5972,9 +5972,9 @@
     {
       "id": "satz_a1_0108",
       "level": "a1",
-      "targetKo": "젓가락질이 정말 어려워요.",
-      "promptDe": "Mit Stäbchen zu essen ist wirklich schwierig.",
-      "promptEn": "Using chopsticks is really difficult.",
+      "targetKo": "젓가락질이 서툴러서 콩나물을 놓쳤어요.",
+      "promptDe": "Meine Stäbchen waren ungeschickt, und die Sojasprossen rutschten weg.",
+      "promptEn": "My chopstick skills were clumsy, and the bean sprouts slipped away.",
       "distractors": [
         "빨개졌어요",
         "사양하다가"
@@ -5984,9 +5984,9 @@
     {
       "id": "satz_a1_0109",
       "level": "a1",
-      "targetKo": "저는 앞접시를 써요.",
-      "promptDe": "Ich benutze einen kleinen Teller.",
-      "promptEn": "I use a small side plate.",
+      "targetKo": "앞접시에 조금씩 덜어서 먹었어요.",
+      "promptDe": "Ich nahm mir kleine Portionen auf den Extrateller.",
+      "promptEn": "I served myself small portions onto the side plate.",
       "distractors": [
         "깎는",
         "깜빡였어요"
@@ -5996,9 +5996,9 @@
     {
       "id": "satz_a1_0110",
       "level": "a1",
-      "targetKo": "저는 수저를 놓아요.",
-      "promptDe": "Ich lege Löffel und Stäbchen hin.",
-      "promptEn": "I put down my spoon and chopsticks.",
+      "targetKo": "이야기를 듣고 수저를 놓았어요.",
+      "promptDe": "Ich habe zugehört und das Besteck abgelegt.",
+      "promptEn": "I listened, and I put my spoon down.",
       "distractors": [
         "사세요",
         "돈이"
@@ -6008,9 +6008,9 @@
     {
       "id": "satz_a1_0111",
       "level": "a1",
-      "targetKo": "저는 설거지를 해요.",
-      "promptDe": "Ich spüle ab.",
-      "promptEn": "I do the dishes.",
+      "targetKo": "설거지를 도우려고 일어섰어요.",
+      "promptDe": "Ich bin aufgestanden, um beim Abwasch zu helfen.",
+      "promptEn": "I stood up to help with the dishes.",
       "distractors": [
         "말하다",
         "무게가"
@@ -6020,9 +6020,9 @@
     {
       "id": "satz_a1_0112",
       "level": "a1",
-      "targetKo": "설날이에요. 가족을 만나요.",
-      "promptDe": "Es ist Seollal. Ich treffe meine Familie.",
-      "promptEn": "It is Seollal. I see my family.",
+      "targetKo": "설날 아침에 한복을 빌려 입었어요.",
+      "promptDe": "Am Morgen von Seollal lieh ich mir einen Hanbok.",
+      "promptEn": "On Seollal morning I borrowed a hanbok.",
       "distractors": [
         "고르고",
         "고름을"
@@ -6032,9 +6032,9 @@
     {
       "id": "satz_a1_0113",
       "level": "a1",
-      "targetKo": "저는 세배를 해요.",
-      "promptDe": "Ich mache eine Neujahrsverbeugung.",
-      "promptEn": "I make a New Year bow.",
+      "targetKo": "수진 씨가 거실에서 세배를 가르쳤어요.",
+      "promptDe": "Sujin brachte mir im Wohnzimmer den Neujahrsgruß bei.",
+      "promptEn": "Sujin taught me the New Year's bow in the living room.",
       "distractors": [
         "웃어",
         "빌려"
@@ -6044,9 +6044,9 @@
     {
       "id": "satz_a1_0114",
       "level": "a1",
-      "targetKo": "설날에 떡국을 먹어요.",
-      "promptDe": "An Seollal esse ich Tteokguk.",
-      "promptEn": "I eat tteokguk at Seollal.",
+      "targetKo": "떡국 한 그릇을 비우니까 나이 농담이 나왔어요.",
+      "promptDe": "Kaum war die Schüssel Tteokguk leer, kamen die Witze über mein Alter.",
+      "promptEn": "As soon as I finished the bowl of tteokguk, the age jokes started.",
       "distractors": [
         "거실에서",
         "건강식품은"
@@ -6056,9 +6056,9 @@
     {
       "id": "satz_a1_0115",
       "level": "a1",
-      "targetKo": "저는 세뱃돈을 받았어요.",
-      "promptDe": "Ich habe Neujahrsgeld bekommen.",
-      "promptEn": "I received New Year money.",
+      "targetKo": "세뱃돈을 받으니 얼굴이 빨개졌어요.",
+      "promptDe": "Als ich Neujahrsgeld bekam, wurde ich rot.",
+      "promptEn": "I turned red when they handed me New Year money.",
       "distractors": [
         "덕담을",
         "덜었어요"
@@ -6068,9 +6068,9 @@
     {
       "id": "satz_a1_0116",
       "level": "a1",
-      "targetKo": "저는 한복을 입어요.",
-      "promptDe": "Ich trage einen Hanbok.",
-      "promptEn": "I wear a hanbok.",
+      "targetKo": "한복을 입고 고름을 맸어요.",
+      "promptDe": "Ich habe den Hanbok angezogen und die Schleife gebunden.",
+      "promptEn": "I put on the hanbok and tied the ribbon.",
       "distractors": [
         "나라",
         "한국어"
@@ -6080,9 +6080,9 @@
     {
       "id": "satz_a1_0117",
       "level": "a1",
-      "targetKo": "새해 복 많이 받으세요!",
-      "promptDe": "Ein gutes neues Jahr!",
-      "promptEn": "Happy New Year!",
+      "targetKo": "문 앞에서 새해 복 많이 받으세요 하고 세 번 연습했어요.",
+      "promptDe": "Vor der Tür übte ich den Neujahrsgruß dreimal.",
+      "promptEn": "At the door I practiced the New Year greeting three times.",
       "distractors": [
         "햇과일을",
         "했는데도"
@@ -6092,9 +6092,9 @@
     {
       "id": "satz_a1_0118",
       "level": "a1",
-      "targetKo": "저는 지금 절해요.",
-      "promptDe": "Ich verbeuge mich jetzt.",
-      "promptEn": "I'm bowing now.",
+      "targetKo": "설날에는 친척들이 모여 어른들에게 절을 하는 풍습이 있어요.",
+      "promptDe": "An Seollal kommen Verwandte zusammen und verbeugen sich traditionell vor den Älteren.",
+      "promptEn": "At Seollal, relatives get together and traditionally bow to the elders.",
       "distractors": [
         "이미",
         "이야기를"
@@ -6104,9 +6104,9 @@
     {
       "id": "satz_a1_0119",
       "level": "a1",
-      "targetKo": "어른들께 세배 드려요.",
-      "promptDe": "Ich mache vor den Älteren eine Neujahrsverbeugung.",
-      "promptEn": "I offer a New Year bow to the elders.",
+      "targetKo": "어른들께 세배 드리고 일어나니 무릎이 저렸어요.",
+      "promptDe": "Nach dem Neujahrsgruß vor den Älteren waren meine Knie eingeschlafen.",
+      "promptEn": "After bowing to the elders, my knees had gone numb when I stood up.",
       "distractors": [
         "이야기를",
         "인사가"
@@ -6128,9 +6128,9 @@
     {
       "id": "satz_a1_0121",
       "level": "a1",
-      "targetKo": "차례상 앞에 서 있어요.",
-      "promptDe": "Ich stehe vor dem Ahnentisch.",
-      "promptEn": "I am standing in front of the ancestral rite table.",
+      "targetKo": "차례상 앞에서는 사진을 찍지 않아요.",
+      "promptDe": "Vor dem Ahnentisch macht man keine Fotos.",
+      "promptEn": "In front of the ancestral table, you don't take pictures.",
       "distractors": [
         "한번",
         "씻으세요"
@@ -6140,9 +6140,9 @@
     {
       "id": "satz_a1_0122",
       "level": "a1",
-      "targetKo": "세뱃돈 봉투를 받았어요.",
-      "promptDe": "Ich habe einen Umschlag mit Neujahrsgeld bekommen.",
-      "promptEn": "I received a New Year money envelope.",
+      "targetKo": "세뱃돈 봉투를 두 손으로 받았어요.",
+      "promptDe": "Den Umschlag mit dem Neujahrsgeld nahm ich mit beiden Händen.",
+      "promptEn": "I took the New Year money envelope with both hands.",
       "distractors": [
         "일어섰더니",
         "일이에요"
@@ -6152,9 +6152,9 @@
     {
       "id": "satz_a1_0123",
       "level": "a1",
-      "targetKo": "오늘 설빔을 샀어요.",
-      "promptDe": "Ich habe heute Neujahrskleidung gekauft.",
-      "promptEn": "I bought New Year clothes today.",
+      "targetKo": "설빔으로 한복 대신 단정한 니트를 골랐어요.",
+      "promptDe": "Als Neujahrskleidung wählte ich statt Hanbok einen schlichten Pullover.",
+      "promptEn": "For New Year clothes I chose a neat sweater instead of hanbok.",
       "distractors": [
         "저는",
         "적었어요"
@@ -10688,9 +10688,9 @@
     {
       "id": "satz_a1_0165",
       "level": "a1",
-      "targetKo": "무게가 이 킬로그램이에요.",
-      "promptDe": "Es wiegt zwei Kilogramm.",
-      "promptEn": "It weighs two kilograms.",
+      "targetKo": "무게가 이 킬로그램을 넘어요.",
+      "promptDe": "Das Gewicht liegt über zwei Kilogramm.",
+      "promptEn": "The weight is over two kilograms.",
       "distractors": [
         "우표",
         "소포"
@@ -10712,9 +10712,9 @@
     {
       "id": "satz_a1_0167",
       "level": "a1",
-      "targetKo": "보내는 사람 이름을 써요.",
-      "promptDe": "Ich schreibe den Namen des Absenders.",
-      "promptEn": "I write the sender's name.",
+      "targetKo": "보내는 사람 이름을 크게 썼어요.",
+      "promptDe": "Ich habe den Absendernamen groß geschrieben.",
+      "promptEn": "I wrote the sender name in large letters.",
       "distractors": [
         "우표",
         "소포"
@@ -10952,9 +10952,9 @@
     {
       "id": "satz_a1_0187",
       "level": "a1",
-      "targetKo": "비가 와서 약속을 취소했어요.",
-      "promptDe": "Weil es geregnet hat, habe ich das Treffen abgesagt.",
-      "promptEn": "It rained, so I cancelled the plan.",
+      "targetKo": "비가 와서 산책을 취소했어요.",
+      "promptDe": "Es hat geregnet, deshalb habe ich den Spaziergang abgesagt.",
+      "promptEn": "It rained, so I canceled the walk.",
       "distractors": [
         "소포를",
         "만나서"
@@ -11000,9 +11000,9 @@
     {
       "id": "satz_a1_0191",
       "level": "a1",
-      "targetKo": "지금 바로 갈게요.",
-      "promptDe": "Ich komme gleich.",
-      "promptEn": "I'll come right away.",
+      "targetKo": "지금 나와서 바로 갈게요.",
+      "promptDe": "Ich gehe jetzt raus und komme gleich.",
+      "promptEn": "I'm heading out now and I'll come right away.",
       "distractors": [
         "늦잠",
         "약속 시간"
@@ -11012,9 +11012,9 @@
     {
       "id": "satz_a1_0192",
       "level": "a1",
-      "targetKo": "주말 계획이 있어요?",
-      "promptDe": "Hast du Pläne fürs Wochenende?",
-      "promptEn": "Do you have plans for the weekend?",
+      "targetKo": "주말 계획을 같이 세울까요?",
+      "promptDe": "Sollen wir den Wochenendplan zusammen machen?",
+      "promptEn": "Shall we make the weekend plan together?",
       "distractors": [
         "주",
         "앞이에요"
@@ -11048,9 +11048,9 @@
     {
       "id": "satz_a1_0195",
       "level": "a1",
-      "targetKo": "저는 먼저 가요.",
-      "promptDe": "Ich gehe schon mal vor.",
-      "promptEn": "I'll go ahead first.",
+      "targetKo": "저는 먼저 가서 자리를 잡겠어요.",
+      "promptDe": "Ich gehe zuerst und sichere die Plätze.",
+      "promptEn": "I'll go ahead and grab the seats.",
       "distractors": [
         "영수증을",
         "결제하고"
@@ -11660,9 +11660,9 @@
     {
       "id": "satz_a1_0246",
       "level": "a1",
-      "targetKo": "제가 잠깐 실례할게요.",
-      "promptDe": "Entschuldigen Sie mich kurz.",
-      "promptEn": "Excuse me for a moment.",
+      "targetKo": "잠깐 실례해요, 화장실이 어디예요?",
+      "promptDe": "Entschuldigung, wo ist die Toilette?",
+      "promptEn": "Excuse me, where's the bathroom?",
       "distractors": [
         "죄송하다",
         "감사하다"
@@ -11720,9 +11720,9 @@
     {
       "id": "satz_a1_0251",
       "level": "a1",
-      "targetKo": "잠깐만요, 전화가 와요.",
-      "promptDe": "Einen Moment bitte, ich bekomme einen Anruf.",
-      "promptEn": "Just a moment, I'm getting a call.",
+      "targetKo": "계산 전에 잠깐만요.",
+      "promptDe": "Vor dem Bezahlen, einen Moment bitte.",
+      "promptEn": "Just a moment before paying.",
       "distractors": [
         "죄송하다",
         "감사하다"
@@ -11744,9 +11744,9 @@
     {
       "id": "satz_a1_0253",
       "level": "a1",
-      "targetKo": "천천히 말해 주세요.",
-      "promptDe": "Bitte sprechen Sie langsam.",
-      "promptEn": "Please speak slowly.",
+      "targetKo": "한국어를 천천히 말해서 이해가 돼요.",
+      "promptDe": "Weil du langsam Koreanisch sprichst, verstehe ich es.",
+      "promptEn": "Because you speak Korean slowly, I understand.",
       "distractors": [
         "수업은",
         "가방"
@@ -11756,9 +11756,9 @@
     {
       "id": "satz_a1_0254",
       "level": "a1",
-      "targetKo": "저는 정말 감사해요.",
-      "promptDe": "Ich bin wirklich dankbar.",
-      "promptEn": "I'm really grateful.",
+      "targetKo": "자리를 양보하셔서 정말 감사해요.",
+      "promptDe": "Vielen Dank, dass Sie den Platz überlassen haben.",
+      "promptEn": "Thank you so much for giving up the seat.",
       "distractors": [
         "여기에",
         "글쎄요"
@@ -28668,9 +28668,9 @@
     {
       "id": "satz_a1_0339",
       "level": "a1",
-      "targetKo": "저는 한국에 가요.",
-      "promptDe": "Ich gehe nach Korea.",
-      "promptEn": "I am going to Korea.",
+      "targetKo": "한국은 지금 가을이에요.",
+      "promptDe": "In Korea ist gerade Herbst.",
+      "promptEn": "It's fall in Korea right now.",
       "vocabKo": "한국",
       "distractors": [
         "어제",
@@ -28681,9 +28681,9 @@
     {
       "id": "satz_a1_0340",
       "level": "a1",
-      "targetKo": "독일에서 한국에 와요.",
-      "promptDe": "Ich komme aus Deutschland nach Korea.",
-      "promptEn": "I come to Korea from Germany.",
+      "targetKo": "독일에서 한국까지 비행기로 열 시간 걸려요.",
+      "promptDe": "Von Deutschland nach Korea dauert es zehn Stunden mit dem Flugzeug.",
+      "promptEn": "From Germany to Korea it takes ten hours by plane.",
       "vocabKo": "독일",
       "distractors": [
         "커피",
@@ -28694,9 +28694,9 @@
     {
       "id": "satz_a1_0341",
       "level": "a1",
-      "targetKo": "이 사람은 정말 친절해요.",
-      "promptDe": "Diese Person ist wirklich freundlich.",
-      "promptEn": "This person is really kind.",
+      "targetKo": "한국 사람이 정말 친절해요.",
+      "promptDe": "Die Menschen in Korea sind wirklich freundlich.",
+      "promptEn": "People in Korea are really friendly.",
       "vocabKo": "사람",
       "distractors": [
         "학교",
@@ -28707,9 +28707,9 @@
     {
       "id": "satz_a1_0342",
       "level": "a1",
-      "targetKo": "저는 외국인 학생이에요.",
-      "promptDe": "Ich komme aus einem anderen Land und studiere hier.",
-      "promptEn": "I am a student from another country.",
+      "targetKo": "이 학교에는 외국인이 많아요.",
+      "promptDe": "An dieser Schule gibt es viele Ausländer.",
+      "promptEn": "There are many foreigners at this school.",
       "vocabKo": "외국인",
       "distractors": [
         "김치",
@@ -28850,9 +28850,9 @@
     {
       "id": "satz_a1_0353",
       "level": "a1",
-      "targetKo": "전화번호를 여기 적어 주세요.",
-      "promptDe": "Bitte schreiben Sie die Telefonnummer hier auf.",
-      "promptEn": "Please write the phone number here.",
+      "targetKo": "실례지만 전화번호를 알 수 있을까요?",
+      "promptDe": "Entschuldigung, könnte ich Ihre Telefonnummer erfahren?",
+      "promptEn": "Excuse me, could I get your phone number?",
       "vocabKo": "전화번호",
       "distractors": [
         "타고",
@@ -28993,9 +28993,9 @@
     {
       "id": "satz_a1_0364",
       "level": "a1",
-      "targetKo": "저는 서울에 도착해요.",
-      "promptDe": "Ich komme in Seoul an.",
-      "promptEn": "I arrive in Seoul.",
+      "targetKo": "서울에 도착 후에 전화해요.",
+      "promptDe": "Nach der Ankunft in Seoul rufe ich an.",
+      "promptEn": "After arriving in Seoul, I'll call.",
       "vocabKo": "도착",
       "distractors": [
         "아홉",
@@ -31763,9 +31763,9 @@
     {
       "id": "satz_a1_0518",
       "level": "a1",
-      "targetKo": "여권을 볼 수 있어요?",
-      "promptDe": "Darf ich Ihren Reisepass sehen?",
-      "promptEn": "May I see your passport?",
+      "targetKo": "여권은 여기 있어요.",
+      "promptDe": "Hier ist der Reisepass.",
+      "promptEn": "Here's the passport.",
       "distractors": [
         "하루",
         "후"
@@ -33177,9 +33177,9 @@
     {
       "id": "satz_a1_0619",
       "level": "a1",
-      "targetKo": "제 생일은 이 달이에요.",
-      "promptDe": "Mein Geburtstag ist diesen Monat.",
-      "promptEn": "My birthday is this month.",
+      "targetKo": "일 년은 열두 달이에요.",
+      "promptDe": "Ein Jahr hat zwölf Monate.",
+      "promptEn": "A year has twelve months.",
       "distractors": [
         "곳",
         "종업원"
@@ -33779,7 +33779,7 @@
     {
       "id": "satz_a1_0662",
       "level": "a1",
-      "targetKo": "그래요. 저도 그렇게 생각해요.",
+      "targetKo": "제 생각도 그래요.",
       "promptDe": "Das denke ich auch.",
       "promptEn": "I think so too.",
       "distractors": [
@@ -34858,14 +34858,14 @@
       "id": "satz_a1_0739",
       "sourceVocabId": "vocab_a1_0824",
       "vocabKo": "여러",
-      "targetKo": "여러 명이 인사해요.",
+      "targetKo": "여러 명이 함께 노래해요.",
       "distractors": [
-        "가다 나라",
-        "먹다 나라"
+        "혼자",
+        "기다려요"
       ],
       "level": "a1",
-      "promptDe": "Mehrere Personen sagen Hallo.",
-      "promptEn": "Several people say hello.",
+      "promptDe": "Mehrere Leute singen zusammen.",
+      "promptEn": "Several people sing together.",
       "courseUnitId": "a1_05_numbers_time"
     },
     {

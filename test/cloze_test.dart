@@ -13,6 +13,46 @@ import 'package:ko_lernen_app/services/cloze_loader.dart';
 const _blank = '＿'; // full-width underscore used as the gap marker
 const _levels = {'a1', 'a2', 'b1', 'b2', 'c1', 'c2'};
 
+typedef _LexicalAnswerKey = ({
+  String id,
+  String sourceVocabId,
+  String answer,
+  String fullKo,
+});
+
+// These corpus-matched lexical targets are price and month vocabulary, with
+// contextual meaning cues and distinct distractors, rather than number guesses.
+// Their complete source keys keep this exception from accepting new items.
+const _singleSyllableLexicalCases = <_LexicalAnswerKey>{
+  (
+    id: 'cloze_a1_0422',
+    sourceVocabId: 'vocab_a1_0488',
+    answer: '값',
+    fullKo: '이 신발 값은 싸요.',
+  ),
+  (
+    id: 'cloze_a1_0638',
+    sourceVocabId: 'vocab_a1_0704',
+    answer: '달',
+    fullKo: '일 년은 열두 달이에요.',
+  ),
+};
+
+_LexicalAnswerKey _lexicalAnswerKey(Map<String, dynamic> item) => (
+  id: item['id'] as String? ?? '',
+  sourceVocabId: item['sourceVocabId'] as String? ?? '',
+  answer: item['answer'] as String? ?? '',
+  fullKo: item['fullKo'] as String? ?? '',
+);
+
+bool _meetsAnswerLengthContract(Map<String, dynamic> item) {
+  final syllables = (item['answer'] as String).runes
+      .where((r) => r >= 0xAC00 && r <= 0xD7A3)
+      .length;
+  return syllables >= 2 ||
+      _singleSyllableLexicalCases.contains(_lexicalAnswerKey(item));
+}
+
 void main() {
   group('cloze.json integrity', () {
     final raw = File('assets/data/cloze.json').readAsStringSync();
@@ -85,14 +125,56 @@ void main() {
           isEmpty,
           reason: 'accepted variant leaked into distractors: $answer',
         );
-        // No 1-syllable answers (numbers/counters) — unfair gap (review #1).
-        final syll = answer.runes
-            .where((r) => r >= 0xAC00 && r <= 0xD7A3)
-            .length;
+        // Keep the general two-syllable gate; only the exact lexical cases
+        // above have corpus-specific evidence for a shorter answer.
         expect(
-          syll,
-          greaterThanOrEqualTo(2),
-          reason: 'single-syllable answer is unfair: $answer',
+          _meetsAnswerLengthContract(it),
+          isTrue,
+          reason: 'unreviewed single-syllable answer: $answer',
+        );
+      }
+    });
+  });
+
+  group('single-syllable lexical answer boundaries', () {
+    test('the two corpus cases retain their exact source fields', () {
+      final raw =
+          jsonDecode(File('assets/data/cloze.json').readAsStringSync())
+              as Map<String, dynamic>;
+      final items = (raw['items'] as List).cast<Map<String, dynamic>>();
+      for (final key in _singleSyllableLexicalCases) {
+        final item = items.singleWhere((item) => item['id'] == key.id);
+        expect(_lexicalAnswerKey(item), key);
+      }
+    });
+
+    test('any source key change expires the lexical exception', () {
+      for (final key in _singleSyllableLexicalCases) {
+        final item = <String, dynamic>{
+          'id': key.id,
+          'sourceVocabId': key.sourceVocabId,
+          'answer': key.answer,
+          'fullKo': key.fullKo,
+        };
+        expect(_meetsAnswerLengthContract(item), isTrue);
+        for (final field in item.keys) {
+          final changed = Map<String, dynamic>.of(item);
+          changed[field] = field == 'answer' ? '일' : '${changed[field]}!';
+          expect(_meetsAnswerLengthContract(changed), isFalse, reason: field);
+        }
+      }
+    });
+
+    test('unreviewed numbers and new lexical items remain rejected', () {
+      for (final answer in ['일', '값', '달']) {
+        expect(
+          _meetsAnswerLengthContract({
+            'id': 'unreviewed-cloze-fixture',
+            'sourceVocabId': 'unreviewed-vocab-fixture',
+            'answer': answer,
+            'fullKo': '',
+          }),
+          isFalse,
         );
       }
     });
@@ -152,7 +234,11 @@ void main() {
       expect(legacy.acceptedVariants, isEmpty);
       expect(legacy.acceptedAnswers, {'학생'});
       expect(legacy.options(7), hasLength(4));
-      expect(legacy.id, item.id, reason: 'accepted variants must not change ID');
+      expect(
+        legacy.id,
+        item.id,
+        reason: 'accepted variants must not change ID',
+      );
     });
   });
 }

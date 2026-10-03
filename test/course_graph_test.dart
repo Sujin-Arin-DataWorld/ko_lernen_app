@@ -944,7 +944,8 @@ void main() {
         return option?.toString() ?? '';
       }
 
-      expect(questById, hasLength(564));
+      // Priority batch 36 adds five scenes with three quests each.
+      expect(questById, hasLength(579));
       const criticalAnswers = <String, String>{
         'quest_bakery_queue_02': '이 빵 계산해 주세요.',
         'quest_email_attachment_twice_03': '네, 이번에는 붙였어요. 확인하고 다시 보낼게요.',

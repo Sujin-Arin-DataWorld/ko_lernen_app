@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "scope": "assets/data/smalltalk.json",
+  "reviewStatus": "MODEL_REVIEW_ONLY",
+  "humanApprovalClaim": false,
+  "humanReviewStatus": "required_before_native-quality-claim",
+  "predecessorLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+  "predecessorLedgerSha256": "07bd76c99078127c7f701607776e4d4fdc09cd8f5a34bc33c1c7c9df44b3cc2f",
+  "sourceGitCommit": "b7a6efe3317a24e8490a87570a189c24893fd553",
+  "sourceGitPath": "assets/data/smalltalk.json",
+  "authoringReceiptSha256": "3c84e640d6eeb03192ae100ccde1077def7a6561e95f1d58a91acc595ffa7eca",
+  "entries": [
+    {
+      "id": "smalltalk_a1_0018",
+      "fields": [
+        "followUp.de",
+        "followUp.en",
+        "followUp.ko"
+      ],
+      "before": {
+        "id": "smalltalk_a1_0018",
+        "category": "daily",
+        "level": "a1",
+        "kind": "question",
+        "ko": "잘 잤어요?",
+        "de": "Gut geschlafen?",
+        "en": "Did you sleep well?",
+        "reply": {
+          "ko": "네, 푹 잤어요.",
+          "de": "Ja, gut geschlafen.",
+          "en": "Yes, I slept well."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "잘 잤다니 다행이에요.",
+          "de": "Schön, dass du gut geschlafen hast.",
+          "en": "I'm glad you slept well."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a1_0018",
+        "category": "daily",
+        "level": "a1",
+        "kind": "question",
+        "ko": "잘 잤어요?",
+        "de": "Gut geschlafen?",
+        "en": "Did you sleep well?",
+        "reply": {
+          "ko": "네, 푹 잤어요.",
+          "de": "Ja, gut geschlafen.",
+          "en": "Yes, I slept well."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "아, 좋네요!",
+          "de": "Ach, das freut mich!",
+          "en": "Oh, that's good to hear!"
+        }
+      },
+      "beforeSha256": "0e3157a76cf173ab0acdcbee5443c9c4380b765ff163742b8132e057a7ce4668",
+      "afterSha256": "351943bda87a89359c166fdd47140c6be6c29eaba338b482908a5ec7cf681e41",
+      "predecessorEntrySha256": "93329287069059cbcf98254e8425f60b36ae6668040cd81eafdc6f036037b80e",
+      "reason": "Direct model-authored CEFR simplification; original semantic route and permission condition preserved, native human review remains required"
+    },
+    {
+      "id": "smalltalk_a1_0024",
+      "fields": [
+        "followUp.de",
+        "followUp.en",
+        "followUp.ko"
+      ],
+      "before": {
+        "id": "smalltalk_a1_0024",
+        "category": "family",
+        "level": "a1",
+        "kind": "question",
+        "ko": "부모님 잘 계세요?",
+        "de": "Geht's deinen Eltern gut?",
+        "en": "Are your parents doing well?",
+        "reply": {
+          "ko": "네, 잘 지내세요.",
+          "de": "Ja, es geht ihnen gut.",
+          "en": "Yes, they're doing well."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft’s bei dir in letzter Zeit?",
+            "en": "How have you been lately?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "잘 지내신다니 다행이에요.",
+          "de": "Schön, dass es ihnen gut geht.",
+          "en": "I'm glad they're doing well."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a1_0024",
+        "category": "family",
+        "level": "a1",
+        "kind": "question",
+        "ko": "부모님 잘 계세요?",
+        "de": "Geht's deinen Eltern gut?",
+        "en": "Are your parents doing well?",
+        "reply": {
+          "ko": "네, 잘 지내세요.",
+          "de": "Ja, es geht ihnen gut.",
+          "en": "Yes, they're doing well."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft’s bei dir in letzter Zeit?",
+            "en": "How have you been lately?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "아, 좋네요!",
+          "de": "Ach, das freut mich!",
+          "en": "Oh, that's good to hear!"
+        }
+      },
+      "beforeSha256": "81219b88fd7c0954b6992b002b4fa8b40b0e5ddf8ef2726af9384d7e8d1680bb",
+      "afterSha256": "66da05b46c7962807a2f90420c8b696d67ef6f226a2d0cbc56cf7a81d9eea350",
+      "predecessorEntrySha256": "5fcbb35214fffa6b8a5bc18b6fe8fc5ba060f3cdaf199c99bf4bcc5388da914a",
+      "reason": "Direct model-authored CEFR simplification; original semantic route and permission condition preserved, native human review remains required"
+    },
+    {
+      "id": "smalltalk_a2_0089",
+      "fields": [
+        "followUp.de",
+        "followUp.en",
+        "followUp.ko"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0089",
+        "category": "theme_park_date",
+        "level": "a2",
+        "kind": "question",
+        "ko": "와, 저기 봐봐. 너무 귀여워! 같이 사진 찍을까?",
+        "de": "Wow, schau mal da. Wie süß! Wollen wir zusammen ein Foto machen?",
+        "en": "Wow, look over there. So cute! Want to take a picture together?",
+        "relationshipContext": "romantic_partner",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "멀리서 사진만 찍을까?",
+            "de": "Wollen wir nur aus der Entfernung ein Foto machen?",
+            "en": "Should we just take a photo from a distance?"
+          }
+        ],
+        "followUp": {
+          "ko": "사진을 찍어도 된다고 하면 캐릭터 옆에 서자.",
+          "de": "Wenn wir ein Foto machen dürfen, stellen wir uns neben die Figur.",
+          "en": "If we are allowed to take a photo, let us stand next to the character.",
+          "turnKind": "reaction"
+        },
+        "reply": {
+          "ko": "좋아. 먼저 사진 찍어도 되는지 물어보자.",
+          "de": "Gerne. Fragen wir zuerst, ob das okay ist.",
+          "en": "Sure. Let's ask if it's okay first."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0089",
+        "category": "theme_park_date",
+        "level": "a2",
+        "kind": "question",
+        "ko": "와, 저기 봐봐. 너무 귀여워! 같이 사진 찍을까?",
+        "de": "Wow, schau mal da. Wie süß! Wollen wir zusammen ein Foto machen?",
+        "en": "Wow, look over there. So cute! Want to take a picture together?",
+        "relationshipContext": "romantic_partner",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "멀리서 사진만 찍을까?",
+            "de": "Wollen wir nur aus der Entfernung ein Foto machen?",
+            "en": "Should we just take a photo from a distance?"
+          }
+        ],
+        "followUp": {
+          "ko": "허락을 받으면 캐릭터 옆에서 사진을 찍자.",
+          "de": "Wenn wir die Erlaubnis haben, machen wir das Foto neben der Figur.",
+          "en": "If we get permission, let's take the photo next to the character.",
+          "turnKind": "reaction"
+        },
+        "reply": {
+          "ko": "좋아. 먼저 사진 찍어도 되는지 물어보자.",
+          "de": "Gerne. Fragen wir zuerst, ob das okay ist.",
+          "en": "Sure. Let's ask if it's okay first."
+        }
+      },
+      "beforeSha256": "3fb9d8d3881c787f8475f3eeef5ea4092c60d063ef8090a2a4bd5ffdd50cdc0e",
+      "afterSha256": "496994d841376b9e3bbd532406b3864d0f7bccb0a3fc833883e642595ac7f403",
+      "predecessorEntrySha256": "16780a2a3daefec872768c7be66c54bcd108fdf71e036ad26244ae20192a2854",
+      "reason": "Direct model-authored CEFR simplification; original semantic route and permission condition preserved, native human review remains required"
+    }
+  ]
+}

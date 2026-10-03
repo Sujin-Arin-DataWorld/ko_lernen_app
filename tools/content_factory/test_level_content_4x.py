@@ -174,7 +174,9 @@ class Batch09ReviewDraftTest(unittest.TestCase):
         # 포함, 2026-09-16) + C3-T5 Batch 30 A1 보강 62행(기능어 중심, 6
         # 신규 팩 포함, 마지막 A1 보강 배치, 2026-09-16) + C3-T5 Batch 31
         # A2 보강 64행(첫 A2 승격, 1 신규 팩 포함, 2026-09-16)을 함께 센다.
-        self.assertEqual(inventory["vocab"], 2944)
+        # C2 honorific-context and argument-scope packs each add 12 rows
+        # (batches 35 and 37, merged into main 80f82470).
+        self.assertEqual(inventory["vocab"], 2968)
         self.assertEqual(len(manifest["vocabPacks"]), 48)
 
     def test_review_ledgers_are_original_drafts(self) -> None:

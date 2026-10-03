@@ -1,6 +1,7 @@
 import copy
 import hashlib
 import json
+from copy import deepcopy
 import shutil
 import tempfile
 import unittest
@@ -11,12 +12,85 @@ from tool.curriculum_context_inventory import build_inventory
 
 
 class PhaseContextEvidenceTest(unittest.TestCase):
+    def test_source_revalidation_is_bound_to_original_review_and_current_context(self):
+        ledger = json.loads((ROOT / LEDGER).read_text(encoding='utf-8'))
+        row = deepcopy(ledger['reviews'][0])
+        original = deepcopy(row)
+        original['contextSha256'] = '0' * 64
+        row['originalReview'] = original
+        row['sourceRevalidation'] = {
+            'reviewer': 'Codex', 'status': 'MODEL_QA_PASS',
+            'reviewedOn': '2026-10-03',
+            'checks': ['exact-quote', 'adjacent-context', 'grammar-function'],
+            'previousContextSha256': original['contextSha256'],
+            'originalReviewSha256': hashlib.sha256(json.dumps(original,
+                ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode()).hexdigest(),
+            'contextSha256': row['contextSha256'], 'quote': row['quote'],
+        }
+        for fault in (None, 'missing-original', 'identity', 'decision', 'reviewer',
+                      'human-approval', 'context', 'previous-context', 'quote', 'checks',
+                      'original-quote', 'original-rationale', 'original-hash'):
+            with self.subTest(fault=fault), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                for relative in ['assets/data/grammar.csv', 'assets/data/scenarios_a1.json',
+                                 'tools/content_factory/cefr_matrix/phases.json', str(LEDGER)]:
+                    target = root / relative
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copyfile(ROOT / relative, target)
+                candidate = deepcopy(row)
+                if fault == 'missing-original':
+                    candidate.pop('originalReview')
+                elif fault in ('identity', 'decision'):
+                    key = 'recordId' if fault == 'identity' else 'decision'
+                    candidate['originalReview'][key] = 'different'
+                elif fault in ('original-quote', 'original-rationale'):
+                    key = 'quote' if fault == 'original-quote' else 'rationaleKo'
+                    candidate['originalReview'][key] = 'Changed original'
+                elif fault:
+                    field, value = {
+                        'reviewer': ('reviewer', 'Unverified'),
+                        'human-approval': ('status', 'HUMAN_APPROVED'),
+                        'context': ('contextSha256', '1' * 64),
+                        'previous-context': ('previousContextSha256', '2' * 64),
+                        'quote': ('quote', 'Unreviewed quote'),
+                        'checks': ('checks', ['exact-quote']),
+                        'original-hash': ('originalReviewSha256', '0' * 64),
+                    }[fault]
+                    candidate['sourceRevalidation'][field] = value
+                (root / LEDGER).write_text(json.dumps(
+                    {'schemaVersion': 1, 'reviews': [candidate]}, ensure_ascii=False),
+                    encoding='utf-8')
+                if fault is None:
+                    self.assertEqual(audit(root)['reviews'][0]['sourceRevalidation'],
+                                     row['sourceRevalidation'])
+                else:
+                    with self.assertRaisesRegex(ValueError, 'source revalidation'):
+                        audit(root)
+
     def test_phase_sources_exclude_metadata_help_and_productive_prompts(self):
         passages = reviewed_phase_passages(ROOT)
         self.assertTrue(passages)
         self.assertTrue(all(p['jsonPointer'].endswith('/sourceKo') for p in passages))
         self.assertFalse(any(':production:' in p['recordId'] or ':speaking:' in p['recordId'] for p in passages))
         self.assertTrue(all(p['provenance'] == 'authored_phase_material' for p in passages))
+
+    def test_withdrawn_reviews_preserve_history_without_counting_as_current_evidence(self):
+        result = audit()
+        withdrawn = result['withdrawnReviews']
+        self.assertEqual(len(withdrawn), 6)
+        identity = lambda row: (row['phaseId'], row['grammarKey'], row['sourcePath'],
+                                row['jsonPointer'])
+        active = {identity(row) for row in result['reviews']}
+        self.assertTrue(all(identity(row['originalReview']) not in active
+                            for row in withdrawn))
+        for grammar in ('G2:-지 말다', 'G2:-으면서'):
+            requirements = [row for row in result['requirements']
+                            if row['grammarKey'] == grammar]
+            self.assertTrue(requirements)
+            self.assertTrue(all(row['legacyAnchors'] == 0 for row in requirements))
+        self.assertTrue(all(row['status'] == 'SOURCE_SUPERSEDED'
+                            and row['originalReview']['reviewer'] == 'Astra'
+                            for row in withdrawn))
 
     def test_authored_source_requires_current_individual_review(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -158,3 +232,43 @@ class ArchivedContextEvidenceTest(unittest.TestCase):
                 self._write_ledger({**self.archived, field: value})
                 with self.assertRaisesRegex(ValueError, 'cannot make an active coverage claim'):
                     audit(self.root)
+
+    def test_malformed_archive_collection_or_record_is_rejected(self):
+        for invalid in ({}, None, 'archive', [None], ['record'], [{'review': None}]):
+            with self.subTest(invalid=invalid):
+                (self.root / LEDGER).write_text(json.dumps(dict(schemaVersion=1,
+                    reviews=[self.active], invalidatedReviews=invalid), ensure_ascii=False),
+                    encoding='utf-8')
+                with self.assertRaisesRegex(ValueError, 'Invalidated review'):
+                    audit(self.root)
+        for original in ({}, {**self.archived['review'], 'quote': None},
+                         {**self.archived['review'], 'contextSha256': 'unknown'}):
+            with self.subTest(original=original):
+                digest = hashlib.sha256(json.dumps(original, ensure_ascii=False,
+                    sort_keys=True, separators=(',', ':')).encode()).hexdigest()
+                self._write_ledger({**self.archived, 'review': original, 'reviewSha256': digest})
+                with self.assertRaisesRegex(ValueError, 'must preserve its original record'):
+                    audit(self.root)
+
+    def test_revalidation_cannot_replace_the_archived_original_with_a_new_hash(self):
+        original = {**self.active, 'quote': '집에 가요.', 'contextSha256': 'a' * 64}
+        digest = lambda row: hashlib.sha256(json.dumps(row, ensure_ascii=False,
+            sort_keys=True, separators=(',', ':')).encode()).hexdigest()
+        archived = {**self.archived, 'review': original, 'reviewSha256': digest(original)}
+        self.active['originalReview'] = copy.deepcopy(original)
+        self.active['sourceRevalidation'] = {
+            'reviewer': 'Codex', 'status': 'MODEL_QA_PASS', 'reviewedOn': '2026-10-03',
+            'checks': ['exact-quote', 'adjacent-context', 'grammar-function'],
+            'previousContextSha256': original['contextSha256'],
+            'contextSha256': self.active['contextSha256'], 'quote': self.active['quote'],
+            'originalReviewSha256': archived['reviewSha256'],
+        }
+        self._write_ledger(archived)
+        self.assertEqual(1, len(audit(self.root)['reviews']))
+
+        self.active['originalReview']['quote'] = 'Changed historical quote'
+        self.active['sourceRevalidation']['originalReviewSha256'] = digest(
+            self.active['originalReview'])
+        self._write_ledger(archived)
+        with self.assertRaisesRegex(ValueError, 'source revalidation archive binding'):
+            audit(self.root)

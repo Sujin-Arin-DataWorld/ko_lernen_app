@@ -18,9 +18,11 @@ class BatchLivePromotionAuditTest(unittest.TestCase):
 
         self.assertTrue(result["ok"], result["errors"])
         self.assertEqual(result["version"], 4)
-        # Batch 35 adds exactly the three user-approved persona scenarios.
-        self.assertEqual(result["trackedIds"], 7672)
-        self.assertEqual(result["liveIds"], 7301)
+        # The persona batch adds three scenarios. The later C2 and priority
+        # batches add 88 records: 24 each vocab/cloze/satz, three grammar,
+        # eight smalltalk, and five scenarios (main 80f82470).
+        self.assertEqual(result["trackedIds"], 7760)
+        self.assertEqual(result["liveIds"], 7389)
         self.assertEqual(result["pendingIds"], 576)
         self.assertEqual(result["retiredScenarioIds"], 371)
         self.assertEqual(
@@ -28,9 +30,25 @@ class BatchLivePromotionAuditTest(unittest.TestCase):
             result["liveIds"] + result["retiredScenarioIds"],
         )
         reports = {row["batch"]: row for row in result["reports"]}
-        self.assertEqual(reports["35"]["tracked"], 3)
-        self.assertEqual(reports["35"]["live"], 3)
-        self.assertEqual(reports["35"]["reviewStatuses"], {"approved": 3})
+        # The persona and honorific-context manifests both use batch 35;
+        # identify each by its exact manifest instead of overwriting one.
+        manifests = {row["manifest"]: row for row in result["reports"]}
+        persona = manifests["batch_35_persona_a2_manifest.json"]
+        self.assertEqual(persona["tracked"], 3)
+        self.assertEqual(persona["live"], 3)
+        self.assertEqual(persona["reviewStatuses"], {"approved": 3})
+        additions = {
+            "batch_35_c2_honorific_context_manifest.json": 42,
+            "batch_36_priority_surfaces_manifest.json": 5,
+            "batch_37_c2_argument_scope_manifest.json": 41,
+        }
+        for name, count in additions.items():
+            with self.subTest(manifest=name):
+                report = manifests[name]
+                self.assertEqual(report["tracked"], count)
+                self.assertEqual(report["live"], count)
+                self.assertEqual(report["auditStatus"], "live_verified_modern")
+                self.assertEqual(report["reviewStatuses"], {"approved": count})
         for number in (32, 33, 34):
             report = reports[f"c3_batch{number}_a2_reinforcement"]
             self.assertEqual(report["auditStatus"], "pending_not_live")

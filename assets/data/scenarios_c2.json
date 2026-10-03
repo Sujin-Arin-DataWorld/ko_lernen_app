@@ -5878,7 +5878,7 @@
           "speaker": "official",
           "ko": "네. 오늘 안에 확인할 수 있는 범위를 살펴본 뒤, 결과와 다음 절차를 안내드리겠습니다.",
           "de": "Ja. Ich prüfe heute, was sich klären lässt, und informiere Sie dann über das Ergebnis und die nächsten Schritte.",
-          "en": "Yes. I'll review what can be clarified today and then explain the result and the next steps."
+          "en": "Yes. I'll see what can be clarified today, then explain the result and the next steps."
         },
         {
           "speaker": "user",
@@ -5943,7 +5943,7 @@
           "data": {
             "targetKo": "네. 오늘 안에 확인할 수 있는 범위를 살펴본 뒤, 결과와 다음 절차를 안내드리겠습니다.",
             "promptDe": "Ja. Ich prüfe heute, was sich klären lässt, und informiere Sie dann über das Ergebnis und die nächsten Schritte.",
-            "promptEn": "Yes. I'll review what can be clarified today and then explain the result and the next steps.",
+            "promptEn": "Yes. I'll see what can be clarified today, then explain the result and the next steps.",
             "distractors": [
               "하수구는",
               "행정 구역과"
@@ -6512,7 +6512,7 @@
           "speaker": "user",
           "ko": "지금부터 자동 결과에 이의를 제기하는 절차를 설명드리겠습니다. 질문은 한 번에 하나씩 받겠습니다.",
           "de": "Ich erläutere nun das Verfahren, mit dem Sie gegen ein automatisiertes Ergebnis Einspruch einlegen können. Ich nehme die Fragen jeweils einzeln entgegen.",
-          "en": "I will now explain the process for appealing an automated result. I will take questions one at a time."
+          "en": "I'll now explain the process for appealing an automated result. I'll take questions one at a time."
         },
         {
           "speaker": "resident",
@@ -6570,7 +6570,7 @@
               },
               {
                 "de": "Ich nehme die Fragen jeweils einzeln entgegen.",
-                "en": "I will take questions one at a time."
+                "en": "I'll take questions one at a time."
               },
               {
                 "de": "Diese Sorge ist berechtigt.",

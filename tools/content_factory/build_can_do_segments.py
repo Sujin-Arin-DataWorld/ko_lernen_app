@@ -1904,6 +1904,17 @@ DERIVED_SOURCE_VOCAB_OVERRIDES = {
     "cloze_a1_0011": "vocab_a1_0020",  # 학교
     "cloze_a1_0050": "vocab_a1_0074",  # 의자
     "cloze_a1_0066": "vocab_a1_0156",  # 시간
+    # Exact inherited source IDs in the published 09eca941 authority ledger.
+    # Copy corrections made these sentences collide across vocabulary packs;
+    # retain their lineage instead of switching to a topic-default route.
+    "cloze_a1_0045": "vocab_a1_0068",  # 화장실
+    "cloze_a1_0141": "vocab_a1_0253",  # 맛있어요
+    "cloze_a1_0290": "vocab_a1_0402",  # 정말 감사해요
+    "cloze_a1_0578": "vocab_a1_0644",  # 감사
+    "cloze_a1_0738": "vocab_a1_0804",  # 어디
+}
+DERIVED_SOURCE_ANSWER_OVERRIDES = {
+    "cloze_a1_0738": ("어디", "어디예요"),
 }
 
 # Explicit approvals for a new or semantically changed A1-B2 phrase are added
@@ -4013,10 +4024,15 @@ class SourceIndex:
         if override_id is None:
             return self.vocab_by_unique_example.get((row["level"], row["fullKo"]))
         vocab = _require(self.vocab, override_id, "derived vocab override")
+        headword, answer = DERIVED_SOURCE_ANSWER_OVERRIDES.get(
+            content_id, (vocab["korean"], vocab["korean"])
+        )
         if (
             vocab["level"].lower() != row["level"]
             or vocab["example_korean"] != row["fullKo"]
-            or vocab["korean"] != row["answer"]
+            or vocab["example_german"] != row["de"]
+            or vocab["example_english"] != row["en"]
+            or vocab["korean"] != headword or answer != row["answer"]
         ):
             raise ValueError(
                 f"derived vocab override {override_id!r} does not exactly support "
@@ -4360,6 +4376,7 @@ def _validate_smalltalk_review_history(
                 CONTENT_HUMANIZATION_LEDGER_REF,
                 SMALLTALK_TRANSLATION_LEDGER_REF,
                 smalltalk_editorial_revisions.LEDGER_REF,
+                smalltalk_editorial_revisions.SUCCESSOR_REF,
             }:
                 raise ValueError(f"smalltalk {phrase_id!r} copy revision ledger is invalid")
             previous_fingerprint = decision.get("previousPhraseFingerprintSha256")
@@ -4384,6 +4401,7 @@ def _validate_smalltalk_review_history(
                 if decision["copyRevisionLedger"] in {
                     SMALLTALK_TRANSLATION_LEDGER_REF,
                     smalltalk_editorial_revisions.LEDGER_REF,
+                    smalltalk_editorial_revisions.SUCCESSOR_REF,
                 }:
                     raise ValueError(
                         f"smalltalk {phrase_id!r} translation correction changed "

@@ -5471,6 +5471,118 @@
   "hanokDownloadsSettingsTitle": "Hanok-Downloads",
   "hanokDownloadsSettingsSubtitle": "In der App enthaltene und nach Gebäude heruntergeladene Bilder verwalten",
   "yeopjeonConstructionComplete": "Dieses Gebäude ist fertig!",
+  "practiceToneTitle": "Ausdruck und Situation",
+  "practiceSituation": "Die Situation",
+  "practiceIntent": "Was möchtest du erreichen?",
+  "practiceExpression": "Wähle deine Formulierung",
+  "practiceEffect": "So kann es ankommen",
+  "practiceGrammarCorrect": "Grammatisch korrekt. Die Wirkung hängt von der Situation und dem Ton ab.",
+  "practiceAssemble": "Setze deine nächste Antwort zusammen",
+  "practiceShowEffect": "Erklärung als Hilfe ansehen",
+  "practiceReset": "Wörter zurücklegen",
+  "practiceCheck": "Antwort prüfen und speichern",
+  "practiceOrderRetry": "Die Wortfolge passt noch nicht. Lege die Wörter zurück und versuche es erneut.",
+  "practiceIntentRetry": "Die Formulierung ist möglich, erfüllt aber noch nicht das Ziel dieser Situation. Wähle deine Absicht erneut.",
+  "practiceSaved": "Übung gespeichert",
+  "practiceSaveFailed": "Die Übung konnte nicht gespeichert werden. Deine Antwort bleibt für einen erneuten Versuch hier.",
+  "practiceRetrySave": "Speichern erneut versuchen",
+  "practiceToSarangbang": "In der Sarangbang wieder üben",
+  "practiceTransfer": "In einer anderen Situation antworten",
+  "practiceAssisted": "Mit Hilfe abgeschlossen",
+  "practiceIndependent": "Selbstständig abgeschlossen",
+  "practiceViewed": "Angesehen",
+  "practiceHistoryTitle": "Deine Übungen im Raum",
+  "practiceHistoryOpen": "Übungen wieder aufnehmen",
+  "practiceHistoryEmpty": "Hier findest du deine Smalltalk-Übungen und Silben-Rätsel mit Hilfe.",
+  "practicePuzzleReplay": "Dieses Rätsel selbstständig lösen",
+  "practiceUnavailable": "Diese Übung ist in dieser Inhaltsversion nicht verfügbar.",
+  "practiceBackCases": "Weitere Situationen",
+  "practiceChooseAgain": "Absicht erneut wählen",
+  "practiceHintTitle": "Ein Hinweis vom Dokkaebi",
+  "practiceHintMeaning": "Bedeutung und Richtung ansehen",
+  "practiceHintCrossing": "Kreuzungsfelder ansehen",
+  "practiceHintReveal": "Eine Silbe anzeigen · deutliche Hilfe",
+  "practiceHintPlace": "Die Silbe ist sichtbar. Lege den passenden Stein selbst auf das ausgewählte Feld.",
+  "practiceHintNoCrossing": "Dieses Wort hat kein Kreuzungsfeld.",
+  "practiceReplaySaved": "Dein Ergebnis wurde gespeichert.",
+  "practiceSilbenLabel": "Silben-Rätsel",
+  "practiceReadError": "Die Übungsdaten konnten nicht gelesen werden.",
+  "practiceHistoryStart": "Smalltalk mit der Hahoe-Maske üben",
+  "personaMeetPeopleTitle": "Menschen kennenlernen",
+  "personaMeetPeopleSubtitle": "Lerne elf Menschen kennen und finde ein Gespräch mit ihnen.",
+  "personaOpenProfile": "Mehr über {name}",
+  "@personaOpenProfile": {
+    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "personaInterests": "Interessen",
+  "personaConnections": "Menschen im Umfeld",
+  "personaTalkWith": "Mit {name} sprechen",
+  "@personaTalkWith": {
+    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "personaPlayRole": "Als {name} sprechen",
+  "@personaPlayRole": {
+    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "personaListen": "Gespräch anhören",
+  "personaYourRole": "Deine Rolle in dieser Szene: {name}",
+  "@personaYourRole": {
+    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "personaConversationsWith": "Gespräche mit {name}",
+  "@personaConversationsWith": {
+    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "personaLearnerRoles": "Szenen, in denen du {name} spielst",
+  "@personaLearnerRoles": {
+    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "personaLearnerRolesHint": "Hier übernimmst du diese Rolle und sprichst mit jemand anderem.",
+  "personaNoConversations": "Ein Gespräch mit dieser Person wird noch vorbereitet.",
+  "personaListeningUnavailable": "Die Hörlektion zu dieser Szene wird noch vorbereitet.",
+  "scenariosLevelFilter": "Sprachniveau",
+  "scenariosChooseTopic": "Wähle ein Thema",
+  "scenariosChangeTopic": "Anderes Thema wählen",
+  "scenariosConversationCount": "{count} Gespräche",
+  "@scenariosConversationCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "scenariosOneConversation": "1 Gespräch",
+  "personaMeetPeopleCompactSubtitle": "11 Profile · Gespräche & Hören",
   "dancheongTitle": "Dancheong-Atelier",
   "dancheongPatterns": "Muster",
   "dancheongArtwork": "Kunstwerke",
@@ -5547,80 +5659,5 @@
   "dancheongLeaveNote": "Diese ungespeicherten Änderungen gehen verloren. Bereits gespeicherte Entwürfe bleiben erhalten.",
   "dancheongLeave": "Ohne Speichern verlassen",
   "dancheongDeleteDraftNote": "Diesen gespeicherten Entwurf löschen? Das lässt sich nicht rückgängig machen.",
-  "dancheongDeleteArtworkNote": "Diese fertige Version und ihre gespeicherten Begleittexte löschen? Ihre öffentlichen Links werden ebenfalls deaktiviert. Bereits von anderen gespeicherte Kopien bleiben erhalten.",
-  "personaMeetPeopleTitle": "Menschen kennenlernen",
-  "personaMeetPeopleSubtitle": "Lerne elf Menschen kennen und finde ein Gespräch mit ihnen.",
-  "personaOpenProfile": "Mehr über {name}",
-  "@personaOpenProfile": {
-    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "personaInterests": "Interessen",
-  "personaConnections": "Menschen im Umfeld",
-  "personaTalkWith": "Mit {name} sprechen",
-  "@personaTalkWith": {
-    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "personaPlayRole": "Als {name} sprechen",
-  "@personaPlayRole": {
-    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "personaListen": "Gespräch anhören",
-  "personaYourRole": "Deine Rolle in dieser Szene: {name}",
-  "@personaYourRole": {
-    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "personaConversationsWith": "Gespräche mit {name}",
-  "@personaConversationsWith": {
-    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "personaLearnerRoles": "Szenen, in denen du {name} spielst",
-  "@personaLearnerRoles": {
-    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "personaLearnerRolesHint": "Hier übernimmst du diese Rolle und sprichst mit jemand anderem.",
-  "personaNoConversations": "Ein Gespräch mit dieser Person wird noch vorbereitet.",
-  "personaListeningUnavailable": "Die Hörlektion zu dieser Szene wird noch vorbereitet.",
-  "scenariosLevelFilter": "Sprachniveau",
-  "scenariosChooseTopic": "Wähle ein Thema",
-  "scenariosChangeTopic": "Anderes Thema wählen",
-  "scenariosConversationCount": "{count} Gespräche",
-  "@scenariosConversationCount": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "scenariosOneConversation": "1 Gespräch",
-  "personaMeetPeopleCompactSubtitle": "11 Profile · Gespräche & Hören"
+  "dancheongDeleteArtworkNote": "Diese fertige Version und ihre gespeicherten Begleittexte löschen? Ihre öffentlichen Links werden ebenfalls deaktiviert. Bereits von anderen gespeicherte Kopien bleiben erhalten."
 }

@@ -338,7 +338,8 @@ const int knownUnsyncedCap = 318; // 2026-08-26 실측 고정
 // cloze_a1_0104(현관)는 Task 2 시드 5건 중 하나로, Task 2에서 distractor를
 // 교체(현관→장모님)해 이 allowlist 에서 제거하고 캡을 16으로 낮췄다.
 const Set<String> knownDistractorIds = {};
-const int knownDistractorCap = 0; // 2026-09-09 PR-L3a Batch 24 P1: 노출 배분어 전량 교체, allowlist 비움
+const int knownDistractorCap =
+    0; // 2026-09-09 PR-L3a Batch 24 P1: 노출 배분어 전량 교체, allowlist 비움
 
 List<List<String>> parseCsv(String text) {
   final rows = <List<String>>[];
@@ -377,6 +378,19 @@ List<List<String>> parseCsv(String text) {
   return rows;
 }
 
+Map<String, Set<String>> indexExampleLevels(List<List<String>> csvRows) {
+  final header = csvRows.first;
+  final iKo = header.indexOf('example_korean');
+  final iLevel = header.indexOf('level');
+  final levels = <String, Set<String>>{};
+  for (final row in csvRows.skip(1)) {
+    if (row.length > iKo) {
+      levels.putIfAbsent(row[iKo], () => {}).add(row[iLevel].toLowerCase());
+    }
+  }
+  return levels;
+}
+
 void main() {
   final cloze =
       jsonDecode(File('assets/data/cloze.json').readAsStringSync())
@@ -385,21 +399,26 @@ void main() {
   final csvRows = parseCsv(
     File('assets/data/korean_vocab.csv').readAsStringSync(),
   );
-  final header = csvRows.first;
-  final iKo = header.indexOf('example_korean');
-  final iLevel = header.indexOf('level');
-  final exampleLevels = <String, Set<String>>{};
-  for (final r in csvRows.skip(1)) {
-    if (r.length > iKo) {
-      exampleLevels.putIfAbsent(r[iKo], () => <String>{})
-          .add(r[iLevel].toLowerCase());
-    }
-  }
+  final exampleLevels = indexExampleLevels(csvRows);
+
+  test('동일 예문을 여러 급수에서 사용해도 각 급수 연결을 보존한다', () {
+    final levels = indexExampleLevels([
+      ['example_korean', 'level'],
+      ['Shared example', 'A1'],
+      ['Shared example', 'A2'],
+      ['Different example', 'B1'],
+    ]);
+    expect(levels['Shared example'], {'a1', 'a2'});
+    expect(levels['Shared example'], isNot(contains('b1')));
+    expect(levels['Different example'], {'b1'});
+  });
 
   test('빈칸 복원: sentenceKo(＿＿＿→answer) == fullKo', () {
     for (final it in items) {
-      final rebuilt = (it['sentenceKo'] as String)
-          .replaceFirst('＿＿＿', it['answer'] as String);
+      final rebuilt = (it['sentenceKo'] as String).replaceFirst(
+        '＿＿＿',
+        it['answer'] as String,
+      );
       expect(rebuilt, it['fullKo'], reason: it['id'] as String);
     }
   });
@@ -413,8 +432,7 @@ void main() {
         if (!knownUnsyncedIds.contains(id)) unsynced.add(id);
       }
     }
-    expect(unsynced, isEmpty,
-        reason: '신규 비동기 항목 — CSV/cloze 3파일 동기 규칙 위반');
+    expect(unsynced, isEmpty, reason: '신규 비동기 항목 — CSV/cloze 3파일 동기 규칙 위반');
     expect(knownUnsyncedIds.length, lessThanOrEqualTo(knownUnsyncedCap));
   });
 
@@ -432,8 +450,11 @@ void main() {
         }
       }
     }
-    expect(newExposed, isEmpty,
-        reason: '신규 distractor 노출 항목 — 문장에 오답 후보가 그대로 드러남');
+    expect(
+      newExposed,
+      isEmpty,
+      reason: '신규 distractor 노출 항목 — 문장에 오답 후보가 그대로 드러남',
+    );
     expect(knownDistractorIds.length, lessThanOrEqualTo(knownDistractorCap));
   });
 }

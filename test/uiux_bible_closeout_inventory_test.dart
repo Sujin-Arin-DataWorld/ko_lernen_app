@@ -36,7 +36,7 @@ void main() {
     }
     expect(unresolved, isEmpty);
     expect(ambiguous, isEmpty);
-    expect(registered, hasLength(84));
+    expect(registered, hasLength(86));
     expect(registered.toSet(), hasLength(registered.length));
 
     final lock = File(_lockPath).readAsStringSync();
@@ -52,7 +52,7 @@ void main() {
       r'^\| `(/[^`]*)` \|',
       multiLine: true,
     ).allMatches(routeInventory).map((match) => match.group(1)!).toList();
-    expect(documented, hasLength(84));
+    expect(documented, hasLength(86));
     expect(documented.toSet(), hasLength(documented.length));
 
     registered.sort();
@@ -111,8 +111,8 @@ void main() {
     }
 
     // Includes the shared finite-step content layout and Hanok preview owners.
-    expect(seen, hasLength(123));
-    expect(documented, hasLength(123));
+    expect(seen, hasLength(125));
+    expect(documented, hasLength(125));
     expect(seen.difference(documented), isEmpty);
     expect(documented.difference(seen), isEmpty);
   });

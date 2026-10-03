@@ -25,7 +25,9 @@ from typing import Any
 import scenario_store
 from shelf_assignment import SHELF_BY_ID
 from validate_content import ContentValidator, LOWER_LEVELS
-from validate_promoted_batch import _copy_revisions, _require_reviewed_copy_revision
+from validate_promoted_batch import (
+    _batch_field_revisions, _copy_revisions, _require_reviewed_copy_revision,
+)
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -372,6 +374,7 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
         require_approved=apply,
     )
     revisions = _copy_revisions(root=root, manifest_path=manifest_path)
+    batch_revisions = _batch_field_revisions(root=root)
     used_revisions: set[tuple[str, str]] = set()
     with tempfile.TemporaryDirectory(prefix="scenario-batch-integration-") as directory:
         stage = Path(directory) / "repo"
@@ -440,6 +443,7 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
                             draft=draft_projection,
                             live=live_projection,
                             revisions=revisions,
+                            batch_revisions=batch_revisions,
                         ):
                             raise ScenarioIntegrationError(
                                 f"merged {kind} payload no longer matches its approved draft"

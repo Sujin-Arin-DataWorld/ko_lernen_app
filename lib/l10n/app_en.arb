@@ -5289,6 +5289,118 @@
   "hanokDownloadsSettingsTitle": "Hanok downloads",
   "hanokDownloadsSettingsSubtitle": "Manage artwork included in the app and downloaded by building",
   "yeopjeonConstructionComplete": "This building is complete!",
+  "practiceToneTitle": "Tone and context",
+  "practiceSituation": "The situation",
+  "practiceIntent": "What do you want to do?",
+  "practiceExpression": "Choose your wording",
+  "practiceEffect": "How it may come across",
+  "practiceGrammarCorrect": "The grammar is correct. The effect depends on the context and tone.",
+  "practiceAssemble": "Build your next reply",
+  "practiceShowEffect": "View the explanation for help",
+  "practiceReset": "Put the words back",
+  "practiceCheck": "Check and save your reply",
+  "practiceOrderRetry": "The word order does not fit yet. Put the words back and try again.",
+  "practiceIntentRetry": "The wording is possible, but does not meet this situation’s goal yet. Choose your intention again.",
+  "practiceSaved": "Practice saved",
+  "practiceSaveFailed": "Your practice could not be saved. Your reply is kept here so you can retry.",
+  "practiceRetrySave": "Retry saving",
+  "practiceToSarangbang": "Practise again in the Sarangbang",
+  "practiceTransfer": "Reply in a different situation",
+  "practiceAssisted": "Completed with help",
+  "practiceIndependent": "Completed independently",
+  "practiceViewed": "Viewed",
+  "practiceHistoryTitle": "Your practice in this room",
+  "practiceHistoryOpen": "Return to your practice",
+  "practiceHistoryEmpty": "Your Smalltalk practice and assisted syllable puzzles will appear here.",
+  "practicePuzzleReplay": "Solve this puzzle independently",
+  "practiceUnavailable": "This practice is unavailable in this content version.",
+  "practiceBackCases": "More situations",
+  "practiceChooseAgain": "Choose your intention again",
+  "practiceHintTitle": "A hint from Dokkaebi",
+  "practiceHintMeaning": "View meaning and direction",
+  "practiceHintCrossing": "View crossing cells",
+  "practiceHintReveal": "Reveal one syllable · direct help",
+  "practiceHintPlace": "The syllable is shown. Place the matching tile on the selected cell yourself.",
+  "practiceHintNoCrossing": "This word has no crossing cell.",
+  "practiceReplaySaved": "Your result has been saved.",
+  "practiceSilbenLabel": "Syllable puzzle",
+  "practiceReadError": "Your practice data could not be read.",
+  "practiceHistoryStart": "Practise Smalltalk with the Hahoe mask",
+  "personaMeetPeopleTitle": "Meet people",
+  "personaMeetPeopleSubtitle": "Get to know eleven people and find a conversation with them.",
+  "personaOpenProfile": "Meet {name}",
+  "@personaOpenProfile": {
+    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "personaInterests": "Interests",
+  "personaConnections": "People in their life",
+  "personaTalkWith": "Talk with {name}",
+  "@personaTalkWith": {
+    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "personaPlayRole": "Play {name}’s role",
+  "@personaPlayRole": {
+    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "personaListen": "Listen to the conversation",
+  "personaYourRole": "Your role in this scene: {name}",
+  "@personaYourRole": {
+    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "personaConversationsWith": "Conversations with {name}",
+  "@personaConversationsWith": {
+    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "personaLearnerRoles": "Scenes where you play {name}",
+  "@personaLearnerRoles": {
+    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "personaLearnerRolesHint": "Here you take this role and speak with someone else.",
+  "personaNoConversations": "A conversation with this person is being prepared.",
+  "personaListeningUnavailable": "The listening lesson for this scene is being prepared.",
+  "scenariosLevelFilter": "Language level",
+  "scenariosChooseTopic": "Choose a topic",
+  "scenariosChangeTopic": "Choose another topic",
+  "scenariosConversationCount": "{count} conversations",
+  "@scenariosConversationCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "scenariosOneConversation": "1 conversation",
+  "personaMeetPeopleCompactSubtitle": "11 profiles · Talk & listen",
   "dancheongTitle": "Dancheong Studio",
   "dancheongPatterns": "Patterns",
   "dancheongArtwork": "Artwork",
@@ -5365,80 +5477,5 @@
   "dancheongLeaveNote": "These unsaved changes will be lost. Previously saved drafts remain available.",
   "dancheongLeave": "Leave without saving",
   "dancheongDeleteDraftNote": "Delete this saved draft? This cannot be undone.",
-  "dancheongDeleteArtworkNote": "Delete this finished version and its saved captions? Its public links will also be disabled. Copies already saved by others remain.",
-  "personaMeetPeopleTitle": "Meet people",
-  "personaMeetPeopleSubtitle": "Get to know eleven people and find a conversation with them.",
-  "personaOpenProfile": "Meet {name}",
-  "@personaOpenProfile": {
-    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "personaInterests": "Interests",
-  "personaConnections": "People in their life",
-  "personaTalkWith": "Talk with {name}",
-  "@personaTalkWith": {
-    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "personaPlayRole": "Play {name}’s role",
-  "@personaPlayRole": {
-    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "personaListen": "Listen to the conversation",
-  "personaYourRole": "Your role in this scene: {name}",
-  "@personaYourRole": {
-    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "personaConversationsWith": "Conversations with {name}",
-  "@personaConversationsWith": {
-    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "personaLearnerRoles": "Scenes where you play {name}",
-  "@personaLearnerRoles": {
-    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "personaLearnerRolesHint": "Here you take this role and speak with someone else.",
-  "personaNoConversations": "A conversation with this person is being prepared.",
-  "personaListeningUnavailable": "The listening lesson for this scene is being prepared.",
-  "scenariosLevelFilter": "Language level",
-  "scenariosChooseTopic": "Choose a topic",
-  "scenariosChangeTopic": "Choose another topic",
-  "scenariosConversationCount": "{count} conversations",
-  "@scenariosConversationCount": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "scenariosOneConversation": "1 conversation",
-  "personaMeetPeopleCompactSubtitle": "11 profiles · Talk & listen"
+  "dancheongDeleteArtworkNote": "Delete this finished version and its saved captions? Its public links will also be disabled. Copies already saved by others remain."
 }

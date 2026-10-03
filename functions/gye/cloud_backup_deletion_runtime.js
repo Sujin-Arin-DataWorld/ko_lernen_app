@@ -25,6 +25,7 @@ const BACKUP_FIELDS = Object.freeze([
   "content_learning_json",
   "ildu_world_state_json",
   "hanok_state_json",
+  "hanok_practice_json",
   "updated_at",
 ]);
 // App Check is advisory here (2026-08-10): enforced attestation stranded

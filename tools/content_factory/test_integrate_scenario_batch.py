@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 from pathlib import Path
 import shutil
@@ -31,6 +32,41 @@ import scenario_store
 
 
 class ScenarioBatchTransactionTest(unittest.TestCase):
+    def test_merged_batch36_replay_rejects_frozen_copy_without_overwriting_runtime(self) -> None:
+        repository = SCRIPT_DIR.parents[1]
+        relative_manifest = Path("tools/content_factory/drafts/batch_36_priority_surfaces_manifest.json")
+        manifest = json.loads((repository / relative_manifest).read_text(encoding="utf-8"))
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory) / "repo"
+            shutil.copytree(repository / "assets/data", root / "assets/data")
+            evidence_paths = [
+                relative_manifest,
+                Path("functions/analyze_korean_text/grammar_patterns.json"),
+                Path("tools/content_factory/content_audit_manifest.json"),
+                Path("tools/content_factory/review/promoted_copy_revisions_20260822.json"),
+                *[Path(row[key]) for row in manifest["artifacts"] for key in ("draft", "review")],
+            ]
+            for relative in evidence_paths:
+                target = root / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(repository / relative, target)
+            protected = [
+                *[path for path in (root / "assets/data").rglob("*") if path.is_file()],
+                *[root / relative for relative in evidence_paths],
+            ]
+            before = {path: hashlib.sha256(path.read_bytes()).hexdigest() for path in protected}
+            # Exercise the real frozen review, copy-revision checker and merge
+            # transaction. A stale historical replay must refuse current copy
+            # before any write, including when --apply was explicitly requested.
+            with mock.patch.object(integration, "_atomic_write") as writer:
+                with self.assertRaisesRegex(
+                    ScenarioIntegrationError,
+                    "merged scenario payload no longer matches its approved draft",
+                ):
+                    integration.integrate(root=root, manifest_path=relative_manifest, apply=True)
+                writer.assert_not_called()
+            self.assertEqual(before, {path: hashlib.sha256(path.read_bytes()).hexdigest() for path in protected})
+
     def test_atomic_restore_preserves_original_bytes_and_newlines(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             target = Path(directory) / "content.csv"

@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 /// §B2(2026-09-03) — [lib/widgets/sori/study_frame.dart]'s `SoriStudyFrame`
 /// owns the sole close (X, leading) and home (trailing) actions; it no
-/// longer accepts a custom `leading` widget. This guard pins the 31-screen
+/// longer accepts a custom `leading` widget. This guard pins the 33-screen
 /// inventory, the confirm-before-leaving contract each active screen wires
 /// through `SoriHomeEscape`, and that the pre-§B2 per-screen close-button
 /// builders (`leading: IconButton(...)`, `Icons.arrow_back_ios_new`,
@@ -24,6 +24,7 @@ void main() {
     'lib/screens/grammar_choice_quiz_screen.dart',
     'lib/screens/grammar_screen.dart',
     'lib/screens/hangul_screen.dart',
+    'lib/screens/hanok_practice_screen.dart',
     'lib/screens/hard_choice_quiz_screen.dart',
     'lib/screens/kkeunmari_screen.dart',
     'lib/screens/legacy_vocab_screen.dart',
@@ -35,6 +36,7 @@ void main() {
     'lib/screens/scenario_player_screen.dart',
     'lib/screens/silben_kreuz_screen.dart',
     'lib/screens/smalltalk_screen.dart',
+    'lib/screens/smalltalk_context_screen.dart',
     'lib/screens/speed_match_screen.dart',
     'lib/screens/vocab_nuance_screen.dart',
     'lib/screens/vocab_pack_recall_screen.dart',
@@ -74,6 +76,8 @@ void main() {
     'lib/screens/silben_kreuz_screen.dart':
         '!_solved && (_locked.isNotEmpty || _wrongTick > 0)',
     'lib/screens/speed_match_screen.dart': '_running',
+    'lib/screens/smalltalk_context_screen.dart':
+        '!_complete && (_expression != null || _busy)',
     'lib/screens/vocab_nuance_screen.dart': '_index > 0 || _picked != null',
     'lib/screens/vocab_pack_recall_screen.dart':
         '!_done && (_index > 0 || _feedback != null)',
@@ -81,6 +85,7 @@ void main() {
     'lib/screens/word_web_quiz_screen.dart': '!_done && (_idx > 0 || _locked)',
   };
   const staticImmediateEscapeScreens = <String>{
+    'lib/screens/hanok_practice_screen.dart',
     'lib/features/content_learning/content_learning_hub.dart',
     'lib/features/content_learning/content_learning_widgets.dart',
     'lib/screens/custom_pack_play_screen.dart',
@@ -112,7 +117,7 @@ void main() {
             .toSet();
 
     expect(actual, expectedStudyFrameScreens);
-    expect(expectedStudyFrameScreens, hasLength(31));
+    expect(expectedStudyFrameScreens, hasLength(33));
   });
 
   test('all StudyFrame screens rely on the frame-owned home action', () {

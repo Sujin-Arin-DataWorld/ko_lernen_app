@@ -1,3 +1,4 @@
+import '../../widgets/smalltalk_practice_entry.dart';
 import '../../services/local_data_lifetime.dart';
 import 'package:flutter/material.dart';
 
@@ -213,6 +214,14 @@ class _ContentLearningHubState extends State<ContentLearningHub>
     final lang = Localizations.localeOf(context).languageCode;
     return SoriStudyFrame(
       title: contentKindTitle(t, widget.kind),
+      bottomNavigationBar:
+          widget.kind == LearningContentKind.smalltalk &&
+              !_editingGoal &&
+              !_loading &&
+              !_error &&
+              ContentLearningService.goal(widget.kind, _level) != null
+          ? SmalltalkPracticeEntry(level: _level)
+          : null,
       child: _loading
           ? const AppLoading()
           : _error

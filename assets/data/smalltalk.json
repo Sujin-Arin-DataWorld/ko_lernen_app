@@ -1974,9 +1974,9 @@
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "잘 잤다니 다행이에요.",
-        "de": "Schön, dass du gut geschlafen hast.",
-        "en": "I'm glad you slept well."
+        "ko": "아, 좋네요!",
+        "de": "Ach, das freut mich!",
+        "en": "Oh, that's good to hear!"
       }
     },
     {
@@ -2590,9 +2590,9 @@
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "잘 지내신다니 다행이에요.",
-        "de": "Schön, dass es ihnen gut geht.",
-        "en": "I'm glad they're doing well."
+        "ko": "아, 좋네요!",
+        "de": "Ach, das freut mich!",
+        "en": "Oh, that's good to hear!"
       }
     },
     {
@@ -15335,9 +15335,9 @@
         }
       ],
       "followUp": {
-        "ko": "사진을 찍어도 된다고 하면 캐릭터 옆에 서자.",
-        "de": "Wenn wir ein Foto machen dürfen, stellen wir uns neben die Figur.",
-        "en": "If we are allowed to take a photo, let us stand next to the character.",
+        "ko": "허락을 받으면 캐릭터 옆에서 사진을 찍자.",
+        "de": "Wenn wir die Erlaubnis haben, machen wir das Foto neben der Figur.",
+        "en": "If we get permission, let's take the photo next to the character.",
         "turnKind": "reaction"
       },
       "reply": {
