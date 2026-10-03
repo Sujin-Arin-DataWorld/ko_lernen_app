@@ -6498,9 +6498,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/audit_content_text.py": {
-    "mtime": 1791003331.5051289,
-    "seen": 1791007192.4620867,
-    "ast_hash": "9e3e5b4fbff3ca74e3cd308328ccb124",
+    "mtime": 1791008837.407189,
+    "seen": 1791009360.1175015,
+    "ast_hash": "d304b602727311f18d5e43cf6a51c099",
     "semantic_hash": ""
   },
   "tools/content_factory/audit_game_loader_coverage.py": {
@@ -20952,9 +20952,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-10-03-hahoe-dokkaebi-practice.md": {
-    "mtime": 1791007564.5150003,
-    "seen": 1791008220.2877657,
-    "ast_hash": "8332757a56bcd3bb62f93bba3d4f9403",
+    "mtime": 1791008902.388927,
+    "seen": 1791009360.8179152,
+    "ast_hash": "2cff4caf5dffe1ed6486094a21cbae9f",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-10-03-hahoe-dokkaebi-practice-design.md": {
