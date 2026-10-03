@@ -1464,7 +1464,6 @@
   "homeTigerBubbleResumeSub": "5 Minuten reichen schon!",
   "homePathDone": "Erledigt",
   "scenariosListTitle": "Szenarien",
-  "scenariosListSubtitle": "Übe mit echten Alltagssituationen",
   "scenariosCardMeta": "5 bis 7 Minuten · +{xp} XP",
   "@scenariosCardMeta": {
     "placeholders": {

@@ -5017,12 +5017,6 @@ abstract class AppL10n {
   /// **'Szenarien'**
   String get scenariosListTitle;
 
-  /// No description provided for @scenariosListSubtitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Übe mit echten Alltagssituationen'**
-  String get scenariosListSubtitle;
-
   /// No description provided for @scenariosCardMeta.
   ///
   /// In de, this message translates to:

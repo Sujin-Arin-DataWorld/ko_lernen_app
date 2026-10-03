@@ -2897,9 +2897,6 @@ class AppL10nDe extends AppL10n {
   String get scenariosListTitle => 'Szenarien';
 
   @override
-  String get scenariosListSubtitle => 'Übe mit echten Alltagssituationen';
-
-  @override
   String scenariosCardMeta(int xp) {
     return '5 bis 7 Minuten · +$xp XP';
   }

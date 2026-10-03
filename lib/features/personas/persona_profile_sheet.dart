@@ -8,6 +8,7 @@ import '../../widgets/sori/button.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/persona_card_motion.dart';
 import '../../widgets/sori/persona_portrait.dart';
+import '../../widgets/sori/sheet.dart';
 import '../../widgets/sori/tokens.dart';
 import 'persona_dialogue_index.dart';
 
@@ -19,12 +20,10 @@ Future<void> showPersonaProfile({
   LearnerLevel? preferredLevel,
 }) async {
   final navigator = Navigator.of(context);
-  final result = await showModalBottomSheet<({Scenario scene, bool listening})>(
+  final result = await showSoriSheet<({Scenario scene, bool listening})>(
     context: context,
-    isScrollControlled: true,
-    useSafeArea: true,
-    showDragHandle: true,
-    constraints: const BoxConstraints(maxWidth: 640),
+    scrollable: false,
+    maxTextScaleFactor: 2,
     builder: (_) => PersonaProfileSheet(
       person: person,
       dialogues: dialogues,

@@ -397,9 +397,12 @@ class _LevelSectionState extends State<_LevelSection>
           LayoutBuilder(
             builder: (context, constraints) {
               final largeText = MediaQuery.textScalerOf(context).scale(16) > 24;
-              final columns = largeText || constraints.maxWidth < 280
+              final columns =
+                  largeText ||
+                      constraints.maxWidth <
+                          SoriAdaptiveWidth.scenarioTopicTwoColumns
                   ? 1
-                  : constraints.maxWidth >= 600
+                  : constraints.maxWidth >= SoriBreakpoints.grid
                   ? 3
                   : 2;
               final width =
@@ -736,7 +739,7 @@ class _LessonPathHeader extends StatelessWidget {
           ),
           const SizedBox(height: Spacing.sm),
 
-          // Per-level ★ progress chips
+          // Per-level ★ progress badges are passive status, not filter chips.
           Wrap(
             spacing: Spacing.xs + 2,
             runSpacing: Spacing.xs,
@@ -745,7 +748,7 @@ class _LessonPathHeader extends StatelessWidget {
                 (candidate) =>
                     all.any((scenario) => scenario.level == candidate),
               ))
-                _LevelProgressChip(
+                _LevelProgressBadge(
                   level: lvl,
                   scenarios: all.where((sc) => sc.level == lvl).toList(),
                   stars: stars,
@@ -807,14 +810,14 @@ class _LessonPathHeader extends StatelessWidget {
   }
 }
 
-class _LevelProgressChip extends StatelessWidget {
+class _LevelProgressBadge extends StatelessWidget {
   final LearnerLevel level;
   final List<Scenario> scenarios;
   final Map<String, int> stars;
   final Color accent;
   final String label;
 
-  const _LevelProgressChip({
+  const _LevelProgressBadge({
     required this.level,
     required this.scenarios,
     required this.stars,

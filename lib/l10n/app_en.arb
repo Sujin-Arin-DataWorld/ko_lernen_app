@@ -1448,7 +1448,6 @@
   "homeTigerBubbleResumeSub": "5 minutes is all it takes!",
   "homePathDone": "Done",
   "scenariosListTitle": "Scenarios",
-  "scenariosListSubtitle": "Practise real-life situations",
   "scenariosCardMeta": "5 to 7 minutes · +{xp} XP",
   "@scenariosCardMeta": {
     "placeholders": {

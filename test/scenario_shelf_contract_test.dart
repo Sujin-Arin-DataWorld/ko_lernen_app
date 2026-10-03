@@ -46,7 +46,7 @@ void main() {
         expect(scenarios.length, greaterThanOrEqualTo(baseline.length));
       } else {
         expect(generation, 'canonical_120_v1');
-        expect(scenarios, hasLength(178));
+        expect(scenarios, hasLength(181));
         // The canonical corpus is a full redesign, so reused IDs are governed
         // by the new locked scene inventory rather than the legacy backdrop.
         return;
@@ -96,7 +96,7 @@ void main() {
     // LCP PR-L2a2(2026-09-07): shared_document_old_version A2→B1
     const expectedCounts = <String, int>{
       'a1': 29,
-      'a2': 28,
+      'a2': 31,
       'b1': 31,
       'b2': 30,
       'c1': 30,
@@ -112,7 +112,7 @@ void main() {
         final items = scenarioShardRoot(level)['scenarios'] as List;
         expect(items.length, expectedCounts[level], reason: level);
       }
-      expect(allScenarioJson().length, 178);
+      expect(allScenarioJson().length, 181);
     });
 
     test('샤드에는 자기 레벨만 들어 있다', () {

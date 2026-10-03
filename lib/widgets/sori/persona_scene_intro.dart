@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import '../../features/personas/persona_dialogue_index.dart';
@@ -28,7 +30,7 @@ class SoriPersonaSceneIntro extends StatelessWidget {
           children: [
             for (final id in ids)
               SizedBox(
-                width: constraints.maxWidth < 180 ? constraints.maxWidth : 180,
+                width: math.min(constraints.maxWidth, 180.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
