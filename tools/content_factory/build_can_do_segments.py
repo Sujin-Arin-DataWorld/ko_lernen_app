@@ -3701,6 +3701,37 @@ SMALLTALK_REVIEW_APPROVALS.update(
 # provenance: approvedBy='Jin' approvedAt='2026-09-15' count=180
 
 
+# 2026-10-03: technical rebinding after the directly reviewed B2 can-do
+# translations in 16e2c36e8. Phrase, segment, semantic status and historical
+# review revision remain identical. This records no new human approval.
+_CAN_DO_COPY_REBINDINGS_20261003 = {
+    "segment_b2_medical_precision": (
+        "a332c22528aebe7aafe4a2ea629c45ba832f52a5105e97d5654faa7874caf20b",
+        "9e4d5ba5bda1bf85c7ea62e9fad31afb27061b170cd8fdca210e2c2128510451",
+    ),
+    "segment_b2_remedy_and_appeal": (
+        "a1be69870db12624788b3f2de3d2d0e7f9f8a1fa0b9f1578f8e866c55cbcdf9a",
+        "563c29d9cb09dba8adcb1df7fa13bcde992564f5b4bae9ecbefc480c1158ee4c",
+    ),
+}
+for _phrase_id in (
+    "smalltalk_b2_0012", "smalltalk_b2_0035",
+    "smalltalk_b2_0036", "smalltalk_b2_0047", "smalltalk_b2_0048",
+    "smalltalk_b2_0049", "smalltalk_b2_0050", "smalltalk_b2_0051",
+    "smalltalk_b2_0052", "smalltalk_b2_0081", "smalltalk_b2_0082",
+):
+    _prior_approval = SMALLTALK_REVIEW_APPROVALS[_phrase_id]
+    _old_copy_hash, _new_copy_hash = _CAN_DO_COPY_REBINDINGS_20261003[
+        _prior_approval["canDoSegmentId"]
+    ]
+    if _prior_approval["canDoFingerprintSha256"] != _old_copy_hash:
+        raise ValueError(f"Unexpected prior can-do copy for {_phrase_id}")
+    SMALLTALK_REVIEW_APPROVALS[_phrase_id] = {
+        **_prior_approval,
+        "canDoFingerprintSha256": _new_copy_hash,
+    }
+
+
 SMALLTALK_CATEGORY_ROUTES: dict[tuple[str, str], str] = {
     ("a1", "partner_family"): "a1_11_titles_relationships",
     ("a2", "partner_family"): "a2_running_late",

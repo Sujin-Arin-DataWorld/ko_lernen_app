@@ -36561,7 +36561,7 @@
     ],
     "ttsBoundary": "Storage keys are complete; individual clip listening and device playback are not claimed.",
     "scenarioPersonaReview": "All 178 live scenarios (A1: 29, A2: 28, B1: 31, B2: 30, C1: 30, C2: 30) were directly reviewed against the PR #438 persona criteria. Future content additions and an independent native-speaker or educator review remain open.",
-    "vocabularyPersonaReview": "A1 vocabulary (735 rows) was directly reviewed and reconciled with copied cloze and sentence-building items against the PR #438 criteria. A2-C2 vocabulary remains for the same direct tri-language review."
+    "vocabularyPersonaReview": "A1 vocabulary (735 rows) and A2 vocabulary (519 rows) were directly reviewed and reconciled with copied cloze and sentence-building items against the PR #438 criteria. A1 also received a 50-item post-deployment cloze source-link repair. B1-C2 vocabulary remains for the same direct tri-language review."
   },
   "scenarioPersonaReviewProgress": {
     "reviewReference": "GitHub PR #438 merged as 797160b0664172b2956be0e202bb5df9b246b65c",
@@ -37088,7 +37088,8 @@
           "Kept named characters only where the live profile supports the everyday activity; Hyuna’s hiking invitation and Andrea’s hiking example remain reciprocal, concrete choices.",
           "Removed unsupported health, travel, and cultural claims and changed them to individual, situational statements.",
           "Reduced A2 grammar and multi-action narratives in A1 examples while keeping designated A1 honorific and culture exceptions intact.",
-          "Reconciled 62 cloze and 65 sentence-building items that copied a revised A1 source; each changed cloze item now satisfies its full Korean sentence and answer replacement contract."
+          "Reconciled 62 cloze and 65 sentence-building items that copied a revised A1 source; each changed cloze item now satisfies its full Korean sentence and answer replacement contract.",
+          "Recovered 50 A1 cloze source links omitted by the earlier deployment: each now uses the current Korean, German, and English vocabulary example, with a blank answer present in its source sentence. The explicit 절하다 content lock was restored."
         ],
         "retained": "Named persona facts are only used when they match the live canonical profile. Other existing A1 rows remain after a direct tri-language read because their meaning, level, and context are appropriate.",
         "notClaimed": "This is direct editorial review by the primary assistant. It is not independent native-speaker approval or individual audio listening.",
@@ -37102,7 +37103,99 @@
           "firstLineManifestRebuilt": true,
           "humanListeningClaim": false
         }
+      },
+      {
+        "level": "A2",
+        "status": "directly_reviewed_and_reconciled",
+        "recordCount": 519,
+        "revisedRecordCount": 111,
+        "reviewedFields": [
+          "Korean headword and example",
+          "German and English headword/gloss localization",
+          "German du/Sie register",
+          "Korean-German-English meaning and tone",
+          "CEFR A2 sentence scope",
+          "persona, relationship, cultural, health, institutional, and privacy implications",
+          "linked cloze and sentence-building source copies"
+        ],
+        "findingsApplied": [
+          "Changed ritual, holiday, weather, health, school, workplace, and service examples into concrete observations, requests, choices, or questions where the prior wording made a rule, forecast, dosage, policy, or cultural practice sound universal.",
+          "Removed fixed helper, parent, partner, and gender-prediction roles; retained named persona references only when the live profile and the relationship register support them.",
+          "Kept the target word in each revised example while replacing gendered service labels with respectful context where that word itself is the learning target.",
+          "Reconciled 77 cloze and 96 sentence-building items that copied a revised A2 source; each changed cloze item satisfies its full Korean sentence and answer replacement contract."
+        ],
+        "retained": "The other 408 A2 rows remain after a direct tri-language read because their meaning, level, and context are appropriate. Named persona facts follow the live canonical profile rather than the pending proposal materials.",
+        "notClaimed": "This is direct editorial review by the primary assistant. It is not independent native-speaker approval or individual audio listening.",
+        "tts": {
+          "canonicalManifestRebuilt": true,
+          "newStorageObjectsUploaded": 97,
+          "expectedCanonicalClips": 12979,
+          "remoteObjects": 22183,
+          "missingObjects": 0,
+          "staleObjects": 9204,
+          "firstLineManifestRebuilt": true,
+          "humanListeningClaim": false
+        }
       }
     ]
+  },
+  "latestVerification": {
+    "scope": "A1 source-copy repair, A2 vocabulary review, and scenario English copy synchronization",
+    "canonicalTts": {
+      "manifestRebuilt": true,
+      "expectedClips": 12972,
+      "remoteObjects": 22446,
+      "missingObjects": 0,
+      "staleObjects": 9474,
+      "newObjectsUploadedForFinalRepair": 1
+    },
+    "firstLineBundle": {
+      "scenarioCount": 178,
+      "bundledScenarioCount": 178,
+      "newLocalBundleAssetsDownloaded": 7,
+      "storageWritePerformed": false
+    },
+    "humanListeningClaim": false,
+    "checks": {
+      "fullFlutter": {
+        "passed": 8247,
+        "skipped": 55,
+        "result": "PASS before final eight example repairs"
+      },
+      "finalFlutterContent": {
+        "passed": 81,
+        "result": "PASS"
+      },
+      "contentFactory": {
+        "run": 1311,
+        "skipped": 20,
+        "result": "PASS"
+      },
+      "webBuild": "PASS",
+      "staticAnalysis": "PASS; 3 existing informational lints",
+      "schemaAndTextInventory": "PASS",
+      "generatedCanDoFreshness": "PASS"
+    },
+    "date": "2026-10-03",
+    "reconciliation": {
+      "frozenDraftsModified": false,
+      "humanApprovalAdded": false,
+      "copyRevisionsRecorded": 526,
+      "clozeDistractorSetsRepaired": 20,
+      "smalltalkCanDoTextHashesRebound": 12,
+      "notes": "Exact-source reconciliation and inflected alternatives; technical rebinding preserves segment, phrase, semantic status and historical review revision."
+    }
+  },
+  "advancedVocabularyReviewCriteria": {
+    "requestedOn": "2026-10-03",
+    "method": "Direct Korean-English and Korean-German editorial judgment",
+    "criteria": [
+      "Each example must be understandable without a hidden scenario and must demonstrate the target meaning and a natural collocation.",
+      "Academic, journalistic, legal, policy and literary vocabulary must use the corresponding written register, rather than being forced into casual dialogue.",
+      "Use sufficiently concrete subjects and situations; avoid abstract slogans, unexplained metaphors and synthetic terminology.",
+      "Preserve meaning, tense, uncertainty and register across KO/DE/EN; do not invent actual news facts or blanket legal obligations.",
+      "Retain situational persona voices in conversation; general vocabulary examples do not need an inserted character."
+    ],
+    "progress": "C2 240 rows directly read for this additional context/register review; rewrites pending. B2/C1 additional register review pending."
   }
 }

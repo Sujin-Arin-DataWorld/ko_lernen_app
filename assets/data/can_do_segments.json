@@ -1029,7 +1029,7 @@
     {
       "id": "cluster_a1_11_titles_relationships_v1",
       "level": "a1",
-      "revision": 19,
+      "revision": 20,
       "sourceSeedIds": [
         "seed_vocab_pack_a1_family_1_v1",
         "seed_vocab_pack_a1_family_2_v1",
@@ -1088,7 +1088,8 @@
         "seed_vocab_pack_a1_culture_hobbies_1_v1",
         "seed_vocab_pack_a1_time_family_1_v1",
         "seed_cloze_cloze_a1_0671_v1",
-        "seed_cloze_cloze_a1_0678_v1"
+        "seed_cloze_cloze_a1_0678_v1",
+        "seed_cloze_cloze_a1_0141_v1"
       ],
       "contentReferences": [
         {
@@ -1322,13 +1323,17 @@
         {
           "kind": "cloze",
           "id": "cloze_a1_0678"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0141"
         }
       ]
     },
     {
       "id": "cluster_a1_12_daily_negation_v1",
       "level": "a1",
-      "revision": 9,
+      "revision": 10,
       "sourceSeedIds": [
         "seed_vocab_pack_a1_daily_1_v1",
         "seed_vocab_pack_a1_daily_2_v1",
@@ -1357,7 +1362,9 @@
         "seed_scenario_cafe_dessert_sold_out_v1",
         "seed_vocab_pack_a1_verbs_daily_1_v1",
         "seed_vocab_pack_a1_verbs_daily_2_v1",
-        "seed_vocab_pack_a1_verbs_daily_3_v1"
+        "seed_vocab_pack_a1_verbs_daily_3_v1",
+        "seed_cloze_cloze_a1_0045_v1",
+        "seed_cloze_cloze_a1_0738_v1"
       ],
       "contentReferences": [
         {
@@ -1471,13 +1478,21 @@
         {
           "kind": "vocabPack",
           "id": "a1_verbs_daily_3"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0045"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0738"
         }
       ]
     },
     {
       "id": "cluster_a1_13_register_switching_v1",
       "level": "a1",
-      "revision": 12,
+      "revision": 13,
       "sourceSeedIds": [
         "seed_cloze_cloze_a1_0076_v1",
         "seed_cloze_cloze_a1_0077_v1",
@@ -1490,7 +1505,9 @@
         "seed_grammar_grammar_a1_formal_question_v1",
         "seed_scenario_dance_class_register_v1",
         "seed_vocab_pack_a1_adverbs_1_v1",
-        "seed_vocab_pack_a1_adverbs_2_v1"
+        "seed_vocab_pack_a1_adverbs_2_v1",
+        "seed_cloze_cloze_a1_0290_v1",
+        "seed_cloze_cloze_a1_0578_v1"
       ],
       "contentReferences": [
         {
@@ -1540,6 +1557,14 @@
         {
           "kind": "vocabPack",
           "id": "a1_adverbs_2"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0290"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0578"
         }
       ]
     },
@@ -15899,14 +15924,14 @@
       "level": "b2",
       "order": 9,
       "title": {
-        "ko": "약 부작용, 미리 확인하기",
-        "de": "Nebenwirkungen vorab abklären",
-        "en": "Checking medication side effects in advance"
+        "ko": "약 부작용, 복용 방법 확인하기",
+        "de": "Nebenwirkungen und Einnahme abklären",
+        "en": "Checking side effects and how to take a medication"
       },
       "canDo": {
-        "ko": "약 부작용, 미리 확인하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Nebenwirkungen vorab abklären“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Checking medication side effects in advance” by connecting appropriate Korean expressions."
+        "ko": "약 부작용, 복용 방법 확인하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Nebenwirkungen und Einnahme abklären“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Checking side effects and how to take a medication” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b2_precise_requests"
@@ -16099,14 +16124,14 @@
       "level": "b2",
       "order": 14,
       "title": {
-        "ko": "과태료 이의신청, 다시 접수하기",
-        "de": "Einspruch gegen das Bußgeld erneut einreichen",
-        "en": "Resubmitting an objection to a fine"
+        "ko": "과태료 이의신청, 절차 다시 확인하기",
+        "de": "Das Verfahren nach einem abgelehnten Bußgeld-Einspruch klären",
+        "en": "Clarifying the procedure after a rejected fine appeal"
       },
       "canDo": {
-        "ko": "과태료 이의신청, 다시 접수하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Einspruch gegen das Bußgeld erneut einreichen“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Resubmitting an objection to a fine” by connecting appropriate Korean expressions."
+        "ko": "과태료 이의신청, 절차 다시 확인하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Das Verfahren nach einem abgelehnten Bußgeld-Einspruch klären“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Clarifying the procedure after a rejected fine appeal” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b2_complaint"

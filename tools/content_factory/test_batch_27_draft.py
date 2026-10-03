@@ -138,11 +138,12 @@ class TestBatch27PromotedToLiveAssets(unittest.TestCase):
             )
 
     def test_every_id_is_live_with_matching_content(self):
-        draft_rows = {r["id"]: r for r in _load_vocab_rows(DRAFTS / "batch_27_a1_rows.csv")}
-        live_rows = {r["id"]: r for r in _load_vocab_rows(VOCAB_CSV)}
-        for vid, row in draft_rows.items():
-            self.assertIn(vid, live_rows, f"{vid} missing from live korean_vocab.csv")
-            self.assertEqual(row, live_rows[vid], f"{vid}: live row differs from reviewed draft")
+        """Frozen drafts or exact recorded revisions must match every live row."""
+        from tools.content_factory import validate_promoted_batch
+        manifest = DRAFTS / "batch_27_a1_reinforcement_manifest.json"
+        count, _ = validate_promoted_batch.validate(manifest, root=REPO_ROOT)
+        expected = sum(item["count"] for item in _load_json(manifest)["artifacts"])
+        self.assertEqual(count, expected)
 
     def test_no_overlap_with_batch_25_words(self):
         draft_rows = _load_vocab_rows(DRAFTS / "batch_27_a1_rows.csv")
