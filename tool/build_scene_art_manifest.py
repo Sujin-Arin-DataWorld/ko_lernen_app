@@ -46,10 +46,10 @@ CATEGORY_ORDER = [
 ]
 LEVEL_ORDER = ["a1", "a2", "b1", "b2", "c1", "c2"]
 EXPECTED_CATEGORY_COUNTS = {
-    "office": 57,
+    "office": 60,
     "home": 58,
-    "cafe": 16,
-    "station": 9,
+    "cafe": 17,
+    "station": 10,
     "market": 7,
     "theme_park": 6,
     "convenience": 1,

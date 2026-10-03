@@ -60,7 +60,7 @@ class LoaderCoverageAuditTest(unittest.TestCase):
             0,
         )
         other = report["libraryLoader"]["otherGames"]
-        self.assertEqual(other["grammarCards"]["exactPerLevel"]["c2"], 23)
+        self.assertEqual(other["grammarCards"]["exactPerLevel"]["c2"], 26)
         self.assertTrue(other["grammarCards"]["appCallSite"])
         self.assertEqual(other["silben"]["exactPerLevel"]["c1"], 20)
         self.assertTrue(other["silben"]["selectablePerLevel"]["c1"])

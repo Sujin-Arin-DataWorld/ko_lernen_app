@@ -366,6 +366,41 @@ class TestRealLexiconGoldenCases(unittest.TestCase):
         cls.lex = cl.CefrLexicon.load()
         cls.grammar = cl.GrammarIndex.load()
 
+    def test_pronoun_particles_do_not_become_predicate_homographs(self):
+        for text in ("우리는", "우리가", "우리를", "우리에게", "우리도"):
+            with self.subTest(text=text):
+                word = self.lex.phrase_grade(text).words[0]
+                self.assertEqual((word.matched, word.grade, word.source), ("우리", 1, "kiiq"))
+
+    def test_real_urida_predicate_keeps_its_original_lexicon_grade(self):
+        word = self.lex.word_grade("우리다")
+        self.assertEqual((word.grade, word.source), (5, "basic2023"))
+        word = self.lex.phrase_grade("우리면").words[0]
+        self.assertEqual((word.matched, word.grade, word.source), ("우리다", 5, "basic2023"))
+
+    def test_volitional_rieul_raeyo_is_not_quoted_speech(self):
+        for text in ("제 전화 쓰실래요?", "물을 마실래요?", "밥을 먹을래요?", "집에 갈래요?"):
+            with self.subTest(text=text):
+                hits = self.grammar.detect(text)
+                ids = {hit.pattern_id for hit in hits}
+                self.assertNotIn("grammar_b2_quoted_contractions", ids)
+                self.assertTrue(any(hit.grade == 2 and
+                    hit.pattern_id == "grammar_a2_preference_question" for hit in hits))
+
+    def test_genuine_quoted_raeyo_and_copula_remain_detected(self):
+        for text in ("엄마가 쓰래요.", "친구가 마시래요.", "그분은 의사래요.", "그분은 선생님이래요.", "이건 물이래요."):
+            with self.subTest(text=text):
+                ids = {hit.pattern_id for hit in self.grammar.detect(text)}
+                self.assertIn("grammar_b2_quoted_contractions", ids)
+
+    def test_negative_quoted_malraeyo_remains_detected(self):
+        for text in ("엄마가 하지 말래요.", "선생님이 떠들지 말래요.", "친구가 가지말래요.",
+                     "엄마가 하지  말래요.", "엄마가 하지\t말래요."):
+            with self.subTest(text=text):
+                ids = {hit.pattern_id for hit in self.grammar.detect(text)}
+                self.assertIn("grammar_b2_quoted_contractions", ids)
+                self.assertNotIn("grammar_a2_preference_question", ids)
+
     def test_word_grade_gongbuhada_derived(self):
         wg = self.lex.word_grade("공부하다")
         self.assertEqual((wg.grade, wg.cefr, wg.source), (1, "A1", "derived"))
@@ -616,7 +651,8 @@ class TestVocabUnknownRatio(unittest.TestCase):
         # C3-T4 (2026-09-16): Batch 29 adds 64 words. 2754+64=2818.
         # C3-T5 (2026-09-16): Batch 30 adds 62 words. 2818+62=2880. Batch
         # 31 adds 64 words (first A2 promotion). 2880+64=2944.
-        self.assertEqual(len(self.rows), 2944)
+        # C2 Batch 35/37 (2026-10-03) add 24 words. 2944+24=2968.
+        self.assertEqual(len(self.rows), 2968)
 
 
 class TestSentenceUnknownRatio(unittest.TestCase):

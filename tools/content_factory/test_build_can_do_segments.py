@@ -197,7 +197,11 @@ class CanDoSegmentGeneratorTest(unittest.TestCase):
                 candidates = vocab_by_example[(lineage["level"], row["fullKo"])]
                 candidate_packs = {candidate["pack_id"] for candidate in candidates}
                 if len(candidate_packs) > 1:
-                    self.assertEqual(row["answer"], source["korean"])
+                    expected_headword, expected_answer = builder.DERIVED_SOURCE_ANSWER_OVERRIDES.get(
+                        content_id, (source["korean"], source["korean"])
+                    )
+                    self.assertEqual(expected_headword, source["korean"])
+                    self.assertEqual(expected_answer, row["answer"])
                     self.assertEqual(
                         builder.DERIVED_SOURCE_VOCAB_OVERRIDES[content_id],
                         source["id"],
@@ -602,6 +606,39 @@ class PublishedSegmentTextTest(unittest.TestCase):
 
 
 class SmalltalkCopyRevisionTest(unittest.TestCase):
+    def test_follow_up_successor_metadata_preserves_route_and_expires_on_source_drift(self) -> None:
+        editorial = builder.smalltalk_editorial_revisions
+        successors = builder._read_json(builder.ROOT / editorial.SUCCESSOR_REF)
+        for successor in successors["entries"]:
+            ident = successor["id"]
+            with self.subTest(ident=ident):
+                old = {
+                    "phraseId": ident,
+                    "phraseFingerprintSha256": successor["beforeSha256"],
+                    "routingSource": "exactOverride",
+                    "canDoSegmentId": "segment_a1_demo",
+                    "canDoFingerprintSha256": "c" * 64,
+                    "semanticStatus": "exactMapped",
+                    "reasonCode": "explicitSemanticRoute",
+                    "reviewRevision": 2,
+                }
+                metadata = editorial.copy_revision_metadata(successor["after"])
+                decision = {**old, **metadata,
+                    "phraseFingerprintSha256": successor["afterSha256"]}
+                previous = {"coverage": {"smalltalkRoutingAudit": {"phraseDecisions": [old]}}}
+                current = {"coverage": {"smalltalkRoutingAudit": {"phraseDecisions": [decision]}}}
+                builder._validate_smalltalk_review_history(current, previous, review_approvals={})
+                self.assertEqual(old["reviewRevision"], decision["reviewRevision"])
+                builder._validate_smalltalk_review_history(copy.deepcopy(current), current, review_approvals={})
+                wrong_route = copy.deepcopy(current)
+                wrong_route["coverage"]["smalltalkRoutingAudit"]["phraseDecisions"][0]["canDoSegmentId"] = "segment_a2_other"
+                with self.assertRaisesRegex(ValueError, "semantic route"):
+                    builder._validate_smalltalk_review_history(wrong_route, previous, review_approvals={})
+                wrong_source = copy.deepcopy(current)
+                wrong_source["coverage"]["smalltalkRoutingAudit"]["phraseDecisions"][0]["previousPhraseFingerprintSha256"] = "0" * 64
+                with self.assertRaisesRegex(ValueError, "does not descend"):
+                    builder._validate_smalltalk_review_history(wrong_source, previous, review_approvals={})
+
     def test_copy_revision_preserves_semantic_review_and_requires_native_review(
         self,
     ) -> None:

@@ -19164,6 +19164,348 @@ abstract class AppL10n {
   /// **'Dieses Gebäude ist fertig!'**
   String get yeopjeonConstructionComplete;
 
+  /// No description provided for @practiceToneTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ausdruck und Situation'**
+  String get practiceToneTitle;
+
+  /// No description provided for @practiceSituation.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Situation'**
+  String get practiceSituation;
+
+  /// No description provided for @practiceIntent.
+  ///
+  /// In de, this message translates to:
+  /// **'Was möchtest du erreichen?'**
+  String get practiceIntent;
+
+  /// No description provided for @practiceExpression.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle deine Formulierung'**
+  String get practiceExpression;
+
+  /// No description provided for @practiceEffect.
+  ///
+  /// In de, this message translates to:
+  /// **'So kann es ankommen'**
+  String get practiceEffect;
+
+  /// No description provided for @practiceGrammarCorrect.
+  ///
+  /// In de, this message translates to:
+  /// **'Grammatisch korrekt. Die Wirkung hängt von der Situation und dem Ton ab.'**
+  String get practiceGrammarCorrect;
+
+  /// No description provided for @practiceAssemble.
+  ///
+  /// In de, this message translates to:
+  /// **'Setze deine nächste Antwort zusammen'**
+  String get practiceAssemble;
+
+  /// No description provided for @practiceShowEffect.
+  ///
+  /// In de, this message translates to:
+  /// **'Erklärung als Hilfe ansehen'**
+  String get practiceShowEffect;
+
+  /// No description provided for @practiceReset.
+  ///
+  /// In de, this message translates to:
+  /// **'Wörter zurücklegen'**
+  String get practiceReset;
+
+  /// No description provided for @practiceCheck.
+  ///
+  /// In de, this message translates to:
+  /// **'Antwort prüfen und speichern'**
+  String get practiceCheck;
+
+  /// No description provided for @practiceOrderRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Wortfolge passt noch nicht. Lege die Wörter zurück und versuche es erneut.'**
+  String get practiceOrderRetry;
+
+  /// No description provided for @practiceIntentRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Formulierung ist möglich, erfüllt aber noch nicht das Ziel dieser Situation. Wähle deine Absicht erneut.'**
+  String get practiceIntentRetry;
+
+  /// No description provided for @practiceSaved.
+  ///
+  /// In de, this message translates to:
+  /// **'Übung gespeichert'**
+  String get practiceSaved;
+
+  /// No description provided for @practiceSaveFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Übung konnte nicht gespeichert werden. Deine Antwort bleibt für einen erneuten Versuch hier.'**
+  String get practiceSaveFailed;
+
+  /// No description provided for @practiceRetrySave.
+  ///
+  /// In de, this message translates to:
+  /// **'Speichern erneut versuchen'**
+  String get practiceRetrySave;
+
+  /// No description provided for @practiceToSarangbang.
+  ///
+  /// In de, this message translates to:
+  /// **'In der Sarangbang wieder üben'**
+  String get practiceToSarangbang;
+
+  /// No description provided for @practiceTransfer.
+  ///
+  /// In de, this message translates to:
+  /// **'In einer anderen Situation antworten'**
+  String get practiceTransfer;
+
+  /// No description provided for @practiceAssisted.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit Hilfe abgeschlossen'**
+  String get practiceAssisted;
+
+  /// No description provided for @practiceIndependent.
+  ///
+  /// In de, this message translates to:
+  /// **'Selbstständig abgeschlossen'**
+  String get practiceIndependent;
+
+  /// No description provided for @practiceViewed.
+  ///
+  /// In de, this message translates to:
+  /// **'Angesehen'**
+  String get practiceViewed;
+
+  /// No description provided for @practiceHistoryTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Übungen im Raum'**
+  String get practiceHistoryTitle;
+
+  /// No description provided for @practiceHistoryOpen.
+  ///
+  /// In de, this message translates to:
+  /// **'Übungen wieder aufnehmen'**
+  String get practiceHistoryOpen;
+
+  /// No description provided for @practiceHistoryEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier findest du deine Smalltalk-Übungen und Silben-Rätsel mit Hilfe.'**
+  String get practiceHistoryEmpty;
+
+  /// No description provided for @practicePuzzleReplay.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Rätsel selbstständig lösen'**
+  String get practicePuzzleReplay;
+
+  /// No description provided for @practiceUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Übung ist in dieser Inhaltsversion nicht verfügbar.'**
+  String get practiceUnavailable;
+
+  /// No description provided for @practiceBackCases.
+  ///
+  /// In de, this message translates to:
+  /// **'Weitere Situationen'**
+  String get practiceBackCases;
+
+  /// No description provided for @practiceChooseAgain.
+  ///
+  /// In de, this message translates to:
+  /// **'Absicht erneut wählen'**
+  String get practiceChooseAgain;
+
+  /// No description provided for @practiceHintTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Hinweis vom Dokkaebi'**
+  String get practiceHintTitle;
+
+  /// No description provided for @practiceHintMeaning.
+  ///
+  /// In de, this message translates to:
+  /// **'Bedeutung und Richtung ansehen'**
+  String get practiceHintMeaning;
+
+  /// No description provided for @practiceHintCrossing.
+  ///
+  /// In de, this message translates to:
+  /// **'Kreuzungsfelder ansehen'**
+  String get practiceHintCrossing;
+
+  /// No description provided for @practiceHintReveal.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine Silbe anzeigen · deutliche Hilfe'**
+  String get practiceHintReveal;
+
+  /// No description provided for @practiceHintPlace.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Silbe ist sichtbar. Lege den passenden Stein selbst auf das ausgewählte Feld.'**
+  String get practiceHintPlace;
+
+  /// No description provided for @practiceHintNoCrossing.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Wort hat kein Kreuzungsfeld.'**
+  String get practiceHintNoCrossing;
+
+  /// No description provided for @practiceReplaySaved.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Ergebnis wurde gespeichert.'**
+  String get practiceReplaySaved;
+
+  /// No description provided for @practiceSilbenLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Silben-Rätsel'**
+  String get practiceSilbenLabel;
+
+  /// No description provided for @practiceReadError.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Übungsdaten konnten nicht gelesen werden.'**
+  String get practiceReadError;
+
+  /// No description provided for @practiceHistoryStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Smalltalk mit der Hahoe-Maske üben'**
+  String get practiceHistoryStart;
+
+  /// No description provided for @personaMeetPeopleTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Menschen kennenlernen'**
+  String get personaMeetPeopleTitle;
+
+  /// No description provided for @personaMeetPeopleSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Lerne elf Menschen kennen und finde ein Gespräch mit ihnen.'**
+  String get personaMeetPeopleSubtitle;
+
+  /// Persona discovery and scene navigation. Name comes from the existing character catalog.
+  ///
+  /// In de, this message translates to:
+  /// **'Mehr über {name}'**
+  String personaOpenProfile(String name);
+
+  /// No description provided for @personaInterests.
+  ///
+  /// In de, this message translates to:
+  /// **'Interessen'**
+  String get personaInterests;
+
+  /// No description provided for @personaConnections.
+  ///
+  /// In de, this message translates to:
+  /// **'Menschen im Umfeld'**
+  String get personaConnections;
+
+  /// Persona discovery and scene navigation. Name comes from the existing character catalog.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit {name} sprechen'**
+  String personaTalkWith(String name);
+
+  /// Persona discovery and scene navigation. Name comes from the existing character catalog.
+  ///
+  /// In de, this message translates to:
+  /// **'Als {name} sprechen'**
+  String personaPlayRole(String name);
+
+  /// No description provided for @personaListen.
+  ///
+  /// In de, this message translates to:
+  /// **'Gespräch anhören'**
+  String get personaListen;
+
+  /// Persona discovery and scene navigation. Name comes from the existing character catalog.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Rolle in dieser Szene: {name}'**
+  String personaYourRole(String name);
+
+  /// Persona discovery and scene navigation. Name comes from the existing character catalog.
+  ///
+  /// In de, this message translates to:
+  /// **'Gespräche mit {name}'**
+  String personaConversationsWith(String name);
+
+  /// Persona discovery and scene navigation. Name comes from the existing character catalog.
+  ///
+  /// In de, this message translates to:
+  /// **'Szenen, in denen du {name} spielst'**
+  String personaLearnerRoles(String name);
+
+  /// No description provided for @personaLearnerRolesHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier übernimmst du diese Rolle und sprichst mit jemand anderem.'**
+  String get personaLearnerRolesHint;
+
+  /// No description provided for @personaNoConversations.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Gespräch mit dieser Person wird noch vorbereitet.'**
+  String get personaNoConversations;
+
+  /// No description provided for @personaListeningUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Hörlektion zu dieser Szene wird noch vorbereitet.'**
+  String get personaListeningUnavailable;
+
+  /// No description provided for @scenariosLevelFilter.
+  ///
+  /// In de, this message translates to:
+  /// **'Sprachniveau'**
+  String get scenariosLevelFilter;
+
+  /// No description provided for @scenariosChooseTopic.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle ein Thema'**
+  String get scenariosChooseTopic;
+
+  /// No description provided for @scenariosChangeTopic.
+  ///
+  /// In de, this message translates to:
+  /// **'Anderes Thema wählen'**
+  String get scenariosChangeTopic;
+
+  /// No description provided for @scenariosConversationCount.
+  ///
+  /// In de, this message translates to:
+  /// **'{count} Gespräche'**
+  String scenariosConversationCount(int count);
+
+  /// No description provided for @scenariosOneConversation.
+  ///
+  /// In de, this message translates to:
+  /// **'1 Gespräch'**
+  String get scenariosOneConversation;
+
+  /// No description provided for @personaMeetPeopleCompactSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'11 Profile · Gespräche & Hören'**
+  String get personaMeetPeopleCompactSubtitle;
+
   /// No description provided for @dancheongTitle.
   ///
   /// In de, this message translates to:
@@ -19625,126 +19967,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Diese fertige Version und ihre gespeicherten Begleittexte löschen? Ihre öffentlichen Links werden ebenfalls deaktiviert. Bereits von anderen gespeicherte Kopien bleiben erhalten.'**
   String get dancheongDeleteArtworkNote;
-
-  /// No description provided for @personaMeetPeopleTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Menschen kennenlernen'**
-  String get personaMeetPeopleTitle;
-
-  /// No description provided for @personaMeetPeopleSubtitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Lerne elf Menschen kennen und finde ein Gespräch mit ihnen.'**
-  String get personaMeetPeopleSubtitle;
-
-  /// Persona discovery and scene navigation. Name comes from the existing character catalog.
-  ///
-  /// In de, this message translates to:
-  /// **'Mehr über {name}'**
-  String personaOpenProfile(String name);
-
-  /// No description provided for @personaInterests.
-  ///
-  /// In de, this message translates to:
-  /// **'Interessen'**
-  String get personaInterests;
-
-  /// No description provided for @personaConnections.
-  ///
-  /// In de, this message translates to:
-  /// **'Menschen im Umfeld'**
-  String get personaConnections;
-
-  /// Persona discovery and scene navigation. Name comes from the existing character catalog.
-  ///
-  /// In de, this message translates to:
-  /// **'Mit {name} sprechen'**
-  String personaTalkWith(String name);
-
-  /// Persona discovery and scene navigation. Name comes from the existing character catalog.
-  ///
-  /// In de, this message translates to:
-  /// **'Als {name} sprechen'**
-  String personaPlayRole(String name);
-
-  /// No description provided for @personaListen.
-  ///
-  /// In de, this message translates to:
-  /// **'Gespräch anhören'**
-  String get personaListen;
-
-  /// Persona discovery and scene navigation. Name comes from the existing character catalog.
-  ///
-  /// In de, this message translates to:
-  /// **'Deine Rolle in dieser Szene: {name}'**
-  String personaYourRole(String name);
-
-  /// Persona discovery and scene navigation. Name comes from the existing character catalog.
-  ///
-  /// In de, this message translates to:
-  /// **'Gespräche mit {name}'**
-  String personaConversationsWith(String name);
-
-  /// Persona discovery and scene navigation. Name comes from the existing character catalog.
-  ///
-  /// In de, this message translates to:
-  /// **'Szenen, in denen du {name} spielst'**
-  String personaLearnerRoles(String name);
-
-  /// No description provided for @personaLearnerRolesHint.
-  ///
-  /// In de, this message translates to:
-  /// **'Hier übernimmst du diese Rolle und sprichst mit jemand anderem.'**
-  String get personaLearnerRolesHint;
-
-  /// No description provided for @personaNoConversations.
-  ///
-  /// In de, this message translates to:
-  /// **'Ein Gespräch mit dieser Person wird noch vorbereitet.'**
-  String get personaNoConversations;
-
-  /// No description provided for @personaListeningUnavailable.
-  ///
-  /// In de, this message translates to:
-  /// **'Die Hörlektion zu dieser Szene wird noch vorbereitet.'**
-  String get personaListeningUnavailable;
-
-  /// No description provided for @scenariosLevelFilter.
-  ///
-  /// In de, this message translates to:
-  /// **'Sprachniveau'**
-  String get scenariosLevelFilter;
-
-  /// No description provided for @scenariosChooseTopic.
-  ///
-  /// In de, this message translates to:
-  /// **'Wähle ein Thema'**
-  String get scenariosChooseTopic;
-
-  /// No description provided for @scenariosChangeTopic.
-  ///
-  /// In de, this message translates to:
-  /// **'Anderes Thema wählen'**
-  String get scenariosChangeTopic;
-
-  /// No description provided for @scenariosConversationCount.
-  ///
-  /// In de, this message translates to:
-  /// **'{count} Gespräche'**
-  String scenariosConversationCount(int count);
-
-  /// No description provided for @scenariosOneConversation.
-  ///
-  /// In de, this message translates to:
-  /// **'1 Gespräch'**
-  String get scenariosOneConversation;
-
-  /// No description provided for @personaMeetPeopleCompactSubtitle.
-  ///
-  /// In de, this message translates to:
-  /// **'11 Profile · Gespräche & Hören'**
-  String get personaMeetPeopleCompactSubtitle;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

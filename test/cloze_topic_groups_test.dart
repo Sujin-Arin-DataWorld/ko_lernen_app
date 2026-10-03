@@ -86,6 +86,7 @@ const _expectedTopics = <ClozeTopicGroupId, Set<String>>{
     'Beschreibung',
     'Denken',
     'Diskurs & Macht',
+    'Ehrensprache',
     'Entscheidungen & Perspektiven',
     'Erinnerung & Erzählperspektive',
     'Erinnerungsnarrativ',
@@ -102,6 +103,7 @@ const _expectedTopics = <ClozeTopicGroupId, Set<String>>{
   ClozeTopicGroupId.societyInstitutions: {
     '인구 담론과 제도 책임',
     '주거비와 사회 통합',
+    'Argumentation und Verfahrensgestaltung',
     'Beteiligungsdesign',
     'Bürgerversammlung',
     'Diskurs, Macht & Verantwortung',
@@ -168,14 +170,15 @@ void main() {
   final items = sourceRows.map(ClozeItem.fromJson).toList(growable: false);
   final canonicalTopics = items.map((item) => item.topic).toSet();
 
-  test('accepted canonical baseline is exactly 2,341 items and 136 topics', () {
+  test('accepted canonical baseline is exactly 2,365 items and 138 topics', () {
     // C3-T5 (2026-09-16): Batch 30 A1 reinforcement adds 62 cloze items and
     // 2 new exact topic strings (Selbstvorstellung, Tiere). 2215 + 62 =
     // 2277; 132 + 2 = 134. Batch 31 A2 reinforcement (first A2 batch) adds
     // 64 more cloze items and 2 more new topic strings (Menschen &
     // Berufe, Natur & Draußen). 2277 + 64 = 2341; 134 + 2 = 136.
-    expect(items, hasLength(2341));
-    expect(canonicalTopics, hasLength(136));
+    // C2 batches 35 and 37 add 24 items with two new exact topics.
+    expect(items, hasLength(2365));
+    expect(canonicalTopics, hasLength(138));
     expect(items.every((item) => item.topic.trim().isNotEmpty), isTrue);
     expect(items.every((item) => item.hasExplicitId), isTrue);
     expect(items.map((item) => item.id).toSet(), hasLength(items.length));
@@ -201,7 +204,7 @@ void main() {
     );
   });
 
-  test('all 136 exact topics map once with no missing or dangling key', () {
+  test('all 138 exact topics map once with no missing or dangling key', () {
     expect(_expectedTopics.keys.toList(), ClozeTopicGroups.ordered);
     final expectedUnion = <String>{};
     for (final entry in _expectedTopics.entries) {
@@ -214,7 +217,7 @@ void main() {
         expect(ClozeTopicGroups.groupForTopic(topic), entry.key, reason: topic);
       }
     }
-    expect(expectedUnion, hasLength(136));
+    expect(expectedUnion, hasLength(138));
     expect(expectedUnion, canonicalTopics);
     expect(ClozeTopicGroups.groupForTopic('not-a-canonical-topic'), isNull);
   });
@@ -244,6 +247,41 @@ void main() {
       items.map((item) => item.id).toSet(),
     );
   });
+
+  test(
+    'the two new C2 topics retain all twelve items in their exact groups',
+    () {
+      const additions = {
+        'Ehrensprache': ClozeTopicGroupId.languageMedia,
+        'Argumentation und Verfahrensgestaltung':
+            ClozeTopicGroupId.societyInstitutions,
+      };
+      final counts = ClozeTopicGroups.countsForLevel(items, level: 'c2');
+      expect(
+        counts.values.fold<int>(0, (total, count) => total + count),
+        items.where((item) => item.level == 'c2').length,
+      );
+      for (final entry in additions.entries) {
+        final topicItems = items
+            .where((item) => item.topic == entry.key)
+            .toList();
+        expect(topicItems, hasLength(12), reason: entry.key);
+        expect(topicItems.every((item) => item.level == 'c2'), isTrue);
+        final groupItems = ClozeTopicGroups.filterItems(
+          items,
+          level: 'c2',
+          group: entry.value,
+        );
+        expect(groupItems, hasLength(counts[entry.value]!));
+        expect(
+          groupItems
+              .where((item) => item.topic == entry.key)
+              .map((item) => item.id),
+          unorderedEquals(topicItems.map((item) => item.id)),
+        );
+      }
+    },
+  );
 
   test('partition fails closed for an unknown topic or duplicate item ID', () {
     final canonical = items.first;

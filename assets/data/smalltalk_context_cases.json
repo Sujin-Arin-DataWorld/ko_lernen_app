@@ -1,0 +1,1581 @@
+{
+  "version": 1,
+  "reviewStatus": "Author model review; human language review not claimed",
+  "cases": [
+    {
+      "id": "invite_friend",
+      "revision": 1,
+      "level": "a1",
+      "topic": "invite",
+      "title": {
+        "ko": "친구와 저녁 약속",
+        "de": "Mit Freunden verabreden",
+        "en": "Making dinner plans"
+      },
+      "sourcePhraseIds": [],
+      "base": {
+        "characterId": "christian",
+        "context": {
+          "ko": "크리스티안은 친한 친구예요. 둘이 편하게 메시지를 주고받고 있어요.",
+          "de": "Christian ist ein guter Freund. Ihr schreibt euch privat und ungezwungen.",
+          "en": "Christian is a close friend. You are messaging each other casually."
+        },
+        "prompt": {
+          "ko": "오늘 저녁에 시간 있어?",
+          "de": "Hast du heute Abend Zeit?",
+          "en": "Are you free this evening?"
+        }
+      },
+      "transfer": {
+        "characterId": "maya",
+        "context": {
+          "ko": "마야도 친한 친구예요. 수업 뒤 둘이 이야기해요. 오늘은 시간이 있지만, 먼저 용건을 알아보세요.",
+          "de": "Maya ist ebenfalls eine gute Freundin. Ihr redet nach dem Unterricht. Du hast Zeit, möchtest aber zuerst wissen, worum es geht.",
+          "en": "Maya is also a close friend. You are talking after class. You are free, but want to find out what she has in mind first."
+        },
+        "prompt": {
+          "ko": "오늘 저녁에 시간 있어?",
+          "de": "Hast du heute Abend Zeit?",
+          "en": "Are you free this evening?"
+        },
+        "requiredIntentId": "ask",
+        "acceptedExpressionIds": [
+          "casual"
+        ]
+      },
+      "intents": [
+        {
+          "id": "accept",
+          "label": {
+            "ko": "만날 수 있다고 말하기",
+            "de": "Sagen, dass du Zeit hast",
+            "en": "Say you are available"
+          },
+          "expressions": [
+            {
+              "id": "casual",
+              "text": {
+                "ko": "응, 있어. 왜?",
+                "de": "Ja. Wieso?",
+                "en": "Yeah, I am. Why?"
+              },
+              "effect": {
+                "ko": "편하게 답하고 용건을 물어요. 친한 사이에서는 짧아도 무례한 답이 아니에요.",
+                "de": "Du sagst ungezwungen, dass du Zeit hast, und fragst nach dem Anlass. Unter guten Freunden ist die kurze Antwort nicht unhöflich.",
+                "en": "You answer casually and ask what it is about. A short reply can be friendly between close friends."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "같이 저녁 먹을래?",
+                "de": "Wollen wir zusammen essen?",
+                "en": "Want to get dinner together?"
+              },
+              "followUp": {
+                "ko": "좋아. 몇 시에 만날까?",
+                "de": "Gerne. Wann treffen wir uns?",
+                "en": "Sure. What time shall we meet?"
+              }
+            },
+            {
+              "id": "playful",
+              "text": {
+                "ko": "네, 시간이 있습니다.",
+                "de": "Ja, ich stehe zur Verfügung.",
+                "en": "Yes, I am available."
+              },
+              "effect": {
+                "ko": "문법은 맞아요. 평소 반말을 쓰는 친구에게 갑자기 격식을 차리면 장난처럼 들릴 수 있어요. 억양에 따라 거리감도 생길 수 있어요.",
+                "de": "Grammatisch stimmt der Satz. Wenn ihr sonst locker redet, kann die plötzliche Förmlichkeit scherzhaft wirken. Je nach Ton kann sie auch Distanz schaffen.",
+                "en": "The grammar is correct. Sudden formality with a friend you usually speak casually to can sound playful. Depending on your tone, it may also create distance."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "같이 저녁 먹을래?",
+                "de": "Wollen wir zusammen essen?",
+                "en": "Want to get dinner together?"
+              },
+              "followUp": {
+                "ko": "좋아. 몇 시에 만날까?",
+                "de": "Gerne. Wann treffen wir uns?",
+                "en": "Sure. What time shall we meet?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "ask",
+          "label": {
+            "ko": "먼저 용건 알아보기",
+            "de": "Erst nachfragen",
+            "en": "Ask what it is about first"
+          },
+          "expressions": [
+            {
+              "id": "what",
+              "text": {
+                "ko": "무슨 일인데?",
+                "de": "Worum geht’s denn?",
+                "en": "What is it about?"
+              },
+              "effect": {
+                "ko": "약속하기 전에 용건을 물어요. 말끝을 세게 하면 따지는 느낌도 날 수 있어요.",
+                "de": "Du fragst nach, bevor du zusagst. Mit scharfem Ton kann die Frage vorwurfsvoll wirken.",
+                "en": "You ask before committing. A sharp tone could make it sound confrontational."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "같이 저녁 먹으려고.",
+                "de": "Ich wollte mit dir essen gehen.",
+                "en": "I was thinking of getting dinner together."
+              },
+              "followUp": {
+                "ko": "좋아. 같이 먹자.",
+                "de": "Gerne, lass uns zusammen essen.",
+                "en": "Sure. Let’s eat together."
+              }
+            },
+            {
+              "id": "plan",
+              "text": {
+                "ko": "뭐 하려고?",
+                "de": "Was hast du vor?",
+                "en": "What are you planning?"
+              },
+              "effect": {
+                "ko": "상대의 계획에 관심을 보여요. 아직 만남을 확정하는 말은 아니에요.",
+                "de": "Du zeigst Interesse am Plan. Eine feste Zusage ist das noch nicht.",
+                "en": "You show interest in the plan. You have not agreed to meet yet."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "같이 저녁 먹으려고.",
+                "de": "Ich wollte mit dir essen gehen.",
+                "en": "I was thinking of getting dinner together."
+              },
+              "followUp": {
+                "ko": "좋아. 같이 먹자.",
+                "de": "Gerne, lass uns zusammen essen.",
+                "en": "Sure. Let’s eat together."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "refuse_today",
+      "revision": 1,
+      "level": "a1",
+      "topic": "refuse",
+      "title": {
+        "ko": "오늘은 어려워요",
+        "de": "Heute passt es nicht",
+        "en": "Today does not work"
+      },
+      "sourcePhraseIds": [],
+      "base": {
+        "characterId": "christian",
+        "context": {
+          "ko": "친한 친구 크리스티안과 집 앞에서 이야기해요. 오늘은 이미 약속이 있어요.",
+          "de": "Du redest mit deinem guten Freund Christian vor dem Haus. Heute hast du schon eine Verabredung.",
+          "en": "You are talking to your close friend Christian outside your home. You already have plans today."
+        },
+        "prompt": {
+          "ko": "오늘 같이 영화 볼래?",
+          "de": "Wollen wir heute einen Film schauen?",
+          "en": "Want to watch a film together today?"
+        }
+      },
+      "transfer": {
+        "characterId": "maya",
+        "context": {
+          "ko": "친한 친구 마야가 메시지를 보냈어요. 오늘은 약속이 있고 내일은 시간이 있어요. 다른 날을 제안해 보세요.",
+          "de": "Deine gute Freundin Maya schreibt dir. Heute bist du verabredet, morgen hast du Zeit. Schlage einen anderen Tag vor.",
+          "en": "Your close friend Maya has sent a message. You have plans today and are free tomorrow. Suggest another day."
+        },
+        "prompt": {
+          "ko": "오늘 같이 영화 볼래?",
+          "de": "Wollen wir heute einen Film schauen?",
+          "en": "Want to watch a film together today?"
+        },
+        "requiredIntentId": "offer"
+      },
+      "intents": [
+        {
+          "id": "offer",
+          "label": {
+            "ko": "거절하고 다른 날 제안하기",
+            "de": "Absagen und einen anderen Tag vorschlagen",
+            "en": "Decline and suggest another day"
+          },
+          "expressions": [
+            {
+              "id": "tomorrow",
+              "text": {
+                "ko": "오늘은 약속이 있어. 내일은 어때?",
+                "de": "Heute bin ich schon verabredet. Wie wäre es morgen?",
+                "en": "I have plans today. How about tomorrow?"
+              },
+              "effect": {
+                "ko": "오늘의 초대는 거절하면서 만날 마음은 전해요.",
+                "de": "Du sagst für heute ab und zeigst, dass du dich trotzdem treffen möchtest.",
+                "en": "You decline today’s invitation while showing that you still want to meet."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "내일 좋아.",
+                "de": "Morgen passt.",
+                "en": "Tomorrow works."
+              },
+              "followUp": {
+                "ko": "그럼 내일 만나자.",
+                "de": "Dann treffen wir uns morgen.",
+                "en": "Then let’s meet tomorrow."
+              }
+            },
+            {
+              "id": "can",
+              "text": {
+                "ko": "오늘은 안 돼. 내일은 괜찮아.",
+                "de": "Heute geht es nicht. Morgen passt es.",
+                "en": "I can’t today. Tomorrow is fine."
+              },
+              "effect": {
+                "ko": "거절이 더 직접적이지만 곧바로 대안을 줘요. 편한 친구 사이에서 쓸 수 있어요.",
+                "de": "Die Absage ist direkter, aber du bietest sofort eine Alternative an. Das passt unter vertrauten Freunden.",
+                "en": "The refusal is more direct, but you immediately offer an alternative. It can work between close friends."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "내일 좋아.",
+                "de": "Morgen passt.",
+                "en": "Tomorrow works."
+              },
+              "followUp": {
+                "ko": "그럼 내일 만나자.",
+                "de": "Dann treffen wir uns morgen.",
+                "en": "Then let’s meet tomorrow."
+              }
+            }
+          ]
+        },
+        {
+          "id": "decline",
+          "label": {
+            "ko": "오늘 어렵다고만 알리기",
+            "de": "Nur für heute absagen",
+            "en": "Just say you cannot today"
+          },
+          "expressions": [
+            {
+              "id": "sorry",
+              "text": {
+                "ko": "미안, 오늘은 약속이 있어.",
+                "de": "Tut mir leid, heute bin ich schon verabredet.",
+                "en": "Sorry, I have plans today."
+              },
+              "effect": {
+                "ko": "이유와 미안한 마음을 전해요. 다음 약속은 아직 정하지 않아요.",
+                "de": "Du nennst den Grund und bedauerst die Absage. Ein neuer Termin ist noch offen.",
+                "en": "You give a reason and express regret. You have not arranged another time."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "알겠어.",
+                "de": "Alles klar.",
+                "en": "Okay."
+              },
+              "followUp": {
+                "ko": "다음에 같이 보자.",
+                "de": "Schauen wir ihn ein anderes Mal zusammen.",
+                "en": "Let’s watch it together another time."
+              }
+            },
+            {
+              "id": "short",
+              "text": {
+                "ko": "오늘은 좀 어려워.",
+                "de": "Heute wird es schwierig.",
+                "en": "Today's a bit tricky."
+              },
+              "effect": {
+                "ko": "부담을 줄여 거절해요. 구체적인 이유는 말하지 않아요.",
+                "de": "Du milderst die Absage ab, ohne einen konkreten Grund zu nennen.",
+                "en": "You soften the refusal without giving a specific reason."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "알겠어.",
+                "de": "Alles klar.",
+                "en": "Okay."
+              },
+              "followUp": {
+                "ko": "다음에 같이 보자.",
+                "de": "Schauen wir ihn ein anderes Mal zusammen.",
+                "en": "Let’s watch it together another time."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "request_photo",
+      "revision": 1,
+      "level": "a2",
+      "topic": "request",
+      "title": {
+        "ko": "사진 부탁하기",
+        "de": "Um ein Foto bitten",
+        "en": "Asking for a photo"
+      },
+      "sourcePhraseIds": [
+        "smalltalk_a1_0059"
+      ],
+      "base": {
+        "characterId": "sujin",
+        "context": {
+          "ko": "수진과는 오늘 처음 만났어요. 공원에서 사진을 부탁하려고 해요. 서로 존댓말을 써요.",
+          "de": "Du hast Sujin heute kennengelernt. Im Park möchtest du sie um ein Foto bitten. Ihr sprecht höflich miteinander.",
+          "en": "You met Sujin today. In the park, you want to ask her to take a photo. You use polite Korean with each other."
+        },
+        "prompt": {
+          "ko": "여기 경치가 좋네요.",
+          "de": "Die Aussicht hier ist schön.",
+          "en": "The view here is lovely."
+        }
+      },
+      "transfer": {
+        "characterId": "lena",
+        "context": {
+          "ko": "레나와는 아직 친하지 않아요. 전시장에서 서로 존댓말로 이야기해요. 사진을 찍어 달라고 부탁해 보세요.",
+          "de": "Du kennst Lena noch nicht gut. Ihr unterhaltet euch höflich in einer Ausstellung. Bitte sie, ein Foto von dir zu machen.",
+          "en": "You do not know Lena well yet. You are speaking politely at an exhibition. Ask her to take your photo."
+        },
+        "prompt": {
+          "ko": "여기서 사진 찍어도 돼요.",
+          "de": "Hier darf man fotografieren.",
+          "en": "You can take photos here."
+        },
+        "requiredIntentId": "ask"
+      },
+      "intents": [
+        {
+          "id": "ask",
+          "label": {
+            "ko": "사진 찍어 달라고 부탁하기",
+            "de": "Um ein Foto bitten",
+            "en": "Ask for a photo"
+          },
+          "expressions": [
+            {
+              "id": "could",
+              "text": {
+                "ko": "사진 좀 찍어 주시겠어요?",
+                "de": "Könnten Sie ein Foto von mir machen?",
+                "en": "Could you take a photo of me?"
+              },
+              "effect": {
+                "ko": "좀은 부탁의 부담을 줄이고, 주시겠어요는 상대를 높이며 의향을 물어요.",
+                "de": "좀 schwächt die Bitte ab. 주시겠어요 spricht die andere Person respektvoll an und fragt nach ihrer Bereitschaft.",
+                "en": "좀 softens the request. 주시겠어요 shows respect for the other person and asks whether they are willing."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "네, 찍어 드릴게요.",
+                "de": "Ja, gerne.",
+                "en": "Yes, of course."
+              },
+              "followUp": {
+                "ko": "감사합니다. 여기 눌러 주세요.",
+                "de": "Vielen Dank. Drücken Sie bitte hier.",
+                "en": "Thank you. Please press here."
+              }
+            },
+            {
+              "id": "please",
+              "text": {
+                "ko": "사진 한 장 찍어 주세요.",
+                "de": "Machen Sie bitte ein Foto von mir.",
+                "en": "Please take one photo of me."
+              },
+              "effect": {
+                "ko": "공손한 부탁이지만 의향을 묻는 질문보다 직접적이에요. 사진 한 장으로 부탁의 범위를 정해요.",
+                "de": "Die Bitte ist höflich, aber direkter als eine Frage nach der Bereitschaft. 한 장 begrenzt sie auf ein Foto.",
+                "en": "It is polite, but more direct than asking whether the person is willing. 한 장 limits the request to one photo."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "네, 찍어 드릴게요.",
+                "de": "Ja, gerne.",
+                "en": "Yes, of course."
+              },
+              "followUp": {
+                "ko": "감사합니다. 여기 눌러 주세요.",
+                "de": "Vielen Dank. Drücken Sie bitte hier.",
+                "en": "Thank you. Please press here."
+              }
+            }
+          ]
+        },
+        {
+          "id": "permission",
+          "label": {
+            "ko": "함께 찍어도 되는지 묻기",
+            "de": "Nach einem gemeinsamen Foto fragen",
+            "en": "Ask to take a photo together"
+          },
+          "expressions": [
+            {
+              "id": "together",
+              "text": {
+                "ko": "같이 사진 찍어도 될까요?",
+                "de": "Darf ich ein Foto mit Ihnen machen?",
+                "en": "Could I take a photo with you?"
+              },
+              "effect": {
+                "ko": "사진을 찍어 달라는 부탁이 아니라 함께 찍는 데 동의를 구해요.",
+                "de": "Du bittest um Zustimmung zu einem gemeinsamen Foto, nicht darum, dass die Person dich fotografiert.",
+                "en": "You ask for permission to take a photo together, rather than asking the person to photograph you."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "네, 좋아요.",
+                "de": "Ja, gerne.",
+                "en": "Yes, sure."
+              },
+              "followUp": {
+                "ko": "그럼 여기서 찍을까요?",
+                "de": "Sollen wir es dann hier machen?",
+                "en": "Shall we take it here, then?"
+              }
+            },
+            {
+              "id": "suggest",
+              "text": {
+                "ko": "같이 사진 한 장 찍을까요?",
+                "de": "Wollen wir ein Foto zusammen machen?",
+                "en": "Shall we take a photo together?"
+              },
+              "effect": {
+                "ko": "함께 하자는 제안이에요. 상대가 거절할 수 있도록 질문으로 말해요.",
+                "de": "Du schlägst etwas Gemeinsames vor. Die Frage lässt der anderen Person Raum, abzulehnen.",
+                "en": "You make a joint suggestion. The question gives the other person room to decline."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "네, 좋아요.",
+                "de": "Ja, gerne.",
+                "en": "Yes, sure."
+              },
+              "followUp": {
+                "ko": "그럼 여기서 찍을까요?",
+                "de": "Sollen wir es dann hier machen?",
+                "en": "Shall we take it here, then?"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apologize_late",
+      "revision": 1,
+      "level": "a2",
+      "topic": "apologize",
+      "title": {
+        "ko": "늦었을 때",
+        "de": "Wenn du zu spät kommst",
+        "en": "Arriving late"
+      },
+      "sourcePhraseIds": [],
+      "base": {
+        "characterId": "christian",
+        "context": {
+          "ko": "친한 친구 크리스티안이 카페에서 기다리고 있어요. 약속 시간보다 십 분 늦었어요.",
+          "de": "Dein guter Freund Christian wartet im Café. Du bist zehn Minuten zu spät.",
+          "en": "Your close friend Christian is waiting at a café. You are ten minutes late."
+        },
+        "prompt": {
+          "ko": "왔어?",
+          "de": "Da bist du ja.",
+          "en": "You’re here."
+        }
+      },
+      "transfer": {
+        "characterId": "maya",
+        "context": {
+          "ko": "친한 친구 마야와 도서관 앞에서 만나기로 했어요. 십 분 늦었고 먼저 사과하려고 해요.",
+          "de": "Du triffst deine gute Freundin Maya vor der Bibliothek. Du bist zehn Minuten zu spät und möchtest dich zuerst entschuldigen.",
+          "en": "You arranged to meet your close friend Maya outside the library. You are ten minutes late and want to apologize first."
+        },
+        "prompt": {
+          "ko": "왔어?",
+          "de": "Da bist du ja.",
+          "en": "You’re here."
+        },
+        "requiredIntentId": "apologize"
+      },
+      "intents": [
+        {
+          "id": "apologize",
+          "label": {
+            "ko": "먼저 사과하기",
+            "de": "Dich zuerst entschuldigen",
+            "en": "Apologize first"
+          },
+          "expressions": [
+            {
+              "id": "sorry",
+              "text": {
+                "ko": "늦어서 미안해.",
+                "de": "Tut mir leid, dass ich zu spät bin.",
+                "en": "Sorry I’m late."
+              },
+              "effect": {
+                "ko": "늦은 행동에 대해 바로 사과해요. 아직 이유를 말한 것은 아니에요.",
+                "de": "Du entschuldigst dich direkt für die Verspätung, ohne schon einen Grund zu nennen.",
+                "en": "You apologize directly for being late, without giving a reason yet."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "괜찮아.",
+                "de": "Schon gut.",
+                "en": "It’s okay."
+              },
+              "followUp": {
+                "ko": "기다려 줘서 고마워.",
+                "de": "Danke, dass du gewartet hast.",
+                "en": "Thanks for waiting."
+              }
+            },
+            {
+              "id": "wait",
+              "text": {
+                "ko": "많이 기다렸지? 미안해.",
+                "de": "Du hast lange gewartet, oder? Tut mir leid.",
+                "en": "You’ve been waiting a while, haven’t you? I’m sorry."
+              },
+              "effect": {
+                "ko": "상대가 기다린 시간을 먼저 짚고 사과해요. 기다림이 길었을 것이라고 짐작하며 확인해요.",
+                "de": "Du sprichst zuerst das Warten an und entschuldigst dich. Die Frage legt nahe, dass die Wartezeit lang war, und sucht Bestätigung.",
+                "en": "You acknowledge the wait and apologize. The question suggests that it was a long wait and seeks confirmation."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "괜찮아.",
+                "de": "Schon gut.",
+                "en": "It’s okay."
+              },
+              "followUp": {
+                "ko": "기다려 줘서 고마워.",
+                "de": "Danke, dass du gewartet hast.",
+                "en": "Thanks for waiting."
+              }
+            }
+          ]
+        },
+        {
+          "id": "check",
+          "label": {
+            "ko": "얼마나 기다렸는지 묻기",
+            "de": "Nach der Wartezeit fragen",
+            "en": "Ask how long they waited"
+          },
+          "expressions": [
+            {
+              "id": "long",
+              "text": {
+                "ko": "오래 기다렸어?",
+                "de": "Hast du lange gewartet?",
+                "en": "Have you been waiting long?"
+              },
+              "effect": {
+                "ko": "기다림을 확인해요. 이 질문만으로 사과가 끝난 것은 아니에요.",
+                "de": "Du fragst nach dem Warten. Die Frage allein ist noch keine ausdrückliche Entschuldigung.",
+                "en": "You check how long they waited. The question alone is not an explicit apology."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "십 분쯤 전에 왔어.",
+                "de": "Vor etwa zehn Minuten.",
+                "en": "About ten minutes ago."
+              },
+              "followUp": {
+                "ko": "늦어서 미안해.",
+                "de": "Tut mir leid, dass ich zu spät bin.",
+                "en": "Sorry I’m late."
+              }
+            },
+            {
+              "id": "when",
+              "text": {
+                "ko": "언제 왔어?",
+                "de": "Wann bist du gekommen?",
+                "en": "When did you get here?"
+              },
+              "effect": {
+                "ko": "도착 시간을 묻는 질문이에요. 상대의 불편함을 인정하려면 사과를 이어 가세요.",
+                "de": "Du fragst nach der Ankunftszeit. Wenn du das Warten anerkennen möchtest, entschuldige dich danach.",
+                "en": "You ask about their arrival time. Follow it with an apology to acknowledge the inconvenience."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "십 분쯤 전에 왔어.",
+                "de": "Vor etwa zehn Minuten.",
+                "en": "About ten minutes ago."
+              },
+              "followUp": {
+                "ko": "늦어서 미안해.",
+                "de": "Tut mir leid, dass ich zu spät bin.",
+                "en": "Sorry I’m late."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "request_file",
+      "revision": 1,
+      "level": "b1",
+      "topic": "request",
+      "title": {
+        "ko": "파일 확인 부탁하기",
+        "de": "Prüfen, ob eine Datei sich öffnen lässt",
+        "en": "Checking whether a file opens"
+      },
+      "sourcePhraseIds": [],
+      "base": {
+        "characterId": "andrea",
+        "context": {
+          "ko": "안드레아와는 서로 존댓말을 쓰는 동료예요. 개인 업무 메시지에서 아까 공유한 파일이 열리는지 확인을 부탁해요.",
+          "de": "Andrea ist dein Kollege; ihr verwendet höfliches Koreanisch. In einer direkten Arbeitsnachricht bittest du ihn zu prüfen, ob sich die vorhin geteilte Datei öffnen lässt.",
+          "en": "Andrea is a colleague you use polite Korean with. In a direct work message, you want him to check whether the file you shared earlier opens."
+        },
+        "prompt": {
+          "ko": "파일 받았어요.",
+          "de": "Die Datei ist angekommen.",
+          "en": "I received the file."
+        }
+      },
+      "transfer": {
+        "characterId": "sujin",
+        "context": {
+          "ko": "수진과는 아직 친하지 않은 동료예요. 회의 뒤 둘이 존댓말로 이야기해요. 아까 공유한 파일이 열리는지 확인을 부탁하세요.",
+          "de": "Sujin ist eine Kollegin, die du noch nicht gut kennst. Nach der Besprechung redet ihr zu zweit in höflichem Koreanisch. Bitte sie zu prüfen, ob sich die vorhin geteilte Datei öffnen lässt.",
+          "en": "Sujin is a colleague you do not know well yet. You are talking politely after a meeting. Ask her to check whether the file you shared earlier opens."
+        },
+        "prompt": {
+          "ko": "파일 받았어요.",
+          "de": "Die Datei ist angekommen.",
+          "en": "I received the file."
+        },
+        "requiredIntentId": "check"
+      },
+      "intents": [
+        {
+          "id": "check",
+          "label": {
+            "ko": "파일이 열리는지 확인 부탁하기",
+            "de": "Prüfen lassen, ob die Datei sich öffnet",
+            "en": "Ask them to check whether the file opens"
+          },
+          "expressions": [
+            {
+              "id": "question",
+              "text": {
+                "ko": "아까 공유한 파일이 열리는지 확인해 주실 수 있어요?",
+                "de": "Könnten Sie prüfen, ob sich die vorhin geteilte Datei öffnen lässt?",
+                "en": "Could you check whether the file I shared earlier opens?"
+              },
+              "effect": {
+                "ko": "확인할 일을 구체적으로 말하고 상대가 할 수 있는지 물어요. 내용 검토를 부탁하는 말은 아니에요.",
+                "de": "Du benennst die Aufgabe und fragst, ob sie möglich ist. Eine inhaltliche Prüfung verlangst du damit nicht.",
+                "en": "You specify the task and ask whether they can do it. You are not requesting a review of the contents."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "네, 열어 볼게요.",
+                "de": "Ja, ich probiere es.",
+                "en": "Yes, I’ll try opening it."
+              },
+              "followUp": {
+                "ko": "안 열리면 말씀해 주세요.",
+                "de": "Sagen Sie mir bitte Bescheid, falls es nicht klappt.",
+                "en": "Please let me know if it doesn't open."
+              }
+            },
+            {
+              "id": "please",
+              "text": {
+                "ko": "아까 공유한 파일이 열리는지 한번 확인해 주세요.",
+                "de": "Prüfen Sie bitte einmal, ob sich die vorhin geteilte Datei öffnen lässt.",
+                "en": "Please check whether the file I shared earlier opens."
+              },
+              "effect": {
+                "ko": "공손하게 확인을 요청해요. 한번은 가볍게 살펴보자는 느낌을 줄 수 있지만 요청 자체를 없애지는 않아요.",
+                "de": "Du bittest höflich um die Prüfung. 한번 kann die Aufgabe als kurzen Check rahmen, hebt die Bitte aber nicht auf.",
+                "en": "You make a polite request. 한번 can frame it as a quick check, but it remains a request."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "네, 열어 볼게요.",
+                "de": "Ja, ich probiere es.",
+                "en": "Yes, I’ll try opening it."
+              },
+              "followUp": {
+                "ko": "안 열리면 말씀해 주세요.",
+                "de": "Sagen Sie mir bitte Bescheid, falls es nicht klappt.",
+                "en": "Please let me know if it doesn't open."
+              }
+            }
+          ]
+        },
+        {
+          "id": "wait",
+          "label": {
+            "ko": "지금은 확인하지 않아도 된다고 알리기",
+            "de": "Den Check auf später verschieben",
+            "en": "Say the check can wait"
+          },
+          "expressions": [
+            {
+              "id": "later",
+              "text": {
+                "ko": "지금 확인하지 않으셔도 돼요.",
+                "de": "Sie müssen es nicht jetzt prüfen.",
+                "en": "You don't need to check it now."
+              },
+              "effect": {
+                "ko": "지금 해야 한다는 부담을 풀어요. 확인하지 말라는 금지는 아니에요.",
+                "de": "Du nimmst den Zeitdruck. Es ist kein Verbot, die Datei jetzt zu prüfen.",
+                "en": "You remove the pressure to do it now. You are not forbidding them from checking it."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "그럼 오후에 볼게요.",
+                "de": "Dann schaue ich am Nachmittag.",
+                "en": "Then I’ll look this afternoon."
+              },
+              "followUp": {
+                "ko": "네, 오후에 확인해 주세요.",
+                "de": "Ja, prüfen Sie es bitte am Nachmittag.",
+                "en": "Yes, please check it this afternoon."
+              }
+            },
+            {
+              "id": "afternoon",
+              "text": {
+                "ko": "오후에 확인해 주셔도 괜찮아요.",
+                "de": "Am Nachmittag reicht auch.",
+                "en": "It's fine to check it this afternoon."
+              },
+              "effect": {
+                "ko": "오후에 확인해도 된다고 말해 지금의 시간 부담을 줄여요.",
+                "de": "Du sagst, dass der Nachmittag auch passt, und reduzierst den unmittelbaren Zeitdruck.",
+                "en": "You say that this afternoon also works, reducing the immediate pressure."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "그럼 오후에 볼게요.",
+                "de": "Dann schaue ich am Nachmittag.",
+                "en": "Then I’ll look this afternoon."
+              },
+              "followUp": {
+                "ko": "네, 오후에 확인해 주세요.",
+                "de": "Ja, prüfen Sie es bitte am Nachmittag.",
+                "en": "Yes, please check it this afternoon."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "repair_time",
+      "revision": 1,
+      "level": "b1",
+      "topic": "repair",
+      "title": {
+        "ko": "약속 시간 확인하기",
+        "de": "Eine Uhrzeit klären",
+        "en": "Clarifying a meeting time"
+      },
+      "sourcePhraseIds": [],
+      "base": {
+        "characterId": "maya",
+        "context": {
+          "ko": "마야는 친한 친구예요. 메시지로 약속을 정했는데 서로 기억하는 시간이 달라요.",
+          "de": "Maya ist eine gute Freundin. Ihr habt euch per Nachricht verabredet, erinnert euch aber an unterschiedliche Uhrzeiten.",
+          "en": "Maya is a close friend. You made plans by message but remember different times."
+        },
+        "prompt": {
+          "ko": "우리 여섯 시에 만나기로 했지?",
+          "de": "Wir wollten uns um sechs treffen, oder?",
+          "en": "We agreed to meet at six, right?"
+        }
+      },
+      "transfer": {
+        "characterId": "christian",
+        "context": {
+          "ko": "크리스티안은 친한 친구예요. 약속 장소에서 통화하며 시간을 확인해요. 다섯 시로 알고 있었지만 확신은 없어요. 먼저 함께 확인해 보세요.",
+          "de": "Christian ist ein guter Freund. Ihr telefoniert am Treffpunkt. Du hattest fünf Uhr im Kopf, bist aber nicht sicher. Schlagt die Zeit gemeinsam nach.",
+          "en": "Christian is a close friend. You are on the phone at the meeting place. You thought it was five but are not sure. Check the time together first."
+        },
+        "prompt": {
+          "ko": "우리 여섯 시에 만나기로 했지?",
+          "de": "Wir wollten uns um sechs treffen, oder?",
+          "en": "We agreed to meet at six, right?"
+        },
+        "requiredIntentId": "check"
+      },
+      "intents": [
+        {
+          "id": "check",
+          "label": {
+            "ko": "누가 맞는지 단정하지 않고 확인하기",
+            "de": "Nachsehen, ohne festzulegen, wer recht hat",
+            "en": "Check without assuming who is right"
+          },
+          "expressions": [
+            {
+              "id": "messages",
+              "text": {
+                "ko": "우리 메시지 다시 확인해 볼까?",
+                "de": "Schauen wir noch mal in unsere Nachrichten?",
+                "en": "Shall we check our messages again?"
+              },
+              "effect": {
+                "ko": "기억이 다른 상태를 인정하고 함께 확인하자고 제안해요.",
+                "de": "Du lässt die unterschiedlichen Erinnerungen offen und schlägst vor, gemeinsam nachzusehen.",
+                "en": "You leave the different recollections open and suggest checking together."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "좋아, 확인해 보자.",
+                "de": "Ja, schauen wir nach.",
+                "en": "Sure, let’s check."
+              },
+              "followUp": {
+                "ko": "확인하고 다시 정하자.",
+                "de": "Danach legen wir die Zeit noch mal fest.",
+                "en": "Let’s check and agree on the time again."
+              }
+            },
+            {
+              "id": "unsure",
+              "text": {
+                "ko": "내가 헷갈리나 봐. 메시지 한번 볼까?",
+                "de": "Vielleicht habe ich da etwas durcheinandergebracht. Schauen wir in die Nachrichten?",
+                "en": "Maybe I’ve mixed something up. Shall we check the messages?"
+              },
+              "effect": {
+                "ko": "내 기억에 혼동이 있을 가능성을 인정하고 함께 확인하자고 제안해요. 상대가 맞다고 확정하는 말은 아니에요.",
+                "de": "Du räumst ein, dass du etwas verwechselt haben könntest, und schlägst vor, gemeinsam nachzusehen. Damit steht noch nicht fest, dass die andere Person recht hat.",
+                "en": "You allow for a mix-up on your side and suggest checking together. You are not yet confirming that the other person is right."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "좋아, 확인해 보자.",
+                "de": "Ja, schauen wir nach.",
+                "en": "Sure, let’s check."
+              },
+              "followUp": {
+                "ko": "확인하고 다시 정하자.",
+                "de": "Danach legen wir die Zeit noch mal fest.",
+                "en": "Let’s check and agree on the time again."
+              }
+            }
+          ]
+        },
+        {
+          "id": "remember",
+          "label": {
+            "ko": "내가 기억한 시간 설명하기",
+            "de": "Deine Erinnerung erklären",
+            "en": "Explain the time you remembered"
+          },
+          "expressions": [
+            {
+              "id": "thought",
+              "text": {
+                "ko": "나는 다섯 시인 줄 알았어.",
+                "de": "Ich dachte, es wäre um fünf.",
+                "en": "I thought it was five."
+              },
+              "effect": {
+                "ko": "내가 이해한 시간을 말해요. 상대가 잘못했다고 단정하지 않아요.",
+                "de": "Du erklärst dein Verständnis, ohne zu behaupten, dass die andere Person falschliegt.",
+                "en": "You explain your understanding without declaring the other person wrong."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "나는 여섯 시로 기억하는데.",
+                "de": "Ich habe sechs Uhr im Kopf.",
+                "en": "I remember six."
+              },
+              "followUp": {
+                "ko": "그럼 메시지 다시 확인해 보자.",
+                "de": "Dann schauen wir noch mal in die Nachrichten.",
+                "en": "Then let’s check the messages again."
+              }
+            },
+            {
+              "id": "understood",
+              "text": {
+                "ko": "내가 다섯 시로 이해했나 봐.",
+                "de": "Ich habe es wohl als fünf Uhr verstanden.",
+                "en": "I think I read that as five o'clock."
+              },
+              "effect": {
+                "ko": "내 이해에 문제가 있었을 가능성을 열어 둬요. 잘못 들었다고 확정하지는 않아요.",
+                "de": "Du lässt offen, dass du es falsch verstanden haben könntest. Ein Hörfehler ist damit nicht bestätigt.",
+                "en": "You allow for a possible misunderstanding on your side. You are not confirming that you misheard."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "나는 여섯 시로 기억하는데.",
+                "de": "Ich habe sechs Uhr im Kopf.",
+                "en": "I remember six."
+              },
+              "followUp": {
+                "ko": "그럼 메시지 다시 확인해 보자.",
+                "de": "Dann schauen wir noch mal in die Nachrichten.",
+                "en": "Then let’s check the messages again."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "refuse_extra",
+      "revision": 1,
+      "level": "b2",
+      "topic": "refuse",
+      "title": {
+        "ko": "추가 부탁에 선 긋기",
+        "de": "Eine zusätzliche Aufgabe ablehnen",
+        "en": "Declining an extra task"
+      },
+      "sourcePhraseIds": [],
+      "base": {
+        "characterId": "andrea",
+        "context": {
+          "ko": "안드레아와는 서로 존댓말을 쓰는 동료예요. 회의에서 오늘 끝내야 할 일에 추가 부탁이 들어왔어요.",
+          "de": "Andrea ist dein Kollege; ihr sprecht höfliches Koreanisch. In einer Besprechung kommt eine zusätzliche Bitte zu deinen heutigen Aufgaben hinzu.",
+          "en": "Andrea is a colleague you use polite Korean with. During a meeting, an extra request is added to the work you need to finish today."
+        },
+        "prompt": {
+          "ko": "이것도 오늘 맡아 주실 수 있어요?",
+          "de": "Könnten Sie das heute auch übernehmen?",
+          "en": "Could you take this on today as well?"
+        }
+      },
+      "transfer": {
+        "characterId": "sujin",
+        "context": {
+          "ko": "수진과는 서로 존댓말을 쓰는 동료예요. 개인 업무 메시지에서 같은 추가 부탁을 받았어요. 오늘은 추가 일을 맡기 어렵다고 분명히 말하세요.",
+          "de": "Sujin ist deine Kollegin; ihr sprecht höfliches Koreanisch. Sie schickt dir die zusätzliche Bitte direkt. Sage klar, dass du sie heute nicht übernehmen kannst.",
+          "en": "Sujin is a colleague you use polite Korean with. She sends you the same extra request in a direct work message. Clearly say you cannot take it on today."
+        },
+        "prompt": {
+          "ko": "이것도 오늘 맡아 주실 수 있어요?",
+          "de": "Könnten Sie das heute auch übernehmen?",
+          "en": "Could you take this on today as well?"
+        },
+        "requiredIntentId": "decline"
+      },
+      "intents": [
+        {
+          "id": "decline",
+          "label": {
+            "ko": "오늘은 맡기 어렵다고 말하기",
+            "de": "Für heute klar ablehnen",
+            "en": "Clearly decline for today"
+          },
+          "expressions": [
+            {
+              "id": "reason",
+              "text": {
+                "ko": "오늘은 이미 맡은 일이 있어서 추가로 맡기 어려워요.",
+                "de": "Für heute habe ich schon Aufgaben übernommen und kann nichts Zusätzliches übernehmen.",
+                "en": "I already have work assigned today, so I cannot take on anything extra."
+              },
+              "effect": {
+                "ko": "현재 맡은 일을 이유로 오늘의 추가 부탁을 거절해요. 다른 날까지 거절하는 말은 아니에요.",
+                "de": "Du begründest die Absage mit deinen heutigen Aufgaben. Über einen anderen Tag sagst du damit noch nichts.",
+                "en": "You decline today’s extra request because of your current work. You have not ruled out another day."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "알겠어요. 다른 방법을 찾아볼게요.",
+                "de": "Verstanden. Ich suche eine andere Lösung.",
+                "en": "Understood. I’ll look for another solution."
+              },
+              "followUp": {
+                "ko": "이해해 주셔서 감사합니다.",
+                "de": "Danke für Ihr Verständnis.",
+                "en": "Thank you for understanding."
+              }
+            },
+            {
+              "id": "clear",
+              "text": {
+                "ko": "죄송하지만 오늘은 추가로 맡을 수 없어요.",
+                "de": "Es tut mir leid, aber heute kann ich nichts Zusätzliches übernehmen.",
+                "en": "I’m sorry, but I cannot take on extra work today."
+              },
+              "effect": {
+                "ko": "죄송하지만으로 부담을 줄이면서 가능 여부는 분명히 말해요.",
+                "de": "죄송하지만 mildert die Absage, während du deine Grenze klar benennst.",
+                "en": "죄송하지만 softens the refusal while keeping your limit clear."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "알겠어요. 다른 방법을 찾아볼게요.",
+                "de": "Verstanden. Ich suche eine andere Lösung.",
+                "en": "Understood. I’ll look for another solution."
+              },
+              "followUp": {
+                "ko": "이해해 주셔서 감사합니다.",
+                "de": "Danke für Ihr Verständnis.",
+                "en": "Thank you for understanding."
+              }
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "label": {
+            "ko": "범위를 알아본 뒤 판단하기",
+            "de": "Erst den Umfang klären",
+            "en": "Ask about the scope before deciding"
+          },
+          "expressions": [
+            {
+              "id": "amount",
+              "text": {
+                "ko": "어느 정도 분량인지 먼저 알 수 있을까요?",
+                "de": "Könnten Sie mir zuerst sagen, wie umfangreich es ist?",
+                "en": "Could you first tell me how much work it involves?"
+              },
+              "effect": {
+                "ko": "가능하다고 약속하지 않고 판단에 필요한 정보를 요청해요.",
+                "de": "Du fragst nach Informationen, bevor du eine Zusage machst.",
+                "en": "You request the information you need without agreeing to do it."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "짧은 문서 두 개를 확인하는 일이에요.",
+                "de": "Es geht darum, zwei kurze Dokumente zu prüfen.",
+                "en": "It involves checking two short documents."
+              },
+              "followUp": {
+                "ko": "일정을 확인하고 말씀드릴게요.",
+                "de": "Ich prüfe meinen Zeitplan und gebe Ihnen Bescheid.",
+                "en": "I’ll check my schedule and let you know."
+              }
+            },
+            {
+              "id": "which",
+              "text": {
+                "ko": "어떤 작업인지 조금 더 설명해 주시겠어요?",
+                "de": "Könnten Sie die Aufgabe etwas genauer erklären?",
+                "en": "Could you explain the task a little more?"
+              },
+              "effect": {
+                "ko": "무슨 일을 해야 하는지 확인해요. 거절도 수락도 아직 하지 않아요.",
+                "de": "Du klärst die Aufgabe, ohne schon zu- oder abzusagen.",
+                "en": "You clarify the task without accepting or declining yet."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "짧은 문서 두 개를 확인하는 일이에요.",
+                "de": "Es geht darum, zwei kurze Dokumente zu prüfen.",
+                "en": "It involves checking two short documents."
+              },
+              "followUp": {
+                "ko": "일정을 확인하고 말씀드릴게요.",
+                "de": "Ich prüfe meinen Zeitplan und gebe Ihnen Bescheid.",
+                "en": "I’ll check my schedule and let you know."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apologize_tone",
+      "revision": 1,
+      "level": "b2",
+      "topic": "apologize",
+      "title": {
+        "ko": "말투가 날카로웠을 때",
+        "de": "Wenn der Ton zu scharf war",
+        "en": "Apologizing for your tone"
+      },
+      "sourcePhraseIds": [],
+      "base": {
+        "characterId": "sujin",
+        "context": {
+          "ko": "수진은 친한 친구예요. 개인 메시지에서 내 말이 날카롭게 들렸다고 알려 줬어요.",
+          "de": "Sujin ist eine gute Freundin. In einer privaten Nachricht sagt sie dir, dass dein Ton scharf klang.",
+          "en": "Sujin is a close friend. In a private message, she tells you that your tone sounded sharp."
+        },
+        "prompt": {
+          "ko": "아까 말이 좀 날카롭게 들렸어.",
+          "de": "Das klang vorhin etwas scharf.",
+          "en": "What you said earlier sounded a bit sharp."
+        }
+      },
+      "transfer": {
+        "characterId": "christian",
+        "context": {
+          "ko": "크리스티안은 친한 친구예요. 카페에서 직접 내 말투 이야기를 꺼냈어요. 내 말이 미친 영향을 인정하고 사과하세요.",
+          "de": "Christian ist ein guter Freund. Im Café spricht er deinen Ton persönlich an. Erkenne die Wirkung deiner Worte an und entschuldige dich.",
+          "en": "Christian is a close friend. He raises the subject of your tone in person at a café. Acknowledge the impact of your words and apologize."
+        },
+        "prompt": {
+          "ko": "아까 말이 좀 날카롭게 들렸어.",
+          "de": "Das klang vorhin etwas scharf.",
+          "en": "What you said earlier sounded a bit sharp."
+        },
+        "requiredIntentId": "own"
+      },
+      "intents": [
+        {
+          "id": "own",
+          "label": {
+            "ko": "말의 영향을 인정하고 사과하기",
+            "de": "Die Wirkung anerkennen und dich entschuldigen",
+            "en": "Acknowledge the impact and apologize"
+          },
+          "expressions": [
+            {
+              "id": "sorry",
+              "text": {
+                "ko": "내 말이 날카로웠네. 미안해.",
+                "de": "Mein Ton war schroff. Tut mir leid.",
+                "en": "I was sharp with you. I’m sorry."
+              },
+              "effect": {
+                "ko": "상대의 피드백을 받아들이고 내 말투에 대해 사과해요.",
+                "de": "Du nimmst die Rückmeldung an und entschuldigst dich für deinen Ton.",
+                "en": "You accept the feedback and apologize for your tone."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "말해 줘서 고마워.",
+                "de": "Danke, dass du das sagst.",
+                "en": "Thanks for saying that."
+              },
+              "followUp": {
+                "ko": "다음에는 좀 더 차분하게 말할게.",
+                "de": "Beim nächsten Mal sage ich es ruhiger.",
+                "en": "I’ll say it more calmly next time."
+              }
+            },
+            {
+              "id": "impact",
+              "text": {
+                "ko": "그렇게 들렸구나. 내가 말을 너무 세게 했어. 미안해.",
+                "de": "So ist es bei dir angekommen. Ich habe mich zu scharf ausgedrückt. Tut mir leid.",
+                "en": "I see how it came across. I put it too strongly. I'm sorry."
+              },
+              "effect": {
+                "ko": "상대가 들은 효과를 인정한 뒤 내 표현에 책임을 둬요. 상대의 오해 탓으로 돌리지 않아요.",
+                "de": "Du erkennst an, wie es ankam, und übernimmst Verantwortung für deine Formulierung.",
+                "en": "You acknowledge how it came across and take responsibility for your wording."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "말해 줘서 고마워.",
+                "de": "Danke, dass du das sagst.",
+                "en": "Thanks for saying that."
+              },
+              "followUp": {
+                "ko": "다음에는 좀 더 차분하게 말할게.",
+                "de": "Beim nächsten Mal sage ich es ruhiger.",
+                "en": "I’ll say it more calmly next time."
+              }
+            }
+          ]
+        },
+        {
+          "id": "clarify",
+          "label": {
+            "ko": "어느 부분인지 먼저 알아보기",
+            "de": "Nach der konkreten Stelle fragen",
+            "en": "Ask which part sounded sharp"
+          },
+          "expressions": [
+            {
+              "id": "part",
+              "text": {
+                "ko": "어느 부분이 그렇게 들렸는지 말해 줄래?",
+                "de": "Kannst du mir sagen, welche Stelle so klang?",
+                "en": "Could you tell me which part sounded that way?"
+              },
+              "effect": {
+                "ko": "구체적인 부분을 물어요. 따지는 억양이면 방어적으로 들릴 수 있으니 답을 듣고 사과를 이어 가세요.",
+                "de": "Du fragst nach der konkreten Stelle. Ein herausfordernder Ton kann abwehrend wirken; höre zu und entschuldige dich anschließend.",
+                "en": "You ask for the specific part. A challenging tone can sound defensive, so listen and follow up with an apology."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "내 말을 끊을 때 그랬어.",
+                "de": "Als du mich unterbrochen hast.",
+                "en": "When you interrupted me."
+              },
+              "followUp": {
+                "ko": "말을 끊어서 미안해.",
+                "de": "Tut mir leid, dass ich dich unterbrochen habe.",
+                "en": "Sorry I interrupted you."
+              }
+            },
+            {
+              "id": "tell",
+              "text": {
+                "ko": "내가 어떻게 말했는지 좀 더 얘기해 줄 수 있어?",
+                "de": "Kannst du mir genauer sagen, wie ich geklungen habe?",
+                "en": "Could you tell me more about how I sounded?"
+              },
+              "effect": {
+                "ko": "설명을 부탁해요. 피드백을 부정하는 말은 아니지만 듣는 태도가 효과를 바꿀 수 있어요.",
+                "de": "Du bittest um eine Erklärung. Der Satz weist die Rückmeldung nicht zurück, aber deine Haltung beim Zuhören beeinflusst die Wirkung.",
+                "en": "You ask for more detail. The words do not reject the feedback, but how you listen affects the exchange."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "내 말을 끊을 때 그랬어.",
+                "de": "Als du mich unterbrochen hast.",
+                "en": "When you interrupted me."
+              },
+              "followUp": {
+                "ko": "말을 끊어서 미안해.",
+                "de": "Tut mir leid, dass ich dich unterbrochen habe.",
+                "en": "Sorry I interrupted you."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "invite_low_pressure",
+      "revision": 1,
+      "level": "c1",
+      "topic": "invite",
+      "title": {
+        "ko": "부담 없이 모임 권하기",
+        "de": "Ohne Druck zu einem Treffen einladen",
+        "en": "An invitation without pressure"
+      },
+      "sourcePhraseIds": [],
+      "base": {
+        "characterId": "lena",
+        "context": {
+          "ko": "레나는 서로 존댓말을 쓰는 지인이에요. 소규모 모임을 개인 메시지로 제안하려고 해요. 참석 여부는 아직 몰라요.",
+          "de": "Lena ist eine Bekannte; ihr sprecht höfliches Koreanisch. Du möchtest sie privat zu einem kleinen Treffen einladen. Du weißt noch nicht, ob sie teilnehmen kann.",
+          "en": "Lena is an acquaintance you use polite Korean with. You want to invite her to a small gathering by private message. You do not know whether she can attend."
+        },
+        "prompt": {
+          "ko": "이번 주말 모임이 있나요?",
+          "de": "Gibt es dieses Wochenende ein Treffen?",
+          "en": "Is there a gathering this weekend?"
+        }
+      },
+      "transfer": {
+        "characterId": "hyuna",
+        "context": {
+          "ko": "현아와는 아직 친하지 않고 서로 존댓말을 써요. 대면으로 주말 모임을 소개해요. 참석을 압박하지 않고 초대하세요.",
+          "de": "Du kennst Hyuna noch nicht gut; ihr sprecht höfliches Koreanisch. Im persönlichen Gespräch erzählst du von einem Treffen am Wochenende. Lade sie ein, ohne Druck zu machen.",
+          "en": "You do not know Hyuna well yet and use polite Korean with her. In person, you mention a weekend gathering. Invite her without pressuring her to attend."
+        },
+        "prompt": {
+          "ko": "이번 주말 모임이 있나요?",
+          "de": "Gibt es dieses Wochenende ein Treffen?",
+          "en": "Is there a gathering this weekend?"
+        },
+        "requiredIntentId": "invite"
+      },
+      "intents": [
+        {
+          "id": "invite",
+          "label": {
+            "ko": "거절할 여지를 남기며 초대하기",
+            "de": "Mit Raum für eine Absage einladen",
+            "en": "Invite while leaving room to decline"
+          },
+          "expressions": [
+            {
+              "id": "if",
+              "text": {
+                "ko": "네, 시간 괜찮으시면 함께하셔도 좋을 것 같아요. 부담 갖지는 마시고요.",
+                "de": "Ja. Wenn Sie Zeit haben, wäre es schön, wenn Sie dabei wären. Fühlen Sie sich aber nicht verpflichtet.",
+                "en": "Yes. If you are free, it would be nice to have you join us. Please do not feel obliged."
+              },
+              "effect": {
+                "ko": "시간이라는 조건과 부담을 갖지 않아도 된다는 말로 선택권을 열어 둬요.",
+                "de": "Die Bedingung und der Zusatz lassen die Entscheidung ausdrücklich bei der anderen Person.",
+                "en": "The condition and the extra reassurance explicitly leave the choice to the other person."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "좋아요. 시간 확인해 볼게요.",
+                "de": "Gerne. Ich schaue, ob ich Zeit habe.",
+                "en": "Sounds good. I’ll check whether I’m free."
+              },
+              "followUp": {
+                "ko": "편하실 때 알려 주세요.",
+                "de": "Geben Sie mir Bescheid, wenn es für Sie passt.",
+                "en": "Let me know when it is convenient for you."
+              }
+            },
+            {
+              "id": "welcome",
+              "text": {
+                "ko": "네, 괜찮으시면 오세요. 일정이 안 맞으셔도 괜찮고요.",
+                "de": "Ja, kommen Sie gerne, wenn es passt. Wenn Sie keine Zeit haben, ist das auch in Ordnung.",
+                "en": "Yes, come along if it works for you. It's also fine if you can't make it."
+              },
+              "effect": {
+                "ko": "오세요로 초대가 분명해지고 불참해도 괜찮다고 직접 말해 압박을 줄여요.",
+                "de": "오세요 macht die Einladung deutlich. Der zweite Satz nimmt den Druck, teilnehmen zu müssen.",
+                "en": "오세요 makes the invitation clear. The second sentence explicitly reduces the pressure to attend."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "좋아요. 시간 확인해 볼게요.",
+                "de": "Gerne. Ich schaue, ob ich Zeit habe.",
+                "en": "Sounds good. I’ll check whether I’m free."
+              },
+              "followUp": {
+                "ko": "편하실 때 알려 주세요.",
+                "de": "Geben Sie mir Bescheid, wenn es für Sie passt.",
+                "en": "Let me know when it is convenient for you."
+              }
+            }
+          ]
+        },
+        {
+          "id": "inform",
+          "label": {
+            "ko": "일정만 먼저 알리기",
+            "de": "Zuerst nur informieren",
+            "en": "Give the schedule first"
+          },
+          "expressions": [
+            {
+              "id": "time",
+              "text": {
+                "ko": "네, 토요일 오후에 짧게 모일 예정이에요.",
+                "de": "Ja, wir wollen uns am Samstagnachmittag kurz treffen.",
+                "en": "Yes, we plan to meet briefly on Saturday afternoon."
+              },
+              "effect": {
+                "ko": "모임 정보를 전해요. 이 문장만으로 참석을 요청하거나 확정하지 않아요.",
+                "de": "Du informierst über das Treffen, ohne eine Teilnahme zu erbitten oder festzulegen.",
+                "en": "You give information about the gathering without requesting or confirming attendance."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "어디서 모이나요?",
+                "de": "Wo findet das Treffen statt?",
+                "en": "Where are you meeting?"
+              },
+              "followUp": {
+                "ko": "역 앞 카페에서 모일 예정이에요.",
+                "de": "Wir wollen uns im Café vor dem Bahnhof treffen.",
+                "en": "We plan to meet at the café outside the station."
+              }
+            },
+            {
+              "id": "plan",
+              "text": {
+                "ko": "네, 토요일 오후에 모이려고 해요.",
+                "de": "Ja, wir haben vor, uns am Samstagnachmittag zu treffen.",
+                "en": "Yes, we are planning to meet on Saturday afternoon."
+              },
+              "effect": {
+                "ko": "현재 계획을 말해요. 맥락에서 초대로 추론될 수 있지만 직접 초대한 것은 아니에요.",
+                "de": "Du beschreibst den Plan. Eine Einladung kann im Kontext mitschwingen, ist aber nicht ausdrücklich formuliert.",
+                "en": "You describe the plan. The context may suggest an invitation, but the words do not explicitly make one."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "어디서 모이나요?",
+                "de": "Wo findet das Treffen statt?",
+                "en": "Where are you meeting?"
+              },
+              "followUp": {
+                "ko": "역 앞 카페에서 모일 예정이에요.",
+                "de": "Wir wollen uns im Café vor dem Bahnhof treffen.",
+                "en": "We plan to meet at the café outside the station."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "repair_implication",
+      "revision": 1,
+      "level": "c2",
+      "topic": "repair",
+      "title": {
+        "ko": "의도와 전달 효과 구분하기",
+        "de": "Absicht und Wirkung unterscheiden",
+        "en": "Separating intention from impact"
+      },
+      "sourcePhraseIds": [],
+      "base": {
+        "characterId": "andrea",
+        "context": {
+          "ko": "안드레아와는 서로 존댓말을 쓰는 동료예요. 개인 업무 메시지에서 문제를 함께 확인하자는 내 말이 책임을 묻는 뜻으로 전달됐어요.",
+          "de": "Andrea ist dein Kollege; ihr sprecht höfliches Koreanisch. Deine direkte Arbeitsnachricht, das Problem gemeinsam zu prüfen, kam als Schuldzuweisung an.",
+          "en": "Andrea is a colleague you use polite Korean with. Your direct work message about checking a problem together came across as assigning blame."
+        },
+        "prompt": {
+          "ko": "제 책임이라는 말씀이신가요?",
+          "de": "Meinen Sie, dass ich dafür verantwortlich bin?",
+          "en": "Are you saying it is my responsibility?"
+        }
+      },
+      "transfer": {
+        "characterId": "sujin",
+        "context": {
+          "ko": "수진과는 아직 친하지 않은 동료예요. 회의 뒤 대면으로 같은 오해를 풀어요. 전달된 효과를 인정하면서 함께 확인하려던 의도를 설명하세요.",
+          "de": "Sujin ist eine Kollegin, die du noch nicht gut kennst. Nach der Besprechung klärst du dasselbe Missverständnis persönlich. Erkenne die Wirkung an und erkläre, dass du das Problem gemeinsam prüfen wolltest.",
+          "en": "Sujin is a colleague you do not know well yet. After a meeting, you clarify the same misunderstanding in person. Acknowledge how it came across and explain that you wanted to check the problem together."
+        },
+        "prompt": {
+          "ko": "제 책임이라는 말씀이신가요?",
+          "de": "Meinen Sie, dass ich dafür verantwortlich bin?",
+          "en": "Are you saying it is my responsibility?"
+        },
+        "requiredIntentId": "clarify"
+      },
+      "intents": [
+        {
+          "id": "clarify",
+          "label": {
+            "ko": "효과를 인정하고 의도 설명하기",
+            "de": "Die Wirkung anerkennen und die Absicht erklären",
+            "en": "Acknowledge the impact and explain your intention"
+          },
+          "expressions": [
+            {
+              "id": "impact",
+              "text": {
+                "ko": "책임을 묻는 뜻으로 들리셨군요. 함께 확인하자는 취지였는데, 제가 분명하게 말씀드리지 못했어요.",
+                "de": "Das kam bei Ihnen als Schuldzuweisung an. Ich wollte vorschlagen, gemeinsam nachzusehen, habe mich aber nicht klar ausgedrückt.",
+                "en": "I see it sounded like I was assigning blame. I meant we should check it together, but I didn't make that clear."
+              },
+              "effect": {
+                "ko": "전달된 뜻을 인정하고 내 설명의 부족함을 짚어요. 상대가 오해했다고만 말하지 않아요.",
+                "de": "Du erkennst die Wirkung an und benennst deine unklare Formulierung, statt das Missverständnis allein der anderen Person zuzuschreiben.",
+                "en": "You acknowledge the impact and your unclear wording, rather than placing the misunderstanding entirely on the other person."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "그런 뜻이었군요.",
+                "de": "So war das gemeint.",
+                "en": "I see what you meant."
+              },
+              "followUp": {
+                "ko": "확인할 부분부터 같이 정해 볼까요?",
+                "de": "Legen wir zuerst gemeinsam fest, was wir prüfen?",
+                "en": "Shall we first agree on what to check together?"
+              }
+            },
+            {
+              "id": "wording",
+              "text": {
+                "ko": "제 표현이 책임을 돌리는 말처럼 들렸을 수 있겠네요. 그보다는 문제를 같이 살펴보자는 뜻이었어요.",
+                "de": "Meine Formulierung konnte wohl wie eine Schuldzuweisung klingen. Ich wollte eher vorschlagen, das Problem gemeinsam anzusehen.",
+                "en": "My wording may have sounded like I was shifting the blame. I meant instead that we should look at the problem together."
+              },
+              "effect": {
+                "ko": "전달 효과를 가능성으로 인정해요. 직접적인 사과보다 설명 중심이어서 상대의 반응을 더 살펴야 해요.",
+                "de": "Du erkennst die mögliche Wirkung an. Die Antwort erklärt mehr, als dass sie sich entschuldigt; achte deshalb auf die Reaktion.",
+                "en": "You acknowledge the possible impact. This answer focuses more on explanation than apology, so pay attention to the response."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "그런 뜻이었군요.",
+                "de": "So war das gemeint.",
+                "en": "I see what you meant."
+              },
+              "followUp": {
+                "ko": "확인할 부분부터 같이 정해 볼까요?",
+                "de": "Legen wir zuerst gemeinsam fest, was wir prüfen?",
+                "en": "Shall we first agree on what to check together?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "scope",
+          "label": {
+            "ko": "책임 판단은 아직 하지 않았다고 밝히기",
+            "de": "Die Verantwortungsfrage offenlassen",
+            "en": "Say responsibility has not been decided"
+          },
+          "expressions": [
+            {
+              "id": "notyet",
+              "text": {
+                "ko": "아직 누구의 책임인지 판단한 것은 아니에요. 먼저 사실관계를 확인하려고 해요.",
+                "de": "Ich habe noch nicht beurteilt, wer verantwortlich ist. Zuerst möchte ich klären, was passiert ist.",
+                "en": "I haven't decided who's responsible yet. First, I want to establish what happened."
+              },
+              "effect": {
+                "ko": "판단 전이라는 상태와 확인 순서를 분명히 해요. 상대에게 책임이 없다고 확정하는 말은 아니에요.",
+                "de": "Du benennst den offenen Stand und die Reihenfolge. Damit sprichst du die andere Person noch nicht von jeder Verantwortung frei.",
+                "en": "You clarify the current uncertainty and the order of steps. You are not declaring the other person free of responsibility."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "어떤 부분을 확인하면 될까요?",
+                "de": "Was sollen wir prüfen?",
+                "en": "What should we check?"
+              },
+              "followUp": {
+                "ko": "우선 일어난 일을 함께 정리해 볼까요?",
+                "de": "Tragen wir zuerst gemeinsam zusammen, was passiert ist?",
+                "en": "Shall we first go through what happened together?"
+              }
+            },
+            {
+              "id": "order",
+              "text": {
+                "ko": "책임을 정하기에 앞서, 어떤 일이 있었는지부터 확인했으면 해요.",
+                "de": "Bevor wir die Verantwortung zuordnen, würde ich gern klären, was passiert ist.",
+                "en": "Before assigning responsibility, I would like to establish what happened."
+              },
+              "effect": {
+                "ko": "판단보다 확인을 먼저 하자는 순서의 제안이에요. 책임 문제 자체를 없애는 말은 아니에요.",
+                "de": "Du schlägst vor, zuerst die Fakten zu klären. Die Verantwortungsfrage wird dadurch nicht aufgehoben.",
+                "en": "You propose checking the facts first. You are not removing the question of responsibility."
+              },
+              "grammarValid": true,
+              "partnerReply": {
+                "ko": "어떤 부분을 확인하면 될까요?",
+                "de": "Was sollen wir prüfen?",
+                "en": "What should we check?"
+              },
+              "followUp": {
+                "ko": "우선 일어난 일을 함께 정리해 볼까요?",
+                "de": "Tragen wir zuerst gemeinsam zusammen, was passiert ist?",
+                "en": "Shall we first go through what happened together?"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

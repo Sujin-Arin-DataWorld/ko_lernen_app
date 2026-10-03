@@ -82,6 +82,7 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
   static const _completionBonus = 20;
 
   List<ClozeItem> _round = const [];
+  Map<String, Vocab> _vocabById = const {};
   Map<String, Vocab> _vocabByKo = const {};
   bool _loading = true;
   bool _alreadyDone = false; // heute schon erledigt → Übungsmodus, kein Bonus
@@ -99,6 +100,9 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
   bool get _acceptsInput => studyEvidenceAcceptsInput && gameResultAcceptsInput;
+
+  Vocab? _vocabFor(ClozeItem item) =>
+      item.resolveVocab(byId: _vocabById, byKorean: _vocabByKo);
 
   void _retireStudy() {
     retireStudyEvidence();
@@ -122,9 +126,11 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
     final loadGeneration = ++_loadGeneration;
     ++_presentation;
     final all = widget.items ?? await ClozeLoader.load();
-    // Keep injected item fixtures independent from the vocabulary asset. The
-    // production path still loads it to enrich the translation gloss.
-    final vocab = widget.items == null
+    // Linked canonical items still need their source vocabulary when injected.
+    // Unlinked legacy fixtures stay independent of the vocabulary asset.
+    final vocab =
+        widget.items == null ||
+            all.any((item) => item.sourceVocabId.trim().isNotEmpty)
         ? await DataLoader.loadVocab()
         : const <Vocab>[];
     if (!mounted ||
@@ -140,6 +146,7 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
     );
     setState(() {
       _round = round;
+      _vocabById = {for (final v in vocab) v.id: v};
       _vocabByKo = {for (final v in vocab) v.korean: v};
       _alreadyDone = Storage.dailyChallengeDoneToday();
       _loading = false;
@@ -165,7 +172,11 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
     final firstTry = !_retried;
     final judgment = ++_presentation;
     if (firstTry) {
-      final attempt = SrsReviewAttempt(id: item.answer, gotIt: ok);
+      // SRS uses Korean headwords, so keep the existing word's review history.
+      final attempt = SrsReviewAttempt(
+        id: _vocabFor(item)?.korean ?? item.answer,
+        gotIt: ok,
+      );
       if (!await saveStudyEvidence(attempt.save) ||
           !_isCurrentQuestion(judgment, item)) {
         return;
@@ -297,7 +308,7 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
     final s = SoriSurfaces.of(context);
     final lang = Localizations.localeOf(context).languageCode;
     final item = _round[_idx];
-    final reviewedWord = _vocabByKo[item.answer];
+    final reviewedWord = _vocabFor(item);
     final options = item.options(
       DailyChallengeScreen.dailySeed(DateTime.now()) + _idx,
     );
@@ -388,7 +399,7 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
                 child: ClozePromptCard(
                   item: item,
                   lang: lang,
-                  gloss: _vocabByKo[item.answer]?.translationFor(lang),
+                  gloss: reviewedWord?.translationFor(lang),
                   picked: _picked,
                   pickedWrong: _picked != null && !item.accepts(_picked!),
                 ),

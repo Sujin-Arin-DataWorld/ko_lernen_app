@@ -5,8 +5,27 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/services/learning_data_export_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/practice_history_store.dart';
+import 'package:ko_lernen_app/models/practice_history.dart';
 
 void main() {
+  test(
+    'exports validated practice evidence without mutating storage',
+    () async {
+      await PracticeHistoryStore.recordViewed(
+        const PracticeSource(
+          kind: PracticeKind.smalltalk,
+          id: 'invite_friend',
+          level: 'a1',
+          revision: 1,
+        ),
+      );
+      final before = Storage.hanokPracticeRawJson;
+      final package = LearningDataExportService.buildPackage();
+      expect(package.data['hanokPractice'], jsonDecode(before));
+      expect(Storage.hanokPracticeRawJson, before);
+    },
+  );
   setUp(() async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({

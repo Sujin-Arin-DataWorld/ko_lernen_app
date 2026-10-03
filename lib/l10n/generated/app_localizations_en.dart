@@ -11297,6 +11297,202 @@ class AppL10nEn extends AppL10n {
   String get yeopjeonConstructionComplete => 'This building is complete!';
 
   @override
+  String get practiceToneTitle => 'Tone and context';
+
+  @override
+  String get practiceSituation => 'The situation';
+
+  @override
+  String get practiceIntent => 'What do you want to do?';
+
+  @override
+  String get practiceExpression => 'Choose your wording';
+
+  @override
+  String get practiceEffect => 'How it may come across';
+
+  @override
+  String get practiceGrammarCorrect =>
+      'The grammar is correct. The effect depends on the context and tone.';
+
+  @override
+  String get practiceAssemble => 'Build your next reply';
+
+  @override
+  String get practiceShowEffect => 'View the explanation for help';
+
+  @override
+  String get practiceReset => 'Put the words back';
+
+  @override
+  String get practiceCheck => 'Check and save your reply';
+
+  @override
+  String get practiceOrderRetry =>
+      'The word order does not fit yet. Put the words back and try again.';
+
+  @override
+  String get practiceIntentRetry =>
+      'The wording is possible, but does not meet this situation’s goal yet. Choose your intention again.';
+
+  @override
+  String get practiceSaved => 'Practice saved';
+
+  @override
+  String get practiceSaveFailed =>
+      'Your practice could not be saved. Your reply is kept here so you can retry.';
+
+  @override
+  String get practiceRetrySave => 'Retry saving';
+
+  @override
+  String get practiceToSarangbang => 'Practise again in the Sarangbang';
+
+  @override
+  String get practiceTransfer => 'Reply in a different situation';
+
+  @override
+  String get practiceAssisted => 'Completed with help';
+
+  @override
+  String get practiceIndependent => 'Completed independently';
+
+  @override
+  String get practiceViewed => 'Viewed';
+
+  @override
+  String get practiceHistoryTitle => 'Your practice in this room';
+
+  @override
+  String get practiceHistoryOpen => 'Return to your practice';
+
+  @override
+  String get practiceHistoryEmpty =>
+      'Your Smalltalk practice and assisted syllable puzzles will appear here.';
+
+  @override
+  String get practicePuzzleReplay => 'Solve this puzzle independently';
+
+  @override
+  String get practiceUnavailable =>
+      'This practice is unavailable in this content version.';
+
+  @override
+  String get practiceBackCases => 'More situations';
+
+  @override
+  String get practiceChooseAgain => 'Choose your intention again';
+
+  @override
+  String get practiceHintTitle => 'A hint from Dokkaebi';
+
+  @override
+  String get practiceHintMeaning => 'View meaning and direction';
+
+  @override
+  String get practiceHintCrossing => 'View crossing cells';
+
+  @override
+  String get practiceHintReveal => 'Reveal one syllable · direct help';
+
+  @override
+  String get practiceHintPlace =>
+      'The syllable is shown. Place the matching tile on the selected cell yourself.';
+
+  @override
+  String get practiceHintNoCrossing => 'This word has no crossing cell.';
+
+  @override
+  String get practiceReplaySaved => 'Your result has been saved.';
+
+  @override
+  String get practiceSilbenLabel => 'Syllable puzzle';
+
+  @override
+  String get practiceReadError => 'Your practice data could not be read.';
+
+  @override
+  String get practiceHistoryStart => 'Practise Smalltalk with the Hahoe mask';
+
+  @override
+  String get personaMeetPeopleTitle => 'Meet people';
+
+  @override
+  String get personaMeetPeopleSubtitle =>
+      'Get to know eleven people and find a conversation with them.';
+
+  @override
+  String personaOpenProfile(String name) {
+    return 'Meet $name';
+  }
+
+  @override
+  String get personaInterests => 'Interests';
+
+  @override
+  String get personaConnections => 'People in their life';
+
+  @override
+  String personaTalkWith(String name) {
+    return 'Talk with $name';
+  }
+
+  @override
+  String personaPlayRole(String name) {
+    return 'Play $name’s role';
+  }
+
+  @override
+  String get personaListen => 'Listen to the conversation';
+
+  @override
+  String personaYourRole(String name) {
+    return 'Your role in this scene: $name';
+  }
+
+  @override
+  String personaConversationsWith(String name) {
+    return 'Conversations with $name';
+  }
+
+  @override
+  String personaLearnerRoles(String name) {
+    return 'Scenes where you play $name';
+  }
+
+  @override
+  String get personaLearnerRolesHint =>
+      'Here you take this role and speak with someone else.';
+
+  @override
+  String get personaNoConversations =>
+      'A conversation with this person is being prepared.';
+
+  @override
+  String get personaListeningUnavailable =>
+      'The listening lesson for this scene is being prepared.';
+
+  @override
+  String get scenariosLevelFilter => 'Language level';
+
+  @override
+  String get scenariosChooseTopic => 'Choose a topic';
+
+  @override
+  String get scenariosChangeTopic => 'Choose another topic';
+
+  @override
+  String scenariosConversationCount(int count) {
+    return '$count conversations';
+  }
+
+  @override
+  String get scenariosOneConversation => '1 conversation';
+
+  @override
+  String get personaMeetPeopleCompactSubtitle => '11 profiles · Talk & listen';
+
+  @override
   String get dancheongTitle => 'Dancheong Studio';
 
   @override
@@ -11547,82 +11743,4 @@ class AppL10nEn extends AppL10n {
   @override
   String get dancheongDeleteArtworkNote =>
       'Delete this finished version and its saved captions? Its public links will also be disabled. Copies already saved by others remain.';
-
-  @override
-  String get personaMeetPeopleTitle => 'Meet people';
-
-  @override
-  String get personaMeetPeopleSubtitle =>
-      'Get to know eleven people and find a conversation with them.';
-
-  @override
-  String personaOpenProfile(String name) {
-    return 'Meet $name';
-  }
-
-  @override
-  String get personaInterests => 'Interests';
-
-  @override
-  String get personaConnections => 'People in their life';
-
-  @override
-  String personaTalkWith(String name) {
-    return 'Talk with $name';
-  }
-
-  @override
-  String personaPlayRole(String name) {
-    return 'Play $name’s role';
-  }
-
-  @override
-  String get personaListen => 'Listen to the conversation';
-
-  @override
-  String personaYourRole(String name) {
-    return 'Your role in this scene: $name';
-  }
-
-  @override
-  String personaConversationsWith(String name) {
-    return 'Conversations with $name';
-  }
-
-  @override
-  String personaLearnerRoles(String name) {
-    return 'Scenes where you play $name';
-  }
-
-  @override
-  String get personaLearnerRolesHint =>
-      'Here you take this role and speak with someone else.';
-
-  @override
-  String get personaNoConversations =>
-      'A conversation with this person is being prepared.';
-
-  @override
-  String get personaListeningUnavailable =>
-      'The listening lesson for this scene is being prepared.';
-
-  @override
-  String get scenariosLevelFilter => 'Language level';
-
-  @override
-  String get scenariosChooseTopic => 'Choose a topic';
-
-  @override
-  String get scenariosChangeTopic => 'Choose another topic';
-
-  @override
-  String scenariosConversationCount(int count) {
-    return '$count conversations';
-  }
-
-  @override
-  String get scenariosOneConversation => '1 conversation';
-
-  @override
-  String get personaMeetPeopleCompactSubtitle => '11 profiles · Talk & listen';
 }

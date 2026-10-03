@@ -1,3 +1,4 @@
+import '../widgets/hanok_practice_entry.dart';
 import '../features/content_learning/content_learning_widgets.dart';
 import 'dart:async';
 
@@ -399,6 +400,10 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
                           },
                         ),
                         const SizedBox(height: Spacing.lg),
+                        if (widget.preview == null) ...[
+                          const HanokPracticeEntry(),
+                          const SizedBox(height: Spacing.lg),
+                        ],
                         const ContentDailyGoals(),
                         _SarangbangReturnActions(
                           canOpenToday:

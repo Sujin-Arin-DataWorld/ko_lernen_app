@@ -12,6 +12,37 @@ import generate_tts  # noqa: E402
 
 
 class TtsGeneratorContractTest(unittest.TestCase):
+    def test_context_dialog_keys_are_approved_in_client_and_server_manifests(self):
+        with open(os.path.join(generate_tts.ROOT, "assets/data/smalltalk_context_cases.json"), encoding="utf-8") as source:
+            data = json.load(source)
+        voices = generate_tts.load_scenario_character_voices()
+        pairs = set(generate_tts.collect_context_dialog_pairs(data, voices))
+        self.assertTrue(pairs)
+        for relative in (
+            "assets/data/tts_canonical_manifest.json",
+            "functions/tts/canonical_manifest.json",
+        ):
+            with open(os.path.join(generate_tts.ROOT, relative), encoding="utf-8") as source:
+                manifest = json.load(source)
+            for voice, text in pairs:
+                with self.subTest(manifest=relative, voice=voice, text=text):
+                    self.assertIn(
+                        generate_tts.cache_sha1(voice, text),
+                        manifest["voices"][voice],
+                    )
+
+    def test_context_dialog_uses_both_persona_voices_and_excludes_explanations(self):
+        data = {'cases': [{
+            'base': {'characterId': 'christian', 'prompt': {'ko': '오늘 저녁에 시간 있어?'}},
+            'transfer': {'characterId': 'maya', 'prompt': {'ko': '내일은 시간 있어?'}},
+            'intents': [{'expressions': [{'partnerReply': {'ko': '같이 저녁 먹을래?'}, 'effect': {'ko': '이것은 설명이에요.'}}]}],
+        }]}
+        expected = {
+            ('male', '오늘 저녁에 시간 있어?'), ('female', '내일은 시간 있어?'),
+            ('male', '같이 저녁 먹을래?'), ('female', '같이 저녁 먹을래?'),
+        }
+        self.assertEqual(set(generate_tts.collect_context_dialog_pairs(data, {'christian':'male','maya':'female'})), expected)
+
     def test_short_tts_candidate_is_losslessly_polished_and_measured(self):
         raw = b"raw mp3 bytes"
         with (
@@ -159,11 +190,12 @@ class TtsGeneratorContractTest(unittest.TestCase):
         self.assertEqual(manifest["schemaVersion"], 1)
         self.assertEqual(manifest["kind"], "tts_first_line_manifest")
         self.assertEqual(manifest["cacheRevision"], "v3")
-        self.assertEqual(manifest["scenarioCount"], 181)
-        self.assertEqual(len(manifest["items"]), 181)
-        # The approved persona additions each include their original first-line
-        # audio. All 181 scenario entries must resolve to a bundled MP3.
-        self.assertEqual(manifest["bundledCount"], 181)
+        self.assertEqual(manifest["scenarioCount"], 186)
+        self.assertEqual(len(manifest["items"]), 186)
+        # W10 Wave 2와 후속 우선순위 시나리오로 183편까지 갱신됐다.
+        # 유니크 첫 문장 mp3가 실제로 assets/tts/v3/ 에 다운로드돼 커밋됐다 —
+        # 183개 항목은 모두 bundled:true 여야 한다.
+        self.assertEqual(manifest["bundledCount"], 186)
         ids = [item["scenarioId"] for item in manifest["items"]]
         self.assertEqual(len(ids), len(set(ids)))
         order = [
@@ -362,7 +394,7 @@ class TtsGeneratorContractTest(unittest.TestCase):
             with open(output, encoding="utf-8") as handle:
                 written = json.load(handle)
 
-        self.assertEqual(written["scenarioCount"], 181)
+        self.assertEqual(written["scenarioCount"], 186)
         auth.assert_not_called()
         synth.assert_not_called()
         remote.assert_not_called()

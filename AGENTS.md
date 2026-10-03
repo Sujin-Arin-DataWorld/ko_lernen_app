@@ -439,8 +439,6 @@ flutter run -d <android-id>   # 안드로이드
 - [ ] **살아 있는 한옥 V1 PR4 자산 파이프라인**: A1 0–16 catalog·도구는 코드로 고정.
   승인되지 않은 이미지는 runtime/pubspec에 넣지 않는다. Codex 06이 앞줄 기둥 7개만
   그려 05~10 계보를 새로 만든다. BBANANA ledger는 이관하지 않음.
-- [ ] **다음 콘텐츠**: 다음 번호는 Batch 11. `docs/CONTENT_LOADER_GAP_AND_PDF_WORK_PLAN_2026-08-16.md`.
-  review 승인 전에는 앱 데이터, TTS, Firebase에 쓰지 않는다. 4× 단어 목표(4752)까지 잔량.
 - [ ] **KO–EN–DE 콘텐츠 후속 검수**: 현재 범위·레코드 지문·검증 결과는
   `docs/content_qa/direct_editorial_audit_20261002.json`이 정본이다. 단어·예문,
   시나리오·듣기·게임의 미검수 범위와 스몰토크 레벨·페르소나·라우팅 소견을

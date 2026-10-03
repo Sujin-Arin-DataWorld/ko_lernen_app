@@ -66,6 +66,9 @@ COPY_REVISION_LEDGER = Path(
 EDITORIAL_SUCCESSOR_LEDGER = Path(
     "tools/content_factory/review/promoted_editorial_successors_20261003.json"
 )
+EDITORIAL_SUCCESSOR_AMENDMENT_LEDGER = Path(
+    "tools/content_factory/review/promoted_editorial_successor_amendments_20261003.json"
+)
 EDITORIAL_COPY_FIELDS = {
     "vocab": {"korean", "romanization", "german", "english", "pos_de", "pos_en",
         "example_korean", "example_german", "example_english"},
@@ -123,10 +126,12 @@ def _fingerprint(value: Any) -> str:
     return hashlib.sha256(canonical).hexdigest()
 
 
-def _editorial_successors(*, root: Path, manifest_path: Path) -> dict:
+def _editorial_successors(
+    *, root: Path, manifest_path: Path, _ledger_path: Path | None = None,
+) -> dict:
     root = root.resolve()
     manifest_path = manifest_path.resolve()
-    path = root / EDITORIAL_SUCCESSOR_LEDGER
+    path = root / (_ledger_path or EDITORIAL_SUCCESSOR_LEDGER)
     if not path.exists():
         return {}
     payload = _json(path)
@@ -208,7 +213,95 @@ def _editorial_successors(*, root: Path, manifest_path: Path) -> dict:
         if not _resolve(source, root).is_file():
             raise PromotedBatchError(f"{key}: sourceGitPath does not exist")
         result[key] = entry
+    if _ledger_path is None:
+        amendment_path = root / EDITORIAL_SUCCESSOR_AMENDMENT_LEDGER
+        if amendment_path.exists():
+            amendments = _json(amendment_path)
+            if not isinstance(amendments, dict):
+                raise PromotedBatchError("editorial amendments must be an object")
+            for field, relative_path in (
+                ("predecessorLedgerSha256", EDITORIAL_SUCCESSOR_LEDGER),
+                ("copyRevisionLedgerSha256", COPY_REVISION_LEDGER),
+            ):
+                expected = hashlib.sha256((root / relative_path).read_bytes()).hexdigest()
+                if amendments.get(field) != expected:
+                    raise PromotedBatchError("editorial amendment changed its frozen predecessor ledger")
+            predecessor_commit = amendments.get("predecessorGitCommit")
+            if (not isinstance(predecessor_commit, str)
+                    or re.fullmatch(r"[0-9a-f]{40}", predecessor_commit) is None):
+                raise PromotedBatchError("editorial amendment has invalid predecessor commit")
+            followups = _editorial_successors(
+                root=root, manifest_path=manifest_path,
+                _ledger_path=EDITORIAL_SUCCESSOR_AMENDMENT_LEDGER,
+            )
+            for key, amendment in followups.items():
+                predecessor = result.get(key)
+                predecessor_hash = _fingerprint(predecessor) if predecessor else None
+                if (amendment.get("predecessorSuccessorSha256") != predecessor_hash
+                        or (predecessor is not None
+                            and (amendment["sourceGitCommit"] != predecessor_commit
+                                or amendment["before"] != predecessor["after"]))):
+                    raise PromotedBatchError(f"{key}: editorial amendment broke its exact predecessor chain")
+                if predecessor is None:
+                    _validate_genesis_editorial_predecessor(
+                        kind=key[0], ident=key[1], amendment=amendment,
+                        manifest=manifest, root=root,
+                    )
+                # The final live hash still resolves to the original reviewed
+                # projection. Neither original ledger is rewritten or bypassed.
+                result[key] = {
+                    **amendment,
+                    "before": predecessor["before"] if predecessor else amendment["before"],
+                    "beforeSha256": predecessor["beforeSha256"] if predecessor else amendment["beforeSha256"],
+                }
     return result
+
+
+def _validate_genesis_editorial_predecessor(
+    *, kind: str, ident: str, amendment: dict, manifest: dict, root: Path,
+) -> None:
+    """A first copy amendment resolves to an exact frozen, approved draft.
+
+    Later batches can have a newer Git source than the existing successor
+    chain. Their original review is bound separately instead of rewriting
+    that chain's predecessor commit or treating a new live hash as approval.
+    """
+    evidence = amendment.get("genesisPredecessor")
+    if (not isinstance(evidence, dict)
+            or evidence.get("sourceGitCommit") != amendment["sourceGitCommit"]):
+        raise PromotedBatchError(f"{kind}:{ident}: missing exact genesis predecessor")
+    artifacts = [row for row in manifest["artifacts"]
+                 if row["kind"] == kind and row["draft"] == evidence.get("draft")]
+    if len(artifacts) != 1 or evidence.get("review") != artifacts[0].get("review"):
+        raise PromotedBatchError(f"{kind}:{ident}: genesis predecessor is not this manifest's review")
+    draft_path = _resolve(evidence["draft"], root)
+    if draft_path.suffix == ".csv":
+        rows = _csv(draft_path)[1]
+    else:
+        rows = _json(draft_path)[TARGETS[kind][1]]
+    drafts = [row for row in rows if row.get("id") == ident]
+    reviews = [row for row in _csv(_resolve(evidence["review"], root))[1]
+               if row.get("id") == ident]
+    if len(drafts) != 1 or len(reviews) != 1:
+        raise PromotedBatchError(f"{kind}:{ident}: genesis predecessor identity is ambiguous")
+    draft, review = _promotion_projection(kind, drafts[0]), reviews[0]
+    if (evidence.get("draftSha256") != _fingerprint(draft)
+            or evidence.get("reviewRowSha256") != _fingerprint(review)
+            or review.get("상태") != "approved"
+            or "rights: original" not in str(review.get("field_notes") or "")
+            or not str(review.get("jin_memo") or "").strip()):
+        raise PromotedBatchError(f"{kind}:{ident}: stale or unapproved genesis predecessor")
+    if amendment["before"] != draft:
+        # An existing exact copy revision remains the first model successor
+        # of the frozen draft. It is evidence, not a new language approval.
+        revisions = _copy_revisions(root=root, manifest_path=root / amendment["manifest"])
+        revision = revisions.get((kind, ident))
+        if (revision is None
+                or evidence.get("copyRevisionSha256") != _fingerprint(revision)
+                or not _require_reviewed_copy_revision(
+                    kind=kind, ident=ident, draft=draft, live=amendment["before"],
+                    revisions=revisions, batch_revisions=_batch_field_revisions(root=root))):
+            raise PromotedBatchError(f"{kind}:{ident}: missing exact original copy revision")
 
 
 def _editorial_route_identity(value: Any, path: tuple = ()) -> dict:

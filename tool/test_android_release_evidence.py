@@ -165,7 +165,9 @@ class AndroidReleaseEvidenceTest(unittest.TestCase):
         return evidence.upload_symbols(
             request or self.request, self.receipt,
             bundletool=self.bundletool, firebase=self.firebase, buildtools=self.buildtools,
-            environment=self.env, timeout_seconds=2, **kwargs,
+            # Allow Windows process startup under full-suite load. Dedicated
+            # timeout tests still pass their explicit 0.5-second boundary.
+            environment=self.env, timeout_seconds=10, **kwargs,
         )
 
     def gate(self, request=None):
@@ -419,6 +421,7 @@ class AndroidReleaseEvidenceTest(unittest.TestCase):
         self.env["EVIDENCE_FAKE_MODE"] = "failure"
         with self.assertRaises(evidence.EvidenceError) as raised:
             self.upload()
+        self.assertEqual(raised.exception.code, "command_failed")
         self.assertNotIn("PRIVATE", str(raised.exception))
         self.assertNotIn("PRIVATE", self.receipt.read_text())
         self.assertNotIn("token", self.receipt.read_text())

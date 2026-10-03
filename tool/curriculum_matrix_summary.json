@@ -69,10 +69,10 @@
       },
       "speechActs": {
         "covered": 7,
-        "missing": 2,
+        "missing": 1,
         "recognition_missing": 1,
         "recognition_thin": 1,
-        "thin": 6
+        "thin": 7
       },
       "textTypes": {
         "covered": 2,
@@ -118,8 +118,9 @@
       },
       "textTypes": {
         "covered": 1,
-        "missing": 2,
-        "structural_gap": 6
+        "missing": 1,
+        "structural_gap": 6,
+        "thin": 1
       },
       "vocabDomains": {
         "beyond_matrix": 10,
@@ -150,7 +151,7 @@
           "covered": 3,
           "missing": 1
         },
-        "no_scenario_anchor": 38,
+        "no_scenario_anchor": 37,
         "app_grammar_count": 53
       },
       "speechActs": {
@@ -161,8 +162,8 @@
       },
       "textTypes": {
         "covered": 1,
-        "missing": 1,
-        "structural_gap": 7
+        "structural_gap": 7,
+        "thin": 1
       },
       "vocabDomains": {
         "beyond_matrix": 12,
@@ -223,9 +224,9 @@
       },
       "grammar": {
         "nikl_rows": 56,
-        "match": 3,
+        "match": 6,
         "level_mismatch": 10,
-        "missing_in_app": 43,
+        "missing_in_app": 40,
         "brief_highlights": {
           "match": 3,
           "missing": 5
@@ -233,23 +234,21 @@
         "discourse_features": {
           "covered": 3
         },
-        "no_scenario_anchor": 9,
-        "app_grammar_count": 23
+        "no_scenario_anchor": 11,
+        "app_grammar_count": 26
       },
       "speechActs": {
-        "covered": 9,
-        "missing": 2,
-        "thin": 1
+        "covered": 10,
+        "missing": 2
       },
       "textTypes": {
         "covered": 1,
-        "missing": 1,
-        "structural_gap": 8
+        "structural_gap": 8,
+        "thin": 1
       },
       "vocabDomains": {
         "beyond_matrix": 6,
-        "covered": 5,
-        "missing": 1
+        "covered": 6
       },
       "registers": {
         "absent": 4,
@@ -262,22 +261,23 @@
     "app_earlier": 3,
     "missing": 2
   },
-  "gap_total": 516,
+  "gap_total": 512,
   "gap_counts": {
     "functional_grammar:missing": 2,
-    "grammar_anchor:no_scenario_anchor": 161,
+    "grammar_anchor:no_scenario_anchor": 162,
     "grammar_brief:level_mismatch": 32,
     "grammar_brief:missing": 23,
     "grammar_discourse:missing": 3,
     "grammar_nikl:level_mismatch": 34,
-    "grammar_nikl:missing_in_app": 176,
+    "grammar_nikl:missing_in_app": 173,
     "register:absent": 7,
-    "speech_act:missing": 7,
+    "speech_act:missing": 6,
     "speech_act:recognition_missing": 4,
     "speech_act:thin": 17,
-    "text_type:missing": 8,
+    "text_type:missing": 5,
     "text_type:structural_gap": 38,
-    "vocab_domain:missing": 3,
+    "text_type:thin": 3,
+    "vocab_domain:missing": 2,
     "vocab_domain:thin": 1
   },
   "draftHoldings": {
@@ -3238,7 +3238,7 @@
         }
       }
     },
-    "candidateRows": 105,
+    "candidateRows": 106,
     "unverifiedUnmappedRows": 0,
     "phasePathConnectedRows": 186,
     "rows": [
@@ -3368,6 +3368,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:a1_message_contact_after_class_2026",
           "scenario:a1_w10_numbers",
           "scenario:a1_w10_repeat",
           "scenario:a1_w10_taxi_stay",
@@ -3651,6 +3652,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:a1_message_contact_after_class_2026",
           "scenario:a1_w10_repeat",
           "scenario:clarify_repeat",
           "scenario:taxi_kakao",
@@ -4416,6 +4418,7 @@
         },
         "mode": "R",
         "contentCandidates": [
+          "scenario:a1_message_contact_after_class_2026",
           "scenario:a1_theme_park_date_choices",
           "scenario:a1_w10_eat",
           "scenario:a1_w10_fandom",
@@ -4545,6 +4548,7 @@
         },
         "mode": "R",
         "contentCandidates": [
+          "scenario:a1_message_contact_after_class_2026",
           "scenario:a1_w10_eat",
           "scenario:a1_w10_fandom",
           "scenario:a1_w10_numbers",
@@ -5337,6 +5341,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:a1_message_contact_after_class_2026",
           "scenario:a1_w10_eat",
           "scenario:a1_w10_fandom",
           "scenario:a1_w10_numbers",
@@ -5645,6 +5650,7 @@
         "mode": "P",
         "contentCandidates": [
           "scenario:a2_jun_game_time_change",
+          "scenario:a2_message_change_of_plan_2026",
           "scenario:favorite_drama_chat",
           "scenario:friend_cancelled_plan",
           "scenario:gym_class_cancel",
@@ -6065,8 +6071,10 @@
           "de": "Meinungen äußern, zustimmen und widersprechen"
         },
         "mode": "P",
-        "contentCandidates": [],
-        "contentCandidateState": "no_candidate_observed_not_proven_absent",
+        "contentCandidates": [
+          "scenario:a2_message_change_of_plan_2026"
+        ],
+        "contentCandidateState": "candidate_observed",
         "draftHoldings": [],
         "draftBindingState": "no_approved_semantic_binding",
         "evidenceStage": "phase_task_path_connected",
@@ -6390,6 +6398,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:a2_message_change_of_plan_2026",
           "scenario:a2_w10_booking",
           "scenario:a2_w10_enrolment",
           "scenario:friend_cancelled_plan",
@@ -7753,6 +7762,7 @@
         "mode": "P",
         "contentCandidates": [
           "scenario:a2_jun_game_time_change",
+          "scenario:a2_message_change_of_plan_2026",
           "scenario:a2_minho_weekend_cooking_plan",
           "scenario:a2_w10_fandom",
           "scenario:a2_w10_friends",
@@ -8415,6 +8425,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:b1_team_briefing_revised_schedule_2026",
           "scenario:reel_caption_misunderstanding",
           "scenario:work_message_too_direct"
         ],
@@ -8523,6 +8534,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:b1_team_briefing_revised_schedule_2026",
           "scenario:cancelled_trip_hurt_feelings",
           "scenario:community_festival_shift",
           "scenario:jeju_rain_plan_change",
@@ -10184,6 +10196,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:b1_team_briefing_revised_schedule_2026",
           "scenario:work_message_too_direct"
         ],
         "contentCandidateState": "candidate_observed",
@@ -10406,6 +10419,7 @@
         "mode": "P",
         "contentCandidates": [
           "scenario:accessible_festival_route",
+          "scenario:b2_meeting_hold_for_evidence_2026",
           "scenario:meeting_disagreement_evidence",
           "unit:b2_02_professional_opinion",
           "unit:b2_04_complaint_resolution"
@@ -10857,6 +10871,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:b2_meeting_hold_for_evidence_2026",
           "scenario:b2_w10_hiring",
           "scenario:meeting_disagreement_evidence",
           "unit:b2_05_interview"
@@ -11836,6 +11851,7 @@
         "contentCandidates": [
           "scenario:accessible_festival_route",
           "scenario:ai_image_disclosure",
+          "scenario:b2_meeting_hold_for_evidence_2026",
           "scenario:b2_w10_hiring",
           "scenario:b2_w10_negotiate",
           "scenario:brand_private_account_boundary",
@@ -12461,6 +12477,7 @@
         "contentCandidates": [
           "scenario:accessible_festival_route",
           "scenario:ai_image_disclosure",
+          "scenario:b2_meeting_hold_for_evidence_2026",
           "scenario:b2_w10_hiring",
           "scenario:b2_w10_negotiate",
           "scenario:brand_private_account_boundary",
@@ -15775,6 +15792,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:c2_public_redress_briefing_2026",
           "scenario:causal_claim_headline"
         ],
         "contentCandidateState": "candidate_observed",
@@ -17784,6 +17802,7 @@
           "scenario:ai_hiring_appeal",
           "scenario:automated_benefit_denial",
           "scenario:autonomous_delivery_liability",
+          "scenario:c2_public_redress_briefing_2026",
           "scenario:c2_w10_aesthetic",
           "scenario:c2_w10_fandom",
           "scenario:c2_w10_impact",

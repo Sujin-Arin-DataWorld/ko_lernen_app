@@ -287,8 +287,9 @@ void main() {
         for (final lesson in payload['lessons'])
           ...(lesson['contentIds'] as List).cast<String>(),
       ];
-      expect(listeningIds.length, 181);
-      expect(listeningIds.toSet().length, 181);
+      final sceneIds = scenes.map((scene) => scene.id).toSet();
+      expect(listeningIds.toSet(), sceneIds);
+      expect(listeningIds.length, sceneIds.length);
       final index = PersonaDialogueIndex.fromCorpus(
         scenes,
         listeningSourceIds: listeningIds,

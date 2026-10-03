@@ -191,7 +191,7 @@ class ScenePosterNormalizeTest(unittest.TestCase):
         canonical = scene_poster_normalize.load_canonical_ids(
             scene_poster_normalize.DEFAULT_INVENTORY_PATH
         )
-        self.assertEqual(len(canonical), 181)
+        self.assertEqual(len(canonical), 186)
         data_root = Path(__file__).resolve().parents[1] / "assets" / "data"
         authored_ids = {
             row["id"]

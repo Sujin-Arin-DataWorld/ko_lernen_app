@@ -6315,6 +6315,219 @@
       },
       "xpReward": 115,
       "sidekick": "christian"
+    },
+    {
+      "id": "a1_message_contact_after_class_2026",
+      "level": "a1",
+      "emoji": "💬",
+      "register": "polite",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "수업 뒤 연락처를 확인하기",
+        "de": "Nach dem Kurs Kontaktdaten klären",
+        "en": "Confirming contact details after class"
+      },
+      "intro": {
+        "ko": "수업이 끝난 뒤 새로 만난 사람에게 카카오톡으로 연락해도 되는지 묻고 이름을 확인해요.",
+        "de": "Nach dem Kurs fragst du eine neu kennengelernte Person, ob ihr über KakaoTalk schreiben könnt, und bestätigst ihren Namen.",
+        "en": "After class, you ask someone you have just met whether you can message on KakaoTalk and confirm their name."
+      },
+      "courseUnitId": "a1_07_contact_address",
+      "playerCharacterId": "lena",
+      "participantIds": [
+        "lena",
+        "maya"
+      ],
+      "relationshipContext": "first classmate after a lesson",
+      "intent": "Ask for a contact method and confirm the name shown in the chat.",
+      "shelf": "a1_phone",
+      "backdrop": "cafe",
+      "vocab": [
+        {
+          "korean": "연락하다",
+          "note": {
+            "ko": "메시지나 전화로 소식을 주고받다",
+            "de": "Kontakt aufnehmen",
+            "en": "to get in touch"
+          }
+        },
+        {
+          "korean": "카카오톡",
+          "note": {
+            "ko": "메시지를 주고받는 앱",
+            "de": "KakaoTalk",
+            "en": "KakaoTalk"
+          }
+        },
+        {
+          "korean": "이름",
+          "note": {
+            "ko": "사람을 부르는 말",
+            "de": "Name",
+            "en": "name"
+          }
+        },
+        {
+          "korean": "검색하다",
+          "note": {
+            "ko": "이름이나 단어를 찾아보다",
+            "de": "suchen",
+            "en": "to search"
+          }
+        },
+        {
+          "korean": "사진",
+          "note": {
+            "ko": "사람이나 물건을 찍은 그림",
+            "de": "Foto",
+            "en": "photo"
+          }
+        },
+        {
+          "korean": "메시지",
+          "note": {
+            "ko": "짧게 보내는 글",
+            "de": "Nachricht",
+            "en": "message"
+          }
+        }
+      ],
+      "conceptIds": [
+        "concept_a1_contact_address"
+      ],
+      "surfaceFormIds": [
+        "instant_message_chat"
+      ],
+      "grammarIds": [
+        "grammar_a1_direction_means"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N(으)로",
+          "de": "Mittel oder Richtung",
+          "en": "Means or direction"
+        },
+        "explanation": {
+          "ko": "카카오톡으로 연락해요처럼 연락 수단을 말할 때 쓸 수 있어요.",
+          "de": "Mit N(으)로 kann man wie in 카카오톡으로 연락해요 das Kontaktmittel nennen.",
+          "en": "Use N(으)로 to name the means of contact, as in 카카오톡으로 연락해요."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "maya",
+          "ko": "오늘 수업 어땠어요?",
+          "de": "Wie war der Kurs heute?",
+          "en": "How was class today?"
+        },
+        {
+          "speaker": "user",
+          "ko": "재미있었어요. 다음 주에 숙제도 같이 볼까요?",
+          "de": "Er war interessant. Wollen wir uns nächste Woche auch zusammen die Hausaufgaben ansehen?",
+          "en": "It was fun. Shall we look over the homework together next week?"
+        },
+        {
+          "speaker": "maya",
+          "ko": "좋아요. 카카오톡으로 연락해요?",
+          "de": "Gern. Sollen wir über KakaoTalk schreiben?",
+          "en": "Sure. Shall we message on KakaoTalk?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네. 제 이름은 레나예요. 레나로 검색해 보세요.",
+          "de": "Ja. Ich heiße Lena. Such einmal nach Lena.",
+          "en": "Yes. My name is Lena. Try searching for Lena."
+        },
+        {
+          "speaker": "maya",
+          "ko": "'레나' 맞아요?",
+          "de": "Ist das 'Lena'?",
+          "en": "Is this 'Lena'?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 맞아요. 사진도 보여요?",
+          "de": "Ja, genau. Siehst du auch das Foto?",
+          "en": "Yes, that's right. Can you see the photo too?"
+        },
+        {
+          "speaker": "maya",
+          "ko": "네, 보여요. 제가 먼저 메시지 보낼게요.",
+          "de": "Ja, ich sehe es. Ich schreibe dir zuerst.",
+          "en": "Yes, I can. I’ll send the first message."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_message_contact_after_class_2026_hear",
+          "type": "hoerverstehen",
+          "data": {
+            "audioKo": "좋아요. 카카오톡으로 연락해요?",
+            "options": [
+              {
+                "de": "Gern. Sollen wir über KakaoTalk schreiben?",
+                "en": "Sure. Shall we message on KakaoTalk?"
+              },
+              {
+                "de": "Wie war der Kurs heute?",
+                "en": "How was class today?"
+              },
+              {
+                "de": "Ist das 'Lena'?",
+                "en": "Is this 'Lena'?"
+              },
+              {
+                "de": "Ja, ich sehe es. Ich schreibe dir zuerst.",
+                "en": "Yes, I can. I’ll send the first message."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_message_contact_after_class_2026_translate",
+          "type": "uebersetzen",
+          "data": {
+            "promptDe": "Ja. Ich heiße Lena. Such einmal nach Lena.",
+            "promptEn": "Yes. My name is Lena. Try searching for Lena.",
+            "options": [
+              {
+                "ko": "네. 제 이름은 레나예요. 레나로 검색해 보세요."
+              },
+              {
+                "ko": "오늘 수업 어땠어요?"
+              },
+              {
+                "ko": "'레나' 맞아요?"
+              },
+              {
+                "ko": "네, 보여요. 제가 먼저 메시지 보낼게요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_message_contact_after_class_2026_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "targetKo": "네, 맞아요. 사진도 보여요?",
+            "audioKo": "네, 맞아요. 사진도 보여요?",
+            "promptDe": "Ja, genau. Siehst du auch das Foto?",
+            "promptEn": "Yes, that's right. Can you see the photo too?",
+            "distractors": [
+              "카카오톡으로",
+              "숙제도",
+              "먼저"
+            ]
+          }
+        }
+      ],
+      "culturalNote": null,
+      "xpReward": 80
     }
   ]
 }

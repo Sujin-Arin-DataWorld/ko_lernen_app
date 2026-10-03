@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "batch": "36",
+  "status": "merged",
+  "provenance": {
+    "scope": "Original A1-C2 practical communication surfaces: A1/A2 instant messages, B1/B2 short briefings, and a C2 public briefing on automated-decision redress.",
+    "rights": "original_clean_room",
+    "requiresJinReview": true,
+    "modelLanguageQa": "MODEL_QA_PASS",
+    "humanLanguageQaClaim": false,
+    "triadReview": "Korean is canonical. German and English were independently localized for the same speech act, register, agency, modality, and information scope.",
+    "registerDecision": "A1 is polite among new classmates; A2 is casual between friends; B1/B2/C2 are formal workplace or public contexts. German uses du only for the A2 friends and Sie in formal contexts.",
+    "approval": {
+      "authority": "Jin",
+      "approvedAt": "2026-10-02",
+      "scope": "Priority practical communication scenarios promoted to bundled app content"
+    },
+    "mergedAt": "2026-10-02"
+  },
+  "artifacts": [
+    {
+      "kind": "scenario",
+      "draft": "tools/content_factory/drafts/batch_36_priority_surfaces_scenarios.json",
+      "review": "tools/content_factory/review/batch_36_priority_surfaces_scenarios.csv",
+      "count": 5,
+      "levels": {
+        "a1": 1,
+        "a2": 1,
+        "b1": 1,
+        "b2": 1,
+        "c2": 1
+      }
+    }
+  ],
+  "recordCount": 5,
+  "questCount": 15,
+  "contentLinks": [
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_message_contact_after_class_2026",
+      "courseUnitId": "a1_07_contact_address",
+      "conceptIds": [
+        "concept_a1_contact_address"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_message_change_of_plan_2026",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_team_briefing_revised_schedule_2026",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_meeting_hold_for_evidence_2026",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_public_redress_briefing_2026",
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ],
+      "role": "assess"
+    }
+  ],
+  "backdrops": {
+    "a1_message_contact_after_class_2026": "cafe",
+    "a2_message_change_of_plan_2026": "station",
+    "b1_team_briefing_revised_schedule_2026": "office",
+    "b2_meeting_hold_for_evidence_2026": "office",
+    "c2_public_redress_briefing_2026": "office"
+  },
+  "mergeOrder": [
+    "scenario shards + curriculum links + shelf assignments + audit inventory"
+  ]
+}

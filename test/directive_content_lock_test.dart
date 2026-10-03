@@ -125,8 +125,10 @@ void main() {
     });
   });
 
-  group('cloze_a1_0154 — A1 절하다 예문과 파생 문제 동기화', () {
-    const fixed = '저는 지금 절해요.';
+  // Jin supplied the contextual Seollal explanation. Vocabulary and both
+  // derived games share the same current sentence and its translations.
+  group('cloze_a1_0154 — A1 절하기 원문과 게임 미러 동기화', () {
+    const fixed = '설날에는 친척들이 모여 어른들에게 절을 하는 풍습이 있어요.';
 
     test('cloze_a1_0154 fullKo', () {
       expect(clozeById['cloze_a1_0154']!['fullKo'], fixed);

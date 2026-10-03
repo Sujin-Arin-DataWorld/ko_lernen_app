@@ -1,0 +1,279 @@
+{
+  "scenarios": [
+    {
+      "id": "a1_message_contact_after_class_2026",
+      "level": "a1",
+      "emoji": "💬",
+      "register": "polite",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "수업 뒤 연락처를 확인하기",
+        "de": "Nach dem Kurs Kontaktdaten klären",
+        "en": "Confirming contact details after class"
+      },
+      "intro": {
+        "ko": "수업이 끝난 뒤 새로 만난 사람에게 카카오톡으로 연락해도 되는지 묻고 이름을 확인해요.",
+        "de": "Nach dem Kurs fragst du eine neu kennengelernte Person, ob ihr über KakaoTalk schreiben könnt, und bestätigst ihren Namen.",
+        "en": "After class, you ask someone you have just met whether you can message on KakaoTalk and confirm their name."
+      },
+      "courseUnitId": "a1_07_contact_address",
+      "playerCharacterId": "lena",
+      "participantIds": ["lena", "maya"],
+      "relationshipContext": "first classmate after a lesson",
+      "intent": "Ask for a contact method and confirm the name shown in the chat.",
+      "shelf": "a1_phone",
+      "backdrop": "cafe",
+      "vocab": [
+        {"korean": "연락하다", "note": {"ko": "메시지나 전화로 소식을 주고받다", "de": "Kontakt aufnehmen", "en": "to get in touch"}},
+        {"korean": "카카오톡", "note": {"ko": "메시지를 주고받는 앱", "de": "KakaoTalk", "en": "KakaoTalk"}},
+        {"korean": "이름", "note": {"ko": "사람을 부르는 말", "de": "Name", "en": "name"}},
+        {"korean": "검색하다", "note": {"ko": "이름이나 단어를 찾아보다", "de": "suchen", "en": "to search"}},
+        {"korean": "사진", "note": {"ko": "사람이나 물건을 찍은 그림", "de": "Foto", "en": "photo"}},
+        {"korean": "메시지", "note": {"ko": "짧게 보내는 글", "de": "Nachricht", "en": "message"}}
+      ],
+      "conceptIds": ["concept_a1_contact_address"],
+      "surfaceFormIds": ["instant_message_chat"],
+      "grammarIds": ["grammar_a1_direction_means"],
+      "grammarBlock": {
+        "title": {"ko": "N(으)로", "de": "Mittel oder Richtung", "en": "Means or direction"},
+        "explanation": {"ko": "카카오톡으로 연락해요처럼 연락 수단을 말할 때 쓸 수 있어요.", "de": "Mit N(으)로 kann man wie in 카카오톡으로 연락해요 das Kontaktmittel nennen.", "en": "Use N(으)로 to name the means of contact, as in 카카오톡으로 연락해요."}
+      },
+      "dialog": [
+        {"speaker": "maya", "ko": "오늘 수업 어땠어요?", "de": "Wie war der Kurs heute?", "en": "How was class today?"},
+        {"speaker": "user", "ko": "재미있었어요. 다음 주에 숙제도 같이 볼까요?", "de": "Er war interessant. Wollen wir uns nächste Woche auch zusammen die Hausaufgaben ansehen?", "en": "It was fun. Shall we look over the homework together next week?"},
+        {"speaker": "maya", "ko": "좋아요. 카카오톡으로 연락해요?", "de": "Gern. Sollen wir über KakaoTalk schreiben?", "en": "Sure. Shall we message on KakaoTalk?"},
+        {"speaker": "user", "ko": "네. 제 이름은 레나예요. 레나로 검색해 보세요.", "de": "Ja. Ich heiße Lena. Such einmal nach Lena.", "en": "Yes. My name is Lena. Try searching for Lena."},
+        {"speaker": "maya", "ko": "'레나' 맞아요?", "de": "Ist das 'Lena'?", "en": "Is this 'Lena'?"},
+        {"speaker": "user", "ko": "네, 맞아요. 사진도 보여요?", "de": "Ja, genau. Siehst du auch das Foto?", "en": "Yes, that's right. Can you see the photo too?"},
+        {"speaker": "maya", "ko": "네, 보여요. 제가 먼저 메시지 보낼게요.", "de": "Ja, ich sehe es. Ich schreibe dir zuerst.", "en": "Yes, I can. I’ll send the first message."}
+      ],
+      "quests": [
+        {"id": "quest_a1_message_contact_after_class_2026_hear", "type": "hoerverstehen", "data": {"audioKo": "좋아요. 카카오톡으로 연락해요?", "options": [{"de": "Gern. Sollen wir über KakaoTalk schreiben?", "en": "Sure. Shall we message on KakaoTalk?"}, {"de": "Wie war der Kurs heute?", "en": "How was class today?"}, {"de": "Ist das 'Lena'?", "en": "Is this 'Lena'?"}, {"de": "Ja, ich sehe es. Ich schreibe dir zuerst.", "en": "Yes, I can. I’ll send the first message."}], "correctIndex": 0}},
+        {"id": "quest_a1_message_contact_after_class_2026_translate", "type": "uebersetzen", "data": {"promptDe": "Ja. Ich heiße Lena. Such einmal nach Lena.", "promptEn": "Yes. My name is Lena. Try searching for Lena.", "options": [{"ko": "네. 제 이름은 레나예요. 레나로 검색해 보세요."}, {"ko": "오늘 수업 어땠어요?"}, {"ko": "'레나' 맞아요?"}, {"ko": "네, 보여요. 제가 먼저 메시지 보낼게요."}], "correctIndex": 0}},
+        {"id": "quest_a1_message_contact_after_class_2026_build", "type": "satzBauen", "conceptIds": ["concept_a1_contact_address"], "data": {"targetKo": "네, 맞아요. 사진도 보여요?", "audioKo": "네, 맞아요. 사진도 보여요?", "promptDe": "Ja, genau. Siehst du auch das Foto?", "promptEn": "Yes, that's right. Can you see the photo too?", "distractors": ["카카오톡으로", "숙제도", "먼저"]}}
+      ],
+      "culturalNote": null,
+      "xpReward": 80
+    },
+    {
+      "id": "a2_message_change_of_plan_2026",
+      "level": "a2",
+      "emoji": "📱",
+      "register": "casual",
+      "speechStyle": "casual",
+      "title": {
+        "ko": "메시지로 약속 시간을 바꾸기",
+        "de": "Per Nachricht die Verabredung verschieben",
+        "en": "Changing the time of a plan by message"
+      },
+      "intro": {
+        "ko": "버스가 늦게 와서 친구에게 약속 시간을 바꾸자고 메시지를 보내요.",
+        "de": "Weil der Bus zu spät kommt, schreibst du einer Freundin, um die Uhrzeit eurer Verabredung zu ändern.",
+        "en": "Because the bus is late, you message a friend to change the time of your plan."
+      },
+      "courseUnitId": "a2_03_chat_relationships",
+      "playerCharacterId": "lena",
+      "participantIds": ["lena", "maya"],
+      "relationshipContext": "friends coordinating a plan by message",
+      "intent": "Explain a delay, propose a new time, and agree on a meeting place.",
+      "shelf": "a2_plan",
+      "backdrop": "station",
+      "vocab": [
+        {"korean": "늦게 오다", "note": {"ko": "정한 시간보다 뒤에 도착하다", "de": "zu spät kommen", "en": "to arrive late"}},
+        {"korean": "약속", "note": {"ko": "같이 만나기로 한 일", "de": "Verabredung", "en": "plan / appointment"}},
+        {"korean": "대신", "note": {"ko": "다른 것을 고를 때 쓰는 말", "de": "stattdessen", "en": "instead"}},
+        {"korean": "역 앞", "note": {"ko": "역 건물의 앞쪽", "de": "vor dem Bahnhof", "en": "in front of the station"}},
+        {"korean": "도착하다", "note": {"ko": "어떤 곳에 이르다", "de": "ankommen", "en": "to arrive"}},
+        {"korean": "기다리다", "note": {"ko": "다른 사람이 올 때까지 있다", "de": "warten", "en": "to wait"}}
+      ],
+      "conceptIds": ["concept_a2_relationships"],
+      "surfaceFormIds": ["instant_message_chat"],
+      "grammarIds": ["grammar_a2_probability"],
+      "grammarBlock": {
+        "title": {"ko": "V-(으)ㄹ 것 같다", "de": "Vermutung", "en": "Guess / likelihood"},
+        "explanation": {"ko": "늦을 것 같아처럼 아직 확실하지 않은 일을 조심스럽게 말할 수 있어요.", "de": "Mit 늦을 것 같아 kann man vorsichtig sagen, dass etwas wahrscheinlich passieren wird.", "en": "Use 늦을 것 같아 to say cautiously that something will probably happen."}
+      },
+      "dialog": [
+        {"speaker": "user", "ko": "미안해. 버스가 너무 늦게 와서 여섯 시에는 못 갈 것 같아.", "de": "Tut mir leid. Der Bus kommt so spät, dass ich es um sechs wohl nicht schaffe.", "en": "Sorry. The bus is so late that I don’t think I can make it by six."},
+        {"speaker": "maya", "ko": "괜찮아. 그럼 여섯 시 반에 만날래?", "de": "Kein Problem. Wollen wir uns dann um halb sieben treffen?", "en": "That’s okay. Shall we meet at half past six then?"},
+        {"speaker": "user", "ko": "응, 좋아. 카페 대신 역 앞에서 만날까?", "de": "Ja, gut. Treffen wir uns statt im Café vor dem Bahnhof?", "en": "Yes, good. Shall we meet in front of the station instead of at the café?"},
+        {"speaker": "maya", "ko": "좋아. 비도 오니까 역 안에서 기다릴게.", "de": "Gut. Weil es auch regnet, warte ich drinnen im Bahnhof.", "en": "Good. Since it’s raining too, I’ll wait inside the station."},
+        {"speaker": "user", "ko": "고마워. 도착하기 전에 다시 메시지할게.", "de": "Danke. Ich schreibe dir noch einmal, bevor ich ankomme.", "en": "Thanks. I’ll message you again before I arrive."},
+        {"speaker": "maya", "ko": "응, 천천히 와. 길 조심하고.", "de": "Okay, komm in Ruhe. Pass auf dich auf dem Weg auf.", "en": "Okay, take your time. Be careful on the way."}
+      ],
+      "quests": [
+        {"id": "quest_a2_message_change_of_plan_2026_hear", "type": "hoerverstehen", "data": {"audioKo": "괜찮아. 그럼 여섯 시 반에 만날래?", "options": [{"de": "Kein Problem. Wollen wir uns dann um halb sieben treffen?", "en": "That’s okay. Shall we meet at half past six then?"}, {"de": "Danke. Ich schreibe dir noch einmal, bevor ich ankomme.", "en": "Thanks. I’ll message you again before I arrive."}, {"de": "Gut. Weil es auch regnet, warte ich drinnen im Bahnhof.", "en": "Good. Since it’s raining too, I’ll wait inside the station."}, {"de": "Ja, gut. Treffen wir uns statt im Café vor dem Bahnhof?", "en": "Yes, good. Shall we meet in front of the station instead of at the café?"}], "correctIndex": 0}},
+        {"id": "quest_a2_message_change_of_plan_2026_translate", "type": "uebersetzen", "data": {"promptDe": "Ja, gut. Treffen wir uns statt im Café vor dem Bahnhof?", "promptEn": "Yes, good. Shall we meet in front of the station instead of at the café?", "options": [{"ko": "응, 좋아. 카페 대신 역 앞에서 만날까?"}, {"ko": "미안해. 버스가 너무 늦게 와서 여섯 시에는 못 갈 것 같아."}, {"ko": "좋아. 비도 오니까 역 안에서 기다릴게."}, {"ko": "응, 천천히 와. 길 조심하고."}], "correctIndex": 0}},
+        {"id": "quest_a2_message_change_of_plan_2026_build", "type": "satzBauen", "conceptIds": ["concept_a2_relationships"], "data": {"targetKo": "고마워. 도착하기 전에 다시 메시지할게.", "audioKo": "고마워. 도착하기 전에 다시 메시지할게.", "promptDe": "Danke. Ich schreibe dir noch einmal, bevor ich ankomme.", "promptEn": "Thanks. I’ll message you again before I arrive.", "distractors": ["여섯 시에는", "역 안에서", "길 조심하고"]}}
+      ],
+      "culturalNote": null,
+      "xpReward": 100
+    },
+    {
+      "id": "b1_team_briefing_revised_schedule_2026",
+      "level": "b1",
+      "emoji": "🗂️",
+      "register": "business",
+      "speechStyle": "business",
+      "title": {
+        "ko": "수정된 일정표를 짧게 브리핑하기",
+        "de": "Einen überarbeiteten Zeitplan kurz vorstellen",
+        "en": "Giving a short briefing on a revised schedule"
+      },
+      "intro": {
+        "ko": "회의가 시작되기 전, 이전 버전의 일정표가 공유된 사실을 알리고 현실적인 수습 순서를 제안해요.",
+        "de": "Vor Beginn einer Besprechung erklärst du, dass eine frühere Version des Zeitplans geteilt wurde, und schlägst eine realistische Reihenfolge zur Korrektur vor.",
+        "en": "Before a meeting begins, you explain that an earlier version of the schedule was shared and propose a practical sequence to correct it."
+      },
+      "courseUnitId": "b1_03_work_softening",
+      "playerCharacterId": "andrea",
+      "participantIds": ["andrea", "sujin"],
+      "relationshipContext": "coworkers preparing a meeting",
+      "intent": "Explain the effect of a version error without blaming anyone and propose the next steps.",
+      "shelf": "b1_team",
+      "backdrop": "office",
+      "vocab": [
+        {"korean": "정정", "note": {"ko": "잘못된 내용을 바로잡음", "de": "Korrektur", "en": "correction"}},
+        {"korean": "수정본", "note": {"ko": "고친 뒤의 문서", "de": "überarbeitete Fassung", "en": "revised version"}},
+        {"korean": "이전 버전", "note": {"ko": "더 앞서 만든 문서", "de": "frühere Version", "en": "earlier version"}},
+        {"korean": "영향", "note": {"ko": "어떤 일 때문에 달라지는 결과", "de": "Auswirkung", "en": "impact"}},
+        {"korean": "검토", "note": {"ko": "내용을 자세히 확인함", "de": "Prüfung", "en": "review"}},
+        {"korean": "미루다", "note": {"ko": "정한 때보다 뒤로 옮기다", "de": "verschieben", "en": "to postpone"}}
+      ],
+      "conceptIds": ["concept_b1_softening"],
+      "surfaceFormIds": ["presentation_briefing_talk"],
+      "grammarIds": ["grammar_b1_background_contrast"],
+      "grammarBlock": {
+        "title": {"ko": "V-는데", "de": "Hintergrund / Kontrast", "en": "Background / contrast"},
+        "explanation": {"ko": "사정을 먼저 설명한 뒤 제안을 이어 갈 때 쓸 수 있어요.", "de": "Mit V-는데 kann man erst den Hintergrund nennen und danach einen Vorschlag anschließen.", "en": "Use V-는데 to give background before continuing with a proposal."}
+      },
+      "dialog": [
+        {"speaker": "andrea", "ko": "회의 전에 한 가지 정정할 게 있습니다. 공유한 일정표에 파일 검토 시간이 빠졌습니다.", "de": "Vor der Besprechung muss ich eine Sache korrigieren. Im geteilten Zeitplan fehlt die Zeit für die Dateiprüfung.", "en": "Before the meeting, I need to correct one thing. The shared schedule is missing time for the file review."},
+        {"speaker": "user", "ko": "제가 어제 수정본을 보냈는데, 이전 버전이 올라간 것 같습니다.", "de": "Ich habe gestern die überarbeitete Fassung geschickt, aber offenbar wurde die frühere Version hochgeladen.", "en": "I sent the revised version yesterday, but it looks like the earlier version was uploaded."},
+        {"speaker": "andrea", "ko": "그럼 오늘 발표 순서에 영향이 있나요?", "de": "Hat das Auswirkungen auf die Reihenfolge der heutigen Präsentation?", "en": "Does that affect the order of today’s presentation?"},
+        {"speaker": "user", "ko": "큰 변경은 아니지만, 검토 없이 발표하면 질문에 바로 답하기 어려울 수 있습니다.", "de": "Es ist keine große Änderung, aber ohne Prüfung könnte es schwierig sein, Fragen sofort zu beantworten.", "en": "It is not a major change, but without a review it may be hard to answer questions right away."},
+        {"speaker": "andrea", "ko": "어떤 순서가 현실적일까요?", "de": "Welche Reihenfolge wäre realistisch?", "en": "What order would be realistic?"},
+        {"speaker": "user", "ko": "먼저 수정된 일정표를 공유하고, 발표는 열 분 뒤로 미루면 좋겠습니다.", "de": "Ich würde zuerst den korrigierten Zeitplan teilen und die Präsentation um zehn Minuten verschieben.", "en": "I suggest sharing the corrected schedule first and moving the presentation back by ten minutes."},
+        {"speaker": "andrea", "ko": "좋습니다. 그 사실을 참석자에게 알리고, 시작 전에 한 번 더 확인하죠.", "de": "Gut. Wir informieren die Teilnehmenden darüber und prüfen es vor Beginn noch einmal.", "en": "Good. We’ll let the participants know and check it once more before we start."}
+      ],
+      "quests": [
+        {"id": "quest_b1_team_briefing_revised_schedule_2026_hear", "type": "hoerverstehen", "data": {"audioKo": "제가 어제 수정본을 보냈는데, 이전 버전이 올라간 것 같습니다.", "options": [{"de": "Ich habe gestern die überarbeitete Fassung geschickt, aber offenbar wurde die frühere Version hochgeladen.", "en": "I sent the revised version yesterday, but it looks like the earlier version was uploaded."}, {"de": "Welche Reihenfolge wäre realistisch?", "en": "What order would be realistic?"}, {"de": "Vor der Besprechung muss ich eine Sache korrigieren.", "en": "Before the meeting, I need to correct one thing."}, {"de": "Gut. Wir informieren die Teilnehmenden darüber.", "en": "Good. We’ll let the participants know."}], "correctIndex": 0}},
+        {"id": "quest_b1_team_briefing_revised_schedule_2026_translate", "type": "uebersetzen", "data": {"promptDe": "Ich würde zuerst den korrigierten Zeitplan teilen und die Präsentation um zehn Minuten verschieben.", "promptEn": "I suggest sharing the corrected schedule first and moving the presentation back by ten minutes.", "options": [{"ko": "먼저 수정된 일정표를 공유하고, 발표는 열 분 뒤로 미루면 좋겠습니다."}, {"ko": "그럼 오늘 발표 순서에 영향이 있나요?"}, {"ko": "큰 변경은 아니지만, 검토 없이 발표하면 질문에 바로 답하기 어려울 수 있습니다."}, {"ko": "좋습니다. 그 사실을 참석자에게 알리고, 시작 전에 한 번 더 확인하죠."}], "correctIndex": 0}},
+        {"id": "quest_b1_team_briefing_revised_schedule_2026_build", "type": "satzBauen", "conceptIds": ["concept_b1_softening"], "data": {"targetKo": "큰 변경은 아니지만, 검토 없이 발표하면 질문에 바로 답하기 어려울 수 있습니다.", "audioKo": "큰 변경은 아니지만, 검토 없이 발표하면 질문에 바로 답하기 어려울 수 있습니다.", "promptDe": "Es ist keine große Änderung, aber ohne Prüfung könnte es schwierig sein, Fragen sofort zu beantworten.", "promptEn": "It is not a major change, but without a review it may be hard to answer questions right away.", "distractors": ["이전 버전이", "열 분 뒤로", "참석자에게"]}}
+      ],
+      "culturalNote": null,
+      "xpReward": 130
+    },
+    {
+      "id": "b2_meeting_hold_for_evidence_2026",
+      "level": "b2",
+      "emoji": "📊",
+      "register": "business",
+      "speechStyle": "business",
+      "title": {
+        "ko": "근거가 더 필요하다고 설명하기",
+        "de": "Erklären, warum weitere Belege nötig sind",
+        "en": "Explaining why more evidence is needed"
+      },
+      "intro": {
+        "ko": "회의에서 제안을 바로 확정하기보다, 현재 자료의 범위와 다음 확인 방법을 짧게 설명해요.",
+        "de": "In einer Besprechung erklärst du kurz den Umfang der vorhandenen Daten und den nächsten Prüfschritt, statt einen Vorschlag sofort festzulegen.",
+        "en": "In a meeting, you briefly explain the limits of the current data and the next way to check it instead of finalizing a proposal immediately."
+      },
+      "courseUnitId": "b2_02_professional_opinion",
+      "playerCharacterId": "maya",
+      "participantIds": ["maya", "andrea"],
+      "relationshipContext": "colleagues evaluating a proposal in a meeting",
+      "intent": "Acknowledge the schedule, name the evidence gap, and propose a limited interim decision.",
+      "shelf": "b2_meeting",
+      "backdrop": "office",
+      "vocab": [
+        {"korean": "확정하다", "note": {"ko": "더 바꾸지 않기로 결정하다", "de": "festlegen", "en": "to finalize"}},
+        {"korean": "자료", "note": {"ko": "판단에 쓰는 정보", "de": "Daten / Unterlagen", "en": "data / materials"}},
+        {"korean": "효과", "note": {"ko": "어떤 일이 낳는 결과", "de": "Wirkung", "en": "effect"}},
+        {"korean": "특정 시간", "note": {"ko": "정해진 한때", "de": "bestimmte Zeit", "en": "specific time"}},
+        {"korean": "임시 결정", "note": {"ko": "나중에 다시 볼 수 있는 결정", "de": "vorläufige Entscheidung", "en": "interim decision"}},
+        {"korean": "보완 자료", "note": {"ko": "부족한 부분을 채우는 정보", "de": "ergänzende Unterlagen", "en": "additional evidence"}}
+      ],
+      "conceptIds": ["concept_b2_opinion"],
+      "surfaceFormIds": ["presentation_briefing_talk"],
+      "grammarIds": ["grammar_b2_formal_reason"],
+      "grammarBlock": {
+        "title": {"ko": "V-기 때문에", "de": "formeller Grund", "en": "formal reason"},
+        "explanation": {"ko": "회의에서 판단의 근거를 조금 더 공식적으로 말할 때 쓸 수 있어요.", "de": "Mit V-기 때문에 kann man in einer Besprechung einen Grund etwas formeller nennen.", "en": "Use V-기 때문에 to state a reason more formally in a meeting."}
+      },
+      "dialog": [
+        {"speaker": "andrea", "ko": "오늘 안에 이 제안을 확정하면 좋겠습니다.", "de": "Ich würde den Vorschlag gern noch heute festlegen.", "en": "I would like to finalize this proposal today."},
+        {"speaker": "user", "ko": "일정은 이해합니다만, 현재 자료만으로 효과를 단정하기는 어렵습니다.", "de": "Ich verstehe den Zeitplan, aber anhand der bisherigen Daten lässt sich die Wirkung nur schwer eindeutig beurteilen.", "en": "I understand the schedule, but it is hard to judge the effect conclusively from the current data alone."},
+        {"speaker": "andrea", "ko": "어떤 자료가 더 필요합니까?", "de": "Welche Daten brauchen wir zusätzlich?", "en": "What additional data do we need?"},
+        {"speaker": "user", "ko": "이용자 수는 늘었지만, 이용이 특정 시간에만 몰렸는지도 함께 봐야 합니다.", "de": "Die Zahl der Nutzenden ist gestiegen, aber wir sollten auch prüfen, ob sich die Nutzung nur auf bestimmte Zeiten konzentriert.", "en": "The number of users has increased, but we should also check whether use is concentrated only at certain times."},
+        {"speaker": "andrea", "ko": "그 부분은 다음 보고서에서 보자는 뜻인가요?", "de": "Meinen Sie, wir sollten diesen Punkt erst im nächsten Bericht ansehen?", "en": "Do you mean we should look at that point only in the next report?"},
+        {"speaker": "user", "ko": "아닙니다. 오늘은 범위를 좁혀 임시 결정으로 남기고, 다음 회의에서 보완 자료를 검토하자는 제안입니다.", "de": "Nein. Ich schlage vor, heute eine enger gefasste vorläufige Entscheidung festzuhalten und die ergänzenden Unterlagen in der nächsten Sitzung zu prüfen.", "en": "No. I propose that we record a narrower interim decision today and review the additional evidence at the next meeting."},
+        {"speaker": "andrea", "ko": "좋습니다. 결정 범위와 다음 확인 항목을 함께 적어 두겠습니다.", "de": "Gut. Dann halten wir den Entscheidungsrahmen und die nächsten Prüfpunkte gemeinsam fest.", "en": "Good. We will record the scope of the decision and the next checks together."}
+      ],
+      "quests": [
+        {"id": "quest_b2_meeting_hold_for_evidence_2026_hear", "type": "hoerverstehen", "data": {"audioKo": "일정은 이해합니다만, 현재 자료만으로 효과를 단정하기는 어렵습니다.", "options": [{"de": "Ich verstehe den Zeitplan, aber anhand der bisherigen Daten lässt sich die Wirkung nur schwer eindeutig beurteilen.", "en": "I understand the schedule, but it is hard to judge the effect conclusively from the current data alone."}, {"de": "Welche Daten brauchen wir zusätzlich?", "en": "What additional data do we need?"}, {"de": "Ich würde den Vorschlag gern noch heute festlegen.", "en": "I would like to finalize this proposal today."}, {"de": "Gut. Dann halten wir den Entscheidungsrahmen fest.", "en": "Good. We will record the scope of the decision."}], "correctIndex": 0}},
+        {"id": "quest_b2_meeting_hold_for_evidence_2026_translate", "type": "uebersetzen", "data": {"promptDe": "Nein. Ich schlage vor, heute eine enger gefasste vorläufige Entscheidung festzuhalten und die ergänzenden Unterlagen in der nächsten Sitzung zu prüfen.", "promptEn": "No. I propose that we record a narrower interim decision today and review the additional evidence at the next meeting.", "options": [{"ko": "아닙니다. 오늘은 범위를 좁혀 임시 결정으로 남기고, 다음 회의에서 보완 자료를 검토하자는 제안입니다."}, {"ko": "오늘 안에 이 제안을 확정하면 좋겠습니다."}, {"ko": "어떤 자료가 더 필요합니까?"}, {"ko": "그 부분은 다음 보고서에서 보자는 뜻인가요?"}], "correctIndex": 0}},
+        {"id": "quest_b2_meeting_hold_for_evidence_2026_build", "type": "satzBauen", "conceptIds": ["concept_b2_opinion"], "data": {"targetKo": "이용자 수는 늘었지만, 이용이 특정 시간에만 몰렸는지도 함께 봐야 합니다.", "audioKo": "이용자 수는 늘었지만, 이용이 특정 시간에만 몰렸는지도 함께 봐야 합니다.", "promptDe": "Die Zahl der Nutzenden ist gestiegen, aber wir sollten auch prüfen, ob sich die Nutzung nur auf bestimmte Zeiten konzentriert.", "promptEn": "The number of users has increased, but we should also check whether use is concentrated only at certain times.", "distractors": ["임시 결정", "다음 회의에서", "결정 범위"]}}
+      ],
+      "culturalNote": null,
+      "xpReward": 145
+    },
+    {
+      "id": "c2_public_redress_briefing_2026",
+      "level": "c2",
+      "emoji": "🏛️",
+      "register": "business",
+      "speechStyle": "business",
+      "title": {
+        "ko": "자동 결정 이의 절차를 공개 브리핑하기",
+        "de": "Das Einspruchsverfahren für automatische Entscheidungen öffentlich erläutern",
+        "en": "Publicly briefing the appeal process for automated decisions"
+      },
+      "intro": {
+        "ko": "공개 설명회에서 자동 결과에 이의를 제기하는 기준과 절차의 한계를 분명히 설명하고 질문을 정리해요.",
+        "de": "Bei einer öffentlichen Erläuterung erklärst du die Kriterien und Grenzen eines Einspruchs gegen ein automatisiertes Ergebnis klar und ordnest die Fragen.",
+        "en": "At a public briefing, you clearly explain the criteria and limits of an appeal against an automated result and organize questions."
+      },
+      "courseUnitId": "c2_03_automation_redress",
+      "playerCharacterId": "andrea",
+      "participantIds": ["andrea", "sujin", "resident"],
+      "relationshipContext": "formal public briefing with a resident asking about a procedure",
+      "intent": "Clarify an appeal pathway without promising an outcome, paraphrase the concern, and preserve unanswered questions for the record.",
+      "shelf": "c2_automation",
+      "backdrop": "office",
+      "vocab": [
+        {"korean": "이의 제기", "note": {"ko": "결정에 동의하지 않아 다시 살펴 달라고 요청함", "de": "Einspruch", "en": "appeal"}},
+        {"korean": "적용된 기준", "note": {"ko": "결정할 때 실제로 쓴 기준", "de": "angewandte Kriterien", "en": "criteria that were applied"}},
+        {"korean": "추가 자료", "note": {"ko": "더 확인하려고 내는 정보", "de": "zusätzliche Unterlagen", "en": "additional materials"}},
+        {"korean": "적용 범위", "note": {"ko": "어디까지 해당하는지 나타내는 범위", "de": "Geltungsbereich", "en": "scope of application"}},
+        {"korean": "예외", "note": {"ko": "일반 규칙과 다르게 다루는 경우", "de": "Ausnahme", "en": "exception"}},
+        {"korean": "기록으로 남기다", "note": {"ko": "나중에 확인할 수 있게 적어 두다", "de": "dokumentieren", "en": "to keep on record"}}
+      ],
+      "conceptIds": ["concept_c2_automation_redress"],
+      "surfaceFormIds": ["presentation_briefing_talk"],
+      "grammarIds": ["grammar_c2_only_adequate_explanation"],
+      "grammarBlock": {
+        "title": {"ko": "N(이)라야", "de": "nur wenn es N ist", "en": "only if it is N"},
+        "explanation": {"ko": "필요한 조건을 강하게 한정할 때 써요. 이 장면에서는 실제로 이용할 수 있는 설명이 필요하다는 뜻이에요.", "de": "Die Form grenzt eine notwendige Bedingung stark ein. Hier heißt sie, dass die Erklärung tatsächlich nutzbar sein muss.", "en": "The form strongly limits a necessary condition. Here it means that the explanation must be genuinely usable."}
+      },
+      "dialog": [
+        {"speaker": "user", "ko": "지금부터 자동 결과에 이의를 제기하는 절차를 설명드리겠습니다. 질문은 한 번에 하나씩 받겠습니다.", "de": "Ich erläutere nun das Verfahren, mit dem Sie gegen ein automatisiertes Ergebnis Einspruch einlegen können. Ich nehme die Fragen jeweils einzeln entgegen.", "en": "I will now explain the process for appealing an automated result. I will take questions one at a time."},
+        {"speaker": "resident", "ko": "결과가 틀렸다고 느껴도, 무엇을 근거로 다시 봐 달라고 해야 하는지 모르겠습니다.", "de": "Auch wenn sich das Ergebnis falsch anfühlt, weiß ich nicht, auf welcher Grundlage ich um eine erneute Prüfung bitten soll.", "en": "Even if the result feels wrong, I do not know what grounds I should give when asking for a review."},
+        {"speaker": "user", "ko": "말씀하신 취지는 결과 자체만이 아니라, 이의 제기의 기준이 보이지 않는다는 뜻으로 이해했습니다.", "de": "Ich verstehe Ihr Anliegen so, dass nicht nur das Ergebnis selbst, sondern auch die Kriterien für einen Einspruch nicht erkennbar sind.", "en": "I understand your concern to be that not only the result itself, but also the criteria for an appeal, are not visible."},
+        {"speaker": "resident", "ko": "네. 자료를 내도 같은 기준으로 다시 판단한다면 무엇이 달라지는지도 알고 싶습니다.", "de": "Ja. Ich möchte auch wissen, was sich ändert, wenn nach Einreichen von Unterlagen erneut nach denselben Kriterien entschieden wird.", "en": "Yes. I also want to know what changes if the decision is reviewed using the same criteria even after I submit materials."},
+        {"speaker": "sujin", "ko": "그 점은 분명히 구분해야 합니다. 추가 자료가 결정에 영향을 줄 수 있는 경우와, 기준의 설명을 요청하는 경우는 절차가 다릅니다.", "de": "Das müssen wir klar unterscheiden: Fälle, in denen zusätzliche Unterlagen die Entscheidung beeinflussen können, folgen einem anderen Verfahren als die Bitte um Erläuterung der Kriterien.", "en": "We need to distinguish that clearly. Cases where additional materials can affect the decision follow a different process from requests for an explanation of the criteria."},
+        {"speaker": "user", "ko": "따라서 통지에는 적용된 기준, 이의 사유, 그리고 추가 확인이 가능한 범위를 함께 적겠습니다.", "de": "Deshalb werden wir in der Mitteilung die angewandten Kriterien, den Einspruchsgrund und den Bereich nennen, in dem eine weitere Prüfung möglich ist.", "en": "Therefore, the notice will state the criteria applied, the grounds for appeal, and the scope in which further review is possible."},
+        {"speaker": "resident", "ko": "그 범위가 좁으면 이의 제기가 형식에 그칠 수도 있지 않습니까?", "de": "Wenn dieser Bereich eng ist, könnte der Einspruch nicht bloß Formsache bleiben?", "en": "If that scope is narrow, could an appeal end up being only a formality?"},
+        {"speaker": "user", "ko": "그 우려는 타당합니다. 범위를 한정하는 이유와 예외가 되는 경우도 공개하고, 답변되지 않은 질문은 기록으로 남기겠습니다.", "de": "Diese Sorge ist berechtigt. Wir werden auch offenlegen, warum der Bereich begrenzt wird und welche Ausnahmen es gibt, und unbeantwortete Fragen dokumentieren.", "en": "That concern is valid. We will also disclose why the scope is limited and what counts as an exception, and keep unanswered questions on record."}
+      ],
+      "quests": [
+        {"id": "quest_c2_public_redress_briefing_2026_hear", "type": "hoerverstehen", "data": {"audioKo": "말씀하신 취지는 결과 자체만이 아니라, 이의 제기의 기준이 보이지 않는다는 뜻으로 이해했습니다.", "options": [{"de": "Ich verstehe Ihr Anliegen so, dass nicht nur das Ergebnis selbst, sondern auch die Kriterien für einen Einspruch nicht erkennbar sind.", "en": "I understand your concern to be that not only the result itself, but also the criteria for an appeal, are not visible."}, {"de": "Ich nehme die Fragen jeweils einzeln entgegen.", "en": "I will take questions one at a time."}, {"de": "Diese Sorge ist berechtigt.", "en": "That concern is valid."}, {"de": "Das müssen wir klar unterscheiden.", "en": "We need to distinguish that clearly."}], "correctIndex": 0}},
+        {"id": "quest_c2_public_redress_briefing_2026_translate", "type": "uebersetzen", "data": {"promptDe": "Deshalb werden wir in der Mitteilung die angewandten Kriterien, den Einspruchsgrund und den Bereich nennen, in dem eine weitere Prüfung möglich ist.", "promptEn": "Therefore, the notice will state the criteria applied, the grounds for appeal, and the scope in which further review is possible.", "options": [{"ko": "따라서 통지에는 적용된 기준, 이의 사유, 그리고 추가 확인이 가능한 범위를 함께 적겠습니다."}, {"ko": "그 범위가 좁으면 이의 제기가 형식에 그칠 수도 있지 않습니까?"}, {"ko": "그 점은 분명히 구분해야 합니다."}, {"ko": "질문은 한 번에 하나씩 받겠습니다."}], "correctIndex": 0}},
+        {"id": "quest_c2_public_redress_briefing_2026_build", "type": "satzBauen", "conceptIds": ["concept_c2_automation_redress"], "data": {"targetKo": "그 우려는 타당합니다. 범위를 한정하는 이유와 예외가 되는 경우도 공개하고, 답변되지 않은 질문은 기록으로 남기겠습니다.", "audioKo": "그 우려는 타당합니다. 범위를 한정하는 이유와 예외가 되는 경우도 공개하고, 답변되지 않은 질문은 기록으로 남기겠습니다.", "promptDe": "Diese Sorge ist berechtigt. Wir werden auch offenlegen, warum der Bereich begrenzt wird und welche Ausnahmen es gibt, und unbeantwortete Fragen dokumentieren.", "promptEn": "That concern is valid. We will also disclose why the scope is limited and what counts as an exception, and keep unanswered questions on record.", "distractors": ["추가 자료가", "같은 기준으로", "한 번에 하나씩"]}}
+      ],
+      "culturalNote": null,
+      "xpReward": 175
+    }
+  ]
+}

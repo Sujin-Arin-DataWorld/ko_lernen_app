@@ -73,6 +73,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen>
   static const _allGroups = '';
 
   List<ClozeItem> _all = const [];
+  Map<String, Vocab> _vocabById = const {};
   Map<String, Vocab> _vocabByKo = const {};
   bool _loading = true;
   String? _level; // null = alle
@@ -96,6 +97,9 @@ class _ClozeGameScreenState extends State<ClozeGameScreen>
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
   bool get _acceptsInput => studyEvidenceAcceptsInput && gameResultAcceptsInput;
+
+  Vocab? _vocabFor(ClozeItem item) =>
+      item.resolveVocab(byId: _vocabById, byKorean: _vocabByKo);
 
   void _retireStudy() {
     retireStudyEvidence();
@@ -125,10 +129,11 @@ class _ClozeGameScreenState extends State<ClozeGameScreen>
     ++_presentation;
     final loaded = widget.items ?? await ClozeLoader.load();
     final all = List<ClozeItem>.of(loaded);
-    // An injected item list is a deterministic test fixture, not a partial
-    // production dataset. It must not wait on an unrelated asset load before
-    // showing the supplied round.
-    final vocab = widget.items == null
+    // Notebook routes inject canonical items with explicit vocabulary links.
+    // Unlinked legacy fixtures stay independent of an unrelated asset load.
+    final vocab =
+        widget.items == null ||
+            all.any((item) => item.sourceVocabId.trim().isNotEmpty)
         ? await DataLoader.loadVocab()
         : const <Vocab>[];
     final courseUnitId =
@@ -183,6 +188,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen>
     }
     setState(() {
       _all = scoped;
+      _vocabById = {for (final v in vocab) v.id: v};
       _vocabByKo = {for (final v in vocab) v.korean: v};
       _level = catalog == null && widget.items == null ? start : null;
       _missionContext = missionContext;
@@ -395,7 +401,11 @@ class _ClozeGameScreenState extends State<ClozeGameScreen>
     final firstTry = !_retried;
     final judgment = ++_presentation;
     if (firstTry) {
-      final srsAttempt = SrsReviewAttempt(id: item.answer, gotIt: ok);
+      // SRS uses Korean headwords, so keep the existing word's review history.
+      final srsAttempt = SrsReviewAttempt(
+        id: _vocabFor(item)?.korean ?? item.answer,
+        gotIt: ok,
+      );
       final courseAttempt = CourseContentAttempt(
         kind: CurriculumContentKind.cloze,
         contentId: item.id,
@@ -606,7 +616,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen>
     final promptCard = ClozePromptCard(
       item: item,
       lang: lang,
-      gloss: _vocabByKo[item.answer]?.translationFor(lang),
+      gloss: _vocabFor(item)?.translationFor(lang),
       picked: _picked,
       pickedWrong: _picked != null && !item.accepts(_picked!),
     );

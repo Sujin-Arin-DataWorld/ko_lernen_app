@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'package:flutter/services.dart' show rootBundle;
 
 import '../models/content_id.dart';
+import '../models/vocab.dart';
 
 /// Ein Lückentext-Item (Cloze): ein echter Beispielsatz mit einer Lücke.
 /// Quelle: `assets/data/cloze.json` (von tools/content_factory/build_cloze.py
@@ -12,6 +13,7 @@ import '../models/content_id.dart';
 class ClozeItem {
   /// Immutable source identity from `assets/data/cloze.json`.
   final String _sourceId;
+  final String sourceVocabId;
   final String level; // a1 / a2 / b1 / b2
   final String sentenceKo; // mit ＿＿＿ als Lücke
   final String answer; // das fehlende Wort
@@ -24,6 +26,7 @@ class ClozeItem {
 
   const ClozeItem({
     String id = '',
+    this.sourceVocabId = '',
     required this.level,
     required this.sentenceKo,
     required this.answer,
@@ -51,6 +54,7 @@ class ClozeItem {
 
   factory ClozeItem.fromJson(Map<String, dynamic> j) => ClozeItem(
     id: j['id']?.toString() ?? '',
+    sourceVocabId: j['sourceVocabId']?.toString() ?? '',
     level: (j['level'] as String? ?? '').toLowerCase(),
     sentenceKo: j['sentenceKo'] as String? ?? '',
     answer: j['answer'] as String? ?? '',
@@ -71,6 +75,25 @@ class ClozeItem {
   Set<String> get acceptedAnswers => {answer, ...acceptedVariants};
 
   bool accepts(String value) => acceptedAnswers.contains(value);
+
+  /// Source links may describe sentence provenance rather than the answer's
+  /// headword. Preserve an existing exact-answer target when they differ;
+  /// otherwise use the linked row for an inflected answer. An invalid explicit
+  /// link fails closed rather than selecting an unrelated answer homograph.
+  Vocab? resolveVocab({
+    required Map<String, Vocab> byId,
+    required Map<String, Vocab> byKorean,
+  }) {
+    final sourceId = sourceVocabId.trim();
+    if (sourceId.isEmpty) {
+      return byKorean[answer];
+    }
+    final linked = byId[sourceId];
+    if (linked == null || linked.korean == answer) {
+      return linked;
+    }
+    return byKorean[answer] ?? linked;
+  }
 
   /// Bedeutung in der UI-Sprache (Fallback Deutsch).
   String meaning(String lang) => lang == 'en' && en.isNotEmpty ? en : de;

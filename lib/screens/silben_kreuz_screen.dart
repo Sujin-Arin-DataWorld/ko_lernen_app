@@ -1,3 +1,7 @@
+import '../models/practice_history.dart';
+import '../models/silben_practice.dart';
+import '../services/practice_history_store.dart';
+import '../widgets/practice_guide.dart';
 import '../services/haptic_service.dart';
 import '../widgets/sori/game_reward.dart';
 import '../services/learning_journey.dart';
@@ -42,7 +46,8 @@ import '../widgets/sori/window_class.dart';
 /// - 힌트 = 선택한 UI 언어의 뜻·예문 + 정답이 ◯로 가려진 한국어 예문
 /// - 진행: 레벨별 20퍼즐, `Storage.recordGameBest('skz_<level>')` 에 저장
 class SilbenKreuzScreen extends StatefulWidget {
-  const SilbenKreuzScreen({super.key, this.puzzleLoader});
+  const SilbenKreuzScreen({super.key, this.puzzleLoader, this.review});
+  final SilbenReviewRequest? review;
 
   /// Optional deterministic seam. Production keeps [SilbenPuzzleLoader.load].
   final Future<Map<String, List<SilbenPuzzle>>> Function()? puzzleLoader;
@@ -91,6 +96,13 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   LearningAttempt? _learningAttempt;
   bool _rewardPersisted = false;
   int _presentation = 0;
+  final _practiceSession = PracticeHistoryStore.session();
+  SilbenHelpState _helpState = SilbenHelpState();
+  PracticeAttempt? _historyAttempt;
+  bool _practiceFailed = false;
+  DateTime? _viewedAt;
+  bool _viewedSaved = false;
+  bool _viewedFailed = false;
   int _wrongTick = 0;
   (int, int)? _wrongCell;
   Timer? _wrongFeedbackTimer;
@@ -142,7 +154,9 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   @override
   void initState() {
     super.initState();
-    _level = learnerLevelDisplayForStoredCode(Storage.userLevelCode);
+    _level =
+        widget.review?.level.toUpperCase() ??
+        learnerLevelDisplayForStoredCode(Storage.userLevelCode);
     _load();
   }
 
@@ -182,6 +196,19 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       _loading = false;
       _loadFailed = false;
     });
+    if (widget.review case final review?) {
+      if (review.revision != 1 ||
+          !(_byLevel[review.level.toUpperCase()]?.any(
+                (p) => p.id == review.puzzleId,
+              ) ??
+              false)) {
+        setState(() {
+          _loadFailed = true;
+          _puzzle = null;
+        });
+        return;
+      }
+    }
     final resolvedLevel = (_byLevel[_level]?.isNotEmpty ?? false)
         ? _level
         : _levels.reversed.firstWhere(
@@ -216,12 +243,17 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     }
     setState(() {
       _level = level;
-      _index = math.min(_solvedCount(level), list.length - 1);
+      _index = widget.review == null
+          ? math.min(_solvedCount(level), list.length - 1)
+          : list.indexWhere((p) => p.id == widget.review!.puzzleId);
     });
     _openPuzzle();
   }
 
   Future<void> _showLevelFilter(AppL10n t) async {
+    if (widget.review != null) {
+      return;
+    }
     final presentation = _presentation;
     if (!gameResultAcceptsInput || _finishing) return;
     final next = await showSoriLevelFilterSheet(
@@ -258,6 +290,12 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     _finishing = false;
     _learningAttempt = null;
     _rewardPersisted = false;
+    _helpState = SilbenHelpState();
+    _historyAttempt = null;
+    _practiceFailed = false;
+    _viewedAt = DateTime.now().toUtc();
+    _viewedSaved = false;
+    _viewedFailed = false;
     final p = _puzzles[_index];
     setState(() {
       _puzzle = p;
@@ -275,6 +313,42 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       _selected = _firstEmpty();
       _activeWord = _selected == null ? null : _wordThrough(_selected!);
     });
+    unawaited(_saveViewed(_presentation).catchError((Object _) {}));
+  }
+
+  Future<void> _saveViewed(int presentation) async {
+    if (!mounted ||
+        presentation != _presentation ||
+        !_practiceSession.isCurrent) {
+      return;
+    }
+    if (_viewedSaved) {
+      return;
+    }
+    final source = silbenPracticeSource(_puzzle!, _level);
+    final viewedAt = _viewedAt!;
+    try {
+      await PracticeHistoryStore.recordViewed(
+        source,
+        at: viewedAt,
+        session: _practiceSession,
+      );
+      if (mounted &&
+          presentation == _presentation &&
+          _practiceSession.isCurrent) {
+        setState(() {
+          _viewedSaved = true;
+          _viewedFailed = false;
+        });
+      }
+    } catch (_) {
+      if (mounted &&
+          presentation == _presentation &&
+          _practiceSession.isCurrent) {
+        setState(() => _viewedFailed = true);
+      }
+      rethrow;
+    }
   }
 
   List<(int, int)> get _cellOrder {
@@ -424,19 +498,70 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   }
 
   Future<void> _onSolved() async {
-    if (!gameResultAcceptsInput || _finishing || _solved) return;
+    if (!gameResultAcceptsInput ||
+        _finishing ||
+        _solved ||
+        !_practiceSession.isCurrent) {
+      return;
+    }
     _finishing = true;
-    final outcome = await saveGameResult(
-      gameId: _progressKey(_level),
-      xp: _xpPerPuzzle,
-      score: _index + 1,
+    final presentation = _presentation;
+    final at = DateTime.now().toUtc();
+    _historyAttempt ??= PracticeAttempt(
+      id: 'silben:${at.microsecondsSinceEpoch}',
+      at: at,
+      variant: widget.review == null ? 'game' : 'replay',
+      completed: true,
+      hints: Map.unmodifiable(_helpState.levels),
     );
-    if (!mounted || outcome == null) return;
+    try {
+      await _saveViewed(presentation);
+      if (!mounted ||
+          presentation != _presentation ||
+          !_practiceSession.isCurrent) {
+        return;
+      }
+      await PracticeHistoryStore.recordAttempt(
+        silbenPracticeSource(_puzzle!, _level),
+        _historyAttempt!,
+        session: _practiceSession,
+      );
+      if (!mounted ||
+          presentation != _presentation ||
+          !_practiceSession.isCurrent) {
+        return;
+      }
+      setState(() => _practiceFailed = false);
+    } catch (_) {
+      if (mounted && presentation == _presentation) {
+        setState(() {
+          _practiceFailed = true;
+          _finishing = false;
+        });
+      }
+      return;
+    }
+    if (widget.review == null) {
+      final outcome = await saveGameResult(
+        gameId: _progressKey(_level),
+        xp: _xpPerPuzzle,
+        score: _index + 1,
+      );
+      if (!mounted ||
+          outcome == null ||
+          presentation != _presentation ||
+          !_practiceSession.isCurrent) {
+        return;
+      }
+      _learningAttempt = outcome.attempt;
+      _rewardPersisted = true;
+    }
+    if (!mounted || !gameResultAcceptsInput) {
+      return;
+    }
     setState(() {
       _solved = true;
       _finishing = false;
-      _learningAttempt = outcome.attempt;
-      _rewardPersisted = true;
     });
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (gameResultAcceptsInput && _solved) {
@@ -445,8 +570,95 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     });
   }
 
+  void _requestHint(int presentation) {
+    final word = _activeWord;
+    final p = _puzzle;
+    final cell = _selected;
+    if (!gameResultAcceptsInput ||
+        _finishing ||
+        _solved ||
+        presentation != _presentation ||
+        word == null ||
+        p == null ||
+        cell == null ||
+        !_practiceSession.isCurrent) {
+      return;
+    }
+    final next = (_helpState.levelFor(word) + 1).clamp(1, 3);
+    setState(() => _helpState.use(p, word, next, cell: cell));
+  }
+
+  Widget _helpPanel(AppL10n t) {
+    final word = _activeWord;
+    if (word == null) {
+      return const SizedBox.shrink();
+    }
+    final level = _helpState.levelFor(word);
+    final presentation = _presentation;
+    final crossings = _helpState.crossingCells(_puzzle!, word);
+    final reveal = _helpState.revealedCell;
+    return SoriCard(
+      child: PracticeGuide(
+        dokkaebi: true,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(t.practiceHintTitle, style: SoriTextTheme.of(context).h3),
+            if (level > 0) ...[
+              Text(
+                '${word.meaningFor(_hintLanguage)} · ${word.isHorizontal ? t.silbenDirectionHorizontal : t.silbenDirectionVertical}',
+                style: SoriTextTheme.of(context).body,
+              ),
+              Text(word.exampleKo, style: SoriTextTheme.of(context).body),
+            ],
+            if (level > 1) ...[
+              if (crossings.isEmpty)
+                Text(
+                  t.practiceHintNoCrossing,
+                  style: SoriTextTheme.of(context).body,
+                ),
+              for (final cell in crossings)
+                SoriButton.outlined(
+                  key: ValueKey('dokkaebi-cross-${cell.$1}-${cell.$2}'),
+                  label: t.silbenCellPosition(cell.$1 + 1, cell.$2 + 1),
+                  onTap: _locked.contains(cell)
+                      ? null
+                      : () => _onCellTap(cell, presentation),
+                ),
+            ],
+            if (reveal != null &&
+                word.cells.contains(reveal) &&
+                !_locked.contains(reveal))
+              Semantics(
+                liveRegion: true,
+                child: Text(
+                  '${t.silbenCellPosition(reveal.$1 + 1, reveal.$2 + 1)}: ${_solution[reveal]}',
+                  key: const ValueKey('dokkaebi-revealed'),
+                  style: SoriTextTheme.of(context).h2,
+                ),
+              ),
+            if (level == 3)
+              Text(t.practiceHintPlace, style: SoriTextTheme.of(context).body),
+            SoriButton.outlined(
+              key: const ValueKey('dokkaebi-hint'),
+              label: level == 0
+                  ? t.practiceHintMeaning
+                  : level == 1
+                  ? t.practiceHintCrossing
+                  : t.practiceHintReveal,
+              onTap: _finishing ? null : () => _requestHint(presentation),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   /// 다음 퍼즐 → 없으면 미완료 레벨로 → 전부 끝이면 null.
   VoidCallback? get _nextAction {
+    if (widget.review != null) {
+      return null;
+    }
     final presentation = _presentation;
     if (_index + 1 < _puzzles.length) {
       return () {
@@ -483,6 +695,26 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     final recovery = gameResultRecoveryFrame(t.screenWordleTitle);
     if (recovery != null) return recovery;
     final s = SoriSurfaces.of(context);
+    if (_practiceFailed) {
+      return SoriStudyFrame(
+        title: t.screenWordleTitle,
+        onLeave: retireGameResult,
+        child: AppError(message: t.practiceSaveFailed, onRetry: _onSolved),
+      );
+    }
+    if (_viewedFailed) {
+      final presentation = _presentation;
+      return SoriStudyFrame(
+        title: t.screenWordleTitle,
+        onLeave: retireGameResult,
+        child: AppError(
+          message: t.practiceSaveFailed,
+          onRetry: () {
+            unawaited(_saveViewed(presentation).catchError((Object _) {}));
+          },
+        ),
+      );
+    }
 
     if (_loading) {
       return SoriStudyFrame(
@@ -550,8 +782,11 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                     // Jin 실기기).
                     KeyedSubtree(key: _gridKey, child: _grid(p, s)),
                     const SizedBox(height: Spacing.lg),
-                    if (!_solved)
+                    if (!_solved) ...[
+                      _helpPanel(t),
+                      const SizedBox(height: Spacing.md),
                       KeyedSubtree(key: _poolKey, child: _tilePool(p, s)),
+                    ],
                     if (_solved) _solvedCard(t),
                     const SizedBox(height: Spacing.lg),
                     KeyedSubtree(key: _cluesKey, child: _clues(p, s)),
@@ -631,6 +866,10 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     final wrong = _wrongCell == cell;
     final inActiveWord =
         _activeWord != null && memberships.contains(_activeWord);
+    final helpCrossing =
+        _activeWord != null &&
+        _helpState.levelFor(_activeWord!) >= 2 &&
+        _helpState.crossingCells(_puzzle!, _activeWord!).contains(cell);
     final reduceMotion = SoriMotion.reduceMotion(context);
     final directions = <String>[];
     for (final word in memberships) {
@@ -686,6 +925,17 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                 )
               : null,
         ),
+        if (helpCrossing && !locked)
+          Positioned(
+            right: 4,
+            bottom: 4,
+            child: Icon(
+              Icons.add_rounded,
+              key: ValueKey('silben-help-cross-${cell.$1}-${cell.$2}'),
+              size: 16,
+              color: SoriColors.info,
+            ),
+          ),
         if (memberships.length > 1)
           Positioned.fill(
             child: SilbenCrossingWedges(
@@ -723,6 +973,8 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       t.silbenCellMembership(membershipLabel),
       if (inActiveWord)
         t.silbenCellActiveWord(_activeWord!.meaningFor(_hintLanguage)),
+      if (helpCrossing) t.practiceHintCrossing,
+      if (_helpState.revealedCell == cell) t.wordleAnswerLabel(syllable),
       if (locked) t.wordleAnswerLabel(syllable),
       if (wrong)
         t.silbenCellWrong
@@ -924,6 +1176,24 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   String get _hintLanguage => Localizations.localeOf(context).languageCode;
 
   Widget _solvedCard(AppL10n t) {
+    if (widget.review != null) {
+      return SoriCard(
+        child: Column(
+          children: [
+            Text(t.practiceReplaySaved, style: SoriTextTheme.of(context).h2),
+            Text(
+              _helpState.levels.isEmpty
+                  ? t.practiceIndependent
+                  : t.practiceAssisted,
+            ),
+            SoriButton.outlined(
+              label: t.practiceHistoryOpen,
+              onTap: () => Navigator.of(context).pushNamed('/hanok/practice'),
+            ),
+          ],
+        ),
+      );
+    }
     final next = _nextAction;
     return Semantics(
       container: true,
@@ -961,6 +1231,12 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
               )
             else
               const Text('🎉', style: TextStyle(fontSize: 28)),
+            const SizedBox(height: Spacing.md),
+            SoriButton.outlined(
+              label: t.practiceToSarangbang,
+              fullWidth: true,
+              onTap: () => Navigator.of(context).pushNamed('/sarangbang'),
+            ),
           ],
         ),
       ),

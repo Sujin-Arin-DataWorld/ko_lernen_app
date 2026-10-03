@@ -29,10 +29,11 @@ void main() {
       // (last A1 reinforcement batch). 2818 + 62 = 2880. Batch 31 A2
       // reinforcement adds 64 words (first A2 promotion) across 1 new
       // pack. 2880 + 64 = 2944.
-      expect(vocab, hasLength(2944));
+      // C2 batches 35 and 37 add 24 words across two packs.
+      expect(vocab, hasLength(2968));
       expect(
         vocab.map((entry) => entry.packId).where((id) => id.isNotEmpty).toSet(),
-        hasLength(252),
+        hasLength(254),
       );
 
       expect(

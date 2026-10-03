@@ -808,6 +808,24 @@ def collect_phase_audio(phase_id=None):
     return list(pairs)
 
 
+def collect_context_dialog_pairs(data, character_voices):
+    """Only dialog spoken by the runtime; explanations/context stay silent."""
+    pairs = set()
+    for case in data.get('cases', []):
+        for variant in ('base', 'transfer'):
+            scene = case[variant]
+            voice = character_voices.get(scene['characterId'], 'female')
+            prompt = scene['prompt']['ko'].strip()
+            if prompt:
+                pairs.add((voice, prompt))
+            for intent in case['intents']:
+                for expression in intent['expressions']:
+                    reply = expression['partnerReply']['ko'].strip()
+                    if reply:
+                        pairs.add((voice, reply))
+    return sorted(pairs)
+
+
 def collect():
     """(voice, text) 쌍을 dedup 수집.
 
@@ -915,6 +933,10 @@ def collect():
                 _walk_ko(value)
 
     _walk_ko(_load_json("assets/data/smalltalk.json").get("phrases", []))
+    for pair in collect_context_dialog_pairs(
+        _load_json('assets/data/smalltalk_context_cases.json'), character_voices
+    ):
+        texts[pair] = None
 
     # 5. 빈칸 채우기 — cloze.json items[].fullKo (빈칸이 채워진 완성문).
     #    cloze_prompt.dart:174  TtsService.speak(item.fullKo).
