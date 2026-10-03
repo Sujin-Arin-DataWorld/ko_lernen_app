@@ -2333,7 +2333,8 @@ class _Section extends StatelessWidget {
           // Give enlarged labels the full width instead of splitting a German
           // word to leave half of a small screen for the decorative hairline.
           final scale = MediaQuery.textScalerOf(context).scale(1);
-          if (constraints.maxWidth < 240 * scale) {
+          if (constraints.maxWidth <
+              SoriAdaptiveWidth.settingsSectionRow * scale) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [

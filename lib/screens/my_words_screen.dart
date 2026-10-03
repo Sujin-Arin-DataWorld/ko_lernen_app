@@ -189,7 +189,8 @@ class _MyWordsNavigation extends StatelessWidget {
           ];
           final scale = MediaQuery.textScalerOf(context).scale(1);
           final reflow =
-              (constraints.maxWidth - Spacing.sm * 2) / 3 < 80 * scale;
+              (constraints.maxWidth - Spacing.sm * 2) / 3 <
+              SoriAdaptiveWidth.myWordsTabColumn * scale;
           return Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [

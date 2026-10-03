@@ -142,6 +142,12 @@ abstract final class SoriMaxWidth {
 /// 창 전체의 size class가 아니라 padding과 clamp를 지난 실제 내부 폭에 쓴다.
 /// 화면 파일에 숫자 비교가 흩어지지 않도록 이곳에서만 관리한다.
 abstract final class SoriAdaptiveWidth {
+  /// A Settings subheading and its decorative divider need readable space.
+  static const double settingsSectionRow = 240;
+
+  /// Each My Words destination needs a readable label beside the other tabs.
+  static const double myWordsTabColumn = 80;
+
   /// Demo game names need three readable columns and a larger selector label.
   static const double demoWideSelector = 600;
 
