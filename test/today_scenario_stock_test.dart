@@ -11,7 +11,7 @@ void main() {
 
   for (final level in LearnerLevel.values) {
     test(
-      'Today skips sparse ${level.code} lessons without writing progress',
+      'Today selects stocked ${level.code} lessons without writing progress',
       () async {
         ScenarioLoader.reset();
         final corpus = await ScenarioLoader.load();
@@ -21,13 +21,14 @@ void main() {
         final sparseIndex = levelLessons.indexWhere(
           (s) => !stock.allowsScenario(s),
         );
-        expect(sparseIndex, greaterThanOrEqualTo(0));
+        expect(levelLessons, isNotEmpty);
+        final preferredIndex = sparseIndex < 0 ? 0 : sparseIndex;
         final completed = levelLessons
-            .take(sparseIndex)
+            .take(preferredIndex)
             .map((s) => s.id)
             .toList();
         final next = levelLessons
-            .skip(sparseIndex + 1)
+            .skip(preferredIndex)
             .firstWhere(stock.allowsScenario);
         SharedPreferences.setMockInitialValues({
           'kl_user_level': level.code,
@@ -48,10 +49,12 @@ void main() {
         );
         expect(snapshot.scenario?.id, next.id);
         expect(Storage.completedScenarios, before);
-        expect(
-          Storage.completedScenarios,
-          isNot(contains(levelLessons[sparseIndex].id)),
-        );
+        if (sparseIndex >= 0) {
+          expect(
+            Storage.completedScenarios,
+            isNot(contains(levelLessons[sparseIndex].id)),
+          );
+        }
       },
     );
   }

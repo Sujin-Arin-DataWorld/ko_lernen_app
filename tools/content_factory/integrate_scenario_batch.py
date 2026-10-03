@@ -18,6 +18,7 @@ import os
 from pathlib import Path
 import re
 import shutil
+import sys
 import tempfile
 from typing import Any
 
@@ -325,6 +326,44 @@ def _refresh_meta(root: dict[str, Any], collection: str) -> None:
     }
 
 
+def _stage_listening(root: Path, data: Path, manifest: dict[str, Any],
+                     scenes: list[dict[str, Any]]) -> bool:
+    """Append exact authored lessons in the same scenario transaction."""
+    if not manifest.get('listeningDraft'):
+        return False
+    tool_path = str(ROOT / 'tool')
+    if tool_path not in sys.path:
+        sys.path.append(tool_path)
+    from validate_listening_lessons import validate_records
+
+    draft = _read_json(_under_root(root, manifest['listeningDraft']))
+    sources = {
+        str(s['id']): {**s, 'shelf': SHELF_BY_ID.get(str(s['id']), s.get('shelf'))}
+        for s in scenes
+    }
+    try:
+        validate_records(draft, sources)
+    except (AssertionError, KeyError, TypeError) as error:
+        raise ScenarioIntegrationError(f'authored listening draft is invalid: {error}') from error
+    target = data / 'listening_lessons.json'
+    live = _read_json(target)
+    additions = draft['lessons']
+    live_by_id = {l['id']: l for l in live['lessons']}
+    new_ids = {l['id'] for l in additions}
+    overlap = new_ids & live_by_id.keys()
+    if overlap:
+        if overlap != new_ids or manifest.get('status') != 'merged':
+            raise ScenarioIntegrationError('listening draft duplicates a live ID')
+        if any(live_by_id[l['id']] != l for l in additions):
+            raise ScenarioIntegrationError('merged listening lesson differs from its reviewed draft')
+    else:
+        if manifest.get('status') == 'merged':
+            raise ScenarioIntegrationError('merged batch is missing live listening lessons')
+        live['lessons'] = [*live['lessons'], *additions]
+        target.write_text(_json_text(live), encoding='utf-8')
+    return True
+
+
 def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, apply: bool) -> tuple[dict[str, int], int]:
     root = root.resolve()
     manifest_path, manifest, records_by_kind, backdrops = _validate_bundle(
@@ -413,6 +452,10 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
                 target_root[collection] = [*live_records, *shard_records]
                 _refresh_meta(target_root, collection)
                 target_path.write_text(_json_text(target_root), encoding="utf-8")
+
+        includes_listening = _stage_listening(
+            root, data, manifest, records_by_kind.get('scenario', []),
+        )
 
         if already_merged:
             unused_revisions = set(revisions) - used_revisions
@@ -517,6 +560,10 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
                 outputs[root / "assets" / "data" / target_name] = (
                     data / target_name
                 ).read_text(encoding="utf-8")
+        if includes_listening:
+            outputs[root / 'assets/data/listening_lessons.json'] = (
+                data / 'listening_lessons.json'
+            ).read_text(encoding='utf-8')
         if not apply:
             return counts, int(manifest["recordCount"])
         merged_manifest = dict(manifest)

@@ -8,9 +8,9 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 
 ## 요약
 
-- canonical 시나리오: **178개**
+- canonical 시나리오: **181개**
 - 전용 포스터: **0개**
-- 카테고리 폴백: **178개**
+- 카테고리 폴백: **181개**
 - 누락/깨진 폴백: **0개**
 - 엄격 이슈: **0건**
 
@@ -21,7 +21,7 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 ## 샤드별 시나리오
 
 - scenarios_a1.json: 29개
-- scenarios_a2.json: 28개
+- scenarios_a2.json: 31개
 - scenarios_b1.json: 31개
 - scenarios_b2.json: 30개
 - scenarios_c1.json: 30개
@@ -33,8 +33,8 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 - bank: 1개
 - cafe: 16개
 - convenience: 1개
-- directions: 7개
-- home: 56개
+- directions: 8개
+- home: 58개
 - hotel: 1개
 - market: 7개
 - office: 57개
@@ -51,18 +51,18 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 - 규약 밖 루프 파일: 5개
 - 전용 루프 해석: 0개
 - 카테고리 루프 해석: 0개
-- 루프 없는 안전 폴백: 178개
+- 루프 없는 안전 폴백: 181개
 - backdrop 없는 루프 없음: 0개
 - 고아 scene 루프: 0개
 
 ## 생성 근거 SHA-256
 
-- `assets/data/scenarios_a1.json`: `bc173ffc3c27929483a00ddfd3eba98f1f95049c8e74a44076f64de2b96f7c8c`
-- `assets/data/scenarios_a2.json`: `1a42f350eda096d60bcaa09f8208ca578897e9aa9b87ea4227cecc6ec1353a07`
-- `assets/data/scenarios_b1.json`: `1cb331247f58ba3bbf5761d1400eab56bd29f46b288efdf6dc60b3b4151d14cf`
-- `assets/data/scenarios_b2.json`: `20b0647a3f1177d14836fb44ed54904a6d59d54c60b2f6460d52b71fc29c946b`
-- `assets/data/scenarios_c1.json`: `2ce503d593db72d1e78209ea4b6f85a56f2f53b8d2bddcffdb4b40580d94a1cc`
-- `assets/data/scenarios_c2.json`: `af9d9aff7ce36cfe31d20383654d63a3ca4254d569d392428e9314fe6d3abf89`
+- `assets/data/scenarios_a1.json`: `b14586943cdb23a92257c491466b16d452a308ca1f8e2e1db71a0b01eec649c6`
+- `assets/data/scenarios_a2.json`: `ce768125e321d23c38349636c80a401ed262937f777ae5fc84a4f6873f67dafb`
+- `assets/data/scenarios_b1.json`: `982216e9733709e326b581ee879b3c912b7a4d55abd3ee92c49105570fb44aa2`
+- `assets/data/scenarios_b2.json`: `bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f`
+- `assets/data/scenarios_c1.json`: `c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e`
+- `assets/data/scenarios_c2.json`: `c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3`
 - `docs/data/scene_category_poster_lock.json`: `1036664f6008281cfcd8f969cad46953c0ed291e5047b1ad48a02555ec1432db`
 - `lib/services/scene_asset_resolver.dart`: `7f5a940853c25aaf4fbb81e8ccb7c1fcd951ea1570559c658b61d9e77aa185be`
 
@@ -99,6 +99,9 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 | scenarios_a1.json | survival_day_capstone | a1 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
 | scenarios_a1.json | taxi_kakao | a1 | taxi | fallback | assets/illustrations/scenes/taxi.png | 1536×1024 RGB | 0267b90eb07bb40a3141023c21943e643e64295296462bf7736f3534105fe356 | true |
 | scenarios_a1.json | umbrella_weather | a1 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
+| scenarios_a2.json | a2_byeongcheol_walk_break | a2 | directions | fallback | assets/illustrations/scenes/directions.png | 1536×1024 RGB | f2500c600eada342bc1a4102996d83d5cfdf068814f5d4247f230bebb66dde9c | true |
+| scenarios_a2.json | a2_jun_game_time_change | a2 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
+| scenarios_a2.json | a2_minho_weekend_cooking_plan | a2 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
 | scenarios_a2.json | a2_theme_park_date_break | a2 | theme_park | fallback | assets/illustrations/scenes/theme_park.png | 1536×1024 RGB | 95b947d5f5631997eb4b777aee5791d9b9ceed9c86cbbaf74e5645bef0d1a434 | true |
 | scenarios_a2.json | a2_w10_apt | a2 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
 | scenarios_a2.json | a2_w10_booking | a2 | restaurant | fallback | assets/illustrations/scenes/restaurant.png | 1536×1024 RGB | 61e4aa4e94e01df9cb51e40438ce41c3a260e4b92437608d97a165bf208f61f8 | true |

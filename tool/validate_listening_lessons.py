@@ -28,9 +28,15 @@ def validate():
     assert data["version"] == 1
     assert data == build(), "Catalog differs from the reproducible authored source"
     sources = {s["id"]: s for s in load_sources()}
+    return validate_records(data, sources, sha256=hashlib.sha256(path.read_bytes()).hexdigest())
+
+
+def validate_records(data, sources, *, sha256=None):
+    """Validate authored draft lessons without replacing the live catalog."""
+    assert data['version'] == 1
     lessons = data["lessons"]
-    assert len(lessons) == len(sources) == 178
-    assert len({l["id"] for l in lessons}) == 178
+    assert len(lessons) == len(sources)
+    assert len({l["id"] for l in lessons}) == len(sources)
     assert collections.Counter(cid for l in lessons for cid in l["contentIds"]) == collections.Counter(sources.keys())
     question_ids = set()
 
@@ -123,13 +129,13 @@ def validate():
             q = lesson["questions"][0]
             assert "의도" in q["prompt"]["ko"]
             assert all(o["ko"] != source["intro"]["ko"] for o in q["options"])
-    assert len(question_ids) == 712
+    assert len(question_ids) == 4 * len(sources)
     return {
         "lessons": len(lessons), "questions": len(question_ids),
         "levels": dict(collections.Counter(l["level"] for l in lessons)),
         "skills": dict(collections.Counter(q["skill"] for l in lessons for q in l["questions"])),
-        "advancedInferenceItems": 90,
-        "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+        "advancedInferenceItems": sum(l['level'] in ('b2', 'c1', 'c2') for l in lessons),
+        "sha256": sha256,
         "status": "STRUCTURAL_PASS; model-authored language QA, no human approval claimed",
     }
 

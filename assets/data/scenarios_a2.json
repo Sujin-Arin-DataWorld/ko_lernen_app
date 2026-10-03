@@ -6072,6 +6072,710 @@
       },
       "shelf": "a2_fandom",
       "backdrop": "market"
+    },
+    {
+      "id": "a2_minho_weekend_cooking_plan",
+      "level": "a2",
+      "emoji": "🍳",
+      "register": "casual",
+      "speechStyle": "casual",
+      "title": {
+        "ko": "주말 요리 계획",
+        "de": "Am Wochenende zusammen kochen",
+        "en": "Cooking together at the weekend"
+      },
+      "intro": {
+        "ko": "민호와 안드레아가 집에서 토요일 메뉴와 요리할 시간을 정해요.",
+        "de": "Minho und Andrea planen zu Hause, was sie am Samstag kochen und wann sie anfangen.",
+        "en": "At home, Minho and Andrea decide what to cook on Saturday and when to start."
+      },
+      "courseUnitId": "a2_02_plans_proposals",
+      "playerCharacterId": "andrea",
+      "participantIds": [
+        "andrea",
+        "minho"
+      ],
+      "relationshipContext": "부부, 집에서 편하게 반말로 상의한다",
+      "intent": "주말 메뉴와 요리 시작 시간을 제안하고 확인한다",
+      "shelf": "a2_plan",
+      "backdrop": "home",
+      "vocab": [
+        {
+          "korean": "김치"
+        },
+        {
+          "korean": "밥"
+        },
+        {
+          "korean": "요리"
+        },
+        {
+          "korean": "주말"
+        },
+        {
+          "korean": "시작하다"
+        },
+        {
+          "korean": "사다"
+        }
+      ],
+      "conceptIds": [
+        "concept_proposal_casual"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_promise"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ게",
+          "de": "Eine eigene Aufgabe zusagen",
+          "en": "Offering to do your part"
+        },
+        "explanation": {
+          "ko": "“내가 밥을 준비할게”처럼 내가 할 일을 약속해요. 이 부부는 편하게 말해서 요를 붙이지 않아요.",
+          "de": "Mit -(으)ㄹ게 sagst du zu, was du selbst übernimmst. Die beiden sprechen vertraut miteinander und lassen 요 weg.",
+          "en": "Use -(으)ㄹ게 to say what you will take care of. This couple speaks informally, so they leave off 요."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minho",
+          "ko": "이번 토요일에 같이 요리할까?",
+          "de": "Wollen wir diesen Samstag zusammen kochen?",
+          "en": "Shall we cook together this Saturday?"
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아. 뭐 만들까?",
+          "de": "Gern. Was wollen wir kochen?",
+          "en": "Sure. What shall we make?"
+        },
+        {
+          "speaker": "minho",
+          "ko": "김치볶음밥은 어때?",
+          "de": "Wie wäre es mit Kimchi-Bratreis?",
+          "en": "How about kimchi fried rice?"
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아. 집에 김치가 있어.",
+          "de": "Gute Idee. Wir haben Kimchi zu Hause.",
+          "en": "Good idea. We have kimchi at home."
+        },
+        {
+          "speaker": "minho",
+          "ko": "그럼 내가 밥을 준비할게.",
+          "de": "Dann kümmere ich mich um den Reis.",
+          "en": "Then I’ll get the rice ready."
+        },
+        {
+          "speaker": "user",
+          "ko": "나는 계란을 살게. 몇 시에 시작할까?",
+          "de": "Ich kaufe die Eier. Wann wollen wir anfangen?",
+          "en": "I’ll buy the eggs. What time shall we start?"
+        },
+        {
+          "speaker": "minho",
+          "ko": "열두 시에 시작하자.",
+          "de": "Fangen wir um zwölf an.",
+          "en": "Let’s start at twelve."
+        },
+        {
+          "speaker": "user",
+          "ko": "응. 그럼 열두 시에 같이 만들자.",
+          "de": "Ja, dann kochen wir um zwölf zusammen.",
+          "en": "Yes, let’s cook together at twelve then."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a2_minho_weekend_cooking_plan_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "audioKo": "김치볶음밥은 어때?",
+            "options": [
+              {
+                "de": "Wie wäre es mit Kimchi-Bratreis?",
+                "en": "How about kimchi fried rice?"
+              },
+              {
+                "de": "Wollen wir diesen Samstag zusammen kochen?",
+                "en": "Shall we cook together this Saturday?"
+              },
+              {
+                "de": "Gern. Was wollen wir kochen?",
+                "en": "Sure. What shall we make?"
+              },
+              {
+                "de": "Gute Idee. Wir haben Kimchi zu Hause.",
+                "en": "Good idea. We have kimchi at home."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_minho_weekend_cooking_plan_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "promptDe": "Ich kaufe die Eier. Wann wollen wir anfangen?",
+            "promptEn": "I’ll buy the eggs. What time shall we start?",
+            "options": [
+              {
+                "ko": "나는 계란을 살게. 몇 시에 시작할까?"
+              },
+              {
+                "ko": "이번 토요일에 같이 요리할까?"
+              },
+              {
+                "ko": "좋아. 뭐 만들까?"
+              },
+              {
+                "ko": "김치볶음밥은 어때?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_minho_weekend_cooking_plan_03",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "sentence": "___ 시에 시작하자.",
+            "options": [
+              "열두",
+              "열",
+              "열한",
+              "한"
+            ],
+            "correctIndex": 0,
+            "promptDe": "Fangen wir um zwölf an.",
+            "promptEn": "Let’s start at twelve."
+          }
+        },
+        {
+          "id": "quest_a2_minho_weekend_cooking_plan_04",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "targetKo": "그럼 내가 밥을 준비할게.",
+            "audioKo": "그럼 내가 밥을 준비할게.",
+            "promptDe": "Dann kümmere ich mich um den Reis.",
+            "promptEn": "Then I’ll get the rice ready.",
+            "distractors": [
+              "내일",
+              "아침에"
+            ]
+          }
+        },
+        {
+          "id": "quest_a2_minho_weekend_cooking_plan_05",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "targetKo": "나는 계란을 살게. 몇 시에 시작할까?",
+            "audioKo": "나는 계란을 살게. 몇 시에 시작할까?",
+            "promptDe": "Ich kaufe die Eier. Wann wollen wir anfangen?",
+            "promptEn": "I’ll buy the eggs. What time shall we start?"
+          }
+        },
+        {
+          "id": "quest_a2_minho_weekend_cooking_plan_06",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "sentence": "___은 어때?",
+            "options": [
+              "김치볶음밥",
+              "된장국",
+              "김밥",
+              "비빔밥"
+            ],
+            "correctIndex": 0,
+            "promptDe": "Welches Gericht schlägt Minho im Gespräch vor? Ergänze seine Aussage.",
+            "promptEn": "Which dish does Minho suggest in the conversation? Complete his line."
+          }
+        }
+      ],
+      "culturalNote": null,
+      "xpReward": 110
+    },
+    {
+      "id": "a2_byeongcheol_walk_break",
+      "level": "a2",
+      "emoji": "🚶",
+      "register": "polite",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "산책 중 잠깐 쉬기",
+        "de": "Eine Pause beim Spaziergang",
+        "en": "Taking a break on a walk"
+      },
+      "intro": {
+        "ko": "병철과 크리스티안이 함께 산책해요. 크리스티안은 피곤해서 잠깐 쉬고 싶어요.",
+        "de": "Byeongcheol und Christian gehen spazieren. Christian ist müde und möchte eine kurze Pause machen.",
+        "en": "Byeongcheol and Christian are on a walk. Christian is tired and wants a short break."
+      },
+      "courseUnitId": "a2_07_travel_repair",
+      "playerCharacterId": "christian",
+      "participantIds": [
+        "christian",
+        "byeongcheol"
+      ],
+      "relationshipContext": "여자 친구의 아버지와 아직 조금 어색한 사이, 서로 해요체로 말한다",
+      "intent": "피곤함을 설명하고 휴식을 요청한 뒤 다시 걸을 시간을 확인한다",
+      "shelf": "a2_move",
+      "backdrop": "directions",
+      "vocab": [
+        {
+          "korean": "물"
+        },
+        {
+          "korean": "산책"
+        },
+        {
+          "korean": "피곤하다"
+        },
+        {
+          "korean": "쉬다"
+        },
+        {
+          "korean": "걷다"
+        },
+        {
+          "korean": "앉다"
+        }
+      ],
+      "conceptIds": [
+        "concept_a2_travel_repair"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_permission"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-아/어도 되다",
+          "de": "Um Erlaubnis bitten",
+          "en": "Asking for permission"
+        },
+        "explanation": {
+          "ko": "“앉아도 돼요?”처럼 해도 되는지 물어요. “쉬어도 될까요?”는 상대에게 정중하게 허락을 구하는 질문이에요.",
+          "de": "Mit -아/어도 되다 fragst du, ob du etwas tun darfst. 쉬어도 될까요? ist eine höfliche Bitte um Erlaubnis, eine Pause zu machen.",
+          "en": "Use -아/어도 되다 to ask whether you may do something. 쉬어도 될까요? politely asks permission to take a break."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "byeongcheol",
+          "ko": "여기서 조금 더 걸을까요?",
+          "de": "Wollen wir von hier noch ein Stück weitergehen?",
+          "en": "Shall we walk a little further from here?"
+        },
+        {
+          "speaker": "user",
+          "ko": "죄송하지만 좀 피곤해요. 잠깐 쉬어도 될까요?",
+          "de": "Entschuldigung, ich bin etwas müde. Darf ich eine kurze Pause machen?",
+          "en": "Sorry, I’m a little tired. May I take a short break?"
+        },
+        {
+          "speaker": "byeongcheol",
+          "ko": "그럼 잠깐 쉬어요.",
+          "de": "Dann machen wir eine kurze Pause.",
+          "en": "Let’s take a short break then."
+        },
+        {
+          "speaker": "user",
+          "ko": "저기 앉아도 돼요?",
+          "de": "Darf ich mich dort hinsetzen?",
+          "en": "May I sit over there?"
+        },
+        {
+          "speaker": "byeongcheol",
+          "ko": "네. 저기 앉아요.",
+          "de": "Ja, setzen Sie sich dort hin.",
+          "en": "Yes, sit over there."
+        },
+        {
+          "speaker": "user",
+          "ko": "물 좀 마셔도 될까요?",
+          "de": "Darf ich etwas Wasser trinken?",
+          "en": "May I drink some water?"
+        },
+        {
+          "speaker": "byeongcheol",
+          "ko": "그럼요. 천천히 마셔요.",
+          "de": "Natürlich. Trinken Sie in Ruhe.",
+          "en": "Of course. Take your time drinking."
+        },
+        {
+          "speaker": "user",
+          "ko": "감사해요. 오 분만 쉬고 다시 걸을게요.",
+          "de": "Danke. Ich mache nur fünf Minuten Pause und gehe dann weiter.",
+          "en": "Thank you. I’ll rest for just five minutes and then carry on walking."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a2_byeongcheol_walk_break_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a2_travel_repair"
+          ],
+          "data": {
+            "audioKo": "여기서 조금 더 걸을까요?",
+            "options": [
+              {
+                "de": "Wollen wir von hier noch ein Stück weitergehen?",
+                "en": "Shall we walk a little further from here?"
+              },
+              {
+                "de": "Entschuldigung, ich bin etwas müde. Darf ich eine kurze Pause machen?",
+                "en": "Sorry, I’m a little tired. May I take a short break?"
+              },
+              {
+                "de": "Dann machen wir eine kurze Pause.",
+                "en": "Let’s take a short break then."
+              },
+              {
+                "de": "Darf ich mich dort hinsetzen?",
+                "en": "May I sit over there?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_byeongcheol_walk_break_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a2_travel_repair"
+          ],
+          "data": {
+            "promptDe": "Entschuldigung, ich bin etwas müde. Darf ich eine kurze Pause machen?",
+            "promptEn": "Sorry, I’m a little tired. May I take a short break?",
+            "options": [
+              {
+                "ko": "죄송하지만 좀 피곤해요. 잠깐 쉬어도 될까요?"
+              },
+              {
+                "ko": "여기서 조금 더 걸을까요?"
+              },
+              {
+                "ko": "그럼 잠깐 쉬어요."
+              },
+              {
+                "ko": "저기 앉아도 돼요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_byeongcheol_walk_break_03",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a2_travel_repair"
+          ],
+          "data": {
+            "sentence": "감사해요. ___ 분만 쉬고 다시 걸을게요.",
+            "options": [
+              "오",
+              "십",
+              "이십",
+              "삼십"
+            ],
+            "correctIndex": 0,
+            "promptDe": "Danke. Ich mache nur fünf Minuten Pause und gehe dann weiter.",
+            "promptEn": "Thank you. I’ll rest for just five minutes and then carry on walking."
+          }
+        },
+        {
+          "id": "quest_a2_byeongcheol_walk_break_04",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a2_travel_repair"
+          ],
+          "data": {
+            "targetKo": "저기 앉아도 돼요?",
+            "audioKo": "저기 앉아도 돼요?",
+            "promptDe": "Darf ich mich dort hinsetzen?",
+            "promptEn": "May I sit over there?",
+            "distractors": [
+              "내일",
+              "아침에"
+            ]
+          }
+        },
+        {
+          "id": "quest_a2_byeongcheol_walk_break_05",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a2_travel_repair"
+          ],
+          "data": {
+            "targetKo": "죄송하지만 좀 피곤해요. 잠깐 쉬어도 될까요?",
+            "audioKo": "죄송하지만 좀 피곤해요. 잠깐 쉬어도 될까요?",
+            "promptDe": "Entschuldigung, ich bin etwas müde. Darf ich eine kurze Pause machen?",
+            "promptEn": "Sorry, I’m a little tired. May I take a short break?"
+          }
+        }
+      ],
+      "culturalNote": null,
+      "xpReward": 110
+    },
+    {
+      "id": "a2_jun_game_time_change",
+      "level": "a2",
+      "emoji": "🎮",
+      "register": "casual",
+      "speechStyle": "casual",
+      "title": {
+        "ko": "게임 시간을 바꾸기",
+        "de": "Die Spielzeit verschieben",
+        "en": "Changing the time to play"
+      },
+      "intro": {
+        "ko": "준과 크리스티안은 일곱 시에 게임하기로 했어요. 준의 숙제가 아직 안 끝나서 시간을 바꿔요.",
+        "de": "Jun und Christian wollten um sieben spielen. Jun ist mit den Hausaufgaben noch nicht fertig, deshalb ändern sie die Zeit.",
+        "en": "Jun and Christian planned to play at seven. Jun has not finished his homework yet, so they change the time."
+      },
+      "courseUnitId": "a2_02_plans_proposals",
+      "playerCharacterId": "christian",
+      "participantIds": [
+        "christian",
+        "jun"
+      ],
+      "relationshipContext": "코딩과 게임으로 알고 지내는 사이, 준은 연상에게 해요체, 크리스티안은 준에게 반말을 쓴다",
+      "intent": "숙제 때문에 게임 시간을 일곱 시에서 여덟 시로 바꾸고 확인한다",
+      "shelf": "a2_plan",
+      "backdrop": "home",
+      "vocab": [
+        {
+          "korean": "숙제"
+        },
+        {
+          "korean": "게임"
+        },
+        {
+          "korean": "시간"
+        },
+        {
+          "korean": "메시지"
+        },
+        {
+          "korean": "끝나다"
+        },
+        {
+          "korean": "바꾸다"
+        }
+      ],
+      "conceptIds": [
+        "concept_proposal_casual"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_conditional"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)면",
+          "de": "Einen neuen Zeitpunkt vorschlagen",
+          "en": "Suggesting a new time"
+        },
+        "explanation": {
+          "ko": "“여덟 시로 바꾸면 어때요?”처럼 조건을 붙여 대안을 제안해요. “숙제 끝나면”은 숙제가 끝난 뒤의 행동을 말해요.",
+          "de": "Mit -(으)면 kannst du eine Alternative vorschlagen: Wie wäre es, wenn wir auf acht verschieben? 숙제 끝나면 nennt die Bedingung für die nächste Handlung.",
+          "en": "Use -(으)면 to suggest an alternative: How about moving it to eight? 숙제 끝나면 gives the condition for the next action."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jun",
+          "ko": "오늘 숙제 때문에 좀 늦을 것 같아요.",
+          "de": "Wegen der Hausaufgaben wird es heute bei mir wohl etwas später.",
+          "en": "I think I’ll be a little late today because of my homework."
+        },
+        {
+          "speaker": "user",
+          "ko": "괜찮아. 원래 일곱 시에 하기로 했지?",
+          "de": "Kein Problem. Wir wollten ursprünglich um sieben spielen, oder?",
+          "en": "That’s okay. We originally planned to play at seven, right?"
+        },
+        {
+          "speaker": "jun",
+          "ko": "네. 여덟 시로 바꾸면 어때요?",
+          "de": "Ja. Wie wäre es, wenn wir auf acht verschieben?",
+          "en": "Yes. How about moving it to eight?"
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아. 그럼 여덟 시에 만나자.",
+          "de": "Gern. Dann treffen wir uns um acht.",
+          "en": "Sure. Let’s meet at eight then."
+        },
+        {
+          "speaker": "jun",
+          "ko": "감사해요. 그때까지 숙제를 끝낼게요.",
+          "de": "Danke. Bis dahin mache ich meine Hausaufgaben fertig.",
+          "en": "Thank you. I’ll finish my homework by then."
+        },
+        {
+          "speaker": "user",
+          "ko": "숙제 끝나면 메시지 보내 줘.",
+          "de": "Schick mir eine Nachricht, wenn du mit den Hausaufgaben fertig bist.",
+          "en": "Send me a message when you finish your homework."
+        },
+        {
+          "speaker": "jun",
+          "ko": "네. 끝나면 바로 보낼게요.",
+          "de": "Ja, ich schreibe dir gleich, wenn ich fertig bin.",
+          "en": "Yes, I’ll send one as soon as I’m done."
+        },
+        {
+          "speaker": "user",
+          "ko": "알겠어. 나도 여덟 시에 들어갈게.",
+          "de": "Alles klar. Ich gehe auch um acht online.",
+          "en": "Okay. I’ll go online at eight too."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a2_jun_game_time_change_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "audioKo": "네. 여덟 시로 바꾸면 어때요?",
+            "options": [
+              {
+                "de": "Ja. Wie wäre es, wenn wir auf acht verschieben?",
+                "en": "Yes. How about moving it to eight?"
+              },
+              {
+                "de": "Wegen der Hausaufgaben wird es heute bei mir wohl etwas später.",
+                "en": "I think I’ll be a little late today because of my homework."
+              },
+              {
+                "de": "Kein Problem. Wir wollten ursprünglich um sieben spielen, oder?",
+                "en": "That’s okay. We originally planned to play at seven, right?"
+              },
+              {
+                "de": "Gern. Dann treffen wir uns um acht.",
+                "en": "Sure. Let’s meet at eight then."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_jun_game_time_change_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "promptDe": "Wegen der Hausaufgaben wird es heute bei mir wohl etwas später.",
+            "promptEn": "I think I’ll be a little late today because of my homework.",
+            "options": [
+              {
+                "ko": "오늘 숙제 때문에 좀 늦을 것 같아요."
+              },
+              {
+                "ko": "괜찮아. 원래 일곱 시에 하기로 했지?"
+              },
+              {
+                "ko": "네. 여덟 시로 바꾸면 어때요?"
+              },
+              {
+                "ko": "좋아. 그럼 여덟 시에 만나자."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_jun_game_time_change_03",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "sentence": "좋아. 그럼 ___ 시에 만나자.",
+            "options": [
+              "여덟",
+              "일곱",
+              "여섯",
+              "아홉"
+            ],
+            "correctIndex": 0,
+            "promptDe": "Gern. Dann treffen wir uns um acht.",
+            "promptEn": "Sure. Let’s meet at eight then."
+          }
+        },
+        {
+          "id": "quest_a2_jun_game_time_change_04",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "targetKo": "숙제 끝나면 메시지 보내 줘.",
+            "audioKo": "숙제 끝나면 메시지 보내 줘.",
+            "promptDe": "Schick mir eine Nachricht, wenn du mit den Hausaufgaben fertig bist.",
+            "promptEn": "Send me a message when you finish your homework.",
+            "distractors": [
+              "내일",
+              "아침에"
+            ]
+          }
+        },
+        {
+          "id": "quest_a2_jun_game_time_change_05",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "targetKo": "네. 여덟 시로 바꾸면 어때요?",
+            "audioKo": "네. 여덟 시로 바꾸면 어때요?",
+            "promptDe": "Ja. Wie wäre es, wenn wir auf acht verschieben?",
+            "promptEn": "Yes. How about moving it to eight?"
+          }
+        },
+        {
+          "id": "quest_a2_jun_game_time_change_06",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "targetKo": "감사해요. 그때까지 숙제를 끝낼게요.",
+            "audioKo": "감사해요. 그때까지 숙제를 끝낼게요.",
+            "promptDe": "Danke. Bis dahin mache ich meine Hausaufgaben fertig.",
+            "promptEn": "Thank you. I’ll finish my homework by then."
+          }
+        }
+      ],
+      "culturalNote": null,
+      "xpReward": 110
     }
   ]
 }

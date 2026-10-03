@@ -33,6 +33,8 @@ import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/wordbook_add.dart';
+import '../widgets/sori/persona_portrait.dart';
+import '../widgets/sori/persona_card_motion.dart';
 
 Future<bool> _speakWithTts(String text, {required String voice}) =>
     TtsService.speak(text, voice: voice);
@@ -388,6 +390,7 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
               icon: Icons.theater_comedy_outlined,
               label: t.scenarioAssignedRole,
               value: _scenario.playerRoleDisplayName(
+                languageCode: Localizations.localeOf(context).languageCode,
                 fallbackYou: t.listeningSpeakerYou,
               ),
             ),
@@ -484,34 +487,41 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
                 const SizedBox(height: Spacing.sm),
               ],
               for (var index = 0; index < _playback.revealedCount; index++)
-                _DialogueBubble(
-                  line: scenario.dialog[index],
-                  speakerName: _speakerName(t, scenario.dialog[index].speaker),
-                  gloss: scenario.dialog[index].pick(lang),
-                  current: index == _playback.currentIndex,
-                  review: review,
-                  translationExpanded: _playback.expandedTranslations.contains(
-                    index,
+                SoriPersonaCardMotion(
+                  key: ValueKey('listening-dialogue-$index'),
+                  depth: false,
+                  child: _DialogueBubble(
+                    scenario: scenario,
+                    line: scenario.dialog[index],
+                    speakerName: _speakerName(
+                      t,
+                      scenario.dialog[index].speaker,
+                    ),
+                    gloss: scenario.dialog[index].pick(lang),
+                    current: index == _playback.currentIndex,
+                    review: review,
+                    translationExpanded: _playback.expandedTranslations
+                        .contains(index),
+                    showTranslationLabel: t.listeningShowTranslation,
+                    hideTranslationLabel: t.listeningHideTranslation,
+                    translationLanguage: lang,
+                    replayLabel: t.listeningReplay,
+                    likeLabel: t.contentActionLike,
+                    shareLabel: t.shareTooltip,
+                    liked: LikedContentService.isLiked(
+                      kind: LikedContentService.listening,
+                      id: '${scenario.id}:$index',
+                    ),
+                    onTranslation: () => _playback.toggleTranslation(index),
+                    onReplay: () => _playback.replayLine(index),
+                    onLike: () => _likeLine(
+                      scenario,
+                      scenario.dialog[index],
+                      index,
+                      likeSourceGeneration,
+                    ),
+                    onShare: () => _shareLine(index),
                   ),
-                  showTranslationLabel: t.listeningShowTranslation,
-                  hideTranslationLabel: t.listeningHideTranslation,
-                  translationLanguage: lang,
-                  replayLabel: t.listeningReplay,
-                  likeLabel: t.contentActionLike,
-                  shareLabel: t.shareTooltip,
-                  liked: LikedContentService.isLiked(
-                    kind: LikedContentService.listening,
-                    id: '${scenario.id}:$index',
-                  ),
-                  onTranslation: () => _playback.toggleTranslation(index),
-                  onReplay: () => _playback.replayLine(index),
-                  onLike: () => _likeLine(
-                    scenario,
-                    scenario.dialog[index],
-                    index,
-                    likeSourceGeneration,
-                  ),
-                  onShare: () => _shareLine(index),
                 ),
             ],
           ),
@@ -651,6 +661,7 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
   String _speakerName(AppL10n t, String speaker) =>
       _scenario.speakerDisplayName(
         speaker,
+        languageCode: Localizations.localeOf(context).languageCode,
         fallbackYou: t.listeningSpeakerYou,
         fallbackNarrator: t.listeningNarrator,
       );
@@ -690,6 +701,7 @@ class _IntroFact extends StatelessWidget {
 
 class _DialogueBubble extends StatelessWidget {
   const _DialogueBubble({
+    required this.scenario,
     required this.line,
     required this.speakerName,
     required this.gloss,
@@ -709,6 +721,7 @@ class _DialogueBubble extends StatelessWidget {
     required this.onShare,
   });
 
+  final Scenario scenario;
   final DialogLine line;
   final String speakerName;
   final String gloss;
@@ -743,7 +756,11 @@ class _DialogueBubble extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              _NeutralAvatar(name: speakerName),
+              SoriPersonaSpeakerAvatar(
+                scenario: scenario,
+                speaker: line.speaker,
+                fallback: _NeutralAvatar(name: speakerName),
+              ),
               const SizedBox(width: Spacing.xs),
               Flexible(
                 child: Text(
@@ -893,7 +910,12 @@ class _DialogueBubble extends StatelessWidget {
       container: true,
       liveRegion: current,
       label: '$speakerName: ${line.ko}',
-      child: framedBubble,
+      child: SoriPersonaCardMotion(
+        interactive: true,
+        entrance: false,
+        borderRadius: bubbleRadius,
+        child: framedBubble,
+      ),
     );
     return Padding(
       padding: const EdgeInsets.only(bottom: Spacing.md),
