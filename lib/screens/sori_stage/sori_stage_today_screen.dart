@@ -1,4 +1,6 @@
 import '../../widgets/sori/yeopjeon_wallet_card.dart';
+import '../../features/dancheong/dancheong_connections.dart';
+import '../../features/dancheong/dancheong_store.dart';
 import '../../features/content_learning/content_learning_widgets.dart';
 import '../../widgets/sori/learning_focus.dart';
 import 'package:flutter/foundation.dart';
@@ -546,6 +548,12 @@ class _TodayContent extends StatelessWidget {
                 stagger(_PendingBojagi(count: snapshot.pendingBojagiCount)),
               ],
               const SizedBox(height: Spacing.xl),
+              DancheongDraftResume(
+                store: DancheongStore(),
+                onOpen: (arguments) => Navigator.of(
+                  context,
+                ).pushNamed('/dancheong-studio/edit', arguments: arguments),
+              ),
               stagger(_HanokProgress(snapshot: snapshot)),
               const SizedBox(height: Spacing.md),
               YeopjeonWalletCard(key: ObjectKey(snapshot), compact: true),

@@ -1,0 +1,13 @@
+.dancheong-page{max-width:720px;margin:auto;padding:36px 24px 80px;color:#243b33;line-height:1.6;background:#faf6ec;min-height:100dvh;overflow-wrap:anywhere}
+.dancheong-page h1{font-size:clamp(26px,5vw,42px);line-height:1.25;margin:24px 0}
+.dancheong-wordmark{color:#247567;text-decoration:none;letter-spacing:.04em}
+.dancheong-masterpiece{width:100%;height:auto;max-height:72dvh;object-fit:contain;display:block;margin:24px auto}
+.dancheong-primary,.dancheong-secondary,.dancheong-page button{display:block;text-align:center;min-height:48px;border-radius:14px;padding:14px 20px;margin:16px 0;white-space:normal}
+.dancheong-primary,.dancheong-page button{background:#247567;color:#fff;border:0;text-decoration:none;font:inherit;cursor:pointer}
+.dancheong-secondary{color:#247567;border:1px solid #247567;text-decoration:none}
+.dancheong-page label{display:block;margin-top:16px}
+.dancheong-page input,.dancheong-page select{font:inherit;color:inherit;max-width:100%;width:100%;border:1px solid #8ba89b;border-radius:10px;padding:12px;background:#fffdf8}
+.dancheong-palette{display:flex;flex-wrap:wrap;gap:8px}
+.dancheong-palette button{padding:8px;margin:0;background:#fffdf8;color:#243b33;border:1px solid #8ba89b;min-width:84px}
+.dancheong-palette button[aria-pressed=true]{border:3px solid #247567}
+.dancheong-palette img{height:64px;width:64px;object-fit:contain}

@@ -195,7 +195,7 @@ current ratchet:
 
 | Measure | Current state | Locked interpretation |
 |---|---:|---|
-| Registered route cases | 74 | Every case is inventoried below |
+| Registered route cases | 84 | Every case is inventoried below |
 | `lib/screens` Dart files | 97 | Includes route, embedded, preview, and quest surfaces |
 | `lib/widgets/sori` Dart files | 128 | Existing system; no parallel system permitted |
 | Test files | 470 | Includes the permanent full-closeout inventory guard |
@@ -294,6 +294,11 @@ listed dependency.
 | `/hard_words` | `MyWordsScreen` / Std difficult compatibility alias | Open the Difficult tab while retaining the exact incoming route name and back stack | wrong-count data | R/D My Words + hard words | M / 5C |
 | `/word_web` | `WordWebScreen` / Custom | Standard outer state; preserve study/quiz transition | word relation data | D word web | H / 3D |
 | `/dojangcheop` | `DojangcheopScreen` / Std | Preserve reward room; standard empty/CTA | achievement data | R/D room CTA | M / 4C |
+| `/dancheong-studio` | `DancheongStudioScreen` / Std | Patterns and identity-owned drafts/artwork; capacity management | earned stamps, strict local data | R/D Dancheong | M / approved 2026-10-03 |
+| `/dancheong-studio/edit` | `DancheongEditorScreen` / Std | Autosave, selected immutable source revision, owned motif composition | identity epoch, original-byte renderer | R/S/D Dancheong | H / approved 2026-10-03 |
+| `/dancheong-artwork` | `DancheongArtworkScreen` / Std | Exact revision preview, edit and share | immutable artwork tuple | R/D Dancheong | M / approved 2026-10-03 |
+| `/dancheong-share` | `DancheongShareScreen` / Std | Original PNG, independent DE/EN captions, optional revocable link | identity guard, public snapshot service | R/S/D Dancheong | H / approved 2026-10-03 |
+| `/dancheong-entry` | `DancheongVisitorEntryGate` / coordinator | Preserve first-run consent; template-only visitor continuation | guarded pending entry, onboarding journal | R/D Dancheong visitor entry | H / approved 2026-10-03 |
 | `/hanok/construction` | `IlDuConstructionScreen` / standard learning page | Browse approved Hyeopmun 6 and Changgo 8 stages with Korean examples and DE/EN explanations; retry catalog/image errors and reset local answers between stages | read-only practice; no XP, rewards, construction or map writes | R/D construction art + responsive interactions | H / 2D |
 | `/hanok` | `HanokPreviewScreen` / live Sarangchae construction | Show the approved 16-stage artwork, owned-stage history, and localized learning notes from the existing completed-unit projection; offer Hyeopmun and Changgo construction learning | read-only projection; no separate progress or reward writes; one-time V1 preference migration happens outside presentation | R/D Hanok construction + migration | H / 2D |
 | `/hanok/anbang` | `HanokPreviewScreen` / live Sarangchae construction | Share the same earned construction state and stage history; do not expose the retired V1 room canvas | read-only projection; no room writes | R/D Hanok construction | H / 4C |

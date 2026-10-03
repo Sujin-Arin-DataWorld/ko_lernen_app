@@ -2,6 +2,7 @@
 import { handleImageOptimization, DEFAULT_DEVICE_SIZES, DEFAULT_IMAGE_SIZES } from "vinext/server/image-optimization";
 import handler from "vinext/server/app-router-entry";
 import { handleTesterApplication, type TesterApplicationEnv } from "./tester-application";
+import { handleDancheongProxy } from './dancheong';
 
 declare const __HANGUL_SORI_RELEASE_ID__: string;
 
@@ -108,6 +109,8 @@ async function withSecurityHeaders(response: Response, url: URL) {
 const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
+    const dancheongResponse=await handleDancheongProxy(request);
+    if(dancheongResponse){return withSecurityHeaders(dancheongResponse,url);}
 
     if (url.pathname === "/api/tester-application") {
       return withSecurityHeaders(await handleTesterApplication(request, env), url);

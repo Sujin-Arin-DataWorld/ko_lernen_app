@@ -1,4 +1,6 @@
 import '../../widgets/sori/yeopjeon_wallet_card.dart';
+import '../../features/dancheong/dancheong_connections.dart';
+import '../../features/dancheong/dancheong_store.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -209,6 +211,11 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                               ),
                             ] else
                               const LinearProgressIndicator(),
+                            const SizedBox(height: Spacing.lg),
+                            DancheongEntryCard(
+                              store: DancheongStore(),
+                              onOpen: () => _openShortcut('/dancheong-studio'),
+                            ),
                             const SizedBox(height: Spacing.lg),
                             _ShortcutTiles(
                               snapshot: data,

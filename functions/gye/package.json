@@ -4,10 +4,10 @@
   "description": "계(契) Cloud Functions — Tier 3e",
   "main": "index.js",
   "scripts": {
-    "test": "node --test lifecycle.test.js runtime.test.js account_operations.test.js account_operations_runtime.test.js deletion_adapters.test.js deletion_cleanup_adapters.test.js apple_revocation_adapter.test.js apple_oauth_callback.test.js access_policy.test.js access_runtime.test.js dependency_security.test.js cloud_backup_deletion_runtime.test.js tester_feedback_runtime.test.js gye_dedication_cleanup.test.js gye_dedication_runtime.test.js weekly_contribution_runtime.test.js resource_limits.test.js auth_creation_observer.test.js",
+    "test": "node --test lifecycle.test.js runtime.test.js account_operations.test.js account_operations_runtime.test.js deletion_adapters.test.js deletion_cleanup_adapters.test.js apple_revocation_adapter.test.js apple_oauth_callback.test.js access_policy.test.js access_runtime.test.js dependency_security.test.js cloud_backup_deletion_runtime.test.js tester_feedback_runtime.test.js gye_dedication_cleanup.test.js gye_dedication_runtime.test.js weekly_contribution_runtime.test.js resource_limits.test.js auth_creation_observer.test.js dancheong_share_contract.test.js dancheong_share_runtime.test.js",
     "test:account-runtime": "node --test account_operations_runtime.test.js",
     "test:deletion-worker": "node --test account_operations.test.js account_operations_runtime.test.js",
-    "test:rules": "firebase --config ../../firebase.json emulators:exec --project demo-hangul-sori --only firestore \"node --test firestore.rules.test.js\"",
+    "test:rules": "firebase --config ../../firebase.json emulators:exec --project demo-hangul-sori --only firestore \"node --test firestore.rules.test.js dancheong_share_adapters.emulator.test.js\"",
     "test:storage-rules": "firebase --config ../../firebase.json emulators:exec --project demo-hangul-sori --only storage \"node --test storage.rules.test.js\"",
     "serve": "firebase emulators:start --only functions",
     "deploy:indexes": "firebase --config ../../firebase.json deploy --only firestore:indexes",
@@ -18,7 +18,8 @@
   "dependencies": {
     "@google-cloud/firestore": "^8.7.0",
     "firebase-admin": "^14.2.0",
-    "firebase-functions": "^7.3.2"
+    "firebase-functions": "^7.3.2",
+    "pngjs": "7.0.0"
   },
   "overrides": {
     "websocket-driver": "0.7.5",

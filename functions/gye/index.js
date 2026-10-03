@@ -39,6 +39,7 @@ const { getAuth } = require("firebase-admin/auth");
 const { getMessaging } = require("firebase-admin/messaging");
 const { getStorage } = require("firebase-admin/storage");
 const { randomBytes } = require("node:crypto");
+Object.assign(exports, require('./dancheong_share_endpoints'));
 const { v1: { FirestoreClient } } = require("@google-cloud/firestore");
 const functionsLogger = require("firebase-functions/logger");
 const { defineSecret, defineString } = require("firebase-functions/params");
