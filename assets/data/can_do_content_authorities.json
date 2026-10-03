@@ -1906,6 +1906,18 @@
       "level": "a2"
     },
     {
+      "id": "seed_scenario_a2_byeongcheol_walk_break_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_jun_game_time_change_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_minho_weekend_cooking_plan_v1",
+      "level": "a2"
+    },
+    {
       "id": "seed_scenario_a2_theme_park_date_break_v1",
       "level": "a2"
     },
@@ -12842,6 +12854,27 @@
       "level": "a2",
       "sourceSeedId": "seed_grammar_grammar_b1_since_v1",
       "courseUnitId": "a2_06_study_work"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_byeongcheol_walk_break",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_byeongcheol_walk_break_v1",
+      "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_jun_game_time_change",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_jun_game_time_change_v1",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_minho_weekend_cooking_plan",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_minho_weekend_cooking_plan_v1",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "kind": "scenario",
@@ -27836,7 +27869,7 @@
       "vocabPack": 252,
       "grammar": 261,
       "smalltalk": 582,
-      "scenario": 179,
+      "scenario": 182,
       "cloze": 819,
       "satz": 516,
       "project": 8
