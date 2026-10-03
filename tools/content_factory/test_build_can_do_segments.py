@@ -196,7 +196,11 @@ class CanDoSegmentGeneratorTest(unittest.TestCase):
                 candidates = vocab_by_example[(lineage["level"], row["fullKo"])]
                 candidate_packs = {candidate["pack_id"] for candidate in candidates}
                 if len(candidate_packs) > 1:
-                    self.assertEqual(row["answer"], source["korean"])
+                    expected_headword, expected_answer = builder.DERIVED_SOURCE_ANSWER_OVERRIDES.get(
+                        content_id, (source["korean"], source["korean"])
+                    )
+                    self.assertEqual(expected_headword, source["korean"])
+                    self.assertEqual(expected_answer, row["answer"])
                     self.assertEqual(
                         builder.DERIVED_SOURCE_VOCAB_OVERRIDES[content_id],
                         source["id"],

@@ -58,6 +58,9 @@ import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/speakable.dart';
 import '../widgets/sori/scenario_write_after_roleplay_card.dart';
+import '../widgets/sori/persona_scene_intro.dart';
+import '../widgets/sori/persona_portrait.dart';
+import '../widgets/sori/persona_card_motion.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/study_evidence_recovery.dart';
@@ -1499,11 +1502,18 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     MascotEmotion emotion = MascotEmotion.smile,
   }) {
     final mascot = Mascot.forSpeaker(speaker, emotion: emotion, size: size);
-    if (mascot != null) return mascot;
-    return Icon(
-      _speakerIcon(speaker),
-      color: _speakerAccent(speaker),
-      size: size * 0.6,
+    return SoriPersonaSpeakerAvatar(
+      scenario: _scenario!,
+      speaker: speaker,
+      width: size,
+      height: size * 1.4,
+      fallback:
+          mascot ??
+          Icon(
+            _speakerIcon(speaker),
+            color: _speakerAccent(speaker),
+            size: size * 0.6,
+          ),
     );
   }
 
@@ -1584,6 +1594,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                       height: 1.5,
                     ),
                   ),
+                  SoriPersonaSceneIntro(scenario: s),
                   if (s.playerCharacterId.isNotEmpty) ...[
                     const SizedBox(height: Spacing.lg),
                     Text.rich(
@@ -1592,6 +1603,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                           TextSpan(text: '${t.scenarioAssignedRole}: '),
                           TextSpan(
                             text: s.playerRoleDisplayName(
+                              languageCode: Localizations.localeOf(
+                                context,
+                              ).languageCode,
                               fallbackYou: t.listeningSpeakerYou,
                             ),
                             style: SoriTextTheme.of(context).meta.copyWith(
@@ -1797,28 +1811,50 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 
             return Padding(
               padding: const EdgeInsets.only(bottom: Spacing.md),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: isUser
-                    ? MainAxisAlignment.end
-                    : MainAxisAlignment.start,
-                children: [
-                  if (!isUser) ...[
-                    _speakerAvatar(line.speaker, size: 40),
-                    const SizedBox(width: Spacing.sm),
-                  ],
-                  Flexible(
-                    child: isNarrator
-                        ? (isAutoPlayTarget
-                              ? Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SoriSpeechIndicator(
-                                      text: line.ko,
-                                      voice: sc.voiceForSpeaker(line.speaker),
-                                    ),
-                                    const SizedBox(width: Spacing.xs),
-                                    Expanded(
+              child: SoriPersonaCardMotion(
+                index: index,
+                depth: false,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: isUser
+                      ? MainAxisAlignment.end
+                      : MainAxisAlignment.start,
+                  children: [
+                    if (!isUser) ...[
+                      _speakerAvatar(line.speaker, size: 40),
+                      const SizedBox(width: Spacing.sm),
+                    ],
+                    Flexible(
+                      child: isNarrator
+                          ? (isAutoPlayTarget
+                                ? Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      SoriSpeechIndicator(
+                                        text: line.ko,
+                                        voice: sc.voiceForSpeaker(line.speaker),
+                                      ),
+                                      const SizedBox(width: Spacing.xs),
+                                      Expanded(
+                                        child: Text(
+                                          line.ko,
+                                          style: SoriTextTheme.of(context)
+                                              .bodySmall
+                                              .copyWith(
+                                                fontStyle: FontStyle.italic,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                : SoriSpeakable(
+                                    text: line.ko,
+                                    voice: 'male',
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: Spacing.xs,
+                                      ),
                                       child: Text(
                                         line.ko,
                                         style: SoriTextTheme.of(context)
@@ -1828,182 +1864,180 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                                             ),
                                       ),
                                     ),
-                                  ],
-                                )
-                              : SoriSpeakable(
-                                  text: line.ko,
-                                  voice: 'male',
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: Spacing.xs,
-                                    ),
-                                    child: Text(
-                                      line.ko,
-                                      style: SoriTextTheme.of(context).bodySmall
-                                          .copyWith(
-                                            fontStyle: FontStyle.italic,
-                                          ),
-                                    ),
-                                  ),
-                                ))
-                        : Builder(
-                            builder: (context) {
-                              // 자동재생 대상 줄은 카드 하나가 유일한
-                              // 컨트롤이다(리뷰 High — WCAG 4.1.2). 예전엔
-                              // 카드(재생 전용) 안에 SoriSpeechIndicator
-                              // (재생/정지 토글)를 또 넣어 같은 위치에 버튼
-                              // 시맨틱이 중첩됐다. 카드의 onTap을 토글로
-                              // 바꾸고, 상태는 카드의 semanticValue로,
-                              // 아이콘은 장식으로만 반영한다. 다른 줄은
-                              // 기존 "버블 전체 탭=재생" 그대로 둔다.
-                              Widget buildBubbleCard(TtsSpeechPhase? phase) {
-                                final isActive =
-                                    isAutoPlayTarget &&
-                                    phase != null &&
-                                    phase != TtsSpeechPhase.idle;
-                                final semanticsValue = isAutoPlayTarget
-                                    ? switch (phase!) {
-                                        TtsSpeechPhase.idle =>
-                                          t.speechIndicatorIdle,
-                                        TtsSpeechPhase.resolving =>
-                                          t.speechIndicatorResolving,
-                                        TtsSpeechPhase.speaking =>
-                                          t.speechIndicatorSpeaking,
-                                      }
-                                    : null;
-                                final trailingIcon = isAutoPlayTarget
-                                    ? switch (phase!) {
-                                        TtsSpeechPhase.idle =>
-                                          Icons.volume_up_rounded,
-                                        TtsSpeechPhase.resolving =>
-                                          Icons.hourglass_top_rounded,
-                                        TtsSpeechPhase.speaking =>
-                                          Icons.graphic_eq_rounded,
-                                      }
-                                    : Icons.volume_up_rounded;
+                                  ))
+                          : Builder(
+                              builder: (context) {
+                                // 자동재생 대상 줄은 카드 하나가 유일한
+                                // 컨트롤이다(리뷰 High — WCAG 4.1.2). 예전엔
+                                // 카드(재생 전용) 안에 SoriSpeechIndicator
+                                // (재생/정지 토글)를 또 넣어 같은 위치에 버튼
+                                // 시맨틱이 중첩됐다. 카드의 onTap을 토글로
+                                // 바꾸고, 상태는 카드의 semanticValue로,
+                                // 아이콘은 장식으로만 반영한다. 다른 줄은
+                                // 기존 "버블 전체 탭=재생" 그대로 둔다.
+                                Widget buildBubbleCard(TtsSpeechPhase? phase) {
+                                  final isActive =
+                                      isAutoPlayTarget &&
+                                      phase != null &&
+                                      phase != TtsSpeechPhase.idle;
+                                  final semanticsValue = isAutoPlayTarget
+                                      ? switch (phase!) {
+                                          TtsSpeechPhase.idle =>
+                                            t.speechIndicatorIdle,
+                                          TtsSpeechPhase.resolving =>
+                                            t.speechIndicatorResolving,
+                                          TtsSpeechPhase.speaking =>
+                                            t.speechIndicatorSpeaking,
+                                        }
+                                      : null;
+                                  final trailingIcon = isAutoPlayTarget
+                                      ? switch (phase!) {
+                                          TtsSpeechPhase.idle =>
+                                            Icons.volume_up_rounded,
+                                          TtsSpeechPhase.resolving =>
+                                            Icons.hourglass_top_rounded,
+                                          TtsSpeechPhase.speaking =>
+                                            Icons.graphic_eq_rounded,
+                                        }
+                                      : Icons.volume_up_rounded;
 
-                                return SoriCard(
-                                  variant: SoriCardVariant.compact,
-                                  accent: bubbleAccent,
-                                  tinted: isUser,
-                                  semanticLabel: '${t.ttsListen}: ${line.ko}',
-                                  semanticValue: semanticsValue,
-                                  // 스피커 아이콘뿐 아니라 **버블 전체**를
-                                  // 탭하면 재생(자동재생 대상 줄은 재생
-                                  // 중이면 정지 — WCAG 1.4.2). SoriCard.onTap
-                                  // 이 SoriPressable+버튼 시맨틱으로 감싼다.
-                                  onTap: () {
-                                    HapticService.selectionClick();
-                                    if (isActive) {
-                                      SoriSpeech.stop();
-                                    } else {
-                                      SoriSpeech.speak(
-                                        line.ko,
-                                        voice: sc.voiceForSpeaker(line.speaker),
-                                      );
-                                    }
-                                  },
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        sc.speakerDisplayName(
-                                          line.speaker,
-                                          fallbackYou: t.listeningSpeakerYou,
-                                          fallbackNarrator: t.listeningNarrator,
-                                        ),
-                                        style: SoriTextTheme.of(context).meta
-                                            .copyWith(
-                                              color: bubbleAccent,
-                                              fontWeight: FontWeight.w700,
+                                  return SoriPersonaCardMotion(
+                                    entrance: false,
+                                    interactive: true,
+                                    child: SoriCard(
+                                      variant: SoriCardVariant.compact,
+                                      accent: bubbleAccent,
+                                      tinted: isUser,
+                                      semanticLabel:
+                                          '${t.ttsListen}: ${line.ko}',
+                                      semanticValue: semanticsValue,
+                                      // 스피커 아이콘뿐 아니라 **버블 전체**를
+                                      // 탭하면 재생(자동재생 대상 줄은 재생
+                                      // 중이면 정지 — WCAG 1.4.2). SoriCard.onTap
+                                      // 이 SoriPressable+버튼 시맨틱으로 감싼다.
+                                      onTap: () {
+                                        HapticService.selectionClick();
+                                        if (isActive) {
+                                          SoriSpeech.stop();
+                                        } else {
+                                          SoriSpeech.speak(
+                                            line.ko,
+                                            voice: sc.voiceForSpeaker(
+                                              line.speaker,
                                             ),
-                                      ),
-                                      const SizedBox(height: Spacing.xs),
-                                      Text(
-                                        line.ko,
-                                        style: SoriTextTheme.of(
-                                          context,
-                                        ).h3.copyWith(color: ss.text),
-                                      ),
-                                      if (line.pick(lang).isNotEmpty) ...[
-                                        const SizedBox(height: Spacing.xs),
-                                        Text(
-                                          line.pick(lang),
-                                          style: SoriTextTheme.of(context)
-                                              .bodySmall
-                                              .copyWith(color: ss.textDim),
-                                        ),
-                                      ],
-                                      const SizedBox(height: Spacing.xs),
-                                      // 대사를 내 단어장에 담기(§9-2: 책갈피만,
-                                      // 하트 없음). AddToWordbookButton 은
-                                      // 자체 IconButton으로 탭을 소비하므로
-                                      // 카드 전체의 onTap(재생) 아레나로
-                                      // 전파되지 않는다.
-                                      //
-                                      // 대사 한 줄은 문장이다 —
-                                      // smalltalk_screen.dart `_savePhrase`와
-                                      // 같은 typed bookmark 경로(itemType:
-                                      // sentence)로 저장하고 활성 로케일을
-                                      // 넘긴다(PR2 리뷰 Important 3-a/3-b).
-                                      // semanticLabel은 줄마다 다른 접근성
-                                      // 이름을 붙인다 — 카드가 여럿이면 같은
-                                      // 이름의 버튼이 여러 개 뜨는 문제(a11y
-                                      // HIGH, WCAG 4.1.2).
-                                      Row(
+                                          );
+                                        }
+                                      },
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
-                                          // 장식용 듣기 아이콘은 본문 아래에 둬서
-                                          // 긴 문장에 카드 전체 너비를 준다.
-                                          ExcludeSemantics(
-                                            child: Icon(
-                                              trailingIcon,
-                                              color: bubbleAccent.withValues(
-                                                alpha: 0.7,
-                                              ),
-                                              size: 18,
+                                          Text(
+                                            sc.speakerDisplayName(
+                                              line.speaker,
+                                              languageCode:
+                                                  Localizations.localeOf(
+                                                    context,
+                                                  ).languageCode,
+                                              fallbackYou:
+                                                  t.listeningSpeakerYou,
+                                              fallbackNarrator:
+                                                  t.listeningNarrator,
                                             ),
+                                            style: SoriTextTheme.of(context)
+                                                .meta
+                                                .copyWith(
+                                                  color: bubbleAccent,
+                                                  fontWeight: FontWeight.w700,
+                                                ),
                                           ),
-                                          const Spacer(),
-                                          AddToWordbookButton(
-                                            enabled:
-                                                widget.previewFixture == null,
-                                            compact: true,
-                                            korean: line.ko,
-                                            translationDe: line.de,
-                                            translationEn: line.en,
-                                            translationLanguage: lang,
-                                            itemType:
-                                                StudyLibraryItemType.sentence,
-                                            itemId: line.ko,
-                                            sourceUnitId: sc.id,
-                                            source: 'scenario_player',
-                                            semanticLabel:
-                                                '${t.wbAddTooltip}: ${line.ko}',
+                                          const SizedBox(height: Spacing.xs),
+                                          Text(
+                                            line.ko,
+                                            style: SoriTextTheme.of(
+                                              context,
+                                            ).h3.copyWith(color: ss.text),
+                                          ),
+                                          if (line.pick(lang).isNotEmpty) ...[
+                                            const SizedBox(height: Spacing.xs),
+                                            Text(
+                                              line.pick(lang),
+                                              style: SoriTextTheme.of(context)
+                                                  .bodySmall
+                                                  .copyWith(color: ss.textDim),
+                                            ),
+                                          ],
+                                          const SizedBox(height: Spacing.xs),
+                                          // 대사를 내 단어장에 담기(§9-2: 책갈피만,
+                                          // 하트 없음). AddToWordbookButton 은
+                                          // 자체 IconButton으로 탭을 소비하므로
+                                          // 카드 전체의 onTap(재생) 아레나로
+                                          // 전파되지 않는다.
+                                          //
+                                          // 대사 한 줄은 문장이다 —
+                                          // smalltalk_screen.dart `_savePhrase`와
+                                          // 같은 typed bookmark 경로(itemType:
+                                          // sentence)로 저장하고 활성 로케일을
+                                          // 넘긴다(PR2 리뷰 Important 3-a/3-b).
+                                          // semanticLabel은 줄마다 다른 접근성
+                                          // 이름을 붙인다 — 카드가 여럿이면 같은
+                                          // 이름의 버튼이 여러 개 뜨는 문제(a11y
+                                          // HIGH, WCAG 4.1.2).
+                                          Row(
+                                            children: [
+                                              // 장식용 듣기 아이콘은 본문 아래에 둬서
+                                              // 긴 문장에 카드 전체 너비를 준다.
+                                              ExcludeSemantics(
+                                                child: Icon(
+                                                  trailingIcon,
+                                                  color: bubbleAccent
+                                                      .withValues(alpha: 0.7),
+                                                  size: 18,
+                                                ),
+                                              ),
+                                              const Spacer(),
+                                              AddToWordbookButton(
+                                                enabled:
+                                                    widget.previewFixture ==
+                                                    null,
+                                                compact: true,
+                                                korean: line.ko,
+                                                translationDe: line.de,
+                                                translationEn: line.en,
+                                                translationLanguage: lang,
+                                                itemType: StudyLibraryItemType
+                                                    .sentence,
+                                                itemId: line.ko,
+                                                sourceUnitId: sc.id,
+                                                source: 'scenario_player',
+                                                semanticLabel:
+                                                    '${t.wbAddTooltip}: ${line.ko}',
+                                              ),
+                                            ],
                                           ),
                                         ],
                                       ),
-                                    ],
-                                  ),
-                                );
-                              }
+                                    ),
+                                  );
+                                }
 
-                              if (!isAutoPlayTarget) {
-                                return buildBubbleCard(null);
-                              }
-                              return ValueListenableBuilder<TtsSpeechPhase>(
-                                valueListenable: SoriSpeech.phase,
-                                builder: (context, phase, _) =>
-                                    buildBubbleCard(phase),
-                              );
-                            },
-                          ),
-                  ),
-                  if (isUser) ...[
-                    const SizedBox(width: Spacing.sm),
-                    _speakerAvatar(line.speaker, size: 40),
+                                if (!isAutoPlayTarget) {
+                                  return buildBubbleCard(null);
+                                }
+                                return ValueListenableBuilder<TtsSpeechPhase>(
+                                  valueListenable: SoriSpeech.phase,
+                                  builder: (context, phase, _) =>
+                                      buildBubbleCard(phase),
+                                );
+                              },
+                            ),
+                    ),
+                    if (isUser) ...[
+                      const SizedBox(width: Spacing.sm),
+                      _speakerAvatar(line.speaker, size: 40),
+                    ],
                   ],
-                ],
+                ),
               ),
             );
           }),

@@ -5,10 +5,10 @@ import 'package:ko_lernen_app/models/scenario.dart';
 import 'support/scenario_json.dart';
 
 void main() {
-  test('all 178 scenarios and 547 quests satisfy the renderer contract', () {
+  test('all 181 scenarios and 564 quests satisfy the renderer contract', () {
     final root = allScenarioRoot();
     final decoded = root['scenarios'] as List<dynamic>;
-    expect(decoded, hasLength(178));
+    expect(decoded, hasLength(181));
 
     const supported = {
       'hoerverstehen',
@@ -85,27 +85,30 @@ void main() {
       }
     }
 
-    expect(questCount, 547);
+    expect(questCount, 564);
     final countsById = {
       for (final raw in decoded.cast<Map<String, dynamic>>())
         raw['id'] as String: (raw['quests'] as List).length,
     };
-    const themeParkQuestCounts = <String, int>{
+    const supplementQuestCounts = <String, int>{
       'a1_theme_park_date_choices': 6,
       'a2_theme_park_date_break': 5,
       'b1_theme_park_date_thrill': 5,
       'b2_theme_park_date_safety': 5,
       'c1_theme_park_date_next_time': 5,
       'c2_theme_park_date_reflection': 5,
+      'a2_minho_weekend_cooking_plan': 6,
+      'a2_byeongcheol_walk_break': 5,
+      'a2_jun_game_time_change': 6,
     };
     expect(
       countsById.entries
-          .where((entry) => !themeParkQuestCounts.containsKey(entry.key))
+          .where((entry) => !supplementQuestCounts.containsKey(entry.key))
           .map((entry) => entry.value)
           .toSet(),
       {3},
     );
-    for (final entry in themeParkQuestCounts.entries) {
+    for (final entry in supplementQuestCounts.entries) {
       expect(countsById[entry.key], entry.value, reason: entry.key);
     }
     expect(countsById['airport_arrival'], 3);

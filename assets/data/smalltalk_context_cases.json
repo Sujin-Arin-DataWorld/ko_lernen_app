@@ -296,7 +296,7 @@
               "text": {
                 "ko": "오늘은 좀 어려워.",
                 "de": "Heute wird es schwierig.",
-                "en": "Today is a bit difficult."
+                "en": "Today's a bit tricky."
               },
               "effect": {
                 "ko": "부담을 줄여 거절해요. 구체적인 이유는 말하지 않아요.",
@@ -703,7 +703,7 @@
               "followUp": {
                 "ko": "안 열리면 말씀해 주세요.",
                 "de": "Sagen Sie mir bitte Bescheid, falls es nicht klappt.",
-                "en": "Please let me know if it does not open."
+                "en": "Please let me know if it doesn't open."
               }
             },
             {
@@ -727,7 +727,7 @@
               "followUp": {
                 "ko": "안 열리면 말씀해 주세요.",
                 "de": "Sagen Sie mir bitte Bescheid, falls es nicht klappt.",
-                "en": "Please let me know if it does not open."
+                "en": "Please let me know if it doesn't open."
               }
             }
           ]
@@ -745,7 +745,7 @@
               "text": {
                 "ko": "지금 확인하지 않으셔도 돼요.",
                 "de": "Sie müssen es nicht jetzt prüfen.",
-                "en": "You do not need to check it now."
+                "en": "You don't need to check it now."
               },
               "effect": {
                 "ko": "지금 해야 한다는 부담을 풀어요. 확인하지 말라는 금지는 아니에요.",
@@ -769,7 +769,7 @@
               "text": {
                 "ko": "오후에 확인해 주셔도 괜찮아요.",
                 "de": "Am Nachmittag reicht auch.",
-                "en": "It is fine to check it this afternoon."
+                "en": "It's fine to check it this afternoon."
               },
               "effect": {
                 "ko": "오후에 확인해도 된다고 말해 지금의 시간 부담을 줄여요.",
@@ -926,7 +926,7 @@
               "text": {
                 "ko": "내가 다섯 시로 이해했나 봐.",
                 "de": "Ich habe es wohl als fünf Uhr verstanden.",
-                "en": "I seem to have understood it as five."
+                "en": "I think I read that as five o'clock."
               },
               "effect": {
                 "ko": "내 이해에 문제가 있었을 가능성을 열어 둬요. 잘못 들었다고 확정하지는 않아요.",
@@ -1157,7 +1157,7 @@
               "id": "sorry",
               "text": {
                 "ko": "내 말이 날카로웠네. 미안해.",
-                "de": "Ich war da ziemlich scharf. Tut mir leid.",
+                "de": "Mein Ton war schroff. Tut mir leid.",
                 "en": "I was sharp with you. I’m sorry."
               },
               "effect": {
@@ -1182,7 +1182,7 @@
               "text": {
                 "ko": "그렇게 들렸구나. 내가 말을 너무 세게 했어. 미안해.",
                 "de": "So ist es bei dir angekommen. Ich habe mich zu scharf ausgedrückt. Tut mir leid.",
-                "en": "I see that is how it sounded to you. I put it too strongly. I’m sorry."
+                "en": "I see how it came across. I put it too strongly. I'm sorry."
               },
               "effect": {
                 "ko": "상대가 들은 효과를 인정한 뒤 내 표현에 책임을 둬요. 상대의 오해 탓으로 돌리지 않아요.",
@@ -1339,7 +1339,7 @@
               "text": {
                 "ko": "네, 괜찮으시면 오세요. 일정이 안 맞으셔도 괜찮고요.",
                 "de": "Ja, kommen Sie gerne, wenn es passt. Wenn Sie keine Zeit haben, ist das auch in Ordnung.",
-                "en": "Yes, please come if it works for you. It is also fine if your schedule does not allow it."
+                "en": "Yes, come along if it works for you. It's also fine if you can't make it."
               },
               "effect": {
                 "ko": "오세요로 초대가 분명해지고 불참해도 괜찮다고 직접 말해 압박을 줄여요.",
@@ -1472,7 +1472,7 @@
               "text": {
                 "ko": "책임을 묻는 뜻으로 들리셨군요. 함께 확인하자는 취지였는데, 제가 분명하게 말씀드리지 못했어요.",
                 "de": "Das kam bei Ihnen als Schuldzuweisung an. Ich wollte vorschlagen, gemeinsam nachzusehen, habe mich aber nicht klar ausgedrückt.",
-                "en": "It came across as assigning blame. I meant to suggest checking together, but I did not make that clear."
+                "en": "I see it sounded like I was assigning blame. I meant we should check it together, but I didn't make that clear."
               },
               "effect": {
                 "ko": "전달된 뜻을 인정하고 내 설명의 부족함을 짚어요. 상대가 오해했다고만 말하지 않아요.",
@@ -1530,7 +1530,7 @@
               "text": {
                 "ko": "아직 누구의 책임인지 판단한 것은 아니에요. 먼저 사실관계를 확인하려고 해요.",
                 "de": "Ich habe noch nicht beurteilt, wer verantwortlich ist. Zuerst möchte ich klären, was passiert ist.",
-                "en": "I have not decided who is responsible yet. First, I want to establish what happened."
+                "en": "I haven't decided who's responsible yet. First, I want to establish what happened."
               },
               "effect": {
                 "ko": "판단 전이라는 상태와 확인 순서를 분명히 해요. 상대에게 책임이 없다고 확정하는 말은 아니에요.",

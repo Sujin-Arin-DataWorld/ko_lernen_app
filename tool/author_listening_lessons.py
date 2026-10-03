@@ -3,6 +3,7 @@
 Run from any directory. No network, TTS generation, or source-corpus mutation.
 Advanced rows: scenario | evidence line | three KO/DE/EN options (correct first).
 """
+import csv
 import json
 from pathlib import Path
 from difflib import SequenceMatcher
@@ -392,8 +393,36 @@ def contrast_explanation(evidence, options):
     )
 
 
+def reviewed_supplements():
+    """Reuse exact authored lessons only from promoted, approved batches."""
+    result = {}
+    for path in sorted((ROOT / 'tools/content_factory/drafts').glob('batch_*_manifest.json')):
+        manifest = json.loads(path.read_text(encoding='utf-8'))
+        if manifest.get('status') != 'merged' or not manifest.get('listeningDraft'):
+            continue
+        for artifact in manifest['artifacts']:
+            with (ROOT / artifact['review']).open(encoding='utf-8-sig', newline='') as handle:
+                rows = list(csv.DictReader(handle))
+            assert rows and all(row['상태'].strip().casefold() in ('approved', 'ok')
+                                for row in rows), f'Unreviewed supplement batch: {path}'
+        draft = json.loads((ROOT / manifest['listeningDraft']).read_text(encoding='utf-8'))
+        for lesson in draft['lessons']:
+            sid, = lesson['contentIds']
+            assert sid not in result, f'Duplicate supplement: {sid}'
+            assert lesson['id'] == f'listening.{lesson["level"]}.{sid}'
+            result[sid] = lesson
+    return result
+
+
 def build():
     sources = load_sources()
+    supplements = reviewed_supplements()
+    source_by_id = {s['id']: s for s in sources}
+    assert set(supplements).issubset(source_by_id), 'Promoted supplement is missing its scenario'
+    for sid, lesson in supplements.items():
+        assert lesson['level'] == source_by_id[sid]['level']
+        assert lesson['topicId'] == source_by_id[sid]['shelf']
+    sources = [s for s in sources if s['id'] not in supplements]
     advanced = advanced_rows()
     foils = basic_foils()
     replies = response_rows()
@@ -539,7 +568,7 @@ def build():
         lessons.append(dict(id=lid, kind="listening", level=s["level"], topicId=s["shelf"],
                             title=localized(s["title"]), intro=localized(s["intro"]),
                             contentIds=[sid], questions=[situation, meaning, order, response]))
-    return {"version": 1, "lessons": lessons}
+    return {"version": 1, "lessons": [*lessons, *supplements.values()]}
 
 
 if __name__ == "__main__":

@@ -110,7 +110,10 @@ void main() {
                 (scenario) =>
                     scenario.level == level &&
                     scenario.shelf == shelfId &&
-                    !scenario.id.contains('theme_park_date'),
+                    // The new A2 dictations also stock the existing A2 date
+                    // lesson. The other five date lessons remain sparse.
+                    (!scenario.id.contains('theme_park_date') ||
+                        scenario.id == 'a2_theme_park_date_break'),
               )
               .length;
           if (count > 0) {

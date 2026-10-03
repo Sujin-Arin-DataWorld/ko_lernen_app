@@ -210,6 +210,8 @@ void main() {
       'lib/screens/pronunciation_studio_screen.dart': 2,
       // The context dialog's single read-aloud control is a media action.
       'lib/screens/smalltalk_context_screen.dart': 1,
+      // Listening chat exposes its play/pause media control continuously.
+      'lib/features/content_learning/content_lesson_screen.dart': 1,
     };
     for (final entry in explicitExceptions.entries) {
       expect(

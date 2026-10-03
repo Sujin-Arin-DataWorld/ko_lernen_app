@@ -6092,9 +6092,9 @@
     {
       "id": "satz_a1_0118",
       "level": "a1",
-      "targetKo": "절하는 타이밍이 한 박자 늦었어요.",
-      "promptDe": "Meine Verbeugung kam einen Takt zu spät.",
-      "promptEn": "My bow was a beat late.",
+      "targetKo": "설날에는 친척들이 모여 어른들에게 절을 하는 풍습이 있어요.",
+      "promptDe": "An Seollal kommen Verwandte zusammen und verbeugen sich traditionell vor den Älteren.",
+      "promptEn": "At Seollal, relatives get together and traditionally bow to the elders.",
       "distractors": [
         "이미",
         "이야기를"
@@ -31763,9 +31763,9 @@
     {
       "id": "satz_a1_0518",
       "level": "a1",
-      "targetKo": "여권을 보여 주세요.",
-      "promptDe": "Bitte zeigen Sie mir Ihren Reisepass.",
-      "promptEn": "Please show me your passport.",
+      "targetKo": "여권은 여기 있어요.",
+      "promptDe": "Hier ist der Reisepass.",
+      "promptEn": "Here's the passport.",
       "distractors": [
         "하루",
         "후"
@@ -33177,9 +33177,9 @@
     {
       "id": "satz_a1_0619",
       "level": "a1",
-      "targetKo": "제 생일은 이 달이에요.",
-      "promptDe": "Mein Geburtstag ist diesen Monat.",
-      "promptEn": "My birthday is this month.",
+      "targetKo": "일 년은 열두 달이에요.",
+      "promptDe": "Ein Jahr hat zwölf Monate.",
+      "promptEn": "A year has twelve months.",
       "distractors": [
         "곳",
         "종업원"
@@ -34858,14 +34858,14 @@
       "id": "satz_a1_0739",
       "sourceVocabId": "vocab_a1_0824",
       "vocabKo": "여러",
-      "targetKo": "여러 명이 와요.",
+      "targetKo": "여러 명이 함께 노래해요.",
       "distractors": [
-        "가다 나라",
-        "먹다 나라"
+        "혼자",
+        "기다려요"
       ],
       "level": "a1",
-      "promptDe": "Mehrere Personen kommen.",
-      "promptEn": "Several people are coming.",
+      "promptDe": "Mehrere Leute singen zusammen.",
+      "promptEn": "Several people sing together.",
       "courseUnitId": "a1_05_numbers_time"
     },
     {

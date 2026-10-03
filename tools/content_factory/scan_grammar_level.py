@@ -64,7 +64,11 @@ sys.path.insert(0, str(ROOT / "tool"))
 sys.path.insert(0, str(ROOT / "tools" / "content_factory"))
 
 from cefr_lexicon import CefrLexicon, GrammarIndex, GRADE_TO_CEFR  # noqa: E402
-from scan_a1_grammar import REVIEWED_HOMOGRAPH_HITS, grammar_scan_text  # noqa: E402
+from scan_a1_grammar import (  # noqa: E402
+    REVIEWED_HOMOGRAPH_HITS,
+    disambiguate_volitional_hit,
+    grammar_scan_text,
+)
 
 VOCAB_CSV = ROOT / "assets" / "data" / "korean_vocab.csv"
 CLOZE_JSON = ROOT / "assets" / "data" / "cloze.json"
@@ -185,24 +189,13 @@ def _id_prefix_level(item_id: str) -> str | None:
     return m.group(1) if m else None
 
 
-def _has_rieul_batchim(ch: str) -> bool:
-    """True if `ch` is a Hangul syllable whose jongseong (final consonant)
-    is ㄹ -- covers both 쉬(vowel stem)+ㄹ래요=쉴래요 and 입(ㅂ stem)+을래요
-    (을 itself is jongseong ㄹ)."""
-    if not ch:
-        return False
-    code = ord(ch) - 0xAC00
-    if not (0 <= code < 11172):
-        return False
-    return (code % 28) == 8  # jongseong index 8 == ㄹ in the standard 28-slot table
-
-
 def _grammar_hits_ge(lexicon: CefrLexicon, grammar_index: GrammarIndex, text: str, threshold: int):
     if text in EXACT_SENTENCE_ALLOWLIST:
         return []
     sp = lexicon.sentence_profile(grammar_scan_text(text), grammar_index)
     hits = []
     for h in sp.grammar_hits:
+        h = disambiguate_volitional_hit(h, text)
         if h.grade < threshold:
             continue
         if h.text in ALLOWLIST_MATCHED_TEXT:
@@ -213,26 +206,6 @@ def _grammar_hits_ge(lexicon: CefrLexicon, grammar_index: GrammarIndex, text: st
             continue
         if h.text == "래요" and text[max(h.span[0] - 1, 0):h.span[0]] == "그":
             continue
-        # `grammar_b2_quoted_contractions` (assets/data/grammar.csv row for
-        # -대요/-(이)래요/-냬요/-재요, the SPOKEN-CONTRACTION reported-speech
-        # family) is matched as a bare "래요"/"대요" substring by the shared
-        # GrammarIndex, which cannot distinguish it from the A2-legal (grade
-        # 2, 종결어미 table) volitional/intention ending -(으)ㄹ래요 ("I'd
-        # rather/I will..."), a homograph on the same "래요" tail. The two
-        # ARE distinguishable: -(으)ㄹ래요 always inserts a ㄹ immediately
-        # before 래요 (either a bare ㄹ batchim fused into the preceding
-        # syllable, e.g. 쉬다->쉴래요, or the explicit 을 syllable itself,
-        # whose own jongseong IS ㄹ, e.g. 입다->입을래요), while the reported
-        # contraction -(으)래요 never does (두다->두래요, 말하다->말하래요,
-        # no ㄹ). Verified empirically against both classes (see
-        # test_scan_grammar_level.py) before adding this discriminator, and
-        # against the live A2 corpus (vocab_a2_0045/0139, satz_a2_0270:
-        # genuine -(으)ㄹ래요, correctly excluded below; vocab_a2_0288/0295:
-        # genuine -(으)래요 reported forms, correctly still flagged).
-        if h.pattern_id == "grammar_b2_quoted_contractions" and h.text == "래요":
-            preceding = text[max(h.span[0] - 1, 0):h.span[0]]
-            if _has_rieul_batchim(preceding):
-                continue
         hits.append(h)
     return hits
 

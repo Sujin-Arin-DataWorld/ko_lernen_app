@@ -77,6 +77,36 @@ class VolitionalVsReportedContractionTest(unittest.TestCase):
             any(h.pattern_id == "grammar_b2_quoted_contractions" for h in hits),
         )
 
+    def test_volitional_is_grade2_in_both_a1_detectors(self):
+        # A2 legality must not make the same invitation disappear at A1.
+        # The shared CSV-derived matcher sees the homographic 래요 tail.
+        for text in ("주말에 야구 보러 갈래요?", "오늘은 회색 코트 입을래요."):
+            with self.subTest(text=text):
+                general = S._grammar_hits_ge(
+                    self.lexicon, self.grammar_index, text, threshold=2,
+                )
+                original = legacy._grammar_hits_ge2(
+                    self.lexicon, self.grammar_index, text,
+                )
+                for hits in (general, original):
+                    self.assertTrue(any(hit.grade == 2 for hit in hits))
+                    self.assertFalse(any(
+                        hit.pattern_id == "grammar_b2_quoted_contractions"
+                        for hit in hits
+                    ))
+                self.assertEqual(general, original)
+
+    def test_reported_contraction_remains_grade4_in_both_detectors(self):
+        text = "내일 오라고 해요. 먼저 두래요."
+        for hits in (
+            S._grammar_hits_ge(self.lexicon, self.grammar_index, text, threshold=2),
+            legacy._grammar_hits_ge2(self.lexicon, self.grammar_index, text),
+        ):
+            self.assertTrue(any(
+                hit.pattern_id == "grammar_b2_quoted_contractions" and hit.grade == 4
+                for hit in hits
+            ))
+
 
 class A1ParityTest(unittest.TestCase):
     """--level A1 must reproduce the legacy scan_a1_grammar.py script's own

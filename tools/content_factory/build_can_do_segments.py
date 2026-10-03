@@ -42,6 +42,9 @@ SMALLTALK_TRANSLATION_LEDGER_REF = (
     "tools/content_factory/review/smalltalk_translation_corrections_20260922.json"
 )
 SMALLTALK_TRANSLATION_LEDGER_PATH = ROOT / SMALLTALK_TRANSLATION_LEDGER_REF
+CAN_DO_EDITORIAL_LEDGER_PATH = (
+    ROOT / "tools/content_factory/review/can_do_editorial_revisions_20261003.json"
+)
 PUBLISHED_AT = "2026-08-16T00:00:00.000Z"
 LEVELS = ("a1", "a2", "b1", "b2", "c1", "c2")
 EXPECTED_COUNTS = {"a1": 16, "a2": 16, "b1": 18, "b2": 20, "c1": 8, "c2": 8}
@@ -1904,6 +1907,17 @@ DERIVED_SOURCE_VOCAB_OVERRIDES = {
     "cloze_a1_0011": "vocab_a1_0020",  # 학교
     "cloze_a1_0050": "vocab_a1_0074",  # 의자
     "cloze_a1_0066": "vocab_a1_0156",  # 시간
+    # Exact inherited source IDs in the published 09eca941 authority ledger.
+    # Copy corrections made these sentences collide across vocabulary packs;
+    # retain their lineage instead of switching to a topic-default route.
+    "cloze_a1_0045": "vocab_a1_0068",  # 화장실
+    "cloze_a1_0141": "vocab_a1_0253",  # 맛있어요
+    "cloze_a1_0290": "vocab_a1_0402",  # 정말 감사해요
+    "cloze_a1_0578": "vocab_a1_0644",  # 감사
+    "cloze_a1_0738": "vocab_a1_0804",  # 어디
+}
+DERIVED_SOURCE_ANSWER_OVERRIDES = {
+    "cloze_a1_0738": ("어디", "어디예요"),
 }
 
 # Explicit approvals for a new or semantically changed A1-B2 phrase are added
@@ -4010,10 +4024,15 @@ class SourceIndex:
         if override_id is None:
             return self.vocab_by_unique_example.get((row["level"], row["fullKo"]))
         vocab = _require(self.vocab, override_id, "derived vocab override")
+        headword, answer = DERIVED_SOURCE_ANSWER_OVERRIDES.get(
+            content_id, (vocab["korean"], vocab["korean"])
+        )
         if (
             vocab["level"].lower() != row["level"]
             or vocab["example_korean"] != row["fullKo"]
-            or vocab["korean"] != row["answer"]
+            or vocab["example_german"] != row["de"]
+            or vocab["example_english"] != row["en"]
+            or vocab["korean"] != headword or answer != row["answer"]
         ):
             raise ValueError(
                 f"derived vocab override {override_id!r} does not exactly support "
@@ -4172,7 +4191,9 @@ def _reconcile_published_history(
     previous_catalog = _read_json(CATALOG_PATH)
     previous_authorities = _read_json(AUTHORITY_PATH)
     _preserve_cluster_history(catalog, previous_catalog)
-    _validate_authority_history(authorities, previous_authorities)
+    _validate_authority_history(
+        authorities, previous_authorities, current_segments=catalog["segments"]
+    )
 
 
 def _preserve_cluster_history(
@@ -4270,7 +4291,8 @@ def _preserve_cluster_history(
 
 
 def _validate_authority_history(
-    current: dict[str, Any], previous: dict[str, Any]
+    current: dict[str, Any], previous: dict[str, Any],
+    *, current_segments: list[dict[str, Any]] | None = None,
 ) -> None:
     # See the KNOWN_MISSING_SCENARIO_SLOTS-adjacent comment above
     # RELEVEL_DIR/RETIRED_SEEDS_LEDGER_PATH: pack renames and
@@ -4315,7 +4337,62 @@ def _validate_authority_history(
             if renamed is not None and f"vocabPack:{renamed}" in new_references:
                 continue
         raise ValueError(f"published content authority {key!r} is immutable")
-    _validate_smalltalk_review_history(current, previous)
+    _validate_smalltalk_review_history(
+        current, previous, current_segments=current_segments
+    )
+
+
+def _exact_can_do_copy_transition(
+    old: dict[str, Any], current: dict[str, Any],
+    segments: list[dict[str, Any]] | None,
+) -> bool:
+    """Bind title copy to exact old/new snapshots and unchanged construct data.
+
+    A segment ID alone cannot establish equivalent routing. The full current
+    segment must match the recorded successor, and every field outside title
+    and its generated can-do text must remain byte-equivalent in the snapshots.
+    Historical human approval stays attached to its original fingerprint.
+    """
+    if segments is None or not CAN_DO_EDITORIAL_LEDGER_PATH.exists():
+        return False
+    if old.get("canDoSegmentId") != current.get("canDoSegmentId"):
+        return False
+    ledger = _read_json(CAN_DO_EDITORIAL_LEDGER_PATH)
+    if (
+        ledger.get("schemaVersion") != 1
+        or ledger.get("scope") != "assets/data/can_do_segments.json"
+        or ledger.get("humanReviewStatus") != "pending"
+        or ledger.get("humanApprovalClaim") is not False
+    ):
+        raise ValueError("can-do editorial ledger must preserve its human review gate")
+    matches = [entry for entry in ledger["entries"]
+               if entry["id"] == current.get("canDoSegmentId")]
+    if len(matches) > 1:
+        raise ValueError("duplicate can-do editorial revision")
+    if not matches:
+        return False
+    entry = matches[0]
+    before, after = entry["before"], entry["after"]
+    fields = sorted(key for key in before.keys() | after.keys()
+                    if before.get(key) != after.get(key))
+    if (
+        fields != ["canDo", "title"] or entry.get("fields") != fields
+        or before.get("id") != entry["id"] or after.get("id") != entry["id"]
+        or _json_fingerprint(before) != entry.get("beforeSha256")
+        or _json_fingerprint(after) != entry.get("afterSha256")
+    ):
+        raise ValueError("can-do editorial revision changes its construct or lineage")
+    before_copy = _json_fingerprint({key: before[key] for key in ("title", "canDo")})
+    after_copy = _json_fingerprint({key: after[key] for key in ("title", "canDo")})
+    if (before_copy != entry.get("beforeCopySha256")
+            or after_copy != entry.get("afterCopySha256")):
+        raise ValueError("can-do editorial copy fingerprints do not match")
+    actual = [row for row in segments if row.get("id") == entry["id"]]
+    return (
+        len(actual) == 1 and actual[0] == after
+        and old.get("canDoFingerprintSha256") in {before_copy, after_copy}
+        and current.get("canDoFingerprintSha256") == after_copy
+    )
 
 
 def _validate_smalltalk_review_history(
@@ -4323,6 +4400,7 @@ def _validate_smalltalk_review_history(
     previous: dict[str, Any],
     *,
     review_approvals: dict[str, dict[str, Any]] | None = None,
+    current_segments: list[dict[str, Any]] | None = None,
 ) -> None:
     approvals = (
         SMALLTALK_REVIEW_APPROVALS
@@ -4377,6 +4455,8 @@ def _validate_smalltalk_review_history(
                 "previousPhraseFingerprintSha256",
             }
             keys = set(old) | set(decision)
+            if _exact_can_do_copy_transition(old, decision, current_segments):
+                ignored.add("canDoFingerprintSha256")
             if any(old.get(key) != decision.get(key) for key in keys - ignored):
                 if decision["copyRevisionLedger"] in {
                     SMALLTALK_TRANSLATION_LEDGER_REF,
@@ -4415,6 +4495,27 @@ def _validate_smalltalk_review_history(
             decision["reviewRevision"] = old["reviewRevision"]
             if phrase_id in approvals:
                 used_approvals.add(phrase_id)
+            continue
+        if (old is not None
+                and _exact_can_do_copy_transition(old, decision, current_segments)
+                and all(old.get(key) == decision.get(key)
+                        for key in old.keys() | decision.keys()
+                        if key not in {"reviewRevision", "canDoFingerprintSha256"})):
+            # The original approval is checked against its original copy, not
+            # rewritten to claim that a person approved the corrected title.
+            approval = approvals.get(phrase_id)
+            expected = {key: old[key] for key in (
+                "phraseFingerprintSha256", "canDoSegmentId",
+                "canDoFingerprintSha256", "semanticStatus", "reviewRevision",
+            )}
+            if approval is not None and _exact_can_do_copy_transition(
+                approval, decision, current_segments
+            ):
+                expected["canDoFingerprintSha256"] = approval["canDoFingerprintSha256"]
+            if approval != expected:
+                raise ValueError(f"smalltalk {phrase_id!r} has no matching historical approval")
+            decision["reviewRevision"] = old["reviewRevision"]
+            used_approvals.add(phrase_id)
             continue
         if old is not None and _same_smalltalk_decision(old, decision):
             decision["reviewRevision"] = old["reviewRevision"]

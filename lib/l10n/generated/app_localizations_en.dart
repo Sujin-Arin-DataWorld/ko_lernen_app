@@ -2884,9 +2884,6 @@ class AppL10nEn extends AppL10n {
   String get scenariosListTitle => 'Scenarios';
 
   @override
-  String get scenariosListSubtitle => 'Practise real-life situations';
-
-  @override
   String scenariosCardMeta(int xp) {
     return '5 to 7 minutes · +$xp XP';
   }
@@ -11416,4 +11413,82 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get practiceHistoryStart => 'Practise Smalltalk with the Hahoe mask';
+
+  @override
+  String get personaMeetPeopleTitle => 'Meet people';
+
+  @override
+  String get personaMeetPeopleSubtitle =>
+      'Get to know eleven people and find a conversation with them.';
+
+  @override
+  String personaOpenProfile(String name) {
+    return 'Meet $name';
+  }
+
+  @override
+  String get personaInterests => 'Interests';
+
+  @override
+  String get personaConnections => 'People in their life';
+
+  @override
+  String personaTalkWith(String name) {
+    return 'Talk with $name';
+  }
+
+  @override
+  String personaPlayRole(String name) {
+    return 'Play $name’s role';
+  }
+
+  @override
+  String get personaListen => 'Listen to the conversation';
+
+  @override
+  String personaYourRole(String name) {
+    return 'Your role in this scene: $name';
+  }
+
+  @override
+  String personaConversationsWith(String name) {
+    return 'Conversations with $name';
+  }
+
+  @override
+  String personaLearnerRoles(String name) {
+    return 'Scenes where you play $name';
+  }
+
+  @override
+  String get personaLearnerRolesHint =>
+      'Here you take this role and speak with someone else.';
+
+  @override
+  String get personaNoConversations =>
+      'A conversation with this person is being prepared.';
+
+  @override
+  String get personaListeningUnavailable =>
+      'The listening lesson for this scene is being prepared.';
+
+  @override
+  String get scenariosLevelFilter => 'Language level';
+
+  @override
+  String get scenariosChooseTopic => 'Choose a topic';
+
+  @override
+  String get scenariosChangeTopic => 'Choose another topic';
+
+  @override
+  String scenariosConversationCount(int count) {
+    return '$count conversations';
+  }
+
+  @override
+  String get scenariosOneConversation => '1 conversation';
+
+  @override
+  String get personaMeetPeopleCompactSubtitle => '11 profiles · Talk & listen';
 }

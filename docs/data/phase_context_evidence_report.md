@@ -11,11 +11,11 @@
 | 레벨 | Phase 문법 요구 | 원문 근거 확인 | 기존 원문 근거가 있는 요구 | 신규 원문으로 확인한 요구 | 산출 전체 의미 |
 |---|---:|---:|---:|---:|---|
 | A1 | 46 | 46 | 23 | 23 | 미검증 |
-| A2 | 50 | 50 | 22 | 28 | 미검증 |
+| A2 | 50 | 48 | 20 | 28 | 미검증 |
 | B1 | 68 | 68 | 0 | 68 | 미검증 |
-| B2 | 69 | 69 | 7 | 69 | 미검증 |
+| B2 | 69 | 69 | 6 | 69 | 미검증 |
 | C1 | 59 | 59 | 6 | 59 | 미검증 |
-| C2 | 64 | 64 | 5 | 64 | 미검증 |
+| C2 | 64 | 64 | 4 | 64 | 미검증 |
 
 기존·신규 근거가 함께 있는 요구는 두 열에 각각 나타난다. 기존 근거 미검증은 신규 콘텐츠가 없다는 뜻이 아니다. 제외 후보는 정확한 형태·의미가 다른 경우로 따로 남긴다. 문법 카드 대응 오류는 기존 매트릭스의 검수된 대응표를, 실제 실행 경로는 목표 연결 보고서를 함께 확인한다.
 
@@ -69,12 +69,12 @@
 | KP04 | G1:-겠- | 1 | 0 | 1 | 미검증 |
 | KP05 | G2:-으면 | 1 | 0 | 0 | 미검증 |
 | KP05 | G2:-거나 | 1 | 0 | 0 | 미검증 |
-| KP05 | G2:이나 | 1 | 0 | 1 | 미검증 |
+| KP05 | G2:이나 | 1 | 0 | 0 | 미검증 |
 | KP05 | G2:마다 | 1 | 0 | 1 | 미검증 |
 | KP05 | G2:밖에 | 1 | 0 | 0 | 미검증 |
 | KP05 | G2:처럼 | 1 | 0 | 0 | 미검증 |
 | KP05 | G2:-어도 되다 | 1 | 0 | 0 | 미검증 |
-| KP05 | G2:-지 말다 | 1 | 0 | 0 | 미검증 |
+| KP05 | G2:-지 말다 | 0 | 0 | 0 | 미검증 |
 | KP05 | G2:-어 주다 | 1 | 0 | 0 | 미검증 |
 | KP06 | G2:-는2 | 1 | 0 | 0 | 미검증 |
 | KP06 | G2:-은2 | 1 | 0 | 0 | 미검증 |
@@ -87,7 +87,7 @@
 | KP06 | G2:-은 지2 | 1 | 0 | 0 | 미검증 |
 | KP06 | G2:-은 적이 있다 | 1 | 0 | 1 | 미검증 |
 | KP06 | G2:-어 보다 | 1 | 0 | 0 | 미검증 |
-| KP06 | G2:-으면서 | 1 | 0 | 0 | 미검증 |
+| KP06 | G2:-으면서 | 0 | 0 | 0 | 미검증 |
 | KP06 | G2:-다가1(1) | 1 | 0 | 0 | 미검증 |
 | KP06 | G1:-고 있다 | 1 | 0 | 0 | 미검증 |
 | KP07 | G2:-는데1 | 1 | 0 | 0 | 미검증 |
@@ -217,7 +217,7 @@
 | KP16 | G4:-든지2 | 1 | 0 | 0 | 미검증 |
 | KP16 | G4:이든 | 1 | 0 | 0 | 미검증 |
 | KP16 | G4:이나마 | 1 | 0 | 0 | 미검증 |
-| KP16 | G4:이라도 | 2 | 0 | 0 | 미검증 |
+| KP16 | G4:이라도 | 1 | 0 | 0 | 미검증 |
 | KP16 | G4:이면 | 1 | 0 | 0 | 미검증 |
 | KP16 | G4:치고 | 1 | 0 | 0 | 미검증 |
 | KP16 | G4:-는 한 | 1 | 0 | 0 | 미검증 |
@@ -247,7 +247,7 @@
 | KP18 | G4:마저 | 1 | 0 | 0 | 미검증 |
 | KP18 | G4:이야 | 1 | 0 | 0 | 미검증 |
 | KP18 | G4:커녕 | 1 | 0 | 0 | 미검증 |
-| KP18 | G4:-을 따름이다 | 1 | 0 | 1 | 미검증 |
+| KP18 | G4:-을 따름이다 | 1 | 0 | 0 | 미검증 |
 | KP18 | G4:-고자 | 1 | 0 | 0 | 미검증 |
 | KP18 | G4:-고도 | 1 | 0 | 0 | 미검증 |
 | KP18 | G4:-고 들다 | 1 | 0 | 0 | 미검증 |
@@ -339,7 +339,7 @@
 | KP27 | G6:-으려도 | 1 | 0 | 1 | 미검증 |
 | KP27 | G6:-을라치면 | 1 | 0 | 0 | 미검증 |
 | KP27 | G6:-을 바에 | 1 | 0 | 0 | 미검증 |
-| KP27 | G4:-더라도 | 2 | 0 | 0 | 미검증 |
+| KP27 | G4:-더라도 | 1 | 0 | 0 | 미검증 |
 | KP28 | G6:이라고2 | 1 | 0 | 0 | 미검증 |
 | KP28 | G6:이라고는 | 1 | 0 | 0 | 미검증 |
 | KP28 | G6:깨나 | 1 | 0 | 0 | 미검증 |
@@ -414,17 +414,14 @@
 - KP04 / G1:-어서 / rejected / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/22/dialog/8/ko` — “다 해서 만 천 원이에요.”. 합계를 제시하는 다 해서이지 원인·결과 설명이 아니다. 표면 문자열로 해당 Phase의 이유 제시를 충족시키지 않는다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변.
 - KP05 / G2:-으면 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/21/dialog/3/ko` — “두 봉지 사면 좀 싸게 해 주실 수 있어요?”. 두 봉지 구매라는 조건으로 할인을 문의하고 다음 응답이 그 조건의 가격을 제시한다. 조건만으로 이미 구매·할인을 완료한 것으로 세지 않는다.
 - KP05 / G2:-어도 되다 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/8/dialog/0/ko` — “이 사진 올려도 돼?”. 사진 게시 허가를 묻는다. 첫 사진은 상대가 꺼리고 다음 사진만 허용하므로 모든 사진에 대한 허가로 일반화하지 않는다.
-- KP05 / G2:-지 말다 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/23/dialog/3/ko` — “근데 한 손으로 드리지 말고 두 손으로 드려.”. 한 손으로 드리는 행동을 금지하고 두 손 대안을 제시한다. 드리지 말고에 해당 문법의 실제 부정 요청이 있다.
 - KP05 / G2:-어 주다 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/8/dialog/5/ko` — “올리기 전에 물어봐 줘서 고마워.”. 사진 속 당사자를 위해 먼저 질문한 행동에 감사를 표현한다. 도움을 준 사람과 받은 사람의 역할을 바꾸지 않는다.
 - KP05 / G2:마다 / rejected / legacy_scenario_or_media: `assets/data/media_phrases.json/phrases/116/korean` — “월세 납부일은 매달 말이에요.”. 매달의 반복 의미는 있지만 명사 뒤 마다의 원문 형태는 없다. 의미 유사성을 정확한 형태 용례로 세지 않는다.
-- KP05 / G2:이나 / rejected / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/20/dialog/2/ko` — “여권하고 외국인등록증 좀 보여 주세요.”. 하고로 두 서류를 요구한다. 선택을 나타내는 이나가 아니므로 한 서류만으로 충분하다고 바꾸면 요구가 달라진다.
 - KP06 / G2:-는2 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/4/dialog/4/ko` — “좋아하는 드라마 있어요?”. 좋아하는이 드라마를 꾸미는 실제 동사 관형절이다. 드라마가 누군가를 좋아한다는 행위자 역할로 뒤집지 않는다.
 - KP06 / G2:-은3 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/0/dialog/4/ko` — “큰 사이즈는 이 색이 없어요.”. 큰이 사이즈의 성질을 꾸민다. 과거에만 컸다는 뜻의 동사 과거 관형형으로 읽지 않는다.
 - KP06 / G2:-기 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/5/dialog/4/ko` — “혼자 가기 좀 어려워.”. 가기라는 행동 명사형이 어렵다는 평가의 대상이다. 특정 인물이 어렵다고 한 것으로 바꾸지 않는다.
 - KP06 / G2:-을 때 / accepted / legacy_scenario_or_media: `assets/data/media_phrases.json/phrases/65/korean` — “스트레스 받을 때 노래 들어”. 스트레스를 받는 상황과 노래 듣는 시점을 연결한 짧은 실제 문구다. 지속 기간이나 전체 대화 수행 증거는 아니다.
 - KP06 / G2:-은 지2 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/4/dialog/0/ko` — “한국에 온 지 얼마나 됐어요?”. 한국 도착 이후 경과 시간을 묻고 다음 응답이 세 달이라고 답한다. 현재 오고 있는 동작이나 세 달 내내 이동한 뜻이 아니다.
 - KP06 / G2:-어 보다 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/11/dialog/1/ko` — “한 번 다시 찍어 보세요.”. 직원이 작동하지 않는 카드를 다시 시도해 보도록 권한다. 다음 응답은 재시도해도 실패했으므로 권유를 성공 완료로 세지 않는다.
-- KP06 / G2:-으면서 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/23/dialog/1/ko` — “웃으면서 인사하면 돼.”. 웃기와 인사가 같은 사람의 동시 행동으로 제시된다. 웃은 다음에만 인사하라는 순서로 바꾸지 않는다.
 - KP06 / G1:-고 있다 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/4/dialog/5/ko` — “‘봄밤’을 보고 있어요.”. 요즘 드라마를 본다는 대화 속 지속·진행 활동이다. 가입 이후 경과 기간을 나타내는 표현과 구분한다.
 - KP06 / G2:-은 적이 있다 / rejected / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/4/dialog/0/ko` — “한국에 온 지 얼마나 됐어요?”. 과거 도착을 포함하지만 묻는 문법은 경과 시간 -은 지이다. 경험 유무의 -은 적이 있다 형태가 없으므로 서로 바꾸지 않는다.
 - KP07 / G2:-는데1 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/24/dialog/2/ko` — “오전 반이랑 저녁 반이 있는데 어느 게 편하세요?”. 가능한 반을 배경으로 알려 주고 선호를 묻는다. 여기의 -는데는 감탄 종결이 아니라 다음 질문으로 이어지는 연결이다.
@@ -436,10 +433,10 @@
 - KP07 / G2:-기로 하다 / rejected / legacy_scenario_or_media: `assets/data/media_phrases.json/phrases/118/korean` — “이사 날짜를 다음 토요일로 정했어요.”. 결정 의미는 정하다라는 어휘로 표현됐고 -기로 하다 형태는 없다. 실제 결정을 해당 문법의 정확한 용례로 바꾸지 않는다.
 - KP07 / G2:-을 수밖에 없다 / rejected / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/10/dialog/2/ko` — “다음 버스는 내일 아침이야.”. 버스가 없다는 제약은 있지만 다음에는 택시를 찾아보자고 한다. 정확한 수밖에 없다 형태도 없고 걷기만 가능하다고 단정할 문맥도 아니다.
 - KP07 / G2:-을까 보다 / rejected / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/26/dialog/5/ko` — “수진이한테도 연락해 볼까?”. 연락 시도의 -어 보다와 제안 -을까의 결합이다. 잠정 의도의 -을까 보다와 어순·기능이 달라 같은 문법으로 세지 않는다.
-- KP08 / G2:께 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/23/dialog/0/ko` — “부모님께 뭐라고 인사해야 돼?”. 인사를 받는 높임 대상이 부모님이다. 부모님이 질문이나 인사의 발신자가 된다고 바꾸지 않는다.
+- KP08 / G2:께 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/23/dialog/0/ko` — “수진아, 나 좀 떨려. 추석이라 부모님께 뭐라고 인사하면 좋을까?”. 부모님께는 인사하는 행위의 높임을 받는 수신자다. 종결형은 친구 사이 반말이지만, 문장 속 부모님을 높이는 수신자 조사 께의 기능은 그대로 유지된다. 최초 검수: Astra; 현재 원문 재대조: Codex (MODEL_QA_PASS, 2026-10-03).
 - KP08 / G2:-네 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/18/dialog/3/ko` — “여기는 12B네요.”. 좌석 번호를 잘못 봤다는 설명 후 현재 좌석을 새로 확인하는 반응이다. 좌석을 바꾸라는 지시 자체와 구별한다.
-- KP08 / G2:-는군 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/22/dialog/5/ko` — “아, 그렇군요.”. 분리수거 요일 설명을 듣고 새로 알게 된 점을 받아들이는 -군요 활용이다. 요일을 새로 지시하는 발화가 아니다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변.
-- KP08 / G2:-지 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/22/dialog/0/ko` — “안녕하세요. 이사 오셨죠?”. 막 이사한 상황을 확인하는 -지요 축약형이다. 높임을 포함한 해요체 수용 예이고 합의된 친구 반말 산출을 인증하지 않는다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변.
+- KP08 / G2:-는군 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/22/dialog/5/ko` — “아, 그렇군요.”. 분리수거 요일 설명을 듣고 새로 알게 된 점을 받아들이는 -군요 활용이다. 요일을 새로 지시하는 발화가 아니다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변. 최초 검수: Astra; 현재 원문 재대조: Codex (MODEL_QA_PASS, 2026-10-03).
+- KP08 / G2:-지 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/22/dialog/0/ko` — “안녕하세요. 이사 오셨죠?”. 막 이사한 상황을 확인하는 -지요 축약형이다. 높임을 포함한 해요체 수용 예이고 합의된 친구 반말 산출을 인증하지 않는다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변. 최초 검수: Astra; 현재 원문 재대조: Codex (MODEL_QA_PASS, 2026-10-03).
 - KP08 / G2:-어 있다 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/12/dialog/3/ko` — “상자에 제 이름이 적혀 있어요.”. 이름이 쓰인 뒤 유지되는 결과 상태가 배송 상자의 소유자 확인 근거다. 쓰는 동작이 진행 중인 것으로 읽지 않는다.
 - KP08 / G2:-는데2 / rejected / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/3/dialog/1/ko` — “어? 다시 보냈는데요.”. 앞말의 첨부 부재에 맞서 발송했다고 대응하는 문맥이다. 감탄형의 긍정적 놀라움 요구를 이 문장만으로 충족했다고 하지 않는다.
 - KP08 / G2:-을 것1 / rejected / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/15/dialog/0/ko` — “십 분쯤 늦을 것 같아.”. 늦을 것 같다는 유보적 추정이다. 공지의 축약 명령·지시인 -을 것1으로 연결하면 화행이 달라진다.
@@ -583,13 +580,11 @@
 - KP14 / G4:-는지 / accepted / legacy_scenario_or_media: `assets/data/scenarios_b2.json/scenarios/4/dialog/2/ko` — “어떤 메뉴가 남아 있는지 알려 주시겠어요?”. 남은 메뉴라는 미지 정보를 내포 의문으로 묻는다. 먹은 것과 남은 것을 다음 발화가 구분한다. 기존 대화·미디어의 수용 용례 여부를 확인한 것이며 산출 평가·자유 숙달의 근거가 아니다.
 - KP15 / G2:-어 있다 / accepted / legacy_scenario_or_media: `assets/data/media_phrases.json/phrases/124/korean` — “임대료 인상 통지에 계산 근거가 빠져 있었습니다.”. 계산 근거가 누락된 결과 상태를 회고하며 진행 중인 행위가 아니다. 기존 대화·미디어의 수용 용례 여부를 확인한 것이며 산출 평가·자유 숙달의 근거가 아니다.
 - KP16 / G4:-더라도 / accepted / legacy_scenario_or_media: `assets/data/scenarios_b2.json/scenarios/20/dialog/6/ko` — “차례를 놓치더라도 먼저 찾으러 가자.”. 차례 상실 가능성을 양보해도 지갑을 먼저 찾자는 제안을 유지한다. 기존 대화·미디어의 수용 용례 여부를 확인한 것이며 산출 평가·자유 숙달의 근거가 아니다.
-- KP16 / G4:이라도 / accepted / legacy_scenario_or_media: `assets/data/scenarios_b2.json/scenarios/23/dialog/7/ko` — “기상 상황에도 불구하고 오늘 안에 다른 항공사 편으로라도 갈 방법이 있는지 궁금합니다.”. 다른 항공사 편이라는 차선 수단에도 의향이 있다는 조사 결합 용례다. 뒤의 좌석 확인 약속은 실제 탑승 보증이 아니다. 기존 대화·미디어의 수용 용례 여부를 확인한 것이며 산출 평가·자유 숙달의 근거가 아니다.
 - KP17 / G4:-는 줄 / accepted / legacy_scenario_or_media: `assets/data/scenarios_b2.json/scenarios/10/dialog/1/ko` — “통화 가능한 구역인 줄 알았는데 표시를 제가 못 봤어요.”. 통화 가능하다고 잘못 알았던 믿음을 정정하며 통화 구역은 뒤의 다른 장소로 확인된다. 기존 대화·미디어의 수용 용례 여부를 확인한 것이며 산출 평가·자유 숙달의 근거가 아니다.
 - KP17 / G4:-더라 / accepted / legacy_scenario_or_media: `assets/data/scenarios_b2.json/scenarios/9/dialog/1/ko` — “솔직히 직원한테 춤춰 달라고 할 때는 내가 다 민망하더라.”. 방송을 본 화자가 자신이 느낀 민망함을 회고한다. 직원의 실제 동의를 확정하지 않는다. 기존 대화·미디어의 수용 용례 여부를 확인한 것이며 산출 평가·자유 숙달의 근거가 아니다.
 - KP18 / G4:까지2 / accepted / legacy_scenario_or_media: `assets/data/media_phrases.json/phrases/125/korean` — “교통비까지 포함하니 월 생활비가 예상보다 컸습니다.”. 교통비도 추가로 포함한 계산의 강조이며 시간 끝점이 아니다. 전 지출 항목의 전수성은 주장하지 않는다. 기존 대화·미디어의 수용 용례 여부를 확인한 것이며 산출 평가·자유 숙달의 근거가 아니다.
 - KP18 / G4:-나 싶다 / rejected / legacy_scenario_or_media: `assets/data/scenarios_b2.json/scenarios/20/dialog/5/ko` — “잠깐, 지갑이 없어. 아까 커피 마신 자리에 두고 왔나 봐.”. 이 원문은 추측 -나 보다이며 -나 싶다 용례는 없다. 뜻이 비슷하다고 요구 형태의 근거로 바꾸지 않는다. 기존 대화·미디어의 수용 용례 여부를 확인한 것이며 산출 평가·자유 숙달의 근거가 아니다.
-- KP17 / G4:-는대2 / rejected / legacy_scenario_or_media: `assets/data/scenarios_b2.json/scenarios/22/dialog/1/ko` — “지난주에 제출한 이의신청이 기각됐다는 문자를 받아서 다시 연락드렸습니다.”. -다는은 문자를 수식하는 인용 관형형이다. 축약 전언 종결 -대요의 실제 용례는 아니다. 기존 대화·미디어의 수용 용례 여부를 확인한 것이며 산출 평가·자유 숙달의 근거가 아니다.
-- KP18 / G4:-을 따름이다 / rejected / legacy_scenario_or_media: `assets/data/scenarios_b2.json/scenarios/24/dialog/6/ko` — “네, 시간이 조금 더 걸릴 뿐이고 효과는 똑같습니다.”. 원문은 제한 표현 -뿐이다이며 -을 따름이다의 형태 용례가 아니다. 약물 효과 주장의 타당성을 검수한 것으로도 사용하지 않는다. 기존 대화·미디어의 수용 용례 여부를 확인한 것이며 산출 평가·자유 숙달의 근거가 아니다.
+- KP17 / G4:-는대2 / rejected / legacy_scenario_or_media: `assets/data/scenarios_b2.json/scenarios/22/dialog/1/ko` — “지난주에 제출한 이의신청이 기각됐다는 문자를 받아서 다시 연락드렸습니다.”. -다는은 문자를 수식하는 인용 관형형이다. 축약 전언 종결 -대요의 실제 용례는 아니다. 기존 대화·미디어의 수용 용례 여부를 확인한 것이며 산출 평가·자유 숙달의 근거가 아니다. 최초 검수: Astra; 현재 원문 재대조: Codex (MODEL_QA_PASS, 2026-10-03).
 - KP19 / G5:-다4 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp19.json/tasks/0/practice/sourceKo` — “조사 보고서: 이 연구는 두 지역의 이용 기록을 비교한다.”. 연구 범위를 문어 평서문으로 서술하며 독자에게 명령하지 않는다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP19 / G5:-기에 앞서(서) / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp19.json/tasks/1/practice/sourceKo` — “자료를 공개하기에 앞서 이용 조건을 확인했다.”. 공개보다 먼저 조건을 확인하는 준비 순서다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP19 / G5:-는 가운데 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp19.json/tasks/2/practice/sourceKo` — “논의가 계속되는 가운데 새 자료가 공개됐다.”. 진행 중인 논의를 배경으로 새 자료가 공개된다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
@@ -650,20 +645,20 @@
 - KP24 / G5:-길래 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp24.json/tasks/10/practice/sourceKo` — “아무도 답하지 않길래 다시 물었어요. 왜 침묵했는지는 몰라요.”. 관찰된 무응답을 재질문 계기로 삼고 속내는 미상으로 둔다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP24 / G1:-으시- / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp24.json/tasks/11/practice/sourceKo` — “선생님은 내일 오신대. 그때 다시 여쭤보자.”. 친구에게 친밀체로 말하면서 제삼자 선생님의 주체 높임과 전언을 유지한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP19 / G2:-어 있다 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/2/dialog/2/ko` — “자막은 ‘그렇습니다’로 끝나 있네.”. 편집된 자막의 유지되는 결과 상태다. 뒤 대화는 전언과 낮은 확신이 자막에서 사라졌음을 지적한다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다.
-- KP19 / G5:-었던 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/24/dialog/3/ko` — “지원자 중 한 명이 예전에 같이 연구했던 후배입니다.”. 과거에 함께 연구한 완료 경험을 회고하는 관형형이다. 심사 제외는 해당 지원자 한 명이며 다른 네 건과 구별한다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다.
-- KP20 / G2:-는 것 같다 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/29/dialog/2/ko` — “응, 애정이 있으니까 그런 것도 괜찮다고 생각한 것 같아.”. 촬영자의 생각을 직접 확인하지 않고 추측하는 은 것 같다 변이다. 이어지는 사생활 침해 반론을 고려하면 촬영 허락이나 안전성을 인정하는 말이 아니다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다.
-- KP20 / G5:-기가 쉽다 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/29/dialog/5/ko` — “이슈가 커지는 과정에서 그런 조심스러운 목소리가 배제되기 쉬워.”. 이슈 확대 상황에서 배제될 경향을 말하는 기 쉽다 용례이며 실행 편의의 의미가 아니다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다.
+- KP19 / G5:-었던 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/24/dialog/3/ko` — “지원자 중 한 명이 예전에 같이 연구했던 후배입니다.”. 과거에 함께 연구한 완료 경험을 회고하는 관형형이다. 심사 제외는 해당 지원자 한 명이며 다른 네 건과 구별한다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다. 최초 검수: Astra; 현재 원문 재대조: Codex (MODEL_QA_PASS, 2026-10-03).
+- KP20 / G2:-는 것 같다 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/29/dialog/2/ko` — “응, 애정이 있으니까 그런 것도 괜찮다고 생각한 것 같아.”. 촬영자의 생각을 직접 확인하지 않고 추측하는 은 것 같다 변이다. 이어지는 사생활 침해 반론을 고려하면 촬영 허락이나 안전성을 인정하는 말이 아니다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다. 최초 검수: Astra; 현재 원문 재대조: Codex (MODEL_QA_PASS, 2026-10-03).
+- KP20 / G5:-기가 쉽다 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/29/dialog/5/ko` — “이슈가 커지는 과정에서 그런 조심스러운 목소리가 배제되기 쉬워.”. 이슈 확대 상황에서 배제될 경향을 말하는 기 쉽다 용례이며 실행 편의의 의미가 아니다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다. 최초 검수: Astra; 현재 원문 재대조: Codex (MODEL_QA_PASS, 2026-10-03).
 - KP22 / G5:-은 나머지 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/23/dialog/3/ko` — “화난 고객을 진정시키느라 회의 시간을 넘긴 나머지 다른 업무가 밀린 적도 많습니다.”. 정해진 시간을 넘긴 결과 다른 업무가 지연된 누적 경험이며 남은 수량을 뜻하지 않는다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다.
-- KP24 / G5:-네2 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/28/dialog/0/ko` — “오랜만이다. 요즘 통 연락이 안 됐네.”. 오랜만의 만남에서 최근 연락 단절을 알아차리는 평가다. 뒤에 서운함과 사정 설명이 이어져 말끝만으로 기쁨을 단정하지 않는다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다.
+- KP24 / G5:-네2 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/28/dialog/0/ko` — “오랜만이다. 요즘 통 연락이 안 됐네.”. 오랜만의 만남에서 최근 연락 단절을 알아차리는 평가다. 뒤에 서운함과 사정 설명이 이어져 말끝만으로 기쁨을 단정하지 않는다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다. 최초 검수: Astra; 현재 원문 재대조: Codex (MODEL_QA_PASS, 2026-10-03).
 - KP24 / G5:-네2 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/2/dialog/2/ko` — “자막은 ‘그렇습니다’로 끝나 있네.”. 눈앞 자막의 말끝을 알아차린 발화다. 이후 출처와 확신 손실을 논의하며 감탄을 무조건 긍정 감정으로 읽지 않는다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다.
 - KP19 / G5:-기에 앞서(서) / rejected / legacy_scenario_or_media: `assets/data/media_phrases.json/phrases/96/korean` — “제도를 바꾸기 전에 지원자와 채용 담당자를 모두 이해관계자로 불러야 합니다.”. 원문은 기 전에이며 기에 앞서의 정확한 형태 용례가 아니다. 유사한 선행 관계만으로 해당 형태를 충족시키지 않는다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다.
 - KP19 / G5:-는 동시에 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/7/dialog/2/ko` — “사람이 많이 찾게 된 성과와 오래 있던 가게가 밀려나는 문제는 동시에 일어날 수 있습니다.”. 원문은 명사 병렬 뒤 부사 동시에이며 는 동시에라는 문법 연결의 실제 형태가 아니다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다.
-- KP21 / G5:-느니1 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/21/dialog/3/ko` — “불확실한 수치를 확정된 것처럼 보여줄 바에야 범위로 제시하는 게 낫습니다.”. 바에야 비교 용례로 느니의 실제 형태가 아니다. 비교 기능의 재사용 가능성과 형태 충족을 나눈다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다.
+- KP21 / G5:-느니1 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/21/dialog/3/ko` — “불확실한 수치를 확정된 것처럼 보여줄 바에야 범위로 제시하는 게 낫습니다.”. 바에야 비교 용례로 느니의 실제 형태가 아니다. 비교 기능의 재사용 가능성과 형태 충족을 나눈다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다. 최초 검수: Astra; 현재 원문 재대조: Codex (MODEL_QA_PASS, 2026-10-03).
 - KP22 / G5:-기에 따라 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/26/dialog/5/ko` — “네, 연령대에 따라 효과가 달라질 수 있어서 그 부분도 밝혀야 합니다.”. 명사 연령대에 따라이며 생각하기에 따라처럼 동사 명사화 방식에 따른 변화 용례가 아니다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다.
-- KP23 / G5:-더라고 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/29/dialog/0/ko` — “이 영상 봤어? 사생활 부분까지 다 찍혀서 퍼졌더라.”. 원문은 더라 종결이며 더라고의 정확한 형태 용례가 아니다. 회고 기능 유사성과 형태 연결을 분리한다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다.
+- KP23 / G5:-더라고 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/29/dialog/0/ko` — “이 영상 봤어? 사생활 부분까지 다 찍혀서 퍼졌더라.”. 원문은 더라 종결이며 더라고의 정확한 형태 용례가 아니다. 회고 기능 유사성과 형태 연결을 분리한다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다. 최초 검수: Astra; 현재 원문 재대조: Codex (MODEL_QA_PASS, 2026-10-03).
 - KP24 / G5:따라 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/26/dialog/5/ko` — “네, 연령대에 따라 효과가 달라질 수 있어서 그 부분도 밝혀야 합니다.”. 기준에 따라 달라짐이며 오늘따라처럼 특정 시점이 유독 두드러지는 조사 용례가 아니다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다.
-- KP24 / G5:-거라 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/29/dialog/1/ko` — “봤어. 그런데 그거 팬이 몰래 찍은 거라며.”. 찍은 것이라는 명사화·전언 결합이며 들어가거라 같은 명령 종결이 아니다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다.
-- KP24 / G1:-으시- / rejected / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/24/dialog/4/ko` — “그렇다면 그 지원자 심사에서는 빠지시는 게 좋겠습니다.”. 시 형태는 있지만 여기서 높이는 주체는 대화 상대다. KP24의 친밀한 청자 문체 속 제삼자 주체 높임 보존을 이 구절만으로 충족했다고 하지 않는다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다.
+- KP24 / G5:-거라 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/29/dialog/1/ko` — “봤어. 그런데 그거 팬이 몰래 찍은 거라며.”. 찍은 것이라는 명사화·전언 결합이며 들어가거라 같은 명령 종결이 아니다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다. 최초 검수: Astra; 현재 원문 재대조: Codex (MODEL_QA_PASS, 2026-10-03).
+- KP24 / G1:-으시- / rejected / legacy_scenario_or_media: `assets/data/scenarios_c1.json/scenarios/24/dialog/4/ko` — “그렇다면 그 지원자 심사에서는 빠지시는 게 좋겠습니다.”. 시 형태는 있지만 여기서 높이는 주체는 대화 상대다. KP24의 친밀한 청자 문체 속 제삼자 주체 높임 보존을 이 구절만으로 충족했다고 하지 않는다. 기존 대화·미디어의 해당 수용 요구를 검수한 것이며 산출 평가나 자유 숙달을 인정한 것이 아니다. 최초 검수: Astra; 현재 원문 재대조: Codex (MODEL_QA_PASS, 2026-10-03).
 - KP25 / G6:-는다는 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp25.json/tasks/0/practice/sourceKo` — “오차가 모두 사라진다는 주장은 아직 검증되지 않았다.”. 명제를 주장의 내용으로 수식하고 미검증 상태를 명시한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP25 / G6:-이라야 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp25.json/tasks/1/practice/sourceKo` — “등록 연구원이라야 신청할 수 있다. 신청 후 별도 심사를 받는다.”. 등록이 신청 필요조건이며 별도 심사가 있어 승인 충분조건이 아니다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
 - KP25 / G6:-되 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp25.json/tasks/2/practice/sourceKo` — “요약은 공개하되 식별 정보는 제외한다.”. 공개 조치와 식별 정보 제외 단서가 함께 성립한다. 신규 Phase 자료의 수용 용례이며 기존 콘텐츠 재사용이나 산출 숙달 근거로 소급하지 않는다.
@@ -781,13 +776,23 @@
 - KP08 / G1:-고 있다 / accepted / authored_phase_material: `tools/content_factory/cefr_matrix/phase_content/kp08.json/tasks/13/practice/sourceKo` — “직원이 창문을 닫고 있어요.”. 닫는 행위가 진행 중이며 이미 닫힌 결과 상태가 아니다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.
 - KP25 / G6:-되 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/2/dialog/4/ko` — “단일화하되”. 대외 보상 책임의 단일화는 유지하면서 내부 원인은 각각 추적한다는 제한·병행 조건이다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
 - KP25 / G6:-되 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/19/dialog/3/ko` — “정확히 쓰되”. 의무·처벌의 정확성을 유지하며 수정·도움 요청도 함께 안내하자는 단서다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
-- KP25 / G2:-기 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/27/dialog/3/ko` — “떠넘기기”. 책임 떠넘기기 행위를 명사화해 십상이다의 대상으로 삼는다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
+- KP25 / G2:-기 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/27/dialog/3/ko` — “떠넘기기”. 책임 떠넘기기 행위를 명사화해 십상이다의 대상으로 삼는다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다. 최초 검수: Astra; 현재 원문 재대조: Codex (MODEL_QA_PASS, 2026-10-03).
 - KP26 / G6:마는 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/11/dialog/1/ko` — “부분은 있지만”. 대조 의미가 있어도 지만은 마는과 다른 형식이므로 정확한 문법 용례로 세지 않는다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
 - KP27 / G6:-을망정 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/26/dialog/5/ko` — “남아 있었기에 망정이지”. 다행이라는 기에 망정이지 구성이다. 불리함을 감수하는 을망정 구성과 구별한다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
-- KP27 / G4:-더라도 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/20/dialog/4/ko` — “길다고 치더라도”. 기다림이 길다고 가정하더라도 기대가 사라지는 것은 아니라는 양보이다. 다고 치다 안에 실현된 더라도만 인정한다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
 - KP27 / G6:-으려도 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/19/dialog/0/ko` — “허위 신청을 줄이려면”. 줄이려면은 목표 달성의 조건이며 시도에도 불구한 장애를 뜻하는 으려도가 아니다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
 - KP29 / G6:-으리라 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/0/dialog/5/ko` — “기준이 필요하겠군요”. 겠군요로 결론을 받아들이는 발화이며 문어 예측·의지 으리라가 나오지 않는다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
 - KP30 / G6:-네1 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/28/dialog/2/ko` — “그 부분을 놓쳤네”. 해체 대화에서 뒤늦게 깨닫는 네이다. 하게체 종결 네1을 재사용한 근거가 아니다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
 - KP30 / G2:-네 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/28/dialog/2/ko` — “그 부분을 놓쳤네”. 친한 공동 대표 대화에서 상대의 말을 듣고 자신의 누락을 새로 깨닫는다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
 - KP30 / G1:-으시- / accepted / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/14/dialog/0/ko` — “찬성하십니까?”. 설문 청자를 찬성하다의 주어로 높이는 시가 격식 질문에 결합했다. 설문 평가 전제의 타당성을 인정하는 것은 아니다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
 - KP25 / G6:를 막론하고 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/29/dialog/3/ko` — “장르나 팬덤 규모를 불문하고”. 배제하지 않는 의미는 유사하지만 불문하고는 막론하고의 실제 형태 용례가 아니다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변.
+
+## 원문 수정으로 철회한 과거 근거
+
+아래 과거 검수는 이력으로만 보존하며 현재 수용 용례나 제외 후보 수에 포함하지 않는다.
+
+- KP05 / G2:-지 말다 / a2_w10_partner: SOURCE_SUPERSEDED (2026-10-03); 최초 검수: Astra.
+- KP05 / G2:이나 / a2_w10_money: SOURCE_SUPERSEDED (2026-10-03); 최초 검수: Astra.
+- KP06 / G2:-으면서 / a2_w10_partner: SOURCE_SUPERSEDED (2026-10-03); 최초 검수: Astra.
+- KP16 / G4:이라도 / b2_w10_travel: SOURCE_SUPERSEDED (2026-10-03); 최초 검수: Astra.
+- KP18 / G4:-을 따름이다 / b2_w10_health: SOURCE_SUPERSEDED (2026-10-03); 최초 검수: Astra.
+- KP27 / G4:-더라도 / c2_theme_park_date_reflection: SOURCE_SUPERSEDED (2026-10-03); 최초 검수: Astra.

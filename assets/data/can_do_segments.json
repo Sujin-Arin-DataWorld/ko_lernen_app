@@ -1947,7 +1947,7 @@
     {
       "id": "cluster_a2_plans_with_friend_v1",
       "level": "a2",
-      "revision": 10,
+      "revision": 11,
       "sourceSeedIds": [
         "seed_scenario_plans_with_friend_v1",
         "seed_grammar_grammar_a2_gentle_question_v1",
@@ -1990,7 +1990,9 @@
         "seed_cloze_cloze_a2_0276_v1",
         "seed_cloze_cloze_a2_0277_v1",
         "seed_grammar_grammar_b1_decision_v1",
-        "seed_grammar_grammar_a2_tentative_intention_v1"
+        "seed_grammar_grammar_a2_tentative_intention_v1",
+        "seed_scenario_a2_jun_game_time_change_v1",
+        "seed_scenario_a2_minho_weekend_cooking_plan_v1"
       ],
       "contentReferences": [
         {
@@ -2160,6 +2162,14 @@
         {
           "kind": "grammar",
           "id": "grammar_a2_tentative_intention"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_jun_game_time_change"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_minho_weekend_cooking_plan"
         }
       ]
     },
@@ -3131,7 +3141,7 @@
     {
       "id": "cluster_a2_subway_directions_v1",
       "level": "a2",
-      "revision": 10,
+      "revision": 11,
       "sourceSeedIds": [
         "seed_vocab_pack_a2_transport_v1",
         "seed_grammar_grammar_a2_only_negative_v1",
@@ -3151,7 +3161,8 @@
         "seed_grammar_grammar_b1_experience_v1",
         "seed_grammar_grammar_a2_no_choice_but_v1",
         "seed_scenario_jeju_bus_missed_v1",
-        "seed_grammar_grammar_a2_starting_point_v1"
+        "seed_grammar_grammar_a2_starting_point_v1",
+        "seed_scenario_a2_byeongcheol_walk_break_v1"
       ],
       "contentReferences": [
         {
@@ -3229,6 +3240,10 @@
         {
           "kind": "grammar",
           "id": "grammar_a2_starting_point"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_byeongcheol_walk_break"
         }
       ]
     },
@@ -15899,14 +15914,14 @@
       "level": "b2",
       "order": 9,
       "title": {
-        "ko": "약 부작용, 미리 확인하기",
-        "de": "Nebenwirkungen vorab abklären",
-        "en": "Checking medication side effects in advance"
+        "ko": "약 부작용, 복용 방법 확인하기",
+        "de": "Nebenwirkungen und Einnahme abklären",
+        "en": "Checking side effects and how to take a medication"
       },
       "canDo": {
-        "ko": "약 부작용, 미리 확인하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Nebenwirkungen vorab abklären“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Checking medication side effects in advance” by connecting appropriate Korean expressions."
+        "ko": "약 부작용, 복용 방법 확인하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Nebenwirkungen und Einnahme abklären“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Checking side effects and how to take a medication” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b2_precise_requests"
@@ -16099,14 +16114,14 @@
       "level": "b2",
       "order": 14,
       "title": {
-        "ko": "과태료 이의신청, 다시 접수하기",
-        "de": "Einspruch gegen das Bußgeld erneut einreichen",
-        "en": "Resubmitting an objection to a fine"
+        "ko": "과태료 이의신청, 절차 다시 확인하기",
+        "de": "Das Verfahren nach einem abgelehnten Bußgeld-Einspruch klären",
+        "en": "Clarifying the procedure after a rejected fine appeal"
       },
       "canDo": {
-        "ko": "과태료 이의신청, 다시 접수하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Einspruch gegen das Bußgeld erneut einreichen“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Resubmitting an objection to a fine” by connecting appropriate Korean expressions."
+        "ko": "과태료 이의신청, 절차 다시 확인하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Das Verfahren nach einem abgelehnten Bußgeld-Einspruch klären“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Clarifying the procedure after a rejected fine appeal” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b2_complaint"

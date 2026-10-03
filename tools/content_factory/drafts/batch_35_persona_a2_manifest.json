@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "batch": "35",
+  "status": "merged",
+  "provenance": {
+    "date": "2026-10-03",
+    "rights": "original",
+    "scope": "Approved eleven-persona plan and complete scenario/listening copy review, 2026-10-03: cooking, walking break, gaming time change.",
+    "jinReviewRequired": true,
+    "approval": {
+      "authority": "Jin",
+      "date": "2026-10-03",
+      "source": "Current chat 01a0ff31-3649-7a60-bc48-6239fac45a44; explicit review and promotion reply",
+      "scope": "All three scenario and listening drafts, proposed 6/5/6 quests, app integration and TTS synthesis/upload",
+      "ids": [
+        "a2_minho_weekend_cooking_plan",
+        "a2_byeongcheol_walk_break",
+        "a2_jun_game_time_change"
+      ]
+    },
+    "mergedAt": "2026-10-03"
+  },
+  "artifacts": [
+    {
+      "kind": "scenario",
+      "draft": "tools/content_factory/drafts/persona_a2_scenarios_20261003.json",
+      "review": "tools/content_factory/review/persona_a2_scenarios_20261003.csv",
+      "count": 3,
+      "levels": {
+        "a2": 3
+      }
+    }
+  ],
+  "recordCount": 3,
+  "questCount": 17,
+  "contentLinks": [
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_minho_weekend_cooking_plan",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_casual"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_byeongcheol_walk_break",
+      "courseUnitId": "a2_07_travel_repair",
+      "conceptIds": [
+        "concept_a2_travel_repair"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_jun_game_time_change",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_casual"
+      ],
+      "role": "assess"
+    }
+  ],
+  "backdrops": {
+    "a2_minho_weekend_cooking_plan": "home",
+    "a2_byeongcheol_walk_break": "directions",
+    "a2_jun_game_time_change": "home"
+  },
+  "listeningDraft": "tools/content_factory/drafts/persona_a2_listening_20261003.json",
+  "mergeOrder": [
+    "scenario + curriculum contentLinks + audit + exact authored listening append via integrate_scenario_batch.py",
+    "TTS exact pending manifest and verified missingCount=0 before launch"
+  ],
+  "nonMergeGuards": [
+    "Only the approved IDs and exact reviewed payloads may be promoted",
+    "TTS operates only on the exact pending manifest; verify missingCount=0"
+  ],
+  "planException": {
+    "status": "approved_by_user",
+    "originalQuestCounts": [
+      4,
+      4,
+      4
+    ],
+    "proposedQuestCounts": [
+      6,
+      5,
+      6
+    ],
+    "reason": "Current A2 roleplay corpus has one luecken and one diktat item. The unchanged ScenarioQuestStock minimum is five distinct payloads per engine and level; add one luecken and four diktat items grounded in the same authored dialogue, restoring existing Christian counterpart eligibility."
+  }
+}

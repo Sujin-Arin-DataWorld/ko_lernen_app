@@ -116,8 +116,8 @@
       "rules": [
         "R3"
       ],
-      "textSha256": "8def05629a34eb1dae9940b467785a69a67a776cc0d4ef71c9c2a9f8d7cd1318",
-      "reason": "꺼요 is the regular contraction of 끄다; the sleep suggestion supports the subsequent light-switching statement. Speaker undertaking is a contextual reading, not proved uniquely by KO alone."
+      "textSha256": "b148856e08a612d91863fc43c1a8b7543b0f401c5603434a8a5f83d906221ba9",
+      "reason": "꺼요 is the normal ㅡ-deletion form of 끄다. Korean and both targets state switching off the light in the present; no sleep plan or promise is inferred."
     },
     "vocab_a1_0619": {
       "rules": [
@@ -158,8 +158,8 @@
       "rules": [
         "R7"
       ],
-      "textSha256": "706ebeff4026bf23549ff7777430f500a8e8d9e2b755f252cc6ab2ae156bed88",
-      "reason": "Taekwondo is a shared loanword. Present learning is preserved; EN I'm learning taekwondo is an optional naturalness improvement, not an R7 defect."
+      "textSha256": "b1dc3b80b945246cee2f24e7aaa410fb6007ed82ed774dba84dab1854cf18ed4",
+      "reason": "Taekwondo is a shared German/English loanword. The current examples preserve the present first-person learning activity; the identical gloss is not untranslated prose."
     },
     "vocab_a1_0688": {
       "rules": [
@@ -225,13 +225,6 @@
       "textSha256": "5d91cc5c1f23ff6ea0c9dc09899fbdb77ac63002e3665d3fec1f23234f1621a2",
       "reason": "들어와요 contracts 들어오다; motion into the room and friend are preserved. German Freund does not establish a supplied gender fact."
     },
-    "vocab_a1_0732": {
-      "rules": [
-        "R3"
-      ],
-      "textSha256": "d82e9627c3b08fdf965e5b8f3c35c1e5e0cddcb01692eb701c50d460c9d528a6",
-      "reason": "올라갈 contains the stem plus 관형사형 ㄹ; Andrea's ability, mountain and weekend are preserved."
-    },
     "vocab_a1_0740": {
       "rules": [
         "R3"
@@ -266,13 +259,6 @@
       ],
       "textSha256": "3f42842346845c92ab34314eb330030bf0ad32774f52fda8085d6a66243c1f55",
       "reason": "고파요 is the ㅡ-deletion form; missed lunch causing hunger is preserved."
-    },
-    "vocab_a1_0747": {
-      "rules": [
-        "R3"
-      ],
-      "textSha256": "b4ac2bd7fb57252eacdb33e94ae7f22055df559ccaa78de7c5d9560067a6d870",
-      "reason": "그래요 is the irregular form; shared opinion is rendered naturally rather than word-for-word."
     },
     "vocab_a1_0749": {
       "rules": [
@@ -320,8 +306,8 @@
       "rules": [
         "R8"
       ],
-      "textSha256": "775418d5b3e909d6ebd07bb1466d2dda09c5a5464a6b3b44bbf6a0ff2aa57e4a",
-      "reason": "안녕하세요? functions as a greeting, not an information question requiring literal question punctuation. Maya + hello preserves the greeting."
+      "textSha256": "3c7af906b703257df38dbcf94779d59765edb4688230527cbb1a25f659424114",
+      "reason": "안녕하세요? is the greeting addressed to Maya here, not an information question. Hallo, Maya! and Hi, Maya! preserve that greeting despite different punctuation."
     },
     "vocab_a2_0508": {
       "rules": [
@@ -385,6 +371,99 @@
       ],
       "textSha256": "080da9ce5e2b687e433d3c7006b1a7431ae7fd19df11b3887473e04ea7d92b10",
       "reason": "The German subordinate clause spells out the news that the speaker passed, which Korean compresses into 합격 소식에. The parents, emotion, outcome and information timing match; the 13-to-5 word count is a length heuristic false positive, not a meaning change."
+    },
+    "vocab_a1_0047": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "b635923bd513a30150223d45b1c09dec2c1b263303c78c7a1337d420b3bad9c5",
+      "reason": "The German separable verb plus formal address and article expands the same polite request to open the mouth. No symptom, diagnosis or reason is introduced."
+    },
+    "vocab_a1_0212": {
+      "rules": [
+        "R8"
+      ],
+      "textSha256": "31c8889be4b83341c183c60e3d17b34cdefd38e8b2355489c7e88ff5c61076ee",
+      "reason": "Darf ich mich zuerst vorstellen? is the German conventional introduction formula. Korean and English announce the same self-introduction; the punctuation difference does not create a separate permission authority."
+    },
+    "vocab_a1_0220": {
+      "rules": [
+        "R3",
+        "R4"
+      ],
+      "textSha256": "76cf5f43f4e65695ffcd9bd100e7cc54d6d9f428feb4198a31ab486fd4aeb3c5",
+      "reason": "물었어요 is the past form of the question sense of ㄷ-irregular 묻다. German needs the overt subject and nach dem Namen phrase; all three describe asking the name in the past."
+    },
+    "vocab_a1_0249": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "8104baff27dd55e829d58b27156a2e0701896907dd49e68ba7864f88e18a7952",
+      "reason": "수저 denotes spoon and chopsticks together, so English and German need two coordinated nouns and a request construction. Both preserve the same utensil request."
+    },
+    "vocab_a1_0257": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "c2272e40916d44e875ec3010e644e65641ef4a1c6db7dedf44e91a740f8c5371",
+      "reason": "The individual side plate requires a noun phrase in English. The first-person use of that plate matches the Korean example; the longer phrase is not another action."
+    },
+    "vocab_a1_0258": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "1bbfdb287d3342a2066fa398dd62848ae692d85a58dda9e5ef87be5bda464beb",
+      "reason": "The Korean compound 수저 expands to spoon and chopsticks in both targets. The present act of putting the utensils down is preserved."
+    },
+    "vocab_a1_0261": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "c91676475fc55cc18af5cccda8e02ba316e92105d28c2f55ce021fbc3f62767d",
+      "reason": "The revised English New Year bow phrase expands 세배. Both targets express the same first-person New Year bow, without adding an elder or a completed past event."
+    },
+    "vocab_a1_0267": {
+      "rules": [
+        "R3",
+        "R4"
+      ],
+      "textSha256": "50fc74a249876e44e5f7ba36f3dd28627000a2300a87418c6e20325ac3ff11a1",
+      "reason": "드려요 is the normal contracted form of 드리다. Both targets preserve the New Year bow offered to the elders; spelling out the cultural action and recipient expands the target word count."
+    },
+    "vocab_a1_0399": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "64c2cc0d793b5ef462454652a031f919e16af7aadfa29f3120ce40e43b818065",
+      "reason": "잠깐만요 is a polite request to wait a moment. The English and German moment-plus-please formulas naturally use more words without adding a waiting duration."
+    },
+    "vocab_a1_0422": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "592d9d60ea3ca055d6c1dad56a86b936077c09a70c6348ce80d1bf9e6b96113f",
+      "reason": "영수증을 확인해요 inserts the object particle and conjugates 확인하다 in the natural sentence. The same receipt-checking target is present after payment despite the absent literal noun-compound substring."
+    },
+    "vocab_a1_0431": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "bca3073627b23e4f9bde1b4dbae63817c3fa123b55412f052e0b053d56ff15b2",
+      "reason": "The revised Korean first-person foreign-person introduction and both targets identify the speaker as from another country. German requires a prepositional phrase; no study location, citizenship or additional action is asserted."
+    },
+    "vocab_a1_0667": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "038ada72652865389cd3fc5edb2ed86eb1ce1f6b19ac0e9b6f657d441da7937d",
+      "reason": "The cultural music term 가요 expands to Korean pop music in English. The same first-person listening action is preserved, with no extra time or participant."
+    },
+    "vocab_a1_0671": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "40a84f910aed751e14b043629ae0e257c4da38a53351004edde73db88f0b7d73",
+      "reason": "That person and the film-actor occupation require more separate words in English than 저분은 영화배우예요. The same person and occupation are preserved."
     }
   }
 }

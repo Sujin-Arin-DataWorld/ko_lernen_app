@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "sourcePack": "character-set-v3",
+  "approval": "User approved the eleven originals and bundled delivery in this conversation.",
+  "files": [
+    {
+      "characterId": "sujin",
+      "path": "assets/illustrations/personas/v3/sujin.png",
+      "bytes": 1936749,
+      "sha256": "60b0f18338a6efc940377d725ab41ecac9ebb1365b094e9f63fa58d71459015c",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "nativeBytesPreserved": true
+    },
+    {
+      "characterId": "christian",
+      "path": "assets/illustrations/personas/v3/christian.png",
+      "bytes": 2048373,
+      "sha256": "c19b6505130593fdad3f4506114e213a38529f8efe17eb9e58a224a0497c5272",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "nativeBytesPreserved": true
+    },
+    {
+      "characterId": "maya",
+      "path": "assets/illustrations/personas/v3/maya.png",
+      "bytes": 1966271,
+      "sha256": "7c229f106e750ddedf58f05f0626ca2defb30fd17aa8491f967756856d59e053",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "nativeBytesPreserved": true
+    },
+    {
+      "characterId": "hyuna",
+      "path": "assets/illustrations/personas/v3/hyuna.png",
+      "bytes": 1944111,
+      "sha256": "6de9257ddd6a49069ace126fb06c3ce44091c2f66f48118d7c45540ea438aa33",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "nativeBytesPreserved": true
+    },
+    {
+      "characterId": "andrea",
+      "path": "assets/illustrations/personas/v3/andrea.png",
+      "bytes": 2018243,
+      "sha256": "4b2456144f4228a9a3ecd9c76b2f878303b698b484df86db9de89931376b3e5f",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "nativeBytesPreserved": true
+    },
+    {
+      "characterId": "lena",
+      "path": "assets/illustrations/personas/v3/lena.png",
+      "bytes": 2065540,
+      "sha256": "00744ab82f07314f9091f6f8d5a3f0683ba3f289ddae5684c492a6e172e209cf",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "nativeBytesPreserved": true
+    },
+    {
+      "characterId": "daniel",
+      "path": "assets/illustrations/personas/v3/daniel.png",
+      "bytes": 2002309,
+      "sha256": "dce49e967e3024696b41aef91153152d5b3e751128d3257422ab76fd88abe4f1",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "nativeBytesPreserved": true
+    },
+    {
+      "characterId": "minho",
+      "path": "assets/illustrations/personas/v3/minho.png",
+      "bytes": 1928989,
+      "sha256": "fe8828ceb25306d80928d5e89afa3cd0ae9dc4dd849d0366ed1493f996a7aa49",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "nativeBytesPreserved": true
+    },
+    {
+      "characterId": "dongsun",
+      "path": "assets/illustrations/personas/v3/dongsun.png",
+      "bytes": 2071293,
+      "sha256": "54f59e190f5dc1d85bcf015f97c5ff410c26ee21add2586398dd20d1ff6a10d5",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "nativeBytesPreserved": true
+    },
+    {
+      "characterId": "byeongcheol",
+      "path": "assets/illustrations/personas/v3/byeongcheol.png",
+      "bytes": 2041351,
+      "sha256": "c4c6b2d184291e4e1291d7975dce7f30190bcecdc4040031bbefed1cbfc5ca13",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "nativeBytesPreserved": true
+    },
+    {
+      "characterId": "jun",
+      "path": "assets/illustrations/personas/v3/jun-16.png",
+      "bytes": 1863780,
+      "sha256": "164cd0422d4d27082b5feb5d04775277d1cbc4ae8eab61c83d0d09825f00887f",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "nativeBytesPreserved": true
+    }
+  ]
+}

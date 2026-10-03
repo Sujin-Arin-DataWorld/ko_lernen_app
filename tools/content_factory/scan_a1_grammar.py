@@ -41,6 +41,7 @@ import json
 import re
 import sys
 from collections import Counter, defaultdict
+from dataclasses import replace
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -305,7 +306,9 @@ REVIEWED_HOMOGRAPH_HITS = {
         "콜라 하나 더 주세요.",
         "레나 씨, 저녁에 영화관에 갈까요?",
         "레나 씨, 이 카메라로 찍어요!",
+        "레나 씨, 이 카메라로 찍을까요?",
         "레나 씨, 여기서 사진을 찍어요!",
+        "레나 씨, 여기서 사진 찍을까요?",
         "레나 씨, 친구랑 이야기해요?",
         "레나 씨가 춤을 춰요.",
         "레나 씨, 오늘 바빠요? 그럼 내일 만나요.",
@@ -339,12 +342,30 @@ def grammar_scan_text(text: str) -> str:
     return re.sub(r"(?<![가-힣])여보세요(?![가-힣])", "    ", text)
 
 
+def disambiguate_volitional_hit(hit, text: str):
+    """Keep -(으)ㄹ래요 at grade 2 instead of the homographic report tail.
+
+    A preceding ㄹ final distinguishes this invitation/intention form from
+    the matched -(으)래요 report. Apply before threshold filtering so A1
+    still flags the grade-2 form while A2 accepts it.
+    """
+    if hit.pattern_id != "grammar_b2_quoted_contractions" or hit.text != "래요":
+        return hit
+    preceding = text[max(hit.span[0] - 1, 0):hit.span[0]]
+    if preceding:
+        syllable = ord(preceding) - 0xAC00
+        if 0 <= syllable < 11172 and syllable % 28 == 8:
+            return replace(hit, pattern_id="volitional_을래", grade=2, cefr="A2")
+    return hit
+
+
 def _grammar_hits_ge2(lexicon: CefrLexicon, grammar_index: GrammarIndex, text: str):
     if text in EXACT_SENTENCE_ALLOWLIST:
         return []
     sp = lexicon.sentence_profile(grammar_scan_text(text), grammar_index)
     hits = []
     for h in sp.grammar_hits:
+        h = disambiguate_volitional_hit(h, text)
         if h.grade < 2:
             continue
         if h.pattern_id in REVIEWED_HOMOGRAPH_HITS.get(text, set()):

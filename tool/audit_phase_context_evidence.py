@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 from pathlib import Path
 
 from tool.curriculum_context_inventory import build_inventory
@@ -17,6 +18,32 @@ def context_hash(passages):
     # Bind all adjacent turns, not merely the selected sentence or file name.
     return hashlib.sha256(json.dumps(passages, ensure_ascii=False,
         sort_keys=True, separators=(',', ':')).encode()).hexdigest()
+
+
+def validate_source_revalidation(row):
+    """Keep the first review's attribution distinct from a current source check."""
+    original = row.get('originalReview')
+    current = row.get('sourceRevalidation')
+    if original is None and current is None:
+        return
+    identity = ('phaseId', 'grammarKey', 'sourcePath', 'recordId', 'jsonPointer',
+                'sourceLevel', 'decision', 'mode', 'reviewer', 'status')
+    if (not isinstance(original, dict) or not isinstance(current, dict)
+            or any(original.get(key) != row.get(key) for key in identity)
+            or original.get('reviewer') != 'Astra'
+            or original.get('status') != 'MODEL_QA_PASS'
+            or not isinstance(original.get('quote'), str) or not original['quote'].strip()
+            or not re.fullmatch(r'[0-9a-f]{64}', str(original.get('contextSha256', '')))
+            or current.get('reviewer') != 'Codex'
+            or current.get('status') != 'MODEL_QA_PASS'
+            or not re.fullmatch(r'\d{4}-\d{2}-\d{2}', str(current.get('reviewedOn', '')))
+            or not isinstance(current.get('checks'), list)
+            or any(not isinstance(check, str) for check in current['checks'])
+            or set(current['checks']) != {'exact-quote', 'adjacent-context', 'grammar-function'}
+            or current.get('previousContextSha256') != original['contextSha256']
+            or current.get('contextSha256') != row['contextSha256']
+            or current.get('quote') != row['quote']):
+        raise ValueError('Invalid source revalidation provenance')
 
 
 def reviewed_phase_passages(root):
@@ -70,6 +97,7 @@ def audit(root=ROOT):
         raise ValueError('Unknown context review schema')
     seen, reviews = set(), []
     for row in ledger['reviews']:
+        validate_source_revalidation(row)
         identity = (row['phaseId'], row['grammarKey'], row['sourcePath'], row['jsonPointer'])
         if identity in seen:
             raise ValueError('Duplicate context review')
@@ -110,7 +138,19 @@ def audit(root=ROOT):
             contentDisposition=('reviewed_legacy_source_available' if legacy else
                 'reviewed_new_phase_source' if authored else 'source_review_required'),
             productiveAssessment='unverified'))
-    return dict(schemaVersion=1, reviews=reviews, requirements=rows)
+    withdrawn = ledger.get('withdrawnReviews', [])
+    if not isinstance(withdrawn, list) or any(
+            not isinstance(row, dict) or row.get('status') != 'SOURCE_SUPERSEDED'
+            or not isinstance(row.get('originalReview'), dict)
+            or row['originalReview'].get('reviewer') != 'Astra'
+            or row['originalReview'].get('status') != 'MODEL_QA_PASS'
+            or not re.fullmatch(r'\d{4}-\d{2}-\d{2}', str(row.get('withdrawnOn', '')))
+            or row.get('reviewer') != 'Codex'
+            or row.get('reason') != 'reviewed_source_changed'
+            for row in withdrawn):
+        raise ValueError('Invalid withdrawn source review provenance')
+    return dict(schemaVersion=1, reviews=reviews, requirements=rows,
+                withdrawnReviews=withdrawn)
 
 
 def report(result):
@@ -131,7 +171,18 @@ def report(result):
         lines.append(f"| {row['phaseId']} | {row['grammarKey']} | {row['sameLevelAnchors']} | {row['otherLevelAnchors']} | {row['rejectedCandidates']} | 미검증 |")
     lines += ['', '## 직접 검수한 연결 및 제외 근거', '']
     for r in result['reviews']:
-        lines.append(f"- {r['phaseId']} / {r['grammarKey']} / {r['decision']} / {r['provenance']}: `{r['sourcePath']}{r['jsonPointer']}` — “{r['quote']}”. {r['rationaleKo']}")
+        attribution = ''
+        if current := r.get('sourceRevalidation'):
+            attribution = (f" 최초 검수: {r['originalReview']['reviewer']}; 현재 원문 재대조: "
+                           f"{current['reviewer']} ({current['status']}, {current['reviewedOn']}).")
+        lines.append(f"- {r['phaseId']} / {r['grammarKey']} / {r['decision']} / {r['provenance']}: `{r['sourcePath']}{r['jsonPointer']}` — “{r['quote']}”. {r['rationaleKo']}{attribution}")
+    if withdrawn := result.get('withdrawnReviews'):
+        lines += ['', '## 원문 수정으로 철회한 과거 근거', '',
+                  '아래 과거 검수는 이력으로만 보존하며 현재 수용 용례나 제외 후보 수에 포함하지 않는다.', '']
+        for r in withdrawn:
+            original = r['originalReview']
+            lines.append(f"- {original['phaseId']} / {original['grammarKey']} / {original['recordId']}: "
+                         f"{r['status']} ({r['withdrawnOn']}); 최초 검수: {original['reviewer']}.")
     return '\n'.join(lines) + '\n'
 
 

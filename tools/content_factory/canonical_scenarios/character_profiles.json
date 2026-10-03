@@ -43,7 +43,7 @@
         "lena": "같은 독일 교환학생 친구",
         "dongsun": "여자 친구의 어머니; 첫 인사 이후 편하게 대해 주신다",
         "byeongcheol": "여자 친구의 아버지; 아직은 서로 어색하다",
-        "jun": "안드레아네 아들; 코딩과 게임 얘기를 나누는 놀이 상대"
+        "jun": "안드레아네 아들; 코딩과 게임 얘기를 나누는 지인"
       },
       "speechStyle": {
         "ko": {
@@ -1026,22 +1026,23 @@
         "en": "Jun"
       },
       "voice": "male",
-      "ageGroup": "child",
+      "ageGroup": "teen",
       "background": {
         "origin": "한국",
-        "role": "초등학교 3학년 학생",
-        "relativeAge": "9세",
+        "role": "고등학교 1학년 학생",
+        "relativeAge": "16세",
         "family": "안드레아·민호의 아들",
         "languages": "독일어·한국어 이중언어"
       },
       "personality": [
         "호기심이 많다",
-        "숫자와 게임을 좋아한다",
-        "엄마 앞에서는 응석을 부린다"
+        "게임과 코딩을 좋아한다",
+        "자기 일정과 관심사를 직접 설명한다"
       ],
       "writerHints": [
-        "어른스러운 문장을 쓰지 않는다",
-        "엄마에게만 독일어를 섞는다"
+        "16세 고등학생으로 쓴다. 아기 말투나 초등학생 과제를 붙이지 않는다",
+        "부모와 코딩·게임 지인에게 쓰는 말투는 장면의 친숙도와 목적에 따라 정한다",
+        "엄마에게 독일어를 쓰는 장면도 가능하지만 한국어 학습 대사에는 번역 없는 독일어를 섞지 않는다"
       ],
       "mbtiHint": {
         "value": "ENTP",
@@ -1050,71 +1051,68 @@
       "interests": [
         "게임",
         "축구",
-        "레고",
-        "숫자 세기"
+        "코딩",
+        "학교생활"
       ],
       "relationships": {
         "andrea": "엄마",
         "minho": "아빠",
-        "christian": "코딩과 게임 얘기를 나누는 놀이 상대"
+        "christian": "코딩과 게임 얘기를 나누는 지인"
       },
       "speechStyle": {
         "ko": {
-          "baseRegister": "반말, 짧은 문장",
+          "baseRegister": "가까운 사이에서는 편한 말투. 처음 만나거나 높임이 필요한 상대에게는 해요체",
           "markers": [
-            "왜?",
-            "진짜?",
-            "숫자·게임 얘기"
+            "게임·코딩·학교 일정 이야기",
+            "친한 상대에게 짧게 이유와 대안을 말한다"
           ],
           "sentenceHabits": [
-            "엄마에게는 독일어를 섞어 말한다(DE 예문에서만)",
-            "어른 어휘를 쓰지 않는다",
-            "부모·크리스티안에게만, A2부터 반말을 쓴다; A1은 해요체나 감탄사만 쓴다"
+            "상대와 장소에 따라 말끝을 고른다",
+            "16세 학생의 생활과 관심사를 유지한다"
           ],
           "avoid": [
-            "어른 어휘"
+            "아기 말투",
+            "초등학생으로 묘사",
+            "모든 상대에게 무조건 반말"
           ]
         },
         "de": {
-          "baseRegister": "kindlich, Deutsch-Koreanisch gemischt",
+          "baseRegister": "jugendlich und natürlich; du oder Sie passend zur konkreten Beziehung",
           "markers": [
-            "Warum?",
-            "Echt?",
-            "mischt Deutsch mit Mama"
+            "spricht über Spiele, Programmieren und Schule"
           ],
           "sentenceHabits": [
-            "kurze, einfache Sätze"
+            "erklärt Gründe und schlägt Alternativen vor"
           ],
           "avoid": [
-            "Erwachsenenwortschatz"
+            "Babysprache",
+            "Darstellung als Grundschüler"
           ]
         },
         "en": {
-          "baseRegister": "childlike, short sentences",
+          "baseRegister": "natural teenage speech, adjusted to the situation",
           "markers": [
-            "Why?",
-            "Really?",
-            "talks about numbers and games"
+            "talks about gaming, coding and school"
           ],
           "sentenceHabits": [
-            "mixes German only when talking to his mom"
+            "explains reasons and suggests alternatives"
           ],
           "avoid": [
-            "adult vocabulary"
+            "baby talk",
+            "portraying him as a primary-school child"
           ]
         },
         "byLevel": {
           "A1": [
-            "왜?",
-            "진짜?",
-            "몇 개예요?"
+            "오늘 숙제가 있어요.",
+            "게임을 좋아해요."
           ],
           "A2": [
-            "이거 게임 진짜 재밌어.",
-            "나 이거 잘해."
+            "숙제가 아직 안 끝났어.",
+            "여덟 시에 하면 어때?"
           ],
           "B1+": [
-            "엄마한테만 독일어를 섞어서 말한다."
+            "학교와 관심사에서 이유·조건·대안을 말한다."
           ]
         }
       }
@@ -1626,17 +1624,17 @@
       {
         "a": "jun",
         "b": "christian",
-        "type": "playmates",
+        "type": "acquaintances",
         "knownTo": "both",
         "since": "2025",
-        "koLabel": "코딩 놀이 상대",
+        "koLabel": "코딩과 게임을 함께하는 지인",
         "byLevel": {
           "A1": [
-            "같이 숫자를 센다.",
+            "게임 점수를 이야기한다.",
             "같이 게임을 한다."
           ],
           "A2": [
-            "간단한 코딩 놀이를 같이 한다."
+            "게임 시간을 조정하고 학교 일정을 이야기한다."
           ],
           "B1+": [
             "준이 크리스티안에게 학교에서 있었던 일을 이야기한다."
@@ -1720,7 +1718,7 @@
         "크리스티안과 수진이 카페에서 처음 이야기를 나눈다.",
         "크리스티안과 수진이 수원 가는 기차·버스를 타고, 화성 성곽길을 산책하고, 저녁으로 수원 왕갈비를 먹는다.",
         "레나가 길을 묻는 사람에게 방향을 알려준다.",
-        "준이 크리스티안과 숫자로 게임 점수를 센다.",
+        "준이 크리스티안과 게임 점수를 이야기한다.",
         "가족 사진을 보여주며 서로를 소개한다."
       ],
       "A2": [
@@ -1803,8 +1801,8 @@
           "residence": "수원"
         },
         "jun": {
-          "age": 9,
-          "role": "초등학교 3학년 학생",
+          "age": 16,
+          "role": "고등학교 1학년 학생",
           "residence": "서울"
         }
       },
