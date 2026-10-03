@@ -11350,6 +11350,258 @@ class AppL10nDe extends AppL10n {
   String get yeopjeonConstructionComplete => 'Dieses Gebäude ist fertig!';
 
   @override
+  String get dancheongTitle => 'Dancheong-Atelier';
+
+  @override
+  String get dancheongPatterns => 'Muster';
+
+  @override
+  String get dancheongArtwork => 'Kunstwerke';
+
+  @override
+  String get dancheongPreview => 'Vorschau deines Kunstwerks';
+
+  @override
+  String get dancheongIntro =>
+      'Dein Ildu-Hanok wächst mit jedem Lernschritt. Aus deinen gesammelten Mustern entsteht hier ein eigenes Kunstwerk.';
+
+  @override
+  String get dancheongCreate => 'Kunstwerk gestalten';
+
+  @override
+  String get dancheongFirstMaterial =>
+      'Lerne weiter und sammle dein erstes Muster. Danach kannst du es in allen drei Vorlagen verwenden.';
+
+  @override
+  String get dancheongLearn => 'Zum Lernpfad';
+
+  @override
+  String get dancheongExamples => 'Inspiration · Beispiele';
+
+  @override
+  String get dancheongExampleNote =>
+      'Diese fertigen Beispielbilder zeigen die Richtung. Ihre Motive und die feste koreanische Schrift sind keine einzeln freigeschalteten Materialien.';
+
+  @override
+  String get dancheongEmptyArtwork =>
+      'Deine Kunstwerke und Entwürfe erscheinen hier.';
+
+  @override
+  String get dancheongDraft => 'Entwurf weiterführen';
+
+  @override
+  String get dancheongEditor => 'Dein Kunstwerk';
+
+  @override
+  String get dancheongTemplate => 'Komposition';
+
+  @override
+  String get dancheongFlower => 'Blütenkranz';
+
+  @override
+  String get dancheongBrocade => 'Seidenmuster';
+
+  @override
+  String get dancheongLetter => 'Motiv & Hangul';
+
+  @override
+  String get dancheongFormat => 'Bildformat';
+
+  @override
+  String get dancheongPortrait => 'Beitrag · 4:5';
+
+  @override
+  String get dancheongStory => 'Story · 9:16';
+
+  @override
+  String get dancheongMaterials => 'Deine Materialien · bis zu 4 Muster';
+
+  @override
+  String get dancheongKoreanText => 'Koreanischer Text · optional';
+
+  @override
+  String get dancheongTranslation => 'Übersetzung · optional';
+
+  @override
+  String get dancheongTranslationLanguage => 'Sprache der Übersetzung';
+
+  @override
+  String get dancheongSignature => 'Dein Name · optional';
+
+  @override
+  String get dancheongSaveDraft => 'Entwurf speichern';
+
+  @override
+  String get dancheongFinish => 'Kunstwerk fertigstellen';
+
+  @override
+  String get dancheongSaved => 'Entwurf gespeichert';
+
+  @override
+  String get dancheongSaving => 'Entwurf wird gespeichert …';
+
+  @override
+  String get dancheongError =>
+      'Das hat nicht geklappt. Dein bisher gespeicherter Entwurf bleibt erhalten. Versuche es erneut.';
+
+  @override
+  String get dancheongBlocked =>
+      'Deine Kunstwerke sind während des Kontowechsels nicht verfügbar. Öffne das Atelier danach erneut.';
+
+  @override
+  String get dancheongDamaged =>
+      'Gespeicherte Atelier-Daten können nicht gelesen werden. Die Daten bleiben erhalten.';
+
+  @override
+  String get dancheongMissing => 'Dieses Kunstwerk ist nicht mehr verfügbar.';
+
+  @override
+  String get dancheongEdit => 'Bearbeiten';
+
+  @override
+  String get dancheongDelete => 'Löschen';
+
+  @override
+  String get dancheongShare => 'Teilen vorbereiten';
+
+  @override
+  String get dancheongShareTitle => 'Dein Kunstwerk teilen';
+
+  @override
+  String get dancheongShareImage => 'Bild teilen / speichern';
+
+  @override
+  String get dancheongCaption => 'Begleittext · separat kopieren';
+
+  @override
+  String get dancheongCaptionLanguage => 'Sprache des Begleittexts';
+
+  @override
+  String get dancheongCopyCaption => 'Begleittext kopieren';
+
+  @override
+  String get dancheongCopied => 'Begleittext kopiert';
+
+  @override
+  String get dancheongHandedOff =>
+      'Bild an die Freigabe übergeben. Wähle dort deine App oder Speichern.';
+
+  @override
+  String get dancheongDismissed =>
+      'Freigabe geschlossen. Dein Kunstwerk bleibt gespeichert.';
+
+  @override
+  String get dancheongUnavailable =>
+      'Die Freigabe ist hier nicht verfügbar. Du kannst das Bild herunterladen und den Begleittext kopieren.';
+
+  @override
+  String get dancheongDownload => 'PNG herunterladen';
+
+  @override
+  String get dancheongShareNote =>
+      'Das PNG enthält nur dein Kunstwerk. Begleittext, Hashtags und Links werden separat kopiert.';
+
+  @override
+  String get dancheongEntry => 'Aus Mustern wird Kunst';
+
+  @override
+  String get dancheongEntryAction => 'Atelier öffnen';
+
+  @override
+  String get dancheongReceipt => 'Mit deinem Muster gestalten';
+
+  @override
+  String get dancheongLimit => 'Wähle höchstens vier Muster.';
+
+  @override
+  String get dancheongExportData => 'Atelier-Daten kopieren';
+
+  @override
+  String get dancheongPublicTitle => 'Dieses Kunstwerk öffentlich teilen?';
+
+  @override
+  String get dancheongPublicBody =>
+      'Alle mit dem Link können dieses Bild und die darin enthaltenen Texte sehen. Du kannst den Link später deaktivieren. Bereits gespeicherte Kopien bleiben bestehen.';
+
+  @override
+  String get dancheongPublicConfirm => 'Link veröffentlichen';
+
+  @override
+  String get dancheongPublicCancel => 'Abbrechen';
+
+  @override
+  String get dancheongPublicAction => 'Öffentlichen Link erstellen';
+
+  @override
+  String get dancheongPublicCopy => 'Öffentlichen Link kopieren';
+
+  @override
+  String get dancheongPublicRevoke => 'Öffentlichen Link deaktivieren';
+
+  @override
+  String get dancheongPublicRevoked =>
+      'Der öffentliche Link ist deaktiviert. Dein privates Kunstwerk bleibt gespeichert.';
+
+  @override
+  String get dancheongPublicTooLarge =>
+      'Dieses Original ist größer als die 4-MB-Grenze für öffentliche Links. Du kannst es unverändert als PNG teilen oder speichern.';
+
+  @override
+  String get dancheongDefaultCaption =>
+      'Mein Dancheong-Kunstwerk, gestaltet mit Mustern aus meinem Koreanisch-Lernweg.\n#Dancheong #HangulSori #KoreanArt';
+
+  @override
+  String get dancheongBorder => 'Rahmen';
+
+  @override
+  String get dancheongBorderFlow => 'Fließendes Seidenmuster';
+
+  @override
+  String get dancheongBorderRibbon => 'Farbbänder & Geometrie';
+
+  @override
+  String get dancheongBorderLotus => 'Lotus & Ranken';
+
+  @override
+  String get dancheongBorderNone => 'Ohne Rahmen';
+
+  @override
+  String get dancheongFrameNote =>
+      'Rahmen und große Zierblüte gehören zur Gestaltung. Die kleinen Medaillons zeigen deine gesammelten Muster.';
+
+  @override
+  String get dancheongPublicReady => 'Dein öffentlicher Link ist bereit.';
+
+  @override
+  String get dancheongTextFit =>
+      'Der Text passt noch nicht ins Bild. Kürze ihn oder nutze weniger Zeilenumbrüche. Dein Entwurf bleibt erhalten.';
+
+  @override
+  String get dancheongCapacity =>
+      'Dein Atelier ist voll (30 Entwürfe oder 100 fertige Versionen). Lösche unter Kunstwerke einen gespeicherten Eintrag, um Platz zu schaffen.';
+
+  @override
+  String get dancheongManage => 'Gespeicherte Kunstwerke verwalten';
+
+  @override
+  String get dancheongLeaveTitle => 'Ohne Speichern verlassen?';
+
+  @override
+  String get dancheongLeaveNote =>
+      'Diese ungespeicherten Änderungen gehen verloren. Bereits gespeicherte Entwürfe bleiben erhalten.';
+
+  @override
+  String get dancheongLeave => 'Ohne Speichern verlassen';
+
+  @override
+  String get dancheongDeleteDraftNote =>
+      'Diesen gespeicherten Entwurf löschen? Das lässt sich nicht rückgängig machen.';
+
+  @override
+  String get dancheongDeleteArtworkNote =>
+      'Diese fertige Version und ihre gespeicherten Begleittexte löschen? Ihre öffentlichen Links werden ebenfalls deaktiviert. Bereits von anderen gespeicherte Kopien bleiben erhalten.';
+
+  @override
   String get personaMeetPeopleTitle => 'Menschen kennenlernen';
 
   @override

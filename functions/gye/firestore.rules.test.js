@@ -53,6 +53,20 @@ function client(uid) {
   return environment.authenticatedContext(uid).firestore();
 }
 
+test('Dancheong publications and private lookup deny owner, foreign and anonymous direct access', async () => {
+  await environment.withSecurityRulesDisabled(async context => {
+    await setDoc(doc(context.firestore(), 'users/alice/dancheong_publications/request'), {status:'active'});
+    await setDoc(doc(context.firestore(), 'dancheong_public_index/opaque'), {uid:'alice'});
+  });
+  for(const context of [environment.authenticatedContext('alice'),environment.authenticatedContext('bob'),environment.unauthenticatedContext()]) {
+    for(const path of ['users/alice/dancheong_publications/request','dancheong_public_index/opaque']) {
+      const target=doc(context.firestore(),path);
+      await assertFails(getDoc(target));await assertFails(setDoc(target,{status:'active'}));await assertFails(deleteDoc(target));
+    }
+    await assertFails(getDocs(collection(context.firestore(),'users/alice/dancheong_publications')));
+  }
+});
+
 function emulatorPage(values, pageSize, pageToken) {
   const start = pageToken == null ? 0 : Number(pageToken);
   const page = values.slice(start, start + pageSize);

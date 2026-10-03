@@ -24,7 +24,8 @@ import '../widgets/sori/window_class.dart';
 /// 획득 = 풀컬러 도장(PNG). 미획득 = 흐릿 + 자물쇠. 0개면 빈 상태.
 /// 획득 영속: `Storage.earnedStamps`(`DancheongMotif.name` slug).
 class DojangcheopScreen extends StatefulWidget {
-  const DojangcheopScreen({super.key});
+  const DojangcheopScreen({super.key, this.embedded = false});
+  final bool embedded;
 
   @override
   State<DojangcheopScreen> createState() => _DojangcheopScreenState();
@@ -57,7 +58,9 @@ class _DojangcheopScreenState extends State<DojangcheopScreen>
   @override
   void initState() {
     super.initState();
-    scheduleCoach();
+    if (!widget.embedded) {
+      scheduleCoach();
+    }
     Analytics.featureUsed('dojangcheop');
     _reconcileEntitlements();
   }
@@ -96,6 +99,94 @@ class _DojangcheopScreenState extends State<DojangcheopScreen>
         .where((motif) => motif.spec.series == StampSeries.livingCulture)
         .toList(growable: false);
 
+    Widget collection(BuildContext context, EdgeInsets padding) => ListView(
+      padding: padding,
+      shrinkWrap: widget.embedded,
+      physics: widget.embedded ? const NeverScrollableScrollPhysics() : null,
+      children: [
+        if (!widget.embedded) ...[
+          SoriButton.outlined(
+            label: t.dancheongEntryAction,
+            onTap: () => Navigator.of(context).pushNamed('/dancheong-studio'),
+          ),
+          const SizedBox(height: Spacing.md),
+        ],
+        Text(
+          t.dojangProgress(got, motifs.length),
+          style: SoriTextTheme.of(context).body,
+        ),
+        if (got == 0) ...[
+          const SizedBox(height: Spacing.lg),
+          Semantics(
+            container: true,
+            explicitChildNodes: true,
+            child: SoriEmptyState(
+              asset: 'assets/illustrations/mascot/magpie_encourage.png',
+              icon: Icons.workspace_premium_outlined,
+              title: t.dojangEmptyTitle,
+              body: t.dojangEmptyBody,
+              ctaLabel: t.dojangEmptyCta,
+              onCta: () => Navigator.of(context).pushNamed('/vocab'),
+            ),
+          ),
+        ],
+        if (got > 0) ...[
+          const SizedBox(height: Spacing.lg),
+          // 도장은 이 컬렉션에 남으면서 개인 방에도 한 번 배치할 수
+          // 있다. 획득 상태와 방 배치는 서로 다른 투영이다.
+          SoriCard(
+            variant: SoriCardVariant.base,
+            accent: SoriColors.info,
+            tinted: true,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Semantics(
+                  container: true,
+                  child: Text(
+                    t.dojangDecorHintBody,
+                    style: SoriTextTheme.of(
+                      context,
+                    ).bodySmall.copyWith(color: s.textMuted),
+                  ),
+                ),
+                const SizedBox(height: Spacing.md),
+                SoriButton.outlined(
+                  label: t.dojangDecorHintCta,
+                  fullWidth: true,
+                  onTap: () =>
+                      Navigator.of(context).pushNamed('/sarangbang/furnish'),
+                ),
+              ],
+            ),
+          ),
+        ],
+        const SizedBox(height: Spacing.lg),
+        KeyedSubtree(
+          key: _gridKey,
+          child: Column(
+            children: [
+              _StampSeriesSection(
+                title: t.dojangSeriesDancheongTitle,
+                body: t.dojangSeriesDancheongBody,
+                motifs: dancheong,
+                earned: earned,
+              ),
+              const SizedBox(height: Spacing.lg),
+              _StampSeriesSection(
+                title: t.dojangSeriesLivingCultureTitle,
+                body: t.dojangSeriesLivingCultureBody,
+                motifs: livingCulture,
+                earned: earned,
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+    if (widget.embedded) {
+      return collection(context, EdgeInsets.zero);
+    }
     return SoriStandardFrame(
       appBarTitle: t.dojangTitle,
       maxWidth: SoriMaxWidth.hub,
@@ -106,82 +197,7 @@ class _DojangcheopScreenState extends State<DojangcheopScreen>
         Spacing.lg,
         Spacing.xxl,
       ),
-      builder: (context, padding) => ListView(
-        padding: padding,
-        children: [
-          Text(
-            t.dojangProgress(got, motifs.length),
-            style: SoriTextTheme.of(context).body,
-          ),
-          if (got == 0) ...[
-            const SizedBox(height: Spacing.lg),
-            Semantics(
-              container: true,
-              explicitChildNodes: true,
-              child: SoriEmptyState(
-                asset: 'assets/illustrations/mascot/magpie_encourage.png',
-                icon: Icons.workspace_premium_outlined,
-                title: t.dojangEmptyTitle,
-                body: t.dojangEmptyBody,
-                ctaLabel: t.dojangEmptyCta,
-                onCta: () => Navigator.of(context).pushNamed('/vocab'),
-              ),
-            ),
-          ],
-          if (got > 0) ...[
-            const SizedBox(height: Spacing.lg),
-            // 도장은 이 컬렉션에 남으면서 개인 방에도 한 번 배치할 수
-            // 있다. 획득 상태와 방 배치는 서로 다른 투영이다.
-            SoriCard(
-              variant: SoriCardVariant.base,
-              accent: SoriColors.info,
-              tinted: true,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Semantics(
-                    container: true,
-                    child: Text(
-                      t.dojangDecorHintBody,
-                      style: SoriTextTheme.of(
-                        context,
-                      ).bodySmall.copyWith(color: s.textMuted),
-                    ),
-                  ),
-                  const SizedBox(height: Spacing.md),
-                  SoriButton.outlined(
-                    label: t.dojangDecorHintCta,
-                    fullWidth: true,
-                    onTap: () =>
-                        Navigator.of(context).pushNamed('/sarangbang/furnish'),
-                  ),
-                ],
-              ),
-            ),
-          ],
-          const SizedBox(height: Spacing.lg),
-          KeyedSubtree(
-            key: _gridKey,
-            child: Column(
-              children: [
-                _StampSeriesSection(
-                  title: t.dojangSeriesDancheongTitle,
-                  body: t.dojangSeriesDancheongBody,
-                  motifs: dancheong,
-                  earned: earned,
-                ),
-                const SizedBox(height: Spacing.lg),
-                _StampSeriesSection(
-                  title: t.dojangSeriesLivingCultureTitle,
-                  body: t.dojangSeriesLivingCultureBody,
-                  motifs: livingCulture,
-                  earned: earned,
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
+      builder: collection,
     );
   }
 }

@@ -532,7 +532,8 @@ service cloud.firestore {
           && collectionName != 'tester_feedback'
           && collectionName != 'tester_feedback_rate_limits'
           && collectionName != 'pronunciation_rate_limits'
-          && collectionName != 'tester_passport';
+          && collectionName != 'tester_passport'
+          && collectionName != 'dancheong_publications';
         allow create, update: if isOwner(uid)
           && collectionName != 'packs'
           && collectionName != 'sync_generations'
@@ -541,6 +542,7 @@ service cloud.firestore {
           && collectionName != 'tester_feedback_rate_limits'
           && collectionName != 'pronunciation_rate_limits'
           && collectionName != 'tester_passport'
+          && collectionName != 'dancheong_publications'
           && !exists(accountDeletionPath(uid))
           && backupSubcollectionWriteAllowed(uid, collectionName);
         allow delete: if isOwner(uid)
@@ -554,11 +556,15 @@ service cloud.firestore {
           && collectionName != 'tester_feedback'
           && collectionName != 'tester_feedback_rate_limits'
           && collectionName != 'pronunciation_rate_limits'
-          && collectionName != 'tester_passport';
+          && collectionName != 'tester_passport'
+          && collectionName != 'dancheong_publications';
       }
     }
 
     match /cloud_backup_deletions/{uid} {
+      allow read, write: if false;
+    }
+    match /dancheong_public_index/{document=**} {
       allow read, write: if false;
     }
 

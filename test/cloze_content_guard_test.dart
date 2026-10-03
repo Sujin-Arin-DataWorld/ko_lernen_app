@@ -388,10 +388,13 @@ void main() {
   final header = csvRows.first;
   final iKo = header.indexOf('example_korean');
   final iLevel = header.indexOf('level');
-  final exampleLevel = <String, String>{
-    for (final r in csvRows.skip(1))
-      if (r.length > iKo) r[iKo]: r[iLevel],
-  };
+  final exampleLevels = <String, Set<String>>{};
+  for (final r in csvRows.skip(1)) {
+    if (r.length > iKo) {
+      exampleLevels.putIfAbsent(r[iKo], () => <String>{})
+          .add(r[iLevel].toLowerCase());
+    }
+  }
 
   test('빈칸 복원: sentenceKo(＿＿＿→answer) == fullKo', () {
     for (final it in items) {
@@ -405,8 +408,8 @@ void main() {
     final unsynced = <String>[];
     for (final it in items) {
       final id = it['id'] as String;
-      final level = exampleLevel[it['fullKo'] as String];
-      if (level == null || level.toLowerCase() != it['level']) {
+      final levels = exampleLevels[it['fullKo'] as String];
+      if (levels == null || !levels.contains(it['level'])) {
         if (!knownUnsyncedIds.contains(id)) unsynced.add(id);
       }
     }

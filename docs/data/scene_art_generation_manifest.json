@@ -4,9 +4,9 @@
     "assets/data/scenarios_a1.json": "b14586943cdb23a92257c491466b16d452a308ca1f8e2e1db71a0b01eec649c6",
     "assets/data/scenarios_a2.json": "ce768125e321d23c38349636c80a401ed262937f777ae5fc84a4f6873f67dafb",
     "assets/data/scenarios_b1.json": "982216e9733709e326b581ee879b3c912b7a4d55abd3ee92c49105570fb44aa2",
-    "assets/data/scenarios_b2.json": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
-    "assets/data/scenarios_c1.json": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
-    "assets/data/scenarios_c2.json": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3"
+    "assets/data/scenarios_b2.json": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
+    "assets/data/scenarios_c1.json": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
+    "assets/data/scenarios_c2.json": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a"
   },
   "styleContract": {
     "identifier": "scene-poster/faceted-heritage-2.5d-v1",
@@ -47,7 +47,7 @@
   },
   "canonicalInventory": {
     "path": "docs/data/scene_asset_inventory.json",
-    "sha256": "ca776f13d388a4581361ddc7a27659de5836b7a1c0f6b1bd0d4bbf5212d0b645"
+    "sha256": "ed8157ab512af4fb78dbf1446b4b4903b13dfbc2ab448f6d165a91088e4f34a9"
   },
   "scenarioCount": 181,
   "categoryOrder": [
@@ -830,7 +830,7 @@
       "level": "b2",
       "category": "office",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "AI로 만든 이미지를 광고에 쓸 때. 대화 핵심: 이 배경은 시안용이니까 굳이 설명하지 않아도 되지 않을까요? / AI로 만든 이미지라는 점은 먼저 알려야 하지 않을까요? 학습 목표 발화: 이 배경은 시안용이니까 굳이 설명하지 않아도 되지 않을까요?",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -908,7 +908,7 @@
       "level": "b2",
       "category": "office",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "체류 기간 연장, 늦기 전에 묻기. 대화 핵심: 안녕하세요. 오늘은 어떤 업무로 오셨어요? / 체류 기간을 연장하려고 하는데, 제 경우에 신청 시기와 필요한 서류를 확인하고 싶습니다. 학습 목표 발화: 기한과 절차는 관련 안내문이나 공식 웹사이트에서 다시 확인하셔야 합니다. 가능한 빨리 신청 가능 여부를 확인해 보세요.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -982,7 +982,7 @@
       "level": "b2",
       "category": "office",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "약점도 솔직하게, 조건도 정확하게. 대화 핵심: 지원자님의 강점과 약점을 하나씩 말씀해 주시겠어요? / 저는 자료를 꼼꼼히 확인할 뿐만 아니라 근거 없는 결론은 내리지 않는 편입니다. 학습 목표 발화: 이 자리는 논문을 쓰시는 동안 주 삼 일만 근무하시면 되는데 괜찮으신가요?",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1056,7 +1056,7 @@
       "level": "b2",
       "category": "office",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "촬영 조건, 다시 협상하기. 대화 핵심: 이번 브랜드 영상은 이틀 촬영에 백오십만 원으로 생각하고 있습니다. / 일정은 괜찮은데 수정 횟수 제한이 없다는 점이 걸립니다. 학습 목표 발화: 그럼 수정을 세 번으로 제한하는 대신 단가를 조금 낮출 수 있을까요?",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1130,7 +1130,7 @@
       "level": "b2",
       "category": "office",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "회사 계정과 개인 계정의 경계를 정하기. 대화 핵심: 마야가 개인 계정에 올리는 후기처럼 현장감 있게 쓰면 어떨까요? / 개인 의견처럼 보여도 회사 계정에 올라가면 공식 입장으로 읽힐 수 있어요. 학습 목표 발화: 마야가 개인 계정에 올리는 후기처럼 현장감 있게 쓰면 어떨까요?",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1204,7 +1204,7 @@
       "level": "b2",
       "category": "office",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "솔직한 피드백이 무례하게 들렸을 때. 대화 핵심: 아까 ‘이건 다시 해야 해’라고만 해서 제 작업이 전부 별로라는 줄 알았어요. / 수정이 필요하다는 뜻이었는데 작업 전체가 별로라는 말처럼 들렸구나. 학습 목표 발화: 아까 ‘이건 다시 해야 해’라고만 해서 제 작업이 전부 별로라는 줄 알았어요.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1278,7 +1278,7 @@
       "level": "b2",
       "category": "office",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "모호한 업무 피드백을 구체화하기. 대화 핵심: 다음 프로젝트에서는 조금 더 주도적으로 움직였으면 해요. / 주도적으로 하라는 말이 어떤 행동을 뜻하는지 예를 들어 주실 수 있을까요? 학습 목표 발화: 다음 프로젝트에서는 조금 더 주도적으로 움직였으면 해요.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1352,7 +1352,7 @@
       "level": "b2",
       "category": "office",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "수정 요청이 계약 범위를 넘었을 때. 대화 핵심: 분위기가 생각과 달라서 촬영부터 다시 하면 좋겠습니다. / 기존 수정 범위에는 새 촬영이 포함되어 있지 않습니다. 학습 목표 발화: 분위기가 생각과 달라서 촬영부터 다시 하면 좋겠습니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1426,7 +1426,7 @@
       "level": "b2",
       "category": "office",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "회의에서 조회 수만으로 성과를 판단할지 논쟁하기. 대화 핵심: 이 영상은 조회 수가 가장 높으니 성과가 좋았다고 볼 수 있겠어요. / 조회 수가 중요하기는 하지만 구매로 이어졌는지도 봐야 해요. 학습 목표 발화: 이 영상은 조회 수가 가장 높으니 성과가 좋았다고 볼 수 있겠어요.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1500,7 +1500,7 @@
       "level": "b2",
       "category": "office",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "처음 참석한 회의에서 목적 확인하기. 대화 핵심: 저는 이 회의가 처음이라 먼저 확인하고 싶어요. / 오늘 회의에서 어디까지 결정하면 될까요? 학습 목표 발화: 오늘은 캠페인 방향과 대상만 정하면 돼요.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1574,7 +1574,7 @@
       "level": "b2",
       "category": "office",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "면접에서 포트폴리오 공백 설명하기. 대화 핵심: 이 기간에는 등록된 프로젝트가 없는데, 어떤 일을 하셨나요? / 정규직으로 일한 기간은 아니지만 프리랜서 협업을 했습니다. 학습 목표 발화: 이 기간에는 등록된 프로젝트가 없는데, 어떤 일을 하셨나요?",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1648,7 +1648,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "퇴근 후 연락의 경계를 팀에서 정하기. 대화 핵심: 퇴근 뒤 메시지가 오면 급한 건지 내일 봐도 되는 건지 모르겠어요. / 시차가 있는 팀과 일해서 발송 시간을 제한하기는 어렵습니다. 학습 목표 발화: 퇴근 뒤 메시지가 오면 급한 건지 내일 봐도 되는 건지 모르겠어요.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1726,7 +1726,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "AI 면접 평가를 지원자에게 어떻게 알릴지. 대화 핵심: 기술 설명을 길게 넣으면 지원자가 더 혼란스러울 수 있어요. / 모델 구조를 전부 공개하지 않더라도 무엇이 평가되고 누가 최종 판단하는지는 알려야 합니다. 학습 목표 발화: 기술 설명을 길게 넣으면 지원자가 더 혼란스러울 수 있어요.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1800,7 +1800,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "AI 번역이 인터뷰이의 말투를 지웠을 때. 대화 핵심: 자동 자막은 짧고 읽기 쉬워졌는데 무엇이 문제야? / 원문은 ‘주민들한테 들었는데 그런 것 같아요’라고 했어요. 학습 목표 발화: 원문은 ‘주민들한테 들었는데 그런 것 같아요’라고 했어요.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1874,7 +1874,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "익명 직원 설문이 정말 익명인지 묻기. 대화 핵심: 이름과 이메일을 받지 않으니 익명 설문이라고 안내해도 되겠죠? / 이 조합이면 이름을 받지 않아도 누군지 짐작할 수 있습니다. 학습 목표 발화: 이름과 이메일을 받지 않으니 익명 설문이라고 안내해도 되겠죠?",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -1948,7 +1948,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "계약서 폴더 접근 권한을 요청할 때. 대화 핵심: 이번 캠페인 자료 준비 때문에 계약서 폴더 접근 권한이 필요합니다. / 그 폴더에는 다른 브랜드 계약 조건도 같이 들어 있어서 조심스럽습니다. 학습 목표 발화: 부장님이 승인하지 않는 한 전체 폴더는 열어 드릴 수 없습니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2022,7 +2022,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "임상 연구 참여 전 정보 확인하기. 대화 핵심: 이 연구는 새로운 약물의 효과를 확인하는 임상시험입니다. / 참여를 결정하기 전에 알려진 위험과 아직 불확실한 점을 확인하고 싶습니다. 학습 목표 발화: 알려진 위험과 아직 확인되지 않은 점은 동의 설명서와 함께 안내해 드릴 수 있습니다. 다만 개인에게 어떤 영향이 있을지는 단정할 수 없습니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2096,7 +2096,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "심사에서 이해관계를 미리 밝히기. 대화 핵심: 오늘 지원서 다섯 건을 같이 검토하겠습니다. / 시작하기 전에 말씀드릴 게 있습니다. 학습 목표 발화: 네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2170,7 +2170,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "실수를 지적하되 체면은 지켜 주기. 대화 핵심: 잠깐 시간 괜찮으면 보고서 하나만 같이 볼까요? / 네, 어제 낸 캠페인 보고서 말씀이시죠? 학습 목표 발화: 보고서의 구성과 근거 정리는 잘 되어 있어요.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2244,7 +2244,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "화난 고객을 달래는 일도 성과일까. 대화 핵심: 이번 평가는 실적표에 나온 숫자를 기준으로 진행하려고 합니다. / 숫자만 보면 제가 처리한 항의 전화 건수는 표에 안 남습니다. 학습 목표 발화: 화난 고객을 진정시키느라 회의 시간을 넘긴 나머지 다른 업무가 밀린 적도 많습니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2318,7 +2318,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "설문 표본이 결론을 뒷받침하는지 따지기. 대화 핵심: 응답자가 서른 명밖에 안 되는데 결론이 너무 단정적이네요. / 표본이 이렇게 적으면 효과가 있다고 단정하기 어렵습니다. 학습 목표 발화: 표본이 이렇게 적으면 효과가 있다고 단정하기 어렵습니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2392,7 +2392,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "아직 확정되지 않은 수치를 고객에게 전하는 법. 대화 핵심: 이번 예측치를 고객사에 어떻게 전달할지 오늘 정해야 합니다. / 표본이 작아서 오차 범위가 꽤 넓게 나왔습니다. 학습 목표 발화: 불확실한 수치를 확정된 것처럼 보여줄 바에야 범위로 제시하는 게 낫습니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2466,7 +2466,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "딥페이크 의심 영상을 보도하기 전. 대화 핵심: 영상이 이미 크게 퍼졌으니 발언 내용을 중심으로 기사를 내죠. / 영상이 퍼지고 있다는 사실과 영상 내용이 사실이라는 판단은 분리해야 합니다. 학습 목표 발화: 영상이 이미 크게 퍼졌으니 발언 내용을 중심으로 기사를 내죠.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2540,7 +2540,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "팬 번역의 노동과 공로를 어떻게 표시할지. 대화 핵심: 팬들이 자발적으로 올린 번역이니 공식 자막에 일부 활용해도 되지 않을까요? / 자발적으로 참여했다는 이유로 번역 노동이 보이지 않아도 되는 것은 아닙니다. 학습 목표 발화: 팬들이 자발적으로 올린 번역이니 공식 자막에 일부 활용해도 되지 않을까요?",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2614,7 +2614,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "연구 결과의 한계를 발표에서 숨기지 않기. 대화 핵심: ‘도시 청년의 주거 인식이 바뀌었다’는 제목이 관심을 끌기는 합니다. / 하지만 이 자료로 도시 전체의 변화를 말하기에는 범위가 좁습니다. 학습 목표 발화: ‘도시 청년의 주거 인식이 바뀌었다’는 제목이 관심을 끌기는 합니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2688,7 +2688,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "AI 학습 데이터의 출처를 설명해야 할 때. 대화 핵심: 시안 반응이 좋아서 이 이미지를 최종 캠페인에도 쓰고 싶습니다. / 특정 작가의 최근 작품과 너무 비슷하다는 의견이 있습니다. 학습 목표 발화: 시안 반응이 좋아서 이 이미지를 최종 캠페인에도 쓰고 싶습니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2766,7 +2766,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "눈에 잘 안 보이는 업무까지 나누기. 대화 핵심: 업무표를 보면 세 사람의 산출물 수는 거의 같습니다. / 산출물만 보면 비슷하지만 조정 업무는 계속 한 사람에게 몰렸어요. 학습 목표 발화: 업무표를 보면 세 사람의 산출물 수는 거의 같습니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2844,7 +2844,7 @@
       "level": "c1",
       "category": "office",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "청년 주거 지원 안내가 너무 어려울 때. 대화 핵심: 조건을 줄이면 정확성이 떨어질 수 있어서 원문을 유지해야 합니다. / 조건을 삭제하자는 게 아니라 사용자가 판단하는 순서대로 다시 보여 주자는 뜻입니다. 학습 목표 발화: 조건을 줄이면 정확성이 떨어질 수 있어서 원문을 유지해야 합니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2918,7 +2918,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "AI 채용 탈락에 이의를 제기할 권리. 대화 핵심: 영상 업로드 오류가 있었는데 결과에는 점수만 나오고 설명은 없었습니다. / 모든 탈락 사례를 다시 심사하면 채용 일정과 비용을 감당하기 어렵습니다. 학습 목표 발화: 영상 업로드 오류가 있었는데 결과에는 점수만 나오고 설명은 없었습니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -2996,7 +2996,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "복지 신청이 자동으로 거절됐을 때 책임을 묻기. 대화 핵심: 통지에는 ‘기준 미충족’이라고만 쓰여 있어서 어떤 자료가 문제인지 알 수 없었습니다. / 자동 선별 덕분에 처리 기간이 크게 줄어든 것은 사실입니다. 학습 목표 발화: 통지에는 ‘기준 미충족’이라고만 쓰여 있어서 어떤 자료가 문제인지 알 수 없었습니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -3074,7 +3074,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "작품의 의미는 누가 정하는가. 대화 핵심: 관람객 설문을 보면 절반이 작품 의도를 전혀 다르게 이해하고 있습니다. / 그건 오독이 아니라 열린 해석이라고 생각해요. 학습 목표 발화: 작품의 의미는 제 의도만이 아니라 관객이 만들어 가는 과정까지 포함한다고 봐요.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -3148,7 +3148,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "평균은 누구의 경험을 가리는가. 대화 핵심: 이번 셔틀 지원책은 평균 통근 시간을 15분 줄인 것으로 나옵니다. / 평균만 보면 성공처럼 보이지만 야간 근무자 자료는 따로 봐야 합니다. 학습 목표 발화: 인원 비율만 보면 작은 문제에 불과해 보일 수 있지만, 셔틀이 야간에는 운행하지 않아 그분들은 단축 혜택을 받지 못합니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -3222,7 +3222,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "책임을 서로 미루기 전에 관할부터 정하기. 대화 핵심: 그 하수구는 옆 동네 경계에 있어서 저희 담당이 아닙니다. / 그쪽 부서에서는 여기가 담당이라고 안내받았는데요. 학습 목표 발화: 행정 구역과 별개로, 배관 자체는 저희가 관리하는 시설이 아닙니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -3300,7 +3300,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "소멸시효가 지나면 정말 끝인가. 대화 핵심: 삼 년 전 사고에 대한 배상을 이제라도 청구할 수 있을까요? / 사고가 3년 전이라고 해서 소멸시효가 지났다고 바로 단정할 수는 없습니다. 학습 목표 발화: 네. 청구의 종류와 손해 및 상대방을 안 시점 등을 확인해야 판단할 수 있습니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -3374,7 +3374,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "위임장에 적힌 범위, 어디까지 대신할 수 있나. 대화 핵심: 이 초안은 예금 인출과 이체를 전제로 작성돼 있습니다. / 그럼 예금을 다른 상품으로 옮기는 것도 포함되나요? 학습 목표 발화: 그 거래는 이 초안에 포함되지 않습니다. 필요한 동의와 서류는 별도로 확인해야 합니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -3448,7 +3448,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "화재로 사라진 등기부, 소유권을 어떻게 증명할까. 대화 핵심: 죄송하지만 1978년 화재로 그 시기 등기부 원본 일부가 사라져서 기록에 공백이 있습니다. / 그럼 할아버지 명의였다는 사실을 어떻게 입증할 수 있을까요? 학습 목표 발화: 그럴 수 있습니다. 다만 여기서는 소유권을 판단하지 않고 남아 있는 기록을 확인해 드릴 수 있습니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -3522,7 +3522,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "상관관계를 원인처럼 쓴 기사 제목. 대화 핵심: ‘이 앱이 건강을 개선한다’고 써야 독자가 연구 의미를 바로 이해합니다. / 함께 나타났다는 결과를 앱이 개선했다는 원인 주장으로 바꾸면 연구 범위를 넘어섭니다. 학습 목표 발화: ‘이 앱이 건강을 개선한다’고 써야 독자가 연구 의미를 바로 이해합니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -3596,7 +3596,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "이름의 발음과 소속감을 스스로 정할 권리. 대화 핵심: 등록 시스템에서는 제 이름을 ‘June’으로 바꾸면 검색이 쉽다고 합니다. / 평소에도 그 이름으로 불리길 원하세요? 학습 목표 발화: 등록 시스템에서는 제 이름을 ‘June’으로 바꾸면 검색이 쉽다고 합니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -3670,7 +3670,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "재난 시 생필품 가격 제한의 역효과를 논의하기. 대화 핵심: 재난 중 생수 가격이 급등하지 않도록 즉시 상한을 두어야 합니다. / 가격만 묶어 두면 필요한 곳에 물건이 도착하지 않는 역효과가 생길 수 있습니다. 학습 목표 발화: 재난 중 생수 가격이 급등하지 않도록 즉시 상한을 두어야 합니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -3744,7 +3744,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "팩트체크 라벨이 논쟁을 끝내는 권력이 될 때. 대화 핵심: 숫자 하나가 틀렸으니 전체 주장에 ‘거짓’ 라벨을 붙이는 편이 명확합니다. / 검증 가능한 사실과 정책에 대한 가치 판단을 같은 거짓 라벨로 묶어서는 안 됩니다. 학습 목표 발화: 숫자 하나가 틀렸으니 전체 주장에 ‘거짓’ 라벨을 붙이는 편이 명확합니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -3818,7 +3818,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "주택 보유세 논쟁의 세대 프레임. 대화 핵심: 오늘 토론은 집을 소유하지 않은 청년과 주택을 소유한 노년층의 갈등을 중심으로 보겠습니다. / 세대라는 구분이 설명력을 갖는 부분은 있지만 자산과 소득의 차이까지 대신 설명하지는 못합니다. 학습 목표 발화: 오늘 토론은 집을 소유하지 않은 청년과 주택을 소유한 노년층의 갈등을 중심으로 보겠습니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -3892,7 +3892,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "불확실한 치료 효과를 동의 과정에서 설명하기. 대화 핵심: 초기 연구에서 위험이 절반으로 줄었다고 설명하면 핵심이 잘 전달될 겁니다. / 효과가 있을 가능성과 아직 모르는 범위를 같은 무게로 설명해야 합니다. 학습 목표 발화: 초기 연구에서 위험이 절반으로 줄었다고 설명하면 핵심이 잘 전달될 겁니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -3966,7 +3966,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "보도자료의 수동태가 책임 주체를 지울 때. 대화 핵심: 아직 개인 책임자를 확정하지 못했으니 ‘자료 유출이 발생했다’고 쓰는 게 안전합니다. / 하지만 무엇을 했고 무엇을 하지 않았는지도 전부 빠져 있습니다. 학습 목표 발화: 아직 개인 책임자를 확정하지 못했으니 ‘자료 유출이 발생했다’고 쓰는 게 안전합니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -4044,7 +4044,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "여론조사 질문이 원하는 답을 만들 때. 대화 핵심: ‘세금 낭비를 막기 위한 규제에 찬성하십니까?’면 목적과 쟁점이 한눈에 들어옵니다. / 질문 안에 이미 낭비라는 평가를 넣으면 응답은 정책보다 그 전제에 반응할 수 있습니다. 학습 목표 발화: ‘세금 낭비를 막기 위한 규제에 찬성하십니까?’면 목적과 쟁점이 한눈에 들어옵니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -4118,7 +4118,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "연구 재현에 실패했을 때 원 논문을 평가하기. 대화 핵심: 같은 절차를 썼는데 효과가 없었으니 원 연구는 틀렸다고 발표해야 합니다. / 반대로 이번 표본에만 특수한 문제가 있었다고 넘기는 것도 설득력이 없습니다. 학습 목표 발화: 같은 절차를 썼는데 효과가 없었으니 원 연구는 틀렸다고 발표해야 합니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -4196,7 +4196,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "‘우리’가 포함하고 배제하는 사람을 번역하기. 대화 핵심: 영어 자막에서는 우리를 계속 ‘we residents’로 통일했어. 더 자연스럽지 않아? / 여기서 우리는 앞 문장의 주민 전체와 같은 범위가 아니야. 학습 목표 발화: 영어 자막에서는 우리를 계속 ‘we residents’로 통일했어. 더 자연스럽지 않아?",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -4270,7 +4270,7 @@
       "level": "c2",
       "category": "office",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "부정 수급 방지 담론이 신청자를 의심하게 만들 때. 대화 핵심: 허위 신청을 줄이려면 첫 화면부터 처벌 가능성을 강하게 알려야 합니다. / 위반 가능성을 알리는 것과 신청자 전체를 의심하는 문체는 구분해야 합니다. 학습 목표 발화: 허위 신청을 줄이려면 첫 화면부터 처벌 가능성을 강하게 알려야 합니다.",
       "requiredSettingKo": "한국의 사무실 또는 공공 업무 공간",
       "requiredParticipants": [
@@ -6868,7 +6868,7 @@
       "level": "b2",
       "category": "home",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "축제 동선을 휠체어도 이용할 수 있게 바꾸기. 대화 핵심: 포토존 줄이 경사로 앞까지 이어져서 지나갈 수가 없어요. / 사진 찍는 사람들만 생각하고 이동 공간을 놓쳤네요. 학습 목표 발화: 포토존 줄이 경사로 앞까지 이어져서 지나갈 수가 없어요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -6942,7 +6942,7 @@
       "level": "b2",
       "category": "home",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "과태료 이의신청, 절차 다시 확인하기. 대화 핵심: 네, 주정차 단속 민원 담당입니다. 어떤 내용이시죠? / 지난주에 제출한 이의신청이 기각됐다는 문자를 받아서 다시 연락드렸습니다. 학습 목표 발화: 이미 받은 결과와 사진을 바탕으로 어떤 절차가 가능한지는 결과 안내문과 담당 기관에 다시 확인하셔야 합니다.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -7016,7 +7016,7 @@
       "level": "b2",
       "category": "home",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "미리 알려 주는 게 좋겠어. 대화 핵심: 저기, 요즘 부모님이 갑자기 오시는 일이 잦아진 것 같아. / 어, 그런가? 나는 별로 신경 안 썼는데. 학습 목표 발화: 맞아. 특히 화상 회의가 있을 때는 갑자기 오시면 곤란할 뿐만 아니라 좀 당황스러워.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -7090,7 +7090,7 @@
       "level": "b2",
       "category": "home",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "안 쓰는 계정, 삭제 범위 확인하기. 대화 핵심: 몇 년 전에 가입한 계정인데 지금 어떤 정보가 저장되어 있는지와 보관해야 하는 정보가 있는지 확인하고 싶습니다. / 네, 확인해 보니 이름과 연락처, 결제 내역이 남아 있습니다. 다만 법적 또는 계약상 보관해야 하는 정보가 있는지 먼저 확인해야 합니다. 학습 목표 발화: 네, 확인해 보니 이름과 연락처, 결제 내역이 남아 있습니다. 다만 법적 또는 계약상 보관해야 하는 정보가 있는지 먼저 확인해야 합니다.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -7164,7 +7164,7 @@
       "level": "b2",
       "category": "home",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "동네 행사 시간과 소음을 절충하기. 대화 핵심: 영화제가 골목 상권에는 도움이 된다는 의견이 많습니다. / 취지는 좋지만 영화가 끝난 뒤까지 소음이 이어질까 걱정돼요. 학습 목표 발화: 영화제가 골목 상권에는 도움이 된다는 의견이 많습니다.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -7242,7 +7242,7 @@
       "level": "b2",
       "category": "home",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "배달 지연 환불 범위를 협의하기. 대화 핵심: 불편을 드려 죄송합니다. 음식은 모두 그대로 있나요? / 일부는 먹었기 때문에 전액 환불을 요구하는 건 아니에요. 학습 목표 발화: 불편을 드려 죄송합니다. 음식은 모두 그대로 있나요?",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -7316,7 +7316,7 @@
       "level": "b2",
       "category": "home",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "도서관 통화 구역을 두고 갈등할 때. 대화 핵심: 죄송한데 여기서는 계속 통화하시면 안 돼요. / 통화 가능한 구역인 줄 알았는데 표시를 제가 못 봤어요. 학습 목표 발화: 죄송한데 여기서는 계속 통화하시면 안 돼요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -7390,7 +7390,7 @@
       "level": "b2",
       "category": "home",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "아파트 음식물 쓰레기 방식을 바꾸기. 대화 핵심: 새 기기를 쓰면 냄새는 줄지만 화면이 복잡하다는 의견도 있어요. / 저는 카드 찍는 순서를 몰라서 뒤에 사람이 오면 더 급해져요. 학습 목표 발화: 저는 카드 찍는 순서를 몰라서 뒤에 사람이 오면 더 급해져요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -7468,7 +7468,7 @@
       "level": "b2",
       "category": "home",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "퇴거 전 수리비 책임을 협의하기. 대화 핵심: 이 얼룩은 새로 생긴 것 같아서 수리비를 확인해야겠어요. / 입주할 때 찍은 사진에도 비슷한 자국이 있어요. 학습 목표 발화: 이 얼룩은 새로 생긴 것 같아서 수리비를 확인해야겠어요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -7542,7 +7542,7 @@
       "level": "c1",
       "category": "home",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "팬과 아티스트 사이, 어디까지가 선일까. 대화 핵심: 이 영상 봤어? 사생활 부분까지 다 찍혀서 퍼졌더라. / 봤어. 그런데 그거 팬이 몰래 찍은 거라며. 학습 목표 발화: 친밀하다고 느낀다고 해서 사생활까지 볼 권리가 생기는 건 아니야. 그건 선을 넘는 일이야.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -7616,7 +7616,7 @@
       "level": "c1",
       "category": "home",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "빠른 배달과 라이더 안전을 함께 논의하기. 대화 핵심: ‘빠른 배달’ 배지는 고객이 가게를 빨리 고르게 하고 주문도 늘렸습니다. / 그 시간 안에 가려다 인도로 올라오는 오토바이를 자주 봤어요. 학습 목표 발화: ‘빠른 배달’ 배지는 고객이 가게를 빨리 고르게 하고 주문도 늘렸습니다.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -7694,7 +7694,7 @@
       "level": "c1",
       "category": "home",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "폭염 쉼터가 있어도 이용하기 어려울 때. 대화 핵심: 이 지역은 기준보다 많은 폭염 쉼터를 운영하고 있습니다. / 가까운 곳은 계단뿐이고, 경사로가 있는 곳은 제가 갈 때 이미 닫혀요. 학습 목표 발화: 이 지역은 기준보다 많은 폭염 쉼터를 운영하고 있습니다.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -7772,7 +7772,7 @@
       "level": "c1",
       "category": "home",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "박물관 설명문에 누구의 관점을 담을지. 대화 핵심: 설명문은 짧아야 해서 이 도구가 생활을 편리하게 했다는 점만 남겼습니다. / 발전의 상징이라는 설명만 남기면 그 과정에서 밀려난 사람들의 경험이 보이지 않습니다. 학습 목표 발화: 설명문은 짧아야 해서 이 도구가 생활을 편리하게 했다는 점만 남겼습니다.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -7846,7 +7846,7 @@
       "level": "c1",
       "category": "home",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "커뮤니티 글이 자동으로 숨겨졌을 때. 대화 핵심: 표현이 거칠었던 건 인정하지만 계좌와 피해 방식까지 전부 가려졌어요. / 필터가 필요한 이유와 잘못 숨겨졌을 때 다시 볼 수 있는 길은 함께 마련돼야 합니다. 학습 목표 발화: 표현이 거칠었던 건 인정하지만 계좌와 피해 방식까지 전부 가려졌어요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -7920,7 +7920,7 @@
       "level": "c1",
       "category": "home",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "주민 의견 수렴이 실제 참여가 되려면. 대화 핵심: 설문 응답이 천 건을 넘어서 참여는 충분했다고 보고 있습니다. / 응답 수가 많다는 사실만으로 지역 전체의 의견을 대표한다고 보기는 어렵습니다. 학습 목표 발화: 설문 응답이 천 건을 넘어서 참여는 충분했다고 보고 있습니다.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -7998,7 +7998,7 @@
       "level": "c1",
       "category": "home",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "학교 스마트폰 규제를 설계할 때. 대화 핵심: 수업 시작 전에 휴대폰을 모두 걷으면 집중 문제가 줄어들 겁니다. / 저는 혈당을 확인하는 앱을 써서 휴대폰이 필요해요. 학습 목표 발화: 수업 시작 전에 휴대폰을 모두 걷으면 집중 문제가 줄어들 겁니다.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -8076,7 +8076,7 @@
       "level": "c1",
       "category": "home",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "전통 공연을 현대적으로 바꿀 때. 대화 핵심: 젊은 관객에게 닿으려면 도입부를 줄이고 후렴을 더 강하게 만들면 어떨까요? / 새롭게 해석하는 건 가능하지만 원래 형식처럼 보이게 하면 오해가 생길 수 있어요. 학습 목표 발화: 새롭게 해석하는 건 가능하지만 원래 형식처럼 보이게 하면 오해가 생길 수 있어요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -8150,7 +8150,7 @@
       "level": "c2",
       "category": "home",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "2차 창작, 어디까지 내 것이라 할 수 있을까. 대화 핵심: 제 2차 창작물을 거의 그대로 가져가 편집해서 유료로 판매한 계정을 신고했는데 아직 조치가 없어요. / 확인해 보니 경고 메시지를 보내는 데 그친 상태였습니다. 학습 목표 발화: 이 커뮤니티 규정에 따르면 장르나 팬덤 규모를 불문하고 타인의 창작물을 허락 없이 상업적으로 이용하면 계정 정지를 검토합니다.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -8224,7 +8224,7 @@
       "level": "c2",
       "category": "home",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "사과 한마디로 끝날 수 있을까. 대화 핵심: 사십 년 만에 사과했다는데, 그때 다친 사람들은 이미 대부분 돌아가셨대. / 사과가 늦었다고 해서 책임이 사라지는 것은 아니잖아. 학습 목표 발화: 책임을 인정한다면 피해자 가족에게 직접 설명할 기회를 만들고, 무엇이 필요한지도 먼저 들어야 하지 않을까.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -8298,7 +8298,7 @@
       "level": "c2",
       "category": "home",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "재난 대응 실패의 중앙·지방 책임을 나누기. 대화 핵심: 중앙 경보가 늦게 내려와 현장에서는 판단할 정보가 부족했습니다. / 그런데 경보가 온 뒤에도 대피 안내는 한참 나오지 않았습니다. 학습 목표 발화: 중앙 경보가 늦게 내려와 현장에서는 판단할 정보가 부족했습니다.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -8376,7 +8376,7 @@
       "level": "c2",
       "category": "home",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "기후 모델의 불확실성을 지역 결정에 쓰기. 대화 핵심: 모델마다 침수 지도가 달라서 어느 결과를 기준으로 삼아야 할지 모르겠습니다. / 예측 범위가 다르다는 사실이 아무 결정도 하지 말아야 한다는 뜻은 아닙니다. 학습 목표 발화: 모델마다 침수 지도가 달라서 어느 결과를 기준으로 삼아야 할지 모르겠습니다.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -8450,7 +8450,7 @@
       "level": "c2",
       "category": "home",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "가족이 같은 과거를 다르게 기억할 때. 대화 핵심: 가족 사진 밑에 ‘모두가 기다리던 새 출발’이라고 쓰려고 했어요. / 그런데 이모는 그때 친구와 집을 한꺼번에 잃었다고 했죠? 학습 목표 발화: 가족 사진 밑에 ‘모두가 기다리던 새 출발’이라고 쓰려고 했어요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -8524,7 +8524,7 @@
       "level": "c2",
       "category": "home",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "집회 질서와 표현의 자유를 같은 틀에서 논증하기. 대화 핵심: 지난 집회 때 도로가 오래 막혔으니 앞으로는 도심 집회를 더 엄격하게 제한해야 합니다. / 출근길뿐 아니라 응급 차량 통행도 늦어질까 걱정됩니다. 학습 목표 발화: 지난 집회 때 도로가 오래 막혔으니 앞으로는 도심 집회를 더 엄격하게 제한해야 합니다.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -8602,7 +8602,7 @@
       "level": "c2",
       "category": "home",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "연애의 시작을 서로 다르게 말할 때. 대화 핵심: 아까 친구들 앞에서 첫눈에 반했다고 말한 거, 저는 조금 불편했어요. / 그냥 이야기를 짧고 재미있게 하려고 한 말이었어요. 학습 목표 발화: 아까 친구들 앞에서 첫눈에 반했다고 말한 거, 저는 조금 불편했어요.",
       "requiredSettingKo": "현대 한국의 집 안 생활 공간",
       "requiredParticipants": [
@@ -9416,7 +9416,7 @@
       "level": "b2",
       "category": "cafe",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "모금액 공개, 어디까지가 적당할까. 대화 핵심: 이번 지하철 광고 비용을 둘러싸고 회원들 사이에 의견이 갈렸어. / 어떤 부분에서 의견이 갈린 거야? 학습 목표 발화: 총액을 정확히 밝힌다는 점에서 투명하기는 하지만 개인별 금액이 드러날까 봐 걱정하는 사람도 있겠다.",
       "requiredSettingKo": "한국의 카페 내부",
       "requiredParticipants": [
@@ -9490,7 +9490,7 @@
       "level": "b2",
       "category": "cafe",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "가게 안을 촬영하기 전에 허락받기. 대화 핵심: 가게 안을 잠깐 촬영해도 괜찮으세요? / 어디에 올릴 영상이에요? 가게 어디까지 찍으실 거예요? 학습 목표 발화: 어디에 올릴 영상이에요? 가게 어디까지 찍으실 거예요?",
       "requiredSettingKo": "한국의 카페 내부",
       "requiredParticipants": [
@@ -9564,7 +9564,7 @@
       "level": "b2",
       "category": "cafe",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "친구의 과한 라이브 방송을 보며 민망할 때. 대화 핵심: 오늘 라이브 어땠어? 분위기 좋았지? / 솔직히 직원한테 춤춰 달라고 할 때는 내가 다 민망하더라. 학습 목표 발화: 오늘 라이브 어땠어? 분위기 좋았지?",
       "requiredSettingKo": "한국의 카페 내부",
       "requiredParticipants": [
@@ -9638,7 +9638,7 @@
       "level": "b2",
       "category": "cafe",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "연인의 가족을 처음 만날 때 호칭 정하기. 대화 핵심: 부모님을 어떻게 부르는 게 편할까요? / 처음부터 호칭을 정하려고 하면 더 어색할 수 있어요. 학습 목표 발화: 처음부터 호칭을 정하려고 하면 더 어색할 수 있어요.",
       "requiredSettingKo": "한국의 카페 내부",
       "requiredParticipants": [
@@ -9712,7 +9712,7 @@
       "level": "c1",
       "category": "cafe",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "오래된 친구 사이, 달라진 형편 이야기하기. 대화 핵심: 오랜만이다. 요즘 통 연락이 안 됐네. / 미안, 요즘 일이 좀 바빴어. 학습 목표 발화: 이번엔 내가 서운한 소리를 듣는 한이 있어도 솔직하게 다 말할게.",
       "requiredSettingKo": "한국의 카페 내부",
       "requiredParticipants": [
@@ -9786,7 +9786,7 @@
       "level": "c2",
       "category": "cafe",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "우정으로 시작한 사업, 이제는 정리할 때. 대화 핵심: 요즘 네가 좀 지쳐 보여서, 우리 이 얘기 한번 제대로 해야 할 것 같아. / 사실 크레딧에 내 이름이 항상 작게 들어가는 게 계속 마음에 걸렸어. 학습 목표 발화: 이걸 그냥 돈 문제로 환원해서는 안 될 것 같아. 우리 우정도 걸려 있잖아.",
       "requiredSettingKo": "한국의 카페 내부",
       "requiredParticipants": [
@@ -10452,7 +10452,7 @@
       "level": "b2",
       "category": "station",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "기차 지연으로 환승이 어려울 때. 대화 핵심: 이 지연 때문에 다음 열차를 놓칠 가능성이 큰데 변경할 수 있을까요? / 다음 표는 따로 예약하신 건가요? 학습 목표 발화: 다음 표는 따로 예약하신 건가요?",
       "requiredSettingKo": "한국의 기차역 또는 지하철역",
       "requiredParticipants": [
@@ -11562,7 +11562,7 @@
       "level": "b2",
       "category": "restaurant",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "결혼식 초대의 뜻을 오해했을 때. 대화 핵심: 동료한테 청첩장을 받았어요. 그날 약속을 취소해야겠죠? / 두 사람이 평소에 얼마나 가까워요? 학습 목표 발화: 두 사람이 평소에 얼마나 가까워요?",
       "requiredSettingKo": "한국의 식당 내부",
       "requiredParticipants": [
@@ -11636,7 +11636,7 @@
       "level": "c1",
       "category": "restaurant",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "무인 주문기가 세대별로 다르게 어려울 때. 대화 핵심: 무인 주문 전환 뒤 평균 대기 시간이 2분 줄었습니다. / 평균 대기 시간이 줄었어도 주문을 포기한 사람이 늘었다면 효율이 모두에게 좋아진 것은 아닙니다. 학습 목표 발화: 무인 주문 전환 뒤 평균 대기 시간이 2분 줄었습니다.",
       "requiredSettingKo": "한국의 식당 내부",
       "requiredParticipants": [
@@ -11858,7 +11858,7 @@
       "level": "b2",
       "category": "pharmacy",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "약 부작용, 복용 방법 확인하기. 대화 핵심: 처방전은 확인했습니다. 이 약은 졸릴 수 있으니, 복용 시간이나 다른 선택지는 처방 내용과 현재 상태를 확인한 뒤 안내해 드릴게요. / 이 약 중에 부작용으로 졸릴 수 있는 게 있을까요? 오후에 수업이 있어서요. 학습 목표 발화: 가능한 복용 방법이나 대체 약이 있는지 처방의와 확인해 보겠습니다. 확인하기 전까지는 처방대로 복용해 주세요.",
       "requiredSettingKo": "한국의 약국 내부",
       "requiredParticipants": [
@@ -12154,7 +12154,7 @@
       "level": "b2",
       "category": "directions",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "골목 촬영 전에 주민에게 알리기. 대화 핵심: 여기에 삼각대를 두면 사람들이 지나가기 어렵지 않을까요? / 맞습니다. 통행을 막지 않도록 벽 쪽으로 옮기겠습니다. 학습 목표 발화: 여기에 삼각대를 두면 사람들이 지나가기 어렵지 않을까요?",
       "requiredSettingKo": "한국의 거리와 길찾기 지점",
       "requiredParticipants": [
@@ -12228,7 +12228,7 @@
       "level": "c1",
       "category": "directions",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "골목이 유명해진 뒤 임대료가 오를 때. 대화 핵심: 홍보 이후 방문객과 카드 매출이 모두 늘었습니다. / 매출은 늘었지만 옆 가게는 임대료를 못 견디고 지난달에 나갔어요. 학습 목표 발화: 홍보 이후 방문객과 카드 매출이 모두 늘었습니다.",
       "requiredSettingKo": "한국의 거리와 길찾기 지점",
       "requiredParticipants": [
@@ -12306,7 +12306,7 @@
       "level": "c1",
       "category": "directions",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "야간 상권과 주민 수면권을 함께 다루기. 대화 핵심: 야간 영업 이후 매출과 고용이 늘어 영업시간을 줄이기는 어렵습니다. / 혜택은 넓게 생기는데 귀가 소음과 쓰레기는 저희 골목에 몰립니다. 학습 목표 발화: 야간 영업 이후 매출과 고용이 늘어 영업시간을 줄이기는 어렵습니다.",
       "requiredSettingKo": "한국의 거리와 길찾기 지점",
       "requiredParticipants": [
@@ -12384,7 +12384,7 @@
       "level": "c2",
       "category": "directions",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "자율 배송 사고의 책임을 한 사람에게 돌릴 수 있는가. 대화 핵심: 가게 입장에서는 로봇 회사든 운영 업체든 한 곳에서 빨리 보상받고 싶습니다. / 현장 배치 담당자의 판단 실수로 정리하면 책임자가 명확해집니다. 학습 목표 발화: 가게 입장에서는 로봇 회사든 운영 업체든 한 곳에서 빨리 보상받고 싶습니다.",
       "requiredSettingKo": "한국의 거리와 길찾기 지점",
       "requiredParticipants": [
@@ -12462,7 +12462,7 @@
       "level": "c2",
       "category": "directions",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "‘숨은 명소’ 영상이 지역을 바꾼 뒤. 대화 핵심: 영상 덕분에 가게 매출이 늘었다는 연락을 받아서 처음에는 좋은 일이라고만 생각했습니다. / 하지만 영상에 나온 돌계단은 사유지인데 사람들이 사진을 찍으러 계속 들어옵니다. 학습 목표 발화: 하지만 영상에 나온 돌계단은 사유지인데 사람들이 사진을 찍으러 계속 들어옵니다.",
       "requiredSettingKo": "한국의 거리와 길찾기 지점",
       "requiredParticipants": [
@@ -12914,7 +12914,7 @@
       "level": "b2",
       "category": "airport",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "결항 후 책임자에게 요청하기. 대화 핵심: 죄송하지만 오늘 항공편이 전부 결항됐습니다. / 다음 항공편은 언제 가능한가요? 학습 목표 발화: 기상 상황 때문에 오늘 이동이 어려울 수 있다는 건 이해합니다. 다른 항공사나 대체 경로가 가능한지 확인해 주실 수 있을까요?",
       "requiredSettingKo": "한국의 공항 내부",
       "requiredParticipants": [
@@ -13362,7 +13362,7 @@
       "level": "b2",
       "category": "theme_park",
       "sourceShard": "scenarios_b2.json",
-      "sourceSha256": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
+      "sourceSha256": "37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42",
       "semanticSummaryKo": "타기 전에 꼭 확인해. 대화 핵심: 출발하기 전에 주머니 다 확인했어? / 휴대폰이랑 동전은 옆 물품 보관함에 넣었어. 학습 목표 발화: 차례를 놓치더라도 먼저 찾으러 가자.",
       "requiredSettingKo": "한국의 현대 놀이공원 안",
       "requiredParticipants": [
@@ -13436,7 +13436,7 @@
       "level": "c1",
       "category": "theme_park",
       "sourceShard": "scenarios_c1.json",
-      "sourceSha256": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
+      "sourceSha256": "0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a",
       "semanticSummaryKo": "다음에 다시 올 이유. 대화 핵심: 아쉽네. 오늘은 운행하지 않는 모양이야. / 기대했던 만큼 아쉽다. 그래도 다음에 다시 올 명분이 생긴 셈이네. 학습 목표 발화: 아쉽네. 오늘은 운행하지 않는 모양이야.",
       "requiredSettingKo": "한국의 현대 놀이공원 안",
       "requiredParticipants": [
@@ -13510,7 +13510,7 @@
       "level": "c2",
       "category": "theme_park",
       "sourceShard": "scenarios_c2.json",
-      "sourceSha256": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+      "sourceSha256": "9cd5d59055ebdab5c308a39923f7f654a6c8f247f3f10d7a583ed111de415a1a",
       "semanticSummaryKo": "웃음이 가득한 이유. 대화 핵심: 오늘 줄도 오래 섰고, 물도 잔뜩 맞았는데 이상하게 기분이 좋다. / 나, 사람들이 놀이공원에 오는 걸 좋아하는 이유를 알 것 같아. 학습 목표 발화: 기다림이 길어도 그 기대가 사라지는 건 아니네.",
       "requiredSettingKo": "한국의 현대 놀이공원 안",
       "requiredParticipants": [

@@ -14,6 +14,7 @@ import tempfile
 import unittest
 from collections import Counter
 from pathlib import Path
+from types import SimpleNamespace
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -523,6 +524,81 @@ class CanDoSegmentGeneratorTest(unittest.TestCase):
         )
 
         self.assertEqual(2, decision["reviewRevision"])
+
+
+class PublishedSegmentTextTest(unittest.TestCase):
+    def setUp(self) -> None:
+        self.spec = builder._scenario_spec(
+            "a1_demo", "a1", "a1_demo_unit", "demo_scene"
+        )
+        self.published = {
+            "id": "segment_a1_demo",
+            "constructLineageId": "segment_a1_demo",
+            "parentCourseUnitId": "a1_demo_unit",
+            "level": "a1",
+            "contentClusterIds": ["cluster_a1_demo_v1"],
+            "title": {"ko": "인사", "de": "Begrüßen", "en": "Greetings"},
+            "canDo": {
+                "ko": "상대에게 인사할 수 있어요.",
+                "de": "Ich kann jemanden begrüßen.",
+                "en": "I can greet someone.",
+            },
+        }
+        self.source = SimpleNamespace(
+            published_segments={self.published["id"]: self.published},
+            scenarios={"demo_scene": {"title": copy.deepcopy(self.published["title"])}},
+        )
+
+    def test_practice_title_change_preserves_published_descriptor(self) -> None:
+        expected = (
+            copy.deepcopy(self.published["title"]),
+            copy.deepcopy(self.published["canDo"]),
+        )
+        self.assertEqual(expected, builder._segment_text(self.spec, self.source))
+        self.source.scenarios["demo_scene"]["title"] = {
+            "ko": "처음 만난 이웃",
+            "de": "Neue Nachbarn",
+            "en": "New neighbors",
+        }
+
+        title, can_do = builder._segment_text(self.spec, self.source)
+
+        self.assertEqual(expected, (title, can_do))
+        title["en"] = "Caller edit"
+        can_do["en"] = "Caller edit"
+        self.assertEqual(expected, builder._segment_text(self.spec, self.source))
+
+    def test_published_construct_identity_drift_fails(self) -> None:
+        for field, value in {
+            "constructLineageId": "segment_a1_other",
+            "parentCourseUnitId": "a1_other_unit",
+            "level": "a2",
+            "contentClusterIds": ["cluster_a1_other_v1"],
+        }.items():
+            with self.subTest(field=field):
+                published = {**self.published, field: value}
+                source = SimpleNamespace(
+                    published_segments={self.published["id"]: published},
+                    scenarios=self.source.scenarios,
+                )
+                with self.assertRaisesRegex(ValueError, "published construct identity changed"):
+                    builder._segment_text(self.spec, source)
+
+    def test_bootstrap_uses_practice_title_when_no_descriptor_is_published(self) -> None:
+        title = {"ko": "인사", "de": "Begrüßen", "en": "Greetings"}
+        expected_can_do = {
+            "ko": "인사 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+            "de": "Ich kann die Aufgabe „Begrüßen“ mit passenden koreanischen Ausdrücken bewältigen.",
+            "en": "I can complete “Greetings” by connecting appropriate Korean expressions.",
+        }
+        for has_published_index in (False, True):
+            with self.subTest(has_published_index=has_published_index):
+                source = SimpleNamespace(scenarios={"demo_scene": {"title": title}})
+                if has_published_index:
+                    source.published_segments = {}
+                self.assertEqual(
+                    (title, expected_can_do), builder._segment_text(self.spec, source)
+                )
 
 
 class SmalltalkCopyRevisionTest(unittest.TestCase):

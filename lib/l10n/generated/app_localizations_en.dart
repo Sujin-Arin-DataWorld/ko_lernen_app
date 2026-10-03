@@ -11297,6 +11297,258 @@ class AppL10nEn extends AppL10n {
   String get yeopjeonConstructionComplete => 'This building is complete!';
 
   @override
+  String get dancheongTitle => 'Dancheong Studio';
+
+  @override
+  String get dancheongPatterns => 'Patterns';
+
+  @override
+  String get dancheongArtwork => 'Artwork';
+
+  @override
+  String get dancheongPreview => 'Your artwork preview';
+
+  @override
+  String get dancheongIntro =>
+      'Your Ildu Hanok grows with every learning step. Turn your collected patterns into your own artwork here.';
+
+  @override
+  String get dancheongCreate => 'Create artwork';
+
+  @override
+  String get dancheongFirstMaterial =>
+      'Keep learning to collect your first pattern. Then use it in all three templates.';
+
+  @override
+  String get dancheongLearn => 'Open learning path';
+
+  @override
+  String get dancheongExamples => 'Inspiration · examples';
+
+  @override
+  String get dancheongExampleNote =>
+      'These finished example images show the direction. Their motifs and fixed Korean lettering are not individually unlocked materials.';
+
+  @override
+  String get dancheongEmptyArtwork =>
+      'Your artwork and drafts will appear here.';
+
+  @override
+  String get dancheongDraft => 'Continue draft';
+
+  @override
+  String get dancheongEditor => 'Your artwork';
+
+  @override
+  String get dancheongTemplate => 'Composition';
+
+  @override
+  String get dancheongFlower => 'Flower wreath';
+
+  @override
+  String get dancheongBrocade => 'Brocade pattern';
+
+  @override
+  String get dancheongLetter => 'Motif & Hangul';
+
+  @override
+  String get dancheongFormat => 'Image format';
+
+  @override
+  String get dancheongPortrait => 'Post · 4:5';
+
+  @override
+  String get dancheongStory => 'Story · 9:16';
+
+  @override
+  String get dancheongMaterials => 'Your materials · up to 4 patterns';
+
+  @override
+  String get dancheongKoreanText => 'Korean text · optional';
+
+  @override
+  String get dancheongTranslation => 'Translation · optional';
+
+  @override
+  String get dancheongTranslationLanguage => 'Translation language';
+
+  @override
+  String get dancheongSignature => 'Your name · optional';
+
+  @override
+  String get dancheongSaveDraft => 'Save draft';
+
+  @override
+  String get dancheongFinish => 'Finish artwork';
+
+  @override
+  String get dancheongSaved => 'Draft saved';
+
+  @override
+  String get dancheongSaving => 'Saving draft …';
+
+  @override
+  String get dancheongError =>
+      'That did not work. Your previously saved draft is preserved. Please try again.';
+
+  @override
+  String get dancheongBlocked =>
+      'Your artwork is unavailable during an account change. Open the studio again afterwards.';
+
+  @override
+  String get dancheongDamaged =>
+      'Saved studio data cannot be read. The data is preserved.';
+
+  @override
+  String get dancheongMissing => 'This artwork is no longer available.';
+
+  @override
+  String get dancheongEdit => 'Edit';
+
+  @override
+  String get dancheongDelete => 'Delete';
+
+  @override
+  String get dancheongShare => 'Prepare to share';
+
+  @override
+  String get dancheongShareTitle => 'Share your artwork';
+
+  @override
+  String get dancheongShareImage => 'Share / save image';
+
+  @override
+  String get dancheongCaption => 'Caption · copy separately';
+
+  @override
+  String get dancheongCaptionLanguage => 'Caption language';
+
+  @override
+  String get dancheongCopyCaption => 'Copy caption';
+
+  @override
+  String get dancheongCopied => 'Caption copied';
+
+  @override
+  String get dancheongHandedOff =>
+      'Image handed to the share sheet. Choose your app or Save there.';
+
+  @override
+  String get dancheongDismissed =>
+      'Share sheet closed. Your artwork is still saved.';
+
+  @override
+  String get dancheongUnavailable =>
+      'Sharing is unavailable here. You can download the image and copy the caption.';
+
+  @override
+  String get dancheongDownload => 'Download PNG';
+
+  @override
+  String get dancheongShareNote =>
+      'The PNG contains only your artwork. Copy the caption, hashtags and links separately.';
+
+  @override
+  String get dancheongEntry => 'Turn patterns into art';
+
+  @override
+  String get dancheongEntryAction => 'Open studio';
+
+  @override
+  String get dancheongReceipt => 'Create with your pattern';
+
+  @override
+  String get dancheongLimit => 'Choose up to four patterns.';
+
+  @override
+  String get dancheongExportData => 'Copy studio data';
+
+  @override
+  String get dancheongPublicTitle => 'Share this artwork publicly?';
+
+  @override
+  String get dancheongPublicBody =>
+      'Anyone with the link can see this image and its text. You can disable the link later. Previously saved copies will remain.';
+
+  @override
+  String get dancheongPublicConfirm => 'Publish link';
+
+  @override
+  String get dancheongPublicCancel => 'Cancel';
+
+  @override
+  String get dancheongPublicAction => 'Create public link';
+
+  @override
+  String get dancheongPublicCopy => 'Copy public link';
+
+  @override
+  String get dancheongPublicRevoke => 'Disable public link';
+
+  @override
+  String get dancheongPublicRevoked =>
+      'The public link is disabled. Your private artwork is still saved.';
+
+  @override
+  String get dancheongPublicTooLarge =>
+      'This original exceeds the 4 MB limit for public links. You can still share or save the unchanged PNG.';
+
+  @override
+  String get dancheongDefaultCaption =>
+      'My Dancheong artwork, made with patterns collected along my Korean learning journey.\n#Dancheong #HangulSori #KoreanArt';
+
+  @override
+  String get dancheongBorder => 'Frame';
+
+  @override
+  String get dancheongBorderFlow => 'Flowing brocade';
+
+  @override
+  String get dancheongBorderRibbon => 'Color bands & geometry';
+
+  @override
+  String get dancheongBorderLotus => 'Lotus & scrolls';
+
+  @override
+  String get dancheongBorderNone => 'No frame';
+
+  @override
+  String get dancheongFrameNote =>
+      'The frame and large ornamental flower are part of the design. The small medallions show your collected patterns.';
+
+  @override
+  String get dancheongPublicReady => 'Your public link is ready.';
+
+  @override
+  String get dancheongTextFit =>
+      'This text does not fit the image yet. Shorten it or use fewer line breaks. Your draft is preserved.';
+
+  @override
+  String get dancheongCapacity =>
+      'Your studio is full (30 drafts or 100 finished versions). Delete a saved item in Artwork to make space.';
+
+  @override
+  String get dancheongManage => 'Manage saved artwork';
+
+  @override
+  String get dancheongLeaveTitle => 'Leave without saving?';
+
+  @override
+  String get dancheongLeaveNote =>
+      'These unsaved changes will be lost. Previously saved drafts remain available.';
+
+  @override
+  String get dancheongLeave => 'Leave without saving';
+
+  @override
+  String get dancheongDeleteDraftNote =>
+      'Delete this saved draft? This cannot be undone.';
+
+  @override
+  String get dancheongDeleteArtworkNote =>
+      'Delete this finished version and its saved captions? Its public links will also be disabled. Copies already saved by others remain.';
+
+  @override
   String get personaMeetPeopleTitle => 'Meet people';
 
   @override
