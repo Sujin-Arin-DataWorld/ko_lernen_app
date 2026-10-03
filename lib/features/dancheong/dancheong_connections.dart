@@ -26,9 +26,11 @@ class DancheongEntryCard extends StatelessWidget {
     super.key,
     required this.store,
     required this.onOpen,
+    this.compact = false,
   });
   final DancheongStore store;
   final VoidCallback onOpen;
+  final bool compact;
   @override
   Widget build(BuildContext context) => AnimatedBuilder(
     animation: store.changes,
@@ -39,6 +41,46 @@ class DancheongEntryCard extends StatelessWidget {
         newest = store.currentOwner().artworks.lastOrNull;
       } catch (_) {
         return const SizedBox.shrink();
+      }
+      if (compact) {
+        return SoriCard(
+          key: const ValueKey('hanok-dancheong-entry'),
+          padding: const EdgeInsets.all(Spacing.sm),
+          onTap: onOpen,
+          semanticLabel: '${t.dancheongEntry}. ${t.dancheongEntryAction}',
+          child: Row(
+            children: [
+              SizedBox(
+                width: 48,
+                height: 60,
+                child: newest == null
+                    ? Image.asset(
+                        dancheongExamplePatternAsset,
+                        fit: BoxFit.contain,
+                        semanticLabel: t.dancheongExamples,
+                      )
+                    : DancheongArtworkView(
+                        composition: newest.composition,
+                        ownedSlugs: knownOwnedMotifs(Storage.earnedStamps),
+                      ),
+              ),
+              const SizedBox(width: Spacing.md),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(t.dancheongEntry, style: SoriTextTheme.of(context).h3),
+                    Text(
+                      t.dancheongEntryAction,
+                      style: SoriTextTheme.of(context).meta,
+                    ),
+                  ],
+                ),
+              ),
+              const Icon(Icons.chevron_right),
+            ],
+          ),
+        );
       }
       return SoriCard(
         key: const ValueKey('hanok-dancheong-entry'),

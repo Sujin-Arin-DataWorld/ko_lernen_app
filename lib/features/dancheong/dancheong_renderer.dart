@@ -8,6 +8,8 @@ import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../widgets/sori/dancheong_stamp.dart';
+import '../../widgets/sori/button.dart';
+import '../../widgets/sori/tokens.dart';
 import 'dancheong_catalog.dart';
 import 'dancheong_models.dart';
 
@@ -383,7 +385,7 @@ class _CompositionPainter {
       return TextPainter(
         text: TextSpan(
           style: TextStyle(
-            fontFamily: 'NotoSansKR',
+            fontFamily: SoriFonts.korean,
             fontSize: font,
             height: 1.35,
             color: const Color(0xFF243B33),
@@ -495,16 +497,16 @@ class _DancheongArtworkViewState extends State<DancheongArtworkView> {
             return Center(child: Text(AppL10n.of(context).dancheongTextFit));
           }
           return Center(
-            child: TextButton(
-              onPressed: () => setState(_load),
-              child: Text(AppL10n.of(context).btnRetry),
+            child: SoriButton.ghost(
+              onTap: () => setState(_load),
+              label: AppL10n.of(context).btnRetry,
             ),
           );
         }
         return Center(
           child: _future == null
               ? const Icon(Icons.palette_outlined, size: 48)
-              : const CircularProgressIndicator(),
+              : Text(AppL10n.of(context).gameLoading),
         );
       },
     ),

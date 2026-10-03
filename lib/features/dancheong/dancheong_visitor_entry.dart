@@ -106,7 +106,9 @@ class _VisitorGateState extends State<DancheongVisitorGate> {
         );
       }
       if (!snapshot.hasData) {
-        return const Scaffold(body: Center(child: CircularProgressIndicator()));
+        return Scaffold(
+          body: Center(child: Text(AppL10n.of(context).gameLoading)),
+        );
       }
       if (snapshot.data!.entry == FirstRunEntry.appShell &&
           widget.entry != null) {

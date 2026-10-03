@@ -214,6 +214,7 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                             const SizedBox(height: Spacing.lg),
                             DancheongEntryCard(
                               store: DancheongStore(),
+                              compact: true,
                               onOpen: () => _openShortcut('/dancheong-studio'),
                             ),
                             const SizedBox(height: Spacing.lg),

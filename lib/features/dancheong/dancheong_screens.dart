@@ -8,6 +8,8 @@ import '../../screens/dojangcheop_screen.dart';
 import '../../services/storage_service.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/card.dart';
+import '../../widgets/sori/dialog.dart';
+import '../../widgets/sori/toast.dart';
 import '../../widgets/sori/cultural_help.dart';
 import '../../widgets/sori/dancheong_stamp.dart';
 import '../../widgets/sori/standard_page.dart';
@@ -80,13 +82,13 @@ Widget _failure(BuildContext context, Object? error, DancheongStore store) {
             : t.dancheongBlocked,
       ),
       if (damaged)
-        TextButton(
-          onPressed: () async {
+        SoriButton.ghost(
+          onTap: () async {
             await Clipboard.setData(
               ClipboardData(text: Storage.dancheongStudioRawJson),
             );
           },
-          child: Text(t.dancheongExportData),
+          label: t.dancheongExportData,
         ),
     ],
   );
@@ -116,9 +118,9 @@ class _StudioState extends State<DancheongStudioScreen> {
     }
     final t = AppL10n.of(context);
     final guard = store.captureGuard();
-    final confirmed = await showDialog<bool>(
+    final confirmed = await showSoriDialog<bool>(
       context: context,
-      builder: (context) => AlertDialog(
+      builder: (context) => SoriDialog(
         title: Text(t.dancheongDelete),
         content: Text(
           art == null
@@ -126,13 +128,13 @@ class _StudioState extends State<DancheongStudioScreen> {
               : t.dancheongDeleteArtworkNote,
         ),
         actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: Text(t.dancheongPublicCancel),
+          SoriButton.ghost(
+            onTap: () => Navigator.of(context).pop(false),
+            label: t.dancheongPublicCancel,
           ),
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(true),
-            child: Text(t.dancheongDelete),
+          SoriButton.ghost(
+            onTap: () => Navigator.of(context).pop(true),
+            label: t.dancheongDelete,
           ),
         ],
       ),
@@ -156,9 +158,7 @@ class _StudioState extends State<DancheongStudioScreen> {
       }
     } catch (_) {
       if (mounted) {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text(t.dancheongError)));
+        soriToast(context, t.dancheongError);
       }
     } finally {
       if (mounted) {
@@ -240,18 +240,17 @@ class _StudioState extends State<DancheongStudioScreen> {
               ),
               if (owner!.drafts.length >= 30) ...[
                 Text(t.dancheongCapacity),
-                TextButton(
-                  onPressed: () =>
-                      setState(() => tab = DancheongStudioTab.artwork),
-                  child: Text(t.dancheongManage),
+                SoriButton.ghost(
+                  onTap: () => setState(() => tab = DancheongStudioTab.artwork),
+                  label: t.dancheongManage,
                 ),
               ],
               if (_owned().isEmpty) ...[
                 const SizedBox(height: Spacing.sm),
                 Text(t.dancheongFirstMaterial),
-                TextButton(
-                  onPressed: () => Navigator.of(context).pushNamed('/path'),
-                  child: Text(t.dancheongLearn),
+                SoriButton.ghost(
+                  onTap: () => Navigator.of(context).pushNamed('/path'),
+                  label: t.dancheongLearn,
                 ),
               ],
               const SizedBox(height: Spacing.lg),
@@ -293,12 +292,10 @@ class _StudioState extends State<DancheongStudioScreen> {
                           arguments: DancheongEditorArgs(draftId: draft.id),
                         ),
                       ),
-                      TextButton(
+                      SoriButton.ghost(
                         key: ValueKey('delete-draft-${draft.id}'),
-                        onPressed: deleting
-                            ? null
-                            : () => _delete(draft: draft),
-                        child: Text(t.dancheongDelete),
+                        onTap: deleting ? null : () => _delete(draft: draft),
+                        label: t.dancheongDelete,
                       ),
                     ],
                   ),
@@ -331,9 +328,9 @@ class _StudioState extends State<DancheongStudioScreen> {
                           ),
                         ),
                       ),
-                      TextButton(
-                        onPressed: deleting ? null : () => _delete(art: art),
-                        child: Text(t.dancheongDelete),
+                      SoriButton.ghost(
+                        onTap: deleting ? null : () => _delete(art: art),
+                        label: t.dancheongDelete,
                       ),
                     ],
                   ),
@@ -421,19 +418,19 @@ class _EditorState extends State<DancheongEditorScreen>
     if (mounted && !saved) {
       final t = AppL10n.of(context);
       saved =
-          await showDialog<bool>(
+          await showSoriDialog<bool>(
             context: context,
-            builder: (context) => AlertDialog(
+            builder: (context) => SoriDialog(
               title: Text(t.dancheongLeaveTitle),
               content: Text(t.dancheongLeaveNote),
               actions: [
-                TextButton(
-                  onPressed: () => Navigator.of(context).pop(false),
-                  child: Text(t.dancheongPublicCancel),
+                SoriButton.ghost(
+                  onTap: () => Navigator.of(context).pop(false),
+                  label: t.dancheongPublicCancel,
                 ),
-                TextButton(
-                  onPressed: () => Navigator.of(context).pop(true),
-                  child: Text(t.dancheongLeave),
+                SoriButton.ghost(
+                  onTap: () => Navigator.of(context).pop(true),
+                  label: t.dancheongLeave,
                 ),
               ],
             ),
@@ -587,9 +584,7 @@ class _EditorState extends State<DancheongEditorScreen>
                               final slugs = [...composition.motifSlugs];
                               if (selected) {
                                 if (slugs.length >= 4) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(content: Text(t.dancheongLimit)),
-                                  );
+                                  soriToast(context, t.dancheongLimit);
                                   return;
                                 }
                                 slugs.add(motif.name);
@@ -944,9 +939,9 @@ class _ShareState extends State<DancheongShareScreen>
       if (!mounted) {
         return;
       }
-      final approved = await showDialog<bool>(
+      final approved = await showSoriDialog<bool>(
         context: context,
-        builder: (context) => AlertDialog(
+        builder: (context) => SoriDialog(
           title: Text(t.dancheongPublicTitle),
           content: SingleChildScrollView(
             child: Column(
@@ -962,13 +957,13 @@ class _ShareState extends State<DancheongShareScreen>
             ),
           ),
           actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context, false),
-              child: Text(t.dancheongPublicCancel),
+            SoriButton.ghost(
+              onTap: () => Navigator.pop(context, false),
+              label: t.dancheongPublicCancel,
             ),
-            TextButton(
-              onPressed: () => Navigator.pop(context, true),
-              child: Text(t.dancheongPublicConfirm),
+            SoriButton.ghost(
+              onTap: () => Navigator.pop(context, true),
+              label: t.dancheongPublicConfirm,
             ),
           ],
         ),

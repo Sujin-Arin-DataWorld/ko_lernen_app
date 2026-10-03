@@ -181,7 +181,7 @@ void main() {
     await tester.tap(
       find.descendant(
         of: find.byType(AlertDialog),
-        matching: find.widgetWithText(TextButton, 'Delete'),
+        matching: find.widgetWithText(SoriButton, 'Delete'),
       ),
     );
     await tester.pumpAndSettle();
