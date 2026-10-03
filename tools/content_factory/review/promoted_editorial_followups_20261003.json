@@ -995,56 +995,6 @@
     {
       "manifest": "tools/content_factory/drafts/batch_07_4x_manifest.json",
       "kind": "vocab",
-      "id": "vocab_a2_0271",
-      "before": {
-        "korean": "직업이 뭐예요",
-        "romanization": "jigeobi mwoyeyo",
-        "german": "was arbeiten Sie",
-        "level": "A2",
-        "pos_de": "Ausdruck",
-        "example_korean": "직업이 뭐예요 하시길래 디자이너라고 짧게 답했어요.",
-        "example_german": "Auf die Frage nach dem Beruf antwortete ich knapp: Designerin.",
-        "topic": "Partnerschaft & koreanische Familie",
-        "pack_id": "a2_partner_dinner_talk_1",
-        "pack_order": "3",
-        "is_review_boss": "false",
-        "english": "what do you do",
-        "pos_en": "Expression",
-        "example_english": "When they asked what I do, I answered briefly: designer.",
-        "id": "vocab_a2_0271"
-      },
-      "after": {
-        "korean": "직업이 뭐예요",
-        "romanization": "jigeobi mwoyeyo",
-        "german": "was arbeiten Sie",
-        "level": "A2",
-        "pos_de": "Ausdruck",
-        "example_korean": "직업이 뭐예요 하시길래 디자이너라고 짧게 답했어요.",
-        "example_german": "Auf die Frage nach meinem Beruf antwortete ich kurz: Ich arbeite im Design.",
-        "topic": "Partnerschaft & koreanische Familie",
-        "pack_id": "a2_partner_dinner_talk_1",
-        "pack_order": "3",
-        "is_review_boss": "false",
-        "english": "what do you do",
-        "pos_en": "Expression",
-        "example_english": "When they asked what I do, I just said I’m a designer.",
-        "id": "vocab_a2_0271"
-      },
-      "fields": [
-        "example_english",
-        "example_german"
-      ],
-      "beforeSha256": "1db35cad2a2d47139d2f1766c5b9b31d58f2ad41f3a753b10c7ecd735a43b1a3",
-      "afterSha256": "b8e7e38238169c0edab836b37afba9b947f7c2770b1d2f839bd74627c06ac433",
-      "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
-      "sourceGitPath": "assets/data/korean_vocab.csv",
-      "predecessorSuccessorSha256": null,
-      "normalization": "Exact promotion projection; routing normalization follows the existing relevel ledger",
-      "reason": "Direct Korean-English-German editorial review with genre-appropriate context and synchronized learner tasks; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_07_4x_manifest.json",
-      "kind": "vocab",
       "id": "vocab_b1_0273",
       "before": {
         "korean": "아이 가지다",
@@ -13097,52 +13047,6 @@
     {
       "manifest": "tools/content_factory/drafts/batch_07_4x_manifest.json",
       "kind": "cloze",
-      "id": "cloze_a2_0078",
-      "before": {
-        "id": "cloze_a2_0078",
-        "level": "a2",
-        "sentenceKo": "＿＿＿ 하시길래 디자이너라고 짧게 답했어요.",
-        "answer": "직업이 뭐예요",
-        "fullKo": "직업이 뭐예요 하시길래 디자이너라고 짧게 답했어요.",
-        "de": "Auf die Frage nach dem Beruf antwortete ich knapp: Designerin.",
-        "en": "When they asked what I do, I answered briefly: designer.",
-        "distractors": [
-          "한국어 잘하시네요",
-          "맛있어요",
-          "겹쳐 입어요"
-        ],
-        "topic": "Partnerschaft & koreanische Familie"
-      },
-      "after": {
-        "id": "cloze_a2_0078",
-        "level": "a2",
-        "sentenceKo": "＿＿＿ 하시길래 디자이너라고 짧게 답했어요.",
-        "answer": "직업이 뭐예요",
-        "fullKo": "직업이 뭐예요 하시길래 디자이너라고 짧게 답했어요.",
-        "de": "Auf die Frage nach meinem Beruf antwortete ich kurz: Ich arbeite im Design.",
-        "en": "When they asked what I do, I just said I’m a designer.",
-        "distractors": [
-          "한국어 잘하시네요",
-          "맛있어요",
-          "겹쳐 입어요"
-        ],
-        "topic": "Partnerschaft & koreanische Familie"
-      },
-      "fields": [
-        "de",
-        "en"
-      ],
-      "beforeSha256": "c232f364727803134f612b30682307da6b620c8db1e3f3a0218e4df2a7180ff7",
-      "afterSha256": "2cb04ba21b7d2dee9c3afcd2e8a24816d5e83b3e2ce103b3c2822a3dbb8534eb",
-      "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
-      "sourceGitPath": "assets/data/cloze.json",
-      "predecessorSuccessorSha256": null,
-      "normalization": "Exact promotion projection; routing normalization follows the existing relevel ledger",
-      "reason": "Direct Korean-English-German editorial review with genre-appropriate context and synchronized learner tasks; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_07_4x_manifest.json",
-      "kind": "cloze",
       "id": "cloze_b1_0085",
       "before": {
         "id": "cloze_b1_0085",
@@ -23745,46 +23649,6 @@
     {
       "manifest": "tools/content_factory/drafts/batch_07_4x_manifest.json",
       "kind": "satz",
-      "id": "satz_a2_0041",
-      "before": {
-        "id": "satz_a2_0041",
-        "level": "a2",
-        "targetKo": "직업이 뭐예요 하시길래 디자이너라고 짧게 답했어요.",
-        "promptDe": "Auf die Frage nach dem Beruf antwortete ich knapp: Designerin.",
-        "promptEn": "When they asked what I do, I answered briefly: designer.",
-        "distractors": [
-          "맞장구를",
-          "맞추기는"
-        ],
-        "vocabKo": "직업이 뭐예요"
-      },
-      "after": {
-        "id": "satz_a2_0041",
-        "level": "a2",
-        "targetKo": "직업이 뭐예요 하시길래 디자이너라고 짧게 답했어요.",
-        "promptDe": "Auf die Frage nach meinem Beruf antwortete ich kurz: Ich arbeite im Design.",
-        "promptEn": "When they asked what I do, I just said I’m a designer.",
-        "distractors": [
-          "맞장구를",
-          "맞추기는"
-        ],
-        "vocabKo": "직업이 뭐예요"
-      },
-      "fields": [
-        "promptDe",
-        "promptEn"
-      ],
-      "beforeSha256": "9d81508c969863e59533a0824bdf5f1b2293974ffd2b4a114ff39739a7dc3e2a",
-      "afterSha256": "2d6aed00c63c81c51d48b4950a71712fd332c446c8b099337c7720afaa5f69c9",
-      "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
-      "sourceGitPath": "assets/data/satz_sentences.json",
-      "predecessorSuccessorSha256": null,
-      "normalization": "Exact promotion projection; routing normalization follows the existing relevel ledger",
-      "reason": "Direct Korean-English-German editorial review with genre-appropriate context and synchronized learner tasks; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_07_4x_manifest.json",
-      "kind": "satz",
       "id": "satz_b1_0081",
       "before": {
         "id": "satz_b1_0081",
@@ -27381,17 +27245,18 @@
         "promptEn": "The author uses the phrase “space to speak” to describe who gets to speak in family discussions.",
         "distractors": [
           "노동을",
-          "누가"
+          "그들이"
         ],
         "vocabKo": "말의 자리"
       },
       "fields": [
+        "distractors",
         "promptDe",
         "promptEn",
         "targetKo"
       ],
       "beforeSha256": "0d2312dd3dcf5e5127725bcb88bfcac6bfd8887b967a2f6353175e3e1d1c4d09",
-      "afterSha256": "a7a7dc0d3563977e82c82388b39cbd41413d96366963d5105a8762e88828fe38",
+      "afterSha256": "641119d0f05b554bbf5c8c53e7f5506e6cea8126570005c9c986e57cde2e5096",
       "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
       "sourceGitPath": "assets/data/satz_sentences.json",
       "predecessorSuccessorSha256": null,
@@ -30620,17 +30485,18 @@
         "promptEn": "The essay describes an “etiquette of forgetting” as the consideration shown by not reopening painful questions, while also stressing the need for records.",
         "distractors": [
           "기대하는",
-          "기록"
+          "표지"
         ],
         "vocabKo": "망각의 예절"
       },
       "fields": [
+        "distractors",
         "promptDe",
         "promptEn",
         "targetKo"
       ],
       "beforeSha256": "f5ea9de0c3644356097d0c8148993b7648bc96f10a059ae36884d674c5c723b8",
-      "afterSha256": "fa0f3eeb95644b6b828a7c7ba71fb20bae27f5932ad82b0bbf7148e19e02b55c",
+      "afterSha256": "fcaecf4dbb2204a034173b6d5fe62d58ccdaeb6573fc30ec85fa464d2b5f22ff",
       "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
       "sourceGitPath": "assets/data/satz_sentences.json",
       "predecessorSuccessorSha256": null,
@@ -32807,56 +32673,6 @@
       "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
       "sourceGitPath": "assets/data/satz_sentences.json",
       "predecessorSuccessorSha256": null,
-      "normalization": "Exact promotion projection; routing normalization follows the existing relevel ledger",
-      "reason": "Direct Korean-English-German editorial review with genre-appropriate context and synchronized learner tasks; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
-      "kind": "vocab",
-      "id": "vocab_a2_0271",
-      "before": {
-        "korean": "직업이 뭐예요",
-        "romanization": "jigeobi mwoyeyo",
-        "german": "was arbeiten Sie",
-        "level": "A2",
-        "pos_de": "Ausdruck",
-        "example_korean": "직업이 뭐예요 하시길래 디자이너라고 짧게 답했어요.",
-        "example_german": "Auf die Frage nach dem Beruf antwortete ich knapp: Designerin.",
-        "topic": "Partnerschaft & koreanische Familie",
-        "pack_id": "a2_partner_dinner_talk_1",
-        "pack_order": "3",
-        "is_review_boss": "false",
-        "english": "what do you do",
-        "pos_en": "Expression",
-        "example_english": "When they asked what I do, I answered briefly: designer.",
-        "id": "vocab_a2_0271"
-      },
-      "after": {
-        "korean": "직업이 뭐예요",
-        "romanization": "jigeobi mwoyeyo",
-        "german": "was arbeiten Sie",
-        "level": "A2",
-        "pos_de": "Ausdruck",
-        "example_korean": "직업이 뭐예요 하시길래 디자이너라고 짧게 답했어요.",
-        "example_german": "Auf die Frage nach meinem Beruf antwortete ich kurz: Ich arbeite im Design.",
-        "topic": "Partnerschaft & koreanische Familie",
-        "pack_id": "a2_partner_dinner_talk_1",
-        "pack_order": "3",
-        "is_review_boss": "false",
-        "english": "what do you do",
-        "pos_en": "Expression",
-        "example_english": "When they asked what I do, I just said I’m a designer.",
-        "id": "vocab_a2_0271"
-      },
-      "fields": [
-        "example_english",
-        "example_german"
-      ],
-      "beforeSha256": "1db35cad2a2d47139d2f1766c5b9b31d58f2ad41f3a753b10c7ecd735a43b1a3",
-      "afterSha256": "b8e7e38238169c0edab836b37afba9b947f7c2770b1d2f839bd74627c06ac433",
-      "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
-      "sourceGitPath": "assets/data/korean_vocab.csv",
-      "predecessorSuccessorSha256": "7cfc0acb246ce55075421dfd57a7abffc67697867df07d48688d6f9b3ff503ef",
       "normalization": "Exact promotion projection; routing normalization follows the existing relevel ledger",
       "reason": "Direct Korean-English-German editorial review with genre-appropriate context and synchronized learner tasks; model review only, original human gates retained"
     },
@@ -39671,52 +39487,6 @@
     {
       "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
       "kind": "cloze",
-      "id": "cloze_a2_0078",
-      "before": {
-        "id": "cloze_a2_0078",
-        "level": "a2",
-        "sentenceKo": "＿＿＿ 하시길래 디자이너라고 짧게 답했어요.",
-        "answer": "직업이 뭐예요",
-        "fullKo": "직업이 뭐예요 하시길래 디자이너라고 짧게 답했어요.",
-        "de": "Auf die Frage nach dem Beruf antwortete ich knapp: Designerin.",
-        "en": "When they asked what I do, I answered briefly: designer.",
-        "distractors": [
-          "한국어 잘하시네요",
-          "맛있어요",
-          "겹쳐 입어요"
-        ],
-        "topic": "Partnerschaft & koreanische Familie"
-      },
-      "after": {
-        "id": "cloze_a2_0078",
-        "level": "a2",
-        "sentenceKo": "＿＿＿ 하시길래 디자이너라고 짧게 답했어요.",
-        "answer": "직업이 뭐예요",
-        "fullKo": "직업이 뭐예요 하시길래 디자이너라고 짧게 답했어요.",
-        "de": "Auf die Frage nach meinem Beruf antwortete ich kurz: Ich arbeite im Design.",
-        "en": "When they asked what I do, I just said I’m a designer.",
-        "distractors": [
-          "한국어 잘하시네요",
-          "맛있어요",
-          "겹쳐 입어요"
-        ],
-        "topic": "Partnerschaft & koreanische Familie"
-      },
-      "fields": [
-        "de",
-        "en"
-      ],
-      "beforeSha256": "c232f364727803134f612b30682307da6b620c8db1e3f3a0218e4df2a7180ff7",
-      "afterSha256": "2cb04ba21b7d2dee9c3afcd2e8a24816d5e83b3e2ce103b3c2822a3dbb8534eb",
-      "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
-      "sourceGitPath": "assets/data/cloze.json",
-      "predecessorSuccessorSha256": "06d1b6d237fe0656ea571cbf8da8b33af9ebabd5bee03a7cd888bf951dad2a7c",
-      "normalization": "Exact promotion projection; routing normalization follows the existing relevel ledger",
-      "reason": "Direct Korean-English-German editorial review with genre-appropriate context and synchronized learner tasks; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
-      "kind": "cloze",
       "id": "cloze_b1_0085",
       "before": {
         "id": "cloze_b1_0085",
@@ -45755,46 +45525,6 @@
     {
       "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
       "kind": "satz",
-      "id": "satz_a2_0041",
-      "before": {
-        "id": "satz_a2_0041",
-        "level": "a2",
-        "targetKo": "직업이 뭐예요 하시길래 디자이너라고 짧게 답했어요.",
-        "promptDe": "Auf die Frage nach dem Beruf antwortete ich knapp: Designerin.",
-        "promptEn": "When they asked what I do, I answered briefly: designer.",
-        "distractors": [
-          "맞장구를",
-          "맞추기는"
-        ],
-        "vocabKo": "직업이 뭐예요"
-      },
-      "after": {
-        "id": "satz_a2_0041",
-        "level": "a2",
-        "targetKo": "직업이 뭐예요 하시길래 디자이너라고 짧게 답했어요.",
-        "promptDe": "Auf die Frage nach meinem Beruf antwortete ich kurz: Ich arbeite im Design.",
-        "promptEn": "When they asked what I do, I just said I’m a designer.",
-        "distractors": [
-          "맞장구를",
-          "맞추기는"
-        ],
-        "vocabKo": "직업이 뭐예요"
-      },
-      "fields": [
-        "promptDe",
-        "promptEn"
-      ],
-      "beforeSha256": "9d81508c969863e59533a0824bdf5f1b2293974ffd2b4a114ff39739a7dc3e2a",
-      "afterSha256": "2d6aed00c63c81c51d48b4950a71712fd332c446c8b099337c7720afaa5f69c9",
-      "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
-      "sourceGitPath": "assets/data/satz_sentences.json",
-      "predecessorSuccessorSha256": "59d3f5eeb78b0d2696c704c221ba026155ec2f4639a9dbe883d9cba2523d1206",
-      "normalization": "Exact promotion projection; routing normalization follows the existing relevel ledger",
-      "reason": "Direct Korean-English-German editorial review with genre-appropriate context and synchronized learner tasks; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
-      "kind": "satz",
       "id": "satz_b1_0081",
       "before": {
         "id": "satz_b1_0081",
@@ -49391,17 +49121,18 @@
         "promptEn": "The author uses the phrase “space to speak” to describe who gets to speak in family discussions.",
         "distractors": [
           "노동을",
-          "누가"
+          "그들이"
         ],
         "vocabKo": "말의 자리"
       },
       "fields": [
+        "distractors",
         "promptDe",
         "promptEn",
         "targetKo"
       ],
       "beforeSha256": "0d2312dd3dcf5e5127725bcb88bfcac6bfd8887b967a2f6353175e3e1d1c4d09",
-      "afterSha256": "a7a7dc0d3563977e82c82388b39cbd41413d96366963d5105a8762e88828fe38",
+      "afterSha256": "641119d0f05b554bbf5c8c53e7f5506e6cea8126570005c9c986e57cde2e5096",
       "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
       "sourceGitPath": "assets/data/satz_sentences.json",
       "predecessorSuccessorSha256": "0544c3810b95557ab92a36e0851ddb65df4b750792a56bd6913c97e387667134",
@@ -50621,17 +50352,18 @@
         "promptEn": "The essay describes an “etiquette of forgetting” as the consideration shown by not reopening painful questions, while also stressing the need for records.",
         "distractors": [
           "기대하는",
-          "기록"
+          "표지"
         ],
         "vocabKo": "망각의 예절"
       },
       "fields": [
+        "distractors",
         "promptDe",
         "promptEn",
         "targetKo"
       ],
       "beforeSha256": "f5ea9de0c3644356097d0c8148993b7648bc96f10a059ae36884d674c5c723b8",
-      "afterSha256": "fa0f3eeb95644b6b828a7c7ba71fb20bae27f5932ad82b0bbf7148e19e02b55c",
+      "afterSha256": "fcaecf4dbb2204a034173b6d5fe62d58ccdaeb6573fc30ec85fa464d2b5f22ff",
       "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
       "sourceGitPath": "assets/data/satz_sentences.json",
       "predecessorSuccessorSha256": "a15441b9a675c39c2707022ad28777e9745528fe8a2f953daba04a719a115612",
@@ -52272,46 +52004,6 @@
       ],
       "beforeSha256": "e954a5db674166fe37f5d41814750730d2703837d7928710e1b9f878bb8083a1",
       "afterSha256": "20c9aec922bb07468cd5006b013251da08a983e05afcdd837d164c71c934ce15",
-      "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
-      "sourceGitPath": "assets/data/satz_sentences.json",
-      "predecessorSuccessorSha256": null,
-      "normalization": "Exact promotion projection; routing normalization follows the existing relevel ledger",
-      "reason": "Direct Korean-English-German editorial review with genre-appropriate context and synchronized learner tasks; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_08_4x_manifest.json",
-      "kind": "satz",
-      "id": "satz_a2_0238",
-      "before": {
-        "id": "satz_a2_0238",
-        "level": "a2",
-        "targetKo": "감기가 심해서 병원에 다녀왔어요.",
-        "promptDe": "Die Erkältung war so schlimm, ich war beim Arzt.",
-        "promptEn": "My cold was so bad I went to the doctor.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "병원"
-      },
-      "after": {
-        "id": "satz_a2_0238",
-        "level": "a2",
-        "targetKo": "감기가 심해서 병원에 다녀왔어요.",
-        "promptDe": "Meine Erkältung war schlimm. Ich war in der Praxis.",
-        "promptEn": "My cold was bad. I went to the doctor.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "병원"
-      },
-      "fields": [
-        "promptDe",
-        "promptEn"
-      ],
-      "beforeSha256": "c79b4af6d553edcc79f0460df6b72416eb428ebde0819f695315195320fa355c",
-      "afterSha256": "2a5a90abe5c1b875592591efde9c802efaf0af7bd757594c3caab0c542734c89",
       "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
       "sourceGitPath": "assets/data/satz_sentences.json",
       "predecessorSuccessorSha256": null,
@@ -55249,173 +54941,18 @@
         "promptEn": "The essay examines the lack of time people experience today through the lens of work and travel.",
         "distractors": [
           "갈등",
-          "관점"
+          "차원"
         ],
         "vocabKo": "현대인"
       },
       "fields": [
+        "distractors",
         "promptDe",
         "promptEn",
         "targetKo"
       ],
       "beforeSha256": "e58f862ff2ab73f265a3e1623a7302b27860db7a87dc6342f9c7e99c207aac92",
-      "afterSha256": "d96281f230dc2291eae9f256f7e5a61d4568ab9def6e9539dec895b504b9ed87",
-      "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
-      "sourceGitPath": "assets/data/satz_sentences.json",
-      "predecessorSuccessorSha256": null,
-      "normalization": "Exact promotion projection; routing normalization follows the existing relevel ledger",
-      "reason": "Direct Korean-English-German editorial review with genre-appropriate context and synchronized learner tasks; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_08_4x_manifest.json",
-      "kind": "satz",
-      "id": "satz_a2_0318",
-      "before": {
-        "id": "satz_a2_0318",
-        "level": "a2",
-        "targetKo": "점원분이 진짜 친절했어요.",
-        "promptDe": "Der Verkäufer war wirklich freundlich.",
-        "promptEn": "The clerk was really friendly.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "점원"
-      },
-      "after": {
-        "id": "satz_a2_0318",
-        "level": "a2",
-        "targetKo": "점원분이 진짜 친절했어요.",
-        "promptDe": "Die Verkaufskraft war sehr freundlich.",
-        "promptEn": "The clerk was really friendly.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "점원"
-      },
-      "fields": [
-        "promptDe"
-      ],
-      "beforeSha256": "4c23ce986ba41babc6836fe1f459c677976e8b24eed6486d2af4f895e4be6ad8",
-      "afterSha256": "0e36b4fa785d3012995e0a28a0a6844802113a2df92377ffda56b5e9b11db29e",
-      "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
-      "sourceGitPath": "assets/data/satz_sentences.json",
-      "predecessorSuccessorSha256": null,
-      "normalization": "Exact promotion projection; routing normalization follows the existing relevel ledger",
-      "reason": "Direct Korean-English-German editorial review with genre-appropriate context and synchronized learner tasks; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_08_4x_manifest.json",
-      "kind": "satz",
-      "id": "satz_a2_0327",
-      "before": {
-        "id": "satz_a2_0327",
-        "level": "a2",
-        "targetKo": "사장님이 진짜 좋으신 분이세요.",
-        "promptDe": "Unser Chef ist wirklich ein guter Mensch.",
-        "promptEn": "The boss is a really good person.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "사장"
-      },
-      "after": {
-        "id": "satz_a2_0327",
-        "level": "a2",
-        "targetKo": "사장님이 진짜 좋으신 분이세요.",
-        "promptDe": "Unsere Chefin oder unser Chef ist wirklich nett.",
-        "promptEn": "The boss is a really good person.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "사장"
-      },
-      "fields": [
-        "promptDe"
-      ],
-      "beforeSha256": "a76c15cf2b84588bf28ceb0d25316d8310864cad7868298cfb088e977b1bcb4b",
-      "afterSha256": "7c80e75dca2251e877d5e695f8601d7a4d08630f4b5177cad0e4200ac452b0e7",
-      "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
-      "sourceGitPath": "assets/data/satz_sentences.json",
-      "predecessorSuccessorSha256": null,
-      "normalization": "Exact promotion projection; routing normalization follows the existing relevel ledger",
-      "reason": "Direct Korean-English-German editorial review with genre-appropriate context and synchronized learner tasks; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_08_4x_manifest.json",
-      "kind": "satz",
-      "id": "satz_a2_0328",
-      "before": {
-        "id": "satz_a2_0328",
-        "level": "a2",
-        "targetKo": "저희 상사 분은 좀 까다로우세요.",
-        "promptDe": "Unser Vorgesetzter ist ein bisschen anspruchsvoll.",
-        "promptEn": "Our supervisor is a bit picky.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "상사"
-      },
-      "after": {
-        "id": "satz_a2_0328",
-        "level": "a2",
-        "targetKo": "저희 상사 분은 좀 까다로우세요.",
-        "promptDe": "Unsere Führungskraft ist ein bisschen anspruchsvoll.",
-        "promptEn": "Our supervisor is a bit picky.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "상사"
-      },
-      "fields": [
-        "promptDe"
-      ],
-      "beforeSha256": "9d5beb1052865aa9d3b34263261aecc4d9acf096aaf546d9424cd68f84adc267",
-      "afterSha256": "4b3f567ffabe16bd5cd1ac19dec355e7994bfef3cbe5b657875c09bad6a0cb53",
-      "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
-      "sourceGitPath": "assets/data/satz_sentences.json",
-      "predecessorSuccessorSha256": null,
-      "normalization": "Exact promotion projection; routing normalization follows the existing relevel ledger",
-      "reason": "Direct Korean-English-German editorial review with genre-appropriate context and synchronized learner tasks; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_08_4x_manifest.json",
-      "kind": "satz",
-      "id": "satz_a2_0345",
-      "before": {
-        "id": "satz_a2_0345",
-        "level": "a2",
-        "targetKo": "친구한테 십만 원 송금했어요.",
-        "promptDe": "Ich habe einem Freund hunderttausend Won überwiesen.",
-        "promptEn": "I transferred a hundred thousand won to a friend.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "송금하다"
-      },
-      "after": {
-        "id": "satz_a2_0345",
-        "level": "a2",
-        "targetKo": "친구한테 십만 원 송금했어요.",
-        "promptDe": "Ich habe jemandem aus meinem Freundeskreis 100.000 Won überwiesen.",
-        "promptEn": "I transferred a hundred thousand won to a friend.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "송금하다"
-      },
-      "fields": [
-        "promptDe"
-      ],
-      "beforeSha256": "8c1e51352efb3b9464745815d5266ef4ee72c5d264ddb2f4f5e2cdff068e35c5",
-      "afterSha256": "02f5b638767fbd0c24a4f0704b644738b600c0358c6590755db9195751a95ec4",
+      "afterSha256": "e749e3522fb3e7c3c6ff182439a745ec218cb927c3dcfb5df9342bbb048efa21",
       "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
       "sourceGitPath": "assets/data/satz_sentences.json",
       "predecessorSuccessorSha256": null,
@@ -86090,46 +85627,6 @@
     {
       "manifest": "tools/content_factory/drafts/batch_10_4x_manifest.json",
       "kind": "satz",
-      "id": "satz_a2_0238",
-      "before": {
-        "id": "satz_a2_0238",
-        "level": "a2",
-        "targetKo": "감기가 심해서 병원에 다녀왔어요.",
-        "promptDe": "Die Erkältung war so schlimm, ich war beim Arzt.",
-        "promptEn": "My cold was so bad I went to the doctor.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "병원"
-      },
-      "after": {
-        "id": "satz_a2_0238",
-        "level": "a2",
-        "targetKo": "감기가 심해서 병원에 다녀왔어요.",
-        "promptDe": "Meine Erkältung war schlimm. Ich war in der Praxis.",
-        "promptEn": "My cold was bad. I went to the doctor.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "병원"
-      },
-      "fields": [
-        "promptDe",
-        "promptEn"
-      ],
-      "beforeSha256": "c79b4af6d553edcc79f0460df6b72416eb428ebde0819f695315195320fa355c",
-      "afterSha256": "2a5a90abe5c1b875592591efde9c802efaf0af7bd757594c3caab0c542734c89",
-      "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
-      "sourceGitPath": "assets/data/satz_sentences.json",
-      "predecessorSuccessorSha256": null,
-      "normalization": "Exact promotion projection; routing normalization follows the existing relevel ledger",
-      "reason": "Direct Korean-English-German editorial review with genre-appropriate context and synchronized learner tasks; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_10_4x_manifest.json",
-      "kind": "satz",
       "id": "satz_b2_0348",
       "before": {
         "id": "satz_b2_0348",
@@ -86827,123 +86324,6 @@
     {
       "manifest": "tools/content_factory/drafts/batch_10_4x_manifest.json",
       "kind": "satz",
-      "id": "satz_a2_0318",
-      "before": {
-        "id": "satz_a2_0318",
-        "level": "a2",
-        "targetKo": "점원분이 진짜 친절했어요.",
-        "promptDe": "Der Verkäufer war wirklich freundlich.",
-        "promptEn": "The clerk was really friendly.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "점원"
-      },
-      "after": {
-        "id": "satz_a2_0318",
-        "level": "a2",
-        "targetKo": "점원분이 진짜 친절했어요.",
-        "promptDe": "Die Verkaufskraft war sehr freundlich.",
-        "promptEn": "The clerk was really friendly.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "점원"
-      },
-      "fields": [
-        "promptDe"
-      ],
-      "beforeSha256": "4c23ce986ba41babc6836fe1f459c677976e8b24eed6486d2af4f895e4be6ad8",
-      "afterSha256": "0e36b4fa785d3012995e0a28a0a6844802113a2df92377ffda56b5e9b11db29e",
-      "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
-      "sourceGitPath": "assets/data/satz_sentences.json",
-      "predecessorSuccessorSha256": null,
-      "normalization": "Exact promotion projection; routing normalization follows the existing relevel ledger",
-      "reason": "Direct Korean-English-German editorial review with genre-appropriate context and synchronized learner tasks; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_10_4x_manifest.json",
-      "kind": "satz",
-      "id": "satz_a2_0327",
-      "before": {
-        "id": "satz_a2_0327",
-        "level": "a2",
-        "targetKo": "사장님이 진짜 좋으신 분이세요.",
-        "promptDe": "Unser Chef ist wirklich ein guter Mensch.",
-        "promptEn": "The boss is a really good person.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "사장"
-      },
-      "after": {
-        "id": "satz_a2_0327",
-        "level": "a2",
-        "targetKo": "사장님이 진짜 좋으신 분이세요.",
-        "promptDe": "Unsere Chefin oder unser Chef ist wirklich nett.",
-        "promptEn": "The boss is a really good person.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "사장"
-      },
-      "fields": [
-        "promptDe"
-      ],
-      "beforeSha256": "a76c15cf2b84588bf28ceb0d25316d8310864cad7868298cfb088e977b1bcb4b",
-      "afterSha256": "7c80e75dca2251e877d5e695f8601d7a4d08630f4b5177cad0e4200ac452b0e7",
-      "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
-      "sourceGitPath": "assets/data/satz_sentences.json",
-      "predecessorSuccessorSha256": null,
-      "normalization": "Exact promotion projection; routing normalization follows the existing relevel ledger",
-      "reason": "Direct Korean-English-German editorial review with genre-appropriate context and synchronized learner tasks; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_10_4x_manifest.json",
-      "kind": "satz",
-      "id": "satz_a2_0328",
-      "before": {
-        "id": "satz_a2_0328",
-        "level": "a2",
-        "targetKo": "저희 상사 분은 좀 까다로우세요.",
-        "promptDe": "Unser Vorgesetzter ist ein bisschen anspruchsvoll.",
-        "promptEn": "Our supervisor is a bit picky.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "상사"
-      },
-      "after": {
-        "id": "satz_a2_0328",
-        "level": "a2",
-        "targetKo": "저희 상사 분은 좀 까다로우세요.",
-        "promptDe": "Unsere Führungskraft ist ein bisschen anspruchsvoll.",
-        "promptEn": "Our supervisor is a bit picky.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "상사"
-      },
-      "fields": [
-        "promptDe"
-      ],
-      "beforeSha256": "9d5beb1052865aa9d3b34263261aecc4d9acf096aaf546d9424cd68f84adc267",
-      "afterSha256": "4b3f567ffabe16bd5cd1ac19dec355e7994bfef3cbe5b657875c09bad6a0cb53",
-      "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
-      "sourceGitPath": "assets/data/satz_sentences.json",
-      "predecessorSuccessorSha256": null,
-      "normalization": "Exact promotion projection; routing normalization follows the existing relevel ledger",
-      "reason": "Direct Korean-English-German editorial review with genre-appropriate context and synchronized learner tasks; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_10_4x_manifest.json",
-      "kind": "satz",
       "id": "satz_b2_0373",
       "before": {
         "id": "satz_b2_0373",
@@ -87263,45 +86643,6 @@
       ],
       "beforeSha256": "16d2f363512ea3449db6e556b5ec4851c6155ce55549c78d231ee0ce91d0a989",
       "afterSha256": "7e8baee01f58de2c77860cec2185aced7b033a4ce94e62264e34a939dd645aca",
-      "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
-      "sourceGitPath": "assets/data/satz_sentences.json",
-      "predecessorSuccessorSha256": null,
-      "normalization": "Exact promotion projection; routing normalization follows the existing relevel ledger",
-      "reason": "Direct Korean-English-German editorial review with genre-appropriate context and synchronized learner tasks; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_10_4x_manifest.json",
-      "kind": "satz",
-      "id": "satz_a2_0345",
-      "before": {
-        "id": "satz_a2_0345",
-        "level": "a2",
-        "targetKo": "친구한테 십만 원 송금했어요.",
-        "promptDe": "Ich habe einem Freund hunderttausend Won überwiesen.",
-        "promptEn": "I transferred a hundred thousand won to a friend.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "송금하다"
-      },
-      "after": {
-        "id": "satz_a2_0345",
-        "level": "a2",
-        "targetKo": "친구한테 십만 원 송금했어요.",
-        "promptDe": "Ich habe jemandem aus meinem Freundeskreis 100.000 Won überwiesen.",
-        "promptEn": "I transferred a hundred thousand won to a friend.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "송금하다"
-      },
-      "fields": [
-        "promptDe"
-      ],
-      "beforeSha256": "8c1e51352efb3b9464745815d5266ef4ee72c5d264ddb2f4f5e2cdff068e35c5",
-      "afterSha256": "02f5b638767fbd0c24a4f0704b644738b600c0358c6590755db9195751a95ec4",
       "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
       "sourceGitPath": "assets/data/satz_sentences.json",
       "predecessorSuccessorSha256": null,
@@ -87684,17 +87025,18 @@
         "promptEn": "The essay examines the lack of time people experience today through the lens of work and travel.",
         "distractors": [
           "갈등",
-          "관점"
+          "차원"
         ],
         "vocabKo": "현대인"
       },
       "fields": [
+        "distractors",
         "promptDe",
         "promptEn",
         "targetKo"
       ],
       "beforeSha256": "e58f862ff2ab73f265a3e1623a7302b27860db7a87dc6342f9c7e99c207aac92",
-      "afterSha256": "d96281f230dc2291eae9f256f7e5a61d4568ab9def6e9539dec895b504b9ed87",
+      "afterSha256": "e749e3522fb3e7c3c6ff182439a745ec218cb927c3dcfb5df9342bbb048efa21",
       "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
       "sourceGitPath": "assets/data/satz_sentences.json",
       "predecessorSuccessorSha256": null,
@@ -87901,241 +87243,6 @@
     {
       "manifest": "tools/content_factory/drafts/batch_10_4x_manifest.json",
       "kind": "satz",
-      "id": "satz_a2_0422",
-      "before": {
-        "id": "satz_a2_0422",
-        "level": "a2",
-        "targetKo": "저 가수는 노래를 정말 잘해요.",
-        "promptDe": "Dieser Sänger singt wirklich gut.",
-        "promptEn": "That singer sings really well.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "가수"
-      },
-      "after": {
-        "id": "satz_a2_0422",
-        "level": "a2",
-        "targetKo": "저 가수는 노래를 정말 잘해요.",
-        "promptDe": "Diese Sängerin oder dieser Sänger singt wirklich gut.",
-        "promptEn": "That singer sings really well.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "가수"
-      },
-      "fields": [
-        "promptDe"
-      ],
-      "beforeSha256": "3ff3afef894e459aef68dd525d6dc326087da0c8abd06f5310b78960d7a6ebe0",
-      "afterSha256": "415ba038e2d1dfb95e1748ec14ba861cc48d81aec373e6c325e407a75d1e634f",
-      "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
-      "sourceGitPath": "assets/data/satz_sentences.json",
-      "predecessorSuccessorSha256": null,
-      "normalization": "Exact promotion projection; routing normalization follows the existing relevel ledger",
-      "reason": "Direct Korean-English-German editorial review with genre-appropriate context and synchronized learner tasks; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_10_4x_manifest.json",
-      "kind": "satz",
-      "id": "satz_a2_0423",
-      "before": {
-        "id": "satz_a2_0423",
-        "level": "a2",
-        "targetKo": "경찰이 길을 안내해 줬어요.",
-        "promptDe": "Ein Polizist hat mir den Weg gezeigt.",
-        "promptEn": "A police officer showed me the way.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "경찰"
-      },
-      "after": {
-        "id": "satz_a2_0423",
-        "level": "a2",
-        "targetKo": "경찰이 길을 안내해 줬어요.",
-        "promptDe": "Jemand von der Polizei hat mir den Weg gezeigt.",
-        "promptEn": "A police officer showed me the way.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "경찰"
-      },
-      "fields": [
-        "promptDe"
-      ],
-      "beforeSha256": "daace123cf64b21406c36a48c56cb1f113fac3bf672a5ca7e2244d2035097ff5",
-      "afterSha256": "4b6b98e4bbb9a33d11a621fa685a582a01c09dc3ac974c18154a7a1eefe5bf94",
-      "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
-      "sourceGitPath": "assets/data/satz_sentences.json",
-      "predecessorSuccessorSha256": null,
-      "normalization": "Exact promotion projection; routing normalization follows the existing relevel ledger",
-      "reason": "Direct Korean-English-German editorial review with genre-appropriate context and synchronized learner tasks; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_10_4x_manifest.json",
-      "kind": "satz",
-      "id": "satz_a2_0425",
-      "before": {
-        "id": "satz_a2_0425",
-        "level": "a2",
-        "targetKo": "저는 회사 사원이에요.",
-        "promptDe": "Ich bin Angestellter in einer Firma.",
-        "promptEn": "I am a company employee.",
-        "distractors": [
-          "직업",
-          "취미"
-        ],
-        "vocabKo": "사원"
-      },
-      "after": {
-        "id": "satz_a2_0425",
-        "level": "a2",
-        "targetKo": "저는 회사 사원이에요.",
-        "promptDe": "Ich bin bei einem Unternehmen angestellt.",
-        "promptEn": "I am a company employee.",
-        "distractors": [
-          "직업",
-          "취미"
-        ],
-        "vocabKo": "사원"
-      },
-      "fields": [
-        "promptDe"
-      ],
-      "beforeSha256": "3b271b3e2098be478fd4cd95679f27bd141e6aa116e783f5b0c6410327e8b7c4",
-      "afterSha256": "fb6564e9d7a343a8c40a043755d07556fea2f51e05b8e152884490885bdffd6d",
-      "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
-      "sourceGitPath": "assets/data/satz_sentences.json",
-      "predecessorSuccessorSha256": null,
-      "normalization": "Exact promotion projection; routing normalization follows the existing relevel ledger",
-      "reason": "Direct Korean-English-German editorial review with genre-appropriate context and synchronized learner tasks; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_10_4x_manifest.json",
-      "kind": "satz",
-      "id": "satz_a2_0426",
-      "before": {
-        "id": "satz_a2_0426",
-        "level": "a2",
-        "targetKo": "가게 주인이 친절해요.",
-        "promptDe": "Der Ladenbesitzer ist freundlich.",
-        "promptEn": "The shop owner is friendly.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "주인"
-      },
-      "after": {
-        "id": "satz_a2_0426",
-        "level": "a2",
-        "targetKo": "가게 주인이 친절해요.",
-        "promptDe": "Die Ladenbesitzerin oder der Ladenbesitzer ist freundlich.",
-        "promptEn": "The shop owner is friendly.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "주인"
-      },
-      "fields": [
-        "promptDe"
-      ],
-      "beforeSha256": "809dc3ad448b6884224741c175e584b37971938a5211be72c0dc5d5e7316bf6b",
-      "afterSha256": "a08cfbcc05ab416b18cfdb446791b18b5ea782d6d73455d8fad9acbe2700d2c5",
-      "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
-      "sourceGitPath": "assets/data/satz_sentences.json",
-      "predecessorSuccessorSha256": null,
-      "normalization": "Exact promotion projection; routing normalization follows the existing relevel ledger",
-      "reason": "Direct Korean-English-German editorial review with genre-appropriate context and synchronized learner tasks; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_10_4x_manifest.json",
-      "kind": "satz",
-      "id": "satz_a2_0439",
-      "before": {
-        "id": "satz_a2_0439",
-        "level": "a2",
-        "targetKo": "우리 반은 학생이 스무 명이에요.",
-        "promptDe": "Unsere Klasse hat zwanzig Schüler.",
-        "promptEn": "Our class has twenty students.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "반"
-      },
-      "after": {
-        "id": "satz_a2_0439",
-        "level": "a2",
-        "targetKo": "우리 반은 학생이 스무 명이에요.",
-        "promptDe": "In unserer Klasse sind zwanzig Lernende.",
-        "promptEn": "Our class has twenty students.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "반"
-      },
-      "fields": [
-        "promptDe"
-      ],
-      "beforeSha256": "fb578fad8564e739f043452c29168122c8acc0ff3ab0ed8e8d361a06372d821e",
-      "afterSha256": "9b90bbbeb20463f42548e946b8628d77d64fe9175a292404e4d20ebf29382092",
-      "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
-      "sourceGitPath": "assets/data/satz_sentences.json",
-      "predecessorSuccessorSha256": null,
-      "normalization": "Exact promotion projection; routing normalization follows the existing relevel ledger",
-      "reason": "Direct Korean-English-German editorial review with genre-appropriate context and synchronized learner tasks; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_10_4x_manifest.json",
-      "kind": "satz",
-      "id": "satz_a2_0440",
-      "before": {
-        "id": "satz_a2_0440",
-        "level": "a2",
-        "targetKo": "교수님 수업이 재미있어요.",
-        "promptDe": "Die Vorlesung des Professors ist interessant.",
-        "promptEn": "The professor's lecture is interesting.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "교수"
-      },
-      "after": {
-        "id": "satz_a2_0440",
-        "level": "a2",
-        "targetKo": "교수님 수업이 재미있어요.",
-        "promptDe": "Die Vorlesung war wirklich interessant.",
-        "promptEn": "The lecture was really interesting.",
-        "distractors": [
-          "회사",
-          "직업"
-        ],
-        "vocabKo": "교수"
-      },
-      "fields": [
-        "promptDe",
-        "promptEn"
-      ],
-      "beforeSha256": "cec13e86bc8ccf65469af4200f6bff4d10a0466923972bc0c01400da2cc4b3b4",
-      "afterSha256": "b6f79a2aaae02909a53746dbdc6af3fa99d9a20d13cad62f883f7351039dd475",
-      "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
-      "sourceGitPath": "assets/data/satz_sentences.json",
-      "predecessorSuccessorSha256": null,
-      "normalization": "Exact promotion projection; routing normalization follows the existing relevel ledger",
-      "reason": "Direct Korean-English-German editorial review with genre-appropriate context and synchronized learner tasks; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_10_4x_manifest.json",
-      "kind": "satz",
       "id": "satz_b2_0491",
       "before": {
         "id": "satz_b2_0491",
@@ -88156,18 +87263,19 @@
         "promptDe": "Als ein Konflikt entstand, habe ich ruhig erklärt, was mich störte, statt meine Gefühle zu unterdrücken.",
         "promptEn": "When a conflict arose, I calmly explained what bothered me rather than suppressing my feelings.",
         "distractors": [
-          "갈등",
+          "불안",
           "관점"
         ],
         "vocabKo": "감정을 억누르다"
       },
       "fields": [
+        "distractors",
         "promptDe",
         "promptEn",
         "targetKo"
       ],
       "beforeSha256": "4b107bfd9772be51913124c00dd182841f89e8850ced61e70ff59cd4767e5aad",
-      "afterSha256": "f60eee0ed4a651f6370554ebabe073b3771e834166a2af20c56cbbc7333bed8a",
+      "afterSha256": "4b30c81d741aad83c05010be6a70b630aaf80d910a55eebe1afe277d20451d4b",
       "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
       "sourceGitPath": "assets/data/satz_sentences.json",
       "predecessorSuccessorSha256": null,

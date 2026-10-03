@@ -6621,8 +6621,8 @@
       "id": "satz_a2_0041",
       "level": "a2",
       "targetKo": "직업이 뭐예요 하시길래 디자이너라고 짧게 답했어요.",
-      "promptDe": "Auf die Frage nach meinem Beruf antwortete ich kurz: Ich arbeite im Design.",
-      "promptEn": "When they asked what I do, I just said I’m a designer.",
+      "promptDe": "Auf die Frage nach dem Beruf antwortete ich knapp: Designerin.",
+      "promptEn": "When they asked what I do, I answered briefly: designer.",
       "distractors": [
         "맞장구를",
         "맞추기는"
@@ -10153,7 +10153,7 @@
       "promptEn": "The author uses the phrase “space to speak” to describe who gets to speak in family discussions.",
       "distractors": [
         "노동을",
-        "누가"
+        "그들이"
       ],
       "vocabKo": "말의 자리"
     },
@@ -10537,7 +10537,7 @@
       "promptEn": "The essay describes an “etiquette of forgetting” as the consideration shown by not reopening painful questions, while also stressing the need for records.",
       "distractors": [
         "기대하는",
-        "기록"
+        "표지"
       ],
       "vocabKo": "망각의 예절"
     },
@@ -17997,8 +17997,8 @@
       "id": "satz_a2_0238",
       "level": "a2",
       "targetKo": "감기가 심해서 병원에 다녀왔어요.",
-      "promptDe": "Meine Erkältung war schlimm. Ich war in der Praxis.",
-      "promptEn": "My cold was bad. I went to the doctor.",
+      "promptDe": "Die Erkältung war so schlimm, ich war beim Arzt.",
+      "promptEn": "My cold was so bad I went to the doctor.",
       "distractors": [
         "회사",
         "직업"
@@ -19773,7 +19773,7 @@
       "id": "satz_a2_0318",
       "level": "a2",
       "targetKo": "점원분이 진짜 친절했어요.",
-      "promptDe": "Die Verkaufskraft war sehr freundlich.",
+      "promptDe": "Der Verkäufer war wirklich freundlich.",
       "promptEn": "The clerk was really friendly.",
       "distractors": [
         "회사",
@@ -19881,7 +19881,7 @@
       "id": "satz_a2_0327",
       "level": "a2",
       "targetKo": "사장님이 진짜 좋으신 분이세요.",
-      "promptDe": "Unsere Chefin oder unser Chef ist wirklich nett.",
+      "promptDe": "Unser Chef ist wirklich ein guter Mensch.",
       "promptEn": "The boss is a really good person.",
       "distractors": [
         "회사",
@@ -19893,7 +19893,7 @@
       "id": "satz_a2_0328",
       "level": "b1",
       "targetKo": "저희 상사 분은 좀 까다로우세요.",
-      "promptDe": "Unsere Führungskraft ist ein bisschen anspruchsvoll.",
+      "promptDe": "Unser Vorgesetzter ist ein bisschen anspruchsvoll.",
       "promptEn": "Our supervisor is a bit picky.",
       "distractors": [
         "회사",
@@ -20613,7 +20613,7 @@
       "id": "satz_a2_0345",
       "level": "a2",
       "targetKo": "친구한테 십만 원 송금했어요.",
-      "promptDe": "Ich habe jemandem aus meinem Freundeskreis 100.000 Won überwiesen.",
+      "promptDe": "Ich habe einem Freund hunderttausend Won überwiesen.",
       "promptEn": "I transferred a hundred thousand won to a friend.",
       "distractors": [
         "회사",
@@ -22297,7 +22297,7 @@
       "promptEn": "The essay examines the lack of time people experience today through the lens of work and travel.",
       "distractors": [
         "갈등",
-        "관점"
+        "차원"
       ],
       "vocabKo": "현대인"
     },
@@ -24465,7 +24465,7 @@
       "id": "satz_a2_0422",
       "level": "a2",
       "targetKo": "저 가수는 노래를 정말 잘해요.",
-      "promptDe": "Diese Sängerin oder dieser Sänger singt wirklich gut.",
+      "promptDe": "Dieser Sänger singt wirklich gut.",
       "promptEn": "That singer sings really well.",
       "distractors": [
         "회사",
@@ -24477,7 +24477,7 @@
       "id": "satz_a2_0423",
       "level": "a2",
       "targetKo": "경찰이 길을 안내해 줬어요.",
-      "promptDe": "Jemand von der Polizei hat mir den Weg gezeigt.",
+      "promptDe": "Ein Polizist hat mir den Weg gezeigt.",
       "promptEn": "A police officer showed me the way.",
       "distractors": [
         "회사",
@@ -24501,7 +24501,7 @@
       "id": "satz_a2_0425",
       "level": "b1",
       "targetKo": "저는 회사 사원이에요.",
-      "promptDe": "Ich bin bei einem Unternehmen angestellt.",
+      "promptDe": "Ich bin Angestellter in einer Firma.",
       "promptEn": "I am a company employee.",
       "distractors": [
         "직업",
@@ -24513,7 +24513,7 @@
       "id": "satz_a2_0426",
       "level": "a2",
       "targetKo": "가게 주인이 친절해요.",
-      "promptDe": "Die Ladenbesitzerin oder der Ladenbesitzer ist freundlich.",
+      "promptDe": "Der Ladenbesitzer ist freundlich.",
       "promptEn": "The shop owner is friendly.",
       "distractors": [
         "회사",
@@ -24669,7 +24669,7 @@
       "id": "satz_a2_0439",
       "level": "a2",
       "targetKo": "우리 반은 학생이 스무 명이에요.",
-      "promptDe": "In unserer Klasse sind zwanzig Lernende.",
+      "promptDe": "Unsere Klasse hat zwanzig Schüler.",
       "promptEn": "Our class has twenty students.",
       "distractors": [
         "회사",
@@ -24681,8 +24681,8 @@
       "id": "satz_a2_0440",
       "level": "a2",
       "targetKo": "교수님 수업이 재미있어요.",
-      "promptDe": "Die Vorlesung war wirklich interessant.",
-      "promptEn": "The lecture was really interesting.",
+      "promptDe": "Die Vorlesung des Professors ist interessant.",
+      "promptEn": "The professor's lecture is interesting.",
       "distractors": [
         "회사",
         "직업"
@@ -24876,7 +24876,7 @@
       "promptDe": "Als ein Konflikt entstand, habe ich ruhig erklärt, was mich störte, statt meine Gefühle zu unterdrücken.",
       "promptEn": "When a conflict arose, I calmly explained what bothered me rather than suppressing my feelings.",
       "distractors": [
-        "갈등",
+        "불안",
         "관점"
       ],
       "vocabKo": "감정을 억누르다"
