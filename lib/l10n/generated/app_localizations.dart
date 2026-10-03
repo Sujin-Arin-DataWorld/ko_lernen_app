@@ -19505,6 +19505,468 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'11 Profile · Gespräche & Hören'**
   String get personaMeetPeopleCompactSubtitle;
+
+  /// No description provided for @dancheongTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dancheong-Atelier'**
+  String get dancheongTitle;
+
+  /// No description provided for @dancheongPatterns.
+  ///
+  /// In de, this message translates to:
+  /// **'Muster'**
+  String get dancheongPatterns;
+
+  /// No description provided for @dancheongArtwork.
+  ///
+  /// In de, this message translates to:
+  /// **'Kunstwerke'**
+  String get dancheongArtwork;
+
+  /// No description provided for @dancheongPreview.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorschau deines Kunstwerks'**
+  String get dancheongPreview;
+
+  /// No description provided for @dancheongIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Ildu-Hanok wächst mit jedem Lernschritt. Aus deinen gesammelten Mustern entsteht hier ein eigenes Kunstwerk.'**
+  String get dancheongIntro;
+
+  /// No description provided for @dancheongCreate.
+  ///
+  /// In de, this message translates to:
+  /// **'Kunstwerk gestalten'**
+  String get dancheongCreate;
+
+  /// No description provided for @dancheongFirstMaterial.
+  ///
+  /// In de, this message translates to:
+  /// **'Lerne weiter und sammle dein erstes Muster. Danach kannst du es in allen drei Vorlagen verwenden.'**
+  String get dancheongFirstMaterial;
+
+  /// No description provided for @dancheongLearn.
+  ///
+  /// In de, this message translates to:
+  /// **'Zum Lernpfad'**
+  String get dancheongLearn;
+
+  /// No description provided for @dancheongExamples.
+  ///
+  /// In de, this message translates to:
+  /// **'Inspiration · Beispiele'**
+  String get dancheongExamples;
+
+  /// No description provided for @dancheongExampleNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese fertigen Beispielbilder zeigen die Richtung. Ihre Motive und die feste koreanische Schrift sind keine einzeln freigeschalteten Materialien.'**
+  String get dancheongExampleNote;
+
+  /// No description provided for @dancheongEmptyArtwork.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Kunstwerke und Entwürfe erscheinen hier.'**
+  String get dancheongEmptyArtwork;
+
+  /// No description provided for @dancheongDraft.
+  ///
+  /// In de, this message translates to:
+  /// **'Entwurf weiterführen'**
+  String get dancheongDraft;
+
+  /// No description provided for @dancheongEditor.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Kunstwerk'**
+  String get dancheongEditor;
+
+  /// No description provided for @dancheongTemplate.
+  ///
+  /// In de, this message translates to:
+  /// **'Komposition'**
+  String get dancheongTemplate;
+
+  /// No description provided for @dancheongFlower.
+  ///
+  /// In de, this message translates to:
+  /// **'Blütenkranz'**
+  String get dancheongFlower;
+
+  /// No description provided for @dancheongBrocade.
+  ///
+  /// In de, this message translates to:
+  /// **'Seidenmuster'**
+  String get dancheongBrocade;
+
+  /// No description provided for @dancheongLetter.
+  ///
+  /// In de, this message translates to:
+  /// **'Motiv & Hangul'**
+  String get dancheongLetter;
+
+  /// No description provided for @dancheongFormat.
+  ///
+  /// In de, this message translates to:
+  /// **'Bildformat'**
+  String get dancheongFormat;
+
+  /// No description provided for @dancheongPortrait.
+  ///
+  /// In de, this message translates to:
+  /// **'Beitrag · 4:5'**
+  String get dancheongPortrait;
+
+  /// No description provided for @dancheongStory.
+  ///
+  /// In de, this message translates to:
+  /// **'Story · 9:16'**
+  String get dancheongStory;
+
+  /// No description provided for @dancheongMaterials.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Materialien · bis zu 4 Muster'**
+  String get dancheongMaterials;
+
+  /// No description provided for @dancheongKoreanText.
+  ///
+  /// In de, this message translates to:
+  /// **'Koreanischer Text · optional'**
+  String get dancheongKoreanText;
+
+  /// No description provided for @dancheongTranslation.
+  ///
+  /// In de, this message translates to:
+  /// **'Übersetzung · optional'**
+  String get dancheongTranslation;
+
+  /// No description provided for @dancheongTranslationLanguage.
+  ///
+  /// In de, this message translates to:
+  /// **'Sprache der Übersetzung'**
+  String get dancheongTranslationLanguage;
+
+  /// No description provided for @dancheongSignature.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Name · optional'**
+  String get dancheongSignature;
+
+  /// No description provided for @dancheongSaveDraft.
+  ///
+  /// In de, this message translates to:
+  /// **'Entwurf speichern'**
+  String get dancheongSaveDraft;
+
+  /// No description provided for @dancheongFinish.
+  ///
+  /// In de, this message translates to:
+  /// **'Kunstwerk fertigstellen'**
+  String get dancheongFinish;
+
+  /// No description provided for @dancheongSaved.
+  ///
+  /// In de, this message translates to:
+  /// **'Entwurf gespeichert'**
+  String get dancheongSaved;
+
+  /// No description provided for @dancheongSaving.
+  ///
+  /// In de, this message translates to:
+  /// **'Entwurf wird gespeichert …'**
+  String get dancheongSaving;
+
+  /// No description provided for @dancheongError.
+  ///
+  /// In de, this message translates to:
+  /// **'Das hat nicht geklappt. Dein bisher gespeicherter Entwurf bleibt erhalten. Versuche es erneut.'**
+  String get dancheongError;
+
+  /// No description provided for @dancheongBlocked.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Kunstwerke sind während des Kontowechsels nicht verfügbar. Öffne das Atelier danach erneut.'**
+  String get dancheongBlocked;
+
+  /// No description provided for @dancheongDamaged.
+  ///
+  /// In de, this message translates to:
+  /// **'Gespeicherte Atelier-Daten können nicht gelesen werden. Die Daten bleiben erhalten.'**
+  String get dancheongDamaged;
+
+  /// No description provided for @dancheongMissing.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Kunstwerk ist nicht mehr verfügbar.'**
+  String get dancheongMissing;
+
+  /// No description provided for @dancheongEdit.
+  ///
+  /// In de, this message translates to:
+  /// **'Bearbeiten'**
+  String get dancheongEdit;
+
+  /// No description provided for @dancheongDelete.
+  ///
+  /// In de, this message translates to:
+  /// **'Löschen'**
+  String get dancheongDelete;
+
+  /// No description provided for @dancheongShare.
+  ///
+  /// In de, this message translates to:
+  /// **'Teilen vorbereiten'**
+  String get dancheongShare;
+
+  /// No description provided for @dancheongShareTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Kunstwerk teilen'**
+  String get dancheongShareTitle;
+
+  /// No description provided for @dancheongShareImage.
+  ///
+  /// In de, this message translates to:
+  /// **'Bild teilen / speichern'**
+  String get dancheongShareImage;
+
+  /// No description provided for @dancheongCaption.
+  ///
+  /// In de, this message translates to:
+  /// **'Begleittext · separat kopieren'**
+  String get dancheongCaption;
+
+  /// No description provided for @dancheongCaptionLanguage.
+  ///
+  /// In de, this message translates to:
+  /// **'Sprache des Begleittexts'**
+  String get dancheongCaptionLanguage;
+
+  /// No description provided for @dancheongCopyCaption.
+  ///
+  /// In de, this message translates to:
+  /// **'Begleittext kopieren'**
+  String get dancheongCopyCaption;
+
+  /// No description provided for @dancheongCopied.
+  ///
+  /// In de, this message translates to:
+  /// **'Begleittext kopiert'**
+  String get dancheongCopied;
+
+  /// No description provided for @dancheongHandedOff.
+  ///
+  /// In de, this message translates to:
+  /// **'Bild an die Freigabe übergeben. Wähle dort deine App oder Speichern.'**
+  String get dancheongHandedOff;
+
+  /// No description provided for @dancheongDismissed.
+  ///
+  /// In de, this message translates to:
+  /// **'Freigabe geschlossen. Dein Kunstwerk bleibt gespeichert.'**
+  String get dancheongDismissed;
+
+  /// No description provided for @dancheongUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Freigabe ist hier nicht verfügbar. Du kannst das Bild herunterladen und den Begleittext kopieren.'**
+  String get dancheongUnavailable;
+
+  /// No description provided for @dancheongDownload.
+  ///
+  /// In de, this message translates to:
+  /// **'PNG herunterladen'**
+  String get dancheongDownload;
+
+  /// No description provided for @dancheongShareNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Das PNG enthält nur dein Kunstwerk. Begleittext, Hashtags und Links werden separat kopiert.'**
+  String get dancheongShareNote;
+
+  /// No description provided for @dancheongEntry.
+  ///
+  /// In de, this message translates to:
+  /// **'Aus Mustern wird Kunst'**
+  String get dancheongEntry;
+
+  /// No description provided for @dancheongEntryAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Atelier öffnen'**
+  String get dancheongEntryAction;
+
+  /// No description provided for @dancheongReceipt.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit deinem Muster gestalten'**
+  String get dancheongReceipt;
+
+  /// No description provided for @dancheongLimit.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle höchstens vier Muster.'**
+  String get dancheongLimit;
+
+  /// No description provided for @dancheongExportData.
+  ///
+  /// In de, this message translates to:
+  /// **'Atelier-Daten kopieren'**
+  String get dancheongExportData;
+
+  /// No description provided for @dancheongPublicTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Kunstwerk öffentlich teilen?'**
+  String get dancheongPublicTitle;
+
+  /// No description provided for @dancheongPublicBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle mit dem Link können dieses Bild und die darin enthaltenen Texte sehen. Du kannst den Link später deaktivieren. Bereits gespeicherte Kopien bleiben bestehen.'**
+  String get dancheongPublicBody;
+
+  /// No description provided for @dancheongPublicConfirm.
+  ///
+  /// In de, this message translates to:
+  /// **'Link veröffentlichen'**
+  String get dancheongPublicConfirm;
+
+  /// No description provided for @dancheongPublicCancel.
+  ///
+  /// In de, this message translates to:
+  /// **'Abbrechen'**
+  String get dancheongPublicCancel;
+
+  /// No description provided for @dancheongPublicAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Öffentlichen Link erstellen'**
+  String get dancheongPublicAction;
+
+  /// No description provided for @dancheongPublicCopy.
+  ///
+  /// In de, this message translates to:
+  /// **'Öffentlichen Link kopieren'**
+  String get dancheongPublicCopy;
+
+  /// No description provided for @dancheongPublicRevoke.
+  ///
+  /// In de, this message translates to:
+  /// **'Öffentlichen Link deaktivieren'**
+  String get dancheongPublicRevoke;
+
+  /// No description provided for @dancheongPublicRevoked.
+  ///
+  /// In de, this message translates to:
+  /// **'Der öffentliche Link ist deaktiviert. Dein privates Kunstwerk bleibt gespeichert.'**
+  String get dancheongPublicRevoked;
+
+  /// No description provided for @dancheongPublicTooLarge.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Original ist größer als die 4-MB-Grenze für öffentliche Links. Du kannst es unverändert als PNG teilen oder speichern.'**
+  String get dancheongPublicTooLarge;
+
+  /// No description provided for @dancheongDefaultCaption.
+  ///
+  /// In de, this message translates to:
+  /// **'Mein Dancheong-Kunstwerk, gestaltet mit Mustern aus meinem Koreanisch-Lernweg.\n#Dancheong #HangulSori #KoreanArt'**
+  String get dancheongDefaultCaption;
+
+  /// No description provided for @dancheongBorder.
+  ///
+  /// In de, this message translates to:
+  /// **'Rahmen'**
+  String get dancheongBorder;
+
+  /// No description provided for @dancheongBorderFlow.
+  ///
+  /// In de, this message translates to:
+  /// **'Fließendes Seidenmuster'**
+  String get dancheongBorderFlow;
+
+  /// No description provided for @dancheongBorderRibbon.
+  ///
+  /// In de, this message translates to:
+  /// **'Farbbänder & Geometrie'**
+  String get dancheongBorderRibbon;
+
+  /// No description provided for @dancheongBorderLotus.
+  ///
+  /// In de, this message translates to:
+  /// **'Lotus & Ranken'**
+  String get dancheongBorderLotus;
+
+  /// No description provided for @dancheongBorderNone.
+  ///
+  /// In de, this message translates to:
+  /// **'Ohne Rahmen'**
+  String get dancheongBorderNone;
+
+  /// No description provided for @dancheongFrameNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Rahmen und große Zierblüte gehören zur Gestaltung. Die kleinen Medaillons zeigen deine gesammelten Muster.'**
+  String get dancheongFrameNote;
+
+  /// No description provided for @dancheongPublicReady.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein öffentlicher Link ist bereit.'**
+  String get dancheongPublicReady;
+
+  /// No description provided for @dancheongTextFit.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Text passt noch nicht ins Bild. Kürze ihn oder nutze weniger Zeilenumbrüche. Dein Entwurf bleibt erhalten.'**
+  String get dancheongTextFit;
+
+  /// No description provided for @dancheongCapacity.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Atelier ist voll (30 Entwürfe oder 100 fertige Versionen). Lösche unter Kunstwerke einen gespeicherten Eintrag, um Platz zu schaffen.'**
+  String get dancheongCapacity;
+
+  /// No description provided for @dancheongManage.
+  ///
+  /// In de, this message translates to:
+  /// **'Gespeicherte Kunstwerke verwalten'**
+  String get dancheongManage;
+
+  /// No description provided for @dancheongLeaveTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ohne Speichern verlassen?'**
+  String get dancheongLeaveTitle;
+
+  /// No description provided for @dancheongLeaveNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese ungespeicherten Änderungen gehen verloren. Bereits gespeicherte Entwürfe bleiben erhalten.'**
+  String get dancheongLeaveNote;
+
+  /// No description provided for @dancheongLeave.
+  ///
+  /// In de, this message translates to:
+  /// **'Ohne Speichern verlassen'**
+  String get dancheongLeave;
+
+  /// No description provided for @dancheongDeleteDraftNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Diesen gespeicherten Entwurf löschen? Das lässt sich nicht rückgängig machen.'**
+  String get dancheongDeleteDraftNote;
+
+  /// No description provided for @dancheongDeleteArtworkNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese fertige Version und ihre gespeicherten Begleittexte löschen? Ihre öffentlichen Links werden ebenfalls deaktiviert. Bereits von anderen gespeicherte Kopien bleiben erhalten.'**
+  String get dancheongDeleteArtworkNote;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

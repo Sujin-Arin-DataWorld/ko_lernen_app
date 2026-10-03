@@ -7774,6 +7774,43 @@ class Storage {
   // raw blob so schema validation and fail-closed migration stay in one place.
   static const String typedStudyBookmarksPreferenceKey =
       'kl_typed_study_bookmarks_v1';
+
+  /// Device-local original artwork; learning/reward backup never derives from it.
+  static const String dancheongStudioPreferenceKey = 'kl_dancheong_studio_v1';
+  static const String dancheongPublicationsPreferenceKey =
+      'kl_dancheong_publications_v1';
+  static const String dancheongEntryPreferenceKey = 'kl_dancheong_entry_v1';
+  static String get dancheongEntryRawJson => _s(dancheongEntryPreferenceKey);
+  static Future<void> setDancheongEntryRawJsonStrict(
+    String json, {
+    void Function()? assertCurrentWrite,
+  }) => _ssStrict(
+    dancheongEntryPreferenceKey,
+    json,
+    assertCurrentWrite: assertCurrentWrite,
+  );
+  static String get dancheongPublicationsRawJson =>
+      _s(dancheongPublicationsPreferenceKey);
+  static Future<void> setDancheongPublicationsRawJsonStrict(
+    String json, {
+    void Function()? assertCurrentWrite,
+  }) => _ssStrict(
+    dancheongPublicationsPreferenceKey,
+    json,
+    assertCurrentWrite: assertCurrentWrite,
+  );
+  static String get dancheongStudioRawJson => _s(dancheongStudioPreferenceKey);
+  static Future<void> setDancheongStudioRawJsonStrict(
+    String json, {
+    PreferenceStringStore? preferences,
+    void Function()? assertCurrentWrite,
+  }) => _ssStrict(
+    dancheongStudioPreferenceKey,
+    json,
+    preferences: preferences,
+    assertCurrentWrite: assertCurrentWrite,
+  );
+
   static String get typedStudyBookmarksRawJson =>
       _s(typedStudyBookmarksPreferenceKey);
   static Future<void> setTypedStudyBookmarksRawJson(

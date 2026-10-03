@@ -36,7 +36,7 @@ void main() {
     }
     expect(unresolved, isEmpty);
     expect(ambiguous, isEmpty);
-    expect(registered, hasLength(81));
+    expect(registered, hasLength(86));
     expect(registered.toSet(), hasLength(registered.length));
 
     final lock = File(_lockPath).readAsStringSync();
@@ -52,7 +52,7 @@ void main() {
       r'^\| `(/[^`]*)` \|',
       multiLine: true,
     ).allMatches(routeInventory).map((match) => match.group(1)!).toList();
-    expect(documented, hasLength(81));
+    expect(documented, hasLength(86));
     expect(documented.toSet(), hasLength(documented.length));
 
     registered.sort();
@@ -95,6 +95,7 @@ void main() {
       ..._dartFiles(Directory('lib/screens')),
       ..._dartFiles(Directory('lib/features/guide')),
       ..._dartFiles(Directory('lib/features/content_learning')),
+      ..._dartFiles(Directory('lib/features/dancheong')),
       ..._dartFiles(Directory('lib/features/personas')),
     ];
     for (final source in publicSurfaceSources) {
@@ -110,8 +111,8 @@ void main() {
     }
 
     // Includes the shared finite-step content layout and Hanok preview owners.
-    expect(seen, hasLength(121));
-    expect(documented, hasLength(121));
+    expect(seen, hasLength(125));
+    expect(documented, hasLength(125));
     expect(seen.difference(documented), isEmpty);
     expect(documented.difference(seen), isEmpty);
   });

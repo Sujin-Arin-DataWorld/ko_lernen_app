@@ -42,9 +42,6 @@ SMALLTALK_TRANSLATION_LEDGER_REF = (
     "tools/content_factory/review/smalltalk_translation_corrections_20260922.json"
 )
 SMALLTALK_TRANSLATION_LEDGER_PATH = ROOT / SMALLTALK_TRANSLATION_LEDGER_REF
-CAN_DO_EDITORIAL_LEDGER_PATH = (
-    ROOT / "tools/content_factory/review/can_do_editorial_revisions_20261003.json"
-)
 PUBLISHED_AT = "2026-08-16T00:00:00.000Z"
 LEVELS = ("a1", "a2", "b1", "b2", "c1", "c2")
 EXPECTED_COUNTS = {"a1": 16, "a2": 16, "b1": 18, "b2": 20, "c1": 8, "c2": 8}
@@ -3750,6 +3747,9 @@ class SourceIndex:
     def __init__(self) -> None:
         self.curriculum = _read_json(DATA / "curriculum_manifest.json")
         published_catalog = _read_json(DATA / "can_do_segments.json")
+        self.published_segments = {
+            row["id"]: row for row in published_catalog.get("segments", [])
+        }
         self.published_content_routes: dict[tuple[str, str], str] = {}
         for cluster in published_catalog.get("contentClusters", []):
             match = re.fullmatch(r"cluster_(.+)_v\d+", str(cluster.get("id", "")))
@@ -4191,9 +4191,7 @@ def _reconcile_published_history(
     previous_catalog = _read_json(CATALOG_PATH)
     previous_authorities = _read_json(AUTHORITY_PATH)
     _preserve_cluster_history(catalog, previous_catalog)
-    _validate_authority_history(
-        authorities, previous_authorities, current_segments=catalog["segments"]
-    )
+    _validate_authority_history(authorities, previous_authorities)
 
 
 def _preserve_cluster_history(
@@ -4291,8 +4289,7 @@ def _preserve_cluster_history(
 
 
 def _validate_authority_history(
-    current: dict[str, Any], previous: dict[str, Any],
-    *, current_segments: list[dict[str, Any]] | None = None,
+    current: dict[str, Any], previous: dict[str, Any]
 ) -> None:
     # See the KNOWN_MISSING_SCENARIO_SLOTS-adjacent comment above
     # RELEVEL_DIR/RETIRED_SEEDS_LEDGER_PATH: pack renames and
@@ -4337,62 +4334,7 @@ def _validate_authority_history(
             if renamed is not None and f"vocabPack:{renamed}" in new_references:
                 continue
         raise ValueError(f"published content authority {key!r} is immutable")
-    _validate_smalltalk_review_history(
-        current, previous, current_segments=current_segments
-    )
-
-
-def _exact_can_do_copy_transition(
-    old: dict[str, Any], current: dict[str, Any],
-    segments: list[dict[str, Any]] | None,
-) -> bool:
-    """Bind title copy to exact old/new snapshots and unchanged construct data.
-
-    A segment ID alone cannot establish equivalent routing. The full current
-    segment must match the recorded successor, and every field outside title
-    and its generated can-do text must remain byte-equivalent in the snapshots.
-    Historical human approval stays attached to its original fingerprint.
-    """
-    if segments is None or not CAN_DO_EDITORIAL_LEDGER_PATH.exists():
-        return False
-    if old.get("canDoSegmentId") != current.get("canDoSegmentId"):
-        return False
-    ledger = _read_json(CAN_DO_EDITORIAL_LEDGER_PATH)
-    if (
-        ledger.get("schemaVersion") != 1
-        or ledger.get("scope") != "assets/data/can_do_segments.json"
-        or ledger.get("humanReviewStatus") != "pending"
-        or ledger.get("humanApprovalClaim") is not False
-    ):
-        raise ValueError("can-do editorial ledger must preserve its human review gate")
-    matches = [entry for entry in ledger["entries"]
-               if entry["id"] == current.get("canDoSegmentId")]
-    if len(matches) > 1:
-        raise ValueError("duplicate can-do editorial revision")
-    if not matches:
-        return False
-    entry = matches[0]
-    before, after = entry["before"], entry["after"]
-    fields = sorted(key for key in before.keys() | after.keys()
-                    if before.get(key) != after.get(key))
-    if (
-        fields != ["canDo", "title"] or entry.get("fields") != fields
-        or before.get("id") != entry["id"] or after.get("id") != entry["id"]
-        or _json_fingerprint(before) != entry.get("beforeSha256")
-        or _json_fingerprint(after) != entry.get("afterSha256")
-    ):
-        raise ValueError("can-do editorial revision changes its construct or lineage")
-    before_copy = _json_fingerprint({key: before[key] for key in ("title", "canDo")})
-    after_copy = _json_fingerprint({key: after[key] for key in ("title", "canDo")})
-    if (before_copy != entry.get("beforeCopySha256")
-            or after_copy != entry.get("afterCopySha256")):
-        raise ValueError("can-do editorial copy fingerprints do not match")
-    actual = [row for row in segments if row.get("id") == entry["id"]]
-    return (
-        len(actual) == 1 and actual[0] == after
-        and old.get("canDoFingerprintSha256") in {before_copy, after_copy}
-        and current.get("canDoFingerprintSha256") == after_copy
-    )
+    _validate_smalltalk_review_history(current, previous)
 
 
 def _validate_smalltalk_review_history(
@@ -4400,7 +4342,6 @@ def _validate_smalltalk_review_history(
     previous: dict[str, Any],
     *,
     review_approvals: dict[str, dict[str, Any]] | None = None,
-    current_segments: list[dict[str, Any]] | None = None,
 ) -> None:
     approvals = (
         SMALLTALK_REVIEW_APPROVALS
@@ -4455,8 +4396,6 @@ def _validate_smalltalk_review_history(
                 "previousPhraseFingerprintSha256",
             }
             keys = set(old) | set(decision)
-            if _exact_can_do_copy_transition(old, decision, current_segments):
-                ignored.add("canDoFingerprintSha256")
             if any(old.get(key) != decision.get(key) for key in keys - ignored):
                 if decision["copyRevisionLedger"] in {
                     SMALLTALK_TRANSLATION_LEDGER_REF,
@@ -4495,27 +4434,6 @@ def _validate_smalltalk_review_history(
             decision["reviewRevision"] = old["reviewRevision"]
             if phrase_id in approvals:
                 used_approvals.add(phrase_id)
-            continue
-        if (old is not None
-                and _exact_can_do_copy_transition(old, decision, current_segments)
-                and all(old.get(key) == decision.get(key)
-                        for key in old.keys() | decision.keys()
-                        if key not in {"reviewRevision", "canDoFingerprintSha256"})):
-            # The original approval is checked against its original copy, not
-            # rewritten to claim that a person approved the corrected title.
-            approval = approvals.get(phrase_id)
-            expected = {key: old[key] for key in (
-                "phraseFingerprintSha256", "canDoSegmentId",
-                "canDoFingerprintSha256", "semanticStatus", "reviewRevision",
-            )}
-            if approval is not None and _exact_can_do_copy_transition(
-                approval, decision, current_segments
-            ):
-                expected["canDoFingerprintSha256"] = approval["canDoFingerprintSha256"]
-            if approval != expected:
-                raise ValueError(f"smalltalk {phrase_id!r} has no matching historical approval")
-            decision["reviewRevision"] = old["reviewRevision"]
-            used_approvals.add(phrase_id)
             continue
         if old is not None and _same_smalltalk_decision(old, decision):
             decision["reviewRevision"] = old["reviewRevision"]
@@ -5208,6 +5126,21 @@ def _segment_text(
 ) -> tuple[dict[str, str], dict[str, str]]:
     if spec.title is not None and spec.can_do is not None:
         return dict(spec.title), dict(spec.can_do)
+    # Published learning constructs have their own canonical wording. Editing
+    # a practice scene title must not silently change an approved Can-do hash.
+    # Explicit authored specs above still require the existing migration gates.
+    segment_id = f"segment_{spec.key}"
+    published = getattr(source, "published_segments", {}).get(segment_id)
+    if published is not None:
+        expected = {
+            "constructLineageId": segment_id,
+            "parentCourseUnitId": spec.parent,
+            "level": spec.level,
+            "contentClusterIds": [f"cluster_{spec.key}_v1"],
+        }
+        if any(published.get(key) != value for key, value in expected.items()):
+            raise ValueError(f"{segment_id}: published construct identity changed")
+        return dict(published["title"]), dict(published["canDo"])
     scenario_ref = next((ref for ref in spec.refs if ref.kind == "scenario"), None)
     if scenario_ref is None:
         raise ValueError(f"{spec.key} has no localized segment text")

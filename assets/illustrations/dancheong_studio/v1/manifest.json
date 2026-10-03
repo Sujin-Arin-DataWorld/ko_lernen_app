@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "file": "flower.png",
+      "role": "flower study; original composited research art",
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\dancheong-share-20261003-resumed\\assets\\flower.png",
+      "bytes": 1682909,
+      "sha256": "016f073a6082958832e1d0e7ea605d9c9a5edac1c4ae8eb1469cc64fca4f25dc"
+    },
+    {
+      "file": "ribbon.png",
+      "role": "ribbon study; original research art",
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\dancheong-share-20261003-resumed\\assets\\ribbon.png",
+      "bytes": 1180546,
+      "sha256": "c98e3be1c85b1b1f85c457b13e86a6aa801d88221e9c5246a6b05b0483cd991d"
+    },
+    {
+      "file": "pattern.png",
+      "role": "example only; not individual owned motif layers",
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\dancheong-share-20261003-resumed\\assets\\pattern.png",
+      "bytes": 2383393,
+      "sha256": "95cb5b84c969f9689760d212f4487978df39796b2182da2eb4822520eb3f123e"
+    },
+    {
+      "file": "letter.png",
+      "role": "example only; fixed Korean lettering, not editable",
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\dancheong-share-20261003-resumed\\assets\\letter.png",
+      "bytes": 3247684,
+      "sha256": "616793932d2b2635bb7b1d6d56daf13b54cd52a4b1cfd306ea03f709a8f22f62"
+    },
+    {
+      "file": "color_ribbon_frame.png",
+      "role": "original complete transparent border; no modular joins",
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\dancheong-border-assets-20261003\\09-color-ribbon-frame-transparent.png",
+      "bytes": 1176637,
+      "sha256": "f816844ccfd9e2ba19c36ab0014669fae168f2dc9b318799a78aa3d39b0368da"
+    },
+    {
+      "file": "lotus_frame.png",
+      "role": "original complete transparent border; no modular joins",
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\dancheong-border-assets-20261003\\04-complete-lotus-frame-transparent.png",
+      "bytes": 1487110,
+      "sha256": "e41f805d755af3d764898807f1e1d6eef8f4f3ede4da12ffa79a0a04c66df702"
+    },
+    {
+      "file": "brocade_flow_frame.png",
+      "role": "original asymmetric frame; fixed ornament, not an earned reward",
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\dancheong-share-v3-blended-20261003\\03-brocade-flow-frame-transparent.png",
+      "bytes": 1215928,
+      "sha256": "ab25d925843b33e8fc8cc728d24193fed7ffdea838aed7d01bd0a84411b8e3df"
+    }
+  ]
+}

@@ -1,0 +1,4238 @@
+{
+  "schemaVersion": 1,
+  "reviewStatus": "MODEL_REVIEW_ONLY",
+  "humanApprovalClaim": false,
+  "scope": "Exact copy amendments after the published editorial successors; neither original ledger is modified",
+  "humanReviewStatus": "required_before_native-quality-claim",
+  "predecessorGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+  "predecessorLedgerSha256": "291bd99c16e06e9279335595590d7fdbc7a8ec5f275274050e853c0f3620f14b",
+  "copyRevisionLedgerSha256": "72246fa98d210d515882b3c8d7a4329ec011e1c2be791fad4c8e8d4600d1c96a",
+  "entries": [
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0394",
+      "before": {
+        "korean": "실례하다",
+        "romanization": "sillyehada",
+        "german": "sich kurz entschuldigen",
+        "level": "A1",
+        "pos_de": "Verb",
+        "example_korean": "제가 잠깐 실례할게요.",
+        "example_german": "Entschuldigen Sie mich kurz.",
+        "topic": "Entschuldigung",
+        "pack_id": "a1_sorry_thanks_1",
+        "pack_order": "3",
+        "is_review_boss": "false",
+        "english": "to excuse oneself",
+        "pos_en": "Verb",
+        "example_english": "Excuse me for a moment.",
+        "id": "vocab_a1_0394"
+      },
+      "after": {
+        "korean": "실례하다",
+        "romanization": "sillyehada",
+        "german": "sich kurz entschuldigen",
+        "level": "A1",
+        "pos_de": "Verb",
+        "example_korean": "잠깐 실례할게요.",
+        "example_german": "Entschuldigen Sie mich kurz.",
+        "topic": "Entschuldigung",
+        "pack_id": "a1_sorry_thanks_1",
+        "pack_order": "3",
+        "is_review_boss": "false",
+        "english": "to excuse oneself",
+        "pos_en": "Verb",
+        "example_english": "Excuse me for a moment.",
+        "id": "vocab_a1_0394"
+      },
+      "fields": [
+        "example_korean"
+      ],
+      "beforeSha256": "6b7b6f566797f367cab9a8fcf73f26a4fed5bfb74f75395135dc30473c516774",
+      "afterSha256": "92a38b5aa03a3113ca74a99b08be7941ee62a04d0415b322227090adb30b1bce",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "predecessorSuccessorSha256": "e76c2afca43ede46c7fbac52620142646f6409f20ee02dd8a943238a18dc6588",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0399",
+      "before": {
+        "korean": "잠깐만요",
+        "romanization": "jamkkanmanyo",
+        "german": "einen Moment",
+        "level": "A1",
+        "pos_de": "Ausdruck",
+        "example_korean": "잠깐만요, 전화가 와요.",
+        "example_german": "Einen Moment bitte, ich bekomme einen Anruf.",
+        "topic": "Entschuldigung",
+        "pack_id": "a1_sorry_thanks_1",
+        "pack_order": "8",
+        "is_review_boss": "false",
+        "english": "just a moment",
+        "pos_en": "Expression",
+        "example_english": "Just a moment, I'm getting a call.",
+        "id": "vocab_a1_0399"
+      },
+      "after": {
+        "korean": "잠깐만요",
+        "romanization": "jamkkanmanyo",
+        "german": "einen Moment",
+        "level": "A1",
+        "pos_de": "Ausdruck",
+        "example_korean": "잠깐만요.",
+        "example_german": "Einen Moment bitte.",
+        "topic": "Entschuldigung",
+        "pack_id": "a1_sorry_thanks_1",
+        "pack_order": "8",
+        "is_review_boss": "false",
+        "english": "just a moment",
+        "pos_en": "Expression",
+        "example_english": "Just a moment, please.",
+        "id": "vocab_a1_0399"
+      },
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "53fc515b55b56f2c47514f5ea005327fe4b8f8572721a839ee242336a89bec2e",
+      "afterSha256": "ff2350e9bcf0bbbfb9266e7d5e372cb5c5e1416293dd582272e112081d84de6f",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "predecessorSuccessorSha256": "f304e7d45066b0f0fef9d6d79953e0316fb080ebb550a879348e6b83f33b858c",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0402",
+      "before": {
+        "korean": "정말 감사해요",
+        "romanization": "jeongmal gamsahaeyo",
+        "german": "vielen Dank",
+        "level": "A1",
+        "pos_de": "Ausdruck",
+        "example_korean": "저는 정말 감사해요.",
+        "example_german": "Ich bin wirklich dankbar.",
+        "topic": "Entschuldigung",
+        "pack_id": "a1_sorry_thanks_1",
+        "pack_order": "11",
+        "is_review_boss": "true",
+        "english": "thank you so much",
+        "pos_en": "Expression",
+        "example_english": "I'm really grateful.",
+        "id": "vocab_a1_0402"
+      },
+      "after": {
+        "korean": "정말 감사해요",
+        "romanization": "jeongmal gamsahaeyo",
+        "german": "vielen Dank",
+        "level": "A1",
+        "pos_de": "Ausdruck",
+        "example_korean": "정말 감사해요.",
+        "example_german": "Vielen Dank.",
+        "topic": "Entschuldigung",
+        "pack_id": "a1_sorry_thanks_1",
+        "pack_order": "11",
+        "is_review_boss": "true",
+        "english": "thank you so much",
+        "pos_en": "Expression",
+        "example_english": "Thank you so much.",
+        "id": "vocab_a1_0402"
+      },
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "00dffb49ccaa23dd625751a66f97953ed86027542bc046a641e9055ef0358ad0",
+      "afterSha256": "28f3c5d982b33ba0025f22becca6f457bace4f6e6728ae36b5970abd321f8d36",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "predecessorSuccessorSha256": "f0861e4bfc0acd891ec0b33f5a305d743941efb038d9c32877e3b1995722347b",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0282",
+      "before": {
+        "id": "cloze_a1_0282",
+        "level": "a1",
+        "sentenceKo": "제가 잠깐 ＿＿＿.",
+        "answer": "실례할게요",
+        "fullKo": "제가 잠깐 실례할게요.",
+        "de": "Entschuldigen Sie mich kurz.",
+        "en": "Excuse me for a moment.",
+        "distractors": [
+          "쉬어 갈게요",
+          "먼저 갈게요",
+          "결제할게요"
+        ],
+        "topic": "Entschuldigung"
+      },
+      "after": {
+        "id": "cloze_a1_0282",
+        "level": "a1",
+        "sentenceKo": "잠깐 ＿＿＿.",
+        "answer": "실례할게요",
+        "fullKo": "잠깐 실례할게요.",
+        "de": "Entschuldigen Sie mich kurz.",
+        "en": "Excuse me for a moment.",
+        "distractors": [
+          "요리할게요",
+          "청소할게요",
+          "공부할게요"
+        ],
+        "topic": "Entschuldigung"
+      },
+      "fields": [
+        "distractors",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "8c2a2f4217ec49fa4252f79a6a83a536dfb030f5e94934abbb8e8c6ffde5dd47",
+      "afterSha256": "6ea54ebbd0877c7944e49d54e729d828103983517d7f19e8ec3078043990a44e",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "a1eedacf240bb800f8d35c8c3805f09ecaa5013b2b696bd04b424147f148fc2e",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0287",
+      "before": {
+        "id": "cloze_a1_0287",
+        "level": "a1",
+        "sentenceKo": "＿＿＿, 전화가 와요.",
+        "answer": "잠깐만요",
+        "fullKo": "잠깐만요, 전화가 와요.",
+        "de": "Einen Moment bitte, ich bekomme einen Anruf.",
+        "en": "Just a moment, I'm getting a call.",
+        "distractors": [
+          "끝나다",
+          "알다",
+          "과"
+        ],
+        "topic": "Entschuldigung"
+      },
+      "after": {
+        "id": "cloze_a1_0287",
+        "level": "a1",
+        "sentenceKo": "＿＿＿.",
+        "answer": "잠깐만요",
+        "fullKo": "잠깐만요.",
+        "de": "Einen Moment bitte.",
+        "en": "Just a moment, please.",
+        "distractors": [
+          "끝나다",
+          "알다",
+          "과"
+        ],
+        "topic": "Entschuldigung"
+      },
+      "fields": [
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "4bec81d00d0821b1405c53cba3f78cbae5f147bf2ae2b3879dde42288171aedd",
+      "afterSha256": "7f63ab436c2e69cab5ad9bd9d1ce87149c65b00c9b96972f128980b913542e7a",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "2073cedb58c4263c5ac68157fd7a757490e9d843ced867c225ff3a1b501d05bd",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0289",
+      "before": {
+        "id": "cloze_a1_0289",
+        "level": "a1",
+        "sentenceKo": "＿＿＿.",
+        "answer": "천천히 말해 주세요",
+        "fullKo": "천천히 말해 주세요.",
+        "de": "Bitte sprechen Sie langsam.",
+        "en": "Please speak slowly.",
+        "distractors": [
+          "빨리 말해 주세요",
+          "크게 말해 주세요",
+          "다시 말해 주세요"
+        ],
+        "topic": "Entschuldigung"
+      },
+      "after": {
+        "id": "cloze_a1_0289",
+        "level": "a1",
+        "sentenceKo": "＿＿＿.",
+        "answer": "천천히 말해 주세요",
+        "fullKo": "천천히 말해 주세요.",
+        "de": "Bitte sprechen Sie langsam.",
+        "en": "Please speak slowly.",
+        "distractors": [
+          "빨리 걸어 주세요",
+          "크게 웃어 주세요",
+          "일찍 일어나 주세요"
+        ],
+        "topic": "Entschuldigung"
+      },
+      "fields": [
+        "distractors"
+      ],
+      "beforeSha256": "90db7c761e306340557cc43bd74cd130a70de654a7b0845d1b9fc2d620be243b",
+      "afterSha256": "3ef7472ea99d3c3b6d68668fd68bd59f9c43a130b8205250d3cb70f964bc616f",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "d48dac35cec3e80eeabc1efb0a39140ec22a2ebada8b3413c146622422ef8047",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0290",
+      "before": {
+        "id": "cloze_a1_0290",
+        "level": "a1",
+        "sentenceKo": "저는 ＿＿＿.",
+        "answer": "정말 감사해요",
+        "fullKo": "저는 정말 감사해요.",
+        "de": "Ich bin wirklich dankbar.",
+        "en": "I'm really grateful.",
+        "distractors": [
+          "보다",
+          "읽다",
+          "와"
+        ],
+        "topic": "Entschuldigung"
+      },
+      "after": {
+        "id": "cloze_a1_0290",
+        "level": "a1",
+        "sentenceKo": "＿＿＿.",
+        "answer": "정말 감사해요",
+        "fullKo": "정말 감사해요.",
+        "de": "Vielen Dank.",
+        "en": "Thank you so much.",
+        "distractors": [
+          "보다",
+          "읽다",
+          "와"
+        ],
+        "topic": "Entschuldigung"
+      },
+      "fields": [
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "d7f9ba69d77358a216fc34ddc80eafd63d2fc7e7dbf6548ce496d316564f478d",
+      "afterSha256": "ac4b79c5ce3aa569f4262641dbc847f2bac5da8c28f9abe409adc2da4b077213",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "7e0ec65a347741149ce8798419f8d8179bec3974673ef29079ec1808289440f5",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0165",
+      "before": {
+        "id": "satz_a1_0165",
+        "level": "a1",
+        "targetKo": "무게가 이 킬로그램이에요.",
+        "promptDe": "Es wiegt zwei Kilogramm.",
+        "promptEn": "It weighs two kilograms.",
+        "distractors": [
+          "우표",
+          "소포"
+        ],
+        "vocabKo": "무게"
+      },
+      "after": {
+        "id": "satz_a1_0165",
+        "level": "a1",
+        "targetKo": "무게가 이 킬로그램을 넘어요.",
+        "promptDe": "Das Gewicht liegt über zwei Kilogramm.",
+        "promptEn": "The weight is over two kilograms.",
+        "distractors": [
+          "우표",
+          "소포"
+        ],
+        "vocabKo": "무게"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "decb4a0facdee0d18ccd30087bc8affe70fd56afc165570522a19cdceac487fb",
+      "afterSha256": "6e553b2cf6eef7d345d496c4dcaa18b895b88a875ec708bdca7db13ecfdfae7f",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "db4cc171f6ea800da94182719ccdfdb6985de40d0521cfe1bf998aebd53d19e8",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0167",
+      "before": {
+        "id": "satz_a1_0167",
+        "level": "a1",
+        "targetKo": "보내는 사람 이름을 써요.",
+        "promptDe": "Ich schreibe den Namen des Absenders.",
+        "promptEn": "I write the sender's name.",
+        "distractors": [
+          "우표",
+          "소포"
+        ],
+        "vocabKo": "보내는 사람"
+      },
+      "after": {
+        "id": "satz_a1_0167",
+        "level": "a1",
+        "targetKo": "보내는 사람 이름을 크게 썼어요.",
+        "promptDe": "Ich habe den Absendernamen groß geschrieben.",
+        "promptEn": "I wrote the sender name in large letters.",
+        "distractors": [
+          "우표",
+          "소포"
+        ],
+        "vocabKo": "보내는 사람"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "fd5bf29fd5bc259a54192547457300bb8c6ed4dc5bf36375ee129dd0197a05fe",
+      "afterSha256": "562a815ad7548967a4849cde47fbc48072b00cbd924147b9e2dd764b126846e6",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "e1b327ced1623674668b56ef2d65910f755d03c1d88644576366dd1c2f37d254",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0187",
+      "before": {
+        "id": "satz_a1_0187",
+        "level": "a1",
+        "targetKo": "비가 와서 약속을 취소했어요.",
+        "promptDe": "Weil es geregnet hat, habe ich das Treffen abgesagt.",
+        "promptEn": "It rained, so I cancelled the plan.",
+        "distractors": [
+          "소포를",
+          "만나서"
+        ],
+        "vocabKo": "취소하다"
+      },
+      "after": {
+        "id": "satz_a1_0187",
+        "level": "a1",
+        "targetKo": "비가 와서 산책을 취소했어요.",
+        "promptDe": "Es hat geregnet, deshalb habe ich den Spaziergang abgesagt.",
+        "promptEn": "It rained, so I canceled the walk.",
+        "distractors": [
+          "소포를",
+          "만나서"
+        ],
+        "vocabKo": "취소하다"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "b96b552928980aff976c910ebb2b598c7d893ae119779df234034d92d21455da",
+      "afterSha256": "53b3a4ea98406209788121e6316172f9bfb301af0e5ceebfdc530381dd9c89eb",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "bf6ffbb31fdead341debc608c6f272816577216ed19fbf5cfd0c57594e637629",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0191",
+      "before": {
+        "id": "satz_a1_0191",
+        "level": "a1",
+        "targetKo": "지금 바로 갈게요.",
+        "promptDe": "Ich komme gleich.",
+        "promptEn": "I'll come right away.",
+        "distractors": [
+          "늦잠",
+          "약속 시간"
+        ],
+        "vocabKo": "바로 갈게요"
+      },
+      "after": {
+        "id": "satz_a1_0191",
+        "level": "a1",
+        "targetKo": "지금 나와서 바로 갈게요.",
+        "promptDe": "Ich gehe jetzt raus und komme gleich.",
+        "promptEn": "I'm heading out now and I'll come right away.",
+        "distractors": [
+          "늦잠",
+          "약속 시간"
+        ],
+        "vocabKo": "바로 갈게요"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "9376d126b06eb4797aa8df51a4604660182dd3a9a5daf35d8da20194dc043117",
+      "afterSha256": "11f309f2eaf9c62a36da5e4c4e2177341fcee53838b8eec335440b091797b669",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "de780454fdc6ff0a9c7bb0051b7d35a7a8a5a54d2d2f497d260de06d754e3a17",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0192",
+      "before": {
+        "id": "satz_a1_0192",
+        "level": "a1",
+        "targetKo": "주말 계획이 있어요?",
+        "promptDe": "Hast du Pläne fürs Wochenende?",
+        "promptEn": "Do you have plans for the weekend?",
+        "distractors": [
+          "주",
+          "앞이에요"
+        ],
+        "vocabKo": "주말 계획"
+      },
+      "after": {
+        "id": "satz_a1_0192",
+        "level": "a1",
+        "targetKo": "주말 계획을 같이 세울까요?",
+        "promptDe": "Sollen wir den Wochenendplan zusammen machen?",
+        "promptEn": "Shall we make the weekend plan together?",
+        "distractors": [
+          "주",
+          "앞이에요"
+        ],
+        "vocabKo": "주말 계획"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "2f076181187ab8f1a63afffd598f4790029d123039cab7830923a719a510a95a",
+      "afterSha256": "69a2a88dd66d667b4744d67637ec64f9fbb9517e1e0fd411169e6743ac2bb4b0",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "81ecf1a2c9f1edd150781e22aea6584e768728136f3083e88736a26cf8c7abf8",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0195",
+      "before": {
+        "id": "satz_a1_0195",
+        "level": "a1",
+        "targetKo": "저는 먼저 가요.",
+        "promptDe": "Ich gehe schon mal vor.",
+        "promptEn": "I'll go ahead first.",
+        "distractors": [
+          "영수증을",
+          "결제하고"
+        ],
+        "vocabKo": "먼저 가다"
+      },
+      "after": {
+        "id": "satz_a1_0195",
+        "level": "a1",
+        "targetKo": "저는 먼저 가서 자리를 잡겠어요.",
+        "promptDe": "Ich gehe zuerst und sichere die Plätze.",
+        "promptEn": "I'll go ahead and grab the seats.",
+        "distractors": [
+          "영수증을",
+          "결제하고"
+        ],
+        "vocabKo": "먼저 가다"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "c9c4c6bdbd86b79cdb301678b0fb410ee855f755afe7424085c76b5c4312de96",
+      "afterSha256": "71b770d8d7ba41d6daacaa0dfffed15f27971bc34803454638230705ca52f2d3",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "4fceefc4e16ffb3db83057796ca845b1c6dfd28bdb6c7127fad626aac3e2d993",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0246",
+      "before": {
+        "id": "satz_a1_0246",
+        "level": "a1",
+        "targetKo": "제가 잠깐 실례할게요.",
+        "promptDe": "Entschuldigen Sie mich kurz.",
+        "promptEn": "Excuse me for a moment.",
+        "distractors": [
+          "죄송하다",
+          "감사하다"
+        ],
+        "vocabKo": "실례하다"
+      },
+      "after": {
+        "id": "satz_a1_0246",
+        "level": "a1",
+        "targetKo": "잠깐 실례해요, 화장실이 어디예요?",
+        "promptDe": "Entschuldigung, wo ist die Toilette?",
+        "promptEn": "Excuse me, where's the bathroom?",
+        "distractors": [
+          "죄송하다",
+          "감사하다"
+        ],
+        "vocabKo": "실례하다"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "7bbc0b617892cee35fc15bac5a95cd2a3fb911390d24ea959855e81474eca7fb",
+      "afterSha256": "c312791dc80553c6cf4dc042b038859b8a2a5e3a07f48b6054c151620abc9eca",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "f8aa807df1b7659f4507b659e89e574d0d29336b72ad99401b438992c70c302f",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0251",
+      "before": {
+        "id": "satz_a1_0251",
+        "level": "a1",
+        "targetKo": "잠깐만요, 전화가 와요.",
+        "promptDe": "Einen Moment bitte, ich bekomme einen Anruf.",
+        "promptEn": "Just a moment, I'm getting a call.",
+        "distractors": [
+          "죄송하다",
+          "감사하다"
+        ],
+        "vocabKo": "잠깐만요"
+      },
+      "after": {
+        "id": "satz_a1_0251",
+        "level": "a1",
+        "targetKo": "계산 전에 잠깐만요.",
+        "promptDe": "Vor dem Bezahlen, einen Moment bitte.",
+        "promptEn": "Just a moment before paying.",
+        "distractors": [
+          "죄송하다",
+          "감사하다"
+        ],
+        "vocabKo": "잠깐만요"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "2ccc0f3c5b82b055913b4da539fdb960245608b126ea67eb93ef2a898aa8efec",
+      "afterSha256": "7e5f8766c0f0bf3130bbf5e31159b6e5b703f7f6efa6b4a94cb861ff8674ee8e",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "208d20e0d63fe2227a55f76f77456bc2b8750f6129db951b01b5a7d371e4153b",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0253",
+      "before": {
+        "id": "satz_a1_0253",
+        "level": "a1",
+        "targetKo": "천천히 말해 주세요.",
+        "promptDe": "Bitte sprechen Sie langsam.",
+        "promptEn": "Please speak slowly.",
+        "distractors": [
+          "수업은",
+          "가방"
+        ],
+        "vocabKo": "천천히 말하다"
+      },
+      "after": {
+        "id": "satz_a1_0253",
+        "level": "a1",
+        "targetKo": "한국어를 천천히 말해서 이해가 돼요.",
+        "promptDe": "Weil du langsam Koreanisch sprichst, verstehe ich es.",
+        "promptEn": "Because you speak Korean slowly, I understand.",
+        "distractors": [
+          "수업은",
+          "가방"
+        ],
+        "vocabKo": "천천히 말하다"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "762d5133eb8089cb768fb5f26bdef5dfd5bc2be004c6db63dd77a15c596b979c",
+      "afterSha256": "1379cc29c0ac97c5422df5a8e7470f5b0b54c762786d924d3e971c19adb04a2d",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "07ac525378f7f5fe5eaad16fa01f18d407093a66db3eb8f1980d403bd93e8c5b",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0254",
+      "before": {
+        "id": "satz_a1_0254",
+        "level": "a1",
+        "targetKo": "저는 정말 감사해요.",
+        "promptDe": "Ich bin wirklich dankbar.",
+        "promptEn": "I'm really grateful.",
+        "distractors": [
+          "여기에",
+          "글쎄요"
+        ],
+        "vocabKo": "정말 감사해요"
+      },
+      "after": {
+        "id": "satz_a1_0254",
+        "level": "a1",
+        "targetKo": "자리를 양보하셔서 정말 감사해요.",
+        "promptDe": "Vielen Dank, dass Sie den Platz überlassen haben.",
+        "promptEn": "Thank you so much for giving up the seat.",
+        "distractors": [
+          "여기에",
+          "글쎄요"
+        ],
+        "vocabKo": "정말 감사해요"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "a53fcbc35f1d8fcf9a587dca7929299b59996eecbc5c1b91262d3637e1db2d25",
+      "afterSha256": "3f630c837b674f8c354c29522da6ec6e45a43a3ae10a18cf093ebce4ca8708b1",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "3d53c1e840480b4b52922774a7d0a2c820a2e64da36c5e6d0baea2ee6fc7b14b",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0212",
+      "before": {
+        "korean": "인사드리겠습니다",
+        "romanization": "insadeurigetseumnida",
+        "german": "Darf ich Sie begrüßen",
+        "level": "A1",
+        "pos_de": "Ausdruck",
+        "example_korean": "제가 먼저 인사드리겠습니다.",
+        "example_german": "Ich begrüße Sie zuerst.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_meet_names_1",
+        "pack_order": "1",
+        "is_review_boss": "false",
+        "english": "Let me say hello",
+        "pos_en": "Expression",
+        "example_english": "Let me say hello first.",
+        "id": "vocab_a1_0212"
+      },
+      "after": {
+        "korean": "인사드리겠습니다",
+        "romanization": "insadeurigetseumnida",
+        "german": "Darf ich Sie begrüßen",
+        "level": "A1",
+        "pos_de": "Ausdruck",
+        "example_korean": "먼저 인사드리겠습니다.",
+        "example_german": "Darf ich mich zuerst vorstellen?",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_meet_names_1",
+        "pack_order": "1",
+        "is_review_boss": "false",
+        "english": "Let me say hello",
+        "pos_en": "Expression",
+        "example_english": "Let me introduce myself first.",
+        "id": "vocab_a1_0212"
+      },
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "50a63a8ecdcdc354619aeb64077846e0eb1640153d0b9263d2d57b789edfcecd",
+      "afterSha256": "57072ad7f7b67ee3f7380dcda7e47ec214e9ac2fcaebe5f4d6442a10e77894d5",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "predecessorSuccessorSha256": "c7931f90cc256024765fc472e22fb1f8b030184c393ac82e43e6670e3642b3cc",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0220",
+      "before": {
+        "korean": "성함을 묻다",
+        "romanization": "seonghameul mutda",
+        "german": "nach dem Namen fragen",
+        "level": "A1",
+        "pos_de": "Ausdruck",
+        "example_korean": "저는 성함을 물었어요.",
+        "example_german": "Ich habe nach dem Namen gefragt.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_meet_names_1",
+        "pack_order": "9",
+        "is_review_boss": "false",
+        "english": "to ask someone's name politely",
+        "pos_en": "Expression",
+        "example_english": "I asked for their name.",
+        "id": "vocab_a1_0220"
+      },
+      "after": {
+        "korean": "성함을 묻다",
+        "romanization": "seonghameul mutda",
+        "german": "nach dem Namen fragen",
+        "level": "A1",
+        "pos_de": "Ausdruck",
+        "example_korean": "성함을 물었어요.",
+        "example_german": "Ich habe nach dem Namen gefragt.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_meet_names_1",
+        "pack_order": "9",
+        "is_review_boss": "false",
+        "english": "to ask someone's name politely",
+        "pos_en": "Expression",
+        "example_english": "I asked for their name.",
+        "id": "vocab_a1_0220"
+      },
+      "fields": [
+        "example_korean"
+      ],
+      "beforeSha256": "12272b9d89ceda0be0b00d8cedbec82efbad8120c0065410d7accce8eaca1bd9",
+      "afterSha256": "fc1704316b3d25405b26846d806a997c97575f091df450059146577d93be67bd",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "predecessorSuccessorSha256": "fb54b4ae9ca61bd4378752fc066b0a4691a2bd23b391732792258b8bb529541b",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0249",
+      "before": {
+        "korean": "수저",
+        "romanization": "sujeo",
+        "german": "Löffel und Stäbchen",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "저에게 수저를 주세요.",
+        "example_german": "Bitte geben Sie mir Löffel und Stäbchen.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_table_basic_1",
+        "pack_order": "2",
+        "is_review_boss": "false",
+        "english": "spoon and chopsticks",
+        "pos_en": "Noun",
+        "example_english": "Please give me a spoon and chopsticks.",
+        "id": "vocab_a1_0249"
+      },
+      "after": {
+        "korean": "수저",
+        "romanization": "sujeo",
+        "german": "Löffel und Stäbchen",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "수저를 주세요.",
+        "example_german": "Bitte geben Sie mir Löffel und Stäbchen.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_table_basic_1",
+        "pack_order": "2",
+        "is_review_boss": "false",
+        "english": "spoon and chopsticks",
+        "pos_en": "Noun",
+        "example_english": "Please give me a spoon and chopsticks.",
+        "id": "vocab_a1_0249"
+      },
+      "fields": [
+        "example_korean"
+      ],
+      "beforeSha256": "c8c0887111fd03803e0a7c0c7bcbbf3a64f0b2658411f0f6d1f3b0ca6982c477",
+      "afterSha256": "d5c181b013e550e50bc5c606e0f047ff817cd6844cf9fbf244952322508a1b1a",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "predecessorSuccessorSha256": "c409e4d0af4e780c36dc046d815e71ec918f3c68aa8e24205916d4b4fa6a8821",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0250",
+      "before": {
+        "korean": "밑반찬",
+        "romanization": "mitbanchan",
+        "german": "Beilagen",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "밑반찬이 정말 많아요.",
+        "example_german": "Es gibt wirklich viele Beilagen.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_table_basic_1",
+        "pack_order": "3",
+        "is_review_boss": "false",
+        "english": "everyday side dishes",
+        "pos_en": "Noun",
+        "example_english": "There are really many side dishes.",
+        "id": "vocab_a1_0250"
+      },
+      "after": {
+        "korean": "밑반찬",
+        "romanization": "mitbanchan",
+        "german": "Beilagen",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "밑반찬이 많아요.",
+        "example_german": "Es gibt viele Beilagen.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_table_basic_1",
+        "pack_order": "3",
+        "is_review_boss": "false",
+        "english": "everyday side dishes",
+        "pos_en": "Noun",
+        "example_english": "There are many side dishes.",
+        "id": "vocab_a1_0250"
+      },
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "c5f3deb389eeddd7d5f40a192b04b3190cc0a7c3130de462de8978b796715217",
+      "afterSha256": "bc110c1a661f7ce6415fbe9db10d49715ab01c50c6df141d54f84cf32cc5c847",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "predecessorSuccessorSha256": "99fb58c8d9f0d5c9399be1cb3f2cd6cb8ce4cb1064faf003fb1608607d92ffdf",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0251",
+      "before": {
+        "korean": "더 드세요",
+        "romanization": "deo deuseyo",
+        "german": "essen Sie noch mehr",
+        "level": "A1",
+        "pos_de": "Ausdruck",
+        "example_korean": "밥을 더 드세요.",
+        "example_german": "Bitte essen Sie noch etwas Reis.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_table_basic_1",
+        "pack_order": "4",
+        "is_review_boss": "false",
+        "english": "please eat more",
+        "pos_en": "Expression",
+        "example_english": "Please have some more rice.",
+        "id": "vocab_a1_0251"
+      },
+      "after": {
+        "korean": "더 드세요",
+        "romanization": "deo deuseyo",
+        "german": "essen Sie noch mehr",
+        "level": "A1",
+        "pos_de": "Ausdruck",
+        "example_korean": "더 드세요.",
+        "example_german": "Bitte nehmen Sie noch etwas.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_table_basic_1",
+        "pack_order": "4",
+        "is_review_boss": "false",
+        "english": "please eat more",
+        "pos_en": "Expression",
+        "example_english": "Please have some more.",
+        "id": "vocab_a1_0251"
+      },
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "7510fc5305126fd4b6778f674af55b810d41d03f061df0913afa2846b7544060",
+      "afterSha256": "df529b795bc5b941ca0a29bb5593611594ea1d5048524112a1ce201d5f0749c7",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "predecessorSuccessorSha256": "69ca0cc03653d2e5da261c12456e1cde7d92da48b8539252867dd10a7c618039",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0255",
+      "before": {
+        "korean": "국물",
+        "romanization": "gungmul",
+        "german": "Brühe",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "국물이 정말 뜨거워요.",
+        "example_german": "Die Brühe ist wirklich heiß.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_table_basic_1",
+        "pack_order": "8",
+        "is_review_boss": "false",
+        "english": "broth",
+        "pos_en": "Noun",
+        "example_english": "The broth is really hot.",
+        "id": "vocab_a1_0255"
+      },
+      "after": {
+        "korean": "국물",
+        "romanization": "gungmul",
+        "german": "Brühe",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "국물이 뜨거워요.",
+        "example_german": "Die Brühe ist heiß.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_table_basic_1",
+        "pack_order": "8",
+        "is_review_boss": "false",
+        "english": "broth",
+        "pos_en": "Noun",
+        "example_english": "The broth is hot.",
+        "id": "vocab_a1_0255"
+      },
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "852e5a7d87d0413a9cd0d8e5cd482543998f3c91497f3c720c3b5333df348c94",
+      "afterSha256": "760a1ff190b4efa391b6846f99c8b23d95448ff49c89030f689f17cf1534715c",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "predecessorSuccessorSha256": "7116606abf3820d5e9bb5eb01025139d7417ddb878d4dfac7eeeacd7eb44ce28",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0256",
+      "before": {
+        "korean": "젓가락질",
+        "romanization": "jeotgarakjil",
+        "german": "Stäbchenhaltung",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "젓가락질이 정말 어려워요.",
+        "example_german": "Mit Stäbchen zu essen ist wirklich schwierig.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_table_basic_1",
+        "pack_order": "9",
+        "is_review_boss": "false",
+        "english": "chopstick grip",
+        "pos_en": "Noun",
+        "example_english": "Using chopsticks is really difficult.",
+        "id": "vocab_a1_0256"
+      },
+      "after": {
+        "korean": "젓가락질",
+        "romanization": "jeotgarakjil",
+        "german": "Stäbchenhaltung",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "젓가락질이 어려워요.",
+        "example_german": "Mit Stäbchen zu essen ist schwierig.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_table_basic_1",
+        "pack_order": "9",
+        "is_review_boss": "false",
+        "english": "chopstick grip",
+        "pos_en": "Noun",
+        "example_english": "Using chopsticks is difficult.",
+        "id": "vocab_a1_0256"
+      },
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "2e93919bf19afa12d03954ea6c218088afa4036137b97ef718c88089115e5ee1",
+      "afterSha256": "1898c5c6a54307208a50ea1f18cd0c0d3bbee201a003be6b24f4fbf96a584dee",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "predecessorSuccessorSha256": "c1842277275a93517574bea53c81b3c29cb1ddda187077f368fc8fbde352823a",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0257",
+      "before": {
+        "korean": "앞접시",
+        "romanization": "apjeopsi",
+        "german": "Extrateller",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "저는 앞접시를 써요.",
+        "example_german": "Ich benutze einen kleinen Teller.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_table_basic_1",
+        "pack_order": "10",
+        "is_review_boss": "true",
+        "english": "individual plate",
+        "pos_en": "Noun",
+        "example_english": "I use a small side plate.",
+        "id": "vocab_a1_0257"
+      },
+      "after": {
+        "korean": "앞접시",
+        "romanization": "apjeopsi",
+        "german": "Extrateller",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "앞접시를 써요.",
+        "example_german": "Ich benutze einen kleinen Teller.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_table_basic_1",
+        "pack_order": "10",
+        "is_review_boss": "true",
+        "english": "individual plate",
+        "pos_en": "Noun",
+        "example_english": "I use a small side plate.",
+        "id": "vocab_a1_0257"
+      },
+      "fields": [
+        "example_korean"
+      ],
+      "beforeSha256": "8ccecd85e6366c10c5a3ea685c6f5e0f16fb41a901878c5b0e243d4b63ae0372",
+      "afterSha256": "6a5f29e65b88bb69c23e934dbc8a02304a2391db69b68d8d59a981fe973a3ae8",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "predecessorSuccessorSha256": "cfc2abec4b2c4c7381add632543919e628bca938e6b42d85dfa2bfd5425212b8",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0258",
+      "before": {
+        "korean": "수저 놓다",
+        "romanization": "sujeo nota",
+        "german": "das Besteck ablegen",
+        "level": "A1",
+        "pos_de": "Ausdruck",
+        "example_korean": "저는 수저를 놓아요.",
+        "example_german": "Ich lege Löffel und Stäbchen hin.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_table_basic_1",
+        "pack_order": "11",
+        "is_review_boss": "true",
+        "english": "to put utensils down",
+        "pos_en": "Expression",
+        "example_english": "I put down my spoon and chopsticks.",
+        "id": "vocab_a1_0258"
+      },
+      "after": {
+        "korean": "수저 놓다",
+        "romanization": "sujeo nota",
+        "german": "das Besteck ablegen",
+        "level": "A1",
+        "pos_de": "Ausdruck",
+        "example_korean": "수저를 놓아요.",
+        "example_german": "Ich lege Löffel und Stäbchen hin.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_table_basic_1",
+        "pack_order": "11",
+        "is_review_boss": "true",
+        "english": "to put utensils down",
+        "pos_en": "Expression",
+        "example_english": "I put down my spoon and chopsticks.",
+        "id": "vocab_a1_0258"
+      },
+      "fields": [
+        "example_korean"
+      ],
+      "beforeSha256": "5d287f7e144ddac42d3a742cb9855d94d8c13dec888ffc2340286da0396e8d14",
+      "afterSha256": "b9e5fc1adfcbd9974182cc2bae9a7d81f602dd994ff20af0faef9e83a812997a",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "predecessorSuccessorSha256": "fa055cf54cdee56606fa9dce5b50319315d501e44d58c0bac01d1b8a484e44d4",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0259",
+      "before": {
+        "korean": "설거지",
+        "romanization": "seolgeoji",
+        "german": "Abwasch",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "저는 설거지를 해요.",
+        "example_german": "Ich spüle ab.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_table_basic_1",
+        "pack_order": "12",
+        "is_review_boss": "true",
+        "english": "doing the dishes",
+        "pos_en": "Noun",
+        "example_english": "I do the dishes.",
+        "id": "vocab_a1_0259"
+      },
+      "after": {
+        "korean": "설거지",
+        "romanization": "seolgeoji",
+        "german": "Abwasch",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "설거지를 해요.",
+        "example_german": "Ich spüle ab.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_table_basic_1",
+        "pack_order": "12",
+        "is_review_boss": "true",
+        "english": "doing the dishes",
+        "pos_en": "Noun",
+        "example_english": "I do the dishes.",
+        "id": "vocab_a1_0259"
+      },
+      "fields": [
+        "example_korean"
+      ],
+      "beforeSha256": "8630f03d36b636e7fd4832946b07becf2968a18a369dab043402fc7fc7a477bc",
+      "afterSha256": "30443b49da85d03a17173467366cc4ae0f3df49c9d93f89051c6ad4696bf4497",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "predecessorSuccessorSha256": "1832bb4c41aa2a7e4e1aece6d4bf28eaa6ae6f2899444aede13e33d7e4ed199b",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0261",
+      "before": {
+        "korean": "세배",
+        "romanization": "sebae",
+        "german": "Neujahrsverbeugung",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "저는 세배를 해요.",
+        "example_german": "Ich mache eine Neujahrsverbeugung.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_seollal_basic_1",
+        "pack_order": "2",
+        "is_review_boss": "false",
+        "english": "New Year bow",
+        "pos_en": "Noun",
+        "example_english": "I make a New Year bow.",
+        "id": "vocab_a1_0261"
+      },
+      "after": {
+        "korean": "세배",
+        "romanization": "sebae",
+        "german": "Neujahrsverbeugung",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "세배를 해요.",
+        "example_german": "Ich verbeuge mich zum Neujahrsfest.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_seollal_basic_1",
+        "pack_order": "2",
+        "is_review_boss": "false",
+        "english": "New Year bow",
+        "pos_en": "Noun",
+        "example_english": "I give a New Year's bow.",
+        "id": "vocab_a1_0261"
+      },
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "4cb9acbb1431eb25681f81a977231225efe0b29fba2cd0886be36e10787fc346",
+      "afterSha256": "a85840dd49ab68720f029dd8d571db7c641372d266c92ca813b823e7101613e3",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "predecessorSuccessorSha256": "a4e0d7a08e8c6d80ea4b68ba9a5a5befedfcbadca7a054cece6012f14c5e2f4c",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0263",
+      "before": {
+        "korean": "세뱃돈",
+        "romanization": "sebaetdon",
+        "german": "Neujahrsgeld",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "저는 세뱃돈을 받았어요.",
+        "example_german": "Ich habe Neujahrsgeld bekommen.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_seollal_basic_1",
+        "pack_order": "4",
+        "is_review_boss": "false",
+        "english": "New Year money",
+        "pos_en": "Noun",
+        "example_english": "I received New Year money.",
+        "id": "vocab_a1_0263"
+      },
+      "after": {
+        "korean": "세뱃돈",
+        "romanization": "sebaetdon",
+        "german": "Neujahrsgeld",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "세뱃돈을 받았어요.",
+        "example_german": "Ich habe Neujahrsgeld bekommen.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_seollal_basic_1",
+        "pack_order": "4",
+        "is_review_boss": "false",
+        "english": "New Year money",
+        "pos_en": "Noun",
+        "example_english": "I received New Year money.",
+        "id": "vocab_a1_0263"
+      },
+      "fields": [
+        "example_korean"
+      ],
+      "beforeSha256": "168e818e7a5d4e3a902f79deaf9d792dbea689eb14615eb765ca0bba2bb09467",
+      "afterSha256": "5cf88020cdffa549b9f82125a9ef435542ad580c1fd5e82453cebcdb9b99a38f",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "predecessorSuccessorSha256": "44688c7abb0e705be1aaa993a1a1a7b85a1bf718dd0b0661c9113f28a51f49e2",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0264",
+      "before": {
+        "korean": "한복",
+        "romanization": "hanbok",
+        "german": "Hanbok",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "저는 한복을 입어요.",
+        "example_german": "Ich trage einen Hanbok.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_seollal_basic_1",
+        "pack_order": "5",
+        "is_review_boss": "false",
+        "english": "hanbok",
+        "pos_en": "Noun",
+        "example_english": "I wear a hanbok.",
+        "id": "vocab_a1_0264"
+      },
+      "after": {
+        "korean": "한복",
+        "romanization": "hanbok",
+        "german": "Hanbok",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "한복을 입어요.",
+        "example_german": "Ich trage einen Hanbok.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_seollal_basic_1",
+        "pack_order": "5",
+        "is_review_boss": "false",
+        "english": "hanbok",
+        "pos_en": "Noun",
+        "example_english": "I wear a hanbok.",
+        "id": "vocab_a1_0264"
+      },
+      "fields": [
+        "example_korean"
+      ],
+      "beforeSha256": "96f9f38b85c1a6f2d65de72ed32746062dfaf671778fef1a1c6f5d80f6f479ae",
+      "afterSha256": "5ef090b48021d3a6d30e75f7e21eee2722af9edeac4319c0b27112c32718a13d",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "predecessorSuccessorSha256": "e2a315f942561d25fbbc41d87dd89b04eb276a1d3cdbe22f84c881a46f647c25",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0266",
+      "before": {
+        "korean": "절하다",
+        "romanization": "jeolhada",
+        "german": "sich verbeugen",
+        "level": "A1",
+        "pos_de": "Verb",
+        "example_korean": "저는 지금 절해요.",
+        "example_german": "Ich verbeuge mich jetzt.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_seollal_basic_1",
+        "pack_order": "7",
+        "is_review_boss": "false",
+        "english": "to bow deeply",
+        "pos_en": "Verb",
+        "example_english": "I'm bowing now.",
+        "id": "vocab_a1_0266"
+      },
+      "after": {
+        "korean": "절하다",
+        "romanization": "jeolhada",
+        "german": "sich verbeugen",
+        "level": "A1",
+        "pos_de": "Verb",
+        "example_korean": "설날에는 친척들이 모여 어른들에게 절을 하는 풍습이 있어요.",
+        "example_german": "An Seollal kommen Verwandte zusammen und verbeugen sich traditionell vor den Älteren.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_seollal_basic_1",
+        "pack_order": "7",
+        "is_review_boss": "false",
+        "english": "to bow deeply",
+        "pos_en": "Verb",
+        "example_english": "At Seollal, relatives get together and traditionally bow to the elders.",
+        "id": "vocab_a1_0266"
+      },
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "0a04f1f66893447e819c5d0cf13e81d4896c7a4abc1174bf0ae57907fdd7f9bf",
+      "afterSha256": "16f60bbe5aee46d0bfe2f46ddd9b20a2ae1f21b256b1cda8579f4d00717645ed",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "predecessorSuccessorSha256": "51171b4448cf2131bc369659b83ea5127900f7f64606eedb28ff27ef38004ef0",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0267",
+      "before": {
+        "korean": "세배 드리다",
+        "romanization": "sebae deurida",
+        "german": "die Neujahrsverbeugung darbringen",
+        "level": "A1",
+        "pos_de": "Ausdruck",
+        "example_korean": "어른들께 세배 드려요.",
+        "example_german": "Ich mache vor den Älteren eine Neujahrsverbeugung.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_seollal_basic_1",
+        "pack_order": "8",
+        "is_review_boss": "false",
+        "english": "to offer the New Year bow",
+        "pos_en": "Expression",
+        "example_english": "I offer a New Year bow to the elders.",
+        "id": "vocab_a1_0267"
+      },
+      "after": {
+        "korean": "세배 드리다",
+        "romanization": "sebae deurida",
+        "german": "die Neujahrsverbeugung darbringen",
+        "level": "A1",
+        "pos_de": "Ausdruck",
+        "example_korean": "어른들께 세배 드려요.",
+        "example_german": "Zum Neujahrsfest verbeuge ich mich vor den Älteren.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_seollal_basic_1",
+        "pack_order": "8",
+        "is_review_boss": "false",
+        "english": "to offer the New Year bow",
+        "pos_en": "Expression",
+        "example_english": "I give the elders a New Year's bow.",
+        "id": "vocab_a1_0267"
+      },
+      "fields": [
+        "example_english",
+        "example_german"
+      ],
+      "beforeSha256": "ebaffda67758389e85a624780a9c14be49fe58739c2b78daaf42bfc4ce8c7dcb",
+      "afterSha256": "7866540d406349795fca92ec661cca4ba60167059982255c34ac3356e32e72bf",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "predecessorSuccessorSha256": "53da315164a23bad7e4077e48028b7d243bd8d294561532ae64a5cbc1f87fe02",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0271",
+      "before": {
+        "korean": "설빔",
+        "romanization": "seolbim",
+        "german": "Neujahrskleidung",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "오늘 설빔을 샀어요.",
+        "example_german": "Ich habe heute Neujahrskleidung gekauft.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_seollal_basic_1",
+        "pack_order": "12",
+        "is_review_boss": "true",
+        "english": "New Year clothes",
+        "pos_en": "Noun",
+        "example_english": "I bought New Year clothes today.",
+        "id": "vocab_a1_0271"
+      },
+      "after": {
+        "korean": "설빔",
+        "romanization": "seolbim",
+        "german": "Neujahrskleidung",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "설빔을 샀어요.",
+        "example_german": "Ich habe Neujahrskleidung gekauft.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a1_partner_seollal_basic_1",
+        "pack_order": "12",
+        "is_review_boss": "true",
+        "english": "New Year clothes",
+        "pos_en": "Noun",
+        "example_english": "I bought New Year clothes.",
+        "id": "vocab_a1_0271"
+      },
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "30773e3864c6c2385213285cff7d2f724de28d42b3a17db127c455e3ccca1c2d",
+      "afterSha256": "050a45735309bb6d32e9355985a303b49a4e7c8661898c5999e2b358577e3dde",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "predecessorSuccessorSha256": "a3f4478f27418416312a4222c7075a75200a3bb0f75b17c4a7f6c50117efbe36",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0100",
+      "before": {
+        "id": "cloze_a1_0100",
+        "level": "a1",
+        "sentenceKo": "제가 먼저 ＿＿＿.",
+        "answer": "인사드리겠습니다",
+        "fullKo": "제가 먼저 인사드리겠습니다.",
+        "de": "Ich begrüße Sie zuerst.",
+        "en": "Let me say hello first.",
+        "distractors": [
+          "보다",
+          "돕다",
+          "랑"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "after": {
+        "id": "cloze_a1_0100",
+        "level": "a1",
+        "sentenceKo": "먼저 ＿＿＿.",
+        "answer": "인사드리겠습니다",
+        "fullKo": "먼저 인사드리겠습니다.",
+        "de": "Darf ich mich zuerst vorstellen?",
+        "en": "Let me introduce myself first.",
+        "distractors": [
+          "보다",
+          "돕다",
+          "랑"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "fields": [
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "11c775b90c07eb8d08fd29f9109ac871273105522ae404b046f8d0e975298f54",
+      "afterSha256": "c81a74964c9dd1c3bef4590e05966716c312b340f638bb4c2901d5d58f7e4dc2",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "1db6b7a13c67be2aa8d0ca41377fba4064d6f3ba2e2e4c38457368d4a18e5034",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0108",
+      "before": {
+        "id": "cloze_a1_0108",
+        "level": "a1",
+        "sentenceKo": "저는 ＿＿＿.",
+        "answer": "성함을 물었어요",
+        "fullKo": "저는 성함을 물었어요.",
+        "de": "Ich habe nach dem Namen gefragt.",
+        "en": "I asked for their name.",
+        "distractors": [
+          "송편을 쪘어요",
+          "수저를 놓았어요",
+          "인사드렸어요"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "after": {
+        "id": "cloze_a1_0108",
+        "level": "a1",
+        "sentenceKo": "＿＿＿.",
+        "answer": "성함을 물었어요",
+        "fullKo": "성함을 물었어요.",
+        "de": "Ich habe nach dem Namen gefragt.",
+        "en": "I asked for their name.",
+        "distractors": [
+          "송편을 쪘어요",
+          "수저를 놓았어요",
+          "인사드렸어요"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "fields": [
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "266f5d8e92b8386d44ba9b0580dd4d61b4587ea643755bfeb52aba1532d267ac",
+      "afterSha256": "ff98183eadb09d43f905e57e1a6ef184e3aef2f8f83cc436fcc66ab8bc23015e",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "d691ecdb067a4bc91dac14977619f2c9fe50906cd0f8dea26a08119a4b7a26d2",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0137",
+      "before": {
+        "id": "cloze_a1_0137",
+        "level": "a1",
+        "sentenceKo": "저에게 ＿＿＿를 주세요.",
+        "answer": "수저",
+        "fullKo": "저에게 수저를 주세요.",
+        "de": "Bitte geben Sie mir Löffel und Stäbchen.",
+        "en": "Please give me a spoon and chopsticks.",
+        "distractors": [
+          "벌초",
+          "어머니",
+          "친구"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "after": {
+        "id": "cloze_a1_0137",
+        "level": "a1",
+        "sentenceKo": "＿＿＿를 주세요.",
+        "answer": "수저",
+        "fullKo": "수저를 주세요.",
+        "de": "Bitte geben Sie mir Löffel und Stäbchen.",
+        "en": "Please give me a spoon and chopsticks.",
+        "distractors": [
+          "벌초",
+          "어머니",
+          "친구"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "fields": [
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "621e6e58bf306dab690f4da198d75f752597789ec06d41b43fd03117d88a81ce",
+      "afterSha256": "7b7860a2d627d33e0fe9ba4b3f6eb4423e3310f9446d1d00eb68e678fb945957",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "d47f47af7a508e928172f0f1f07a0f488727f8460dcf27f8978b74e1d1b8766e",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0138",
+      "before": {
+        "id": "cloze_a1_0138",
+        "level": "a1",
+        "sentenceKo": "＿＿＿이 정말 많아요.",
+        "answer": "밑반찬",
+        "fullKo": "밑반찬이 정말 많아요.",
+        "de": "Es gibt wirklich viele Beilagen.",
+        "en": "There are really many side dishes.",
+        "distractors": [
+          "카톡",
+          "포장",
+          "예약"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "after": {
+        "id": "cloze_a1_0138",
+        "level": "a1",
+        "sentenceKo": "＿＿＿이 많아요.",
+        "answer": "밑반찬",
+        "fullKo": "밑반찬이 많아요.",
+        "de": "Es gibt viele Beilagen.",
+        "en": "There are many side dishes.",
+        "distractors": [
+          "카톡",
+          "포장",
+          "예약"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "fields": [
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "037df691bb4084ecea306343c8c149faec15b88356270b0f72f92e8878dc53df",
+      "afterSha256": "df488009408d914fc285974cc60e9138ef6ca5e5cb8646c0a1b6322bb172b131",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "d8a19de3a6e49c7c2c92cb3ec36f8ad6235dba109fcbad2e068aa8cfd6fc9b97",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0139",
+      "before": {
+        "id": "cloze_a1_0139",
+        "level": "a1",
+        "sentenceKo": "밥을 ＿＿＿.",
+        "answer": "더 드세요",
+        "fullKo": "밥을 더 드세요.",
+        "de": "Bitte essen Sie noch etwas Reis.",
+        "en": "Please have some more rice.",
+        "distractors": [
+          "수저 놓다",
+          "앉으세요",
+          "연락드릴게요"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "after": {
+        "id": "cloze_a1_0139",
+        "level": "a1",
+        "sentenceKo": "＿＿＿.",
+        "answer": "더 드세요",
+        "fullKo": "더 드세요.",
+        "de": "Bitte nehmen Sie noch etwas.",
+        "en": "Please have some more.",
+        "distractors": [
+          "수저 놓다",
+          "앉으세요",
+          "연락드릴게요"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "fields": [
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "8d477e5b7c95bef13a77c6abd2240cd0b1766f1e7fe1d5fcf6c1a08ab30f0060",
+      "afterSha256": "c6e1a7799cd50a2cac8814feb19f65b8c68184565441f52e6c4032ab6774bc3c",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "9f7883bc4ad3daefa1853ffbf2f917f67c14e7c0da24f93974d574919633ed40",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0143",
+      "before": {
+        "id": "cloze_a1_0143",
+        "level": "a1",
+        "sentenceKo": "＿＿＿이 정말 뜨거워요.",
+        "answer": "국물",
+        "fullKo": "국물이 정말 뜨거워요.",
+        "de": "Die Brühe ist wirklich heiß.",
+        "en": "The broth is really hot.",
+        "distractors": [
+          "송편",
+          "송편 잎",
+          "책상"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "after": {
+        "id": "cloze_a1_0143",
+        "level": "a1",
+        "sentenceKo": "＿＿＿이 뜨거워요.",
+        "answer": "국물",
+        "fullKo": "국물이 뜨거워요.",
+        "de": "Die Brühe ist heiß.",
+        "en": "The broth is hot.",
+        "distractors": [
+          "송편",
+          "송편 잎",
+          "책상"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "fields": [
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "9ee7e8b10c910e30bb23cc0d4d7decede4065a99cc40c73cdf794b7b05bc08a4",
+      "afterSha256": "f1ed55906a40fcde02c290c7281f8ab12345ebf27688ff4e905dddff23b675cb",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "340fd81550e4795322dab8d2137bfeeebb4c1aed34c4eaba7fe1f5d81afda404",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0144",
+      "before": {
+        "id": "cloze_a1_0144",
+        "level": "a1",
+        "sentenceKo": "＿＿＿이 정말 어려워요.",
+        "answer": "젓가락질",
+        "fullKo": "젓가락질이 정말 어려워요.",
+        "de": "Mit Stäbchen zu essen ist wirklich schwierig.",
+        "en": "Using chopsticks is really difficult.",
+        "distractors": [
+          "한복",
+          "햇과일",
+          "처음"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "after": {
+        "id": "cloze_a1_0144",
+        "level": "a1",
+        "sentenceKo": "＿＿＿이 어려워요.",
+        "answer": "젓가락질",
+        "fullKo": "젓가락질이 어려워요.",
+        "de": "Mit Stäbchen zu essen ist schwierig.",
+        "en": "Using chopsticks is difficult.",
+        "distractors": [
+          "한복",
+          "햇과일",
+          "처음"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "fields": [
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "025865045d7e77532bfa0921759cbcc4d10665245ca72d2db0996fc92a766655",
+      "afterSha256": "19b26a6e5ba4605d84589504888f88b189d04ef7b967799592114f81f2ee4ae5",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "fecc6028645c5ccaaa870b3220837e54137c32c95d62d3d546cd0131cb515865",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0145",
+      "before": {
+        "id": "cloze_a1_0145",
+        "level": "a1",
+        "sentenceKo": "저는 ＿＿＿를 써요.",
+        "answer": "앞접시",
+        "fullKo": "저는 앞접시를 써요.",
+        "de": "Ich benutze einen kleinen Teller.",
+        "en": "I use a small side plate.",
+        "distractors": [
+          "소파",
+          "기차",
+          "구두"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "after": {
+        "id": "cloze_a1_0145",
+        "level": "a1",
+        "sentenceKo": "＿＿＿를 써요.",
+        "answer": "앞접시",
+        "fullKo": "앞접시를 써요.",
+        "de": "Ich benutze einen kleinen Teller.",
+        "en": "I use a small side plate.",
+        "distractors": [
+          "수저",
+          "커피",
+          "바나나"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "fields": [
+        "distractors",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "76ae58449be43ff93272e2b2c716ee5c7f0d1116a60efce56cf04f0ff973cb58",
+      "afterSha256": "982391afd357d7c75d655412e0f2c91e67d43239013999103089d082694d8269",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "3c6e9b008145ad48a3cf2da2d8f5b7e43d81c5085aa0f408f4d0de398add313b",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0146",
+      "before": {
+        "id": "cloze_a1_0146",
+        "level": "a1",
+        "sentenceKo": "저는 ＿＿＿.",
+        "answer": "수저를 놓아요",
+        "fullKo": "저는 수저를 놓아요.",
+        "de": "Ich lege Löffel und Stäbchen hin.",
+        "en": "I put down my spoon and chopsticks.",
+        "distractors": [
+          "밥을 더 먹어요",
+          "자리에서 일어나요",
+          "문을 열어요"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "after": {
+        "id": "cloze_a1_0146",
+        "level": "a1",
+        "sentenceKo": "＿＿＿.",
+        "answer": "수저를 놓아요",
+        "fullKo": "수저를 놓아요.",
+        "de": "Ich lege Löffel und Stäbchen hin.",
+        "en": "I put down my spoon and chopsticks.",
+        "distractors": [
+          "밥을 더 먹어요",
+          "자리에서 일어나요",
+          "문을 열어요"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "fields": [
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "96df2c1a6c80c24710b2c77bbb3f7a1c61b37f6b4065f267c50589ced59a217b",
+      "afterSha256": "2c8d000ce52bbb3262fec1838ae30d2452ba2dca5929366e7c5cca851ed9a774",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "683cd286394f679892de337c5f9d54659a9c983bc7febbd6247e22491fdad1a1",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0147",
+      "before": {
+        "id": "cloze_a1_0147",
+        "level": "a1",
+        "sentenceKo": "저는 ＿＿＿를 해요.",
+        "answer": "설거지",
+        "fullKo": "저는 설거지를 해요.",
+        "de": "Ich spüle ab.",
+        "en": "I do the dishes.",
+        "distractors": [
+          "형부",
+          "나라",
+          "침대"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "after": {
+        "id": "cloze_a1_0147",
+        "level": "a1",
+        "sentenceKo": "＿＿＿를 해요.",
+        "answer": "설거지",
+        "fullKo": "설거지를 해요.",
+        "de": "Ich spüle ab.",
+        "en": "I do the dishes.",
+        "distractors": [
+          "형부",
+          "나라",
+          "침대"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "fields": [
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "6d8ef829298667189fb4663443dbda0ebd424b6aab65c92488475f1f05979eca",
+      "afterSha256": "a2b4f82871b80e658ada3b60f17ee6d3bd3fe06f2290dc947a1e4761794d712f",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "6b0f6b950bb697fda7b4c849366f34d9e1c0427864d58dec2426bb82315d09eb",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0148",
+      "before": {
+        "id": "cloze_a1_0148",
+        "level": "a1",
+        "sentenceKo": "＿＿＿이에요. 가족을 만나요.",
+        "answer": "설날",
+        "fullKo": "설날이에요. 가족을 만나요.",
+        "de": "Es ist Seollal. Ich treffe meine Familie.",
+        "en": "It is Seollal. I see my family.",
+        "distractors": [
+          "공책",
+          "가방",
+          "식당"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "after": {
+        "id": "cloze_a1_0148",
+        "level": "a1",
+        "sentenceKo": "＿＿＿이에요. 가족을 만나요.",
+        "answer": "설날",
+        "fullKo": "설날이에요. 가족을 만나요.",
+        "de": "Es ist Seollal. Ich treffe meine Familie.",
+        "en": "It is Seollal. I see my family.",
+        "distractors": [
+          "현관",
+          "장모님",
+          "호칭"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "fields": [
+        "distractors"
+      ],
+      "beforeSha256": "41e91618cd00fd214d85e681e6c951d1f747b9794207b5d15c70400666a48df5",
+      "afterSha256": "a843beffbaea6b7881c0a5005bbd74f40bef81e6eca507712e48a9ddf8e8626a",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "61e8f5527afb64063b2fbcfe687b2d7b5dcce10d8c1074a7950714db2a1f0d1a",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0149",
+      "before": {
+        "id": "cloze_a1_0149",
+        "level": "a1",
+        "sentenceKo": "저는 ＿＿＿를 해요.",
+        "answer": "세배",
+        "fullKo": "저는 세배를 해요.",
+        "de": "Ich mache eine Neujahrsverbeugung.",
+        "en": "I make a New Year bow.",
+        "distractors": [
+          "버스",
+          "창구",
+          "위"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "after": {
+        "id": "cloze_a1_0149",
+        "level": "a1",
+        "sentenceKo": "＿＿＿를 해요.",
+        "answer": "세배",
+        "fullKo": "세배를 해요.",
+        "de": "Ich verbeuge mich zum Neujahrsfest.",
+        "en": "I give a New Year's bow.",
+        "distractors": [
+          "버스",
+          "창구",
+          "위"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "fields": [
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "52ec0a3ede75ac4c3fac09427ada2b18986a7845af215806c0f8541457364954",
+      "afterSha256": "560d1dae1862f45a9bd49ad1439f00d96537e8134275f3c09722b0c7140be393",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "921017e1fca10fce8682f9fa30da211bd1635f1d7241fcb412214578211d57de",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0150",
+      "before": {
+        "id": "cloze_a1_0150",
+        "level": "a1",
+        "sentenceKo": "설날에 ＿＿＿을 먹어요.",
+        "answer": "떡국",
+        "fullKo": "설날에 떡국을 먹어요.",
+        "de": "An Seollal esse ich Tteokguk.",
+        "en": "I eat tteokguk at Seollal.",
+        "distractors": [
+          "공책",
+          "가방",
+          "연필"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "after": {
+        "id": "cloze_a1_0150",
+        "level": "a1",
+        "sentenceKo": "설날에 ＿＿＿을 먹어요.",
+        "answer": "떡국",
+        "fullKo": "설날에 떡국을 먹어요.",
+        "de": "An Seollal esse ich Tteokguk.",
+        "en": "I eat tteokguk at Seollal.",
+        "distractors": [
+          "김밥",
+          "볶음밥",
+          "빵"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "fields": [
+        "distractors"
+      ],
+      "beforeSha256": "1883fb72756c97f8ea483671e416f037df91f7af052d82fbdd22d6b6d6251915",
+      "afterSha256": "8683e9bd66525816999b826f6eb30afe4a8b20f058a640332d35c1de4677c0f9",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "4052e9f47f8f78263074a4ff18b53bd5f6eb2f3d6a3af29d22a69be5c7ed531b",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0151",
+      "before": {
+        "id": "cloze_a1_0151",
+        "level": "a1",
+        "sentenceKo": "저는 ＿＿＿을 받았어요.",
+        "answer": "세뱃돈",
+        "fullKo": "저는 세뱃돈을 받았어요.",
+        "de": "Ich habe Neujahrsgeld bekommen.",
+        "en": "I received New Year money.",
+        "distractors": [
+          "집밥",
+          "토요일",
+          "편의점"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "after": {
+        "id": "cloze_a1_0151",
+        "level": "a1",
+        "sentenceKo": "＿＿＿을 받았어요.",
+        "answer": "세뱃돈",
+        "fullKo": "세뱃돈을 받았어요.",
+        "de": "Ich habe Neujahrsgeld bekommen.",
+        "en": "I received New Year money.",
+        "distractors": [
+          "집밥",
+          "토요일",
+          "편의점"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "fields": [
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "d4043f41022fd6cdfd3084590a660b6361d207bcaebd1f8aac96475cb2b2cb9f",
+      "afterSha256": "2d874c7c3e6ad2d644f97fb98ef07ce5107513aa48891f49ecc9151d1dd3551d",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "920e2e7892b164614f1d3b6735e93201237255dbfa3c96c60f305541c68c3970",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0152",
+      "before": {
+        "id": "cloze_a1_0152",
+        "level": "a1",
+        "sentenceKo": "저는 ＿＿＿을 입어요.",
+        "answer": "한복",
+        "fullKo": "저는 한복을 입어요.",
+        "de": "Ich trage einen Hanbok.",
+        "en": "I wear a hanbok.",
+        "distractors": [
+          "가방",
+          "우산",
+          "책상"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "after": {
+        "id": "cloze_a1_0152",
+        "level": "a1",
+        "sentenceKo": "＿＿＿을 입어요.",
+        "answer": "한복",
+        "fullKo": "한복을 입어요.",
+        "de": "Ich trage einen Hanbok.",
+        "en": "I wear a hanbok.",
+        "distractors": [
+          "가방",
+          "우산",
+          "책상"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "fields": [
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "a06e983734f62a6dffbc5e89dd7ca06e959af11d1ec6c07f779e91ead44dc585",
+      "afterSha256": "e54a5f60b54f6f4fa8550797ed0ec36abffdf68ccfb70c46535b596154f9532a",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "3bf9a33ac0ba9b65de4132002e6815d92ee483d1958f389c06f948c838c3a31c",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0154",
+      "before": {
+        "id": "cloze_a1_0154",
+        "level": "a1",
+        "sentenceKo": "저는 지금 ＿＿＿.",
+        "answer": "절해요",
+        "fullKo": "저는 지금 절해요.",
+        "de": "Ich verbeuge mich jetzt.",
+        "en": "I'm bowing now.",
+        "distractors": [
+          "요리해요",
+          "청소해요",
+          "포장해요"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "after": {
+        "id": "cloze_a1_0154",
+        "level": "a1",
+        "sentenceKo": "설날에는 친척들이 모여 어른들에게 ＿＿＿ 풍습이 있어요.",
+        "answer": "절을 하는",
+        "fullKo": "설날에는 친척들이 모여 어른들에게 절을 하는 풍습이 있어요.",
+        "de": "An Seollal kommen Verwandte zusammen und verbeugen sich traditionell vor den Älteren.",
+        "en": "At Seollal, relatives get together and traditionally bow to the elders.",
+        "distractors": [
+          "요리를 하는",
+          "청소를 하는",
+          "포장을 하는"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "fields": [
+        "answer",
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "d3b5a3f4d623e0e3bcaa4418fc09cb93eaa43a21c9d92c0ce87c5cd216c1914a",
+      "afterSha256": "4978963c188734e029483f8936c13e452ac037fad60390b9d9412f25d997069d",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "ae5e7df3c8d72cd2178242346777357a056de6b8af4f67ee5d02f93a378d8265",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0155",
+      "before": {
+        "id": "cloze_a1_0155",
+        "level": "a1",
+        "sentenceKo": "어른들께 ＿＿＿.",
+        "answer": "세배 드려요",
+        "fullKo": "어른들께 세배 드려요.",
+        "de": "Ich mache vor den Älteren eine Neujahrsverbeugung.",
+        "en": "I offer a New Year bow to the elders.",
+        "distractors": [
+          "성함을 물어요",
+          "송편을 드려요",
+          "인사드려요"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "after": {
+        "id": "cloze_a1_0155",
+        "level": "a1",
+        "sentenceKo": "어른들께 ＿＿＿.",
+        "answer": "세배 드려요",
+        "fullKo": "어른들께 세배 드려요.",
+        "de": "Zum Neujahrsfest verbeuge ich mich vor den Älteren.",
+        "en": "I give the elders a New Year's bow.",
+        "distractors": [
+          "성함을 물어요",
+          "송편을 쪄요",
+          "자리에서 일어나요"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "fields": [
+        "de",
+        "distractors",
+        "en"
+      ],
+      "beforeSha256": "be469e1c23f79f6b9954c7e45e83f1759df6705896b07e205ee2399f03e434fa",
+      "afterSha256": "0417afe06ef96bf5dd65d674d406c942305f33523898806ece0ca0a141155d45",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "21d6c1b974e715c7185ccbd28a4f873d718f07d796230669d554b6eb1e553b41",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0159",
+      "before": {
+        "id": "cloze_a1_0159",
+        "level": "a1",
+        "sentenceKo": "오늘 ＿＿＿을 샀어요.",
+        "answer": "설빔",
+        "fullKo": "오늘 설빔을 샀어요.",
+        "de": "Ich habe heute Neujahrskleidung gekauft.",
+        "en": "I bought New Year clothes today.",
+        "distractors": [
+          "밖",
+          "오른쪽",
+          "옆"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "after": {
+        "id": "cloze_a1_0159",
+        "level": "a1",
+        "sentenceKo": "＿＿＿을 샀어요.",
+        "answer": "설빔",
+        "fullKo": "설빔을 샀어요.",
+        "de": "Ich habe Neujahrskleidung gekauft.",
+        "en": "I bought New Year clothes.",
+        "distractors": [
+          "밖",
+          "오른쪽",
+          "옆"
+        ],
+        "topic": "Partnerschaft & koreanische Familie"
+      },
+      "fields": [
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "2b58c2280daaf69bcd903614ed2dec6e7aa8ee29bdefdc784093c535ad48f224",
+      "afterSha256": "7c355926c99f04e0be2569f23f321d011b45f6a2be8f36a054f352be4d86ce14",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "2651a43c050d7e874f6247ba4b58fa5196f547d32367a0d15ab2b6fc2fcaebed",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0064",
+      "before": {
+        "id": "satz_a1_0064",
+        "level": "a1",
+        "targetKo": "제가 먼저 인사드리겠습니다.",
+        "promptDe": "Ich begrüße Sie zuerst.",
+        "promptEn": "Let me say hello first.",
+        "distractors": [
+          "버스에서",
+          "벌이라"
+        ],
+        "vocabKo": "인사드리겠습니다"
+      },
+      "after": {
+        "id": "satz_a1_0064",
+        "level": "a1",
+        "targetKo": "문 앞에서 숨을 고르고 인사드리겠습니다.",
+        "promptDe": "Vor der Tür atme ich einmal durch und begrüße sie dann.",
+        "promptEn": "I catch my breath at the door, then I greet them.",
+        "distractors": [
+          "버스에서",
+          "벌이라"
+        ],
+        "vocabKo": "인사드리겠습니다"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "764eeeed85a374162716fdaa0bb75248bf22bb0afb2ce425cea8f447f3de41a9",
+      "afterSha256": "dd18153c55bb980eece7279bc651206feab06ebb4340deb7032d45811b063f95",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "7fc1079bda81557d975218eb286f7776318f95fb6ad39e10e630a65a7fa3db9d",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0072",
+      "before": {
+        "id": "satz_a1_0072",
+        "level": "a1",
+        "targetKo": "저는 성함을 물었어요.",
+        "promptDe": "Ich habe nach dem Namen gefragt.",
+        "promptEn": "I asked for their name.",
+        "distractors": [
+          "다녀요",
+          "마셔요"
+        ],
+        "vocabKo": "성함을 묻다"
+      },
+      "after": {
+        "id": "satz_a1_0072",
+        "level": "a1",
+        "targetKo": "성함을 묻기 전에 수진 씨가 저를 봤어요.",
+        "promptDe": "Bevor ich nach dem Namen fragte, sah mich Sujin an.",
+        "promptEn": "Before I asked their name, Sujin looked at me.",
+        "distractors": [
+          "다녀요",
+          "마셔요"
+        ],
+        "vocabKo": "성함을 묻다"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "21aab46eb39346595cadbd267e4d5e4623cbac3fbc3a1562812e86841a71034a",
+      "afterSha256": "db41dba71ed32e91eb5b125a7083b610ec1d7c9fac85a176d46a0ca6d2c1e169",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "a1c023a0bd4cdef8cee40158018fd46e7d74619b8ee61bdca3f4540d4f224c41",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0073",
+      "before": {
+        "id": "satz_a1_0073",
+        "level": "a1",
+        "targetKo": "실례지만, 몇 살이세요?",
+        "promptDe": "Entschuldigen Sie, wie alt sind Sie?",
+        "promptEn": "Excuse me, how old are you?",
+        "distractors": [
+          "짧아서",
+          "가방이"
+        ],
+        "vocabKo": "몇 살이세요"
+      },
+      "after": {
+        "id": "satz_a1_0073",
+        "level": "a1",
+        "targetKo": "할머니, 몇 살이세요?",
+        "promptDe": "Oma, wie alt sind Sie?",
+        "promptEn": "Grandma, how old are you?",
+        "distractors": [
+          "짧아서",
+          "가방이"
+        ],
+        "vocabKo": "몇 살이세요"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "81bb364e37751fb78623d9f8214401d6fee0c9a45fac87b36a53d39d038f661d",
+      "afterSha256": "38b786c246537e816dd4cc3717d9e6b4732d38a1191ec9967da30c1a230d2eb2",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "b00b75754dfcf0638cf6dd5282afaba7979e5eee219f22f1eaa9b14d7a89f590",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0101",
+      "before": {
+        "id": "satz_a1_0101",
+        "level": "a1",
+        "targetKo": "저에게 수저를 주세요.",
+        "promptDe": "Bitte geben Sie mir Löffel und Stäbchen.",
+        "promptEn": "Please give me a spoon and chopsticks.",
+        "distractors": [
+          "현관에서",
+          "현우"
+        ],
+        "vocabKo": "수저"
+      },
+      "after": {
+        "id": "satz_a1_0101",
+        "level": "a1",
+        "targetKo": "수저가 두 벌이라 어느 게 제 것인지 봤어요.",
+        "promptDe": "Es lagen zwei Garnituren da, also schaute ich, welche meine war.",
+        "promptEn": "There were two sets, so I checked which one was mine.",
+        "distractors": [
+          "현관에서",
+          "현우"
+        ],
+        "vocabKo": "수저"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "c1660dfa4616cea75ac28867ae96693831fe51f77ec9b769d98d563b99fec90e",
+      "afterSha256": "bd1a969a0a8ee48b84162cdccef5c63fbe0c1648ddc9c973703cb81e72a09ba3",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "faae4c05e8af9eaaae6165bd1e3a0fac392d02802e84ad6141879cdc81045251",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0102",
+      "before": {
+        "id": "satz_a1_0102",
+        "level": "a1",
+        "targetKo": "밑반찬이 정말 많아요.",
+        "promptDe": "Es gibt wirklich viele Beilagen.",
+        "promptEn": "There are really many side dishes.",
+        "distractors": [
+          "주소를",
+          "팀"
+        ],
+        "vocabKo": "밑반찬"
+      },
+      "after": {
+        "id": "satz_a1_0102",
+        "level": "a1",
+        "targetKo": "밑반찬이 열 가지가 나와서 놀랐어요.",
+        "promptDe": "Es kamen zehn Beilagen auf den Tisch, das hat mich überrascht.",
+        "promptEn": "Ten side dishes came out, which surprised me.",
+        "distractors": [
+          "주소를",
+          "팀"
+        ],
+        "vocabKo": "밑반찬"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "7e398deff740f7a9218f254724535f93785bb643075d37fc970dcde43a82e73b",
+      "afterSha256": "329bd4e88f5784ce4dcf62a5ed10555ec4b8b354740f9649dd63427dd0ec741e",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "1355a0b46430759859349d0d2f1a9b370e0b0ef6273481b1872756375f76112f",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0103",
+      "before": {
+        "id": "satz_a1_0103",
+        "level": "a1",
+        "targetKo": "밥을 더 드세요.",
+        "promptDe": "Bitte essen Sie noch etwas Reis.",
+        "promptEn": "Please have some more rice.",
+        "distractors": [
+          "뭐라고",
+          "미소를"
+        ],
+        "vocabKo": "더 드세요"
+      },
+      "after": {
+        "id": "satz_a1_0103",
+        "level": "a1",
+        "targetKo": "더 드세요 소리를 세 번 듣고 수저를 다시 들었어요.",
+        "promptDe": "Als sie mich zum dritten Mal zum Nachnehmen aufforderten, griff ich wieder zu.",
+        "promptEn": "After the third time they told me to eat more, I picked my spoon back up.",
+        "distractors": [
+          "뭐라고",
+          "미소를"
+        ],
+        "vocabKo": "더 드세요"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "19f2691dcb1671f9c6228dc974f35e0e69c8527b08bd6de28e793b4a98d288da",
+      "afterSha256": "630ce6ca78b9f995c9f8f3a8a9adf8334a8da9249fac3d81b90e4c1313466edd",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "d082ed81517c12d9f1b54e687690b16ec0582d3e02db7a66b5759353603456d3",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0105",
+      "before": {
+        "id": "satz_a1_0105",
+        "level": "a1",
+        "targetKo": "이 음식은 맛있어요.",
+        "promptDe": "Dieses Essen ist lecker.",
+        "promptEn": "This food is delicious.",
+        "distractors": [
+          "착해요",
+          "무슨"
+        ],
+        "vocabKo": "맛있어요"
+      },
+      "after": {
+        "id": "satz_a1_0105",
+        "level": "a1",
+        "targetKo": "맛있어요. 그래서 수진 씨가 웃었어요.",
+        "promptDe": "Es ist lecker. Deshalb musste Sujin lachen.",
+        "promptEn": "It's delicious. So Sujin laughed.",
+        "distractors": [
+          "착해요",
+          "무슨"
+        ],
+        "vocabKo": "맛있어요"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "9ba627ea56caf858e4366a1177f670f144985a95bf2300d6e7a729b40c0743c6",
+      "afterSha256": "d2154ee5d50852cece78bf1bd06afd0f04d64b06b1b42255cb87afe967366a2e",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "d75d8ba4ff57d954d27eda5d98e26aa8df27e55b87c173132ec9e2c76c232c8e",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0106",
+      "before": {
+        "id": "satz_a1_0106",
+        "level": "a1",
+        "targetKo": "오늘 집밥이 맛있어요.",
+        "promptDe": "Das Essen zu Hause ist heute lecker.",
+        "promptEn": "The home-cooked meal is delicious today.",
+        "distractors": [
+          "연습하고",
+          "열고"
+        ],
+        "vocabKo": "집밥"
+      },
+      "after": {
+        "id": "satz_a1_0106",
+        "level": "a1",
+        "targetKo": "집밥이 식당보다 반찬이 많아요.",
+        "promptDe": "Zu Hause gibt es mehr Beilagen als im Restaurant.",
+        "promptEn": "Home cooking comes with more side dishes than a restaurant.",
+        "distractors": [
+          "연습하고",
+          "열고"
+        ],
+        "vocabKo": "집밥"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "ffe3ecde9af145b9113bbf0180e7ae921e98f3562492786228fbb951d3904af0",
+      "afterSha256": "17553252c1b1a46bac3a6a3c578e5e194915041b342404b80c17c3eca00496cc",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "57a24771583dd423839de513e8c2cc76f98362958100c19288b3be8b2f231ba2",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0107",
+      "before": {
+        "id": "satz_a1_0107",
+        "level": "a1",
+        "targetKo": "국물이 정말 뜨거워요.",
+        "promptDe": "Die Brühe ist wirklich heiß.",
+        "promptEn": "The broth is really hot.",
+        "distractors": [
+          "짧은",
+          "찌는"
+        ],
+        "vocabKo": "국물"
+      },
+      "after": {
+        "id": "satz_a1_0107",
+        "level": "a1",
+        "targetKo": "국물을 소리 안 나게 떠먹으려고 애썼어요.",
+        "promptDe": "Ich gab mir Mühe, die Brühe geräuschlos zu löffeln.",
+        "promptEn": "I tried hard to spoon the broth without making noise.",
+        "distractors": [
+          "짧은",
+          "찌는"
+        ],
+        "vocabKo": "국물"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "09381470e4928d10516109cf69cd6810334a9ec9faa420fb560643f669408041",
+      "afterSha256": "40e69dd2da329cea45ca925f11806b342123ba6592e77aa04147b4649318bec7",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "84340362f20a1649e8d61905b530bc3850c5ad1ca11c56e30a92e3b8fc8b5f0b",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0108",
+      "before": {
+        "id": "satz_a1_0108",
+        "level": "a1",
+        "targetKo": "젓가락질이 정말 어려워요.",
+        "promptDe": "Mit Stäbchen zu essen ist wirklich schwierig.",
+        "promptEn": "Using chopsticks is really difficult.",
+        "distractors": [
+          "빨개졌어요",
+          "사양하다가"
+        ],
+        "vocabKo": "젓가락질"
+      },
+      "after": {
+        "id": "satz_a1_0108",
+        "level": "a1",
+        "targetKo": "젓가락질이 서툴러서 콩나물을 놓쳤어요.",
+        "promptDe": "Meine Stäbchen waren ungeschickt, und die Sojasprossen rutschten weg.",
+        "promptEn": "My chopstick skills were clumsy, and the bean sprouts slipped away.",
+        "distractors": [
+          "빨개졌어요",
+          "사양하다가"
+        ],
+        "vocabKo": "젓가락질"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "69f158e00be550c14a8a3b4aedecdf522c20427c6cfd57f630933a2e48f64ba0",
+      "afterSha256": "bf1b1c57b51fb8bf60c4d1a19dfd3af257ab89a8a0ee21c7f035416e7d8beaa4",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "c62e66feb411bb28b2f791d90c188a9f19f7563ed23c5c973f8f641574c961c9",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0109",
+      "before": {
+        "id": "satz_a1_0109",
+        "level": "a1",
+        "targetKo": "저는 앞접시를 써요.",
+        "promptDe": "Ich benutze einen kleinen Teller.",
+        "promptEn": "I use a small side plate.",
+        "distractors": [
+          "깎는",
+          "깜빡였어요"
+        ],
+        "vocabKo": "앞접시"
+      },
+      "after": {
+        "id": "satz_a1_0109",
+        "level": "a1",
+        "targetKo": "앞접시에 조금씩 덜어서 먹었어요.",
+        "promptDe": "Ich nahm mir kleine Portionen auf den Extrateller.",
+        "promptEn": "I served myself small portions onto the side plate.",
+        "distractors": [
+          "깎는",
+          "깜빡였어요"
+        ],
+        "vocabKo": "앞접시"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "b772fc4f75d9395c4bdf94ba1ea5a0ce5bb06b5e8f401a624a8f2fd3581ddd2b",
+      "afterSha256": "9bf80123bcbe15fe317d199be8b048aa613f398f8c6239b66c3cf1084445a9ce",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "ed4b9f3596f8ec4a8c50b2f71b84b35adbb24f9ea91584eef5250c75b99ab7e3",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0110",
+      "before": {
+        "id": "satz_a1_0110",
+        "level": "a1",
+        "targetKo": "저는 수저를 놓아요.",
+        "promptDe": "Ich lege Löffel und Stäbchen hin.",
+        "promptEn": "I put down my spoon and chopsticks.",
+        "distractors": [
+          "사세요",
+          "돈이"
+        ],
+        "vocabKo": "수저 놓다"
+      },
+      "after": {
+        "id": "satz_a1_0110",
+        "level": "a1",
+        "targetKo": "이야기를 듣고 수저를 놓았어요.",
+        "promptDe": "Ich habe zugehört und das Besteck abgelegt.",
+        "promptEn": "I listened, and I put my spoon down.",
+        "distractors": [
+          "사세요",
+          "돈이"
+        ],
+        "vocabKo": "수저 놓다"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "1a519f67d2984fcabf33c1b0d128738b04d28408c48200a3001ff26e6d7373a3",
+      "afterSha256": "ee6d19ff0dcd696852b64f7d62d666b43b87df88bafb0cbeec91c09a2738ce35",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "b012c4a2f030f50e6866109bf54c292cf2305b7d97420917a37fcd6149d26ac0",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0111",
+      "before": {
+        "id": "satz_a1_0111",
+        "level": "a1",
+        "targetKo": "저는 설거지를 해요.",
+        "promptDe": "Ich spüle ab.",
+        "promptEn": "I do the dishes.",
+        "distractors": [
+          "말하다",
+          "무게가"
+        ],
+        "vocabKo": "설거지"
+      },
+      "after": {
+        "id": "satz_a1_0111",
+        "level": "a1",
+        "targetKo": "설거지를 도우려고 일어섰어요.",
+        "promptDe": "Ich bin aufgestanden, um beim Abwasch zu helfen.",
+        "promptEn": "I stood up to help with the dishes.",
+        "distractors": [
+          "말하다",
+          "무게가"
+        ],
+        "vocabKo": "설거지"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "56a7b125962629dbd4b22cbff2487eb69fe8c96f0e04ebfc76d4732d6c27fe80",
+      "afterSha256": "bf2e0ead6d09aabdcbae83c364d6236ecb8fa0150b35bb91a77d39f433cf67f2",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "948ec067fce6ea2e771d294cff182bdc56bbf945dd874ad24b30feaf5d57e295",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0112",
+      "before": {
+        "id": "satz_a1_0112",
+        "level": "a1",
+        "targetKo": "설날이에요. 가족을 만나요.",
+        "promptDe": "Es ist Seollal. Ich treffe meine Familie.",
+        "promptEn": "It is Seollal. I see my family.",
+        "distractors": [
+          "고르고",
+          "고름을"
+        ],
+        "vocabKo": "설날"
+      },
+      "after": {
+        "id": "satz_a1_0112",
+        "level": "a1",
+        "targetKo": "설날 아침에 한복을 빌려 입었어요.",
+        "promptDe": "Am Morgen von Seollal lieh ich mir einen Hanbok.",
+        "promptEn": "On Seollal morning I borrowed a hanbok.",
+        "distractors": [
+          "고르고",
+          "고름을"
+        ],
+        "vocabKo": "설날"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "1f72d9e2c3791a42dd473cb3be56a4357780233ff4b2cb873886ae46559b5cf6",
+      "afterSha256": "0ba83cec8553cbe8390da53df493c2543cdf02dba893909ee8474ce2aa69f448",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "029451e47fdbacff8c131dd7f82883e943ed4bc1398a4358ed8d60f2577c8b1b",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0113",
+      "before": {
+        "id": "satz_a1_0113",
+        "level": "a1",
+        "targetKo": "저는 세배를 해요.",
+        "promptDe": "Ich mache eine Neujahrsverbeugung.",
+        "promptEn": "I make a New Year bow.",
+        "distractors": [
+          "웃어",
+          "빌려"
+        ],
+        "vocabKo": "세배"
+      },
+      "after": {
+        "id": "satz_a1_0113",
+        "level": "a1",
+        "targetKo": "수진 씨가 거실에서 세배를 가르쳤어요.",
+        "promptDe": "Sujin brachte mir im Wohnzimmer den Neujahrsgruß bei.",
+        "promptEn": "Sujin taught me the New Year's bow in the living room.",
+        "distractors": [
+          "웃어",
+          "빌려"
+        ],
+        "vocabKo": "세배"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "613c2f60daf2328b10c9625a874208907d7de7457ddb0ae431ca1592ef8b468a",
+      "afterSha256": "f5564d178afa7d646e2a7204ff4ac1a4c27d10a1df2822771597af4795fbf845",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "af2693e2dd91570c4f5686ed0abf6f2ea90c3906f6db9bceaca02fcd7a4a10e1",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0114",
+      "before": {
+        "id": "satz_a1_0114",
+        "level": "a1",
+        "targetKo": "설날에 떡국을 먹어요.",
+        "promptDe": "An Seollal esse ich Tteokguk.",
+        "promptEn": "I eat tteokguk at Seollal.",
+        "distractors": [
+          "거실에서",
+          "건강식품은"
+        ],
+        "vocabKo": "떡국"
+      },
+      "after": {
+        "id": "satz_a1_0114",
+        "level": "a1",
+        "targetKo": "떡국 한 그릇을 비우니까 나이 농담이 나왔어요.",
+        "promptDe": "Kaum war die Schüssel Tteokguk leer, kamen die Witze über mein Alter.",
+        "promptEn": "As soon as I finished the bowl of tteokguk, the age jokes started.",
+        "distractors": [
+          "거실에서",
+          "건강식품은"
+        ],
+        "vocabKo": "떡국"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "f8e357fe5a7497f21fec8f0fe3d6c38a8e8a1de0657ad63c07120621d9b2e3e8",
+      "afterSha256": "753c145008e51cbd2da00cbe18397588dfaaa0a618caa97e1faf7eaedefd72df",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "e4937200ad9375b0431d943c69f24dca3ecb2c8b1eedfc6e3b47de8cbc74c2e0",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0115",
+      "before": {
+        "id": "satz_a1_0115",
+        "level": "a1",
+        "targetKo": "저는 세뱃돈을 받았어요.",
+        "promptDe": "Ich habe Neujahrsgeld bekommen.",
+        "promptEn": "I received New Year money.",
+        "distractors": [
+          "덕담을",
+          "덜었어요"
+        ],
+        "vocabKo": "세뱃돈"
+      },
+      "after": {
+        "id": "satz_a1_0115",
+        "level": "a1",
+        "targetKo": "세뱃돈을 받으니 얼굴이 빨개졌어요.",
+        "promptDe": "Als ich Neujahrsgeld bekam, wurde ich rot.",
+        "promptEn": "I turned red when they handed me New Year money.",
+        "distractors": [
+          "덕담을",
+          "덜었어요"
+        ],
+        "vocabKo": "세뱃돈"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "d0a3c5a0433f4f891f903e66780c53889b6659afdd5689627037c55361becd6f",
+      "afterSha256": "bb0c29fbaa5bf06763ddd32707e3f076aca8734233310b471215f11a7ecf4e76",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "ba9d45ffa2f8fa312861bbada6a61e60dba3a5e5e426adbee44aa12a715d7df6",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0116",
+      "before": {
+        "id": "satz_a1_0116",
+        "level": "a1",
+        "targetKo": "저는 한복을 입어요.",
+        "promptDe": "Ich trage einen Hanbok.",
+        "promptEn": "I wear a hanbok.",
+        "distractors": [
+          "나라",
+          "한국어"
+        ],
+        "vocabKo": "한복"
+      },
+      "after": {
+        "id": "satz_a1_0116",
+        "level": "a1",
+        "targetKo": "한복을 입고 고름을 맸어요.",
+        "promptDe": "Ich habe den Hanbok angezogen und die Schleife gebunden.",
+        "promptEn": "I put on the hanbok and tied the ribbon.",
+        "distractors": [
+          "나라",
+          "한국어"
+        ],
+        "vocabKo": "한복"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "35e4d87844fbd0bbeff665787613e0c8e0030c9f4809cb70d3f055ea464656c5",
+      "afterSha256": "9db28d5183b074cd6ebea4093702fc76afbc32600207a269e1954a88b6771e15",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "7d6d2fce0a0ee24b57467085e82ea8c14fbeafb9899cc89521eccfa03aded4b2",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0117",
+      "before": {
+        "id": "satz_a1_0117",
+        "level": "a1",
+        "targetKo": "새해 복 많이 받으세요!",
+        "promptDe": "Ein gutes neues Jahr!",
+        "promptEn": "Happy New Year!",
+        "distractors": [
+          "햇과일을",
+          "했는데도"
+        ],
+        "vocabKo": "새해 복 많이 받으세요"
+      },
+      "after": {
+        "id": "satz_a1_0117",
+        "level": "a1",
+        "targetKo": "문 앞에서 새해 복 많이 받으세요 하고 세 번 연습했어요.",
+        "promptDe": "Vor der Tür übte ich den Neujahrsgruß dreimal.",
+        "promptEn": "At the door I practiced the New Year greeting three times.",
+        "distractors": [
+          "햇과일을",
+          "했는데도"
+        ],
+        "vocabKo": "새해 복 많이 받으세요"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "4a15a312a55cee4a0e85f4d9877105d736d72db18981a0213c9d90fd6e72575f",
+      "afterSha256": "d7e4e7b15fd3a9adcd92a398df42781f1e085510266ce0dd64fcefc39d2ba61b",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "60f20309fd00ea9a708b642700ea572512d5b7bfa6f0c22c71a9f9d9ce0bcbe4",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0118",
+      "before": {
+        "id": "satz_a1_0118",
+        "level": "a1",
+        "targetKo": "저는 지금 절해요.",
+        "promptDe": "Ich verbeuge mich jetzt.",
+        "promptEn": "I'm bowing now.",
+        "distractors": [
+          "이미",
+          "이야기를"
+        ],
+        "vocabKo": "절하다"
+      },
+      "after": {
+        "id": "satz_a1_0118",
+        "level": "a1",
+        "targetKo": "설날에는 친척들이 모여 어른들에게 절을 하는 풍습이 있어요.",
+        "promptDe": "An Seollal kommen Verwandte zusammen und verbeugen sich traditionell vor den Älteren.",
+        "promptEn": "At Seollal, relatives get together and traditionally bow to the elders.",
+        "distractors": [
+          "이미",
+          "이야기를"
+        ],
+        "vocabKo": "절하다"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "d81e4725ae4d4c60cf2cb338868ab361d7db6c68e02ebc92fd416aac18a3b4c0",
+      "afterSha256": "e9f13e61e57ce4f49cd90e197a1f62946bb28dadd3558c7cedfebfe2ac4e7b2b",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "ede911b4fc1928024799e1d970a87ce9e3a77fd3f3a3b0a3e5be9cbab80b7819",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0119",
+      "before": {
+        "id": "satz_a1_0119",
+        "level": "a1",
+        "targetKo": "어른들께 세배 드려요.",
+        "promptDe": "Ich mache vor den Älteren eine Neujahrsverbeugung.",
+        "promptEn": "I offer a New Year bow to the elders.",
+        "distractors": [
+          "이야기를",
+          "인사가"
+        ],
+        "vocabKo": "세배 드리다"
+      },
+      "after": {
+        "id": "satz_a1_0119",
+        "level": "a1",
+        "targetKo": "어른들께 세배 드리고 일어나니 무릎이 저렸어요.",
+        "promptDe": "Nach dem Neujahrsgruß vor den Älteren waren meine Knie eingeschlafen.",
+        "promptEn": "After bowing to the elders, my knees had gone numb when I stood up.",
+        "distractors": [
+          "이야기를",
+          "인사가"
+        ],
+        "vocabKo": "세배 드리다"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "76d216e28d617b5c27fd777a1595badc12f86a57ef511e0176c0c823d2cc1e04",
+      "afterSha256": "1246f4b4276940d6c9560c600f4d5d0fb1f54dd24c9351a57611c4eb12de32d7",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "b4fd6562fc66bbe591b59b085690254e9b3e13d205e759fde76cb8b0fa542760",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0121",
+      "before": {
+        "id": "satz_a1_0121",
+        "level": "a1",
+        "targetKo": "차례상 앞에 서 있어요.",
+        "promptDe": "Ich stehe vor dem Ahnentisch.",
+        "promptEn": "I am standing in front of the ancestral rite table.",
+        "distractors": [
+          "한번",
+          "씻으세요"
+        ],
+        "vocabKo": "차례상"
+      },
+      "after": {
+        "id": "satz_a1_0121",
+        "level": "a1",
+        "targetKo": "차례상 앞에서는 사진을 찍지 않아요.",
+        "promptDe": "Vor dem Ahnentisch macht man keine Fotos.",
+        "promptEn": "In front of the ancestral table, you don't take pictures.",
+        "distractors": [
+          "한번",
+          "씻으세요"
+        ],
+        "vocabKo": "차례상"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "ee60b1ff0bcbb59a79106f3c17b29ad7af86347ec65d36de6670ffd500abab42",
+      "afterSha256": "45a50dbc72f3f6687fec18a78027522e5b68b53e7990929b1b8336ec57882296",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "c9416f8a0529cd5a313e953a2d547c50c186da88a4c45b3565c897c955c7eace",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0122",
+      "before": {
+        "id": "satz_a1_0122",
+        "level": "a1",
+        "targetKo": "세뱃돈 봉투를 받았어요.",
+        "promptDe": "Ich habe einen Umschlag mit Neujahrsgeld bekommen.",
+        "promptEn": "I received a New Year money envelope.",
+        "distractors": [
+          "일어섰더니",
+          "일이에요"
+        ],
+        "vocabKo": "세뱃돈 봉투"
+      },
+      "after": {
+        "id": "satz_a1_0122",
+        "level": "a1",
+        "targetKo": "세뱃돈 봉투를 두 손으로 받았어요.",
+        "promptDe": "Den Umschlag mit dem Neujahrsgeld nahm ich mit beiden Händen.",
+        "promptEn": "I took the New Year money envelope with both hands.",
+        "distractors": [
+          "일어섰더니",
+          "일이에요"
+        ],
+        "vocabKo": "세뱃돈 봉투"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "b5703f3dd13589cdc265ef15e0b1e6bf0c3624468766c8078fd898a79fce6fa3",
+      "afterSha256": "aed9a5c9167e2ed8d9569441c62670820a13a3ad9f8d07f4bde5d361e3703539",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "4396e58e256168ed8b0bb13e19ce5b37e4f6abb8f4818b520bfda56816177e29",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0123",
+      "before": {
+        "id": "satz_a1_0123",
+        "level": "a1",
+        "targetKo": "오늘 설빔을 샀어요.",
+        "promptDe": "Ich habe heute Neujahrskleidung gekauft.",
+        "promptEn": "I bought New Year clothes today.",
+        "distractors": [
+          "저는",
+          "적었어요"
+        ],
+        "vocabKo": "설빔"
+      },
+      "after": {
+        "id": "satz_a1_0123",
+        "level": "a1",
+        "targetKo": "설빔으로 한복 대신 단정한 니트를 골랐어요.",
+        "promptDe": "Als Neujahrskleidung wählte ich statt Hanbok einen schlichten Pullover.",
+        "promptEn": "For New Year clothes I chose a neat sweater instead of hanbok.",
+        "distractors": [
+          "저는",
+          "적었어요"
+        ],
+        "vocabKo": "설빔"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "3893d8fe745d8736e3d9885236151b5205e8e3486d23d3e2d5e9d36ed11530d8",
+      "afterSha256": "d1534665beee38a6495435ba526f30ef9af248e316194b1ac28656b2411e9acf",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "c94cc2641ba77f4011c9618ab6fd816cb0624bef09a52946aaaafa0ef845d42d",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_25_a1_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0422",
+      "before": {
+        "id": "cloze_a1_0422",
+        "level": "a1",
+        "sentenceKo": "이 신발 ＿＿＿ 싸요.",
+        "answer": "값은",
+        "fullKo": "이 신발 값은 싸요.",
+        "de": "Diese Schuhe sind billig.",
+        "en": "These shoes are cheap.",
+        "distractors": [
+          "색깔은",
+          "무게는",
+          "길이는"
+        ],
+        "topic": "결제와 배달",
+        "sourceVocabId": "vocab_a1_0488",
+        "courseUnitId": "a1_14_payment_delivery"
+      },
+      "after": {
+        "id": "cloze_a1_0422",
+        "level": "a1",
+        "sentenceKo": "이 신발 ＿＿＿은 싸요.",
+        "answer": "값",
+        "fullKo": "이 신발 값은 싸요.",
+        "de": "Diese Schuhe sind billig.",
+        "en": "These shoes are cheap.",
+        "distractors": [
+          "색",
+          "맛",
+          "힘"
+        ],
+        "topic": "결제와 배달",
+        "sourceVocabId": "vocab_a1_0488",
+        "courseUnitId": "a1_14_payment_delivery"
+      },
+      "fields": [
+        "answer",
+        "distractors",
+        "sentenceKo"
+      ],
+      "beforeSha256": "4e46a7404ebd25734ee17b9a537061f4346a11672e9e4fec15f926876fbeb4c4",
+      "afterSha256": "097acb5f79818d4dc3404d7761d68c12d9ca74afbf3b9336965f4bb30d9024cd",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "f24877872dd89cee5c9f674e32f999d30473f93d43ee104d0e165be1d14f7a7f",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_29_a1_reinforcement_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0662",
+      "before": {
+        "id": "satz_a1_0662",
+        "level": "a1",
+        "targetKo": "그래요. 저도 그렇게 생각해요.",
+        "promptDe": "Das denke ich auch.",
+        "promptEn": "I think so too.",
+        "distractors": [
+          "선물",
+          "잡채"
+        ],
+        "vocabKo": "그렇다",
+        "sourceVocabId": "vocab_a1_0747",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      "after": {
+        "id": "satz_a1_0662",
+        "level": "a1",
+        "targetKo": "제 생각도 그래요.",
+        "promptDe": "Das denke ich auch.",
+        "promptEn": "I think so too.",
+        "distractors": [
+          "선물",
+          "잡채"
+        ],
+        "vocabKo": "그렇다",
+        "sourceVocabId": "vocab_a1_0747",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      "fields": [
+        "targetKo"
+      ],
+      "beforeSha256": "ef707c9c193a12d18a62355784949910bd5f2a76ed956f7ed0579e27c4a14825",
+      "afterSha256": "0d960a04f9e24c4d5dff0a7e37f66f6db4a3b781196dd4604a8e2695eb9c6430",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "f5ba3bd715e0570ebff7558787af94759e6490f5c8c989581ec463ce5c22faa7",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_30_a1_reinforcement_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0804",
+      "before": {
+        "korean": "어디",
+        "romanization": "eodi",
+        "german": "wo",
+        "level": "A1",
+        "pos_de": "Pronomen",
+        "example_korean": "화장실이 어디예요?",
+        "example_german": "Wo ist jetzt die Toilette?",
+        "topic": "Alltag",
+        "pack_id": "a1_pronouns_1",
+        "pack_order": "7",
+        "is_review_boss": "false",
+        "english": "where",
+        "pos_en": "Pronoun",
+        "example_english": "Where is the bathroom right now?",
+        "id": "vocab_a1_0804"
+      },
+      "after": {
+        "korean": "어디",
+        "romanization": "eodi",
+        "german": "wo",
+        "level": "A1",
+        "pos_de": "Pronomen",
+        "example_korean": "화장실이 어디예요?",
+        "example_german": "Wo ist die Toilette?",
+        "topic": "Alltag",
+        "pack_id": "a1_pronouns_1",
+        "pack_order": "7",
+        "is_review_boss": "false",
+        "english": "where",
+        "pos_en": "Pronoun",
+        "example_english": "Where's the bathroom?",
+        "id": "vocab_a1_0804"
+      },
+      "fields": [
+        "example_english",
+        "example_german"
+      ],
+      "beforeSha256": "6eb54825c3305aa07f411904bfa23da0c67777e507314702f1b036ee3723dcef",
+      "afterSha256": "6dc260674c6f7979be5cc0831ff71fe768b5641f186a7f8d7364578c45cbfc51",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "predecessorSuccessorSha256": "11129ac2ed4d4bdbb7c301f7fd913877cfb0805df75eb693f0a848f1b13f7ef9",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_30_a1_reinforcement_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0824",
+      "before": {
+        "korean": "여러",
+        "romanization": "yeoreo",
+        "german": "mehrere",
+        "level": "A1",
+        "pos_de": "Adjektiv",
+        "example_korean": "여러 명이 인사해요.",
+        "example_german": "Mehrere Personen sagen Hallo.",
+        "topic": "Freizeit",
+        "pack_id": "a1_determiners_1",
+        "pack_order": "3",
+        "is_review_boss": "false",
+        "english": "several",
+        "pos_en": "Adjective",
+        "example_english": "Several people say hello.",
+        "id": "vocab_a1_0824"
+      },
+      "after": {
+        "korean": "여러",
+        "romanization": "yeoreo",
+        "german": "mehrere",
+        "level": "A1",
+        "pos_de": "Adjektiv",
+        "example_korean": "여러 명이 함께 노래해요.",
+        "example_german": "Mehrere Leute singen zusammen.",
+        "topic": "Freizeit",
+        "pack_id": "a1_determiners_1",
+        "pack_order": "3",
+        "is_review_boss": "false",
+        "english": "several",
+        "pos_en": "Adjective",
+        "example_english": "Several people sing together.",
+        "id": "vocab_a1_0824"
+      },
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "b40c8958504af506ecfcea055ef2d0fb98505c383f4bd13de190bf0119578dba",
+      "afterSha256": "92a2575cb23324d8ab8a1b593a42bf0e5c4f995f38a0a6baa308a70a5a441010",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "predecessorSuccessorSha256": "49d53c71c45cf4c3c7a7b248fc1356d2ddd4537c1481697d32de633e2200c015",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_30_a1_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0738",
+      "before": {
+        "id": "cloze_a1_0738",
+        "sourceVocabId": "vocab_a1_0804",
+        "fullKo": "화장실이 어디예요?",
+        "sentenceKo": "화장실이 ＿＿＿?",
+        "answer": "어디예요",
+        "distractors": [
+          "내예요",
+          "제예요",
+          "언제예요"
+        ],
+        "level": "a1",
+        "topic": "Alltag",
+        "de": "Wo ist jetzt die Toilette?",
+        "en": "Where is the bathroom right now?",
+        "courseUnitId": "a1_08_clarify_repair"
+      },
+      "after": {
+        "id": "cloze_a1_0738",
+        "sourceVocabId": "vocab_a1_0804",
+        "fullKo": "화장실이 어디예요?",
+        "sentenceKo": "화장실이 ＿＿＿?",
+        "answer": "어디예요",
+        "distractors": [
+          "내예요",
+          "제예요",
+          "언제예요"
+        ],
+        "level": "a1",
+        "topic": "Alltag",
+        "de": "Wo ist die Toilette?",
+        "en": "Where's the bathroom?",
+        "courseUnitId": "a1_08_clarify_repair"
+      },
+      "fields": [
+        "de",
+        "en"
+      ],
+      "beforeSha256": "693ee1cc7e0d762232b4ee21d8676d7ebf2a8307237cf86757ed14874201783a",
+      "afterSha256": "a1e3b5819627105da0017d1973e849a8b0c7079270f6e52965be15aea426bd3d",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "c1cd1a75af043fe867049c7c8ecfe13d80df0521875232b786b14102158d1c68",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_30_a1_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0758",
+      "before": {
+        "id": "cloze_a1_0758",
+        "sourceVocabId": "vocab_a1_0824",
+        "fullKo": "여러 명이 인사해요.",
+        "sentenceKo": "＿＿＿이 인사해요.",
+        "answer": "여러 명",
+        "distractors": [
+          "공책",
+          "연필",
+          "책상"
+        ],
+        "level": "a1",
+        "topic": "Freizeit",
+        "de": "Mehrere Personen sagen Hallo.",
+        "en": "Several people say hello.",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      "after": {
+        "id": "cloze_a1_0758",
+        "sourceVocabId": "vocab_a1_0824",
+        "fullKo": "여러 명이 함께 노래해요.",
+        "sentenceKo": "＿＿＿이 함께 노래해요.",
+        "answer": "여러 명",
+        "distractors": [
+          "여러 병",
+          "여러 권",
+          "여러 장"
+        ],
+        "level": "a1",
+        "topic": "Freizeit",
+        "de": "Mehrere Leute singen zusammen.",
+        "en": "Several people sing together.",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      "fields": [
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "9e5157d92fc94f8698d8c5d036d2716d37a778511724f27665390ca40074af24",
+      "afterSha256": "28f3ae15b730e51dd3d243c90bd929009a528231a25dd9ec6b9940fbcbf9d640",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "210bd58c4461fb1a4c91631cf5bde8db97ad484cf4659dbb8609f88559a49308",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_30_a1_reinforcement_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0739",
+      "before": {
+        "id": "satz_a1_0739",
+        "sourceVocabId": "vocab_a1_0824",
+        "vocabKo": "여러",
+        "targetKo": "여러 명이 인사해요.",
+        "distractors": [
+          "가다 나라",
+          "먹다 나라"
+        ],
+        "level": "a1",
+        "promptDe": "Mehrere Personen sagen Hallo.",
+        "promptEn": "Several people say hello.",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      "after": {
+        "id": "satz_a1_0739",
+        "sourceVocabId": "vocab_a1_0824",
+        "vocabKo": "여러",
+        "targetKo": "여러 명이 함께 노래해요.",
+        "distractors": [
+          "혼자",
+          "기다려요"
+        ],
+        "level": "a1",
+        "promptDe": "Mehrere Leute singen zusammen.",
+        "promptEn": "Several people sing together.",
+        "courseUnitId": "a1_05_numbers_time"
+      },
+      "fields": [
+        "distractors",
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "ca6d859d3577a92a81983b608af771d49101c5f3ed0956072a3c5c614510b671",
+      "afterSha256": "c8cedfa67fe91d1984701d71fde9063fe075bc03463cbb4bf5de6e96c437a716",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "e663c317d0eb4f62bb48826961190bc89e8cc3e706a06d8d0ff65b91133c04f3",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_28_a1_reinforcement_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0704",
+      "before": {
+        "korean": "달",
+        "romanization": "dal",
+        "german": "Monat",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "제 생일은 이 달이에요.",
+        "example_german": "Mein Geburtstag ist diesen Monat.",
+        "topic": "Zeit",
+        "pack_id": "a1_time_family_1",
+        "pack_order": "2",
+        "is_review_boss": "false",
+        "english": "month",
+        "pos_en": "Noun",
+        "example_english": "My birthday is this month.",
+        "id": "vocab_a1_0704"
+      },
+      "after": {
+        "korean": "달",
+        "romanization": "dal",
+        "german": "Monat",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "일 년은 열두 달이에요.",
+        "example_german": "Ein Jahr hat zwölf Monate.",
+        "topic": "Zeit",
+        "pack_id": "a1_time_family_1",
+        "pack_order": "2",
+        "is_review_boss": "false",
+        "english": "month",
+        "pos_en": "Noun",
+        "example_english": "A year has twelve months.",
+        "id": "vocab_a1_0704"
+      },
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "f23fbbd436cadb5346da0b7d4df3bb8cd7092be7b25ea0589ba0e338969c38bd",
+      "afterSha256": "66e753965be78e2810ab0158cae9d037ecc4cc99883d180478231a17da8f0ed7",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "predecessorSuccessorSha256": "e9a1f54feac0a9ad98d4056b29be2749b930a6befed9a0a37543dfd906404e5a",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_28_a1_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0605",
+      "before": {
+        "id": "cloze_a1_0605",
+        "level": "a1",
+        "sentenceKo": "저분은 ＿＿＿.",
+        "answer": "영화배우예요",
+        "fullKo": "저분은 영화배우예요.",
+        "de": "Diese Person spielt in Filmen.",
+        "en": "That person is a film actor.",
+        "distractors": [
+          "연극이에요",
+          "콘서트예요",
+          "방학이에요"
+        ],
+        "topic": "Person",
+        "sourceVocabId": "vocab_a1_0671",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      "after": {
+        "id": "cloze_a1_0605",
+        "level": "a1",
+        "sentenceKo": "저분은 ＿＿＿.",
+        "answer": "영화배우예요",
+        "fullKo": "저분은 영화배우예요.",
+        "de": "Diese Person spielt in Filmen.",
+        "en": "That person is a film actor.",
+        "distractors": [
+          "간호사예요",
+          "요리사예요",
+          "운전기사예요"
+        ],
+        "topic": "Person",
+        "sourceVocabId": "vocab_a1_0671",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      "fields": [
+        "distractors"
+      ],
+      "beforeSha256": "9d098b494ce8a5dc4fbf708b6fb4010f98c8dcaa8d413c2e8ccb3914070694eb",
+      "afterSha256": "4c9f055548394ff6fc723bef041f31840e4f56c870a093b0b4c56fb4e925e904",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "656fd489e375c62705243f20cc18b5e34f685f645640a13d74cbc71d677be1c8",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_28_a1_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0638",
+      "before": {
+        "id": "cloze_a1_0638",
+        "level": "a1",
+        "sentenceKo": "제 생일은 이 ＿＿＿.",
+        "answer": "달이에요",
+        "fullKo": "제 생일은 이 달이에요.",
+        "de": "Mein Geburtstag ist diesen Monat.",
+        "en": "My birthday is this month.",
+        "distractors": [
+          "연필이에요",
+          "지갑이에요",
+          "교실이에요"
+        ],
+        "topic": "Zeit",
+        "sourceVocabId": "vocab_a1_0704",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      "after": {
+        "id": "cloze_a1_0638",
+        "level": "a1",
+        "sentenceKo": "일 년은 열두 ＿＿＿이에요.",
+        "answer": "달",
+        "fullKo": "일 년은 열두 달이에요.",
+        "de": "Ein Jahr hat zwölf Monate.",
+        "en": "A year has twelve months.",
+        "distractors": [
+          "시간",
+          "분",
+          "날"
+        ],
+        "topic": "Zeit",
+        "sourceVocabId": "vocab_a1_0704",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      "fields": [
+        "answer",
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "b55e9ed90bc2427cc809dbc6e6a3962cdedb98fab174ad2481aea04ea8b75230",
+      "afterSha256": "5fb0f36b20e4c6302b90cde0a6802433c8994f41dbca092cefcef0e1b23e4a45",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "5d184a16c57590b12a1f21012a974fbe475cc9a1943b7909e5702fead78964e0",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_28_a1_reinforcement_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0619",
+      "before": {
+        "id": "satz_a1_0619",
+        "level": "a1",
+        "targetKo": "제 생일은 이 달이에요.",
+        "promptDe": "Mein Geburtstag ist diesen Monat.",
+        "promptEn": "My birthday is this month.",
+        "distractors": [
+          "곳",
+          "종업원"
+        ],
+        "vocabKo": "달",
+        "sourceVocabId": "vocab_a1_0704",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      "after": {
+        "id": "satz_a1_0619",
+        "level": "a1",
+        "targetKo": "일 년은 열두 달이에요.",
+        "promptDe": "Ein Jahr hat zwölf Monate.",
+        "promptEn": "A year has twelve months.",
+        "distractors": [
+          "곳",
+          "종업원"
+        ],
+        "vocabKo": "달",
+        "sourceVocabId": "vocab_a1_0704",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "024701a7799305798ff15e58ceac0493796e1b5712698ff9c8269e57c8cc9cc6",
+      "afterSha256": "d701375fea9d8c6cee4f0b9410c3997ba2caec36fbc7d34a10bbeabf6faeadba",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "cdb085452d77cc097118c939eb2395a9face2ec0e33aee39499466d0af71788c",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_26_a1_reinforcement_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0554",
+      "before": {
+        "korean": "야구",
+        "romanization": "yagu",
+        "german": "Baseball",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "주말에 같이 야구 보러 갈까요?",
+        "example_german": "Wollen wir am Wochenende zusammen zu einem Baseballspiel gehen?",
+        "topic": "Freizeit",
+        "pack_id": "a1_hobbies_1",
+        "pack_order": "2",
+        "is_review_boss": "false",
+        "english": "baseball",
+        "pos_en": "Noun",
+        "example_english": "Shall we go to a baseball game together this weekend?",
+        "id": "vocab_a1_0554"
+      },
+      "after": {
+        "korean": "야구",
+        "romanization": "yagu",
+        "german": "Baseball",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "주말에 야구 보러 갈까요?",
+        "example_german": "Gehen wir am Wochenende zum Baseball?",
+        "topic": "Freizeit",
+        "pack_id": "a1_hobbies_1",
+        "pack_order": "2",
+        "is_review_boss": "false",
+        "english": "baseball",
+        "pos_en": "Noun",
+        "example_english": "Want to go watch baseball this weekend?",
+        "id": "vocab_a1_0554"
+      },
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "05be8e5c27a2f995d6ead11b3cfe669914f4ee8e3d034c242d53b86b00920f48",
+      "afterSha256": "a9d87f25d508256c796bc18982b197c2807c72c54f3998499769e1871a50b50a",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "predecessorSuccessorSha256": "a4b556ba76592baf8166d44299650958987539fc912283d417bb205cbbcd69ff",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_26_a1_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0488",
+      "before": {
+        "id": "cloze_a1_0488",
+        "level": "a1",
+        "sentenceKo": "주말에 같이 ＿＿＿ 보러 갈까요?",
+        "answer": "야구",
+        "fullKo": "주말에 같이 야구 보러 갈까요?",
+        "de": "Wollen wir am Wochenende zusammen zu einem Baseballspiel gehen?",
+        "en": "Shall we go to a baseball game together this weekend?",
+        "distractors": [
+          "값",
+          "필요",
+          "다니다"
+        ],
+        "topic": "Freizeit",
+        "sourceVocabId": "vocab_a1_0554",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      "after": {
+        "id": "cloze_a1_0488",
+        "level": "a1",
+        "sentenceKo": "주말에 ＿＿＿ 보러 갈까요?",
+        "answer": "야구",
+        "fullKo": "주말에 야구 보러 갈까요?",
+        "de": "Gehen wir am Wochenende zum Baseball?",
+        "en": "Want to go watch baseball this weekend?",
+        "distractors": [
+          "값",
+          "필요",
+          "다니다"
+        ],
+        "topic": "Freizeit",
+        "sourceVocabId": "vocab_a1_0554",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      "fields": [
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "eb9d8a76e3041530572d86b06c7c3effcdbb036602c1126023bbada59b3169af",
+      "afterSha256": "61d535cce47480ee53b01b385bb5a051923fd3a63826318c68f1c0feb61a84ec",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "0959fe6d9f77a2e2d6a75c650a3f1c770ff2eb3d84c8022cf7eb2d5151e7bb9a",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_27_a1_reinforcement_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0603",
+      "before": {
+        "korean": "여권",
+        "romanization": "yeogwon",
+        "german": "Reisepass",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "여권을 볼 수 있어요?",
+        "example_german": "Darf ich Ihren Reisepass sehen?",
+        "topic": "Alltag",
+        "pack_id": "a1_belongings_1",
+        "pack_order": "12",
+        "is_review_boss": "true",
+        "english": "passport",
+        "pos_en": "Noun",
+        "example_english": "May I see your passport?",
+        "id": "vocab_a1_0603"
+      },
+      "after": {
+        "korean": "여권",
+        "romanization": "yeogwon",
+        "german": "Reisepass",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "여권은 여기 있어요.",
+        "example_german": "Hier ist der Reisepass.",
+        "topic": "Alltag",
+        "pack_id": "a1_belongings_1",
+        "pack_order": "12",
+        "is_review_boss": "true",
+        "english": "passport",
+        "pos_en": "Noun",
+        "example_english": "Here's the passport.",
+        "id": "vocab_a1_0603"
+      },
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "05b4545f3eaccc4d028b5d389149fa709f15b77831e5748fef94183f8e8b40b2",
+      "afterSha256": "77cfe3447295b6973d03b160c041a869ec53165ac0119378154763ca638fd24b",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "predecessorSuccessorSha256": "0be0f9ec435aadfff8bd3b830fef64d526e3ea673ff011c6d704f6a5fe42ba8b",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_27_a1_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0537",
+      "before": {
+        "id": "cloze_a1_0537",
+        "level": "a1",
+        "sentenceKo": "＿＿＿을 볼 수 있어요?",
+        "answer": "여권",
+        "fullKo": "여권을 볼 수 있어요?",
+        "de": "Darf ich Ihren Reisepass sehen?",
+        "en": "May I see your passport?",
+        "distractors": [
+          "일주일",
+          "꽃",
+          "참"
+        ],
+        "topic": "Alltag",
+        "sourceVocabId": "vocab_a1_0603",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      "after": {
+        "id": "cloze_a1_0537",
+        "level": "a1",
+        "sentenceKo": "＿＿＿은 여기 있어요.",
+        "answer": "여권",
+        "fullKo": "여권은 여기 있어요.",
+        "de": "Hier ist der Reisepass.",
+        "en": "Here's the passport.",
+        "distractors": [
+          "일주일",
+          "꽃",
+          "참"
+        ],
+        "topic": "Alltag",
+        "sourceVocabId": "vocab_a1_0603",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      "fields": [
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "2efe927e07866081df9fe7cb6d7b5d873a6fa1ac31bc475a2f55b9f3129cfbcf",
+      "afterSha256": "34e3525a4a56b66d062206f6bd691a182f5d240fdd1b7ce0fbead67ae92cbc17",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "0d12e19d7456f4bf6ee65309b30dbed3e1add88c441202740567952a6bafcac1",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_27_a1_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0578",
+      "before": {
+        "id": "cloze_a1_0578",
+        "level": "a1",
+        "sentenceKo": "저는 정말 ＿＿＿해요.",
+        "answer": "감사",
+        "fullKo": "저는 정말 감사해요.",
+        "de": "Ich bin wirklich dankbar.",
+        "en": "I'm really grateful.",
+        "distractors": [
+          "고양이",
+          "꽃",
+          "끝나다"
+        ],
+        "topic": "Höflichkeit",
+        "sourceVocabId": "vocab_a1_0644",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      "after": {
+        "id": "cloze_a1_0578",
+        "level": "a1",
+        "sentenceKo": "정말 ＿＿＿해요.",
+        "answer": "감사",
+        "fullKo": "정말 감사해요.",
+        "de": "Vielen Dank.",
+        "en": "Thank you very much.",
+        "distractors": [
+          "고양이",
+          "꽃",
+          "끝나다"
+        ],
+        "topic": "Höflichkeit",
+        "sourceVocabId": "vocab_a1_0644",
+        "courseUnitId": "a1_11_titles_relationships"
+      },
+      "fields": [
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "7d431fec7f9088be4e9f661aeab240d66b76ba34272886ec81f53ef21c74bcb2",
+      "afterSha256": "e6dcf4d6f3700c1a19d73e9c435e6434d44e2825b43cd7b052ad1522d3afa323",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": "cf1eebe7d6038c01e2182ecdcbd532ce7c96da476c1a514c0f449afebaae14cb",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_27_a1_reinforcement_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0518",
+      "before": {
+        "id": "satz_a1_0518",
+        "level": "a1",
+        "targetKo": "여권을 볼 수 있어요?",
+        "promptDe": "Darf ich Ihren Reisepass sehen?",
+        "promptEn": "May I see your passport?",
+        "distractors": [
+          "하루",
+          "후"
+        ],
+        "vocabKo": "여권",
+        "sourceVocabId": "vocab_a1_0603",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      "after": {
+        "id": "satz_a1_0518",
+        "level": "a1",
+        "targetKo": "여권은 여기 있어요.",
+        "promptDe": "Hier ist der Reisepass.",
+        "promptEn": "Here's the passport.",
+        "distractors": [
+          "하루",
+          "후"
+        ],
+        "vocabKo": "여권",
+        "sourceVocabId": "vocab_a1_0603",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "1d57b4b626d00134d46cd6d6fc2d7226278e116d467c25526096bad7783e5fa7",
+      "afterSha256": "6dbc119bff245b2b3dab687bfd8915fab2610f8e1bceb012eee9eccf3b52a74b",
+      "sourceGitCommit": "6f45199ca1008d6e25ae88e79714c8116baf795e",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "predecessorSuccessorSha256": "d4c06b41d00f91ee172ddb69f4211628aee14b15ab8c9498dfb6d46d68da83ae",
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained"
+    }
+  ]
+}

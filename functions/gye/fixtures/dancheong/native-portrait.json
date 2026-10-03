@@ -1,0 +1,22 @@
+{
+  "manifest": {
+    "version": 1,
+    "template": "flower",
+    "templateVersion": 1,
+    "assetVersion": 1,
+    "format": "portrait",
+    "width": 1080,
+    "height": 1350,
+    "motifSlugs": [
+      "lotus"
+    ],
+    "koreanText": "안녕, Jürgen",
+    "translation": "My first Korean artwork",
+    "translationLocale": null,
+    "signature": "Jürgen",
+    "border": "brocadeFlow"
+  },
+  "artworkRevision": 1,
+  "imageSha256": "28201368a20faf71b557a192bd7f5f67b2b197a0ee98df281ee6ac397757d8e8",
+  "source": "Flutter DancheongRenderer, border evidence test"
+}

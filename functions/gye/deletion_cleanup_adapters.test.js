@@ -403,9 +403,10 @@ function processorWorkerFor(h) {
 
 for (const oldCheckpoint of [false, true]) {
 test(`processor cleanup deletes UID private TTS and hashed billable receipts only (old checkpoint: ${oldCheckpoint})`, async () => {
-  const objects = new Set(["tts_private/source/v3/female/a.mp3", "tts_private/other/v3/female/a.mp3"]);
+  const objects = new Set(["tts_private/source/v3/female/a.mp3", "tts_private/other/v3/female/a.mp3",
+    "dancheong_public/source/share/art.png", "dancheong_public/other/share/art.png"]);
   const storageBucket = { getFiles: async ({ prefix, maxResults, autoPaginate }) => {
-    assert.equal(prefix, "tts_private/source/");
+    assert.ok(["tts_private/source/", "dancheong_public/source/"].includes(prefix));
     assert.equal(maxResults, 2);
     assert.equal(autoPaginate, false);
     return [[...objects].filter((name) => name.startsWith(prefix)).map((name) => ({
@@ -425,7 +426,7 @@ test(`processor cleanup deletes UID private TTS and hashed billable receipts onl
   h.firestore.seed("service_idempotency/other", { ownerSubjectHash: "different-owner", kind: "book_analysis_v1" });
   h.firestore.seed("service_idempotency_results/book", { ownerSubjectHash: ownerHash, result: { sentences: [] } });
   h.firestore.seed("service_idempotency_results/other", { ownerSubjectHash: "different-owner", result: { sentences: [] } });
-  for (const collection of ["premium_grants", "customer_entitlements", "access_rate_limits", "billing_event_receipts", "billing_customers"]) {
+  for (const collection of ["premium_grants", "customer_entitlements", "access_rate_limits", "billing_event_receipts", "billing_customers", "dancheong_public_index"]) {
     h.firestore.seed(`${collection}/source`, { ownerSubjectHash: ownerHash, ownerUid: "source" });
     h.firestore.seed(`${collection}/other`, { ownerSubjectHash: "different-owner", ownerUid: "other" });
   }
@@ -442,8 +443,8 @@ test(`processor cleanup deletes UID private TTS and hashed billable receipts onl
         "the worker may checkpoint completed only after private objects are gone");
     }
   } while (!result.done);
-  assert.equal(h.firestore.value("account_deletions/source").processorCleanupState.schemaVersion, 2);
-  assert.deepEqual([...objects], ["tts_private/other/v3/female/a.mp3"]);
+  assert.equal(h.firestore.value("account_deletions/source").processorCleanupState.schemaVersion, 3);
+  assert.deepEqual([...objects], ["tts_private/other/v3/female/a.mp3", "dancheong_public/other/share/art.png"]);
   assert.equal(h.firestore.value("service_idempotency/book"), undefined);
   assert.equal(h.firestore.value("service_idempotency/pronunciation"), undefined);
   assert.ok(h.firestore.value("service_idempotency/other"));

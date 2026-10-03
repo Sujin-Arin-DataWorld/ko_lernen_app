@@ -15,6 +15,13 @@ const assert = require("node:assert/strict");
 const deployed = require("./index");
 const { getFirestore } = require("firebase-admin/firestore");
 
+test("Dancheong late-object cleanup targets only the canonical bucket with bounded retries", () => {
+  const endpoint = deployed.cleanupLateDancheongImage.__endpoint;
+  assert.equal(endpoint.maxInstances, 1);
+  assert.equal(endpoint.eventTrigger.retry, true);
+  assert.equal(endpoint.eventTrigger.eventFilters.bucket, 'ko-lernen-app.firebasestorage.app');
+});
+
 test("deleteCloudBackup preserves its deployed resource limits and secret", () => {
   const endpoint = deployed.deleteCloudBackup.__endpoint;
   assert.equal(endpoint.maxInstances, 20);

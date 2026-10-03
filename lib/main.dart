@@ -25,6 +25,8 @@ import 'features/guide/guide_runtime.dart';
 import 'features/onboarding_v2/first_run_coordinator.dart';
 import 'features/onboarding_v2/onboarding_rollout_service.dart';
 import 'motion/transitions.dart';
+import 'features/dancheong/dancheong_screens.dart';
+import 'features/dancheong/dancheong_visitor_entry.dart';
 import 'services/analytics_service.dart';
 import 'services/app_version_service.dart';
 import 'services/data_migration_service.dart';
@@ -797,7 +799,9 @@ class _KoLernenAppState extends State<KoLernenApp> {
               settings: settings,
             );
           }
-          switch (settings.name) {
+          switch (name.startsWith('/dancheong-entry?')
+              ? '/dancheong-entry'
+              : settings.name) {
             case '/splash':
               return SoriTransitions.page(
                 (_) => SplashScreen(
@@ -1293,6 +1297,54 @@ class _KoLernenAppState extends State<KoLernenApp> {
             case '/dojangcheop':
               return SoriTransitions.page(
                 (_) => const DojangcheopScreen(),
+                settings: settings,
+              );
+            case '/dancheong-studio':
+              return SoriTransitions.page(
+                (_) => DancheongStudioScreen(
+                  arguments: settings.arguments is DancheongStudioArgs
+                      ? settings.arguments! as DancheongStudioArgs
+                      : const DancheongStudioArgs(),
+                ),
+                settings: settings,
+              );
+            case '/dancheong-entry':
+              final uri = settings.arguments is Uri
+                  ? settings.arguments! as Uri
+                  : Uri.tryParse(name);
+              return SoriTransitions.page(
+                (_) => DancheongVisitorGate(
+                  entry: uri == null ? null : DancheongVisitorEntry.parse(uri),
+                  coordinator: widget.firstRunCoordinator,
+                ),
+                settings: settings,
+              );
+            case '/dancheong-studio/edit':
+              return SoriTransitions.page(
+                (_) => DancheongEditorScreen(
+                  arguments: settings.arguments is DancheongEditorArgs
+                      ? settings.arguments! as DancheongEditorArgs
+                      : const DancheongEditorArgs(),
+                ),
+                settings: settings,
+              );
+            case '/dancheong-artwork':
+            case '/dancheong-share':
+              final artworkArguments = settings.arguments;
+              if (artworkArguments is! DancheongArtworkArgs) {
+                return SoriTransitions.page(
+                  (_) => const DancheongStudioScreen(
+                    arguments: DancheongStudioArgs(
+                      tab: DancheongStudioTab.artwork,
+                    ),
+                  ),
+                  settings: settings,
+                );
+              }
+              return SoriTransitions.page(
+                (_) => settings.name == '/dancheong-share'
+                    ? DancheongShareScreen(arguments: artworkArguments)
+                    : DancheongArtworkScreen(arguments: artworkArguments),
                 settings: settings,
               );
             case '/hanok/construction':

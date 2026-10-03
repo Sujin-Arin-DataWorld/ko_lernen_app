@@ -20,7 +20,47 @@ def context_hash(passages):
         sort_keys=True, separators=(',', ':')).encode()).hexdigest()
 
 
-def validate_source_revalidation(row):
+def _review_digest(row):
+    return hashlib.sha256(json.dumps(row, ensure_ascii=False, sort_keys=True,
+        separators=(',', ':')).encode()).hexdigest()
+
+
+def _reviewed_archive(ledger):
+    """Historical records keep their bytes and never establish current coverage."""
+    invalidated = ledger.get('invalidatedReviews', [])
+    if not isinstance(invalidated, list):
+        raise ValueError('Invalidated review archive must be a list')
+    for archived in invalidated:
+        if not isinstance(archived, dict) or not isinstance(archived.get('review'), dict):
+            raise ValueError('Invalidated review must preserve its original record')
+        original = archived['review']
+        fields = ('phaseId', 'grammarKey', 'sourcePath', 'recordId', 'jsonPointer',
+                  'sourceLevel', 'quote', 'contextSha256', 'decision', 'reviewer',
+                  'status', 'mode', 'rationaleKo')
+        if (any(not isinstance(original.get(key), str) or not original[key].strip()
+                for key in fields)
+                or not re.fullmatch(r'[0-9a-f]{64}', original['contextSha256'])
+                or original['decision'] not in ('accepted', 'rejected')
+                or original['sourceLevel'] not in ('A1', 'A2', 'B1', 'B2', 'C1', 'C2')
+                or original['mode'] != 'R' or original['reviewer'] != 'Astra'
+                or original['status'] != 'MODEL_QA_PASS'):
+            raise ValueError('Invalidated review must preserve its original record')
+        if archived.get('reviewSha256') != _review_digest(original):
+            raise ValueError('Invalidated review history changed')
+        if (archived.get('reviewStatus') != 'UNVERIFIED_REVIEW_REQUIRED'
+                or archived.get('humanApprovalClaim') is not False
+                or archived.get('reason') not in ('quote_absent',
+                    'adjacent_context_changed', 'source_passage_changed')):
+            raise ValueError('Invalidated review cannot make an active coverage claim')
+    return invalidated
+
+
+def _review_identity(row):
+    return tuple(row.get(key) for key in
+                 ('phaseId', 'grammarKey', 'sourcePath', 'recordId', 'jsonPointer'))
+
+
+def validate_source_revalidation(row, invalidated):
     """Keep the first review's attribution distinct from a current source check."""
     original = row.get('originalReview')
     current = row.get('sourceRevalidation')
@@ -41,9 +81,14 @@ def validate_source_revalidation(row):
             or any(not isinstance(check, str) for check in current['checks'])
             or set(current['checks']) != {'exact-quote', 'adjacent-context', 'grammar-function'}
             or current.get('previousContextSha256') != original['contextSha256']
+            or current.get('originalReviewSha256') != _review_digest(original)
             or current.get('contextSha256') != row['contextSha256']
             or current.get('quote') != row['quote']):
         raise ValueError('Invalid source revalidation provenance')
+    historical = [entry for entry in invalidated
+                  if _review_identity(entry['review']) == _review_identity(original)]
+    if historical and not any(entry['review'] == original for entry in historical):
+        raise ValueError('Invalid source revalidation archive binding')
 
 
 def reviewed_phase_passages(root):
@@ -95,9 +140,10 @@ def audit(root=ROOT):
     ledger = json.loads((root / LEDGER).read_text(encoding='utf-8'))
     if ledger['schemaVersion'] != 1:
         raise ValueError('Unknown context review schema')
+    invalidated = _reviewed_archive(ledger)
     seen, reviews = set(), []
     for row in ledger['reviews']:
-        validate_source_revalidation(row)
+        validate_source_revalidation(row, invalidated)
         identity = (row['phaseId'], row['grammarKey'], row['sourcePath'], row['jsonPointer'])
         if identity in seen:
             raise ValueError('Duplicate context review')
@@ -149,8 +195,11 @@ def audit(root=ROOT):
             or row.get('reason') != 'reviewed_source_changed'
             for row in withdrawn):
         raise ValueError('Invalid withdrawn source review provenance')
+    if any(not any(row['originalReview'] == archive['review'] for archive in invalidated)
+           for row in withdrawn):
+        raise ValueError('Withdrawn review must preserve its archived original')
     return dict(schemaVersion=1, reviews=reviews, requirements=rows,
-                withdrawnReviews=withdrawn)
+                invalidatedReviews=invalidated, withdrawnReviews=withdrawn)
 
 
 def report(result):
@@ -161,6 +210,7 @@ def report(result):
         '## 레벨별 원문 근거와 남은 평가 범위', '',
         '| 레벨 | Phase 문법 요구 | 원문 근거 확인 | 기존 원문 근거가 있는 요구 | 신규 원문으로 확인한 요구 | 산출 전체 의미 |',
         '|---|---:|---:|---:|---:|---|']
+    lines.insert(6, f"원문 변경으로 효력이 끝난 검토 {len(result.get('invalidatedReviews', []))}건은 원본과 해시를 이력에 보존했다. 이 과거 검토는 현재 용례·산출 증거에 포함하지 않는다. 현재 원문의 별도 재대조 기록만 아래 근거에 반영한다.")
     for level in ('A1', 'A2', 'B1', 'B2', 'C1', 'C2'):
         rows = [r for r in result['requirements'] if r['level'] == level]
         lines.append(f"| {level} | {len(rows)} | {sum(r['contextStatus']=='reviewed_receptive_use' for r in rows)} | {sum(r['legacyAnchors']>0 for r in rows)} | {sum(r['authoredPhaseAnchors']>0 for r in rows)} | 미검증 |")

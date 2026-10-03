@@ -5,9 +5,9 @@
     "assets/data/scenarios_a1.json": "b14586943cdb23a92257c491466b16d452a308ca1f8e2e1db71a0b01eec649c6",
     "assets/data/scenarios_a2.json": "ce768125e321d23c38349636c80a401ed262937f777ae5fc84a4f6873f67dafb",
     "assets/data/scenarios_b1.json": "982216e9733709e326b581ee879b3c912b7a4d55abd3ee92c49105570fb44aa2",
-    "assets/data/scenarios_b2.json": "bb8abca2aaaaa9dce88c189591d0ee93a73624924513f72ead4fca27e96c690f",
-    "assets/data/scenarios_c1.json": "c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e",
-    "assets/data/scenarios_c2.json": "c6bca73c42c15e67404f58b3e859e5431d172173053f2755343d26d9894544f3",
+    "assets/data/scenarios_b2.json": "5dee1a9cd7def849bd1ce84dfdc3d8259d053f5c923d238b0f34209a7e7b6de5",
+    "assets/data/scenarios_c1.json": "ba999b997713e55f70097f96028d32807cddf9a427e318c87e2a37378291384e",
+    "assets/data/scenarios_c2.json": "f7f2c879a2663922059c2b49211465b40c1b21a43afa6a72685d73b6187df147",
     "docs/data/scene_category_poster_lock.json": "1036664f6008281cfcd8f969cad46953c0ed291e5047b1ad48a02555ec1432db",
     "lib/services/scene_asset_resolver.dart": "7f5a940853c25aaf4fbb81e8ccb7c1fcd951ea1570559c658b61d9e77aa185be"
   },
