@@ -237,6 +237,13 @@ SURFACES: tuple[ContentSurface, ...] = (
         "turn intent, relationship, safe alternatives, and follow-ups",
     ),
     ContentSurface(
+        "smalltalk_context_cases.json",
+        "relationship-context practice",
+        "SmalltalkContextCatalog / SmalltalkContextScreen",
+        ("cases",),
+        "KO/DE/EN contexts, intentions, expressions, effects, partner replies and follow-up assembly",
+    ),
+    ContentSurface(
         "smalltalk_lessons.json",
         "small-talk topic lessons and practice",
         "ContentLearningCatalog / ContentLessonScreen",

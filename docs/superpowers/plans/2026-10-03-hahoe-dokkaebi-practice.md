@@ -53,6 +53,8 @@ The completion branch starts at `34f1b0ca51de4f9b69db7d499b74fc17844dd878`. The 
 
 The full Flutter run before the viewed-only correction completed with 9,347 successes, five content assertion failures and one unrelated construction-image timeout. The current remote main also has a failing CI run `37057384805`: content_factory reports 16 failures and 7 errors, and Flutter content guards fail. Existing reviewed-copy ledgers, first-dialog bundle and corpus mirrors need reconciliation. These failures are not represented as a green full suite. The final scoped 26-test run covers the viewed-only correction.
 
+PR #445 CI also caught an omitted classification for the new context JSON. Registering it as learner-facing relationship-context practice fixes that regression; all eight content text audit tests pass. The construction-image test passes in isolation. Existing content failures still require separate reconciliation.
+
 The user now authorizes commit, push, main merge and safe worktree cleanup. PR/head and merged-main checks remain live integration gates. Cleanup must wait for verified merged-main checks and preservation of unique ignored evidence.
 
 Backend release remains separate: deploy the updated backup-deletion field contract together with any release that writes `hanok_practice_json`. The checked-in TTS server allowlist is updated; no function/rules deployment or production multi-device restore is claimed. Physical Android/TalkBack remains deferred. Additional games, reward policy and character motion remain in the approved waiting list.
