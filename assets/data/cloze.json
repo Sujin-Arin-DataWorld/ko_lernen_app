@@ -13765,11 +13765,11 @@
     {
       "id": "cloze_b2_0263",
       "level": "b2",
-      "sentenceKo": "사람이 많을 때는 ＿＿＿는 게 실수가 적었어요.",
+      "sentenceKo": "모임 장소가 너무 시끄러워서 ＿＿＿기로 했어요.",
       "answer": "소개를 미루",
-      "fullKo": "사람이 많을 때는 소개를 미루는 게 실수가 적었어요.",
-      "de": "Bei größeren Gruppen passieren weniger Fehler, wenn man die Vorstellung auf später verschiebt.",
-      "en": "When a group is large, waiting to make introductions helps avoid mix-ups.",
+      "fullKo": "모임 장소가 너무 시끄러워서 소개를 미루기로 했어요.",
+      "de": "Beim Treffen war es zu laut, deshalb beschlossen wir, die Vorstellungsrunde zu verschieben.",
+      "en": "It was too noisy at the gathering, so we decided to postpone the introductions.",
       "distractors": [
         "호칭을 미루",
         "관계를 지키",

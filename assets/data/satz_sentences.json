@@ -10016,9 +10016,9 @@
     {
       "id": "satz_b2_0249",
       "level": "b2",
-      "targetKo": "사람이 많을 때는 소개를 미루는 게 실수가 적었어요.",
-      "promptDe": "Bei größeren Gruppen passieren weniger Fehler, wenn man die Vorstellung auf später verschiebt.",
-      "promptEn": "When a group is large, waiting to make introductions helps avoid mix-ups.",
+      "targetKo": "모임 장소가 너무 시끄러워서 소개를 미루기로 했어요.",
+      "promptDe": "Beim Treffen war es zu laut, deshalb beschlossen wir, die Vorstellungsrunde zu verschieben.",
+      "promptEn": "It was too noisy at the gathering, so we decided to postpone the introductions.",
       "distractors": [
         "부모님",
         "부조"
