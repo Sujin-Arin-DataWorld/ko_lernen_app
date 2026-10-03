@@ -373,9 +373,9 @@ DancheongMotif motifForPackId(String packId) {
     'a1_adverbs' => DancheongMotif.munbangsau,
     // 소통: 휴대폰·메시지·답장·연락처 -- b1_phone_plan 과 같은 칠보.
     'a2_messenger_phone' => DancheongMotif.chilbo,
-    // Reviewed A1-C2 content packs using the existing motif pipeline.
+    // C2: address conventions and pragmatic interpretation.
     'c2_honorific_context' => DancheongMotif.moran,
-    // Reviewed A1-C2 content packs using the existing motif pipeline.
+    // C2: conditions, argument scope, and qualification.
     'c2_argument_scope' => DancheongMotif.taegeuk,
     _ => DancheongMotif.lotus,
   };

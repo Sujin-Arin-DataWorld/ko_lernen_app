@@ -168,6 +168,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "a2_booth_line", "a2_taxi_wait", "taxi_street", "a2_airport_sim",
         "a2_data_roam", "a2_front_desk", "a2_hotel_late",
         "a2_found_umbrella", "a2_lost_wallet", "lost_phone",
+        "a2_byeongcheol_walk_break",
     ),
     "a2_money": (
         "a2_auto_debit", "a2_bank_number", "a2_card_balance",
@@ -202,6 +203,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "a2_hours_six", "a2_rain_cancel", "friend_birthday",
         "plans_with_friend", "running_late", "a2_plan_weather_change",
         "a2_message_change_of_plan_2026",
+        "a2_minho_weekend_cooking_plan", "a2_jun_game_time_change",
     ),
     "a2_partner": (
         "a2_partner_banmal_slip", "a2_partner_group_chat_join",

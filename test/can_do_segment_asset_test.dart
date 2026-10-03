@@ -103,7 +103,15 @@ void main() {
             for (final reference in _rows(cluster['contentReferences']))
               if (reference['kind'] == 'scenario') reference['id']! as String,
         };
-        expect(runtimeScenarioIds, hasLength(183));
+        expect(runtimeScenarioIds, hasLength(186));
+        expect(
+          runtimeScenarioIds,
+          containsAll({
+            'a2_minho_weekend_cooking_plan',
+            'a2_byeongcheol_walk_break',
+            'a2_jun_game_time_change',
+          }),
+        );
         expect(directScenarioIds, clusterScenarioIds);
       } else {
         expect(directScenarioIds, runtimeScenarioIds);
@@ -169,10 +177,7 @@ void main() {
     // SMALLTALK_REVIEW_APPROVALS entry (reviewRevision 2) during the
     // canDo re-binding pass, so its semanticStatus is now "approved"
     // rather than the closest-match "bestAvailable" fallback.
-    expect(
-      decisionById['smalltalk_b1_0012']!['semanticStatus'],
-      'approved',
-    );
+    expect(decisionById['smalltalk_b1_0012']!['semanticStatus'], 'approved');
     for (final decision in decisions) {
       if (decision['semanticStatus'] == 'approved') {
         expect(decision['reasonCode'], 'topicAndFunctionMatch');

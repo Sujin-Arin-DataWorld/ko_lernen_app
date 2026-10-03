@@ -203,7 +203,11 @@ void main() {
           final results = <QuestResult>[];
           await tester.pumpWidget(
             _host(
-              DiktatQuest(data: data, onComplete: results.add, allowDontKnow: true),
+              DiktatQuest(
+                data: data,
+                onComplete: results.add,
+                allowDontKnow: true,
+              ),
             ),
           );
           await tester.pump();
@@ -257,38 +261,37 @@ void main() {
 
     for (final locale in const [Locale('de'), Locale('en')]) {
       final isDe = locale.languageCode == 'de';
-      testWidgets(
-        '완료 후 의미 보기를 열면 ${isDe ? 'DE' : 'EN'} 문장이 보인다',
-        (tester) async {
-          final results = <QuestResult>[];
-          await tester.pumpWidget(
-            _host(
-              DiktatQuest(
-                data: const {
-                  'targetKo': target,
-                  'audioKo': target,
-                  'promptDe': promptDe,
-                  'promptEn': promptEn,
-                },
-                onComplete: results.add,
-              ),
-              locale: locale,
+      testWidgets('완료 후 의미 보기를 열면 ${isDe ? 'DE' : 'EN'} 문장이 보인다', (
+        tester,
+      ) async {
+        final results = <QuestResult>[];
+        await tester.pumpWidget(
+          _host(
+            DiktatQuest(
+              data: const {
+                'targetKo': target,
+                'audioKo': target,
+                'promptDe': promptDe,
+                'promptEn': promptEn,
+              },
+              onComplete: results.add,
             ),
-          );
-          await tester.pump();
-          await completeWith(tester, target);
+            locale: locale,
+          ),
+        );
+        await tester.pump();
+        await completeWith(tester, target);
 
-          final expected = isDe ? promptDe : promptEn;
-          expect(find.byKey(meaningToggleKey), findsOneWidget);
-          expect(find.text(expected), findsNothing);
+        final expected = isDe ? promptDe : promptEn;
+        expect(find.byKey(meaningToggleKey), findsOneWidget);
+        expect(find.text(expected), findsNothing);
 
-          await tester.tap(find.byKey(meaningToggleKey));
-          await tester.pump();
+        await tester.tap(find.byKey(meaningToggleKey));
+        await tester.pump();
 
-          expect(find.text(expected), findsOneWidget);
-          expect(results, hasLength(1));
-        },
-      );
+        expect(find.text(expected), findsOneWidget);
+        expect(results, hasLength(1));
+      });
     }
 
     testWidgets('promptKo가 있으면 완료 후 한국어 줄이 diktatMeaningKo 라벨과 함께 보인다', (
@@ -345,6 +348,11 @@ void main() {
   });
 
   group('canonical 120 core — Diktat remains an engine, not a seed', () {
+    const personaScenarioIds = {
+      'a2_minho_weekend_cooking_plan',
+      'a2_byeongcheol_walk_break',
+      'a2_jun_game_time_change',
+    };
     const themeParkScenarioIds = {
       'a1_theme_park_date_choices',
       'a2_theme_park_date_break',
@@ -365,14 +373,19 @@ void main() {
       final list = (root['scenarios'] as List).cast<Map<String, dynamic>>();
       scenarios = list.map(Scenario.fromJson).toList();
       coreScenarios = scenarios
-          .where((scenario) => !themeParkScenarioIds.contains(scenario.id))
+          .where(
+            (scenario) =>
+                !themeParkScenarioIds.contains(scenario.id) &&
+                !personaScenarioIds.contains(scenario.id),
+          )
           .toList();
       themeParkScenarios = scenarios
           .where((scenario) => themeParkScenarioIds.contains(scenario.id))
           .toList();
       coreDiktatQuests = [
         for (final sc in list)
-          if (!themeParkScenarioIds.contains(sc['id']))
+          if (!themeParkScenarioIds.contains(sc['id']) &&
+              !personaScenarioIds.contains(sc['id']))
             for (final q in (sc['quests'] as List? ?? const []))
               if ((q as Map<String, dynamic>)['type'] == 'diktat') q,
       ];
@@ -384,8 +397,8 @@ void main() {
       ];
     });
 
-    test('the non-theme-park core contains no legacy Diktat seed', () {
-      expect(scenarios, hasLength(183));
+    test('the canonical core contains no legacy Diktat seed', () {
+      expect(scenarios, hasLength(186));
       expect(coreScenarios, hasLength(177));
       expect(themeParkScenarios, hasLength(6));
       expect(coreDiktatQuests, isEmpty);
@@ -410,21 +423,34 @@ void main() {
       },
     );
 
-    test('only the six reviewed supplement scenarios parse a Diktat seed', () {
-      var found = 0;
-      for (final sc in scenarios) {
-        for (final q in sc.quests) {
-          if (q.type == QuestType.diktat) {
-            found++;
-            expect(themeParkScenarioIds, contains(sc.id));
-            final keys = q.targetVocabKeys();
-            expect(keys, hasLength(1));
-            expect(keys.first.trim(), isNotEmpty);
+    test(
+      'only reviewed theme-park and persona supplements parse Diktat seeds',
+      () {
+        var found = 0;
+        for (final sc in scenarios) {
+          for (final q in sc.quests) {
+            if (q.type == QuestType.diktat) {
+              found++;
+              expect({
+                ...themeParkScenarioIds,
+                ...personaScenarioIds,
+              }, contains(sc.id));
+              final keys = q.targetVocabKeys();
+              expect(keys, hasLength(1));
+              expect(keys.first.trim(), isNotEmpty);
+            }
           }
         }
-      }
-      expect(found, 6);
-    });
+        expect(found, 10);
+        for (final id in personaScenarioIds) {
+          final scene = scenarios.singleWhere((scene) => scene.id == id);
+          expect(
+            scene.quests.where((q) => q.type == QuestType.diktat),
+            hasLength(id == 'a2_jun_game_time_change' ? 2 : 1),
+          );
+        }
+      },
+    );
   });
 }
 

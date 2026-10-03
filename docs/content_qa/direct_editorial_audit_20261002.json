@@ -36560,7 +36560,8 @@
       "learning_phases.json"
     ],
     "ttsBoundary": "Storage keys are complete; individual clip listening and device playback are not claimed.",
-    "scenarioPersonaReview": "All 178 live scenarios (A1: 29, A2: 28, B1: 31, B2: 30, C1: 30, C2: 30) were directly reviewed against the PR #438 persona criteria. Future content additions and an independent native-speaker or educator review remain open."
+    "scenarioPersonaReview": "All 178 live scenarios (A1: 29, A2: 28, B1: 31, B2: 30, C1: 30, C2: 30) were directly reviewed against the PR #438 persona criteria. Future content additions and an independent native-speaker or educator review remain open.",
+    "vocabularyPersonaReview": "A1 vocabulary (735 rows) was directly reviewed and reconciled with copied cloze and sentence-building items against the PR #438 criteria. A2-C2 vocabulary remains for the same direct tri-language review."
   },
   "scenarioPersonaReviewProgress": {
     "reviewReference": "GitHub PR #438 merged as 797160b0664172b2956be0e202bb5df9b246b65c",
@@ -37060,6 +37061,45 @@
           "remoteObjects": 21975,
           "missingObjects": 0,
           "staleObjects": 9054,
+          "humanListeningClaim": false
+        }
+      }
+    ]
+  },
+  "vocabularyPersonaReviewProgress": {
+    "reviewReference": "GitHub PR #438 merged as 797160b0664172b2956be0e202bb5df9b246b65c; live persona source remains tools/content_factory/canonical_scenarios/character_profiles.json.",
+    "levels": [
+      {
+        "level": "A1",
+        "status": "directly_reviewed_and_reconciled",
+        "recordCount": 735,
+        "revisedRecordCount": 136,
+        "reviewedFields": [
+          "Korean headword and example",
+          "German and English headword/gloss localization",
+          "German du/Sie register",
+          "Korean-German-English meaning and tone",
+          "CEFR A1 sentence scope",
+          "persona, relationship, cultural, health, and institutional implications",
+          "linked cloze and sentence-building source copies"
+        ],
+        "findingsApplied": [
+          "Replaced country, hobby, job, age, food, family, and holiday examples that treated a personal attribute or practice as a default for a whole group.",
+          "Kept named characters only where the live profile supports the everyday activity; Hyuna’s hiking invitation and Andrea’s hiking example remain reciprocal, concrete choices.",
+          "Removed unsupported health, travel, and cultural claims and changed them to individual, situational statements.",
+          "Reduced A2 grammar and multi-action narratives in A1 examples while keeping designated A1 honorific and culture exceptions intact.",
+          "Reconciled 62 cloze and 65 sentence-building items that copied a revised A1 source; each changed cloze item now satisfies its full Korean sentence and answer replacement contract."
+        ],
+        "retained": "Named persona facts are only used when they match the live canonical profile. Other existing A1 rows remain after a direct tri-language read because their meaning, level, and context are appropriate.",
+        "notClaimed": "This is direct editorial review by the primary assistant. It is not independent native-speaker approval or individual audio listening.",
+        "tts": {
+          "canonicalManifestRebuilt": true,
+          "newStorageObjectsUploaded": 111,
+          "expectedCanonicalClips": 12979,
+          "remoteObjects": 22086,
+          "missingObjects": 0,
+          "staleObjects": 9107,
+          "firstLineManifestRebuilt": true,
           "humanListeningClaim": false
         }
       }

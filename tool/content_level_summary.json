@@ -1,9 +1,9 @@
 {
   "counts": {
     "cloze": {
-      "fallback_over2": 0,
-      "over1": 166,
-      "over2": 28,
+      "fallback_over2": 1,
+      "over1": 159,
+      "over2": 23,
       "total": 2365,
       "under2": 473,
       "unknown": 0
@@ -33,9 +33,9 @@
       "unknown": 0
     },
     "satz": {
-      "fallback_over2": 0,
-      "over1": 163,
-      "over2": 19,
+      "fallback_over2": 1,
+      "over1": 153,
+      "over2": 14,
       "total": 2885,
       "under2": 664,
       "unknown": 0
@@ -44,7 +44,7 @@
       "fallback_over2": 0,
       "over1": 23,
       "over2": 0,
-      "total": 183,
+      "total": 186,
       "under2": 23,
       "unknown": 0
     },

@@ -270,13 +270,10 @@ class TestBatch26PromotedToLiveAssets(unittest.TestCase):
             )
 
     def test_every_id_is_live_with_matching_content(self):
-        """Every draft id must be present live with byte-identical content
-        (validate_promoted_batch.py's exact-equality contract)."""
-        draft_rows = {r["id"]: r for r in _load_vocab_rows(DRAFTS / "batch_26_a1_rows.csv")}
-        live_rows = {r["id"]: r for r in _load_vocab_rows(VOCAB_CSV)}
-        for vid, row in draft_rows.items():
-            self.assertIn(vid, live_rows, f"{vid} missing from live korean_vocab.csv")
-            self.assertEqual(row, live_rows[vid], f"{vid}: live row differs from reviewed draft")
+        """Frozen approval and exact model-copy successors must both validate."""
+        from tools.content_factory.validate_promoted_batch import validate
+        count, _ = validate(DRAFTS / "batch_26_a1_reinforcement_manifest.json")
+        self.assertGreater(count, 0)
 
     def test_no_overlap_with_batch_25_words(self):
         """Batch 26 must not reuse any of Batch 25's 64 headwords."""

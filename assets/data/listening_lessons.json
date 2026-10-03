@@ -17870,7 +17870,7 @@
           "explanation": {
             "ko": "들은 말은 “가능한 복용 방법이나 대체 약이 있는지 처방의와 확인해 보겠습니다. 확인하기 전까지는 처방대로 복용해 주세요.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
             "de": "Zu hören ist „가능한 복용 방법이나 대체 약이 있는지 처방의와 확인해 보겠습니다. 확인하기 전까지는 처방대로 복용해 주세요.“: Ich kläre mit der verschreibenden Praxis, ob eine andere Einnahmeweise oder ein Ersatzmedikament möglich ist. Bis das geklärt ist, nehmen Sie das Medikament bitte wie verordnet ein. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “가능한 복용 방법이나 대체 약이 있는지 처방의와 확인해 보겠습니다. 확인하기 전까지는 처방대로 복용해 주세요.”: I will check with the prescribing clinician whether another way of taking it or an alternative medicine is possible. Until that is clarified, please take it as prescribed. The other options represent different turns in this scene, with different content or conversational functions."
+            "en": "The line is “가능한 복용 방법이나 대체 약이 있는지 처방의와 확인해 보겠습니다. 확인하기 전까지는 처방대로 복용해 주세요.”: I'll check with the prescribing clinician whether another way of taking it or an alternative medicine is possible. Until that is clarified, please take it as prescribed. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "b2_w10_health"
@@ -17881,7 +17881,7 @@
             {
               "ko": "가능한 복용 방법이나 대체 약이 있는지 처방의와 확인해 보겠습니다. 확인하기 전까지는 처방대로 복용해 주세요.",
               "de": "Ich kläre mit der verschreibenden Praxis, ob eine andere Einnahmeweise oder ein Ersatzmedikament möglich ist. Bis das geklärt ist, nehmen Sie das Medikament bitte wie verordnet ein.",
-              "en": "I will check with the prescribing clinician whether another way of taking it or an alternative medicine is possible. Until that is clarified, please take it as prescribed."
+              "en": "I'll check with the prescribing clinician whether another way of taking it or an alternative medicine is possible. Until that is clarified, please take it as prescribed."
             },
             {
               "ko": "그럼 낮에 복용해도 덜 졸린 방법이 있는지 처방의와 확인해 주실 수 있을까요?",
@@ -18365,7 +18365,7 @@
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
             "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Verstanden. Sobald geklärt ist, was nötig ist, bereite ich alles entsprechend vor.",
-            "en": "Put the words in the same order as the recording. Meaning: Understood. Once it is clear what is needed, I will prepare accordingly."
+            "en": "Put the words in the same order as the recording. Meaning: Understood. Once it is clear what is needed, I'll prepare accordingly."
           },
           "explanation": {
             "ko": "이 과제는 들은 어순을 재현해요: “알겠습니다. 필요한 내용이 확인되면 그에 맞춰 준비하겠습니다.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
@@ -22357,7 +22357,7 @@
             {
               "ko": "네. 가능하면 오후까지 검토 결과를 따로 보내 드리겠습니다.",
               "de": "Ja. Wenn es möglich ist, sende ich Ihnen das Ergebnis der Prüfung bis heute Nachmittag separat zu.",
-              "en": "Yes. If possible, I will send you the review result separately by this afternoon."
+              "en": "Yes. If possible, I'll send you the review result separately by this afternoon."
             }
           ],
           "correctIndex": 0
@@ -22369,7 +22369,7 @@
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
             "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Ja. Wenn es möglich ist, sende ich Ihnen das Ergebnis der Prüfung bis heute Nachmittag separat zu.",
-            "en": "Put the words in the same order as the recording. Meaning: Yes. If possible, I will send you the review result separately by this afternoon."
+            "en": "Put the words in the same order as the recording. Meaning: Yes. If possible, I'll send you the review result separately by this afternoon."
           },
           "explanation": {
             "ko": "이 과제는 들은 어순을 재현해요: “네. 가능하면 오후까지 검토 결과를 따로 보내 드리겠습니다.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
@@ -22644,7 +22644,7 @@
           "explanation": {
             "ko": "들은 말은 “네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
             "de": "Zu hören ist „네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.“: Ja. Von allen Unterlagen zu dieser Bewerberin halte ich mich fern und prüfe die übrigen vier nach denselben Kriterien. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.”: Yes. I will step away from all material about that applicant and assess the other four by the same criteria. The other options represent different turns in this scene, with different content or conversational functions."
+            "en": "The line is “네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.”: Yes. I'll step away from all material about that applicant and assess the other four by the same criteria. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "c1_w10_conflict_interest"
@@ -22655,7 +22655,7 @@
             {
               "ko": "네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.",
               "de": "Ja. Von allen Unterlagen zu dieser Bewerberin halte ich mich fern und prüfe die übrigen vier nach denselben Kriterien.",
-              "en": "Yes. I will step away from all material about that applicant and assess the other four by the same criteria."
+              "en": "Yes. I'll step away from all material about that applicant and assess the other four by the same criteria."
             },
             {
               "ko": "그렇다면 그 지원자 심사에서는 빠지시는 게 좋겠습니다.",
@@ -22761,7 +22761,7 @@
           "explanation": {
             "ko": "근거는 “네. 가능한 선택지는 현재 건강 상태와 연구 기준을 함께 봐야 합니다. 담당 의료진에게 문의할 방법을 안내해 드리겠습니다.”예요. 따라서 “초기 부작용 정보만으로 장기 안전성을 확정할 수 없어요.”가 맞아요. “초기 부작용이 가벼우므로 장기 부작용도 모두 알려졌어요.”와 “연구를 거절하면 기존 치료도 선택할 수 없어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
             "de": "Der Beleg lautet: „네. 가능한 선택지는 현재 건강 상태와 연구 기준을 함께 봐야 합니다. 담당 의료진에게 문의할 방법을 안내해 드리겠습니다.“ (Ja. Welche Optionen möglich sind, hängt von Ihrem aktuellen Gesundheitszustand und den Studienkriterien ab. Ich erkläre Ihnen, wie Sie Ihr Behandlungsteam dazu erreichen können.). Daraus folgt: Frühe Angaben zu Nebenwirkungen belegen noch keine langfristige Sicherheit. Die Alternativen „Weil frühe Nebenwirkungen mild sind, sind auch alle Langzeitfolgen bekannt.“ und „Bei Ablehnung der Studie steht auch die bisherige Behandlung nicht mehr offen.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “네. 가능한 선택지는 현재 건강 상태와 연구 기준을 함께 봐야 합니다. 담당 의료진에게 문의할 방법을 안내해 드리겠습니다.” (Yes. The options that may be available depend on your current health and the study criteria. I will explain how to contact your care team about them.). This supports: Early side-effect findings do not establish long-term safety. The alternatives “Mild early side effects mean all long-term effects are known.” and “Declining the study removes the option of existing treatment.” change the distinction or condition in the dialogue."
+            "en": "The evidence is “네. 가능한 선택지는 현재 건강 상태와 연구 기준을 함께 봐야 합니다. 담당 의료진에게 문의할 방법을 안내해 드리겠습니다.” (Yes. The options that may be available depend on your current health and the study criteria. I'll explain how to contact your care team about them.). This supports: Early side-effect findings do not establish long-term safety. The alternatives “Mild early side effects mean all long-term effects are known.” and “Declining the study removes the option of existing treatment.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
             "c1_w10_clinical"
@@ -22857,7 +22857,7 @@
           "explanation": {
             "ko": "근거는 “네. 가능한 선택지는 현재 건강 상태와 연구 기준을 함께 봐야 합니다. 담당 의료진에게 문의할 방법을 안내해 드리겠습니다.”예요. 따라서 “초기 부작용 정보만으로 장기 안전성을 확정할 수 없어요.”가 맞아요. “초기 부작용이 가벼우므로 장기 부작용도 모두 알려졌어요.”와 “연구를 거절하면 기존 치료도 선택할 수 없어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
             "de": "Der Beleg lautet: „네. 가능한 선택지는 현재 건강 상태와 연구 기준을 함께 봐야 합니다. 담당 의료진에게 문의할 방법을 안내해 드리겠습니다.“ (Ja. Welche Optionen möglich sind, hängt von Ihrem aktuellen Gesundheitszustand und den Studienkriterien ab. Ich erkläre Ihnen, wie Sie Ihr Behandlungsteam dazu erreichen können.). Daraus folgt: Frühe Angaben zu Nebenwirkungen belegen noch keine langfristige Sicherheit. Die Alternativen „Weil frühe Nebenwirkungen mild sind, sind auch alle Langzeitfolgen bekannt.“ und „Bei Ablehnung der Studie steht auch die bisherige Behandlung nicht mehr offen.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “네. 가능한 선택지는 현재 건강 상태와 연구 기준을 함께 봐야 합니다. 담당 의료진에게 문의할 방법을 안내해 드리겠습니다.” (Yes. The options that may be available depend on your current health and the study criteria. I will explain how to contact your care team about them.). This supports: Early side-effect findings do not establish long-term safety. The alternatives “Mild early side effects mean all long-term effects are known.” and “Declining the study removes the option of existing treatment.” change the distinction or condition in the dialogue."
+            "en": "The evidence is “네. 가능한 선택지는 현재 건강 상태와 연구 기준을 함께 봐야 합니다. 담당 의료진에게 문의할 방법을 안내해 드리겠습니다.” (Yes. The options that may be available depend on your current health and the study criteria. I'll explain how to contact your care team about them.). This supports: Early side-effect findings do not establish long-term safety. The alternatives “Mild early side effects mean all long-term effects are known.” and “Declining the study removes the option of existing treatment.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
             "c1_w10_clinical"
@@ -27689,7 +27689,7 @@
           "explanation": {
             "ko": "근거는 “저는 시설 관리 담당자입니다. 먼저 배관의 관리 주체를 확인하겠습니다.”예요. 따라서 “경계만 따지기보다 배관 소유를 확인해 담당을 찾으려 해요.”가 맞아요. “행정 구역이 정해지면 배관 소유를 확인할 필요가 없어요.”와 “두 부서가 거절했으므로 더는 담당을 확인하지 않아요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
             "de": "Der Beleg lautet: „저는 시설 관리 담당자입니다. 먼저 배관의 관리 주체를 확인하겠습니다.“ (Ich bin für die Anlagenverwaltung zuständig. Ich prüfe zuerst, wer die Leitung verwaltet.). Daraus folgt: Statt nur Gebietsgrenzen zu diskutieren, wird die Zuständigkeit über das Eigentum an der Leitung geklärt. Die Alternativen „Bei bekannter Gebietsgrenze muss das Eigentum an der Leitung nicht geprüft werden.“ und „Nach zwei Ablehnungen wird die Zuständigkeit nicht weiter geklärt.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “저는 시설 관리 담당자입니다. 먼저 배관의 관리 주체를 확인하겠습니다.” (I am responsible for facilities management. I will first check who manages the pipe.). This supports: They seek to establish responsibility by checking pipe ownership rather than only district boundaries. The alternatives “Knowing the district boundary removes the need to check pipe ownership.” and “After two refusals, responsibility will no longer be investigated.” change the distinction or condition in the dialogue."
+            "en": "The evidence is “저는 시설 관리 담당자입니다. 먼저 배관의 관리 주체를 확인하겠습니다.” (I'm responsible for facilities management. I'll first check who manages the pipe.). This supports: They seek to establish responsibility by checking pipe ownership rather than only district boundaries. The alternatives “Knowing the district boundary removes the need to check pipe ownership.” and “After two refusals, responsibility will no longer be investigated.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
             "c2_w10_jurisdiction"
@@ -27759,7 +27759,7 @@
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
             "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Ja. Ich prüfe heute, was sich klären lässt, und informiere Sie dann über das Ergebnis und die nächsten Schritte.",
-            "en": "Put the words in the same order as the recording. Meaning: Yes. I will review what can be clarified today and then explain the result and the next steps."
+            "en": "Put the words in the same order as the recording. Meaning: Yes. I'll review what can be clarified today and then explain the result and the next steps."
           },
           "explanation": {
             "ko": "이 과제는 들은 어순을 재현해요: “네. 오늘 안에 확인할 수 있는 범위를 살펴본 뒤, 결과와 다음 절차를 안내드리겠습니다.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
@@ -27785,7 +27785,7 @@
           "explanation": {
             "ko": "근거는 “저는 시설 관리 담당자입니다. 먼저 배관의 관리 주체를 확인하겠습니다.”예요. 따라서 “경계만 따지기보다 배관 소유를 확인해 담당을 찾으려 해요.”가 맞아요. “행정 구역이 정해지면 배관 소유를 확인할 필요가 없어요.”와 “두 부서가 거절했으므로 더는 담당을 확인하지 않아요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
             "de": "Der Beleg lautet: „저는 시설 관리 담당자입니다. 먼저 배관의 관리 주체를 확인하겠습니다.“ (Ich bin für die Anlagenverwaltung zuständig. Ich prüfe zuerst, wer die Leitung verwaltet.). Daraus folgt: Statt nur Gebietsgrenzen zu diskutieren, wird die Zuständigkeit über das Eigentum an der Leitung geklärt. Die Alternativen „Bei bekannter Gebietsgrenze muss das Eigentum an der Leitung nicht geprüft werden.“ und „Nach zwei Ablehnungen wird die Zuständigkeit nicht weiter geklärt.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “저는 시설 관리 담당자입니다. 먼저 배관의 관리 주체를 확인하겠습니다.” (I am responsible for facilities management. I will first check who manages the pipe.). This supports: They seek to establish responsibility by checking pipe ownership rather than only district boundaries. The alternatives “Knowing the district boundary removes the need to check pipe ownership.” and “After two refusals, responsibility will no longer be investigated.” change the distinction or condition in the dialogue."
+            "en": "The evidence is “저는 시설 관리 담당자입니다. 먼저 배관의 관리 주체를 확인하겠습니다.” (I'm responsible for facilities management. I'll first check who manages the pipe.). This supports: They seek to establish responsibility by checking pipe ownership rather than only district boundaries. The alternatives “Knowing the district boundary removes the need to check pipe ownership.” and “After two refusals, responsibility will no longer be investigated.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
             "c2_w10_jurisdiction"
@@ -28268,6 +28268,471 @@
               "ko": "추가 자료는 어떤 경우에도 결정에 영향을 줄 수 없다는 뜻이에요.",
               "de": "Zusätzliche Unterlagen können die Entscheidung in keinem Fall beeinflussen.",
               "en": "Additional material cannot affect the decision in any case."
+            }
+          ],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "listening.a2.a2_minho_weekend_cooking_plan",
+      "kind": "listening",
+      "level": "a2",
+      "topicId": "a2_plan",
+      "title": {
+        "ko": "주말 요리 계획",
+        "de": "Am Wochenende zusammen kochen",
+        "en": "Cooking together at the weekend"
+      },
+      "intro": {
+        "ko": "민호와 안드레아가 집에서 토요일 메뉴와 요리할 시간을 정해요.",
+        "de": "Minho und Andrea planen zu Hause, was sie am Samstag kochen und wann sie anfangen.",
+        "en": "At home, Minho and Andrea decide what to cook on Saturday and when to start."
+      },
+      "contentIds": [
+        "a2_minho_weekend_cooking_plan"
+      ],
+      "questions": [
+        {
+          "id": "listening.a2.a2_minho_weekend_cooking_plan.situation",
+          "type": "choice",
+          "skill": "situation",
+          "sourceIds": [
+            "a2_minho_weekend_cooking_plan"
+          ],
+          "evidenceKo": "이번 토요일에 같이 요리할까?",
+          "prompt": {
+            "ko": "대화 전체에 맞는 상황은 무엇인가요?",
+            "de": "Welche Situation passt zum gesamten Gespräch?",
+            "en": "Which situation matches the whole conversation?"
+          },
+          "explanation": {
+            "ko": "“이번 토요일에 같이 요리할까?”라는 말이 근거예요. 대화 전체의 장소와 목적을 함께 확인해요.",
+            "de": "Ein Beleg ist „이번 토요일에 같이 요리할까?“. Prüfe Ort und Ziel im gesamten Gespräch.",
+            "en": "One supporting line is “이번 토요일에 같이 요리할까?”. Check the place and goal across the whole conversation."
+          },
+          "options": [
+            {
+              "ko": "집에서 토요일에 함께 요리할 메뉴와 시간을 정해요.",
+              "de": "Zu Hause wird geplant, was am Samstag zusammen gekocht wird und wann.",
+              "en": "At home, they plan what to cook together on Saturday and when."
+            },
+            {
+              "ko": "식당에서 저녁 메뉴를 주문해요.",
+              "de": "Im Restaurant wird das Abendessen bestellt.",
+              "en": "They order dinner at a restaurant."
+            },
+            {
+              "ko": "오늘 아침에 혼자 밥을 먹어요.",
+              "de": "Heute Morgen wird allein gegessen.",
+              "en": "One person eats breakfast alone today."
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.a2.a2_minho_weekend_cooking_plan.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "sourceIds": [
+            "a2_minho_weekend_cooking_plan"
+          ],
+          "audioKo": "김치볶음밥은 어때?",
+          "evidenceKo": "김치볶음밥은 어때?",
+          "prompt": {
+            "ko": "들은 말의 뜻은 무엇인가요?",
+            "de": "Was bedeutet die gehörte Aussage?",
+            "en": "What does the spoken line mean?"
+          },
+          "explanation": {
+            "ko": "“김치볶음밥은 어때?”라는 말이 근거예요. 이 말과 같은 뜻의 문장을 골라요.",
+            "de": "Ein Beleg ist „김치볶음밥은 어때?“. Wähle die Aussage mit derselben Bedeutung.",
+            "en": "One supporting line is “김치볶음밥은 어때?”. Choose the statement with the same meaning."
+          },
+          "options": [
+            {
+              "ko": "김치볶음밥은 어때?",
+              "de": "Wie wäre es mit Kimchi-Bratreis?",
+              "en": "How about kimchi fried rice?"
+            },
+            {
+              "ko": "이번 토요일에 같이 요리할까?",
+              "de": "Wollen wir diesen Samstag zusammen kochen?",
+              "en": "Shall we cook together this Saturday?"
+            },
+            {
+              "ko": "좋아. 뭐 만들까?",
+              "de": "Gern. Was wollen wir kochen?",
+              "en": "Sure. What shall we make?"
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.a2.a2_minho_weekend_cooking_plan.sentence",
+          "type": "order",
+          "skill": "sentence",
+          "sourceIds": [
+            "a2_minho_weekend_cooking_plan"
+          ],
+          "audioKo": "그럼 내가 밥을 준비할게.",
+          "evidenceKo": "그럼 내가 밥을 준비할게.",
+          "targetKo": "그럼 내가 밥을 준비할게.",
+          "prompt": {
+            "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
+            "de": "Ordne die Wörter genau wie in der Aufnahme.",
+            "en": "Put the words in the same order as the recording."
+          },
+          "explanation": {
+            "ko": "“그럼 내가 밥을 준비할게.”라는 말이 근거예요. 들은 어순을 그대로 만들어요.",
+            "de": "Ein Beleg ist „그럼 내가 밥을 준비할게.“. Bilde genau die gehörte Wortfolge.",
+            "en": "One supporting line is “그럼 내가 밥을 준비할게.”. Recreate the exact word order you heard."
+          }
+        },
+        {
+          "id": "listening.a2.a2_minho_weekend_cooking_plan.response",
+          "type": "choice",
+          "skill": "response",
+          "sourceIds": [
+            "a2_minho_weekend_cooking_plan"
+          ],
+          "audioKo": "그럼 내가 밥을 준비할게.",
+          "evidenceKo": "나는 계란을 살게. 몇 시에 시작할까?",
+          "prompt": {
+            "ko": "상대의 말: “그럼 내가 밥을 준비할게.” 과제: 밥을 준비하겠다는 말에, 계란을 사고 시작 시간을 물어 답하세요.",
+            "de": "Dein Gegenüber sagt: „그럼 내가 밥을 준비할게.“ (Dann kümmere ich mich um den Reis.). Aufgabe: Antworte auf die Zusage, den Reis vorzubereiten: Sag, dass du die Eier kaufst, und frage nach der Startzeit.",
+            "en": "The other person says: “그럼 내가 밥을 준비할게.” (Then I’ll get the rice ready.). Task: Reply to the offer to get the rice ready: say you will buy the eggs and ask what time to start."
+          },
+          "explanation": {
+            "ko": "“나는 계란을 살게. 몇 시에 시작할까?”라는 말이 근거예요. 이 응답은 과제의 목적을 이뤄요. 다른 선택지는 필요한 행동이나 시간을 바꿔요.",
+            "de": "Ein Beleg ist „나는 계란을 살게. 몇 시에 시작할까?“. Diese Antwort erfüllt das Ziel der Aufgabe. Die anderen Optionen ändern die verlangte Handlung oder Zeit.",
+            "en": "One supporting line is “나는 계란을 살게. 몇 시에 시작할까?”. This response fulfills the task’s goal. The other options change the required action or time."
+          },
+          "options": [
+            {
+              "ko": "나는 계란을 살게. 몇 시에 시작할까?",
+              "de": "Ich kaufe die Eier. Wann wollen wir anfangen?",
+              "en": "I’ll buy the eggs. What time shall we start?"
+            },
+            {
+              "ko": "나는 계란을 안 살게.",
+              "de": "Ich kaufe keine Eier.",
+              "en": "I won’t buy any eggs."
+            },
+            {
+              "ko": "나는 오늘 혼자 요리할게.",
+              "de": "Ich koche heute allein.",
+              "en": "I’ll cook alone today."
+            }
+          ],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "listening.a2.a2_byeongcheol_walk_break",
+      "kind": "listening",
+      "level": "a2",
+      "topicId": "a2_move",
+      "title": {
+        "ko": "산책 중 잠깐 쉬기",
+        "de": "Eine Pause beim Spaziergang",
+        "en": "Taking a break on a walk"
+      },
+      "intro": {
+        "ko": "병철과 크리스티안이 함께 산책해요. 크리스티안은 피곤해서 잠깐 쉬고 싶어요.",
+        "de": "Byeongcheol und Christian gehen spazieren. Christian ist müde und möchte eine kurze Pause machen.",
+        "en": "Byeongcheol and Christian are on a walk. Christian is tired and wants a short break."
+      },
+      "contentIds": [
+        "a2_byeongcheol_walk_break"
+      ],
+      "questions": [
+        {
+          "id": "listening.a2.a2_byeongcheol_walk_break.situation",
+          "type": "choice",
+          "skill": "situation",
+          "sourceIds": [
+            "a2_byeongcheol_walk_break"
+          ],
+          "evidenceKo": "여기서 조금 더 걸을까요?",
+          "prompt": {
+            "ko": "대화 전체에 맞는 상황은 무엇인가요?",
+            "de": "Welche Situation passt zum gesamten Gespräch?",
+            "en": "Which situation matches the whole conversation?"
+          },
+          "explanation": {
+            "ko": "“여기서 조금 더 걸을까요?”라는 말이 근거예요. 대화 전체의 장소와 목적을 함께 확인해요.",
+            "de": "Ein Beleg ist „여기서 조금 더 걸을까요?“. Prüfe Ort und Ziel im gesamten Gespräch.",
+            "en": "One supporting line is “여기서 조금 더 걸을까요?”. Check the place and goal across the whole conversation."
+          },
+          "options": [
+            {
+              "ko": "산책하다 피곤해서 잠깐 쉬려고 해요.",
+              "de": "Beim Spaziergang wird wegen Müdigkeit eine kurze Pause gemacht.",
+              "en": "They want to take a short break on their walk because one of them is tired."
+            },
+            {
+              "ko": "길을 몰라서 버스를 타려고 해요.",
+              "de": "Weil der Weg unbekannt ist, soll ein Bus genommen werden.",
+              "en": "They want to take a bus because they do not know the way."
+            },
+            {
+              "ko": "식당에서 물을 주문하려고 해요.",
+              "de": "Im Restaurant soll Wasser bestellt werden.",
+              "en": "They want to order water in a restaurant."
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.a2.a2_byeongcheol_walk_break.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "sourceIds": [
+            "a2_byeongcheol_walk_break"
+          ],
+          "audioKo": "여기서 조금 더 걸을까요?",
+          "evidenceKo": "여기서 조금 더 걸을까요?",
+          "prompt": {
+            "ko": "들은 말의 뜻은 무엇인가요?",
+            "de": "Was bedeutet die gehörte Aussage?",
+            "en": "What does the spoken line mean?"
+          },
+          "explanation": {
+            "ko": "“여기서 조금 더 걸을까요?”라는 말이 근거예요. 이 말과 같은 뜻의 문장을 골라요.",
+            "de": "Ein Beleg ist „여기서 조금 더 걸을까요?“. Wähle die Aussage mit derselben Bedeutung.",
+            "en": "One supporting line is “여기서 조금 더 걸을까요?”. Choose the statement with the same meaning."
+          },
+          "options": [
+            {
+              "ko": "여기서 조금 더 걸을까요?",
+              "de": "Wollen wir von hier noch ein Stück weitergehen?",
+              "en": "Shall we walk a little further from here?"
+            },
+            {
+              "ko": "죄송하지만 좀 피곤해요. 잠깐 쉬어도 될까요?",
+              "de": "Entschuldigung, ich bin etwas müde. Darf ich eine kurze Pause machen?",
+              "en": "Sorry, I’m a little tired. May I take a short break?"
+            },
+            {
+              "ko": "그럼 잠깐 쉬어요.",
+              "de": "Dann machen wir eine kurze Pause.",
+              "en": "Let’s take a short break then."
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.a2.a2_byeongcheol_walk_break.sentence",
+          "type": "order",
+          "skill": "sentence",
+          "sourceIds": [
+            "a2_byeongcheol_walk_break"
+          ],
+          "audioKo": "저기 앉아도 돼요?",
+          "evidenceKo": "저기 앉아도 돼요?",
+          "targetKo": "저기 앉아도 돼요?",
+          "prompt": {
+            "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
+            "de": "Ordne die Wörter genau wie in der Aufnahme.",
+            "en": "Put the words in the same order as the recording."
+          },
+          "explanation": {
+            "ko": "“저기 앉아도 돼요?”라는 말이 근거예요. 들은 어순을 그대로 만들어요.",
+            "de": "Ein Beleg ist „저기 앉아도 돼요?“. Bilde genau die gehörte Wortfolge.",
+            "en": "One supporting line is “저기 앉아도 돼요?”. Recreate the exact word order you heard."
+          }
+        },
+        {
+          "id": "listening.a2.a2_byeongcheol_walk_break.response",
+          "type": "choice",
+          "skill": "response",
+          "sourceIds": [
+            "a2_byeongcheol_walk_break"
+          ],
+          "audioKo": "그럼 잠깐 쉬어요.",
+          "evidenceKo": "저기 앉아도 돼요?",
+          "prompt": {
+            "ko": "상대의 말: “그럼 잠깐 쉬어요.” 과제: 잠깐 쉬자는 말에, 저기 앉아도 되는지 물으세요.",
+            "de": "Dein Gegenüber sagt: „그럼 잠깐 쉬어요.“ (Dann machen wir eine kurze Pause.). Aufgabe: Frage nach dem Vorschlag, eine kurze Pause zu machen, ob du dich dort hinsetzen darfst.",
+            "en": "The other person says: “그럼 잠깐 쉬어요.” (Let’s take a short break then.). Task: After the suggestion to take a short break, ask whether you may sit over there."
+          },
+          "explanation": {
+            "ko": "“저기 앉아도 돼요?”라는 말이 근거예요. 이 응답은 과제의 목적을 이뤄요. 다른 선택지는 필요한 행동이나 시간을 바꿔요.",
+            "de": "Ein Beleg ist „저기 앉아도 돼요?“. Diese Antwort erfüllt das Ziel der Aufgabe. Die anderen Optionen ändern die verlangte Handlung oder Zeit.",
+            "en": "One supporting line is “저기 앉아도 돼요?”. This response fulfills the task’s goal. The other options change the required action or time."
+          },
+          "options": [
+            {
+              "ko": "저기 앉아도 돼요?",
+              "de": "Darf ich mich dort hinsetzen?",
+              "en": "May I sit over there?"
+            },
+            {
+              "ko": "저는 안 쉬고 계속 걸을게요.",
+              "de": "Ich mache keine Pause und gehe weiter.",
+              "en": "I won’t take a break; I’ll keep walking."
+            },
+            {
+              "ko": "물은 어디서 살 수 있어요?",
+              "de": "Wo kann ich Wasser kaufen?",
+              "en": "Where can I buy water?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "listening.a2.a2_jun_game_time_change",
+      "kind": "listening",
+      "level": "a2",
+      "topicId": "a2_plan",
+      "title": {
+        "ko": "게임 시간을 바꾸기",
+        "de": "Die Spielzeit verschieben",
+        "en": "Changing the time to play"
+      },
+      "intro": {
+        "ko": "준과 크리스티안은 일곱 시에 게임하기로 했어요. 준의 숙제가 아직 안 끝나서 시간을 바꿔요.",
+        "de": "Jun und Christian wollten um sieben spielen. Jun ist mit den Hausaufgaben noch nicht fertig, deshalb ändern sie die Zeit.",
+        "en": "Jun and Christian planned to play at seven. Jun has not finished his homework yet, so they change the time."
+      },
+      "contentIds": [
+        "a2_jun_game_time_change"
+      ],
+      "questions": [
+        {
+          "id": "listening.a2.a2_jun_game_time_change.situation",
+          "type": "choice",
+          "skill": "situation",
+          "sourceIds": [
+            "a2_jun_game_time_change"
+          ],
+          "evidenceKo": "오늘 숙제 때문에 좀 늦을 것 같아요.",
+          "prompt": {
+            "ko": "대화 전체에 맞는 상황은 무엇인가요?",
+            "de": "Welche Situation passt zum gesamten Gespräch?",
+            "en": "Which situation matches the whole conversation?"
+          },
+          "explanation": {
+            "ko": "“오늘 숙제 때문에 좀 늦을 것 같아요.”라는 말이 근거예요. 대화 전체의 장소와 목적을 함께 확인해요.",
+            "de": "Ein Beleg ist „오늘 숙제 때문에 좀 늦을 것 같아요.“. Prüfe Ort und Ziel im gesamten Gespräch.",
+            "en": "One supporting line is “오늘 숙제 때문에 좀 늦을 것 같아요.”. Check the place and goal across the whole conversation."
+          },
+          "options": [
+            {
+              "ko": "준의 숙제 때문에 게임 시간을 일곱 시에서 여덟 시로 바꿔요.",
+              "de": "Wegen Juns Hausaufgaben wird die Spielzeit von sieben auf acht verschoben.",
+              "en": "They move the gaming time from seven to eight because of Jun’s homework."
+            },
+            {
+              "ko": "게임이 끝나서 숙제를 시작해요.",
+              "de": "Nach dem Spielen werden die Hausaufgaben angefangen.",
+              "en": "They finish playing and start their homework."
+            },
+            {
+              "ko": "크리스티안이 아파서 게임 약속을 취소해요.",
+              "de": "Weil Christian krank ist, wird die Spielverabredung abgesagt.",
+              "en": "They cancel their gaming plans because Christian is ill."
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.a2.a2_jun_game_time_change.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "sourceIds": [
+            "a2_jun_game_time_change"
+          ],
+          "audioKo": "네. 여덟 시로 바꾸면 어때요?",
+          "evidenceKo": "네. 여덟 시로 바꾸면 어때요?",
+          "prompt": {
+            "ko": "들은 말의 뜻은 무엇인가요?",
+            "de": "Was bedeutet die gehörte Aussage?",
+            "en": "What does the spoken line mean?"
+          },
+          "explanation": {
+            "ko": "“네. 여덟 시로 바꾸면 어때요?”라는 말이 근거예요. 이 말과 같은 뜻의 문장을 골라요.",
+            "de": "Ein Beleg ist „네. 여덟 시로 바꾸면 어때요?“. Wähle die Aussage mit derselben Bedeutung.",
+            "en": "One supporting line is “네. 여덟 시로 바꾸면 어때요?”. Choose the statement with the same meaning."
+          },
+          "options": [
+            {
+              "ko": "네. 여덟 시로 바꾸면 어때요?",
+              "de": "Ja. Wie wäre es, wenn wir auf acht verschieben?",
+              "en": "Yes. How about moving it to eight?"
+            },
+            {
+              "ko": "오늘 숙제 때문에 좀 늦을 것 같아요.",
+              "de": "Wegen der Hausaufgaben wird es heute bei mir wohl etwas später.",
+              "en": "I think I’ll be a little late today because of my homework."
+            },
+            {
+              "ko": "괜찮아. 원래 일곱 시에 하기로 했지?",
+              "de": "Kein Problem. Wir wollten ursprünglich um sieben spielen, oder?",
+              "en": "That’s okay. We originally planned to play at seven, right?"
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.a2.a2_jun_game_time_change.sentence",
+          "type": "order",
+          "skill": "sentence",
+          "sourceIds": [
+            "a2_jun_game_time_change"
+          ],
+          "audioKo": "숙제 끝나면 메시지 보내 줘.",
+          "evidenceKo": "숙제 끝나면 메시지 보내 줘.",
+          "targetKo": "숙제 끝나면 메시지 보내 줘.",
+          "prompt": {
+            "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
+            "de": "Ordne die Wörter genau wie in der Aufnahme.",
+            "en": "Put the words in the same order as the recording."
+          },
+          "explanation": {
+            "ko": "“숙제 끝나면 메시지 보내 줘.”라는 말이 근거예요. 들은 어순을 그대로 만들어요.",
+            "de": "Ein Beleg ist „숙제 끝나면 메시지 보내 줘.“. Bilde genau die gehörte Wortfolge.",
+            "en": "One supporting line is “숙제 끝나면 메시지 보내 줘.”. Recreate the exact word order you heard."
+          }
+        },
+        {
+          "id": "listening.a2.a2_jun_game_time_change.response",
+          "type": "choice",
+          "skill": "response",
+          "sourceIds": [
+            "a2_jun_game_time_change"
+          ],
+          "audioKo": "감사해요. 그때까지 숙제를 끝낼게요.",
+          "evidenceKo": "숙제 끝나면 메시지 보내 줘.",
+          "prompt": {
+            "ko": "상대의 말: “감사해요. 그때까지 숙제를 끝낼게요.” 과제: 숙제를 끝내겠다는 말에, 끝나면 메시지를 보내 달라고 부탁하세요.",
+            "de": "Dein Gegenüber sagt: „감사해요. 그때까지 숙제를 끝낼게요.“ (Danke. Bis dahin mache ich meine Hausaufgaben fertig.). Aufgabe: Bitte nach der Zusage, die Hausaufgaben fertigzumachen, um eine Nachricht, sobald sie fertig sind.",
+            "en": "The other person says: “감사해요. 그때까지 숙제를 끝낼게요.” (Thank you. I’ll finish my homework by then.). Task: After the promise to finish the homework, ask for a message when it is done."
+          },
+          "explanation": {
+            "ko": "“숙제 끝나면 메시지 보내 줘.”라는 말이 근거예요. 이 응답은 과제의 목적을 이뤄요. 다른 선택지는 필요한 행동이나 시간을 바꿔요.",
+            "de": "Ein Beleg ist „숙제 끝나면 메시지 보내 줘.“. Diese Antwort erfüllt das Ziel der Aufgabe. Die anderen Optionen ändern die verlangte Handlung oder Zeit.",
+            "en": "One supporting line is “숙제 끝나면 메시지 보내 줘.”. This response fulfills the task’s goal. The other options change the required action or time."
+          },
+          "options": [
+            {
+              "ko": "숙제 끝나면 메시지 보내 줘.",
+              "de": "Schick mir eine Nachricht, wenn du mit den Hausaufgaben fertig bist.",
+              "en": "Send me a message when you finish your homework."
+            },
+            {
+              "ko": "숙제 시작하기 전에 메시지 보내 줘.",
+              "de": "Schick mir eine Nachricht, bevor du mit den Hausaufgaben anfängst.",
+              "en": "Send me a message before you start your homework."
+            },
+            {
+              "ko": "숙제는 안 해도 돼. 지금 들어와.",
+              "de": "Du brauchst die Hausaufgaben nicht zu machen. Komm jetzt online.",
+              "en": "You don’t need to do your homework. Come online now."
             }
           ],
           "correctIndex": 0

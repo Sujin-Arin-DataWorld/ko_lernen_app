@@ -621,8 +621,14 @@ class VocabPackService {
       'Demografie, Diskurs & Verantwortung',
       'Demography, Discourse & Accountability',
     ),
-    'c2_honorific_context': ('Anrede, Höflichkeit und Kontext', 'Address, Honorifics, and Context'),
-    'c2_argument_scope': ('Bedingungen und Geltungsbereich', 'Conditions and Scope'),
+    'c2_honorific_context': (
+      'Anrede, Höflichkeit und Kontext',
+      'Address, Honorifics, and Context',
+    ),
+    'c2_argument_scope': (
+      'Bedingungen und Geltungsbereich',
+      'Conditions and Scope',
+    ),
   };
 
   /// 레벨 내 팩 학습 순서 (위→아래). 디스플레이·잠금 순서.

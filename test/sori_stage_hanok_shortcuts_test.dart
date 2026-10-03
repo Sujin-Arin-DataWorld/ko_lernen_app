@@ -212,6 +212,12 @@ void main() {
       240,
       scrollable: find.byType(Scrollable).first,
     );
+    // A lazily built history chip may still lie below the viewport edge after
+    // scrollUntilVisible stops; the new atelier entry must remain scrollable.
+    await tester.ensureVisible(
+      find.byKey(const ValueKey('sarangchae-stage-choice-5')),
+    );
+    await tester.pumpAndSettle();
     await tester.tap(find.byKey(const ValueKey('sarangchae-stage-choice-5')));
     await tester.pumpAndSettle();
 

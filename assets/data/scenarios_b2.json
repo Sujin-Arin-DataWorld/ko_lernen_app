@@ -5211,7 +5211,7 @@
           "speaker": "pharmacist",
           "ko": "가능한 복용 방법이나 대체 약이 있는지 처방의와 확인해 보겠습니다. 확인하기 전까지는 처방대로 복용해 주세요.",
           "de": "Ich kläre mit der verschreibenden Praxis, ob eine andere Einnahmeweise oder ein Ersatzmedikament möglich ist. Bis das geklärt ist, nehmen Sie das Medikament bitte wie verordnet ein.",
-          "en": "I will check with the prescribing clinician whether another way of taking it or an alternative medicine is possible. Until that is clarified, please take it as prescribed."
+          "en": "I'll check with the prescribing clinician whether another way of taking it or an alternative medicine is possible. Until that is clarified, please take it as prescribed."
         },
         {
           "speaker": "user",
@@ -5223,7 +5223,7 @@
           "speaker": "pharmacist",
           "ko": "네. 확인 결과와 주의할 점을 함께 안내해 드릴게요.",
           "de": "Ja. Ich erkläre Ihnen dann sowohl das Ergebnis als auch die Punkte, auf die Sie achten sollten.",
-          "en": "Yes. I will explain both the result and what to watch out for."
+          "en": "Yes. I'll explain both the result and what to watch out for."
         },
         {
           "speaker": "user",
@@ -5242,7 +5242,7 @@
               {
                 "ko": "가능한 복용 방법이나 대체 약이 있는지 처방의와 확인해 보겠습니다. 확인하기 전까지는 처방대로 복용해 주세요.",
                 "de": "Ich kläre mit der verschreibenden Praxis, ob eine andere Einnahmeweise oder ein Ersatzmedikament möglich ist. Bis das geklärt ist, nehmen Sie das Medikament bitte wie verordnet ein.",
-                "en": "I will check with the prescribing clinician whether another way of taking it or an alternative medicine is possible. Until that is clarified, please take it as prescribed."
+                "en": "I'll check with the prescribing clinician whether another way of taking it or an alternative medicine is possible. Until that is clarified, please take it as prescribed."
               },
               {
                 "ko": "처방전은 확인했습니다. 이 약은 졸릴 수 있으니, 복용 시간이나 다른 선택지는 처방 내용과 현재 상태를 확인한 뒤 안내해 드릴게요.",
@@ -5257,7 +5257,7 @@
               {
                 "ko": "네. 확인 결과와 주의할 점을 함께 안내해 드릴게요.",
                 "de": "Ja. Ich erkläre Ihnen dann sowohl das Ergebnis als auch die Punkte, auf die Sie achten sollten.",
-                "en": "Yes. I will explain both the result and what to watch out for."
+                "en": "Yes. I'll explain both the result and what to watch out for."
               }
             ],
             "correctIndex": 0
@@ -5932,13 +5932,13 @@
           "speaker": "official",
           "ko": "확인한 뒤 필요한 서류와 다음 절차를 안내해 드리겠습니다.",
           "de": "Nachdem wir das geprüft haben, erkläre ich Ihnen die nötigen Unterlagen und die nächsten Schritte.",
-          "en": "After we check that, I will explain the documents needed and the next steps."
+          "en": "After we check that, I'll explain the documents needed and the next steps."
         },
         {
           "speaker": "user",
           "ko": "알겠습니다. 필요한 내용이 확인되면 그에 맞춰 준비하겠습니다.",
           "de": "Verstanden. Sobald geklärt ist, was nötig ist, bereite ich alles entsprechend vor.",
-          "en": "Understood. Once it is clear what is needed, I will prepare accordingly."
+          "en": "Understood. Once it is clear what is needed, I'll prepare accordingly."
         }
       ],
       "quests": [
@@ -5966,7 +5966,7 @@
               {
                 "ko": "확인한 뒤 필요한 서류와 다음 절차를 안내해 드리겠습니다.",
                 "de": "Nachdem wir das geprüft haben, erkläre ich Ihnen die nötigen Unterlagen und die nächsten Schritte.",
-                "en": "After we check that, I will explain the documents needed and the next steps."
+                "en": "After we check that, I'll explain the documents needed and the next steps."
               }
             ],
             "correctIndex": 0
@@ -6001,7 +6001,7 @@
           "data": {
             "targetKo": "알겠습니다. 필요한 내용이 확인되면 그에 맞춰 준비하겠습니다.",
             "promptDe": "Verstanden. Sobald geklärt ist, was nötig ist, bereite ich alles entsprechend vor.",
-            "promptEn": "Understood. Once it is clear what is needed, I will prepare accordingly.",
+            "promptEn": "Understood. Once it is clear what is needed, I'll prepare accordingly.",
             "distractors": [
               "현재 체류",
               "신청 방법"
@@ -6151,7 +6151,7 @@
           "speaker": "official",
           "ko": "먼저 확인한 뒤 삭제할 수 있는 정보와 계속 보관되는 정보를 안내해 드리겠습니다.",
           "de": "Nach der Prüfung erläutere ich Ihnen, welche Daten gelöscht werden können und welche weiter aufbewahrt werden.",
-          "en": "After checking, I will explain which information can be deleted and which will continue to be retained."
+          "en": "After checking, I'll explain which information can be deleted and which will continue to be retained."
         },
         {
           "speaker": "user",
@@ -6198,7 +6198,7 @@
               {
                 "ko": "먼저 확인한 뒤 삭제할 수 있는 정보와 계속 보관되는 정보를 안내해 드리겠습니다.",
                 "de": "Nach der Prüfung erläutere ich Ihnen, welche Daten gelöscht werden können und welche weiter aufbewahrt werden.",
-                "en": "After checking, I will explain which information can be deleted and which will continue to be retained."
+                "en": "After checking, I'll explain which information can be deleted and which will continue to be retained."
               },
               {
                 "ko": "네. 본인 확인 후 요청을 접수하고, 처리 결과를 등록된 이메일로 보내 드리겠습니다.",

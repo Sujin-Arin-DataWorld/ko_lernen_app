@@ -93,8 +93,17 @@ void main() {
     }
     final stock = ScenarioQuestStock.fromCorpus(corpus);
     final exposed = corpus.where(stock.allowsScenario).toList();
-    expect(corpus.length, 183);
-    expect(exposed.length, 177);
+    expect(corpus.length, 186);
+    expect(exposed.length, 181);
+    expect(
+      exposed.map((scenario) => scenario.id),
+      containsAll([
+        'a2_minho_weekend_cooking_plan',
+        'a2_byeongcheol_walk_break',
+        'a2_jun_game_time_change',
+        'a2_theme_park_date_break',
+      ]),
+    );
     expect(
       corpus
           .where((s) => !stock.allowsScenario(s))
@@ -109,6 +118,6 @@ void main() {
         );
       }
     }
-    expect(corpus.fold(0, (n, scenario) => n + scenario.quests.length), 562);
+    expect(corpus.fold(0, (n, scenario) => n + scenario.quests.length), 579);
   });
 }

@@ -24,12 +24,13 @@ const LEGACY_INVOCATION_STEP_BUDGET = 32;
 const HASH_OWNED_PROCESSOR_COLLECTIONS = Object.freeze([
   "service_idempotency", "service_idempotency_results", "premium_grants",
   "customer_entitlements", "access_rate_limits",
-  "billing_event_receipts", "billing_customers",
+  "billing_event_receipts", "billing_customers", "dancheong_public_index",
 ]);
 const PRIVATE_TTS_PROCESSOR_INDEX = 3 + HASH_OWNED_PROCESSOR_COLLECTIONS.length;
+const DANCHEONG_PROCESSOR_INDEX = PRIVATE_TTS_PROCESSOR_INDEX + 1;
 // Bump when the stage plan grows or changes meaning. Older checkpoints must
 // replay the idempotent stages, including checkpoints previously marked done.
-const PROCESSOR_CLEANUP_SCHEMA_VERSION = 2;
+const PROCESSOR_CLEANUP_SCHEMA_VERSION = 3;
 
 function cleanupFailure(code) {
   const error = new Error("Account deletion cleanup rejected unsafe state.");
@@ -636,7 +637,7 @@ function createDeletionCleanupAdapters({
         const current = markerData.processorCleanupState;
         if (current?.operationId === operationId) {
           if (current.schemaVersion === PROCESSOR_CLEANUP_SCHEMA_VERSION) return current;
-          if (current.schemaVersion !== undefined && current.schemaVersion !== 1) {
+          if (current.schemaVersion !== undefined && ![1, 2].includes(current.schemaVersion)) {
             throw cleanupFailure("unsupported-processor-cleanup-version");
           }
         }
@@ -674,7 +675,7 @@ function createDeletionCleanupAdapters({
       deadlineMillis,
     });
     if (state.done === true) return { done: true };
-    if (state.categoryIndex === PRIVATE_TTS_PROCESSOR_INDEX) {
+    if (state.categoryIndex === PRIVATE_TTS_PROCESSOR_INDEX || state.categoryIndex === DANCHEONG_PROCESSOR_INDEX) {
       if (!storageBucket || typeof storageBucket.getFiles !== "function") {
         throw cleanupFailure("private-tts-cleanup-unavailable");
       }
@@ -683,9 +684,10 @@ function createDeletionCleanupAdapters({
         deadlineMillis, run,
       });
       await fence(async () => {});
-      const prefix = `tts_private/${sourceUid}/`;
+      const prefix = state.categoryIndex === PRIVATE_TTS_PROCESSOR_INDEX
+        ? `tts_private/${sourceUid}/` : `dancheong_public/${sourceUid}/`;
       const [files] = await storageBucket.getFiles({
-        prefix, autoPaginate: false, maxResults: limit,
+        prefix, autoPaginate: false, maxResults: Math.min(limit, 20),
       });
       for (const file of files) {
         if (typeof file.name !== "string" || !file.name.startsWith(prefix)) {
@@ -697,16 +699,17 @@ function createDeletionCleanupAdapters({
       return fence(async ({ transaction, markerRef, markerData }) => {
         const current = markerData.processorCleanupState;
         if (current?.operationId !== operation ||
-            current.categoryIndex !== PRIVATE_TTS_PROCESSOR_INDEX) {
+            current.categoryIndex !== state.categoryIndex) {
           throw cleanupFailure("cleanup-progress-changed");
         }
         // Re-list on the next invocation after every nonempty page. No cursor
         // skips objects while deletion removes the preceding page.
-        const done = files.length === 0;
+        const empty = files.length === 0;
+        const done = empty && state.categoryIndex === DANCHEONG_PROCESSOR_INDEX;
         transaction.update(markerRef, {
           processorCleanupState: {
             ...current,
-            categoryIndex: done ? PRIVATE_TTS_PROCESSOR_INDEX + 1 : PRIVATE_TTS_PROCESSOR_INDEX,
+            categoryIndex: empty ? state.categoryIndex + 1 : state.categoryIndex,
             done,
           },
         });
@@ -773,7 +776,7 @@ function createDeletionCleanupAdapters({
         const nextCategoryIndex = pageComplete
           ? state.categoryIndex + 1
           : state.categoryIndex;
-        const done = nextCategoryIndex > PRIVATE_TTS_PROCESSOR_INDEX;
+        const done = nextCategoryIndex > DANCHEONG_PROCESSOR_INDEX;
         transaction.update(markerRef, {
           processorCleanupState: {
             ...current,

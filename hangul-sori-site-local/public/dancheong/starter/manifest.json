@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "file": "brocade_flow_frame.png",
+      "sha256": "ab25d925843b33e8fc8cc728d24193fed7ffdea838aed7d01bd0a84411b8e3df",
+      "source": "assets\\illustrations\\dancheong_studio\\v1\\brocade_flow_frame.png"
+    },
+    {
+      "file": "color_ribbon_frame.png",
+      "sha256": "f816844ccfd9e2ba19c36ab0014669fae168f2dc9b318799a78aa3d39b0368da",
+      "source": "assets\\illustrations\\dancheong_studio\\v1\\color_ribbon_frame.png"
+    },
+    {
+      "file": "lotus_frame.png",
+      "sha256": "e41f805d755af3d764898807f1e1d6eef8f4f3ede4da12ffa79a0a04c66df702",
+      "source": "assets\\illustrations\\dancheong_studio\\v1\\lotus_frame.png"
+    },
+    {
+      "file": "flower.png",
+      "sha256": "016f073a6082958832e1d0e7ea605d9c9a5edac1c4ae8eb1469cc64fca4f25dc",
+      "source": "assets\\illustrations\\dancheong_studio\\v1\\flower.png"
+    },
+    {
+      "file": "lotus.png",
+      "sha256": "26d0e46d2aabc0f7d32fa516249c444b31e123f05d8af56e21b70a6cfd15c628",
+      "source": "original app starter stamp"
+    },
+    {
+      "file": "cloud.png",
+      "sha256": "8ddc0590ae122bbfb6a23eddb107a4554062526273e96c6be06e8fc09837da60",
+      "source": "original app starter stamp"
+    }
+  ]
+}

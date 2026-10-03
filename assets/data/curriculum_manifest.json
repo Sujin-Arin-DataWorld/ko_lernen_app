@@ -4613,6 +4613,33 @@
         "concept_c2_automation_redress"
       ],
       "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_minho_weekend_cooking_plan",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_casual"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_byeongcheol_walk_break",
+      "courseUnitId": "a2_07_travel_repair",
+      "conceptIds": [
+        "concept_a2_travel_repair"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_jun_game_time_change",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_casual"
+      ],
+      "role": "assess"
     }
   ],
   "grammarRuleMap": {

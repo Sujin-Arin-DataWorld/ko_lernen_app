@@ -27,6 +27,7 @@ import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 import 'package:ko_lernen_app/widgets/sori/motion.dart';
 import 'package:ko_lernen_app/widgets/sori/progress_meter.dart';
+import 'package:ko_lernen_app/widgets/sori/persona_portrait.dart';
 import 'support/real_fonts.dart';
 import 'support/reward_preferences_platform.dart';
 import 'support/sori_speech_stubs.dart';
@@ -785,6 +786,98 @@ void main() {
     expect(ContentLearningService.progress(_listening.id).position, 3);
     expect(ContentLearningService.progress(_listening.id).completed, isFalse);
   });
+  for (final chatCase in const [
+    (size: Size(390, 844), scale: 1.0, locale: 'en'),
+    (size: Size(320, 640), scale: 2.0, locale: 'de'),
+    (size: Size(720, 1024), scale: 1.3, locale: 'de'),
+  ]) {
+    testWidgets(
+      'chat retains earlier turns and assigned portraits through pause and resume ${chatCase.size} ${chatCase.scale}',
+      (tester) async {
+        final scene = Scenario.fromJson({
+          'id': 'scene',
+          'level': 'a1',
+          'playerCharacterId': 'andrea',
+          'title': {'ko': '주말', 'de': 'Wochenende', 'en': 'Weekend'},
+          'dialog': [
+            {'speaker': 'minho', 'ko': '이번 토요일에 같이 요리할까?'},
+            {'speaker': 'user', 'ko': '좋아. 뭐 만들까?'},
+            {'speaker': 'minho', 'ko': '김치볶음밥은 어때?'},
+          ],
+        });
+        final playback = <Completer<bool>>[];
+        final voices = <String>[];
+        await ContentLearningService.startLesson(_listening, [_listening]);
+        await _pump(
+          tester,
+          ContentLessonScreen(
+            lesson: _listening,
+            scope: const [_listening],
+            scenario: scene,
+            speak: (text, {voice = 'auto'}) {
+              voices.add(voice);
+              final result = Completer<bool>();
+              playback.add(result);
+              return result.future;
+            },
+          ),
+          size: chatCase.size,
+          scale: chatCase.scale,
+          locale: chatCase.locale,
+        );
+        await tester.pumpAndSettle();
+        await tester.tap(
+          find.byKey(const ValueKey('content-listening-autoplay')),
+        );
+        await tester.pumpAndSettle();
+        expect(find.text(scene.dialog[0].ko), findsOneWidget);
+        playback[0].complete(true);
+        await tester.pumpAndSettle();
+        expect(find.text(scene.dialog[0].ko), findsOneWidget);
+        expect(find.text(scene.dialog[1].ko), findsOneWidget);
+        expect(find.text('Andrea'), findsOneWidget);
+        expect(find.text('You'), findsNothing);
+        expect(find.text('Du'), findsNothing);
+        expect(
+          tester
+              .widgetList<SoriPersonaPortrait>(find.byType(SoriPersonaPortrait))
+              .map((p) => p.characterId),
+          containsAll(['minho', 'andrea']),
+        );
+        await tester.tap(
+          find.byKey(const ValueKey('content-listening-autoplay')),
+        );
+        await tester.pumpAndSettle();
+        playback[1].complete(true);
+        await tester.pumpAndSettle();
+        expect(ContentLearningService.progress(_listening.id).position, 1);
+        expect(find.text(scene.dialog[0].ko), findsOneWidget);
+        await tester.tap(
+          find.byKey(const ValueKey('content-listening-autoplay')),
+        );
+        await tester.pumpAndSettle();
+        playback[2].complete(true);
+        await tester.pumpAndSettle();
+        playback[3].complete(true);
+        await tester.pumpAndSettle();
+        expect(voices, ['male', 'female', 'female', 'male']);
+        for (final line in scene.dialog) {
+          expect(find.text(line.ko), findsWidgets);
+        }
+        expect(ContentLearningService.progress(_listening.id).position, 3);
+        expect(
+          ContentLearningService.progress(_listening.id).completed,
+          isFalse,
+        );
+        expect(
+          find.byKey(const ValueKey('content-start-practice')),
+          findsOneWidget,
+        );
+        expect(tester.takeException(), isNull);
+      },
+    );
+  }
+
   testWidgets('loading, failure retry and empty are distinct', (tester) async {
     final pending = Completer<List<ContentLesson>>();
     await _pump(

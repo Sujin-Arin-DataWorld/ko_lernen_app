@@ -133,7 +133,7 @@
       "level": "c2",
       "vocabKo": "간접성",
       "targetKo": "논문은 부탁의 간접성이 배려로 받아들여질 수 있지만, 위계가 강한 조직에서는 오히려 압박으로 해석될 수 있다고 분석한다.",
-      "promptDe": "Die Studie analysiert, dass indirekte Bitten als rücksichtsvoll verstanden werden können, in stark hierarchischen Organisationen aber auch als Druck.",
+      "promptDe": "Die Studie legt dar, dass indirekte Bitten als rücksichtsvoll verstanden werden können, in stark hierarchischen Organisationen aber auch als Druck.",
       "promptEn": "The paper argues that indirectness in a request may be taken as consideration, but can instead be interpreted as pressure in a strongly hierarchical organization.",
       "distractors": [
         "정확한 표현은",

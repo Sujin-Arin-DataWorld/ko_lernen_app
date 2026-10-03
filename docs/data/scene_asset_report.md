@@ -8,9 +8,9 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 
 ## 요약
 
-- canonical 시나리오: **183개**
+- canonical 시나리오: **186개**
 - 전용 포스터: **0개**
-- 카테고리 폴백: **183개**
+- 카테고리 폴백: **186개**
 - 누락/깨진 폴백: **0개**
 - 엄격 이슈: **0건**
 
@@ -21,7 +21,7 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 ## 샤드별 시나리오
 
 - scenarios_a1.json: 30개
-- scenarios_a2.json: 29개
+- scenarios_a2.json: 32개
 - scenarios_b1.json: 32개
 - scenarios_b2.json: 31개
 - scenarios_c1.json: 30개
@@ -33,8 +33,8 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 - bank: 1개
 - cafe: 17개
 - convenience: 1개
-- directions: 7개
-- home: 56개
+- directions: 8개
+- home: 58개
 - hotel: 1개
 - market: 7개
 - office: 60개
@@ -51,18 +51,18 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 - 규약 밖 루프 파일: 5개
 - 전용 루프 해석: 0개
 - 카테고리 루프 해석: 0개
-- 루프 없는 안전 폴백: 183개
+- 루프 없는 안전 폴백: 186개
 - backdrop 없는 루프 없음: 0개
 - 고아 scene 루프: 0개
 
 ## 생성 근거 SHA-256
 
 - `assets/data/scenarios_a1.json`: `9391864b618577c0b18ddc0b129b62a6658c7d2920679db0b3c8b7ce68f9b1a7`
-- `assets/data/scenarios_a2.json`: `07989c3abcd61e15f0c0fc9cfe75c6d0ed95635eb63c7390203c2ef00c194f5b`
+- `assets/data/scenarios_a2.json`: `75949b9b7b3b173bc778e650ce6d2252ad40f4e5f78d33668607eba1e0d39a6d`
 - `assets/data/scenarios_b1.json`: `67463234f7a4610ba817ea3fc74ca989c8c790828497599cec5767bba039fcdb`
-- `assets/data/scenarios_b2.json`: `b7654080bbc463b23a0d22d41c2dd4fad38c9b4cf8c6cdc174739890fcd36e35`
-- `assets/data/scenarios_c1.json`: `c63e48ff84b85fb72231c1fe5b661071b19535d7d518e95aa0b61c4074e04a9e`
-- `assets/data/scenarios_c2.json`: `18a9f01dd2d933823974091a33df9a895b0a2e8a1d9e2fa5caa6dbc7775fd71d`
+- `assets/data/scenarios_b2.json`: `11385b643ae76dbcb35d8b899b74aec9db1c1faa63914d34118ea45ebaa79744`
+- `assets/data/scenarios_c1.json`: `0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a`
+- `assets/data/scenarios_c2.json`: `4713db145696d5e3814512d0635df6cc254575892353e134d16ef1d4ab33fdba`
 - `docs/data/scene_category_poster_lock.json`: `1036664f6008281cfcd8f969cad46953c0ed291e5047b1ad48a02555ec1432db`
 - `lib/services/scene_asset_resolver.dart`: `7f5a940853c25aaf4fbb81e8ccb7c1fcd951ea1570559c658b61d9e77aa185be`
 
@@ -100,7 +100,10 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 | scenarios_a1.json | survival_day_capstone | a1 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
 | scenarios_a1.json | taxi_kakao | a1 | taxi | fallback | assets/illustrations/scenes/taxi.png | 1536×1024 RGB | 0267b90eb07bb40a3141023c21943e643e64295296462bf7736f3534105fe356 | true |
 | scenarios_a1.json | umbrella_weather | a1 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
+| scenarios_a2.json | a2_byeongcheol_walk_break | a2 | directions | fallback | assets/illustrations/scenes/directions.png | 1536×1024 RGB | f2500c600eada342bc1a4102996d83d5cfdf068814f5d4247f230bebb66dde9c | true |
+| scenarios_a2.json | a2_jun_game_time_change | a2 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
 | scenarios_a2.json | a2_message_change_of_plan_2026 | a2 | station | fallback | assets/illustrations/scenes/station.png | 1536×1024 RGB | bbd8f5b72a1576dde83a000c2608e46b2e3623cdbc2daf426d495ed23a2e158f | true |
+| scenarios_a2.json | a2_minho_weekend_cooking_plan | a2 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
 | scenarios_a2.json | a2_theme_park_date_break | a2 | theme_park | fallback | assets/illustrations/scenes/theme_park.png | 1536×1024 RGB | 95b947d5f5631997eb4b777aee5791d9b9ceed9c86cbbaf74e5645bef0d1a434 | true |
 | scenarios_a2.json | a2_w10_apt | a2 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
 | scenarios_a2.json | a2_w10_booking | a2 | restaurant | fallback | assets/illustrations/scenes/restaurant.png | 1536×1024 RGB | 61e4aa4e94e01df9cb51e40438ce41c3a260e4b92437608d97a165bf208f61f8 | true |

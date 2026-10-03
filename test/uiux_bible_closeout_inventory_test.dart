@@ -36,7 +36,7 @@ void main() {
     }
     expect(unresolved, isEmpty);
     expect(ambiguous, isEmpty);
-    expect(registered, hasLength(79));
+    expect(registered, hasLength(84));
     expect(registered.toSet(), hasLength(registered.length));
 
     final lock = File(_lockPath).readAsStringSync();
@@ -52,7 +52,7 @@ void main() {
       r'^\| `(/[^`]*)` \|',
       multiLine: true,
     ).allMatches(routeInventory).map((match) => match.group(1)!).toList();
-    expect(documented, hasLength(79));
+    expect(documented, hasLength(84));
     expect(documented.toSet(), hasLength(documented.length));
 
     registered.sort();
@@ -95,6 +95,8 @@ void main() {
       ..._dartFiles(Directory('lib/screens')),
       ..._dartFiles(Directory('lib/features/guide')),
       ..._dartFiles(Directory('lib/features/content_learning')),
+      ..._dartFiles(Directory('lib/features/dancheong')),
+      ..._dartFiles(Directory('lib/features/personas')),
     ];
     for (final source in publicSurfaceSources) {
       final contents = source.readAsStringSync();
@@ -109,8 +111,8 @@ void main() {
     }
 
     // Includes the shared finite-step content layout and Hanok preview owners.
-    expect(seen, hasLength(117));
-    expect(documented, hasLength(117));
+    expect(seen, hasLength(123));
+    expect(documented, hasLength(123));
     expect(seen.difference(documented), isEmpty);
     expect(documented.difference(seen), isEmpty);
   });
@@ -148,9 +150,10 @@ void main() {
     }).toList();
     // Integrated recovery/privacy widgets plus the five-tab catalog surfaces.
     // 2026-09-15 (C8): +1 — ai_voice_notice_host joins Study and evidence.
-    expect(actual, hasLength(144));
+    // 2026-10-03: +3 — persona portrait, scene introduction and touch motion.
+    expect(actual, hasLength(147));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(144));
+    expect(listed, hasLength(147));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

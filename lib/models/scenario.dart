@@ -401,37 +401,40 @@ class Scenario {
 
   /// Returns the label shown above a dialogue line.
   ///
-  /// The learner is always identified as themselves in the UI. The recurring
-  /// character assigned to the scene remains a role for dialogue context and
-  /// voice selection, and is presented separately in the scene introduction.
+  /// Dialogue uses the assigned persona's name, including learner turns.
+  /// Scenes without a known player persona retain the localized learner label.
   String speakerDisplayName(
     String speaker, {
     required String fallbackYou,
     required String fallbackNarrator,
+    String languageCode = 'ko',
   }) {
     final normalized = speaker.trim().toLowerCase();
     if (normalized == 'narrator' || normalized.isEmpty) {
       return fallbackNarrator;
     }
+    final profile = ScenarioCharacterCatalog.profileFor(
+      resolvedCharacterIdForSpeaker(normalized),
+    );
+    if (profile != null) {
+      return profile.nameFor(languageCode);
+    }
     if (normalized == 'user') {
       return fallbackYou;
-    }
-    final profile = ScenarioCharacterCatalog.profileFor(normalized);
-    if (profile != null) {
-      // Character names are Korean learning-world labels even when the app
-      // chrome is German or English. This also prevents honorifics such as
-      // `수진 씨` from becoming a fixed UI identity.
-      return profile.nameKo;
     }
     return '${normalized[0].toUpperCase()}${normalized.substring(1)}';
   }
 
   /// Returns the recurring character whose part the learner plays in this
   /// scene, without presenting that character as the learner's identity.
-  String playerRoleDisplayName({required String fallbackYou}) {
+  String playerRoleDisplayName({
+    required String fallbackYou,
+    String languageCode = 'ko',
+  }) {
     final roleId = playerCharacterId.trim().toLowerCase();
     if (roleId.isEmpty) return fallbackYou;
-    return ScenarioCharacterCatalog.profileFor(roleId)?.nameKo ?? roleId;
+    return ScenarioCharacterCatalog.profileFor(roleId)?.nameFor(languageCode) ??
+        roleId;
   }
 }
 

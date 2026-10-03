@@ -5649,6 +5649,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:a2_jun_game_time_change",
           "scenario:a2_message_change_of_plan_2026",
           "scenario:favorite_drama_chat",
           "scenario:friend_cancelled_plan",
@@ -6458,6 +6459,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:a2_byeongcheol_walk_break",
           "scenario:forgot_house_key",
           "scenario:taxi_slow_down",
           "unit:a2_05_delivery_services",
@@ -7610,6 +7612,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:a2_byeongcheol_walk_break",
           "scenario:a2_w10_apt",
           "scenario:a2_w10_booking",
           "scenario:a2_w10_buy",
@@ -7758,7 +7761,9 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:a2_jun_game_time_change",
           "scenario:a2_message_change_of_plan_2026",
+          "scenario:a2_minho_weekend_cooking_plan",
           "scenario:a2_w10_fandom",
           "scenario:a2_w10_friends",
           "scenario:forgot_house_key",
