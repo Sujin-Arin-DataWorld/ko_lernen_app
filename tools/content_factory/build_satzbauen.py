@@ -11,7 +11,10 @@ Aktiver Abruf + SOV-Wortstellung = stärkste Lernwirkung (Forschung).
 
 Nutzung:
     python3 tools/content_factory/build_satzbauen.py          # Dry-Run
-    python3 tools/content_factory/build_satzbauen.py --write  # → assets/data/satz_sentences.json
+    python3 tools/content_factory/build_satzbauen.py --write  # nur neue Datei oder leeren Seed schreiben
+
+Vorhandene nichtleere Daten werden nicht überschrieben; für Updates
+die geprüfte Batch-Promotion verwenden.
 """
 import csv
 import json
@@ -19,6 +22,11 @@ import os
 import sys
 import zlib
 from random import Random
+
+if __package__:
+    from .live_game_write_guard import protect_curated_game_asset
+else:
+    from live_game_write_guard import protect_curated_game_asset
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 VOCAB = os.path.join(ROOT, "assets", "data", "korean_vocab.csv")
@@ -104,6 +112,8 @@ def build(rows):
 
 
 def main():
+    if "--write" in sys.argv:
+        protect_curated_game_asset(OUT)
     rows = load_rows()
     items, skipped = build(rows)
     by_level = {}
@@ -117,6 +127,7 @@ def main():
         print(f"  [{it['level']}] {it['targetKo']}  +Dist {it['distractors']}  | {it['promptDe']}")
 
     if "--write" in sys.argv:
+        protect_curated_game_asset(OUT)
         payload = {
             "meta": {
                 "total": len(items),

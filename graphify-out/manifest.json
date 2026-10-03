@@ -3420,9 +3420,9 @@
     "semantic_hash": "1010b6594ae906ceb998fb7773d1ee54"
   },
   "test/a1_real_life_scenario_test.dart": {
-    "mtime": 1791003328.840648,
-    "seen": 1791024945.902531,
-    "ast_hash": "dee3915a8d0373cd96dcc8fb2cc5259c",
+    "mtime": 1791035296.4878721,
+    "seen": 1791036242.710479,
+    "ast_hash": "7e27525862bd53564b04a7c8f6b71682",
     "semantic_hash": ""
   },
   "test/a1_real_life_scenarios_test.dart": {
@@ -4248,9 +4248,9 @@
     "semantic_hash": ""
   },
   "test/grammar_choice_quiz_test.dart": {
-    "mtime": 1791003329.7021985,
-    "seen": 1791024945.9031243,
-    "ast_hash": "6287ed38121305b75dcf26bb52129035",
+    "mtime": 1791035296.485353,
+    "seen": 1791036242.854892,
+    "ast_hash": "c1d391a91957bf64741cbc2f20ba3892",
     "semantic_hash": ""
   },
   "test/grammar_patterns_test.dart": {
@@ -6594,9 +6594,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/build_cloze.py": {
-    "mtime": 1791003331.629387,
-    "seen": 1791024945.90555,
-    "ast_hash": "caf217850930de5e1a2a6fdc87eb5282",
+    "mtime": 1791035614.7097309,
+    "seen": 1791036243.3846335,
+    "ast_hash": "f659d8fb5eaf1ae532e20539e0cd1fb8",
     "semantic_hash": ""
   },
   "tools/content_factory/build_hanok_grants.py": {
@@ -6630,9 +6630,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/build_satzbauen.py": {
-    "mtime": 1791003331.6474237,
-    "seen": 1791024945.9055672,
-    "ast_hash": "1d9f5fd194211e172f503d20936908f1",
+    "mtime": 1791035614.7107325,
+    "seen": 1791036243.387947,
+    "ast_hash": "9e7182b19ae53ab57a4242ec622c98ef",
     "semantic_hash": ""
   },
   "tools/content_factory/build_smalltalk.py": {
@@ -19620,9 +19620,9 @@
     "semantic_hash": ""
   },
   "tool/author_smalltalk_lessons_20260922.py": {
-    "mtime": 1791003330.9628928,
-    "seen": 1791024945.9043853,
-    "ast_hash": "eec0afbc54e5b56a0812893f1b2bd2ff",
+    "mtime": 1791035479.4552608,
+    "seen": 1791036243.257865,
+    "ast_hash": "74557e11a27693048bf4452fd93f0a59",
     "semantic_hash": ""
   },
   "tool/validate_listening_lessons.py": {
@@ -21300,9 +21300,9 @@
     "semantic_hash": ""
   },
   "test/persona_people_ui_test.dart": {
-    "mtime": 1791020353.4340923,
-    "seen": 1791024945.903504,
-    "ast_hash": "113555e9f83553e45d5155e99cc3cb21",
+    "mtime": 1791035296.4803529,
+    "seen": 1791036242.9716542,
+    "ast_hash": "40246bbe4e6a01188a6537b31c5d1bb9",
     "semantic_hash": ""
   },
   "test/persona_stock_diagnostic_test.dart": {
@@ -21570,9 +21570,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-10-03-hahoe-dokkaebi-practice.md": {
-    "mtime": 1791032216.3849702,
-    "seen": 1791032383.1190972,
-    "ast_hash": "2da447057efa465d30db77bca3b681a5",
+    "mtime": 1791036068.095211,
+    "seen": 1791036244.2526953,
+    "ast_hash": "5489052114c2b37474b886737950650f",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-10-03-hahoe-dokkaebi-practice-design.md": {
@@ -21591,6 +21591,18 @@
     "mtime": 1791029187.5235376,
     "seen": 1791031058.5011957,
     "ast_hash": "215b5b755fe18cd7e256e433588206b3",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/live_game_write_guard.py": {
+    "mtime": 1791035134.0303195,
+    "seen": 1791036243.6208599,
+    "ast_hash": "69732db0edb99780f95aa231529d43dd",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/test_legacy_game_write_guard.py": {
+    "mtime": 1791035134.0317771,
+    "seen": 1791036243.8712296,
+    "ast_hash": "f616cbf2da63c7b46232e39b358293ad",
     "semantic_hash": ""
   }
 }

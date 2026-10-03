@@ -31964,9 +31964,9 @@
               "en": "How much disagreement should we preserve when a decision must be made quickly?"
             },
             {
-              "ko": "이 문장이 권한을 절차 뒤에 숨기는 것 같지 않아요?",
-              "de": "Versteckt dieser Satz die Befugnis nicht hinter dem Verfahren?",
-              "en": "Does this sentence hide authority behind procedure?"
+              "ko": "새 팀에서는 서로를 어떻게 부르면 좋을지 먼저 정해 볼까요?",
+              "de": "Sollen wir zuerst festlegen, wie wir uns im neuen Team ansprechen möchten?",
+              "en": "Shall we agree first on how we'd like to address one another on the new team?"
             }
           ],
           "correctIndex": 0,
@@ -32230,14 +32230,14 @@
           },
           "options": [
             {
+              "ko": "새 팀에서는 서로를 어떻게 부르면 좋을지 먼저 정해 볼까요?",
+              "de": "Sollen wir zuerst festlegen, wie wir uns im neuen Team ansprechen möchten?",
+              "en": "Shall we agree first on how we'd like to address one another on the new team?"
+            },
+            {
               "ko": "회의에서 아무 말도 하지 않은 사람을 동의한 것으로 봐도 될까요?",
               "de": "Dürfen wir Schweigen in einer Besprechung als Zustimmung werten?",
               "en": "Can we treat someone who stayed silent in a meeting as having agreed?"
-            },
-            {
-              "ko": "정책 효과와 단순한 시기적 동시성을 구분했나요?",
-              "de": "Wurde die Wirkung der Politik von bloß zeitlich zusammenfallenden Veränderungen unterschieden?",
-              "en": "Did they distinguish the effect of the policy from changes that merely coincided in time?"
             },
             {
               "ko": "그 기사에서 ‘통합 성공’을 무엇으로 측정했어요?",
@@ -32268,9 +32268,9 @@
           },
           "options": [
             {
-              "ko": "결말을 열어 둔 작품은 해석을 어디까지 허용한다고 봐야 할까요?",
-              "de": "Wie weit darf eine Deutung bei einem offenen Ende gehen?",
-              "en": "How far can interpretation go when a work leaves the ending open?"
+              "ko": "회의에서는 직함을 쓰되, 평소에는 이름 뒤에 씨를 붙여 부르는 방식이 더 편하다면 그렇게 해도 괜찮아요.",
+              "de": "Im Meeting können wir Titel verwenden. Wenn es sonst angenehmer ist, uns mit Namen und 씨 anzusprechen, können wir es so halten.",
+              "en": "We can use job titles in meetings. If names followed by 씨 feel more comfortable otherwise, we can use that."
             },
             {
               "ko": "사람을 인력 부족의 해답으로만 쓰면 선택권과 생활 조건이 문장에서 사라져요.",
@@ -32278,9 +32278,9 @@
               "en": "When people are described only as the answer to labor shortages, their choices and living conditions vanish from the sentence."
             },
             {
-              "ko": "자동화가 사람보다 빠르면 결과를 그대로 믿어도 될까요?",
-              "de": "Dürfen wir ein automatisches Ergebnis einfach übernehmen, nur weil es schneller entsteht?",
-              "en": "Can we trust an automated result as is just because it is faster than a person?"
+              "ko": "같은 표현도 발화 의도와 대화 맥락에 따라 다르게 해석될 수 있으니, 한 가지 규칙으로 단정하지 않는 게 좋겠어요.",
+              "de": "Dieselbe Formulierung kann je nach Sprechabsicht und Gesprächskontext anders verstanden werden. Deshalb sollten wir nicht von einer einzigen Regel ausgehen.",
+              "en": "The same wording can be interpreted differently depending on the speaker's intent and the conversation context, so we should not assume there is one rule for every situation."
             }
           ],
           "correctIndex": 1,
@@ -32411,6 +32411,223 @@
           ],
           "audioKo": "그 기사에서 ‘통합 성공’을 무엇으로 측정했어요?",
           "evidenceKo": "그 기사에서 ‘통합 성공’을 무엇으로 측정했어요?"
+        }
+      ]
+    },
+    {
+      "id": "smalltalk.c2.work_study.forms_of_address",
+      "kind": "smalltalk",
+      "level": "c2",
+      "topicId": "work_study",
+      "title": {
+        "ko": "우리 팀의 호칭 정하기",
+        "de": "Anreden im Team gemeinsam klären",
+        "en": "Agreeing on forms of address in the team"
+      },
+      "intro": {
+        "ko": "새 팀에서 함께 일하기 시작했어요. 서로를 어떻게 부를지 함께 정하자고 제안해요. 이어지는 표현도 함께 익혀 보세요.",
+        "de": "Du fängst in einem neuen Team an. Du schlägst vor, gemeinsam zu klären, wie ihr einander ansprechen möchtet. Lerne auch die weiteren Ausdrücke dieser Lektion kennen.",
+        "en": "You are starting work in a new team. You suggest agreeing together on how to address one another. Explore the other expressions in this lesson too."
+      },
+      "contentIds": [
+        "smalltalk_c2_0087",
+        "smalltalk_c2_0088",
+        "smalltalk_c2_0089",
+        "smalltalk_c2_0090"
+      ],
+      "questions": [
+        {
+          "id": "smalltalk.c2.work_study.forms_of_address.smalltalk_c2_0087.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "prompt": {
+            "ko": "“새 팀에서는 서로를 어떻게 부르면 좋을지 먼저 정해 볼까요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„새 팀에서는 서로를 어떻게 부르면 좋을지 먼저 정해 볼까요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“새 팀에서는 서로를 어떻게 부르면 좋을지 먼저 정해 볼까요?”\nWhich meaning matches the whole utterance?"
+          },
+          "options": [
+            {
+              "ko": "새 팀에서는 서로를 어떻게 부르면 좋을지 먼저 정해 볼까요?",
+              "de": "Sollen wir zuerst festlegen, wie wir uns im neuen Team ansprechen möchten?",
+              "en": "Shall we agree first on how we'd like to address one another on the new team?"
+            },
+            {
+              "ko": "자동화가 사람보다 빠르면 결과를 그대로 믿어도 될까요?",
+              "de": "Dürfen wir ein automatisches Ergebnis einfach übernehmen, nur weil es schneller entsteht?",
+              "en": "Can we trust an automated result as is just because it is faster than a person?"
+            },
+            {
+              "ko": "회의에서 아무 말도 하지 않은 사람을 동의한 것으로 봐도 될까요?",
+              "de": "Dürfen wir Schweigen in einer Besprechung als Zustimmung werten?",
+              "en": "Can we treat someone who stayed silent in a meeting as having agreed?"
+            }
+          ],
+          "correctIndex": 0,
+          "explanation": {
+            "ko": "이 표현의 내용은 “새 팀에서는 서로를 어떻게 부르면 좋을지 먼저 정해 볼까요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Sollen wir zuerst festlegen, wie wir uns im neuen Team ansprechen möchten? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Shall we agree first on how we'd like to address one another on the new team? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+          },
+          "sourceIds": [
+            "smalltalk_c2_0087"
+          ],
+          "audioKo": "새 팀에서는 서로를 어떻게 부르면 좋을지 먼저 정해 볼까요?",
+          "evidenceKo": "새 팀에서는 서로를 어떻게 부르면 좋을지 먼저 정해 볼까요?"
+        },
+        {
+          "id": "smalltalk.c2.work_study.forms_of_address.smalltalk_c2_0088.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "prompt": {
+            "ko": "“회의에서는 직함을 쓰되, 평소에는 이름 뒤에 씨를 붙여 부르는 방식이 더 편하다면 그렇게 해도 괜찮아요.”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„회의에서는 직함을 쓰되, 평소에는 이름 뒤에 씨를 붙여 부르는 방식이 더 편하다면 그렇게 해도 괜찮아요.“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“회의에서는 직함을 쓰되, 평소에는 이름 뒤에 씨를 붙여 부르는 방식이 더 편하다면 그렇게 해도 괜찮아요.”\nWhich meaning matches the whole utterance?"
+          },
+          "options": [
+            {
+              "ko": "같은 표현도 발화 의도와 대화 맥락에 따라 다르게 해석될 수 있으니, 한 가지 규칙으로 단정하지 않는 게 좋겠어요.",
+              "de": "Dieselbe Formulierung kann je nach Sprechabsicht und Gesprächskontext anders verstanden werden. Deshalb sollten wir nicht von einer einzigen Regel ausgehen.",
+              "en": "The same wording can be interpreted differently depending on the speaker's intent and the conversation context, so we should not assume there is one rule for every situation."
+            },
+            {
+              "ko": "사람을 인력 부족의 해답으로만 쓰면 선택권과 생활 조건이 문장에서 사라져요.",
+              "de": "Wer Menschen nur als Antwort auf Personalmangel beschreibt, löscht Wahlmöglichkeiten und Lebensbedingungen aus dem Satz.",
+              "en": "When people are described only as the answer to labor shortages, their choices and living conditions vanish from the sentence."
+            },
+            {
+              "ko": "회의에서는 직함을 쓰되, 평소에는 이름 뒤에 씨를 붙여 부르는 방식이 더 편하다면 그렇게 해도 괜찮아요.",
+              "de": "Im Meeting können wir Titel verwenden. Wenn es sonst angenehmer ist, uns mit Namen und 씨 anzusprechen, können wir es so halten.",
+              "en": "We can use job titles in meetings. If names followed by 씨 feel more comfortable otherwise, we can use that."
+            }
+          ],
+          "correctIndex": 2,
+          "explanation": {
+            "ko": "이 표현의 내용은 “회의에서는 직함을 쓰되, 평소에는 이름 뒤에 씨를 붙여 부르는 방식이 더 편하다면 그렇게 해도 괜찮아요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Im Meeting können wir Titel verwenden. Wenn es sonst angenehmer ist, uns mit Namen und 씨 anzusprechen, können wir es so halten. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: We can use job titles in meetings. If names followed by 씨 feel more comfortable otherwise, we can use that. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+          },
+          "sourceIds": [
+            "smalltalk_c2_0088"
+          ],
+          "audioKo": "회의에서는 직함을 쓰되, 평소에는 이름 뒤에 씨를 붙여 부르는 방식이 더 편하다면 그렇게 해도 괜찮아요.",
+          "evidenceKo": "회의에서는 직함을 쓰되, 평소에는 이름 뒤에 씨를 붙여 부르는 방식이 더 편하다면 그렇게 해도 괜찮아요."
+        },
+        {
+          "id": "smalltalk.c2.work_study.forms_of_address.smalltalk_c2_0089.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "prompt": {
+            "ko": "“반말로 전환할지 말지는 친밀도만으로 판단하기보다, 현재 관계와 업무 맥락을 함께 확인하는 편이 좋겠죠?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„반말로 전환할지 말지는 친밀도만으로 판단하기보다, 현재 관계와 업무 맥락을 함께 확인하는 편이 좋겠죠?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“반말로 전환할지 말지는 친밀도만으로 판단하기보다, 현재 관계와 업무 맥락을 함께 확인하는 편이 좋겠죠?”\nWhich meaning matches the whole utterance?"
+          },
+          "options": [
+            {
+              "ko": "동의했다는 표시가 있어도 권력의 불균형 때문에 실제로는 거절하기 어려웠을 수 있나요?",
+              "de": "Kann eine Machtasymmetrie die tatsächliche Ablehnung erschwert haben, auch wenn eine Zustimmung dokumentiert ist?",
+              "en": "Could a power imbalance have made refusal difficult in practice even if consent was recorded?"
+            },
+            {
+              "ko": "반말로 전환할지 말지는 친밀도만으로 판단하기보다, 현재 관계와 업무 맥락을 함께 확인하는 편이 좋겠죠?",
+              "de": "Statt allein nach der Vertrautheit zu entscheiden, ob wir zum Banmal wechseln, sollten wir wohl auch die aktuelle Beziehung und den Arbeitskontext klären, oder?",
+              "en": "Rather than deciding on a switch to banmal from familiarity alone, we should also check the current relationship and work context, right?"
+            },
+            {
+              "ko": "합의를 빨리 만들기보다 지켜야 할 원칙부터 정하는 게 나을까요?",
+              "de": "Sollten wir vor einer schnellen Einigung zuerst die unverzichtbaren Prinzipien klären?",
+              "en": "Should we identify nonnegotiable principles before trying to reach a quick consensus?"
+            }
+          ],
+          "correctIndex": 1,
+          "explanation": {
+            "ko": "이 표현의 내용은 “반말로 전환할지 말지는 친밀도만으로 판단하기보다, 현재 관계와 업무 맥락을 함께 확인하는 편이 좋겠죠?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Statt allein nach der Vertrautheit zu entscheiden, ob wir zum Banmal wechseln, sollten wir wohl auch die aktuelle Beziehung und den Arbeitskontext klären, oder? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Rather than deciding on a switch to banmal from familiarity alone, we should also check the current relationship and work context, right? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+          },
+          "sourceIds": [
+            "smalltalk_c2_0089"
+          ],
+          "audioKo": "반말로 전환할지 말지는 친밀도만으로 판단하기보다, 현재 관계와 업무 맥락을 함께 확인하는 편이 좋겠죠?",
+          "evidenceKo": "반말로 전환할지 말지는 친밀도만으로 판단하기보다, 현재 관계와 업무 맥락을 함께 확인하는 편이 좋겠죠?"
+        },
+        {
+          "id": "smalltalk.c2.work_study.forms_of_address.smalltalk_c2_0090.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "prompt": {
+            "ko": "“같은 표현도 발화 의도와 대화 맥락에 따라 다르게 해석될 수 있으니, 한 가지 규칙으로 단정하지 않는 게 좋겠어요.”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„같은 표현도 발화 의도와 대화 맥락에 따라 다르게 해석될 수 있으니, 한 가지 규칙으로 단정하지 않는 게 좋겠어요.“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“같은 표현도 발화 의도와 대화 맥락에 따라 다르게 해석될 수 있으니, 한 가지 규칙으로 단정하지 않는 게 좋겠어요.”\nWhich meaning matches the whole utterance?"
+          },
+          "options": [
+            {
+              "ko": "같은 표현도 발화 의도와 대화 맥락에 따라 다르게 해석될 수 있으니, 한 가지 규칙으로 단정하지 않는 게 좋겠어요.",
+              "de": "Dieselbe Formulierung kann je nach Sprechabsicht und Gesprächskontext anders verstanden werden. Deshalb sollten wir nicht von einer einzigen Regel ausgehen.",
+              "en": "The same wording can be interpreted differently depending on the speaker's intent and the conversation context, so we should not assume there is one rule for every situation."
+            },
+            {
+              "ko": "회의에서는 직함을 쓰되, 평소에는 이름 뒤에 씨를 붙여 부르는 방식이 더 편하다면 그렇게 해도 괜찮아요.",
+              "de": "Im Meeting können wir Titel verwenden. Wenn es sonst angenehmer ist, uns mit Namen und 씨 anzusprechen, können wir es so halten.",
+              "en": "We can use job titles in meetings. If names followed by 씨 feel more comfortable otherwise, we can use that."
+            },
+            {
+              "ko": "사람을 인력 부족의 해답으로만 쓰면 선택권과 생활 조건이 문장에서 사라져요.",
+              "de": "Wer Menschen nur als Antwort auf Personalmangel beschreibt, löscht Wahlmöglichkeiten und Lebensbedingungen aus dem Satz.",
+              "en": "When people are described only as the answer to labor shortages, their choices and living conditions vanish from the sentence."
+            }
+          ],
+          "correctIndex": 0,
+          "explanation": {
+            "ko": "이 표현의 내용은 “같은 표현도 발화 의도와 대화 맥락에 따라 다르게 해석될 수 있으니, 한 가지 규칙으로 단정하지 않는 게 좋겠어요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Dieselbe Formulierung kann je nach Sprechabsicht und Gesprächskontext anders verstanden werden. Deshalb sollten wir nicht von einer einzigen Regel ausgehen. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: The same wording can be interpreted differently depending on the speaker's intent and the conversation context, so we should not assume there is one rule for every situation. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+          },
+          "sourceIds": [
+            "smalltalk_c2_0090"
+          ],
+          "audioKo": "같은 표현도 발화 의도와 대화 맥락에 따라 다르게 해석될 수 있으니, 한 가지 규칙으로 단정하지 않는 게 좋겠어요.",
+          "evidenceKo": "같은 표현도 발화 의도와 대화 맥락에 따라 다르게 해석될 수 있으니, 한 가지 규칙으로 단정하지 않는 게 좋겠어요."
+        },
+        {
+          "id": "smalltalk.c2.work_study.forms_of_address.situation",
+          "type": "choice",
+          "skill": "situation",
+          "prompt": {
+            "ko": "새 팀에서 함께 일하기 시작했어요. 서로를 어떻게 부를지 함께 정하자고 제안해요.\n이 뜻을 가장 정확히 전하는 표현은 무엇인가요?",
+            "de": "Du fängst in einem neuen Team an. Du schlägst vor, gemeinsam zu klären, wie ihr einander ansprechen möchtet.\nWelche Äußerung drückt genau diese Absicht aus?",
+            "en": "You are starting work in a new team. You suggest agreeing together on how to address one another.\nWhich expression conveys this precise intention?"
+          },
+          "options": [
+            {
+              "ko": "새 팀에서는 서로의 직함을 어디에서 확인할 수 있을까요?",
+              "de": "새 팀에서는 서로의 직함을 어디에서 확인할 수 있을까요?",
+              "en": "새 팀에서는 서로의 직함을 어디에서 확인할 수 있을까요?"
+            },
+            {
+              "ko": "새 팀에서는 서로를 부르는 방식을 이미 정해 두었나요?",
+              "de": "새 팀에서는 서로를 부르는 방식을 이미 정해 두었나요?",
+              "en": "새 팀에서는 서로를 부르는 방식을 이미 정해 두었나요?"
+            },
+            {
+              "ko": "새 팀에서는 서로를 어떻게 부르면 좋을지 먼저 정해 볼까요?",
+              "de": "새 팀에서는 서로를 어떻게 부르면 좋을지 먼저 정해 볼까요?",
+              "en": "새 팀에서는 서로를 어떻게 부르면 좋을지 먼저 정해 볼까요?"
+            }
+          ],
+          "correctIndex": 2,
+          "explanation": {
+            "ko": "“새 팀에서는 서로를 어떻게 부르면 좋을지 먼저 정해 볼까요?” — 새 팀에서 함께 일하기 시작했어요. 서로를 어떻게 부를지 함께 정하자고 제안해요.",
+            "de": "„새 팀에서는 서로를 어떻게 부르면 좋을지 먼저 정해 볼까요?“ bedeutet: Sollen wir zuerst festlegen, wie wir uns im neuen Team ansprechen möchten?",
+            "en": "“새 팀에서는 서로를 어떻게 부르면 좋을지 먼저 정해 볼까요?” means: Shall we agree first on how we'd like to address one another on the new team?"
+          },
+          "sourceIds": [
+            "smalltalk_c2_0087",
+            "smalltalk_c2_0088",
+            "smalltalk_c2_0089",
+            "smalltalk_c2_0090"
+          ],
+          "audioKo": "새 팀에서는 서로를 어떻게 부르면 좋을지 먼저 정해 볼까요?",
+          "evidenceKo": "새 팀에서는 서로를 어떻게 부르면 좋을지 먼저 정해 볼까요?"
         }
       ]
     },
@@ -33992,14 +34209,14 @@
           },
           "options": [
             {
-              "ko": "창구가 있다고 해서 구제가 되는 건 아니더라고요.",
-              "de": "Ich habe festgestellt, dass eine Anlaufstelle noch keine wirksame Abhilfe garantiert.",
-              "en": "I've found that having an appeals channel doesn't necessarily mean you get redress."
+              "ko": "이의 신청을 하려면 먼저 어떤 자료가 필요한지 안내받을 수 있을까요?",
+              "de": "Könnte ich zunächst erfahren welche Unterlagen ich für einen Einspruch brauche?",
+              "en": "Could I first be told what materials I need for an appeal?"
             },
             {
-              "ko": "혼잡 요금은 이동 선택권이 적은 사람에게 어떤 부담을 넘기나요?",
-              "de": "Welche Belastung verlagert eine Staugebühr auf Menschen mit wenigen Verkehrsalternativen?",
-              "en": "What burden does congestion pricing shift to people with few transport choices?"
+              "ko": "추가 자료를 내도 같은 기준으로 판단한다면 재검토의 범위는 어디까지인가요?",
+              "de": "Wie weit reicht die Überprüfung wenn trotz zusätzlicher Unterlagen nach denselben Kriterien entschieden wird?",
+              "en": "How far does the review extend if the same criteria are used even after additional materials are submitted?"
             },
             {
               "ko": "자동으로 계산된 요금에 이의를 제기하면 사람이 다시 검토하나요?",
@@ -34030,9 +34247,9 @@
           },
           "options": [
             {
-              "ko": "사람을 인력 부족의 해답으로만 쓰면 선택권과 생활 조건이 문장에서 사라져요.",
-              "de": "Wer Menschen nur als Antwort auf Personalmangel beschreibt, löscht Wahlmöglichkeiten und Lebensbedingungen aus dem Satz.",
-              "en": "When people are described only as the answer to labor shortages, their choices and living conditions vanish from the sentence."
+              "ko": "통지문에 적힌 기준이 제 경우에도 적용되는지 확인하고 싶습니다.",
+              "de": "Ich möchte prüfen ob die in der Mitteilung genannten Kriterien auch in meinem Fall gelten.",
+              "en": "I would like to check whether the criteria stated in the notice also apply in my case."
             },
             {
               "ko": "창구가 있다고 해서 구제가 되는 건 아니더라고요.",
@@ -34040,9 +34257,9 @@
               "en": "I've found that having an appeals channel doesn't necessarily mean you get redress."
             },
             {
-              "ko": "자동으로 계산된 요금에 이의를 제기하면 사람이 다시 검토하나요?",
-              "de": "Prüft ein Mensch nach, wenn man gegen eine automatisch berechnete Gebühr Einspruch einlegt?",
-              "en": "If you challenge an automatically calculated charge, does a person review it?"
+              "ko": "예외가 있다면 단서만 짧게 말하기보다 어디에 적용되는지 함께 알려 주시면 좋겠습니다.",
+              "de": "Wenn es Ausnahmen gibt wäre es hilfreich nicht nur den Vorbehalt kurz zu nennen sondern auch zu erklären wo er gilt.",
+              "en": "If there are exceptions, it would help to explain where they apply rather than only mention the caveat briefly."
             }
           ],
           "correctIndex": 1,
@@ -34095,6 +34312,223 @@
           ],
           "audioKo": "자동으로 계산된 요금에 이의를 제기하면 사람이 다시 검토하나요?",
           "evidenceKo": "자동으로 계산된 요금에 이의를 제기하면 사람이 다시 검토하나요?"
+        }
+      ]
+    },
+    {
+      "id": "smalltalk.c2.phone.appeal_requirements",
+      "kind": "smalltalk",
+      "level": "c2",
+      "topicId": "phone",
+      "title": {
+        "ko": "이의 신청 전에 확인할 것",
+        "de": "Vor dem Einspruch nachfragen",
+        "en": "Questions before an appeal"
+      },
+      "intro": {
+        "ko": "이의 신청을 준비하며 전화로 문의해요. 먼저 어떤 자료가 필요한지 안내를 요청해요. 이어지는 표현도 함께 익혀 보세요.",
+        "de": "Du bereitest einen Einspruch vor und rufst an. Zuerst möchtest du erfahren, welche Unterlagen du brauchst. Lerne auch die weiteren Ausdrücke dieser Lektion kennen.",
+        "en": "You call while preparing an appeal. First, you ask what documents you need. Explore the other expressions in this lesson too."
+      },
+      "contentIds": [
+        "smalltalk_c2_0091",
+        "smalltalk_c2_0092",
+        "smalltalk_c2_0093",
+        "smalltalk_c2_0094"
+      ],
+      "questions": [
+        {
+          "id": "smalltalk.c2.phone.appeal_requirements.smalltalk_c2_0091.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "prompt": {
+            "ko": "“이의 신청을 하려면 먼저 어떤 자료가 필요한지 안내받을 수 있을까요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„이의 신청을 하려면 먼저 어떤 자료가 필요한지 안내받을 수 있을까요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“이의 신청을 하려면 먼저 어떤 자료가 필요한지 안내받을 수 있을까요?”\nWhich meaning matches the whole utterance?"
+          },
+          "options": [
+            {
+              "ko": "자동으로 계산된 요금에 이의를 제기하면 사람이 다시 검토하나요?",
+              "de": "Prüft ein Mensch nach, wenn man gegen eine automatisch berechnete Gebühr Einspruch einlegt?",
+              "en": "If you challenge an automatically calculated charge, does a person review it?"
+            },
+            {
+              "ko": "추가 자료를 내도 같은 기준으로 판단한다면 재검토의 범위는 어디까지인가요?",
+              "de": "Wie weit reicht die Überprüfung wenn trotz zusätzlicher Unterlagen nach denselben Kriterien entschieden wird?",
+              "en": "How far does the review extend if the same criteria are used even after additional materials are submitted?"
+            },
+            {
+              "ko": "이의 신청을 하려면 먼저 어떤 자료가 필요한지 안내받을 수 있을까요?",
+              "de": "Könnte ich zunächst erfahren welche Unterlagen ich für einen Einspruch brauche?",
+              "en": "Could I first be told what materials I need for an appeal?"
+            }
+          ],
+          "correctIndex": 2,
+          "explanation": {
+            "ko": "이 표현의 내용은 “이의 신청을 하려면 먼저 어떤 자료가 필요한지 안내받을 수 있을까요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Könnte ich zunächst erfahren welche Unterlagen ich für einen Einspruch brauche? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Could I first be told what materials I need for an appeal? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+          },
+          "sourceIds": [
+            "smalltalk_c2_0091"
+          ],
+          "audioKo": "이의 신청을 하려면 먼저 어떤 자료가 필요한지 안내받을 수 있을까요?",
+          "evidenceKo": "이의 신청을 하려면 먼저 어떤 자료가 필요한지 안내받을 수 있을까요?"
+        },
+        {
+          "id": "smalltalk.c2.phone.appeal_requirements.smalltalk_c2_0092.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "prompt": {
+            "ko": "“통지문에 적힌 기준이 제 경우에도 적용되는지 확인하고 싶습니다.”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„통지문에 적힌 기준이 제 경우에도 적용되는지 확인하고 싶습니다.“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“통지문에 적힌 기준이 제 경우에도 적용되는지 확인하고 싶습니다.”\nWhich meaning matches the whole utterance?"
+          },
+          "options": [
+            {
+              "ko": "예외가 있다면 단서만 짧게 말하기보다 어디에 적용되는지 함께 알려 주시면 좋겠습니다.",
+              "de": "Wenn es Ausnahmen gibt wäre es hilfreich nicht nur den Vorbehalt kurz zu nennen sondern auch zu erklären wo er gilt.",
+              "en": "If there are exceptions, it would help to explain where they apply rather than only mention the caveat briefly."
+            },
+            {
+              "ko": "통지문에 적힌 기준이 제 경우에도 적용되는지 확인하고 싶습니다.",
+              "de": "Ich möchte prüfen ob die in der Mitteilung genannten Kriterien auch in meinem Fall gelten.",
+              "en": "I would like to check whether the criteria stated in the notice also apply in my case."
+            },
+            {
+              "ko": "창구가 있다고 해서 구제가 되는 건 아니더라고요.",
+              "de": "Ich habe festgestellt, dass eine Anlaufstelle noch keine wirksame Abhilfe garantiert.",
+              "en": "I've found that having an appeals channel doesn't necessarily mean you get redress."
+            }
+          ],
+          "correctIndex": 1,
+          "explanation": {
+            "ko": "이 표현의 내용은 “통지문에 적힌 기준이 제 경우에도 적용되는지 확인하고 싶습니다.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Ich möchte prüfen ob die in der Mitteilung genannten Kriterien auch in meinem Fall gelten. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: I would like to check whether the criteria stated in the notice also apply in my case. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+          },
+          "sourceIds": [
+            "smalltalk_c2_0092"
+          ],
+          "audioKo": "통지문에 적힌 기준이 제 경우에도 적용되는지 확인하고 싶습니다.",
+          "evidenceKo": "통지문에 적힌 기준이 제 경우에도 적용되는지 확인하고 싶습니다."
+        },
+        {
+          "id": "smalltalk.c2.phone.appeal_requirements.smalltalk_c2_0093.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "prompt": {
+            "ko": "“추가 자료를 내도 같은 기준으로 판단한다면 재검토의 범위는 어디까지인가요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„추가 자료를 내도 같은 기준으로 판단한다면 재검토의 범위는 어디까지인가요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“추가 자료를 내도 같은 기준으로 판단한다면 재검토의 범위는 어디까지인가요?”\nWhich meaning matches the whole utterance?"
+          },
+          "options": [
+            {
+              "ko": "추가 자료를 내도 같은 기준으로 판단한다면 재검토의 범위는 어디까지인가요?",
+              "de": "Wie weit reicht die Überprüfung wenn trotz zusätzlicher Unterlagen nach denselben Kriterien entschieden wird?",
+              "en": "How far does the review extend if the same criteria are used even after additional materials are submitted?"
+            },
+            {
+              "ko": "자동으로 계산된 요금에 이의를 제기하면 사람이 다시 검토하나요?",
+              "de": "Prüft ein Mensch nach, wenn man gegen eine automatisch berechnete Gebühr Einspruch einlegt?",
+              "en": "If you challenge an automatically calculated charge, does a person review it?"
+            },
+            {
+              "ko": "이의 신청을 하려면 먼저 어떤 자료가 필요한지 안내받을 수 있을까요?",
+              "de": "Könnte ich zunächst erfahren welche Unterlagen ich für einen Einspruch brauche?",
+              "en": "Could I first be told what materials I need for an appeal?"
+            }
+          ],
+          "correctIndex": 0,
+          "explanation": {
+            "ko": "이 표현의 내용은 “추가 자료를 내도 같은 기준으로 판단한다면 재검토의 범위는 어디까지인가요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Wie weit reicht die Überprüfung wenn trotz zusätzlicher Unterlagen nach denselben Kriterien entschieden wird? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: How far does the review extend if the same criteria are used even after additional materials are submitted? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+          },
+          "sourceIds": [
+            "smalltalk_c2_0093"
+          ],
+          "audioKo": "추가 자료를 내도 같은 기준으로 판단한다면 재검토의 범위는 어디까지인가요?",
+          "evidenceKo": "추가 자료를 내도 같은 기준으로 판단한다면 재검토의 범위는 어디까지인가요?"
+        },
+        {
+          "id": "smalltalk.c2.phone.appeal_requirements.smalltalk_c2_0094.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "prompt": {
+            "ko": "“예외가 있다면 단서만 짧게 말하기보다 어디에 적용되는지 함께 알려 주시면 좋겠습니다.”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„예외가 있다면 단서만 짧게 말하기보다 어디에 적용되는지 함께 알려 주시면 좋겠습니다.“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“예외가 있다면 단서만 짧게 말하기보다 어디에 적용되는지 함께 알려 주시면 좋겠습니다.”\nWhich meaning matches the whole utterance?"
+          },
+          "options": [
+            {
+              "ko": "통지문에 적힌 기준이 제 경우에도 적용되는지 확인하고 싶습니다.",
+              "de": "Ich möchte prüfen ob die in der Mitteilung genannten Kriterien auch in meinem Fall gelten.",
+              "en": "I would like to check whether the criteria stated in the notice also apply in my case."
+            },
+            {
+              "ko": "창구가 있다고 해서 구제가 되는 건 아니더라고요.",
+              "de": "Ich habe festgestellt, dass eine Anlaufstelle noch keine wirksame Abhilfe garantiert.",
+              "en": "I've found that having an appeals channel doesn't necessarily mean you get redress."
+            },
+            {
+              "ko": "예외가 있다면 단서만 짧게 말하기보다 어디에 적용되는지 함께 알려 주시면 좋겠습니다.",
+              "de": "Wenn es Ausnahmen gibt wäre es hilfreich nicht nur den Vorbehalt kurz zu nennen sondern auch zu erklären wo er gilt.",
+              "en": "If there are exceptions, it would help to explain where they apply rather than only mention the caveat briefly."
+            }
+          ],
+          "correctIndex": 2,
+          "explanation": {
+            "ko": "이 표현의 내용은 “예외가 있다면 단서만 짧게 말하기보다 어디에 적용되는지 함께 알려 주시면 좋겠습니다.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Wenn es Ausnahmen gibt wäre es hilfreich nicht nur den Vorbehalt kurz zu nennen sondern auch zu erklären wo er gilt. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: If there are exceptions, it would help to explain where they apply rather than only mention the caveat briefly. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+          },
+          "sourceIds": [
+            "smalltalk_c2_0094"
+          ],
+          "audioKo": "예외가 있다면 단서만 짧게 말하기보다 어디에 적용되는지 함께 알려 주시면 좋겠습니다.",
+          "evidenceKo": "예외가 있다면 단서만 짧게 말하기보다 어디에 적용되는지 함께 알려 주시면 좋겠습니다."
+        },
+        {
+          "id": "smalltalk.c2.phone.appeal_requirements.situation",
+          "type": "choice",
+          "skill": "situation",
+          "prompt": {
+            "ko": "이의 신청을 준비하며 전화로 문의해요. 먼저 어떤 자료가 필요한지 안내를 요청해요.\n이 뜻을 가장 정확히 전하는 표현은 무엇인가요?",
+            "de": "Du bereitest einen Einspruch vor und rufst an. Zuerst möchtest du erfahren, welche Unterlagen du brauchst.\nWelche Äußerung drückt genau diese Absicht aus?",
+            "en": "You call while preparing an appeal. First, you ask what documents you need.\nWhich expression conveys this precise intention?"
+          },
+          "options": [
+            {
+              "ko": "이의 신청에 필요한 자료를 언제까지 내야 하는지 안내받을 수 있을까요?",
+              "de": "이의 신청에 필요한 자료를 언제까지 내야 하는지 안내받을 수 있을까요?",
+              "en": "이의 신청에 필요한 자료를 언제까지 내야 하는지 안내받을 수 있을까요?"
+            },
+            {
+              "ko": "이의 신청을 한 뒤 결과를 어떻게 확인하는지 안내받을 수 있을까요?",
+              "de": "이의 신청을 한 뒤 결과를 어떻게 확인하는지 안내받을 수 있을까요?",
+              "en": "이의 신청을 한 뒤 결과를 어떻게 확인하는지 안내받을 수 있을까요?"
+            },
+            {
+              "ko": "이의 신청을 하려면 먼저 어떤 자료가 필요한지 안내받을 수 있을까요?",
+              "de": "이의 신청을 하려면 먼저 어떤 자료가 필요한지 안내받을 수 있을까요?",
+              "en": "이의 신청을 하려면 먼저 어떤 자료가 필요한지 안내받을 수 있을까요?"
+            }
+          ],
+          "correctIndex": 2,
+          "explanation": {
+            "ko": "“이의 신청을 하려면 먼저 어떤 자료가 필요한지 안내받을 수 있을까요?” — 이의 신청을 준비하며 전화로 문의해요. 먼저 어떤 자료가 필요한지 안내를 요청해요.",
+            "de": "„이의 신청을 하려면 먼저 어떤 자료가 필요한지 안내받을 수 있을까요?“ bedeutet: Könnte ich zunächst erfahren welche Unterlagen ich für einen Einspruch brauche?",
+            "en": "“이의 신청을 하려면 먼저 어떤 자료가 필요한지 안내받을 수 있을까요?” means: Could I first be told what materials I need for an appeal?"
+          },
+          "sourceIds": [
+            "smalltalk_c2_0091",
+            "smalltalk_c2_0092",
+            "smalltalk_c2_0093",
+            "smalltalk_c2_0094"
+          ],
+          "audioKo": "이의 신청을 하려면 먼저 어떤 자료가 필요한지 안내받을 수 있을까요?",
+          "evidenceKo": "이의 신청을 하려면 먼저 어떤 자료가 필요한지 안내받을 수 있을까요?"
         }
       ]
     },
