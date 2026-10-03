@@ -4714,7 +4714,7 @@
           "speaker": "manager",
           "ko": "네. 가능하면 오후까지 검토 결과를 따로 보내 드리겠습니다.",
           "de": "Ja. Wenn es möglich ist, sende ich Ihnen das Ergebnis der Prüfung bis heute Nachmittag separat zu.",
-          "en": "Yes. If possible, I will send you the review result separately by this afternoon."
+          "en": "Yes. If possible, I'll send you the review result separately by this afternoon."
         },
         {
           "speaker": "user",
@@ -4779,7 +4779,7 @@
           "data": {
             "targetKo": "네. 가능하면 오후까지 검토 결과를 따로 보내 드리겠습니다.",
             "promptDe": "Ja. Wenn es möglich ist, sende ich Ihnen das Ergebnis der Prüfung bis heute Nachmittag separat zu.",
-            "promptEn": "Yes. If possible, I will send you the review result separately by this afternoon.",
+            "promptEn": "Yes. If possible, I'll send you the review result separately by this afternoon.",
             "distractors": [
               "접근",
               "계약서"
@@ -5154,13 +5154,13 @@
           "speaker": "user",
           "ko": "네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.",
           "de": "Ja. Von allen Unterlagen zu dieser Bewerberin halte ich mich fern und prüfe die übrigen vier nach denselben Kriterien.",
-          "en": "Yes. I will step away from all material about that applicant and assess the other four by the same criteria."
+          "en": "Yes. I'll step away from all material about that applicant and assess the other four by the same criteria."
         },
         {
           "speaker": "professor",
           "ko": "좋습니다. 그 범위와 절차를 기록해 두겠습니다.",
           "de": "Gut. Ich halte diesen Umfang und das Verfahren fest.",
-          "en": "Good. I will record that scope and procedure."
+          "en": "Good. I'll record that scope and procedure."
         }
       ],
       "quests": [
@@ -5173,7 +5173,7 @@
               {
                 "ko": "네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.",
                 "de": "Ja. Von allen Unterlagen zu dieser Bewerberin halte ich mich fern und prüfe die übrigen vier nach denselben Kriterien.",
-                "en": "Yes. I will step away from all material about that applicant and assess the other four by the same criteria."
+                "en": "Yes. I'll step away from all material about that applicant and assess the other four by the same criteria."
               },
               {
                 "ko": "오늘 지원서 다섯 건을 같이 검토하겠습니다.",
@@ -5188,7 +5188,7 @@
               {
                 "ko": "좋습니다. 그 범위와 절차를 기록해 두겠습니다.",
                 "de": "Gut. Ich halte diesen Umfang und das Verfahren fest.",
-                "en": "Good. I will record that scope and procedure."
+                "en": "Good. I'll record that scope and procedure."
               }
             ],
             "correctIndex": 0
@@ -5379,7 +5379,7 @@
           "speaker": "researcher",
           "ko": "네. 가능한 선택지는 현재 건강 상태와 연구 기준을 함께 봐야 합니다. 담당 의료진에게 문의할 방법을 안내해 드리겠습니다.",
           "de": "Ja. Welche Optionen möglich sind, hängt von Ihrem aktuellen Gesundheitszustand und den Studienkriterien ab. Ich erkläre Ihnen, wie Sie Ihr Behandlungsteam dazu erreichen können.",
-          "en": "Yes. The options that may be available depend on your current health and the study criteria. I will explain how to contact your care team about them."
+          "en": "Yes. The options that may be available depend on your current health and the study criteria. I'll explain how to contact your care team about them."
         },
         {
           "speaker": "user",

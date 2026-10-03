@@ -70,6 +70,10 @@
       "level": "a1"
     },
     {
+      "id": "seed_cloze_cloze_a1_0045_v1",
+      "level": "a1"
+    },
+    {
       "id": "seed_cloze_cloze_a1_0056_v1",
       "level": "a1"
     },
@@ -119,6 +123,14 @@
     },
     {
       "id": "seed_cloze_cloze_a1_0097_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_cloze_cloze_a1_0141_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_cloze_cloze_a1_0290_v1",
       "level": "a1"
     },
     {
@@ -310,11 +322,19 @@
       "level": "a1"
     },
     {
+      "id": "seed_cloze_cloze_a1_0578_v1",
+      "level": "a1"
+    },
+    {
       "id": "seed_cloze_cloze_a1_0671_v1",
       "level": "a1"
     },
     {
       "id": "seed_cloze_cloze_a1_0678_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_cloze_cloze_a1_0738_v1",
       "level": "a1"
     },
     {
@@ -1594,6 +1614,18 @@
       "level": "a2"
     },
     {
+      "id": "seed_cloze_cloze_a2_0078_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_cloze_cloze_a2_0201_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_cloze_cloze_a2_0206_v1",
+      "level": "a2"
+    },
+    {
       "id": "seed_cloze_cloze_a2_0268_v1",
       "level": "a2"
     },
@@ -2538,6 +2570,10 @@
       "level": "a2"
     },
     {
+      "id": "seed_cloze_cloze_a2_0256_v1",
+      "level": "b1"
+    },
+    {
       "id": "seed_cloze_cloze_b1_0001_v1",
       "level": "b1"
     },
@@ -2758,6 +2794,34 @@
       "level": "b1"
     },
     {
+      "id": "seed_cloze_cloze_b1_0057_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_cloze_cloze_b1_0059_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_cloze_cloze_b1_0063_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_cloze_cloze_b1_0064_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_cloze_cloze_b1_0065_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_cloze_cloze_b1_0071_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_cloze_cloze_b1_0079_v1",
+      "level": "b1"
+    },
+    {
       "id": "seed_cloze_cloze_b1_0080_v1",
       "level": "b1"
     },
@@ -2771,6 +2835,18 @@
     },
     {
       "id": "seed_cloze_cloze_b1_0083_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_cloze_cloze_b1_0206_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_cloze_cloze_b1_0211_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_cloze_cloze_b1_0261_v1",
       "level": "b1"
     },
     {
@@ -3882,6 +3958,38 @@
       "level": "b2"
     },
     {
+      "id": "seed_cloze_cloze_b2_0065_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_cloze_cloze_b2_0102_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_cloze_cloze_b2_0104_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_cloze_cloze_b2_0108_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_cloze_cloze_b2_0109_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_cloze_cloze_b2_0110_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_cloze_cloze_b2_0116_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_cloze_cloze_b2_0124_v1",
+      "level": "b2"
+    },
+    {
       "id": "seed_cloze_cloze_b2_0166_v1",
       "level": "b2"
     },
@@ -3895,6 +4003,10 @@
     },
     {
       "id": "seed_cloze_cloze_b2_0169_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_cloze_cloze_b2_0188_v1",
       "level": "b2"
     },
     {
@@ -9520,6 +9632,13 @@
     },
     {
       "kind": "cloze",
+      "id": "cloze_a1_0045",
+      "level": "a1",
+      "sourceSeedId": "seed_cloze_cloze_a1_0045_v1",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "kind": "cloze",
       "id": "cloze_a1_0056",
       "level": "a1",
       "sourceSeedId": "seed_cloze_cloze_a1_0056_v1",
@@ -9608,6 +9727,20 @@
       "level": "a1",
       "sourceSeedId": "seed_cloze_cloze_a1_0097_v1",
       "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_a1_0141",
+      "level": "a1",
+      "sourceSeedId": "seed_cloze_cloze_a1_0141_v1",
+      "courseUnitId": "a1_11_titles_relationships"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_a1_0290",
+      "level": "a1",
+      "sourceSeedId": "seed_cloze_cloze_a1_0290_v1",
+      "courseUnitId": "a1_13_register_switching"
     },
     {
       "kind": "cloze",
@@ -9940,6 +10073,13 @@
     },
     {
       "kind": "cloze",
+      "id": "cloze_a1_0578",
+      "level": "a1",
+      "sourceSeedId": "seed_cloze_cloze_a1_0578_v1",
+      "courseUnitId": "a1_13_register_switching"
+    },
+    {
+      "kind": "cloze",
       "id": "cloze_a1_0671",
       "level": "a1",
       "sourceSeedId": "seed_cloze_cloze_a1_0671_v1",
@@ -9951,6 +10091,13 @@
       "level": "a1",
       "sourceSeedId": "seed_cloze_cloze_a1_0678_v1",
       "courseUnitId": "a1_11_titles_relationships"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_a1_0738",
+      "level": "a1",
+      "sourceSeedId": "seed_cloze_cloze_a1_0738_v1",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "kind": "grammar",
@@ -12187,6 +12334,27 @@
     },
     {
       "kind": "cloze",
+      "id": "cloze_a2_0078",
+      "level": "a2",
+      "sourceSeedId": "seed_cloze_cloze_a2_0078_v1",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_a2_0201",
+      "level": "a2",
+      "sourceSeedId": "seed_cloze_cloze_a2_0201_v1",
+      "courseUnitId": "a2_04_feelings_health"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_a2_0206",
+      "level": "a2",
+      "sourceSeedId": "seed_cloze_cloze_a2_0206_v1",
+      "courseUnitId": "a2_04_feelings_health"
+    },
+    {
+      "kind": "cloze",
       "id": "cloze_a2_0268",
       "level": "a2",
       "sourceSeedId": "seed_cloze_cloze_a2_0268_v1",
@@ -13839,6 +14007,13 @@
     },
     {
       "kind": "cloze",
+      "id": "cloze_a2_0256",
+      "level": "b1",
+      "sourceSeedId": "seed_cloze_cloze_a2_0256_v1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "kind": "cloze",
       "id": "cloze_b1_0001",
       "level": "b1",
       "sourceSeedId": "seed_cloze_cloze_b1_0001_v1",
@@ -14224,6 +14399,55 @@
     },
     {
       "kind": "cloze",
+      "id": "cloze_b1_0057",
+      "level": "b1",
+      "sourceSeedId": "seed_cloze_cloze_b1_0057_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_b1_0059",
+      "level": "b1",
+      "sourceSeedId": "seed_cloze_cloze_b1_0059_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_b1_0063",
+      "level": "b1",
+      "sourceSeedId": "seed_cloze_cloze_b1_0063_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_b1_0064",
+      "level": "b1",
+      "sourceSeedId": "seed_cloze_cloze_b1_0064_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_b1_0065",
+      "level": "b1",
+      "sourceSeedId": "seed_cloze_cloze_b1_0065_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_b1_0071",
+      "level": "b1",
+      "sourceSeedId": "seed_cloze_cloze_b1_0071_v1",
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_b1_0079",
+      "level": "b1",
+      "sourceSeedId": "seed_cloze_cloze_b1_0079_v1",
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "kind": "cloze",
       "id": "cloze_b1_0080",
       "level": "b1",
       "sourceSeedId": "seed_cloze_cloze_b1_0080_v1",
@@ -14248,6 +14472,27 @@
       "id": "cloze_b1_0083",
       "level": "b1",
       "sourceSeedId": "seed_cloze_cloze_b1_0083_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_b1_0206",
+      "level": "b1",
+      "sourceSeedId": "seed_cloze_cloze_b1_0206_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_b1_0211",
+      "level": "b1",
+      "sourceSeedId": "seed_cloze_cloze_b1_0211_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_b1_0261",
+      "level": "b1",
+      "sourceSeedId": "seed_cloze_cloze_b1_0261_v1",
       "courseUnitId": "b1_05_complaint_resolution"
     },
     {
@@ -16191,6 +16436,62 @@
     },
     {
       "kind": "cloze",
+      "id": "cloze_b2_0065",
+      "level": "b2",
+      "sourceSeedId": "seed_cloze_cloze_b2_0065_v1",
+      "courseUnitId": "b2_03_precise_requests"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_b2_0102",
+      "level": "b2",
+      "sourceSeedId": "seed_cloze_cloze_b2_0102_v1",
+      "courseUnitId": "b2_06_advanced_capstone"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_b2_0104",
+      "level": "b2",
+      "sourceSeedId": "seed_cloze_cloze_b2_0104_v1",
+      "courseUnitId": "b2_06_advanced_capstone"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_b2_0108",
+      "level": "b2",
+      "sourceSeedId": "seed_cloze_cloze_b2_0108_v1",
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_b2_0109",
+      "level": "b2",
+      "sourceSeedId": "seed_cloze_cloze_b2_0109_v1",
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_b2_0110",
+      "level": "b2",
+      "sourceSeedId": "seed_cloze_cloze_b2_0110_v1",
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_b2_0116",
+      "level": "b2",
+      "sourceSeedId": "seed_cloze_cloze_b2_0116_v1",
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_b2_0124",
+      "level": "b2",
+      "sourceSeedId": "seed_cloze_cloze_b2_0124_v1",
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "kind": "cloze",
       "id": "cloze_b2_0166",
       "level": "b2",
       "sourceSeedId": "seed_cloze_cloze_b2_0166_v1",
@@ -16216,6 +16517,13 @@
       "level": "b2",
       "sourceSeedId": "seed_cloze_cloze_b2_0169_v1",
       "courseUnitId": "b2_04_complaint_resolution"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_b2_0188",
+      "level": "b2",
+      "sourceSeedId": "seed_cloze_cloze_b2_0188_v1",
+      "courseUnitId": "b2_06_advanced_capstone"
     },
     {
       "kind": "cloze",
@@ -27529,12 +27837,12 @@
       "grammar": 261,
       "smalltalk": 582,
       "scenario": 179,
-      "cloze": 791,
+      "cloze": 819,
       "satz": 516,
       "project": 8
     },
     "inheritedReferenceCounts": {
-      "cloze": 1550,
+      "cloze": 1522,
       "satz": 2345
     },
     "inheritedContentReferences": [
@@ -27834,17 +28142,6 @@
         "level": "a1",
         "canDoSegmentId": "segment_a1_04_order_request_object",
         "courseUnitId": "a1_04_order_request_object"
-      },
-      {
-        "kind": "cloze",
-        "id": "cloze_a1_0045",
-        "sourceKind": "vocabPack",
-        "sourceId": "a1_daily_1",
-        "sourceVocabId": "vocab_a1_0068",
-        "sourceVocabFingerprintSha256": "b1abf9731421b01681c8d1859de6fc94dd1f95b7155b0e7171f3aaf94a6419d2",
-        "level": "a1",
-        "canDoSegmentId": "segment_a1_12_daily_negation",
-        "courseUnitId": "a1_12_daily_negation"
       },
       {
         "kind": "cloze",
@@ -28303,7 +28600,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_meet_names_1",
         "sourceVocabId": "vocab_a1_0212",
-        "sourceVocabFingerprintSha256": "57072ad7f7b67ee3f7380dcda7e47ec214e9ac2fcaebe5f4d6442a10e77894d5",
+        "sourceVocabFingerprintSha256": "50a63a8ecdcdc354619aeb64077846e0eb1640153d0b9263d2d57b789edfcecd",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -28380,7 +28677,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_meet_names_1",
         "sourceVocabId": "vocab_a1_0220",
-        "sourceVocabFingerprintSha256": "fc1704316b3d25405b26846d806a997c97575f091df450059146577d93be67bd",
+        "sourceVocabFingerprintSha256": "12272b9d89ceda0be0b00d8cedbec82efbad8120c0065410d7accce8eaca1bd9",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -28435,7 +28732,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_table_basic_1",
         "sourceVocabId": "vocab_a1_0249",
-        "sourceVocabFingerprintSha256": "d5c181b013e550e50bc5c606e0f047ff817cd6844cf9fbf244952322508a1b1a",
+        "sourceVocabFingerprintSha256": "c8c0887111fd03803e0a7c0c7bcbbf3a64f0b2658411f0f6d1f3b0ca6982c477",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -28446,7 +28743,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_table_basic_1",
         "sourceVocabId": "vocab_a1_0250",
-        "sourceVocabFingerprintSha256": "bc110c1a661f7ce6415fbe9db10d49715ab01c50c6df141d54f84cf32cc5c847",
+        "sourceVocabFingerprintSha256": "c5f3deb389eeddd7d5f40a192b04b3190cc0a7c3130de462de8978b796715217",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -28457,7 +28754,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_table_basic_1",
         "sourceVocabId": "vocab_a1_0251",
-        "sourceVocabFingerprintSha256": "df529b795bc5b941ca0a29bb5593611594ea1d5048524112a1ce201d5f0749c7",
+        "sourceVocabFingerprintSha256": "7510fc5305126fd4b6778f674af55b810d41d03f061df0913afa2846b7544060",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -28469,17 +28766,6 @@
         "sourceId": "a1_partner_table_basic_1",
         "sourceVocabId": "vocab_a1_0252",
         "sourceVocabFingerprintSha256": "91ae0328754c10b60eb6c14778f327b71182bf8a34f7ed10bd69d492fdb6f649",
-        "level": "a1",
-        "canDoSegmentId": "segment_a1_11_titles_relationships",
-        "courseUnitId": "a1_11_titles_relationships"
-      },
-      {
-        "kind": "cloze",
-        "id": "cloze_a1_0141",
-        "sourceKind": "vocabPack",
-        "sourceId": "a1_partner_table_basic_1",
-        "sourceVocabId": "vocab_a1_0253",
-        "sourceVocabFingerprintSha256": "ddcebea7105b71b51757c6ba5532a6fc559bb95c1e61e3904af964180c4ed01a",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -28501,7 +28787,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_table_basic_1",
         "sourceVocabId": "vocab_a1_0255",
-        "sourceVocabFingerprintSha256": "760a1ff190b4efa391b6846f99c8b23d95448ff49c89030f689f17cf1534715c",
+        "sourceVocabFingerprintSha256": "852e5a7d87d0413a9cd0d8e5cd482543998f3c91497f3c720c3b5333df348c94",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -28512,7 +28798,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_table_basic_1",
         "sourceVocabId": "vocab_a1_0256",
-        "sourceVocabFingerprintSha256": "1898c5c6a54307208a50ea1f18cd0c0d3bbee201a003be6b24f4fbf96a584dee",
+        "sourceVocabFingerprintSha256": "2e93919bf19afa12d03954ea6c218088afa4036137b97ef718c88089115e5ee1",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -28523,7 +28809,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_table_basic_1",
         "sourceVocabId": "vocab_a1_0257",
-        "sourceVocabFingerprintSha256": "6a5f29e65b88bb69c23e934dbc8a02304a2391db69b68d8d59a981fe973a3ae8",
+        "sourceVocabFingerprintSha256": "8ccecd85e6366c10c5a3ea685c6f5e0f16fb41a901878c5b0e243d4b63ae0372",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -28534,7 +28820,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_table_basic_1",
         "sourceVocabId": "vocab_a1_0258",
-        "sourceVocabFingerprintSha256": "b9e5fc1adfcbd9974182cc2bae9a7d81f602dd994ff20af0faef9e83a812997a",
+        "sourceVocabFingerprintSha256": "5d287f7e144ddac42d3a742cb9855d94d8c13dec888ffc2340286da0396e8d14",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -28545,7 +28831,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_table_basic_1",
         "sourceVocabId": "vocab_a1_0259",
-        "sourceVocabFingerprintSha256": "30443b49da85d03a17173467366cc4ae0f3df49c9d93f89051c6ad4696bf4497",
+        "sourceVocabFingerprintSha256": "8630f03d36b636e7fd4832946b07becf2968a18a369dab043402fc7fc7a477bc",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -28567,7 +28853,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_seollal_basic_1",
         "sourceVocabId": "vocab_a1_0261",
-        "sourceVocabFingerprintSha256": "236b08a56bd75c091394f09e71e45a523617684cda7f37db2c034194d5d8ff2f",
+        "sourceVocabFingerprintSha256": "4cb9acbb1431eb25681f81a977231225efe0b29fba2cd0886be36e10787fc346",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -28589,7 +28875,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_seollal_basic_1",
         "sourceVocabId": "vocab_a1_0263",
-        "sourceVocabFingerprintSha256": "5cf88020cdffa549b9f82125a9ef435542ad580c1fd5e82453cebcdb9b99a38f",
+        "sourceVocabFingerprintSha256": "168e818e7a5d4e3a902f79deaf9d792dbea689eb14615eb765ca0bba2bb09467",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -28600,7 +28886,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_seollal_basic_1",
         "sourceVocabId": "vocab_a1_0264",
-        "sourceVocabFingerprintSha256": "5ef090b48021d3a6d30e75f7e21eee2722af9edeac4319c0b27112c32718a13d",
+        "sourceVocabFingerprintSha256": "96f9f38b85c1a6f2d65de72ed32746062dfaf671778fef1a1c6f5d80f6f479ae",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -28622,7 +28908,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_seollal_basic_1",
         "sourceVocabId": "vocab_a1_0266",
-        "sourceVocabFingerprintSha256": "a469d85fcf198d7cc6e51e86f06a05849a60fed74e4dfc45e1a29378b8caa6cb",
+        "sourceVocabFingerprintSha256": "0a04f1f66893447e819c5d0cf13e81d4896c7a4abc1174bf0ae57907fdd7f9bf",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -28677,7 +28963,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_seollal_basic_1",
         "sourceVocabId": "vocab_a1_0271",
-        "sourceVocabFingerprintSha256": "050a45735309bb6d32e9355985a303b49a4e7c8661898c5999e2b358577e3dde",
+        "sourceVocabFingerprintSha256": "30773e3864c6c2385213285cff7d2f724de28d42b3a17db127c455e3ccca1c2d",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -28963,7 +29249,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_sorry_thanks_1",
         "sourceVocabId": "vocab_a1_0394",
-        "sourceVocabFingerprintSha256": "92a38b5aa03a3113ca74a99b08be7941ee62a04d0415b322227090adb30b1bce",
+        "sourceVocabFingerprintSha256": "6b7b6f566797f367cab9a8fcf73f26a4fed5bfb74f75395135dc30473c516774",
         "level": "a1",
         "canDoSegmentId": "segment_a1_13_register_switching",
         "courseUnitId": "a1_13_register_switching"
@@ -29018,7 +29304,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_sorry_thanks_1",
         "sourceVocabId": "vocab_a1_0399",
-        "sourceVocabFingerprintSha256": "ff2350e9bcf0bbbfb9266e7d5e372cb5c5e1416293dd582272e112081d84de6f",
+        "sourceVocabFingerprintSha256": "53fc515b55b56f2c47514f5ea005327fe4b8f8572721a839ee242336a89bec2e",
         "level": "a1",
         "canDoSegmentId": "segment_a1_13_register_switching",
         "courseUnitId": "a1_13_register_switching"
@@ -29041,17 +29327,6 @@
         "sourceId": "a1_sorry_thanks_1",
         "sourceVocabId": "vocab_a1_0401",
         "sourceVocabFingerprintSha256": "e8c33a430975f6b104fb2a5872d59fcf13717273805f25dd4b8442de06fa9e89",
-        "level": "a1",
-        "canDoSegmentId": "segment_a1_13_register_switching",
-        "courseUnitId": "a1_13_register_switching"
-      },
-      {
-        "kind": "cloze",
-        "id": "cloze_a1_0290",
-        "sourceKind": "vocabPack",
-        "sourceId": "a1_sorry_thanks_1",
-        "sourceVocabId": "vocab_a1_0402",
-        "sourceVocabFingerprintSha256": "28f3c5d982b33ba0025f22becca6f457bace4f6e6728ae36b5970abd321f8d36",
         "level": "a1",
         "canDoSegmentId": "segment_a1_13_register_switching",
         "courseUnitId": "a1_13_register_switching"
@@ -29524,7 +29799,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_transport",
         "sourceVocabId": "vocab_a1_0449",
-        "sourceVocabFingerprintSha256": "962028d46fc6bb21adef12c15e133898a228606a6a8699c41aa3b0dc0b7552dc",
+        "sourceVocabFingerprintSha256": "a1a81b1c84abdbb09791edc4173ebebcae33b3e8a0afaef330d8455b6545053b",
         "level": "a1",
         "canDoSegmentId": "segment_a1_06_transport_directions",
         "courseUnitId": "a1_06_transport_directions"
@@ -30679,7 +30954,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_hobbies_1",
         "sourceVocabId": "vocab_a1_0554",
-        "sourceVocabFingerprintSha256": "3fcb192fe81a61ee9af57d9582a3f339065b5a8fadbd87ee839ada1ed21abe7d",
+        "sourceVocabFingerprintSha256": "05be8e5c27a2f995d6ead11b3cfe669914f4ee8e3d034c242d53b86b00920f48",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -31218,7 +31493,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_belongings_1",
         "sourceVocabId": "vocab_a1_0603",
-        "sourceVocabFingerprintSha256": "26ace7437e2a5235057d4f28b30e61794f54ab49568184d5885ae75ba9ac043c",
+        "sourceVocabFingerprintSha256": "05b4545f3eaccc4d028b5d389149fa709f15b77831e5748fef94183f8e8b40b2",
         "level": "a1",
         "canDoSegmentId": "segment_a1_09_home_daily_life",
         "courseUnitId": "a1_09_home_daily_life"
@@ -31659,17 +31934,6 @@
         "sourceId": "a1_feelings_talk_1",
         "sourceVocabId": "vocab_a1_0643",
         "sourceVocabFingerprintSha256": "75ba75212c43f909ede1ff0f51d81479d22e5ccda11c019480f0dec98740d94f",
-        "level": "a1",
-        "canDoSegmentId": "segment_a1_11_titles_relationships",
-        "courseUnitId": "a1_11_titles_relationships"
-      },
-      {
-        "kind": "cloze",
-        "id": "cloze_a1_0578",
-        "sourceKind": "vocabPack",
-        "sourceId": "a1_feelings_talk_1",
-        "sourceVocabId": "vocab_a1_0644",
-        "sourceVocabFingerprintSha256": "33a916157c0bbd9368f07c6fc2f693282436f583aee957102be6286efd7a1b43",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -33403,17 +33667,6 @@
       },
       {
         "kind": "cloze",
-        "id": "cloze_a1_0738",
-        "sourceKind": "vocabPack",
-        "sourceId": "a1_pronouns_1",
-        "sourceVocabId": "vocab_a1_0804",
-        "sourceVocabFingerprintSha256": "6eb54825c3305aa07f411904bfa23da0c67777e507314702f1b036ee3723dcef",
-        "level": "a1",
-        "canDoSegmentId": "segment_a1_08_clarify_repair",
-        "courseUnitId": "a1_08_clarify_repair"
-      },
-      {
-        "kind": "cloze",
         "id": "cloze_a1_0739",
         "sourceKind": "vocabPack",
         "sourceId": "a1_pronouns_1",
@@ -33627,7 +33880,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_determiners_1",
         "sourceVocabId": "vocab_a1_0824",
-        "sourceVocabFingerprintSha256": "b99d24f10a9a50870d4e3216bdea215510f7a8a1df54e9dc32fda4839cb14290",
+        "sourceVocabFingerprintSha256": "b40c8958504af506ecfcea055ef2d0fb98505c383f4bd13de190bf0119578dba",
         "level": "a1",
         "canDoSegmentId": "segment_a1_05_numbers_time",
         "courseUnitId": "a1_05_numbers_time"
@@ -34518,7 +34771,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_meet_names_1",
         "sourceVocabId": "vocab_a1_0212",
-        "sourceVocabFingerprintSha256": "57072ad7f7b67ee3f7380dcda7e47ec214e9ac2fcaebe5f4d6442a10e77894d5",
+        "sourceVocabFingerprintSha256": "50a63a8ecdcdc354619aeb64077846e0eb1640153d0b9263d2d57b789edfcecd",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -34595,7 +34848,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_meet_names_1",
         "sourceVocabId": "vocab_a1_0220",
-        "sourceVocabFingerprintSha256": "fc1704316b3d25405b26846d806a997c97575f091df450059146577d93be67bd",
+        "sourceVocabFingerprintSha256": "12272b9d89ceda0be0b00d8cedbec82efbad8120c0065410d7accce8eaca1bd9",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -34650,7 +34903,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_table_basic_1",
         "sourceVocabId": "vocab_a1_0249",
-        "sourceVocabFingerprintSha256": "d5c181b013e550e50bc5c606e0f047ff817cd6844cf9fbf244952322508a1b1a",
+        "sourceVocabFingerprintSha256": "c8c0887111fd03803e0a7c0c7bcbbf3a64f0b2658411f0f6d1f3b0ca6982c477",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -34661,7 +34914,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_table_basic_1",
         "sourceVocabId": "vocab_a1_0250",
-        "sourceVocabFingerprintSha256": "bc110c1a661f7ce6415fbe9db10d49715ab01c50c6df141d54f84cf32cc5c847",
+        "sourceVocabFingerprintSha256": "c5f3deb389eeddd7d5f40a192b04b3190cc0a7c3130de462de8978b796715217",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -34672,7 +34925,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_table_basic_1",
         "sourceVocabId": "vocab_a1_0251",
-        "sourceVocabFingerprintSha256": "df529b795bc5b941ca0a29bb5593611594ea1d5048524112a1ce201d5f0749c7",
+        "sourceVocabFingerprintSha256": "7510fc5305126fd4b6778f674af55b810d41d03f061df0913afa2846b7544060",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -34716,7 +34969,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_table_basic_1",
         "sourceVocabId": "vocab_a1_0255",
-        "sourceVocabFingerprintSha256": "760a1ff190b4efa391b6846f99c8b23d95448ff49c89030f689f17cf1534715c",
+        "sourceVocabFingerprintSha256": "852e5a7d87d0413a9cd0d8e5cd482543998f3c91497f3c720c3b5333df348c94",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -34727,7 +34980,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_table_basic_1",
         "sourceVocabId": "vocab_a1_0256",
-        "sourceVocabFingerprintSha256": "1898c5c6a54307208a50ea1f18cd0c0d3bbee201a003be6b24f4fbf96a584dee",
+        "sourceVocabFingerprintSha256": "2e93919bf19afa12d03954ea6c218088afa4036137b97ef718c88089115e5ee1",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -34738,7 +34991,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_table_basic_1",
         "sourceVocabId": "vocab_a1_0257",
-        "sourceVocabFingerprintSha256": "6a5f29e65b88bb69c23e934dbc8a02304a2391db69b68d8d59a981fe973a3ae8",
+        "sourceVocabFingerprintSha256": "8ccecd85e6366c10c5a3ea685c6f5e0f16fb41a901878c5b0e243d4b63ae0372",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -34749,7 +35002,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_table_basic_1",
         "sourceVocabId": "vocab_a1_0258",
-        "sourceVocabFingerprintSha256": "b9e5fc1adfcbd9974182cc2bae9a7d81f602dd994ff20af0faef9e83a812997a",
+        "sourceVocabFingerprintSha256": "5d287f7e144ddac42d3a742cb9855d94d8c13dec888ffc2340286da0396e8d14",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -34760,7 +35013,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_table_basic_1",
         "sourceVocabId": "vocab_a1_0259",
-        "sourceVocabFingerprintSha256": "30443b49da85d03a17173467366cc4ae0f3df49c9d93f89051c6ad4696bf4497",
+        "sourceVocabFingerprintSha256": "8630f03d36b636e7fd4832946b07becf2968a18a369dab043402fc7fc7a477bc",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -34782,7 +35035,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_seollal_basic_1",
         "sourceVocabId": "vocab_a1_0261",
-        "sourceVocabFingerprintSha256": "236b08a56bd75c091394f09e71e45a523617684cda7f37db2c034194d5d8ff2f",
+        "sourceVocabFingerprintSha256": "4cb9acbb1431eb25681f81a977231225efe0b29fba2cd0886be36e10787fc346",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -34804,7 +35057,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_seollal_basic_1",
         "sourceVocabId": "vocab_a1_0263",
-        "sourceVocabFingerprintSha256": "5cf88020cdffa549b9f82125a9ef435542ad580c1fd5e82453cebcdb9b99a38f",
+        "sourceVocabFingerprintSha256": "168e818e7a5d4e3a902f79deaf9d792dbea689eb14615eb765ca0bba2bb09467",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -34815,7 +35068,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_seollal_basic_1",
         "sourceVocabId": "vocab_a1_0264",
-        "sourceVocabFingerprintSha256": "5ef090b48021d3a6d30e75f7e21eee2722af9edeac4319c0b27112c32718a13d",
+        "sourceVocabFingerprintSha256": "96f9f38b85c1a6f2d65de72ed32746062dfaf671778fef1a1c6f5d80f6f479ae",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -34837,7 +35090,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_seollal_basic_1",
         "sourceVocabId": "vocab_a1_0266",
-        "sourceVocabFingerprintSha256": "a469d85fcf198d7cc6e51e86f06a05849a60fed74e4dfc45e1a29378b8caa6cb",
+        "sourceVocabFingerprintSha256": "0a04f1f66893447e819c5d0cf13e81d4896c7a4abc1174bf0ae57907fdd7f9bf",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -34892,7 +35145,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_partner_seollal_basic_1",
         "sourceVocabId": "vocab_a1_0271",
-        "sourceVocabFingerprintSha256": "050a45735309bb6d32e9355985a303b49a4e7c8661898c5999e2b358577e3dde",
+        "sourceVocabFingerprintSha256": "30773e3864c6c2385213285cff7d2f724de28d42b3a17db127c455e3ccca1c2d",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -35178,7 +35431,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_sorry_thanks_1",
         "sourceVocabId": "vocab_a1_0394",
-        "sourceVocabFingerprintSha256": "92a38b5aa03a3113ca74a99b08be7941ee62a04d0415b322227090adb30b1bce",
+        "sourceVocabFingerprintSha256": "6b7b6f566797f367cab9a8fcf73f26a4fed5bfb74f75395135dc30473c516774",
         "level": "a1",
         "canDoSegmentId": "segment_a1_13_register_switching",
         "courseUnitId": "a1_13_register_switching"
@@ -35233,7 +35486,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_sorry_thanks_1",
         "sourceVocabId": "vocab_a1_0399",
-        "sourceVocabFingerprintSha256": "ff2350e9bcf0bbbfb9266e7d5e372cb5c5e1416293dd582272e112081d84de6f",
+        "sourceVocabFingerprintSha256": "53fc515b55b56f2c47514f5ea005327fe4b8f8572721a839ee242336a89bec2e",
         "level": "a1",
         "canDoSegmentId": "segment_a1_13_register_switching",
         "courseUnitId": "a1_13_register_switching"
@@ -35266,7 +35519,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_sorry_thanks_1",
         "sourceVocabId": "vocab_a1_0402",
-        "sourceVocabFingerprintSha256": "28f3c5d982b33ba0025f22becca6f457bace4f6e6728ae36b5970abd321f8d36",
+        "sourceVocabFingerprintSha256": "00dffb49ccaa23dd625751a66f97953ed86027542bc046a641e9055ef0358ad0",
         "level": "a1",
         "canDoSegmentId": "segment_a1_13_register_switching",
         "courseUnitId": "a1_13_register_switching"
@@ -36454,7 +36707,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_transport",
         "sourceVocabId": "vocab_a1_0449",
-        "sourceVocabFingerprintSha256": "962028d46fc6bb21adef12c15e133898a228606a6a8699c41aa3b0dc0b7552dc",
+        "sourceVocabFingerprintSha256": "a1a81b1c84abdbb09791edc4173ebebcae33b3e8a0afaef330d8455b6545053b",
         "level": "a1",
         "canDoSegmentId": "segment_a1_06_transport_directions",
         "courseUnitId": "a1_06_transport_directions"
@@ -37609,7 +37862,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_hobbies_1",
         "sourceVocabId": "vocab_a1_0554",
-        "sourceVocabFingerprintSha256": "3fcb192fe81a61ee9af57d9582a3f339065b5a8fadbd87ee839ada1ed21abe7d",
+        "sourceVocabFingerprintSha256": "05be8e5c27a2f995d6ead11b3cfe669914f4ee8e3d034c242d53b86b00920f48",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -38148,7 +38401,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_belongings_1",
         "sourceVocabId": "vocab_a1_0603",
-        "sourceVocabFingerprintSha256": "26ace7437e2a5235057d4f28b30e61794f54ab49568184d5885ae75ba9ac043c",
+        "sourceVocabFingerprintSha256": "05b4545f3eaccc4d028b5d389149fa709f15b77831e5748fef94183f8e8b40b2",
         "level": "a1",
         "canDoSegmentId": "segment_a1_09_home_daily_life",
         "courseUnitId": "a1_09_home_daily_life"
@@ -40579,7 +40832,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_determiners_1",
         "sourceVocabId": "vocab_a1_0824",
-        "sourceVocabFingerprintSha256": "b99d24f10a9a50870d4e3216bdea215510f7a8a1df54e9dc32fda4839cb14290",
+        "sourceVocabFingerprintSha256": "b40c8958504af506ecfcea055ef2d0fb98505c383f4bd13de190bf0119578dba",
         "level": "a1",
         "canDoSegmentId": "segment_a1_05_numbers_time",
         "courseUnitId": "a1_05_numbers_time"
@@ -41961,17 +42214,6 @@
       },
       {
         "kind": "cloze",
-        "id": "cloze_a2_0078",
-        "sourceKind": "vocabPack",
-        "sourceId": "a2_partner_dinner_talk_1",
-        "sourceVocabId": "vocab_a2_0271",
-        "sourceVocabFingerprintSha256": "1db35cad2a2d47139d2f1766c5b9b31d58f2ad41f3a753b10c7ecd735a43b1a3",
-        "level": "a2",
-        "canDoSegmentId": "segment_a2_running_late",
-        "courseUnitId": "a2_03_chat_relationships"
-      },
-      {
-        "kind": "cloze",
         "id": "cloze_a2_0079",
         "sourceKind": "vocabPack",
         "sourceId": "a2_partner_dinner_talk_1",
@@ -42599,17 +42841,6 @@
       },
       {
         "kind": "cloze",
-        "id": "cloze_a2_0201",
-        "sourceKind": "vocabPack",
-        "sourceId": "a2_gym_class_1",
-        "sourceVocabId": "vocab_a2_0394",
-        "sourceVocabFingerprintSha256": "f837591bbe81feddf01f15b121c4cc95cd30cbe3dbb83bcbdad549df98969a2f",
-        "level": "a2",
-        "canDoSegmentId": "segment_a2_feeling_sick",
-        "courseUnitId": "a2_04_feelings_health"
-      },
-      {
-        "kind": "cloze",
         "id": "cloze_a2_0202",
         "sourceKind": "vocabPack",
         "sourceId": "a2_gym_class_1",
@@ -42648,17 +42879,6 @@
         "sourceId": "a2_gym_class_1",
         "sourceVocabId": "vocab_a2_0398",
         "sourceVocabFingerprintSha256": "278fb00ba4e80ccc693c6bfb9d2cca2ee74a99b1f7599a243c87f14061f34798",
-        "level": "a2",
-        "canDoSegmentId": "segment_a2_feeling_sick",
-        "courseUnitId": "a2_04_feelings_health"
-      },
-      {
-        "kind": "cloze",
-        "id": "cloze_a2_0206",
-        "sourceKind": "vocabPack",
-        "sourceId": "a2_gym_class_1",
-        "sourceVocabId": "vocab_a2_0399",
-        "sourceVocabFingerprintSha256": "95d1382db4b31660a06a1159b1a965d70c322aa93861c5b76df5d599e1becfe1",
         "level": "a2",
         "canDoSegmentId": "segment_a2_feeling_sick",
         "courseUnitId": "a2_04_feelings_health"
@@ -51014,17 +51234,6 @@
       },
       {
         "kind": "cloze",
-        "id": "cloze_a2_0256",
-        "sourceKind": "vocabPack",
-        "sourceId": "b1_festival_booth_1",
-        "sourceVocabId": "vocab_a2_0449",
-        "sourceVocabFingerprintSha256": "20225dd424084b367df7da6689e105e46cc5f40e549f79e133af7c788c1f4285",
-        "level": "b1",
-        "canDoSegmentId": "segment_b1_life_course_narrative",
-        "courseUnitId": "b1_06_life_capstone"
-      },
-      {
-        "kind": "cloze",
         "id": "cloze_a2_0257",
         "sourceKind": "vocabPack",
         "sourceId": "b1_festival_booth_1",
@@ -51223,33 +51432,11 @@
       },
       {
         "kind": "cloze",
-        "id": "cloze_b1_0057",
-        "sourceKind": "vocabPack",
-        "sourceId": "b1_housing_contract_1",
-        "sourceVocabId": "vocab_b1_0249",
-        "sourceVocabFingerprintSha256": "814cef6224a63a0a262853b291ef55a93f84885dc2205d271b9b14a73ef3e733",
-        "level": "b1",
-        "canDoSegmentId": "segment_b1_housing_contract",
-        "courseUnitId": "b1_05_complaint_resolution"
-      },
-      {
-        "kind": "cloze",
         "id": "cloze_b1_0058",
         "sourceKind": "vocabPack",
         "sourceId": "b1_housing_contract_1",
         "sourceVocabId": "vocab_b1_0250",
         "sourceVocabFingerprintSha256": "818c9baf98639d90a70249da6d35a997c700b9318af62399bccd53311d694c54",
-        "level": "b1",
-        "canDoSegmentId": "segment_b1_housing_contract",
-        "courseUnitId": "b1_05_complaint_resolution"
-      },
-      {
-        "kind": "cloze",
-        "id": "cloze_b1_0059",
-        "sourceKind": "vocabPack",
-        "sourceId": "b1_housing_contract_1",
-        "sourceVocabId": "vocab_b1_0251",
-        "sourceVocabFingerprintSha256": "0a270a902875b51b9d92a7bd1d795a62bce824cf8bd7dd0bbdc808fe8997f160",
         "level": "b1",
         "canDoSegmentId": "segment_b1_housing_contract",
         "courseUnitId": "b1_05_complaint_resolution"
@@ -51283,39 +51470,6 @@
         "sourceId": "b1_housing_contract_1",
         "sourceVocabId": "vocab_b1_0254",
         "sourceVocabFingerprintSha256": "ce2e27d0d9a57acb2fd9c3309c55bbaa3f596bd0568563b5b34c664afc9b4a1e",
-        "level": "b1",
-        "canDoSegmentId": "segment_b1_housing_contract",
-        "courseUnitId": "b1_05_complaint_resolution"
-      },
-      {
-        "kind": "cloze",
-        "id": "cloze_b1_0063",
-        "sourceKind": "vocabPack",
-        "sourceId": "b1_housing_contract_1",
-        "sourceVocabId": "vocab_b1_0255",
-        "sourceVocabFingerprintSha256": "d5bea3fb7854a1ff997617b346b6d4e58a40cee5bfc8c75baf6bc302a050cd3f",
-        "level": "b1",
-        "canDoSegmentId": "segment_b1_housing_contract",
-        "courseUnitId": "b1_05_complaint_resolution"
-      },
-      {
-        "kind": "cloze",
-        "id": "cloze_b1_0064",
-        "sourceKind": "vocabPack",
-        "sourceId": "b1_housing_contract_1",
-        "sourceVocabId": "vocab_b1_0256",
-        "sourceVocabFingerprintSha256": "26b20e4a227d5785a2af8faa00022c8d60ac6767db832adc484cf9259dc49eb6",
-        "level": "b1",
-        "canDoSegmentId": "segment_b1_housing_contract",
-        "courseUnitId": "b1_05_complaint_resolution"
-      },
-      {
-        "kind": "cloze",
-        "id": "cloze_b1_0065",
-        "sourceKind": "vocabPack",
-        "sourceId": "b1_housing_contract_1",
-        "sourceVocabId": "vocab_b1_0257",
-        "sourceVocabFingerprintSha256": "dbb988f4293cc0ecb1f1c3701cfa4c31bb660f0cca91bded0dac891a73dd938b",
         "level": "b1",
         "canDoSegmentId": "segment_b1_housing_contract",
         "courseUnitId": "b1_05_complaint_resolution"
@@ -51371,17 +51525,6 @@
         "sourceId": "b1_work_coordination_1",
         "sourceVocabId": "vocab_b1_0262",
         "sourceVocabFingerprintSha256": "86ec773dce337029c477237e012b00f54c1053333fef27a827556191035ad627",
-        "level": "b1",
-        "canDoSegmentId": "segment_b1_team_role_coordination",
-        "courseUnitId": "b1_03_work_softening"
-      },
-      {
-        "kind": "cloze",
-        "id": "cloze_b1_0071",
-        "sourceKind": "vocabPack",
-        "sourceId": "b1_work_coordination_1",
-        "sourceVocabId": "vocab_b1_0263",
-        "sourceVocabFingerprintSha256": "dbb66c1b5f33306a5f46736ae385bd867a428193c0af8dcf0fb2584c7435065c",
         "level": "b1",
         "canDoSegmentId": "segment_b1_team_role_coordination",
         "courseUnitId": "b1_03_work_softening"
@@ -51459,17 +51602,6 @@
         "sourceId": "b1_work_coordination_1",
         "sourceVocabId": "vocab_b1_0270",
         "sourceVocabFingerprintSha256": "7a718644c7f34cb1f2d1de862b41f60e8643adc93991be2081ff547ad97f3cac",
-        "level": "b1",
-        "canDoSegmentId": "segment_b1_team_role_coordination",
-        "courseUnitId": "b1_03_work_softening"
-      },
-      {
-        "kind": "cloze",
-        "id": "cloze_b1_0079",
-        "sourceKind": "vocabPack",
-        "sourceId": "b1_work_coordination_1",
-        "sourceVocabId": "vocab_b1_0271",
-        "sourceVocabFingerprintSha256": "0a603c60f512b4eeeb9828e291de32cda95e0f04241dda9df55d28fcd01b28ca",
         "level": "b1",
         "canDoSegmentId": "segment_b1_team_role_coordination",
         "courseUnitId": "b1_03_work_softening"
@@ -52818,17 +52950,6 @@
       },
       {
         "kind": "cloze",
-        "id": "cloze_b1_0206",
-        "sourceKind": "vocabPack",
-        "sourceId": "b1_insurance_claim_1",
-        "sourceVocabId": "vocab_b1_0394",
-        "sourceVocabFingerprintSha256": "dd40503aa3576264e341576272513f3666f591af9542eba879fe2a007dded1fc",
-        "level": "b1",
-        "canDoSegmentId": "segment_b1_delivery_resolution",
-        "courseUnitId": "b1_05_complaint_resolution"
-      },
-      {
-        "kind": "cloze",
         "id": "cloze_b1_0207",
         "sourceKind": "vocabPack",
         "sourceId": "b1_insurance_claim_1",
@@ -52867,17 +52988,6 @@
         "sourceId": "b1_insurance_claim_1",
         "sourceVocabId": "vocab_b1_0398",
         "sourceVocabFingerprintSha256": "89ff553210b56d6993b7886fe436ea053045f296235f1b9ae1c26d15b9a5e37b",
-        "level": "b1",
-        "canDoSegmentId": "segment_b1_delivery_resolution",
-        "courseUnitId": "b1_05_complaint_resolution"
-      },
-      {
-        "kind": "cloze",
-        "id": "cloze_b1_0211",
-        "sourceKind": "vocabPack",
-        "sourceId": "b1_insurance_claim_1",
-        "sourceVocabId": "vocab_b1_0399",
-        "sourceVocabFingerprintSha256": "d4b2f02d37f27b981a4fbb2c3d6b33c1d9dc75b18ea17983cdc0945c128f8a18",
         "level": "b1",
         "canDoSegmentId": "segment_b1_delivery_resolution",
         "courseUnitId": "b1_05_complaint_resolution"
@@ -53285,17 +53395,6 @@
         "sourceId": "b1_repair_words_1",
         "sourceVocabId": "vocab_b1_0448",
         "sourceVocabFingerprintSha256": "dd1e0c27203ec569f362d7361c3acb337f53cf8fd5c41c24fd44296c7f00921d",
-        "level": "b1",
-        "canDoSegmentId": "segment_b1_delivery_resolution",
-        "courseUnitId": "b1_05_complaint_resolution"
-      },
-      {
-        "kind": "cloze",
-        "id": "cloze_b1_0261",
-        "sourceKind": "vocabPack",
-        "sourceId": "b1_repair_words_1",
-        "sourceVocabId": "vocab_b1_0449",
-        "sourceVocabFingerprintSha256": "9f05e266ae8238afc2f4e4685c954431648dbe07e5306a73750219f23585b4f9",
         "level": "b1",
         "canDoSegmentId": "segment_b1_delivery_resolution",
         "courseUnitId": "b1_05_complaint_resolution"
@@ -60727,17 +60826,6 @@
       },
       {
         "kind": "cloze",
-        "id": "cloze_b2_0065",
-        "sourceKind": "vocabPack",
-        "sourceId": "b2_formal_agreement_1",
-        "sourceVocabId": "vocab_b2_0212",
-        "sourceVocabFingerprintSha256": "6fdab25c9f556c59619be3a40c65282c44e92998749f2e95df8f4ceffba353f1",
-        "level": "b2",
-        "canDoSegmentId": "segment_b2_contract_scope",
-        "courseUnitId": "b2_03_precise_requests"
-      },
-      {
-        "kind": "cloze",
         "id": "cloze_b2_0066",
         "sourceKind": "vocabPack",
         "sourceId": "b2_formal_agreement_1",
@@ -61134,33 +61222,11 @@
       },
       {
         "kind": "cloze",
-        "id": "cloze_b2_0102",
-        "sourceKind": "vocabPack",
-        "sourceId": "b2_reading_response_1",
-        "sourceVocabId": "vocab_b2_0249",
-        "sourceVocabFingerprintSha256": "f7080f7f112c8ed3398472799e733a983644e5549d9dd2c1d9a452d967490ee7",
-        "level": "b2",
-        "canDoSegmentId": "segment_b2_literary_cultural_response",
-        "courseUnitId": "b2_06_advanced_capstone"
-      },
-      {
-        "kind": "cloze",
         "id": "cloze_b2_0103",
         "sourceKind": "vocabPack",
         "sourceId": "b2_reading_response_1",
         "sourceVocabId": "vocab_b2_0250",
         "sourceVocabFingerprintSha256": "57b2c2a7d02f7b71427c480a76cc0f17efc8533028fef1815473fcffdfb16c10",
-        "level": "b2",
-        "canDoSegmentId": "segment_b2_literary_cultural_response",
-        "courseUnitId": "b2_06_advanced_capstone"
-      },
-      {
-        "kind": "cloze",
-        "id": "cloze_b2_0104",
-        "sourceKind": "vocabPack",
-        "sourceId": "b2_reading_response_1",
-        "sourceVocabId": "vocab_b2_0251",
-        "sourceVocabFingerprintSha256": "197d09c89a991031ef0e52c43af95715f856b0d1e61b95348e8ad24115fe9bae",
         "level": "b2",
         "canDoSegmentId": "segment_b2_literary_cultural_response",
         "courseUnitId": "b2_06_advanced_capstone"
@@ -61194,39 +61260,6 @@
         "sourceId": "b2_language_society_1",
         "sourceVocabId": "vocab_b2_0254",
         "sourceVocabFingerprintSha256": "f2fb915db1b9ba4fba40d78f60381676ed4f2df10088201ddb7d65c8a3bc0236",
-        "level": "b2",
-        "canDoSegmentId": "segment_b2_language_social_change",
-        "courseUnitId": "b2_02_professional_opinion"
-      },
-      {
-        "kind": "cloze",
-        "id": "cloze_b2_0108",
-        "sourceKind": "vocabPack",
-        "sourceId": "b2_language_society_1",
-        "sourceVocabId": "vocab_b2_0255",
-        "sourceVocabFingerprintSha256": "f48cbf53959ab8a8a3596bab1856d984de0417a26bd8ad999fe46573a9036a61",
-        "level": "b2",
-        "canDoSegmentId": "segment_b2_language_social_change",
-        "courseUnitId": "b2_02_professional_opinion"
-      },
-      {
-        "kind": "cloze",
-        "id": "cloze_b2_0109",
-        "sourceKind": "vocabPack",
-        "sourceId": "b2_language_society_1",
-        "sourceVocabId": "vocab_b2_0256",
-        "sourceVocabFingerprintSha256": "42133d3520b46e6789b870fb086f2c81829bd77cd2368715035e6c465bd62878",
-        "level": "b2",
-        "canDoSegmentId": "segment_b2_language_social_change",
-        "courseUnitId": "b2_02_professional_opinion"
-      },
-      {
-        "kind": "cloze",
-        "id": "cloze_b2_0110",
-        "sourceKind": "vocabPack",
-        "sourceId": "b2_language_society_1",
-        "sourceVocabId": "vocab_b2_0257",
-        "sourceVocabFingerprintSha256": "cfea35484a8a06ec23b0025b5a3ef5440e5db8ed6088712b96d0124e42cc7cbb",
         "level": "b2",
         "canDoSegmentId": "segment_b2_language_social_change",
         "courseUnitId": "b2_02_professional_opinion"
@@ -61282,17 +61315,6 @@
         "sourceId": "b2_language_society_1",
         "sourceVocabId": "vocab_b2_0262",
         "sourceVocabFingerprintSha256": "a1655beca94826d81f5a8e3db500d45edecf83f1f9b85e9cd506f8a53865aa87",
-        "level": "b2",
-        "canDoSegmentId": "segment_b2_language_social_change",
-        "courseUnitId": "b2_02_professional_opinion"
-      },
-      {
-        "kind": "cloze",
-        "id": "cloze_b2_0116",
-        "sourceKind": "vocabPack",
-        "sourceId": "b2_language_society_1",
-        "sourceVocabId": "vocab_b2_0263",
-        "sourceVocabFingerprintSha256": "b57088ea49d680a418ce9e6c3f1dbd493be14d5938c12d14493fc211d34f1104",
         "level": "b2",
         "canDoSegmentId": "segment_b2_language_social_change",
         "courseUnitId": "b2_02_professional_opinion"
@@ -61370,17 +61392,6 @@
         "sourceId": "b2_collaborative_feedback_1",
         "sourceVocabId": "vocab_b2_0270",
         "sourceVocabFingerprintSha256": "83b44164aadd7000f85078bb16a82434e54e83e3928a7827b95dd267843a9183",
-        "level": "b2",
-        "canDoSegmentId": "segment_b2_collaborative_feedback",
-        "courseUnitId": "b2_02_professional_opinion"
-      },
-      {
-        "kind": "cloze",
-        "id": "cloze_b2_0124",
-        "sourceKind": "vocabPack",
-        "sourceId": "b2_collaborative_feedback_1",
-        "sourceVocabId": "vocab_b2_0271",
-        "sourceVocabFingerprintSha256": "65cb09e794c05a03d8eb0bc66a2e58b4590c4dfb3e2c1fa6bf6e684e5cae02cd",
         "level": "b2",
         "canDoSegmentId": "segment_b2_collaborative_feedback",
         "courseUnitId": "b2_02_professional_opinion"
@@ -62008,17 +62019,6 @@
         "sourceId": "b2_partner_marriage_talk_1",
         "sourceVocabId": "vocab_b2_0448",
         "sourceVocabFingerprintSha256": "0e985d2c11c266085defdffa56e2dbc2dc534d58cd605657fe9d61f6dd7a8b7e",
-        "level": "b2",
-        "canDoSegmentId": "segment_b2_formal_soft_reformulation",
-        "courseUnitId": "b2_06_advanced_capstone"
-      },
-      {
-        "kind": "cloze",
-        "id": "cloze_b2_0188",
-        "sourceKind": "vocabPack",
-        "sourceId": "b2_partner_marriage_talk_1",
-        "sourceVocabId": "vocab_b2_0449",
-        "sourceVocabFingerprintSha256": "9d4d4429fbe95f39e31aa81e237beef0ea97b178ff4f280b01bd12628fae9c2f",
         "level": "b2",
         "canDoSegmentId": "segment_b2_formal_soft_reformulation",
         "courseUnitId": "b2_06_advanced_capstone"
@@ -70427,6 +70427,7 @@
       "cloze_a1_0041",
       "cloze_a1_0043",
       "cloze_a1_0044",
+      "cloze_a1_0045",
       "cloze_a1_0056",
       "cloze_a1_0057",
       "cloze_a1_0059",
@@ -70440,6 +70441,8 @@
       "cloze_a1_0078",
       "cloze_a1_0093",
       "cloze_a1_0097",
+      "cloze_a1_0141",
+      "cloze_a1_0290",
       "cloze_a1_0292",
       "cloze_a1_0293",
       "cloze_a1_0294",
@@ -70487,8 +70490,10 @@
       "cloze_a1_0342",
       "cloze_a1_0343",
       "cloze_a1_0344",
+      "cloze_a1_0578",
       "cloze_a1_0671",
       "cloze_a1_0678",
+      "cloze_a1_0738",
       "cloze_a2_0001",
       "cloze_a2_0002",
       "cloze_a2_0003",
@@ -70562,6 +70567,10 @@
       "cloze_a2_0073",
       "cloze_a2_0074",
       "cloze_a2_0075",
+      "cloze_a2_0078",
+      "cloze_a2_0201",
+      "cloze_a2_0206",
+      "cloze_a2_0256",
       "cloze_a2_0268",
       "cloze_a2_0273",
       "cloze_a2_0274",
@@ -70624,10 +70633,20 @@
       "cloze_b1_0053",
       "cloze_b1_0054",
       "cloze_b1_0055",
+      "cloze_b1_0057",
+      "cloze_b1_0059",
+      "cloze_b1_0063",
+      "cloze_b1_0064",
+      "cloze_b1_0065",
+      "cloze_b1_0071",
+      "cloze_b1_0079",
       "cloze_b1_0080",
       "cloze_b1_0081",
       "cloze_b1_0082",
       "cloze_b1_0083",
+      "cloze_b1_0206",
+      "cloze_b1_0211",
+      "cloze_b1_0261",
       "cloze_b2_0001",
       "cloze_b2_0002",
       "cloze_b2_0003",
@@ -70685,10 +70704,19 @@
       "cloze_b2_0055",
       "cloze_b2_0056",
       "cloze_b2_0057",
+      "cloze_b2_0065",
+      "cloze_b2_0102",
+      "cloze_b2_0104",
+      "cloze_b2_0108",
+      "cloze_b2_0109",
+      "cloze_b2_0110",
+      "cloze_b2_0116",
+      "cloze_b2_0124",
       "cloze_b2_0166",
       "cloze_b2_0167",
       "cloze_b2_0168",
       "cloze_b2_0169",
+      "cloze_b2_0188",
       "cloze_b2_0362",
       "cloze_b2_0363",
       "cloze_b2_0364",
