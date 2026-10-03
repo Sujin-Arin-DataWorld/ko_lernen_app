@@ -2320,9 +2320,9 @@
     {
       "id": "satz_b1_0052",
       "level": "b1",
-      "targetKo": "세입자가 바뀌면 관리인에게 알려야 해요.",
-      "promptDe": "Wenn der Mieter oder die Mieterin wechselt, muss man die Hausverwaltung informieren.",
-      "promptEn": "If the tenant changes, you have to notify the building manager.",
+      "targetKo": "관리인은 새 세입자가 들어오는 날짜를 알려 달라고 했다.",
+      "promptDe": "Die Hausverwaltung bat darum, ihr das Einzugsdatum der neuen Mietpartei mitzuteilen.",
+      "promptEn": "The building manager asked to be told when the new tenant would move in.",
       "distractors": [
         "중개인에게",
         "계약서를"
@@ -2344,9 +2344,9 @@
     {
       "id": "satz_b1_0054",
       "level": "b1",
-      "targetKo": "계약이 끝나면 정해진 날짜에 퇴거해야 해요.",
-      "promptDe": "Wenn der Vertrag endet, muss man zum vereinbarten Termin ausziehen.",
-      "promptEn": "When the contract ends, you have to move out on the agreed date.",
+      "targetKo": "계약이 끝나는 날 퇴거하기로 집주인과 합의했어요.",
+      "promptDe": "Ich habe mit der vermietenden Person vereinbart, am Ende des Mietvertrags auszuziehen.",
+      "promptEn": "I agreed with the landlord to move out when the lease ends.",
       "distractors": [
         "입주할",
         "연장했어요"
@@ -7760,9 +7760,9 @@
     {
       "id": "satz_b1_0081",
       "level": "b1",
-      "targetKo": "아이 가지냐는 질문에 현우가 물을 마시며 시간을 벌었어요.",
-      "promptDe": "Als sie nach Kindern fragten, trank Hyunwoo Wasser und gewann Zeit.",
-      "promptEn": "When they asked about kids, Hyunwoo drank some water to buy time.",
+      "targetKo": "아이를 가질 계획이 있냐는 질문에 아직 정하지 않았다고 답했어요.",
+      "promptDe": "Auf die Frage, ob wir Kinder haben möchten, sagte ich, dass wir das noch nicht entschieden haben.",
+      "promptEn": "When asked whether we planned to have children, I said we hadn't decided yet.",
       "distractors": [
         "끄기는",
         "끄덕이셨어요"
@@ -7772,9 +7772,9 @@
     {
       "id": "satz_b1_0082",
       "level": "b1",
-      "targetKo": "월급 이야기는 웃으면서 아직 배우는 중이라고 넘겼어요.",
-      "promptDe": "Beim Thema Gehalt sagte ich lächelnd, ich lerne noch, und wechselte das Thema.",
-      "promptEn": "I smiled through the salary talk and said I'm still learning.",
+      "targetKo": "월급 이야기가 나오자 구체적인 금액은 말하고 싶지 않다고 했어요.",
+      "promptDe": "Als das Thema Gehalt aufkam, sagte ich, dass ich keine genaue Summe nennen möchte.",
+      "promptEn": "When the conversation turned to salary, I said I didn't want to give a specific figure.",
       "distractors": [
         "묻길래",
         "묻자"
@@ -7784,9 +7784,9 @@
     {
       "id": "satz_b1_0083",
       "level": "b1",
-      "targetKo": "종교 질문에는 존중한다는 말만 짧게 했어요.",
-      "promptDe": "Auf die Religionsfrage sagte ich nur kurz, ich respektiere das.",
-      "promptEn": "To the religion question I only said briefly that I respect it.",
+      "targetKo": "종교 질문을 받았지만 개인적인 일이라며 답을 아꼈어요.",
+      "promptDe": "Auf die Frage nach meiner Religion sagte ich, dass das für mich privat sei.",
+      "promptEn": "When asked about my religion, I said I preferred to keep it private.",
       "distractors": [
         "표시가",
         "표정이"
@@ -7808,9 +7808,9 @@
     {
       "id": "satz_b1_0085",
       "level": "b1",
-      "targetKo": "국적 문제는 서류부터 차근차근 하면 된다고 했어요.",
-      "promptDe": "Bei der Staatsangehörigkeit sagte ich, wir gehen die Papiere Schritt für Schritt durch.",
-      "promptEn": "On the nationality question I said we'd work through the paperwork step by step.",
+      "targetKo": "국적 문제는 서로의 선택을 먼저 듣고 이야기하기로 했어요.",
+      "promptDe": "Wir beschlossen, erst die Wünsche aller Beteiligten anzuhören und dann über die Frage der Staatsangehörigkeit zu sprechen.",
+      "promptEn": "We agreed to hear each other's wishes before discussing the citizenship question.",
       "distractors": [
         "따로라서",
         "따르고"
@@ -7820,9 +7820,9 @@
     {
       "id": "satz_b1_0086",
       "level": "b1",
-      "targetKo": "부모 허락을 아직 구하지 않았다고 솔직히 말했어요.",
-      "promptDe": "Ich sagte ehrlich, dass wir die Erlaubnis der Eltern noch nicht erbeten haben.",
-      "promptEn": "I said honestly that we have not asked for the parents' blessing yet.",
+      "targetKo": "결혼을 결정하는 데 부모 허락이 필요한지는 사람마다 생각이 달라요.",
+      "promptDe": "Ob man für eine Heirat die Zustimmung der Eltern braucht, sehen Menschen unterschiedlich.",
+      "promptEn": "People differ on whether parents' approval matters when deciding to marry.",
       "distractors": [
         "동료가",
         "동생이"
@@ -7928,9 +7928,9 @@
     {
       "id": "satz_b1_0095",
       "level": "b1",
-      "targetKo": "이직 생각은 아직 없다고 짧게 했어요.",
-      "promptDe": "Einen Jobwechselgedanken verneinte ich kurz.",
-      "promptEn": "I said briefly that I am not thinking of changing jobs yet.",
+      "targetKo": "이직 생각이 있냐고 묻기에 좋은 기회가 생기면 알아보겠다고 했어요.",
+      "promptDe": "Auf die Frage nach einem Jobwechsel sagte ich, dass ich mich bei einer guten Gelegenheit umsehen würde.",
+      "promptEn": "When asked if I was thinking of changing jobs, I said I'd look around if a good opportunity came up.",
       "distractors": [
         "고마워했어요",
         "골랐어요"
@@ -8024,9 +8024,9 @@
     {
       "id": "satz_b1_0103",
       "level": "b1",
-      "targetKo": "안정적으로 지낸다고 하니 아버지가 고개를 끄덕이셨어요.",
-      "promptDe": "Als ich sagte, dass ich geregelt lebe, nickte der Vater.",
-      "promptEn": "When I said my life is steady, father nodded.",
+      "targetKo": "새 직장에서 안정적으로 지내려면 근무 조건을 먼저 확인하고 싶어요.",
+      "promptDe": "Damit ich in der neuen Stelle auf Dauer gut zurechtkomme, möchte ich zuerst die Arbeitsbedingungen klären.",
+      "promptEn": "To settle into the new job, I want to check the working conditions first.",
       "distractors": [
         "피하는",
         "피하라고"
@@ -8084,9 +8084,9 @@
     {
       "id": "satz_b1_0108",
       "level": "b1",
-      "targetKo": "현우가 민감한 질문은 빠뜨리고 음식 이야기로 갔어요.",
-      "promptDe": "Hyunwoo ließ die heikle Frage aus und sprach über das Essen.",
-      "promptEn": "Hyunwoo left out the sensitive question and switched to talking about the food.",
+      "targetKo": "통역할 때 상대의 질문을 빠뜨리지 않도록 메모했어요.",
+      "promptDe": "Beim Dolmetschen machte ich mir Notizen, damit ich keine Frage ausließ.",
+      "promptEn": "I took notes while interpreting so I wouldn't leave out any questions.",
       "distractors": [
         "말라고",
         "말렸어요"
@@ -8204,9 +8204,9 @@
     {
       "id": "satz_b1_0118",
       "level": "b1",
-      "targetKo": "건배 전에 어른 눈을 피하라고 해서 잔만 봤어요.",
-      "promptDe": "Vor dem Anstoßen sollte ich den Älteren nicht in die Augen sehen, also schaute ich nur aufs Glas.",
-      "promptEn": "Before the toast I was told not to meet the elders' eyes, so I looked at my glass.",
+      "targetKo": "건배할 때는 잔을 부딪치고 함께 웃었어요.",
+      "promptDe": "Beim Anstoßen ließen wir die Gläser klingen und lachten zusammen.",
+      "promptEn": "We clinked glasses and laughed together during the toast.",
       "distractors": [
         "시간을",
         "식탁에서"
@@ -8288,9 +8288,9 @@
     {
       "id": "satz_b1_0125",
       "level": "b1",
-      "targetKo": "취중진담이 나오기 전에 현우가 화제를 바꿨어요.",
-      "promptDe": "Bevor die Wahrheit im Rausch kam, wechselte Hyunwoo das Thema.",
-      "promptEn": "Before the drunk truth-telling started, Hyunwoo changed the subject.",
+      "targetKo": "식사 자리에서 나온 취중진담을 다음 날 다시 확인했어요.",
+      "promptDe": "Am nächsten Tag fragte ich noch einmal nach dem, was beim Essen im Rausch gesagt worden war.",
+      "promptEn": "The next day I checked what had been said in earnest after a few drinks at dinner.",
       "distractors": [
         "기억을",
         "기차표를"
@@ -8300,9 +8300,9 @@
     {
       "id": "satz_b1_0126",
       "level": "b1",
-      "targetKo": "독한 술은 물로 받아도 되냐고 물었어요.",
-      "promptDe": "Ich fragte, ob ich den starken Schnaps mit Wasser annehmen darf.",
-      "promptEn": "I asked whether I could accept the strong drink with water.",
+      "targetKo": "술 대신 물로 받아도 되냐고 묻자 괜찮다고 했어요.",
+      "promptDe": "Ich fragte, ob ich statt Alkohol Wasser nehmen könne, und bekam ein Ja.",
+      "promptEn": "I asked if I could have water instead of alcohol, and they said yes.",
       "distractors": [
         "어깨가",
         "어른"
@@ -8336,9 +8336,9 @@
     {
       "id": "satz_b1_0129",
       "level": "b1",
-      "targetKo": "이성 친구와 한 방은 아직 이르다고 하셨어요.",
-      "promptDe": "Ein Zimmer mit einer befreundeten Person des anderen Geschlechts zu teilen, sei noch zu früh, hieß es.",
-      "promptEn": "They said sharing a room with a friend of the opposite sex was still too soon.",
+      "targetKo": "이성 친구와 여행을 간다고 하니 친구가 숙소는 정했냐고 물었어요.",
+      "promptDe": "Als ich erzählte, dass ich mit einem Freund des anderen Geschlechts verreise, fragte meine Freundin, ob die Unterkunft schon gebucht sei.",
+      "promptEn": "When I said I was traveling with a friend of another gender, my friend asked whether we'd booked a place to stay.",
       "distractors": [
         "정하니",
         "정했어요"
@@ -8360,9 +8360,9 @@
     {
       "id": "satz_b1_0131",
       "level": "b1",
-      "targetKo": "잠자리 예절은 큰 소리와 늦은 샤워를 피하는 거였어요.",
-      "promptDe": "Schlafmanieren hieß, Lärm und spätes Duschen zu vermeiden.",
-      "promptEn": "Sleeping manners meant avoiding noise and a late shower.",
+      "targetKo": "밤에는 통화 소리를 낮추는 것이 그 집의 잠자리 예절이었어요.",
+      "promptDe": "In diesem Haus gehörte es zu den Regeln für die Nachtruhe, abends leise zu telefonieren.",
+      "promptEn": "In that household, keeping phone calls quiet at night was part of the sleeping etiquette.",
       "distractors": [
         "나왔어요",
         "나이"
@@ -8384,9 +8384,9 @@
     {
       "id": "satz_b1_0133",
       "level": "b1",
-      "targetKo": "코골이 사과는 현우가 대신 했어요.",
-      "promptDe": "Die Schnarchentschuldigung übernahm Hyunwoo.",
-      "promptEn": "Hyunwoo made the snoring apology for me.",
+      "targetKo": "아침에 코골이 사과를 하자 룸메이트는 괜찮다며 웃었어요.",
+      "promptDe": "Als ich mich morgens fürs Schnarchen entschuldigte, lachte mein Mitbewohner und sagte, es sei schon gut.",
+      "promptEn": "When I apologized for snoring in the morning, my roommate laughed and said it was fine.",
       "distractors": [
         "끄기는",
         "끄덕이셨어요"
@@ -8408,9 +8408,9 @@
     {
       "id": "satz_b1_0135",
       "level": "b1",
-      "targetKo": "불 끄기는 어른이 먼저 하라고 눈짓하셨어요.",
-      "promptDe": "Ein Blick sagte mir, dass die ältere Person zuerst das Licht ausmacht.",
-      "promptEn": "A look told me the elder turns the light off first.",
+      "targetKo": "마지막으로 나가는 사람이 불 끄기를 맡기로 했어요.",
+      "promptDe": "Wir vereinbarten, dass die Person, die zuletzt geht, das Licht ausmacht.",
+      "promptEn": "We agreed that whoever leaves last will turn off the light.",
       "distractors": [
         "눈을",
         "눈치"
@@ -8456,9 +8456,9 @@
     {
       "id": "satz_b1_0139",
       "level": "b1",
-      "targetKo": "같이 자면 얘기가 난다는 말에 방을 나눴어요.",
-      "promptDe": "Wenn wir im selben Zimmer schlafen, werde geredet, hieß es, also nahmen wir zwei Zimmer.",
-      "promptEn": "They said people would talk if we slept in the same room, so we took separate rooms.",
+      "targetKo": "같이 자면 잠을 설칠 것 같아서 방을 따로 예약했어요.",
+      "promptDe": "Weil wir im selben Zimmer vermutlich schlecht schlafen würden, buchten wir getrennte Zimmer.",
+      "promptEn": "We booked separate rooms because we thought we'd sleep poorly if we shared one.",
       "distractors": [
         "맡기",
         "먼저"
@@ -8660,9 +8660,9 @@
     {
       "id": "satz_b1_0156",
       "level": "b1",
-      "targetKo": "읽음 표시가 켜져 있어서 바로 답해야 했어요.",
-      "promptDe": "Der Gelesen-Haken war an, also musste ich sofort antworten.",
-      "promptEn": "The read receipt was on, so I had to reply at once.",
+      "targetKo": "읽음 표시가 켜져 있어도 바로 답할 수 없는 때가 있어요.",
+      "promptDe": "Auch wenn die Lesebestätigung angezeigt wird, kann ich nicht immer sofort antworten.",
+      "promptEn": "Even with read receipts on, I can't always reply right away.",
       "distractors": [
         "질문은",
         "질문이"
@@ -8732,9 +8732,9 @@
     {
       "id": "satz_b1_0162",
       "level": "b1",
-      "targetKo": "나가기 금지는 서운해 보일 수 있다고 했어요.",
-      "promptDe": "Man solle den Chat nicht verlassen, hieß es, weil das schnell beleidigt wirkt.",
-      "promptEn": "They said not to leave the chat, because leaving looks like you are offended.",
+      "targetKo": "가족 단톡에서 나가기 금지라는 농담이 나왔지만, 저는 알림을 꺼 두었어요.",
+      "promptDe": "Im Familienchat scherzte jemand, man dürfe nicht austreten; ich schaltete die Benachrichtigungen stumm.",
+      "promptEn": "Someone joked that leaving the family chat was forbidden, but I muted its notifications.",
       "distractors": [
         "풀렸어요",
         "피하는"
@@ -8768,9 +8768,9 @@
     {
       "id": "satz_b1_0165",
       "level": "b1",
-      "targetKo": "명절 당번이 현우 쪽이라 제 가족에게 미리 사과했어요.",
-      "promptDe": "Der Feiertagsdienst lag bei Hyunwoo, also entschuldigte ich mich bei meiner Familie.",
-      "promptEn": "Holiday duty was on Hyunwoo's side, so I apologized to my family in advance.",
+      "targetKo": "이번 명절 당번은 누가 장을 볼지부터 함께 정했어요.",
+      "promptDe": "Für dieses Feiertagsfest legten wir gemeinsam fest, wer einkaufen geht.",
+      "promptEn": "For this holiday, we first decided together who would do the shopping.",
       "distractors": [
         "가는",
         "가도"
@@ -8792,9 +8792,9 @@
     {
       "id": "satz_b1_0167",
       "level": "b1",
-      "targetKo": "방문 순서는 나이 많은 집부터라고 적혀 있었어요.",
-      "promptDe": "Die Besuchsreihenfolge begann beim ältesten Haus.",
-      "promptEn": "The visit order started with the oldest household.",
+      "targetKo": "방문 순서는 이동 시간을 고려해 정했어요.",
+      "promptDe": "Die Reihenfolge der Besuche legten wir nach den Fahrtzeiten fest.",
+      "promptEn": "We decided the order of visits based on travel time.",
       "distractors": [
         "읽음",
         "입으니"
@@ -8840,9 +8840,9 @@
     {
       "id": "satz_b1_0171",
       "level": "b1",
-      "targetKo": "선물 분배를 표로 짜니 빈손이 사라졌어요.",
-      "promptDe": "Mit einer Tabelle für die Geschenke stand niemand mit leeren Händen da.",
-      "promptEn": "With a table for the gifts, nobody ended up empty-handed.",
+      "targetKo": "선물 분배를 고민하다가 각 집에 같은 과일 상자를 준비했어요.",
+      "promptDe": "Als wir über die Verteilung der Geschenke nachdachten, beschlossen wir, für jede Familie dieselbe Obstkiste zu besorgen.",
+      "promptEn": "After thinking about how to divide the gifts, we prepared the same box of fruit for each household.",
       "distractors": [
         "넘겼어요",
         "넘기니"
@@ -13340,9 +13340,9 @@
     {
       "id": "satz_b1_0210",
       "level": "b1",
-      "targetKo": "치과 특약이 있어야 스케일링이 나가요.",
-      "promptDe": "Nur mit dem Zahn-Zusatzbaustein wird die Zahnreinigung erstattet.",
-      "promptEn": "Only with the dental rider is cleaning covered.",
+      "targetKo": "치과 특약에 스케일링이 포함되는지 약관을 확인했어요.",
+      "promptDe": "Ich prüfte in den Versicherungsbedingungen, ob die Zahnzusatzleistung eine Zahnreinigung umfasst.",
+      "promptEn": "I checked the policy to see whether the dental rider covered a cleaning.",
       "distractors": [
         "사고 접수",
         "보장 범위"
@@ -13436,9 +13436,9 @@
     {
       "id": "satz_b1_0218",
       "level": "b2",
-      "targetKo": "본인만 서류 열람이 가능해요.",
-      "promptDe": "Nur die Person selbst darf Einsicht in die Unterlagen nehmen.",
-      "promptEn": "Only the person themselves can inspect the documents.",
+      "targetKo": "신청한 서류를 열람하려면 어떤 신분증이 필요한지 창구에 물었어요.",
+      "promptDe": "Am Schalter fragte ich, welchen Ausweis ich für die Einsicht in meine Unterlagen brauche.",
+      "promptEn": "I asked at the counter which ID I needed to inspect the documents I'd submitted.",
       "distractors": [
         "민원실",
         "구비 서류"
@@ -13916,9 +13916,9 @@
     {
       "id": "satz_b1_0258",
       "level": "b1",
-      "targetKo": "수리 완료증을 받아야 보증이 이어져요.",
-      "promptDe": "Ohne Fertigstellungsbeleg läuft die Garantie nicht weiter.",
-      "promptEn": "The warranty continues only with the repair receipt.",
+      "targetKo": "수리 완료증에 교체한 부품과 작업 날짜가 적혀 있는지 확인했어요.",
+      "promptDe": "Ich prüfte, ob auf dem Reparaturbeleg das ersetzte Teil und das Datum stehen.",
+      "promptEn": "I checked whether the repair receipt listed the replaced part and the date of the work.",
       "distractors": [
         "고장 부위",
         "부품 교체"
@@ -13928,9 +13928,9 @@
     {
       "id": "satz_b1_0259",
       "level": "b1",
-      "targetKo": "재발 방지를 위해 사용 방법을 다시 배웠어요.",
-      "promptDe": "Zum Rückfallschutz habe ich die Nutzung noch einmal gelernt.",
-      "promptEn": "To prevent recurrence I relearned how to use it.",
+      "targetKo": "재발 방지를 위해 같은 고장을 확인하는 방법을 다시 배웠어요.",
+      "promptDe": "Um zu verhindern, dass derselbe Fehler erneut auftritt, ließ ich mir die Prüfschritte noch einmal erklären.",
+      "promptEn": "I went over how to check for the same fault again to help prevent its recurrence.",
       "distractors": [
         "고장 부위",
         "부품 교체"
@@ -14012,9 +14012,9 @@
     {
       "id": "satz_b1_0266",
       "level": "b1",
-      "targetKo": "연결편이 끊기면 숙박권을 받아요.",
-      "promptDe": "Wenn der Anschluss ausfällt, bekomme ich einen Hotelgutschein.",
-      "promptEn": "If the connecting service is missed, I get a hotel voucher.",
+      "targetKo": "연결편을 놓치면 안내 데스크에서 다음 교통편을 문의할 거예요.",
+      "promptDe": "Falls ich den Anschluss verpasse, frage ich am Informationsschalter nach der nächsten Verbindung.",
+      "promptEn": "If I miss the connection, I'll ask at the information desk about the next service.",
       "distractors": [
         "일정 변경",
         "환불 규정"
