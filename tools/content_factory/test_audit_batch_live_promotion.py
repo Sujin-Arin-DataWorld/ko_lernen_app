@@ -18,8 +18,9 @@ class BatchLivePromotionAuditTest(unittest.TestCase):
 
         self.assertTrue(result["ok"], result["errors"])
         self.assertEqual(result["version"], 4)
-        self.assertEqual(result["trackedIds"], 7669)
-        self.assertEqual(result["liveIds"], 7298)
+        # Batch 35 adds exactly the three user-approved persona scenarios.
+        self.assertEqual(result["trackedIds"], 7672)
+        self.assertEqual(result["liveIds"], 7301)
         self.assertEqual(result["pendingIds"], 576)
         self.assertEqual(result["retiredScenarioIds"], 371)
         self.assertEqual(
@@ -27,6 +28,9 @@ class BatchLivePromotionAuditTest(unittest.TestCase):
             result["liveIds"] + result["retiredScenarioIds"],
         )
         reports = {row["batch"]: row for row in result["reports"]}
+        self.assertEqual(reports["35"]["tracked"], 3)
+        self.assertEqual(reports["35"]["live"], 3)
+        self.assertEqual(reports["35"]["reviewStatuses"], {"approved": 3})
         for number in (32, 33, 34):
             report = reports[f"c3_batch{number}_a2_reinforcement"]
             self.assertEqual(report["auditStatus"], "pending_not_live")

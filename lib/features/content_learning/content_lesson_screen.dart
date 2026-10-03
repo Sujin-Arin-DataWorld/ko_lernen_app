@@ -27,6 +27,9 @@ import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/mascot_preference.dart';
 import '../../widgets/sori/motion.dart';
 import '../../widgets/sori/progress_meter.dart';
+import '../../widgets/sori/persona_portrait.dart';
+import '../../widgets/sori/persona_card_motion.dart';
+import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/study_frame.dart';
 import '../../widgets/sori/tokens.dart';
 import 'content_learning_models.dart';
@@ -73,6 +76,9 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
   bool _playing = false;
   String? _playingKo;
   bool _autoplay = false;
+  final _currentListeningLine = GlobalKey();
+  final Set<int> _listeningTranslations = {};
+  int _listeningRevealed = 0;
   String? _optional;
   int _roleplayPosition = 0;
   bool _roleplayReveal = false;
@@ -378,6 +384,15 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
           return;
         }
         final line = scenario.dialog[index];
+        setState(() {
+          _playingKo = line.ko;
+          _listeningRevealed = max(_listeningRevealed, index + 1);
+        });
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted && generation == _audioGeneration) {
+            _scrollToListeningLine();
+          }
+        });
         final played =
             line.speaker == 'narrator' ||
             line.ko.trim().isEmpty ||
@@ -441,6 +456,169 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
       });
     }
   });
+
+  void _scrollToListeningLine() {
+    final lineContext = _currentListeningLine.currentContext;
+    if (lineContext == null || !mounted) return;
+    unawaited(
+      Scrollable.ensureVisible(
+        lineContext,
+        alignment: 1,
+        duration: SoriMotion.reduceMotion(context)
+            ? Duration.zero
+            : const Duration(milliseconds: 260),
+      ),
+    );
+  }
+
+  _LessonContent _listeningConversation(AppL10n t) {
+    final scenario = _scenario!;
+    final count = scenario.dialog.length;
+    final finished = _progress.position >= count;
+    final position = _progress.position.clamp(0, count - 1);
+    final revealed = max(_listeningRevealed, position + 1).clamp(1, count);
+    final expressions = finished ? _expressions(t) : null;
+    return _LessonContent(
+      body: [
+        _coachIntro(t),
+        const SizedBox(height: Spacing.md),
+        Text(
+          t.contentLearningPosition(revealed, count),
+          style: SoriTextTheme.of(context).meta,
+        ),
+        const SizedBox(height: Spacing.sm),
+        SoriProgressMeter.segments(
+          key: const ValueKey('content-learn-progress'),
+          filled: revealed,
+          total: count,
+          height: 8,
+          gap: 6,
+        ),
+        const SizedBox(height: Spacing.md),
+        for (var index = 0; index < revealed; index++)
+          Padding(
+            key: ValueKey('listening-turn-$index'),
+            padding: const EdgeInsets.only(bottom: Spacing.md),
+            child: SoriPersonaCardMotion(
+              depth: false,
+              child: KeyedSubtree(
+                key: index == position ? _currentListeningLine : null,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    if (scenario.dialog[index].speaker != 'user') ...[
+                      SoriPersonaSpeakerAvatar(
+                        scenario: scenario,
+                        speaker: scenario.dialog[index].speaker,
+                      ),
+                      const SizedBox(width: Spacing.sm),
+                    ],
+                    Expanded(
+                      child: _listeningBubble(t, scenario, index, position),
+                    ),
+                    if (scenario.dialog[index].speaker == 'user') ...[
+                      const SizedBox(width: Spacing.sm),
+                      SoriPersonaSpeakerAvatar(
+                        scenario: scenario,
+                        speaker: scenario.dialog[index].speaker,
+                      ),
+                    ],
+                  ],
+                ),
+              ),
+            ),
+          ),
+        if (expressions != null) ...[
+          const SizedBox(height: Spacing.lg),
+          ...expressions.body,
+        ],
+      ],
+      actions:
+          expressions?.actions ??
+          [
+            SoriButton.filled(
+              key: const ValueKey('content-listening-autoplay'),
+              label: _autoplay
+                  ? t.contentLearningPause
+                  : t.contentLearningPlayAll,
+              icon: _autoplay ? Icons.pause_rounded : Icons.play_arrow_rounded,
+              onTap: _busy ? null : _playAll,
+            ),
+            SoriButton.ghost(
+              key: const ValueKey('content-learn-next'),
+              label: t.contentLearningNext,
+              onTap: _busy ? null : () => _learnNext(position, count),
+            ),
+          ],
+    );
+  }
+
+  Widget _listeningBubble(
+    AppL10n t,
+    Scenario scenario,
+    int index,
+    int current,
+  ) {
+    final line = scenario.dialog[index];
+    final text = SoriTextTheme.of(context);
+    final expanded = _listeningTranslations.contains(index);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        SoriPersonaCardMotion(
+          interactive: true,
+          entrance: false,
+          child: SoriCard(
+            key: ValueKey(
+              index == current
+                  ? 'content-learn-sentence'
+                  : 'content-listening-line-$index',
+            ),
+            accent: line.speaker == 'user' ? SoriColors.primary : null,
+            tinted: line.speaker == 'user',
+            onTap: _busy
+                ? null
+                : () => _play(
+                    line.ko,
+                    voice: scenario.voiceForSpeaker(line.speaker),
+                  ),
+            semanticLabel: '${t.contentLearningAudio}: ${line.ko}',
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  scenario.speakerDisplayName(
+                    line.speaker,
+                    languageCode: Localizations.localeOf(context).languageCode,
+                    fallbackYou: t.contentLearningYou,
+                    fallbackNarrator: t.contentLearningNarrator,
+                  ),
+                  style: text.eyebrow,
+                ),
+                Text(line.ko, style: text.h3),
+                const SizedBox(height: Spacing.sm),
+                _listenCue(line.ko, t),
+              ],
+            ),
+          ),
+        ),
+        SoriButton.ghost(
+          label: expanded
+              ? t.listeningHideTranslation
+              : t.listeningShowTranslation,
+          onTap: () => setState(() {
+            if (expanded) {
+              _listeningTranslations.remove(index);
+            } else {
+              _listeningTranslations.add(index);
+            }
+          }),
+        ),
+        if (expanded) Text(line.pick(_lang), style: text.bodySmall),
+      ],
+    );
+  }
+
   _LessonContent _expressions(AppL10n t) {
     final scenario = _scenario!;
     final evidence = widget.lesson.questions
@@ -677,6 +855,7 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
   }
 
   _LessonContent _learn(AppL10n t) {
+    if (_scenario != null) return _listeningConversation(t);
     final count = _scenario?.dialog.length ?? _phrases.length;
     if (_scenario != null && _progress.position >= count) {
       return _expressions(t);
@@ -761,6 +940,9 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
                   Text(
                     _scenario!.speakerDisplayName(
                       line.speaker,
+                      languageCode: Localizations.localeOf(
+                        context,
+                      ).languageCode,
                       fallbackYou: t.contentLearningYou,
                       fallbackNarrator: t.contentLearningNarrator,
                     ),
@@ -1552,6 +1734,7 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
       Text(
         scenario.speakerDisplayName(
           line.speaker,
+          languageCode: Localizations.localeOf(context).languageCode,
           fallbackYou: t.contentLearningYou,
           fallbackNarrator: t.contentLearningNarrator,
         ),
@@ -1617,6 +1800,12 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
             ContentLessonPhase.practice => _practice(t),
             ContentLessonPhase.complete => _result(t),
           };
+    final conversation =
+        !_loading &&
+        !_loadError &&
+        _scenario != null &&
+        _progress.phase == ContentLessonPhase.learn &&
+        _optional == null;
     return PopScope(
       canPop: !_busy,
       child: AbsorbPointer(
@@ -1626,13 +1815,43 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
           eyebrow: widget.lesson.level.toUpperCase(),
           onLeave: _stopAudio,
           homeEscape: SoriHomeEscape(confirmWhen: _hasUnsubmittedAnswer),
+          bottomNavigationBar: conversation
+              ? SafeArea(
+                  top: false,
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      maxHeight: MediaQuery.sizeOf(context).height * .35,
+                    ),
+                    child: SingleChildScrollView(
+                      child: Padding(
+                        padding: soriClampPadding(
+                          MediaQuery.sizeOf(context).width,
+                          maxWidth: soriStudyContentMaxWidth(
+                            MediaQuery.sizeOf(context).width,
+                          ),
+                          base: const EdgeInsets.all(Spacing.lg),
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: content!.actions,
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              : null,
           child: _loading
               ? const AppLoading()
               : _loadError
               ? ContentLearningFailure(onRetry: _load)
               : ContentLearningLayout(
                   key: ValueKey(
-                    'lesson-view:${_progress.phase.name}:${_progress.cursorId}:${_progress.position}:${_feedback?.id}:$_optional:$_roleplayPosition',
+                    _scenario != null &&
+                            _progress.phase == ContentLessonPhase.learn &&
+                            _optional == null
+                        ? 'lesson-view:listening-conversation'
+                        : 'lesson-view:${_progress.phase.name}:${_progress.cursorId}:${_progress.position}:${_feedback?.id}:$_optional:$_roleplayPosition',
                   ),
                   header: _retry != null || _busy || _audioError
                       ? Column(
@@ -1650,7 +1869,7 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
                         )
                       : null,
                   body: content!.body,
-                  actions: content.actions,
+                  actions: conversation ? const [] : content.actions,
                   topAligned:
                       _optional == null &&
                       _progress.phase != ContentLessonPhase.complete,

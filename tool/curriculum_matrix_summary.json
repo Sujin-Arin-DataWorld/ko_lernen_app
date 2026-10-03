@@ -47,8 +47,8 @@
       "topics": {
         "beyond_matrix": 5,
         "covered": 17,
-        "optional_covered": 2,
-        "optional_missing": 2,
+        "optional_covered": 3,
+        "optional_missing": 1,
         "optional_thin": 1
       },
       "grammar": {
@@ -5644,6 +5644,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:a2_jun_game_time_change",
           "scenario:favorite_drama_chat",
           "scenario:friend_cancelled_plan",
           "scenario:gym_class_cancel",
@@ -6449,6 +6450,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:a2_byeongcheol_walk_break",
           "scenario:forgot_house_key",
           "scenario:taxi_slow_down",
           "unit:a2_05_delivery_services",
@@ -7601,6 +7603,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:a2_byeongcheol_walk_break",
           "scenario:a2_w10_apt",
           "scenario:a2_w10_booking",
           "scenario:a2_w10_buy",
@@ -7749,6 +7752,8 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:a2_jun_game_time_change",
+          "scenario:a2_minho_weekend_cooking_plan",
           "scenario:a2_w10_fandom",
           "scenario:a2_w10_friends",
           "scenario:forgot_house_key",

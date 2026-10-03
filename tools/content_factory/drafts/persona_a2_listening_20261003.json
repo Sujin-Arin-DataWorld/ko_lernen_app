@@ -1,0 +1,470 @@
+{
+  "version": 1,
+  "lessons": [
+    {
+      "id": "listening.a2.a2_minho_weekend_cooking_plan",
+      "kind": "listening",
+      "level": "a2",
+      "topicId": "a2_plan",
+      "title": {
+        "ko": "주말 요리 계획",
+        "de": "Am Wochenende zusammen kochen",
+        "en": "Cooking together at the weekend"
+      },
+      "intro": {
+        "ko": "민호와 안드레아가 집에서 토요일 메뉴와 요리할 시간을 정해요.",
+        "de": "Minho und Andrea planen zu Hause, was sie am Samstag kochen und wann sie anfangen.",
+        "en": "At home, Minho and Andrea decide what to cook on Saturday and when to start."
+      },
+      "contentIds": [
+        "a2_minho_weekend_cooking_plan"
+      ],
+      "questions": [
+        {
+          "id": "listening.a2.a2_minho_weekend_cooking_plan.situation",
+          "type": "choice",
+          "skill": "situation",
+          "sourceIds": [
+            "a2_minho_weekend_cooking_plan"
+          ],
+          "evidenceKo": "이번 토요일에 같이 요리할까?",
+          "prompt": {
+            "ko": "대화 전체에 맞는 상황은 무엇인가요?",
+            "de": "Welche Situation passt zum gesamten Gespräch?",
+            "en": "Which situation matches the whole conversation?"
+          },
+          "explanation": {
+            "ko": "“이번 토요일에 같이 요리할까?”라는 말이 근거예요. 대화 전체의 장소와 목적을 함께 확인해요.",
+            "de": "Ein Beleg ist „이번 토요일에 같이 요리할까?“. Prüfe Ort und Ziel im gesamten Gespräch.",
+            "en": "One supporting line is “이번 토요일에 같이 요리할까?”. Check the place and goal across the whole conversation."
+          },
+          "options": [
+            {
+              "ko": "집에서 토요일에 함께 요리할 메뉴와 시간을 정해요.",
+              "de": "Zu Hause wird geplant, was am Samstag zusammen gekocht wird und wann.",
+              "en": "At home, they plan what to cook together on Saturday and when."
+            },
+            {
+              "ko": "식당에서 저녁 메뉴를 주문해요.",
+              "de": "Im Restaurant wird das Abendessen bestellt.",
+              "en": "They order dinner at a restaurant."
+            },
+            {
+              "ko": "오늘 아침에 혼자 밥을 먹어요.",
+              "de": "Heute Morgen wird allein gegessen.",
+              "en": "One person eats breakfast alone today."
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.a2.a2_minho_weekend_cooking_plan.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "sourceIds": [
+            "a2_minho_weekend_cooking_plan"
+          ],
+          "audioKo": "김치볶음밥은 어때?",
+          "evidenceKo": "김치볶음밥은 어때?",
+          "prompt": {
+            "ko": "들은 말의 뜻은 무엇인가요?",
+            "de": "Was bedeutet die gehörte Aussage?",
+            "en": "What does the spoken line mean?"
+          },
+          "explanation": {
+            "ko": "“김치볶음밥은 어때?”라는 말이 근거예요. 이 말과 같은 뜻의 문장을 골라요.",
+            "de": "Ein Beleg ist „김치볶음밥은 어때?“. Wähle die Aussage mit derselben Bedeutung.",
+            "en": "One supporting line is “김치볶음밥은 어때?”. Choose the statement with the same meaning."
+          },
+          "options": [
+            {
+              "ko": "김치볶음밥은 어때?",
+              "de": "Wie wäre es mit Kimchi-Bratreis?",
+              "en": "How about kimchi fried rice?"
+            },
+            {
+              "ko": "이번 토요일에 같이 요리할까?",
+              "de": "Wollen wir diesen Samstag zusammen kochen?",
+              "en": "Shall we cook together this Saturday?"
+            },
+            {
+              "ko": "좋아. 뭐 만들까?",
+              "de": "Gern. Was wollen wir kochen?",
+              "en": "Sure. What shall we make?"
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.a2.a2_minho_weekend_cooking_plan.sentence",
+          "type": "order",
+          "skill": "sentence",
+          "sourceIds": [
+            "a2_minho_weekend_cooking_plan"
+          ],
+          "audioKo": "그럼 내가 밥을 준비할게.",
+          "evidenceKo": "그럼 내가 밥을 준비할게.",
+          "targetKo": "그럼 내가 밥을 준비할게.",
+          "prompt": {
+            "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
+            "de": "Ordne die Wörter genau wie in der Aufnahme.",
+            "en": "Put the words in the same order as the recording."
+          },
+          "explanation": {
+            "ko": "“그럼 내가 밥을 준비할게.”라는 말이 근거예요. 들은 어순을 그대로 만들어요.",
+            "de": "Ein Beleg ist „그럼 내가 밥을 준비할게.“. Bilde genau die gehörte Wortfolge.",
+            "en": "One supporting line is “그럼 내가 밥을 준비할게.”. Recreate the exact word order you heard."
+          }
+        },
+        {
+          "id": "listening.a2.a2_minho_weekend_cooking_plan.response",
+          "type": "choice",
+          "skill": "response",
+          "sourceIds": [
+            "a2_minho_weekend_cooking_plan"
+          ],
+          "audioKo": "그럼 내가 밥을 준비할게.",
+          "evidenceKo": "나는 계란을 살게. 몇 시에 시작할까?",
+          "prompt": {
+            "ko": "상대의 말: “그럼 내가 밥을 준비할게.” 과제: 밥을 준비하겠다는 말에, 계란을 사고 시작 시간을 물어 답하세요.",
+            "de": "Dein Gegenüber sagt: „그럼 내가 밥을 준비할게.“ (Dann kümmere ich mich um den Reis.). Aufgabe: Antworte auf die Zusage, den Reis vorzubereiten: Sag, dass du die Eier kaufst, und frage nach der Startzeit.",
+            "en": "The other person says: “그럼 내가 밥을 준비할게.” (Then I’ll get the rice ready.). Task: Reply to the offer to get the rice ready: say you will buy the eggs and ask what time to start."
+          },
+          "explanation": {
+            "ko": "“나는 계란을 살게. 몇 시에 시작할까?”라는 말이 근거예요. 이 응답은 과제의 목적을 이뤄요. 다른 선택지는 필요한 행동이나 시간을 바꿔요.",
+            "de": "Ein Beleg ist „나는 계란을 살게. 몇 시에 시작할까?“. Diese Antwort erfüllt das Ziel der Aufgabe. Die anderen Optionen ändern die verlangte Handlung oder Zeit.",
+            "en": "One supporting line is “나는 계란을 살게. 몇 시에 시작할까?”. This response fulfills the task’s goal. The other options change the required action or time."
+          },
+          "options": [
+            {
+              "ko": "나는 계란을 살게. 몇 시에 시작할까?",
+              "de": "Ich kaufe die Eier. Wann wollen wir anfangen?",
+              "en": "I’ll buy the eggs. What time shall we start?"
+            },
+            {
+              "ko": "나는 계란을 안 살게.",
+              "de": "Ich kaufe keine Eier.",
+              "en": "I won’t buy any eggs."
+            },
+            {
+              "ko": "나는 오늘 혼자 요리할게.",
+              "de": "Ich koche heute allein.",
+              "en": "I’ll cook alone today."
+            }
+          ],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "listening.a2.a2_byeongcheol_walk_break",
+      "kind": "listening",
+      "level": "a2",
+      "topicId": "a2_move",
+      "title": {
+        "ko": "산책 중 잠깐 쉬기",
+        "de": "Eine Pause beim Spaziergang",
+        "en": "Taking a break on a walk"
+      },
+      "intro": {
+        "ko": "병철과 크리스티안이 함께 산책해요. 크리스티안은 피곤해서 잠깐 쉬고 싶어요.",
+        "de": "Byeongcheol und Christian gehen spazieren. Christian ist müde und möchte eine kurze Pause machen.",
+        "en": "Byeongcheol and Christian are on a walk. Christian is tired and wants a short break."
+      },
+      "contentIds": [
+        "a2_byeongcheol_walk_break"
+      ],
+      "questions": [
+        {
+          "id": "listening.a2.a2_byeongcheol_walk_break.situation",
+          "type": "choice",
+          "skill": "situation",
+          "sourceIds": [
+            "a2_byeongcheol_walk_break"
+          ],
+          "evidenceKo": "여기서 조금 더 걸을까요?",
+          "prompt": {
+            "ko": "대화 전체에 맞는 상황은 무엇인가요?",
+            "de": "Welche Situation passt zum gesamten Gespräch?",
+            "en": "Which situation matches the whole conversation?"
+          },
+          "explanation": {
+            "ko": "“여기서 조금 더 걸을까요?”라는 말이 근거예요. 대화 전체의 장소와 목적을 함께 확인해요.",
+            "de": "Ein Beleg ist „여기서 조금 더 걸을까요?“. Prüfe Ort und Ziel im gesamten Gespräch.",
+            "en": "One supporting line is “여기서 조금 더 걸을까요?”. Check the place and goal across the whole conversation."
+          },
+          "options": [
+            {
+              "ko": "산책하다 피곤해서 잠깐 쉬려고 해요.",
+              "de": "Beim Spaziergang wird wegen Müdigkeit eine kurze Pause gemacht.",
+              "en": "They want to take a short break on their walk because one of them is tired."
+            },
+            {
+              "ko": "길을 몰라서 버스를 타려고 해요.",
+              "de": "Weil der Weg unbekannt ist, soll ein Bus genommen werden.",
+              "en": "They want to take a bus because they do not know the way."
+            },
+            {
+              "ko": "식당에서 물을 주문하려고 해요.",
+              "de": "Im Restaurant soll Wasser bestellt werden.",
+              "en": "They want to order water in a restaurant."
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.a2.a2_byeongcheol_walk_break.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "sourceIds": [
+            "a2_byeongcheol_walk_break"
+          ],
+          "audioKo": "여기서 조금 더 걸을까요?",
+          "evidenceKo": "여기서 조금 더 걸을까요?",
+          "prompt": {
+            "ko": "들은 말의 뜻은 무엇인가요?",
+            "de": "Was bedeutet die gehörte Aussage?",
+            "en": "What does the spoken line mean?"
+          },
+          "explanation": {
+            "ko": "“여기서 조금 더 걸을까요?”라는 말이 근거예요. 이 말과 같은 뜻의 문장을 골라요.",
+            "de": "Ein Beleg ist „여기서 조금 더 걸을까요?“. Wähle die Aussage mit derselben Bedeutung.",
+            "en": "One supporting line is “여기서 조금 더 걸을까요?”. Choose the statement with the same meaning."
+          },
+          "options": [
+            {
+              "ko": "여기서 조금 더 걸을까요?",
+              "de": "Wollen wir von hier noch ein Stück weitergehen?",
+              "en": "Shall we walk a little further from here?"
+            },
+            {
+              "ko": "죄송하지만 좀 피곤해요. 잠깐 쉬어도 될까요?",
+              "de": "Entschuldigung, ich bin etwas müde. Darf ich eine kurze Pause machen?",
+              "en": "Sorry, I’m a little tired. May I take a short break?"
+            },
+            {
+              "ko": "그럼 잠깐 쉬어요.",
+              "de": "Dann machen wir eine kurze Pause.",
+              "en": "Let’s take a short break then."
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.a2.a2_byeongcheol_walk_break.sentence",
+          "type": "order",
+          "skill": "sentence",
+          "sourceIds": [
+            "a2_byeongcheol_walk_break"
+          ],
+          "audioKo": "저기 앉아도 돼요?",
+          "evidenceKo": "저기 앉아도 돼요?",
+          "targetKo": "저기 앉아도 돼요?",
+          "prompt": {
+            "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
+            "de": "Ordne die Wörter genau wie in der Aufnahme.",
+            "en": "Put the words in the same order as the recording."
+          },
+          "explanation": {
+            "ko": "“저기 앉아도 돼요?”라는 말이 근거예요. 들은 어순을 그대로 만들어요.",
+            "de": "Ein Beleg ist „저기 앉아도 돼요?“. Bilde genau die gehörte Wortfolge.",
+            "en": "One supporting line is “저기 앉아도 돼요?”. Recreate the exact word order you heard."
+          }
+        },
+        {
+          "id": "listening.a2.a2_byeongcheol_walk_break.response",
+          "type": "choice",
+          "skill": "response",
+          "sourceIds": [
+            "a2_byeongcheol_walk_break"
+          ],
+          "audioKo": "그럼 잠깐 쉬어요.",
+          "evidenceKo": "저기 앉아도 돼요?",
+          "prompt": {
+            "ko": "상대의 말: “그럼 잠깐 쉬어요.” 과제: 잠깐 쉬자는 말에, 저기 앉아도 되는지 물으세요.",
+            "de": "Dein Gegenüber sagt: „그럼 잠깐 쉬어요.“ (Dann machen wir eine kurze Pause.). Aufgabe: Frage nach dem Vorschlag, eine kurze Pause zu machen, ob du dich dort hinsetzen darfst.",
+            "en": "The other person says: “그럼 잠깐 쉬어요.” (Let’s take a short break then.). Task: After the suggestion to take a short break, ask whether you may sit over there."
+          },
+          "explanation": {
+            "ko": "“저기 앉아도 돼요?”라는 말이 근거예요. 이 응답은 과제의 목적을 이뤄요. 다른 선택지는 필요한 행동이나 시간을 바꿔요.",
+            "de": "Ein Beleg ist „저기 앉아도 돼요?“. Diese Antwort erfüllt das Ziel der Aufgabe. Die anderen Optionen ändern die verlangte Handlung oder Zeit.",
+            "en": "One supporting line is “저기 앉아도 돼요?”. This response fulfills the task’s goal. The other options change the required action or time."
+          },
+          "options": [
+            {
+              "ko": "저기 앉아도 돼요?",
+              "de": "Darf ich mich dort hinsetzen?",
+              "en": "May I sit over there?"
+            },
+            {
+              "ko": "저는 안 쉬고 계속 걸을게요.",
+              "de": "Ich mache keine Pause und gehe weiter.",
+              "en": "I won’t take a break; I’ll keep walking."
+            },
+            {
+              "ko": "물은 어디서 살 수 있어요?",
+              "de": "Wo kann ich Wasser kaufen?",
+              "en": "Where can I buy water?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "listening.a2.a2_jun_game_time_change",
+      "kind": "listening",
+      "level": "a2",
+      "topicId": "a2_plan",
+      "title": {
+        "ko": "게임 시간을 바꾸기",
+        "de": "Die Spielzeit verschieben",
+        "en": "Changing the time to play"
+      },
+      "intro": {
+        "ko": "준과 크리스티안은 일곱 시에 게임하기로 했어요. 준의 숙제가 아직 안 끝나서 시간을 바꿔요.",
+        "de": "Jun und Christian wollten um sieben spielen. Jun ist mit den Hausaufgaben noch nicht fertig, deshalb ändern sie die Zeit.",
+        "en": "Jun and Christian planned to play at seven. Jun has not finished his homework yet, so they change the time."
+      },
+      "contentIds": [
+        "a2_jun_game_time_change"
+      ],
+      "questions": [
+        {
+          "id": "listening.a2.a2_jun_game_time_change.situation",
+          "type": "choice",
+          "skill": "situation",
+          "sourceIds": [
+            "a2_jun_game_time_change"
+          ],
+          "evidenceKo": "오늘 숙제 때문에 좀 늦을 것 같아요.",
+          "prompt": {
+            "ko": "대화 전체에 맞는 상황은 무엇인가요?",
+            "de": "Welche Situation passt zum gesamten Gespräch?",
+            "en": "Which situation matches the whole conversation?"
+          },
+          "explanation": {
+            "ko": "“오늘 숙제 때문에 좀 늦을 것 같아요.”라는 말이 근거예요. 대화 전체의 장소와 목적을 함께 확인해요.",
+            "de": "Ein Beleg ist „오늘 숙제 때문에 좀 늦을 것 같아요.“. Prüfe Ort und Ziel im gesamten Gespräch.",
+            "en": "One supporting line is “오늘 숙제 때문에 좀 늦을 것 같아요.”. Check the place and goal across the whole conversation."
+          },
+          "options": [
+            {
+              "ko": "준의 숙제 때문에 게임 시간을 일곱 시에서 여덟 시로 바꿔요.",
+              "de": "Wegen Juns Hausaufgaben wird die Spielzeit von sieben auf acht verschoben.",
+              "en": "They move the gaming time from seven to eight because of Jun’s homework."
+            },
+            {
+              "ko": "게임이 끝나서 숙제를 시작해요.",
+              "de": "Nach dem Spielen werden die Hausaufgaben angefangen.",
+              "en": "They finish playing and start their homework."
+            },
+            {
+              "ko": "크리스티안이 아파서 게임 약속을 취소해요.",
+              "de": "Weil Christian krank ist, wird die Spielverabredung abgesagt.",
+              "en": "They cancel their gaming plans because Christian is ill."
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.a2.a2_jun_game_time_change.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "sourceIds": [
+            "a2_jun_game_time_change"
+          ],
+          "audioKo": "네. 여덟 시로 바꾸면 어때요?",
+          "evidenceKo": "네. 여덟 시로 바꾸면 어때요?",
+          "prompt": {
+            "ko": "들은 말의 뜻은 무엇인가요?",
+            "de": "Was bedeutet die gehörte Aussage?",
+            "en": "What does the spoken line mean?"
+          },
+          "explanation": {
+            "ko": "“네. 여덟 시로 바꾸면 어때요?”라는 말이 근거예요. 이 말과 같은 뜻의 문장을 골라요.",
+            "de": "Ein Beleg ist „네. 여덟 시로 바꾸면 어때요?“. Wähle die Aussage mit derselben Bedeutung.",
+            "en": "One supporting line is “네. 여덟 시로 바꾸면 어때요?”. Choose the statement with the same meaning."
+          },
+          "options": [
+            {
+              "ko": "네. 여덟 시로 바꾸면 어때요?",
+              "de": "Ja. Wie wäre es, wenn wir auf acht verschieben?",
+              "en": "Yes. How about moving it to eight?"
+            },
+            {
+              "ko": "오늘 숙제 때문에 좀 늦을 것 같아요.",
+              "de": "Wegen der Hausaufgaben wird es heute bei mir wohl etwas später.",
+              "en": "I think I’ll be a little late today because of my homework."
+            },
+            {
+              "ko": "괜찮아. 원래 일곱 시에 하기로 했지?",
+              "de": "Kein Problem. Wir wollten ursprünglich um sieben spielen, oder?",
+              "en": "That’s okay. We originally planned to play at seven, right?"
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.a2.a2_jun_game_time_change.sentence",
+          "type": "order",
+          "skill": "sentence",
+          "sourceIds": [
+            "a2_jun_game_time_change"
+          ],
+          "audioKo": "숙제 끝나면 메시지 보내 줘.",
+          "evidenceKo": "숙제 끝나면 메시지 보내 줘.",
+          "targetKo": "숙제 끝나면 메시지 보내 줘.",
+          "prompt": {
+            "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
+            "de": "Ordne die Wörter genau wie in der Aufnahme.",
+            "en": "Put the words in the same order as the recording."
+          },
+          "explanation": {
+            "ko": "“숙제 끝나면 메시지 보내 줘.”라는 말이 근거예요. 들은 어순을 그대로 만들어요.",
+            "de": "Ein Beleg ist „숙제 끝나면 메시지 보내 줘.“. Bilde genau die gehörte Wortfolge.",
+            "en": "One supporting line is “숙제 끝나면 메시지 보내 줘.”. Recreate the exact word order you heard."
+          }
+        },
+        {
+          "id": "listening.a2.a2_jun_game_time_change.response",
+          "type": "choice",
+          "skill": "response",
+          "sourceIds": [
+            "a2_jun_game_time_change"
+          ],
+          "audioKo": "감사해요. 그때까지 숙제를 끝낼게요.",
+          "evidenceKo": "숙제 끝나면 메시지 보내 줘.",
+          "prompt": {
+            "ko": "상대의 말: “감사해요. 그때까지 숙제를 끝낼게요.” 과제: 숙제를 끝내겠다는 말에, 끝나면 메시지를 보내 달라고 부탁하세요.",
+            "de": "Dein Gegenüber sagt: „감사해요. 그때까지 숙제를 끝낼게요.“ (Danke. Bis dahin mache ich meine Hausaufgaben fertig.). Aufgabe: Bitte nach der Zusage, die Hausaufgaben fertigzumachen, um eine Nachricht, sobald sie fertig sind.",
+            "en": "The other person says: “감사해요. 그때까지 숙제를 끝낼게요.” (Thank you. I’ll finish my homework by then.). Task: After the promise to finish the homework, ask for a message when it is done."
+          },
+          "explanation": {
+            "ko": "“숙제 끝나면 메시지 보내 줘.”라는 말이 근거예요. 이 응답은 과제의 목적을 이뤄요. 다른 선택지는 필요한 행동이나 시간을 바꿔요.",
+            "de": "Ein Beleg ist „숙제 끝나면 메시지 보내 줘.“. Diese Antwort erfüllt das Ziel der Aufgabe. Die anderen Optionen ändern die verlangte Handlung oder Zeit.",
+            "en": "One supporting line is “숙제 끝나면 메시지 보내 줘.”. This response fulfills the task’s goal. The other options change the required action or time."
+          },
+          "options": [
+            {
+              "ko": "숙제 끝나면 메시지 보내 줘.",
+              "de": "Schick mir eine Nachricht, wenn du mit den Hausaufgaben fertig bist.",
+              "en": "Send me a message when you finish your homework."
+            },
+            {
+              "ko": "숙제 시작하기 전에 메시지 보내 줘.",
+              "de": "Schick mir eine Nachricht, bevor du mit den Hausaufgaben anfängst.",
+              "en": "Send me a message before you start your homework."
+            },
+            {
+              "ko": "숙제는 안 해도 돼. 지금 들어와.",
+              "de": "Du brauchst die Hausaufgaben nicht zu machen. Komm jetzt online.",
+              "en": "You don’t need to do your homework. Come online now."
+            }
+          ],
+          "correctIndex": 0
+        }
+      ]
+    }
+  ]
+}

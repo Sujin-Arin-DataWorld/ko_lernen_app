@@ -2897,9 +2897,6 @@ class AppL10nDe extends AppL10n {
   String get scenariosListTitle => 'Szenarien';
 
   @override
-  String get scenariosListSubtitle => 'Übe mit echten Alltagssituationen';
-
-  @override
   String scenariosCardMeta(int xp) {
     return '5 bis 7 Minuten · +$xp XP';
   }
@@ -11603,4 +11600,83 @@ class AppL10nDe extends AppL10n {
   @override
   String get dancheongDeleteArtworkNote =>
       'Diese fertige Version und ihre gespeicherten Begleittexte löschen? Ihre öffentlichen Links werden ebenfalls deaktiviert. Bereits von anderen gespeicherte Kopien bleiben erhalten.';
+
+  @override
+  String get personaMeetPeopleTitle => 'Menschen kennenlernen';
+
+  @override
+  String get personaMeetPeopleSubtitle =>
+      'Lerne elf Menschen kennen und finde ein Gespräch mit ihnen.';
+
+  @override
+  String personaOpenProfile(String name) {
+    return 'Mehr über $name';
+  }
+
+  @override
+  String get personaInterests => 'Interessen';
+
+  @override
+  String get personaConnections => 'Menschen im Umfeld';
+
+  @override
+  String personaTalkWith(String name) {
+    return 'Mit $name sprechen';
+  }
+
+  @override
+  String personaPlayRole(String name) {
+    return 'Als $name sprechen';
+  }
+
+  @override
+  String get personaListen => 'Gespräch anhören';
+
+  @override
+  String personaYourRole(String name) {
+    return 'Deine Rolle in dieser Szene: $name';
+  }
+
+  @override
+  String personaConversationsWith(String name) {
+    return 'Gespräche mit $name';
+  }
+
+  @override
+  String personaLearnerRoles(String name) {
+    return 'Szenen, in denen du $name spielst';
+  }
+
+  @override
+  String get personaLearnerRolesHint =>
+      'Hier übernimmst du diese Rolle und sprichst mit jemand anderem.';
+
+  @override
+  String get personaNoConversations =>
+      'Ein Gespräch mit dieser Person wird noch vorbereitet.';
+
+  @override
+  String get personaListeningUnavailable =>
+      'Die Hörlektion zu dieser Szene wird noch vorbereitet.';
+
+  @override
+  String get scenariosLevelFilter => 'Sprachniveau';
+
+  @override
+  String get scenariosChooseTopic => 'Wähle ein Thema';
+
+  @override
+  String get scenariosChangeTopic => 'Anderes Thema wählen';
+
+  @override
+  String scenariosConversationCount(int count) {
+    return '$count Gespräche';
+  }
+
+  @override
+  String get scenariosOneConversation => '1 Gespräch';
+
+  @override
+  String get personaMeetPeopleCompactSubtitle =>
+      '11 Profile · Gespräche & Hören';
 }

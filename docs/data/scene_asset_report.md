@@ -8,9 +8,9 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 
 ## 요약
 
-- canonical 시나리오: **178개**
+- canonical 시나리오: **181개**
 - 전용 포스터: **0개**
-- 카테고리 폴백: **178개**
+- 카테고리 폴백: **181개**
 - 누락/깨진 폴백: **0개**
 - 엄격 이슈: **0건**
 
@@ -21,7 +21,7 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 ## 샤드별 시나리오
 
 - scenarios_a1.json: 29개
-- scenarios_a2.json: 28개
+- scenarios_a2.json: 31개
 - scenarios_b1.json: 31개
 - scenarios_b2.json: 30개
 - scenarios_c1.json: 30개
@@ -33,8 +33,8 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 - bank: 1개
 - cafe: 16개
 - convenience: 1개
-- directions: 7개
-- home: 56개
+- directions: 8개
+- home: 58개
 - hotel: 1개
 - market: 7개
 - office: 57개
@@ -51,14 +51,14 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 - 규약 밖 루프 파일: 5개
 - 전용 루프 해석: 0개
 - 카테고리 루프 해석: 0개
-- 루프 없는 안전 폴백: 178개
+- 루프 없는 안전 폴백: 181개
 - backdrop 없는 루프 없음: 0개
 - 고아 scene 루프: 0개
 
 ## 생성 근거 SHA-256
 
 - `assets/data/scenarios_a1.json`: `b14586943cdb23a92257c491466b16d452a308ca1f8e2e1db71a0b01eec649c6`
-- `assets/data/scenarios_a2.json`: `876b05976d84e80d9faffd77a7ade51c9828c76ea192a0e0f9bbe50ba5a87a75`
+- `assets/data/scenarios_a2.json`: `ce768125e321d23c38349636c80a401ed262937f777ae5fc84a4f6873f67dafb`
 - `assets/data/scenarios_b1.json`: `982216e9733709e326b581ee879b3c912b7a4d55abd3ee92c49105570fb44aa2`
 - `assets/data/scenarios_b2.json`: `37e1b18b8d3016ecb2edb8efc0eb5fa71ce530fc67965be6e592a4ae8f800c42`
 - `assets/data/scenarios_c1.json`: `0eb025e4236921eec24568a6a1e562827f70da1b9c62f9fabd698850ddc0438a`
@@ -99,6 +99,9 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 | scenarios_a1.json | survival_day_capstone | a1 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
 | scenarios_a1.json | taxi_kakao | a1 | taxi | fallback | assets/illustrations/scenes/taxi.png | 1536×1024 RGB | 0267b90eb07bb40a3141023c21943e643e64295296462bf7736f3534105fe356 | true |
 | scenarios_a1.json | umbrella_weather | a1 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
+| scenarios_a2.json | a2_byeongcheol_walk_break | a2 | directions | fallback | assets/illustrations/scenes/directions.png | 1536×1024 RGB | f2500c600eada342bc1a4102996d83d5cfdf068814f5d4247f230bebb66dde9c | true |
+| scenarios_a2.json | a2_jun_game_time_change | a2 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
+| scenarios_a2.json | a2_minho_weekend_cooking_plan | a2 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
 | scenarios_a2.json | a2_theme_park_date_break | a2 | theme_park | fallback | assets/illustrations/scenes/theme_park.png | 1536×1024 RGB | 95b947d5f5631997eb4b777aee5791d9b9ceed9c86cbbaf74e5645bef0d1a434 | true |
 | scenarios_a2.json | a2_w10_apt | a2 | home | fallback | assets/illustrations/scenes/home.png | 1536×1024 RGB | 7857df7599006f6c0ecb7a1f883ff3744f0e5700d2892692954a20b2e6b9036d | true |
 | scenarios_a2.json | a2_w10_booking | a2 | restaurant | fallback | assets/illustrations/scenes/restaurant.png | 1536×1024 RGB | 61e4aa4e94e01df9cb51e40438ce41c3a260e4b92437608d97a165bf208f61f8 | true |

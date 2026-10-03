@@ -159,12 +159,11 @@ class TtsGeneratorContractTest(unittest.TestCase):
         self.assertEqual(manifest["schemaVersion"], 1)
         self.assertEqual(manifest["kind"], "tts_first_line_manifest")
         self.assertEqual(manifest["cacheRevision"], "v3")
-        self.assertEqual(manifest["scenarioCount"], 178)
-        self.assertEqual(len(manifest["items"]), 178)
-        # Task 7 (지시서 4.4 / 스윕 tts-07), W10 Wave 2로 178편 갱신: 176개
-        # 유니크 첫 문장 mp3가 실제로 assets/tts/v3/ 에 다운로드돼 커밋됐다 —
-        # 178개 항목(2개가 같은 storagePath 공유) 전부 bundled:true 여야 한다.
-        self.assertEqual(manifest["bundledCount"], 178)
+        self.assertEqual(manifest["scenarioCount"], 181)
+        self.assertEqual(len(manifest["items"]), 181)
+        # The approved persona additions each include their original first-line
+        # audio. All 181 scenario entries must resolve to a bundled MP3.
+        self.assertEqual(manifest["bundledCount"], 181)
         ids = [item["scenarioId"] for item in manifest["items"]]
         self.assertEqual(len(ids), len(set(ids)))
         order = [
@@ -363,7 +362,7 @@ class TtsGeneratorContractTest(unittest.TestCase):
             with open(output, encoding="utf-8") as handle:
                 written = json.load(handle)
 
-        self.assertEqual(written["scenarioCount"], 178)
+        self.assertEqual(written["scenarioCount"], 181)
         auth.assert_not_called()
         synth.assert_not_called()
         remote.assert_not_called()

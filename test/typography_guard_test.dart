@@ -208,6 +208,8 @@ void main() {
     const explicitExceptions = <String, int>{
       'lib/features/guide/guide_runtime.dart': 1,
       'lib/screens/pronunciation_studio_screen.dart': 2,
+      // Listening chat exposes its play/pause media control continuously.
+      'lib/features/content_learning/content_lesson_screen.dart': 1,
     };
     for (final entry in explicitExceptions.entries) {
       expect(

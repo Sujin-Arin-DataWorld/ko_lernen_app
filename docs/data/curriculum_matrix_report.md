@@ -57,7 +57,7 @@
 | A1 | register | `A1:register:haeyo_polite:P` | P | scenario:a1_w10_eat, scenario:a1_w10_fandom, scenario:a1_w10_numbers, scenario:a1_w10_partner, scenario:a1_w10_phone, scenario:a1_w10_repeat … | no_approved_semantic_binding | `phase_task_path_connected` | KP01:speaking:02, KP02:speaking:02, KP03:speaking:02, KP04:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | A1 | register | `A1:register:hapsyo_formal_business:R` | R | — | no_approved_semantic_binding | `phase_task_path_connected` | KP01:grammar:11, KP04:reading:02 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | A1 | register | `A1:register:banmal_casual:R` | R | scenario:home_morning_routine, scenario:survival_day_capstone | no_approved_semantic_binding | `phase_task_path_connected` | KP04:reading:02 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| A2 | speechAct | `A2:speechAct:explain_reason_cause_effect:P` | P | scenario:favorite_drama_chat, scenario:friend_cancelled_plan, scenario:gym_class_cancel, scenario:running_late, unit:a2_01_haeyo_transition, unit:a2_02_plans_proposals … | no_approved_semantic_binding | `phase_task_path_connected` | KP07:production:03 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| A2 | speechAct | `A2:speechAct:explain_reason_cause_effect:P` | P | scenario:a2_jun_game_time_change, scenario:favorite_drama_chat, scenario:friend_cancelled_plan, scenario:gym_class_cancel, scenario:running_late, unit:a2_01_haeyo_transition … | no_approved_semantic_binding | `phase_task_path_connected` | KP07:production:03 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | A2 | speechAct | `A2:speechAct:express_feelings_emotions:P` | P | scenario:favorite_drama_chat, scenario:friend_cancelled_plan, scenario:taxi_slow_down, unit:a2_04_feelings_health, unit:a2_07_travel_repair | no_approved_semantic_binding | `phase_task_path_connected` | KP06:speaking:02 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | A2 | speechAct | `A2:speechAct:express_obligation_permission:P` | P | scenario:package_wrong_door | no_approved_semantic_binding | `phase_task_path_connected` | KP05:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | A2 | speechAct | `A2:speechAct:advise_recommend_warn:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP07:speaking:02 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
@@ -70,7 +70,7 @@
 | A2 | speechAct | `A2:speechAct:complain_object_appeal:P` | P | scenario:clothing_refund_size, unit:a2_05_delivery_services, unit:a2_08_home_money | no_approved_semantic_binding | `phase_task_path_connected` | KP05:writing:03, KP08:speaking:02 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | A2 | speechAct | `A2:speechAct:give_follow_instructions_directions:P` | P | scenario:delivery_dinner_spicy, scenario:library_card_problem, scenario:pharmacy_cold_medicine, scenario:samgyeopsal_first_time | no_approved_semantic_binding | `phase_task_path_connected` | KP08:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | A2 | speechAct | `A2:speechAct:make_change_cancel_appointments:P` | P | scenario:a2_w10_booking, scenario:a2_w10_enrolment, scenario:friend_cancelled_plan, scenario:gym_class_cancel, scenario:plans_with_friend, scenario:running_late … | no_approved_semantic_binding | `phase_task_path_connected` | KP07:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| A2 | speechAct | `A2:speechAct:request_ask_someone_to_do:P` | P | scenario:forgot_house_key, scenario:taxi_slow_down, unit:a2_05_delivery_services, unit:a2_07_travel_repair, unit:a2_08_home_money | no_approved_semantic_binding | `phase_task_path_connected` | KP05:writing:03 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| A2 | speechAct | `A2:speechAct:request_ask_someone_to_do:P` | P | scenario:a2_byeongcheol_walk_break, scenario:forgot_house_key, scenario:taxi_slow_down, unit:a2_05_delivery_services, unit:a2_07_travel_repair, unit:a2_08_home_money | no_approved_semantic_binding | `phase_task_path_connected` | KP05:writing:03 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | A2 | speechAct | `A2:speechAct:order_buy_pay:P` | P | scenario:a2_w10_buy | no_approved_semantic_binding | `phase_task_path_connected` | KP05:writing:02 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | A2 | speechAct | `A2:speechAct:adjust_register_speech_style:R` | R | scenario:a2_w10_enrolment | no_approved_semantic_binding | `phase_task_path_connected` | KP08:listening:02 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | A2 | speechAct | `A2:speechAct:express_certainty_doubt_hedging:R` | R | — | no_approved_semantic_binding | `phase_task_path_connected` | KP07:grammar:09 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
@@ -86,8 +86,8 @@
 | A2 | textType | `A2:textType:narrative_story_diary:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP06:writing:03 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | A2 | textType | `A2:textType:social_media_post_comment:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP08:writing:02 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | A2 | textType | `A2:textType:phone_call:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP05:speaking:02, KP07:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| A2 | register | `A2:register:haeyo_polite:P` | P | scenario:a2_w10_apt, scenario:a2_w10_booking, scenario:a2_w10_buy, scenario:a2_w10_enrolment, scenario:a2_w10_money, scenario:clothing_refund_size … | no_approved_semantic_binding | `phase_task_path_connected` | KP05:speaking:01, KP06:speaking:01, KP07:speaking:01, KP08:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| A2 | register | `A2:register:banmal_casual:P` | P | scenario:a2_w10_fandom, scenario:a2_w10_friends, scenario:forgot_house_key, scenario:forgot_presentation_cable, scenario:friend_cancelled_plan, scenario:group_chat_photo_permission … | no_approved_semantic_binding | `phase_task_path_connected` | KP06:speaking:02, KP08:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| A2 | register | `A2:register:haeyo_polite:P` | P | scenario:a2_byeongcheol_walk_break, scenario:a2_w10_apt, scenario:a2_w10_booking, scenario:a2_w10_buy, scenario:a2_w10_enrolment, scenario:a2_w10_money … | no_approved_semantic_binding | `phase_task_path_connected` | KP05:speaking:01, KP06:speaking:01, KP07:speaking:01, KP08:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| A2 | register | `A2:register:banmal_casual:P` | P | scenario:a2_jun_game_time_change, scenario:a2_minho_weekend_cooking_plan, scenario:a2_w10_fandom, scenario:a2_w10_friends, scenario:forgot_house_key, scenario:forgot_presentation_cable … | no_approved_semantic_binding | `phase_task_path_connected` | KP06:speaking:02, KP08:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | A2 | register | `A2:register:hapsyo_formal_business:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP05:writing:03, KP07:speaking:02, KP08:speaking:02 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | A2 | register | `A2:register:intimate:R` | R | scenario:a2_theme_park_date_break, scenario:a2_w10_partner | no_approved_semantic_binding | `phase_task_path_connected` | KP08:reading:03 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B1 | speechAct | `B1:speechAct:report_relay_information:P` | P | scenario:team_update_indirect_speech, unit:b1_02_indirect_speech | no_approved_semantic_binding | `phase_task_path_connected` | KP10:speaking:01, KP13:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
@@ -213,7 +213,7 @@
 
 ## 1. 기존 앱 인벤토리 및 후보 매칭 (학습 완료 판정 아님)
 
-- 콘텐츠 규모: 어휘 2944 · 문법 261 · 시나리오 178 · 코스유닛 48 · cloze 2341 · satz 2861 · 스몰토크 582 · 미디어 136 · 발음 84 · 문화노트 36
+- 콘텐츠 규모: 어휘 2944 · 문법 261 · 시나리오 181 · 코스유닛 48 · cloze 2341 · satz 2861 · 스몰토크 582 · 미디어 136 · 발음 84 · 문화노트 36
 - 매트릭스 규모: 주제 32 · 기능 39 · 텍스트 유형 31 · 어휘 영역 26 · 기능 문법 34 · 국제통용 문법 336
 - 갭 행 합계: **516** (`tool/curriculum_matrix_gaps.csv`)
 
@@ -405,12 +405,12 @@
 | 상태 | 주제 | 초점(매트릭스) | 단어 | 팩 | 시나리오 | 유닛 | 스몰토크 | cloze | 근거 출처 |
 |---|---|---|---|---|---|---|---|---|---|
 | ✅ covered | `communication_phone_digital` 전화·메신저·인터넷 소통 | 전화·메신저·인터넷·약속 변경 알리기 | 10 | 3 | 3 | 1 | 4 | 8 | model_knowledge |
-| ✅ covered | `daily_life_routines` 일상생활·하루 일과 | 약속·일정·문제 상황 | 62 | 6 | 4 | 0 | 7 | 39 | model_knowledge |
+| ✅ covered | `daily_life_routines` 일상생활·하루 일과 | 약속·일정·문제 상황 | 62 | 6 | 6 | 0 | 7 | 39 | model_knowledge |
 | ✅ covered | `education_study` 교육·학교·학습 | 학교생활·수업 등록·실수 바로잡기 | 36 | 4 | 3 | 1 | 2 | 20 | model_knowledge |
 | ✅ covered | `family_relationships` 가족·인간관계 | 초대·외모/성격·연인·파트너 가족 명절 | 96 | 8 | 3 | 0 | 30 | 96 | model_knowledge |
 | ✅ covered | `feelings_character` 감정·성격·외모 묘사 | 감정·기분·성격 묘사 | 48 | 4 | 1 | 1 | 4 | 23 | model_knowledge |
 | ✅ covered | `food_drink` 식음료·식당 | 식당 예약·메뉴 취향·맵기 조절 | 48 | 4 | 4 | 0 | 4 | 13 | model_knowledge |
-| ✅ covered | `free_time_hobbies_sport` 여가·취미·운동 | 취미·운동·휴가·주말 계획 | 18 | 4 | 7 | 0 | 20 | 18 | model_knowledge |
+| ✅ covered | `free_time_hobbies_sport` 여가·취미·운동 | 취미·운동·휴가·주말 계획 | 18 | 4 | 9 | 0 | 20 | 18 | model_knowledge |
 | ✅ covered | `health_body` 건강·신체·병원·약국 | 건강·병원·약국·증상·운동 | 29 | 4 | 2 | 1 | 8 | 25 | model_knowledge |
 | ✅ covered | `house_home` 주거·집 | 주거·집 구하기·이사·집안 문제 | 24 | 4 | 3 | 2 | 8 | 12 | model_knowledge |
 | ✅ covered | `money_finance_contracts` 돈·요금·계약·보험 | 요금·계좌·자동이체(기초) | 12 | 1 | 1 | 1 | 0 | 7 | model_knowledge |
@@ -418,12 +418,12 @@
 | ✅ covered | `services_public_admin` 공공 서비스·관공서·은행·우체국 | 은행·우체국·통신 요금·행정 창구 기초 | 12 | 1 | 3 | 1 | 3 | 12 | model_knowledge |
 | ✅ covered | `shopping_consumption` 쇼핑·소비·결제 | 교환·택배·배달·옷 사이즈 | 54 | 5 | 6 | 1 | 6 | 25 | model_knowledge |
 | ✅ covered | `social_etiquette_customs` 예절·관습·명절·호칭 | 명절 의례(세배·차례)·전통 놀이·초대 예절 | 0 | 2 | 1 | 0 | 16 | 0 | verified_repo |
-| ✅ covered | `transport_wayfinding` 교통·길 찾기 | 대중교통·길 찾기·이동 중 불편 요청 | 22 | 2 | 3 | 0 | 6 | 21 | model_knowledge |
-| ✅ covered | `travel_accommodation` 여행·숙박 | 여행·숙박·분실물 | 4 | 3 | 3 | 1 | 2 | 2 | model_knowledge |
+| ✅ covered | `transport_wayfinding` 교통·길 찾기 | 대중교통·길 찾기·이동 중 불편 요청 | 22 | 2 | 4 | 0 | 6 | 21 | model_knowledge |
+| ✅ covered | `travel_accommodation` 여행·숙박 | 여행·숙박·분실물 | 4 | 3 | 4 | 1 | 2 | 2 | model_knowledge |
 | ✅ covered | `work_career` 직업·직장·취업 | 직장 첫걸음·근무표·학교생활 | 22 | 2 | 3 | 1 | 6 | 9 | model_knowledge |
 | 🟡 optional_thin | `language_learning_communication_repair` 언어·학습·의사소통 되묻기 | 반말 실수 복구·말투 확인 | 2 | 1 | 0 | 0 | 0 | 0 | model_knowledge |
 | ✅ optional_covered | `media_entertainment_culture_pop` 미디어·대중문화(K-pop·드라마·SNS) | 드라마·음악·굿즈 등 취향 이야기 | 0 | 0 | 2 | 0 | 6 | 0 | model_knowledge |
-| ❌ optional_missing | `numbers_time_dates` 숫자·시간·날짜 | 시간 조정·기간 표현 | 0 | 0 | 0 | 0 | 0 | 0 | model_knowledge |
+| ✅ optional_covered | `numbers_time_dates` 숫자·시간·날짜 | 시간 조정·기간 표현 | 0 | 0 | 1 | 0 | 0 | 0 | model_knowledge |
 | ❌ optional_missing | `personal_identification` 개인 신상·자기소개 | 한국 생활 소개·온 기간 | 0 | 0 | 0 | 0 | 0 | 0 | model_knowledge |
 | ✅ optional_covered | `weather_nature_climate` 날씨·계절·자연 | 날씨에 따른 계획 변경 | 34 | 3 | 2 | 0 | 2 | 22 | model_knowledge |
 | ➕ beyond_matrix | `economy_business_labour` 경제·기업·노동시장 |  | 0 | 0 | 0 | 0 | 2 | 0 |  |
@@ -474,7 +474,7 @@
 
 | 상태 | 기능 | 범주 | 모드 | 시나리오 | 유닛 |
 |---|---|---|---|---|---|
-| ✅ covered | `explain_reason_cause_effect` 이유·원인·결과 설명하기 | information | production | 4 | 5 |
+| ✅ covered | `explain_reason_cause_effect` 이유·원인·결과 설명하기 | information | production | 5 | 5 |
 | ✅ covered | `express_feelings_emotions` 감정·기분 표현하기 | attitude | production | 3 | 2 |
 | 🟡 thin | `express_obligation_permission` 의무·허가·금지 말하기 | attitude | production | 1 | 0 |
 | ❌ missing | `advise_recommend_warn` 조언·추천·경고하기 | suasion | production | 0 | 0 |
@@ -487,7 +487,7 @@
 | ✅ covered | `complain_object_appeal` 불만 제기·이의 신청하기 | suasion | production | 1 | 2 |
 | ✅ covered | `give_follow_instructions_directions` 길·절차 안내하고 따르기 | suasion | production | 4 | 0 |
 | ✅ covered | `make_change_cancel_appointments` 약속·예약 잡고 바꾸고 취소하기 | socialising | production | 6 | 2 |
-| ✅ covered | `request_ask_someone_to_do` 요청·부탁하기 | suasion | production | 2 | 3 |
+| ✅ covered | `request_ask_someone_to_do` 요청·부탁하기 | suasion | production | 3 | 3 |
 | 🟡 thin | `order_buy_pay` 주문·구매·결제하기 | suasion | production | 1 | 0 |
 | 🟡 recognition_thin | `adjust_register_speech_style` 말투·존댓말·호칭 조절하기 | discourse | recognition | 1 | 0 |
 | ❌ recognition_missing | `express_certainty_doubt_hedging` 확신·의심·완곡 표현하기 | attitude | recognition | 0 | 0 |
@@ -531,10 +531,10 @@
 | ➕ beyond_matrix | `time_calendar` 시간·날짜·요일·계절 | 13 |
 | ➕ beyond_matrix | `weather_nature` 날씨·자연 어휘 | 34 |
 
-### A2 문체·존대 — 시나리오 분포: banmal_casual 8, haeyo_polite 18, intimate 2
+### A2 문체·존대 — 시나리오 분포: banmal_casual 10, haeyo_polite 19, intimate 2
 
-- ✅ present `haeyo_polite` (production) — 시나리오 18
-- ✅ present `banmal_casual` (production) — 시나리오 8
+- ✅ present `haeyo_polite` (production) — 시나리오 19
+- ✅ present `banmal_casual` (production) — 시나리오 10
 - ❌ absent `hapsyo_formal_business` (production) — 시나리오 0
 - ✅ present `intimate` (recognition) — 시나리오 2
 - 매트릭스 메모: 반말 산출 시작(친한 사이), -습니다체 스스로 산출 시작.
@@ -1122,7 +1122,7 @@
 | `house_home` 주거·집 | A1 | A1 | A1 | A1 | A1, A2, B1, B2, C1, C2 |
 | `neighbourhood_environment` 동네·이웃·주변 환경 | A2 | — | A2 | A1 | A1, A2, B1, B2, C1 |
 | `daily_life_routines` 일상생활·하루 일과 | A1 | A1 | A1 | A1 | A1, A2, B1, B2, C1, C2 |
-| `numbers_time_dates` 숫자·시간·날짜 | A1 | A1 | A1 | A1 | A1, B1, B2, C1 |
+| `numbers_time_dates` 숫자·시간·날짜 | A1 | A1 | A1 | A1 | A1, A2, B1, B2, C1 |
 | `food_drink` 식음료·식당 | A1 | A1 | A1 | A1 | A1, A2, B1, B2, C1, C2 |
 | `shopping_consumption` 쇼핑·소비·결제 | A1 | A1 | A1 | A1 | A1, A2, B1, B2, C1, C2 |
 | `transport_wayfinding` 교통·길 찾기 | A1 | A1 | A1 | A1 | A1, A2, B1, B2, C1, C2 |

@@ -66,8 +66,7 @@ import 'package:ko_lernen_app/services/pronunciation_recorder.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 
-import 'scenario_fixtures.dart';
-import 'scenario_stock_fixtures.dart';
+import 'scenario_json.dart';
 
 /// 반응형 회귀를 거는 화면들 — **무인자 생성자만**.
 ///
@@ -213,33 +212,10 @@ SarangchaeConstruction _verticalFillGuardConstruction() =>
       jsonDecode(File(SarangchaeConstruction.assetPath).readAsStringSync()),
     );
 
-/// `scenarioAirportArrivalFixture` 하나만 넘기면 헤더+레벨 섹션 하나뿐이라
-/// 800×1280 처럼 긴 뷰포트에서 (진짜 결함이 아니라) **표본 데이터 부족**으로
-/// top=1%/bottom=51.5% 가 나와 55% 문턱을 살짝 놓친다 — 실제 프로덕션
-/// 카탈로그는 레벨마다 여러 시나리오가 있다. 리스트 화면 카드는 id/level/
-/// emoji/title/register 만 읽으므로(재생은 안 함) vocab/dialog/quests 는
-/// 빈 리스트로 충분하다.
-List<Scenario> _verticalFillGuardScenarios() => [
-  scenarioAirportArrivalFixture,
-  for (final level in [LearnerLevel.a1, LearnerLevel.a2, LearnerLevel.b1])
-    for (var i = 0; i < 3; i++)
-      Scenario(
-        id: 'w10-guard-${level.code}-$i',
-        level: level,
-        emoji: '📖',
-        register: Register.polite,
-        title: LocalizedText(
-          ko: '시나리오 ${level.code}-$i',
-          de: 'Szenario ${level.code}-$i',
-          en: 'Scenario ${level.code}-$i',
-        ),
-        intro: const LocalizedText(ko: '', de: '', en: ''),
-        vocab: const [],
-        grammarIds: const [],
-        dialog: const [],
-        quests: const [],
-      ),
-];
+/// Topic browsing needs the real topic distribution. Read the committed corpus
+/// synchronously so widget-test fake time does not wait for a compute isolate.
+List<Scenario> _verticalFillGuardScenarios() =>
+    allScenarioJson().map(Scenario.fromJson).toList(growable: false);
 
 /// [responsiveScreens] 에 얹는 추가 화면. `CustomPackService.save` 로
 /// [verticalFillGuardPackId] 팩을 미리 등록해 둔 뒤 호출할 것.
@@ -271,8 +247,7 @@ Map<String, Widget> verticalFillGuardExtraScreens() => <String, Widget>{
   // `ScenariosListScreen.loadScenarios` — 다른 화면 테스트(예:
   // test/scenarios_list_screen_ui_test.dart)와 같은 시험용 구멍.
   'scenarios list': ScenariosListScreen(
-    loadScenarios: () async =>
-        _verticalFillGuardScenarios().map(stockedCatalogLesson).toList(),
+    loadScenarios: () async => _verticalFillGuardScenarios(),
   ),
   // `AppShell.loadTodaySnapshot`(이 PR에서 새로 뚫음) — Today 탭까지 그대로
   // 전달돼 5탭 셸 전체가 실제 데이터로 그려진다.
