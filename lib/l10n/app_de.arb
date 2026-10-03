@@ -5471,5 +5471,74 @@
   "hanokDownloadsSettingsSection": "Offline-Bilder",
   "hanokDownloadsSettingsTitle": "Hanok-Downloads",
   "hanokDownloadsSettingsSubtitle": "In der App enthaltene und nach Gebäude heruntergeladene Bilder verwalten",
-  "yeopjeonConstructionComplete": "Dieses Gebäude ist fertig!"
+  "yeopjeonConstructionComplete": "Dieses Gebäude ist fertig!",
+  "personaMeetPeopleTitle": "Menschen kennenlernen",
+  "personaMeetPeopleSubtitle": "Lerne elf Menschen kennen und finde ein Gespräch mit ihnen.",
+  "personaOpenProfile": "Mehr über {name}",
+  "@personaOpenProfile": {
+    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "personaInterests": "Interessen",
+  "personaConnections": "Menschen im Umfeld",
+  "personaTalkWith": "Mit {name} sprechen",
+  "@personaTalkWith": {
+    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "personaPlayRole": "Als {name} sprechen",
+  "@personaPlayRole": {
+    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "personaListen": "Gespräch anhören",
+  "personaYourRole": "Deine Rolle in dieser Szene: {name}",
+  "@personaYourRole": {
+    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "personaConversationsWith": "Gespräche mit {name}",
+  "@personaConversationsWith": {
+    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "personaLearnerRoles": "Szenen, in denen du {name} spielst",
+  "@personaLearnerRoles": {
+    "description": "Persona discovery and scene navigation. Name comes from the existing character catalog.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "personaLearnerRolesHint": "Hier übernimmst du diese Rolle und sprichst mit jemand anderem.",
+  "personaNoConversations": "Ein Gespräch mit dieser Person wird noch vorbereitet.",
+  "personaListeningUnavailable": "Die Hörlektion zu dieser Szene wird noch vorbereitet.",
+  "scenariosLevelFilter": "Sprachniveau",
+  "scenariosChooseTopic": "Wähle ein Thema",
+  "scenariosChangeTopic": "Anderes Thema wählen",
+  "scenariosConversationCount": "{count} Gespräche",
+  "@scenariosConversationCount": {"placeholders": {"count": {"type": "int"}}},
+  "scenariosOneConversation": "1 Gespräch",
+  "personaMeetPeopleCompactSubtitle": "11 Profile · Gespräche & Hören"
 }

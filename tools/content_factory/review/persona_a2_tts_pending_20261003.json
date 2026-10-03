@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 1,
+  "kind": "scenario_tts_pending_manifest",
+  "cacheRevision": "v3",
+  "scope": "a2",
+  "generationId": "persona-eleven-v3-a2-20261003",
+  "candidateSetSha256": "dca76a80a6881f0e2c188dc2f870181075a1f82151fb31816db134718e2f8825",
+  "count": 38,
+  "items": [
+    {
+      "voice": "male",
+      "text": "이번 토요일에 같이 요리할까?",
+      "cachePath": "tts/v3/male/672d810178ea33ffed8d4d8935be7a15882db2fb.mp3"
+    },
+    {
+      "voice": "female",
+      "text": "좋아. 뭐 만들까?",
+      "cachePath": "tts/v3/female/e296e0d86f5fb346bdc501e4fa8e176ed951abea.mp3"
+    },
+    {
+      "voice": "male",
+      "text": "좋아. 뭐 만들까?",
+      "cachePath": "tts/v3/male/50f3da59047aa0ccd630852cd25dae6c98ddc78f.mp3"
+    },
+    {
+      "voice": "male",
+      "text": "김치볶음밥은 어때?",
+      "cachePath": "tts/v3/male/7d33f078baddc4703a8f6f5f18796dc0dc80647b.mp3"
+    },
+    {
+      "voice": "female",
+      "text": "김치볶음밥은 어때?",
+      "cachePath": "tts/v3/female/c80eff2ad8f6ba93fbcef403cfcf20b3fbae3d0b.mp3"
+    },
+    {
+      "voice": "female",
+      "text": "좋아. 집에 김치가 있어.",
+      "cachePath": "tts/v3/female/b68e05ec0473e57e3f8a5cc6550838a3998cc8e8.mp3"
+    },
+    {
+      "voice": "male",
+      "text": "좋아. 집에 김치가 있어.",
+      "cachePath": "tts/v3/male/26de6deaa06fa3118c54b7924970aa780e91d066.mp3"
+    },
+    {
+      "voice": "male",
+      "text": "그럼 내가 밥을 준비할게.",
+      "cachePath": "tts/v3/male/6915c10cd8acd177e535c321c89cd334d04c5f1e.mp3"
+    },
+    {
+      "voice": "female",
+      "text": "그럼 내가 밥을 준비할게.",
+      "cachePath": "tts/v3/female/774bf681922fff0fad56fa40dcc7727709bdf30c.mp3"
+    },
+    {
+      "voice": "female",
+      "text": "나는 계란을 살게. 몇 시에 시작할까?",
+      "cachePath": "tts/v3/female/841133f56dcffa6d6fb37ee89a117ea504b933fe.mp3"
+    },
+    {
+      "voice": "male",
+      "text": "나는 계란을 살게. 몇 시에 시작할까?",
+      "cachePath": "tts/v3/male/ea2d0dad62f718d06d820441d77b66537cf9d140.mp3"
+    },
+    {
+      "voice": "male",
+      "text": "열두 시에 시작하자.",
+      "cachePath": "tts/v3/male/d0d26b14bf659a6889ea2f518b9344f7b88190ee.mp3"
+    },
+    {
+      "voice": "female",
+      "text": "열두 시에 시작하자.",
+      "cachePath": "tts/v3/female/6b56928ff4bfd89b470e874b92062c55d18c611d.mp3"
+    },
+    {
+      "voice": "female",
+      "text": "응. 그럼 열두 시에 같이 만들자.",
+      "cachePath": "tts/v3/female/3b9cfb6e398797ca4239a03e2fe192fe00972b5a.mp3"
+    },
+    {
+      "voice": "male",
+      "text": "여기서 조금 더 걸을까요?",
+      "cachePath": "tts/v3/male/8babe183b2dc55a78e15a6624a69629448b0be11.mp3"
+    },
+    {
+      "voice": "male",
+      "text": "죄송하지만 좀 피곤해요. 잠깐 쉬어도 될까요?",
+      "cachePath": "tts/v3/male/21d90f7d9d98a28ce1a80abc9b14ab657010e346.mp3"
+    },
+    {
+      "voice": "male",
+      "text": "그럼 잠깐 쉬어요.",
+      "cachePath": "tts/v3/male/604153667157ac774191d5171730f636bc578754.mp3"
+    },
+    {
+      "voice": "male",
+      "text": "저기 앉아도 돼요?",
+      "cachePath": "tts/v3/male/12786d8773736761d7cb7c284ae34dc05a63f1ad.mp3"
+    },
+    {
+      "voice": "female",
+      "text": "저기 앉아도 돼요?",
+      "cachePath": "tts/v3/female/b216dea5cb3b4ec5187547fd72b63b560a11d76b.mp3"
+    },
+    {
+      "voice": "male",
+      "text": "네. 저기 앉아요.",
+      "cachePath": "tts/v3/male/a1f651ba6f2c94e104ecf85878e8bb516b3fc546.mp3"
+    },
+    {
+      "voice": "male",
+      "text": "물 좀 마셔도 될까요?",
+      "cachePath": "tts/v3/male/153f76912bbdd7db0668d04701c1d61b3f43a1a6.mp3"
+    },
+    {
+      "voice": "male",
+      "text": "그럼요. 천천히 마셔요.",
+      "cachePath": "tts/v3/male/c112915a0a11739279e89e20ae561772e0d2f55c.mp3"
+    },
+    {
+      "voice": "female",
+      "text": "그럼요. 천천히 마셔요.",
+      "cachePath": "tts/v3/female/4e114862a8f9bfa03db6a66e5c94bd5fbd717e47.mp3"
+    },
+    {
+      "voice": "male",
+      "text": "감사해요. 오 분만 쉬고 다시 걸을게요.",
+      "cachePath": "tts/v3/male/1ad0ac44fbf1c18b362be35c1bf7f010c87ae852.mp3"
+    },
+    {
+      "voice": "female",
+      "text": "감사해요. 오 분만 쉬고 다시 걸을게요.",
+      "cachePath": "tts/v3/female/d909c1ff9d5c557b4487e4fed00403c2837d6712.mp3"
+    },
+    {
+      "voice": "male",
+      "text": "오늘 숙제 때문에 좀 늦을 것 같아요.",
+      "cachePath": "tts/v3/male/ce161e6f4917ac53983f9c525c3debafe442d8aa.mp3"
+    },
+    {
+      "voice": "female",
+      "text": "오늘 숙제 때문에 좀 늦을 것 같아요.",
+      "cachePath": "tts/v3/female/876af0fba95b3760aae16908c6b3529993dbb452.mp3"
+    },
+    {
+      "voice": "male",
+      "text": "괜찮아. 원래 일곱 시에 하기로 했지?",
+      "cachePath": "tts/v3/male/52149f3d4f8e73a132dc0fcc7a1376205f9816b8.mp3"
+    },
+    {
+      "voice": "female",
+      "text": "괜찮아. 원래 일곱 시에 하기로 했지?",
+      "cachePath": "tts/v3/female/a803b55b3707df7c7f624164de45d4bb5bb5538d.mp3"
+    },
+    {
+      "voice": "male",
+      "text": "네. 여덟 시로 바꾸면 어때요?",
+      "cachePath": "tts/v3/male/b680286fb54a311ddea5bf257376aca609905220.mp3"
+    },
+    {
+      "voice": "male",
+      "text": "좋아. 그럼 여덟 시에 만나자.",
+      "cachePath": "tts/v3/male/191890223fd9d6c06ce6670011f603add8779112.mp3"
+    },
+    {
+      "voice": "female",
+      "text": "좋아. 그럼 여덟 시에 만나자.",
+      "cachePath": "tts/v3/female/ec47a2459c5615b9c5f94acf3c513fb1e365351a.mp3"
+    },
+    {
+      "voice": "male",
+      "text": "감사해요. 그때까지 숙제를 끝낼게요.",
+      "cachePath": "tts/v3/male/c5695a0cc19bef909a9f5c5ec0829fd72c429246.mp3"
+    },
+    {
+      "voice": "male",
+      "text": "숙제 끝나면 메시지 보내 줘.",
+      "cachePath": "tts/v3/male/08e88b65e7cfbd5f3c8762ce1bc4d9a819cf3531.mp3"
+    },
+    {
+      "voice": "male",
+      "text": "네. 끝나면 바로 보낼게요.",
+      "cachePath": "tts/v3/male/dfaba63cc4ce42c189d31c3692dd71839339e364.mp3"
+    },
+    {
+      "voice": "female",
+      "text": "네. 끝나면 바로 보낼게요.",
+      "cachePath": "tts/v3/female/59b75e050b4a8605879dff65016da0232b46dd96.mp3"
+    },
+    {
+      "voice": "male",
+      "text": "알겠어. 나도 여덟 시에 들어갈게.",
+      "cachePath": "tts/v3/male/0667f26ac96d07e5dc37da8486a78bcee6540a46.mp3"
+    },
+    {
+      "voice": "female",
+      "text": "알겠어. 나도 여덟 시에 들어갈게.",
+      "cachePath": "tts/v3/female/592d3d28e979dfd95af6ac56397475ac4137662c.mp3"
+    }
+  ]
+}

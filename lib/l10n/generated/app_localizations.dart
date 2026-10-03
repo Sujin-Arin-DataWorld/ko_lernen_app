@@ -19169,6 +19169,126 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Dieses Gebäude ist fertig!'**
   String get yeopjeonConstructionComplete;
+
+  /// No description provided for @personaMeetPeopleTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Menschen kennenlernen'**
+  String get personaMeetPeopleTitle;
+
+  /// No description provided for @personaMeetPeopleSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Lerne elf Menschen kennen und finde ein Gespräch mit ihnen.'**
+  String get personaMeetPeopleSubtitle;
+
+  /// Persona discovery and scene navigation. Name comes from the existing character catalog.
+  ///
+  /// In de, this message translates to:
+  /// **'Mehr über {name}'**
+  String personaOpenProfile(String name);
+
+  /// No description provided for @personaInterests.
+  ///
+  /// In de, this message translates to:
+  /// **'Interessen'**
+  String get personaInterests;
+
+  /// No description provided for @personaConnections.
+  ///
+  /// In de, this message translates to:
+  /// **'Menschen im Umfeld'**
+  String get personaConnections;
+
+  /// Persona discovery and scene navigation. Name comes from the existing character catalog.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit {name} sprechen'**
+  String personaTalkWith(String name);
+
+  /// Persona discovery and scene navigation. Name comes from the existing character catalog.
+  ///
+  /// In de, this message translates to:
+  /// **'Als {name} sprechen'**
+  String personaPlayRole(String name);
+
+  /// No description provided for @personaListen.
+  ///
+  /// In de, this message translates to:
+  /// **'Gespräch anhören'**
+  String get personaListen;
+
+  /// Persona discovery and scene navigation. Name comes from the existing character catalog.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Rolle in dieser Szene: {name}'**
+  String personaYourRole(String name);
+
+  /// Persona discovery and scene navigation. Name comes from the existing character catalog.
+  ///
+  /// In de, this message translates to:
+  /// **'Gespräche mit {name}'**
+  String personaConversationsWith(String name);
+
+  /// Persona discovery and scene navigation. Name comes from the existing character catalog.
+  ///
+  /// In de, this message translates to:
+  /// **'Szenen, in denen du {name} spielst'**
+  String personaLearnerRoles(String name);
+
+  /// No description provided for @personaLearnerRolesHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier übernimmst du diese Rolle und sprichst mit jemand anderem.'**
+  String get personaLearnerRolesHint;
+
+  /// No description provided for @personaNoConversations.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Gespräch mit dieser Person wird noch vorbereitet.'**
+  String get personaNoConversations;
+
+  /// No description provided for @personaListeningUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Hörlektion zu dieser Szene wird noch vorbereitet.'**
+  String get personaListeningUnavailable;
+
+  /// No description provided for @scenariosLevelFilter.
+  ///
+  /// In de, this message translates to:
+  /// **'Sprachniveau'**
+  String get scenariosLevelFilter;
+
+  /// No description provided for @scenariosChooseTopic.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle ein Thema'**
+  String get scenariosChooseTopic;
+
+  /// No description provided for @scenariosChangeTopic.
+  ///
+  /// In de, this message translates to:
+  /// **'Anderes Thema wählen'**
+  String get scenariosChangeTopic;
+
+  /// No description provided for @scenariosConversationCount.
+  ///
+  /// In de, this message translates to:
+  /// **'{count} Gespräche'**
+  String scenariosConversationCount(int count);
+
+  /// No description provided for @scenariosOneConversation.
+  ///
+  /// In de, this message translates to:
+  /// **'1 Gespräch'**
+  String get scenariosOneConversation;
+
+  /// No description provided for @personaMeetPeopleCompactSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'11 Profile · Gespräche & Hören'**
+  String get personaMeetPeopleCompactSubtitle;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

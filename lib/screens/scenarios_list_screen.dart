@@ -1,10 +1,13 @@
-import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import '../features/scenarios/scenario_quest_stock.dart';
+import '../features/personas/persona_people_screen.dart';
 
 import '../features/scenarios/scenario_browse_query.dart';
 import '../models/guide_contract.dart';
 import '../models/scenario.dart';
+import '../data/chaekgado_shelf.dart';
+import '../widgets/sori/chip.dart';
+import '../widgets/sori/button.dart';
 import '../motion/transitions.dart';
 import '../services/scenario_loader.dart';
 import '../services/scene_asset_resolver.dart';
@@ -13,7 +16,7 @@ import '../widgets/app_loading.dart';
 import '../widgets/sori/badge.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
-import '../widgets/sori/hanok_header.dart';
+import '../widgets/sori/persona_card_motion.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
@@ -23,14 +26,10 @@ import '../widgets/sori/window_class.dart';
 import '../l10n/generated/app_localizations.dart';
 import 'scenario_player_screen.dart';
 
-/// Szenarien-Hub. Listet alle Szenarien gruppiert nach CEFR-Level.
+/// Scenario hub: visible level choices, topic picker, then one topic at a time.
 /// Every bundled level is directly playable; the learner level only informs
 /// the recommendation shown in the path header.
 class ScenariosListScreen extends StatefulWidget {
-  /// `hanok_jongga.mp4` is 1280x720. Keep the viewport matched to the
-  /// original media so [SoriPosterLoop]'s cover fit never crops the scene.
-  static const double heroAspectRatio = 16 / 9;
-
   /// Optional source for deterministic previews and widget tests. Production
   /// keeps the bundled [ScenarioLoader] by leaving this null.
   final Future<List<Scenario>> Function()? loadScenarios;
@@ -71,6 +70,7 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
   bool _loading = true;
   bool _loadFailed = false;
   ScenarioBrowseQueryStatus? _browseStatus;
+  String? _selectedLevel;
 
   // ── 코치마크 타겟 ──
   final GlobalKey _pathHeaderKey = GlobalKey();
@@ -136,6 +136,13 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
           );
     setState(() {
       _all = browseResult?.scenarios ?? assessable;
+      if (_all.isNotEmpty) {
+        _selectedLevel = _all.any((sc) => sc.level.code == _selectedLevel)
+            ? _selectedLevel
+            : _all.any((sc) => sc.level == _userLevel)
+            ? _userLevel.code
+            : _all.first.level.code;
+      }
       _browseStatus = browseResult?.status;
       _loading = false;
       _loadFailed = list.isEmpty && ScenarioLoader.lastError != null;
@@ -224,26 +231,75 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
 
     return SoriStandardPage(
       appBarTitle: t.scenariosListTitle,
-      headline: t.scenariosListTitle,
-      description: t.scenariosListSubtitle,
       maxWidth: SoriMaxWidth.hub,
       children: [
-        // 모듈 헤더 — 16:9 원본 영상과 같은 비율을 유지한다.
-        // 마당 포스터 위로 종가 앰비언트 루프(굴뚝 연기·감 흔들림) 페이드인.
-        // §15: 좁은 화면에서 heroMaxShare/heroMaxHeight 예산을 넘으면
-        // `SoriLayout.heroFit`(HanokHeader 내부)이 16:9를 깨지 않고 폭을
-        // 줄여 중앙 정렬한다 — 크롭하거나 0dp로 사라지지 않는다(컨트롤러
-        // 룰링 2026-08-27). aspectRatio는 아래 그대로 전달만 하면 된다.
-        const HanokHeader(
-          asset: 'assets/illustrations/hanok/madang(light).png',
-          fallbackIcon: Icons.travel_explore_outlined,
-          loopAsset: 'assets/video/loops/hanok_jongga.mp4',
-          aspectRatio: ScenariosListScreen.heroAspectRatio,
-        ),
-        const SizedBox(height: Spacing.xl),
-
+        PersonaPeopleEntry(loadScenarios: widget.loadScenarios, compact: true),
+        const SizedBox(height: Spacing.lg),
+        if (widget.browseDestination == null && widget.scenarioIds == null) ...[
+          Text(t.scenariosLevelFilter, style: SoriTextTheme.of(context).label),
+          const SizedBox(height: Spacing.sm),
+          LayoutBuilder(
+            builder: (context, constraints) {
+              final width = MediaQuery.textScalerOf(context).scale(24) + 24;
+              final columns = constraints.maxWidth >= width * 6 + 20 ? 6 : 3;
+              return SizedBox(
+                width: width * columns + (columns - 1) * Spacing.xs,
+                child: Wrap(
+                  key: const ValueKey('scenario-level-grid'),
+                  spacing: Spacing.xs,
+                  runSpacing: Spacing.sm,
+                  children: [
+                    for (final level in LearnerLevel.values)
+                      SizedBox(
+                        width: width,
+                        child: SoriPersonaCardMotion(
+                          interactive: _all.any((sc) => sc.level == level),
+                          entrance: false,
+                          borderRadius: SoriRadius.brPill,
+                          child: SoriChip(
+                            key: ValueKey('scenario-level-${level.code}'),
+                            label: level.display,
+                            selected: _selectedLevel == level.code,
+                            minInteractiveHeight: 48,
+                            horizontalPadding: 8,
+                            maxLines: null,
+                            semanticLabel: t.scenariosLevelBadge(level.display),
+                            onTap: _all.any((sc) => sc.level == level)
+                                ? () => setState(
+                                    () => _selectedLevel = level.code,
+                                  )
+                                : null,
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
+              );
+            },
+          ),
+          const SizedBox(height: Spacing.lg),
+        ],
+        for (final level in LearnerLevel.values.where(
+          (candidate) =>
+              (widget.browseDestination != null ||
+                  widget.scenarioIds != null ||
+                  candidate.code == _selectedLevel) &&
+              _all.any((scenario) => scenario.level == candidate),
+        )) ...[
+          _LevelSection(
+            key: ValueKey(level),
+            level: level,
+            accent: _levelColor(level),
+            scenarios: _all.where((sc) => sc.level == level).toList(),
+            lang: lang,
+            stars: stars,
+            directBrowse:
+                widget.browseDestination != null || widget.scenarioIds != null,
+            onScenarioClosed: _refreshScenarioProgress,
+          ),
+          const SizedBox(height: Spacing.xl),
+        ],
         if (widget.browseDestination == null) ...[
-          // Lesson Path header (Phase 3 — visible lesson path)
           KeyedSubtree(
             key: _pathHeaderKey,
             child: _LessonPathHeader(
@@ -257,21 +313,6 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
           ),
           const SizedBox(height: Spacing.lg),
         ],
-
-        // Per-Level Sections
-        for (final level in LearnerLevel.values.where(
-          (candidate) => _all.any((scenario) => scenario.level == candidate),
-        )) ...[
-          _LevelSection(
-            level: level,
-            accent: _levelColor(level),
-            scenarios: _all.where((sc) => sc.level == level).toList(),
-            lang: lang,
-            stars: stars,
-            onScenarioClosed: _refreshScenarioProgress,
-          ),
-          const SizedBox(height: Spacing.xl),
-        ],
       ],
     );
   }
@@ -279,72 +320,194 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
 
 // ─── Level Section ────────────────────────────────────────────────────────────
 
-class _LevelSection extends StatelessWidget {
+class _LevelSection extends StatefulWidget {
   final LearnerLevel level;
   final Color accent;
   final List<Scenario> scenarios;
   final String lang;
   final Map<String, int> stars;
+  final bool directBrowse;
   final VoidCallback onScenarioClosed;
 
   const _LevelSection({
+    super.key,
     required this.level,
     required this.accent,
     required this.scenarios,
     required this.lang,
     required this.stars,
+    required this.directBrowse,
     required this.onScenarioClosed,
   });
 
   @override
+  State<_LevelSection> createState() => _LevelSectionState();
+}
+
+class _LevelSectionState extends State<_LevelSection>
+    with AutomaticKeepAliveClientMixin<_LevelSection> {
+  String? _shelf;
+
+  @override
+  bool get wantKeepAlive => true;
+
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
+    final groups = <String, List<Scenario>>{};
+    for (final slot in kChaekgadoSlots[widget.level] ?? <ChaekgadoSlot>[]) {
+      final id = chaekgadoShelfId(widget.level, slot.slug);
+      final matches = widget.scenarios.where((sc) => sc.shelf == id).toList();
+      if (matches.isNotEmpty) groups[id] = matches;
+    }
+    for (final scenario in widget.scenarios) {
+      groups.putIfAbsent(
+        scenario.shelf,
+        () =>
+            widget.scenarios.where((sc) => sc.shelf == scenario.shelf).toList(),
+      );
+    }
+    String label(String shelf) {
+      final art = chaekgadoImageKeyForShelf(shelf);
+      return art == null ? t.scenariosListTitle : chaekgadoSlotLabel(t, art);
+    }
+
+    String countLabel(int count) => count == 1
+        ? t.scenariosOneConversation
+        : t.scenariosConversationCount(count);
+    final showPicker = !widget.directBrowse && _shelf == null;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Section header
-        Row(
-          children: [
-            SoriBadge.level(level.display, color: accent, size: 26),
-            const SizedBox(width: Spacing.sm),
-            Expanded(
-              child: Text(
-                t.scenariosLevelBadge(level.display),
-                style: SoriTextTheme.of(
-                  context,
-                ).label.copyWith(color: s.textMuted, letterSpacing: 0.4),
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(height: Spacing.sm),
-
-        // Cards or empty placeholder (Faceted Minhwa empty card)
-        if (scenarios.isEmpty)
-          _EmptyLevelCard(accent: accent)
-        else
-          ...scenarios.map(
-            (sc) => Padding(
-              padding: const EdgeInsets.only(bottom: Spacing.sm),
-              child: _OpenScenarioCard(
-                scenario: sc,
-                accent: accent,
-                stars: stars[sc.id] ?? 0,
-                lang: lang,
-                onScenarioClosed: onScenarioClosed,
-              ),
+        if (widget.directBrowse) ...[
+          SoriBadge.level(widget.level.display, color: widget.accent, size: 26),
+          const SizedBox(height: Spacing.md),
+        ],
+        if (showPicker) ...[
+          Semantics(
+            header: true,
+            child: Text(
+              t.scenariosChooseTopic,
+              style: SoriTextTheme.of(context).h3,
             ),
           ),
+          const SizedBox(height: Spacing.md),
+          LayoutBuilder(
+            builder: (context, constraints) {
+              final largeText = MediaQuery.textScalerOf(context).scale(16) > 24;
+              final columns = largeText || constraints.maxWidth < 280
+                  ? 1
+                  : constraints.maxWidth >= 600
+                  ? 3
+                  : 2;
+              final width =
+                  (constraints.maxWidth - (columns - 1) * Spacing.md) / columns;
+              return Wrap(
+                key: const ValueKey('scenario-category-grid'),
+                spacing: Spacing.md,
+                runSpacing: Spacing.md,
+                children: [
+                  for (final group in groups.entries)
+                    SizedBox(
+                      width: width,
+                      child: SoriPersonaCardMotion(
+                        interactive: true,
+                        entrance: false,
+                        child: SoriCard(
+                          key: ValueKey('scenario-category-${group.key}'),
+                          onTap: () => setState(() => _shelf = group.key),
+                          semanticLabel:
+                              '${label(group.key)} · ${countLabel(group.value.length)}',
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              if (chaekgadoImageKeyForShelf(group.key)
+                                  case final art?)
+                                Image.asset(
+                                  'assets/illustrations/listening/$art.webp',
+                                  width: double.infinity,
+                                  height: largeText ? 112 : 64,
+                                  fit: BoxFit.contain,
+                                  errorBuilder: (_, _, _) =>
+                                      const Icon(Icons.chat_bubble_outline),
+                                ),
+                              const SizedBox(height: Spacing.sm),
+                              Text(
+                                label(group.key),
+                                style: SoriTextTheme.of(context).bodySmall,
+                              ),
+                              const SizedBox(height: Spacing.sm),
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      countLabel(group.value.length),
+                                      style: SoriTextTheme.of(context).caption,
+                                    ),
+                                  ),
+                                  const SizedBox(width: Spacing.sm),
+                                  const Icon(Icons.chevron_right, size: 18),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
+              );
+            },
+          ),
+        ] else ...[
+          if (!widget.directBrowse) ...[
+            SoriButton.ghost(
+              key: const ValueKey('scenario-category-back'),
+              label: t.scenariosChangeTopic,
+              onTap: () => setState(() => _shelf = null),
+            ),
+            const SizedBox(height: Spacing.md),
+          ],
+          for (final group in groups.entries.where(
+            (g) => widget.directBrowse || _shelf == g.key,
+          )) ...[
+            Semantics(
+              header: true,
+              child: Text(
+                label(group.key),
+                style: SoriTextTheme.of(context).h3,
+              ),
+            ),
+            const SizedBox(height: Spacing.sm),
+            Text(
+              countLabel(group.value.length),
+              style: SoriTextTheme.of(context).caption,
+            ),
+            const SizedBox(height: Spacing.md),
+            for (final entry in group.value.asMap().entries)
+              Padding(
+                padding: const EdgeInsets.only(bottom: Spacing.sm),
+                child: _OpenScenarioCard(
+                  scenario: entry.value,
+                  motionIndex: entry.key,
+                  accent: widget.accent,
+                  stars: widget.stars[entry.value.id] ?? 0,
+                  lang: widget.lang,
+                  onScenarioClosed: widget.onScenarioClosed,
+                ),
+              ),
+          ],
+        ],
       ],
     );
   }
 }
 
-// ─── Unlocked card (OpenContainer) ────────────────────────────────────────────
+// ─── Playable scenario card ───────────────────────────────────────────────────
 
 class _OpenScenarioCard extends StatelessWidget {
+  final int motionIndex;
   final Scenario scenario;
   final Color accent;
   final int stars;
@@ -352,6 +515,7 @@ class _OpenScenarioCard extends StatelessWidget {
   final VoidCallback onScenarioClosed;
 
   const _OpenScenarioCard({
+    this.motionIndex = 0,
     required this.scenario,
     required this.accent,
     required this.stars,
@@ -361,28 +525,26 @@ class _OpenScenarioCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = SoriSurfaces.of(context);
-
-    return OpenContainer<void>(
-      transitionDuration: const Duration(milliseconds: 400),
-      transitionType: ContainerTransitionType.fade,
-      closedShape: const RoundedRectangleBorder(borderRadius: SoriRadius.brMd),
-      closedColor: s.surface,
-      closedElevation: 0,
-      openColor: s.bg,
-      openElevation: 0,
-      closedBuilder: (ctx, openContainer) => _ScenarioCardBody(
+    return SoriPersonaCardMotion(
+      index: motionIndex,
+      interactive: true,
+      entrance: false,
+      child: _ScenarioCardBody(
         scenario: scenario,
         accent: accent,
         stars: stars,
         lang: lang,
-        onTap: openContainer,
+        onTap: () => Navigator.of(context)
+            .push<void>(
+              SoriTransitions.page<void>(
+                (_) => ScenarioPlayerScreen(
+                  scenarioId: scenario.id,
+                  levelHint: scenario.level,
+                ),
+              ),
+            )
+            .then((_) => onScenarioClosed()),
       ),
-      openBuilder: (ctx, _) => ScenarioPlayerScreen(
-        scenarioId: scenario.id,
-        levelHint: scenario.level,
-      ),
-      onClosed: (_) => onScenarioClosed(),
     );
   }
 }
@@ -475,6 +637,7 @@ class _ScenarioCardBody extends StatelessWidget {
     }
     return Semantics(
       label: semanticLabel,
+      container: true,
       button: true,
       enabled: true,
       excludeSemantics: true,
@@ -778,118 +941,60 @@ class _NextRecommended extends StatelessWidget {
         ),
       ),
     );
-    return Semantics(
-      label: '${t.scenariosPathStartCta}: $title',
-      button: true,
-      enabled: true,
-      excludeSemantics: true,
-      onTap: openScenario,
-      child: SoriPressable(
+    return SoriPersonaCardMotion(
+      interactive: true,
+      entrance: false,
+      borderRadius: SoriRadius.brSm,
+      child: Semantics(
+        label: '${t.scenariosPathStartCta}: $title',
+        button: true,
+        enabled: true,
+        excludeSemantics: true,
         onTap: openScenario,
-        haptic: SoriHaptic.selection,
-        child: Container(
-          padding: const EdgeInsets.all(Spacing.md),
-          decoration: BoxDecoration(
-            color: Color.alphaBlend(accent.withValues(alpha: 0.10), s.surface),
-            borderRadius: SoriRadius.brSm,
-            border: Border.all(color: accent.withValues(alpha: 0.32), width: 1),
-          ),
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              final textScale = MediaQuery.textScalerOf(context).scale(14) / 14;
-              final stack =
-                  constraints.maxWidth < SoriAdaptiveWidth.shortcutRow ||
-                  textScale >= 1.6;
-              if (stack) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    details,
-                    const SizedBox(height: Spacing.md),
-                    Align(alignment: Alignment.centerRight, child: cta),
-                  ],
-                );
-              }
-              return Row(
-                children: [
-                  Expanded(child: details),
-                  const SizedBox(width: Spacing.sm),
-                  cta,
-                ],
-              );
-            },
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-// ─── Empty Level Card ─────────────────────────────────────────────────────────
-// 시나리오 0개인 레벨에 자는 호랑이 일러스트 + "곧 만나요" 안내.
-// 자산이 없으면 errorBuilder가 아이콘+그라데이션 fallback으로 대체한다.
-
-class _EmptyLevelCard extends StatelessWidget {
-  final Color accent;
-
-  const _EmptyLevelCard({required this.accent});
-
-  @override
-  Widget build(BuildContext context) {
-    final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
-    final mutedAccent = accent;
-
-    return SoriCard(
-      variant: SoriCardVariant.compact,
-      accent: mutedAccent,
-      semanticLabel: '${t.scenariosEmptyTitle}. ${t.scenariosEmptyBody}',
-      child: Row(
-        children: [
-          SizedBox(
-            width: 56,
-            height: 56,
-            child: Image.asset(
-              'assets/illustrations/mascot/tiger_front.png',
-              fit: BoxFit.contain,
-              filterQuality: FilterQuality.medium,
-              errorBuilder: (_, __, ___) => Container(
-                decoration: BoxDecoration(
-                  color: mutedAccent.withValues(alpha: 0.14),
-                  borderRadius: SoriRadius.brSm,
-                ),
-                alignment: Alignment.center,
-                child: Icon(
-                  Icons.bedtime_outlined,
-                  color: mutedAccent,
-                  size: 28,
-                ),
+        child: SoriPressable(
+          onTap: openScenario,
+          haptic: SoriHaptic.selection,
+          child: Container(
+            padding: const EdgeInsets.all(Spacing.md),
+            decoration: BoxDecoration(
+              color: Color.alphaBlend(
+                accent.withValues(alpha: 0.10),
+                s.surface,
+              ),
+              borderRadius: SoriRadius.brSm,
+              border: Border.all(
+                color: accent.withValues(alpha: 0.32),
+                width: 1,
               ),
             ),
-          ),
-          const SizedBox(width: Spacing.md),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  t.scenariosEmptyTitle,
-                  style: SoriTextTheme.of(
-                    context,
-                  ).cardTitle.copyWith(color: s.text),
-                ),
-                const SizedBox(height: 2),
-                Text(
-                  t.scenariosEmptyBody,
-                  style: SoriTextTheme.of(
-                    context,
-                  ).cardSubtitle.copyWith(color: s.textMuted),
-                ),
-              ],
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                final textScale =
+                    MediaQuery.textScalerOf(context).scale(14) / 14;
+                final stack =
+                    constraints.maxWidth < SoriAdaptiveWidth.shortcutRow ||
+                    textScale >= 1.6;
+                if (stack) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      details,
+                      const SizedBox(height: Spacing.md),
+                      Align(alignment: Alignment.centerRight, child: cta),
+                    ],
+                  );
+                }
+                return Row(
+                  children: [
+                    Expanded(child: details),
+                    const SizedBox(width: Spacing.sm),
+                    cta,
+                  ],
+                );
+              },
             ),
           ),
-        ],
+        ),
       ),
     );
   }

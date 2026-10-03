@@ -5,6 +5,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/features/personas/persona_people_screen.dart';
+import 'package:ko_lernen_app/features/content_learning/content_learning_catalog.dart';
+import 'package:ko_lernen_app/features/content_learning/content_learning_models.dart';
 import 'package:ko_lernen_app/models/guide_contract.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
@@ -13,6 +16,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/badge.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_header.dart';
+import 'package:ko_lernen_app/widgets/sori/persona_card_motion.dart';
 import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
@@ -21,6 +25,10 @@ import 'support/scenario_stock_fixtures.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+
+  setUpAll(() async {
+    await ContentLearningCatalog.load(LearningContentKind.listening);
+  });
 
   setUp(() async {
     Storage.resetForTesting();
@@ -41,10 +49,7 @@ void main() {
       scenarios: const [scenarioAirportArrivalFixture],
     );
 
-    final header = tester.widget<HanokHeader>(find.byType(HanokHeader));
-    expect(header.asset, 'assets/illustrations/hanok/madang(light).png');
-    expect(header.loopAsset, 'assets/video/loops/hanok_jongga.mp4');
-    expect(header.aspectRatio, closeTo(16 / 9, 0.0001));
+    expect(find.byType(HanokHeader), findsNothing);
 
     await _scrollTo(tester, find.text('5 bis 7 Minuten · +120 XP'));
     expect(find.text('5 bis 7 Minuten · +120 XP'), findsOneWidget);
@@ -101,6 +106,7 @@ void main() {
             textScale: 1.3,
             locale: Locale(locale),
             scenarios: const [_b1Scenario, _b1OtherShelfScenario],
+            openCategory: false,
             scenarioIds: selectedIds,
           );
           if (selectedIds.contains(_b1Scenario.id)) {
@@ -177,7 +183,7 @@ void main() {
     semantics.dispose();
   });
 
-  // Mutation caught: removing OpenContainer.onClosed leaves the grid card at
+  // Mutation caught: removing the route completion callback leaves the grid card at
   // 0 stars and the lesson path at A1: 0/1 after the player route closes.
   testWidgets('grid card refreshes progress after the player route closes', (
     tester,
@@ -190,7 +196,7 @@ void main() {
     );
 
     const cardLabel = 'Einreise am Flughafen. 5 bis 7 Minuten · +120 XP';
-    _expectScenarioProgress(
+    await _expectScenarioProgress(
       tester,
       cardLabel: cardLabel,
       stars: 0,
@@ -208,7 +214,7 @@ void main() {
     Navigator.of(tester.element(find.byType(ScenarioPlayerScreen))).pop();
     await tester.pumpAndSettle();
 
-    _expectScenarioProgress(
+    await _expectScenarioProgress(
       tester,
       cardLabel: cardLabel,
       stars: 1,
@@ -229,7 +235,7 @@ void main() {
       );
 
       const cardLabel = 'Einreise am Flughafen. 5 bis 7 Minuten · +120 XP';
-      _expectScenarioProgress(
+      await _expectScenarioProgress(
         tester,
         cardLabel: cardLabel,
         stars: 0,
@@ -250,7 +256,7 @@ void main() {
       Navigator.of(tester.element(find.byType(ScenarioPlayerScreen))).pop();
       await tester.pumpAndSettle();
 
-      _expectScenarioProgress(
+      await _expectScenarioProgress(
         tester,
         cardLabel: cardLabel,
         stars: 1,
@@ -268,6 +274,7 @@ void main() {
       size: const Size(390, 844),
       textScale: 1.0,
       scenarios: const [scenarioAirportArrivalFixture, _b1Scenario],
+      openShelf: 'b1_team',
     );
 
     const label = 'Geschäftliches Treffen. 5 bis 7 Minuten · +180 XP';
@@ -393,6 +400,214 @@ void main() {
     expect(find.text(_a1Scenario.title.de), findsNothing);
   });
 
+  testWidgets(
+    'category selection narrows scenarios without changing progress',
+    (tester) async {
+      await _pumpScenarios(
+        tester,
+        size: const Size(390, 844),
+        textScale: 1,
+        scenarios: const [_b1Scenario, _b1OtherShelfScenario],
+        openCategory: false,
+      );
+      final category = find.byKey(const ValueKey('scenario-category-b1_team'));
+      await _scrollTo(tester, category);
+      await tester.tap(category);
+      await tester.pumpAndSettle();
+      expect(find.text(_b1OtherShelfScenario.title.de), findsNothing);
+      await _scrollTo(tester, find.text(_b1Scenario.title.de).last);
+      expect(find.text(_b1Scenario.title.de), findsWidgets);
+      expect(Storage.xp, 0);
+      expect(Storage.scenarioStars, isEmpty);
+      expect(Storage.userLevelCode, 'a1');
+      expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets(
+    'people entry and all six levels are visible without horizontal scrolling',
+    (tester) async {
+      await _pumpScenarios(
+        tester,
+        size: const Size(375, 844),
+        textScale: 1,
+        scenarios: const [scenarioAirportArrivalFixture, _b1Scenario],
+        openCategory: false,
+      );
+      await tester.pumpAndSettle();
+      final entry = find.byKey(const ValueKey('persona-people-entry'));
+      final grid = find.byKey(const ValueKey('scenario-level-grid'));
+      expect(tester.getRect(entry).bottom, lessThan(tester.getRect(grid).top));
+      final bounds = tester.getRect(grid);
+      for (final level in LearnerLevel.values) {
+        final rect = tester.getRect(
+          find.byKey(ValueKey('scenario-level-${level.code}')),
+        );
+        expect(rect.height, greaterThanOrEqualTo(48));
+        expect(rect.left, greaterThanOrEqualTo(bounds.left));
+        expect(rect.right, lessThanOrEqualTo(bounds.right + .01));
+        expect(rect.bottom, lessThan(844));
+      }
+      final a1 = tester.getRect(
+        find.byKey(const ValueKey('scenario-level-a1')),
+      );
+      final b1 = tester.getRect(
+        find.byKey(const ValueKey('scenario-level-b1')),
+      );
+      final b2 = tester.getRect(
+        find.byKey(const ValueKey('scenario-level-b2')),
+      );
+      expect(a1.top, b1.top);
+      expect(b2.top, a1.top);
+      expect(a1.width, lessThanOrEqualTo(56));
+      expect(
+        find.byWidgetPredicate(
+          (w) =>
+              w is Scrollable &&
+              (w.axisDirection == AxisDirection.left ||
+                  w.axisDirection == AxisDirection.right),
+        ),
+        findsNothing,
+      );
+      await tester.tap(entry);
+      await tester.pumpAndSettle();
+      expect(find.byType(PersonaPeopleScreen), findsOneWidget);
+      expect(find.byKey(const ValueKey('persona-card-sujin')), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets('compact level touch tilts and cancellation keeps selection', (
+    tester,
+  ) async {
+    await _pumpScenarios(
+      tester,
+      size: const Size(375, 844),
+      textScale: 1,
+      scenarios: const [_a1Scenario, _b1Scenario],
+      openCategory: false,
+    );
+    final level = find.byKey(const ValueKey('scenario-level-b1'));
+    final motion = find.ancestor(
+      of: level,
+      matching: find.byType(SoriPersonaCardMotion),
+    );
+    AnimatedContainer surface() => tester.widget(
+      find
+          .descendant(of: motion, matching: find.byType(AnimatedContainer))
+          .first,
+    );
+    final point = tester.getTopLeft(level) + const Offset(10, 10);
+    final cancelled = await tester.startGesture(
+      point,
+      kind: ui.PointerDeviceKind.touch,
+    );
+    await tester.pump(const Duration(milliseconds: 90));
+    expect(surface().transform!.entry(0, 2).abs(), greaterThan(.01));
+    expect(surface().transform!.entry(1, 2).abs(), greaterThan(.01));
+    await cancelled.cancel();
+    await tester.pumpAndSettle();
+    expect(surface().transform!.entry(0, 2), closeTo(0, .0001));
+    expect(
+      find.byKey(const ValueKey('scenario-category-a1_eat')),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const ValueKey('scenario-category-b1_team')),
+      findsNothing,
+    );
+
+    final selection = await tester.startGesture(
+      point,
+      kind: ui.PointerDeviceKind.touch,
+    );
+    await tester.pump(const Duration(milliseconds: 90));
+    await selection.up();
+    await tester.pumpAndSettle();
+    expect(
+      find.byKey(const ValueKey('scenario-category-b1_team')),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const ValueKey('scenario-category-a1_eat')),
+      findsNothing,
+    );
+    expect(Storage.xp, 0);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets(
+    'picker opens one category and back or level change restores the picker',
+    (tester) async {
+      await _pumpScenarios(
+        tester,
+        size: const Size(390, 844),
+        textScale: 1,
+        scenarios: const [_b1Scenario, _b1OtherShelfScenario, _a1Scenario],
+        openCategory: false,
+      );
+      final b1 = find.byKey(const ValueKey('scenario-level-b1'));
+      await _scrollTo(tester, b1);
+      await tester.tap(b1);
+      await tester.pumpAndSettle();
+      final team = find.byKey(const ValueKey('scenario-category-b1_team'));
+      await _scrollTo(tester, team);
+      expect(find.text(_b1Scenario.title.de), findsNothing);
+      expect(find.text(_b1OtherShelfScenario.title.de), findsNothing);
+      await tester.tap(team);
+      await tester.pumpAndSettle();
+      expect(
+        find.byKey(const ValueKey('scenario-category-grid')),
+        findsNothing,
+      );
+      expect(find.text(_b1Scenario.title.de), findsOneWidget);
+      expect(find.text(_b1OtherShelfScenario.title.de), findsNothing);
+      final back = find.byKey(const ValueKey('scenario-category-back'));
+      await _scrollTo(tester, back);
+      await tester.tap(back);
+      await tester.pumpAndSettle();
+      expect(team, findsOneWidget);
+      expect(find.text(_b1Scenario.title.de), findsNothing);
+      await tester.tap(team);
+      await tester.pumpAndSettle();
+      final a1 = find.byKey(const ValueKey('scenario-level-a1'));
+      await _scrollTo(tester, a1);
+      await tester.tap(a1);
+      await tester.pumpAndSettle();
+      expect(
+        find.byKey(const ValueKey('scenario-category-a1_eat')),
+        findsOneWidget,
+      );
+      expect(find.text(_b1Scenario.title.de), findsNothing);
+      expect(Storage.userLevelCode, 'a1');
+      expect(Storage.xp, 0);
+      expect(Storage.scenarioStars, isEmpty);
+      expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets('large text topic choices reflow within the page', (
+    tester,
+  ) async {
+    await _pumpScenarios(
+      tester,
+      size: const Size(320, 640),
+      textScale: 2,
+      scenarios: const [_b1Scenario, _b1OtherShelfScenario],
+      openCategory: false,
+    );
+    final first = find.byKey(const ValueKey('scenario-category-b1_team'));
+    await _scrollTo(tester, first);
+    final grid = tester.getRect(
+      find.byKey(const ValueKey('scenario-category-grid')),
+    );
+    final card = tester.getRect(first);
+    expect(card.width, closeTo(grid.width, .01));
+    expect(card.left, greaterThanOrEqualTo(0));
+    expect(card.right, lessThanOrEqualTo(320));
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('catalog remains reachable across the required viewport matrix', (
     tester,
   ) async {
@@ -410,6 +625,7 @@ void main() {
         size: testCase.size,
         textScale: testCase.scale,
         scenarios: const [scenarioAirportArrivalFixture, _b1Scenario],
+        openShelf: 'b1_team',
       );
       await _scrollTo(tester, find.text(_b1Scenario.title.de));
       expect(find.text(_b1Scenario.title.de), findsOneWidget);
@@ -428,6 +644,8 @@ Future<void> _pumpScenarios(
   ScenarioBrowseDestination? browseDestination,
   bool completeFixtureStock = true,
   Set<String>? scenarioIds,
+  bool openCategory = true,
+  String? openShelf,
 }) async {
   tester.view.physicalSize = size;
   tester.view.devicePixelRatio = 1;
@@ -451,6 +669,7 @@ Future<void> _pumpScenarios(
         );
       },
       home: ScenariosListScreen(
+        key: UniqueKey(),
         scenarioIds: scenarioIds,
         loadScenarios: () async => completeFixtureStock
             ? scenarios.map(stockedCatalogLesson).toList()
@@ -461,10 +680,35 @@ Future<void> _pumpScenarios(
   );
   await tester.pump();
   await tester.pump(const Duration(milliseconds: 100));
+  if (openCategory &&
+      browseDestination == null &&
+      scenarioIds == null &&
+      scenarios.isNotEmpty) {
+    final scene = openShelf == null
+        ? scenarios.first
+        : scenarios.firstWhere((sc) => sc.shelf == openShelf);
+    final level = find.byKey(ValueKey('scenario-level-${scene.level.code}'));
+    await _scrollTo(tester, level);
+    if (level.evaluate().isNotEmpty) {
+      await tester.tap(level);
+      await tester.pumpAndSettle();
+    }
+    final category = find.byKey(ValueKey('scenario-category-${scene.shelf}'));
+    await _scrollTo(tester, category);
+    if (category.evaluate().isNotEmpty) {
+      await tester.tap(category);
+      await tester.pumpAndSettle();
+    }
+  }
 }
 
 Future<void> _scrollTo(WidgetTester tester, Finder finder) async {
   final list = find.byType(ListView).first;
+  final scrollable = find
+      .descendant(of: list, matching: find.byType(Scrollable))
+      .first;
+  tester.state<ScrollableState>(scrollable).position.jumpTo(0);
+  await tester.pump();
   for (var i = 0; i < 50 && finder.evaluate().isEmpty; i += 1) {
     await tester.drag(list, const Offset(0, -240));
     await tester.pump();
@@ -475,17 +719,22 @@ Future<void> _scrollTo(WidgetTester tester, Finder finder) async {
   await tester.pump();
 }
 
-void _expectScenarioProgress(
+Future<void> _expectScenarioProgress(
   WidgetTester tester, {
   required String cardLabel,
   required int stars,
   required String pathProgress,
-}) {
+}) async {
+  // These controls can occupy different lazy list viewports as entries grow.
+  // Check the refreshed path and card independently, after scrolling each in.
+  final path = find.text(pathProgress);
+  await _scrollTo(tester, path);
+  expect(path, findsOneWidget);
   final card = find.bySemanticsLabel(cardLabel);
+  await _scrollTo(tester, card);
   final cardStars = find.descendant(of: card, matching: find.byType(SoriStars));
   expect(cardStars, findsOneWidget);
   expect(tester.widget<SoriStars>(cardStars).filled, stars);
-  expect(find.text(pathProgress), findsOneWidget);
 }
 
 const _b1Scenario = Scenario(

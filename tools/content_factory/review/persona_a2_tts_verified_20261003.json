@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "kind": "scenario_tts_storage_verification",
+  "generationId": "persona-eleven-v3-a2-20261003",
+  "scope": "a2",
+  "candidateSetSha256": "dca76a80a6881f0e2c188dc2f870181075a1f82151fb31816db134718e2f8825",
+  "ttsManifestSha256": "6bb9b0b73e1745c4329254ea6a72e065c9c9f4ad2d25ed10754bed0ffd2725a7",
+  "expectedCount": 38,
+  "verifiedCachePathCount": 38,
+  "missingCount": 0,
+  "cacheRevision": "v3",
+  "verificationMode": "firebase_storage_nonempty_mp3_listing",
+  "minimumObjectBytes": 256,
+  "bucket": "ko-lernen-app.firebasestorage.app",
+  "verifiedAt": "2026-10-03T01:30:53.245505+00:00"
+}
