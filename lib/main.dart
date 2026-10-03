@@ -1,3 +1,7 @@
+import 'models/smalltalk_context_case.dart';
+import 'models/silben_practice.dart';
+import 'screens/smalltalk_context_screen.dart';
+import 'screens/hanok_practice_screen.dart';
 import 'services/yeopjeon_service.dart';
 import 'services/haptic_service.dart';
 import 'features/content_learning/content_learning_hub.dart';
@@ -1011,7 +1015,11 @@ class _KoLernenAppState extends State<KoLernenApp> {
               // Silben-Kreuz(음절 크로스워드)가 Wordle 보드를 대체 (2026-08-11).
               // 라우트명·메뉴 라벨("Silben-Rätsel")은 유지.
               return SoriTransitions.page(
-                (_) => const SilbenKreuzScreen(),
+                (_) => SilbenKreuzScreen(
+                  review: settings.arguments is SilbenReviewRequest
+                      ? settings.arguments as SilbenReviewRequest
+                      : null,
+                ),
                 settings: settings,
               );
             case '/cloze':
@@ -1117,6 +1125,20 @@ class _KoLernenAppState extends State<KoLernenApp> {
             case '/review/hub':
               return SoriTransitions.page(
                 (_) => const ReviewHubScreen(),
+                settings: settings,
+              );
+            case '/smalltalk/context':
+              return SoriTransitions.page(
+                (_) => SmalltalkContextScreen(
+                  request: settings.arguments is SmalltalkContextRequest
+                      ? settings.arguments as SmalltalkContextRequest
+                      : const SmalltalkContextRequest(),
+                ),
+                settings: settings,
+              );
+            case '/hanok/practice':
+              return SoriTransitions.page(
+                (_) => const HanokPracticeScreen(),
                 settings: settings,
               );
             case '/smalltalk':

@@ -11298,4 +11298,122 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get yeopjeonConstructionComplete => 'This building is complete!';
+
+  @override
+  String get practiceToneTitle => 'Tone and context';
+
+  @override
+  String get practiceSituation => 'The situation';
+
+  @override
+  String get practiceIntent => 'What do you want to do?';
+
+  @override
+  String get practiceExpression => 'Choose your wording';
+
+  @override
+  String get practiceEffect => 'How it may come across';
+
+  @override
+  String get practiceGrammarCorrect =>
+      'The grammar is correct. The effect depends on the context and tone.';
+
+  @override
+  String get practiceAssemble => 'Build your next reply';
+
+  @override
+  String get practiceShowEffect => 'View the explanation for help';
+
+  @override
+  String get practiceReset => 'Put the words back';
+
+  @override
+  String get practiceCheck => 'Check and save your reply';
+
+  @override
+  String get practiceOrderRetry =>
+      'The word order does not fit yet. Put the words back and try again.';
+
+  @override
+  String get practiceIntentRetry =>
+      'The wording is possible, but does not meet this situation’s goal yet. Choose your intention again.';
+
+  @override
+  String get practiceSaved => 'Practice saved';
+
+  @override
+  String get practiceSaveFailed =>
+      'Your practice could not be saved. Your reply is kept here so you can retry.';
+
+  @override
+  String get practiceRetrySave => 'Retry saving';
+
+  @override
+  String get practiceToSarangbang => 'Practise again in the Sarangbang';
+
+  @override
+  String get practiceTransfer => 'Reply in a different situation';
+
+  @override
+  String get practiceAssisted => 'Completed with help';
+
+  @override
+  String get practiceIndependent => 'Completed independently';
+
+  @override
+  String get practiceViewed => 'Viewed';
+
+  @override
+  String get practiceHistoryTitle => 'Your practice in this room';
+
+  @override
+  String get practiceHistoryOpen => 'Return to your practice';
+
+  @override
+  String get practiceHistoryEmpty =>
+      'Your Smalltalk practice and assisted syllable puzzles will appear here.';
+
+  @override
+  String get practicePuzzleReplay => 'Solve this puzzle independently';
+
+  @override
+  String get practiceUnavailable =>
+      'This practice is unavailable in this content version.';
+
+  @override
+  String get practiceBackCases => 'More situations';
+
+  @override
+  String get practiceChooseAgain => 'Choose your intention again';
+
+  @override
+  String get practiceHintTitle => 'A hint from Dokkaebi';
+
+  @override
+  String get practiceHintMeaning => 'View meaning and direction';
+
+  @override
+  String get practiceHintCrossing => 'View crossing cells';
+
+  @override
+  String get practiceHintReveal => 'Reveal one syllable · direct help';
+
+  @override
+  String get practiceHintPlace =>
+      'The syllable is shown. Place the matching tile on the selected cell yourself.';
+
+  @override
+  String get practiceHintNoCrossing => 'This word has no crossing cell.';
+
+  @override
+  String get practiceReplaySaved => 'Your result has been saved.';
+
+  @override
+  String get practiceSilbenLabel => 'Syllable puzzle';
+
+  @override
+  String get practiceReadError => 'Your practice data could not be read.';
+
+  @override
+  String get practiceHistoryStart => 'Practise Smalltalk with the Hahoe mask';
 }

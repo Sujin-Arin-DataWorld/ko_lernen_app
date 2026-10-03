@@ -1,0 +1,426 @@
+{
+  "total": 46,
+  "statuses": {
+    "200": 46
+  },
+  "publicMp3": 46,
+  "items": [
+    {
+      "voice": "female",
+      "text": "같이 저녁 먹으려고.",
+      "path": "tts/v3/female/ef757dc92ca47efcf3f37a5625d4bd847c567c88.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 8832,
+      "generatedSha256": "b88d235ab17cea4817813e35b0f60726f1008d3fa5ca337ad7f53428a5c1fc7b"
+    },
+    {
+      "voice": "female",
+      "text": "같이 저녁 먹을래?",
+      "path": "tts/v3/female/c89c793ab192128b1fc92878fe640a2d7aeffbcd.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 5472,
+      "generatedSha256": "db7ef8fdbabe6e527976565b0d08fa1a63acd8a56074a1b45dfc06da45431d39"
+    },
+    {
+      "voice": "female",
+      "text": "괜찮아.",
+      "path": "tts/v3/female/fa6eaf658140993183ae11409c98a28b2e669f55.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 4077,
+      "generatedSha256": "0fd30063871514fdd374836fcef9064ec3468ce4b0f58736a338337ed01b7a92"
+    },
+    {
+      "voice": "female",
+      "text": "그런 뜻이었군요.",
+      "path": "tts/v3/female/58b0027cacc9e4f9fc8434afb37fde2941a87e55.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 6816,
+      "generatedSha256": "7661b05ce018d6aae359d8b618bf65e08cfc4bfea15f70cbbb50cecde2ec5647"
+    },
+    {
+      "voice": "female",
+      "text": "그럼 오후에 볼게요.",
+      "path": "tts/v3/female/b4ad6158df75342300b7506325ba9fb01d92cc26.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 9024,
+      "generatedSha256": "629450139924a6573cde1b1180a86bcb6880afc41a5190207ee105d3b23e4826"
+    },
+    {
+      "voice": "female",
+      "text": "나는 여섯 시로 기억하는데.",
+      "path": "tts/v3/female/52d68896ea62a5d1007fd7ea072a349f39d52349.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 8832,
+      "generatedSha256": "17f103684b4f5957cbdf4bb1cc17c468ce49ec9f430d4a8f1217bfdb9870c6ad"
+    },
+    {
+      "voice": "female",
+      "text": "내 말을 끊을 때 그랬어.",
+      "path": "tts/v3/female/274d46bd5b06a5cccd8ed95057ac41c15f9a953a.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 7296,
+      "generatedSha256": "6acb89abb3e74422c4cc459c8881ae7ef63c37842ea7042b134f289ab6af311a"
+    },
+    {
+      "voice": "female",
+      "text": "내일 좋아.",
+      "path": "tts/v3/female/0ce042be24bb3feac7fe97be7e9e16c4895c1c79.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 7104,
+      "generatedSha256": "e3f91a9dc57c9b919841a47343b4d96815e902b5e5bdb47a21eea93a2ed3a2fa"
+    },
+    {
+      "voice": "female",
+      "text": "네, 열어 볼게요.",
+      "path": "tts/v3/female/eefcb8d5fbd97e5592f7ead93aa1172aa1074852.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 6624,
+      "generatedSha256": "295dbfb8898885c77f873fcaebc6677a611675d3d389cd1ed9ea56cc9806fcdd"
+    },
+    {
+      "voice": "female",
+      "text": "네, 좋아요.",
+      "path": "tts/v3/female/a97e8243087990d76720e4b5d484d370282a4602.mp3",
+      "status": 200,
+      "mp3Header": true
+    },
+    {
+      "voice": "female",
+      "text": "네, 찍어 드릴게요.",
+      "path": "tts/v3/female/6c6bc67c1994ce925fbcf4aaf5100a3b7131a3c9.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 6624,
+      "generatedSha256": "544b145b69c94c29e7e44210c1d13ceebad17663b0d7a4f844f57a72d2940508"
+    },
+    {
+      "voice": "female",
+      "text": "말해 줘서 고마워.",
+      "path": "tts/v3/female/ba54f288b881aa3dd76d9e9f388adc07485fc53e.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 7584,
+      "generatedSha256": "730e47e888fbe1d1419cb64630828004491e72265fa92b3470922011c5a03ecd"
+    },
+    {
+      "voice": "female",
+      "text": "십 분쯤 전에 왔어.",
+      "path": "tts/v3/female/4200fffee46ba1dd47f05ca240c4ed283f9bf411.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 6912,
+      "generatedSha256": "aed5857cd66b113943882b6335a7e21e9f8294c0556670eb3de882f91e12078a"
+    },
+    {
+      "voice": "female",
+      "text": "아까 말이 좀 날카롭게 들렸어.",
+      "path": "tts/v3/female/31839eb468738f52151fd70a94ecfa81bb38ae68.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 7296,
+      "generatedSha256": "555cfb38af0728a8292b35903c1c269d5bf2d151930bf91d08e2356e89899472"
+    },
+    {
+      "voice": "female",
+      "text": "알겠어.",
+      "path": "tts/v3/female/55052ef4cb5ed302a305575d62d067eba5411db4.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 4032,
+      "generatedSha256": "1361f23cabdc8525cf993d404093685ee308aee5f4e1854fbe1af01f3f2c6718"
+    },
+    {
+      "voice": "female",
+      "text": "알겠어요. 다른 방법을 찾아볼게요.",
+      "path": "tts/v3/female/9333e1112a35fb982778b4c2c22d17a1633b4f26.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 14496,
+      "generatedSha256": "88adfd87a0e48019a2f08128b4d9647c993f779d5c01447fcda3077d5decc6ba"
+    },
+    {
+      "voice": "female",
+      "text": "어디서 모이나요?",
+      "path": "tts/v3/female/093e52989ab2869333ecf7bfd8b28bc4888b5954.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 7872,
+      "generatedSha256": "e791f47e9581106fa4c248b51a87f2f7f860121cee4986adac32900b0f49dbee"
+    },
+    {
+      "voice": "female",
+      "text": "어떤 부분을 확인하면 될까요?",
+      "path": "tts/v3/female/d07632cda4b33e10b5c35bffbd810f7af0396d23.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 9696,
+      "generatedSha256": "53d24dd359796678d1f9a845e64ca0aa66d42d3fae960d976ed4e94797a09c27"
+    },
+    {
+      "voice": "female",
+      "text": "여기 경치가 좋네요.",
+      "path": "tts/v3/female/9cea056a8b2bf7611e50acedf5ff5c9656d0e255.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 6912,
+      "generatedSha256": "7b8b9bf86b326192a19ed5cf008ec8da54fec35451ffd773d93e53e1f0817c34"
+    },
+    {
+      "voice": "female",
+      "text": "여기서 사진 찍어도 돼요.",
+      "path": "tts/v3/female/8cc28cee514d4f03df9fd093d0f315d97e38ead0.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 8832,
+      "generatedSha256": "92ba2d6d379892eec28a7d60e5b8ce1cf3955553e02b585756ac80227354c201"
+    },
+    {
+      "voice": "female",
+      "text": "오늘 같이 영화 볼래?",
+      "path": "tts/v3/female/1d1d4acd7110443b1f81a004d2d0ff51f9dfc48c.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 7104,
+      "generatedSha256": "3421aebe2f81bf295949f76f90c0a89a452e41e4e72dd9f73112cb076b4c233d"
+    },
+    {
+      "voice": "female",
+      "text": "오늘 저녁에 시간 있어?",
+      "path": "tts/v3/female/5e0cc7c05614e51b25e6cd3ed3c70d1a055d31c2.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 9696,
+      "generatedSha256": "3860b95f222415ed34ec5b744a5e7055464ccf4517122a468a90606b7d055d62"
+    },
+    {
+      "voice": "female",
+      "text": "왔어?",
+      "path": "tts/v3/female/317520dab138e0473956a5cd728a8c31f564027f.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 3789,
+      "generatedSha256": "d052108257c7ebaa9a80b4ff6e790089a74df51824dbb26d718553e252808090"
+    },
+    {
+      "voice": "female",
+      "text": "우리 여섯 시에 만나기로 했지?",
+      "path": "tts/v3/female/a860ac189414eab8b1318cf369f9a648861dac73.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 10656,
+      "generatedSha256": "733c6e6ef0e8a405f0a8e518ffbec2cd9539cdc46cc80ef15994987f48846595"
+    },
+    {
+      "voice": "female",
+      "text": "이것도 오늘 맡아 주실 수 있어요?",
+      "path": "tts/v3/female/d088177967075b566f285a9572efb7ffe133dc75.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 10656,
+      "generatedSha256": "ec1cfba66b2bdc2170c9e9d9d70889befb12eac3ff2eea7edeb3a89bc9a76ebe"
+    },
+    {
+      "voice": "female",
+      "text": "이번 주말 모임이 있나요?",
+      "path": "tts/v3/female/51f49b97aa859fb9c2846d4b5868e303360979ea.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 8544,
+      "generatedSha256": "4f5313b6d73620ad003591ec10faba3e5a0d8d12b0fb36ee81521225a5c2bdc2"
+    },
+    {
+      "voice": "female",
+      "text": "제 책임이라는 말씀이신가요?",
+      "path": "tts/v3/female/862c434ac7b3d0545ec3ecfc696a09578dea1f43.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 8544,
+      "generatedSha256": "1e72397246aec8ef2f54f6303bc433d464657d54c96a7d3ac5a34af150028064"
+    },
+    {
+      "voice": "female",
+      "text": "좋아, 확인해 보자.",
+      "path": "tts/v3/female/a02d9e1dd37b0e78ffc4f2fce5de55bb332cb26d.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 6336,
+      "generatedSha256": "a9f1424d7302cc43cd513d8833704d3cb2003b44669d88773d81f0b52dffd951"
+    },
+    {
+      "voice": "female",
+      "text": "좋아요. 시간 확인해 볼게요.",
+      "path": "tts/v3/female/cad3e57906df894b57098ab89b599b4350f9ba44.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 13056,
+      "generatedSha256": "48d2bffe167d8410768c9c47dab39f9587d0ee1b728caead0fdb8351e24e7065"
+    },
+    {
+      "voice": "female",
+      "text": "짧은 문서 두 개를 확인하는 일이에요.",
+      "path": "tts/v3/female/4a39e4d603363cf62f881c59fb882d4d5b899bd3.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 10176,
+      "generatedSha256": "49371a4b4f3386784ec5a0fc7ff3cac21ced9393b1bf9e8e7b11ce025784b31d"
+    },
+    {
+      "voice": "female",
+      "text": "파일 받았어요.",
+      "path": "tts/v3/female/e040c27588a71da490f05628ba0e9a0e40afd91e.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 7584,
+      "generatedSha256": "a1a047a48eb9cd96fa925ab4c980e18958155bd8a5cc31ee11bae8ec1a57da96"
+    },
+    {
+      "voice": "male",
+      "text": "같이 저녁 먹으려고.",
+      "path": "tts/v3/male/60c678ae2f48739a25a53a73f61b4155dd867e6f.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 8736,
+      "generatedSha256": "34b7d4e3db8eb9f7d5a3b0ae371a22fb38318b28888b023b0ad28f3be9f32578"
+    },
+    {
+      "voice": "male",
+      "text": "같이 저녁 먹을래?",
+      "path": "tts/v3/male/569c99c2bb37c84b6905cc68991c7704bd5bd9bd.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 6336,
+      "generatedSha256": "9ae65aaa341dfa9e6f18d1bac79e6fcbbc16a83d6ee75ab829e85ff829c6a223"
+    },
+    {
+      "voice": "male",
+      "text": "괜찮아.",
+      "path": "tts/v3/male/8a0b69c921dab55289c85b150ac6a22ad784b4f0.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 4077,
+      "generatedSha256": "ca41f194e43c0210fe7581b2be3901e519d8e628f585745c2f4dc7b3e1ad79bb"
+    },
+    {
+      "voice": "male",
+      "text": "나는 여섯 시로 기억하는데.",
+      "path": "tts/v3/male/9664be80e40bb73166d77bccd90a870089d63e73.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 8544,
+      "generatedSha256": "6b72d65c8f6e5a9ca072ee10098f7e98f2a8dd4846f86cb8ee7057d2608cf9e1"
+    },
+    {
+      "voice": "male",
+      "text": "내 말을 끊을 때 그랬어.",
+      "path": "tts/v3/male/f6bc74129eb4970011a02955bfe82a835df283df.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 8736,
+      "generatedSha256": "9e63f9010e242d50b0ce088bbccfecd679b59fc0acf7a6be244208fdad7b3a52"
+    },
+    {
+      "voice": "male",
+      "text": "내일 좋아.",
+      "path": "tts/v3/male/3267b4d59828b5bf387d76d1ab5786a52e171650.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 5856,
+      "generatedSha256": "0d6e9ff2ce85a5054698755c7ac1cd2480dc4111d92c72acb7d2d07895ac31fc"
+    },
+    {
+      "voice": "male",
+      "text": "말해 줘서 고마워.",
+      "path": "tts/v3/male/21d004c41727d5e0f10716160b44ea82dc7fa1b6.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 7872,
+      "generatedSha256": "a91eb50bb60b0e6b2b9d6b77eee2ada4e1fe6d481b7ee954b2019628724b0086"
+    },
+    {
+      "voice": "male",
+      "text": "십 분쯤 전에 왔어.",
+      "path": "tts/v3/male/e669b1a5aba22fa5f2bee2eab74120701e7d7a22.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 8736,
+      "generatedSha256": "c4f6cb92276300382c2256a3be65d7ab9274e34d84b4a0c4a7cca7f8ea2de55d"
+    },
+    {
+      "voice": "male",
+      "text": "아까 말이 좀 날카롭게 들렸어.",
+      "path": "tts/v3/male/39287d59697c6fb6184e70e6c730ea509b83b8f5.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 11616,
+      "generatedSha256": "29916b586fbd876bdbed7a0e0dd7e01582187b5c74089f155738a4520d390f07"
+    },
+    {
+      "voice": "male",
+      "text": "알겠어.",
+      "path": "tts/v3/male/f0050cd646dec486449c01d4ef992076df98a579.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 3885,
+      "generatedSha256": "d22c78d6201c3b05d1fe16047051ab4ea3a78d359dccf3bfd98a0fdc42fb820e"
+    },
+    {
+      "voice": "male",
+      "text": "오늘 같이 영화 볼래?",
+      "path": "tts/v3/male/a68633a566a26425d0136f9bee3cc08e46c3e97f.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 6816,
+      "generatedSha256": "bce40e468b70db41c73355da158a063b46a08380cc2e3b60c40ea66c68f8b65d"
+    },
+    {
+      "voice": "male",
+      "text": "오늘 저녁에 시간 있어?",
+      "path": "tts/v3/male/ab113e05e48b4d305aa76cd011ba46d3564fe97a.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 7392,
+      "generatedSha256": "b4d0a7236d9539dcbb7717857f6ce3b0fe23d6fe2175293c0ab8a99b5c6f6e90"
+    },
+    {
+      "voice": "male",
+      "text": "왔어?",
+      "path": "tts/v3/male/a01013c1d5b8dabe196533eda3b4d848e2140cd1.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 3021,
+      "generatedSha256": "ba863e9b28415b469be24ec4017fba71de24ec5791659f4215f7622f6d7bea27"
+    },
+    {
+      "voice": "male",
+      "text": "우리 여섯 시에 만나기로 했지?",
+      "path": "tts/v3/male/925c12fe76ab7c69435925e89eb477442e8c6e25.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 10176,
+      "generatedSha256": "21cd57f35783b03579363478f3fedbebb46c57cd310b5f35677d1ab44013f31d"
+    },
+    {
+      "voice": "male",
+      "text": "좋아, 확인해 보자.",
+      "path": "tts/v3/male/7d225375f753a9b4110f07f377b765d0f5d8eb5b.mp3",
+      "status": 200,
+      "mp3Header": true,
+      "generatedBytes": 6816,
+      "generatedSha256": "bd0e2460ff27d5a46976364ca419d784de12867711401fdca2356090e5679489"
+    }
+  ],
+  "scope": "Smalltalk context NPC prompts and partner replies only",
+  "koreanCharacterCount": 526,
+  "newlyGenerated": 45,
+  "deployment": "Public approved audio only; functions/rules not deployed",
+  "linguisticReview": "Model review; no native-speaker approval claimed"
+}

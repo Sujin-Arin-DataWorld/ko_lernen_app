@@ -11351,4 +11351,123 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get yeopjeonConstructionComplete => 'Dieses Gebäude ist fertig!';
+
+  @override
+  String get practiceToneTitle => 'Ausdruck und Situation';
+
+  @override
+  String get practiceSituation => 'Die Situation';
+
+  @override
+  String get practiceIntent => 'Was möchtest du erreichen?';
+
+  @override
+  String get practiceExpression => 'Wähle deine Formulierung';
+
+  @override
+  String get practiceEffect => 'So kann es ankommen';
+
+  @override
+  String get practiceGrammarCorrect =>
+      'Grammatisch korrekt. Die Wirkung hängt von der Situation und dem Ton ab.';
+
+  @override
+  String get practiceAssemble => 'Setze deine nächste Antwort zusammen';
+
+  @override
+  String get practiceShowEffect => 'Erklärung als Hilfe ansehen';
+
+  @override
+  String get practiceReset => 'Wörter zurücklegen';
+
+  @override
+  String get practiceCheck => 'Antwort prüfen und speichern';
+
+  @override
+  String get practiceOrderRetry =>
+      'Die Wortfolge passt noch nicht. Lege die Wörter zurück und versuche es erneut.';
+
+  @override
+  String get practiceIntentRetry =>
+      'Die Formulierung ist möglich, erfüllt aber noch nicht das Ziel dieser Situation. Wähle deine Absicht erneut.';
+
+  @override
+  String get practiceSaved => 'Übung gespeichert';
+
+  @override
+  String get practiceSaveFailed =>
+      'Die Übung konnte nicht gespeichert werden. Deine Antwort bleibt für einen erneuten Versuch hier.';
+
+  @override
+  String get practiceRetrySave => 'Speichern erneut versuchen';
+
+  @override
+  String get practiceToSarangbang => 'In der Sarangbang wieder üben';
+
+  @override
+  String get practiceTransfer => 'In einer anderen Situation antworten';
+
+  @override
+  String get practiceAssisted => 'Mit Hilfe abgeschlossen';
+
+  @override
+  String get practiceIndependent => 'Selbstständig abgeschlossen';
+
+  @override
+  String get practiceViewed => 'Angesehen';
+
+  @override
+  String get practiceHistoryTitle => 'Deine Übungen im Raum';
+
+  @override
+  String get practiceHistoryOpen => 'Übungen wieder aufnehmen';
+
+  @override
+  String get practiceHistoryEmpty =>
+      'Hier findest du deine Smalltalk-Übungen und Silben-Rätsel mit Hilfe.';
+
+  @override
+  String get practicePuzzleReplay => 'Dieses Rätsel selbstständig lösen';
+
+  @override
+  String get practiceUnavailable =>
+      'Diese Übung ist in dieser Inhaltsversion nicht verfügbar.';
+
+  @override
+  String get practiceBackCases => 'Weitere Situationen';
+
+  @override
+  String get practiceChooseAgain => 'Absicht erneut wählen';
+
+  @override
+  String get practiceHintTitle => 'Ein Hinweis vom Dokkaebi';
+
+  @override
+  String get practiceHintMeaning => 'Bedeutung und Richtung ansehen';
+
+  @override
+  String get practiceHintCrossing => 'Kreuzungsfelder ansehen';
+
+  @override
+  String get practiceHintReveal => 'Eine Silbe anzeigen · deutliche Hilfe';
+
+  @override
+  String get practiceHintPlace =>
+      'Die Silbe ist sichtbar. Lege den passenden Stein selbst auf das ausgewählte Feld.';
+
+  @override
+  String get practiceHintNoCrossing => 'Dieses Wort hat kein Kreuzungsfeld.';
+
+  @override
+  String get practiceReplaySaved => 'Dein Ergebnis wurde gespeichert.';
+
+  @override
+  String get practiceSilbenLabel => 'Silben-Rätsel';
+
+  @override
+  String get practiceReadError =>
+      'Die Übungsdaten konnten nicht gelesen werden.';
+
+  @override
+  String get practiceHistoryStart => 'Smalltalk mit der Hahoe-Maske üben';
 }

@@ -843,6 +843,7 @@ test("cloud backup deletion removes every root and descendant while preserving o
     content_learning_json: '{"version":1,"lessons":{}}',
     ildu_world_state_json: '{"schemaVersion":3}',
     hanok_state_json: '{"schemaVersion":1}',
+    hanok_practice_json: '{"version":1,"items":{}}',
     displayName: "operational profile",
   };
   const { handlers, store } = createHarness({ documents, user });
@@ -861,6 +862,7 @@ test("cloud backup deletion removes every root and descendant while preserving o
   assert.equal(Object.hasOwn(store.user, "content_learning_json"), false);
   assert.equal(Object.hasOwn(store.user, "ildu_world_state_json"), false);
   assert.equal(Object.hasOwn(store.user, "hanok_state_json"), false);
+  assert.equal(Object.hasOwn(store.user, "hanok_practice_json"), false);
   for (const field of BACKUP_FIELDS) {
     assert.equal(Object.hasOwn(store.user, field), false);
   }

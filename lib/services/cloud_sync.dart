@@ -1,3 +1,5 @@
+import '../models/practice_history.dart';
+import 'practice_history_store.dart';
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -58,6 +60,7 @@ class CloudSync {
     'study_log_json',
     'gram_plan_json',
     'content_learning_json',
+    'hanok_practice_json',
     'yeopjeon_wallet_json',
   };
   static Future<CloudWriteResult> Function()? _backupWithResultForTesting;
@@ -132,6 +135,11 @@ class CloudSync {
     if (contentLearningJson.isNotEmpty) {
       ContentLearningState.decode(contentLearningJson);
       payload['content_learning_json'] = contentLearningJson;
+    }
+    final practiceJson = Storage.hanokPracticeRawJson;
+    if (practiceJson.isNotEmpty) {
+      PracticeHistory.decode(practiceJson);
+      payload['hanok_practice_json'] = practiceJson;
     }
     final walletJson = await YeopjeonService.captureBackupJson();
     if (walletJson != null) {
@@ -376,6 +384,14 @@ class CloudSync {
     ilduWorldStateMerger,
   }) async {
     final rawWallet = data['yeopjeon_wallet_json'];
+    if (data.containsKey('hanok_practice_json')) {
+      final raw = data['hanok_practice_json'];
+      if (raw is! String || raw.isEmpty) {
+        throw const FormatException('Invalid practice backup.');
+      }
+      // Validate both histories before applying unrelated restored progress.
+      PracticeHistory.mergeJson(Storage.hanokPracticeRawJson, raw);
+    }
     if (data.containsKey('yeopjeon_wallet_json')) {
       if (rawWallet is! String || rawWallet.isEmpty) {
         throw const FormatException('Invalid Yeopjeon wallet backup.');
@@ -660,6 +676,17 @@ class CloudSync {
           raw,
           beforeWrite: beforeWrite,
         ),
+      );
+    }
+    if (data.containsKey('hanok_practice_json')) {
+      final raw = data['hanok_practice_json'];
+      if (raw is! String || raw.isEmpty) {
+        throw const FormatException('Invalid practice backup.');
+      }
+      await _guardedWrite(
+        beforeWrite,
+        () =>
+            PracticeHistoryStore.mergeCloudJson(raw, beforeWrite: beforeWrite),
       );
     }
     if (grammarPlanJson != null) {

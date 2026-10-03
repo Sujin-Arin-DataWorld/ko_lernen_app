@@ -5,6 +5,7 @@ import 'package:share_plus/share_plus.dart';
 
 import '../models/course_mastery.dart';
 import '../features/content_learning/content_learning_state.dart';
+import '../models/practice_history.dart';
 import 'storage_service.dart';
 
 class LearningDataExportPackage {
@@ -102,6 +103,7 @@ abstract final class LearningDataExportService {
       },
       'grammarPlan': _readGrammarPlan(),
       'contentLearning': _readContentLearning(),
+      'hanokPractice': _readHanokPractice(),
       'review': {
         'cards': _readReviewCards(),
         'wrongCounts': _readWrongCounts(),
@@ -142,6 +144,18 @@ abstract final class LearningDataExportService {
     try {
       final raw = Storage.contentLearningRawJson;
       return raw.isEmpty ? null : ContentLearningState.decode(raw);
+    } on Object {
+      return null;
+    }
+  }
+
+  static Map<String, dynamic>? _readHanokPractice() {
+    try {
+      final raw = Storage.hanokPracticeRawJson;
+      return raw.isEmpty
+          ? null
+          : jsonDecode(PracticeHistory.decode(raw).encode())
+                as Map<String, dynamic>;
     } on Object {
       return null;
     }

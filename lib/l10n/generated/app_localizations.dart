@@ -19169,6 +19169,228 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Dieses Gebäude ist fertig!'**
   String get yeopjeonConstructionComplete;
+
+  /// No description provided for @practiceToneTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ausdruck und Situation'**
+  String get practiceToneTitle;
+
+  /// No description provided for @practiceSituation.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Situation'**
+  String get practiceSituation;
+
+  /// No description provided for @practiceIntent.
+  ///
+  /// In de, this message translates to:
+  /// **'Was möchtest du erreichen?'**
+  String get practiceIntent;
+
+  /// No description provided for @practiceExpression.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle deine Formulierung'**
+  String get practiceExpression;
+
+  /// No description provided for @practiceEffect.
+  ///
+  /// In de, this message translates to:
+  /// **'So kann es ankommen'**
+  String get practiceEffect;
+
+  /// No description provided for @practiceGrammarCorrect.
+  ///
+  /// In de, this message translates to:
+  /// **'Grammatisch korrekt. Die Wirkung hängt von der Situation und dem Ton ab.'**
+  String get practiceGrammarCorrect;
+
+  /// No description provided for @practiceAssemble.
+  ///
+  /// In de, this message translates to:
+  /// **'Setze deine nächste Antwort zusammen'**
+  String get practiceAssemble;
+
+  /// No description provided for @practiceShowEffect.
+  ///
+  /// In de, this message translates to:
+  /// **'Erklärung als Hilfe ansehen'**
+  String get practiceShowEffect;
+
+  /// No description provided for @practiceReset.
+  ///
+  /// In de, this message translates to:
+  /// **'Wörter zurücklegen'**
+  String get practiceReset;
+
+  /// No description provided for @practiceCheck.
+  ///
+  /// In de, this message translates to:
+  /// **'Antwort prüfen und speichern'**
+  String get practiceCheck;
+
+  /// No description provided for @practiceOrderRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Wortfolge passt noch nicht. Lege die Wörter zurück und versuche es erneut.'**
+  String get practiceOrderRetry;
+
+  /// No description provided for @practiceIntentRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Formulierung ist möglich, erfüllt aber noch nicht das Ziel dieser Situation. Wähle deine Absicht erneut.'**
+  String get practiceIntentRetry;
+
+  /// No description provided for @practiceSaved.
+  ///
+  /// In de, this message translates to:
+  /// **'Übung gespeichert'**
+  String get practiceSaved;
+
+  /// No description provided for @practiceSaveFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Übung konnte nicht gespeichert werden. Deine Antwort bleibt für einen erneuten Versuch hier.'**
+  String get practiceSaveFailed;
+
+  /// No description provided for @practiceRetrySave.
+  ///
+  /// In de, this message translates to:
+  /// **'Speichern erneut versuchen'**
+  String get practiceRetrySave;
+
+  /// No description provided for @practiceToSarangbang.
+  ///
+  /// In de, this message translates to:
+  /// **'In der Sarangbang wieder üben'**
+  String get practiceToSarangbang;
+
+  /// No description provided for @practiceTransfer.
+  ///
+  /// In de, this message translates to:
+  /// **'In einer anderen Situation antworten'**
+  String get practiceTransfer;
+
+  /// No description provided for @practiceAssisted.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit Hilfe abgeschlossen'**
+  String get practiceAssisted;
+
+  /// No description provided for @practiceIndependent.
+  ///
+  /// In de, this message translates to:
+  /// **'Selbstständig abgeschlossen'**
+  String get practiceIndependent;
+
+  /// No description provided for @practiceViewed.
+  ///
+  /// In de, this message translates to:
+  /// **'Angesehen'**
+  String get practiceViewed;
+
+  /// No description provided for @practiceHistoryTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Übungen im Raum'**
+  String get practiceHistoryTitle;
+
+  /// No description provided for @practiceHistoryOpen.
+  ///
+  /// In de, this message translates to:
+  /// **'Übungen wieder aufnehmen'**
+  String get practiceHistoryOpen;
+
+  /// No description provided for @practiceHistoryEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier findest du deine Smalltalk-Übungen und Silben-Rätsel mit Hilfe.'**
+  String get practiceHistoryEmpty;
+
+  /// No description provided for @practicePuzzleReplay.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Rätsel selbstständig lösen'**
+  String get practicePuzzleReplay;
+
+  /// No description provided for @practiceUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Übung ist in dieser Inhaltsversion nicht verfügbar.'**
+  String get practiceUnavailable;
+
+  /// No description provided for @practiceBackCases.
+  ///
+  /// In de, this message translates to:
+  /// **'Weitere Situationen'**
+  String get practiceBackCases;
+
+  /// No description provided for @practiceChooseAgain.
+  ///
+  /// In de, this message translates to:
+  /// **'Absicht erneut wählen'**
+  String get practiceChooseAgain;
+
+  /// No description provided for @practiceHintTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Hinweis vom Dokkaebi'**
+  String get practiceHintTitle;
+
+  /// No description provided for @practiceHintMeaning.
+  ///
+  /// In de, this message translates to:
+  /// **'Bedeutung und Richtung ansehen'**
+  String get practiceHintMeaning;
+
+  /// No description provided for @practiceHintCrossing.
+  ///
+  /// In de, this message translates to:
+  /// **'Kreuzungsfelder ansehen'**
+  String get practiceHintCrossing;
+
+  /// No description provided for @practiceHintReveal.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine Silbe anzeigen · deutliche Hilfe'**
+  String get practiceHintReveal;
+
+  /// No description provided for @practiceHintPlace.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Silbe ist sichtbar. Lege den passenden Stein selbst auf das ausgewählte Feld.'**
+  String get practiceHintPlace;
+
+  /// No description provided for @practiceHintNoCrossing.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Wort hat kein Kreuzungsfeld.'**
+  String get practiceHintNoCrossing;
+
+  /// No description provided for @practiceReplaySaved.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Ergebnis wurde gespeichert.'**
+  String get practiceReplaySaved;
+
+  /// No description provided for @practiceSilbenLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Silben-Rätsel'**
+  String get practiceSilbenLabel;
+
+  /// No description provided for @practiceReadError.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Übungsdaten konnten nicht gelesen werden.'**
+  String get practiceReadError;
+
+  /// No description provided for @practiceHistoryStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Smalltalk mit der Hahoe-Maske üben'**
+  String get practiceHistoryStart;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

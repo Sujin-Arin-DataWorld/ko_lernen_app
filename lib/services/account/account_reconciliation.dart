@@ -1,3 +1,4 @@
+import '../../models/practice_history.dart';
 import 'dart:async';
 import 'dart:convert';
 
@@ -81,6 +82,17 @@ class AccountReconciliationSnapshot {
     Map<String, int?> packRevisions = const {},
     int? packMembershipRevision,
   }) {
+    if (document.containsKey('hanok_practice_json')) {
+      try {
+        final raw = document['hanok_practice_json'];
+        if (raw is! String || raw.isEmpty) {
+          return const CloudReadResult.invalid();
+        }
+        PracticeHistory.decode(raw);
+      } on Object {
+        return const CloudReadResult.invalid();
+      }
+    }
     if (document.containsKey('content_learning_json')) {
       try {
         final raw = document['content_learning_json'];
@@ -515,6 +527,19 @@ class AccountReconciliationMerger {
   ) {
     final canonicalLocal = _canonicalFieldValue(local);
     final canonicalRemote = _canonicalFieldValue(remote);
+    if (path == 'hanok_practice_json' && local is String && remote is String) {
+      try {
+        return PracticeHistory.mergeJson(local, remote);
+      } on Object {
+        conflicts.add(
+          const AccountReconciliationConflict(
+            kind: AccountReconciliationConflictKind.documentField,
+            id: 'hanok_practice_json',
+          ),
+        );
+        return canonicalLocal;
+      }
+    }
     if (path == 'content_learning_json' &&
         local is String &&
         remote is String) {
