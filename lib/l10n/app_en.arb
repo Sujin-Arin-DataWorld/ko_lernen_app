@@ -5289,5 +5289,10 @@
   "hanokDownloadsSettingsSection": "Offline artwork",
   "hanokDownloadsSettingsTitle": "Hanok downloads",
   "hanokDownloadsSettingsSubtitle": "Manage artwork included in the app and downloaded by building",
-  "yeopjeonConstructionComplete": "This building is complete!"
+  "yeopjeonConstructionComplete": "This building is complete!",
+  "settingsGroupAccount": "Profile & account",
+  "settingsGroupLearning": "Learning",
+  "settingsGroupControls": "Language, sound & controls",
+  "settingsGroupPrivacy": "Storage & privacy",
+  "settingsGroupHelp": "Help & app information"
 }

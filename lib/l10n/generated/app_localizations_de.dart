@@ -11351,4 +11351,19 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get yeopjeonConstructionComplete => 'Dieses Gebäude ist fertig!';
+
+  @override
+  String get settingsGroupAccount => 'Profil & Konto';
+
+  @override
+  String get settingsGroupLearning => 'Lernen';
+
+  @override
+  String get settingsGroupControls => 'Sprache, Ton & Bedienung';
+
+  @override
+  String get settingsGroupPrivacy => 'Speicher & Datenschutz';
+
+  @override
+  String get settingsGroupHelp => 'Hilfe & App-Infos';
 }
