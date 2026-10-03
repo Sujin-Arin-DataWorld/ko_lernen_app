@@ -282,12 +282,12 @@ void main() {
         (
           locale: Locale('de'),
           roleLabel: 'Deine Rolle in dieser Szene',
-          learnerLabel: 'Du',
+          learnerLabel: 'Christian',
         ),
         (
           locale: Locale('en'),
           roleLabel: 'Your role in this scene',
-          learnerLabel: 'You',
+          learnerLabel: 'Christian',
         ),
       ]) {
         await _pumpPlayer(
@@ -304,7 +304,7 @@ void main() {
         );
 
         expect(find.textContaining(roleCase.roleLabel), findsOneWidget);
-        expect(find.textContaining('크리스티안'), findsOneWidget);
+        expect(find.textContaining('Christian'), findsOneWidget);
         expect(find.textContaining('(나)'), findsNothing);
 
         await tester.pumpWidget(const SizedBox.shrink());
@@ -343,7 +343,7 @@ void main() {
         textScale: 1.3,
       );
 
-      expect(find.text('Du'), findsOneWidget);
+      expect(find.text('Christian'), findsOneWidget);
       expect(find.textContaining('(나)'), findsNothing);
 
       await tester.tap(

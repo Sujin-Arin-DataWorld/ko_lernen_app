@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-02",
+  "approvedBy": "User: 오 완전 맘에 들어! 이제 그 스타일로 딱 고정하고",
+  "authority": [
+    "C:/dev/hangulsori/_codex_artifacts/character-refinement-20261002-01a0fe3b/stylized-pilot/sujin.png",
+    "C:/dev/hangulsori/_codex_artifacts/character-refinement-20261002-01a0fe3b/stylized-pilot/christian.png"
+  ],
+  "contract": {
+    "faces": "Simple sculptural faces, tiny opaque oval eyes, compact nose, curved smile; no realistic facial anatomy",
+    "proportions": "Compact grown-up cartoon figures; Jun clearly 16",
+    "surface": "Matte handmade clay, soft carved hair, readable woven fabric, wool, cotton, denim, suede",
+    "variation": "Personal head silhouette, eyebrows, haircut, costume, body action, meaningful prop; no generic repeated wave pose",
+    "lighting": "Soft upper-left light, transparent background"
+  },
+  "scope": "Isolated character artwork; no app-source, runtime-asset or git changes.",
+  "characterRefinements": {
+    "christian": "Golden-blond carved waves, tiny sage dark-blue eyes, broader shoulders and subtle adult biceps, single fitted sage-green short-sleeve tactile knit, warm relaxed masculine stance. User requested this outfit.",
+    "byeongcheol": "User said father enjoys hiking: refined sand-colored trekking hat, silver temple hair, tactile olive-charcoal outdoor jacket and understated hiking backpack, same friendly simple father face."
+  },
+  "runtimeBinding": {
+    "approvedPlan": "Eleven-persona app integration; current chat 2026-10-03",
+    "catalog": "lib/models/persona_presentation.dart",
+    "assets": "assets/illustrations/personas/v3/",
+    "preservation": "Original PNG bytes; no resampling or recompression"
+  }
+}

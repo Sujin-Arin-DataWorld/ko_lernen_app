@@ -306,6 +306,8 @@ REVIEWED_HOMOGRAPH_HITS = {
         "레나 씨, 저녁에 영화관에 갈까요?",
         "레나 씨, 이 카메라로 찍어요!",
         "레나 씨, 여기서 사진을 찍어요!",
+        "레나 씨, 이 카메라로 찍을까요?",
+        "레나 씨, 여기서 사진 찍을까요?",
         "레나 씨, 친구랑 이야기해요?",
         "레나 씨가 춤을 춰요.",
         "레나 씨, 오늘 바빠요? 그럼 내일 만나요.",
@@ -346,6 +348,20 @@ def grammar_scan_text(text: str) -> str:
     return re.sub(r"(?<![가-힣])여보세요(?![가-힣])", "    ", text)
 
 
+def is_volitional_quoted_homograph(hit, text: str) -> bool:
+    """Exclude only the quoted-speech false positive on a ㄹ래요 ending.
+
+    The genuine grade-2 volitional hit is still returned by both scanners.
+    """
+    if hit.pattern_id != "grammar_b2_quoted_contractions" or hit.text != "래요":
+        return False
+    preceding = text[max(hit.span[0] - 1, 0):hit.span[0]]
+    if len(preceding) != 1:
+        return False
+    code = ord(preceding) - 0xAC00
+    return 0 <= code < 11172 and code % 28 == 8
+
+
 def _grammar_hits_ge2(lexicon: CefrLexicon, grammar_index: GrammarIndex, text: str):
     if text in EXACT_SENTENCE_ALLOWLIST:
         return []
@@ -353,6 +369,8 @@ def _grammar_hits_ge2(lexicon: CefrLexicon, grammar_index: GrammarIndex, text: s
     hits = []
     for h in sp.grammar_hits:
         if h.grade < 2:
+            continue
+        if is_volitional_quoted_homograph(h, text):
             continue
         if h.pattern_id in REVIEWED_HOMOGRAPH_HITS.get(text, set()):
             continue

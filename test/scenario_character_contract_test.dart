@@ -90,9 +90,34 @@ void main() {
         fallbackYou: 'Du',
         fallbackNarrator: 'Erzähler',
       ),
-      'Du',
+      '크리스티안',
     );
     expect(scenario.playerRoleDisplayName(fallbackYou: 'Du'), '크리스티안');
+    for (final lang in ['de', 'en']) {
+      expect(
+        scenario.speakerDisplayName(
+          'user',
+          languageCode: lang,
+          fallbackYou: 'Du',
+          fallbackNarrator: 'Narrator',
+        ),
+        'Christian',
+      );
+      expect(
+        scenario.speakerDisplayName(
+          'sujin',
+          languageCode: lang,
+          fallbackYou: 'Du',
+          fallbackNarrator: 'Narrator',
+        ),
+        'Sujin',
+      );
+      expect(
+        scenario.playerRoleDisplayName(languageCode: lang, fallbackYou: 'Du'),
+        'Christian',
+      );
+      expect(scenario.voiceForSpeaker('user'), 'male');
+    }
   });
 
   test('legacy scenario keeps the old user and NPC voice fallback', () {
@@ -111,5 +136,13 @@ void main() {
 
     expect(scenario.voiceForSpeaker('user'), 'female');
     expect(scenario.voiceForSpeaker('unknown_npc'), 'male');
+    expect(
+      scenario.speakerDisplayName(
+        'user',
+        fallbackYou: 'Du',
+        fallbackNarrator: 'Erzähler',
+      ),
+      'Du',
+    );
   });
 }

@@ -68,6 +68,20 @@ def audit(root=ROOT):
     ledger = json.loads((root / LEDGER).read_text(encoding='utf-8'))
     if ledger['schemaVersion'] != 1:
         raise ValueError('Unknown context review schema')
+    invalidated = ledger.get('invalidatedReviews', [])
+    for archived in invalidated:
+        original = archived.get('review')
+        if not isinstance(original, dict):
+            raise ValueError('Invalidated review must preserve its original record')
+        digest = hashlib.sha256(json.dumps(original, ensure_ascii=False,
+            sort_keys=True, separators=(',', ':')).encode()).hexdigest()
+        if archived.get('reviewSha256') != digest:
+            raise ValueError('Invalidated review history changed')
+        if (archived.get('reviewStatus') != 'UNVERIFIED_REVIEW_REQUIRED'
+                or archived.get('humanApprovalClaim') is not False
+                or archived.get('reason') not in ('quote_absent',
+                    'adjacent_context_changed', 'source_passage_changed')):
+            raise ValueError('Invalidated review cannot make an active coverage claim')
     seen, reviews = set(), []
     for row in ledger['reviews']:
         identity = (row['phaseId'], row['grammarKey'], row['sourcePath'], row['jsonPointer'])
@@ -110,7 +124,8 @@ def audit(root=ROOT):
             contentDisposition=('reviewed_legacy_source_available' if legacy else
                 'reviewed_new_phase_source' if authored else 'source_review_required'),
             productiveAssessment='unverified'))
-    return dict(schemaVersion=1, reviews=reviews, requirements=rows)
+    return dict(schemaVersion=1, reviews=reviews, requirements=rows,
+        invalidatedReviews=invalidated)
 
 
 def report(result):
@@ -121,6 +136,7 @@ def report(result):
         '## 레벨별 원문 근거와 남은 평가 범위', '',
         '| 레벨 | Phase 문법 요구 | 원문 근거 확인 | 기존 원문 근거가 있는 요구 | 신규 원문으로 확인한 요구 | 산출 전체 의미 |',
         '|---|---:|---:|---:|---:|---|']
+    lines.insert(6, f"원문 변경으로 효력이 끝난 검토 {len(result.get('invalidatedReviews', []))}건은 원본과 해시를 이력에 보존했다. 현재 용례·산출 증거에는 포함하지 않으며 재검토가 필요하다.")
     for level in ('A1', 'A2', 'B1', 'B2', 'C1', 'C2'):
         rows = [r for r in result['requirements'] if r['level'] == level]
         lines.append(f"| {level} | {len(rows)} | {sum(r['contextStatus']=='reviewed_receptive_use' for r in rows)} | {sum(r['legacyAnchors']>0 for r in rows)} | {sum(r['authoredPhaseAnchors']>0 for r in rows)} | 미검증 |")

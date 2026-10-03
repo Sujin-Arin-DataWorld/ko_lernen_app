@@ -1,4 +1,9 @@
 import '../../widgets/sori/yeopjeon_wallet_card.dart';
+import '../../features/dancheong/dancheong_connections.dart';
+import '../../features/dancheong/dancheong_screens.dart';
+import '../../features/dancheong/dancheong_catalog.dart';
+import '../../features/dancheong/dancheong_store.dart';
+import '../../services/storage_service.dart';
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
@@ -228,6 +233,37 @@ class _SoriStageRewardReceiptSheetState
                   onTap: () => Navigator.pop(context),
                   fullWidth: true,
                 ),
+                if (receipt.items.any(
+                  (item) => item.kind == SoriRewardKind.stamp,
+                )) ...[
+                  const SizedBox(height: Spacing.sm),
+                  SoriButton.outlined(
+                    label: t.dancheongReceipt,
+                    fullWidth: true,
+                    onTap: () {
+                      final navigator = Navigator.of(context);
+                      final store = DancheongStore();
+                      try {
+                        store.captureGuard()();
+                        final motif = confirmedOwnedReceiptMotif(
+                          receipt,
+                          knownOwnedMotifs(Storage.earnedStamps),
+                        );
+                        navigator.pop();
+                        if (motif != null) {
+                          navigator.pushNamed(
+                            '/dancheong-studio/edit',
+                            arguments: DancheongEditorArgs(motifSlug: motif),
+                          );
+                        } else {
+                          navigator.pushNamed('/dancheong-studio');
+                        }
+                      } catch (_) {
+                        /* Account transition: leave the receipt intact. */
+                      }
+                    },
+                  ),
+                ],
               ],
             ),
           ),

@@ -112,34 +112,28 @@ void main() {
     );
   });
 
-  test(
-    'first-line bundle tier bundles the immutable first-dialog corpus',
-    () {
-      final manifestFile = File('assets/data/tts_first_line_manifest.json');
-      final loaderSource = File(
-        'lib/services/tts_bundled_manifest.dart',
-      ).readAsStringSync();
-      final pubspec = File('pubspec.yaml').readAsStringSync();
-      final manifest =
-          jsonDecode(manifestFile.readAsStringSync()) as Map<String, dynamic>;
-      expect(manifestFile.existsSync(), isTrue);
-      expect(manifest['scenarioCount'], 178);
-      expect(
-        manifest['bundledCount'],
-        178,
-        reason:
-            'bundledCount는 시나리오(항목) 단위 합계라 178 — 그중 2개 시나리오가 같은 '
-            '(voice,text) 첫 대사를 공유해 실제 고유 mp3 파일 수는 176개뿐이다',
-      );
-      expect(pubspec, contains('- assets/data/'));
-      expect(pubspec, contains('- assets/tts/v3/female/'));
-      expect(pubspec, contains('- assets/tts/v3/male/'));
-      expect(
-        loaderSource,
-        contains('assets/data/tts_first_line_manifest.json'),
-      );
-      expect(loaderSource, isNot(contains('Directory(')));
-      expect(loaderSource, isNot(contains('.listSync(')));
-    },
-  );
+  test('first-line bundle tier bundles the immutable first-dialog corpus', () {
+    final manifestFile = File('assets/data/tts_first_line_manifest.json');
+    final loaderSource = File(
+      'lib/services/tts_bundled_manifest.dart',
+    ).readAsStringSync();
+    final pubspec = File('pubspec.yaml').readAsStringSync();
+    final manifest =
+        jsonDecode(manifestFile.readAsStringSync()) as Map<String, dynamic>;
+    expect(manifestFile.existsSync(), isTrue);
+    expect(manifest['scenarioCount'], 181);
+    expect(
+      manifest['bundledCount'],
+      181,
+      reason:
+          'bundledCount counts every scenario, including the three approved '
+          'persona additions; shared first lines reuse one immutable MP3.',
+    );
+    expect(pubspec, contains('- assets/data/'));
+    expect(pubspec, contains('- assets/tts/v3/female/'));
+    expect(pubspec, contains('- assets/tts/v3/male/'));
+    expect(loaderSource, contains('assets/data/tts_first_line_manifest.json'));
+    expect(loaderSource, isNot(contains('Directory(')));
+    expect(loaderSource, isNot(contains('.listSync(')));
+  });
 }

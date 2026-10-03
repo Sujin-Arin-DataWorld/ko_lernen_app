@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import sys
 import tempfile
 import unittest
@@ -190,8 +191,16 @@ class ScenePosterNormalizeTest(unittest.TestCase):
         canonical = scene_poster_normalize.load_canonical_ids(
             scene_poster_normalize.DEFAULT_INVENTORY_PATH
         )
-        self.assertEqual(len(canonical), 178)
-        self.assertIn("airport_arrival", canonical)
+        self.assertEqual(len(canonical), 181)
+        data_root = Path(__file__).resolve().parents[1] / "assets" / "data"
+        authored_ids = {
+            row["id"]
+            for level in ("a1", "a2", "b1", "b2", "c1", "c2")
+            for row in json.loads(
+                (data_root / f"scenarios_{level}.json").read_text(encoding="utf-8")
+            )["scenarios"]
+        }
+        self.assertEqual(canonical, authored_ids)
 
 
 if __name__ == "__main__":

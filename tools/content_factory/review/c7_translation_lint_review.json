@@ -47,91 +47,100 @@
         "R4"
       ],
       "textSha256": "dcc12306481d46cb6ac0a82f27b6589d4dcb9cdbfcdb44721d24690b3df22e95",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 주말에 시댁에 가요. corresponds to Am Wochenende gehe ich zur Familie meines Mannes. / I go to my husband's family on the weekend.."
+      "reason": "Husband's family/home needs a phrase in EN/DE; the increased word count does not add an unrelated event or spouse."
     },
     "vocab_b2_0432": {
       "rules": [
         "R4"
       ],
       "textSha256": "782ae863c5801d274539e5431122403c5cf8f96f96616c489c64d6bc19013596",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 설날에 처가에 갔어요. corresponds to An Seollal bin ich zur Familie meiner Frau gegangen. / I went to my wife's family for Seollal.."
+      "reason": "Wife's family/home and Seollal need expansion; past visit and kinship direction are preserved."
     },
     "vocab_a1_0537": {
       "rules": [
         "R7"
       ],
       "textSha256": "11ea4d1d6eeb0567a2fd56ea77992c4f45af9c98285934d3060fde59831e65a7",
-      "reason": "Taekwondo/Badminton is an established shared loanword in German and English, not untranslated prose."
+      "reason": "September is legitimately shared across DE/EN; returning to school in September is preserved."
     },
     "vocab_a1_0549": {
       "rules": [
         "R4"
       ],
       "textSha256": "b765ec6dc54d3d167ee36c94de471f4f36c5a0bb73ac01954440c5311ced3e7d",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 몽골에 친구가 살아요. corresponds to Ein Freund von mir lebt in der Mongolei. / A friend of mine lives in Mongolia.."
+      "reason": "EN/DE require an explicit subject and location phrase; the friend living in Mongolia is preserved. DE Freund is a generic-masculine reading, not independent evidence of male identity."
     },
     "vocab_a1_0555": {
       "rules": [
         "R7"
       ],
       "textSha256": "20addb570d826ff67b8278fc9a79989b2d3c610b4db2267305eb600de3dab319",
-      "reason": "Taekwondo/Badminton is an established shared loanword in German and English, not untranslated prose."
+      "reason": "Basketball is a shared loanword; the weekend joint-play suggestion is preserved."
     },
     "vocab_a1_0575": {
       "rules": [
         "R4"
       ],
       "textSha256": "2a4a36a2b4a3135fee0664ecd4b64fb69b05ef05749ec8f93931fea1279f824d",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 사이다 있어요? corresponds to Haben Sie eine Zitronenlimonade? / Do you have a lemon-lime soda?."
+      "reason": "Lemon-lime soda / Zitronenlimonade require more words than 사이다; both keep the availability question."
     },
     "vocab_a1_0579": {
       "rules": [
         "R4"
       ],
       "textSha256": "7405e2d4c19918f3c11c8faa54d78b4f603ad3fe55e2fc3a55b8f21e5e81f79e",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 인천공항에서 만나요. corresponds to Wir treffen uns am Flughafen Incheon. / Let's meet at Incheon Airport.."
+      "reason": "Incheon Airport must be expanded; 만나요 can express the proposed/agreed meeting that both targets convey. No contradiction established by length."
     },
     "vocab_a1_0581": {
       "rules": [
         "R7"
       ],
       "textSha256": "8b4decbf91f0662aa73a2e4b4a55a63c4d8bb9a32fca2a4e5ead193e31c865a6",
-      "reason": "Taekwondo/Badminton is an established shared loanword in German and English, not untranslated prose."
+      "reason": "The place name legitimately has the same spelling; Daniel and the joint visit suggestion are preserved."
     },
     "vocab_a1_0583": {
       "rules": [
         "R7"
       ],
       "textSha256": "1bbb87c92b211138c2a5593b546db609186c181e9e425861a3e7e5756ab2fb66",
-      "reason": "Taekwondo/Badminton is an established shared loanword in German and English, not untranslated prose."
+      "reason": "Shared proper name, not copied untranslated prose; clothing purchase and past tense are preserved."
     },
     "vocab_a1_0584": {
       "rules": [
         "R4"
       ],
       "textSha256": "bbbe1d61cfd69a9b8da6ce9119d08fc0b29e117527f5c1c1d708fa5ec2b816ee",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 서점에서 책을 골랐어요. corresponds to Ich habe im Buchladen ein Buch ausgesucht. / I picked out a book at the bookstore.."
+      "reason": "Articles and the picked-out-a-book construction increase target length; bookstore selection event is preserved."
     },
     "vocab_a1_0590": {
       "rules": [
         "R3"
       ],
       "textSha256": "b148856e08a612d91863fc43c1a8b7543b0f401c5603434a8a5f83d906221ba9",
-      "reason": "끄다 becomes 꺼요 by 으-deletion."
+      "reason": "꺼요 is the regular contraction of 끄다. The current example and both translations are explicitly turning off the light.",
+      "reviewedText": {
+        "korean": "끄다",
+        "german": "ausschalten, ausmachen",
+        "english": "to turn off",
+        "example_korean": "불을 꺼요.",
+        "example_german": "Ich mache das Licht aus.",
+        "example_english": "I turn off the light."
+      },
+      "humanApprovalClaim": false
     },
     "vocab_a1_0619": {
       "rules": [
         "R4"
       ],
       "textSha256": "4701b8c875a87682b435e02212abd3014219d5298d48e3c1b71acea5c19502a9",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 오전에 공원에서 운동해요. corresponds to Ich mache am Vormittag im Park Sport. / I exercise in the park in the morning.."
+      "reason": "EN/DE overt subject and exercise expression expand naturally; morning, park and exercise are preserved."
     },
     "vocab_a1_0620": {
       "rules": [
         "R4"
       ],
       "textSha256": "4ac597faeb48b70fc94878b8b8aa9aeb10e4d043948ceb48f71a8938d1aaa5ef",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 저는 오후에 산책해요. corresponds to Ich mache am Nachmittag einen Spaziergang. / I go for a walk in the afternoon.."
+      "reason": "einen Spaziergang machen / go for a walk expand 산책하다 without changing the afternoon walk."
     },
     "vocab_a1_0653": {
       "rules": [
@@ -145,28 +154,37 @@
         "R4"
       ],
       "textSha256": "00709cf6fe185a1dbd7413757838fc4857d0938933d83de59914a44a66a7e170",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 주말에 가족과 식사해요. corresponds to Ich esse am Wochenende mit der Familie. / I have a meal with my family on weekends.."
+      "reason": "식사하다 becomes have a meal / essen; family and weekend timing are preserved."
     },
     "vocab_a1_0666": {
       "rules": [
         "R4"
       ],
       "textSha256": "49f5e71447fde636cbd73808f580392d426c07b7fa0e3282bcd298f587f48df7",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 오늘 친구한테 부탁해요. corresponds to Ich bitte heute einen Freund um einen Gefallen. / I ask a friend for a favor today.."
+      "reason": "A favor/request requires a phrase; friend, today and asking are preserved. German masculine Freund should not be treated as a sourced gender fact."
     },
     "vocab_a1_0673": {
       "rules": [
         "R7"
       ],
       "textSha256": "b1dc3b80b945246cee2f24e7aaa410fb6007ed82ed774dba84dab1854cf18ed4",
-      "reason": "Taekwondo/Badminton is an established shared loanword in German and English, not untranslated prose."
+      "reason": "Taekwondo is the same Korean loanword in German and English; nine shared letters are not untranslated prose.",
+      "reviewedText": {
+        "korean": "태권도",
+        "german": "Taekwondo",
+        "english": "taekwondo",
+        "example_korean": "태권도를 배워요.",
+        "example_german": "Ich lerne Taekwondo.",
+        "example_english": "I learn taekwondo."
+      },
+      "humanApprovalClaim": false
     },
     "vocab_a1_0688": {
       "rules": [
         "R4"
       ],
       "textSha256": "73afa6a45972a867577bb47a8c06fbde2f3577018da985196c3c117ffa17e585",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 더워요. 음료수 마실까요? corresponds to Es ist heiß. Sollen wir ein Getränk trinken? / It's hot. Shall we drink something?."
+      "reason": "Drink something is an idiomatic beverage suggestion; heat and the joint suggestion remain intact."
     },
     "vocab_a1_0716": {
       "rules": [
@@ -321,14 +339,23 @@
         "R8"
       ],
       "textSha256": "3c7af906b703257df38dbcf94779d59765edb4688230527cbb1a25f659424114",
-      "reason": "안녕하세요? functions as a conventional greeting, naturally Hallo / Hi rather than a literal question."
+      "reason": "안녕하세요? functions as a greeting with 씨. DE/EN greetings use exclamation marks; this is not a missing information question.",
+      "reviewedText": {
+        "korean": "씨",
+        "german": "Herr/Frau (Anrede)",
+        "english": "Mr./Ms. (address)",
+        "example_korean": "마야 씨, 안녕하세요?",
+        "example_german": "Hallo, Maya!",
+        "example_english": "Hi, Maya!"
+      },
+      "humanApprovalClaim": false
     },
     "vocab_a2_0508": {
       "rules": [
         "R4"
       ],
       "textSha256": "060e7951346f684c8cb5cf3877cc18a5d4a07957d3569d0a130b202fcca8ca2d",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 쓰레기는 아침에 버려요. corresponds to Den Müll bringe ich morgens raus. / I take out the trash in the morning.."
+      "reason": "take out the trash / den Müll rausbringen need more tokens; morning disposal is preserved."
     },
     "vocab_a2_0509": {
       "rules": [
@@ -342,7 +369,7 @@
         "R4"
       ],
       "textSha256": "858a207080f3d015c5b38af7828564c8e9ca7cda5420021969021e5fe234c73c",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 벽에 가족사진을 걸었어요. corresponds to Ich habe ein Familienfoto an die Wand gehängt. / I hung a family photo on the wall.."
+      "reason": "Articles, subject and wall-placement phrase expand naturally; hanging the family photo is preserved."
     },
     "vocab_a2_0533": {
       "rules": [
@@ -363,35 +390,44 @@
         "R4"
       ],
       "textSha256": "228a6854c41c1ca26f41e454bbfe0a416354aa4d43f47342fb2dd5fb071b78f4",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 호수 주변을 산책했어요. corresponds to Ich bin um den See herum spazieren gegangen. / I took a walk around the lake.."
+      "reason": "um den See herum spazieren gehen expands the same lake-area walk; no new participant or reason is added."
     },
     "vocab_a2_0553": {
       "rules": [
         "R4"
       ],
       "textSha256": "95e7e62ff898c69f77128a28e82867ce20cb4abd8a9922564c797e4f8444027e",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 추석에 조카들을 오랜만에 만났어요. corresponds to An Chuseok habe ich meine Neffen und Nichten nach langer Zeit wiedergesehen. / I saw my nieces and nephews again at Chuseok after a long time.."
+      "reason": "R4 only: a kinship term and plural possession need more target words. Whether nieces and nephews denotes a generic group or a mixed-gender group remains an explicit reference review question; this exemption does not resolve it."
     },
     "vocab_a2_0561": {
       "rules": [
         "R4"
       ],
       "textSha256": "129662faaf0396a5c2e94fadeae9df50b893b4c4a946d8e3964323f6788b04df",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 두통이 심해서 약국에 왔어요. corresponds to Ich habe starke Kopfschmerzen, deshalb bin ich in die Apotheke gekommen. / I have a bad headache, so I came to the pharmacy.."
+      "reason": "Subject and explicit causal connection require more tokens; strong headache motivating coming to the pharmacy is preserved."
     },
     "vocab_a2_0519": {
       "rules": [
         "R4"
       ],
       "textSha256": "080da9ce5e2b687e433d3c7006b1a7431ae7fd19df11b3887473e04ea7d92b10",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 합격 소식에 부모님이 정말 기뻐하셨어요. corresponds to Meine Eltern haben sich sehr über die Nachricht gefreut, dass ich bestanden habe. / My parents were really happy to hear that I passed.."
+      "reason": "The German subordinate clause spells out the news that the speaker passed, which Korean compresses into 합격 소식에. The parents, emotion, outcome and information timing match; the 13-to-5 word count is a length heuristic false positive, not a meaning change."
     },
     "vocab_a1_0047": {
       "rules": [
         "R4"
       ],
       "textSha256": "b635923bd513a30150223d45b1c09dec2c1b263303c78c7a1337d420b3bad9c5",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 입을 여세요. corresponds to Machen Sie bitte den Mund auf. / Please open your mouth.."
+      "reason": "German separates the separable verb and explicit polite address; the mouth-opening request is preserved. Token ratio is not semantic loss.",
+      "reviewedText": {
+        "korean": "입",
+        "german": "Mund",
+        "english": "mouth",
+        "example_korean": "입을 여세요.",
+        "example_german": "Machen Sie bitte den Mund auf.",
+        "example_english": "Please open your mouth."
+      },
+      "humanApprovalClaim": false
     },
     "vocab_a2_0150": {
       "rules": [
@@ -409,11 +445,19 @@
     },
     "vocab_a1_0220": {
       "rules": [
-        "R3",
-        "R4"
+        "R3"
       ],
-      "textSha256": "76cf5f43f4e65695ffcd9bd100e7cc54d6d9f428feb4198a31ab486fd4aeb3c5",
-      "reason": "묻다 becomes 물었어요 through ㄷ-irregular conjugation. Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 성함을 물었어요. corresponds to Ich habe nach dem Namen gefragt. / I asked for their name.."
+      "textSha256": "3054e0623a9e70d128daa3947ecd304bcd8d25710e76e9d8a8c7d1a7196fa554",
+      "reason": "물었어요 is the regular surface of the ㄷ-irregular 묻다; asking a name politely is preserved.",
+      "reviewedText": {
+        "korean": "성함을 묻다",
+        "german": "nach dem Namen fragen",
+        "english": "to ask someone's name politely",
+        "example_korean": "저는 성함을 물었어요.",
+        "example_german": "Ich habe nach dem Namen gefragt.",
+        "example_english": "I asked for their name."
+      },
+      "humanApprovalClaim": false
     },
     "vocab_a1_0236": {
       "rules": [
@@ -429,41 +473,22 @@
       "textSha256": "9230e2f1e234b98fb37da64decf23ef45ea108f4e7761ccf159f706c6c09f715",
       "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 아랫목이 따뜻해서 거기에 앉았어요. corresponds to Der warme Platz am Boden war angenehm, deshalb setzte ich mich dorthin. / The warm spot on the floor was comfortable, so I sat there.."
     },
-    "vocab_a1_0249": {
-      "rules": [
-        "R4"
-      ],
-      "textSha256": "8104baff27dd55e829d58b27156a2e0701896907dd49e68ba7864f88e18a7952",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 수저를 주세요. corresponds to Bitte geben Sie mir Löffel und Stäbchen. / Please give me a spoon and chopsticks.."
-    },
-    "vocab_a1_0257": {
-      "rules": [
-        "R4"
-      ],
-      "textSha256": "c2272e40916d44e875ec3010e644e65641ef4a1c6db7dedf44e91a740f8c5371",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 앞접시를 써요. corresponds to Ich benutze einen kleinen Teller. / I use a small side plate.."
-    },
-    "vocab_a1_0258": {
-      "rules": [
-        "R4"
-      ],
-      "textSha256": "1bbfdb287d3342a2066fa398dd62848ae692d85a58dda9e5ef87be5bda464beb",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 수저를 놓아요. corresponds to Ich lege Löffel und Stäbchen hin. / I put down my spoon and chopsticks.."
-    },
-    "vocab_a1_0261": {
-      "rules": [
-        "R4"
-      ],
-      "textSha256": "16433e949e08f4750d0dc2e737cb9cd3639e58cb312ed1fe7ad448d18a52365a",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 세배를 해요. corresponds to Ich mache eine Neujahrsverbeugung. / I make a New Year bow.."
-    },
     "vocab_a1_0267": {
       "rules": [
         "R3",
         "R4"
       ],
       "textSha256": "872f2900dbf13fb8e2a39367824f04a0ddf0ad874d6201d2f10551319a195a9b",
-      "reason": "드리다 becomes 드려요; the New Year bow to elders is preserved. Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 어른들께 세배 드려요. corresponds to Ich mache vor den Älteren eine Neujahrsverbeugung. / I offer a New Year bow to the elders.."
+      "reason": "드려요 contracts 드리다 with 어요; the same respectful New Year bow to elders is retained. English spells out the cultural object.",
+      "reviewedText": {
+        "korean": "세배 드리다",
+        "german": "die Neujahrsverbeugung darbringen",
+        "english": "to offer the New Year bow",
+        "example_korean": "어른들께 세배 드려요.",
+        "example_german": "Ich mache vor den Älteren eine Neujahrsverbeugung.",
+        "example_english": "I offer a New Year bow to the elders."
+      },
+      "humanApprovalClaim": false
     },
     "vocab_a1_0279": {
       "rules": [
@@ -522,13 +547,6 @@
       "textSha256": "454eaed8e46f1a9d312a44f708d576093140bd13444fa388fe12631fab10cd1a",
       "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 아침이 쌀쌀해서 목도리를 했어요. corresponds to Weil es am Morgen kühl war, wickelte ich mir einen Schal um. / Because the morning was chilly, I put on a scarf.."
     },
-    "vocab_a1_0399": {
-      "rules": [
-        "R4"
-      ],
-      "textSha256": "64c2cc0d793b5ef462454652a031f919e16af7aadfa29f3120ce40e43b818065",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 잠깐만요. corresponds to Einen Moment bitte. / Just a moment, please.."
-    },
     "vocab_a2_0408": {
       "rules": [
         "R4"
@@ -541,14 +559,32 @@
         "R3"
       ],
       "textSha256": "592d9d60ea3ca055d6c1dad56a86b936077c09a70c6348ce80d1bf9e6b96113f",
-      "reason": "The object particle splits 영수증 확인 into 영수증을 확인해요."
+      "reason": "Object particle 을 separates 영수증 from 확인해요. Both headword components are present and mean checking the receipt.",
+      "reviewedText": {
+        "korean": "영수증 확인",
+        "german": "Bonkontrolle",
+        "english": "receipt check",
+        "example_korean": "결제 후에 영수증을 확인해요.",
+        "example_german": "Nach der Zahlung prüfe ich den Kassenbon.",
+        "example_english": "I check the receipt after paying."
+      },
+      "humanApprovalClaim": false
     },
     "vocab_a1_0431": {
       "rules": [
         "R4"
       ],
       "textSha256": "0f7ea8b7f2fb91813b0885d0f112e51d00d9cd37b667061197f33bb8205d74e8",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 저는 외국인 학생이에요. corresponds to Ich komme aus einem anderen Land und studiere hier. / I am a student from another country.."
+      "reason": "외국인 학생 has a multiword German paraphrase. Foreign origin and being a student are retained despite word-count expansion.",
+      "reviewedText": {
+        "korean": "외국인",
+        "german": "Person aus einem anderen Land",
+        "english": "person from another country",
+        "example_korean": "저는 외국인 학생이에요.",
+        "example_german": "Ich komme aus einem anderen Land und studiere hier.",
+        "example_english": "I am a student from another country."
+      },
+      "humanApprovalClaim": false
     },
     "vocab_a2_0485": {
       "rules": [
@@ -562,21 +598,171 @@
         "R4"
       ],
       "textSha256": "038ada72652865389cd3fc5edb2ed86eb1ce1f6b19ac0e9b6f657d441da7937d",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 가요를 들어요. corresponds to Ich höre koreanische Popmusik. / I listen to Korean pop music.."
+      "reason": "The noun 가요 means Korean pop music here, rather than the verb go. English expands the cultural noun into pop music.",
+      "reviewedText": {
+        "korean": "가요",
+        "german": "(koreanischer) Popsong",
+        "english": "(Korean) pop song",
+        "example_korean": "가요를 들어요.",
+        "example_german": "Ich höre koreanische Popmusik.",
+        "example_english": "I listen to Korean pop music."
+      },
+      "humanApprovalClaim": false
     },
     "vocab_a1_0671": {
       "rules": [
         "R4"
       ],
       "textSha256": "40a84f910aed751e14b043629ae0e257c4da38a53351004edde73db88f0b7d73",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 저분은 영화배우예요. corresponds to Diese Person spielt in Filmen. / That person is a film actor.."
+      "reason": "영화배우 is film actor, a multiword English predicate. The referenced person and present occupation are preserved.",
+      "reviewedText": {
+        "korean": "영화배우",
+        "german": "Filmschauspieler(in)",
+        "english": "movie actor",
+        "example_korean": "저분은 영화배우예요.",
+        "example_german": "Diese Person spielt in Filmen.",
+        "example_english": "That person is a film actor."
+      },
+      "humanApprovalClaim": false
     },
     "vocab_a1_0804": {
       "rules": [
         "R4"
       ],
       "textSha256": "1347194287e2269a6c2c57329faa4be18732d26a6df350ac4d5b47012c04f2b1",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 화장실이 어디예요? corresponds to Wo ist jetzt die Toilette? / Where is the bathroom right now?."
+      "reason": "Both translations ask the location of the bathroom; English spells out the copula, article and contextual right now.",
+      "reviewedText": {
+        "korean": "어디",
+        "german": "wo",
+        "english": "where",
+        "example_korean": "화장실이 어디예요?",
+        "example_german": "Wo ist jetzt die Toilette?",
+        "example_english": "Where is the bathroom right now?"
+      },
+      "humanApprovalClaim": false
     }
-  }
+  },
+  "revisionHistory": [
+    {
+      "id": "vocab_a1_0590",
+      "previousEntry": {
+        "rules": [
+          "R3"
+        ],
+        "textSha256": "8def05629a34eb1dae9940b467785a69a67a776cc0d4ef71c9c2a9f8d7cd1318",
+        "reason": "꺼요 is the regular contraction of 끄다; the sleep suggestion supports the subsequent light-switching statement. Speaker undertaking is a contextual reading, not proved uniquely by KO alone."
+      },
+      "humanApprovalClaim": false,
+      "reason": "Current text changed; previous heuristic evidence retained as history"
+    },
+    {
+      "id": "vocab_a1_0673",
+      "previousEntry": {
+        "rules": [
+          "R7"
+        ],
+        "textSha256": "706ebeff4026bf23549ff7777430f500a8e8d9e2b755f252cc6ab2ae156bed88",
+        "reason": "Taekwondo is a shared loanword. Present learning is preserved; EN I'm learning taekwondo is an optional naturalness improvement, not an R7 defect."
+      },
+      "humanApprovalClaim": false,
+      "reason": "Current text changed; previous heuristic evidence retained as history"
+    },
+    {
+      "id": "vocab_a1_0732",
+      "previousEntry": {
+        "rules": [
+          "R3"
+        ],
+        "textSha256": "d82e9627c3b08fdf965e5b8f3c35c1e5e0cddcb01692eb701c50d460c9d528a6",
+        "reason": "올라갈 contains the stem plus 관형사형 ㄹ; Andrea's ability, mountain and weekend are preserved."
+      },
+      "humanApprovalClaim": false,
+      "reason": "Current text changed; previous heuristic evidence retained as history"
+    },
+    {
+      "id": "vocab_a1_0747",
+      "previousEntry": {
+        "rules": [
+          "R3"
+        ],
+        "textSha256": "b4ac2bd7fb57252eacdb33e94ae7f22055df559ccaa78de7c5d9560067a6d870",
+        "reason": "그래요 is the irregular form; shared opinion is rendered naturally rather than word-for-word."
+      },
+      "humanApprovalClaim": false,
+      "reason": "Current text changed; previous heuristic evidence retained as history"
+    },
+    {
+      "id": "vocab_a1_0819",
+      "previousEntry": {
+        "rules": [
+          "R8"
+        ],
+        "textSha256": "775418d5b3e909d6ebd07bb1466d2dda09c5a5464a6b3b44bbf6a0ff2aa57e4a",
+        "reason": "안녕하세요? functions as a greeting, not an information question requiring literal question punctuation. Maya + hello preserves the greeting."
+      },
+      "humanApprovalClaim": false,
+      "reason": "Current text changed; previous heuristic evidence retained as history"
+    },
+    {
+      "id": "vocab_a1_0249",
+      "originalReview": {
+        "rules": [
+          "R4"
+        ],
+        "textSha256": "8104baff27dd55e829d58b27156a2e0701896907dd49e68ba7864f88e18a7952",
+        "reason": "수저 denotes both spoon and chopsticks. DE/EN spell out both utensils and polite requesting, which legitimately uses more words.",
+        "reviewedText": {
+          "korean": "수저",
+          "german": "Löffel und Stäbchen",
+          "english": "spoon and chopsticks",
+          "example_korean": "수저를 주세요.",
+          "example_german": "Bitte geben Sie mir Löffel und Stäbchen.",
+          "example_english": "Please give me a spoon and chopsticks."
+        },
+        "humanApprovalClaim": false
+      },
+      "reason": "Earlier exact heuristic review expired after authored A1 context update; current row has no lint hits."
+    },
+    {
+      "id": "vocab_a1_0257",
+      "originalReview": {
+        "rules": [
+          "R4"
+        ],
+        "textSha256": "c2272e40916d44e875ec3010e644e65641ef4a1c6db7dedf44e91a740f8c5371",
+        "reason": "앞접시 is an individual small side plate; English articles and the multiword object expand a two-eojeol Korean statement.",
+        "reviewedText": {
+          "korean": "앞접시",
+          "german": "Extrateller",
+          "english": "individual plate",
+          "example_korean": "앞접시를 써요.",
+          "example_german": "Ich benutze einen kleinen Teller.",
+          "example_english": "I use a small side plate."
+        },
+        "humanApprovalClaim": false
+      },
+      "reason": "Earlier exact heuristic review expired after authored A1 context update; current row has no lint hits."
+    },
+    {
+      "id": "vocab_a1_0399",
+      "originalReview": {
+        "rules": [
+          "R4"
+        ],
+        "textSha256": "64c2cc0d793b5ef462454652a031f919e16af7aadfa29f3120ce40e43b818065",
+        "reason": "잠깐만요 is a lexical one-word polite wait request; both translations preserve a brief moment and politeness.",
+        "reviewedText": {
+          "korean": "잠깐만요",
+          "german": "einen Moment",
+          "english": "just a moment",
+          "example_korean": "잠깐만요.",
+          "example_german": "Einen Moment bitte.",
+          "example_english": "Just a moment, please."
+        },
+        "humanApprovalClaim": false
+      },
+      "reason": "Earlier exact heuristic review expired after authored A1 context update; current row has no lint hits."
+    }
+  ],
+  "humanApprovalClaim": false
 }

@@ -42,6 +42,14 @@ test.before(async () => {
   });
 });
 test.after(async () => environment?.cleanup());
+test('Dancheong originals are server-only even for the authenticated owner',async()=>{
+ const object='dancheong_public/alice/'+ 'A'.repeat(32)+'/art.png';
+ await environment.withSecurityRulesDisabled(context=>uploadBytes(ref(context.storage(),object),new Uint8Array([1]),{contentType:'image/png'}));
+ for(const context of [environment.authenticatedContext('alice'),environment.authenticatedContext('bob'),environment.unauthenticatedContext()]){
+  const storage=context.storage();await assertFails(getMetadata(ref(storage,object)));await assertFails(listAll(ref(storage,'dancheong_public/alice')));
+  await assertFails(uploadBytes(ref(storage,object),new Uint8Array([2])));await assertFails(deleteObject(ref(storage,object)));
+ }
+});
 test("public may get approved canonical object but cannot list or read unknown legacy", async () => {
   const storage = environment.unauthenticatedContext().storage();
   await assertSucceeds(getMetadata(ref(storage, canonical)));

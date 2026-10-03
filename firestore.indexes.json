@@ -1,5 +1,8 @@
 {
   "indexes": [
+    { "collectionGroup": "dancheong_publications", "queryScope": "COLLECTION_GROUP", "fields": [{ "fieldPath": "status", "order": "ASCENDING" }, { "fieldPath": "createdAt", "order": "ASCENDING" }] },
+    { "collectionGroup": "dancheong_publications", "queryScope": "COLLECTION_GROUP", "fields": [{ "fieldPath": "status", "order": "ASCENDING" }, { "fieldPath": "cleanupRequired", "order": "ASCENDING" }] },
+
     {
       "collectionGroup": "tester_feedback",
       "queryScope": "COLLECTION_GROUP",
