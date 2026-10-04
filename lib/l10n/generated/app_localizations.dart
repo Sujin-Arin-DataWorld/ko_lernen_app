@@ -19326,12 +19326,6 @@ abstract class AppL10n {
   /// **'Absicht erneut wählen'**
   String get practiceChooseAgain;
 
-  /// No description provided for @practiceHintTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Ein Hinweis vom Dokkaebi'**
-  String get practiceHintTitle;
-
   /// No description provided for @practiceHintMeaning.
   ///
   /// In de, this message translates to:

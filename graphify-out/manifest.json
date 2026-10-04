@@ -936,21 +936,21 @@
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations.dart": {
-    "mtime": 1791124944.6586065,
-    "seen": 1791125151.6425564,
-    "ast_hash": "3a22c7b03449076d11214259952abafb",
+    "mtime": 1791128395.6033573,
+    "seen": 1791129585.6427414,
+    "ast_hash": "9fcb9df739957b14738b4062b1d0597e",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_de.dart": {
-    "mtime": 1791124943.6634772,
-    "seen": 1791125151.6425607,
-    "ast_hash": "5b4ae1c1fab719085372c86a1e94a633",
+    "mtime": 1791128395.202273,
+    "seen": 1791129585.6427455,
+    "ast_hash": "4b90208e2d6b707fc11eae508d25a17c",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_en.dart": {
-    "mtime": 1791124944.1965237,
-    "seen": 1791125151.6425643,
-    "ast_hash": "767a32afcdc27c6fa8781deb42ba6d9a",
+    "mtime": 1791128395.3649817,
+    "seen": 1791129585.642748,
+    "ast_hash": "a910667c2a7bbe56b6ea290c6de48238",
     "semantic_hash": ""
   },
   "lib/l10n/gye_error_text.dart": {
@@ -1926,9 +1926,9 @@
     "semantic_hash": ""
   },
   "lib/services/audio_policy.dart": {
-    "mtime": 1791029072.1800299,
-    "seen": 1791118818.1905468,
-    "ast_hash": "aaefef61e0db4006a5dd1e93f01c19b1",
+    "mtime": 1791128388.6399345,
+    "seen": 1791129585.715073,
+    "ast_hash": "43e1db07f73d6842a94ce042c5a5a4bb",
     "semantic_hash": ""
   },
   "lib/services/auth_service.dart": {
@@ -3264,9 +3264,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/tokens.dart": {
-    "mtime": 1791118393.9232025,
-    "seen": 1791118818.1911623,
-    "ast_hash": "5f1bcdf127c4645ab2bbad7ef0273e01",
+    "mtime": 1791128388.682266,
+    "seen": 1791129585.8086758,
+    "ast_hash": "37b5544ffd4c0f409b766d96009519b8",
     "semantic_hash": ""
   },
   "lib/widgets/sori/tts_speed_control.dart": {
@@ -5652,9 +5652,9 @@
     "semantic_hash": ""
   },
   "test/standalone_games_uiux_test.dart": {
-    "mtime": 1791029073.2873025,
-    "seen": 1791118818.1924894,
-    "ast_hash": "2e18bb797592928c66f62ebedb026a7a",
+    "mtime": 1791128388.8555653,
+    "seen": 1791129586.0040882,
+    "ast_hash": "60afef8c6598c29edfee360eabc0ceab",
     "semantic_hash": ""
   },
   "test/standard_surface_responsive_test.dart": {
@@ -12948,9 +12948,9 @@
     "semantic_hash": ""
   },
   "tool/audio_gain_report.json": {
-    "mtime": 1791029073.432875,
-    "seen": 1791118818.1927557,
-    "ast_hash": "68995ca139491e073914a6a9526d9d71",
+    "mtime": 1791128430.8816082,
+    "seen": 1791129586.039041,
+    "ast_hash": "d19b8950a8a0492db9591a0b8f6d07b9",
     "semantic_hash": ""
   },
   "tool/measure_audio_gain.py": {
@@ -21570,9 +21570,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-10-03-hahoe-dokkaebi-practice.md": {
-    "mtime": 1791123492.0869894,
-    "seen": 1791125155.8615177,
-    "ast_hash": "0b5e6925e1c7b254519e1bc839731644",
+    "mtime": 1791125403.0981214,
+    "seen": 1791129586.385738,
+    "ast_hash": "892ebdc2667c84f87657249fe1ead65c",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-10-03-hahoe-dokkaebi-practice-design.md": {
@@ -21612,9 +21612,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/practice_character_clip.dart": {
-    "mtime": 1791121683.7605782,
-    "seen": 1791122647.7040198,
-    "ast_hash": "e20a52ccd52d686dd2e1e99252127897",
+    "mtime": 1791128388.6541371,
+    "seen": 1791129585.7698627,
+    "ast_hash": "d88c8550e26a419265725cc8c1380772",
     "semantic_hash": ""
   },
   "lib/widgets/practice_dokkaebi_art.dart": {
@@ -21630,15 +21630,15 @@
     "semantic_hash": ""
   },
   "lib/widgets/practice_dokkaebi_help.dart": {
-    "mtime": 1791111075.5998871,
-    "seen": 1791118818.1909027,
-    "ast_hash": "998cf4f11b221e6c6a44355b33b738ac",
+    "mtime": 1791128852.7842133,
+    "seen": 1791129585.7708006,
+    "ast_hash": "4de2bc0023d0e3b1c28158bc1dd9fcfb",
     "semantic_hash": ""
   },
   "lib/widgets/practice_dokkaebi_introduction.dart": {
-    "mtime": 1791117672.3576865,
-    "seen": 1791118818.190904,
-    "ast_hash": "14d1de573a7006473bafbc408e85f73e",
+    "mtime": 1791128852.775407,
+    "seen": 1791129585.7708056,
+    "ast_hash": "599f1c2585702cb35ee35423708a6969",
     "semantic_hash": ""
   },
   "lib/widgets/practice_layout.dart": {
@@ -21654,9 +21654,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/practice_motion.dart": {
-    "mtime": 1791117672.3518727,
-    "seen": 1791118818.1909091,
-    "ast_hash": "7e9293ae314b067d92b67f45c47ea472",
+    "mtime": 1791129176.1512165,
+    "seen": 1791129585.7718349,
+    "ast_hash": "99163a31cb3941611d34d19deae3f38a",
     "semantic_hash": ""
   },
   "lib/widgets/practice_scholar_art.dart": {
@@ -21684,15 +21684,15 @@
     "semantic_hash": ""
   },
   "test/practice_dokkaebi_introduction_test.dart": {
-    "mtime": 1791063674.7814312,
-    "seen": 1791118818.1920502,
-    "ast_hash": "1b214faf42bf909521f641a9f39eec6d",
+    "mtime": 1791128926.4687462,
+    "seen": 1791129585.94176,
+    "ast_hash": "2e3557b4c9a51aaffb4fdd004984c5b7",
     "semantic_hash": ""
   },
   "test/practice_motion_test.dart": {
-    "mtime": 1791118054.408943,
-    "seen": 1791118818.192059,
-    "ast_hash": "7a11fd39106d6785d8d9cb612e3a66bb",
+    "mtime": 1791129176.1146533,
+    "seen": 1791129585.942638,
+    "ast_hash": "41fc0a4481b8ad89317355dc61757edc",
     "semantic_hash": ""
   },
   "test/practice_scholar_clip_test.dart": {
@@ -21987,6 +21987,12 @@
     "mtime": 1791123664.2614288,
     "seen": 1791125156.121671,
     "ast_hash": "616a83781b309da68b33ac9fa4b3c530",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/plans/2026-10-04-canonical-companion-replacement.md": {
+    "mtime": 1791125846.404366,
+    "seen": 1791129586.3857415,
+    "ast_hash": "6977406adc508b0255f85c7ef4c6879e",
     "semantic_hash": ""
   }
 }

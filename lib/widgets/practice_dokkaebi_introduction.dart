@@ -20,7 +20,10 @@ enum _Topic { tales, home, learning }
 
 /// A voluntary introduction. Exploration never creates practice or rewards.
 class PracticeDokkaebiIntroduction extends StatefulWidget {
-  const PracticeDokkaebiIntroduction({super.key});
+  const PracticeDokkaebiIntroduction({super.key, this.paddedBySheet = false});
+
+  /// The shared sheet already owns its horizontal content inset.
+  final bool paddedBySheet;
 
   @override
   State<PracticeDokkaebiIntroduction> createState() =>
@@ -106,6 +109,7 @@ class _PracticeDokkaebiIntroductionState
     final text = SoriTextTheme.of(context);
     final size = MediaQuery.sizeOf(context);
     final scale = MediaQuery.textScalerOf(context).scale(16) / 16;
+    final horizontalPadding = widget.paddedBySheet ? 0.0 : Spacing.xl;
     final canPlay =
         !Storage.reducedMotion &&
         !MediaQuery.disableAnimationsOf(context) &&
@@ -136,7 +140,12 @@ class _PracticeDokkaebiIntroductionState
           children: [
             Expanded(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.fromLTRB(24, 8, 24, 24),
+                padding: EdgeInsets.fromLTRB(
+                  horizontalPadding,
+                  Spacing.sm,
+                  horizontalPadding,
+                  Spacing.xl,
+                ),
                 child: Center(
                   child: ConstrainedBox(
                     constraints: const BoxConstraints(maxWidth: 480),
@@ -145,6 +154,7 @@ class _PracticeDokkaebiIntroductionState
                       children: [
                         Semantics(
                           header: true,
+                          // l10n: exempt — Korean cultural name taught in every UI locale.
                           child: Text('도깨비', style: text.cultureTitle),
                         ),
                         const SizedBox(height: Spacing.sm),
@@ -215,7 +225,9 @@ class _PracticeDokkaebiIntroductionState
                         LayoutBuilder(
                           builder: (context, constraints) {
                             final stacked =
-                                scale > 1.4 || constraints.maxWidth < 280;
+                                scale > 1.4 ||
+                                constraints.maxWidth <
+                                    SoriBreakpoints.cultureTopicsStack;
                             final labels = [
                               t.practiceDokkaebiTopicTales,
                               t.practiceDokkaebiTopicHome,
@@ -354,6 +366,7 @@ class _PracticeDokkaebiIntroductionState
                                         ),
                                         if (_roof) ...[
                                           const SizedBox(height: Spacing.lg),
+                                          // l10n: exempt — Korean artifact name taught in every UI locale.
                                           Text('귀면와', style: text.cultureTitle),
                                           const SizedBox(height: Spacing.sm),
                                           Text(
@@ -397,7 +410,12 @@ class _PracticeDokkaebiIntroductionState
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(24, 16, 24, 16),
+              padding: EdgeInsets.fromLTRB(
+                horizontalPadding,
+                Spacing.lg,
+                horizontalPadding,
+                Spacing.lg,
+              ),
               child: Center(
                 heightFactor: 1,
                 child: ConstrainedBox(
@@ -586,37 +604,40 @@ class _IntroductionStageState extends State<_IntroductionStage>
               button: true,
               onTap: widget.onFire,
               child: ExcludeSemantics(
-                child: IconButton(
+                child: SoriPressable(
                   key: ValueKey('dokkaebi-intro-fire-$i'),
-                  constraints: const BoxConstraints(
-                    minWidth: 48,
-                    minHeight: 48,
-                  ),
-                  onPressed: widget.onFire,
-                  icon: AnimatedBuilder(
-                    animation: Listenable.merge([_orbit, _pulse]),
-                    builder: (context, child) {
-                      final enabled = TickerMode.valuesOf(context).enabled;
-                      final angle = _orbit.value * math.pi * 2 + i * math.pi;
-                      final bump = enabled
-                          ? math.sin(_pulse.value * math.pi)
-                          : 0.0;
-                      return Transform.translate(
-                        offset: enabled
-                            ? Offset(0, math.sin(angle) * 4)
-                            : Offset.zero,
-                        child: Transform.scale(
-                          scale: 1 + bump * .12,
-                          child: child,
+                  pressScale: 1,
+                  onTap: widget.onFire,
+                  child: SizedBox.square(
+                    dimension: 48,
+                    child: Center(
+                      child: AnimatedBuilder(
+                        animation: Listenable.merge([_orbit, _pulse]),
+                        builder: (context, child) {
+                          final enabled = TickerMode.valuesOf(context).enabled;
+                          final angle =
+                              _orbit.value * math.pi * 2 + i * math.pi;
+                          final bump = enabled
+                              ? math.sin(_pulse.value * math.pi)
+                              : 0.0;
+                          return Transform.translate(
+                            offset: enabled
+                                ? Offset(0, math.sin(angle) * 4)
+                                : Offset.zero,
+                            child: Transform.scale(
+                              scale: 1 + bump * .12,
+                              child: child,
+                            ),
+                          );
+                        },
+                        child: Image.asset(
+                          'assets/illustrations/decorations/decoration_dokkaebi_fire.png',
+                          width: 26,
+                          height: 26,
+                          cacheWidth: 128,
+                          excludeFromSemantics: true,
                         ),
-                      );
-                    },
-                    child: Image.asset(
-                      'assets/illustrations/decorations/decoration_dokkaebi_fire.png',
-                      width: 26,
-                      height: 26,
-                      cacheWidth: 128,
-                      excludeFromSemantics: true,
+                      ),
                     ),
                   ),
                 ),

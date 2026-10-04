@@ -16,6 +16,75 @@ void main() {
     await Storage.init();
   });
 
+  testWidgets('hint focus survives motion changes without replaying old help', (
+    tester,
+  ) async {
+    final focus = FocusNode();
+    addTearDown(focus.dispose);
+    Widget host(bool reduced, int pulse) => MaterialApp(
+      theme: AppTheme.light,
+      home: Scaffold(
+        body: Builder(
+          builder: (context) => MediaQuery(
+            data: MediaQuery.of(context).copyWith(disableAnimations: reduced),
+            child: PracticeHintEmphasis(
+              pulse: pulse,
+              child: TextButton(
+                focusNode: focus,
+                onPressed: () {},
+                child: const Text('Crossing field'),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    double visibleHintAlpha() =>
+        (tester
+                    .widget<DecoratedBox>(
+                      find.byWidgetPredicate(
+                        (w) =>
+                            w is DecoratedBox &&
+                            w.position == DecorationPosition.foreground,
+                      ),
+                    )
+                    .decoration
+                as BoxDecoration)
+            .border!
+            .top
+            .color
+            .a;
+
+    await tester.pumpWidget(host(false, 0));
+    focus.requestFocus();
+    await tester.pump();
+    await tester.pumpWidget(host(false, 1));
+    await tester.pump(const Duration(milliseconds: 20));
+    expect(visibleHintAlpha(), greaterThan(0));
+    expect(focus.hasPrimaryFocus, isTrue);
+    await tester.pumpWidget(host(false, 0));
+    expect(
+      visibleHintAlpha(),
+      0,
+      reason: 'A field leaving the current hint loses its glow immediately.',
+    );
+    await tester.pumpWidget(host(false, 1));
+    await tester.pumpWidget(host(true, 2));
+    await tester.pump();
+    expect(visibleHintAlpha(), 0);
+    expect(focus.hasPrimaryFocus, isTrue);
+    await tester.pumpWidget(host(false, 2));
+    await tester.pump(const Duration(milliseconds: 20));
+    expect(
+      visibleHintAlpha(),
+      0,
+      reason: 'Help consumed with motion off must stay consumed.',
+    );
+    expect(focus.hasPrimaryFocus, isTrue);
+    expect(tester.takeException(), isNull);
+    await tester.pumpWidget(const SizedBox());
+  });
+
   testWidgets('depth follows a press without stealing the button or scroll', (
     tester,
   ) async {

@@ -6,7 +6,8 @@ import 'practice_dokkaebi_art.dart';
 import 'practice_dokkaebi_clip.dart';
 import 'practice_dokkaebi_introduction.dart';
 import 'practice_motion.dart';
-import 'sori/card.dart';
+import 'sori/pressable.dart';
+import 'sori/sheet.dart';
 import 'sori/tokens.dart';
 
 class PracticeDokkaebiHelp extends StatelessWidget {
@@ -166,41 +167,51 @@ class _DokkaebiStageState extends State<_DokkaebiStage>
                 top: widget.size * (i == 0 ? .45 : .57),
                 child: ExcludeSemantics(
                   child: IgnorePointer(
-                    child: TweenAnimationBuilder<double>(
-                      tween: Tween(end: request * math.pi / 2),
-                      duration: TickerMode.valuesOf(context).enabled
-                          ? const Duration(milliseconds: 250)
-                          : Duration.zero,
-                      child: Image.asset(
-                        _fire,
-                        key: ValueKey('dokkaebi-fire-$i'),
-                        width: 26,
-                        height: 26,
-                        cacheWidth: 128,
-                      ),
-                      builder: (context, phase, child) => AnimatedBuilder(
-                        animation: _orbit,
-                        child: child,
-                        builder: (context, child) {
-                          final angle =
-                              _orbit.value * 2 * math.pi + i * math.pi + phase;
-                          return Transform.translate(
-                            offset: TickerMode.valuesOf(context).enabled
-                                ? Offset(
-                                    math.cos(angle) * 5,
-                                    math.sin(angle) * 7,
-                                  )
-                                : Offset.zero,
-                            child: Transform.rotate(
-                              angle: TickerMode.valuesOf(context).enabled
-                                  ? math.sin(angle) * .1
-                                  : 0,
-                              child: child,
+                    child: !TickerMode.valuesOf(context).enabled
+                        ? Image.asset(
+                            _fire,
+                            key: ValueKey('dokkaebi-fire-$i'),
+                            width: 26,
+                            height: 26,
+                            cacheWidth: 128,
+                          )
+                        : TweenAnimationBuilder<double>(
+                            tween: Tween(end: request * math.pi / 2),
+                            duration: TickerMode.valuesOf(context).enabled
+                                ? const Duration(milliseconds: 250)
+                                : Duration.zero,
+                            child: Image.asset(
+                              _fire,
+                              key: ValueKey('dokkaebi-fire-$i'),
+                              width: 26,
+                              height: 26,
+                              cacheWidth: 128,
                             ),
-                          );
-                        },
-                      ),
-                    ),
+                            builder: (context, phase, child) => AnimatedBuilder(
+                              animation: _orbit,
+                              child: child,
+                              builder: (context, child) {
+                                final angle =
+                                    _orbit.value * 2 * math.pi +
+                                    i * math.pi +
+                                    phase;
+                                return Transform.translate(
+                                  offset: TickerMode.valuesOf(context).enabled
+                                      ? Offset(
+                                          math.cos(angle) * 5,
+                                          math.sin(angle) * 7,
+                                        )
+                                      : Offset.zero,
+                                  child: Transform.rotate(
+                                    angle: TickerMode.valuesOf(context).enabled
+                                        ? math.sin(angle) * .1
+                                        : 0,
+                                    child: child,
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
                   ),
                 ),
               ),
@@ -220,12 +231,12 @@ class _DokkaebiStageState extends State<_DokkaebiStage>
 
 /// Explicitly opened introduction: it never requests a hint or writes a result.
 Future<void> showPracticeDokkaebiIntroduction(BuildContext context) {
-  return showModalBottomSheet<void>(
+  return showSoriSheet<void>(
     context: context,
-    isScrollControlled: true,
-    showDragHandle: true,
-    backgroundColor: SoriCard.resolvedBackground(context),
-    builder: (context) => const PracticeDokkaebiIntroduction(),
+    scrollable: false,
+    maxTextScaleFactor: 2,
+    builder: (context) =>
+        const PracticeDokkaebiIntroduction(paddedBySheet: true),
   );
 }
 
@@ -276,24 +287,29 @@ class _FireActionState extends State<_FireAction>
         button: true,
         onTap: open,
         child: ExcludeSemantics(
-          child: IconButton(
+          child: SoriPressable(
             key: const ValueKey('dokkaebi-introduction'),
-            constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
-            onPressed: open,
-            icon: AnimatedBuilder(
-              animation: _orbit,
-              child: Image.asset(
-                'assets/illustrations/decorations/decoration_dokkaebi_fire.png',
-                width: 28,
-                height: 28,
-                cacheWidth: 128,
-                excludeFromSemantics: true,
-              ),
-              builder: (context, child) => Transform.translate(
-                offset: TickerMode.valuesOf(context).enabled
-                    ? Offset(0, math.sin(_orbit.value * math.pi * 2) * 2)
-                    : Offset.zero,
-                child: child,
+            pressScale: 1,
+            onTap: open,
+            child: SizedBox.square(
+              dimension: 48,
+              child: Center(
+                child: AnimatedBuilder(
+                  animation: _orbit,
+                  child: Image.asset(
+                    'assets/illustrations/decorations/decoration_dokkaebi_fire.png',
+                    width: 28,
+                    height: 28,
+                    cacheWidth: 128,
+                    excludeFromSemantics: true,
+                  ),
+                  builder: (context, child) => Transform.translate(
+                    offset: TickerMode.valuesOf(context).enabled
+                        ? Offset(0, math.sin(_orbit.value * math.pi * 2) * 2)
+                        : Offset.zero,
+                    child: child,
+                  ),
+                ),
               ),
             ),
           ),

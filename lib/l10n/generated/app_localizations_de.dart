@@ -11436,9 +11436,6 @@ class AppL10nDe extends AppL10n {
   String get practiceChooseAgain => 'Absicht erneut wählen';
 
   @override
-  String get practiceHintTitle => 'Ein Hinweis vom Dokkaebi';
-
-  @override
   String get practiceHintMeaning => 'Satzhinweis ansehen';
 
   @override

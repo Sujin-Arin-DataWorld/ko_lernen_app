@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 import '../services/haptic_service.dart';
+import '../services/audio_policy.dart';
 import '../services/storage_service.dart';
 import 'sori/tiger_video.dart';
 import 'sori/video_lease.dart';
@@ -108,8 +109,7 @@ class _PracticeCharacterClipState extends State<PracticeCharacterClip> {
       asset: widget.videoAsset,
       eligible: false,
       prepare: (video) async {
-        // audio-policy: exempt — approved character gesture is always silent.
-        await video.setVolume(0);
+        await video.setVolume(AudioPolicy.silentGestureVolume);
         await video.setLooping(false);
       },
       onGranted: _granted,

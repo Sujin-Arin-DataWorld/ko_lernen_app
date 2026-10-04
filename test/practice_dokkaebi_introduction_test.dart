@@ -120,6 +120,15 @@ void main() {
       final footer = tester.getRect(returnButton);
       expect(footer.top, greaterThan(0));
       expect(footer.bottom, lessThan(variant.$1.height));
+      if (variant.$1.width == 390 && variant.$3 == 'de') {
+        expect(
+          tester
+              .getSize(find.byKey(const ValueKey('dokkaebi-topic-learning')))
+              .width,
+          greaterThanOrEqualTo(100),
+          reason: 'The shared sheet must not double the topic inset.',
+        );
+      }
 
       Future<void> choose(String key) async {
         final f = find.byKey(ValueKey(key));

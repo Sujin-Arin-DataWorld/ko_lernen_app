@@ -375,7 +375,7 @@ class _PaperMotionState extends State<_PaperMotion>
 }
 
 /// Paint-only emphasis: grid hit boxes and tile placement coordinates stay put.
-class PracticeHintEmphasis extends StatelessWidget {
+class PracticeHintEmphasis extends StatefulWidget {
   const PracticeHintEmphasis({
     super.key,
     required this.child,
@@ -384,27 +384,64 @@ class PracticeHintEmphasis extends StatelessWidget {
   final Widget child;
   final int pulse;
   @override
-  Widget build(BuildContext context) => TweenAnimationBuilder<double>(
-    key: ValueKey(pulse),
-    tween: Tween(begin: pulse > 0 ? 1 : 0, end: 0),
-    duration:
-        TickerMode.valuesOf(context).enabled &&
-            !Storage.reducedMotion &&
-            !MediaQuery.disableAnimationsOf(context)
-        ? SoriMotion.slow
-        : Duration.zero,
-    child: child,
-    builder: (context, value, child) => DecoratedBox(
+  State<PracticeHintEmphasis> createState() => _PracticeHintEmphasisState();
+}
+
+class _PracticeHintEmphasisState extends State<PracticeHintEmphasis>
+    with SingleTickerProviderStateMixin {
+  late final _highlight = AnimationController(
+    vsync: this,
+    duration: SoriMotion.slow,
+  );
+  int _lastPulse = 0;
+  bool get _canAnimate =>
+      TickerMode.valuesOf(context).enabled &&
+      !Storage.reducedMotion &&
+      !MediaQuery.disableAnimationsOf(context);
+
+  void _consumePulse() {
+    if (!_canAnimate) {
+      _lastPulse = widget.pulse;
+      _highlight.stop();
+      _highlight.value = 0;
+    } else if (widget.pulse != _lastPulse) {
+      _lastPulse = widget.pulse;
+      if (widget.pulse > 0) {
+        _highlight.reverse(from: 1);
+      } else {
+        _highlight.stop();
+        _highlight.value = 0;
+      }
+    }
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _consumePulse();
+  }
+
+  @override
+  void didUpdateWidget(PracticeHintEmphasis oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _consumePulse();
+  }
+
+  @override
+  Widget build(BuildContext context) => AnimatedBuilder(
+    animation: _highlight,
+    child: widget.child,
+    builder: (context, child) => DecoratedBox(
       position: DecorationPosition.foreground,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(SoriRadius.sm),
         border: Border.all(
-          color: SoriColors.info.withValues(alpha: value * .7),
+          color: SoriColors.info.withValues(alpha: _highlight.value * .7),
           width: 2,
         ),
         boxShadow: [
           BoxShadow(
-            color: SoriColors.info.withValues(alpha: value * .2),
+            color: SoriColors.info.withValues(alpha: _highlight.value * .2),
             blurRadius: 14,
           ),
         ],
@@ -412,25 +449,38 @@ class PracticeHintEmphasis extends StatelessWidget {
       child: child,
     ),
   );
+
+  @override
+  void dispose() {
+    _highlight.dispose();
+    super.dispose();
+  }
 }
 
 class PracticeImpactRipple extends StatelessWidget {
   const PracticeImpactRipple({super.key, required this.pulse});
   final int pulse;
   @override
-  Widget build(BuildContext context) => ExcludeSemantics(
-    child: IgnorePointer(
-      child: TweenAnimationBuilder<double>(
-        key: ValueKey(pulse),
-        tween: Tween(begin: 0, end: 1),
-        duration: pulse > 0 && TickerMode.valuesOf(context).enabled
-            ? SoriMotion.slow
-            : Duration.zero,
-        builder: (context, value, _) =>
-            CustomPaint(painter: _RipplePainter(pulse > 0 ? value : 1)),
+  Widget build(BuildContext context) {
+    if (!TickerMode.valuesOf(context).enabled ||
+        Storage.reducedMotion ||
+        MediaQuery.disableAnimationsOf(context)) {
+      return const SizedBox.shrink();
+    }
+    return ExcludeSemantics(
+      child: IgnorePointer(
+        child: TweenAnimationBuilder<double>(
+          key: ValueKey(pulse),
+          tween: Tween(begin: 0, end: 1),
+          duration: pulse > 0 && TickerMode.valuesOf(context).enabled
+              ? SoriMotion.slow
+              : Duration.zero,
+          builder: (context, value, _) =>
+              CustomPaint(painter: _RipplePainter(pulse > 0 ? value : 1)),
+        ),
       ),
-    ),
-  );
+    );
+  }
 }
 
 class _RipplePainter extends CustomPainter {

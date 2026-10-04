@@ -11383,9 +11383,6 @@ class AppL10nEn extends AppL10n {
   String get practiceChooseAgain => 'Choose your intention again';
 
   @override
-  String get practiceHintTitle => 'A hint from Dokkaebi';
-
-  @override
   String get practiceHintMeaning => 'See a sentence clue';
 
   @override
