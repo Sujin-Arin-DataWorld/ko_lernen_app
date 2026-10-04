@@ -2,16 +2,29 @@
 
 - **Version:** 1.82
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-6-full-closeout-2026-08-22`
-- **Base:** `origin/main@2c25079623a1f52296f48f66a35e91aafb37592e`
-- **State:** Phase 6 is locally final-verified on inventory/audit commit
-  `6a62c3c36d534fd80d4269da18f7168fa7cd122c`
+- **Branch:** `session/textured-ui-runtime-20261002`
+- **Base:** `origin/main@34f1b0ca5`
+- **State:** Approved tactile-art adoption and native Flutter integration;
+  validation evidence is recorded with the resulting PR.
 - **Closeout gate:** if this exact lock head is not on `origin/main`, push the
-  clean two-commit branch, open one PR, use only automatic exact-head CI, and
+  clean integration branch, open one PR, use automatic exact-head CI when present, and
   merge only after every required check is green; once it is on main, perform
   the final main proof and UIUX worktree/branch cleanup below
 
 ## Current State Summary
+
+The user's 2026-10-02 instruction adopts the textured review assets and
+authorizes app integration, commit and push. It supersedes the earlier
+review-only asset boundary for the explicit files in
+[`TACTILE_UI_ASSETS.json`](assets/TACTILE_UI_ASSETS.json). Mature tiger/magpie
+front art is replaced with the approved PNGs; exact previous originals remain
+in `assets_unused/approved_texture_originals`. Hanok, Bojagi and original
+Packs/listening WebP bytes remain authoritative and unchanged. The tactile
+display rules are in [`TACTILE_DESIGN_CONTRACT.md`](assets/TACTILE_DESIGN_CONTRACT.md).
+No character-selection, learning-reward, speaker-identity or TTS policy is added.
+The four-entry catalog proposal from `16de196e5` is implemented in Flutter with
+device-local, account-owned history; the browser prototype is not bundled.
+The native Sori component inventory below remains the same 144 files.
 
 Phase 5C entry and onboarding is merged as PR #199. Its app commit is
 `1dbabd9ea38484706543592fbf731402087a2d7d`, exact PR head is

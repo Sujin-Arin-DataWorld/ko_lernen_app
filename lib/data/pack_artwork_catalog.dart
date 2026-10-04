@@ -208,6 +208,14 @@ abstract final class PackArtworkCatalog {
   /// still supplies the final DancheongStamp fallback if that asset cannot be
   /// loaded, so this staged rollout cannot turn a card blank.
   static String assetFor(String packId, DancheongMotif rewardMotif) {
+    if (packId == 'a1_greetings_2') {
+      return 'assets/illustrations/tactile/a1_greetings_2-3d.png';
+    }
+    return originalAssetFor(packId, rewardMotif);
+  }
+
+  /// Canonical production source; approved display variants keep these bytes.
+  static String originalAssetFor(String packId, DancheongMotif rewardMotif) {
     final stem = hasDedicatedArtwork(packId) ? packId : rewardMotif.name;
     return '$_assetRoot/$stem.webp';
   }

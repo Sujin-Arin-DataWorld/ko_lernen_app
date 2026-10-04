@@ -18,6 +18,7 @@ import 'package:ko_lernen_app/widgets/sori/catalog_card.dart';
 import 'package:ko_lernen_app/widgets/sori/adaptive_navigation.dart';
 import 'package:ko_lernen_app/widgets/sori/activity_illustration.dart';
 import 'package:ko_lernen_app/widgets/sori/sheet.dart';
+import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 import 'support/catalog_test_support.dart';
 import 'support/real_fonts.dart';
 
@@ -72,6 +73,8 @@ void main() {
         const ValueKey('learning-focus-course-overview'),
       );
       expect(overview, findsOneWidget);
+      await Scrollable.ensureVisible(tester.element(overview), alignment: .5);
+      await tester.pump();
       expect(overview.hitTestable(), findsOneWidget);
       expect(find.byKey(const ValueKey('catalog-card-course')), findsNothing);
       expect(opened, isEmpty);
@@ -87,7 +90,7 @@ void main() {
         await Scrollable.ensureVisible(tester.element(start), alignment: .5);
         await tester.pump();
         expect(start.hitTestable(), findsOneWidget, reason: entry.id);
-        expect(tester.widget<InkWell>(start).onTap, isNotNull);
+        expect(tester.widget<SoriPressable>(start).onTap, isNotNull);
       }
       expect(opened, ['/path']);
       expect(tester.takeException(), isNull);
@@ -116,10 +119,12 @@ void main() {
         await tester.pumpAndSettle();
         final navTop = tester.getTopLeft(find.byType(NavigationBar)).dy;
         final ids = tab == SoriStageTab.learn
-            ? ['vocab_packs', 'grammar']
-            : ['chosung', 'syllable_cross'];
+            ? ['listening', 'scenarios', 'vocab_packs', 'grammar']
+            : ['daily_game', 'chosung', 'syllable_cross', 'cloze'];
         for (final id in ids) {
-          final rect = tester.getRect(find.byKey(ValueKey('catalog-card-$id')));
+          final rect = tester.getRect(
+            find.byKey(ValueKey('catalog-quick-$id')),
+          );
           expect(
             rect.bottom,
             lessThanOrEqualTo(navTop),
@@ -187,6 +192,8 @@ void main() {
       );
       await tester.pumpAndSettle();
       final details = find.byKey(const ValueKey('catalog-details-vocab_packs'));
+      await Scrollable.ensureVisible(tester.element(details), alignment: .5);
+      await tester.pumpAndSettle();
       await tester.tap(details);
       await tester.pumpAndSettle();
       expect(opened, isEmpty);
@@ -273,7 +280,7 @@ void main() {
           final b = tester.getRect(
             find.byKey(const ValueKey('catalog-card-grammar')),
           );
-          if (scale >= 1.5 &&
+          if (scale >= 1.5 ||
               size.width -
                       (size.width >= 600
                           ? SoriAdaptiveNavigation.railWidthForWidth(size.width)
@@ -406,6 +413,11 @@ void main() {
         findsOneWidget,
       );
       final t = AppL10n.of(tester.element(find.byType(SoriStageCatalogScreen)));
+      await Scrollable.ensureVisible(
+        tester.element(find.text(t.btnRetry)),
+        alignment: .5,
+      );
+      await tester.pumpAndSettle();
       await tester.tap(find.text(t.btnRetry));
       await tester.pumpAndSettle();
       expect(attempts, 2);
@@ -489,19 +501,19 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      await tester.tap(find.byKey(const ValueKey('catalog-start-vocab_packs')));
+      await tester.tap(find.byKey(const ValueKey('catalog-quick-vocab_packs')));
       await tester.pump();
       cloudWriteSessionController.acquire('new-account');
       await tester.pumpAndSettle();
-      await tester.tap(find.byKey(const ValueKey('catalog-start-grammar')));
+      await tester.tap(find.byKey(const ValueKey('catalog-quick-grammar')));
       await tester.pump();
       first.complete();
       await tester.pump();
-      await tester.tap(find.byKey(const ValueKey('catalog-start-vocab_packs')));
+      await tester.tap(find.byKey(const ValueKey('catalog-quick-vocab_packs')));
       expect(opened, ['vocab_packs', 'grammar']);
       second.complete();
       await tester.pumpAndSettle();
-      await tester.tap(find.byKey(const ValueKey('catalog-start-vocab_packs')));
+      await tester.tap(find.byKey(const ValueKey('catalog-quick-vocab_packs')));
       await tester.pumpAndSettle();
       expect(opened, ['vocab_packs', 'grammar', 'vocab_packs']);
       await tester.pumpWidget(const SizedBox());

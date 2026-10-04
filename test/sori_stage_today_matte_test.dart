@@ -95,27 +95,33 @@ void main() {
     expect(find.byTooltip('Profile'), findsOneWidget);
   });
 
-  testWidgets('Today uses sitting2 and clips only its empty lower matte', (
-    tester,
-  ) async {
-    final previous = TigerStageVideo.videoReady;
-    TigerStageVideo.videoReady = true;
-    addTearDown(() => TigerStageVideo.videoReady = previous);
-    await pumpToday(tester);
+  testWidgets(
+    'Today adopts the mature textured portrait without legacy video',
+    (tester) async {
+      final previous = TigerStageVideo.videoReady;
+      TigerStageVideo.videoReady = true;
+      addTearDown(() => TigerStageVideo.videoReady = previous);
+      await pumpToday(tester);
 
-    final player = tester.widget<CharacterClipPlayer>(
-      find.byType(CharacterClipPlayer),
-    );
-    expect(player.asset, HomeHeroClips.tigerSitting2);
-    expect(player.loop, isTrue);
-    expect(player.applyMultiplyFilter, isFalse);
-    final ground = tester.getSize(
-      find.byKey(const ValueKey('learning-companion-ground')),
-    );
-    expect(ground, const Size(144, 125));
-    // Source all-frame maximum body y=552, verified by the bake tool.
-    expect(player.size * 553 / 640, lessThan(ground.height));
-  });
+      expect(find.byType(CharacterClipPlayer), findsNothing);
+      final companion = find.byType(SoriLearningCompanion);
+      expect(
+        tester.widget<SoriLearningCompanion>(companion).forceStatic,
+        isTrue,
+      );
+      final portrait = find.descendant(
+        of: companion,
+        matching: find.byType(Mascot),
+      );
+      expect(tester.widget<Mascot>(portrait).kind, MascotKind.tiger);
+      expect(tester.widget<Mascot>(portrait).size, 84);
+      final ground = tester.getSize(
+        find.byKey(const ValueKey('learning-companion-ground')),
+      );
+      expect(ground, const Size(144, 125));
+      expect(tester.widget<Mascot>(portrait).size, lessThan(ground.height));
+    },
+  );
 
   testWidgets('까치 홈 히어로는 기존 보행 루프와 하단 기준을 유지한다', (tester) async {
     await tester.pumpWidget(

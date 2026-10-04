@@ -158,9 +158,21 @@ void main() {
           Navigator.of(tester.element(find.byType(BookCaptureScreen))).pop();
           await pumpSoriStage(tester);
           expect(_start.hitTestable(), findsOneWidget);
-          expect({
-            for (final key in prefs.getKeys()) key: prefs.get(key),
-          }, before);
+          expect(
+            {
+              for (final key in prefs.getKeys())
+                if (key != Storage.catalogRecommendationsPreferenceKey &&
+                    key != Storage.recentLearnActivityPreferenceKey)
+                  key: prefs.get(key),
+            },
+            {...before}
+              ..remove(Storage.catalogRecommendationsPreferenceKey)
+              ..remove(Storage.recentLearnActivityPreferenceKey),
+          );
+          expect(
+            Storage.recentCatalogActivityId(SoriStageTab.learn),
+            'book_capture',
+          );
           expect(tester.takeException(), isNull);
         },
       );

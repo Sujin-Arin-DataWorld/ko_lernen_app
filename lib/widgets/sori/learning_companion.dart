@@ -65,16 +65,16 @@ class _SoriLearningCompanionState extends State<SoriLearningCompanion> {
       );
     }
 
+    final isTiger = character == MascotKind.tiger;
+    final viewportHeight = isTiger ? sittingViewport : clipSize;
     final useStatic =
         widget.forceStatic ||
         _failed ||
         CharacterClipPlayer.videoUnavailable(context);
-    final isTiger = character == MascotKind.tiger;
-    final viewportHeight = isTiger ? sittingViewport : clipSize;
     final clip = useStatic
         ? Align(
             alignment: Alignment.bottomCenter,
-            child: Mascot(kind: character, size: viewportHeight),
+            child: Mascot(kind: character, size: 84),
           )
         : ClipRect(
             child: OverflowBox(

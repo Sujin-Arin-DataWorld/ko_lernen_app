@@ -187,7 +187,7 @@ void main() {
                       expect(cardBounds.contains(bounds.topLeft), isTrue);
                       expect(cardBounds.contains(bounds.bottomRight), isTrue);
                     }
-                    final art = tester.widget<Image>(
+                    final art = tester.widgetList<Image>(
                       find.descendant(
                         of: cardFinder,
                         matching: find.byWidgetPredicate(
@@ -199,7 +199,12 @@ void main() {
                         ),
                       ),
                     );
-                    expect(art.fit, BoxFit.contain);
+                    // Featured actions reuse the same artwork as an emblem.
+                    // Both the full illustration and CTA must contain it.
+                    expect(art, isNotEmpty);
+                    for (final image in art) {
+                      expect(image.fit, BoxFit.contain);
+                    }
                     expect(tester.takeException(), isNull);
                   }
                 },
