@@ -50,12 +50,21 @@ Future<void> loadSoriRealFonts({bool materialIcons = false}) async {
 }
 
 Future<void> _loadTextFonts() async {
-  for (final (family, path) in const [
-    ('NotoSansKR', 'assets/fonts/NotoSansKR/NotoSansKR-Variable.ttf'),
-  ]) {
-    final loader = FontLoader(family);
-    final bytes = File(path).readAsBytesSync();
-    loader.addFont(Future<ByteData>.value(ByteData.view(bytes.buffer)));
+  const families = {
+    'NotoSansKR': ['assets/fonts/NotoSansKR/NotoSansKR-Variable.ttf'],
+    'Paperlogy': [
+      'assets/fonts/Paperlogy/Paperlogy-Regular.ttf',
+      'assets/fonts/Paperlogy/Paperlogy-Medium.ttf',
+      'assets/fonts/Paperlogy/Paperlogy-SemiBold.ttf',
+      'assets/fonts/Paperlogy/Paperlogy-Bold.ttf',
+    ],
+  };
+  for (final family in families.entries) {
+    final loader = FontLoader(family.key);
+    for (final path in family.value) {
+      final bytes = File(path).readAsBytesSync();
+      loader.addFont(Future<ByteData>.value(ByteData.view(bytes.buffer)));
+    }
     await loader.load();
   }
 }

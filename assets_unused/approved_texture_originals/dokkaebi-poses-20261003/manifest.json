@@ -1,0 +1,113 @@
+{
+  "originals_preserved": true,
+  "entries": [
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\3도깨비불-도깨비.png",
+      "runtime": "assets/illustrations/tactile/dokkaebi/dokkaebi_inviting.png",
+      "sha256": "fd2ff0fc837dbba6a06679970f2bf938811b3a319e6838a8c8fbc9364e71b2c8",
+      "bytes": 1623276,
+      "size": [
+        1086,
+        1448
+      ],
+      "alpha_bounds": [
+        0,
+        16,
+        1072,
+        1398
+      ],
+      "derivation": "None: byte-identical user-approved PNG",
+      "source_at_approval": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\도깨비불-도깨비.png"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\2.도깨비다른포즈2.png",
+      "runtime": "assets/illustrations/tactile/dokkaebi/dokkaebi_ready.png",
+      "sha256": "facaa51a5a420fd57fa07a805607d083592e801cbc6e39ff049a32818f3f04ba",
+      "bytes": 1645436,
+      "size": [
+        1086,
+        1448
+      ],
+      "alpha_bounds": [
+        19,
+        13,
+        1066,
+        1448
+      ],
+      "derivation": "None: byte-identical user-approved PNG",
+      "source_at_approval": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\도깨비다른포즈2.png"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\5도깨비불-도깨비3.png",
+      "runtime": "assets/illustrations/tactile/dokkaebi/dokkaebi_helping.png",
+      "sha256": "8161885cd8ce197176763385a503a3a5d89de1de471dd657ee8bc4ca6ad21665",
+      "bytes": 1741281,
+      "size": [
+        1086,
+        1448
+      ],
+      "alpha_bounds": [
+        0,
+        16,
+        1072,
+        1422
+      ],
+      "derivation": "None: byte-identical user-approved PNG",
+      "source_at_approval": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\도깨비불-도깨비3.png"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\4도깨비불-도깨비2.png",
+      "runtime": "assets/illustrations/tactile/dokkaebi/dokkaebi_review.png",
+      "sha256": "217c2f319f6fd8a563cb6bcb588fce1af073f768a7b965d4f2668bb2651b0412",
+      "bytes": 1568433,
+      "size": [
+        1086,
+        1448
+      ],
+      "alpha_bounds": [
+        0,
+        12,
+        1025,
+        1448
+      ],
+      "derivation": "None: byte-identical user-approved PNG",
+      "source_at_approval": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\도깨비불-도깨비2.png"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\6도깨비불-도깨비4.png",
+      "runtime": "assets/illustrations/tactile/dokkaebi/dokkaebi_celebrate.png",
+      "sha256": "690d6640d37c1147cd25d104458b8854c3356fc8001ab352ecb3fdd70c4b8819",
+      "bytes": 1511005,
+      "size": [
+        1086,
+        1448
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        1072,
+        1448
+      ],
+      "derivation": "None: byte-identical user-approved PNG",
+      "source_at_approval": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\도깨비불-도깨비4.png"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\10푸른 불꽃의 도깨비 전사.png",
+      "runtime": "assets/illustrations/tactile/dokkaebi/dokkaebi_magical.png",
+      "sha256": "2910db8e6c0a9870a572633026e5405b970d71a21bceb4f5802911a4b16fa301",
+      "bytes": 1978065,
+      "size": [
+        1195,
+        1316
+      ],
+      "alpha_bounds": [
+        0,
+        10,
+        1141,
+        1316
+      ],
+      "derivation": "None: byte-identical user-approved PNG",
+      "source_at_approval": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\푸른 불꽃의 도깨비 전사.png"
+    }
+  ]
+}

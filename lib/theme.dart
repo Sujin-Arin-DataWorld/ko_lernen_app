@@ -63,7 +63,7 @@ class AppTheme {
           color: s.text,
           // §W-A2 b (2026-09-03): SoriAppBar 의 chromeTitle 과 동일 스펙으로
           // 수렴 — SoriTypeSpecs.chromeTitle 단일 원천.
-          fontFamily: SoriFonts.sans,
+          fontFamily: SoriFonts.interface,
           fontFamilyFallback: SoriFonts.fallback,
           fontWeight: SoriTypeSpecs.chromeTitle.weight,
           fontSize: SoriTypeSpecs.chromeTitle.size,
@@ -209,7 +209,7 @@ class AppTheme {
         labelTextStyle: WidgetStateProperty.resolveWith((states) {
           final selected = states.contains(WidgetState.selected);
           return TextStyle(
-            fontFamily: SoriFonts.sans,
+            fontFamily: SoriFonts.interface,
             fontSize: 13,
             fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
             color: selected ? primary : s.textMuted,
