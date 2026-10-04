@@ -122,6 +122,8 @@ dev_dependencies:
   flutter_launcher_icons: ^0.14.1
 
 flutter:
+  shaders:
+    - shaders/dokkaebi_flame_frame.frag
   # Runner deliberately uses CocoaPods only. Flutter 3.44 enables SwiftPM by
   # default on macOS; without this project-level override, Xcode Cloud sends
   # supported plugins (including audioplayers_darwin) to the removed
@@ -133,6 +135,7 @@ flutter:
   generate: true                   # für ARB Localisations
 
   assets:
+    - assets/illustrations/dokkaebi_intro/
     - assets/data/
     - assets/tts/v3/female/
     - assets/tts/v3/male/
