@@ -314,6 +314,10 @@ REVIEWED_HOMOGRAPH_HITS = {
         "레나 씨, 오늘 바빠요? 그럼 내일 만나요.",
         "이 가방이 얼마나 비싸요?",
     )},
+    # 레나 is a proper name, not the -(이)나 particle. Keep the exact text
+    # and pattern pair bound so other higher-level forms remain detectable.
+    "레나 씨, 이 카메라로 찍을까요?": {"grammar_a1_or_particle"},
+    "레나 씨, 여기서 사진 찍을까요?": {"grammar_a1_or_particle"},
     "민호 씨, 배가 고파요? 그러면 같이 밥을 먹어요.": {"grammar_a2_conditional"},
     "저는 학교를 찾아봐요.": {
         "grammar_a2_try_experience", "nikl_g2_어_보다_v1", "aux_try_아어보다",
