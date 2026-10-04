@@ -9,7 +9,7 @@ import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_catalog_screen.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
-import 'package:ko_lernen_app/widgets/sori/avatar.dart';
+import 'package:ko_lernen_app/widgets/sori/settings_button.dart';
 
 void main() {
   for (final size in const <Size>[
@@ -64,10 +64,9 @@ void main() {
 
       expect(tester.takeException(), isNull);
       expect(find.byType(SoriStageCatalogScreen), findsOneWidget);
-      // §W-G2 item 4: 프로필 진입점이 raw IconButton(tooltip)에서
-      // SoriAvatar(Semantics label, Tooltip 없음)로 바뀌었다 — 같은 목적지
-      // /profile 을 여는 위젯이 정확히 하나인지로 계약을 유지한다.
-      expect(find.byType(SoriAvatar), findsOneWidget);
+      // The approved gear opens Settings, whose profile row retains the full
+      // profile destination. Reduced motion keeps this entrance reachable.
+      expect(find.byType(SoriSettingsButton), findsOneWidget);
     });
   }
 

@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,11 +9,18 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/my_words_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
+import 'support/real_fonts.dart';
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(() async {
+    await loadSoriRealFonts();
+    await DataLoader.loadVocab();
+  });
 
   setUp(() async {
     Storage.resetForTesting();
@@ -38,7 +46,7 @@ void main() {
       await tester.pump();
 
       final t = AppL10n.of(tester.element(find.byType(MyWordsScreen)));
-      final tabs = find.byType(TabBar);
+      final tabs = find.byKey(const ValueKey('my-words-tabs'));
       expect(tabs, findsOneWidget);
       expect(DefaultTabController.of(tester.element(tabs)).index, 1);
       expect(find.text(t.myWordsTabSearch), findsOneWidget);
@@ -55,6 +63,54 @@ void main() {
       await tester.pumpAndSettle();
       expect(DefaultTabController.of(tester.element(tabs)).index, 1);
       expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets(
+    'all destinations stay visible and selectable at 320px with large text',
+    (tester) async {
+      tester.view.physicalSize = const Size(320, 640);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final semantics = tester.ensureSemantics();
+      for (final locale in const [Locale('de'), Locale('en')]) {
+        await tester.pumpWidget(
+          _host(const MyWordsScreen(), textScale: 2, locale: locale),
+        );
+        await tester.pumpAndSettle();
+        final navigation = find.byKey(const ValueKey('my-words-tabs'));
+        final controller = DefaultTabController.of(tester.element(navigation));
+        final horizontalScrollers = find.descendant(
+          of: navigation,
+          matching: find.byWidgetPredicate(
+            (widget) =>
+                widget is Scrollable &&
+                widget.axisDirection == AxisDirection.right,
+          ),
+        );
+        expect(horizontalScrollers, findsNothing);
+        for (final tab in MyWordsTab.values) {
+          final target = find.byKey(ValueKey('my-words-tab-${tab.name}'));
+          expect(target.hitTestable(), findsOneWidget);
+          expect(tester.getSize(target).shortestSide, greaterThanOrEqualTo(48));
+          final before = tester.getSemantics(target).getSemanticsData();
+          expect(before.hasAction(ui.SemanticsAction.tap), isTrue);
+          await tester.tap(target);
+          await tester.pumpAndSettle();
+          expect(controller.index, tab.index);
+          expect(
+            tester
+                .getSemantics(target)
+                .getSemanticsData()
+                .flagsCollection
+                .isSelected,
+            ui.Tristate.isTrue,
+          );
+          expect(tester.takeException(), isNull);
+        }
+      }
+      semantics.dispose();
     },
   );
 
@@ -160,7 +216,9 @@ void main() {
       final screen = find.byType(MyWordsScreen);
       expect(screen, findsOneWidget);
       final context = tester.element(screen);
-      final tabsContext = tester.element(find.byType(TabBar));
+      final tabsContext = tester.element(
+        find.byKey(const ValueKey('my-words-tabs')),
+      );
       expect(DefaultTabController.of(tabsContext).index, entry.value.index);
       expect(ModalRoute.of(context)!.settings.name, entry.key);
       navigator.pop();
@@ -188,12 +246,13 @@ void main() {
 Widget _host(
   Widget home, {
   double textScale = 1,
+  Locale locale = const Locale('de'),
   RouteFactory? onGenerateRoute,
 }) {
   return MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: AppTheme.light,
-    locale: const Locale('de'),
+    locale: locale,
     supportedLocales: AppL10n.supportedLocales,
     localizationsDelegates: AppL10n.localizationsDelegates,
     onGenerateRoute: onGenerateRoute,

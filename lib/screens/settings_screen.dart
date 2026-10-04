@@ -11,7 +11,7 @@ import '../widgets/sori/dialog.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/empty_state.dart';
-import '../widgets/sori/hanok_header.dart';
+import '../widgets/sori/card.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
@@ -791,278 +791,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
       maxWidth: SoriMaxWidth.form,
       padding: const EdgeInsets.fromLTRB(0, Spacing.sm, 0, Spacing.xxxl),
       children: [
-        // ── 서재 헤더 (한옥 학자방 일러스트) ──
-        Padding(
-          padding: const EdgeInsets.fromLTRB(
-            Spacing.lg,
-            Spacing.xs,
-            Spacing.lg,
-            Spacing.md,
-          ),
-          child: HanokHeader(
-            asset: 'assets/illustrations/hanok/study_scholar.png',
-            fallbackIcon: Icons.tune_rounded,
-          ),
+        _SettingsGroupHeader(
+          key: const ValueKey('settings-group-account'),
+          icon: Icons.person_outline_rounded,
+          label: t.settingsGroupAccount,
         ),
-
-        // ── Erscheinungsbild: Dark Mode in v2.0 deaktiviert ──
-        // (App läuft ausschließlich im Light-Theme — Auswahl entfernt.)
         ListTile(
-          leading: const Icon(Icons.menu_book_outlined),
-          title: Text(t.contentLearningGoals),
-          subtitle: Text('${t.smalltalkTitle} · ${t.listeningTitle}'),
+          leading: const Icon(Icons.person_outline_rounded),
+          title: Text(t.profileTitle),
           trailing: const Icon(Icons.chevron_right),
-          onTap: () => Navigator.of(context).pushNamed('/content/goals'),
+          onTap: () => Navigator.of(context).pushNamed('/profile'),
         ),
-
-        // ── Sprache ──
-        _Section(label: t.settingsLanguage),
-        RadioGroup<String>(
-          groupValue: currentLocale == null
-              ? 'system'
-              : currentLocale.languageCode,
-          onChanged: (v) => setState(() {
-            switch (v) {
-              case 'de':
-                setLocale(const Locale('de'));
-              case 'en':
-                setLocale(const Locale('en'));
-              default:
-                setLocale(null);
-            }
-          }),
-          child: Column(
-            children: [
-              _RadioTile<String>(
-                title: t.settingsLanguageSystem,
-                value: 'system',
-              ),
-              _RadioTile<String>(title: t.settingsLanguageDe, value: 'de'),
-              _RadioTile<String>(title: t.settingsLanguageEn, value: 'en'),
-            ],
-          ),
-        ),
-
-        // Course placement and browsing filters are intentionally independent.
-        _Section(label: t.settingsLearningLevelsSection),
-        ListTile(
-          key: const ValueKey('settings-course-preview'),
-          leading: const Icon(
-            Icons.menu_book_outlined,
-            color: SoriColors.primary,
-          ),
-          title: Text(t.coursePreviewTitle),
-          subtitle: Text(t.coursePreviewBody),
-          trailing: const Icon(Icons.chevron_right),
-          onTap: () => Navigator.of(
-            context,
-          ).pushNamed('/course/phases', arguments: Storage.userLevelCode),
-        ),
-        ListTile(
-          key: _courseStartKey,
-          focusNode: _courseStartFocusNode,
-          leading: const Icon(Icons.route_outlined, color: SoriColors.primary),
-          title: Text(t.settingsCourseStartTitle),
-          subtitle: Text(
-            '${_courseStartLevelDisplay(t)}\n${t.settingsCourseStartDescription}',
-            style: SoriTextTheme.of(context).caption,
-          ),
-          isThreeLine: true,
-          trailing: const Icon(Icons.chevron_right),
-          onTap: _showCourseStartDialog,
-        ),
-        ListTile(
-          key: _browseLevelKey,
-          focusNode: _browseLevelFocusNode,
-          leading: const Icon(
-            Icons.explore_outlined,
-            color: SoriColors.primary,
-          ),
-          title: Text(t.settingsBrowseLevelTitle),
-          subtitle: Text(
-            '${_browseLevelDisplay(t)}\n${t.settingsBrowseLevelDescription}',
-            style: SoriTextTheme.of(context).caption,
-          ),
-          isThreeLine: true,
-          trailing: const Icon(Icons.chevron_right),
-          onTap: _showBrowseLevelDialog,
-        ),
-        ListTile(
-          leading: const Icon(
-            Icons.fact_check_outlined,
-            color: SoriColors.primary,
-          ),
-          title: Text(t.settingsRecheckLevelTitle),
-          subtitle: Text(
-            t.settingsRecheckLevelDescription,
-            style: SoriTextTheme.of(context).caption,
-          ),
-          trailing: const Icon(Icons.chevron_right),
-          onTap: _openPlacementDiagnostic,
-        ),
-
-        // ── Lernbegleiter (캐릭터) ──
-        // 2026-07-31 신설. 이전에는 `/character_selection` 으로 가는
-        // 진입점이 앱 전체에 0개라 온보딩에서 한 번 고르면 영원히 못 바꿨다.
-        // 여기서 바꾸면 MascotPreference 통지로 홈·게임이 즉시 따라온다.
-        _Section(label: t.characterSelectionTitle),
-        ListenableBuilder(
-          listenable: Listenable.merge([
-            MascotPreference.kind,
-            MascotPreference.preference,
-          ]),
-          builder: (context, _) {
-            final kind = MascotPreference.chosenKind;
-            return ListTile(
-              key: _companionKey,
-              focusNode: _companionFocusNode,
-              leading: Mascot(kind: kind, size: 34),
-              title: Text(
-                kind == MascotKind.magpie
-                    ? t.characterRomanMagpie
-                    : t.characterNameTiger,
-              ),
-              subtitle: Text(
-                kind == MascotKind.magpie
-                    ? t.characterTraitMagpie
-                    : t.characterTraitTiger,
-                style: SoriTextTheme.of(context).caption,
-              ),
-              trailing: const Icon(
-                Icons.chevron_right,
-                color: SoriColors.lightTextMuted,
-              ),
-              onTap: () => _showMascotDialog(kind),
-            );
-          },
-        ),
-        ValueListenableBuilder<CompanionPreference>(
-          valueListenable: MascotPreference.preference,
-          builder: (context, preference, _) => SwitchListTile(
-            secondary: const Icon(
-              Icons.visibility_outlined,
-              color: SoriColors.primary,
-            ),
-            title: Text(t.settingsCompanionVisibleTitle),
-            subtitle: Text(
-              t.settingsCompanionVisibleDescription,
-              style: SoriTextTheme.of(context).caption,
-            ),
-            value: preference != CompanionPreference.none,
-            onChanged: (visible) async {
-              await MascotPreference.setVisible(visible);
-              if (mounted) {
-                setState(() {});
-              }
-            },
-          ),
-        ),
-
-        // ── Ton (ADR-002 §7) — AudioPolicy 단일 진실원천 ──
-        _Section(label: t.settingsSoundSection),
-        const _SoundSettings(),
-
-        _Section(label: t.hanokDownloadsSettingsSection),
-        ListTile(
-          key: const ValueKey('settings-hanok-downloads'),
-          leading: const Icon(
-            Icons.offline_pin_outlined,
-            color: SoriColors.primary,
-          ),
-          title: Text(t.hanokDownloadsSettingsTitle),
-          subtitle: Text(
-            t.hanokDownloadsSettingsSubtitle,
-            style: SoriTextTheme.of(context).caption,
-          ),
-          trailing: const Icon(Icons.chevron_right),
-          onTap: () => Navigator.of(context).push<void>(
-            SoriTransitions.page<void>((_) => const HanokDownloadsScreen()),
-          ),
-        ),
-
-        // ── TTS Speed ── 전역 배수 프리셋 (엔진 base rate 는 저장값 유지).
-        // 구 0.1–1.0 슬라이더는 mp3 배속 의미가 불투명했다 — 이제 모든
-        // 학습 화면과 같은 0.5×–1.5× 프리셋 컨트롤을 공유한다.
-        Focus(
-          key: _voiceSpeedKey,
-          focusNode: _voiceSpeedFocusNode,
-          child: Semantics(
-            container: true,
-            focusable: true,
-            label: t.settingsTtsRate,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                _Section(label: t.settingsTtsRate),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 8,
-                  ),
-                  child: TtsSpeedControl(
-                    mode: TtsSpeedControlMode.row,
-                    onChanged: (_) {
-                      // ignore: discarded_futures
-                      TtsService.speak('안녕하세요');
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-
-        // ── Erinnerung (M3) ──
-        _Section(label: t.settingsNotifSection),
-        SwitchListTile(
-          secondary: const Icon(
-            Icons.notifications_active_outlined,
-            color: SoriColors.primary,
-          ),
-          title: Text(t.settingsNotifTitle),
-          subtitle: Text(
-            t.settingsNotifSubtitle,
-            style: SoriTextTheme.of(context).caption,
-          ),
-          value: Storage.notificationsEnabled,
-          activeThumbColor: SoriColors.primary,
-          onChanged: _onToggleNotif,
-        ),
-        if (Storage.notificationsEnabled)
-          ListTile(
-            leading: const Icon(
-              Icons.schedule_outlined,
-              color: SoriColors.primary,
-            ),
-            title: Text(t.settingsNotifTime),
-            trailing: Text(
-              _notifTimeLabel(),
-              style: SoriTextTheme.of(
-                context,
-              ).label.copyWith(color: SoriColors.primary),
-            ),
-            onTap: _pickNotifTime,
-          ),
-
-        // ── Interessen (M5) — für den personalisierten Tageskurs ──
-        _Section(label: t.settingsInterestsTitle),
-        ListTile(
-          leading: const Icon(
-            Icons.category_outlined,
-            color: SoriColors.primary,
-          ),
-          title: Text(t.settingsInterestsTitle),
-          subtitle: Text(
-            t.settingsInterestsSubtitle,
-            style: SoriTextTheme.of(context).caption,
-          ),
-          trailing: const Icon(
-            Icons.chevron_right,
-            color: SoriColors.darkTextMuted,
-          ),
-          onTap: _showInterestPicker,
-        ),
-
         // ── Cloud-Backup (Firebase Auth) ──
         KeyedSubtree(
           key: _accountSectionKey,
@@ -1187,6 +926,310 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         : () => _showActionLocked(cloudDeletionState),
                   ),
                 ),
+              ],
+            ),
+          ),
+        ],
+
+        _SettingsGroupHeader(
+          key: const ValueKey('settings-group-learning'),
+          icon: Icons.menu_book_outlined,
+          label: t.settingsGroupLearning,
+        ),
+        // ── Erscheinungsbild: Dark Mode in v2.0 deaktiviert ──
+        // (App läuft ausschließlich im Light-Theme — Auswahl entfernt.)
+        ListTile(
+          leading: const Icon(Icons.menu_book_outlined),
+          title: Text(t.contentLearningGoals),
+          subtitle: Text('${t.smalltalkTitle} · ${t.listeningTitle}'),
+          trailing: const Icon(Icons.chevron_right),
+          onTap: () => Navigator.of(context).pushNamed('/content/goals'),
+        ),
+
+        // Course placement and browsing filters are intentionally independent.
+        _Section(label: t.settingsLearningLevelsSection),
+        ListTile(
+          key: const ValueKey('settings-course-preview'),
+          leading: const Icon(
+            Icons.menu_book_outlined,
+            color: SoriColors.primary,
+          ),
+          title: Text(t.coursePreviewTitle),
+          subtitle: Text(t.coursePreviewBody),
+          trailing: const Icon(Icons.chevron_right),
+          onTap: () => Navigator.of(
+            context,
+          ).pushNamed('/course/phases', arguments: Storage.userLevelCode),
+        ),
+        ListTile(
+          key: _courseStartKey,
+          focusNode: _courseStartFocusNode,
+          leading: const Icon(Icons.route_outlined, color: SoriColors.primary),
+          title: Text(t.settingsCourseStartTitle),
+          subtitle: Text(
+            '${_courseStartLevelDisplay(t)}\n${t.settingsCourseStartDescription}',
+            style: SoriTextTheme.of(context).caption,
+          ),
+          isThreeLine: true,
+          trailing: const Icon(Icons.chevron_right),
+          onTap: _showCourseStartDialog,
+        ),
+        ListTile(
+          key: _browseLevelKey,
+          focusNode: _browseLevelFocusNode,
+          leading: const Icon(
+            Icons.explore_outlined,
+            color: SoriColors.primary,
+          ),
+          title: Text(t.settingsBrowseLevelTitle),
+          subtitle: Text(
+            '${_browseLevelDisplay(t)}\n${t.settingsBrowseLevelDescription}',
+            style: SoriTextTheme.of(context).caption,
+          ),
+          isThreeLine: true,
+          trailing: const Icon(Icons.chevron_right),
+          onTap: _showBrowseLevelDialog,
+        ),
+        ListTile(
+          leading: const Icon(
+            Icons.fact_check_outlined,
+            color: SoriColors.primary,
+          ),
+          title: Text(t.settingsRecheckLevelTitle),
+          subtitle: Text(
+            t.settingsRecheckLevelDescription,
+            style: SoriTextTheme.of(context).caption,
+          ),
+          trailing: const Icon(Icons.chevron_right),
+          onTap: _openPlacementDiagnostic,
+        ),
+
+        // ── Interessen (M5) — für den personalisierten Tageskurs ──
+        _Section(label: t.settingsInterestsTitle),
+        ListTile(
+          leading: const Icon(
+            Icons.category_outlined,
+            color: SoriColors.primary,
+          ),
+          title: Text(t.settingsInterestsTitle),
+          subtitle: Text(
+            t.settingsInterestsSubtitle,
+            style: SoriTextTheme.of(context).caption,
+          ),
+          trailing: const Icon(
+            Icons.chevron_right,
+            color: SoriColors.darkTextMuted,
+          ),
+          onTap: _showInterestPicker,
+        ),
+
+        // ── Lernbegleiter (캐릭터) ──
+        // 2026-07-31 신설. 이전에는 `/character_selection` 으로 가는
+        // 진입점이 앱 전체에 0개라 온보딩에서 한 번 고르면 영원히 못 바꿨다.
+        // 여기서 바꾸면 MascotPreference 통지로 홈·게임이 즉시 따라온다.
+        _Section(label: t.characterSelectionTitle),
+        ListenableBuilder(
+          listenable: Listenable.merge([
+            MascotPreference.kind,
+            MascotPreference.preference,
+          ]),
+          builder: (context, _) {
+            final kind = MascotPreference.chosenKind;
+            return ListTile(
+              key: _companionKey,
+              focusNode: _companionFocusNode,
+              leading: Mascot(kind: kind, size: 34),
+              title: Text(
+                kind == MascotKind.magpie
+                    ? t.characterRomanMagpie
+                    : t.characterNameTiger,
+              ),
+              subtitle: Text(
+                kind == MascotKind.magpie
+                    ? t.characterTraitMagpie
+                    : t.characterTraitTiger,
+                style: SoriTextTheme.of(context).caption,
+              ),
+              trailing: const Icon(
+                Icons.chevron_right,
+                color: SoriColors.lightTextMuted,
+              ),
+              onTap: () => _showMascotDialog(kind),
+            );
+          },
+        ),
+        ValueListenableBuilder<CompanionPreference>(
+          valueListenable: MascotPreference.preference,
+          builder: (context, preference, _) => SwitchListTile(
+            secondary: const Icon(
+              Icons.visibility_outlined,
+              color: SoriColors.primary,
+            ),
+            title: Text(t.settingsCompanionVisibleTitle),
+            subtitle: Text(
+              t.settingsCompanionVisibleDescription,
+              style: SoriTextTheme.of(context).caption,
+            ),
+            value: preference != CompanionPreference.none,
+            onChanged: (visible) async {
+              await MascotPreference.setVisible(visible);
+              if (mounted) {
+                setState(() {});
+              }
+            },
+          ),
+        ),
+
+        _SettingsGroupHeader(
+          key: const ValueKey('settings-group-controls'),
+          icon: Icons.tune_rounded,
+          label: t.settingsGroupControls,
+        ),
+        // ── Sprache ──
+        _Section(label: t.settingsLanguage),
+        RadioGroup<String>(
+          groupValue: currentLocale == null
+              ? 'system'
+              : currentLocale.languageCode,
+          onChanged: (v) => setState(() {
+            switch (v) {
+              case 'de':
+                setLocale(const Locale('de'));
+              case 'en':
+                setLocale(const Locale('en'));
+              default:
+                setLocale(null);
+            }
+          }),
+          child: Column(
+            children: [
+              _RadioTile<String>(
+                title: t.settingsLanguageSystem,
+                value: 'system',
+              ),
+              _RadioTile<String>(title: t.settingsLanguageDe, value: 'de'),
+              _RadioTile<String>(title: t.settingsLanguageEn, value: 'en'),
+            ],
+          ),
+        ),
+
+        // ── TTS Speed ── 전역 배수 프리셋 (엔진 base rate 는 저장값 유지).
+        // 구 0.1–1.0 슬라이더는 mp3 배속 의미가 불투명했다 — 이제 모든
+        // 학습 화면과 같은 0.5×–1.5× 프리셋 컨트롤을 공유한다.
+        Focus(
+          key: _voiceSpeedKey,
+          focusNode: _voiceSpeedFocusNode,
+          child: Semantics(
+            container: true,
+            focusable: true,
+            label: t.settingsTtsRate,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                _Section(label: t.settingsTtsRate),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 8,
+                  ),
+                  child: TtsSpeedControl(
+                    mode: TtsSpeedControlMode.row,
+                    onChanged: (_) {
+                      // ignore: discarded_futures
+                      TtsService.speak('안녕하세요');
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+
+        // ── Ton (ADR-002 §7) — AudioPolicy 단일 진실원천 ──
+        _Section(label: t.settingsSoundSection),
+        const _SoundSettings(),
+
+        // ── Erinnerung (M3) ──
+        _Section(label: t.settingsNotifSection),
+        SwitchListTile(
+          secondary: const Icon(
+            Icons.notifications_active_outlined,
+            color: SoriColors.primary,
+          ),
+          title: Text(t.settingsNotifTitle),
+          subtitle: Text(
+            t.settingsNotifSubtitle,
+            style: SoriTextTheme.of(context).caption,
+          ),
+          value: Storage.notificationsEnabled,
+          activeThumbColor: SoriColors.primary,
+          onChanged: _onToggleNotif,
+        ),
+        if (Storage.notificationsEnabled)
+          ListTile(
+            leading: const Icon(
+              Icons.schedule_outlined,
+              color: SoriColors.primary,
+            ),
+            title: Text(t.settingsNotifTime),
+            trailing: Text(
+              _notifTimeLabel(),
+              style: SoriTextTheme.of(
+                context,
+              ).label.copyWith(color: SoriColors.primary),
+            ),
+            onTap: _pickNotifTime,
+          ),
+
+        _SettingsGroupHeader(
+          key: const ValueKey('settings-group-privacy'),
+          icon: Icons.inventory_2_outlined,
+          label: t.settingsGroupPrivacy,
+        ),
+        _Section(label: t.hanokDownloadsSettingsSection),
+        ListTile(
+          key: const ValueKey('settings-hanok-downloads'),
+          leading: const Icon(
+            Icons.offline_pin_outlined,
+            color: SoriColors.primary,
+          ),
+          title: Text(t.hanokDownloadsSettingsTitle),
+          subtitle: Text(
+            t.hanokDownloadsSettingsSubtitle,
+            style: SoriTextTheme.of(context).caption,
+          ),
+          trailing: const Icon(Icons.chevron_right),
+          onTap: () => Navigator.of(context).push<void>(
+            SoriTransitions.page<void>((_) => const HanokDownloadsScreen()),
+          ),
+        ),
+
+        // ── Datenschutz: Analytics/Crashlytics Opt-in (TTDSG §25,
+        //    DSGVO Art. 7 Abs. 3 — jederzeit widerrufbar) ──
+        _Section(label: t.settingsPrivacySection),
+        PrivacyChoiceControl(
+          purpose: PrivacyPurpose.analytics,
+          title: t.settingsAnalyticsTitle,
+          description: t.settingsAnalyticsDesc,
+          icon: Icons.insights_outlined,
+        ),
+        PrivacyChoiceControl(
+          purpose: PrivacyPurpose.crash,
+          title: t.settingsCrashTitle,
+          description: t.settingsCrashDesc,
+          icon: Icons.bug_report_outlined,
+        ),
+        PrivacyChoiceControl(
+          purpose: PrivacyPurpose.pronunciation,
+          title: t.settingsPronunciationConsentTitle,
+          description: t.settingsPronunciationConsentDesc,
+          icon: Icons.mic_none_rounded,
+        ),
+
+        if (providers.isDurable)
+          AccountNewLinkGuard(
+            operations: _accountOperations,
+            builder: (context, accountActionsAvailable) =>
                 ValueListenableBuilder<CloudBackupDeletionJournalState>(
                   valueListenable: _cloudDataDeletionJournalState,
                   builder: (context, cloudDeletionState, _) => ListTile(
@@ -1216,71 +1259,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         : () => _showActionLocked(cloudDeletionState),
                   ),
                 ),
-              ],
-            ),
           ),
-        ],
-
-        // ── 광고 섹션 제거 (2026-08-12, hardening fcec48d 이식) ──
-        // 앱에 광고 SDK 가 없다 — ad_service.dart 는 스텁이고 google_mobile_ads
-        // 는 비활성이다. 그런데 설정에 "광고 표시" 토글이 살아 있으면 Play
-        // Data Safety 의 "광고 없음" 진술과 정면으로 모순된다. 토글을 지운다.
-        // (키 자체는 storage_service 에 남기되 기본값을 false 로 내렸다 —
-        //  토글만 지우면 기존 기기에 kl_ads_enabled=true 가 남아 향후 광고를
-        //  도입할 때 기본 ON 이 된다.)
-
-        // Permanent app guide. Dismissing the Today checklist never removes
-        // this route.
-        _Section(label: t.settingsGuideSection),
-        ListTile(
-          key: _guideKey,
-          focusNode: _guideFocusNode,
-          leading: const Icon(Icons.map_outlined, color: SoriColors.primary),
-          title: Text(t.settingsGuideTitle),
-          subtitle: Text(
-            t.settingsGuideDescription,
-            style: SoriTextTheme.of(context).caption,
-          ),
-          trailing: const Icon(Icons.chevron_right),
-          onTap: () => Navigator.of(context).pushNamed('/guide'),
-        ),
-
-        // ── 안내 다시 보기 ──
-        _Section(label: t.settingsTutorialResetSection),
-        ListTile(
-          leading: const Icon(Icons.replay_rounded),
-          title: Text(t.settingsTutorialResetTitle),
-          subtitle: Text(t.settingsTutorialResetSubtitle),
-          onTap: _resetTutorials,
-        ),
-        ListTile(
-          leading: const Icon(Icons.auto_stories_outlined),
-          title: Text(t.settingsResetCulturalHints),
-          subtitle: Text(t.settingsResetCulturalHintsSubtitle),
-          onTap: _resetCulturalHints,
-        ),
-
-        // ── Datenschutz: Analytics/Crashlytics Opt-in (TTDSG §25,
-        //    DSGVO Art. 7 Abs. 3 — jederzeit widerrufbar) ──
-        _Section(label: t.settingsPrivacySection),
-        PrivacyChoiceControl(
-          purpose: PrivacyPurpose.analytics,
-          title: t.settingsAnalyticsTitle,
-          description: t.settingsAnalyticsDesc,
-          icon: Icons.insights_outlined,
-        ),
-        PrivacyChoiceControl(
-          purpose: PrivacyPurpose.crash,
-          title: t.settingsCrashTitle,
-          description: t.settingsCrashDesc,
-          icon: Icons.bug_report_outlined,
-        ),
-        PrivacyChoiceControl(
-          purpose: PrivacyPurpose.pronunciation,
-          title: t.settingsPronunciationConsentTitle,
-          description: t.settingsPronunciationConsentDesc,
-          icon: Icons.mic_none_rounded,
-        ),
 
         // ── Reset ──
         _Section(label: ''),
@@ -1332,6 +1311,42 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ],
           ),
+        ),
+
+        _SettingsGroupHeader(
+          key: const ValueKey('settings-group-help'),
+          icon: Icons.help_outline_rounded,
+          label: t.settingsGroupHelp,
+        ),
+        // Permanent app guide. Dismissing the Today checklist never removes
+        // this route.
+        _Section(label: t.settingsGuideSection),
+        ListTile(
+          key: _guideKey,
+          focusNode: _guideFocusNode,
+          leading: const Icon(Icons.map_outlined, color: SoriColors.primary),
+          title: Text(t.settingsGuideTitle),
+          subtitle: Text(
+            t.settingsGuideDescription,
+            style: SoriTextTheme.of(context).caption,
+          ),
+          trailing: const Icon(Icons.chevron_right),
+          onTap: () => Navigator.of(context).pushNamed('/guide'),
+        ),
+
+        // ── 안내 다시 보기 ──
+        _Section(label: t.settingsTutorialResetSection),
+        ListTile(
+          leading: const Icon(Icons.replay_rounded),
+          title: Text(t.settingsTutorialResetTitle),
+          subtitle: Text(t.settingsTutorialResetSubtitle),
+          onTap: _resetTutorials,
+        ),
+        ListTile(
+          leading: const Icon(Icons.auto_stories_outlined),
+          title: Text(t.settingsResetCulturalHints),
+          subtitle: Text(t.settingsResetCulturalHintsSubtitle),
+          onTap: _resetCulturalHints,
         ),
 
         // ── About ──
@@ -2254,37 +2269,89 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 }
 
+/// The five stable Settings groups share the app's tactile card surface.
+/// Rows remain in the page's single scroll so guide links can still focus them.
+class _SettingsGroupHeader extends StatelessWidget {
+  const _SettingsGroupHeader({
+    super.key,
+    required this.icon,
+    required this.label,
+  });
+
+  final IconData icon;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) => Padding(
+    padding: const EdgeInsets.fromLTRB(
+      Spacing.lg,
+      Spacing.lg,
+      Spacing.lg,
+      Spacing.sm,
+    ),
+    child: Semantics(
+      header: true,
+      child: SoriCard(
+        variant: SoriCardVariant.compact,
+        accent: SoriColors.primary,
+        tinted: true,
+        child: Row(
+          children: [
+            Icon(icon, color: SoriColors.primary, size: 24),
+            const SizedBox(width: Spacing.md),
+            Expanded(child: Text(label, style: SoriTextTheme.of(context).h3)),
+          ],
+        ),
+      ),
+    ),
+  );
+}
+
 class _Section extends StatelessWidget {
   final String label;
   const _Section({required this.label});
 
   @override
   Widget build(BuildContext context) {
+    final title = Text(
+      label.toUpperCase(),
+      style: SoriTextTheme.of(
+        context,
+      ).cardSubtitle.copyWith(fontWeight: FontWeight.w700, letterSpacing: 0.8),
+    );
+    final divider = Container(
+      height: 1.5,
+      decoration: BoxDecoration(
+        color: SoriColors.gold.withValues(alpha: 0.35),
+        borderRadius: SoriRadius.brPill,
+      ),
+    );
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 20, 20, 8),
-      child: Row(
-        children: [
-          Flexible(
-            child: Text(
-              label.toUpperCase(),
-              style: SoriTextTheme.of(context).cardSubtitle.copyWith(
-                fontWeight: FontWeight.w700,
-                letterSpacing: 0.8,
-              ),
-            ),
-          ),
-          if (label.isNotEmpty) const SizedBox(width: 10),
-          // 단청 골드 hairline — 잡지식 섹션 리듬(SoriSectionHeader와 동일 어휘).
-          Expanded(
-            child: Container(
-              height: 1.5,
-              decoration: BoxDecoration(
-                color: SoriColors.gold.withValues(alpha: 0.35),
-                borderRadius: SoriRadius.brPill,
-              ),
-            ),
-          ),
-        ],
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          // Give enlarged labels the full width instead of splitting a German
+          // word to leave half of a small screen for the decorative hairline.
+          final scale = MediaQuery.textScalerOf(context).scale(1);
+          if (constraints.maxWidth <
+              SoriAdaptiveWidth.settingsSectionRow * scale) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                title,
+                const SizedBox(height: Spacing.xs),
+                divider,
+              ],
+            );
+          }
+          return Row(
+            children: [
+              Flexible(child: title),
+              if (label.isNotEmpty) const SizedBox(width: 10),
+              Expanded(child: divider),
+            ],
+          );
+        },
       ),
     );
   }

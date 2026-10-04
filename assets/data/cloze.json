@@ -21880,15 +21880,15 @@
     {
       "id": "cloze_c2_0087",
       "level": "c2",
-      "sentenceKo": "\"우리\"라는 ＿＿＿은 반대 의견을 외부자의 목소리처럼 들리게 할 수 있어요.",
+      "sentenceKo": "논문은 연설의 ＿＿＿을 분석하며, ‘우리’라는 호칭이 누구를 포함하고 누구를 배제하는지 살폈다.",
       "answer": "청자 설정",
-      "fullKo": "\"우리\"라는 청자 설정은 반대 의견을 외부자의 목소리처럼 들리게 할 수 있어요.",
-      "de": "Wer das Publikum als „wir“ anspricht, kann abweichende Stimmen wie Äußerungen von Außenstehenden wirken lassen.",
-      "en": "Framing the audience as 'us' can make dissent sound like an outsider's view.",
+      "fullKo": "논문은 연설의 청자 설정을 분석하며, ‘우리’라는 호칭이 누구를 포함하고 누구를 배제하는지 살폈다.",
+      "de": "Die Studie untersucht, an wen sich die Rede richtet, und fragt, wen die Anrede „wir“ ein- oder ausschließt.",
+      "en": "The study examines how the speech frames its audience and asks whom the word ‘we’ includes or excludes.",
       "distractors": [
-        "기술 기준",
-        "예산 편성",
-        "회의 일정"
+        "화자 설정",
+        "서사 구성",
+        "발화 전략"
       ],
       "topic": "Framinganalyse"
     },
@@ -21970,15 +21970,15 @@
     {
       "id": "cloze_c2_0093",
       "level": "c2",
-      "sentenceKo": "＿＿＿을 인정하되 그 판단 기준도 함께 공개해요.",
-      "answer": "재량 공간",
-      "fullKo": "재량 공간을 인정하되 그 판단 기준도 함께 공개해요.",
-      "de": "Ich erkenne den Ermessensspielraum an und lege zugleich die Entscheidungskriterien offen.",
-      "en": "I acknowledge the room for discretion while also making the decision criteria public.",
+      "sentenceKo": "감사 보고서는 판단에 ＿＿＿ 있더라도 그 기준은 공개해야 한다고 지적했다.",
+      "answer": "재량의 여지가",
+      "fullKo": "감사 보고서는 판단에 재량의 여지가 있더라도 그 기준은 공개해야 한다고 지적했다.",
+      "de": "Der Prüfbericht hält fest, dass Entscheidungsspielraum bestehen kann, die Kriterien dafür aber offengelegt werden müssen.",
+      "en": "The audit report notes that there may be room for discretion, but the criteria for using it should be public.",
       "distractors": [
-        "우회전",
-        "책",
-        "현대인"
+        "기록 공백이",
+        "책임 분산이",
+        "감사의 독립성이"
       ],
       "topic": "Institutionsstimme"
     },
@@ -22030,15 +22030,15 @@
     {
       "id": "cloze_c2_0097",
       "level": "c2",
-      "sentenceKo": "＿＿＿이 심하면 최종 책임자를 서명란에 명시해요.",
-      "answer": "책임 분산",
-      "fullKo": "책임 분산이 심하면 최종 책임자를 서명란에 명시해요.",
-      "de": "Wenn die Verantwortung stark verteilt ist, halte ich im Unterschriftsfeld fest, wer letztlich verantwortlich ist.",
-      "en": "If responsibility is widely dispersed, I name the person ultimately responsible in the signature field.",
+      "sentenceKo": "보고서는 여러 부서에 걸친 ＿＿＿ 최종 승인자가 불분명해졌다고 지적했다.",
+      "answer": "책임 분산으로",
+      "fullKo": "보고서는 여러 부서에 걸친 책임 분산으로 최종 승인자가 불분명해졌다고 지적했다.",
+      "de": "Der Bericht stellt fest, dass die Verantwortung auf mehrere Abteilungen verteilt wurde und dadurch unklar blieb, wer die endgültige Genehmigung erteilte.",
+      "en": "The report notes that responsibility was spread across several departments, leaving it unclear who gave final approval.",
       "distractors": [
-        "학생",
-        "군인",
-        "건강"
+        "맥락 생략으로",
+        "기록 공백으로",
+        "재량권 행사로"
       ],
       "topic": "Institutionsstimme"
     },
@@ -22195,15 +22195,15 @@
     {
       "id": "cloze_c2_0108",
       "level": "c2",
-      "sentenceKo": "＿＿＿을 추측으로 메우지 않고 빈칸으로 표시해요.",
-      "answer": "기록 공백",
-      "fullKo": "기록 공백을 추측으로 메우지 않고 빈칸으로 표시해요.",
-      "de": "Eine Lücke in den Aufzeichnungen fülle ich nicht mit Vermutungen, sondern markiere sie als Leerstelle.",
-      "en": "I do not fill a gap in the record with guesses; I mark it as a gap.",
+      "sentenceKo": "역사 연구팀은 ＿＿＿ 추측으로 메우지 않고 확인된 사실과 미확인 부분을 구분했다.",
+      "answer": "기록 공백을",
+      "fullKo": "역사 연구팀은 기록 공백을 추측으로 메우지 않고 확인된 사실과 미확인 부분을 구분했다.",
+      "de": "Das historische Forschungsteam füllte Lücken in den Aufzeichnungen nicht mit Vermutungen, sondern unterschied zwischen belegten Tatsachen und offenen Fragen.",
+      "en": "The history research team did not fill gaps in the record with guesses; it separated established facts from open questions.",
       "distractors": [
-        "거스름돈",
-        "보험금",
-        "휴식권"
+        "증언의 배치를",
+        "관행에 대한 호소를",
+        "결정 요약을"
       ],
       "topic": "Erinnerungsnarrativ"
     },
@@ -22450,15 +22450,15 @@
     {
       "id": "cloze_c2_0125",
       "level": "c2",
-      "sentenceKo": "＿＿＿가 챗봇뿐이라면 담당자에게 직접 설명할 길이 없어요.",
-      "answer": "이의 경로",
-      "fullKo": "이의 경로가 챗봇뿐이라면 담당자에게 직접 설명할 길이 없어요.",
-      "de": "Wenn Einwände nur über einen Chatbot vorgebracht werden können, fehlt ein direkter Weg zu einer zuständigen Person.",
-      "en": "If objections can be raised only through a chatbot, there is no direct way to explain them to a person in charge.",
+      "sentenceKo": "보고서는 ＿＿＿ 챗봇 하나뿐이면 당사자가 자신의 사정을 담당자에게 설명하기 어렵다고 지적했다.",
+      "answer": "이의 제기 경로가",
+      "fullKo": "보고서는 이의 제기 경로가 챗봇 하나뿐이면 당사자가 자신의 사정을 담당자에게 설명하기 어렵다고 지적했다.",
+      "de": "Der Bericht weist darauf hin, dass Betroffene ihre Umstände kaum einer zuständigen Person erklären können, wenn Einwände nur über einen Chatbot möglich sind.",
+      "en": "The report notes that people affected by a decision cannot easily explain their circumstances to a staff member if a chatbot is the only way to contest it.",
       "distractors": [
-        "민주주의",
-        "시어머니",
-        "여자친구"
+        "결정 요약이",
+        "증거 제출란이",
+        "회신 의무가"
       ],
       "topic": "Einspruchsweg"
     },
@@ -22480,15 +22480,15 @@
     {
       "id": "cloze_c2_0127",
       "level": "c2",
-      "sentenceKo": "＿＿＿에서 같은 점수만 다시 확인한다면 실질적인 재검토라고 보기 어려워요.",
-      "answer": "인간 재심",
-      "fullKo": "인간 재심에서 같은 점수만 다시 확인한다면 실질적인 재검토라고 보기 어려워요.",
-      "de": "Wenn bei der menschlichen Nachprüfung nur derselbe Punktwert bestätigt wird, ist das kaum eine inhaltliche Überprüfung.",
-      "en": "If human review only confirms the same score, it is hard to call it a substantive review.",
+      "sentenceKo": "자동 판정 뒤의 ＿＿＿ 같은 점수만 다시 확인한다면, 이의 제기는 형식에 그친다.",
+      "answer": "담당자 재심사가",
+      "fullKo": "자동 판정 뒤의 담당자 재심사가 같은 점수만 다시 확인한다면, 이의 제기는 형식에 그친다.",
+      "de": "Wenn die erneute Prüfung durch eine zuständige Person nach einer automatisierten Entscheidung nur denselben Wert bestätigt, bleibt die Beschwerdemöglichkeit bloße Formsache.",
+      "en": "If review by a staff member after an automated decision merely confirms the same score, the appeal is a formality.",
       "distractors": [
-        "모음",
-        "자식",
-        "겨울"
+        "결정 요약이",
+        "회신 의무가",
+        "증거 제출란이"
       ],
       "topic": "Einspruchsweg"
     },
@@ -22735,15 +22735,15 @@
     {
       "id": "cloze_c2_0144",
       "level": "c2",
-      "sentenceKo": "＿＿＿이 계약으로 제한된다면 공개 감사의 신뢰성을 확보하기 어려워요.",
-      "answer": "감사 독립",
-      "fullKo": "감사 독립이 계약으로 제한된다면 공개 감사의 신뢰성을 확보하기 어려워요.",
-      "de": "Wenn vertragliche Vorgaben die Unabhängigkeit der Prüfung einschränken, lässt sich Vertrauen in eine öffentliche Prüfung nur schwer herstellen.",
-      "en": "If contractual terms limit audit independence, it is difficult to establish confidence in a public audit.",
+      "sentenceKo": "외부 ＿＿＿ 계약 조건에 묶이면 검증 결과의 신뢰성도 흔들린다.",
+      "answer": "감사의 독립성이",
+      "fullKo": "외부 감사의 독립성이 계약 조건에 묶이면 검증 결과의 신뢰성도 흔들린다.",
+      "de": "Wenn Vertragsbedingungen die Unabhängigkeit einer externen Prüfung einschränken, leidet auch die Glaubwürdigkeit ihrer Ergebnisse.",
+      "en": "When contract terms constrain an external audit's independence, the credibility of its findings also suffers.",
       "distractors": [
-        "추적 가능성",
-        "변경 이력",
-        "접근 기록"
+        "변경 이력이",
+        "접근 기록이",
+        "입력 스냅샷이"
       ],
       "topic": "Prüfspur"
     },
@@ -22795,15 +22795,15 @@
     {
       "id": "cloze_c2_0148",
       "level": "c2",
-      "sentenceKo": "＿＿＿이 없으면 오류가 발생했을 때 어떤 주체가 어떤 결정을 내렸는지 확인하기 어려워요.",
-      "answer": "책임 매핑",
-      "fullKo": "책임 매핑이 없으면 오류가 발생했을 때 어떤 주체가 어떤 결정을 내렸는지 확인하기 어려워요.",
-      "de": "Ohne Zuordnung der Verantwortlichkeiten lässt sich bei einem Fehler schwer nachvollziehen, wer welche Entscheidung getroffen hat.",
-      "en": "Without a map of responsibilities, it is hard to trace who made which decision when an error occurs.",
+      "sentenceKo": "사고 조사 보고서는 설계·운영·승인 단계별 ＿＿＿ 없어 누가 결정을 내렸는지 추적하기 어렵다고 지적했다.",
+      "answer": "책임 분담표가",
+      "fullKo": "사고 조사 보고서는 설계·운영·승인 단계별 책임 분담표가 없어 누가 결정을 내렸는지 추적하기 어렵다고 지적했다.",
+      "de": "Der Untersuchungsbericht stellt fest, dass ohne eine Übersicht der Zuständigkeiten für Entwicklung, Betrieb und Freigabe schwer nachzuvollziehen ist, wer entschieden hat.",
+      "en": "The incident report notes that without a responsibility matrix for design, operation, and approval, it is hard to trace who made each decision.",
       "distractors": [
-        "추적 가능성",
-        "변경 이력",
-        "접근 기록"
+        "결정 요약이",
+        "증거 제출란이",
+        "기록 공백이"
       ],
       "topic": "Prüfspur"
     },
@@ -23020,15 +23020,15 @@
     {
       "id": "cloze_c2_0163",
       "level": "c2",
-      "sentenceKo": "＿＿＿이 생기면 과거의 거절이 이후 판단에도 반복해서 반영될 수 있어요.",
-      "answer": "피드백 왜곡",
-      "fullKo": "피드백 왜곡이 생기면 과거의 거절이 이후 판단에도 반복해서 반영될 수 있어요.",
-      "de": "Wenn Rückkopplungen verzerrt sind, können frühere Ablehnungen spätere Entscheidungen erneut beeinflussen.",
-      "en": "If a feedback loop is distorted, past rejections can keep influencing later decisions.",
+      "sentenceKo": "연구는 과거의 거절이 다시 학습 데이터에 들어가 ＿＿＿ 키울 수 있다고 경고했다.",
+      "answer": "피드백 루프의 왜곡을",
+      "fullKo": "연구는 과거의 거절이 다시 학습 데이터에 들어가 피드백 루프의 왜곡을 키울 수 있다고 경고했다.",
+      "de": "Die Studie warnt, dass frühere Ablehnungen erneut in die Trainingsdaten einfließen und so Verzerrungen in der Rückkopplungsschleife verstärken können.",
+      "en": "The study warns that past rejections can feed back into training data and amplify distortion in the feedback loop.",
       "distractors": [
-        "모양",
-        "고향집",
-        "안약"
+        "책임 분산을",
+        "기록 공백을",
+        "감사의 독립성을"
       ],
       "topic": "Automatenfolgen"
     },
@@ -23935,13 +23935,13 @@
     {
       "id": "cloze_c2_0176",
       "level": "c2",
-      "sentenceKo": "납부 ＿＿＿만으로는 원인이 사라지지 않습니다.",
+      "sentenceKo": "감사 보고서는 납부 ＿＿＿가 당장의 부담을 덜지만 과다 청구의 원인을 해결하지는 못한다고 지적했다.",
       "answer": "유예",
-      "fullKo": "납부 유예만으로는 원인이 사라지지 않습니다.",
-      "de": "Ein Zahlungsaufschub allein beseitigt die Ursache nicht.",
-      "en": "A payment deferral alone doesn't remove the cause.",
+      "fullKo": "감사 보고서는 납부 유예가 당장의 부담을 덜지만 과다 청구의 원인을 해결하지는 못한다고 지적했다.",
+      "de": "Der Prüfbericht stellte fest, dass ein Zahlungsaufschub die unmittelbare Belastung mindert, die Ursache der überhöhten Abrechnung jedoch nicht behebt.",
+      "en": "The audit report noted that deferring payment eases the immediate burden but does not address the cause of overbilling.",
       "distractors": [
-        "시정",
+        "재검토",
         "구제",
         "통보"
       ],
@@ -23965,11 +23965,11 @@
     {
       "id": "cloze_c2_0178",
       "level": "c2",
-      "sentenceKo": "결과 ＿＿＿를 언제 어떤 방식으로 받을 수 있는지 먼저 확인해요.",
+      "sentenceKo": "행정기관은 처분 결과를 당사자에게 서면으로 ＿＿＿하고 이의 신청 기한도 함께 안내했다.",
       "answer": "통보",
-      "fullKo": "결과 통보를 언제 어떤 방식으로 받을 수 있는지 먼저 확인해요.",
-      "de": "Ich frage zuerst nach, wann und auf welchem Weg ich über das Ergebnis informiert werde.",
-      "en": "I first check when and how I'll be notified of the outcome.",
+      "fullKo": "행정기관은 처분 결과를 당사자에게 서면으로 통보하고 이의 신청 기한도 함께 안내했다.",
+      "de": "Die Behörde teilte der betroffenen Person die Entscheidung schriftlich mit und nannte zugleich die Einspruchsfrist.",
+      "en": "The agency notified the affected person of the decision in writing and also stated the deadline for an appeal.",
       "distractors": [
         "재검토",
         "정당화",
@@ -23995,11 +23995,11 @@
     {
       "id": "cloze_c2_0180",
       "level": "c2",
-      "sentenceKo": "＿＿＿ 책임을 이용자에게만 두는 것은 지나칩니다.",
+      "sentenceKo": "보고서는 자동 제재의 판단 자료가 운영자에게 있는데도 이용자에게만 ＿＿＿ 책임을 지우는 관행을 비판했다.",
       "answer": "입증",
-      "fullKo": "입증 책임을 이용자에게만 두는 것은 지나칩니다.",
-      "de": "Die Nachweislast allein den Nutzenden aufzuerlegen, geht zu weit.",
-      "en": "Putting the burden of proof only on users goes too far.",
+      "fullKo": "보고서는 자동 제재의 판단 자료가 운영자에게 있는데도 이용자에게만 입증 책임을 지우는 관행을 비판했다.",
+      "de": "Der Bericht kritisierte die Praxis, die Nachweispflicht allein den Nutzenden aufzuerlegen, obwohl die Unterlagen, auf denen eine automatische Sanktion beruht, beim Betreiber liegen.",
+      "en": "The report criticized the practice of placing the burden of proof solely on users even though the operator holds the records on which an automated sanction was based.",
       "distractors": [
         "소명",
         "처분",
@@ -24040,11 +24040,11 @@
     {
       "id": "cloze_c2_0183",
       "level": "c2",
-      "sentenceKo": "＿＿＿ 사유를 서면으로 남기는 편이 안전합니다.",
+      "sentenceKo": "위원회는 ＿＿＿ 절차를 안내할 때 제출 기한과 필요한 자료를 함께 명시할 것을 권고했다.",
       "answer": "불복",
-      "fullKo": "불복 사유를 서면으로 남기는 편이 안전합니다.",
-      "de": "Die Einspruchsgründe schriftlich festzuhalten ist sicherer.",
-      "en": "Recording the grounds of appeal in writing is safer.",
+      "fullKo": "위원회는 불복 절차를 안내할 때 제출 기한과 필요한 자료를 함께 명시할 것을 권고했다.",
+      "de": "Der Ausschuss empfahl, bei der Erläuterung des Einspruchsverfahrens auch die Frist und die erforderlichen Unterlagen anzugeben.",
+      "en": "The committee recommended stating the deadline and required documents when explaining the appeal procedure.",
       "distractors": [
         "소명",
         "유예",
@@ -24070,11 +24070,11 @@
     {
       "id": "cloze_c2_0185",
       "level": "c2",
-      "sentenceKo": "＿＿＿ 근거를 사후에 붙이는 관행이 문제입니다.",
+      "sentenceKo": "＿＿＿ 결정문은 위반 사실과 적용 기준을 제시했지만 처분 수위의 근거는 설명하지 않았다.",
       "answer": "제재",
-      "fullKo": "제재 근거를 사후에 붙이는 관행이 문제입니다.",
-      "de": "Problematisch ist die Praxis, die Grundlage der Sanktion nachträglich zu ergänzen.",
-      "en": "The practice of attaching the basis for a sanction after the fact is the problem.",
+      "fullKo": "제재 결정문은 위반 사실과 적용 기준을 제시했지만 처분 수위의 근거는 설명하지 않았다.",
+      "de": "Der Sanktionsbescheid nannte den Verstoß und die angewandten Kriterien, begründete aber nicht die Schwere der Sanktion.",
+      "en": "The sanction notice set out the violation and the applicable criteria but did not explain the severity of the sanction.",
       "distractors": [
         "적발",
         "해제",
@@ -24100,11 +24100,11 @@
     {
       "id": "cloze_c2_0187",
       "level": "c2",
-      "sentenceKo": "경미한 위반의 ＿＿＿을 중대한 위반과 같이 다룹니다.",
+      "sentenceKo": "경미한 위반이 ＿＿＿됐다는 사실만으로 중대한 위반과 같은 제재를 정당화할 수 있는지는 별도로 따져야 한다.",
       "answer": "누적",
-      "fullKo": "경미한 위반의 누적을 중대한 위반과 같이 다룹니다.",
-      "de": "Die Kumulierung leichter Verstöße wird wie ein schwerer behandelt.",
-      "en": "The accumulation of minor breaches is treated like a serious one.",
+      "fullKo": "경미한 위반이 누적됐다는 사실만으로 중대한 위반과 같은 제재를 정당화할 수 있는지는 별도로 따져야 한다.",
+      "de": "Ob die Häufung geringfügiger Verstöße dieselbe Sanktion wie ein schwerer Verstoß rechtfertigt, muss gesondert geprüft werden.",
+      "en": "Whether an accumulation of minor violations justifies the same sanction as a serious violation must be assessed separately.",
       "distractors": [
         "귀책",
         "결집",
@@ -24130,11 +24130,11 @@
     {
       "id": "cloze_c2_0189",
       "level": "c2",
-      "sentenceKo": "＿＿＿인 판단이 끼어들 여지를 줄여야 합니다.",
+      "sentenceKo": "평가 기준을 공개하면 담당자의 ＿＿＿인 판단이 결과에 미치는 영향을 줄일 수 있다.",
       "answer": "자의적",
-      "fullKo": "자의적인 판단이 끼어들 여지를 줄여야 합니다.",
-      "de": "Der Spielraum für willkürliche Entscheidungen muss kleiner werden.",
-      "en": "The room for arbitrary decisions has to shrink.",
+      "fullKo": "평가 기준을 공개하면 담당자의 자의적인 판단이 결과에 미치는 영향을 줄일 수 있다.",
+      "de": "Die Offenlegung der Bewertungskriterien kann den Einfluss willkürlicher Entscheidungen einzelner Prüfender auf das Ergebnis verringern.",
+      "en": "Publishing the assessment criteria can reduce the influence of arbitrary judgments by individual reviewers on the outcome.",
       "distractors": [
         "일방적",
         "부수적",
@@ -24235,11 +24235,11 @@
     {
       "id": "cloze_c2_0196",
       "level": "c2",
-      "sentenceKo": "운영자 ＿＿＿이 넓을수록 기준을 더 적어야 합니다.",
+      "sentenceKo": "운영자에게 넓은 ＿＿＿을 주는 규정일수록 판단 기준과 이의 절차를 명확히 해야 한다.",
       "answer": "재량",
-      "fullKo": "운영자 재량이 넓을수록 기준을 더 적어야 합니다.",
-      "de": "Je weiter das Ermessen der Betreibenden reicht, desto mehr Kriterien braucht es.",
-      "en": "The wider the operator's discretion, the more criteria have to be written down.",
+      "fullKo": "운영자에게 넓은 재량을 주는 규정일수록 판단 기준과 이의 절차를 명확히 해야 한다.",
+      "de": "Je mehr Ermessen eine Regel den Betreibenden einräumt, desto klarer müssen die Entscheidungskriterien und Einspruchsverfahren sein.",
+      "en": "Rules that grant operators broad discretion need especially clear decision criteria and appeal procedures.",
       "distractors": [
         "귀책",
         "오탐",
@@ -24325,11 +24325,11 @@
     {
       "id": "cloze_c2_0202",
       "level": "c2",
-      "sentenceKo": "이야기의 ＿＿＿과 사실 여부는 다른 문제입니다.",
+      "sentenceKo": "소설 속 우연한 재회는 앞서 제시된 두 인물의 동선 덕분에 ＿＿＿을 얻는다.",
       "answer": "개연성",
-      "fullKo": "이야기의 개연성과 사실 여부는 다른 문제입니다.",
-      "de": "Die Plausibilität der Geschichte und ihre Faktenlage sind zweierlei.",
-      "en": "The plausibility of a story and whether it is true are separate questions.",
+      "fullKo": "소설 속 우연한 재회는 앞서 제시된 두 인물의 동선 덕분에 개연성을 얻는다.",
+      "de": "Das zufällige Wiedersehen im Roman gewinnt an Plausibilität, weil die Wege der beiden Figuren zuvor nachvollziehbar dargestellt wurden.",
+      "en": "The chance reunion in the novel becomes plausible because the two characters’ movements were established earlier.",
       "distractors": [
         "전형",
         "각색",
@@ -24340,15 +24340,15 @@
     {
       "id": "cloze_c2_0203",
       "level": "c2",
-      "sentenceKo": "사람을 하나의 ＿＿＿에 가두면 그 사람의 복잡성이 사라집니다.",
+      "sentenceKo": "평론은 주인공을 희생자라는 ＿＿＿으로만 읽으면 그가 내린 선택의 모순을 놓치게 된다고 지적한다.",
       "answer": "전형",
-      "fullKo": "사람을 하나의 전형에 가두면 그 사람의 복잡성이 사라집니다.",
-      "de": "Wenn wir einen Menschen in einen einzigen Typus pressen, geht seine Vielschichtigkeit verloren.",
-      "en": "When we force people into a single type, we lose their complexity.",
+      "fullKo": "평론은 주인공을 희생자라는 전형으로만 읽으면 그가 내린 선택의 모순을 놓치게 된다고 지적한다.",
+      "de": "Die Kritik weist darauf hin, dass eine Lesart der Hauptfigur allein als Opferfigur die Widersprüche in ihren Entscheidungen übersieht.",
+      "en": "The review argues that reading the protagonist solely as a victim archetype obscures the contradictions in the choices they make.",
       "distractors": [
         "통념",
-        "서사",
-        "화자"
+        "낙인",
+        "담론"
       ],
       "topic": "Narrativ & Perspektive"
     },
@@ -24370,15 +24370,15 @@
     {
       "id": "cloze_c2_0205",
       "level": "c2",
-      "sentenceKo": "＿＿＿가 누구인지에 따라 같은 장면이 달라집니다.",
-      "answer": "화자",
-      "fullKo": "화자가 누구인지에 따라 같은 장면이 달라집니다.",
-      "de": "Je nach Erzählstimme sieht dieselbe Szene anders aus.",
-      "en": "Depending on the narrator the same scene looks different.",
+      "sentenceKo": "문학 평론은 ＿＿＿ 바뀔 때 같은 사건의 책임이 누구에게 있는지에 대한 독자의 판단도 달라진다고 분석한다.",
+      "answer": "화자가",
+      "fullKo": "문학 평론은 화자가 바뀔 때 같은 사건의 책임이 누구에게 있는지에 대한 독자의 판단도 달라진다고 분석한다.",
+      "de": "Die Literaturkritik zeigt, dass ein Wechsel der Erzählstimme auch das Urteil der Lesenden darüber verändert, wer für dasselbe Ereignis verantwortlich ist.",
+      "en": "The literary essay argues that changing the narrator can alter a reader's judgment of who is responsible for the same event.",
       "distractors": [
-        "서사",
-        "발화",
-        "잣대"
+        "서사가",
+        "발화가",
+        "잣대가"
       ],
       "topic": "Narrativ & Perspektive"
     },
@@ -24430,11 +24430,11 @@
     {
       "id": "cloze_c2_0209",
       "level": "c2",
-      "sentenceKo": "팬덤 안의 ＿＿＿이 바깥 기준을 대신하기도 합니다.",
+      "sentenceKo": "연구는 온라인 팬덤의 ＿＿＿이 작품의 해석뿐 아니라 어떤 비판이 받아들여지는지도 좌우한다고 분석한다.",
       "answer": "담론",
-      "fullKo": "팬덤 안의 담론이 바깥 기준을 대신하기도 합니다.",
-      "de": "Der Diskurs innerhalb des Fandoms ersetzt mitunter externe Maßstäbe.",
-      "en": "Discourse inside the fandom sometimes replaces outside standards.",
+      "fullKo": "연구는 온라인 팬덤의 담론이 작품의 해석뿐 아니라 어떤 비판이 받아들여지는지도 좌우한다고 분석한다.",
+      "de": "Die Studie zeigt, dass der Diskurs in Online-Fandoms sowohl die Deutung eines Werks als auch die Akzeptanz von Kritik prägt.",
+      "en": "The study argues that discourse within online fandoms shapes both interpretations of a work and which criticisms are accepted.",
       "distractors": [
         "결집",
         "대표성",
@@ -24475,11 +24475,11 @@
     {
       "id": "cloze_c2_0212",
       "level": "c2",
-      "sentenceKo": "한 번 붙은 ＿＿＿은 설명으로 잘 지워지지 않습니다.",
+      "sentenceKo": "댓글 분석에서는 특정 집단에 붙은 ＿＿＿이 반론이 제시된 뒤에도 반복되는 양상이 확인됐다.",
       "answer": "낙인",
-      "fullKo": "한 번 붙은 낙인은 설명으로 잘 지워지지 않습니다.",
-      "de": "Ein einmal angehängtes Stigma lässt sich mit Erklärungen kaum tilgen.",
-      "en": "A stigma once attached is hard to erase with explanations.",
+      "fullKo": "댓글 분석에서는 특정 집단에 붙은 낙인이 반론이 제시된 뒤에도 반복되는 양상이 확인됐다.",
+      "de": "Die Analyse der Kommentare zeigte, dass ein stigmatisierendes Etikett für eine bestimmte Gruppe auch nach Gegenargumenten immer wieder auftauchte.",
+      "en": "The comment analysis found that a stigmatizing label attached to a particular group kept recurring even after counterarguments were offered.",
       "distractors": [
         "담론",
         "적발",
@@ -24535,15 +24535,15 @@
     {
       "id": "cloze_c2_0216",
       "level": "c2",
-      "sentenceKo": "같은 ＿＿＿라도 누가 했느냐로 무게가 달라집니다.",
-      "answer": "발화",
-      "fullKo": "같은 발화라도 누가 했느냐로 무게가 달라집니다.",
-      "de": "Dieselbe Äußerung wiegt je nach sprechender Person anders.",
-      "en": "The same utterance carries different weight depending on who said it.",
+      "sentenceKo": "대화 분석은 같은 ＿＿＿ 상사가 했는지 동료가 했는지에 따라 요청이나 압박으로 받아들여질 수 있다고 설명한다.",
+      "answer": "발화도",
+      "fullKo": "대화 분석은 같은 발화도 상사가 했는지 동료가 했는지에 따라 요청이나 압박으로 받아들여질 수 있다고 설명한다.",
+      "de": "Die Gesprächsanalyse zeigt, dass dieselbe Äußerung je nachdem, ob sie von einer vorgesetzten oder gleichgestellten Person stammt, als Bitte oder als Druck verstanden werden kann.",
+      "en": "Conversation analysis shows that the same utterance may sound like a request or pressure depending on whether it comes from a supervisor or a coworker.",
       "distractors": [
-        "함의",
-        "낙인",
-        "정당화"
+        "서사도",
+        "담론도",
+        "낙인도"
       ],
       "topic": "Diskurs & Macht"
     },
@@ -24565,11 +24565,11 @@
     {
       "id": "cloze_c2_0218",
       "level": "c2",
-      "sentenceKo": "안팎에 다른 ＿＿＿를 대면 설득력이 사라집니다.",
+      "sentenceKo": "논설은 같은 행위를 내부자에게는 실수, 외부자에게는 위반으로 보는 이중 ＿＿＿를 비판했다.",
       "answer": "잣대",
-      "fullKo": "안팎에 다른 잣대를 대면 설득력이 사라집니다.",
-      "de": "Wer nach innen und außen verschiedene Maßstäbe anlegt, verliert an Überzeugungskraft.",
-      "en": "Applying different yardsticks inside and outside destroys credibility.",
+      "fullKo": "논설은 같은 행위를 내부자에게는 실수, 외부자에게는 위반으로 보는 이중 잣대를 비판했다.",
+      "de": "Der Kommentar kritisierte den doppelten Maßstab, dieselbe Handlung bei Personen aus den eigenen Reihen als Fehler, bei Außenstehenden aber als Verstoß zu bewerten.",
+      "en": "The editorial criticized a double standard that treats the same act as a mistake when committed by insiders and as a violation when committed by outsiders.",
       "distractors": [
         "함의",
         "통보",
@@ -36997,15 +36997,15 @@
       "sourceVocabId": "vocab_c2_0253",
       "level": "c2",
       "topic": "Argumentation und Verfahrensgestaltung",
-      "fullKo": "민주적 의사결정에서 정보 공개는 시민 참여의 필요조건이지만, 공개만으로 실질적인 참여가 보장되는 것은 아니다.",
-      "answer": "필요조건이",
-      "sentenceKo": "민주적 의사결정에서 정보 공개는 시민 참여의 ＿＿＿지만, 공개만으로 실질적인 참여가 보장되는 것은 아니다.",
-      "de": "Bei demokratischen Entscheidungen ist die Offenlegung von Informationen eine notwendige Bedingung für Bürgerbeteiligung, garantiert für sich genommen aber noch keine tatsächliche Mitwirkung.",
-      "en": "In democratic decision-making, disclosure of information is a necessary condition for civic participation, but disclosure alone does not guarantee meaningful participation.",
+      "fullKo": "원고 제출은 논문 심사의 필요조건이지만, 그것만으로 게재가 보장되지는 않는다.",
+      "answer": "필요조건",
+      "sentenceKo": "원고 제출은 논문 심사의 ＿＿＿이지만, 그것만으로 게재가 보장되지는 않는다.",
+      "de": "Die Einreichung eines Manuskripts ist eine notwendige Bedingung für die Begutachtung einer wissenschaftlichen Arbeit, garantiert aber noch keine Veröffentlichung.",
+      "en": "Submitting a manuscript is a necessary condition for peer review, but it does not guarantee publication.",
       "distractors": [
-        "충분조건이",
-        "자격 요건이",
-        "적용 범위"
+        "충분조건",
+        "논리적 귀결",
+        "판정 기준"
       ],
       "courseUnitId": "c2_03_automation_redress"
     },
@@ -37048,15 +37048,15 @@
       "sourceVocabId": "vocab_c2_0256",
       "level": "c2",
       "topic": "Argumentation und Verfahrensgestaltung",
-      "fullKo": "칼럼은 평균 소득이 높아졌다고 해서 모든 가구의 생활이 나아졌다는 논리적 귀결이 성립하는 것은 아니라고 지적한다.",
-      "answer": "논리적 귀결이",
-      "sentenceKo": "칼럼은 평균 소득이 높아졌다고 해서 모든 가구의 생활이 나아졌다는 ＿＿＿ 성립하는 것은 아니라고 지적한다.",
-      "de": "Die Kolumne weist darauf hin, dass aus einem gestiegenen Durchschnittseinkommen nicht logisch folgt, dass sich die Lebensverhältnisse aller Haushalte verbessert haben.",
-      "en": "The column points out that a rise in average income does not logically entail an improvement in living conditions for every household.",
+      "fullKo": "평균 소득이 올랐다는 사실만으로 모든 가구의 생활이 나아졌다는 결론을 논리적 귀결로 볼 수는 없다.",
+      "answer": "논리적 귀결로",
+      "sentenceKo": "평균 소득이 올랐다는 사실만으로 모든 가구의 생활이 나아졌다는 결론을 ＿＿＿ 볼 수는 없다.",
+      "de": "Aus einem höheren Durchschnittseinkommen folgt nicht logisch, dass es jedem Haushalt besser geht.",
+      "en": "A rise in average income does not logically imply that every household is better off.",
       "distractors": [
-        "필요조건이",
-        "적용 범위가",
-        "규범이"
+        "필요조건으로",
+        "충분조건으로",
+        "규범으로"
       ],
       "courseUnitId": "c2_03_automation_redress"
     },
@@ -37085,7 +37085,7 @@
       "fullKo": "계약서에는 자료의 외부 제공을 금지하면서도 연구 목적의 사용은 별도 승인을 거쳐 허용한다는 단서 조항이 있다.",
       "answer": "단서 조항이",
       "sentenceKo": "계약서에는 자료의 외부 제공을 금지하면서도 연구 목적의 사용은 별도 승인을 거쳐 허용한다는 ＿＿＿ 있다.",
-      "de": "Der Vertrag verbietet die Weitergabe von Unterlagen an Außenstehende, enthält aber eine Vorbehaltsklausel, die eine Nutzung zu Forschungszwecken nach gesonderter Genehmigung erlaubt.",
+      "de": "Der Vertrag untersagt die Weitergabe von Unterlagen an Außenstehende, enthält aber eine Ausnahmeklausel für die Nutzung zu Forschungszwecken nach gesonderter Genehmigung.",
       "en": "The contract prohibits sharing the material externally, but includes a proviso allowing its use for research purposes with separate approval.",
       "distractors": [
         "적용 범위가",

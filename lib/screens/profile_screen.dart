@@ -12,6 +12,7 @@ import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/settings_button.dart';
 import '../widgets/sori/toast.dart';
 import '../widgets/sori/window_class.dart';
 import '../services/auth_service.dart';
@@ -481,17 +482,7 @@ class _ProfileScreenState extends State<ProfileScreen>
       // 프로필은 기존 480→640dp 읽기 컬럼 계약을 유지한다. 고정 prose 폭보다
       // 내비게이션 레일 옆 남은 공간에 자연스럽게 적응하는 편이 맞다.
       maxWidth: null,
-      actions: [
-        IconButton(
-          tooltip: t.settingsTitle,
-          constraints: const BoxConstraints(
-            minWidth: kMinInteractiveDimension,
-            minHeight: kMinInteractiveDimension,
-          ),
-          icon: const Icon(Icons.settings_outlined),
-          onPressed: () => Navigator.pushNamed(context, '/settings'),
-        ),
-      ],
+      actions: const [SoriSettingsButton()],
       padding: const EdgeInsets.fromLTRB(
         Spacing.lg,
         Spacing.lg,

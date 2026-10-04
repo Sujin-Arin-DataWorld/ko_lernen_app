@@ -11782,6 +11782,21 @@ class AppL10nEn extends AppL10n {
   String get catalogNotNow => 'Not now';
 
   @override
+  String get settingsGroupAccount => 'Profile & account';
+
+  @override
+  String get settingsGroupLearning => 'Learning';
+
+  @override
+  String get settingsGroupControls => 'Language, sound & controls';
+
+  @override
+  String get settingsGroupPrivacy => 'Storage & privacy';
+
+  @override
+  String get settingsGroupHelp => 'Help & app information';
+
+  @override
   String get rewardChestNewDecoration => 'New decoration';
 
   @override

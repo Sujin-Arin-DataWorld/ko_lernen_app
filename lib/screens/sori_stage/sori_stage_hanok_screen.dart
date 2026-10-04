@@ -13,7 +13,7 @@ import '../../services/storage_service.dart';
 import '../../widgets/app_loading.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/button.dart';
-import '../../widgets/sori/avatar.dart';
+import '../../widgets/sori/settings_button.dart';
 import '../../widgets/sori/collapsing_header.dart';
 import '../../widgets/sori/cultural_help.dart';
 import '../../widgets/sori/dancheong_stamp.dart';
@@ -137,7 +137,7 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                           children: [
                             const CulturalHelpButton(termId: 'hanok'),
                             const SizedBox(width: Spacing.xs),
-                            const SoriAvatar(),
+                            const SoriSettingsButton(),
                           ],
                         ),
                       );
@@ -571,6 +571,18 @@ class _ShortcutTiles extends StatelessWidget {
         ),
         onTap: () => onOpen('/bojagi'),
       ),
+      _ShortcutTile(
+        id: 'furnish',
+        label: t.sarangbangStudyFurnish,
+        count: null,
+        thumb: const SoriRewardThumb(
+          slug: 'decoration_soban',
+          earned: true,
+          size: 40,
+          semantic: '',
+        ),
+        onTap: () => onOpen('/sarangbang/furnish'),
+      ),
     ];
 
     return LayoutBuilder(
@@ -591,10 +603,10 @@ class _ShortcutTiles extends StatelessWidget {
             ],
           );
         }
-        // §W-J2 item 3: one label (e.g. "Dojang-Heft") can wrap to 2 lines
-        // while its siblings stay on 1 — without a shared height the middle
-        // tile alone grows taller. `IntrinsicHeight` + a stretch cross-axis
-        // makes all three tiles match the tallest one instead.
+        // Keep all four first-action shortcuts in one row at the standard
+        // phone text scale. A second row pushes the actions under the bottom
+        // navigation on a 390 x 844 viewport. Larger text still uses the
+        // stacked branch above, where the page can scroll normally.
         return IntrinsicHeight(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -602,7 +614,7 @@ class _ShortcutTiles extends StatelessWidget {
               for (var index = 0; index < tiles.length; index++) ...[
                 Expanded(child: tiles[index]),
                 if (index != tiles.length - 1)
-                  const SizedBox(width: Spacing.md),
+                  const SizedBox(width: Spacing.sm),
               ],
             ],
           ),
@@ -632,6 +644,15 @@ class _ShortcutTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final tt = SoriTextTheme.of(context);
     final s = SoriSurfaces.of(context);
+    final compactLabel = MediaQuery.textScalerOf(context).scale(1) < 1.6;
+    final labelText = Text(
+      label,
+      key: ValueKey('hanok-shortcut-label-$id'),
+      maxLines: compactLabel ? 1 : null,
+      softWrap: !compactLabel,
+      textAlign: TextAlign.center,
+      style: tt.label.copyWith(fontSize: 15, height: 1.35),
+    );
     return KeyedSubtree(
       key: ValueKey('hanok-shortcut-$id'),
       child: Semantics(
@@ -652,12 +673,10 @@ class _ShortcutTile extends StatelessWidget {
               children: [
                 SizedBox(height: 40, child: Center(child: thumb)),
                 const SizedBox(height: Spacing.xs),
-                Text(
-                  label,
-                  key: ValueKey('hanok-shortcut-label-$id'),
-                  textAlign: TextAlign.center,
-                  style: tt.label.copyWith(fontSize: 15, height: 1.35),
-                ),
+                if (compactLabel)
+                  FittedBox(fit: BoxFit.scaleDown, child: labelText)
+                else
+                  labelText,
                 if (count != null)
                   Text(
                     count!,

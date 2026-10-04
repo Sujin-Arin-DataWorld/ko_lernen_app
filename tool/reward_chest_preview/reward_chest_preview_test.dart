@@ -223,6 +223,7 @@ void main() {
             final file = File(
               'tool/reward_chest_preview/frames/blue_${lang}_$second.png',
             );
+            await file.parent.create(recursive: true);
             await file.writeAsBytes(bytes.buffer.asUint8List());
             pixels.dispose();
           });

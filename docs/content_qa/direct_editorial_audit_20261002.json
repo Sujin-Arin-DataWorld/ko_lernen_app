@@ -36561,7 +36561,7 @@
     ],
     "ttsBoundary": "Storage keys are complete; individual clip listening and device playback are not claimed.",
     "scenarioPersonaReview": "All 178 live scenarios (A1: 29, A2: 28, B1: 31, B2: 30, C1: 30, C2: 30) were directly reviewed against the PR #438 persona criteria. Future content additions and an independent native-speaker or educator review remain open.",
-    "vocabularyPersonaReview": "A1 vocabulary (735 rows) and A2 vocabulary (519 rows) were directly reviewed and reconciled with cloze and Satz. The second A2 pass corrected 12 previously revised rows and their linked practice. B1-C2 direct review is ongoing, with separate PR #439 overlapping candidate C2 revisions; exact live records require a fresh direct comparison after that PR merges."
+    "vocabularyPersonaReview": "A1 (735) and A2 (519) vocabulary have direct tri-language reviews and linked practice reconciliation. PR #439 is merged. Two further direct C2 passes revised 27 vocabulary rows and 54 linked cloze/Satz items; the first pass is on main and the second pass is under final verification. B2/C1 register details and the remaining C2 rows still need targeted direct review."
   },
   "scenarioPersonaReviewProgress": {
     "reviewReference": "GitHub PR #438 merged as 797160b0664172b2956be0e202bb5df9b246b65c",
@@ -37207,6 +37207,123 @@
       "Preserve meaning, tense, uncertainty and register across KO/DE/EN; do not invent actual news facts or blanket legal obligations.",
       "Retain situational persona voices in conversation; general vocabulary examples do not need an inserted character."
     ],
-    "progress": "C2 264 live vocabulary rows directly read for the additional register/context pass. A 192-row candidate rewrite was drafted but has not been applied to live assets while PR #439 independently revises overlapping B1-C2 rows. B2/C1 additional register review remains open."
+    "progress": "C2 264 live vocabulary rows directly read across the second pass. Fourteen additional C2 rows have now been rewritten against PR #439 head 69d1d1e0f with academic, audit, policy or literary context and linked cloze/Satz text. B2/C1 additional register review remains open; PR #439 must merge before this C2 follow-up is promoted to main."
+  },
+  "c2Followup20261004": {
+    "status": "merged_into_main_7fe572855",
+    "method": "Primary assistant directly compared Korean, German and English in the live PR #439 base; source terms, collocations, genre, agency and modal force were judged sentence by sentence. No agent verdict or native-speaker approval is claimed.",
+    "sourceCommit": "69d1d1e0f0192f6c3ff256ff33eb3842ff405ba2",
+    "revisedVocabularyIds": [
+      "vocab_c2_0083",
+      "vocab_c2_0089",
+      "vocab_c2_0093",
+      "vocab_c2_0104",
+      "vocab_c2_0121",
+      "vocab_c2_0123",
+      "vocab_c2_0140",
+      "vocab_c2_0144",
+      "vocab_c2_0159",
+      "vocab_c2_0201",
+      "vocab_c2_0212",
+      "vocab_c2_0253",
+      "vocab_c2_0256",
+      "vocab_c2_0258"
+    ],
+    "linkedClozeCount": 14,
+    "linkedSatzCount": 14,
+    "headwordRenames": [
+      "vocab_c2_0089",
+      "vocab_c2_0121",
+      "vocab_c2_0123",
+      "vocab_c2_0140",
+      "vocab_c2_0144",
+      "vocab_c2_0159"
+    ],
+    "registerDecisions": [
+      "Use fictional academic articles or reports as learning context without presenting them as real citations.",
+      "Keep administrative uncertainty and responsibility explicit; do not invent a legal entitlement or procedural guarantee.",
+      "For literary and discourse terms, keep the analysis about narrator, audience and utterance in appropriate critical prose.",
+      "Use the actual technical meaning of necessary condition, logical consequence and an exception clause; avoid a casual paraphrase that changes the concept."
+    ],
+    "verification": {
+      "contentFactory": {
+        "run": 1361,
+        "skipped": 20,
+        "result": "PASS"
+      },
+      "promotedBatch09": "PASS",
+      "promotedBatch37": "PASS",
+      "contentValidator": "PASS",
+      "clozeAudit": "PASS",
+      "flutterFocused": {
+        "passed": 35,
+        "result": "PASS"
+      },
+      "tts": {
+        "canonicalClips": 13172,
+        "remoteObjects": 23146,
+        "missingObjects": 0,
+        "staleObjects": 9974,
+        "newStorageObjectsUploaded": 19,
+        "humanListeningClaim": false
+      }
+    },
+    "mainCommit": "7fe57285564b931a1749a885cc31596d3c4afcd9"
+  },
+  "c2GenreSecondPass20261004": {
+    "status": "validated_local_pending_main_push",
+    "method": "Primary assistant read the Korean, English and German examples directly. Selected abstract C2 sentences that failed to show natural use in administrative, literary or media-analysis prose; preserved headword and level.",
+    "sourceMainCommit": "7fe57285564b931a1749a885cc31596d3c4afcd9",
+    "revisedVocabularyIds": [
+      "vocab_c2_0172",
+      "vocab_c2_0174",
+      "vocab_c2_0176",
+      "vocab_c2_0179",
+      "vocab_c2_0181",
+      "vocab_c2_0183",
+      "vocab_c2_0185",
+      "vocab_c2_0192",
+      "vocab_c2_0198",
+      "vocab_c2_0199",
+      "vocab_c2_0205",
+      "vocab_c2_0208",
+      "vocab_c2_0214"
+    ],
+    "linkedClozeCount": 13,
+    "linkedSatzCount": 13,
+    "registerDecisions": [
+      "Use hypothetical reports, notices, reviews and studies as ordinary example contexts, without implying a real named source.",
+      "Match agent, modality and evidentiary strength across Korean, English and German.",
+      "Keep legal-administrative examples procedural without asserting a binding rule.",
+      "Repair cloze distractors when a revised Korean sentence exposes the answer by particle class."
+    ],
+    "verification": {
+      "promotedBatch12": "Existing smalltalk_c2_0025 draft mismatch remains; successor-chain and reconciliation tests pass",
+      "clozeMechanicalViolations": 0,
+      "humanNativeSpeakerApprovalClaim": false,
+      "humanAudioListeningClaim": false,
+      "contentFactory": {
+        "run": 1361,
+        "skipped": 20,
+        "result": "PASS"
+      },
+      "editorialAndClozeFocused": {
+        "run": 66,
+        "skipped": 2,
+        "result": "PASS"
+      },
+      "flutterFocused": {
+        "passed": 35,
+        "result": "PASS"
+      },
+      "contentValidator": "PASS",
+      "canonicalTtsManifest": "PASS",
+      "ttsStorage": {
+        "canonicalClips": 13172,
+        "remoteObjects": 23268,
+        "missingObjects": 0,
+        "newStorageObjectsUploaded": 13
+      }
+    }
   }
 }

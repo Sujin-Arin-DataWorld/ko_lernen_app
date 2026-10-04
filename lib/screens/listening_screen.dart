@@ -18,6 +18,7 @@ import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/media_phrase_link.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 import 'listening_shelf_screen.dart';
@@ -365,6 +366,10 @@ class _ListeningScreenState extends State<ListeningScreen>
             ),
           ),
           const SliverToBoxAdapter(child: SizedBox(height: Spacing.xl)),
+          SliverPadding(
+            padding: EdgeInsets.symmetric(horizontal: padding.left),
+            sliver: const SliverToBoxAdapter(child: SoriMediaPhraseLink()),
+          ),
           SliverToBoxAdapter(
             child: Padding(
               padding: EdgeInsets.only(

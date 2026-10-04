@@ -145,6 +145,12 @@ abstract final class SoriAdaptiveWidth {
   /// Two scenario topic cards retain readable names and counts.
   static const double scenarioTopicTwoColumns = 280;
 
+  /// A Settings subheading and its decorative divider need readable space.
+  static const double settingsSectionRow = 240;
+
+  /// Each My Words destination needs a readable label beside the other tabs.
+  static const double myWordsTabColumn = 80;
+
   /// Demo game names need three readable columns and a larger selector label.
   static const double demoWideSelector = 600;
 

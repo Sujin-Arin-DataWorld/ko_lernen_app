@@ -1,0 +1,6 @@
+.feedback{animation:feedback-in 150ms cubic-bezier(.2,.75,.25,1) both}
+.earned .result-seal{animation:seal-settle 280ms cubic-bezier(.2,.75,.25,1) both}
+@keyframes feedback-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+@keyframes seal-settle{0%{opacity:0;transform:translateY(6px) scale(.9)}70%{opacity:1;transform:translateY(-1px) scale(1.02)}100%{opacity:1;transform:none}}
+.reduced .feedback,.reduced .result-seal{animation:none}
+@media(prefers-reduced-motion:reduce){.feedback,.result-seal{animation:none}}

@@ -21,6 +21,7 @@ import '../widgets/sori/pressable.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/media_phrase_link.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -233,6 +234,7 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
       appBarTitle: t.scenariosListTitle,
       maxWidth: SoriMaxWidth.hub,
       children: [
+        const SoriMediaPhraseLink(),
         PersonaPeopleEntry(loadScenarios: widget.loadScenarios, compact: true),
         const SizedBox(height: Spacing.lg),
         if (widget.browseDestination == null && widget.scenarioIds == null) ...[
