@@ -5294,9 +5294,9 @@
   "practiceIntent": "What do you want to do?",
   "practiceExpression": "Choose your wording",
   "practiceEffect": "How it may come across",
-  "practiceGrammarCorrect": "The grammar is correct. The effect depends on the context and tone.",
+  "practiceGrammarCorrect": "Grammatically correct.",
   "practiceAssemble": "Build your next reply",
-  "practiceShowEffect": "View the explanation for help",
+  "practiceShowEffect": "See how your answer comes across",
   "practiceReset": "Put the words back",
   "practiceCheck": "Check and save your reply",
   "practiceOrderRetry": "The word order does not fit yet. Put the words back and try again.",
@@ -5316,11 +5316,10 @@
   "practiceUnavailable": "This practice is unavailable in this content version.",
   "practiceBackCases": "More situations",
   "practiceChooseAgain": "Choose your intention again",
-  "practiceHintTitle": "A hint from Dokkaebi",
-  "practiceHintMeaning": "View meaning and direction",
+  "practiceHintMeaning": "See a sentence clue",
   "practiceHintCrossing": "View crossing cells",
-  "practiceHintReveal": "Reveal one syllable · direct help",
-  "practiceHintPlace": "The syllable is shown. Place the matching tile on the selected cell yourself.",
+  "practiceHintReveal": "Reveal a syllable · direct help",
+  "practiceHintPlace": "Place the matching syllable in the marked cell yourself.",
   "practiceHintNoCrossing": "This word has no crossing cell.",
   "practiceReplaySaved": "Your result has been saved.",
   "practiceSilbenLabel": "Syllable puzzle",
@@ -5494,5 +5493,45 @@
   "settingsGroupLearning": "Learning",
   "settingsGroupControls": "Language, sound & controls",
   "settingsGroupPrivacy": "Storage & privacy",
-  "settingsGroupHelp": "Help & app information"
+  "settingsGroupHelp": "Help & app information",
+  "practiceReplayGesture": "Replay the fan gesture",
+  "practiceDokkaebiMeet": "Meet the Dokkaebi",
+  "practiceDokkaebiAbout": "Your puzzle companion",
+  "practiceDokkaebiGesture": "See the swing",
+  "practiceDokkaebiReturn": "Back to the puzzle",
+  "practiceDokkaebiTopicTales": "Tales",
+  "practiceDokkaebiTopicHome": "Home & luck",
+  "practiceDokkaebiTopicLearning": "Learning pal",
+  "practiceDokkaebiTalesTitle": "Magic, mischief and a bridge",
+  "practiceDokkaebiTalesBody": "In Korean tales, the Dokkaebi brings wealth, challenges people to wrestle, or repairs a bridge at night. Helpful, playful, and sometimes easily outwitted.",
+  "practiceDokkaebiHomeTitle": "A guardian? Sometimes, yes.",
+  "practiceDokkaebiHomeBody": "In some traditions on Jeju, the Dokkaebi was also worshipped as a household guardian. Its role varies by region and story.",
+  "practiceDokkaebiLearningTitle": "Let’s puzzle it out together",
+  "practiceDokkaebiLearningBody": "Sentence clue → crossing cells → one syllable. You place the tiles yourself. Hints are free.",
+  "practiceDokkaebiLearningNote": "Practise on your own later in the Sarangbang. We celebrate your saved achievements together.",
+  "practiceDokkaebiAppStory": "A new role in Hangul Sori.",
+  "practiceDokkaebiFireAction": "Discover 도깨비불",
+  "practiceDokkaebiFireWord": "도깨비불 · Dokkaebi fire",
+  "practiceDokkaebiRoofAction": "What about the roof tiles?",
+  "practiceDokkaebiRoofBody": "These roof tiles bear an expressive face. The motif represents warding off harmful influences. It is not necessarily a depiction of a Dokkaebi.",
+  "practiceDokkaebiFolkloreSource": "Source: 한국민족문화대백과사전",
+  "practiceDokkaebiMuseumSource": "Source: 국립중앙박물관",
+  "practiceDokkaebiFormAction": "See another form",
+  "practiceDokkaebiFormReturn": "Back to the friendly form",
+  "practiceDokkaebiFormNote": "A fantasy form created for Hangul Sori.",
+  "practiceHintWordPath": "{count} syllables · Start: row {row}, column {column}",
+  "@practiceHintWordPath": {
+    "description": "New structural clue for the selected crossword word; no answer is placed.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "row": {
+        "type": "int"
+      },
+      "column": {
+        "type": "int"
+      }
+    }
+  }
 }

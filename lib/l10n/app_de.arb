@@ -5476,9 +5476,9 @@
   "practiceIntent": "Was möchtest du erreichen?",
   "practiceExpression": "Wähle deine Formulierung",
   "practiceEffect": "So kann es ankommen",
-  "practiceGrammarCorrect": "Grammatisch korrekt. Die Wirkung hängt von der Situation und dem Ton ab.",
+  "practiceGrammarCorrect": "Grammatisch korrekt.",
   "practiceAssemble": "Setze deine nächste Antwort zusammen",
-  "practiceShowEffect": "Erklärung als Hilfe ansehen",
+  "practiceShowEffect": "Wirkung der Antwort ansehen",
   "practiceReset": "Wörter zurücklegen",
   "practiceCheck": "Antwort prüfen und speichern",
   "practiceOrderRetry": "Die Wortfolge passt noch nicht. Lege die Wörter zurück und versuche es erneut.",
@@ -5498,11 +5498,10 @@
   "practiceUnavailable": "Diese Übung ist in dieser Inhaltsversion nicht verfügbar.",
   "practiceBackCases": "Weitere Situationen",
   "practiceChooseAgain": "Absicht erneut wählen",
-  "practiceHintTitle": "Ein Hinweis vom Dokkaebi",
-  "practiceHintMeaning": "Bedeutung und Richtung ansehen",
+  "practiceHintMeaning": "Satzhinweis ansehen",
   "practiceHintCrossing": "Kreuzungsfelder ansehen",
-  "practiceHintReveal": "Eine Silbe anzeigen · deutliche Hilfe",
-  "practiceHintPlace": "Die Silbe ist sichtbar. Lege den passenden Stein selbst auf das ausgewählte Feld.",
+  "practiceHintReveal": "Silbe zeigen · direkte Hilfe",
+  "practiceHintPlace": "Lege die passende Silbe selbst ins markierte Feld.",
   "practiceHintNoCrossing": "Dieses Wort hat kein Kreuzungsfeld.",
   "practiceReplaySaved": "Dein Ergebnis wurde gespeichert.",
   "practiceSilbenLabel": "Silben-Rätsel",
@@ -5676,5 +5675,45 @@
   "settingsGroupLearning": "Lernen",
   "settingsGroupControls": "Sprache, Ton & Bedienung",
   "settingsGroupPrivacy": "Speicher & Datenschutz",
-  "settingsGroupHelp": "Hilfe & App-Infos"
+  "settingsGroupHelp": "Hilfe & App-Infos",
+  "practiceReplayGesture": "Fächergeste wiederholen",
+  "practiceDokkaebiMeet": "Den Dokkaebi kennenlernen",
+  "practiceDokkaebiAbout": "Dein Rätselgefährte",
+  "practiceDokkaebiGesture": "Den Schwung ansehen",
+  "practiceDokkaebiReturn": "Zurück zum Rätsel",
+  "practiceDokkaebiTopicTales": "Märchen",
+  "practiceDokkaebiTopicHome": "Haus & Glück",
+  "practiceDokkaebiTopicLearning": "Lernfreund",
+  "practiceDokkaebiTalesTitle": "Zauber, Schabernack und eine Brücke",
+  "practiceDokkaebiTalesBody": "In koreanischen Erzählungen schenkt der Dokkaebi Reichtum, fordert Menschen zum Ringkampf heraus oder setzt nachts eine Brücke wieder instand. Hilfsbereit, verspielt und manchmal leicht zu überlisten.",
+  "practiceDokkaebiHomeTitle": "Ein Beschützer? Manchmal, ja.",
+  "practiceDokkaebiHomeBody": "Auf Jeju wurde der Dokkaebi in manchen Glaubenstraditionen auch als Schutzgeist eines Hauses verehrt. Seine Rolle ist je nach Region und Erzählung verschieden.",
+  "practiceDokkaebiLearningTitle": "Wir knobeln zusammen",
+  "practiceDokkaebiLearningBody": "Satzhinweis → Kreuzungsfelder → eine Silbe. Du setzt die Plättchen selbst. Hinweise sind kostenlos.",
+  "practiceDokkaebiLearningNote": "Im Sarangbang übst du später allein weiter. Gespeicherte Erfolge feiern wir gemeinsam.",
+  "practiceDokkaebiAppStory": "Eine neue Rolle in Hangul Sori.",
+  "practiceDokkaebiFireAction": "도깨비불 entdecken",
+  "practiceDokkaebiFireWord": "도깨비불 · das Dokkaebifeuer",
+  "practiceDokkaebiRoofAction": "Und die Dachziegel?",
+  "practiceDokkaebiRoofBody": "Diese Dachziegel tragen ein ausdrucksstarkes Gesicht. Das Motiv steht für das Abwehren böser Einflüsse. Es ist nicht automatisch das Bild eines Dokkaebi.",
+  "practiceDokkaebiFolkloreSource": "Quelle: 한국민족문화대백과사전",
+  "practiceDokkaebiMuseumSource": "Quelle: 국립중앙박물관",
+  "practiceDokkaebiFormAction": "Eine andere Gestalt ansehen",
+  "practiceDokkaebiFormReturn": "Zur freundlichen Gestalt",
+  "practiceDokkaebiFormNote": "Eine Fantasiegestalt für Hangul Sori.",
+  "practiceHintWordPath": "{count} Silben · Start: Zeile {row}, Spalte {column}",
+  "@practiceHintWordPath": {
+    "description": "New structural clue for the selected crossword word; no answer is placed.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "row": {
+        "type": "int"
+      },
+      "column": {
+        "type": "int"
+      }
+    }
+  }
 }

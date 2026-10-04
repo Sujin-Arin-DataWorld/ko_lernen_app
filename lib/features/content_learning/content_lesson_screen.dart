@@ -1265,6 +1265,7 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
                 for (final selected in _order)
                   SoriButton.outlined(
                     label: words[selected],
+                    textRole: SoriButtonTextRole.learning,
                     onTap: _busy
                         ? null
                         : () => setState(() => _order.remove(selected)),
@@ -1281,6 +1282,7 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
                 if (!_order.contains(tile))
                   SoriButton.outlined(
                     label: words[tile],
+                    textRole: SoriButtonTextRole.learning,
                     onTap: _busy
                         ? null
                         : () => setState(() => _order.add(tile)),
