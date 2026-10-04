@@ -1,17 +1,23 @@
 import 'dart:async';
+import 'dart:io';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/practice_dokkaebi_help.dart';
 import 'package:ko_lernen_app/widgets/sori/dokkaebi_flame_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/dokkaebi_intro.dart';
+import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 // Exercise the real video controller and lease against a deterministic decoder.
 // ignore: depend_on_referenced_packages
 import 'package:video_player_platform_interface/video_player_platform_interface.dart';
+import 'support/real_fonts.dart';
 
 class FakeIntroVideo extends VideoPlayerPlatform {
   late final StreamController<VideoEvent> events = StreamController<VideoEvent>(
@@ -85,11 +91,113 @@ Widget host(Widget child, {bool reduced = false}) => MaterialApp(
 );
 
 void main() {
+  setUpAll(
+    () => loadSoriRealFonts(
+      materialIcons: const String.fromEnvironment(
+        'DOKKAEBI_REVIEW_DIR',
+      ).isNotEmpty,
+    ),
+  );
   setUp(() async {
     SharedPreferences.setMockInitialValues({});
     Storage.resetForTesting();
     await Storage.init();
   });
+  for (final variant in [
+    (const Size(390, 844), 1.0, false),
+    (const Size(812, 375), 1.0, false),
+    (const Size(812, 375), 2.0, true),
+  ]) {
+    testWidgets('app introduction plays when visible: $variant', (
+      tester,
+    ) async {
+      final previous = VideoPlayerPlatform.instance;
+      final ready = TigerStageVideo.videoReady;
+      final decoder = FakeIntroVideo();
+      VideoPlayerPlatform.instance = decoder;
+      TigerStageVideo.videoReady = true;
+      tester.view.physicalSize = variant.$1;
+      tester.view.devicePixelRatio = 1;
+      addTearDown(() async {
+        VideoPlayerPlatform.instance = previous;
+        TigerStageVideo.videoReady = ready;
+        tester.view.resetPhysicalSize();
+        tester.view.resetDevicePixelRatio();
+        unawaited(decoder.events.close());
+      });
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: variant.$3 ? AppTheme.dark : AppTheme.light,
+          locale: const Locale('en'),
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          supportedLocales: AppL10n.supportedLocales,
+          builder: (context, child) => MediaQuery(
+            data: MediaQuery.of(
+              context,
+            ).copyWith(textScaler: TextScaler.linear(variant.$2)),
+            child: RepaintBoundary(
+              key: const ValueKey('dokkaebi-app-review'),
+              child: child!,
+            ),
+          ),
+          home: Scaffold(
+            body: Builder(
+              builder: (context) => TextButton(
+                onPressed: () => showPracticeDokkaebiIntroduction(context),
+                child: const Text('Meet'),
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.tap(find.text('Meet'));
+      for (var i = 0; i < 8; i++) {
+        await tester.pump(const Duration(milliseconds: 100));
+      }
+      final frame = find.byType(DokkaebiFlameFrame);
+      if (variant.$1.height < 600) {
+        await tester.ensureVisible(frame);
+      }
+      for (var i = 0; i < 8; i++) {
+        await tester.pump(const Duration(milliseconds: 100));
+      }
+      expect(TickerMode.valuesOf(tester.element(frame)).enabled, isTrue);
+      expect(decoder.allocations, 1);
+      expect(
+        tester.widget<DokkaebiIntro>(find.byType(DokkaebiIntro)).staticOnly,
+        isFalse,
+      );
+      final dimensions = tester.getSize(frame);
+      expect(dimensions.width / dimensions.height, closeTo(2 / 3, .001));
+      expect(tester.takeException(), isNull);
+      const reviewDir = String.fromEnvironment('DOKKAEBI_REVIEW_DIR');
+      if (reviewDir.isNotEmpty) {
+        decoder.events.add(VideoEvent(eventType: VideoEventType.completed));
+        await tester.pump();
+        // Drain asset decoding before capturing the actual app sheet.
+        await tester.runAsync(() async {
+          await Future<void>.delayed(const Duration(milliseconds: 500));
+        });
+        await tester.pump();
+        final boundary = tester.renderObject<RenderRepaintBoundary>(
+          find.byKey(const ValueKey('dokkaebi-app-review')),
+        );
+        await tester.runAsync(() async {
+          final image = await boundary.toImage();
+          final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
+          await File(
+            '$reviewDir/app-${variant.$1.width.toInt()}-${variant.$2}.png',
+          ).writeAsBytes(bytes!.buffer.asUint8List());
+          image.dispose();
+        });
+      }
+      await tester.pumpWidget(const SizedBox.shrink());
+      for (var i = 0; i < 5; i++) {
+        await tester.pump(const Duration(milliseconds: 100));
+      }
+      expect(decoder.releases, 1);
+    });
+  }
   testWidgets('one-shot completion releases decoder and calls back once', (
     tester,
   ) async {

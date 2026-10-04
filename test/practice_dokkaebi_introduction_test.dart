@@ -1,4 +1,6 @@
 import 'package:ko_lernen_app/widgets/practice_dokkaebi_art.dart';
+import 'package:ko_lernen_app/widgets/sori/dokkaebi_intro.dart';
+import 'package:ko_lernen_app/widgets/sori/dokkaebi_flame_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
@@ -121,6 +123,14 @@ void main() {
       await tester.tap(find.text('Meet'));
       await pumpSoriStage(tester);
       final t = AppL10n.of(tester.element(find.text('도깨비')));
+      expect(find.byType(DokkaebiIntro), findsOneWidget);
+      expect(find.byType(DokkaebiFlameFrame), findsOneWidget);
+      expect(
+        tester.widget<DokkaebiIntro>(find.byType(DokkaebiIntro)).staticOnly,
+        isTrue,
+      );
+      final frameSize = tester.getSize(find.byType(DokkaebiFlameFrame));
+      expect(frameSize.width / frameSize.height, closeTo(2 / 3, .001));
       final returnButton = find.text(t.practiceDokkaebiReturn);
       final footer = tester.getRect(returnButton);
       expect(footer.top, greaterThan(0));
