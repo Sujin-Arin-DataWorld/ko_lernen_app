@@ -11312,14 +11312,16 @@ class AppL10nEn extends AppL10n {
   String get practiceEffect => 'How it may come across';
 
   @override
-  String get practiceGrammarCorrect =>
-      'The grammar is correct. The effect depends on the context and tone.';
+  String get practiceGrammarCorrect => 'Grammatically correct.';
+
+  @override
+  String get practiceReplayGesture => 'Replay the fan gesture';
 
   @override
   String get practiceAssemble => 'Build your next reply';
 
   @override
-  String get practiceShowEffect => 'View the explanation for help';
+  String get practiceShowEffect => 'See how your answer comes across';
 
   @override
   String get practiceReset => 'Put the words back';
@@ -11387,17 +11389,17 @@ class AppL10nEn extends AppL10n {
   String get practiceHintTitle => 'A hint from Dokkaebi';
 
   @override
-  String get practiceHintMeaning => 'View meaning and direction';
+  String get practiceHintMeaning => 'See a sentence clue';
 
   @override
   String get practiceHintCrossing => 'View crossing cells';
 
   @override
-  String get practiceHintReveal => 'Reveal one syllable · direct help';
+  String get practiceHintReveal => 'Reveal a syllable · direct help';
 
   @override
   String get practiceHintPlace =>
-      'The syllable is shown. Place the matching tile on the selected cell yourself.';
+      'Place the matching syllable in the marked cell yourself.';
 
   @override
   String get practiceHintNoCrossing => 'This word has no crossing cell.';
@@ -11743,4 +11745,87 @@ class AppL10nEn extends AppL10n {
   @override
   String get dancheongDeleteArtworkNote =>
       'Delete this finished version and its saved captions? Its public links will also be disabled. Copies already saved by others remain.';
+
+  @override
+  String get practiceDokkaebiMeet => 'Meet the Dokkaebi';
+
+  @override
+  String get practiceDokkaebiAbout => 'Your puzzle companion';
+
+  @override
+  String get practiceDokkaebiGesture => 'See the swing';
+
+  @override
+  String get practiceDokkaebiReturn => 'Back to the puzzle';
+
+  @override
+  String get practiceDokkaebiTopicTales => 'Tales';
+
+  @override
+  String get practiceDokkaebiTopicHome => 'Home & luck';
+
+  @override
+  String get practiceDokkaebiTopicLearning => 'Learning pal';
+
+  @override
+  String get practiceDokkaebiTalesTitle => 'Magic, mischief and a bridge';
+
+  @override
+  String get practiceDokkaebiTalesBody =>
+      'In Korean tales, the Dokkaebi brings wealth, challenges people to wrestle, or repairs a bridge at night. Helpful, playful, and sometimes easily outwitted.';
+
+  @override
+  String get practiceDokkaebiHomeTitle => 'A guardian? Sometimes, yes.';
+
+  @override
+  String get practiceDokkaebiHomeBody =>
+      'In some traditions on Jeju, the Dokkaebi was also worshipped as a household guardian. Its role varies by region and story.';
+
+  @override
+  String get practiceDokkaebiLearningTitle => 'Let’s puzzle it out together';
+
+  @override
+  String get practiceDokkaebiLearningBody =>
+      'Sentence clue → crossing cells → one syllable. You place the tiles yourself. Hints are free.';
+
+  @override
+  String get practiceDokkaebiLearningNote =>
+      'Practise on your own later in the Sarangbang. We celebrate your saved achievements together.';
+
+  @override
+  String get practiceDokkaebiAppStory => 'A new role in Hangul Sori.';
+
+  @override
+  String get practiceDokkaebiFireAction => 'Discover 도깨비불';
+
+  @override
+  String get practiceDokkaebiFireWord => '도깨비불 · Dokkaebi fire';
+
+  @override
+  String get practiceDokkaebiRoofAction => 'What about the roof tiles?';
+
+  @override
+  String get practiceDokkaebiRoofBody =>
+      'These roof tiles bear an expressive face. The motif represents warding off harmful influences. It is not necessarily a depiction of a Dokkaebi.';
+
+  @override
+  String get practiceDokkaebiFolkloreSource => 'Source: 한국민족문화대백과사전';
+
+  @override
+  String get practiceDokkaebiMuseumSource => 'Source: 국립중앙박물관';
+
+  @override
+  String get practiceDokkaebiFormAction => 'See another form';
+
+  @override
+  String get practiceDokkaebiFormReturn => 'Back to the friendly form';
+
+  @override
+  String get practiceDokkaebiFormNote =>
+      'A fantasy form created for Hangul Sori.';
+
+  @override
+  String practiceHintWordPath(int count, int row, int column) {
+    return '$count syllables · Start: row $row, column $column';
+  }
 }

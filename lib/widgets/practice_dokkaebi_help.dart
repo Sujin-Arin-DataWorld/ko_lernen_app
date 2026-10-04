@@ -1,0 +1,310 @@
+import 'dart:math' as math;
+import 'package:flutter/material.dart';
+import '../l10n/generated/app_localizations.dart';
+import 'practice_character_clip.dart';
+import 'practice_dokkaebi_art.dart';
+import 'practice_dokkaebi_clip.dart';
+import 'practice_dokkaebi_introduction.dart';
+import 'practice_motion.dart';
+import 'sori/card.dart';
+import 'sori/tokens.dart';
+
+class PracticeDokkaebiHelp extends StatelessWidget {
+  const PracticeDokkaebiHelp({
+    super.key,
+    required this.child,
+    this.compact = false,
+  });
+  final Widget child;
+  final bool compact;
+  @override
+  Widget build(BuildContext context) => Padding(
+    padding: EdgeInsets.fromLTRB(
+      Spacing.lg,
+      compact ? Spacing.xs : Spacing.sm,
+      Spacing.lg,
+      compact ? Spacing.sm : Spacing.lg,
+    ),
+    child: child,
+  );
+}
+
+/// The action belongs to the puzzle's edge, rather than to the help text.
+class PracticeDokkaebiStage extends StatelessWidget {
+  const PracticeDokkaebiStage({
+    super.key,
+    required this.requestId,
+    required this.play,
+    required this.helping,
+    this.size = 176,
+    this.onRequested,
+    this.onImpact,
+  });
+  final int requestId;
+  final bool play, helping;
+  final double size;
+  final VoidCallback? onRequested, onImpact;
+  @override
+  Widget build(BuildContext context) => PracticeViewportGate(
+    requireFullVisibility: true,
+    child: _DokkaebiStage(
+      requestId: requestId,
+      play: play,
+      helping: helping,
+      size: size,
+      onRequested: onRequested,
+      onImpact: onImpact,
+    ),
+  );
+}
+
+class _DokkaebiStage extends StatefulWidget {
+  const _DokkaebiStage({
+    required this.requestId,
+    required this.play,
+    required this.helping,
+    required this.size,
+    this.onRequested,
+    this.onImpact,
+  });
+  final int requestId;
+  final bool play, helping;
+  final double size;
+  final VoidCallback? onRequested, onImpact;
+  @override
+  State<_DokkaebiStage> createState() => _DokkaebiStageState();
+}
+
+class _DokkaebiStageState extends State<_DokkaebiStage>
+    with SingleTickerProviderStateMixin {
+  static const _fire =
+      'assets/illustrations/decorations/decoration_dokkaebi_fire.png';
+  late final _orbit = AnimationController(
+    vsync: this,
+    duration: const Duration(seconds: 6),
+  );
+  int _pulse = 0;
+  bool _postersCached = false;
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_postersCached) {
+      _postersCached = true;
+      for (final clip in PracticeDokkaebiClip.values) {
+        precacheImage(AssetImage(clip.startAsset), context);
+        precacheImage(AssetImage(clip.endAsset), context);
+      }
+    }
+    if (TickerMode.valuesOf(context).enabled) {
+      if (!_orbit.isAnimating) _orbit.repeat();
+    } else {
+      _orbit.stop();
+    }
+  }
+
+  @override
+  void didUpdateWidget(_DokkaebiStage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.requestId != widget.requestId) {
+      _pulse = 0;
+    }
+  }
+
+  void _impact(int request) {
+    if (!mounted ||
+        request != widget.requestId ||
+        !TickerMode.valuesOf(context).enabled) {
+      return;
+    }
+    setState(() => _pulse = request);
+    widget.onImpact?.call();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final request = widget.requestId;
+    final clip = PracticeDokkaebiClip.forRequest(request);
+    return RepaintBoundary(
+      child: SizedBox(
+        key: const ValueKey('dokkaebi-motion-stage'),
+        width: widget.size,
+        height: widget.size,
+        child: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Positioned.fill(
+              child: AnimatedSwitcher(
+                duration: TickerMode.valuesOf(context).enabled
+                    ? const Duration(milliseconds: 150)
+                    : Duration.zero,
+                switchInCurve: Curves.easeOut,
+                switchOutCurve: Curves.easeOut,
+                child: widget.requestId == 0
+                    ? PracticeDokkaebiArt(
+                        key: const ValueKey('dokkaebi-idle-art'),
+                        pose: widget.helping
+                            ? PracticeDokkaebiPose.helping
+                            : PracticeDokkaebiPose.ready,
+                      )
+                    : PracticeCharacterClip(
+                        key: ValueKey('dokkaebi-clip-${widget.requestId}'),
+                        videoAsset: clip.videoAsset,
+                        startAsset: clip.startAsset,
+                        endAsset: clip.endAsset,
+                        // Preserve each MP4's matching poster and contact time.
+                        impactAt: clip.impactAt,
+                        play: widget.play,
+                        explaining: widget.helping,
+                        onRequested: widget.onRequested,
+                        onImpact: () => _impact(request),
+                      ),
+              ),
+            ),
+            for (var i = 0; i < 2; i++)
+              Positioned(
+                left: widget.size * (i == 0 ? .16 : .79),
+                top: widget.size * (i == 0 ? .45 : .57),
+                child: ExcludeSemantics(
+                  child: IgnorePointer(
+                    child: TweenAnimationBuilder<double>(
+                      tween: Tween(end: request * math.pi / 2),
+                      duration: TickerMode.valuesOf(context).enabled
+                          ? const Duration(milliseconds: 250)
+                          : Duration.zero,
+                      child: Image.asset(
+                        _fire,
+                        key: ValueKey('dokkaebi-fire-$i'),
+                        width: 26,
+                        height: 26,
+                        cacheWidth: 128,
+                      ),
+                      builder: (context, phase, child) => AnimatedBuilder(
+                        animation: _orbit,
+                        child: child,
+                        builder: (context, child) {
+                          final angle =
+                              _orbit.value * 2 * math.pi + i * math.pi + phase;
+                          return Transform.translate(
+                            offset: TickerMode.valuesOf(context).enabled
+                                ? Offset(
+                                    math.cos(angle) * 5,
+                                    math.sin(angle) * 7,
+                                  )
+                                : Offset.zero,
+                            child: Transform.rotate(
+                              angle: TickerMode.valuesOf(context).enabled
+                                  ? math.sin(angle) * .1
+                                  : 0,
+                              child: child,
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            Positioned.fill(child: PracticeImpactRipple(pulse: _pulse)),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _orbit.dispose();
+    super.dispose();
+  }
+}
+
+/// Explicitly opened introduction: it never requests a hint or writes a result.
+Future<void> showPracticeDokkaebiIntroduction(BuildContext context) {
+  return showModalBottomSheet<void>(
+    context: context,
+    isScrollControlled: true,
+    showDragHandle: true,
+    backgroundColor: SoriCard.resolvedBackground(context),
+    builder: (context) => const PracticeDokkaebiIntroduction(),
+  );
+}
+
+/// The fire opens the game introduction without reserving a header paragraph.
+class PracticeDokkaebiFireAction extends StatelessWidget {
+  const PracticeDokkaebiFireAction({super.key});
+  @override
+  Widget build(BuildContext context) =>
+      const PracticeViewportGate(child: _FireAction());
+}
+
+class _FireAction extends StatefulWidget {
+  const _FireAction();
+  @override
+  State<_FireAction> createState() => _FireActionState();
+}
+
+class _FireActionState extends State<_FireAction>
+    with SingleTickerProviderStateMixin {
+  late final _orbit = AnimationController(
+    vsync: this,
+    duration: const Duration(seconds: 6),
+  );
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (TickerMode.valuesOf(context).enabled) {
+      if (!_orbit.isAnimating) _orbit.repeat();
+    } else {
+      _orbit.stop();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final label = AppL10n.of(context).practiceDokkaebiMeet;
+    void open() => showPracticeDokkaebiIntroduction(context);
+    return Tooltip(
+      // The action already owns its label. Exclude the visible popup text too,
+      // otherwise Flutter web appends it to the button name through aria-owns.
+      richMessage: TextSpan(
+        children: [WidgetSpan(child: ExcludeSemantics(child: Text(label)))],
+      ),
+      excludeFromSemantics: true,
+      ignorePointer: true,
+      child: Semantics(
+        label: label,
+        button: true,
+        onTap: open,
+        child: ExcludeSemantics(
+          child: IconButton(
+            key: const ValueKey('dokkaebi-introduction'),
+            constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+            onPressed: open,
+            icon: AnimatedBuilder(
+              animation: _orbit,
+              child: Image.asset(
+                'assets/illustrations/decorations/decoration_dokkaebi_fire.png',
+                width: 28,
+                height: 28,
+                cacheWidth: 128,
+                excludeFromSemantics: true,
+              ),
+              builder: (context, child) => Transform.translate(
+                offset: TickerMode.valuesOf(context).enabled
+                    ? Offset(0, math.sin(_orbit.value * math.pi * 2) * 2)
+                    : Offset.zero,
+                child: child,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _orbit.dispose();
+    super.dispose();
+  }
+}

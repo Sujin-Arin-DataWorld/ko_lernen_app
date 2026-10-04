@@ -39,6 +39,8 @@ The user replaced the floating mask presentation with the masked scholar. Restor
 
 ## 구현과 검증 근거
 
+추가 승인된 도깨비 소개는 이야기·집과 복·학습 친구를 짧게 선택하는 탐색이다. 움직이는 도깨비불의 단어 표시, 귀면와의 선택적 설명, 새 붉은 도깨비의 되돌릴 수 있는 변신을 둔다. 붉은 모습은 한글소리의 상상으로 명시하고 원본 바이트를 보존한다. 소개 열람·변신·영상 재생은 학습 완료나 보상으로 기록하지 않는다. 더 넓은 문화 카드와 다른 게임·특별 도전은 위 대기 목록을 유지한다.
+
 첫 버전의 구현은 `lib/screens/smalltalk_context_screen.dart`, `lib/screens/silben_kreuz_screen.dart`, `lib/screens/hanok_practice_screen.dart`, `lib/services/practice_history_store.dart`에 있다. Smalltalk 허브와 사랑방의 고정 진입점은 기존 라우터로 연결한다. 열람, 도움받은 완료, 독립 완료는 두 학습 모두 별도 기록이며 복습은 추가 보상을 만들지 않는다.
 
-최종 검증 명령·결과와 기존 메인 실패의 경계는 [구현 계획의 검증 절](../plans/2026-10-03-hahoe-dokkaebi-practice.md#verification-after-restoring-the-learning-scope)에 둔다. 사용자 요청으로 Android/TalkBack 실기기 확인은 후속으로 둔다. 기존 영상 작업과 폐기 후보는 원래 영상 작업 공간에 보존하며, 이 첫 버전은 승인된 정적 캐릭터를 사용한다.
+최종 검증 명령·결과와 기존 메인 실패의 경계는 [구현 계획의 검증 절](../plans/2026-10-03-hahoe-dokkaebi-practice.md#verification-after-restoring-the-learning-scope)에 둔다. 사용자 요청으로 Android/TalkBack 실기기 확인은 후속으로 둔다. 기존 영상 작업과 폐기 후보는 보존한다. 이후 승인된 선비님 부채 영상·도깨비 타격 영상과 추가 포즈를 현재 Sori 화면에 연결한다. 영상은 무음·한 번 재생이며 모션 감소에서는 정적 포즈와 같은 학습 정보를 제공한다. 해태 캐릭터 컨셉은 폐기하고 중요한 성취·학습 완료의 반응 역할도 도깨비로 통합한다. 현재 포즈 배치와 압축한 화면 구성은 [구현 계획의 현재 캐릭터 역할 절](../plans/2026-10-03-hahoe-dokkaebi-practice.md#current-character-roles-and-compact-learning-layout)에 둔다.

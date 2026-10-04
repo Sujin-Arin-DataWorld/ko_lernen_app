@@ -11365,14 +11365,16 @@ class AppL10nDe extends AppL10n {
   String get practiceEffect => 'So kann es ankommen';
 
   @override
-  String get practiceGrammarCorrect =>
-      'Grammatisch korrekt. Die Wirkung hängt von der Situation und dem Ton ab.';
+  String get practiceGrammarCorrect => 'Grammatisch korrekt.';
+
+  @override
+  String get practiceReplayGesture => 'Fächergeste wiederholen';
 
   @override
   String get practiceAssemble => 'Setze deine nächste Antwort zusammen';
 
   @override
-  String get practiceShowEffect => 'Erklärung als Hilfe ansehen';
+  String get practiceShowEffect => 'Wirkung der Antwort ansehen';
 
   @override
   String get practiceReset => 'Wörter zurücklegen';
@@ -11440,17 +11442,17 @@ class AppL10nDe extends AppL10n {
   String get practiceHintTitle => 'Ein Hinweis vom Dokkaebi';
 
   @override
-  String get practiceHintMeaning => 'Bedeutung und Richtung ansehen';
+  String get practiceHintMeaning => 'Satzhinweis ansehen';
 
   @override
   String get practiceHintCrossing => 'Kreuzungsfelder ansehen';
 
   @override
-  String get practiceHintReveal => 'Eine Silbe anzeigen · deutliche Hilfe';
+  String get practiceHintReveal => 'Silbe zeigen · direkte Hilfe';
 
   @override
   String get practiceHintPlace =>
-      'Die Silbe ist sichtbar. Lege den passenden Stein selbst auf das ausgewählte Feld.';
+      'Lege die passende Silbe selbst ins markierte Feld.';
 
   @override
   String get practiceHintNoCrossing => 'Dieses Wort hat kein Kreuzungsfeld.';
@@ -11798,4 +11800,88 @@ class AppL10nDe extends AppL10n {
   @override
   String get dancheongDeleteArtworkNote =>
       'Diese fertige Version und ihre gespeicherten Begleittexte löschen? Ihre öffentlichen Links werden ebenfalls deaktiviert. Bereits von anderen gespeicherte Kopien bleiben erhalten.';
+
+  @override
+  String get practiceDokkaebiMeet => 'Den Dokkaebi kennenlernen';
+
+  @override
+  String get practiceDokkaebiAbout => 'Dein Rätselgefährte';
+
+  @override
+  String get practiceDokkaebiGesture => 'Den Schwung ansehen';
+
+  @override
+  String get practiceDokkaebiReturn => 'Zurück zum Rätsel';
+
+  @override
+  String get practiceDokkaebiTopicTales => 'Märchen';
+
+  @override
+  String get practiceDokkaebiTopicHome => 'Haus & Glück';
+
+  @override
+  String get practiceDokkaebiTopicLearning => 'Lernfreund';
+
+  @override
+  String get practiceDokkaebiTalesTitle =>
+      'Zauber, Schabernack und eine Brücke';
+
+  @override
+  String get practiceDokkaebiTalesBody =>
+      'In koreanischen Erzählungen schenkt der Dokkaebi Reichtum, fordert Menschen zum Ringkampf heraus oder setzt nachts eine Brücke wieder instand. Hilfsbereit, verspielt und manchmal leicht zu überlisten.';
+
+  @override
+  String get practiceDokkaebiHomeTitle => 'Ein Beschützer? Manchmal, ja.';
+
+  @override
+  String get practiceDokkaebiHomeBody =>
+      'Auf Jeju wurde der Dokkaebi in manchen Glaubenstraditionen auch als Schutzgeist eines Hauses verehrt. Seine Rolle ist je nach Region und Erzählung verschieden.';
+
+  @override
+  String get practiceDokkaebiLearningTitle => 'Wir knobeln zusammen';
+
+  @override
+  String get practiceDokkaebiLearningBody =>
+      'Satzhinweis → Kreuzungsfelder → eine Silbe. Du setzt die Plättchen selbst. Hinweise sind kostenlos.';
+
+  @override
+  String get practiceDokkaebiLearningNote =>
+      'Im Sarangbang übst du später allein weiter. Gespeicherte Erfolge feiern wir gemeinsam.';
+
+  @override
+  String get practiceDokkaebiAppStory => 'Eine neue Rolle in Hangul Sori.';
+
+  @override
+  String get practiceDokkaebiFireAction => '도깨비불 entdecken';
+
+  @override
+  String get practiceDokkaebiFireWord => '도깨비불 · das Dokkaebifeuer';
+
+  @override
+  String get practiceDokkaebiRoofAction => 'Und die Dachziegel?';
+
+  @override
+  String get practiceDokkaebiRoofBody =>
+      'Diese Dachziegel tragen ein ausdrucksstarkes Gesicht. Das Motiv steht für das Abwehren böser Einflüsse. Es ist nicht automatisch das Bild eines Dokkaebi.';
+
+  @override
+  String get practiceDokkaebiFolkloreSource => 'Quelle: 한국민족문화대백과사전';
+
+  @override
+  String get practiceDokkaebiMuseumSource => 'Quelle: 국립중앙박물관';
+
+  @override
+  String get practiceDokkaebiFormAction => 'Eine andere Gestalt ansehen';
+
+  @override
+  String get practiceDokkaebiFormReturn => 'Zur freundlichen Gestalt';
+
+  @override
+  String get practiceDokkaebiFormNote =>
+      'Eine Fantasiegestalt für Hangul Sori.';
+
+  @override
+  String practiceHintWordPath(int count, int row, int column) {
+    return '$count Silben · Start: Zeile $row, Spalte $column';
+  }
 }

@@ -19197,8 +19197,14 @@ abstract class AppL10n {
   /// No description provided for @practiceGrammarCorrect.
   ///
   /// In de, this message translates to:
-  /// **'Grammatisch korrekt. Die Wirkung hängt von der Situation und dem Ton ab.'**
+  /// **'Grammatisch korrekt.'**
   String get practiceGrammarCorrect;
+
+  /// No description provided for @practiceReplayGesture.
+  ///
+  /// In de, this message translates to:
+  /// **'Fächergeste wiederholen'**
+  String get practiceReplayGesture;
 
   /// No description provided for @practiceAssemble.
   ///
@@ -19209,7 +19215,7 @@ abstract class AppL10n {
   /// No description provided for @practiceShowEffect.
   ///
   /// In de, this message translates to:
-  /// **'Erklärung als Hilfe ansehen'**
+  /// **'Wirkung der Antwort ansehen'**
   String get practiceShowEffect;
 
   /// No description provided for @practiceReset.
@@ -19335,7 +19341,7 @@ abstract class AppL10n {
   /// No description provided for @practiceHintMeaning.
   ///
   /// In de, this message translates to:
-  /// **'Bedeutung und Richtung ansehen'**
+  /// **'Satzhinweis ansehen'**
   String get practiceHintMeaning;
 
   /// No description provided for @practiceHintCrossing.
@@ -19347,13 +19353,13 @@ abstract class AppL10n {
   /// No description provided for @practiceHintReveal.
   ///
   /// In de, this message translates to:
-  /// **'Eine Silbe anzeigen · deutliche Hilfe'**
+  /// **'Silbe zeigen · direkte Hilfe'**
   String get practiceHintReveal;
 
   /// No description provided for @practiceHintPlace.
   ///
   /// In de, this message translates to:
-  /// **'Die Silbe ist sichtbar. Lege den passenden Stein selbst auf das ausgewählte Feld.'**
+  /// **'Lege die passende Silbe selbst ins markierte Feld.'**
   String get practiceHintPlace;
 
   /// No description provided for @practiceHintNoCrossing.
@@ -19967,6 +19973,156 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Diese fertige Version und ihre gespeicherten Begleittexte löschen? Ihre öffentlichen Links werden ebenfalls deaktiviert. Bereits von anderen gespeicherte Kopien bleiben erhalten.'**
   String get dancheongDeleteArtworkNote;
+
+  /// No description provided for @practiceDokkaebiMeet.
+  ///
+  /// In de, this message translates to:
+  /// **'Den Dokkaebi kennenlernen'**
+  String get practiceDokkaebiMeet;
+
+  /// No description provided for @practiceDokkaebiAbout.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Rätselgefährte'**
+  String get practiceDokkaebiAbout;
+
+  /// No description provided for @practiceDokkaebiGesture.
+  ///
+  /// In de, this message translates to:
+  /// **'Den Schwung ansehen'**
+  String get practiceDokkaebiGesture;
+
+  /// No description provided for @practiceDokkaebiReturn.
+  ///
+  /// In de, this message translates to:
+  /// **'Zurück zum Rätsel'**
+  String get practiceDokkaebiReturn;
+
+  /// No description provided for @practiceDokkaebiTopicTales.
+  ///
+  /// In de, this message translates to:
+  /// **'Märchen'**
+  String get practiceDokkaebiTopicTales;
+
+  /// No description provided for @practiceDokkaebiTopicHome.
+  ///
+  /// In de, this message translates to:
+  /// **'Haus & Glück'**
+  String get practiceDokkaebiTopicHome;
+
+  /// No description provided for @practiceDokkaebiTopicLearning.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernfreund'**
+  String get practiceDokkaebiTopicLearning;
+
+  /// No description provided for @practiceDokkaebiTalesTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Zauber, Schabernack und eine Brücke'**
+  String get practiceDokkaebiTalesTitle;
+
+  /// No description provided for @practiceDokkaebiTalesBody.
+  ///
+  /// In de, this message translates to:
+  /// **'In koreanischen Erzählungen schenkt der Dokkaebi Reichtum, fordert Menschen zum Ringkampf heraus oder setzt nachts eine Brücke wieder instand. Hilfsbereit, verspielt und manchmal leicht zu überlisten.'**
+  String get practiceDokkaebiTalesBody;
+
+  /// No description provided for @practiceDokkaebiHomeTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Beschützer? Manchmal, ja.'**
+  String get practiceDokkaebiHomeTitle;
+
+  /// No description provided for @practiceDokkaebiHomeBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Auf Jeju wurde der Dokkaebi in manchen Glaubenstraditionen auch als Schutzgeist eines Hauses verehrt. Seine Rolle ist je nach Region und Erzählung verschieden.'**
+  String get practiceDokkaebiHomeBody;
+
+  /// No description provided for @practiceDokkaebiLearningTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wir knobeln zusammen'**
+  String get practiceDokkaebiLearningTitle;
+
+  /// No description provided for @practiceDokkaebiLearningBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Satzhinweis → Kreuzungsfelder → eine Silbe. Du setzt die Plättchen selbst. Hinweise sind kostenlos.'**
+  String get practiceDokkaebiLearningBody;
+
+  /// No description provided for @practiceDokkaebiLearningNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Im Sarangbang übst du später allein weiter. Gespeicherte Erfolge feiern wir gemeinsam.'**
+  String get practiceDokkaebiLearningNote;
+
+  /// No description provided for @practiceDokkaebiAppStory.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine neue Rolle in Hangul Sori.'**
+  String get practiceDokkaebiAppStory;
+
+  /// No description provided for @practiceDokkaebiFireAction.
+  ///
+  /// In de, this message translates to:
+  /// **'도깨비불 entdecken'**
+  String get practiceDokkaebiFireAction;
+
+  /// No description provided for @practiceDokkaebiFireWord.
+  ///
+  /// In de, this message translates to:
+  /// **'도깨비불 · das Dokkaebifeuer'**
+  String get practiceDokkaebiFireWord;
+
+  /// No description provided for @practiceDokkaebiRoofAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Und die Dachziegel?'**
+  String get practiceDokkaebiRoofAction;
+
+  /// No description provided for @practiceDokkaebiRoofBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Dachziegel tragen ein ausdrucksstarkes Gesicht. Das Motiv steht für das Abwehren böser Einflüsse. Es ist nicht automatisch das Bild eines Dokkaebi.'**
+  String get practiceDokkaebiRoofBody;
+
+  /// No description provided for @practiceDokkaebiFolkloreSource.
+  ///
+  /// In de, this message translates to:
+  /// **'Quelle: 한국민족문화대백과사전'**
+  String get practiceDokkaebiFolkloreSource;
+
+  /// No description provided for @practiceDokkaebiMuseumSource.
+  ///
+  /// In de, this message translates to:
+  /// **'Quelle: 국립중앙박물관'**
+  String get practiceDokkaebiMuseumSource;
+
+  /// No description provided for @practiceDokkaebiFormAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine andere Gestalt ansehen'**
+  String get practiceDokkaebiFormAction;
+
+  /// No description provided for @practiceDokkaebiFormReturn.
+  ///
+  /// In de, this message translates to:
+  /// **'Zur freundlichen Gestalt'**
+  String get practiceDokkaebiFormReturn;
+
+  /// No description provided for @practiceDokkaebiFormNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine Fantasiegestalt für Hangul Sori.'**
+  String get practiceDokkaebiFormNote;
+
+  /// New structural clue for the selected crossword word; no answer is placed.
+  ///
+  /// In de, this message translates to:
+  /// **'{count} Silben · Start: Zeile {row}, Spalte {column}'**
+  String practiceHintWordPath(int count, int row, int column);
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {
