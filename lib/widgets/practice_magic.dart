@@ -81,7 +81,7 @@ class _SpellFrame extends CustomPainter {
     final rect = (Offset.zero & size).deflate(1);
     final r = RRect.fromRectAndRadius(
       rect,
-      const Radius.circular(SoriRadius.lg),
+      const Radius.circular(SoriRadius.md),
     );
     canvas.drawRRect(r, edge);
     final diamond = Paint()..color = SoriColors.info.withValues(alpha: .65);

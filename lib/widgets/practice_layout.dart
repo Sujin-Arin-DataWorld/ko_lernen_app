@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'practice_motion.dart';
 import 'sori/card.dart';
-import 'sori/button.dart';
 import 'sori/tokens.dart';
 
-/// A visible lower edge makes the existing Sori button feel like a real key.
-/// The button retains its own semantics, focus, keyboard and haptic behavior.
+/// Reserves room for the shared button's lower edge. The button alone owns
+/// pressure, focus, keyboard and haptics; a second wrapper must not move it.
 class PracticeRaisedAction extends StatelessWidget {
   const PracticeRaisedAction({
     super.key,
@@ -16,22 +14,9 @@ class PracticeRaisedAction extends StatelessWidget {
   final bool primary;
   @override
   Widget build(BuildContext context) {
-    final enabled =
-        child is! SoriButton ||
-        ((child as SoriButton).onTap != null && !(child as SoriButton).loading);
     return Padding(
       padding: EdgeInsets.only(bottom: primary ? Spacing.sm : Spacing.xs),
-      child: PracticeMotionSurface(
-        interactive: enabled,
-        pressDepth: primary ? Spacing.xs : 2,
-        radius: primary ? SoriRadius.lg : SoriRadius.md,
-        baseColor: enabled
-            ? (primary
-                  ? SoriColors.primaryOnLight
-                  : SoriSurfaces.of(context).border)
-            : null,
-        child: child,
-      ),
+      child: child,
     );
   }
 }

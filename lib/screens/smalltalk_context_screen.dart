@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import '../widgets/practice_magic.dart';
 import 'package:flutter/rendering.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/practice_history.dart';
@@ -369,26 +370,30 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
     return PracticeMotionSurface(
       key: ValueKey('dialog-${_scene.characterId}-${value.ko}'),
       enter: true,
-      child: PracticeDialogueBubble(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              profile?.nameFor(_lang) ?? _scene.characterId,
-              style: SoriTextTheme.of(context).eyebrow,
-            ),
-            const SizedBox(height: Spacing.sm),
-            Text(value.ko, style: SoriTextTheme.of(context).h3),
-            const SizedBox(height: Spacing.sm),
-            _text(value),
-            const SizedBox(height: Spacing.lg),
-            SoriButton.ghost(
-              label: AppL10n.of(context).contentLearningAudio,
-              icon: Icons.volume_up_outlined,
-              onTap: () =>
-                  SoriSpeech.speak(value.ko, voice: profile?.voice ?? 'female'),
-            ),
-          ],
+      child: PracticeMagicFrame(
+        child: PracticeDialogueBubble(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                profile?.nameFor(_lang) ?? _scene.characterId,
+                style: SoriTextTheme.of(context).eyebrow,
+              ),
+              const SizedBox(height: Spacing.sm),
+              Text(value.ko, style: SoriTextTheme.of(context).h3),
+              const SizedBox(height: Spacing.sm),
+              _text(value),
+              const SizedBox(height: Spacing.lg),
+              SoriButton.ghost(
+                label: AppL10n.of(context).contentLearningAudio,
+                icon: Icons.volume_up_outlined,
+                onTap: () => SoriSpeech.speak(
+                  value.ko,
+                  voice: profile?.voice ?? 'female',
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -425,6 +430,7 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     return SoriStudyFrame(
+      adaptTitleAtNormalScale: true,
       title: t.practiceToneTitle,
       homeEscape: SoriHomeEscape(
         confirmWhen: !_complete && (_expression != null || _busy),
@@ -493,7 +499,7 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
                           scholarPose: PracticeScholarPose.welcome,
                           child: Text(
                             t.practiceToneTitle,
-                            style: SoriTextTheme.of(context).h2,
+                            style: SoriTextTheme.of(context).menuTitle,
                           ),
                         ),
                         const SizedBox(height: Spacing.lg),
@@ -508,6 +514,7 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
                               enter: true,
                               child: SoriCard(
                                 key: ValueKey('context-case-${c.id}'),
+                                raised: true,
                                 onTap: _busy ? null : () => _open(c, false),
                                 semanticLabel: c.title.pick(_lang),
                                 child: Column(
@@ -520,7 +527,7 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
                                     ),
                                     Text(
                                       c.title.pick(_lang),
-                                      style: SoriTextTheme.of(context).h3,
+                                      style: SoriTextTheme.of(context).menuItem,
                                     ),
                                   ],
                                 ),
@@ -539,7 +546,7 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
                               : PracticeScholarPose.inviting,
                           child: Text(
                             _case!.title.pick(_lang),
-                            style: SoriTextTheme.of(context).h2,
+                            style: SoriTextTheme.of(context).menuTitle,
                           ),
                         ),
                         const SizedBox(height: Spacing.lg),
@@ -585,7 +592,9 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
                                     child: Text(
                                       t.practiceSaved,
                                       key: const ValueKey('context-complete'),
-                                      style: SoriTextTheme.of(context).h2,
+                                      style: SoriTextTheme.of(
+                                        context,
+                                      ).menuTitle,
                                     ),
                                   ),
                                   const SizedBox(height: Spacing.md),
@@ -612,7 +621,7 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
                         ] else if (_intent == null) ...[
                           Text(
                             t.practiceIntent,
-                            style: SoriTextTheme.of(context).h3,
+                            style: SoriTextTheme.of(context).menuItem,
                           ),
                           for (final intent in _case!.intents)
                             Padding(
@@ -631,7 +640,7 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
                         ] else if (_expression == null) ...[
                           Text(
                             t.practiceExpression,
-                            style: SoriTextTheme.of(context).h3,
+                            style: SoriTextTheme.of(context).menuItem,
                           ),
                           for (final e in _intent!.expressions)
                             Padding(
@@ -640,6 +649,7 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
                                 child: SoriButton.outlined(
                                   key: ValueKey('context-expression-${e.id}'),
                                   label: '${e.text.ko}\n${e.text.pick(_lang)}',
+                                  textRole: SoriButtonTextRole.learning,
                                   fullWidth: true,
                                   onTap: () => _pickExpression(e),
                                 ),
@@ -670,7 +680,7 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
                           const SizedBox(height: Spacing.xxl),
                           Text(
                             t.practiceAssemble,
-                            style: SoriTextTheme.of(context).h3,
+                            style: SoriTextTheme.of(context).menuItem,
                           ),
                           const SizedBox(height: Spacing.sm),
                           _text(_expression!.followUp),
@@ -707,6 +717,7 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
                                       child: SoriButton.outlined(
                                         key: ValueKey('context-token-$index'),
                                         label: _pool[index],
+                                        textRole: SoriButtonTextRole.learning,
                                         onTap:
                                             _locked || _selected.contains(index)
                                             ? null

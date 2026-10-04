@@ -46,6 +46,9 @@ class SoriPressable extends StatefulWidget {
   final Color? surfaceEdgeColor;
   final double surfaceRadius;
 
+  /// Small, pointer-relative perspective; never changes layout or hit boxes.
+  final bool tactileTilt;
+
   const SoriPressable({
     super.key,
     required this.child,
@@ -59,6 +62,7 @@ class SoriPressable extends StatefulWidget {
     this.surfaceDepth = 0,
     this.surfaceEdgeColor,
     this.surfaceRadius = SoriRadius.lg,
+    this.tactileTilt = false,
   });
 
   @override
@@ -71,6 +75,9 @@ class _SoriPressableState extends State<SoriPressable>
   bool _hovered = false;
   bool _pressed = false;
   bool _reducedMotion = false;
+  Offset _tilt = Offset.zero;
+  Offset? _pointerOrigin;
+  int _pressSerial = 0;
 
   @override
   void initState() {
@@ -95,6 +102,7 @@ class _SoriPressableState extends State<SoriPressable>
       return;
     }
     _pressed = true;
+    _pressSerial++;
     widget.onPressedChanged?.call(true);
     if (_reducedMotion) {
       return;
@@ -106,7 +114,7 @@ class _SoriPressableState extends State<SoriPressable>
     );
   }
 
-  void _release() {
+  void _release({bool cancel = false}) {
     if (!mounted || !_pressed) {
       return;
     }
@@ -116,11 +124,31 @@ class _SoriPressableState extends State<SoriPressable>
       _ctrl.value = 1;
       return;
     }
-    _ctrl.animateTo(
-      1.0,
-      duration: SoriMotion.medium,
-      curve: SoriMotion.release,
-    );
+    final serial = _pressSerial;
+    void settle() {
+      if (!mounted || _pressed || serial != _pressSerial) {
+        return;
+      }
+      _ctrl.animateTo(
+        1.0,
+        duration: SoriMotion.medium,
+        curve: SoriMotion.release,
+      );
+    }
+
+    if (!cancel &&
+        _ctrl.value > widget.pressScale + (1 - widget.pressScale) * .25) {
+      // Even a quick tap gets one visible press; the action is never delayed.
+      _ctrl
+          .animateTo(
+            widget.pressScale,
+            duration: SoriMotion.fast,
+            curve: SoriMotion.press,
+          )
+          .whenCompleteOrCancel(settle);
+    } else {
+      settle();
+    }
   }
 
   @override
@@ -137,6 +165,7 @@ class _SoriPressableState extends State<SoriPressable>
   void didUpdateWidget(covariant SoriPressable oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.onTap == null && widget.onLongPress == null) {
+      _pressSerial++;
       _ctrl.stop();
       _ctrl.value = 1;
       _hovered = false;
@@ -164,13 +193,17 @@ class _SoriPressableState extends State<SoriPressable>
   }
 
   void _onTap() {
-    if (widget.onTap == null) return;
+    if (widget.onTap == null) {
+      return;
+    }
     _doHaptic();
     widget.onTap!();
   }
 
   void _onLongPress() {
-    if (widget.onLongPress == null) return;
+    if (widget.onLongPress == null) {
+      return;
+    }
     HapticService.mediumImpact();
     widget.onLongPress!();
   }
@@ -187,7 +220,7 @@ class _SoriPressableState extends State<SoriPressable>
       canRequestFocus: enabled,
       onFocusChange: (focused) {
         if (!focused) {
-          _release();
+          _release(cancel: true);
         }
       },
       onKeyEvent: (_, event) {
@@ -235,12 +268,38 @@ class _SoriPressableState extends State<SoriPressable>
                 : SystemMouseCursors.basic,
             child: Listener(
               behavior: widget.behavior,
-              onPointerDown: (_) => _down(),
-              onPointerUp: (_) => _release(),
-              onPointerCancel: (_) => _release(),
+              onPointerDown: (event) {
+                final box = context.findRenderObject();
+                _pointerOrigin = event.position;
+                _tilt = box is RenderBox && box.hasSize
+                    ? Offset(
+                        (event.localPosition.dx / box.size.width * 2 - 1).clamp(
+                          -1,
+                          1,
+                        ),
+                        (event.localPosition.dy / box.size.height * 2 - 1)
+                            .clamp(-1, 1),
+                      )
+                    : Offset.zero;
+                _down();
+              },
+              onPointerMove: (event) {
+                if (_pointerOrigin != null &&
+                    (event.position - _pointerOrigin!).distance > 8) {
+                  _release(cancel: true);
+                }
+              },
+              onPointerUp: (_) {
+                _pointerOrigin = null;
+                _release();
+              },
+              onPointerCancel: (_) {
+                _pointerOrigin = null;
+                _release(cancel: true);
+              },
               child: GestureDetector(
                 behavior: widget.behavior,
-                onTapCancel: _release,
+                onTapCancel: () => _release(cancel: true),
                 onTap: _onTap,
                 onLongPress: widget.onLongPress != null ? _onLongPress : null,
                 child: AnimatedBuilder(
@@ -254,6 +313,19 @@ class _SoriPressableState extends State<SoriPressable>
                             1.0,
                           );
                     final depth = widget.surfaceDepth;
+                    final matrix = Matrix4.identity();
+                    if (!reduced && pressure > 0) {
+                      matrix
+                        ..setEntry(3, 2, .001)
+                        ..translateByDouble(0, depth * .75 * pressure, 0, 1)
+                        ..rotateX(
+                          widget.tactileTilt ? -_tilt.dy * .025 * pressure : 0,
+                        )
+                        ..rotateY(
+                          widget.tactileTilt ? _tilt.dx * .025 * pressure : 0,
+                        )
+                        ..scaleByDouble(_ctrl.value, _ctrl.value, 1, 1);
+                    }
                     final surface = depth > 0
                         ? DecoratedBox(
                             decoration: BoxDecoration(
@@ -291,16 +363,11 @@ class _SoriPressableState extends State<SoriPressable>
                                   : 0,
                               0,
                             ),
-                            child: Transform.translate(
-                              offset: Offset(
-                                0,
-                                reduced ? 0 : depth * .75 * pressure,
-                              ),
-                              child: Transform.scale(
-                                scale: _ctrl.value,
-                                alignment: widget.alignment,
-                                child: surface,
-                              ),
+                            child: Transform(
+                              key: const ValueKey('sori-tactile-transform'),
+                              alignment: widget.alignment,
+                              transform: matrix,
+                              child: surface,
                             ),
                           )
                         : Transform.scale(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'practice_magic.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../services/haptic_service.dart';
@@ -101,27 +102,11 @@ class _PracticeScholarExplanationState
         Semantics(
           container: true,
           header: true,
-          child: Text(t.practiceEffect, style: SoriTextTheme.of(context).h3),
-        ),
-        if (canPlay) ...[
-          const SizedBox(height: Spacing.xl),
-          Semantics(
-            container: true,
-            explicitChildNodes: true,
-            child: SoriButton.ghost(
-              key: const ValueKey('scholar-replay'),
-              label: t.practiceReplayGesture,
-              icon: Icons.replay_rounded,
-              onTap: _playing
-                  ? null
-                  : () => setState(() {
-                      _playing = true;
-                      _hasPlayed = true;
-                      _replays++;
-                    }),
-            ),
+          child: Text(
+            t.practiceEffect,
+            style: SoriTextTheme.of(context).menuItem,
           ),
-        ],
+        ),
       ],
     );
     final card = SoriCard(
@@ -150,6 +135,22 @@ class _PracticeScholarExplanationState
               );
             },
           ),
+          if (canPlay) ...[
+            const SizedBox(height: Spacing.lg),
+            SoriButton.outlined(
+              key: const ValueKey('scholar-replay'),
+              label: t.practiceReplayGesture,
+              icon: Icons.replay_rounded,
+              fullWidth: true,
+              onTap: _playing
+                  ? null
+                  : () => setState(() {
+                      _playing = true;
+                      _hasPlayed = true;
+                      _replays++;
+                    }),
+            ),
+          ],
           const SizedBox(height: Spacing.xl),
           Semantics(container: true, child: widget.child),
         ],
@@ -158,7 +159,7 @@ class _PracticeScholarExplanationState
     return PracticeMotionSurface(
       key: ValueKey(widget.requestId),
       enter: true,
-      child: card,
+      child: PracticeMagicFrame(pulse: widget.requestId, child: card),
     );
   }
 }

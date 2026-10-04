@@ -211,7 +211,19 @@ void main() {
       await tester.pump(const Duration(milliseconds: 600));
       expect(tester.widget<Transform>(transform).transform, isNot(before));
       expect(impacts, 0);
+      // Buffered/startup time is not playback time. Resuming before the old
+      // wall-clock deadline still cannot strike before the native contact frame.
+      platform.events.add(VideoEvent(eventType: VideoEventType.bufferingStart));
+      await tester.pump(const Duration(milliseconds: 400));
+      platform.position = const Duration(milliseconds: 100);
+      platform.events.add(VideoEvent(eventType: VideoEventType.bufferingEnd));
       await tester.pump(const Duration(milliseconds: 750));
+      expect(impacts, 0);
+      platform.position = const Duration(milliseconds: 1299);
+      await tester.pump(const Duration(milliseconds: 50));
+      expect(impacts, 0);
+      platform.position = const Duration(milliseconds: 1300);
+      await tester.pump(const Duration(milliseconds: 50));
       expect(impacts, 1);
       await tester.pump(const Duration(milliseconds: 500));
       expect(impacts, 1);
@@ -293,6 +305,7 @@ void main() {
     (tester) async {
       var impacts = 0;
       for (var request = 1; request <= 4; request++) {
+        platform.position = Duration.zero;
         final clip = request.isOdd
             ? PracticeDokkaebiClip.strike
             : PracticeDokkaebiClip.swing;
@@ -324,6 +337,7 @@ void main() {
         );
         // Each clip has a different contact time. Only the visual response
         // changes: the actual hint remains immediately usable throughout.
+        platform.position = clip.impactAt;
         await tester.pump(clip.impactAt);
         expect(impacts, request);
         platform.events.add(VideoEvent(eventType: VideoEventType.completed));

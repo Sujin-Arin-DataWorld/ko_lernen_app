@@ -281,7 +281,6 @@ class _PracticeDokkaebiIntroductionState
                                             label: _magical
                                                 ? t.practiceDokkaebiFormReturn
                                                 : t.practiceDokkaebiFormAction,
-                                            icon: Icons.auto_awesome_rounded,
                                             fullWidth: true,
                                             onTap: () {
                                               setState(() {
@@ -386,7 +385,6 @@ class _PracticeDokkaebiIntroductionState
                           PracticeRaisedAction(
                             child: SoriButton.outlined(
                               label: t.practiceDokkaebiGesture,
-                              icon: Icons.replay_rounded,
                               fullWidth: true,
                               onTap: _showSwing,
                             ),
@@ -449,6 +447,11 @@ class _TopicTile extends StatelessWidget {
       child: ExcludeSemantics(
         child: SoriPressable(
           onTap: onTap,
+          pressScale: .99,
+          surfaceDepth: 3,
+          surfaceRadius: SoriRadius.md,
+          surfaceEdgeColor: surfaces.border,
+          tactileTilt: true,
           child: Padding(
             padding: const EdgeInsets.only(bottom: Spacing.xs),
             child: Container(
@@ -461,12 +464,6 @@ class _TopicTile extends StatelessWidget {
                   color: selected ? ink : surfaces.border,
                   width: selected ? 2 : 1,
                 ),
-                boxShadow: [
-                  BoxShadow(
-                    color: surfaces.border,
-                    offset: const Offset(0, Spacing.xs),
-                  ),
-                ],
               ),
               child: Stack(
                 children: [
@@ -490,7 +487,7 @@ class _TopicTile extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: SoriTextTheme.of(
                           context,
-                        ).label.copyWith(color: ink),
+                        ).menuLabel.copyWith(color: ink),
                       ),
                     ],
                   ),

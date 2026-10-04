@@ -63,6 +63,7 @@ void main() async {
           ),
           // Review the production entry without unrelated room/network services.
           '/sarangbang' => SoriStudyFrame(
+            adaptTitleAtNormalScale: true,
             title: AppL10n.of(context).practiceToSarangbang,
             child: const SingleChildScrollView(child: HanokPracticeEntry()),
           ),
@@ -72,3 +73,7 @@ void main() async {
     ),
   );
 }
+
+// The localhost-only visual harness deliberately injects the speech test hooks
+// so its unauthenticated origin never calls production TTS/App Check services.
+// ignore_for_file: invalid_use_of_visible_for_testing_member

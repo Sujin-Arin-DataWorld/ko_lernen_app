@@ -235,9 +235,19 @@ flutter:
     - assets/video/practice/dokkaebi_hint_swing_start.png
     - assets/video/practice/dokkaebi_hint_swing_end.png
 
-  # ── Noto Sans KR 단일 가변 서체, OFL ──
-  # 한글·영어·독일어 글리프를 모두 포함한다. test/font_bundle_guard_test.dart 검사.
+  # OFL: Paperlogy for interface lettering; Noto Sans KR for learning copy.
+  # Both families contain Korean, German and English glyphs (font bundle guard).
   fonts:
+    - family: Paperlogy
+      fonts:
+        - asset: assets/fonts/Paperlogy/Paperlogy-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Paperlogy/Paperlogy-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Paperlogy/Paperlogy-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Paperlogy/Paperlogy-Bold.ttf
+          weight: 700
     - family: NotoSansKR
       fonts:
         - asset: assets/fonts/NotoSansKR/NotoSansKR-Variable.ttf

@@ -754,7 +754,6 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                   : level == 1
                   ? t.practiceHintCrossing
                   : t.practiceHintReveal,
-              icon: Icons.auto_awesome_rounded,
               fullWidth: true,
               onTap:
                   _finishing || _selected == null || _locked.contains(_selected)
@@ -1127,7 +1126,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                 : inActiveWord
                 ? SoriColors.info.withValues(alpha: 0.06)
                 : s.surfaceAlt,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(SoriRadius.sm),
             border: Border.all(
               color: locked
                   ? SoriColors.success
@@ -1267,9 +1266,13 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
               onTap: _tileUsed[i] ? null : () => _onTileTap(i, presentation),
               excludeSemantics: true,
               child: PracticeMotionSurface(
-                interactive: !_tileUsed[i],
+                interactive: false,
                 child: SoriPressable(
-                  pressScale: 1,
+                  pressScale: .99,
+                  surfaceDepth: _tileUsed[i] ? 0 : 3,
+                  surfaceRadius: SoriRadius.sm,
+                  surfaceEdgeColor: s.border,
+                  tactileTilt: true,
                   haptic: null,
                   onTap: _tileUsed[i]
                       ? null
@@ -1280,16 +1283,8 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: s.surface,
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(SoriRadius.sm),
                       border: Border.all(color: s.border),
-                      boxShadow: _tileUsed[i]
-                          ? null
-                          : [
-                              BoxShadow(
-                                color: s.border,
-                                offset: const Offset(0, Spacing.xs),
-                              ),
-                            ],
                     ),
                     child: Text(
                       p.pool[i],
@@ -1391,9 +1386,13 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       onTap: done ? null : onTap,
       excludeSemantics: true,
       child: PracticeMotionSurface(
-        interactive: !done,
+        interactive: false,
         child: SoriPressable(
-          pressScale: 1,
+          pressScale: .99,
+          surfaceDepth: done ? 0 : 3,
+          surfaceRadius: SoriRadius.md,
+          surfaceEdgeColor: s.border,
+          tactileTilt: true,
           haptic: null,
           onTap: done ? null : onTap,
           child: AnimatedContainer(
@@ -1542,7 +1541,6 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                 primary: true,
                 child: SoriButton.filled(
                   label: t.btnNext,
-                  icon: Icons.arrow_forward,
                   accent: SoriColors.success,
                   onTap: next,
                   fullWidth: true,

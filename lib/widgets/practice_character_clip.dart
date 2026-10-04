@@ -139,12 +139,16 @@ class _PracticeCharacterClipState extends State<PracticeCharacterClip> {
       }
       await video.play();
       unawaited(_waitForFrame(video));
-      // Anchor to native playback, rather than coarse position polling.
+      // Wake near contact, then verify the native position before the effect.
+      // Decoder startup or buffering must never make a wall-clock timer strike.
       if (mounted &&
           !_finished &&
           identical(video, _video) &&
           widget.impactAt != null) {
-        _impactTimer = Timer(widget.impactAt!, _impact);
+        _impactTimer = Timer(
+          widget.impactAt!,
+          () => unawaited(_checkImpact(video)),
+        );
       }
     } catch (_) {
       await _completion.naturalCompletion();
@@ -178,10 +182,33 @@ class _PracticeCharacterClipState extends State<PracticeCharacterClip> {
     }
   }
 
-  void _impact() {
+  Future<void> _checkImpact(VideoPlayerController video) async {
+    if (!mounted || _finished || _impacted || !identical(video, _video)) {
+      return;
+    }
+    try {
+      final position = await video.position;
+      if (!mounted || _finished || _impacted || !identical(video, _video)) {
+        return;
+      }
+      _impact(position ?? video.value.position);
+      if (!_impacted) {
+        _impactTimer = Timer(
+          const Duration(milliseconds: 50),
+          () => unawaited(_checkImpact(video)),
+        );
+      }
+    } catch (_) {
+      // The controller listener remains a safe fallback for this decoration.
+    }
+  }
+
+  void _impact(Duration position) {
     if (!mounted ||
         _finished ||
         _impacted ||
+        widget.impactAt == null ||
+        position < widget.impactAt! ||
         _unavailable ||
         !(_video?.value.isPlaying ?? false) ||
         (_video?.value.isBuffering ?? false) ||
@@ -203,7 +230,7 @@ class _PracticeCharacterClipState extends State<PracticeCharacterClip> {
       return;
     }
     if (widget.impactAt != null && value.position >= widget.impactAt!) {
-      _impact();
+      _impact(value.position);
     }
     if (value.isCompleted) {
       unawaited(_completion.naturalCompletion());

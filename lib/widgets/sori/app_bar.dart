@@ -59,7 +59,7 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
   // 같은 const spec을 참조하므로 `SoriTextTheme.chromeTitle`/`.eyebrow` 와
   // 수치가 갈라질 수 없다(§W-A2 d, 2026-09-03 — 옛 수동 동기화 제거).
   static final _titleStyle = TextStyle(
-    fontFamily: SoriFonts.sans,
+    fontFamily: SoriFonts.interface,
     fontFamilyFallback: SoriFonts.fallback,
     fontSize: SoriTypeSpecs.chromeTitle.size,
     fontWeight: SoriTypeSpecs.chromeTitle.weight,

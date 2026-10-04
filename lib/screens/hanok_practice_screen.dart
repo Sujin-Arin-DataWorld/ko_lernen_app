@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/practice_magic.dart';
 import 'package:intl/intl.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/practice_history.dart';
@@ -107,104 +108,106 @@ class _HanokPracticeScreenState extends State<HanokPracticeScreen> {
       padding: const EdgeInsets.only(bottom: Spacing.xl),
       child: PracticeMotionSurface(
         enter: true,
-        child: SoriCard(
-          key: ValueKey('practice-item-${source.key}'),
-          padding: const EdgeInsets.all(Spacing.xl),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              PracticeGuide(
-                dokkaebi: !isContext,
-                scholarPose: item.independent != null
-                    ? PracticeScholarPose.bow
-                    : PracticeScholarPose.calm,
-                dokkaebiPose: item.independent != null
-                    ? PracticeDokkaebiPose.celebrate
-                    : item.assisted != null
-                    ? PracticeDokkaebiPose.review
-                    : PracticeDokkaebiPose.ready,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Text(
-                      isContext
-                          ? (contextCase?.title.pick(lang) ??
-                                t.practiceUnavailable)
-                          : t.practiceSilbenLabel,
-                      style: SoriTextTheme.of(context).h3,
-                    ),
-                    Text(
-                      source.level.toUpperCase(),
-                      style: SoriTextTheme.of(context).eyebrow,
-                    ),
-                    if (expression != null) ...[
+        child: PracticeMagicFrame(
+          child: SoriCard(
+            key: ValueKey('practice-item-${source.key}'),
+            padding: const EdgeInsets.all(Spacing.xl),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                PracticeGuide(
+                  dokkaebi: !isContext,
+                  scholarPose: item.independent != null
+                      ? PracticeScholarPose.bow
+                      : PracticeScholarPose.calm,
+                  dokkaebiPose: item.independent != null
+                      ? PracticeDokkaebiPose.celebrate
+                      : item.assisted != null
+                      ? PracticeDokkaebiPose.review
+                      : PracticeDokkaebiPose.ready,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
                       Text(
-                        expression.text.ko,
-                        style: SoriTextTheme.of(context).body,
+                        isContext
+                            ? (contextCase?.title.pick(lang) ??
+                                  t.practiceUnavailable)
+                            : t.practiceSilbenLabel,
+                        style: SoriTextTheme.of(context).menuItem,
                       ),
                       Text(
-                        expression.text.pick(lang),
-                        style: SoriTextTheme.of(context).meta,
+                        source.level.toUpperCase(),
+                        style: SoriTextTheme.of(context).eyebrow,
                       ),
+                      if (expression != null) ...[
+                        Text(
+                          expression.text.ko,
+                          style: SoriTextTheme.of(context).body,
+                        ),
+                        Text(
+                          expression.text.pick(lang),
+                          style: SoriTextTheme.of(context).meta,
+                        ),
+                      ],
+                      if (assistedWords.isNotEmpty)
+                        Text(
+                          assistedWords
+                              .map((w) => '${w.answer} · ${w.meaningFor(lang)}')
+                              .join('\n'),
+                          style: SoriTextTheme.of(context).body,
+                        ),
                     ],
-                    if (assistedWords.isNotEmpty)
-                      Text(
-                        assistedWords
-                            .map((w) => '${w.answer} · ${w.meaningFor(lang)}')
-                            .join('\n'),
-                        style: SoriTextTheme.of(context).body,
-                      ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: Spacing.md),
-              if (item.viewedAt != null)
-                Text(
-                  '${t.practiceViewed} · ${_date(item.viewedAt!)}',
-                  style: SoriTextTheme.of(context).meta,
-                ),
-              if (item.assisted != null)
-                Text(
-                  '${t.practiceAssisted} · ${_date(item.assisted!.at)}',
-                  style: SoriTextTheme.of(context).body,
-                ),
-              if (item.independent != null)
-                Text(
-                  '${t.practiceIndependent} · ${_date(item.independent!.at)}',
-                  style: SoriTextTheme.of(context).body,
-                ),
-              const SizedBox(height: Spacing.xl),
-              if (!available)
-                Text(
-                  t.practiceUnavailable,
-                  style: SoriTextTheme.of(context).body,
-                )
-              else
-                PracticeRaisedAction(
-                  child: SoriButton.outlined(
-                    key: ValueKey('practice-open-${source.key}'),
-                    label: isContext
-                        ? t.practiceTransfer
-                        : t.practicePuzzleReplay,
-                    fullWidth: true,
-                    onTap: !_session.isCurrent
-                        ? null
-                        : () => Navigator.of(context).pushNamed(
-                            isContext ? '/smalltalk/context' : '/wordle',
-                            arguments: isContext
-                                ? SmalltalkContextRequest(
-                                    caseId: source.id,
-                                    transfer: true,
-                                  )
-                                : SilbenReviewRequest(
-                                    level: source.level,
-                                    puzzleId: source.id,
-                                    revision: source.revision,
-                                  ),
-                          ),
                   ),
                 ),
-            ],
+                const SizedBox(height: Spacing.md),
+                if (item.viewedAt != null)
+                  Text(
+                    '${t.practiceViewed} · ${_date(item.viewedAt!)}',
+                    style: SoriTextTheme.of(context).meta,
+                  ),
+                if (item.assisted != null)
+                  Text(
+                    '${t.practiceAssisted} · ${_date(item.assisted!.at)}',
+                    style: SoriTextTheme.of(context).body,
+                  ),
+                if (item.independent != null)
+                  Text(
+                    '${t.practiceIndependent} · ${_date(item.independent!.at)}',
+                    style: SoriTextTheme.of(context).body,
+                  ),
+                const SizedBox(height: Spacing.xl),
+                if (!available)
+                  Text(
+                    t.practiceUnavailable,
+                    style: SoriTextTheme.of(context).body,
+                  )
+                else
+                  PracticeRaisedAction(
+                    child: SoriButton.outlined(
+                      key: ValueKey('practice-open-${source.key}'),
+                      label: isContext
+                          ? t.practiceTransfer
+                          : t.practicePuzzleReplay,
+                      fullWidth: true,
+                      onTap: !_session.isCurrent
+                          ? null
+                          : () => Navigator.of(context).pushNamed(
+                              isContext ? '/smalltalk/context' : '/wordle',
+                              arguments: isContext
+                                  ? SmalltalkContextRequest(
+                                      caseId: source.id,
+                                      transfer: true,
+                                    )
+                                  : SilbenReviewRequest(
+                                      level: source.level,
+                                      puzzleId: source.id,
+                                      revision: source.revision,
+                                    ),
+                            ),
+                    ),
+                  ),
+              ],
+            ),
           ),
         ),
       ),
@@ -215,6 +218,7 @@ class _HanokPracticeScreenState extends State<HanokPracticeScreen> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     return SoriStudyFrame(
+      adaptTitleAtNormalScale: true,
       title: t.practiceHistoryTitle,
       child: _loading
           ? const AppLoading()

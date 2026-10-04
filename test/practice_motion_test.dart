@@ -7,6 +7,7 @@ import 'package:ko_lernen_app/widgets/practice_motion.dart';
 import 'package:ko_lernen_app/widgets/practice_layout.dart';
 import 'package:ko_lernen_app/widgets/practice_magic.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 
 void main() {
   setUp(() async {
@@ -28,6 +29,7 @@ void main() {
             controller: scroll,
             children: [
               PracticeMotionSurface(
+                interactive: true,
                 child: SizedBox(
                   height: 200,
                   child: TextButton(
@@ -97,15 +99,8 @@ void main() {
       await tester.tap(find.text('Continue'));
       await tester.pump(const Duration(milliseconds: 150));
       expect(taps, 0);
-      expect(
-        tester
-            .widget<Transform>(
-              find.byKey(const ValueKey('practice-paper-transform')),
-            )
-            .transform
-            .isIdentity(),
-        isTrue,
-      );
+      expect(find.byType(PracticeMotionSurface), findsNothing);
+      expect(find.byType(SoriPressable), findsNothing);
       await tester.pumpWidget(host(true));
       await tester.pump();
       final bounds = tester.getRect(find.byType(PracticeRaisedAction));
@@ -115,10 +110,11 @@ void main() {
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 150));
       expect(tester.getRect(find.byType(PracticeRaisedAction)), bounds);
+      expect(find.byType(SoriPressable), findsOneWidget);
       expect(
         tester
             .widget<Transform>(
-              find.byKey(const ValueKey('practice-paper-transform')),
+              find.byKey(const ValueKey('sori-tactile-transform')),
             )
             .transform
             .isIdentity(),
@@ -171,6 +167,54 @@ void main() {
     },
   );
 
+  testWidgets('a reading panel stays still while its nested action responds', (
+    tester,
+  ) async {
+    var calls = 0;
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: AppTheme.light,
+        home: Scaffold(
+          body: Center(
+            child: PracticeMotionSurface(
+              child: SoriButton.outlined(
+                label: 'Show the context',
+                onTap: () => calls++,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+    final press = await tester.startGesture(
+      tester.getCenter(find.text('Show the context')),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 150));
+    expect(
+      tester
+          .widget<Transform>(
+            find.byKey(const ValueKey('practice-paper-transform')),
+          )
+          .transform
+          .isIdentity(),
+      isTrue,
+    );
+    expect(
+      tester
+          .widget<Transform>(
+            find.byKey(const ValueKey('sori-tactile-transform')),
+          )
+          .transform
+          .isIdentity(),
+      isFalse,
+    );
+    await press.up();
+    await tester.pumpAndSettle();
+    expect(calls, 1);
+  });
+
   testWidgets('reduced motion retains actions with no perspective transform', (
     tester,
   ) async {
@@ -218,6 +262,7 @@ void main() {
       MaterialApp(
         home: Scaffold(
           body: PracticeMotionSurface(
+            interactive: true,
             child: SizedBox(
               height: 150,
               child: TextButton(

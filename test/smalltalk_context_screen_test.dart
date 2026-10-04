@@ -10,6 +10,7 @@ import 'package:ko_lernen_app/services/smalltalk_context_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/practice_motion.dart';
 import 'support/real_fonts.dart';
 import 'support/sori_speech_stubs.dart';
@@ -104,6 +105,10 @@ void main() {
 
       await press('context-intent-accept');
       await press('context-expression-available');
+      expect(
+        tester.widget<Text>(find.text('응, 시간 있어.')).style?.fontFamily,
+        SoriFonts.sans,
+      );
       // The shuffled first two pieces must be tapped in their sentence order.
       for (final index in [1, 0, 2, 3]) {
         expect(
@@ -131,6 +136,10 @@ void main() {
       expect(words[0].top, closeTo(words[1].top, 1));
       final check = find.byKey(const ValueKey('context-check'));
       expect(find.text('좋아. 몇 시에 만날까?'), findsOneWidget);
+      expect(
+        tester.widget<Text>(find.text('좋아. 몇 시에 만날까?')).style?.fontFamily,
+        SoriFonts.sans,
+      );
       expect(tester.widget<SoriButton>(check).onTap, isNotNull);
       expect(tester.getRect(check).bottom, lessThanOrEqualTo(844));
       await tester.tap(check);

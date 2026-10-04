@@ -152,7 +152,7 @@ class PracticeMotionSurface extends StatelessWidget {
     super.key,
     required this.child,
     this.enter = false,
-    this.interactive = true,
+    this.interactive = false,
     this.pressDepth = 2,
     this.baseColor,
     this.radius = SoriRadius.md,
@@ -397,7 +397,7 @@ class PracticeHintEmphasis extends StatelessWidget {
     builder: (context, value, child) => DecoratedBox(
       position: DecorationPosition.foreground,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(SoriRadius.sm),
         border: Border.all(
           color: SoriColors.info.withValues(alpha: value * .7),
           width: 2,
@@ -516,7 +516,7 @@ class _PracticeTokenFlightState extends State<PracticeTokenFlight>
                       angle: .04 * math.sin(t * math.pi),
                       child: Material(
                         color: SoriSurfaces.of(context).surface,
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(SoriRadius.sm),
                         elevation: 3,
                         child: Center(
                           child: Text(widget.text, style: widget.style),

@@ -1139,6 +1139,7 @@ class _GrammarScreenState extends State<GrammarScreen>
                       padding: const EdgeInsets.only(bottom: Spacing.sm),
                       child: SoriButton.outlined(
                         label: grammarById[optionId]?.pattern ?? optionId,
+                        textRole: SoriButtonTextRole.learning,
                         fullWidth: true,
                         accent: isComplete && optionId == target.id
                             ? SoriColors.success
