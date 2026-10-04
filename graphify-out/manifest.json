@@ -936,21 +936,21 @@
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations.dart": {
-    "mtime": 1791122251.2910943,
-    "seen": 1791122647.1565278,
-    "ast_hash": "22e4cb08cbfcc8a0e00e80f21686865c",
+    "mtime": 1791124944.6586065,
+    "seen": 1791125151.6425564,
+    "ast_hash": "3a22c7b03449076d11214259952abafb",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_de.dart": {
-    "mtime": 1791122251.2990432,
-    "seen": 1791122647.1565359,
-    "ast_hash": "7b3446d9742b6d0fd5283706566ae3e7",
+    "mtime": 1791124943.6634772,
+    "seen": 1791125151.6425607,
+    "ast_hash": "5b4ae1c1fab719085372c86a1e94a633",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_en.dart": {
-    "mtime": 1791122251.3125856,
-    "seen": 1791122647.1565397,
-    "ast_hash": "02b005fc5ea94bdfafbebab6f20365e4",
+    "mtime": 1791124944.1965237,
+    "seen": 1791125151.6425643,
+    "ast_hash": "767a32afcdc27c6fa8781deb42ba6d9a",
     "semantic_hash": ""
   },
   "lib/l10n/gye_error_text.dart": {
@@ -1230,9 +1230,9 @@
     "semantic_hash": ""
   },
   "lib/screens/bojagi_screen.dart": {
-    "mtime": 1791116095.791875,
-    "seen": 1791118818.1902492,
-    "ast_hash": "6bd5aeb85e7c8f817b2fdae72ad344b9",
+    "mtime": 1791123664.3903725,
+    "seen": 1791125151.7206264,
+    "ast_hash": "ca73d712f830d72df79556cafe50e799",
     "semantic_hash": ""
   },
   "lib/screens/book_capture_screen.dart": {
@@ -1458,9 +1458,9 @@
     "semantic_hash": ""
   },
   "lib/screens/listening_screen.dart": {
-    "mtime": 1791029072.0421915,
-    "seen": 1791118818.190323,
-    "ast_hash": "9f144135bfaa6bde96ea6565b7b0413b",
+    "mtime": 1791123664.4008942,
+    "seen": 1791125151.768645,
+    "ast_hash": "23223fd2168014a4f4782df07032c83a",
     "semantic_hash": ""
   },
   "lib/screens/media_phrase_screen.dart": {
@@ -1494,9 +1494,9 @@
     "semantic_hash": ""
   },
   "lib/screens/profile_screen.dart": {
-    "mtime": 1791029072.0761232,
-    "seen": 1791118818.1903744,
-    "ast_hash": "d5426be120cc0dd3231d930c0caadf82",
+    "mtime": 1791123664.4084237,
+    "seen": 1791125151.794236,
+    "ast_hash": "791b4688866c66220e562fe7b2071aa3",
     "semantic_hash": ""
   },
   "lib/screens/pronunciation_studio_screen.dart": {
@@ -1602,15 +1602,15 @@
     "semantic_hash": ""
   },
   "lib/screens/scenarios_list_screen.dart": {
-    "mtime": 1791029072.0995429,
-    "seen": 1791118818.1904101,
-    "ast_hash": "98b098dcb4450cf3dd05b58fb1273278",
+    "mtime": 1791123664.4114504,
+    "seen": 1791125151.8154836,
+    "ast_hash": "2fca0c0584a4c09fb96a28fac7eb45f7",
     "semantic_hash": ""
   },
   "lib/screens/settings_screen.dart": {
-    "mtime": 1791029072.1015813,
-    "seen": 1791118818.1904118,
-    "ast_hash": "3bff4d8409464e9cf611744be4cc4e25",
+    "mtime": 1791123664.4169824,
+    "seen": 1791125151.815491,
+    "ast_hash": "3cbb8b6bbfb35ab856565b632fc77619",
     "semantic_hash": ""
   },
   "lib/screens/silben_kreuz_screen.dart": {
@@ -1626,9 +1626,9 @@
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_catalog_screen.dart": {
-    "mtime": 1791116095.8008523,
-    "seen": 1791118818.1904173,
-    "ast_hash": "bdb2ff6fce6cc7563df6042ee8ab2497",
+    "mtime": 1791123664.4330113,
+    "seen": 1791125151.8171675,
+    "ast_hash": "130a775cca5dd4bc7b443c03c224671e",
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_common.dart": {
@@ -1638,15 +1638,15 @@
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_gye_screen.dart": {
-    "mtime": 1791029072.110723,
-    "seen": 1791118818.190421,
-    "ast_hash": "7c3576ef14fc4206f7ad5a5a9a59b13a",
+    "mtime": 1791123664.441054,
+    "seen": 1791125151.8176858,
+    "ast_hash": "92dd896c3616a0557df5b11603867e07",
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_hanok_screen.dart": {
-    "mtime": 1791029072.1119368,
-    "seen": 1791118818.1904225,
-    "ast_hash": "c0b0b6a683bc492165b937475d4054b4",
+    "mtime": 1791123664.443571,
+    "seen": 1791125151.8176975,
+    "ast_hash": "10ddae2c9a5d33af4f9f78ad23403672",
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_preview_screens.dart": {
@@ -2136,9 +2136,9 @@
     "semantic_hash": ""
   },
   "lib/services/decoration_reward_service.dart": {
-    "mtime": 1791029072.217908,
-    "seen": 1791118818.1906285,
-    "ast_hash": "0000cabb4b6e06525bed12dda964f734",
+    "mtime": 1791123664.4540925,
+    "seen": 1791125151.961449,
+    "ast_hash": "1feb44b543b6480587bcb73ca02bda0b",
     "semantic_hash": ""
   },
   "lib/services/diagnostics_service.dart": {
@@ -2754,9 +2754,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/cultural_help.dart": {
-    "mtime": 1791029072.3853824,
-    "seen": 1791118818.1909857,
-    "ast_hash": "503d4b3fe6b3b5bf62fa1b8b2e88b79e",
+    "mtime": 1791123664.474633,
+    "seen": 1791125152.1890574,
+    "ast_hash": "e2656a4abfbda5302309ed7c920e5fc7",
     "semantic_hash": ""
   },
   "lib/widgets/sori/culture_note_card.dart": {
@@ -3306,9 +3306,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/window_class.dart": {
-    "mtime": 1791116095.8328295,
-    "seen": 1791118818.1911757,
-    "ast_hash": "1abb4a593197eb4896f563f722119e2d",
+    "mtime": 1791123664.5177846,
+    "seen": 1791125152.2825358,
+    "ast_hash": "6e0762b31ebbdcbf6a4a47f65d9f21d1",
     "semantic_hash": ""
   },
   "lib/widgets/sori/wordbook_add.dart": {
@@ -3540,9 +3540,9 @@
     "semantic_hash": ""
   },
   "test/bojagi_screen_test.dart": {
-    "mtime": 1791116095.8432603,
-    "seen": 1791118818.1912737,
-    "ast_hash": "ce8bf4bc9200ff1c7f3b311b6174e91a",
+    "mtime": 1791123664.552804,
+    "seen": 1791125152.3624182,
+    "ast_hash": "3b6f3321230a7dc38c4559f262002666",
     "semantic_hash": ""
   },
   "test/book_analysis_language_test.dart": {
@@ -4074,9 +4074,9 @@
     "semantic_hash": ""
   },
   "test/decoration_reward_service_test.dart": {
-    "mtime": 1791029072.7661734,
-    "seen": 1791118818.1915355,
-    "ast_hash": "72fa5373f462efdf658c1e5e7062708a",
+    "mtime": 1791123664.5538087,
+    "seen": 1791125152.5085213,
+    "ast_hash": "d43bc93ecbe1998d379bf5d02a8d7af7",
     "semantic_hash": ""
   },
   "test/decoration_slot_test.dart": {
@@ -5556,9 +5556,9 @@
     "semantic_hash": ""
   },
   "test/sori_stage_responsive_accessibility_test.dart": {
-    "mtime": 1791029073.2588868,
-    "seen": 1791118818.192427,
-    "ast_hash": "f30005d90def2c52b5fda42cb5cb18ce",
+    "mtime": 1791123664.687754,
+    "seen": 1791125153.4254835,
+    "ast_hash": "47d996c4f3fa8d3e3f4e770388bd0fcd",
     "semantic_hash": ""
   },
   "test/sori_stage_reward_receipt_service_test.dart": {
@@ -5592,9 +5592,9 @@
     "semantic_hash": ""
   },
   "test/sori_stage_visual_evidence_test.dart": {
-    "mtime": 1791029073.269181,
-    "seen": 1791118818.1924431,
-    "ast_hash": "96aa7633c24f833855dbd9d7839cd5b7",
+    "mtime": 1791123664.6907568,
+    "seen": 1791125153.4300807,
+    "ast_hash": "63b8347f445281be2b15d8729dff0b09",
     "semantic_hash": ""
   },
   "test/sori_standard_page_test.dart": {
@@ -5838,9 +5838,9 @@
     "semantic_hash": ""
   },
   "test/uiux_bible_closeout_inventory_test.dart": {
-    "mtime": 1791029073.3711126,
-    "seen": 1791118818.1926334,
-    "ast_hash": "8c8fac8fada6556de96290f82882b969",
+    "mtime": 1791123664.7072937,
+    "seen": 1791125153.564273,
+    "ast_hash": "8fde429cc1676da5f502f66bc3f34e0b",
     "semantic_hash": ""
   },
   "test/ux_gallery_no_write_test.dart": {
@@ -6036,9 +6036,9 @@
     "semantic_hash": ""
   },
   "test/widgets/settings_screen_test.dart": {
-    "mtime": 1791029073.4080572,
-    "seen": 1791118818.192717,
-    "ast_hash": "7a4fdfdc2f64f877aeab51ca17050225",
+    "mtime": 1791123664.733388,
+    "seen": 1791125153.6248655,
+    "ast_hash": "de8669177567493fda63c616a5fd515e",
     "semantic_hash": ""
   },
   "test/window_class_guard_test.dart": {
@@ -8832,9 +8832,9 @@
     "semantic_hash": ""
   },
   "docs/UIUX_BIBLE_APPLICATION_EXECUTION_LOCK.md": {
-    "mtime": 1791116095.6782646,
-    "seen": 1791118818.1949906,
-    "ast_hash": "a2a24ffc0594d495a9c08201fc18fcbb",
+    "mtime": 1791123663.841995,
+    "seen": 1791125155.5806901,
+    "ast_hash": "30d8070fab549d5f8ea6611c68a0d17b",
     "semantic_hash": ""
   },
   "docs/UIUX_DUOLINGO_GAP_AND_PLAN.md": {
@@ -10014,9 +10014,9 @@
     "semantic_hash": ""
   },
   "test/goldens/baselines/level_chips.png": {
-    "mtime": 1791029072.834709,
-    "seen": 1791118818.196799,
-    "ast_hash": "0e57df99db37c5047a16dc11b193c372",
+    "mtime": 1791123332.7896726,
+    "seen": 1791125156.26293,
+    "ast_hash": "a1c733def3f806ecdc88864e265c1111",
     "semantic_hash": ""
   },
   "test/goldens/baselines/mission_hero_states.png": {
@@ -10026,39 +10026,39 @@
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_settings_compact.png": {
-    "mtime": 1791029072.8382032,
-    "seen": 1791118818.196806,
-    "ast_hash": "f276a44730adfd28d2223042bab2075c",
+    "mtime": 1791123664.5763295,
+    "seen": 1791125156.2637699,
+    "ast_hash": "73c805a633aa776d029e76bf7c04be27",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_settings_expanded.png": {
-    "mtime": 1791029072.8425033,
-    "seen": 1791118818.1968105,
-    "ast_hash": "a013e0c88cdf8a582a90ddd3ebcad21c",
+    "mtime": 1791123664.6095307,
+    "seen": 1791125156.263776,
+    "ast_hash": "8a8d28825536d8a1b387dc7f94023cc7",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_settings_medium.png": {
-    "mtime": 1791116095.8529217,
-    "seen": 1791118818.1968138,
-    "ast_hash": "83d6ef438de2bd571f1235c3bd251a88",
+    "mtime": 1791123664.6415956,
+    "seen": 1791125156.2637806,
+    "ast_hash": "88c593db762254a5576f3ccd65660858",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_compact.png": {
-    "mtime": 1791116095.8549204,
-    "seen": 1791118818.196817,
-    "ast_hash": "06e225032b2fa44731ac4a53cde96b6a",
+    "mtime": 1791123332.912756,
+    "seen": 1791125156.2637851,
+    "ast_hash": "ab50457b6c54843f09759aee09e166aa",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_expanded.png": {
-    "mtime": 1791116095.8580554,
-    "seen": 1791118818.196821,
-    "ast_hash": "6e653ac2e956e80a6b0e5875153afb1f",
+    "mtime": 1791123332.917242,
+    "seen": 1791125156.2637894,
+    "ast_hash": "cc5433518ef89c4054859adb5ff49aa3",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_medium.png": {
-    "mtime": 1791116095.861187,
-    "seen": 1791118818.196825,
-    "ast_hash": "329f62f7f2b4deb5dd9db43b1949e587",
+    "mtime": 1791123332.9306078,
+    "seen": 1791125156.2637947,
+    "ast_hash": "c2ab91d357038d32f23771b95ba03481",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_vocab_packs_compact.png": {
@@ -12858,9 +12858,9 @@
     "semantic_hash": ""
   },
   "lib/screens/my_words_screen.dart": {
-    "mtime": 1791029072.045676,
-    "seen": 1791118818.190329,
-    "ast_hash": "7902681761af5a698f795862473abaa5",
+    "mtime": 1791123664.402902,
+    "seen": 1791125151.7699847,
+    "ast_hash": "e9debec66396dcc903d97e05af2d72d2",
     "semantic_hash": ""
   },
   "test/my_words_bodies_test.dart": {
@@ -12870,9 +12870,9 @@
     "semantic_hash": ""
   },
   "test/my_words_screen_test.dart": {
-    "mtime": 1791029073.002328,
-    "seen": 1791118818.191914,
-    "ast_hash": "cd3e7a334921bd4e4c36415d5acb0d55",
+    "mtime": 1791123664.6541204,
+    "seen": 1791125152.778646,
+    "ast_hash": "87dd8ab2d758af70f67a55fbba1ecabc",
     "semantic_hash": ""
   },
   "test/scenario_intro_art_test.dart": {
@@ -13902,15 +13902,15 @@
     "semantic_hash": ""
   },
   "test/sori_stage_evidence_manifest_test.dart": {
-    "mtime": 1791029073.2538438,
-    "seen": 1791118818.1924138,
-    "ast_hash": "0589ba6f8b2d481b7c4d2d56c374f429",
+    "mtime": 1791123664.684151,
+    "seen": 1791125153.4152603,
+    "ast_hash": "be81837025e2d37a0ccaddef6a432ac6",
     "semantic_hash": ""
   },
   "test/sori_stage_gye_fold_test.dart": {
-    "mtime": 1791029073.2538438,
-    "seen": 1791118818.1924152,
-    "ast_hash": "a86cc1f42f5744276769e56a7f27406c",
+    "mtime": 1791123664.6867533,
+    "seen": 1791125153.4152687,
+    "ast_hash": "9a36fd8d895a8b37a1916a90cd8ef1e1",
     "semantic_hash": ""
   },
   "test/sori_stage_hanok_fold_test.dart": {
@@ -19458,9 +19458,9 @@
     "semantic_hash": ""
   },
   "test/sori_stage_catalog_book_entry_test.dart": {
-    "mtime": 1791116095.8970783,
-    "seen": 1791118818.1924014,
-    "ast_hash": "f138fa11d95004c936c26e9b3e4bf85c",
+    "mtime": 1791123664.668631,
+    "seen": 1791125153.4114203,
+    "ast_hash": "68390037492b993f869f4d8333a180b7",
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-learn-390-book.png": {
@@ -21570,9 +21570,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-10-03-hahoe-dokkaebi-practice.md": {
-    "mtime": 1791119515.2730007,
-    "seen": 1791120092.509996,
-    "ast_hash": "52ee015fcdc74c0e40b9327302c36e8c",
+    "mtime": 1791123492.0869894,
+    "seen": 1791125155.8615177,
+    "ast_hash": "0b5e6925e1c7b254519e1bc839731644",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-10-03-hahoe-dokkaebi-practice-design.md": {
@@ -21789,6 +21789,204 @@
     "mtime": 1791116095.9229817,
     "seen": 1791118818.1941779,
     "ast_hash": "8328d151d257aec3961432a7927ca214",
+    "semantic_hash": ""
+  },
+  "docs/content_qa/derived_a1_sync_20261003.json": {
+    "mtime": 1791123663.8778546,
+    "seen": 1791125151.2070243,
+    "ast_hash": "7131a9b16ed5b5c59f5d507012a36c66",
+    "semantic_hash": ""
+  },
+  "lib/widgets/sori/bojagi_reveal.dart": {
+    "mtime": 1791123664.4560995,
+    "seen": 1791125152.1570485,
+    "ast_hash": "03cee4a2e5dd2f8da6162f40e9109b87",
+    "semantic_hash": ""
+  },
+  "lib/widgets/sori/book_capture_choice.dart": {
+    "mtime": 1791123664.4581015,
+    "seen": 1791125152.1570537,
+    "ast_hash": "2de5349d275042be31bc82e5195d6ec6",
+    "semantic_hash": ""
+  },
+  "lib/widgets/sori/media_phrase_link.dart": {
+    "mtime": 1791123664.4816704,
+    "seen": 1791125152.2304637,
+    "ast_hash": "6cb2d7a97739268feaddf1adb637f603",
+    "semantic_hash": ""
+  },
+  "lib/widgets/sori/settings_button.dart": {
+    "mtime": 1791123664.4841795,
+    "seen": 1791125152.2516758,
+    "ast_hash": "51cb09529fd7790280d62668f3aa2eab",
+    "semantic_hash": ""
+  },
+  "lib/widgets/sori/study_library_button.dart": {
+    "mtime": 1791123664.4907053,
+    "seen": 1791125152.262889,
+    "ast_hash": "068af2db969d3342e0c50d8765414006",
+    "semantic_hash": ""
+  },
+  "test/bojagi_reveal_test.dart": {
+    "mtime": 1791123664.535787,
+    "seen": 1791125152.3624036,
+    "ast_hash": "9c1231e92778a81cbd8bf64cbb337880",
+    "semantic_hash": ""
+  },
+  "test/settings_groups_tactile_test.dart": {
+    "mtime": 1791123664.6571229,
+    "seen": 1791125153.3311958,
+    "ast_hash": "9ffaa85a4dcc194e08d2832043ef935d",
+    "semantic_hash": ""
+  },
+  "test/sori_stage_auxiliary_entries_test.dart": {
+    "mtime": 1791123664.6591232,
+    "seen": 1791125153.4109926,
+    "ast_hash": "a908b48a4bd72558c563199daaf93166",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-stage-hanok-390-bojagi-receipt-de.png": {
+    "mtime": 1791123663.886868,
+    "seen": 1791125156.1095917,
+    "ast_hash": "94e6004b6fe527c004d94e4462b6088b",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-stage-hanok-390-bojagi-receipt-en.png": {
+    "mtime": 1791123663.9176025,
+    "seen": 1791125156.1095989,
+    "ast_hash": "09356b4c28c8582841e00096ab187216",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/tactile-settings-words/my-words-de-320.png": {
+    "mtime": 1791123663.9371538,
+    "seen": 1791125156.116007,
+    "ast_hash": "643832896e1f57ad47b59a147bd7a66b",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/tactile-settings-words/my-words-de-390.png": {
+    "mtime": 1791123663.9506783,
+    "seen": 1791125156.1160157,
+    "ast_hash": "66f25571eb3b30462b3861ec8fb84b2c",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/tactile-settings-words/settings-account-de-320.png": {
+    "mtime": 1791123663.9717612,
+    "seen": 1791125156.116021,
+    "ast_hash": "ec1802645f2335ad70a28df8e6b226e4",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/tactile-settings-words/settings-account-de-390.png": {
+    "mtime": 1791123663.9923108,
+    "seen": 1791125156.1160266,
+    "ast_hash": "c0542eb813059366eb8c31d7409d425c",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/tactile-settings-words/settings-account-en-320.png": {
+    "mtime": 1791123664.0088828,
+    "seen": 1791125156.1160307,
+    "ast_hash": "485c4fc896f22880248b35b1770e0426",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/tactile-settings-words/settings-account-en-390.png": {
+    "mtime": 1791123664.022919,
+    "seen": 1791125156.116036,
+    "ast_hash": "e27208c5bbc829f90e0ec028a9c5d487",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/tactile-settings-words/settings-controls-de-320.png": {
+    "mtime": 1791123664.048953,
+    "seen": 1791125156.1160405,
+    "ast_hash": "dc9319c962ce7f7c361d5d8de9f25f52",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/tactile-settings-words/settings-controls-de-390.png": {
+    "mtime": 1791123664.0710049,
+    "seen": 1791125156.1160443,
+    "ast_hash": "0403ee94d691d8f43e5aee2914ae98cd",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/tactile-settings-words/settings-controls-en-320.png": {
+    "mtime": 1791123664.0870745,
+    "seen": 1791125156.1160493,
+    "ast_hash": "2ae9e19948bd7cf4cfe7256fe34a6c05",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/tactile-settings-words/settings-controls-en-390.png": {
+    "mtime": 1791123664.0946,
+    "seen": 1791125156.1160543,
+    "ast_hash": "52380ece363607143da9ae131fcbe217",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/tactile-settings-words/settings-help-de-320.png": {
+    "mtime": 1791123664.1011443,
+    "seen": 1791125156.1160586,
+    "ast_hash": "5a540a3af3edd99d09ed4309ece31f3c",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/tactile-settings-words/settings-help-de-390.png": {
+    "mtime": 1791123664.114194,
+    "seen": 1791125156.116063,
+    "ast_hash": "741119c3dd8112c7bf7795b083ead4d2",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/tactile-settings-words/settings-help-en-320.png": {
+    "mtime": 1791123664.121196,
+    "seen": 1791125156.1160686,
+    "ast_hash": "168e87678cca318e90552d689c63a834",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/tactile-settings-words/settings-help-en-390.png": {
+    "mtime": 1791123664.1402454,
+    "seen": 1791125156.1160746,
+    "ast_hash": "be181313e14e4867dbb7a4593e052451",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/tactile-settings-words/settings-learning-de-320.png": {
+    "mtime": 1791123664.1552787,
+    "seen": 1791125156.1216383,
+    "ast_hash": "22c4f65b10569fd0407f02b66a752375",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/tactile-settings-words/settings-learning-de-390.png": {
+    "mtime": 1791123664.1703408,
+    "seen": 1791125156.1216474,
+    "ast_hash": "1f03ebe62f6457f0fce0374b1ce0058f",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/tactile-settings-words/settings-learning-en-320.png": {
+    "mtime": 1791123664.1894662,
+    "seen": 1791125156.121652,
+    "ast_hash": "ec86999ac38c9ebef8bd70c49e6ec57c",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/tactile-settings-words/settings-learning-en-390.png": {
+    "mtime": 1791123664.20911,
+    "seen": 1791125156.1216552,
+    "ast_hash": "0ec5934e2fc8ff5c73938e98cec9b8a1",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/tactile-settings-words/settings-privacy-de-320.png": {
+    "mtime": 1791123664.22015,
+    "seen": 1791125156.1216593,
+    "ast_hash": "ffa5833a7d48642ae8df14721566b97a",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/tactile-settings-words/settings-privacy-de-390.png": {
+    "mtime": 1791123664.2393754,
+    "seen": 1791125156.121664,
+    "ast_hash": "1118fa8dd5165d3dfef019190b963ab8",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/tactile-settings-words/settings-privacy-en-320.png": {
+    "mtime": 1791123664.2519026,
+    "seen": 1791125156.1216674,
+    "ast_hash": "34b36d7847af1cd3f99031c8c23c8e25",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/tactile-settings-words/settings-privacy-en-390.png": {
+    "mtime": 1791123664.2614288,
+    "seen": 1791125156.121671,
+    "ast_hash": "616a83781b309da68b33ac9fa4b3c530",
     "semantic_hash": ""
   }
 }
