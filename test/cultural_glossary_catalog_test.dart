@@ -30,6 +30,16 @@ void main() {
     'anchae',
     'huwon',
     'sadang',
+    'hahoe_mask',
+    'norigae',
+    'maedeup',
+    'buchae',
+    'hanji',
+    'yeopjeon',
+    'suwon_hwaseong',
+    'talchum',
+    'pansori',
+    'nongak',
   };
   const expectedDecorationLinks = <String, String>{
     'decoration_jangdokdae': 'jangdokdae',
@@ -53,21 +63,24 @@ void main() {
     catalog = CulturalGlossary.fromJsonString(raw);
   });
 
-  test('catalog contains exactly the 23 approved term IDs', () {
-    expect(catalog.entries, hasLength(23));
+  test('catalog contains exactly the 33 approved term IDs', () {
+    expect(catalog.entries, hasLength(33));
     expect(
       catalog.entries.map((entry) => entry.termId).toSet(),
       expectedTermIds,
     );
   });
 
-  test('sarangchae entry exists with a bare romanization and no decoration link', () {
-    final sarangchae = catalog.entries.singleWhere(
-      (entry) => entry.termId == 'sarangchae',
-    );
-    expect(sarangchae.romanization, 'Sarangchae');
-    expect(sarangchae.decorationSlugs, isEmpty);
-  });
+  test(
+    'sarangchae entry exists with a bare romanization and no decoration link',
+    () {
+      final sarangchae = catalog.entries.singleWhere(
+        (entry) => entry.termId == 'sarangchae',
+      );
+      expect(sarangchae.romanization, 'Sarangchae');
+      expect(sarangchae.decorationSlugs, isEmpty);
+    },
+  );
 
   test('every entry has clean DE, EN, KO copy within the character limits', () {
     for (final entry in catalog.entries) {
