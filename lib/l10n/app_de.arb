@@ -5671,5 +5671,10 @@
   "cultureDokkaebiLine": "Wollen wir eine Aufgabe nach der anderen lösen?",
   "catalogQuickStart": "Direkt loslegen",
   "catalogDiscover": "Schon ausprobiert?",
-  "catalogNotNow": "Später"
+  "catalogNotNow": "Später",
+  "settingsGroupAccount": "Profil & Konto",
+  "settingsGroupLearning": "Lernen",
+  "settingsGroupControls": "Sprache, Ton & Bedienung",
+  "settingsGroupPrivacy": "Speicher & Datenschutz",
+  "settingsGroupHelp": "Hilfe & App-Infos"
 }

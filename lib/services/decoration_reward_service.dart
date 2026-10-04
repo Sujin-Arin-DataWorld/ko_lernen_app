@@ -239,10 +239,15 @@ class DecorationRewardService {
   ///
   /// journal을 먼저 기록한 뒤 같은 복구 루틴으로 완성하므로, 각 저장 사이에
   /// 앱이 종료돼도 다음 시작에서 같은 결과로 수렴한다.
-  static Future<DecorationRewardClaimResult> claimNextBox(String slug) =>
-      _serialize(() => _claimNextBox(slug));
+  static Future<DecorationRewardClaimResult> claimNextBox(
+    String slug, {
+    String? expectedSourceQuestId,
+  }) => _serialize(() => _claimNextBox(slug, expectedSourceQuestId));
 
-  static Future<DecorationRewardClaimResult> _claimNextBox(String slug) async {
+  static Future<DecorationRewardClaimResult> _claimNextBox(
+    String slug,
+    String? expectedSourceQuestId,
+  ) async {
     final previousRecovery = await _resumePendingClaim();
     if (previousRecovery == DecorationRewardRecoveryResult.conflict) {
       return DecorationRewardClaimResult.recoveryConflict;
@@ -254,6 +259,10 @@ class DecorationRewardService {
     }
 
     final sourceQuestId = pendingBefore.first;
+    if (expectedSourceQuestId != null &&
+        sourceQuestId != expectedSourceQuestId) {
+      return DecorationRewardClaimResult.notOffered;
+    }
     if (!isRewardSource(sourceQuestId)) {
       return DecorationRewardClaimResult.unknownQuest;
     }
@@ -288,11 +297,13 @@ class DecorationRewardService {
   ///
   /// 새 보상을 조용히 버리지 않도록 전체 수집 상태에서만 허용하며, 일반 수령과
   /// 같은 journal/직렬 체인을 거쳐 첫 상자 하나만 소비한다.
-  static Future<DecorationRewardClaimResult> archiveCompleteCollectionBox() =>
-      _serialize(_archiveCompleteCollectionBox);
+  static Future<DecorationRewardClaimResult> archiveCompleteCollectionBox({
+    String? expectedSourceQuestId,
+  }) => _serialize(() => _archiveCompleteCollectionBox(expectedSourceQuestId));
 
-  static Future<DecorationRewardClaimResult>
-  _archiveCompleteCollectionBox() async {
+  static Future<DecorationRewardClaimResult> _archiveCompleteCollectionBox(
+    String? expectedSourceQuestId,
+  ) async {
     final previousRecovery = await _resumePendingClaim();
     if (previousRecovery == DecorationRewardRecoveryResult.conflict) {
       return DecorationRewardClaimResult.recoveryConflict;
@@ -304,6 +315,10 @@ class DecorationRewardService {
     }
 
     final sourceQuestId = pendingBefore.first;
+    if (expectedSourceQuestId != null &&
+        sourceQuestId != expectedSourceQuestId) {
+      return DecorationRewardClaimResult.notOffered;
+    }
     if (!isRewardSource(sourceQuestId)) {
       return DecorationRewardClaimResult.unknownQuest;
     }

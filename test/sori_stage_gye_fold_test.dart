@@ -11,7 +11,7 @@ import 'package:ko_lernen_app/screens/sori_stage/sori_stage_gye_screen.dart';
 import 'package:ko_lernen_app/services/cultural_glossary_repository.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
-import 'package:ko_lernen_app/widgets/sori/avatar.dart';
+import 'package:ko_lernen_app/widgets/sori/settings_button.dart';
 import 'package:ko_lernen_app/widgets/sori/stepper.dart';
 import 'package:ko_lernen_app/widgets/sori/updating_scene.dart';
 
@@ -232,7 +232,7 @@ void main() {
       final helpButton = find.byKey(const ValueKey('cultural_help_gye'));
       expect(helpButton, findsOneWidget);
       expect(tester.getSize(helpButton).width, greaterThanOrEqualTo(48));
-      expect(find.byType(SoriAvatar), findsOneWidget);
+      expect(find.byType(SoriSettingsButton), findsOneWidget);
       expect(tester.takeException(), isNull);
     },
   );
