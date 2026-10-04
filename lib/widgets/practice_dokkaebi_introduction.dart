@@ -518,9 +518,7 @@ class _GestureAction extends StatelessWidget {
     button: true,
     onTap: onTap,
     child: Tooltip(
-      richMessage: TextSpan(
-        children: [WidgetSpan(child: ExcludeSemantics(child: Text(label)))],
-      ),
+      message: label,
       excludeFromSemantics: true,
       child: ExcludeSemantics(
         child: SoriPressable(
