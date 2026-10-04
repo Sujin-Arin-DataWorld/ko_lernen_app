@@ -20039,6 +20039,48 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Später'**
   String get catalogNotNow;
+
+  /// Eyebrow above a newly unlocked decoration.
+  ///
+  /// In de, this message translates to:
+  /// **'Neue Dekoration'**
+  String get rewardChestNewDecoration;
+
+  /// Current learning XP total, not an additional reward from opening a chest.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Lern-XP'**
+  String get rewardChestLearningXp;
+
+  /// No description provided for @rewardChestCulturalStory.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Geschichte dahinter'**
+  String get rewardChestCulturalStory;
+
+  /// No description provided for @rewardChestPlaceSarangbang.
+  ///
+  /// In de, this message translates to:
+  /// **'Im Sarangbang platzieren'**
+  String get rewardChestPlaceSarangbang;
+
+  /// No description provided for @rewardChestPreviewTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Perlmutt-Truhe · Vorschau'**
+  String get rewardChestPreviewTitle;
+
+  /// No description provided for @rewardChestReplay.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch einmal ansehen'**
+  String get rewardChestReplay;
+
+  /// No description provided for @rewardChestPreviewPlacement.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorschau: In der App platzierst du dieses Stück in deinem Sarangbang.'**
+  String get rewardChestPreviewPlacement;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

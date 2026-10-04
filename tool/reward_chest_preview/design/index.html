@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="de">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hangul Sori · Reward receipt design study</title>
+<style>
+@font-face{font-family:Sori;src:url('/assets/fonts/NotoSansKR/NotoSansKR-Variable.ttf') format('truetype');font-weight:100 900;font-display:swap}
+:root{--paper:#faf6ec;--white:#fffdf7;--ink:#292d29;--muted:#696f65;--green:#247567;--gold:#f5cf78;--brass:#9b7628;--edge:#dfd9ca;--radius:16px}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.45 Sori,system-ui,sans-serif}button,select{font:inherit;color:inherit}button{cursor:pointer;touch-action:manipulation}button:focus-visible,select:focus-visible{outline:3px solid var(--green);outline-offset:4px}button{border:0}button:disabled{cursor:default}.study{position:relative;z-index:2;max-width:480px;margin:0 auto;padding:12px 20px 8px;border-bottom:1px solid #ddd5c1;background:var(--paper)}.study small{font-size:11px;letter-spacing:1.1px;color:var(--brass)}.controls{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:6px}.switch{display:flex;gap:2px}.switch button,.replay{background:transparent;border-radius:8px;min-height:48px;padding:8px 10px;font-size:13px}.switch button[aria-pressed=true]{background:#ede7d7;color:#164d42}.controls select{max-width:160px;background:transparent;border:0;min-height:48px;font-size:13px}.receipt{max-width:480px;margin:auto;padding:16px 24px 0}.object{margin:0 auto 20px;position:relative;width:max-content;max-width:100%;perspective:700px}.artifact{position:relative;overflow:hidden;max-width:100%;background:transparent;padding:0;display:block;transform-origin:50% 75%;transition:transform .38s cubic-bezier(.16,1,.3,1),filter .38s}.artifact img{position:absolute;max-width:none;pointer-events:none}.artifact:hover{transform:translateY(-2px) rotateY(-3deg)}.artifact:active{transform:translateY(2px) rotateY(2deg) scale(.99)}.artifact.turn{animation:inspect .75s cubic-bezier(.16,1,.3,1)}@keyframes inspect{0%,100%{transform:rotateY(0)}35%{transform:rotateY(-7deg) rotateZ(-.6deg)}70%{transform:rotateY(4deg)}}.object:after{content:"";position:absolute;z-index:-1;bottom:-6px;left:20%;right:20%;height:16px;border-radius:50%;background:#5e4c2b15;filter:blur(7px)}.title{text-align:center;margin-bottom:24px}.eyebrow{display:inline-flex;align-items:center;gap:8px;margin:0;color:var(--brass);font-size:12px;font-weight:500;letter-spacing:1.4px}.eyebrow:before{content:"";width:16px;height:1px;background:#b99b56}.title h1{font-size:26px;line-height:1.3;font-weight:500;letter-spacing:-.3px;margin:8px 0 7px;overflow-wrap:anywhere}.editorial .title h1{font-family:Georgia,'Times New Roman',serif;font-size:32px;line-height:1.14;letter-spacing:-.5px}.term{margin:0;color:var(--muted);font-size:13.5px}.term span{display:inline-block;color:var(--brass);margin-left:7px}.paper-card{position:relative;background:var(--white);border:1px solid #e7e0d1;border-radius:var(--radius);padding:20px 20px 16px;box-shadow:0 4px 0 var(--edge),0 14px 25px #574a2710,inset 0 1px 0 #fff;transform-origin:50% 100%;transition:box-shadow .2s,transform .2s}.paper-card:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--edge),0 17px 27px #574a2714,inset 0 1px 0 #fff}.meaning{margin:0;font-size:16px;line-height:1.48}.story-toggle{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;background:transparent;color:#164d42;text-align:left;font-size:14px;font-weight:500;min-height:48px;margin:8px 0 0;padding:0}.story-toggle svg{flex:none;transition:transform .28s}.story-toggle[aria-expanded=true] svg{transform:rotate(90deg)}.story-fold{display:grid;grid-template-rows:0fr;transition:grid-template-rows .32s cubic-bezier(.16,1,.3,1)}.story-fold.open{grid-template-rows:1fr}.story-fold>div{overflow:hidden}.story-fold p{font-size:15px;color:var(--muted);line-height:1.5;margin:0 0 16px}.xp{border-top:1px solid #e8e2d5;margin-top:8px;padding-top:16px}.xp-top,.xp-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px}.xp-top{font-size:13.5px;color:var(--muted)}.xp-top strong{font-size:18px;font-weight:500;color:#775a19;font-variant-numeric:tabular-nums}.xp-bottom{font-size:12px;color:var(--muted);margin-top:7px}.meter{height:6px;margin-top:12px;background:#ece6d8;border-radius:4px;overflow:hidden}.meter span{display:block;height:100%;width:80%;background:linear-gradient(90deg,#c3993f,#f5cf78);border-radius:4px;transform-origin:0 50%}.action-dock{position:sticky;bottom:0;z-index:3;max-width:480px;margin:0 auto;padding:20px 24px 16px;padding-bottom:max(16px,env(safe-area-inset-bottom));background:linear-gradient(transparent,var(--paper) 14px)}.primary{width:100%;min-height:56px;padding:15px 20px;border-radius:16px;background:var(--gold);box-shadow:0 4px 0 #bd9844,inset 0 1px 0 #fff8,0 9px 18px #83652812;display:flex;align-items:center;justify-content:space-between;gap:16px;font-weight:600;transition:transform .12s,box-shadow .12s}.primary:hover{transform:translateY(-2px);box-shadow:0 6px 0 #bd9844,inset 0 1px 0 #fff8,0 12px 20px #83652814}.primary:active{transform:translateY(3px) scale(.99);box-shadow:0 1px 0 #bd9844,inset 0 1px 0 #fff8}.primary svg{flex:none}.arrival .object{animation:arrive .6s cubic-bezier(.16,1,.3,1) both}.arrival .title{animation:appear .4s .12s both}.arrival .paper-card{animation:card-in .5s .20s both}.arrival .meter span{animation:meter-in .55s .38s both}.arrival .primary{animation:appear .4s .38s both}@keyframes arrive{from{opacity:0;transform:translateY(20px) scale(.92)}to{opacity:1;transform:none}}@keyframes appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}@keyframes card-in{from{opacity:0;transform:translateY(14px) rotateX(4deg)}to{opacity:1;transform:none}}@keyframes meter-in{from{transform:scaleX(0)}to{transform:scaleX(1)}}dialog{border:1px solid #ddd5c1;border-radius:16px;max-width:calc(100% - 40px);width:350px;padding:24px;background:var(--white);color:var(--ink);box-shadow:0 4px 0 var(--edge),0 20px 45px #34291320}dialog::backdrop{background:#292d2933}dialog h2{font-size:22px;margin-top:0}dialog p{font-size:16px}dialog button{margin-top:12px;min-height:48px;background:var(--green);color:white;border-radius:12px;padding:10px 20px}.hint{font-size:11px;color:var(--muted);text-align:center;margin:12px 0 0}@media(max-height:700px){.receipt{padding-top:8px}.title{margin-bottom:20px}.paper-card{padding:16px}.object{margin-bottom:16px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.artifact:hover,.artifact:active,.paper-card:hover,.primary:hover,.primary:active{transform:none}}
+</style>
+<style>
+main[aria-busy=true]{visibility:hidden}
+@media(min-width:520px) and (max-height:600px){.receipt{max-width:760px;grid-template-columns:minmax(160px,.85fr) minmax(260px,1fr);grid-template-rows:auto minmax(0,1fr);gap:12px 28px;padding-top:16px}.object{grid-column:1;grid-row:1/3;align-items:center}.title{grid-column:2;grid-row:1}.paper-card{grid-column:2;grid-row:2;align-self:center}.action-dock{max-width:760px;padding-left:calc(24px + (100% - 48px)*.46)}.editorial .title h1{font-size:28px}.title h1{margin-top:4px}.eyebrow{font-size:11px}}
+</style>
+<style>.receipt{align-content:center}.object{align-items:flex-end}@media(min-width:620px) and (max-height:600px){.object{align-items:center}}</style>
+<style>
+@media(min-width:900px){.study{position:fixed;left:24px;top:24px;width:250px;padding:16px;border:1px solid #e7e0d1;border-radius:16px}.controls{flex-wrap:wrap}.receipt{padding-top:32px}}
+body.presentation .study{display:none}body.presentation .receipt{padding-top:28px}
+</style>
+<style>
+html{height:100%}body{height:100dvh;overflow:hidden;display:flex;flex-direction:column}
+.study{position:fixed;left:16px;top:16px;z-index:5}.receipt{width:100%;flex:1;min-height:0;display:grid;grid-template-rows:minmax(64px,1fr) auto auto;gap:clamp(12px,2.2dvh,24px);padding:clamp(8px,2.4dvh,28px) 24px 0}.presentation .receipt{padding-top:clamp(8px,2.4dvh,28px)!important}.object{width:100%;height:100%;min-height:0;display:flex;align-items:center;justify-content:center;margin:0}.object:after{display:none}.artifact{flex:none;filter:drop-shadow(0 7px 6px #5e4c2b0a)}.title{margin:0}.paper-card{margin:0;align-self:end}.action-dock{position:relative;bottom:auto;width:100%;flex:none;padding:16px 24px max(16px,env(safe-area-inset-bottom));background:var(--paper)}.hint{display:none}.compact .meaning{display:none}.compact .paper-card{padding:12px 16px 14px}.compact .story-toggle{margin-top:0}.compact .xp{padding-top:12px;margin-top:4px}.lean .eyebrow,.lean .term{display:none}.lean .title h1{font-size:22px;margin:0}.lean .receipt{gap:8px;padding-top:8px}.lean .paper-card{padding:8px 16px}.lean .xp{margin:0;padding-top:8px}.lean .xp-top{font-size:12px}.lean .xp-bottom{margin-top:4px}.lean .meter{margin-top:7px}.lean .action-dock{padding-top:8px;padding-bottom:max(8px,env(safe-area-inset-bottom))}
+@media(min-width:620px) and (max-height:600px){.receipt{max-width:760px;grid-template-columns:minmax(160px,.85fr) minmax(260px,1fr);grid-template-rows:auto minmax(0,1fr);gap:12px 28px;padding-top:16px}.object{grid-column:1;grid-row:1/3}.title{grid-column:2;grid-row:1}.paper-card{grid-column:2;grid-row:2;align-self:center}.action-dock{max-width:760px;padding-left:calc(24px + (100% - 48px)*.46)}.editorial .title h1{font-size:28px}.title h1{margin-top:4px}.eyebrow{font-size:11px}}
+dialog.cultural{width:420px;padding:0;max-height:calc(100dvh - 32px);overflow:auto;overscroll-behavior:contain;border-color:#e0d6bf;box-shadow:0 4px 0 #d9d0bc,0 24px 60px #34291328}dialog.cultural::backdrop{background:#302c2033;backdrop-filter:blur(3px)}.cultural[open]{animation:dialog-in .3s cubic-bezier(.16,1,.3,1)}@keyframes dialog-in{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}.culture-head{position:relative;padding:24px 24px 20px;border-top:3px solid var(--gold);background:linear-gradient(135deg,#fffdf7,#faf5e7);border-radius:14px 14px 0 0}.culture-eyebrow{font-size:11px;letter-spacing:1.5px;color:var(--brass);margin:0 48px 12px 0}.culture-head h2{font-size:26px;font-weight:500;line-height:1.25;margin:0 32px 8px 0}.editorial .culture-head h2{font-family:Georgia,'Times New Roman',serif;font-size:28px}.culture-head .term{font-size:13.5px}.close-icon{position:absolute;top:10px;right:10px;width:48px;min-height:48px!important;margin:0!important;padding:0!important;background:transparent!important;color:var(--muted)!important;display:grid;place-items:center}.culture-body{padding:20px 24px}.culture-body p{font-size:16px;line-height:1.5;margin:0}.culture-body .culture-story{margin-top:20px;padding-top:20px;border-top:1px solid #e8e2d5;color:var(--muted);font-size:15px}.culture-foot{padding:0 24px 24px}.culture-foot .primary{margin:0;color:var(--ink);background:var(--gold);justify-content:center}.culture-foot .primary:active{transform:translateY(3px) scale(.99)}@media(max-height:620px){.culture-head{padding:16px 20px 12px}.culture-body{padding:12px 20px}.culture-body .culture-story{margin-top:12px;padding-top:12px}.culture-foot{padding:0 20px 16px}}
+</style>
+<style>
+@media(min-width:520px) and (max-height:600px){.receipt{max-width:760px;grid-template-columns:minmax(160px,.85fr) minmax(260px,1fr);grid-template-rows:auto minmax(0,1fr);gap:12px 28px;padding-top:16px}.object{grid-column:1;grid-row:1/3;align-items:center}.title{grid-column:2;grid-row:1}.paper-card{grid-column:2;grid-row:2;align-self:center}.action-dock{max-width:760px;padding-left:calc(24px + (100% - 48px)*.46)}.editorial .title h1{font-size:28px}.title h1{margin-top:4px}.eyebrow{font-size:11px}}
+</style>
+<style>.layout-audit *, .layout-audit *:before, .layout-audit *:after{animation:none!important;transition:none!important}</style>
+<style>
+@media(min-width:520px) and (max-height:600px){dialog.cultural{width:min(720px,calc(100vw - 32px))}dialog.cultural[open]{display:grid;grid-template-columns:minmax(140px,.6fr) minmax(0,1.5fr);grid-template-rows:1fr auto}.culture-head{grid-column:1;grid-row:1/3;padding:16px;border-radius:14px 0 0 14px}.culture-eyebrow{font-size:10px;letter-spacing:.7px;margin:48px 0 12px}.culture-head h2,.editorial .culture-head h2{font-size:26px;margin-right:0;overflow-wrap:anywhere}.culture-body{grid-column:2;grid-row:1;padding:12px 16px 8px}.culture-body p{line-height:1.4}.culture-body .culture-story{line-height:1.4;margin-top:8px;padding-top:8px}.culture-foot{grid-column:2;grid-row:2;padding:0 16px 8px}}
+</style>
+<style>.story-toggle{position:relative;justify-content:center;text-align:center}.story-toggle span{width:100%;padding:0 28px;text-align:center}.story-toggle svg{position:absolute;right:0;top:50%;transform:translateY(-50%)}</style>
+<body class="editorial">
+<aside class="study" aria-label="Design study controls">
+ <small id="study-label">DESIGNSTUDIE · BEISPIELDATEN</small>
+ <div class="controls"><div class="switch"><button data-lang="de" aria-pressed="true">DE</button><button data-lang="en" aria-pressed="false">EN</button></div><select id="object-select" aria-label="Reward shape"><option value="JagaeMungap">Perlmutt-Truhe</option><option value="Seokdeung">Steinlaterne</option></select><button class="replay" id="replay" aria-label="Replay">↻</button></div>
+ <div class="switch"><button id="app-type" aria-pressed="false">App-Schrift</button><button id="editorial-type" aria-pressed="true">Kultur-Titel</button></div>
+</aside>
+<main class="receipt" aria-busy="true">
+ <figure class="object"><button class="artifact" aria-label="Inspect reward"><img alt=""></button></figure>
+ <header class="title"><p class="eyebrow" id="eyebrow"></p><h1 id="item-name"></h1><p class="term" id="term"></p></header>
+ <section class="paper-card" aria-labelledby="item-name">
+  <p class="meaning" id="meaning"></p>
+  <button class="story-toggle" aria-haspopup="dialog" aria-controls="cultural-dialog"><span id="story-label"></span><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <div class="story-fold" id="story" inert><div><p id="story-copy"></p></div></div>
+  <div class="xp"><div class="xp-top"><span id="xp-label"></span><strong id="xp-value"></strong></div><div class="meter" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"><span></span></div><div class="xp-bottom"><span id="level"></span><span id="next-level"></span></div></div>
+ </section>
+</main>
+<footer class="action-dock"><button class="primary" id="place"><span id="cta"></span><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button><p class="hint" id="hint"></p></footer>
+<dialog id="confirmation"><h2 id="preview-title"></h2><p id="preview-copy"></p><button id="close-dialog"></button></dialog>
+<dialog class="cultural" id="cultural-dialog" aria-labelledby="culture-title" aria-describedby="culture-meaning">
+ <header class="culture-head"><p class="culture-eyebrow" id="culture-eyebrow"></p><button class="close-icon" id="close-culture" aria-label="Close"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><h2 id="culture-title"></h2><p class="term" id="culture-term"></p></header>
+ <div class="culture-body"><p id="culture-meaning"></p><p class="culture-story" id="culture-story"></p></div>
+ <footer class="culture-foot"><button class="primary" id="culture-done"></button></footer>
+</dialog>
+<script>
+const ui={de:{study:'DESIGNSTUDIE · BEISPIELDATEN',app:'App-Schrift',editorial:'Kultur-Titel',inspect:'Belohnung ansehen',replay:'Animation wiederholen',hint:'Vorschau · Objekt antippen, Kulturgeschichte öffnen',title:'Nur eine Vorschau',close:'Verstanden'},en:{study:'DESIGN STUDY · DEMO DATA',app:'App type',editorial:'Cultural title',inspect:'Inspect reward',replay:'Replay animation',hint:'Preview · tap the object, explore its cultural story',title:'Preview only',close:'Got it'}};
+const asset={JagaeMungap:'decoration_jagae_mungap',Seokdeung:'decoration_seokdeung'};
+const boundsCache=new Map();
+let lang=new URLSearchParams(location.search).get('lang')==='en'?'en':'de',arb={},catalog,version=0;
+const el=id=>document.getElementById(id);
+const artifact=document.querySelector('.artifact'),image=artifact.querySelector('img');
+function replay(){document.body.classList.remove('arrival');requestAnimationFrame(()=>requestAnimationFrame(()=>document.body.classList.add('arrival')))}
+function setStory(open){document.querySelector('.story-toggle').setAttribute('aria-expanded',String(open));el('story').classList.toggle('open',open);el('story').inert=!open}
+async function measure(src){if(boundsCache.has(src))return boundsCache.get(src);const img=new Image();img.src=src;await img.decode();const canvas=document.createElement('canvas');canvas.width=img.naturalWidth;canvas.height=img.naturalHeight;const ctx=canvas.getContext('2d',{willReadFrequently:true});ctx.drawImage(img,0,0);const {data}=ctx.getImageData(0,0,canvas.width,canvas.height);let left=canvas.width,top=canvas.height,right=0,bottom=0;for(let y=0;y<canvas.height;y++)for(let x=0;x<canvas.width;x++)if(data[(y*canvas.width+x)*4+3]>20){left=Math.min(left,x);right=Math.max(right,x);top=Math.min(top,y);bottom=Math.max(bottom,y)}const b=right>=left?{left,top,width:right-left+1,height:bottom-top+1,iw:canvas.width,ih:canvas.height}:{left:0,top:0,width:canvas.width,height:canvas.height,iw:canvas.width,ih:canvas.height};boundsCache.set(src,b);return b}
+function fit(b){
+ const main=document.querySelector('main'),object=document.querySelector('.object');
+ document.body.classList.remove('arrival');
+ main.style.removeProperty('grid-template-rows');
+ document.body.classList.remove('compact','lean');
+ if(object.clientHeight<110||main.scrollHeight>main.clientHeight+1)document.body.classList.add('compact');
+ if(object.clientHeight<64||main.scrollHeight>main.clientHeight+1)document.body.classList.add('lean');
+ const maxW=Math.min(object.clientWidth-12,330),maxH=Math.min(object.clientHeight-10,280);
+ const scale=Math.max(.01,Math.min(maxW/b.width,maxH/b.height));
+ if(!matchMedia('(min-width:520px) and (max-height:600px)').matches)main.style.gridTemplateRows=`${b.height*scale+8}px auto auto`;
+ artifact.style.width=`${b.width*scale}px`;
+ artifact.style.height=`${b.height*scale}px`;
+ image.style.width=`${b.iw*scale}px`;
+ image.style.height=`${b.ih*scale}px`;
+ image.style.left=`${-b.left*scale}px`;
+ image.style.top=`${-b.top*scale}px`;
+}
+async function render(){
+ const run=++version,shape=el('object-select').value,copy=ui[lang];
+ document.documentElement.lang=lang;
+ arb=await(await fetch(`/lib/l10n/app_${lang}.arb`,{cache:'no-store'})).json();
+ if(run!==version)return;
+ document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===lang)));
+ el('study-label').textContent=copy.study;
+ el('app-type').textContent=copy.app;
+ el('editorial-type').textContent=copy.editorial;
+ artifact.setAttribute('aria-label',copy.inspect);
+ el('object-select').setAttribute('aria-label',lang==='de'?'Form der Belohnung':'Reward shape');
+ el('replay').setAttribute('aria-label',copy.replay);
+ el('hint').textContent=copy.hint;
+ el('preview-title').textContent=copy.title;
+ el('preview-copy').textContent=arb.rewardChestPreviewPlacement;
+ el('close-dialog').textContent=copy.close;
+ el('culture-done').textContent=copy.close;
+ el('close-culture').setAttribute('aria-label',lang==='de'?'Schließen':'Close');
+ el('culture-eyebrow').textContent=lang==='de'?'KULTURGESCHICHTE':'CULTURAL STORY';
+ el('eyebrow').textContent=arb.rewardChestNewDecoration.toLocaleUpperCase(lang);
+ el('item-name').textContent=arb[`decorName${shape}`];
+ el('term').textContent=arb[`decorTerm${shape}`];
+ for(const option of el('object-select').options)option.textContent=arb[`decorName${option.value}`];
+ const entry=catalog.entries.find(e=>e.decorationSlugs.includes(asset[shape]));
+ el('meaning').textContent=entry?.localizations[lang].meaning??'';
+ el('story-copy').textContent=entry?.localizations[lang].story??'';
+ el('culture-title').textContent=arb[`decorName${shape}`];
+ el('culture-term').textContent=arb[`decorTerm${shape}`];
+ el('culture-meaning').textContent=entry?.localizations[lang].meaning??'';
+ el('culture-story').textContent=entry?.localizations[lang].story??'';
+ document.querySelector('.story-toggle').hidden=!entry;
+ el('story-label').textContent=arb.rewardChestCulturalStory;
+ el('xp-label').textContent=arb.rewardChestLearningXp;
+ el('xp-value').textContent=`${new Intl.NumberFormat(lang).format(1280)} XP`;
+ el('level').textContent=arb.statsLevelLabel.replace('{n}','13');
+ el('next-level').textContent=arb.statsToNextLevel.replace('{n}','20').replace('{next}','14');
+ document.querySelector('.meter').setAttribute('aria-label',arb.rewardChestLearningXp);
+ el('cta').textContent=arb.rewardChestPlaceSarangbang;
+ setStory(false);
+ const src=`/assets/illustrations/decorations/${asset[shape]}.png`,bounds=await measure(src);
+ if(run!==version)return;
+ image.src=src;
+ await document.fonts.load('16px Sori');
+ await document.fonts.ready;
+ if(run!==version)return;
+ fit(bounds);
+ document.querySelector('main').setAttribute('aria-busy','false');
+ replay();
+}
+function refit(){const b=boundsCache.get(image.getAttribute('src'));if(b)fit(b)}
+document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>{lang=b.dataset.lang;render()});el('object-select').onchange=render;el('app-type').onclick=()=>{document.body.classList.remove('editorial');el('app-type').setAttribute('aria-pressed','true');el('editorial-type').setAttribute('aria-pressed','false');refit()};el('editorial-type').onclick=()=>{document.body.classList.add('editorial');el('app-type').setAttribute('aria-pressed','false');el('editorial-type').setAttribute('aria-pressed','true');refit()};el('replay').onclick=replay;artifact.onclick=()=>{artifact.classList.remove('turn');requestAnimationFrame(()=>artifact.classList.add('turn'))};document.querySelector('.story-toggle').onclick=()=>el('cultural-dialog').showModal();el('place').onclick=()=>el('confirmation').showModal();el('close-dialog').onclick=()=>el('confirmation').close();el('close-culture').onclick=el('culture-done').onclick=()=>el('cultural-dialog').close();addEventListener('resize',refit);document.fonts.ready.then(refit);
+const params=new URLSearchParams(location.search);
+document.body.classList.toggle('layout-audit',params.get('motion')==='off');
+if(Object.hasOwn(asset,params.get('shape')))el('object-select').value=params.get('shape');
+document.body.classList.toggle('presentation',params.get('present')==='1');
+if(params.get('type')==='app')el('app-type').click();
+fetch('/docs/data/cultural_glossary.json',{cache:'no-store'}).then(r=>r.json()).then(data=>{catalog=data;return render()}).catch(()=>{el('item-name').textContent=lang==='de'?'Vorschau nicht verfügbar':'Preview unavailable';document.querySelector('main').setAttribute('aria-busy','false')});
+</script>
+</body>
+</html>

@@ -11836,4 +11836,26 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get catalogNotNow => 'Später';
+
+  @override
+  String get rewardChestNewDecoration => 'Neue Dekoration';
+
+  @override
+  String get rewardChestLearningXp => 'Deine Lern-XP';
+
+  @override
+  String get rewardChestCulturalStory => 'Die Geschichte dahinter';
+
+  @override
+  String get rewardChestPlaceSarangbang => 'Im Sarangbang platzieren';
+
+  @override
+  String get rewardChestPreviewTitle => 'Perlmutt-Truhe · Vorschau';
+
+  @override
+  String get rewardChestReplay => 'Noch einmal ansehen';
+
+  @override
+  String get rewardChestPreviewPlacement =>
+      'Vorschau: In der App platzierst du dieses Stück in deinem Sarangbang.';
 }

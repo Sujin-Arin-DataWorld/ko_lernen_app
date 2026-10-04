@@ -5489,5 +5489,12 @@
   "cultureDokkaebiLine": "Shall we try one question at a time?",
   "catalogQuickStart": "Start here",
   "catalogDiscover": "Something new to try",
-  "catalogNotNow": "Not now"
+  "catalogNotNow": "Not now",
+  "rewardChestNewDecoration": "New decoration",
+  "rewardChestLearningXp": "Your learning XP",
+  "rewardChestCulturalStory": "The story behind it",
+  "rewardChestPlaceSarangbang": "Place in Sarangbang",
+  "rewardChestPreviewTitle": "Mother-of-pearl chest · Preview",
+  "rewardChestReplay": "Watch again",
+  "rewardChestPreviewPlacement": "Preview: In the app, you can place this piece in your Sarangbang."
 }

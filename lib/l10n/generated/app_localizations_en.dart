@@ -11780,4 +11780,26 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get catalogNotNow => 'Not now';
+
+  @override
+  String get rewardChestNewDecoration => 'New decoration';
+
+  @override
+  String get rewardChestLearningXp => 'Your learning XP';
+
+  @override
+  String get rewardChestCulturalStory => 'The story behind it';
+
+  @override
+  String get rewardChestPlaceSarangbang => 'Place in Sarangbang';
+
+  @override
+  String get rewardChestPreviewTitle => 'Mother-of-pearl chest · Preview';
+
+  @override
+  String get rewardChestReplay => 'Watch again';
+
+  @override
+  String get rewardChestPreviewPlacement =>
+      'Preview: In the app, you can place this piece in your Sarangbang.';
 }
