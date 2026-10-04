@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "batch": "38",
+  "status": "review_only_draft",
+  "provenance": {
+    "date": "2026-10-05",
+    "rights": "original",
+    "scope": "Five persona-led cultural-context scenarios grounded in the approved 11-persona canon; no live promotion.",
+    "jinReviewRequired": true,
+    "requiresJinReview": true,
+    "modelLanguageQa": "MODEL_QA_PASS",
+    "humanLanguageQaClaim": false,
+    "triadReview": "Korean is canonical. German and English were independently localized for the same speech act, relationship, agency, modality, and information scope.",
+    "registerDecision": "A2 uses Jun-to-older-contact haeyo while Christian may answer casually; B1/B2/C1 scenes use polite or professional relations already defined in the persona canon."
+  },
+  "artifacts": [
+    {
+      "kind": "scenario",
+      "draft": "tools/content_factory/drafts/persona_culture_scenarios_20261005.json",
+      "review": "tools/content_factory/review/persona_culture_scenarios_20261005.csv",
+      "count": 5,
+      "levels": {
+        "a2": 1,
+        "b1": 2,
+        "b2": 1,
+        "c1": 1
+      }
+    }
+  ],
+  "recordCount": 5,
+  "questCount": 15,
+  "contentLinks": [
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_dongsun_norigae_shop_post",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_byeongcheol_hwaseong_memory_check",
+      "courseUnitId": "b1_02_indirect_speech",
+      "conceptIds": [
+        "concept_b1_indirect_speech"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_jun_hwaseong_school_slide",
+      "courseUnitId": "a2_06_study_work",
+      "conceptIds": [
+        "concept_a2_work_study"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_maya_hyuna_daniel_talchum_shortform",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_daniel_hyuna_hanji_filming_scope",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "assess"
+    }
+  ],
+  "backdrops": {
+    "b1_dongsun_norigae_shop_post": "market",
+    "b1_byeongcheol_hwaseong_memory_check": "directions",
+    "a2_jun_hwaseong_school_slide": "home",
+    "c1_maya_hyuna_daniel_talchum_shortform": "office",
+    "b2_daniel_hyuna_hanji_filming_scope": "office"
+  },
+  "listeningDraft": "tools/content_factory/drafts/persona_culture_listening_20261005.json",
+  "cultureLinksDraft": "tools/content_factory/drafts/persona_culture_links_20261005.json",
+  "cultureLinkCount": 5,
+  "mergeOrder": [
+    "scenario + curriculum contentLinks + listening + culture links + audit via integrate_scenario_batch.py",
+    "TTS only after explicit content approval"
+  ],
+  "nonMergeGuards": [
+    "All review rows remain draft until Jin reads full learner-facing copy",
+    "Do not write non-live IDs into assets/data/scenario_culture_links.json before scenario promotion",
+    "No mastery/reward changes from culture links"
+  ]
+}

@@ -367,5 +367,147 @@ class ScenarioBatchValidationTest(unittest.TestCase):
             root["meta"]["perLevel"],
             {"a1": 1, "a2": 0, "b1": 0, "b2": 0, "c1": 1, "c2": 1},
         )
+
+
+class ScenarioCultureLinkTransactionTest(unittest.TestCase):
+    def make_root(self, directory: str, *, term_id: str = "term_a") -> tuple[Path, Path, Path]:
+        root = Path(directory)
+        (root / "assets" / "data").mkdir(parents=True)
+        (root / "docs" / "data").mkdir(parents=True)
+        draft = root / "tools" / "content_factory" / "drafts" / "culture_links.json"
+        draft.parent.mkdir(parents=True)
+        (root / "assets" / "data" / "scenario_culture_links.json").write_text(
+            json.dumps({"schemaVersion": 1, "links": []}),
+            encoding="utf-8",
+        )
+        (root / "docs" / "data" / "cultural_glossary.json").write_text(
+            json.dumps(
+                {
+                    "schemaVersion": 1,
+                    "entries": [{"termId": term_id}],
+                }
+            ),
+            encoding="utf-8",
+        )
+        return root, root / "assets" / "data", draft
+
+    def test_culture_links_are_staged_with_their_scenarios(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root, data, draft = self.make_root(directory)
+            draft.write_text(
+                json.dumps(
+                    {
+                        "schemaVersion": 1,
+                        "links": [{"scenarioId": "scene_a", "termIds": ["term_a"]}],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            manifest = {
+                "status": "review_only_draft",
+                "cultureLinksDraft": str(draft.relative_to(root)),
+                "cultureLinkCount": 1,
+            }
+
+            self.assertTrue(
+                integration._stage_culture_links(
+                    root, data, manifest, [{"id": "scene_a"}]
+                )
+            )
+            staged = json.loads(
+                (data / "scenario_culture_links.json").read_text(encoding="utf-8")
+            )
+            self.assertEqual(
+                staged["links"],
+                [{"scenarioId": "scene_a", "termIds": ["term_a"]}],
+            )
+
+    def test_culture_links_reject_unknown_glossary_terms(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root, data, draft = self.make_root(directory)
+            draft.write_text(
+                json.dumps(
+                    {
+                        "schemaVersion": 1,
+                        "links": [
+                            {"scenarioId": "scene_a", "termIds": ["missing_term"]}
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            manifest = {
+                "status": "review_only_draft",
+                "cultureLinksDraft": str(draft.relative_to(root)),
+                "cultureLinkCount": 1,
+            }
+
+            with self.assertRaisesRegex(
+                ScenarioIntegrationError, "unknown terms"
+            ):
+                integration._stage_culture_links(
+                    root, data, manifest, [{"id": "scene_a"}]
+                )
+
+    def test_merged_culture_links_are_idempotent_but_frozen(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root, data, draft = self.make_root(directory)
+            link = {"scenarioId": "scene_a", "termIds": ["term_a"]}
+            draft.write_text(
+                json.dumps({"schemaVersion": 1, "links": [link]}),
+                encoding="utf-8",
+            )
+            (data / "scenario_culture_links.json").write_text(
+                json.dumps({"schemaVersion": 1, "links": [link]}),
+                encoding="utf-8",
+            )
+            manifest = {
+                "status": "merged",
+                "cultureLinksDraft": str(draft.relative_to(root)),
+                "cultureLinkCount": 1,
+            }
+
+            before = (data / "scenario_culture_links.json").read_bytes()
+            self.assertTrue(
+                integration._stage_culture_links(
+                    root, data, manifest, [{"id": "scene_a"}]
+                )
+            )
+            self.assertEqual(
+                (data / "scenario_culture_links.json").read_bytes(), before
+            )
+
+            draft.write_text(
+                json.dumps(
+                    {
+                        "schemaVersion": 1,
+                        "links": [
+                            {"scenarioId": "scene_a", "termIds": ["term_a", "other"]}
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            manifest["cultureLinkCount"] = 1
+            # Add the second term to the glossary so the frozen-payload check,
+            # not glossary validation, owns this failure.
+            glossary_path = root / "docs" / "data" / "cultural_glossary.json"
+            glossary_path.write_text(
+                json.dumps(
+                    {
+                        "schemaVersion": 1,
+                        "entries": [{"termId": "term_a"}, {"termId": "other"}],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(
+                ScenarioIntegrationError, "no longer matches"
+            ):
+                integration._stage_culture_links(
+                    root, data, manifest, [{"id": "scene_a"}]
+                )
+
+
 if __name__ == "__main__":
     unittest.main()

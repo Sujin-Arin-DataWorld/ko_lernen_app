@@ -365,6 +365,89 @@ def _stage_listening(root: Path, data: Path, manifest: dict[str, Any],
         target.write_text(_json_text(live), encoding='utf-8')
     return True
 
+def _stage_culture_links(
+    root: Path,
+    data: Path,
+    manifest: dict[str, Any],
+    scenes: list[dict[str, Any]],
+) -> bool:
+    """Stage reviewed scenario -> CulturalGlossary links with the scenario batch.
+
+    Culture links are optional presentation metadata. They are promoted in the
+    same transaction as their scenarios so a live registry can never point at a
+    scenario that failed to ship. They do not alter mastery or reward state.
+    """
+
+    raw_path = manifest.get("cultureLinksDraft")
+    if not raw_path:
+        return False
+    draft = _read_json(_under_root(root, raw_path))
+    if draft.get("schemaVersion") != 1:
+        raise ScenarioIntegrationError("culture-links draft must use schemaVersion 1")
+    additions = draft.get("links")
+    if not isinstance(additions, list) or any(not isinstance(item, dict) for item in additions):
+        raise ScenarioIntegrationError("culture-links draft links must be an array of objects")
+    if manifest.get("cultureLinkCount") != len(additions):
+        raise ScenarioIntegrationError("culture link count disagrees with draft")
+
+    scene_ids = [str(scene["id"]) for scene in scenes]
+    link_ids = [str(item.get("scenarioId") or "") for item in additions]
+    if link_ids != scene_ids:
+        raise ScenarioIntegrationError(
+            "culture links must cover scenario draft IDs exactly and in the same order"
+        )
+
+    glossary = _read_json(root / "docs" / "data" / "cultural_glossary.json")
+    entries = glossary.get("entries")
+    if not isinstance(entries, list):
+        raise ScenarioIntegrationError("cultural glossary entries must be an array")
+    known_terms = {
+        str(item.get("termId") or "")
+        for item in entries
+        if isinstance(item, dict) and item.get("termId")
+    }
+    for item in additions:
+        term_ids = item.get("termIds")
+        if (
+            not isinstance(term_ids, list)
+            or not term_ids
+            or any(not isinstance(term, str) or not term.strip() for term in term_ids)
+            or len(set(term_ids)) != len(term_ids)
+        ):
+            raise ScenarioIntegrationError(
+                f"culture link {item.get('scenarioId')} needs unique nonempty termIds"
+            )
+        unknown = sorted(set(term_ids) - known_terms)
+        if unknown:
+            raise ScenarioIntegrationError(
+                f"culture link {item.get('scenarioId')} uses unknown terms: {unknown}"
+            )
+
+    target = data / "scenario_culture_links.json"
+    live = _read_json(target)
+    if live.get("schemaVersion") != 1 or not isinstance(live.get("links"), list):
+        raise ScenarioIntegrationError("live scenario culture links use an unsupported schema")
+    live_links = live["links"]
+    if any(not isinstance(item, dict) for item in live_links):
+        raise ScenarioIntegrationError("live scenario culture links must be objects")
+    live_by_id = {str(item.get("scenarioId") or ""): item for item in live_links}
+    batch_ids = set(scene_ids)
+    overlap = set(live_by_id) & batch_ids
+    if overlap:
+        if overlap != batch_ids or manifest.get("status") != "merged":
+            raise ScenarioIntegrationError("culture-links draft duplicates a live scenario link")
+        if any(live_by_id[item["scenarioId"]] != item for item in additions):
+            raise ScenarioIntegrationError(
+                "merged culture-link payload no longer matches its reviewed draft"
+            )
+        return True
+    if manifest.get("status") == "merged":
+        raise ScenarioIntegrationError("merged batch is missing live culture links")
+
+    live["links"] = [*live_links, *additions]
+    target.write_text(_json_text(live), encoding="utf-8")
+    return True
+
 
 def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, apply: bool) -> tuple[dict[str, int], int]:
     root = root.resolve()
@@ -458,6 +541,9 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
                 target_path.write_text(_json_text(target_root), encoding="utf-8")
 
         includes_listening = _stage_listening(
+            root, data, manifest, records_by_kind.get('scenario', []),
+        )
+        includes_culture_links = _stage_culture_links(
             root, data, manifest, records_by_kind.get('scenario', []),
         )
 
@@ -567,6 +653,10 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
         if includes_listening:
             outputs[root / 'assets/data/listening_lessons.json'] = (
                 data / 'listening_lessons.json'
+            ).read_text(encoding='utf-8')
+        if includes_culture_links:
+            outputs[root / 'assets/data/scenario_culture_links.json'] = (
+                data / 'scenario_culture_links.json'
             ).read_text(encoding='utf-8')
         if not apply:
             return counts, int(manifest["recordCount"])
