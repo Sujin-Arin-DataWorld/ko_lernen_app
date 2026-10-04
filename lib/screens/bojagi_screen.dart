@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../services/decoration_reward_service.dart';
+import '../services/haptic_service.dart';
 import '../services/learning_journey.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/bojagi_reveal.dart';
 import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/motion.dart';
@@ -16,9 +18,7 @@ import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
-const String kBojagiClosed =
-    'assets/illustrations/reward/reward_bojagi_closed.png';
-const String kBojagiOpen = 'assets/illustrations/reward/reward_bojagi_open.png';
+export '../widgets/sori/bojagi_reveal.dart' show kBojagiClosed, kBojagiOpen;
 
 /// 보자기 꾸러미 개봉 — 퀘스트 보상으로 받은 꾸러미를 열어 장식 하나를 고른다.
 ///
@@ -50,6 +50,7 @@ class _BojagiScreenState extends State<BojagiScreen> {
   /// 수령 직후 확인한 다음 꾸러미. 선택 가능하거나 전체 수집 보관이 필요한 경우에만
   /// "다음 꾸러미"를 띄운다.
   bool _hasNext = false;
+  int _offerGeneration = 0;
 
   @override
   void initState() {
@@ -63,6 +64,7 @@ class _BojagiScreenState extends State<BojagiScreen> {
       widget.offerLoader?.call() ?? DecorationRewardService.loadNextOffer();
 
   Future<void> _load() async {
+    final generation = ++_offerGeneration;
     setState(() {
       _loading = true;
       _loadFailed = false;
@@ -72,7 +74,7 @@ class _BojagiScreenState extends State<BojagiScreen> {
     });
     try {
       final offer = await _loadOffer();
-      if (!mounted) {
+      if (!mounted || generation != _offerGeneration) {
         return;
       }
       setState(() {
@@ -80,23 +82,34 @@ class _BojagiScreenState extends State<BojagiScreen> {
         _loading = false;
       });
     } on Object {
-      _showLoadFailure();
+      if (generation == _offerGeneration) _showLoadFailure();
     }
   }
 
   Future<void> _claim(String slug) async {
+    final offer = _offer;
+    if (_loading ||
+        _claimed != null ||
+        offer?.state != DecorationRewardOfferState.ready ||
+        !offer!.candidates.contains(slug)) {
+      return;
+    }
+    final generation = ++_offerGeneration;
     setState(() {
       _loading = true;
       _loadFailed = false;
     });
     late final DecorationRewardClaimResult result;
     try {
-      result = await DecorationRewardService.claimNextBox(slug);
+      result = await DecorationRewardService.claimNextBox(
+        slug,
+        expectedSourceQuestId: offer.sourceQuestId,
+      );
     } on Object {
       _showLoadFailure();
       return;
     }
-    if (!mounted) {
+    if (!mounted || generation != _offerGeneration) {
       return;
     }
     if (result != DecorationRewardClaimResult.claimed) {
@@ -106,41 +119,39 @@ class _BojagiScreenState extends State<BojagiScreen> {
       return;
     }
 
-    // 수령 성공은 먼저 보존한다. 다음 꾸러미 확인이 실패하더라도 이미 받은 장식을
-    // 오류 화면 뒤에 숨기거나 다시 고르게 하지 않는다.
+    // Confirmed ownership is shown immediately. A slow next-offer read must
+    // never hide the received item behind a spinner or offer it twice.
+    setState(() {
+      _claimed = slug;
+      _hasNext = false;
+      _loading = false;
+    });
     try {
       final next = await _loadOffer();
-      if (!mounted) {
+      if (!mounted || generation != _offerGeneration) {
         return;
       }
       setState(() {
-        _claimed = slug;
         _offer = next;
         _hasNext =
             next.state == DecorationRewardOfferState.ready ||
             next.state == DecorationRewardOfferState.collectionComplete;
-        _loading = false;
       });
     } on Object {
-      if (!mounted) {
-        return;
-      }
-      setState(() {
-        _claimed = slug;
-        _hasNext = false;
-        _loading = false;
-      });
+      // The successful receipt and room entrance remain available.
     }
   }
 
   Future<void> _archiveCompleteCollection() async {
+    if (_loading) return;
     setState(() {
       _loading = true;
       _loadFailed = false;
     });
     try {
-      final result =
-          await DecorationRewardService.archiveCompleteCollectionBox();
+      final result = await DecorationRewardService.archiveCompleteCollectionBox(
+        expectedSourceQuestId: _offer?.sourceQuestId,
+      );
       if (!mounted) {
         return;
       }
@@ -292,10 +303,22 @@ class _BojagiScreenState extends State<BojagiScreen> {
 
 /// 매듭이 묶인 상태 — 탭 하나로 연다. 물음표를 그릴 필요가 없다,
 /// 싸여 있다는 것 자체가 물음표다 (ADR-002 개정).
-class _KnotView extends StatelessWidget {
+class _KnotView extends StatefulWidget {
   final VoidCallback onUntie;
 
   const _KnotView({required this.onUntie});
+
+  @override
+  State<_KnotView> createState() => _KnotViewState();
+}
+
+class _KnotViewState extends State<_KnotView> {
+  bool _opening = false;
+
+  void _open() {
+    if (_opening) return;
+    setState(() => _opening = true);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -307,27 +330,18 @@ class _KnotView extends StatelessWidget {
           Semantics(
             container: true,
             button: true,
-            enabled: true,
-            label: t.bojagiOpenHint,
-            onTap: onUntie,
+            enabled: !_opening,
+            label: _opening ? t.bojagiLoading : t.bojagiOpenHint,
+            onTap: _opening ? null : _open,
             excludeSemantics: true,
             child: SoriPressable(
               // 테스트에서 매듭만 정확히 누르기 위한 앵커.
               key: const Key('bojagi_knot'),
-              onTap: onUntie,
-              haptic: SoriHaptic.medium,
-              child: SizedBox(
-                width: 220,
-                height: 220,
-                child: Image.asset(
-                  kBojagiClosed,
-                  fit: BoxFit.contain,
-                  errorBuilder: (_, __, ___) => const Icon(
-                    Icons.card_giftcard_rounded,
-                    size: 120,
-                    color: SoriColors.primary,
-                  ),
-                ),
+              onTap: _opening ? null : _open,
+              haptic: SoriHaptic.selection,
+              child: SoriBojagiReveal(
+                opening: _opening,
+                onOpened: widget.onUntie,
               ),
             ),
           ),
@@ -336,7 +350,7 @@ class _KnotView extends StatelessWidget {
             label: t.soriStageOpenBojagi,
             illustrationAsset: kBojagiClosed,
             trailingIcon: Icons.arrow_forward_rounded,
-            onTap: onUntie,
+            onTap: _opening ? null : _open,
             fullWidth: true,
           ),
         ],
@@ -561,12 +575,10 @@ class _ClaimedView extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBox(
-              height: 180,
-              child: FittedBox(
-                fit: BoxFit.contain,
-                child: SoriDecorationImage(slug: slug, size: 170),
-              ),
+            SoriBojagiReveal(
+              key: ValueKey('bojagi-reveal-$slug'),
+              rewardSlug: slug,
+              onRewardRevealed: HapticService.lightImpact,
             ),
             const SizedBox(height: Spacing.lg),
             Semantics(

@@ -151,9 +151,10 @@ void main() {
     // Integrated recovery/privacy widgets plus the five-tab catalog surfaces.
     // 2026-09-15 (C8): +1 — ai_voice_notice_host joins Study and evidence.
     // 2026-10-03: +3 — persona portrait, scene introduction and touch motion.
-    expect(actual, hasLength(147));
+    // 2026-10-04: +5 — tactile reveal and auxiliary catalog/settings entrances.
+    expect(actual, hasLength(152));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(147));
+    expect(listed, hasLength(152));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

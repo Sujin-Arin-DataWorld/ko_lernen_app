@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>한글소리 · 터치 모션 검토</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="touch-motion.css"><link rel="stylesheet" href="motion-lab.css"><link rel="stylesheet" href="cta-material.css"><link rel="stylesheet" href="scene-composition.css"></head>
+<body class="motion-lab">
+<main class="lab-wrap">
+<a class="studio-link" href="index.html?view=learn">← 실제 학습 화면</a>
+<span class="eyebrow">TOUCH · MATERIAL · RESPONSE</span>
+<h1>손을 대면,<br>표면과 오브젝트가 함께 반응.</h1>
+<p>미리보기에서 살짝 들어 올리고, 터치하면 눌리며, 놓으면 부드럽게 돌아옵니다. 카드와 재생 버튼을 직접 눌러보거나 아래 상태를 선택해 비교하세요.</p>
+<div class="lab-grid">
+<section class="motion-surface" id="phone" aria-label="Hören 카드와 재생 버튼 모션 시안">
+ <div class="lab-top"><strong>한글소리</strong><span>HÖREN</span></div>
+ <button type="button" class="practice-tile blue demo-card" data-demo-target><img src="assets/speaker.png" alt="" aria-hidden="true"><strong>Hören</strong><small>Eine Einladung verstehen</small><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
+ <div class="lab-player"><button type="button" class="play-button play-cta" aria-label="재생 버튼 터치 모션" data-demo-target><span class="play-emblem" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="m8 4 12 8-12 8Z"/></svg></span><span class="play-label">Anhören</span></button></div><div class="lab-phrase"><strong>커피 마시러 갈래?</strong><small>Hast du Lust, einen Kaffee trinken zu gehen?</small></div>
+ <button type="button" class="primary tactile-cta scene-start" data-demo-target aria-label="학습 시작 버튼 터치 모션"><span class="cta-emblem with-art" aria-hidden="true"><img src="assets/book.png" alt=""></span><span class="cta-label">Jetzt lernen</span><span class="cta-direction" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></span></button>
+ <div class="lab-status" id="motion-status">기본 · 선명한 형태와 낮은 깊이</div>
+</section>
+<section class="lab-controls">
+ <h2>누르기 전후 4단계</h2>
+ <div id="state-controls">
+  <button type="button" data-state="rest" aria-pressed="true"><span>01</span><strong>기본</strong><small>차분한 재질과 분명한 경계</small></button>
+  <button type="button" data-state="preview" aria-pressed="false"><span>02</span><strong>미리보기</strong><small>2px 들림 · 작은 오브젝트 기울기 · 빛</small></button>
+  <button type="button" data-state="press" aria-pressed="false"><span>03</span><strong>누르는 중</strong><small>3px 눌림 · 아래면 감소 · 오브젝트 압축</small></button>
+  <button type="button" data-state="release" aria-pressed="false"><span>04</span><strong>손을 뗀 뒤</strong><small>240–280ms 복귀 · 짧은 터치 자취</small></button>
+ </div>
+ <button type="button" class="primary" id="play-demo">모션 순서 재생</button>
+ <label class="toggle"><input type="checkbox" id="reduce"> 움직임 줄이기</label>
+ <p class="lab-note">미리보기는 마우스 hover와 키보드 focus에 연결됩니다. 일반 휴대폰 화면은 손가락의 접근을 감지하지 못하므로 실제 터치가 닿을 때부터 반응합니다. 스크롤·취소 시 누름 상태를 바로 해제합니다.</p>
+ <p class="lab-note">여기는 조작 모션을 비교하는 검토 화면입니다. 재생 버튼을 눌러도 음성은 시작하지 않습니다. 실제 듣기 시안에서는 한국어 음성의 시작·종료 이벤트에 소리 표시가 연결됩니다.</p>
+</section>
+</div>
+<a class="studio-link" href="design-notes.html">모션·재질·번역 적용 명세 →</a>
+</main>
+<script src="touch-motion.js"></script><script src="motion-lab.js"></script></body></html>

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/gye.dart';
-import '../../widgets/sori/avatar.dart';
+import '../../widgets/sori/settings_button.dart';
 import '../../widgets/sori/collapsing_header.dart';
 import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/screen_background.dart';
@@ -64,7 +64,7 @@ class SoriStageGyeScreen extends StatelessWidget {
                         // 접힌 56dp 크롬 바용 짧은 제목(§W-G G5.1) — 없으면
                         // title 전체가 ellipsis 로 잘린다.
                         collapsedTitle: t.soriStageNavGye,
-                        // §W-G G5.2(D4 확정): trailing = ⓘ 문화 설명 + 아바타
+                        // §W-G G5.2: trailing = ⓘ 문화 설명 + 설정
                         // 둘 다. 두 액션 모두 48dp 히트영역 — trailingSlots=2가
                         // 헤더 텍스트 폭 예산에서 그만큼을 미리 뺀다.
                         trailingSlots: 2,
@@ -78,7 +78,7 @@ class SoriStageGyeScreen extends StatelessWidget {
                               icon: const Icon(Icons.help_outline_rounded),
                             ),
                             const SizedBox(width: Spacing.xs),
-                            const SoriAvatar(),
+                            const SoriSettingsButton(),
                           ],
                         ),
                       );
