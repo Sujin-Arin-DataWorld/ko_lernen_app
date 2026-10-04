@@ -20039,6 +20039,36 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Später'**
   String get catalogNotNow;
+
+  /// No description provided for @settingsGroupAccount.
+  ///
+  /// In de, this message translates to:
+  /// **'Profil & Konto'**
+  String get settingsGroupAccount;
+
+  /// No description provided for @settingsGroupLearning.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernen'**
+  String get settingsGroupLearning;
+
+  /// No description provided for @settingsGroupControls.
+  ///
+  /// In de, this message translates to:
+  /// **'Sprache, Ton & Bedienung'**
+  String get settingsGroupControls;
+
+  /// No description provided for @settingsGroupPrivacy.
+  ///
+  /// In de, this message translates to:
+  /// **'Speicher & Datenschutz'**
+  String get settingsGroupPrivacy;
+
+  /// No description provided for @settingsGroupHelp.
+  ///
+  /// In de, this message translates to:
+  /// **'Hilfe & App-Infos'**
+  String get settingsGroupHelp;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {
