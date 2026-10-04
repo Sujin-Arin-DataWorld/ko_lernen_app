@@ -644,6 +644,15 @@ class _ShortcutTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final tt = SoriTextTheme.of(context);
     final s = SoriSurfaces.of(context);
+    final compactLabel = MediaQuery.textScalerOf(context).scale(1) < 1.6;
+    final labelText = Text(
+      label,
+      key: ValueKey('hanok-shortcut-label-$id'),
+      maxLines: compactLabel ? 1 : null,
+      softWrap: !compactLabel,
+      textAlign: TextAlign.center,
+      style: tt.label.copyWith(fontSize: 15, height: 1.35),
+    );
     return KeyedSubtree(
       key: ValueKey('hanok-shortcut-$id'),
       child: Semantics(
@@ -664,17 +673,10 @@ class _ShortcutTile extends StatelessWidget {
               children: [
                 SizedBox(height: 40, child: Center(child: thumb)),
                 const SizedBox(height: Spacing.xs),
-                FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: Text(
-                    label,
-                    key: ValueKey('hanok-shortcut-label-$id'),
-                    maxLines: 1,
-                    softWrap: false,
-                    textAlign: TextAlign.center,
-                    style: tt.label.copyWith(fontSize: 15, height: 1.35),
-                  ),
-                ),
+                if (compactLabel)
+                  FittedBox(fit: BoxFit.scaleDown, child: labelText)
+                else
+                  labelText,
                 if (count != null)
                   Text(
                     count!,
