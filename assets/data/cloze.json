@@ -9910,15 +9910,15 @@
     {
       "id": "cloze_a2_0104",
       "level": "a2",
-      "sentenceKo": "＿＿＿을 끼고 일을 시작했어요.",
-      "answer": "벌초 장갑",
-      "fullKo": "벌초 장갑을 끼고 일을 시작했어요.",
-      "de": "Ich zog Jätehandschuhe an und fing mit der Arbeit an.",
-      "en": "I put on weeding gloves and started working.",
+      "sentenceKo": "＿＿＿ 끼고 가족 묘소의 풀을 깎았어요.",
+      "answer": "벌초용 장갑을",
+      "fullKo": "벌초용 장갑을 끼고 가족 묘소의 풀을 깎았어요.",
+      "de": "Ich trug Handschuhe für die Grabpflege und schnitt das Gras an unseren Familiengräbern.",
+      "en": "I wore gloves for clearing the grass around our family graves.",
       "distractors": [
-        "음식 취향",
-        "이불",
-        "주황색"
+        "운동화를",
+        "모자를",
+        "지갑을"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -9985,11 +9985,11 @@
     {
       "id": "cloze_a2_0109",
       "level": "a2",
-      "sentenceKo": "＿＿＿을 다섯 번 했어요.",
-      "answer": "친척 방문",
-      "fullKo": "친척 방문을 다섯 번 했어요.",
-      "de": "Ich machte fünf Besuche bei Verwandten.",
-      "en": "I made five visits to relatives.",
+      "sentenceKo": "추석 연휴에 ＿＿＿ 방문했어요.",
+      "answer": "친척을",
+      "fullKo": "추석 연휴에 친척을 방문했어요.",
+      "de": "Während der Chuseok-Feiertage besuchte ich Verwandte.",
+      "en": "I visited relatives during the Chuseok holiday.",
       "distractors": [
         "보름달",
         "대학생",
@@ -10330,15 +10330,15 @@
     {
       "id": "cloze_a2_0132",
       "level": "a2",
-      "sentenceKo": "＿＿＿이 많아서 천천히 먹었어요.",
-      "answer": "아침밥",
-      "fullKo": "아침밥이 많아서 천천히 먹었어요.",
-      "de": "Das Frühstück war reichlich, deshalb aß ich langsam.",
-      "en": "There was a lot for breakfast, so I ate slowly.",
+      "sentenceKo": "＿＿＿ 먹고 버스 타러 나갔어요.",
+      "answer": "아침밥을",
+      "fullKo": "아침밥을 먹고 버스 타러 나갔어요.",
+      "de": "Nach dem Frühstück ging ich los, um den Bus zu nehmen.",
+      "en": "After breakfast, I went out to catch the bus.",
       "distractors": [
-        "러닝머신",
-        "장갑",
-        "눈싸움"
+        "운동화를",
+        "책상을",
+        "지갑을"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -10375,11 +10375,11 @@
     {
       "id": "cloze_a2_0135",
       "level": "a2",
-      "sentenceKo": "먼저 “＿＿＿?”라고 인사하니 분위기가 편해졌어요.",
+      "sentenceKo": "아침에 할머니께 “＿＿＿?” 하고 여쭤봤어요.",
       "answer": "잘 주무셨어요",
-      "fullKo": "먼저 “잘 주무셨어요?”라고 인사하니 분위기가 편해졌어요.",
-      "de": "Als ich zuerst fragte, ob alle gut geschlafen hatten, wurde die Stimmung entspannter.",
-      "en": "When I first asked whether everyone had slept well, the mood became more relaxed.",
+      "fullKo": "아침에 할머니께 “잘 주무셨어요?” 하고 여쭤봤어요.",
+      "de": "Am Morgen fragte ich meine Großmutter: „Hast du gut geschlafen?“",
+      "en": "In the morning, I asked my grandmother, “Did you sleep well?”",
       "distractors": [
         "필요",
         "직업이 뭐예요",
@@ -10600,15 +10600,15 @@
     {
       "id": "cloze_a2_0150",
       "level": "a2",
-      "sentenceKo": "＿＿＿에서 서서 가는 칸이 더 떠들썩했어요.",
-      "answer": "명절 기차",
-      "fullKo": "명절 기차에서 서서 가는 칸이 더 떠들썩했어요.",
-      "de": "Im Festtagszug war der Bereich, in dem die Leute standen, lebhafter.",
-      "en": "On the holiday train, the area where people were standing was livelier.",
+      "sentenceKo": "＿＿＿ 금방 매진되니까 미리 예매했어요.",
+      "answer": "명절 기차표는",
+      "fullKo": "명절 기차표는 금방 매진되니까 미리 예매했어요.",
+      "de": "Zugtickets für die Feiertage sind schnell ausverkauft, deshalb habe ich früh gebucht.",
+      "en": "Holiday train tickets sell out quickly, so I booked mine early.",
       "distractors": [
-        "반찬 봉투",
-        "구두",
-        "벨트"
+        "명절 음식은",
+        "추석 선물은",
+        "겨울 코트는"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -10630,30 +10630,30 @@
     {
       "id": "cloze_a2_0152",
       "level": "a2",
-      "sentenceKo": "김치를 ＿＿＿ 않고 무릎 위에 올렸어요.",
-      "answer": "짐으로 부치지",
-      "fullKo": "김치를 짐으로 부치지 않고 무릎 위에 올렸어요.",
-      "de": "Ich gab das Kimchi nicht als Gepäck auf, sondern nahm es auf den Schoß.",
-      "en": "I did not check the kimchi as luggage; I kept it on my lap.",
+      "sentenceKo": "기차를 타기 전에 큰 ＿＿＿ 택배로 부쳤어요.",
+      "answer": "짐을",
+      "fullKo": "기차를 타기 전에 큰 짐을 택배로 부쳤어요.",
+      "de": "Vor der Zugfahrt schickte ich mein großes Gepäck per Paketdienst voraus.",
+      "en": "Before taking the train, I sent my large bag ahead by courier.",
       "distractors": [
-        "유창하",
-        "일찍 일어나",
-        "전 부치"
+        "지도를",
+        "수건을",
+        "열쇠를"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
     {
       "id": "cloze_a2_0153",
       "level": "a2",
-      "sentenceKo": "주차장에서 가족에게 ＿＿＿를 했어요.",
-      "answer": "도착 인사",
-      "fullKo": "주차장에서 가족에게 도착 인사를 했어요.",
-      "de": "Auf dem Parkplatz begrüßte ich die Familie nach der Ankunft.",
-      "en": "I greeted the family in the parking lot when I arrived.",
+      "sentenceKo": "역에 도착해서 가족에게 ＿＿＿ 했어요.",
+      "answer": "도착 연락을",
+      "fullKo": "역에 도착해서 가족에게 도착 연락을 했어요.",
+      "de": "Nach meiner Ankunft am Bahnhof gab ich meiner Familie Bescheid.",
+      "en": "When I arrived at the station, I let my family know.",
       "distractors": [
-        "가구",
-        "하차",
-        "세트"
+        "장갑을",
+        "지도를",
+        "시간표를"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -10705,15 +10705,15 @@
     {
       "id": "cloze_a2_0157",
       "level": "a2",
-      "sentenceKo": "＿＿＿으로 과일을 부탁했어요.",
-      "answer": "밤참",
-      "fullKo": "밤참으로 과일을 부탁했어요.",
-      "de": "Als Spätimbiss bat ich um Obst.",
-      "en": "I asked for fruit as a late-night snack.",
+      "sentenceKo": "＿＿＿ 과일을 조금 먹었어요.",
+      "answer": "밤참으로",
+      "fullKo": "밤참으로 과일을 조금 먹었어요.",
+      "de": "Als späten Imbiss aß ich etwas Obst.",
+      "en": "I had some fruit as a late-night snack.",
       "distractors": [
-        "운동복",
-        "넷",
-        "셋"
+        "운동복으로",
+        "지갑으로",
+        "전화기로"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -36291,8 +36291,8 @@
       ],
       "level": "a2",
       "topic": "Essen & Trinken",
-      "de": "Zuerst gibt man Öl in die Pfanne.",
-      "en": "First, you put oil in the pan.",
+      "de": "Zuerst gebe ich Öl in die Pfanne.",
+      "en": "First, I put oil in the pan.",
       "courseUnitId": "a2_05_delivery_services"
     },
     {

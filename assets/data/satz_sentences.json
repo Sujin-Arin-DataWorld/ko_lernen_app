@@ -6932,14 +6932,14 @@
     {
       "id": "satz_a2_0067",
       "level": "a2",
-      "targetKo": "벌초 장갑을 끼고 일을 시작했어요.",
-      "promptDe": "Ich zog Jätehandschuhe an und fing mit der Arbeit an.",
-      "promptEn": "I put on weeding gloves and started working.",
+      "targetKo": "벌초용 장갑을 끼고 가족 묘소의 풀을 깎았어요.",
+      "promptDe": "Ich trug Handschuhe für die Grabpflege und schnitt das Gras an unseren Familiengräbern.",
+      "promptEn": "I wore gloves for clearing the grass around our family graves.",
       "distractors": [
         "고향집",
         "곳이었어요"
       ],
-      "vocabKo": "벌초 장갑"
+      "vocabKo": "벌초용 장갑"
     },
     {
       "id": "satz_a2_0068",
@@ -6992,14 +6992,14 @@
     {
       "id": "satz_a2_0072",
       "level": "a2",
-      "targetKo": "친척 방문을 다섯 번 했어요.",
-      "promptDe": "Ich machte fünf Besuche bei Verwandten.",
-      "promptEn": "I made five visits to relatives.",
+      "targetKo": "추석 연휴에 친척을 방문했어요.",
+      "promptDe": "Während der Chuseok-Feiertage besuchte ich Verwandte.",
+      "promptEn": "I visited relatives during the Chuseok holiday.",
       "distractors": [
         "현관이",
         "현우"
       ],
-      "vocabKo": "친척 방문"
+      "vocabKo": "친척을 방문하다"
     },
     {
       "id": "satz_a2_0073",
@@ -7268,9 +7268,9 @@
     {
       "id": "satz_a2_0095",
       "level": "a2",
-      "targetKo": "아침밥이 많아서 천천히 먹었어요.",
-      "promptDe": "Das Frühstück war reichlich, deshalb aß ich langsam.",
-      "promptEn": "There was a lot for breakfast, so I ate slowly.",
+      "targetKo": "아침밥을 먹고 버스 타러 나갔어요.",
+      "promptDe": "Nach dem Frühstück ging ich los, um den Bus zu nehmen.",
+      "promptEn": "After breakfast, I went out to catch the bus.",
       "distractors": [
         "않았어요",
         "알람을"
@@ -7304,9 +7304,9 @@
     {
       "id": "satz_a2_0098",
       "level": "a2",
-      "targetKo": "먼저 “잘 주무셨어요?”라고 인사하니 분위기가 편해졌어요.",
-      "promptDe": "Als ich zuerst fragte, ob alle gut geschlafen hatten, wurde die Stimmung entspannter.",
-      "promptEn": "When I first asked whether everyone had slept well, the mood became more relaxed.",
+      "targetKo": "아침에 할머니께 “잘 주무셨어요?” 하고 여쭤봤어요.",
+      "promptDe": "Am Morgen fragte ich meine Großmutter: „Hast du gut geschlafen?“",
+      "promptEn": "In the morning, I asked my grandmother, “Did you sleep well?”",
       "distractors": [
         "되면",
         "된다고"
@@ -7484,14 +7484,14 @@
     {
       "id": "satz_a2_0113",
       "level": "a2",
-      "targetKo": "명절 기차에서 서서 가는 칸이 더 떠들썩했어요.",
-      "promptDe": "Im Festtagszug war der Bereich, in dem die Leute standen, lebhafter.",
-      "promptEn": "On the holiday train, the area where people were standing was livelier.",
+      "targetKo": "명절 기차표는 금방 매진되니까 미리 예매했어요.",
+      "promptDe": "Zugtickets für die Feiertage sind schnell ausverkauft, deshalb habe ich früh gebucht.",
+      "promptEn": "Holiday train tickets sell out quickly, so I booked mine early.",
       "distractors": [
         "확인",
         "확인했어요"
       ],
-      "vocabKo": "명절 기차"
+      "vocabKo": "명절 기차표"
     },
     {
       "id": "satz_a2_0114",
@@ -7508,9 +7508,9 @@
     {
       "id": "satz_a2_0115",
       "level": "a2",
-      "targetKo": "김치를 짐으로 부치지 않고 무릎 위에 올렸어요.",
-      "promptDe": "Ich gab das Kimchi nicht als Gepäck auf, sondern nahm es auf den Schoß.",
-      "promptEn": "I did not check the kimchi as luggage; I kept it on my lap.",
+      "targetKo": "기차를 타기 전에 큰 짐을 택배로 부쳤어요.",
+      "promptDe": "Vor der Zugfahrt schickte ich mein großes Gepäck per Paketdienst voraus.",
+      "promptEn": "Before taking the train, I sent my large bag ahead by courier.",
       "distractors": [
         "색이",
         "샐까"
@@ -7520,14 +7520,14 @@
     {
       "id": "satz_a2_0116",
       "level": "a2",
-      "targetKo": "주차장에서 가족에게 도착 인사를 했어요.",
-      "promptDe": "Auf dem Parkplatz begrüßte ich die Familie nach der Ankunft.",
-      "promptEn": "I greeted the family in the parking lot when I arrived.",
+      "targetKo": "역에 도착해서 가족에게 도착 연락을 했어요.",
+      "promptDe": "Nach meiner Ankunft am Bahnhof gab ich meiner Familie Bescheid.",
+      "promptEn": "When I arrived at the station, I let my family know.",
       "distractors": [
         "일이에요",
         "일찍"
       ],
-      "vocabKo": "도착 인사"
+      "vocabKo": "도착 연락"
     },
     {
       "id": "satz_a2_0117",
@@ -7568,9 +7568,9 @@
     {
       "id": "satz_a2_0120",
       "level": "a2",
-      "targetKo": "밤참으로 과일을 부탁했어요.",
-      "promptDe": "Als Spätimbiss bat ich um Obst.",
-      "promptEn": "I asked for fruit as a late-night snack.",
+      "targetKo": "밤참으로 과일을 조금 먹었어요.",
+      "promptDe": "Als späten Imbiss aß ich etwas Obst.",
+      "promptEn": "I had some fruit as a late-night snack.",
       "distractors": [
         "해를",
         "해서"
@@ -19772,9 +19772,9 @@
     {
       "id": "satz_a2_0318",
       "level": "a2",
-      "targetKo": "점원이 오늘 친절하게 도와줬어요.",
-      "promptDe": "Das Verkaufspersonal hat mir heute freundlich geholfen.",
-      "promptEn": "The store clerk helped me kindly today.",
+      "targetKo": "오늘 점원이 제 사이즈를 찾아줬어요.",
+      "promptDe": "Das Verkaufspersonal hat heute meine Größe gefunden.",
+      "promptEn": "The shop assistant found my size today.",
       "distractors": [
         "회사",
         "직업"
@@ -19820,9 +19820,9 @@
     {
       "id": "satz_a2_0322",
       "level": "a2",
-      "targetKo": "횡단보도를 건너면 왼쪽이에요.",
-      "promptDe": "Wenn Sie über den Zebrastreifen gehen, ist es links.",
-      "promptEn": "Cross the crosswalk and it is on the left.",
+      "targetKo": "횡단보도를 건너면 왼쪽에 약국이 있어요.",
+      "promptDe": "Wenn Sie den Zebrastreifen überqueren, ist die Apotheke links.",
+      "promptEn": "Cross at the crosswalk, and the pharmacy is on your left.",
       "distractors": [
         "회사",
         "직업"
@@ -19880,9 +19880,9 @@
     {
       "id": "satz_a2_0327",
       "level": "a2",
-      "targetKo": "사장님이 오늘 친절하게 설명해 주셨어요.",
-      "promptDe": "Der Chef hat heute alles freundlich erklärt.",
-      "promptEn": "The boss explained everything kindly today.",
+      "targetKo": "오늘 사장님이 새 근무 시간을 설명해 주셨어요.",
+      "promptDe": "Heute hat mir der Chef die neuen Arbeitszeiten erklärt.",
+      "promptEn": "The boss explained the new work hours to me today.",
       "distractors": [
         "회사",
         "직업"
@@ -35578,8 +35578,8 @@
         "지갑을"
       ],
       "level": "a2",
-      "promptDe": "Zuerst gibt man Öl in die Pfanne.",
-      "promptEn": "First, you put oil in the pan.",
+      "promptDe": "Zuerst gebe ich Öl in die Pfanne.",
+      "promptEn": "First, I put oil in the pan.",
       "courseUnitId": "a2_05_delivery_services"
     },
     {
