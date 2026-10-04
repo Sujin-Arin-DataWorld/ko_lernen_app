@@ -4,6 +4,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'tokens.dart';
 
 /// Approved 16-phase blue fire. The carved frame is always sampled from A.
 class DokkaebiFlameFrame extends StatefulWidget {
@@ -173,7 +174,9 @@ class _DokkaebiFlameFrameState extends State<DokkaebiFlameFrame>
               heightFactor: DokkaebiFlameFrame.aperture.height,
               alignment: const Alignment(.020833333333, -.0543130990415),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(SoriRadius.xs),
+                ),
                 child: ColoredBox(color: Colors.black, child: widget.child),
               ),
             ),

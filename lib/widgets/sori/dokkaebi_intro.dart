@@ -52,6 +52,7 @@ class _DokkaebiIntroState extends State<DokkaebiIntro> {
       asset: DokkaebiIntro.videoAsset,
       eligible: false,
       prepare: (video) async {
+        // audio-policy: exempt — approved introduction has no audio stream.
         await video.setVolume(0);
         await video.setLooping(false);
         await video.setPlaybackSpeed(1.04);

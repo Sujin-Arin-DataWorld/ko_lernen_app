@@ -11,7 +11,7 @@
     "gameFeedback": "audit-only",
     "companion": "audit-only"
   },
-  "assetCount": 39,
+  "assetCount": 40,
   "audioStreamCount": 21,
   "decoderErrorCount": 0,
   "targetIssueCount": 0,
@@ -625,6 +625,24 @@
       "truePeakDbtp": -13.33,
       "targetDb": -29.0,
       "calculatedGain": 1.0,
+      "decoderError": null,
+      "normalizedDerivative": null
+    },
+    {
+      "path": "assets/video/introductions/dokkaebi_intro.mp4",
+      "channel": "companion",
+      "sourceSha256": "b75f64c320accb50b66413c0300d9be449cbdc36cc0204d304fc77d78214933f",
+      "hasAudio": false,
+      "codec": null,
+      "channels": null,
+      "sampleRateHz": null,
+      "durationSeconds": 8.041667,
+      "meanDb": null,
+      "integratedLufs": null,
+      "maxDb": null,
+      "truePeakDbtp": null,
+      "targetDb": null,
+      "calculatedGain": null,
       "decoderError": null,
       "normalizedDerivative": null
     },
