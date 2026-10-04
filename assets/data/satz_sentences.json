@@ -25832,9 +25832,9 @@
     {
       "id": "satz_c2_0178",
       "level": "c2",
-      "targetKo": "납부 유예만으로는 원인이 사라지지 않습니다.",
-      "promptDe": "Ein Zahlungsaufschub allein beseitigt die Ursache nicht.",
-      "promptEn": "A payment deferral alone doesn't remove the cause.",
+      "targetKo": "감사 보고서는 납부 유예가 당장의 부담을 덜지만 과다 청구의 원인을 해결하지는 못한다고 지적했다.",
+      "promptDe": "Der Prüfbericht stellte fest, dass ein Zahlungsaufschub die unmittelbare Belastung mindert, die Ursache der überhöhten Abrechnung jedoch nicht behebt.",
+      "promptEn": "The audit report noted that deferring payment eases the immediate burden but does not address the cause of overbilling.",
       "distractors": [
         "처분이",
         "입증을"
@@ -25856,9 +25856,9 @@
     {
       "id": "satz_c2_0180",
       "level": "c2",
-      "targetKo": "결과 통보를 언제 어떤 방식으로 받을 수 있는지 먼저 확인해요.",
-      "promptDe": "Ich frage zuerst nach, wann und auf welchem Weg ich über das Ergebnis informiert werde.",
-      "promptEn": "I first check when and how I'll be notified of the outcome.",
+      "targetKo": "행정기관은 처분 결과를 당사자에게 서면으로 통보하고 이의 신청 기한도 함께 안내했다.",
+      "promptDe": "Die Behörde teilte der betroffenen Person die Entscheidung schriftlich mit und nannte zugleich die Einspruchsfrist.",
+      "promptEn": "The agency notified the affected person of the decision in writing and also stated the deadline for an appeal.",
       "distractors": [
         "구제를",
         "시정이"
@@ -25880,9 +25880,9 @@
     {
       "id": "satz_c2_0182",
       "level": "c2",
-      "targetKo": "입증 책임을 이용자에게만 두는 것은 지나칩니다.",
-      "promptDe": "Die Nachweislast allein den Nutzenden aufzuerlegen, geht zu weit.",
-      "promptEn": "Putting the burden of proof only on users goes too far.",
+      "targetKo": "보고서는 자동 제재의 판단 자료가 운영자에게 있는데도 이용자에게만 입증 책임을 지우는 관행을 비판했다.",
+      "promptDe": "Der Bericht kritisierte die Praxis, die Nachweispflicht allein den Nutzenden aufzuerlegen, obwohl die Unterlagen, auf denen eine automatische Sanktion beruht, beim Betreiber liegen.",
+      "promptEn": "The report criticized the practice of placing the burden of proof solely on users even though the operator holds the records on which an automated sanction was based.",
       "distractors": [
         "구제가",
         "통보를"
@@ -25916,9 +25916,9 @@
     {
       "id": "satz_c2_0185",
       "level": "c2",
-      "targetKo": "불복 사유를 서면으로 남기는 편이 안전합니다.",
-      "promptDe": "Die Einspruchsgründe schriftlich festzuhalten ist sicherer.",
-      "promptEn": "Recording the grounds of appeal in writing is safer.",
+      "targetKo": "위원회는 불복 절차를 안내할 때 제출 기한과 필요한 자료를 함께 명시할 것을 권고했다.",
+      "promptDe": "Der Ausschuss empfahl, bei der Erläuterung des Einspruchsverfahrens auch die Frist und die erforderlichen Unterlagen anzugeben.",
+      "promptEn": "The committee recommended stating the deadline and required documents when explaining the appeal procedure.",
       "distractors": [
         "처분이",
         "구제를"
@@ -25940,9 +25940,9 @@
     {
       "id": "satz_c2_0187",
       "level": "c2",
-      "targetKo": "제재 근거를 사후에 붙이는 관행이 문제입니다.",
-      "promptDe": "Problematisch ist die Praxis, die Grundlage der Sanktion nachträglich zu ergänzen.",
-      "promptEn": "The practice of attaching the basis for a sanction after the fact is the problem.",
+      "targetKo": "제재 결정문은 위반 사실과 적용 기준을 제시했지만 처분 수위의 근거는 설명하지 않았다.",
+      "promptDe": "Der Sanktionsbescheid nannte den Verstoß und die angewandten Kriterien, begründete aber nicht die Schwere der Sanktion.",
+      "promptEn": "The sanction notice set out the violation and the applicable criteria but did not explain the severity of the sanction.",
       "distractors": [
         "누적이",
         "재량을"
@@ -25964,9 +25964,9 @@
     {
       "id": "satz_c2_0189",
       "level": "c2",
-      "targetKo": "경미한 위반의 누적을 중대한 위반과 같이 다룹니다.",
-      "promptDe": "Die Kumulierung leichter Verstöße wird wie ein schwerer behandelt.",
-      "promptEn": "The accumulation of minor breaches is treated like a serious one.",
+      "targetKo": "경미한 위반이 누적됐다는 사실만으로 중대한 위반과 같은 제재를 정당화할 수 있는지는 별도로 따져야 한다.",
+      "promptDe": "Ob die Häufung geringfügiger Verstöße dieselbe Sanktion wie ein schwerer Verstoß rechtfertigt, muss gesondert geprüft werden.",
+      "promptEn": "Whether an accumulation of minor violations justifies the same sanction as a serious violation must be assessed separately.",
       "distractors": [
         "재량이",
         "소급을"
@@ -25988,9 +25988,9 @@
     {
       "id": "satz_c2_0191",
       "level": "c2",
-      "targetKo": "자의적인 판단이 끼어들 여지를 줄여야 합니다.",
-      "promptDe": "Der Spielraum für willkürliche Entscheidungen muss kleiner werden.",
-      "promptEn": "The room for arbitrary decisions has to shrink.",
+      "targetKo": "평가 기준을 공개하면 담당자의 자의적인 판단이 결과에 미치는 영향을 줄일 수 있다.",
+      "promptDe": "Die Offenlegung der Bewertungskriterien kann den Einfluss willkürlicher Entscheidungen einzelner Prüfender auf das Ergebnis verringern.",
+      "promptEn": "Publishing the assessment criteria can reduce the influence of arbitrary judgments by individual reviewers on the outcome.",
       "distractors": [
         "제재가",
         "누적을"
@@ -26072,9 +26072,9 @@
     {
       "id": "satz_c2_0198",
       "level": "c2",
-      "targetKo": "운영자 재량이 넓을수록 기준을 더 적어야 합니다.",
-      "promptDe": "Je weiter das Ermessen der Betreibenden reicht, desto mehr Kriterien braucht es.",
-      "promptEn": "The wider the operator's discretion, the more criteria have to be written down.",
+      "targetKo": "운영자에게 넓은 재량을 주는 규정일수록 판단 기준과 이의 절차를 명확히 해야 한다.",
+      "promptDe": "Je mehr Ermessen eine Regel den Betreibenden einräumt, desto klarer müssen die Entscheidungskriterien und Einspruchsverfahren sein.",
+      "promptEn": "Rules that grant operators broad discretion need especially clear decision criteria and appeal procedures.",
       "distractors": [
         "제재가",
         "소급을"
@@ -26144,9 +26144,9 @@
     {
       "id": "satz_c2_0204",
       "level": "c2",
-      "targetKo": "이야기의 개연성과 사실 여부는 다른 문제입니다.",
-      "promptDe": "Die Plausibilität der Geschichte und ihre Faktenlage sind zweierlei.",
-      "promptEn": "The plausibility of a story and whether it is true are separate questions.",
+      "targetKo": "소설 속 우연한 재회는 앞서 제시된 두 인물의 동선 덕분에 개연성을 얻는다.",
+      "promptDe": "Das zufällige Wiedersehen im Roman gewinnt an Plausibilität, weil die Wege der beiden Figuren zuvor nachvollziehbar dargestellt wurden.",
+      "promptEn": "The chance reunion in the novel becomes plausible because the two characters’ movements were established earlier.",
       "distractors": [
         "투사가",
         "미화를"
@@ -26156,9 +26156,9 @@
     {
       "id": "satz_c2_0205",
       "level": "c2",
-      "targetKo": "사람을 하나의 전형에 가두면 그 사람의 복잡성이 사라집니다.",
-      "promptDe": "Wenn wir einen Menschen in einen einzigen Typus pressen, geht seine Vielschichtigkeit verloren.",
-      "promptEn": "When we force people into a single type, we lose their complexity.",
+      "targetKo": "평론은 주인공을 희생자라는 전형으로만 읽으면 그가 내린 선택의 모순을 놓치게 된다고 지적한다.",
+      "promptDe": "Die Kritik weist darauf hin, dass eine Lesart der Hauptfigur allein als Opferfigur die Widersprüche in ihren Entscheidungen übersieht.",
+      "promptEn": "The review argues that reading the protagonist solely as a victim archetype obscures the contradictions in the choices they make.",
       "distractors": [
         "각색이",
         "이상화를"
@@ -26228,9 +26228,9 @@
     {
       "id": "satz_c2_0211",
       "level": "c2",
-      "targetKo": "팬덤 안의 담론이 바깥 기준을 대신하기도 합니다.",
-      "promptDe": "Der Diskurs innerhalb des Fandoms ersetzt mitunter externe Maßstäbe.",
-      "promptEn": "Discourse inside the fandom sometimes replaces outside standards.",
+      "targetKo": "연구는 온라인 팬덤의 담론이 작품의 해석뿐 아니라 어떤 비판이 받아들여지는지도 좌우한다고 분석한다.",
+      "promptDe": "Die Studie zeigt, dass der Diskurs in Online-Fandoms sowohl die Deutung eines Werks als auch die Akzeptanz von Kritik prägt.",
+      "promptEn": "The study argues that discourse within online fandoms shapes both interpretations of a work and which criticisms are accepted.",
       "distractors": [
         "낙인이",
         "잣대를"
@@ -26264,9 +26264,9 @@
     {
       "id": "satz_c2_0214",
       "level": "c2",
-      "targetKo": "한 번 붙은 낙인은 설명으로 잘 지워지지 않습니다.",
-      "promptDe": "Ein einmal angehängtes Stigma lässt sich mit Erklärungen kaum tilgen.",
-      "promptEn": "A stigma once attached is hard to erase with explanations.",
+      "targetKo": "댓글 분석에서는 특정 집단에 붙은 낙인이 반론이 제시된 뒤에도 반복되는 양상이 확인됐다.",
+      "promptDe": "Die Analyse der Kommentare zeigte, dass ein stigmatisierendes Etikett für eine bestimmte Gruppe auch nach Gegenargumenten immer wieder auftauchte.",
+      "promptEn": "The comment analysis found that a stigmatizing label attached to a particular group kept recurring even after counterarguments were offered.",
       "distractors": [
         "동조가",
         "우세를"
@@ -26336,9 +26336,9 @@
     {
       "id": "satz_c2_0220",
       "level": "c2",
-      "targetKo": "안팎에 다른 잣대를 대면 설득력이 사라집니다.",
-      "promptDe": "Wer nach innen und außen verschiedene Maßstäbe anlegt, verliert an Überzeugungskraft.",
-      "promptEn": "Applying different yardsticks inside and outside destroys credibility.",
+      "targetKo": "논설은 같은 행위를 내부자에게는 실수, 외부자에게는 위반으로 보는 이중 잣대를 비판했다.",
+      "promptDe": "Der Kommentar kritisierte den doppelten Maßstab, dieselbe Handlung bei Personen aus den eigenen Reihen als Fehler, bei Außenstehenden aber als Verstoß zu bewerten.",
+      "promptEn": "The editorial criticized a double standard that treats the same act as a mistake when committed by insiders and as a violation when committed by outsiders.",
       "distractors": [
         "담론이",
         "배제를"

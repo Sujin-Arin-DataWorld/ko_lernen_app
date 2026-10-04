@@ -101,7 +101,6 @@ D3 answer POS unresolved by the suffix-stripping heuristic (not flagged, exclude
 - c1: `편향` used 7x
 - c2: `구제` used 7x
 - c2: `변경 이력` used 7x
-- c2: `시정` used 7x
 - c2: `우세` used 8x
 - c2: `적발` used 8x
 - c2: `접근 기록` used 7x
