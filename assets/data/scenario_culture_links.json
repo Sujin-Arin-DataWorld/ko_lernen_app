@@ -1,0 +1,5 @@
+{
+  "schemaVersion": 1,
+  "_comment": "Read-only presentation links from canonical scenarios to CulturalGlossary term IDs. Phase 1 defines the contract only; links are added only after both the scenario context and cultural glossary entry are reviewed.",
+  "links": []
+}
