@@ -1230,9 +1230,9 @@
     "semantic_hash": ""
   },
   "lib/screens/bojagi_screen.dart": {
-    "mtime": 1791114002.6738105,
-    "seen": 1791114787.606473,
-    "ast_hash": "a19465a45599cdfb43978547e84a72a0",
+    "mtime": 1791117400.3794098,
+    "seen": 1791118374.2040343,
+    "ast_hash": "6942e92ab99b138cdc55c6930e4c947e",
     "semantic_hash": ""
   },
   "lib/screens/book_capture_screen.dart": {
@@ -1644,9 +1644,9 @@
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_hanok_screen.dart": {
-    "mtime": 1791113667.3024418,
-    "seen": 1791114787.6066253,
-    "ast_hash": "d0cdcf4b298c3fcf26c4274d4fd75cc5",
+    "mtime": 1791117034.6587884,
+    "seen": 1791118374.252717,
+    "ast_hash": "1e0cdd2389f87dcfb4cb1f6f75be08d5",
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_preview_screens.dart": {
@@ -2754,9 +2754,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/cultural_help.dart": {
-    "mtime": 1791112826.67694,
-    "seen": 1791114787.6071572,
-    "ast_hash": "503d4b3fe6b3b5bf62fa1b8b2e88b79e",
+    "mtime": 1791117034.5798793,
+    "seen": 1791118374.3954823,
+    "ast_hash": "e2656a4abfbda5302309ed7c920e5fc7",
     "semantic_hash": ""
   },
   "lib/widgets/sori/culture_note_card.dart": {
@@ -13902,9 +13902,9 @@
     "semantic_hash": ""
   },
   "test/sori_stage_evidence_manifest_test.dart": {
-    "mtime": 1791112828.5939693,
-    "seen": 1791114787.6085987,
-    "ast_hash": "0589ba6f8b2d481b7c4d2d56c374f429",
+    "mtime": 1791117034.6694443,
+    "seen": 1791118374.7555282,
+    "ast_hash": "be81837025e2d37a0ccaddef6a432ac6",
     "semantic_hash": ""
   },
   "test/sori_stage_gye_fold_test.dart": {
@@ -21713,18 +21713,6 @@
     "ast_hash": "8328d151d257aec3961432a7927ca214",
     "semantic_hash": ""
   },
-  "docs/screenshots/sori-bojagi-receipt-de-390.png": {
-    "mtime": 1791113667.153414,
-    "seen": 1791114787.6113577,
-    "ast_hash": "94e6004b6fe527c004d94e4462b6088b",
-    "semantic_hash": ""
-  },
-  "docs/screenshots/sori-bojagi-receipt-en-390.png": {
-    "mtime": 1791113667.1867735,
-    "seen": 1791114787.611359,
-    "ast_hash": "09356b4c28c8582841e00096ab187216",
-    "semantic_hash": ""
-  },
   "docs/screenshots/tactile-settings-words/my-words-de-320.png": {
     "mtime": 1791114355.4311173,
     "seen": 1791114787.6113765,
@@ -21855,6 +21843,18 @@
     "mtime": 1791114355.4884253,
     "seen": 1791114787.6114001,
     "ast_hash": "616a83781b309da68b33ac9fa4b3c530",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-stage-hanok-390-bojagi-receipt-de.png": {
+    "mtime": 1791113667.153414,
+    "seen": 1791118375.5074186,
+    "ast_hash": "94e6004b6fe527c004d94e4462b6088b",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/sori-stage-hanok-390-bojagi-receipt-en.png": {
+    "mtime": 1791113667.1867735,
+    "seen": 1791118375.5074234,
+    "ast_hash": "09356b4c28c8582841e00096ab187216",
     "semantic_hash": ""
   }
 }
