@@ -136,6 +136,7 @@ flutter:
 
   assets:
     - assets/illustrations/dokkaebi_intro/
+    - assets/video/introductions/
     - assets/data/
     - assets/tts/v3/female/
     - assets/tts/v3/male/

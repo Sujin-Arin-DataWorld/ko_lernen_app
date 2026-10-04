@@ -14,7 +14,7 @@ class DokkaebiIntro extends StatefulWidget {
   const DokkaebiIntro({super.key, this.onFinished, this.staticOnly = false});
   final VoidCallback? onFinished;
   final bool staticOnly;
-  static const videoAsset = 'assets/video/character/dokkaebi_intro.mp4';
+  static const videoAsset = 'assets/video/introductions/dokkaebi_intro.mp4';
   static const finalAsset = 'assets/illustrations/dokkaebi_intro/final.webp';
 
   @override
@@ -23,6 +23,7 @@ class DokkaebiIntro extends StatefulWidget {
 
 class _DokkaebiIntroState extends State<DokkaebiIntro> {
   late final VideoLeaseEligibilityBinding _visibility;
+  late final OneShotVideoLeaseCompletion _completion;
   VideoLeaseRequest<VideoPlayerController>? _lease;
   VideoPlayerController? _video;
   bool _finished = false;
@@ -38,6 +39,15 @@ class _DokkaebiIntroState extends State<DokkaebiIntro> {
   void initState() {
     super.initState();
     _visibility = VideoLeaseEligibilityBinding(onChanged: _sync);
+    _completion = OneShotVideoLeaseCompletion(
+      fallbackCompleteAfter: const Duration(seconds: 8),
+      onRelease: _releaseAfterCompletion,
+      onCompleted: () {
+        if (mounted) {
+          widget.onFinished?.call();
+        }
+      },
+    );
     _lease = soriVideoLease.register(
       asset: DokkaebiIntro.videoAsset,
       eligible: false,
@@ -50,6 +60,7 @@ class _DokkaebiIntroState extends State<DokkaebiIntro> {
         if (!mounted || _finished) {
           return;
         }
+        _completion.leaseGranted();
         setState(() => _video = video);
         video.addListener(_tick);
         unawaited(_play(video));
@@ -59,6 +70,9 @@ class _DokkaebiIntroState extends State<DokkaebiIntro> {
         _video = null;
         if (mounted) {
           setState(() {});
+          // A one-shot introduction settles on its final artwork if interrupted.
+          // It must not restart at zero when the shared decoder becomes free.
+          _finish();
         }
       },
       onFailed: (_, _) {
@@ -103,6 +117,10 @@ class _DokkaebiIntroState extends State<DokkaebiIntro> {
       setState(() => _visible = visible);
     }
     _lease?.setEligible(visible && !_reduced && !_finished && !_failed);
+    _completion.visibilityChanged(visible);
+    if (visible && !_reduced && !_finished && !_failed) {
+      _completion.leaseRequested();
+    }
     if (_reduced) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted) {
@@ -120,14 +138,21 @@ class _DokkaebiIntroState extends State<DokkaebiIntro> {
     if (value.hasError) {
       setState(() => _failed = true);
       _finish();
-    } else if (value.isInitialized &&
-        value.duration > Duration.zero &&
-        value.position >= value.duration) {
-      _finish();
+    } else {
+      _completion.completeFromPlayback(
+        isInitialized: value.isInitialized,
+        duration: value.duration,
+        isPlaying: value.isPlaying,
+        position: value.position,
+      );
     }
   }
 
   void _finish() {
+    unawaited(_completion.naturalCompletion());
+  }
+
+  Future<void> _releaseAfterCompletion() async {
     if (_finished) {
       return;
     }
@@ -137,15 +162,15 @@ class _DokkaebiIntroState extends State<DokkaebiIntro> {
     final lease = _lease;
     _lease = null;
     if (lease != null) {
-      unawaited(lease.release());
+      await lease.release();
     }
-    widget.onFinished?.call();
   }
 
   @override
   void dispose() {
     _video?.removeListener(_tick);
     _visibility.disposeBinding();
+    _completion.dispose();
     final lease = _lease;
     if (lease != null) {
       unawaited(lease.release());

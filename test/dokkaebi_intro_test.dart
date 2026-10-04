@@ -15,12 +15,14 @@ import 'package:video_player_platform_interface/video_player_platform_interface.
 
 class FakeIntroVideo extends VideoPlayerPlatform {
   late final StreamController<VideoEvent> events = StreamController<VideoEvent>(
-        sync: true,
-        // Create the cancellation future in the widget test's fake-async zone.
-        onCancel: () async {},
+    sync: true,
+    // Create the cancellation future in the widget test's fake-async zone.
+    onCancel: () async {},
     onListen: () {
       scheduleMicrotask(() {
-        if (fail) {
+        if (pending) {
+          return;
+        } else if (fail) {
           events.addError(
             PlatformException(code: 'decode', message: 'decoder unavailable'),
           );
@@ -37,6 +39,7 @@ class FakeIntroVideo extends VideoPlayerPlatform {
     },
   );
   bool fail = false;
+  bool pending = false;
   int allocations = 0, releases = 0;
   @override
   Future<void> init() async {}
@@ -151,6 +154,62 @@ void main() {
       expect(tester.takeException(), isNull);
     },
   );
+  testWidgets('interrupted introduction completes without replay on return', (
+    tester,
+  ) async {
+    final previous = VideoPlayerPlatform.instance;
+    final decoder = FakeIntroVideo();
+    VideoPlayerPlatform.instance = decoder;
+    addTearDown(() {
+      VideoPlayerPlatform.instance = previous;
+      unawaited(decoder.events.close());
+    });
+    var completed = 0;
+    final intro = DokkaebiIntro(onFinished: () => completed++);
+    await tester.pumpWidget(host(TickerMode(enabled: true, child: intro)));
+    await tester.pump(const Duration(milliseconds: 100));
+    expect(decoder.allocations, 1);
+    await tester.pumpWidget(host(TickerMode(enabled: false, child: intro)));
+    await tester.pump(const Duration(milliseconds: 100));
+    expect(completed, 1);
+    expect(decoder.releases, 1);
+    await tester.pumpWidget(host(TickerMode(enabled: true, child: intro)));
+    await tester.pump(const Duration(seconds: 10));
+    expect(decoder.allocations, 1);
+    expect(completed, 1);
+    await tester.pumpWidget(const SizedBox.shrink());
+    expect(tester.takeException(), isNull);
+  });
+  testWidgets('visible pending decoder reaches bounded final fallback', (
+    tester,
+  ) async {
+    final previous = VideoPlayerPlatform.instance;
+    final decoder = FakeIntroVideo()..pending = true;
+    VideoPlayerPlatform.instance = decoder;
+    addTearDown(() {
+      VideoPlayerPlatform.instance = previous;
+      unawaited(decoder.events.close());
+    });
+    var completed = 0;
+    await tester.pumpWidget(host(DokkaebiIntro(onFinished: () => completed++)));
+    await tester.pump(const Duration(milliseconds: 100));
+    expect(completed, 0);
+    await tester.pump(const Duration(seconds: 8));
+    expect(completed, 1);
+    // A late decoder result is released instead of publishing stale playback.
+    decoder.events.add(
+      VideoEvent(
+        eventType: VideoEventType.initialized,
+        duration: const Duration(seconds: 8),
+        size: const Size(1244, 1660),
+      ),
+    );
+    await tester.pump();
+    expect(decoder.releases, 1);
+    await tester.pumpWidget(const SizedBox.shrink());
+    expect(completed, 1);
+    expect(tester.takeException(), isNull);
+  });
   test(
     'actual Flutter shader changes flames but leaves carved rim pixel-identical',
     () async {
