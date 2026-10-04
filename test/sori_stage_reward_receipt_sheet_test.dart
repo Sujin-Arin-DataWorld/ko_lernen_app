@@ -272,7 +272,7 @@ void main() {
       expect(find.text('부재 14'), findsOneWidget);
       expect(find.text('부재 3'), findsOneWidget);
       final images = tester.widgetList<Image>(find.byType(Image)).toList();
-      expect(images, hasLength(3));
+      expect(images, hasLength(4)); // Three actual parts and the small Haechi.
       expect(
         images.map((image) => (image.image as AssetImage).assetName),
         containsAll(<String>[

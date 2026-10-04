@@ -41,6 +41,11 @@ class SoriPressable extends StatefulWidget {
   /// tap-down 직후 true, tap-up/cancel 시 false. 비활성이면 down 은 오지 않는다.
   final ValueChanged<bool>? onPressedChanged;
 
+  /// A raised action collapses toward its lower edge on contact.
+  final double surfaceDepth;
+  final Color? surfaceEdgeColor;
+  final double surfaceRadius;
+
   const SoriPressable({
     super.key,
     required this.child,
@@ -51,6 +56,9 @@ class SoriPressable extends StatefulWidget {
     this.behavior = HitTestBehavior.opaque,
     this.alignment = Alignment.center,
     this.onPressedChanged,
+    this.surfaceDepth = 0,
+    this.surfaceEdgeColor,
+    this.surfaceRadius = SoriRadius.lg,
   });
 
   @override
@@ -60,6 +68,9 @@ class SoriPressable extends StatefulWidget {
 class _SoriPressableState extends State<SoriPressable>
     with SingleTickerProviderStateMixin {
   late final AnimationController _ctrl;
+  bool _hovered = false;
+  bool _pressed = false;
+  bool _reducedMotion = false;
 
   @override
   void initState() {
@@ -80,9 +91,12 @@ class _SoriPressableState extends State<SoriPressable>
   }
 
   void _down() {
-    if (widget.onTap == null && widget.onLongPress == null) return;
+    if (_pressed || widget.onTap == null && widget.onLongPress == null) {
+      return;
+    }
+    _pressed = true;
     widget.onPressedChanged?.call(true);
-    if (MediaQuery.disableAnimationsOf(context)) {
+    if (_reducedMotion) {
       return;
     }
     _ctrl.animateTo(
@@ -93,8 +107,12 @@ class _SoriPressableState extends State<SoriPressable>
   }
 
   void _release() {
+    if (!mounted || !_pressed) {
+      return;
+    }
+    _pressed = false;
     widget.onPressedChanged?.call(false);
-    if (MediaQuery.disableAnimationsOf(context)) {
+    if (_reducedMotion) {
       _ctrl.value = 1;
       return;
     }
@@ -103,6 +121,27 @@ class _SoriPressableState extends State<SoriPressable>
       duration: SoriMotion.medium,
       curve: SoriMotion.release,
     );
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _reducedMotion = SoriMotion.reduceMotion(context);
+    if (_reducedMotion) {
+      _ctrl.stop();
+      _ctrl.value = 1;
+    }
+  }
+
+  @override
+  void didUpdateWidget(covariant SoriPressable oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.onTap == null && widget.onLongPress == null) {
+      _ctrl.stop();
+      _ctrl.value = 1;
+      _hovered = false;
+      _pressed = false;
+    }
   }
 
   void _doHaptic() {
@@ -146,12 +185,24 @@ class _SoriPressableState extends State<SoriPressable>
 
     return Focus(
       canRequestFocus: enabled,
+      onFocusChange: (focused) {
+        if (!focused) {
+          _release();
+        }
+      },
       onKeyEvent: (_, event) {
+        if (event is KeyUpEvent &&
+            (event.logicalKey == LogicalKeyboardKey.enter ||
+                event.logicalKey == LogicalKeyboardKey.space)) {
+          _release();
+          return enabled ? KeyEventResult.handled : KeyEventResult.ignored;
+        }
         if (!enabled || event is! KeyDownEvent) {
           return KeyEventResult.ignored;
         }
         if (event.logicalKey == LogicalKeyboardKey.enter ||
             event.logicalKey == LogicalKeyboardKey.space) {
+          _down();
           // finding 8: onTap 이 없으면(= onLongPress 만 있는 위젯) 예전엔
           // 여기서 그냥 무시했다 — 그런데 canRequestFocus 는 enabled(둘 중
           // 하나만 있어도 true) 라서 그런 위젯도 Tab 포커스는 받는다.
@@ -173,56 +224,123 @@ class _SoriPressableState extends State<SoriPressable>
         builder: (ctx) {
           final focused = Focus.of(ctx).hasFocus;
           return MouseRegion(
+            onEnter: (_) {
+              if (enabled) {
+                setState(() => _hovered = true);
+              }
+            },
+            onExit: (_) => setState(() => _hovered = false),
             cursor: enabled
                 ? SystemMouseCursors.click
                 : SystemMouseCursors.basic,
-            child: GestureDetector(
+            child: Listener(
               behavior: widget.behavior,
-              onTapDown: (_) => _down(),
-              onTapUp: (_) => _release(),
-              onTapCancel: _release,
-              onTap: _onTap,
-              onLongPress: widget.onLongPress != null ? _onLongPress : null,
-              child: AnimatedBuilder(
-                animation: _ctrl,
-                builder: (_, child) {
-                  final scaled = Transform.scale(
-                    scale: _ctrl.value,
-                    alignment: widget.alignment,
-                    child: child,
-                  );
-                  if (!focused) return scaled;
-                  // Keyboard focus indicator (web/desktop) — 살짝 띈 ring.
-                  return Stack(
-                    clipBehavior: Clip.none,
-                    children: [
-                      scaled,
-                      Positioned(
-                        left: -3,
-                        top: -3,
-                        right: -3,
-                        bottom: -3,
-                        child: IgnorePointer(
-                          child: DecoratedBox(
+              onPointerDown: (_) => _down(),
+              onPointerUp: (_) => _release(),
+              onPointerCancel: (_) => _release(),
+              child: GestureDetector(
+                behavior: widget.behavior,
+                onTapCancel: _release,
+                onTap: _onTap,
+                onLongPress: widget.onLongPress != null ? _onLongPress : null,
+                child: AnimatedBuilder(
+                  animation: _ctrl,
+                  builder: (_, child) {
+                    final reduced = SoriMotion.reduceMotion(context);
+                    final pressure = widget.pressScale == 1
+                        ? 0.0
+                        : ((1 - _ctrl.value) / (1 - widget.pressScale)).clamp(
+                            0.0,
+                            1.0,
+                          );
+                    final depth = widget.surfaceDepth;
+                    final surface = depth > 0
+                        ? DecoratedBox(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(
-                                SoriRadius.md,
+                                widget.surfaceRadius,
                               ),
-                              border: Border.all(
-                                // Opaque surface-aware tokens keep the
-                                // keyboard indicator above WCAG's 3:1
-                                // non-text contrast floor.
-                                color: focusRingColor,
-                                width: 2,
+                              boxShadow: depth > 0
+                                  ? [
+                                      BoxShadow(
+                                        color:
+                                            widget.surfaceEdgeColor ??
+                                            SoriColors.primaryDark,
+                                        offset: Offset(
+                                          0,
+                                          depth * (1 - pressure * .75),
+                                        ),
+                                      ),
+                                    ]
+                                  : null,
+                            ),
+                            child: child,
+                          )
+                        : child;
+                    final scaled = depth > 0
+                        ? AnimatedContainer(
+                            duration: SoriMotion.respect(
+                              context,
+                              SoriMotion.fast,
+                            ),
+                            curve: SoriMotion.gentle,
+                            transform: Matrix4.translationValues(
+                              0,
+                              !reduced && enabled && (_hovered || focused)
+                                  ? -2
+                                  : 0,
+                              0,
+                            ),
+                            child: Transform.translate(
+                              offset: Offset(
+                                0,
+                                reduced ? 0 : depth * .75 * pressure,
+                              ),
+                              child: Transform.scale(
+                                scale: _ctrl.value,
+                                alignment: widget.alignment,
+                                child: surface,
+                              ),
+                            ),
+                          )
+                        : Transform.scale(
+                            scale: _ctrl.value,
+                            alignment: widget.alignment,
+                            child: surface,
+                          );
+                    if (!focused) return scaled;
+                    // Keyboard focus indicator (web/desktop) — 살짝 띈 ring.
+                    return Stack(
+                      clipBehavior: Clip.none,
+                      children: [
+                        scaled,
+                        Positioned(
+                          left: -3,
+                          top: -3,
+                          right: -3,
+                          bottom: -3,
+                          child: IgnorePointer(
+                            child: DecoratedBox(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(
+                                  SoriRadius.md,
+                                ),
+                                border: Border.all(
+                                  // Opaque surface-aware tokens keep the
+                                  // keyboard indicator above WCAG's 3:1
+                                  // non-text contrast floor.
+                                  color: focusRingColor,
+                                  width: 2,
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
-                  );
-                },
-                child: widget.child,
+                      ],
+                    );
+                  },
+                  child: widget.child,
+                ),
               ),
             ),
           );

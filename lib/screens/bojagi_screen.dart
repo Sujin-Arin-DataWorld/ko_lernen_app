@@ -188,7 +188,14 @@ class _BojagiScreenState extends State<BojagiScreen> {
             padding: resolvedPadding,
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: contentHeight),
-              child: Center(child: _body(t)),
+              child: Container(
+                padding: const EdgeInsets.all(Spacing.lg),
+                decoration: BoxDecoration(
+                  color: SoriActivityColors.giftSurface,
+                  borderRadius: SoriRadius.brLg,
+                ),
+                child: Center(child: _body(t)),
+              ),
             ),
           );
         },
@@ -293,7 +300,6 @@ class _KnotView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final text = SoriTextTheme.of(context);
     return SoriEntrance(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -326,12 +332,12 @@ class _KnotView extends StatelessWidget {
             ),
           ),
           const SizedBox(height: Spacing.xl),
-          ExcludeSemantics(
-            child: Text(
-              t.bojagiOpenHint,
-              textAlign: TextAlign.center,
-              style: text.bodySmall,
-            ),
+          SoriButton.filled(
+            label: t.soriStageOpenBojagi,
+            illustrationAsset: kBojagiClosed,
+            trailingIcon: Icons.arrow_forward_rounded,
+            onTap: onUntie,
+            fullWidth: true,
           ),
         ],
       ),

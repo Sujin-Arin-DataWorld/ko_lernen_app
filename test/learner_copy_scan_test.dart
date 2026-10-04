@@ -77,7 +77,9 @@ final _textbookPhrases = <RegExp>[
   RegExp(r'Convenience Store'),
   RegExp('Ich gehe auf Reise'),
   RegExp('Danke, Lehrerin'),
-  RegExp('Familienmitglieder'),
+  // The old A1 family-size question sounded like a textbook prompt. The noun
+  // itself is natural in C1/C2 reporting about family roles and research.
+  RegExp('Wie viele Familienmitglieder hast du'),
   RegExp('Erkältung war schlimm, deshalb war ich im Krankenhaus'),
   RegExp('Ja, bitte sagen Sie'),
   RegExp('leckerste Gericht hier'),

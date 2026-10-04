@@ -207,7 +207,7 @@ class _Illustration extends StatelessWidget {
         ? placeholder
         : Image.asset(
             asset!,
-            fit: BoxFit.cover,
+            fit: BoxFit.contain,
             // 아트 미존재/미번들 시 조용히 폴백 — 화면이 아트보다 먼저 배포된다.
             errorBuilder: (_, _, _) => placeholder,
           );

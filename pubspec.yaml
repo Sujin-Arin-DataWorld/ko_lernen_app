@@ -163,22 +163,7 @@ flutter:
     - assets/illustrations/dancheong_studio/v1/
     - assets/illustrations/mascot/
     - assets/illustrations/tactile/hahoe_scholar.png
-    - assets/illustrations/tactile/scholar/scholar_welcome.png
-    - assets/illustrations/tactile/scholar/scholar_point.png
-    - assets/illustrations/tactile/scholar/scholar_bow.png
-    - assets/illustrations/tactile/scholar/scholar_calm.png
-    - assets/illustrations/tactile/scholar/scholar_thinking.png
-    - assets/illustrations/tactile/scholar/scholar_inviting.png
     - assets/illustrations/tactile/dokkaebi.png
-    - assets/illustrations/tactile/dokkaebi/dokkaebi_inviting.png
-    - assets/illustrations/tactile/dokkaebi/dokkaebi_magical.png
-    - assets/illustrations/tactile/dokkaebi/dokkaebi_ready.png
-    - assets/illustrations/tactile/dokkaebi/dokkaebi_helping.png
-    - assets/illustrations/tactile/dokkaebi/dokkaebi_review.png
-    - assets/illustrations/tactile/dokkaebi/dokkaebi_celebrate.png
-    - assets/illustrations/tactile/dokkaebi_topics/tales.webp
-    - assets/illustrations/tactile/dokkaebi_topics/home.webp
-    - assets/illustrations/tactile/dokkaebi_topics/learning.webp
     - assets/illustrations/personas/v3/
     - assets/illustrations/burst/
     - assets/illustrations/gye/
@@ -195,6 +180,7 @@ flutter:
     # 활동 카탈로그 일러스트 (Phase 3) — 규약:
     # activities/{activityId}.webp. 폴백 = ActivityIconFallback(원형 아이콘).
     - assets/illustrations/activities/
+    - assets/illustrations/tactile/
     # Sori Deck 2.0 액션 아이콘 (§R-3 커스텀 드롭 전에는 Material 폴백)
     - assets/illustrations/deck/
     # 듣기 카드 일러스트 — 규약: listening/{Key}.webp (Key = docs/LISTENING_CARD_ART_SPEC.md).
@@ -224,6 +210,21 @@ flutter:
     - assets/video/character/
     - assets/video/home_hero/
     - assets/video/gye/
+    - assets/illustrations/tactile/scholar/scholar_welcome.png
+    - assets/illustrations/tactile/scholar/scholar_point.png
+    - assets/illustrations/tactile/scholar/scholar_bow.png
+    - assets/illustrations/tactile/scholar/scholar_calm.png
+    - assets/illustrations/tactile/scholar/scholar_thinking.png
+    - assets/illustrations/tactile/scholar/scholar_inviting.png
+    - assets/illustrations/tactile/dokkaebi/dokkaebi_inviting.png
+    - assets/illustrations/tactile/dokkaebi/dokkaebi_magical.png
+    - assets/illustrations/tactile/dokkaebi/dokkaebi_ready.png
+    - assets/illustrations/tactile/dokkaebi/dokkaebi_helping.png
+    - assets/illustrations/tactile/dokkaebi/dokkaebi_review.png
+    - assets/illustrations/tactile/dokkaebi/dokkaebi_celebrate.png
+    - assets/illustrations/tactile/dokkaebi_topics/tales.webp
+    - assets/illustrations/tactile/dokkaebi_topics/home.webp
+    - assets/illustrations/tactile/dokkaebi_topics/learning.webp
     - assets/video/practice/hahoe_scholar_fan_hanji.mp4
     - assets/video/practice/hahoe_scholar_fan_start.png
     - assets/video/practice/hahoe_scholar_fan_end.png

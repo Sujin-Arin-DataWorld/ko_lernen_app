@@ -19200,12 +19200,6 @@ abstract class AppL10n {
   /// **'Grammatisch korrekt.'**
   String get practiceGrammarCorrect;
 
-  /// No description provided for @practiceReplayGesture.
-  ///
-  /// In de, this message translates to:
-  /// **'Fächergeste wiederholen'**
-  String get practiceReplayGesture;
-
   /// No description provided for @practiceAssemble.
   ///
   /// In de, this message translates to:
@@ -19973,6 +19967,84 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Diese fertige Version und ihre gespeicherten Begleittexte löschen? Ihre öffentlichen Links werden ebenfalls deaktiviert. Bereits von anderen gespeicherte Kopien bleiben erhalten.'**
   String get dancheongDeleteArtworkNote;
+
+  /// No description provided for @cultureHaechiName.
+  ///
+  /// In de, this message translates to:
+  /// **'Haechi'**
+  String get cultureHaechiName;
+
+  /// No description provided for @cultureHahoeMaskName.
+  ///
+  /// In de, this message translates to:
+  /// **'Hahoe-Maske'**
+  String get cultureHahoeMaskName;
+
+  /// No description provided for @cultureDokkaebiName.
+  ///
+  /// In de, this message translates to:
+  /// **'Dokkaebi'**
+  String get cultureDokkaebiName;
+
+  /// No description provided for @cultureHaechiLineKo.
+  ///
+  /// In de, this message translates to:
+  /// **'차근차근 쌓아 가자.'**
+  String get cultureHaechiLineKo;
+
+  /// No description provided for @cultureHaechiLine.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Schritt nach dem anderen.'**
+  String get cultureHaechiLine;
+
+  /// No description provided for @cultureHahoeMaskHintKo.
+  ///
+  /// In de, this message translates to:
+  /// **'상대와 상황에 맞는 말투를 골라 보세요.'**
+  String get cultureHahoeMaskHintKo;
+
+  /// No description provided for @cultureHahoeMaskHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle einen Ton, der zur Person und zur Situation passt.'**
+  String get cultureHahoeMaskHint;
+
+  /// No description provided for @cultureDokkaebiLineKo.
+  ///
+  /// In de, this message translates to:
+  /// **'한 문제씩 풀어 볼까?'**
+  String get cultureDokkaebiLineKo;
+
+  /// No description provided for @cultureDokkaebiLine.
+  ///
+  /// In de, this message translates to:
+  /// **'Wollen wir eine Aufgabe nach der anderen lösen?'**
+  String get cultureDokkaebiLine;
+
+  /// No description provided for @catalogQuickStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Direkt loslegen'**
+  String get catalogQuickStart;
+
+  /// No description provided for @catalogDiscover.
+  ///
+  /// In de, this message translates to:
+  /// **'Schon ausprobiert?'**
+  String get catalogDiscover;
+
+  /// No description provided for @catalogNotNow.
+  ///
+  /// In de, this message translates to:
+  /// **'Später'**
+  String get catalogNotNow;
+
+  /// No description provided for @practiceReplayGesture.
+  ///
+  /// In de, this message translates to:
+  /// **'Fächergeste wiederholen'**
+  String get practiceReplayGesture;
 
   /// No description provided for @practiceDokkaebiMeet.
   ///

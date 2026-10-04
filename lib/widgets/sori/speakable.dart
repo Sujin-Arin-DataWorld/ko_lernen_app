@@ -514,6 +514,10 @@ class SoriSpeechIndicator extends StatelessWidget {
             child: ExcludeSemantics(
               child: SoriPressable(
                 onTap: handleTap,
+                pressScale: .99,
+                surfaceDepth: 2,
+                surfaceRadius: SoriRadius.pill,
+                surfaceEdgeColor: s.border,
                 child: SizedBox(
                   width: SoriLayout.chromeRowTouchHeight,
                   height: SoriLayout.chromeRowTouchHeight,
@@ -526,11 +530,18 @@ class SoriSpeechIndicator extends StatelessWidget {
                           color: s.surface.withValues(alpha: 0.85),
                           shape: BoxShape.circle,
                         ),
-                        child: Icon(
-                          icon,
-                          size: 18,
-                          color: SoriColors.contentCta.withValues(
-                            alpha: iconAlpha,
+                        child: AnimatedSwitcher(
+                          duration: SoriMotion.respect(
+                            context,
+                            SoriMotion.fast,
+                          ),
+                          child: Icon(
+                            icon,
+                            key: ValueKey(phase),
+                            size: 18,
+                            color: SoriColors.contentCta.withValues(
+                              alpha: iconAlpha,
+                            ),
                           ),
                         ),
                       ),

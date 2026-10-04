@@ -16,6 +16,7 @@ import 'account/account_transition_journal.dart';
 import 'diagnostics_service.dart';
 import 'account/cloud_write_session.dart';
 import 'catalog_history_lease.dart';
+import 'catalog_recommendations.dart';
 import '../models/learner_level.dart';
 import '../models/personal_room.dart';
 import 'local_data_lifetime.dart';
@@ -6251,6 +6252,77 @@ class Storage {
 
   static const recentLearnActivityPreferenceKey = 'kl_recent_learn_activity_v1';
   static const recentGamesActivityPreferenceKey = 'kl_recent_games_activity_v1';
+  static const catalogRecommendationsPreferenceKey =
+      'kl_catalog_recommendations_v1';
+
+  static CatalogRecommendations catalogRecommendations({DateTime? now}) {
+    dynamic value;
+    final session = cloudWriteSessionController.current;
+    if (session == null || session.mode == CloudWriteMode.ready) {
+      try {
+        final raw = _optionalString(catalogRecommendationsPreferenceKey);
+        final owned = raw == null ? null : jsonDecode(raw);
+        if (owned is Map && owned['uid'] == session?.uid) {
+          value = owned['state'];
+        }
+      } catch (error, stackTrace) {
+        // Unreadable history is a fresh presentation; no learning state changes.
+        unawaited(
+          DiagnosticsService.reportSwallowed(
+            'storage_service.catalog_recommendations_read',
+            error,
+            stackTrace,
+          ),
+        );
+      }
+    }
+    return CatalogRecommendations.read(
+      value,
+      soriActivityCatalog.map((e) => e.id).toSet(),
+      now ?? DateTime.now(),
+    );
+  }
+
+  static Future<void> visitCatalog(
+    SoriStageTab tab, {
+    DateTime? now,
+    CatalogHistoryLease? lease,
+  }) {
+    final captured = lease ?? CatalogHistoryLease.capture();
+    return _enqueueCatalogHistory(captured, () async {
+      final at = now ?? DateTime.now();
+      final state = catalogRecommendations(now: at);
+      final entries = soriActivityCatalog
+          .where((e) => e.tab == tab)
+          .map((e) => e.id)
+          .toList();
+      state.visit(tab.name, entries, catalogQuickDefaults(tab), at);
+      await _prefs!.setString(
+        catalogRecommendationsPreferenceKey,
+        jsonEncode({'uid': captured.session?.uid, 'state': state.toJson()}),
+      );
+    });
+  }
+
+  static List<String> catalogQuickDefaults(SoriStageTab tab) =>
+      tab == SoriStageTab.learn
+      ? ['listening', 'scenarios', 'vocab_packs', 'grammar']
+      : ['daily_game', 'chosung', 'syllable_cross', 'cloze'];
+
+  static Future<void> dismissCatalogSuggestion(
+    String id, {
+    CatalogHistoryLease? lease,
+  }) {
+    final captured = lease ?? CatalogHistoryLease.capture();
+    return _enqueueCatalogHistory(captured, () async {
+      final now = DateTime.now();
+      final state = catalogRecommendations(now: now)..dismiss(id, now);
+      await _prefs!.setString(
+        catalogRecommendationsPreferenceKey,
+        jsonEncode({'uid': captured.session?.uid, 'state': state.toJson()}),
+      );
+    });
+  }
 
   static String _catalogHistoryKey(SoriStageTab tab) => switch (tab) {
     SoriStageTab.learn => recentLearnActivityPreferenceKey,
@@ -6379,6 +6451,15 @@ class Storage {
       await _prefs!.setString(
         _catalogHistoryKey(entry.tab),
         jsonEncode({'id': entry.id, 'uid': captured.session?.uid}),
+      );
+      if (!captured.isCurrent) {
+        return;
+      }
+      final now = DateTime.now();
+      final state = catalogRecommendations(now: now)..record(activityId, now);
+      await _prefs!.setString(
+        catalogRecommendationsPreferenceKey,
+        jsonEncode({'uid': captured.session?.uid, 'state': state.toJson()}),
       );
     });
   }
