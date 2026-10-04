@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "kind": "scenario_tts_pending_manifest",
+  "cacheRevision": "v3",
+  "scope": "b1",
+  "generationId": "b1-context-review-20261003",
+  "candidateSetSha256": "928e4de8bb2d3dc235619b9c613e8e5754272f47ea9756c880ff7fe60f201612",
+  "count": 28,
+  "contentKind": "vocabulary_editorial_revisions",
+  "reviewStatus": "MODEL_REVIEW_ONLY",
+  "humanApprovalClaim": false,
+  "sourceGitCommit": "6be48ee9f9bb84c27bf9199162e4cdd2443b4b5b",
+  "items": [
+    {
+      "voice": "female",
+      "text": "가족 단톡에서 나가기 금지라는 농담이 나왔지만, 저는 알림을 꺼 두었어요.",
+      "cachePath": "tts/v3/female/baeb5cba1af613caba23e09401bb500804721142.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0354"
+      ]
+    },
+    {
+      "voice": "female",
+      "text": "결혼을 결정하는 데 부모 허락이 필요한지는 사람마다 생각이 달라요.",
+      "cachePath": "tts/v3/female/f567f90c3a4bd7e83afe861a9f2e1c51e9b82e23.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0278"
+      ]
+    },
+    {
+      "voice": "female",
+      "text": "계약이 끝나는 날 퇴거하기로 집주인과 합의했어요.",
+      "cachePath": "tts/v3/female/6974036f560312f4be3bd9c2511e7d597d9bfc05.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0252"
+      ]
+    },
+    {
+      "voice": "female",
+      "text": "관리인은 새 세입자가 들어오는 날짜를 알려 달라고 했다.",
+      "cachePath": "tts/v3/female/a589e213e3ebd17a0f49d9c2c295e24902475bac.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0250"
+      ]
+    },
+    {
+      "voice": "female",
+      "text": "방문 순서는 이동 시간을 고려해 정했어요.",
+      "cachePath": "tts/v3/female/9d7659cce9370dfb9d73c32074cf78a64bc279d8.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0359"
+      ]
+    },
+    {
+      "voice": "female",
+      "text": "새 직장에서 안정적으로 지내려면 근무 조건을 먼저 확인하고 싶어요.",
+      "cachePath": "tts/v3/female/c1f4f18b2bad90227f2844cb97e6cf68d5ed6d09.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0295"
+      ]
+    },
+    {
+      "voice": "female",
+      "text": "술 대신 물로 받아도 되냐고 묻자 괜찮다고 했어요.",
+      "cachePath": "tts/v3/female/aedb909c00e9acae7d12ccf895b33dde5d24a112.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0318"
+      ]
+    },
+    {
+      "voice": "female",
+      "text": "아침에 코골이 사과를 하자 룸메이트는 괜찮다며 웃었어요.",
+      "cachePath": "tts/v3/female/b1d1308f38965935295a2dea4bbbef1c2123961f.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0325"
+      ]
+    },
+    {
+      "voice": "female",
+      "text": "연결편을 놓치면 안내 데스크에서 다음 교통편을 문의할 거예요.",
+      "cachePath": "tts/v3/female/069c04cdf6dce4a1e1205857f389d11e222eb900.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0458"
+      ]
+    },
+    {
+      "voice": "female",
+      "text": "월급 이야기가 나오자 구체적인 금액은 말하고 싶지 않다고 했어요.",
+      "cachePath": "tts/v3/female/1f7b523cdbb8ec5d3ebba5c8fbc70db9000f8870.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0274"
+      ]
+    },
+    {
+      "voice": "female",
+      "text": "이번 명절 당번은 누가 장을 볼지부터 함께 정했어요.",
+      "cachePath": "tts/v3/female/2e6043fc241db0437a8f79eb43be29649a8043bd.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0357"
+      ]
+    },
+    {
+      "voice": "female",
+      "text": "읽음 표시가 켜져 있어도 바로 답할 수 없는 때가 있어요.",
+      "cachePath": "tts/v3/female/a9415576904cc5a06c4ae7e85f4303969609fadb.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0348"
+      ]
+    },
+    {
+      "voice": "female",
+      "text": "재발 방지를 위해 같은 고장을 확인하는 방법을 다시 배웠어요.",
+      "cachePath": "tts/v3/female/4b0f9a9e939242d5c4f5996e5c959dfffd13b2a8.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0451"
+      ]
+    },
+    {
+      "voice": "female",
+      "text": "치과 특약에 스케일링이 포함되는지 약관을 확인했어요.",
+      "cachePath": "tts/v3/female/c39e8c2b4e4bfad0bdb8876b64c798b31c4a314d.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0402"
+      ]
+    },
+    {
+      "voice": "male",
+      "text": "같이 자면 잠을 설칠 것 같아서 방을 따로 예약했어요.",
+      "cachePath": "tts/v3/male/e5cd8fab052a9a8f381a8bb67fab9e5ffd6a65b0.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0331"
+      ]
+    },
+    {
+      "voice": "male",
+      "text": "건배할 때는 잔을 부딪치고 함께 웃었어요.",
+      "cachePath": "tts/v3/male/3d19246bc57c5da42f94b467a50e8b27bbb60df0.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0310"
+      ]
+    },
+    {
+      "voice": "male",
+      "text": "국적 문제는 서로의 선택을 먼저 듣고 이야기하기로 했어요.",
+      "cachePath": "tts/v3/male/8c8d84264263f7fece195ed14cb7d74600497ca6.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0277"
+      ]
+    },
+    {
+      "voice": "male",
+      "text": "마지막으로 나가는 사람이 불 끄기를 맡기로 했어요.",
+      "cachePath": "tts/v3/male/886c812c4534bd667d330cac4a13e0a1ec63dc74.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0327"
+      ]
+    },
+    {
+      "voice": "male",
+      "text": "밤에는 통화 소리를 낮추는 것이 그 집의 잠자리 예절이었어요.",
+      "cachePath": "tts/v3/male/768b8d3ea0bfd4f274271261662be4f498e7d2d4.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0323"
+      ]
+    },
+    {
+      "voice": "male",
+      "text": "선물 분배를 고민하다가 각 집에 같은 과일 상자를 준비했어요.",
+      "cachePath": "tts/v3/male/764175bf5793b7f8132f13a6f97c1d35cd352258.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0363"
+      ]
+    },
+    {
+      "voice": "male",
+      "text": "수리 완료증에 교체한 부품과 작업 날짜가 적혀 있는지 확인했어요.",
+      "cachePath": "tts/v3/male/279508129925a5bffae558812ed2e2d4492626b1.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0450"
+      ]
+    },
+    {
+      "voice": "male",
+      "text": "식사 자리에서 나온 취중진담을 다음 날 다시 확인했어요.",
+      "cachePath": "tts/v3/male/1035c64ea731fdd991615eb3bf397a87aa857859.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0317"
+      ]
+    },
+    {
+      "voice": "male",
+      "text": "신청한 서류를 열람하려면 어떤 신분증이 필요한지 창구에 물었어요.",
+      "cachePath": "tts/v3/male/bb5c1f242a5982ab38f59cb36d1461fc67c4713e.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0410"
+      ]
+    },
+    {
+      "voice": "male",
+      "text": "아이를 가질 계획이 있냐는 질문에 아직 정하지 않았다고 답했어요.",
+      "cachePath": "tts/v3/male/99863fa97b9ae5085306cb60f6c47a3706d554be.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0273"
+      ]
+    },
+    {
+      "voice": "male",
+      "text": "이성 친구와 여행을 간다고 하니 친구가 숙소는 정했냐고 물었어요.",
+      "cachePath": "tts/v3/male/909b1f38912b82d179001fdfb9eb1ea85c7d3e8a.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0321"
+      ]
+    },
+    {
+      "voice": "male",
+      "text": "이직 생각이 있냐고 묻기에 좋은 기회가 생기면 알아보겠다고 했어요.",
+      "cachePath": "tts/v3/male/b7abb1cba4af545502bef3df758f20d9eec90d8d.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0287"
+      ]
+    },
+    {
+      "voice": "male",
+      "text": "종교 질문을 받았지만 개인적인 일이라며 답을 아꼈어요.",
+      "cachePath": "tts/v3/male/0e8a88e22939a9b9e256b1fb2f3a7fc36e54eccd.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0275"
+      ]
+    },
+    {
+      "voice": "male",
+      "text": "통역할 때 상대의 질문을 빠뜨리지 않도록 메모했어요.",
+      "cachePath": "tts/v3/male/3fb3ee881422218c7d261bac6ff3a3d5f8ab4d45.mp3",
+      "sourceVocabIds": [
+        "vocab_b1_0300"
+      ]
+    }
+  ]
+}

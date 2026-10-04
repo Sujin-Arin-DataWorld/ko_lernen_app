@@ -69,6 +69,9 @@ EDITORIAL_SUCCESSOR_LEDGER = Path(
 EDITORIAL_SUCCESSOR_AMENDMENT_LEDGER = Path(
     "tools/content_factory/review/promoted_editorial_successor_amendments_20261003.json"
 )
+EDITORIAL_FOLLOWUP_LEDGER = Path(
+    "tools/content_factory/review/promoted_editorial_followups_20261003.json"
+)
 EDITORIAL_COPY_FIELDS = {
     "vocab": {"korean", "romanization", "german", "english", "pos_de", "pos_en",
         "example_korean", "example_german", "example_english"},
@@ -253,6 +256,44 @@ def _editorial_successors(
                     **amendment,
                     "before": predecessor["before"] if predecessor else amendment["before"],
                     "beforeSha256": predecessor["beforeSha256"] if predecessor else amendment["beforeSha256"],
+                }
+        followup_path = root / EDITORIAL_FOLLOWUP_LEDGER
+        if followup_path.exists():
+            payload = _json(followup_path)
+            if not isinstance(payload, dict):
+                raise PromotedBatchError("editorial followups must be an object")
+            for field, relative_path in (
+                ("predecessorLedgerSha256", EDITORIAL_SUCCESSOR_LEDGER),
+                ("firstAmendmentLedgerSha256", EDITORIAL_SUCCESSOR_AMENDMENT_LEDGER),
+                ("copyRevisionLedgerSha256", COPY_REVISION_LEDGER),
+            ):
+                expected = hashlib.sha256((root / relative_path).read_bytes()).hexdigest()
+                if payload.get(field) != expected:
+                    raise PromotedBatchError("editorial followup changed its frozen predecessor ledger")
+            predecessor_commit = payload.get("predecessorGitCommit")
+            if (not isinstance(predecessor_commit, str)
+                    or re.fullmatch(r"[0-9a-f]{40}", predecessor_commit) is None):
+                raise PromotedBatchError("editorial followup has invalid predecessor commit")
+            followups = _editorial_successors(
+                root=root, manifest_path=manifest_path,
+                _ledger_path=EDITORIAL_FOLLOWUP_LEDGER,
+            )
+            for key, followup in followups.items():
+                predecessor = result.get(key)
+                predecessor_hash = _fingerprint(predecessor) if predecessor else None
+                if (followup.get("predecessorSuccessorSha256") != predecessor_hash
+                        or followup["sourceGitCommit"] != predecessor_commit
+                        or (predecessor is not None
+                            and followup["before"] != predecessor["after"])):
+                    raise PromotedBatchError(f"{key}: editorial followup broke its exact predecessor chain")
+                # A new ID still passes the original frozen draft and copy
+                # revision checks below. An existing ID retains its earliest
+                # predecessor while the current live projection is checked
+                # against this followup's exact after hash.
+                result[key] = {
+                    **followup,
+                    "before": predecessor["before"] if predecessor else followup["before"],
+                    "beforeSha256": predecessor["beforeSha256"] if predecessor else followup["beforeSha256"],
                 }
     return result
 
