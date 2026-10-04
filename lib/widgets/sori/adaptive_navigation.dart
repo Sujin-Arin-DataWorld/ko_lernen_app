@@ -76,7 +76,7 @@ class SoriAdaptiveNavigation extends StatelessWidget {
     final extended = usesExtendedRailForWidth(width);
     final railLabelStyle = SoriTextTheme.of(
       context,
-    ).label.copyWith(letterSpacing: 0);
+    ).menuLabel.copyWith(letterSpacing: 0);
     return NavigationRail(
       selectedIndex: selectedIndex,
       onDestinationSelected: onDestinationSelected,

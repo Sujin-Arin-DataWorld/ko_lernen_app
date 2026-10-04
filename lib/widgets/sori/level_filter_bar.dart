@@ -43,6 +43,7 @@ Future<String?> showSoriLevelFilterSheet({
                 final count = countFor(level);
                 final isSelected = level == selected;
                 return SoriChip(
+                  interfaceLabel: true,
                   key: ValueKey('sori-level-sheet-$level'),
                   label: '$label · $count',
                   accent: parsed == null
@@ -190,6 +191,7 @@ class _SoriLevelFilterBarState extends State<SoriLevelFilterBar> {
     return Center(
       key: _keys[code],
       child: SoriChip(
+        interfaceLabel: true,
         label: text,
         accent: color,
         selected: widget.selected == code,

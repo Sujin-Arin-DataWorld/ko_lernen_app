@@ -129,7 +129,9 @@ void main() {
           find.widgetWithText(SoriButton, t.practiceHistoryOpen),
         );
         final open = find.byKey(
-          const ValueKey('practice-open-smalltalk:invite_friend:1'),
+          ValueKey(
+            'practice-open-${PracticeHistoryStore.load().items.single.source.key}',
+          ),
         );
         await pumpUntilFound(tester, open);
         await tap(tester, open);

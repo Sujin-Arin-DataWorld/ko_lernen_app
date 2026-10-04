@@ -29,7 +29,7 @@ class SoriLevelChip extends StatelessWidget {
         code,
         style: SoriTextTheme.of(
           context,
-        ).label.copyWith(fontSize: 13, color: Colors.white),
+        ).menuLabel.copyWith(fontSize: 13, color: Colors.white),
       ),
     );
   }

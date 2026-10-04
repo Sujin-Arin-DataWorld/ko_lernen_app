@@ -7,6 +7,9 @@ enum SoriButtonVariant { filled, outlined, ghost }
 
 enum SoriButtonSize { lg, md, sm }
 
+/// A lesson answer is content, even when it is tappable.
+enum SoriButtonTextRole { action, learning }
+
 /// **SoriButton** — 통통튀는 모션 포함 버튼.
 ///
 /// 3 variants × 3 sizes. 자동 [SoriPressable] 래핑.
@@ -49,6 +52,7 @@ class SoriButton extends StatelessWidget {
 
   /// Result and purchase actions emit feedback after confirmation.
   final bool feedbackOnTap;
+  final SoriButtonTextRole textRole;
 
   const SoriButton({
     super.key,
@@ -66,6 +70,7 @@ class SoriButton extends StatelessWidget {
     this.maxLines,
     this.loading = false,
     this.feedbackOnTap = true,
+    this.textRole = SoriButtonTextRole.action,
   }) : assert(maxLines == null || maxLines > 0);
 
   const SoriButton.filled({
@@ -83,6 +88,7 @@ class SoriButton extends StatelessWidget {
     this.maxLines,
     this.loading = false,
     this.feedbackOnTap = true,
+    this.textRole = SoriButtonTextRole.action,
   }) : variant = SoriButtonVariant.filled,
        assert(maxLines == null || maxLines > 0);
 
@@ -101,6 +107,7 @@ class SoriButton extends StatelessWidget {
     this.maxLines,
     this.loading = false,
     this.feedbackOnTap = true,
+    this.textRole = SoriButtonTextRole.action,
   }) : variant = SoriButtonVariant.outlined,
        assert(maxLines == null || maxLines > 0);
 
@@ -119,6 +126,7 @@ class SoriButton extends StatelessWidget {
     this.maxLines,
     this.loading = false,
     this.feedbackOnTap = true,
+    this.textRole = SoriButtonTextRole.action,
   }) : variant = SoriButtonVariant.ghost,
        assert(maxLines == null || maxLines > 0);
 
@@ -187,7 +195,7 @@ class SoriButton extends StatelessWidget {
         fillEdge == null ? null : Border.all(color: fillEdge, width: 1.5),
       ),
       SoriButtonVariant.outlined => (
-        Colors.transparent,
+        isLight ? SoriColors.lightSurfaceRaised : s.surface,
         disabled ? s.textDim : fgAccent,
         Border.all(
           color: disabled ? s.border : fgAccent.withValues(alpha: 0.7),
@@ -261,10 +269,14 @@ class SoriButton extends StatelessWidget {
                       maxLines: maxLines,
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontFamily: SoriFonts.sans,
+                        fontFamily: textRole == SoriButtonTextRole.learning
+                            ? SoriFonts.sans
+                            : SoriFonts.interface,
                         fontFamilyFallback: SoriFonts.fallback,
                         color: fg,
-                        fontWeight: variant == SoriButtonVariant.filled
+                        fontWeight:
+                            textRole == SoriButtonTextRole.action ||
+                                variant == SoriButtonVariant.filled
                             ? FontWeight.w600
                             : FontWeight.w500,
                         fontSize: visualFontSize,
@@ -301,6 +313,16 @@ class SoriButton extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         color: bg,
+        gradient: variant == SoriButtonVariant.ghost || disabled
+            ? null
+            : LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Color.alphaBlend(Colors.white.withValues(alpha: .1), bg),
+                  bg,
+                ],
+              ),
         border: border,
         borderRadius: BorderRadius.circular(_radius * comfortScale),
       ),
@@ -323,15 +345,22 @@ class SoriButton extends StatelessWidget {
 
     return Semantics(
       button: true,
-      enabled: true,
+      enabled: !loading,
       label: semanticLabel ?? label,
       child: SoriPressable(
         onTap: loading ? null : onTap,
         haptic: feedbackOnTap ? SoriHaptic.selection : null,
         pressScale: .99,
-        surfaceDepth: variant == SoriButtonVariant.filled ? 4 : 0,
+        surfaceDepth: switch (variant) {
+          SoriButtonVariant.filled => 4,
+          SoriButtonVariant.outlined => 3,
+          SoriButtonVariant.ghost => 0,
+        },
+        tactileTilt: variant != SoriButtonVariant.ghost,
         surfaceRadius: _radius * comfortScale,
-        surfaceEdgeColor: Color.lerp(bg, SoriColors.lightText, .45),
+        surfaceEdgeColor: variant == SoriButtonVariant.filled
+            ? Color.lerp(bg, SoriColors.lightText, .45)
+            : Color.lerp(s.border, fgAccent, .35),
         child: wrapped,
       ),
     );

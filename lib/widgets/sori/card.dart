@@ -64,6 +64,10 @@ class SoriCard extends StatefulWidget {
   /// [selectable] 카드의 선택 상태 — `primary` 2px 테두리 (§10.3).
   final bool selected;
 
+  /// Tactile learning/menu choices share the button's pressure model.
+  /// Reading panels keep their stable surface and existing motion.
+  final bool raised;
+
   /// 접근성 라벨 — null이면 child의 Semantics를 그대로 사용.
   /// tappable card는 button 역할로 트리에 등록된다.
   final String? semanticLabel;
@@ -88,6 +92,7 @@ class SoriCard extends StatefulWidget {
     this.eaves = false,
     this.selectable = false,
     this.selected = false,
+    this.raised = false,
     this.semanticLabel,
     this.semanticValue,
   }) : assert(selectable || !selected, 'selected는 selectable 카드 전용');
@@ -287,9 +292,14 @@ class _SoriCardState extends State<SoriCard> {
       child: SoriPressable(
         onTap: widget.onTap,
         onLongPress: widget.onLongPress,
-        pressScale:
-            (widget.variant == SoriCardVariant.hero ||
-                widget.variant == SoriCardVariant.hanji)
+        surfaceDepth: widget.raised ? 3 : 0,
+        surfaceRadius: _radius,
+        surfaceEdgeColor: SoriSurfaces.of(context).border,
+        tactileTilt: widget.raised,
+        pressScale: widget.raised
+            ? .99
+            : (widget.variant == SoriCardVariant.hero ||
+                  widget.variant == SoriCardVariant.hanji)
             ? 0.97
             : 0.96,
         onPressedChanged: (pressed) {

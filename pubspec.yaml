@@ -112,6 +112,7 @@ dev_dependencies:
   integration_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  video_player_platform_interface: ^6.9.0
   xml: ^6.6.1
   # S2 (net timeouts/backoff): FakeAsync-based unit tests for withNetTimeout /
   # backoffDelay without real Duration waits. Also used by PR S3's
@@ -122,6 +123,8 @@ dev_dependencies:
   flutter_launcher_icons: ^0.14.1
 
 flutter:
+  shaders:
+    - shaders/dokkaebi_flame_frame.frag
   # Runner deliberately uses CocoaPods only. Flutter 3.44 enables SwiftPM by
   # default on macOS; without this project-level override, Xcode Cloud sends
   # supported plugins (including audioplayers_darwin) to the removed
@@ -133,6 +136,8 @@ flutter:
   generate: true                   # für ARB Localisations
 
   assets:
+    - assets/illustrations/dokkaebi_intro/
+    - assets/video/introductions/
     - assets/data/
     - assets/tts/v3/female/
     - assets/tts/v3/male/
@@ -209,10 +214,44 @@ flutter:
     - assets/video/character/
     - assets/video/home_hero/
     - assets/video/gye/
+    - assets/illustrations/tactile/scholar/scholar_welcome.png
+    - assets/illustrations/tactile/scholar/scholar_point.png
+    - assets/illustrations/tactile/scholar/scholar_bow.png
+    - assets/illustrations/tactile/scholar/scholar_calm.png
+    - assets/illustrations/tactile/scholar/scholar_thinking.png
+    - assets/illustrations/tactile/scholar/scholar_inviting.png
+    - assets/illustrations/tactile/dokkaebi/dokkaebi_inviting.png
+    - assets/illustrations/tactile/dokkaebi/dokkaebi_magical.png
+    - assets/illustrations/tactile/dokkaebi/dokkaebi_ready.png
+    - assets/illustrations/tactile/dokkaebi/dokkaebi_helping.png
+    - assets/illustrations/tactile/dokkaebi/dokkaebi_review.png
+    - assets/illustrations/tactile/dokkaebi/dokkaebi_celebrate.png
+    - assets/illustrations/tactile/dokkaebi_topics/tales.webp
+    - assets/illustrations/tactile/dokkaebi_topics/home.webp
+    - assets/illustrations/tactile/dokkaebi_topics/learning.webp
+    - assets/video/practice/hahoe_scholar_fan_hanji.mp4
+    - assets/video/practice/hahoe_scholar_fan_start.png
+    - assets/video/practice/hahoe_scholar_fan_end.png
+    - assets/video/practice/dokkaebi_hint_hanji.mp4
+    - assets/video/practice/dokkaebi_hint_start.png
+    - assets/video/practice/dokkaebi_hint_end.png
+    - assets/video/practice/dokkaebi_hint_swing_hanji.mp4
+    - assets/video/practice/dokkaebi_hint_swing_start.png
+    - assets/video/practice/dokkaebi_hint_swing_end.png
 
-  # ── Noto Sans KR 단일 가변 서체, OFL ──
-  # 한글·영어·독일어 글리프를 모두 포함한다. test/font_bundle_guard_test.dart 검사.
+  # OFL: Paperlogy for interface lettering; Noto Sans KR for learning copy.
+  # Both families contain Korean, German and English glyphs (font bundle guard).
   fonts:
+    - family: Paperlogy
+      fonts:
+        - asset: assets/fonts/Paperlogy/Paperlogy-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Paperlogy/Paperlogy-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Paperlogy/Paperlogy-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Paperlogy/Paperlogy-Bold.ttf
+          weight: 700
     - family: NotoSansKR
       fonts:
         - asset: assets/fonts/NotoSansKR/NotoSansKR-Variable.ttf

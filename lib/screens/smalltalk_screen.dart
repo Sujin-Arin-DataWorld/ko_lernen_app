@@ -1134,6 +1134,7 @@ class _PhraseCardState extends State<_PhraseCard> {
                               ),
                               child: SoriButton.outlined(
                                 label: option.labelFor(lang),
+                                textRole: SoriButtonTextRole.learning,
                                 fullWidth: true,
                                 accent:
                                     _submittedRelationshipContext != null &&
