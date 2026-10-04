@@ -5676,5 +5676,14 @@
   "settingsGroupLearning": "Lernen",
   "settingsGroupControls": "Sprache, Ton & Bedienung",
   "settingsGroupPrivacy": "Speicher & Datenschutz",
-  "settingsGroupHelp": "Hilfe & App-Infos"
+  "settingsGroupHelp": "Hilfe & App-Infos",
+  "rewardChestNewDecoration": "Neue Dekoration",
+  "@rewardChestNewDecoration": {"description": "Eyebrow above a newly unlocked decoration."},
+  "rewardChestLearningXp": "Deine Lern-XP",
+  "@rewardChestLearningXp": {"description": "Current learning XP total, not an additional reward from opening a chest."},
+  "rewardChestCulturalStory": "Die Geschichte dahinter",
+  "rewardChestPlaceSarangbang": "Im Sarangbang platzieren",
+  "rewardChestPreviewTitle": "Perlmutt-Truhe · Vorschau",
+  "rewardChestReplay": "Noch einmal ansehen",
+  "rewardChestPreviewPlacement": "Vorschau: In der App platzierst du dieses Stück in deinem Sarangbang."
 }

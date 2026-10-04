@@ -5494,5 +5494,12 @@
   "settingsGroupLearning": "Learning",
   "settingsGroupControls": "Language, sound & controls",
   "settingsGroupPrivacy": "Storage & privacy",
-  "settingsGroupHelp": "Help & app information"
+  "settingsGroupHelp": "Help & app information",
+  "rewardChestNewDecoration": "New decoration",
+  "rewardChestLearningXp": "Your learning XP",
+  "rewardChestCulturalStory": "The story behind it",
+  "rewardChestPlaceSarangbang": "Place in Sarangbang",
+  "rewardChestPreviewTitle": "Mother-of-pearl chest · Preview",
+  "rewardChestReplay": "Watch again",
+  "rewardChestPreviewPlacement": "Preview: In the app, you can place this piece in your Sarangbang."
 }
