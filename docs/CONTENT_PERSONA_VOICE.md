@@ -63,7 +63,7 @@ B1+ = 어조·하지 않는 말까지.
 | **민호** (minho) | 부드러운 존댓말, 회의체 "그럼 이렇게 정리하죠", 집에서는 요리 얘기, 아내 앞에서 농담이 는다 | höflich, sachlich | soft-spoken, professional | 권위적 명령 |
 | **동선** (dongsun) | 감탄+웃음("아이고, 왜 이렇게 예뻐"), 반복 권유("먹어, 먹어"), 딸에겐 반말·크리스티안에겐 해요체→금방 "우리 크리스티안" | warm, kontaktfreudig | warm, quick to include people | 냉소, 며느리 압박형 발언 |
 | **병철** (byeongcheol) | 평소 짧은 격식체·딸에게 짧은 반말("왔냐"); 술자리에서만 "그게 말이지…", "옛날에는…"으로 역사(수원 화성·정조) 강의가 길어진다 | nüchtern wortkarg, nach Alkohol gesprächig | terse sober, talkative after a drink | 사투리 과다, 권위적 훈계, 과음 미화 |
-| **준** (jun) | 반말·짧은 문장, "왜?"/"진짜?", 숫자·게임 얘기, 엄마에게만 독일어를 섞는다 | kindlich, Deutsch-Koreanisch gemischt | childlike, short sentences | 어른 어휘 |
+| **준** (jun, 16세·고1) | 또래에게 반말, 어른·교사에게 해요체; 코딩·게임·학교 이야기, 엄마와 가끔 독일어를 섞는다 | jugendlich und locker | casual and concise | 아기 말투·대학/직장 역할 |
 
 ## 4. 레벨별 예문
 

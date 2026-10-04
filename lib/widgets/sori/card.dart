@@ -41,6 +41,9 @@ class SoriCard extends StatefulWidget {
   /// 색 코딩 액센트 — 좌측 4px 바 + (tinted면) 옅은 채움. null이면 brand-neutral.
   final Color? accent;
 
+  /// Solid focal surface; preserves the shared card's padding and semantics.
+  final Color? backgroundColor;
+
   final VoidCallback? onTap;
   final VoidCallback? onLongPress;
   final EdgeInsetsGeometry? padding;
@@ -75,6 +78,7 @@ class SoriCard extends StatefulWidget {
     required this.child,
     this.variant = SoriCardVariant.base,
     this.accent,
+    this.backgroundColor,
     this.onTap,
     this.onLongPress,
     this.padding,
@@ -153,11 +157,13 @@ class _SoriCardState extends State<SoriCard> {
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
     final isLight = s.brightness == Brightness.light;
-    final bgColor = SoriCard.resolvedBackground(
-      context,
-      accent: widget.accent,
-      tinted: widget.tinted,
-    );
+    final bgColor =
+        widget.backgroundColor ??
+        SoriCard.resolvedBackground(
+          context,
+          accent: widget.accent,
+          tinted: widget.tinted,
+        );
 
     // 표면 v2 테두리 규칙 (§4.1·§10.3): 라이트 기본은 무테두리.
     // selectable(경계=정보)과 다크(그림자 무효)만 테두리를 가진다.

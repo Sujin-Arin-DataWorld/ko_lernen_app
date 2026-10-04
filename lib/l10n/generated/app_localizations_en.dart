@@ -11743,4 +11743,41 @@ class AppL10nEn extends AppL10n {
   @override
   String get dancheongDeleteArtworkNote =>
       'Delete this finished version and its saved captions? Its public links will also be disabled. Copies already saved by others remain.';
+
+  @override
+  String get cultureHaechiName => 'Haechi';
+
+  @override
+  String get cultureHahoeMaskName => 'Hahoe mask';
+
+  @override
+  String get cultureDokkaebiName => 'Dokkaebi';
+
+  @override
+  String get cultureHaechiLineKo => '차근차근 쌓아 가자.';
+
+  @override
+  String get cultureHaechiLine => 'One step at a time.';
+
+  @override
+  String get cultureHahoeMaskHintKo => '상대와 상황에 맞는 말투를 골라 보세요.';
+
+  @override
+  String get cultureHahoeMaskHint =>
+      'Choose a tone that suits the person and the situation.';
+
+  @override
+  String get cultureDokkaebiLineKo => '한 문제씩 풀어 볼까?';
+
+  @override
+  String get cultureDokkaebiLine => 'Shall we try one question at a time?';
+
+  @override
+  String get catalogQuickStart => 'Start here';
+
+  @override
+  String get catalogDiscover => 'Something new to try';
+
+  @override
+  String get catalogNotNow => 'Not now';
 }

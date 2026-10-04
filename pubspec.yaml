@@ -179,6 +179,7 @@ flutter:
     # 활동 카탈로그 일러스트 (Phase 3) — 규약:
     # activities/{activityId}.webp. 폴백 = ActivityIconFallback(원형 아이콘).
     - assets/illustrations/activities/
+    - assets/illustrations/tactile/
     # Sori Deck 2.0 액션 아이콘 (§R-3 커스텀 드롭 전에는 Material 폴백)
     - assets/illustrations/deck/
     # 듣기 카드 일러스트 — 규약: listening/{Key}.webp (Key = docs/LISTENING_CARD_ART_SPEC.md).

@@ -1,4 +1,5 @@
 import 'dart:async';
+import '../../widgets/sori/window_class.dart';
 
 import 'package:flutter/material.dart';
 
@@ -73,6 +74,7 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
     if (widget.active) {
       _progress = _load();
       unawaited(Storage.initializeCatalogHistory());
+      unawaited(Storage.visitCatalog(widget.tab));
     }
   }
 
@@ -106,6 +108,7 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
             oldWidget.refreshGeneration != widget.refreshGeneration)) {
       _progress = _load();
       unawaited(Storage.initializeCatalogHistory());
+      unawaited(Storage.visitCatalog(widget.tab));
     }
   }
 
@@ -124,6 +127,9 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
       _openGeneration++;
       _opening = false;
     });
+    if (widget.active) {
+      unawaited(Storage.visitCatalog(widget.tab));
+    }
   }
 
   void _reload() {
@@ -206,7 +212,9 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
       // Capture does not award progress. Keep it usable even when the shared
       // learning/reward snapshot is still loading or has failed.
       if (entry.id == 'book_capture') {
-        await Navigator.of(context).pushNamed(entry.route);
+        final returned = Navigator.of(context).pushNamed(entry.route);
+        unawaited(Storage.recordCatalogActivity(entry.id, lease: lease));
+        await returned;
         return;
       }
       final shared = LearningFocusScope.maybeOf(context);
@@ -283,7 +291,7 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
   ) => LayoutBuilder(
     builder: (context, constraints) {
       final columns =
-          constraints.maxWidth < SoriBreakpoints.grid &&
+          constraints.maxWidth < SoriBreakpoints.grid ||
               MediaQuery.textScalerOf(context).scale(16) >= 24
           ? 1
           : 2;
@@ -298,6 +306,95 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
       );
     },
   );
+
+  Widget _quick(SoriStageProgressionSnapshot? data) {
+    final t = AppL10n.of(context);
+    final entries = soriActivityCatalog
+        .where((e) => e.tab == widget.tab)
+        .toList();
+    final now = DateTime.now();
+    final history = Storage.catalogRecommendations(now: now);
+    final allowed = entries.map((e) => e.id).toList();
+    final ids = history.quickIds(
+      widget.tab.name,
+      allowed,
+      Storage.catalogQuickDefaults(widget.tab),
+      now,
+    );
+    final discover = history.discover(allowed, ids, now);
+    void start(ActivityCatalogEntry entry) {
+      final progress = data?.activityProgress[entry.id];
+      if (isActivityLocked(entry, progress)) {
+        showSoriActivitySheet(
+          context,
+          entry: entry,
+          progress: progress,
+          onStart: () => _start(entry),
+        );
+      } else {
+        _start(entry);
+      }
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Semantics(
+          header: true,
+          child: Text(
+            t.catalogQuickStart,
+            key: const ValueKey('catalog-quick-heading'),
+            style: SoriTextTheme.of(context).h3,
+          ),
+        ),
+        const SizedBox(height: Spacing.md),
+        LayoutBuilder(
+          builder: (context, bounds) {
+            final columns =
+                MediaQuery.textScalerOf(context).scale(16) >= 24 ||
+                    bounds.maxWidth < SoriAdaptiveWidth.catalogShortcutGrid
+                ? 1
+                : 2;
+            final width =
+                (bounds.maxWidth - (columns - 1) * Spacing.md) / columns;
+            return Wrap(
+              spacing: Spacing.md,
+              runSpacing: Spacing.md,
+              children: [
+                for (final id in ids)
+                  SizedBox(
+                    width: width,
+                    child: SoriCatalogShortcut(
+                      key: ValueKey('catalog-quick-$id'),
+                      entry: entries.firstWhere((e) => e.id == id),
+                      onTap: () => start(entries.firstWhere((e) => e.id == id)),
+                    ),
+                  ),
+              ],
+            );
+          },
+        ),
+        if (discover != null) ...[
+          const SizedBox(height: Spacing.lg),
+          Text(t.catalogDiscover, style: SoriTextTheme.of(context).h3),
+          const SizedBox(height: Spacing.sm),
+          SoriCatalogShortcut(
+            key: ValueKey('catalog-discover-$discover'),
+            entry: entries.firstWhere((e) => e.id == discover),
+            onTap: () => start(entries.firstWhere((e) => e.id == discover)),
+          ),
+          Align(
+            alignment: Alignment.centerRight,
+            child: TextButton(
+              onPressed: () => Storage.dismissCatalogSuggestion(discover),
+              child: Text(t.catalogNotNow),
+            ),
+          ),
+        ],
+        const SizedBox(height: Spacing.xl),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -359,27 +456,6 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                   ),
                 ),
                 const SliverToBoxAdapter(child: SizedBox(height: 16)),
-                if (!isGames)
-                  SliverPadding(
-                    padding: EdgeInsets.symmetric(horizontal: padding.left),
-                    sliver: SliverToBoxAdapter(
-                      child: LearningFocusScope.maybeOf(context) != null
-                          ? const SoriLearningFocus()
-                          : TextButton(
-                              onPressed: () => _start(
-                                entries.firstWhere((e) => e.id == 'course'),
-                              ),
-                              child: Text(
-                                localCopy(
-                                  context,
-                                  entries
-                                      .firstWhere((e) => e.id == 'course')
-                                      .title,
-                                ),
-                              ),
-                            ),
-                    ),
-                  ),
                 FutureBuilder<SoriStageProgressionSnapshot>(
                   future: _progress,
                   builder: (context, snapshot) {
@@ -399,6 +475,29 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
+                            _quick(data),
+                            if (!isGames) ...[
+                              LearningFocusScope.maybeOf(context) != null
+                                  ? const SoriLearningFocus()
+                                  : TextButton(
+                                      onPressed: () => _start(
+                                        entries.firstWhere(
+                                          (e) => e.id == 'course',
+                                        ),
+                                      ),
+                                      child: Text(
+                                        localCopy(
+                                          context,
+                                          entries
+                                              .firstWhere(
+                                                (e) => e.id == 'course',
+                                              )
+                                              .title,
+                                        ),
+                                      ),
+                                    ),
+                              const SizedBox(height: Spacing.lg),
+                            ],
                             if (snapshot.hasError) ...[
                               Text(
                                 t.catalogProgressUnavailable,

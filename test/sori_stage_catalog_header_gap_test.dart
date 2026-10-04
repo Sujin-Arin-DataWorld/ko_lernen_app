@@ -47,9 +47,7 @@ void main() {
           final header = tester.renderObject<RenderSliver>(
             find.byType(SoriCollapsingHeader),
           );
-          final first = tab == SoriStageTab.learn
-              ? find.byKey(const ValueKey('learning-focus-surface'))
-              : find.byKey(const ValueKey('catalog-card-daily_game'));
+          final first = find.byKey(const ValueKey('catalog-quick-heading'));
           expect(
             tester.getTopLeft(first).dy,
             closeTo(20 + header.geometry!.paintExtent + 16, 1),

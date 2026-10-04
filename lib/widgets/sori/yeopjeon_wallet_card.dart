@@ -11,7 +11,10 @@ import 'button.dart';
 import 'card.dart';
 import 'celebration.dart';
 import 'tokens.dart';
+import 'activity_illustration.dart';
 import 'toast.dart';
+import 'pressable.dart';
+import 'sheet.dart';
 
 /// Saved money and construction ownership, with no optimistic spending.
 class YeopjeonWalletCard extends StatefulWidget {
@@ -140,9 +143,9 @@ class _YeopjeonWalletCardState extends State<YeopjeonWalletCard> {
               Row(
                 children: [
                   Image.asset(
-                    'assets/illustrations/stamps/stamp_yeopjeon.png',
-                    width: 48,
-                    height: 48,
+                    SoriArtwork.yeopjeon,
+                    width: 72,
+                    height: 72,
                     excludeFromSemantics: true,
                     errorBuilder: (_, __, ___) =>
                         const Icon(Icons.toll_rounded, size: 40),
@@ -320,6 +323,58 @@ class _YeopjeonWalletCardState extends State<YeopjeonWalletCard> {
           ),
         );
       },
+    );
+  }
+}
+
+/// The header reads the already-confirmed progression snapshot, never a
+/// preview balance. Opening and closing the wallet refreshes its owner.
+class YeopjeonWalletBadge extends StatelessWidget {
+  const YeopjeonWalletBadge({super.key, required this.wallet, this.onReturned});
+  final YeopjeonWallet wallet;
+  final VoidCallback? onReturned;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    return Semantics(
+      button: true,
+      label: '${t.yeopjeonTitle}. ${t.yeopjeonBalance(wallet.balance)}',
+      child: SoriPressable(
+        onTap: () async {
+          await showSoriSheet<void>(
+            context: context,
+            builder: (_) => const YeopjeonWalletCard(),
+          );
+          if (context.mounted) {
+            onReturned?.call();
+          }
+        },
+        child: Container(
+          key: const ValueKey('yeopjeon-header-balance'),
+          constraints: const BoxConstraints(minHeight: 48),
+          padding: const EdgeInsets.symmetric(horizontal: Spacing.md),
+          decoration: BoxDecoration(
+            color: SoriActivityColors.actionGold,
+            borderRadius: SoriRadius.brLg,
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Image.asset(
+                SoriArtwork.yeopjeon,
+                width: 38,
+                height: 38,
+                fit: BoxFit.contain,
+                excludeFromSemantics: true,
+              ),
+              const SizedBox(width: Spacing.sm),
+              Text('${wallet.balance}', style: SoriTextTheme.of(context).label),
+              const Icon(Icons.chevron_right_rounded, size: 18),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

@@ -55,15 +55,31 @@ class SoriLearningFocus extends StatelessWidget {
           _ => t.soriStageTodayMissionEyebrow,
         };
     final entry = activityForRoute(focus?.destination?.route);
+    final focal = entry != null && focus!.ready && !controller.loading;
+    final subject = title.toLowerCase();
+    final focalArt =
+        subject.contains('coffee') ||
+            subject.contains('kaffee') ||
+            subject.contains('카페')
+        ? SoriArtwork.coffee
+        : SoriArtwork.action(entry?.id ?? 'course');
+    final foreground = focal ? Colors.white : SoriSurfaces.of(context).text;
     final metadata = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: text.h2.copyWith(fontSize: 21, height: 1.35)),
+        Text(
+          title,
+          style: text.h2.copyWith(fontSize: 26, height: 1.3, color: foreground),
+        ),
         if (focus?.minutes case final minutes?) ...[
           const SizedBox(height: Spacing.xs),
           Text(
             t.learningFocusMinutes(minutes),
-            style: text.bodySmall.copyWith(fontSize: 15, height: 1.35),
+            style: text.bodySmall.copyWith(
+              fontSize: 15,
+              height: 1.35,
+              color: foreground,
+            ),
           ),
         ],
       ],
@@ -71,6 +87,10 @@ class SoriLearningFocus extends StatelessWidget {
     final startAction = !controller.loading && focus != null && focus.ready
         ? SoriButton(
             label: t.learningFocusStart,
+            illustrationAsset: SoriArtwork.action(entry?.id ?? 'course'),
+            trailingIcon: Icons.arrow_forward_rounded,
+            accent: SoriActivityColors.actionGold,
+            fullWidth: true,
             onTap: controller.launching
                 ? null
                 : () => scope.open(
@@ -87,6 +107,8 @@ class SoriLearningFocus extends StatelessWidget {
         if (introduction != null) introduction!,
         SoriCard(
           key: const ValueKey('learning-focus-surface'),
+          variant: SoriCardVariant.hero,
+          backgroundColor: focal ? SoriActivityColors.hanokStage : null,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -102,9 +124,9 @@ class SoriLearningFocus extends StatelessWidget {
                     final illustration = ClipRRect(
                       borderRadius: SoriRadius.brSm,
                       child: Image.asset(
-                        activityIllustrationAsset(entry.id),
-                        width: 128,
-                        height: 96,
+                        focalArt ?? activityIllustrationAsset(entry.id),
+                        width: 160,
+                        height: 128,
                         fit: BoxFit.contain,
                         excludeFromSemantics: true,
                         errorBuilder: (_, _, _) => SizedBox(
@@ -120,15 +142,16 @@ class SoriLearningFocus extends StatelessWidget {
                         ),
                       ),
                     );
-                    if (constraints.maxWidth <
-                            SoriAdaptiveWidth.learningFocusHeroRow ||
+                    if (constraints.maxWidth < SoriBreakpoints.grid ||
                         MediaQuery.textScalerOf(context).scale(16) > 24) {
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          illustration,
-                          const SizedBox(height: Spacing.md),
                           metadata,
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: illustration,
+                          ),
                           if (startAction != null) ...[
                             const SizedBox(height: 12),
                             startAction,
@@ -225,7 +248,9 @@ class SoriLearningFocus extends StatelessWidget {
                       t.learningFocusViewCourse,
                       style: text.bodySmall.copyWith(
                         fontSize: 15,
-                        color: Theme.of(context).brightness == Brightness.dark
+                        color: focal
+                            ? Colors.white
+                            : Theme.of(context).brightness == Brightness.dark
                             ? SoriColors.primaryOnDark
                             : SoriColors.primary,
                         fontWeight: FontWeight.w600,
@@ -243,7 +268,10 @@ class SoriLearningFocus extends StatelessWidget {
                               _ => unit.order,
                             },
                           ),
-                          style: text.bodySmall.copyWith(fontSize: 15),
+                          style: text.bodySmall.copyWith(
+                            fontSize: 15,
+                            color: foreground,
+                          ),
                         );
                   if (constraints.maxWidth <
                           SoriAdaptiveWidth.learningFocusFooterRow ||

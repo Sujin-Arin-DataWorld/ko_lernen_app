@@ -95,10 +95,7 @@ void main() {
     await _pump(tester);
 
     // 싸여 있다는 것 자체가 물음표다 — 미리 보여주면 개봉이 보상이 아니게 된다.
-    expect(
-      find.text('Tippe auf den Knoten, um das Bündel zu öffnen.'),
-      findsOneWidget,
-    );
+    expect(find.text('Bojagi öffnen'), findsOneWidget);
     expect(find.text(_guk), findsNothing);
     expect(find.text(_juk), findsNothing);
     expect(find.text(_chaekgado), findsNothing);
