@@ -88,6 +88,29 @@ class CulturalDecorationHelpButton extends StatelessWidget {
   }
 }
 
+/// Cultural help button for a glossary entry that has already been resolved.
+///
+/// Parent surfaces that already loaded the glossary should use this widget so
+/// the help action is present in the same frame as the content it describes.
+/// This also avoids a second asynchronous repository read for every card.
+class CulturalTermHelpButton extends StatelessWidget {
+  const CulturalTermHelpButton({
+    super.key,
+    required this.entry,
+    this.foregroundColor,
+  });
+
+  final CulturalGlossaryEntry entry;
+  final Color? foregroundColor;
+
+  @override
+  Widget build(BuildContext context) => _ResolvedCulturalHelpButton(
+    entry: entry,
+    foregroundColor: foregroundColor,
+    focusNode: null,
+  );
+}
+
 class _ResolvedCulturalHelpButton extends StatelessWidget {
   const _ResolvedCulturalHelpButton({
     required this.entry,

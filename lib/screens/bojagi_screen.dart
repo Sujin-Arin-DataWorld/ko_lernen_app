@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/cultural_glossary.dart';
 import '../services/decoration_reward_service.dart';
 import '../services/haptic_service.dart';
 import '../services/learning_journey.dart';
@@ -406,6 +407,9 @@ class _PickView extends StatelessWidget {
             for (var i = 0; i < candidates.length; i++) {
               final slug = candidates[i];
               final termId = glossary?.termIdForDecoration(slug);
+              final culturalEntry = termId == null
+                  ? null
+                  : glossary?.entry(termId);
               cards.add(
                 SoriEntrance(
                   delay: Duration(milliseconds: 90 * i),
@@ -413,9 +417,9 @@ class _PickView extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: Spacing.md),
                     child: _CandidateCard(
                       slug: slug,
-                      culturalTermId: termId,
+                      culturalEntry: culturalEntry,
                       showCulturalHelp:
-                          termId != null && shownTermIds.add(termId),
+                          culturalEntry != null && shownTermIds.add(termId!),
                       onTap: () => onPick(slug),
                     ),
                   ),
@@ -435,13 +439,13 @@ class _CandidateCard extends StatelessWidget {
   final String slug;
   final VoidCallback onTap;
   final bool showCulturalHelp;
-  final String? culturalTermId;
+  final CulturalGlossaryEntry? culturalEntry;
 
   const _CandidateCard({
     required this.slug,
     required this.onTap,
     required this.showCulturalHelp,
-    this.culturalTermId,
+    this.culturalEntry,
   });
 
   @override
@@ -451,13 +455,13 @@ class _CandidateCard extends StatelessWidget {
     final text = SoriTextTheme.of(context);
     final name = decorName(t, slug);
     final term = decorTerm(t, slug);
-    final termId = culturalTermId;
+    final entry = culturalEntry;
     // §W-C C3: the inline term line sits OUTSIDE the pick-tap Semantics/
     // SoriPressable below, as a sibling — same reason the "?" help button
     // is a sibling rather than nested inside it. Two independent
     // GestureDetectors sharing one tap point would both fire, so a tap
     // meant for "open the glossary" would also silently pick the candidate.
-    final showTerm = termId != null && term != name;
+    final showTerm = entry != null && term != name;
     return Container(
       key: ValueKey('bojagi-candidate-$slug'),
       decoration: BoxDecoration(
@@ -516,7 +520,7 @@ class _CandidateCard extends StatelessWidget {
               if (showCulturalHelp)
                 Padding(
                   padding: const EdgeInsetsDirectional.only(end: Spacing.sm),
-                  child: CulturalDecorationHelpButton(decorationSlug: slug),
+                  child: CulturalTermHelpButton(entry: entry!),
                 ),
             ],
           ),
@@ -528,7 +532,7 @@ class _CandidateCard extends StatelessWidget {
                 bottom: Spacing.sm,
               ),
               child: SoriTerm(
-                termId: termId,
+                termId: entry.termId,
                 text: term,
                 style: text.meta,
                 surface: 'bojagi_candidate',

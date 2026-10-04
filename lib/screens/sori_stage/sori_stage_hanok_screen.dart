@@ -603,26 +603,21 @@ class _ShortcutTiles extends StatelessWidget {
             ],
           );
         }
-        // §W-J2 item 3: one label (e.g. "Dojang-Heft") can wrap to 2 lines
-        // while its siblings stay on 1 — without a shared height the middle
-        // tile alone grows taller. `IntrinsicHeight` + a stretch cross-axis
-        // makes all three tiles match the tallest one instead.
-        return Column(
-          children: [
-            for (var start = 0; start < tiles.length; start += 2) ...[
-              IntrinsicHeight(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Expanded(child: tiles[start]),
-                    const SizedBox(width: Spacing.md),
-                    Expanded(child: tiles[start + 1]),
-                  ],
-                ),
-              ),
-              if (start + 2 < tiles.length) const SizedBox(height: Spacing.sm),
+        // Keep all four first-action shortcuts in one row at the standard
+        // phone text scale. A second row pushes the actions under the bottom
+        // navigation on a 390 x 844 viewport. Larger text still uses the
+        // stacked branch above, where the page can scroll normally.
+        return IntrinsicHeight(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              for (var index = 0; index < tiles.length; index++) ...[
+                Expanded(child: tiles[index]),
+                if (index != tiles.length - 1)
+                  const SizedBox(width: Spacing.sm),
+              ],
             ],
-          ],
+          ),
         );
       },
     );
@@ -669,11 +664,16 @@ class _ShortcutTile extends StatelessWidget {
               children: [
                 SizedBox(height: 40, child: Center(child: thumb)),
                 const SizedBox(height: Spacing.xs),
-                Text(
-                  label,
-                  key: ValueKey('hanok-shortcut-label-$id'),
-                  textAlign: TextAlign.center,
-                  style: tt.label.copyWith(fontSize: 15, height: 1.35),
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    label,
+                    key: ValueKey('hanok-shortcut-label-$id'),
+                    maxLines: 1,
+                    softWrap: false,
+                    textAlign: TextAlign.center,
+                    style: tt.label.copyWith(fontSize: 15, height: 1.35),
+                  ),
                 ),
                 if (count != null)
                   Text(
