@@ -9874,15 +9874,15 @@
         "german": "Familie des Ehemanns",
         "level": "B2",
         "pos_de": "Nomen",
-        "example_korean": "주말에 시댁에 가요.",
-        "example_german": "Am Wochenende gehe ich zur Familie meines Mannes.",
+        "example_korean": "주말에 시댁 부모님을 뵈러 가요.",
+        "example_german": "Am Wochenende besuche ich die Eltern meines Mannes.",
         "topic": "Partnerschaft & koreanische Familie",
         "pack_id": "b2_partner_inlaws_1",
         "pack_order": "1",
         "is_review_boss": "false",
         "english": "husband's family home",
         "pos_en": "Noun",
-        "example_english": "I go to my husband's family on the weekend.",
+        "example_english": "I'm visiting my husband's parents this weekend.",
         "id": "vocab_b2_0431"
       },
       "fields": [
@@ -9892,11 +9892,11 @@
         "romanization"
       ],
       "beforeSha256": "0e4de8d1f33ca5a6aa90f0553c3755b92b3ca12fd7f8f04586ea71732df59d73",
-      "afterSha256": "d700aa27276f68085860f9fb6748975a2787a2125744d6238808369460b8fba1",
-      "sourceGitCommit": "e3ec67afb84b4a1701e0fc5da0ca298af97acbe1",
-      "sourceGitPath": "tools/content_factory/drafts/c3_batch07_vocab_partner_family.csv",
-      "normalization": "Existing exact promotion and relevel comparison projection",
-      "reason": "Direct editorial copy correction and synchronized practice; model-only review, original human gates retained"
+      "afterSha256": "ae5058c96345d182bcc1f7cc96a1c36a207bd0c3fcbda35831f2aa16fa66c435",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
     },
     {
       "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
@@ -9926,14 +9926,14 @@
         "level": "B2",
         "pos_de": "Nomen",
         "example_korean": "설날에 처가에 갔어요.",
-        "example_german": "An Seollal bin ich zur Familie meiner Frau gegangen.",
+        "example_german": "An Seollal habe ich die Familie meiner Frau besucht.",
         "topic": "Partnerschaft & koreanische Familie",
         "pack_id": "b2_partner_inlaws_1",
         "pack_order": "2",
         "is_review_boss": "false",
         "english": "wife's family home",
         "pos_en": "Noun",
-        "example_english": "I went to my wife's family for Seollal.",
+        "example_english": "I visited my wife's family for Seollal.",
         "id": "vocab_b2_0432"
       },
       "fields": [
@@ -9942,11 +9942,11 @@
         "example_korean"
       ],
       "beforeSha256": "fdf07aedaf2a6e02421c4533f41f0a96696285cdb7d615447fd99ae66f8de431",
-      "afterSha256": "627e1ca27a023b827f79802ac9ef2617adac8857b7059a1bdff9ea4b192a2100",
-      "sourceGitCommit": "e3ec67afb84b4a1701e0fc5da0ca298af97acbe1",
-      "sourceGitPath": "tools/content_factory/drafts/c3_batch07_vocab_partner_family.csv",
-      "normalization": "Existing exact promotion and relevel comparison projection",
-      "reason": "Direct editorial copy correction and synchronized practice; model-only review, original human gates retained"
+      "afterSha256": "7b58a02f900053ac55da482cae8625e8e745bad7b39beb09149791f186c58037",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
     },
     {
       "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
@@ -18834,15 +18834,15 @@
       "after": {
         "id": "cloze_b2_0170",
         "level": "b2",
-        "sentenceKo": "주말에 ＿＿＿에 가요.",
+        "sentenceKo": "주말에 ＿＿＿ 부모님을 뵈러 가요.",
         "answer": "시댁",
-        "fullKo": "주말에 시댁에 가요.",
-        "de": "Am Wochenende gehe ich zur Familie meines Mannes.",
-        "en": "I go to my husband's family on the weekend.",
+        "fullKo": "주말에 시댁 부모님을 뵈러 가요.",
+        "de": "Am Wochenende besuche ich die Eltern meines Mannes.",
+        "en": "I'm visiting my husband's parents this weekend.",
         "distractors": [
-          "사과",
-          "우유",
-          "안경"
+          "친정",
+          "외가",
+          "본가"
         ],
         "topic": "Partnerschaft & koreanische Familie"
       },
@@ -18854,11 +18854,11 @@
         "sentenceKo"
       ],
       "beforeSha256": "0068836cc2f0335f3401797371b8b49bd776b3719ffcfff2a99def1b5c4b549b",
-      "afterSha256": "3d1e7d1c3425242411c594cfdada258df786cf712cee6afc1f40ef47e6faba5a",
-      "sourceGitCommit": "e3ec67afb84b4a1701e0fc5da0ca298af97acbe1",
-      "sourceGitPath": "tools/content_factory/drafts/c2_batch07_cloze_partner_family.json",
-      "normalization": "Existing exact promotion and relevel comparison projection",
-      "reason": "Direct editorial copy correction and synchronized practice; model-only review, original human gates retained"
+      "afterSha256": "f9b46c6a14da0ee82fbd6f840c3870ebf36d04e170959722effb3a4907b20b00",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/cloze.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
     },
     {
       "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
@@ -18885,12 +18885,12 @@
         "sentenceKo": "설날에 ＿＿＿에 갔어요.",
         "answer": "처가",
         "fullKo": "설날에 처가에 갔어요.",
-        "de": "An Seollal bin ich zur Familie meiner Frau gegangen.",
-        "en": "I went to my wife's family for Seollal.",
+        "de": "An Seollal habe ich die Familie meiner Frau besucht.",
+        "en": "I visited my wife's family for Seollal.",
         "distractors": [
-          "책",
-          "의자",
-          "우산"
+          "시댁",
+          "친정",
+          "본가"
         ],
         "topic": "Partnerschaft & koreanische Familie"
       },
@@ -18902,11 +18902,11 @@
         "sentenceKo"
       ],
       "beforeSha256": "a7c92e40945805ab2f6f83130a0dcf159a3cae9bd1f05d927d176a2431f558e5",
-      "afterSha256": "4a92c20408332554843e005235899c15cf228e881148f8ef2943c8a0016dc92d",
-      "sourceGitCommit": "e3ec67afb84b4a1701e0fc5da0ca298af97acbe1",
-      "sourceGitPath": "tools/content_factory/drafts/c2_batch07_cloze_partner_family.json",
-      "normalization": "Existing exact promotion and relevel comparison projection",
-      "reason": "Direct editorial copy correction and synchronized practice; model-only review, original human gates retained"
+      "afterSha256": "b2603e8fdfd64e7b841a9d2e4f1b87dfab9e9b7d0e20579ddfb71c9f8e07fd0d",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/cloze.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
     },
     {
       "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
@@ -30979,9 +30979,9 @@
       "after": {
         "id": "satz_b2_0156",
         "level": "b2",
-        "targetKo": "주말에 시댁에 가요.",
-        "promptDe": "Am Wochenende gehe ich zur Familie meines Mannes.",
-        "promptEn": "I go to my husband's family on the weekend.",
+        "targetKo": "주말에 시댁 부모님을 뵈러 가요.",
+        "promptDe": "Am Wochenende besuche ich die Eltern meines Mannes.",
+        "promptEn": "I'm visiting my husband's parents this weekend.",
         "distractors": [
           "사과",
           "우유"
@@ -30995,11 +30995,11 @@
         "targetKo"
       ],
       "beforeSha256": "6d74340d1554b6bb61e6d818a1593d7e29d77ab5936f88d345137ea4f8f4dfe1",
-      "afterSha256": "15969aba8832cd6e781927dd34f8b85046416beab85d49c7c43c189dc48c6023",
-      "sourceGitCommit": "e3ec67afb84b4a1701e0fc5da0ca298af97acbe1",
-      "sourceGitPath": "tools/content_factory/drafts/c2_batch07_satz_partner_family.json",
-      "normalization": "Existing exact promotion and relevel comparison projection",
-      "reason": "Direct editorial copy correction and synchronized practice; model-only review, original human gates retained"
+      "afterSha256": "0639089840711fa96d8f6ec35e70a890b8abf69ad48d574b050f6e4ce597c064",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
     },
     {
       "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
@@ -31021,8 +31021,8 @@
         "id": "satz_b2_0157",
         "level": "b2",
         "targetKo": "설날에 처가에 갔어요.",
-        "promptDe": "An Seollal bin ich zur Familie meiner Frau gegangen.",
-        "promptEn": "I went to my wife's family for Seollal.",
+        "promptDe": "An Seollal habe ich die Familie meiner Frau besucht.",
+        "promptEn": "I visited my wife's family for Seollal.",
         "distractors": [
           "책",
           "의자"
@@ -31036,11 +31036,11 @@
         "targetKo"
       ],
       "beforeSha256": "146d2b30c1444efddfa6adfedea4443d2c3eed7b28c1f425d3cb328c7ec97bd0",
-      "afterSha256": "bcb297bb113edf29b42b46d0d327007021955a82b81f339c78cb13601cfc0930",
-      "sourceGitCommit": "e3ec67afb84b4a1701e0fc5da0ca298af97acbe1",
-      "sourceGitPath": "tools/content_factory/drafts/c2_batch07_satz_partner_family.json",
-      "normalization": "Existing exact promotion and relevel comparison projection",
-      "reason": "Direct editorial copy correction and synchronized practice; model-only review, original human gates retained"
+      "afterSha256": "21c88ec4aeecf492b4ffadb8bb8109f0be4da302698a59e296f493ecdd911836",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
     },
     {
       "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
@@ -85263,6 +85263,1789 @@
       "beforeSha256": "a08ef9b4c37d3f469e4be17743035694478474a86d3e9212dec3b33cde50f394",
       "afterSha256": "9aa8544124644253c41b889ddab2f30c1eba08351e2762b49cbf14fac1488c3d",
       "sourceGitCommit": "d1b46bcc2a8bb3d57ff62764f3f3156df7e06c41",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0405",
+      "before": {
+        "korean": "앞머리",
+        "romanization": "ammeori",
+        "german": "Pony",
+        "level": "A2",
+        "pos_de": "Nomen",
+        "example_korean": "앞머리를 눈에 안 들어오게 잘라 주세요.",
+        "example_german": "Bitte schneiden Sie den Pony so, dass er nicht ins Auge fällt.",
+        "topic": "Friseursalon",
+        "pack_id": "a2_salon_visit_1",
+        "pack_order": "5",
+        "is_review_boss": "false",
+        "english": "bangs",
+        "pos_en": "Noun",
+        "example_english": "Please cut the bangs so they do not fall into my eyes.",
+        "id": "vocab_a2_0405"
+      },
+      "after": {
+        "korean": "앞머리",
+        "romanization": "ammeori",
+        "german": "Pony",
+        "level": "A2",
+        "pos_de": "Nomen",
+        "example_korean": "앞머리를 눈에 안 들어오게 잘라 주세요.",
+        "example_german": "Bitte schneiden Sie den Pony so, dass er mir nicht in die Augen fällt.",
+        "topic": "Friseursalon",
+        "pack_id": "a2_salon_visit_1",
+        "pack_order": "5",
+        "is_review_boss": "false",
+        "english": "bangs",
+        "pos_en": "Noun",
+        "example_english": "Please cut my bangs so they don't get in my eyes.",
+        "id": "vocab_a2_0405"
+      },
+      "fields": [
+        "example_english",
+        "example_german"
+      ],
+      "beforeSha256": "4cfd8fa98b1bd7281e6d0423926124ea7f9bdbedff42ad18c649ae6a0309a86a",
+      "afterSha256": "be2819f5875e62552970c6298c48c875d60eca8863acaebcf78958b55d351152",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0462",
+      "before": {
+        "korean": "일정을 바꾸다",
+        "romanization": "iljeongeul bakkuda",
+        "german": "einen Termin ändern",
+        "level": "A2",
+        "pos_de": "Verb",
+        "example_korean": "비가 와서 일정을 바꿨어요.",
+        "example_german": "Wegen des Regens haben wir den Termin geändert.",
+        "topic": "약속과 일정",
+        "pack_id": "a2_plans_proposals_1",
+        "pack_order": "2",
+        "is_review_boss": "false",
+        "english": "change a schedule",
+        "pos_en": "Verb",
+        "example_english": "We changed the schedule because it rained.",
+        "id": "vocab_a2_0462"
+      },
+      "after": {
+        "korean": "일정을 바꾸다",
+        "romanization": "iljeongeul bakkuda",
+        "german": "einen Termin ändern",
+        "level": "A2",
+        "pos_de": "Verb",
+        "example_korean": "비가 와서 주말 여행 일정을 바꿨어요.",
+        "example_german": "Wegen des Regens haben wir unsere Pläne für den Wochenendausflug geändert.",
+        "topic": "약속과 일정",
+        "pack_id": "a2_plans_proposals_1",
+        "pack_order": "2",
+        "is_review_boss": "false",
+        "english": "change a schedule",
+        "pos_en": "Verb",
+        "example_english": "We changed our weekend trip plans because of the rain.",
+        "id": "vocab_a2_0462"
+      },
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "7048572dba693c3d2fee707e1d06295168177ea367eadcc1d8d4b5c2bd041df1",
+      "afterSha256": "bfdc271b6c54ce75ccf28cecb6f3b227447aca77a8bdbe9edbd8f51f76bcd6f6",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_20_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0420",
+      "before": {
+        "korean": "환승 안내",
+        "romanization": "hwanseung annae",
+        "german": "Umstiegshinweis",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "앱에서 환승 안내를 확인해요.",
+        "example_german": "Ich prüfe in der App die Informationen zum Umsteigen.",
+        "topic": "도시 생활",
+        "pack_id": "a1_city_services_2026_1",
+        "pack_order": "5",
+        "is_review_boss": "false",
+        "english": "transfer directions",
+        "pos_en": "Noun",
+        "example_english": "I check the transfer directions in the app.",
+        "id": "vocab_a1_0420"
+      },
+      "after": {
+        "korean": "환승 안내",
+        "romanization": "hwanseung annae",
+        "german": "Umstiegshinweis",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "지하철을 갈아타야 해서 앱에서 환승 안내를 확인해요.",
+        "example_german": "Ich muss umsteigen und schaue mir deshalb die Umsteigehinweise in der App an.",
+        "topic": "도시 생활",
+        "pack_id": "a1_city_services_2026_1",
+        "pack_order": "5",
+        "is_review_boss": "false",
+        "english": "transfer directions",
+        "pos_en": "Noun",
+        "example_english": "I need to change trains, so I check the app to see where to transfer.",
+        "id": "vocab_a1_0420"
+      },
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "ea9ea0ff78089ffc949e192d67798e667fbd02d5b4c154ff86d80b312b6527f0",
+      "afterSha256": "0ff011d259649200951c027faf4042109a8fcfdd13139d4d5ca856820f4729db",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_20_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0421",
+      "before": {
+        "korean": "교통카드 잔액",
+        "romanization": "gyotongkadeu janaek",
+        "german": "Fahrkartenguthaben",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "교통카드 잔액은 만 원이에요.",
+        "example_german": "Das Guthaben der Fahrkarte beträgt 10.000 Won.",
+        "topic": "도시 생활",
+        "pack_id": "a1_city_services_2026_1",
+        "pack_order": "6",
+        "is_review_boss": "false",
+        "english": "transit-card balance",
+        "pos_en": "Noun",
+        "example_english": "The transit-card balance is 10,000 won.",
+        "id": "vocab_a1_0421"
+      },
+      "after": {
+        "korean": "교통카드 잔액",
+        "romanization": "gyotongkadeu janaek",
+        "german": "Fahrkartenguthaben",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "교통카드 잔액이 만 원 남았어요.",
+        "example_german": "Auf meiner Karte für Bus und Bahn sind noch 10.000 Won.",
+        "topic": "도시 생활",
+        "pack_id": "a1_city_services_2026_1",
+        "pack_order": "6",
+        "is_review_boss": "false",
+        "english": "transit-card balance",
+        "pos_en": "Noun",
+        "example_english": "There's 10,000 won left on my transit card.",
+        "id": "vocab_a1_0421"
+      },
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "f8b6713eadfb442b6769bd30fb23714aa93d2c830c697d7985a7c39f8a4a3c6d",
+      "afterSha256": "a4a3ed17b2a5d290e5ab78377caa6b5b37bc102a04eb98d0ef8ab637cd6440fe",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0511",
+      "before": {
+        "korean": "닦다",
+        "romanization": "dakda",
+        "german": "wischen, putzen",
+        "level": "A2",
+        "pos_de": "Verb",
+        "example_korean": "주말마다 창문을 닦아요.",
+        "example_german": "Jedes Wochenende putze ich die Fenster.",
+        "topic": "Alltag",
+        "pack_id": "a2_daily_3",
+        "pack_order": "9",
+        "is_review_boss": "false",
+        "english": "to wipe, to clean",
+        "pos_en": "Verb",
+        "example_english": "I clean the windows every weekend.",
+        "id": "vocab_a2_0511"
+      },
+      "after": {
+        "korean": "닦다",
+        "romanization": "dakda",
+        "german": "wischen, putzen",
+        "level": "A2",
+        "pos_de": "Verb",
+        "example_korean": "창문이 더러워서 닦았어요.",
+        "example_german": "Das Fenster war schmutzig, also habe ich es geputzt.",
+        "topic": "Alltag",
+        "pack_id": "a2_daily_3",
+        "pack_order": "9",
+        "is_review_boss": "false",
+        "english": "to wipe, to clean",
+        "pos_en": "Verb",
+        "example_english": "The window was dirty, so I cleaned it.",
+        "id": "vocab_a2_0511"
+      },
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "8993562b77096631c7310a11d5b71a6481635d91b42731b070db235668d71d78",
+      "afterSha256": "e8dc368097dd345261413d8f45b9d0f4fd6b22fa41df6e8e168ea8b1136d6aca",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0512",
+      "before": {
+        "korean": "돌리다",
+        "romanization": "dollida",
+        "german": "laufen lassen, drehen",
+        "level": "A2",
+        "pos_de": "Verb",
+        "example_korean": "청소기 좀 돌리고 나갈게요.",
+        "example_german": "Ich sauge noch kurz und gehe dann raus.",
+        "topic": "Alltag",
+        "pack_id": "a2_daily_3",
+        "pack_order": "10",
+        "is_review_boss": "false",
+        "english": "to run (an appliance), to turn",
+        "pos_en": "Verb",
+        "example_english": "I'll run the vacuum quickly and then go out.",
+        "id": "vocab_a2_0512"
+      },
+      "after": {
+        "korean": "돌리다",
+        "romanization": "dollida",
+        "german": "laufen lassen, drehen",
+        "level": "A2",
+        "pos_de": "Verb",
+        "example_korean": "청소기 좀 돌리고 나갈게요.",
+        "example_german": "Ich sauge noch kurz Staub, bevor ich gehe.",
+        "topic": "Alltag",
+        "pack_id": "a2_daily_3",
+        "pack_order": "10",
+        "is_review_boss": "false",
+        "english": "to run (an appliance), to turn",
+        "pos_en": "Verb",
+        "example_english": "I'll vacuum quickly before I go out.",
+        "id": "vocab_a2_0512"
+      },
+      "fields": [
+        "example_english",
+        "example_german"
+      ],
+      "beforeSha256": "00a945751981dbec7735fbe314acb96a3ec13e2bac504f1fc950d5305a889eac",
+      "afterSha256": "510a6f3f02d04e3ebab12dd4e1acd3377a3d42a513c86594a1910438b9afa413",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0522",
+      "before": {
+        "korean": "착하다",
+        "romanization": "chakhada",
+        "german": "gutherzig, brav",
+        "level": "A2",
+        "pos_de": "Adjektiv",
+        "example_korean": "제 동생은 성격이 정말 착해요.",
+        "example_german": "Mein jüngeres Geschwisterkind ist wirklich lieb.",
+        "topic": "Beschreibung",
+        "pack_id": "a2_descriptions_1",
+        "pack_order": "10",
+        "is_review_boss": "false",
+        "english": "kind-hearted, good-natured",
+        "pos_en": "Adjective",
+        "example_english": "My younger sibling is really kind.",
+        "id": "vocab_a2_0522"
+      },
+      "after": {
+        "korean": "착하다",
+        "romanization": "chakhada",
+        "german": "gutherzig, brav",
+        "level": "A2",
+        "pos_de": "Adjektiv",
+        "example_korean": "제 남동생은 성격이 정말 착해요.",
+        "example_german": "Mein jüngerer Bruder ist wirklich lieb.",
+        "topic": "Beschreibung",
+        "pack_id": "a2_descriptions_1",
+        "pack_order": "10",
+        "is_review_boss": "false",
+        "english": "kind-hearted, good-natured",
+        "pos_en": "Adjective",
+        "example_english": "My younger brother is really kind.",
+        "id": "vocab_a2_0522"
+      },
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "7a9539f97baefe4bcedc8cea91a9e1dac404c9aa7370f59016995fae4b599c70",
+      "afterSha256": "bf01bc7272cfa9fdc6fa980a9834fb055c14b99086e94bf769bd3534ee27568e",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0539",
+      "before": {
+        "korean": "택배",
+        "romanization": "taekbae",
+        "german": "Paket(zustellung)",
+        "level": "A2",
+        "pos_de": "Nomen",
+        "example_korean": "주문한 택배가 오늘 도착했어요.",
+        "example_german": "Das bestellte Paket ist heute angekommen.",
+        "topic": "Einkaufen",
+        "pack_id": "a2_shopping_1",
+        "pack_order": "11",
+        "is_review_boss": "false",
+        "english": "parcel delivery",
+        "pos_en": "Noun",
+        "example_english": "The parcel I ordered arrived today.",
+        "id": "vocab_a2_0539"
+      },
+      "after": {
+        "korean": "택배",
+        "romanization": "taekbae",
+        "german": "Paket(zustellung)",
+        "level": "A2",
+        "pos_de": "Nomen",
+        "example_korean": "택배가 왔어요. 어제 주문한 책이에요.",
+        "example_german": "Mein Paket ist angekommen. Darin ist das Buch, das ich gestern bestellt habe.",
+        "topic": "Einkaufen",
+        "pack_id": "a2_shopping_1",
+        "pack_order": "11",
+        "is_review_boss": "false",
+        "english": "parcel delivery",
+        "pos_en": "Noun",
+        "example_english": "My package arrived. It's the book I ordered yesterday.",
+        "id": "vocab_a2_0539"
+      },
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "1b5a3860c96fc4f44e81cc15f54580968d0eb0ec763e06f28f57ef17cad023f4",
+      "afterSha256": "cd1eeace583d657f56df8672c713deeabe813fa6687e8b9535425f7e5cf72f6f",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0540",
+      "before": {
+        "korean": "상품",
+        "romanization": "sangpum",
+        "german": "Ware, Produkt",
+        "level": "A2",
+        "pos_de": "Nomen",
+        "example_korean": "이 상품은 지금 세 개 남았어요.",
+        "example_german": "Von dieser Ware sind jetzt noch drei Stück übrig.",
+        "topic": "Einkaufen",
+        "pack_id": "a2_shopping_1",
+        "pack_order": "12",
+        "is_review_boss": "false",
+        "english": "product, goods",
+        "pos_en": "Noun",
+        "example_english": "There are only three of this product left now.",
+        "id": "vocab_a2_0540"
+      },
+      "after": {
+        "korean": "상품",
+        "romanization": "sangpum",
+        "german": "Ware, Produkt",
+        "level": "A2",
+        "pos_de": "Nomen",
+        "example_korean": "이 상품은 지금 세 개 남았어요.",
+        "example_german": "Von diesem Artikel sind nur noch drei da.",
+        "topic": "Einkaufen",
+        "pack_id": "a2_shopping_1",
+        "pack_order": "12",
+        "is_review_boss": "false",
+        "english": "product, goods",
+        "pos_en": "Noun",
+        "example_english": "There are only three of this item left.",
+        "id": "vocab_a2_0540"
+      },
+      "fields": [
+        "example_english",
+        "example_german"
+      ],
+      "beforeSha256": "6884695aeb181a5ef5d11421f9a45ec1b11d2ce9ef26b283b2c946329432336d",
+      "afterSha256": "61a72442c6191fd575dc6ad3c0f9b0c8e248ed4828759ff79140a778f70fa4f5",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0549",
+      "before": {
+        "korean": "고모",
+        "romanization": "gomo",
+        "german": "Tante (väterlicherseits)",
+        "level": "A2",
+        "pos_de": "Nomen",
+        "example_korean": "오늘 저녁에 고모도 오시기로 했어요.",
+        "example_german": "Heute Abend kommt auch meine Tante (väterlicherseits) dazu.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a2_partner_dinner_talk_1",
+        "pack_order": "7",
+        "is_review_boss": "false",
+        "english": "paternal aunt",
+        "pos_en": "Noun",
+        "example_english": "My aunt is also coming to dinner tonight.",
+        "id": "vocab_a2_0549"
+      },
+      "after": {
+        "korean": "고모",
+        "romanization": "gomo",
+        "german": "Tante (väterlicherseits)",
+        "level": "A2",
+        "pos_de": "Nomen",
+        "example_korean": "오늘 저녁에 고모도 오시기로 했어요.",
+        "example_german": "Heute Abend kommt auch meine Tante zum Essen.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a2_partner_dinner_talk_1",
+        "pack_order": "7",
+        "is_review_boss": "false",
+        "english": "paternal aunt",
+        "pos_en": "Noun",
+        "example_english": "My aunt is coming to dinner tonight too.",
+        "id": "vocab_a2_0549"
+      },
+      "fields": [
+        "example_english",
+        "example_german"
+      ],
+      "beforeSha256": "7159ae1956f3d6063c150c9f464f971d45fda65a1c76a069a5de547a8777a1a0",
+      "afterSha256": "a7646a9343a90ab6413219df5cdeed80db6307af4cfdc3895fa4b98a53183c50",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0551",
+      "before": {
+        "korean": "이모",
+        "romanization": "imo",
+        "german": "Tante (mütterlicherseits)",
+        "level": "A2",
+        "pos_de": "Nomen",
+        "example_korean": "설날에는 이모 댁에도 가요.",
+        "example_german": "An Seollal besuchen wir auch das Haus meiner Tante (mütterlicherseits).",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a2_partner_seollal_day_1",
+        "pack_order": "3",
+        "is_review_boss": "false",
+        "english": "maternal aunt",
+        "pos_en": "Noun",
+        "example_english": "On Seollal, we also visit my aunt's house.",
+        "id": "vocab_a2_0551"
+      },
+      "after": {
+        "korean": "이모",
+        "romanization": "imo",
+        "german": "Tante (mütterlicherseits)",
+        "level": "A2",
+        "pos_de": "Nomen",
+        "example_korean": "설날에는 이모 댁에도 가요.",
+        "example_german": "An Seollal besuchen wir auch meine Tante.",
+        "topic": "Partnerschaft & koreanische Familie",
+        "pack_id": "a2_partner_seollal_day_1",
+        "pack_order": "3",
+        "is_review_boss": "false",
+        "english": "maternal aunt",
+        "pos_en": "Noun",
+        "example_english": "We visit my aunt on Seollal too.",
+        "id": "vocab_a2_0551"
+      },
+      "fields": [
+        "example_english",
+        "example_german"
+      ],
+      "beforeSha256": "ab14e9da6dd91e20104ac14e4c55c1636fd7a56a3a3c9da0405289ba0ee845d4",
+      "afterSha256": "a4946a9f963cd20f20bc81440167ca279b4cdc85799a95232ff3610dc4bd239d",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0555",
+      "before": {
+        "korean": "취소",
+        "romanization": "chwiso",
+        "german": "Absage, Stornierung",
+        "level": "A2",
+        "pos_de": "Nomen",
+        "example_korean": "비가 와서 약속을 취소했어요.",
+        "example_german": "Es hat geregnet, deshalb habe ich die Verabredung abgesagt.",
+        "topic": "약속과 일정",
+        "pack_id": "a2_plans_proposals_1",
+        "pack_order": "11",
+        "is_review_boss": "false",
+        "english": "cancellation",
+        "pos_en": "Noun",
+        "example_english": "It rained, so I cancelled the appointment.",
+        "id": "vocab_a2_0555"
+      },
+      "after": {
+        "korean": "취소",
+        "romanization": "chwiso",
+        "german": "Absage, Stornierung",
+        "level": "A2",
+        "pos_de": "Nomen",
+        "example_korean": "비가 와서 소풍을 취소했어요.",
+        "example_german": "Wegen des Regens haben wir das Picknick abgesagt.",
+        "topic": "약속과 일정",
+        "pack_id": "a2_plans_proposals_1",
+        "pack_order": "11",
+        "is_review_boss": "false",
+        "english": "cancellation",
+        "pos_en": "Noun",
+        "example_english": "We canceled the picnic because it rained.",
+        "id": "vocab_a2_0555"
+      },
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "a1e2f30364d78a691cc273c958ca6cb32108407c4f1628878eec48df1210bb2d",
+      "afterSha256": "af7dc39186f464ea545a266a9cc114ef2eaa8fa455b99ef9ebbd15415811516a",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/korean_vocab.csv",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a2_0212",
+      "before": {
+        "id": "cloze_a2_0212",
+        "level": "a2",
+        "sentenceKo": "＿＿＿를 눈에 안 들어오게 잘라 주세요.",
+        "answer": "앞머리",
+        "fullKo": "앞머리를 눈에 안 들어오게 잘라 주세요.",
+        "de": "Bitte schneiden Sie den Pony so, dass er nicht ins Auge fällt.",
+        "en": "Please cut the bangs so they do not fall into my eyes.",
+        "distractors": [
+          "커트",
+          "열쇠",
+          "문자"
+        ],
+        "topic": "Friseursalon"
+      },
+      "after": {
+        "id": "cloze_a2_0212",
+        "level": "a2",
+        "sentenceKo": "＿＿＿를 눈에 안 들어오게 잘라 주세요.",
+        "answer": "앞머리",
+        "fullKo": "앞머리를 눈에 안 들어오게 잘라 주세요.",
+        "de": "Bitte schneiden Sie den Pony so, dass er mir nicht in die Augen fällt.",
+        "en": "Please cut my bangs so they don't get in my eyes.",
+        "distractors": [
+          "옆머리",
+          "뒷머리",
+          "가르마"
+        ],
+        "topic": "Friseursalon"
+      },
+      "fields": [
+        "de",
+        "distractors",
+        "en"
+      ],
+      "beforeSha256": "4f03392411d0e8189dcedc5b2ac01cbcf89d45ea975e71d14fbb4342c84e0374",
+      "afterSha256": "9eb3d4b068c997f2cd6bb9ab4aaf4c47d0ccc012a95d36bc2bdf21330aef8cda",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/cloze.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a2_0270",
+      "before": {
+        "id": "cloze_a2_0270",
+        "level": "a2",
+        "topic": "약속과 일정",
+        "fullKo": "비가 와서 일정을 바꿨어요.",
+        "answer": "일정을 바꿨어요",
+        "sentenceKo": "비가 와서 ＿＿＿.",
+        "de": "Wegen des Regens haben wir den Termin geändert.",
+        "en": "We changed the schedule because it rained.",
+        "distractors": [
+          "약속을 지켰어요",
+          "장소를 찾았어요",
+          "시간을 물었어요"
+        ],
+        "courseUnitId": "a2_02_plans_proposals",
+        "sourceSeedId": "seed_batch19_a2_02_plans_proposals"
+      },
+      "after": {
+        "id": "cloze_a2_0270",
+        "level": "a2",
+        "topic": "약속과 일정",
+        "fullKo": "비가 와서 주말 여행 일정을 바꿨어요.",
+        "answer": "일정을",
+        "sentenceKo": "비가 와서 주말 여행 ＿＿＿ 바꿨어요.",
+        "de": "Wegen des Regens haben wir unsere Pläne für den Wochenendausflug geändert.",
+        "en": "We changed our weekend trip plans because of the rain.",
+        "distractors": [
+          "날짜를",
+          "장소를",
+          "시간을"
+        ],
+        "courseUnitId": "a2_02_plans_proposals",
+        "sourceSeedId": "seed_batch19_a2_02_plans_proposals"
+      },
+      "fields": [
+        "answer",
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "31eae503df6061d5c442da047678f08a843d232d0bbaa229da3d954f2c88a253",
+      "afterSha256": "474067957e0194ae5fe51a43b589f8cd33cc938c0c23443ac76d8961d56e008e",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/cloze.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_20_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0349",
+      "before": {
+        "id": "cloze_a1_0349",
+        "level": "a1",
+        "topic": "도시 생활",
+        "fullKo": "앱에서 환승 안내를 확인해요.",
+        "answer": "환승 안내",
+        "sentenceKo": "앱에서 ＿＿＿를 확인해요.",
+        "de": "Ich prüfe in der App die Informationen zum Umsteigen.",
+        "en": "I check the transfer directions in the app.",
+        "distractors": [
+          "우체국 위치",
+          "벨트",
+          "동료"
+        ],
+        "courseUnitId": "a1_06_transport_directions",
+        "sourceSeedId": "seed_batch20_a1_city_services_2026"
+      },
+      "after": {
+        "id": "cloze_a1_0349",
+        "level": "a1",
+        "topic": "도시 생활",
+        "fullKo": "지하철을 갈아타야 해서 앱에서 환승 안내를 확인해요.",
+        "answer": "환승 안내",
+        "sentenceKo": "지하철을 갈아타야 해서 앱에서 ＿＿＿를 확인해요.",
+        "de": "Ich muss umsteigen und schaue mir deshalb die Umsteigehinweise in der App an.",
+        "en": "I need to change trains, so I check the app to see where to transfer.",
+        "distractors": [
+          "출구 안내",
+          "식당 메뉴",
+          "날씨"
+        ],
+        "courseUnitId": "a1_06_transport_directions",
+        "sourceSeedId": "seed_batch20_a1_city_services_2026"
+      },
+      "fields": [
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "a7c1a6b12fb8e67ab3cf2ca990da898ac9c4c4e2524930428782c5bcb254f0ae",
+      "afterSha256": "75dcbd540e38f756913f3c9df8f4d5eb1d400455fef0276eec23a24ce365b58e",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/cloze.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_20_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0350",
+      "before": {
+        "id": "cloze_a1_0350",
+        "level": "a1",
+        "topic": "도시 생활",
+        "fullKo": "교통카드 잔액은 만 원이에요.",
+        "answer": "교통카드 잔액",
+        "sentenceKo": "＿＿＿은 만 원이에요.",
+        "de": "Das Guthaben der Fahrkarte beträgt 10.000 Won.",
+        "en": "The transit-card balance is 10,000 won.",
+        "distractors": [
+          "약국",
+          "정류장",
+          "면접"
+        ],
+        "courseUnitId": "a1_06_transport_directions",
+        "sourceSeedId": "seed_batch20_a1_city_services_2026"
+      },
+      "after": {
+        "id": "cloze_a1_0350",
+        "level": "a1",
+        "topic": "도시 생활",
+        "fullKo": "교통카드 잔액이 만 원 남았어요.",
+        "answer": "교통카드 잔액이",
+        "sentenceKo": "＿＿＿ 만 원 남았어요.",
+        "de": "Auf meiner Karte für Bus und Bahn sind noch 10.000 Won.",
+        "en": "There's 10,000 won left on my transit card.",
+        "distractors": [
+          "버스 요금이",
+          "교통카드가",
+          "현금이"
+        ],
+        "courseUnitId": "a1_06_transport_directions",
+        "sourceSeedId": "seed_batch20_a1_city_services_2026"
+      },
+      "fields": [
+        "answer",
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "c178c668130825dbbd28eb694da2ad2627982c43f47593954e607793287530af",
+      "afterSha256": "e28c84d227a720e92aee8cd06e5aaf5cf40c959038cb7f521a9cdef9e693e3b2",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/cloze.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a2_0318",
+      "before": {
+        "id": "cloze_a2_0318",
+        "sourceVocabId": "vocab_a2_0511",
+        "fullKo": "주말마다 창문을 닦아요.",
+        "sentenceKo": "주말마다 창문을 ＿＿＿.",
+        "answer": "닦아요",
+        "distractors": [
+          "가요",
+          "와요",
+          "자요"
+        ],
+        "level": "a2",
+        "topic": "Alltag",
+        "de": "Jedes Wochenende putze ich die Fenster.",
+        "en": "I clean the windows every weekend.",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      "after": {
+        "id": "cloze_a2_0318",
+        "sourceVocabId": "vocab_a2_0511",
+        "fullKo": "창문이 더러워서 닦았어요.",
+        "sentenceKo": "창문이 더러워서 ＿＿＿.",
+        "answer": "닦았어요",
+        "distractors": [
+          "열었어요",
+          "닫았어요",
+          "버렸어요"
+        ],
+        "level": "a2",
+        "topic": "Alltag",
+        "de": "Das Fenster war schmutzig, also habe ich es geputzt.",
+        "en": "The window was dirty, so I cleaned it.",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      "fields": [
+        "answer",
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "847e6223381c0e69e8f005f6e7f891ef5b3f6fb4da80cc2003eb18ee628dc975",
+      "afterSha256": "ef2c7c9b35dd24bc4a4b74d794cfd3d612aa8aae03c222758a60b094c031596b",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/cloze.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a2_0319",
+      "before": {
+        "id": "cloze_a2_0319",
+        "sourceVocabId": "vocab_a2_0512",
+        "fullKo": "청소기 좀 돌리고 나갈게요.",
+        "sentenceKo": "청소기 좀 ＿＿＿ 나갈게요.",
+        "answer": "돌리고",
+        "distractors": [
+          "가고",
+          "오고",
+          "자고"
+        ],
+        "level": "a2",
+        "topic": "Alltag",
+        "de": "Ich sauge noch kurz und gehe dann raus.",
+        "en": "I'll run the vacuum quickly and then go out.",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      "after": {
+        "id": "cloze_a2_0319",
+        "sourceVocabId": "vocab_a2_0512",
+        "fullKo": "청소기 좀 돌리고 나갈게요.",
+        "sentenceKo": "청소기 좀 ＿＿＿ 나갈게요.",
+        "answer": "돌리고",
+        "distractors": [
+          "꺼내고",
+          "치우고",
+          "고치고"
+        ],
+        "level": "a2",
+        "topic": "Alltag",
+        "de": "Ich sauge noch kurz Staub, bevor ich gehe.",
+        "en": "I'll vacuum quickly before I go out.",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      "fields": [
+        "de",
+        "distractors",
+        "en"
+      ],
+      "beforeSha256": "5df9e292041ca3a11f143dee86fbb53f7d45c8a79bc71d5facbea442911d754e",
+      "afterSha256": "276fa6fcf879b9fb11ae78bec23079ddec2124d6628c3d734c7a84e8ca97c3f0",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/cloze.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a2_0329",
+      "before": {
+        "id": "cloze_a2_0329",
+        "sourceVocabId": "vocab_a2_0522",
+        "fullKo": "제 동생은 성격이 정말 착해요.",
+        "sentenceKo": "제 동생은 성격이 정말 ＿＿＿.",
+        "answer": "착해요",
+        "distractors": [
+          "셔요",
+          "짧아요",
+          "두꺼워요"
+        ],
+        "level": "a2",
+        "topic": "Beschreibung",
+        "de": "Mein jüngeres Geschwisterkind ist wirklich lieb.",
+        "en": "My younger sibling is really kind.",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      "after": {
+        "id": "cloze_a2_0329",
+        "sourceVocabId": "vocab_a2_0522",
+        "fullKo": "제 남동생은 성격이 정말 착해요.",
+        "sentenceKo": "제 남동생은 성격이 정말 ＿＿＿.",
+        "answer": "착해요",
+        "distractors": [
+          "활발해요",
+          "조용해요",
+          "까다로워요"
+        ],
+        "level": "a2",
+        "topic": "Beschreibung",
+        "de": "Mein jüngerer Bruder ist wirklich lieb.",
+        "en": "My younger brother is really kind.",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      "fields": [
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "f9367c222bfeb623feabeebdb312b964392d447890dc31edca6c5ea81b750b23",
+      "afterSha256": "8df520313807dcb1493cd9e4502526f63fe6c1b3c220709a492716c1dba622b6",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/cloze.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a2_0346",
+      "before": {
+        "id": "cloze_a2_0346",
+        "sourceVocabId": "vocab_a2_0539",
+        "fullKo": "주문한 택배가 오늘 도착했어요.",
+        "sentenceKo": "주문한 ＿＿＿ 오늘 도착했어요.",
+        "answer": "택배가",
+        "distractors": [
+          "걱정이",
+          "짜증이",
+          "정리가"
+        ],
+        "level": "a2",
+        "topic": "Einkaufen",
+        "de": "Das bestellte Paket ist heute angekommen.",
+        "en": "The parcel I ordered arrived today.",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      "after": {
+        "id": "cloze_a2_0346",
+        "sourceVocabId": "vocab_a2_0539",
+        "fullKo": "택배가 왔어요. 어제 주문한 책이에요.",
+        "sentenceKo": "＿＿＿ 왔어요. 어제 주문한 책이에요.",
+        "answer": "택배가",
+        "distractors": [
+          "편지가",
+          "동생이",
+          "친구가"
+        ],
+        "level": "a2",
+        "topic": "Einkaufen",
+        "de": "Mein Paket ist angekommen. Darin ist das Buch, das ich gestern bestellt habe.",
+        "en": "My package arrived. It's the book I ordered yesterday.",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      "fields": [
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "1f9af296e1db25005dc8d3011cd79f2e3e45d042342be4c87fa944b1617fe695",
+      "afterSha256": "b89e65d67056cba47e27b6eba770bdc509e872db3a27daf7b8869f341e77cd8f",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/cloze.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a2_0347",
+      "before": {
+        "id": "cloze_a2_0347",
+        "sourceVocabId": "vocab_a2_0540",
+        "fullKo": "이 상품은 지금 세 개 남았어요.",
+        "sentenceKo": "이 ＿＿＿ 지금 세 개 남았어요.",
+        "answer": "상품은",
+        "distractors": [
+          "외출은",
+          "취소는",
+          "저금은"
+        ],
+        "level": "a2",
+        "topic": "Einkaufen",
+        "de": "Von dieser Ware sind jetzt noch drei Stück übrig.",
+        "en": "There are only three of this product left now.",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      "after": {
+        "id": "cloze_a2_0347",
+        "sourceVocabId": "vocab_a2_0540",
+        "fullKo": "이 상품은 지금 세 개 남았어요.",
+        "sentenceKo": "이 ＿＿＿ 지금 세 개 남았어요.",
+        "answer": "상품은",
+        "distractors": [
+          "외출은",
+          "취소는",
+          "저금은"
+        ],
+        "level": "a2",
+        "topic": "Einkaufen",
+        "de": "Von diesem Artikel sind nur noch drei da.",
+        "en": "There are only three of this item left.",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      "fields": [
+        "de",
+        "en"
+      ],
+      "beforeSha256": "069e580712be613379264fafeb19b6c5fc4e9451db01f4a7467fa76a9b22c6f3",
+      "afterSha256": "c2fb898cb58ea395626affc66bc09bc05dc190ba3351e0d2151a25143ec1157d",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/cloze.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a2_0356",
+      "before": {
+        "id": "cloze_a2_0356",
+        "sourceVocabId": "vocab_a2_0549",
+        "fullKo": "오늘 저녁에 고모도 오시기로 했어요.",
+        "sentenceKo": "오늘 저녁에 ＿＿＿ 오시기로 했어요.",
+        "answer": "고모도",
+        "distractors": [
+          "의자도",
+          "책도",
+          "우유도"
+        ],
+        "level": "a2",
+        "topic": "Partnerschaft & koreanische Familie",
+        "de": "Heute Abend kommt auch meine Tante (väterlicherseits) dazu.",
+        "en": "My aunt is also coming to dinner tonight.",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      "after": {
+        "id": "cloze_a2_0356",
+        "sourceVocabId": "vocab_a2_0549",
+        "fullKo": "오늘 저녁에 고모도 오시기로 했어요.",
+        "sentenceKo": "오늘 저녁에 ＿＿＿ 오시기로 했어요.",
+        "answer": "고모도",
+        "distractors": [
+          "삼촌도",
+          "할아버지도",
+          "친구도"
+        ],
+        "level": "a2",
+        "topic": "Partnerschaft & koreanische Familie",
+        "de": "Heute Abend kommt auch meine Tante zum Essen.",
+        "en": "My aunt is coming to dinner tonight too.",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      "fields": [
+        "de",
+        "distractors",
+        "en"
+      ],
+      "beforeSha256": "d61b32f244bab4868a8a2dd03ec194f7ff6877e04b8d3b6d6a4553f426cd4f82",
+      "afterSha256": "599bdc39d2164aaf71cac30e533ed9c4a426eb798ff5a90240ce4556124b313d",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/cloze.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a2_0358",
+      "before": {
+        "id": "cloze_a2_0358",
+        "sourceVocabId": "vocab_a2_0551",
+        "fullKo": "설날에는 이모 댁에도 가요.",
+        "sentenceKo": "설날에는 ＿＿＿ 댁에도 가요.",
+        "answer": "이모",
+        "distractors": [
+          "지도",
+          "그림",
+          "일기"
+        ],
+        "level": "a2",
+        "topic": "Partnerschaft & koreanische Familie",
+        "de": "An Seollal besuchen wir auch das Haus meiner Tante (mütterlicherseits).",
+        "en": "On Seollal, we also visit my aunt's house.",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      "after": {
+        "id": "cloze_a2_0358",
+        "sourceVocabId": "vocab_a2_0551",
+        "fullKo": "설날에는 이모 댁에도 가요.",
+        "sentenceKo": "설날에는 ＿＿＿ 댁에도 가요.",
+        "answer": "이모",
+        "distractors": [
+          "삼촌",
+          "동생",
+          "할머니"
+        ],
+        "level": "a2",
+        "topic": "Partnerschaft & koreanische Familie",
+        "de": "An Seollal besuchen wir auch meine Tante.",
+        "en": "We visit my aunt on Seollal too.",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      "fields": [
+        "de",
+        "distractors",
+        "en"
+      ],
+      "beforeSha256": "2af9ed368fe7046e7866db96198d1e5efd6562a8cf2a659396ad025a000ea2bf",
+      "afterSha256": "956d78f2dd402e511239f22738897163598c028d034da6c6e6112ea39a41e0c5",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/cloze.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a2_0175",
+      "before": {
+        "id": "satz_a2_0175",
+        "level": "a2",
+        "targetKo": "앞머리를 눈에 안 들어오게 잘라 주세요.",
+        "promptDe": "Bitte schneiden Sie den Pony so, dass er nicht ins Auge fällt.",
+        "promptEn": "Please cut the bangs so they do not fall into my eyes.",
+        "distractors": [
+          "미용실",
+          "커트"
+        ],
+        "vocabKo": "앞머리"
+      },
+      "after": {
+        "id": "satz_a2_0175",
+        "level": "a2",
+        "targetKo": "앞머리를 눈에 안 들어오게 잘라 주세요.",
+        "promptDe": "Bitte schneiden Sie den Pony so, dass er mir nicht in die Augen fällt.",
+        "promptEn": "Please cut my bangs so they don't get in my eyes.",
+        "distractors": [
+          "미용실",
+          "커트"
+        ],
+        "vocabKo": "앞머리"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn"
+      ],
+      "beforeSha256": "9efe735a9c5c94d6a79a6c3de94830f42f5feb0c074cf9d56d393ed21b931207",
+      "afterSha256": "70493d7fc45749f1491b7fc4b7b735d46fe158466c7221a7b84559bc63fb53db",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_10_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a2_0231",
+      "before": {
+        "id": "satz_a2_0231",
+        "level": "a2",
+        "targetKo": "요즘 회사 일이 좀 많아요.",
+        "promptDe": "Zurzeit habe ich ziemlich viel Arbeit in der Firma.",
+        "promptEn": "I've got a lot of work at the company these days.",
+        "distractors": [
+          "직업",
+          "취미"
+        ],
+        "vocabKo": "회사"
+      },
+      "after": {
+        "id": "satz_a2_0231",
+        "level": "a2",
+        "targetKo": "요즘 회사 일이 좀 많아요.",
+        "promptDe": "Ich habe zurzeit ziemlich viel Arbeit.",
+        "promptEn": "I have a lot to do at work these days.",
+        "distractors": [
+          "직업",
+          "취미"
+        ],
+        "vocabKo": "회사"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn"
+      ],
+      "beforeSha256": "230e3ccdcbde05aa7f86932d60f6b9d0bf90a243e38bebe64be246826d4608d1",
+      "afterSha256": "b532d346ba4d26c95981e9d3cc639d2c4de6d5201a9adcb766616b8c069331b5",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_10_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a2_0306",
+      "before": {
+        "id": "satz_a2_0306",
+        "level": "a2",
+        "targetKo": "뭐니 뭐니 해도 건강이 최고예요.",
+        "promptDe": "Am Ende ist die Gesundheit doch das Wichtigste.",
+        "promptEn": "At the end of the day, health comes first.",
+        "distractors": [
+          "회사",
+          "직업"
+        ],
+        "vocabKo": "건강"
+      },
+      "after": {
+        "id": "satz_a2_0306",
+        "level": "a2",
+        "targetKo": "건강을 위해 매일 산책해요.",
+        "promptDe": "Ich gehe jeden Tag spazieren, um gesund zu bleiben.",
+        "promptEn": "I go for a walk every day to stay healthy.",
+        "distractors": [
+          "회사",
+          "직업"
+        ],
+        "vocabKo": "건강"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "e8fffae89a9974f0508d79641f46e97943e3bc7638ef0811716f41b9533e5c16",
+      "afterSha256": "5a4a4bd976634ef661367d01cd2310f695adaa83056bf478c4ddbe2ccf90b6d5",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_10_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a2_0350",
+      "before": {
+        "id": "satz_a2_0350",
+        "level": "a2",
+        "targetKo": "한국어로 대화를 연습해요.",
+        "promptDe": "Wir üben Gespräche auf Koreanisch.",
+        "promptEn": "We practice conversations in Korean.",
+        "distractors": [
+          "회사",
+          "직업"
+        ],
+        "vocabKo": "대화"
+      },
+      "after": {
+        "id": "satz_a2_0350",
+        "level": "a2",
+        "targetKo": "한국어 수업에서 민지와 대화해요.",
+        "promptDe": "Im Koreanischunterricht unterhalte ich mich mit Minji.",
+        "promptEn": "I talk with Minji in Korean class.",
+        "distractors": [
+          "회사",
+          "직업"
+        ],
+        "vocabKo": "대화"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "0ce08673df71e954daa85b162a59bb87e0bab3470a2c18369996381680a1e85a",
+      "afterSha256": "515f3d6eadd15f97fd94e485a67ae0b9d342fe995a0cc26b9a26e92007d06c1e",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_10_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_b2_0480",
+      "before": {
+        "id": "satz_b2_0480",
+        "level": "b2",
+        "targetKo": "선생님 말씀 잘 들었어요.",
+        "promptDe": "Ich habe Ihre Worte aufmerksam gehört.",
+        "promptEn": "I listened carefully to your words.",
+        "distractors": [
+          "갈등",
+          "관점"
+        ],
+        "vocabKo": "말씀"
+      },
+      "after": {
+        "id": "satz_b2_0480",
+        "level": "b2",
+        "targetKo": "선생님, 말씀하신 대로 집에서 연습했어요.",
+        "promptDe": "Ich habe zu Hause geübt, wie Sie es empfohlen haben.",
+        "promptEn": "I practiced at home like you suggested.",
+        "distractors": [
+          "갈등",
+          "관점"
+        ],
+        "vocabKo": "말씀"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "073572cad2df63db176c47ccedad3cad7e6e0302007e76f6df8ff9a0a08c1f3f",
+      "afterSha256": "a9400a2c21ce84e1786871c65669b26ca584e2ab753f9ca4d128789850676428",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_10_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_b2_0485",
+      "before": {
+        "id": "satz_b2_0485",
+        "level": "b2",
+        "targetKo": "할머니께 선물을 드렸어요.",
+        "promptDe": "Ich habe meiner Großmutter ein Geschenk überreicht.",
+        "promptEn": "I gave my grandmother a present.",
+        "distractors": [
+          "갈등",
+          "관점"
+        ],
+        "vocabKo": "드리다"
+      },
+      "after": {
+        "id": "satz_b2_0485",
+        "level": "b2",
+        "targetKo": "할머니께 선물을 드렸어요.",
+        "promptDe": "Ich habe meiner Großmutter etwas geschenkt.",
+        "promptEn": "I gave my grandmother a present.",
+        "distractors": [
+          "갈등",
+          "관점"
+        ],
+        "vocabKo": "드리다"
+      },
+      "fields": [
+        "promptDe"
+      ],
+      "beforeSha256": "79f227e834524dc5a569c9d775be56b49f616d59df13c66f56feb0106d99a1a2",
+      "afterSha256": "ab22fa1151aaf1ffe85b3072158d57d254f0aac0797bd5275843f34bfd4311d4",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "satz",
+      "id": "satz_a2_0456",
+      "before": {
+        "id": "satz_a2_0456",
+        "level": "a2",
+        "targetKo": "비가 와서 일정을 바꿨어요.",
+        "promptDe": "Wegen des Regens haben wir den Termin geändert.",
+        "promptEn": "We changed the schedule because it rained.",
+        "vocabKo": "일정을 바꾸다",
+        "distractors": [
+          "결제를",
+          "아직"
+        ],
+        "courseUnitId": "a2_02_plans_proposals",
+        "sourceSeedId": "seed_batch19_a2_02_plans_proposals"
+      },
+      "after": {
+        "id": "satz_a2_0456",
+        "level": "a2",
+        "targetKo": "비가 와서 주말 여행 일정을 바꿨어요.",
+        "promptDe": "Wegen des Regens haben wir unsere Pläne für den Wochenendausflug geändert.",
+        "promptEn": "We changed our weekend trip plans because of the rain.",
+        "vocabKo": "일정을 바꾸다",
+        "distractors": [
+          "결제를",
+          "아직"
+        ],
+        "courseUnitId": "a2_02_plans_proposals",
+        "sourceSeedId": "seed_batch19_a2_02_plans_proposals"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "8d145b5a795662b4eb2255d4963d690053b847ce195db500ac0480cb966fd0d4",
+      "afterSha256": "722f02db6f1ad4eede5d9afead42967ed7846873d8f78b52859a6c56a336ff6d",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "satz",
+      "id": "satz_a2_0503",
+      "before": {
+        "id": "satz_a2_0503",
+        "sourceVocabId": "vocab_a2_0511",
+        "vocabKo": "닦다",
+        "targetKo": "주말마다 창문을 닦아요.",
+        "distractors": [
+          "가요",
+          "와요"
+        ],
+        "level": "a2",
+        "promptDe": "Jedes Wochenende putze ich die Fenster.",
+        "promptEn": "I clean the windows every weekend.",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      "after": {
+        "id": "satz_a2_0503",
+        "sourceVocabId": "vocab_a2_0511",
+        "vocabKo": "닦다",
+        "targetKo": "창문이 더러워서 닦았어요.",
+        "distractors": [
+          "가요",
+          "와요"
+        ],
+        "level": "a2",
+        "promptDe": "Das Fenster war schmutzig, also habe ich es geputzt.",
+        "promptEn": "The window was dirty, so I cleaned it.",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "258e27348b88a051f184c1fb355d2c9fdb1de2b93544298af71de75e312c32d0",
+      "afterSha256": "e9208f8bafaf6d940fd8511e03a3f15add83ecbdbb89d30ca6d22d2596c6778a",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "satz",
+      "id": "satz_a2_0504",
+      "before": {
+        "id": "satz_a2_0504",
+        "sourceVocabId": "vocab_a2_0512",
+        "vocabKo": "돌리다",
+        "targetKo": "청소기 좀 돌리고 나갈게요.",
+        "distractors": [
+          "가고",
+          "오고"
+        ],
+        "level": "a2",
+        "promptDe": "Ich sauge noch kurz und gehe dann raus.",
+        "promptEn": "I'll run the vacuum quickly and then go out.",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      "after": {
+        "id": "satz_a2_0504",
+        "sourceVocabId": "vocab_a2_0512",
+        "vocabKo": "돌리다",
+        "targetKo": "청소기 좀 돌리고 나갈게요.",
+        "distractors": [
+          "가고",
+          "오고"
+        ],
+        "level": "a2",
+        "promptDe": "Ich sauge noch kurz Staub, bevor ich gehe.",
+        "promptEn": "I'll vacuum quickly before I go out.",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn"
+      ],
+      "beforeSha256": "a86b802633419b2999cf2a5570abd2d67618f819e2034a48596e233c95c92516",
+      "afterSha256": "e87d7b42a9dfae717d9c845ae8e95fd9cbb91840487b64d6213a2171f18a2259",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "satz",
+      "id": "satz_a2_0514",
+      "before": {
+        "id": "satz_a2_0514",
+        "sourceVocabId": "vocab_a2_0522",
+        "vocabKo": "착하다",
+        "targetKo": "제 동생은 성격이 정말 착해요.",
+        "distractors": [
+          "셔요",
+          "짧아요"
+        ],
+        "level": "a2",
+        "promptDe": "Mein jüngeres Geschwisterkind ist wirklich lieb.",
+        "promptEn": "My younger sibling is really kind.",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      "after": {
+        "id": "satz_a2_0514",
+        "sourceVocabId": "vocab_a2_0522",
+        "vocabKo": "착하다",
+        "targetKo": "제 남동생은 성격이 정말 착해요.",
+        "distractors": [
+          "셔요",
+          "짧아요"
+        ],
+        "level": "a2",
+        "promptDe": "Mein jüngerer Bruder ist wirklich lieb.",
+        "promptEn": "My younger brother is really kind.",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "f15991492fc7e021a34d5e8a2578477049f5b49fe8a66a6d0231a855c77933af",
+      "afterSha256": "3eebc3977ece1c0062ab6e193652f965ae2b53f815aca69e349b7d116ea9af7a",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "satz",
+      "id": "satz_a2_0531",
+      "before": {
+        "id": "satz_a2_0531",
+        "sourceVocabId": "vocab_a2_0539",
+        "vocabKo": "택배",
+        "targetKo": "주문한 택배가 오늘 도착했어요.",
+        "distractors": [
+          "걱정이",
+          "짜증이"
+        ],
+        "level": "a2",
+        "promptDe": "Das bestellte Paket ist heute angekommen.",
+        "promptEn": "The parcel I ordered arrived today.",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      "after": {
+        "id": "satz_a2_0531",
+        "sourceVocabId": "vocab_a2_0539",
+        "vocabKo": "택배",
+        "targetKo": "택배가 왔어요. 어제 주문한 책이에요.",
+        "distractors": [
+          "걱정이",
+          "짜증이"
+        ],
+        "level": "a2",
+        "promptDe": "Mein Paket ist angekommen. Darin ist das Buch, das ich gestern bestellt habe.",
+        "promptEn": "My package arrived. It's the book I ordered yesterday.",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "7aeabbb75eef65e20df3b735719641f2975fd39d87acb04b470efff2c75a6469",
+      "afterSha256": "9cac89e7bac51b219f9dc91bad99b3cc615d126dc03583ac11b588c7ca8e674a",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "satz",
+      "id": "satz_a2_0532",
+      "before": {
+        "id": "satz_a2_0532",
+        "sourceVocabId": "vocab_a2_0540",
+        "vocabKo": "상품",
+        "targetKo": "이 상품은 지금 세 개 남았어요.",
+        "distractors": [
+          "걱정은",
+          "취소는"
+        ],
+        "level": "a2",
+        "promptDe": "Von dieser Ware sind jetzt noch drei Stück übrig.",
+        "promptEn": "There are only three of this product left now.",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      "after": {
+        "id": "satz_a2_0532",
+        "sourceVocabId": "vocab_a2_0540",
+        "vocabKo": "상품",
+        "targetKo": "이 상품은 지금 세 개 남았어요.",
+        "distractors": [
+          "걱정은",
+          "취소는"
+        ],
+        "level": "a2",
+        "promptDe": "Von diesem Artikel sind nur noch drei da.",
+        "promptEn": "There are only three of this item left.",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn"
+      ],
+      "beforeSha256": "e20ef7fee46df3df9f707de7872c4bf777d39610384cb77fec1056b3e212549f",
+      "afterSha256": "9b0a7ddaea3bac797187cef6f6787d30889b9846210e1ea98b803a22d4d857b3",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "satz",
+      "id": "satz_a2_0541",
+      "before": {
+        "id": "satz_a2_0541",
+        "sourceVocabId": "vocab_a2_0549",
+        "vocabKo": "고모",
+        "targetKo": "오늘 저녁에 고모도 오시기로 했어요.",
+        "distractors": [
+          "우산도",
+          "편지도"
+        ],
+        "level": "a2",
+        "promptDe": "Heute Abend kommt auch meine Tante (väterlicherseits) dazu.",
+        "promptEn": "My aunt is also coming to dinner tonight.",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      "after": {
+        "id": "satz_a2_0541",
+        "sourceVocabId": "vocab_a2_0549",
+        "vocabKo": "고모",
+        "targetKo": "오늘 저녁에 고모도 오시기로 했어요.",
+        "distractors": [
+          "우산도",
+          "편지도"
+        ],
+        "level": "a2",
+        "promptDe": "Heute Abend kommt auch meine Tante zum Essen.",
+        "promptEn": "My aunt is coming to dinner tonight too.",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn"
+      ],
+      "beforeSha256": "e3205ddd25a2066acbfdfc6b744efab5e55d5cc894cbb537105028ec55dc1770",
+      "afterSha256": "9e452cbce5e48547498c8226a329d15d2b754923e367506bf20b4c7bfa59a33e",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "satz",
+      "id": "satz_a2_0543",
+      "before": {
+        "id": "satz_a2_0543",
+        "sourceVocabId": "vocab_a2_0551",
+        "vocabKo": "이모",
+        "targetKo": "설날에는 이모 댁에도 가요.",
+        "distractors": [
+          "지도",
+          "그림"
+        ],
+        "level": "a2",
+        "promptDe": "An Seollal besuchen wir auch das Haus meiner Tante (mütterlicherseits).",
+        "promptEn": "On Seollal, we also visit my aunt's house.",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      "after": {
+        "id": "satz_a2_0543",
+        "sourceVocabId": "vocab_a2_0551",
+        "vocabKo": "이모",
+        "targetKo": "설날에는 이모 댁에도 가요.",
+        "distractors": [
+          "지도",
+          "그림"
+        ],
+        "level": "a2",
+        "promptDe": "An Seollal besuchen wir auch meine Tante.",
+        "promptEn": "We visit my aunt on Seollal too.",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn"
+      ],
+      "beforeSha256": "804e565b1efceaf74c7ced3352f4ccf4d3be7f5c34c3affe787ef9a310c7fcee",
+      "afterSha256": "346f00c8bb050a22bc221dbe974f0d6682e297cad34e40c0e3fbdddfb0d54127",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
+      "sourceGitPath": "assets/data/satz_sentences.json",
+      "normalization": "Direct editorial copy revision after relevel comparison projection",
+      "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "satz",
+      "id": "satz_a2_0547",
+      "before": {
+        "id": "satz_a2_0547",
+        "sourceVocabId": "vocab_a2_0555",
+        "vocabKo": "취소",
+        "targetKo": "비가 와서 약속을 취소했어요.",
+        "distractors": [
+          "도와줬어요",
+          "빌렸어요"
+        ],
+        "level": "a2",
+        "promptDe": "Es hat geregnet, deshalb habe ich die Verabredung abgesagt.",
+        "promptEn": "It rained, so I cancelled the appointment.",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      "after": {
+        "id": "satz_a2_0547",
+        "sourceVocabId": "vocab_a2_0555",
+        "vocabKo": "취소",
+        "targetKo": "비가 와서 소풍을 취소했어요.",
+        "distractors": [
+          "도와줬어요",
+          "빌렸어요"
+        ],
+        "level": "a2",
+        "promptDe": "Wegen des Regens haben wir das Picknick abgesagt.",
+        "promptEn": "We canceled the picnic because it rained.",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "f2b6de12c1f48fe2d581154bd41108b513cedd1d4a4460d9962ec1940c3833b3",
+      "afterSha256": "2d64e8e2a3864af54d98cb0b02fcf9e47c414341f509d1e7bb60d9b686828ebc",
+      "sourceGitCommit": "cddfc332666f9cf144d5bbb791173f0e884f12f3",
       "sourceGitPath": "assets/data/satz_sentences.json",
       "normalization": "Direct editorial copy revision after relevel comparison projection",
       "reason": "Direct tri-language review repaired meaning, register, or plausible scene and synchronized linked practice wording."

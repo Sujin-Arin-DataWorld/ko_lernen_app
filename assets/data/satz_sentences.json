@@ -8900,9 +8900,9 @@
     {
       "id": "satz_b2_0156",
       "level": "a1",
-      "targetKo": "주말에 시댁에 가요.",
-      "promptDe": "Am Wochenende gehe ich zur Familie meines Mannes.",
-      "promptEn": "I go to my husband's family on the weekend.",
+      "targetKo": "주말에 시댁 부모님을 뵈러 가요.",
+      "promptDe": "Am Wochenende besuche ich die Eltern meines Mannes.",
+      "promptEn": "I'm visiting my husband's parents this weekend.",
       "distractors": [
         "사과",
         "우유"
@@ -8913,8 +8913,8 @@
       "id": "satz_b2_0157",
       "level": "a1",
       "targetKo": "설날에 처가에 갔어요.",
-      "promptDe": "An Seollal bin ich zur Familie meiner Frau gegangen.",
-      "promptEn": "I went to my wife's family for Seollal.",
+      "promptDe": "An Seollal habe ich die Familie meiner Frau besucht.",
+      "promptEn": "I visited my wife's family for Seollal.",
       "distractors": [
         "책",
         "의자"
@@ -12261,8 +12261,8 @@
       "id": "satz_a2_0175",
       "level": "a2",
       "targetKo": "앞머리를 눈에 안 들어오게 잘라 주세요.",
-      "promptDe": "Bitte schneiden Sie den Pony so, dass er nicht ins Auge fällt.",
-      "promptEn": "Please cut the bangs so they do not fall into my eyes.",
+      "promptDe": "Bitte schneiden Sie den Pony so, dass er mir nicht in die Augen fällt.",
+      "promptEn": "Please cut my bangs so they don't get in my eyes.",
       "distractors": [
         "미용실",
         "커트"
@@ -17913,8 +17913,8 @@
       "id": "satz_a2_0231",
       "level": "a1",
       "targetKo": "요즘 회사 일이 좀 많아요.",
-      "promptDe": "Zurzeit habe ich ziemlich viel Arbeit in der Firma.",
-      "promptEn": "I've got a lot of work at the company these days.",
+      "promptDe": "Ich habe zurzeit ziemlich viel Arbeit.",
+      "promptEn": "I have a lot to do at work these days.",
       "distractors": [
         "직업",
         "취미"
@@ -18872,9 +18872,9 @@
     {
       "id": "satz_a2_0306",
       "level": "a2",
-      "targetKo": "뭐니 뭐니 해도 건강이 최고예요.",
-      "promptDe": "Am Ende ist die Gesundheit doch das Wichtigste.",
-      "promptEn": "At the end of the day, health comes first.",
+      "targetKo": "건강을 위해 매일 산책해요.",
+      "promptDe": "Ich gehe jeden Tag spazieren, um gesund zu bleiben.",
+      "promptEn": "I go for a walk every day to stay healthy.",
       "distractors": [
         "회사",
         "직업"
@@ -21644,9 +21644,9 @@
     {
       "id": "satz_a2_0350",
       "level": "a2",
-      "targetKo": "한국어로 대화를 연습해요.",
-      "promptDe": "Wir üben Gespräche auf Koreanisch.",
-      "promptEn": "We practice conversations in Korean.",
+      "targetKo": "한국어 수업에서 민지와 대화해요.",
+      "promptDe": "Im Koreanischunterricht unterhalte ich mich mit Minji.",
+      "promptEn": "I talk with Minji in Korean class.",
       "distractors": [
         "회사",
         "직업"
@@ -23504,9 +23504,9 @@
     {
       "id": "satz_b2_0480",
       "level": "a1",
-      "targetKo": "선생님 말씀 잘 들었어요.",
-      "promptDe": "Ich habe Ihre Worte aufmerksam gehört.",
-      "promptEn": "I listened carefully to your words.",
+      "targetKo": "선생님, 말씀하신 대로 집에서 연습했어요.",
+      "promptDe": "Ich habe zu Hause geübt, wie Sie es empfohlen haben.",
+      "promptEn": "I practiced at home like you suggested.",
       "distractors": [
         "갈등",
         "관점"
@@ -23565,7 +23565,7 @@
       "id": "satz_b2_0485",
       "level": "a1",
       "targetKo": "할머니께 선물을 드렸어요.",
-      "promptDe": "Ich habe meiner Großmutter ein Geschenk überreicht.",
+      "promptDe": "Ich habe meiner Großmutter etwas geschenkt.",
       "promptEn": "I gave my grandmother a present.",
       "distractors": [
         "갈등",
@@ -28066,9 +28066,9 @@
     {
       "id": "satz_a2_0456",
       "level": "a2",
-      "targetKo": "비가 와서 일정을 바꿨어요.",
-      "promptDe": "Wegen des Regens haben wir den Termin geändert.",
-      "promptEn": "We changed the schedule because it rained.",
+      "targetKo": "비가 와서 주말 여행 일정을 바꿨어요.",
+      "promptDe": "Wegen des Regens haben wir unsere Pläne für den Wochenendausflug geändert.",
+      "promptEn": "We changed our weekend trip plans because of the rain.",
       "vocabKo": "일정을 바꾸다",
       "distractors": [
         "결제를",
@@ -29201,9 +29201,9 @@
     {
       "id": "satz_a2_0475",
       "level": "a2",
-      "targetKo": "물을 끓여서 차를 마셔요.",
-      "promptDe": "Ich koche Wasser und trinke Tee.",
-      "promptEn": "I boil water and drink tea.",
+      "targetKo": "차 마시려고 물을 끓였어요.",
+      "promptDe": "Ich habe Wasser für Tee gekocht.",
+      "promptEn": "I boiled water for tea.",
       "vocabKo": "끓이다",
       "distractors": [
         "송편",
@@ -29266,9 +29266,9 @@
     {
       "id": "satz_a2_0480",
       "level": "a2",
-      "targetKo": "디자인은 예쁘지만 좀 비싸요.",
-      "promptDe": "Das Design ist schön, aber etwas teuer.",
-      "promptEn": "The design is pretty, but it's a bit pricey.",
+      "targetKo": "이 가방 디자인은 예쁜데 좀 비싸요.",
+      "promptDe": "Das Design der Tasche gefällt mir, aber sie ist etwas teuer.",
+      "promptEn": "I like the design of this bag, but it's a bit expensive.",
       "vocabKo": "디자인",
       "distractors": [
         "꽃병",
@@ -29344,9 +29344,9 @@
     {
       "id": "satz_a2_0486",
       "level": "a2",
-      "targetKo": "오늘 하루가 정말 즐거워요.",
-      "promptDe": "Der Tag heute ist wirklich schön.",
-      "promptEn": "Today is really enjoyable.",
+      "targetKo": "오늘 민지와 만나서 정말 즐거웠어요.",
+      "promptDe": "Es war heute wirklich schön, Zeit mit Minji zu verbringen.",
+      "promptEn": "I really enjoyed spending time with Minji today.",
       "vocabKo": "즐겁다",
       "distractors": [
         "대학교",
@@ -29383,9 +29383,9 @@
     {
       "id": "satz_a2_0489",
       "level": "a2",
-      "targetKo": "시간표를 보고 시간을 정해요.",
-      "promptDe": "Ich schaue auf den Stundenplan und lege dann eine Uhrzeit fest.",
-      "promptEn": "I check the timetable and decide on a time.",
+      "targetKo": "수업 시간표를 보고 만날 시간을 정해요.",
+      "promptDe": "Ich schaue auf meinen Stundenplan und entscheide dann, wann wir uns treffen.",
+      "promptEn": "I check my class schedule before deciding when to meet.",
       "vocabKo": "시간표",
       "distractors": [
         "동료",
@@ -35194,14 +35194,14 @@
       "id": "satz_a2_0503",
       "sourceVocabId": "vocab_a2_0511",
       "vocabKo": "닦다",
-      "targetKo": "주말마다 창문을 닦아요.",
+      "targetKo": "창문이 더러워서 닦았어요.",
       "distractors": [
         "가요",
         "와요"
       ],
       "level": "a2",
-      "promptDe": "Jedes Wochenende putze ich die Fenster.",
-      "promptEn": "I clean the windows every weekend.",
+      "promptDe": "Das Fenster war schmutzig, also habe ich es geputzt.",
+      "promptEn": "The window was dirty, so I cleaned it.",
       "courseUnitId": "a2_01_haeyo_transition"
     },
     {
@@ -35214,8 +35214,8 @@
         "오고"
       ],
       "level": "a2",
-      "promptDe": "Ich sauge noch kurz und gehe dann raus.",
-      "promptEn": "I'll run the vacuum quickly and then go out.",
+      "promptDe": "Ich sauge noch kurz Staub, bevor ich gehe.",
+      "promptEn": "I'll vacuum quickly before I go out.",
       "courseUnitId": "a2_01_haeyo_transition"
     },
     {
@@ -35348,14 +35348,14 @@
       "id": "satz_a2_0514",
       "sourceVocabId": "vocab_a2_0522",
       "vocabKo": "착하다",
-      "targetKo": "제 동생은 성격이 정말 착해요.",
+      "targetKo": "제 남동생은 성격이 정말 착해요.",
       "distractors": [
         "셔요",
         "짧아요"
       ],
       "level": "a2",
-      "promptDe": "Mein jüngeres Geschwisterkind ist wirklich lieb.",
-      "promptEn": "My younger sibling is really kind.",
+      "promptDe": "Mein jüngerer Bruder ist wirklich lieb.",
+      "promptEn": "My younger brother is really kind.",
       "courseUnitId": "a2_01_haeyo_transition"
     },
     {
@@ -35586,14 +35586,14 @@
       "id": "satz_a2_0531",
       "sourceVocabId": "vocab_a2_0539",
       "vocabKo": "택배",
-      "targetKo": "주문한 택배가 오늘 도착했어요.",
+      "targetKo": "택배가 왔어요. 어제 주문한 책이에요.",
       "distractors": [
         "걱정이",
         "짜증이"
       ],
       "level": "a2",
-      "promptDe": "Das bestellte Paket ist heute angekommen.",
-      "promptEn": "The parcel I ordered arrived today.",
+      "promptDe": "Mein Paket ist angekommen. Darin ist das Buch, das ich gestern bestellt habe.",
+      "promptEn": "My package arrived. It's the book I ordered yesterday.",
       "courseUnitId": "a2_05_delivery_services"
     },
     {
@@ -35606,8 +35606,8 @@
         "취소는"
       ],
       "level": "a2",
-      "promptDe": "Von dieser Ware sind jetzt noch drei Stück übrig.",
-      "promptEn": "There are only three of this product left now.",
+      "promptDe": "Von diesem Artikel sind nur noch drei da.",
+      "promptEn": "There are only three of this item left.",
       "courseUnitId": "a2_05_delivery_services"
     },
     {
@@ -35732,8 +35732,8 @@
         "편지도"
       ],
       "level": "a2",
-      "promptDe": "Heute Abend kommt auch meine Tante (väterlicherseits) dazu.",
-      "promptEn": "My aunt is also coming to dinner tonight.",
+      "promptDe": "Heute Abend kommt auch meine Tante zum Essen.",
+      "promptEn": "My aunt is coming to dinner tonight too.",
       "courseUnitId": "a2_03_chat_relationships"
     },
     {
@@ -35760,8 +35760,8 @@
         "그림"
       ],
       "level": "a2",
-      "promptDe": "An Seollal besuchen wir auch das Haus meiner Tante (mütterlicherseits).",
-      "promptEn": "On Seollal, we also visit my aunt's house.",
+      "promptDe": "An Seollal besuchen wir auch meine Tante.",
+      "promptEn": "We visit my aunt on Seollal too.",
       "courseUnitId": "a2_03_chat_relationships"
     },
     {
@@ -35810,14 +35810,14 @@
       "id": "satz_a2_0547",
       "sourceVocabId": "vocab_a2_0555",
       "vocabKo": "취소",
-      "targetKo": "비가 와서 약속을 취소했어요.",
+      "targetKo": "비가 와서 소풍을 취소했어요.",
       "distractors": [
         "도와줬어요",
         "빌렸어요"
       ],
       "level": "a2",
-      "promptDe": "Es hat geregnet, deshalb habe ich die Verabredung abgesagt.",
-      "promptEn": "It rained, so I cancelled the appointment.",
+      "promptDe": "Wegen des Regens haben wir das Picknick abgesagt.",
+      "promptEn": "We canceled the picnic because it rained.",
       "courseUnitId": "a2_02_plans_proposals"
     },
     {

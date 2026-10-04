@@ -12370,15 +12370,15 @@
     {
       "id": "cloze_b2_0170",
       "level": "a1",
-      "sentenceKo": "주말에 ＿＿＿에 가요.",
+      "sentenceKo": "주말에 ＿＿＿ 부모님을 뵈러 가요.",
       "answer": "시댁",
-      "fullKo": "주말에 시댁에 가요.",
-      "de": "Am Wochenende gehe ich zur Familie meines Mannes.",
-      "en": "I go to my husband's family on the weekend.",
+      "fullKo": "주말에 시댁 부모님을 뵈러 가요.",
+      "de": "Am Wochenende besuche ich die Eltern meines Mannes.",
+      "en": "I'm visiting my husband's parents this weekend.",
       "distractors": [
-        "사과",
-        "우유",
-        "안경"
+        "친정",
+        "외가",
+        "본가"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -12388,12 +12388,12 @@
       "sentenceKo": "설날에 ＿＿＿에 갔어요.",
       "answer": "처가",
       "fullKo": "설날에 처가에 갔어요.",
-      "de": "An Seollal bin ich zur Familie meiner Frau gegangen.",
-      "en": "I went to my wife's family for Seollal.",
+      "de": "An Seollal habe ich die Familie meiner Frau besucht.",
+      "en": "I visited my wife's family for Seollal.",
       "distractors": [
-        "책",
-        "의자",
-        "우산"
+        "시댁",
+        "친정",
+        "본가"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -16573,12 +16573,12 @@
       "sentenceKo": "＿＿＿를 눈에 안 들어오게 잘라 주세요.",
       "answer": "앞머리",
       "fullKo": "앞머리를 눈에 안 들어오게 잘라 주세요.",
-      "de": "Bitte schneiden Sie den Pony so, dass er nicht ins Auge fällt.",
-      "en": "Please cut the bangs so they do not fall into my eyes.",
+      "de": "Bitte schneiden Sie den Pony so, dass er mir nicht in die Augen fällt.",
+      "en": "Please cut my bangs so they don't get in my eyes.",
       "distractors": [
-        "커트",
-        "열쇠",
-        "문자"
+        "옆머리",
+        "뒷머리",
+        "가르마"
       ],
       "topic": "Friseursalon"
     },
@@ -27022,15 +27022,15 @@
       "id": "cloze_a2_0270",
       "level": "a2",
       "topic": "약속과 일정",
-      "fullKo": "비가 와서 일정을 바꿨어요.",
-      "answer": "일정을 바꿨어요",
-      "sentenceKo": "비가 와서 ＿＿＿.",
-      "de": "Wegen des Regens haben wir den Termin geändert.",
-      "en": "We changed the schedule because it rained.",
+      "fullKo": "비가 와서 주말 여행 일정을 바꿨어요.",
+      "answer": "일정을",
+      "sentenceKo": "비가 와서 주말 여행 ＿＿＿ 바꿨어요.",
+      "de": "Wegen des Regens haben wir unsere Pläne für den Wochenendausflug geändert.",
+      "en": "We changed our weekend trip plans because of the rain.",
       "distractors": [
-        "약속을 지켰어요",
-        "장소를 찾았어요",
-        "시간을 물었어요"
+        "날짜를",
+        "장소를",
+        "시간을"
       ],
       "courseUnitId": "a2_02_plans_proposals",
       "sourceSeedId": "seed_batch19_a2_02_plans_proposals"
@@ -27226,15 +27226,15 @@
       "id": "cloze_a1_0349",
       "level": "a2",
       "topic": "도시 생활",
-      "fullKo": "앱에서 환승 안내를 확인해요.",
+      "fullKo": "지하철을 갈아타야 해서 앱에서 환승 안내를 확인해요.",
       "answer": "환승 안내",
-      "sentenceKo": "앱에서 ＿＿＿를 확인해요.",
-      "de": "Ich prüfe in der App die Informationen zum Umsteigen.",
-      "en": "I check the transfer directions in the app.",
+      "sentenceKo": "지하철을 갈아타야 해서 앱에서 ＿＿＿를 확인해요.",
+      "de": "Ich muss umsteigen und schaue mir deshalb die Umsteigehinweise in der App an.",
+      "en": "I need to change trains, so I check the app to see where to transfer.",
       "distractors": [
-        "우체국 위치",
-        "벨트",
-        "동료"
+        "출구 안내",
+        "식당 메뉴",
+        "날씨"
       ],
       "courseUnitId": "a1_06_transport_directions",
       "sourceSeedId": "seed_batch20_a1_city_services_2026"
@@ -27243,15 +27243,15 @@
       "id": "cloze_a1_0350",
       "level": "a2",
       "topic": "도시 생활",
-      "fullKo": "교통카드 잔액은 만 원이에요.",
-      "answer": "교통카드 잔액",
-      "sentenceKo": "＿＿＿은 만 원이에요.",
-      "de": "Das Guthaben der Fahrkarte beträgt 10.000 Won.",
-      "en": "The transit-card balance is 10,000 won.",
+      "fullKo": "교통카드 잔액이 만 원 남았어요.",
+      "answer": "교통카드 잔액이",
+      "sentenceKo": "＿＿＿ 만 원 남았어요.",
+      "de": "Auf meiner Karte für Bus und Bahn sind noch 10.000 Won.",
+      "en": "There's 10,000 won left on my transit card.",
       "distractors": [
-        "약국",
-        "정류장",
-        "면접"
+        "버스 요금이",
+        "교통카드가",
+        "현금이"
       ],
       "courseUnitId": "a1_06_transport_directions",
       "sourceSeedId": "seed_batch20_a1_city_services_2026"
@@ -28538,15 +28538,15 @@
       "id": "cloze_a2_0290",
       "level": "a2",
       "topic": "Essen & Trinken",
-      "fullKo": "물을 끓여서 차를 마셔요.",
-      "answer": "끓여서",
-      "sentenceKo": "물을 ＿＿＿ 차를 마셔요.",
-      "de": "Ich koche Wasser und trinke Tee.",
-      "en": "I boil water and drink tea.",
+      "fullKo": "차 마시려고 물을 끓였어요.",
+      "answer": "끓였어요",
+      "sentenceKo": "차 마시려고 물을 ＿＿＿.",
+      "de": "Ich habe Wasser für Tee gekocht.",
+      "en": "I boiled water for tea.",
       "distractors": [
-        "답답해서",
-        "화장해서",
-        "저축해서"
+        "따랐어요",
+        "버렸어요",
+        "데웠어요"
       ],
       "courseUnitId": "a2_05_delivery_services"
     },
@@ -28618,15 +28618,15 @@
       "id": "cloze_a2_0295",
       "level": "a2",
       "topic": "Einkaufen",
-      "fullKo": "디자인은 예쁘지만 좀 비싸요.",
-      "answer": "디자인",
-      "sentenceKo": "＿＿＿은 예쁘지만 좀 비싸요.",
-      "de": "Das Design ist schön, aber etwas teuer.",
-      "en": "The design is pretty, but it's a bit pricey.",
+      "fullKo": "이 가방 디자인은 예쁜데 좀 비싸요.",
+      "answer": "디자인은",
+      "sentenceKo": "이 가방 ＿＿＿ 예쁜데 좀 비싸요.",
+      "de": "Das Design der Tasche gefällt mir, aber sie ist etwas teuer.",
+      "en": "I like the design of this bag, but it's a bit expensive.",
       "distractors": [
-        "병원",
-        "현관",
-        "달력"
+        "가격은",
+        "색깔은",
+        "크기는"
       ],
       "courseUnitId": "a2_05_delivery_services"
     },
@@ -28714,15 +28714,15 @@
       "id": "cloze_a2_0301",
       "level": "a2",
       "topic": "Gefühle",
-      "fullKo": "오늘 하루가 정말 즐거워요.",
-      "answer": "즐거워요",
-      "sentenceKo": "오늘 하루가 정말 ＿＿＿.",
-      "de": "Der Tag heute ist wirklich schön.",
-      "en": "Today is really enjoyable.",
+      "fullKo": "오늘 민지와 만나서 정말 즐거웠어요.",
+      "answer": "즐거웠어요",
+      "sentenceKo": "오늘 민지와 만나서 정말 ＿＿＿.",
+      "de": "Es war heute wirklich schön, Zeit mit Minji zu verbringen.",
+      "en": "I really enjoyed spending time with Minji today.",
       "distractors": [
-        "만날까요",
-        "직업이 뭐예요",
-        "잘 주무셨어요"
+        "피곤했어요",
+        "바빴어요",
+        "지루했어요"
       ],
       "courseUnitId": "a2_04_feelings_health"
     },
@@ -28762,15 +28762,15 @@
       "id": "cloze_a2_0304",
       "level": "a2",
       "topic": "약속과 일정",
-      "fullKo": "시간표를 보고 시간을 정해요.",
-      "answer": "시간표",
-      "sentenceKo": "＿＿＿를 보고 시간을 정해요.",
-      "de": "Ich schaue auf den Stundenplan und lege dann eine Uhrzeit fest.",
-      "en": "I check the timetable and decide on a time.",
+      "fullKo": "수업 시간표를 보고 만날 시간을 정해요.",
+      "answer": "시간표를",
+      "sentenceKo": "수업 ＿＿＿ 보고 만날 시간을 정해요.",
+      "de": "Ich schaue auf meinen Stundenplan und entscheide dann, wann wir uns treffen.",
+      "en": "I check my class schedule before deciding when to meet.",
       "distractors": [
-        "영화",
-        "교과서",
-        "왕자"
+        "달력을",
+        "메시지를",
+        "지도를"
       ],
       "courseUnitId": "a2_02_plans_proposals"
     },
@@ -35822,18 +35822,18 @@
     {
       "id": "cloze_a2_0318",
       "sourceVocabId": "vocab_a2_0511",
-      "fullKo": "주말마다 창문을 닦아요.",
-      "sentenceKo": "주말마다 창문을 ＿＿＿.",
-      "answer": "닦아요",
+      "fullKo": "창문이 더러워서 닦았어요.",
+      "sentenceKo": "창문이 더러워서 ＿＿＿.",
+      "answer": "닦았어요",
       "distractors": [
-        "가요",
-        "와요",
-        "자요"
+        "열었어요",
+        "닫았어요",
+        "버렸어요"
       ],
       "level": "a2",
       "topic": "Alltag",
-      "de": "Jedes Wochenende putze ich die Fenster.",
-      "en": "I clean the windows every weekend.",
+      "de": "Das Fenster war schmutzig, also habe ich es geputzt.",
+      "en": "The window was dirty, so I cleaned it.",
       "courseUnitId": "a2_01_haeyo_transition"
     },
     {
@@ -35843,14 +35843,14 @@
       "sentenceKo": "청소기 좀 ＿＿＿ 나갈게요.",
       "answer": "돌리고",
       "distractors": [
-        "가고",
-        "오고",
-        "자고"
+        "꺼내고",
+        "치우고",
+        "고치고"
       ],
       "level": "a2",
       "topic": "Alltag",
-      "de": "Ich sauge noch kurz und gehe dann raus.",
-      "en": "I'll run the vacuum quickly and then go out.",
+      "de": "Ich sauge noch kurz Staub, bevor ich gehe.",
+      "en": "I'll vacuum quickly before I go out.",
       "courseUnitId": "a2_01_haeyo_transition"
     },
     {
@@ -36009,18 +36009,18 @@
     {
       "id": "cloze_a2_0329",
       "sourceVocabId": "vocab_a2_0522",
-      "fullKo": "제 동생은 성격이 정말 착해요.",
-      "sentenceKo": "제 동생은 성격이 정말 ＿＿＿.",
+      "fullKo": "제 남동생은 성격이 정말 착해요.",
+      "sentenceKo": "제 남동생은 성격이 정말 ＿＿＿.",
       "answer": "착해요",
       "distractors": [
-        "셔요",
-        "짧아요",
-        "두꺼워요"
+        "활발해요",
+        "조용해요",
+        "까다로워요"
       ],
       "level": "a2",
       "topic": "Beschreibung",
-      "de": "Mein jüngeres Geschwisterkind ist wirklich lieb.",
-      "en": "My younger sibling is really kind.",
+      "de": "Mein jüngerer Bruder ist wirklich lieb.",
+      "en": "My younger brother is really kind.",
       "courseUnitId": "a2_01_haeyo_transition"
     },
     {
@@ -36298,18 +36298,18 @@
     {
       "id": "cloze_a2_0346",
       "sourceVocabId": "vocab_a2_0539",
-      "fullKo": "주문한 택배가 오늘 도착했어요.",
-      "sentenceKo": "주문한 ＿＿＿ 오늘 도착했어요.",
+      "fullKo": "택배가 왔어요. 어제 주문한 책이에요.",
+      "sentenceKo": "＿＿＿ 왔어요. 어제 주문한 책이에요.",
       "answer": "택배가",
       "distractors": [
-        "걱정이",
-        "짜증이",
-        "정리가"
+        "편지가",
+        "동생이",
+        "친구가"
       ],
       "level": "a2",
       "topic": "Einkaufen",
-      "de": "Das bestellte Paket ist heute angekommen.",
-      "en": "The parcel I ordered arrived today.",
+      "de": "Mein Paket ist angekommen. Darin ist das Buch, das ich gestern bestellt habe.",
+      "en": "My package arrived. It's the book I ordered yesterday.",
       "courseUnitId": "a2_05_delivery_services"
     },
     {
@@ -36325,8 +36325,8 @@
       ],
       "level": "a2",
       "topic": "Einkaufen",
-      "de": "Von dieser Ware sind jetzt noch drei Stück übrig.",
-      "en": "There are only three of this product left now.",
+      "de": "Von diesem Artikel sind nur noch drei da.",
+      "en": "There are only three of this item left.",
       "courseUnitId": "a2_05_delivery_services"
     },
     {
@@ -36472,14 +36472,14 @@
       "sentenceKo": "오늘 저녁에 ＿＿＿ 오시기로 했어요.",
       "answer": "고모도",
       "distractors": [
-        "의자도",
-        "책도",
-        "우유도"
+        "삼촌도",
+        "할아버지도",
+        "친구도"
       ],
       "level": "a2",
       "topic": "Partnerschaft & koreanische Familie",
-      "de": "Heute Abend kommt auch meine Tante (väterlicherseits) dazu.",
-      "en": "My aunt is also coming to dinner tonight.",
+      "de": "Heute Abend kommt auch meine Tante zum Essen.",
+      "en": "My aunt is coming to dinner tonight too.",
       "courseUnitId": "a2_03_chat_relationships"
     },
     {
@@ -36506,14 +36506,14 @@
       "sentenceKo": "설날에는 ＿＿＿ 댁에도 가요.",
       "answer": "이모",
       "distractors": [
-        "지도",
-        "그림",
-        "일기"
+        "삼촌",
+        "동생",
+        "할머니"
       ],
       "level": "a2",
       "topic": "Partnerschaft & koreanische Familie",
-      "de": "An Seollal besuchen wir auch das Haus meiner Tante (mütterlicherseits).",
-      "en": "On Seollal, we also visit my aunt's house.",
+      "de": "An Seollal besuchen wir auch meine Tante.",
+      "en": "We visit my aunt on Seollal too.",
       "courseUnitId": "a2_03_chat_relationships"
     },
     {
