@@ -4341,7 +4341,7 @@
       "id": "rel_batch20_c2_02",
       "sourceKo": "정책 효과",
       "sourceVocabId": "vocab_c2_0232",
-      "sourceDe": "Politikwirkung",
+      "sourceDe": "Wirkung einer politischen Maßnahme",
       "sourceEn": "policy effect",
       "level": "C2",
       "synonyms": [
@@ -4356,10 +4356,10 @@
       "expressions": [
         {
           "ko": "정책 효과",
-          "de": "Politikwirkung",
+          "de": "Wirkung einer politischen Maßnahme",
           "en": "policy effect",
           "exampleKo": "정책 효과를 말하려면 대상 집단과 비교 기준을 먼저 밝혀야 합니다.",
-          "exampleDe": "Wer von Politikwirkung spricht, muss Zielgruppe und Vergleichsmaßstab zuerst benennen.",
+          "exampleDe": "Wer von der Wirkung einer politischen Maßnahme spricht, muss Zielgruppe und Vergleichsmaßstab zuerst benennen.",
           "exampleEn": "To discuss policy effects, we first need to identify the target group and comparison standard."
         }
       ]
