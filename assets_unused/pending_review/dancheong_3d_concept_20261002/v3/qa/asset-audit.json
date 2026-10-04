@@ -1,0 +1,2308 @@
+{
+  "scope": "Review only. No raster edits or runtime promotion.",
+  "sourceHead": "797160b0664172b2956be0e202bb5df9b246b65c",
+  "sourceCopies": 254,
+  "unchangedSourceAndCopyBytes": true,
+  "uiKeysPerLocale": {
+    "de": 147,
+    "en": 147,
+    "ko": 147
+  },
+  "catalogCounts": {
+    "packs": 252,
+    "dedicated": 184,
+    "levels": {
+      "A1": 62,
+      "A2": 44,
+      "B1": 56,
+      "B2": 50,
+      "C1": 20,
+      "C2": 20
+    },
+    "activities": 21,
+    "learn": 13,
+    "games": 8,
+    "uniqueCopiedFiles": 228
+  },
+  "catalogRasterSizes": {
+    "[800, 600]": 228
+  },
+  "rewardRules": {
+    "firstDistinctConfirmedLesson": 20,
+    "secondDistinctConfirmedLesson": 10,
+    "constructionStage": 40,
+    "repeatCompletion": 0,
+    "bojagi": "tap to untie; choose one of three existing decoration candidates; separate from coin income"
+  },
+  "images": [
+    {
+      "path": "assets/coffee.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "format": "PNG",
+      "mode": "RGBA"
+    },
+    {
+      "path": "iterations/coffee-initial.png",
+      "size": [
+        1374,
+        1145
+      ],
+      "format": "PNG",
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/speaker.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "format": "PNG",
+      "mode": "RGBA"
+    },
+    {
+      "path": "iterations/speaker-initial.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/book.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "format": "PNG",
+      "mode": "RGBA"
+    },
+    {
+      "path": "iterations/book-initial.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/conversation.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "format": "PNG",
+      "mode": "RGBA"
+    },
+    {
+      "path": "iterations/conversation-initial.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/tiger.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "format": "PNG",
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/hanok.webp",
+      "size": [
+        768,
+        1376
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/sujin.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "format": "PNG",
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/christian.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "format": "PNG",
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/current-today.png",
+      "size": [
+        390,
+        844
+      ],
+      "format": "PNG",
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/a1_greetings_2-original.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/A1Arrival-original.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/a1_greetings_2-3d.png",
+      "size": [
+        1448,
+        1086
+      ],
+      "format": "PNG",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/A1Arrival-3d.png",
+      "size": [
+        1448,
+        1086
+      ],
+      "format": "PNG",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/lotus.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_daily_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_self_intro.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/gwigap.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/bok.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/soban.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_transport.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_time_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_family_2.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_body.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/manja.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_food_2.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_daily_2.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_time_2.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_misc_2.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/vine.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_descriptions.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_numbers_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/suryeon.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/cloud.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_health_misc_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_food_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_shopping_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_daily_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_transport.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/munbangsau.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_work.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_health_misc_2.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_daily_2.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_feelings_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/plum.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_daily_3.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_daily_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_tech_society_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_health_education.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_emotions_relations_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_daily_2.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_emotions_relations_2.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_descriptions_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_daily_3.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_society_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_thinking_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_education.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_misc.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_communication.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_thinking_2.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_numbers_2.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_numbers_3.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_time_3.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_greetings_2.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_position.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_daily_4.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_food_2.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_shopping_2.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_travel_transport_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_descriptions_2.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_feelings_2.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_work.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_tech_society_2.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_emotions_relations_3.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_descriptions_2.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_work.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_society_2.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_first_class_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/wadang.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_housing_contract_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/yeopjeon.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_environment_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_media_culture_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_city_places_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_money_bank_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_health_hospital_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_work_career_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_social_events_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_repair_language_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_communication_lang_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_character_feelings_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_verbs_daily_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_descriptions_adj_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_time_life_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_modern_life_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_manners_society_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_abstract_concepts_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_language_grammar_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_household_practical_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_relationships_people_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_safety_rules_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_events_culture_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_partner_seollal_basic_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_thinking_verbs_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_honorifics_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_partner_meet_names_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_clothing_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_wearing_verbs_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_restaurant_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_household_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_food_more_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_people_jobs_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_school_uni_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_change_verbs_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_formal_agreement_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_work_coordination_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_formal_complaint_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_decisions_perspectives_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_reading_response_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_language_society_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_life_values.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_literature_emotion.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_language_change.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_collaborative_feedback_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_digital_judgment_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/c1_accessible_participation_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/c1_evidence_reasoning_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/c2_institutional_mediation_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/chrysanthemum.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_shared_space_coordination_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_personal_boundaries_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/wave.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/chilbo.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/taegeuk.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_partner_after_visit_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/peony.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/changsal.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_partner_chuseok_basic_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_partner_holiday_duty_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_partner_siblings_hello_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_partner_photo_thanks_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_partner_dinner_talk_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_partner_translating_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_partner_awkward_questions_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_partner_seollal_day_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_partner_family_money_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_partner_holiday_plan_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_partner_chuseok_day_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_partner_sibling_tease_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_partner_overnight_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_partner_leftover_bags_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_partner_hometown_trip_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_travel_change_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_partner_banmal_switch_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_partner_job_visa_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_partner_drink_table_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_partner_sleep_room_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_partner_group_chat_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_partner_inlaws_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_partner_marriage_talk_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_partner_honorific_trap_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_partner_ancestral_rite_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_partner_boundary_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_partner_public_intro_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_post_office_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_pharmacy_ask_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_weekend_promise_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_neighbors_hall_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_subway_card_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_weather_layer_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_sorry_thanks_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_phone_plan_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_bank_counter_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_gym_class_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_salon_visit_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_apt_rules_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_part_time_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_lost_found_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_festival_booth_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_workplace_mail_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_roommate_talk_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_insurance_claim_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_public_office_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_volunteer_shift_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_parent_school_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_repair_words_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_performance_review_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_housing_dispute_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_media_literacy_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_civic_meeting_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_team_negotiation_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_policy_brief_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_customer_escalation_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_research_summary_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/c1_public_briefing_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/c1_risk_wording_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/c1_participation_design_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/c2_framing_analysis_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/noemun.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/c2_memory_narrative_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/c2_appeal_path_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/c2_withdrawal_right_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/c2_automated_harm_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/c1_media_evidence_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/c1_play_time_policy_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/c1_fan_labor_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/crane.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/c2_automation_redress_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/c2_sanction_accountability_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/moran.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_2026_social_topics_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_particles_in_use_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_payment_delivery_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a2_plans_proposals_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_work_softening_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/a1_city_services_2026_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_housing_search_2026_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b1_work_entry_2026_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/b2_housing_migration_2026_1.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/mountain.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/packs/bamboo.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/activities/course.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/activities/hangul.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/activities/calligraphy.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/activities/pronunciation.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/activities/vocab_packs.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/activities/srs.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/activities/my_words.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/activities/grammar.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/activities/book_capture.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/activities/listening.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/activities/scenarios.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/activities/smalltalk.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/activities/word_web.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/activities/daily_game.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/activities/chosung.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/activities/syllable_cross.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/activities/cloze.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/activities/speed_match.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/activities/sentence_arcade.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/activities/kkeunmari.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/catalog/activities/custom_practice.webp",
+      "size": [
+        800,
+        600
+      ],
+      "format": "WEBP",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/yeopjeon-original.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "format": "PNG",
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/bojagi-closed.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "format": "PNG",
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/bojagi-open.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "format": "PNG",
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/decoration-seoan.png",
+      "size": [
+        1330,
+        490
+      ],
+      "format": "PNG",
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/decoration-munbangsau.png",
+      "size": [
+        1128,
+        663
+      ],
+      "format": "PNG",
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/decoration-soban.png",
+      "size": [
+        974,
+        667
+      ],
+      "format": "PNG",
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets/yeopjeon.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "format": "PNG",
+      "mode": "RGBA"
+    }
+  ],
+  "failures": []
+}

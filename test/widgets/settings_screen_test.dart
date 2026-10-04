@@ -49,6 +49,22 @@ void main() {
 
   tearDown(() => cloudJournalState.dispose());
 
+  testWidgets('settings keeps the complete profile reachable', (tester) async {
+    await tester.pumpWidget(
+      _wrap(
+        SettingsScreen(
+          account: _guest,
+          accountOperations: _SettingsAccountOperations(),
+          cloudDataDeletionJournalState: cloudJournalState,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text(_l10n.profileTitle));
+    await tester.pumpAndSettle();
+    expect(find.text('Profile target'), findsOneWidget);
+  });
+
   testWidgets('course preview from settings is read-only and reachable', (
     tester,
   ) async {
@@ -2175,6 +2191,7 @@ Widget _wrapForLocale(
       child: appChild!,
     ),
     routes: {
+      '/profile': (_) => const Scaffold(body: Text('Profile target')),
       '/splash': (_) => const Scaffold(body: Text('consent-restart-test')),
       '/course/phases': (_) =>
           const Scaffold(body: Text('Course preview target')),
@@ -2188,9 +2205,19 @@ Future<void> _ensureSettingsActionVisible(
   Finder finder, {
   double scrollDelta = 200,
 }) async {
+  // Regrouped rows can lie before the current lazy-list viewport. Start a
+  // new search at the top when the target is unmounted instead of assuming
+  // every requested row is farther down the page.
+  if (finder.evaluate().isEmpty) {
+    final scrollable = tester.state<ScrollableState>(
+      find.byType(Scrollable).first,
+    );
+    scrollable.position.jumpTo(scrollable.position.minScrollExtent);
+    await tester.pump();
+  }
   await tester.scrollUntilVisible(
     finder,
-    scrollDelta,
+    scrollDelta.abs(),
     scrollable: find.byType(Scrollable).first,
     // At 320dp/200% the German descriptions extend past 50 short drags.
     maxScrolls: 100,

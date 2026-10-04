@@ -1,13 +1,19 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/bojagi_screen.dart';
 import 'package:ko_lernen_app/services/decoration_reward_service.dart';
+import 'package:ko_lernen_app/services/haptic_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
+import 'package:ko_lernen_app/widgets/sori/bojagi_reveal.dart';
+import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 
 /// `q_punggyeong` 의 고정 후보 3종 — 서비스의 stable index 계약 그대로.
 /// §W-C H6: decorName 은 이제 독일어 이름만 반환한다(괄호 속 한글 로마자/한글은
@@ -16,15 +22,19 @@ const _guk = 'Chrysanthemen-Bild';
 const _juk = 'Bambus-Bild';
 const _chaekgado = 'Bücherwand-Wandschirm';
 
-Future<void> _pump(WidgetTester tester) async {
+Future<void> _pump(
+  WidgetTester tester, {
+  bool reduceMotion = true,
+  Future<DecorationRewardOffer> Function()? offerLoader,
+}) async {
   await tester.pumpWidget(
     MaterialApp(
       localizationsDelegates: AppL10n.localizationsDelegates,
       supportedLocales: AppL10n.supportedLocales,
       locale: const Locale('de'),
-      home: const MediaQuery(
-        data: MediaQueryData(disableAnimations: true),
-        child: BojagiScreen(),
+      home: MediaQuery(
+        data: MediaQueryData(disableAnimations: reduceMotion),
+        child: BojagiScreen(offerLoader: offerLoader),
       ),
     ),
   );
@@ -75,12 +85,27 @@ Future<void> _pumpBojagiMotion(WidgetTester tester) async {
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  final haptics = <String>[];
 
   setUp(() async {
     Storage.resetForTesting();
     DecorationRewardService.resetForTesting();
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
+    HapticService.resetForTesting();
+    haptics.clear();
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(SystemChannels.platform, (call) async {
+          if (call.method == 'HapticFeedback.vibrate') {
+            haptics.add(call.arguments as String);
+          }
+          return null;
+        });
+  });
+
+  tearDown(() {
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(SystemChannels.platform, null);
   });
 
   testWidgets('빈 큐에서는 후보를 보여주지 않는다', (tester) async {
@@ -143,6 +168,183 @@ void main() {
     expect(find.text('Bekommen!'), findsOneWidget);
     expect(find.text('Nächstes Bündel öffnen'), findsNothing);
   });
+
+  testWidgets(
+    'confirmed emergence emits one light impact across next-offer rebuild',
+    (tester) async {
+      await Storage.setPendingBoxes(['q_punggyeong', 'q_kite']);
+      final pendingNext = Completer<DecorationRewardOffer>();
+      var reads = 0;
+      await _pump(
+        tester,
+        reduceMotion: false,
+        offerLoader: () {
+          reads++;
+          return reads == 1
+              ? DecorationRewardService.loadNextOffer()
+              : pendingNext.future;
+        },
+      );
+      expect(haptics, isEmpty);
+      await tester.tap(find.byKey(const Key('bojagi_knot')));
+      await _pumpBojagiMotion(tester);
+      expect(haptics, isNot(contains('HapticFeedbackType.lightImpact')));
+      await tester.tap(find.text(_guk));
+      await tester.pump();
+      await tester.runAsync(() => Future<void>.delayed(Duration.zero));
+      await tester.pump();
+
+      expect(Storage.ownedDecor, ['decoration_sagunja_guk']);
+      expect(find.text('Bekommen!'), findsOneWidget);
+      expect(reads, 2);
+      expect(haptics, isNot(contains('HapticFeedbackType.lightImpact')));
+      await tester.pump(const Duration(milliseconds: 750));
+      expect(haptics, isNot(contains('HapticFeedbackType.lightImpact')));
+      await tester.pump(const Duration(milliseconds: 100));
+      expect(
+        haptics.where((type) => type == 'HapticFeedbackType.lightImpact'),
+        hasLength(1),
+      );
+
+      // Let a repeated callback reach the platform instead of being masked
+      // by the service's short real-time deduplication window.
+      HapticService.resetForTesting();
+      pendingNext.complete(await DecorationRewardService.loadNextOffer());
+      await _pumpBojagiMotion(tester);
+      expect(find.text('Nächstes Bündel öffnen'), findsOneWidget);
+      await tester.pump(const Duration(seconds: 2));
+      expect(
+        haptics.where((type) => type == 'HapticFeedbackType.lightImpact'),
+        hasLength(1),
+      );
+      expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets('haptics off preserves the receipt without platform feedback', (
+    tester,
+  ) async {
+    await Storage.setHapticsEnabled(false);
+    await Storage.setPendingBoxes(['q_punggyeong']);
+    await _pump(tester);
+    await tester.tap(find.byKey(const Key('bojagi_knot')));
+    await _pumpBojagiMotion(tester);
+    await tester.tap(find.text(_guk));
+    await _pumpBojagiMotion(tester);
+
+    expect(Storage.ownedDecor, ['decoration_sagunja_guk']);
+    expect(find.text('Bekommen!'), findsOneWidget);
+    expect(find.image(const AssetImage(kBojagiUnfolded)), findsOneWidget);
+    expect(haptics, isEmpty);
+  });
+
+  testWidgets('a rejected stale offer never emits a reward impact', (
+    tester,
+  ) async {
+    await Storage.setPendingBoxes(['q_punggyeong']);
+    await _pump(tester);
+    await tester.tap(find.byKey(const Key('bojagi_knot')));
+    await _pumpBojagiMotion(tester);
+    expect(haptics, isNot(contains('HapticFeedbackType.lightImpact')));
+    // The displayed candidates belong to the old queue head.
+    await Storage.setPendingBoxes(['q_kite']);
+    await tester.tap(find.text(_guk));
+    await _pumpBojagiMotion(tester);
+    await tester.pump(const Duration(seconds: 2));
+
+    expect(Storage.ownedDecor, isEmpty);
+    expect(Storage.pendingBoxes, ['q_kite']);
+    expect(find.text('Bekommen!'), findsNothing);
+    expect(find.byKey(const Key('bojagi_knot')), findsOneWidget);
+    expect(haptics, isNot(contains('HapticFeedbackType.lightImpact')));
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('two candidate callbacks before rebuild consume only one box', (
+    tester,
+  ) async {
+    await Storage.setPendingBoxes(['q_punggyeong', 'q_kite']);
+    await _pump(tester);
+    await tester.tap(find.byKey(const Key('bojagi_knot')));
+    await _pumpBojagiMotion(tester);
+    VoidCallback pick(String slug) => tester
+        .widget<SoriPressable>(
+          find
+              .descendant(
+                of: find.byKey(ValueKey('bojagi-candidate-$slug')),
+                matching: find.byType(SoriPressable),
+              )
+              .first,
+        )
+        .onTap!;
+    final first = pick('decoration_sagunja_guk');
+    final second = pick('decoration_sagunja_juk');
+    first();
+    second();
+    await _pumpBojagiMotion(tester);
+    expect(Storage.pendingBoxes, ['q_kite']);
+    expect(Storage.ownedDecor, ['decoration_sagunja_guk']);
+    expect(
+      find.byKey(const ValueKey('bojagi-reveal-decoration_sagunja_guk')),
+      findsOneWidget,
+    );
+  });
+
+  for (final nextReadFails in [false, true]) {
+    testWidgets(
+      'confirmed reward appears before next read, failure=$nextReadFails',
+      (tester) async {
+        await Storage.setPendingBoxes(['q_punggyeong', 'q_kite']);
+        final pendingNext = Completer<DecorationRewardOffer>();
+        var reads = 0;
+        await tester.pumpWidget(
+          MaterialApp(
+            localizationsDelegates: AppL10n.localizationsDelegates,
+            supportedLocales: AppL10n.supportedLocales,
+            locale: const Locale('de'),
+            home: MediaQuery(
+              data: const MediaQueryData(disableAnimations: true),
+              child: BojagiScreen(
+                offerLoader: () {
+                  reads++;
+                  return reads == 1
+                      ? DecorationRewardService.loadNextOffer()
+                      : pendingNext.future;
+                },
+              ),
+            ),
+          ),
+        );
+        await _pumpBojagiMotion(tester);
+        await tester.tap(find.byKey(const Key('bojagi_knot')));
+        await _pumpBojagiMotion(tester);
+        await tester.tap(find.text(_guk));
+        await _pumpBojagiMotion(tester);
+        expect(reads, 2);
+        expect(find.text('Bekommen!'), findsOneWidget);
+        expect(
+          tester
+              .widget<SoriBojagiReveal>(find.byType(SoriBojagiReveal))
+              .rewardSlug,
+          'decoration_sagunja_guk',
+        );
+        expect(find.text('Nächstes Bündel öffnen'), findsNothing);
+        if (nextReadFails) {
+          pendingNext.completeError(StateError('next offer unavailable'));
+        } else {
+          pendingNext.complete(await DecorationRewardService.loadNextOffer());
+        }
+        await _pumpBojagiMotion(tester);
+        expect(find.text('Bekommen!'), findsOneWidget);
+        expect(
+          find.text('Nächstes Bündel öffnen'),
+          nextReadFails ? findsNothing : findsOneWidget,
+        );
+        expect(Storage.pendingBoxes, ['q_kite']);
+        expect(tester.takeException(), isNull);
+      },
+    );
+  }
 
   testWidgets('claimed bundle has a direct route back to the menu', (
     tester,

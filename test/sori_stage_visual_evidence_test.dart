@@ -18,6 +18,8 @@ import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/sarangchae_construction.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_catalog_screen.dart';
+import 'package:ko_lernen_app/screens/bojagi_screen.dart';
+import 'package:ko_lernen_app/services/decoration_reward_service.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_gye_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_hanok_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
@@ -45,6 +47,49 @@ late LearningFocus _bookCardFocus;
 /// already on disk — not the capture command; see AGENTS.md's UI 루트 증거
 /// bullet for the exact regeneration command.
 void main() {
+  for (final language in ['de', 'en']) {
+    testWidgets(
+      'capture confirmed Bojagi receipt $language',
+      skip: !_captureEvidence,
+      (tester) async {
+        tester.view.physicalSize = const Size(390, 844);
+        tester.view.devicePixelRatio = 1;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+        DecorationRewardService.resetForTesting();
+        await Storage.setPendingBoxes(['q_punggyeong', 'q_kite']);
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: AppTheme.light,
+            locale: Locale(language),
+            supportedLocales: AppL10n.supportedLocales,
+            localizationsDelegates: AppL10n.localizationsDelegates,
+            home: const BojagiScreen(),
+          ),
+        );
+        await _settleHanok(tester);
+        await tester.tap(find.byKey(const Key('bojagi_knot')));
+        await _settleHanok(tester);
+        final candidate = find.byKey(
+          const ValueKey('bojagi-candidate-decoration_sagunja_guk'),
+        );
+        await tester.ensureVisible(candidate);
+        await tester.tap(candidate);
+        await _settleHanok(tester);
+        await tester.pump(const Duration(milliseconds: 1200));
+        await _awaitImageDecode(tester);
+        expect(Storage.pendingBoxes, ['q_kite']);
+        expect(Storage.ownedDecor, contains('decoration_sagunja_guk'));
+        expect(tester.takeException(), isNull);
+        await expectLater(
+          find.byType(Scaffold),
+          matchesGoldenFile(
+            '../docs/screenshots/sori-bojagi-receipt-$language-390.png',
+          ),
+        );
+      },
+    );
+  }
   for (final language in ['de', 'en']) {
     testWidgets(
       'capture yeopjeon construction wallet $language',

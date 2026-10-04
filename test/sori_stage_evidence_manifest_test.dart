@@ -38,7 +38,7 @@ void main() {
       const roots = ['today', 'learn', 'games', 'hanok', 'gye'];
       const requiredRoots = ['today', 'learn', 'hanok', 'gye'];
       final namePattern = RegExp(
-        r'^sori-stage-(today|learn|games|hanok|gye)-\d+(-[a-z]+)?\.png$',
+        r'^sori-stage-(today|learn|games|hanok|gye)-\d+(-[a-z]+(?:-[a-z]+)*)?\.png$',
       );
 
       final byRoot = <String, List<File>>{for (final root in roots) root: []};

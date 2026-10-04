@@ -14,7 +14,10 @@ import '../../services/storage_service.dart';
 import '../../services/today_learning_snapshot.dart';
 import '../../widgets/sori/activity_sheet.dart';
 import '../../widgets/sori/activity_illustration.dart';
-import '../../widgets/sori/avatar.dart';
+import '../../widgets/sori/settings_button.dart';
+import '../../widgets/sori/study_library_button.dart';
+import '../../widgets/sori/book_capture_choice.dart';
+import '../../widgets/sori/media_phrase_link.dart';
 import '../../widgets/sori/catalog_card.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/collapsing_header.dart';
@@ -212,9 +215,10 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
       // Capture does not award progress. Keep it usable even when the shared
       // learning/reward snapshot is still loading or has failed.
       if (entry.id == 'book_capture') {
-        final returned = Navigator.of(context).pushNamed(entry.route);
-        unawaited(Storage.recordCatalogActivity(entry.id, lease: lease));
-        await returned;
+        final route = await showBookCaptureChoice(context);
+        if (route == entry.route) {
+          await Storage.recordCatalogActivity(entry.id, lease: lease);
+        }
         return;
       }
       final shared = LearningFocusScope.maybeOf(context);
@@ -450,7 +454,17 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                           height: 1.35,
                         ),
                         collapsedTitle: title,
-                        trailing: const SoriAvatar(),
+                        trailingSlots: isGames ? 1 : 2,
+                        trailing: isGames
+                            ? const SoriSettingsButton()
+                            : const Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  SoriStudyLibraryButton(),
+                                  SizedBox(width: Spacing.xs),
+                                  SoriSettingsButton(),
+                                ],
+                              ),
                       );
                     },
                   ),
@@ -588,6 +602,8 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                                   ),
                                   child: heading(sectionTitles[section]!),
                                 ),
+                                if (section == SoriLearnSection.listen)
+                                  const SoriMediaPhraseLink(),
                                 _grid(
                                   entries
                                       .where((e) => e.learnSection == section)
