@@ -5489,5 +5489,10 @@
   "cultureDokkaebiLine": "Shall we try one question at a time?",
   "catalogQuickStart": "Start here",
   "catalogDiscover": "Something new to try",
-  "catalogNotNow": "Not now"
+  "catalogNotNow": "Not now",
+  "settingsGroupAccount": "Profile & account",
+  "settingsGroupLearning": "Learning",
+  "settingsGroupControls": "Language, sound & controls",
+  "settingsGroupPrivacy": "Storage & privacy",
+  "settingsGroupHelp": "Help & app information"
 }

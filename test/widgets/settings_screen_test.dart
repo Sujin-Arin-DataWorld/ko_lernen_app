@@ -2205,9 +2205,19 @@ Future<void> _ensureSettingsActionVisible(
   Finder finder, {
   double scrollDelta = 200,
 }) async {
+  // Regrouped rows can lie before the current lazy-list viewport. Start a
+  // new search at the top when the target is unmounted instead of assuming
+  // every requested row is farther down the page.
+  if (finder.evaluate().isEmpty) {
+    final scrollable = tester.state<ScrollableState>(
+      find.byType(Scrollable).first,
+    );
+    scrollable.position.jumpTo(scrollable.position.minScrollExtent);
+    await tester.pump();
+  }
   await tester.scrollUntilVisible(
     finder,
-    scrollDelta,
+    scrollDelta.abs(),
     scrollable: find.byType(Scrollable).first,
     // At 320dp/200% the German descriptions extend past 50 short drags.
     maxScrolls: 100,
