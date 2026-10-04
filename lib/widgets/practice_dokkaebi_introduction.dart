@@ -6,11 +6,13 @@ import '../l10n/generated/app_localizations.dart';
 import '../services/storage_service.dart';
 import 'practice_character_clip.dart';
 import 'practice_dokkaebi_art.dart';
+import 'practice_dokkaebi_canvas.dart';
 import 'practice_dokkaebi_clip.dart';
 import 'practice_layout.dart';
 import 'practice_magic.dart';
 import 'practice_motion.dart';
 import 'sori/button.dart';
+import 'sori/card.dart';
 import 'sori/external_link.dart';
 import 'sori/pressable.dart';
 import 'sori/tiger_video.dart';
@@ -38,6 +40,7 @@ class _PracticeDokkaebiIntroductionState
   int _swingCount = 0;
   bool _play = false, _shown = false, _fireWord = false, _roof = false;
   bool _magical = false;
+  bool _details = false;
   bool _postersCached = false;
 
   @override
@@ -59,6 +62,7 @@ class _PracticeDokkaebiIntroductionState
       _request++;
       _shown = _play = _roof = false;
       _magical = false;
+      _details = false;
       _spark++;
     });
   }
@@ -102,6 +106,57 @@ class _PracticeDokkaebiIntroductionState
           );
   }
 
+  Widget _topics(AppL10n t, double scale, {bool compact = false}) =>
+      LayoutBuilder(
+        builder: (context, constraints) {
+          final stacked =
+              compact ||
+              scale > 1.4 ||
+              constraints.maxWidth < SoriBreakpoints.cultureTopicsStack;
+          final labels = [
+            t.practiceDokkaebiTopicTales,
+            t.practiceDokkaebiTopicHome,
+            t.practiceDokkaebiTopicLearning,
+          ];
+          const artwork = [
+            'assets/illustrations/tactile/dokkaebi_topics/tales.webp',
+            'assets/illustrations/tactile/dokkaebi_topics/home.webp',
+            'assets/illustrations/tactile/dokkaebi_topics/learning.webp',
+          ];
+          final tiles = [
+            for (final topic in _Topic.values)
+              _TopicTile(
+                key: ValueKey('dokkaebi-topic-${topic.name}'),
+                label: labels[topic.index],
+                artwork: artwork[topic.index],
+                compact: compact,
+                selected: _topic == topic,
+                onTap: () => _select(topic),
+              ),
+          ];
+          return stacked
+              ? Column(
+                  children: [
+                    for (var i = 0; i < tiles.length; i++) ...[
+                      if (i > 0) const SizedBox(height: Spacing.sm),
+                      tiles[i],
+                    ],
+                  ],
+                )
+              : IntrinsicHeight(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      for (var i = 0; i < tiles.length; i++) ...[
+                        if (i > 0) const SizedBox(width: Spacing.sm),
+                        Expanded(child: tiles[i]),
+                      ],
+                    ],
+                  ),
+                );
+        },
+      );
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -110,6 +165,10 @@ class _PracticeDokkaebiIntroductionState
     final size = MediaQuery.sizeOf(context);
     final scale = MediaQuery.textScalerOf(context).scale(16) / 16;
     final horizontalPadding = widget.paddedBySheet ? 0.0 : Spacing.xl;
+    final stageWidth = math.min(
+      size.height < 600 ? 184.0 : 264.0,
+      math.max(0.0, size.width - Spacing.xl * 2),
+    );
     final canPlay =
         !Storage.reducedMotion &&
         !MediaQuery.disableAnimationsOf(context) &&
@@ -132,6 +191,55 @@ class _PracticeDokkaebiIntroductionState
         PracticeDokkaebiPose.inviting,
       ),
     };
+    final beside =
+        scale <= 1.1 &&
+        size.width - Spacing.xl * 2 >= SoriBreakpoints.cultureTopicsStack;
+    final heroWidth = beside
+        ? math.min(stageWidth, size.width - Spacing.xl * 2 - 108)
+        : stageWidth;
+    final introductionStage = Center(
+      child: PracticeViewportGate(
+        requireFullVisibility: true,
+        child: SizedBox(
+          key: _stageAnchor,
+          width: heroWidth,
+          height: heroWidth / PracticeDokkaebiCanvas.aspectRatio,
+          child: _IntroductionStage(
+            spark: _spark,
+            fireLabel: t.practiceDokkaebiFireAction,
+            onFire: () => setState(() {
+              _fireWord = !_fireWord;
+              _spark++;
+            }),
+            child: AnimatedSwitcher(
+              duration: _duration(context, const Duration(milliseconds: 150)),
+              child: !_shown
+                  ? PracticeDokkaebiRestingArt(
+                      key: ValueKey(
+                        _magical ? PracticeDokkaebiPose.magical : pose,
+                      ),
+                      pose: _magical ? PracticeDokkaebiPose.magical : pose,
+                    )
+                  : PracticeDokkaebiCanvas(
+                      child: PracticeCharacterClip(
+                        key: ValueKey('dokkaebi-intro-$_request'),
+                        videoAsset: clip.videoAsset,
+                        startAsset: clip.startAsset,
+                        endAsset: clip.endAsset,
+                        explaining: true,
+                        play: _play,
+                        onRequested: () {
+                          if (mounted) {
+                            setState(() => _play = false);
+                          }
+                        },
+                      ),
+                    ),
+            ),
+          ),
+        ),
+      ),
+    );
     return SafeArea(
       top: false,
       child: SizedBox(
@@ -152,63 +260,50 @@ class _PracticeDokkaebiIntroductionState
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Semantics(
-                          header: true,
-                          // l10n: exempt — Korean cultural name taught in every UI locale.
-                          child: Text('도깨비', style: text.cultureTitle),
-                        ),
-                        const SizedBox(height: Spacing.sm),
-                        Text(t.practiceDokkaebiAbout, style: text.body),
-                        const SizedBox(height: Spacing.lg),
-                        Center(
-                          child: PracticeViewportGate(
-                            requireFullVisibility: true,
-                            child: SizedBox.square(
-                              key: _stageAnchor,
-                              dimension: size.height < 600 ? 128 : 184,
-                              child: _IntroductionStage(
-                                spark: _spark,
-                                fireLabel: t.practiceDokkaebiFireAction,
-                                onFire: () => setState(() {
-                                  _fireWord = !_fireWord;
-                                  _spark++;
-                                }),
-                                child: AnimatedSwitcher(
-                                  duration: _duration(
-                                    context,
-                                    const Duration(milliseconds: 150),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Semantics(
+                                    header: true,
+                                    // l10n: exempt — Korean cultural name taught in every UI locale.
+                                    child: Text(
+                                      '도깨비',
+                                      style: text.cultureTitle,
+                                    ),
                                   ),
-                                  child: !_shown
-                                      ? PracticeDokkaebiArt(
-                                          key: ValueKey(
-                                            _magical
-                                                ? PracticeDokkaebiPose.magical
-                                                : pose,
-                                          ),
-                                          pose: _magical
-                                              ? PracticeDokkaebiPose.magical
-                                              : pose,
-                                        )
-                                      : PracticeCharacterClip(
-                                          key: ValueKey(
-                                            'dokkaebi-intro-$_request',
-                                          ),
-                                          videoAsset: clip.videoAsset,
-                                          startAsset: clip.startAsset,
-                                          endAsset: clip.endAsset,
-                                          explaining: true,
-                                          play: _play,
-                                          onRequested: () {
-                                            if (mounted) {
-                                              setState(() => _play = false);
-                                            }
-                                          },
-                                        ),
-                                ),
+                                  const SizedBox(height: Spacing.xs),
+                                  Text(
+                                    t.practiceDokkaebiAbout,
+                                    style: text.bodySmall,
+                                  ),
+                                ],
                               ),
                             ),
-                          ),
+                            if (canPlay && !_magical)
+                              _GestureAction(
+                                label: t.practiceDokkaebiGesture,
+                                onTap: _showSwing,
+                              ),
+                          ],
                         ),
+                        const SizedBox(height: Spacing.sm),
+                        if (beside)
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Expanded(child: introductionStage),
+                              const SizedBox(width: Spacing.sm),
+                              SizedBox(
+                                width: 100,
+                                child: _topics(t, scale, compact: true),
+                              ),
+                            ],
+                          )
+                        else
+                          introductionStage,
                         if (_fireWord) ...[
                           const SizedBox(height: Spacing.md),
                           Semantics(
@@ -221,54 +316,20 @@ class _PracticeDokkaebiIntroductionState
                             ),
                           ),
                         ],
-                        const SizedBox(height: Spacing.lg),
-                        LayoutBuilder(
-                          builder: (context, constraints) {
-                            final stacked =
-                                scale > 1.4 ||
-                                constraints.maxWidth <
-                                    SoriBreakpoints.cultureTopicsStack;
-                            final labels = [
-                              t.practiceDokkaebiTopicTales,
-                              t.practiceDokkaebiTopicHome,
-                              t.practiceDokkaebiTopicLearning,
-                            ];
-                            const artwork = [
-                              'assets/illustrations/tactile/dokkaebi_topics/tales.webp',
-                              'assets/illustrations/tactile/dokkaebi_topics/home.webp',
-                              'assets/illustrations/tactile/dokkaebi_topics/learning.webp',
-                            ];
-                            return Wrap(
-                              spacing: Spacing.sm,
-                              runSpacing: Spacing.md,
-                              children: [
-                                for (final topic in _Topic.values)
-                                  SizedBox(
-                                    width: stacked
-                                        ? constraints.maxWidth
-                                        : (constraints.maxWidth - 16) / 3,
-                                    child: _TopicTile(
-                                      key: ValueKey(
-                                        'dokkaebi-topic-${topic.name}',
-                                      ),
-                                      label: labels[topic.index],
-                                      artwork: artwork[topic.index],
-                                      selected: _topic == topic,
-                                      onTap: () => _select(topic),
-                                    ),
-                                  ),
-                              ],
-                            );
-                          },
-                        ),
-                        const SizedBox(height: Spacing.xl),
+                        if (!beside) ...[
+                          const SizedBox(height: Spacing.sm),
+                          _topics(t, scale),
+                        ],
+                        const SizedBox(height: Spacing.md),
                         _sizeTransition(
                           context,
                           PracticeMotionSurface(
                             interactive: false,
                             child: PracticeMagicFrame(
                               pulse: _spark,
-                              child: PracticeDialogueBubble(
+                              child: SoriCard(
+                                key: const ValueKey('dokkaebi-explanation'),
+                                padding: const EdgeInsets.all(Spacing.lg),
                                 child: Semantics(
                                   liveRegion: true,
                                   child: Column(
@@ -276,9 +337,25 @@ class _PracticeDokkaebiIntroductionState
                                         CrossAxisAlignment.stretch,
                                     children: [
                                       Text(title, style: text.h3),
-                                      const SizedBox(height: Spacing.md),
+                                      const SizedBox(height: Spacing.sm),
                                       Text(body, style: text.body),
-                                      if (_topic == _Topic.tales) ...[
+                                      Semantics(
+                                        expanded: _details,
+                                        child: SoriButton.ghost(
+                                          key: const ValueKey(
+                                            'dokkaebi-details',
+                                          ),
+                                          label: t.catalogDetails,
+                                          trailingIcon: _details
+                                              ? Icons.expand_less_rounded
+                                              : Icons.expand_more_rounded,
+                                          onTap: () => setState(
+                                            () => _details = !_details,
+                                          ),
+                                        ),
+                                      ),
+                                      if (_details &&
+                                          _topic == _Topic.tales) ...[
                                         const SizedBox(height: Spacing.lg),
                                         Text(
                                           t.practiceDokkaebiFormNote,
@@ -317,7 +394,8 @@ class _PracticeDokkaebiIntroductionState
                                           ),
                                         ),
                                       ],
-                                      if (_topic == _Topic.learning) ...[
+                                      if (_details &&
+                                          _topic == _Topic.learning) ...[
                                         const SizedBox(height: Spacing.lg),
                                         Text(
                                           t.practiceDokkaebiLearningNote,
@@ -328,7 +406,7 @@ class _PracticeDokkaebiIntroductionState
                                           t.practiceDokkaebiAppStory,
                                           style: text.caption,
                                         ),
-                                      ] else ...[
+                                      ] else if (_details) ...[
                                         const SizedBox(height: Spacing.lg),
                                         SoriButton.ghost(
                                           label:
@@ -343,7 +421,8 @@ class _PracticeDokkaebiIntroductionState
                                           ),
                                         ),
                                       ],
-                                      if (_topic == _Topic.home) ...[
+                                      if (_details &&
+                                          _topic == _Topic.home) ...[
                                         const SizedBox(height: Spacing.md),
                                         Semantics(
                                           expanded: _roof,
@@ -393,16 +472,6 @@ class _PracticeDokkaebiIntroductionState
                             ),
                           ),
                         ),
-                        if (canPlay && !_magical) ...[
-                          const SizedBox(height: Spacing.xl),
-                          PracticeRaisedAction(
-                            child: SoriButton.outlined(
-                              label: t.practiceDokkaebiGesture,
-                              fullWidth: true,
-                              onTap: _showSwing,
-                            ),
-                          ),
-                        ],
                       ],
                     ),
                   ),
@@ -438,6 +507,44 @@ class _PracticeDokkaebiIntroductionState
   }
 }
 
+class _GestureAction extends StatelessWidget {
+  const _GestureAction({required this.label, required this.onTap});
+  final String label;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) => Semantics(
+    label: label,
+    button: true,
+    onTap: onTap,
+    child: Tooltip(
+      richMessage: TextSpan(
+        children: [WidgetSpan(child: ExcludeSemantics(child: Text(label)))],
+      ),
+      excludeFromSemantics: true,
+      child: ExcludeSemantics(
+        child: SoriPressable(
+          key: const ValueKey('dokkaebi-gesture'),
+          onTap: onTap,
+          surfaceDepth: 3,
+          surfaceRadius: SoriRadius.md,
+          surfaceEdgeColor: SoriSurfaces.of(context).border,
+          child: Container(
+            width: 48,
+            height: 48,
+            decoration: BoxDecoration(
+              color: SoriSurfaces.of(context).surface,
+              borderRadius: BorderRadius.circular(SoriRadius.md),
+              border: Border.all(color: SoriSurfaces.of(context).border),
+            ),
+            child: const Icon(Icons.play_arrow_rounded),
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
 class _TopicTile extends StatelessWidget {
   const _TopicTile({
     super.key,
@@ -445,7 +552,9 @@ class _TopicTile extends StatelessWidget {
     required this.artwork,
     required this.selected,
     required this.onTap,
+    this.compact = false,
   });
+  final bool compact;
   final String label;
   final String artwork;
   final bool selected;
@@ -473,8 +582,11 @@ class _TopicTile extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(bottom: Spacing.xs),
             child: Container(
-              constraints: const BoxConstraints(minHeight: 88),
-              padding: const EdgeInsets.all(Spacing.sm),
+              constraints: BoxConstraints(
+                minHeight: compact ? 96 : 88,
+                maxHeight: compact ? 96 : double.infinity,
+              ),
+              padding: EdgeInsets.all(compact ? Spacing.xs : Spacing.sm),
               decoration: BoxDecoration(
                 color: selected ? ink.withValues(alpha: .06) : surfaces.surface,
                 borderRadius: BorderRadius.circular(SoriRadius.md),
@@ -492,20 +604,21 @@ class _TopicTile extends StatelessWidget {
                       Center(
                         child: Image.asset(
                           artwork,
-                          width: 48,
-                          height: 48,
+                          width: compact ? 32 : 48,
+                          height: compact ? 32 : 48,
                           fit: BoxFit.contain,
                           cacheWidth: 192,
                           excludeFromSemantics: true,
                         ),
                       ),
-                      const SizedBox(height: Spacing.sm),
+                      SizedBox(height: compact ? Spacing.xs : Spacing.sm),
                       Text(
                         label,
                         textAlign: TextAlign.center,
-                        style: SoriTextTheme.of(
-                          context,
-                        ).menuLabel.copyWith(color: ink),
+                        style: SoriTextTheme.of(context).menuLabel.copyWith(
+                          color: ink,
+                          fontSize: compact ? 13 : null,
+                        ),
                       ),
                     ],
                   ),
@@ -581,9 +694,7 @@ class _IntroductionStageState extends State<_IntroductionStage>
   @override
   Widget build(BuildContext context) => Stack(
     children: [
-      Positioned.fill(
-        child: Padding(padding: const EdgeInsets.all(8), child: widget.child),
-      ),
+      Positioned.fill(child: widget.child),
       for (var i = 0; i < 2; i++)
         Positioned(
           left: i == 0 ? 0 : null,

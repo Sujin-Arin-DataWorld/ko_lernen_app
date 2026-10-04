@@ -3,10 +3,11 @@ import '../models/silben_practice.dart';
 import '../services/practice_history_store.dart';
 import '../widgets/practice_dokkaebi_help.dart';
 import '../widgets/practice_dokkaebi_art.dart';
+import '../widgets/practice_dokkaebi_canvas.dart';
 import '../widgets/practice_guide.dart';
 import '../widgets/practice_motion.dart';
 import '../widgets/practice_layout.dart';
-import '../widgets/practice_magic.dart';
+import '../widgets/practice_impact_frame.dart';
 import '../services/haptic_service.dart';
 import '../widgets/sori/game_reward.dart';
 import '../services/learning_journey.dart';
@@ -777,20 +778,31 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
         builder: (context, constraints) {
           final width = constraints.maxWidth;
           final minGrid = p.cols * 48.0 + (p.cols - 1) * Spacing.xs;
-          final sideBySide = width - minGrid - 32 >= 104;
+          final sideBySide = width - minGrid - 16 >= 104;
           final stageSize = sideBySide
-              ? (width - minGrid - 32).clamp(104.0, 176.0)
-              : 144.0;
-          final gridWidth = sideBySide ? width - stageSize - 32 : width - 32;
+              ? (width - minGrid - 16).clamp(104.0, 240.0)
+              : math.min(240.0, width - 32);
+          final stageHeight = stageSize / PracticeDokkaebiCanvas.aspectRatio;
+          final gridWidth = sideBySide ? width - stageSize - 16 : width - 32;
           final metrics = _gridMetrics(p, gridWidth);
           final gridHeight = metrics.cell * p.rows + metrics.gap * (p.rows - 1);
           final panelHeight = gridHeight + 32;
-          final panelLeft = sideBySide ? stageSize * .838 - 24 : 0.0;
+          final panelLeft = sideBySide
+              ? stageSize * PracticeDokkaebiCanvas.contact.dx - 16
+              : 0.0;
           final panelTop = sideBySide
-              ? math.max(0.0, stageSize * .921 - panelHeight)
-              : stageSize * .921;
+              ? math.max(
+                  0.0,
+                  stageHeight * PracticeDokkaebiCanvas.contact.dy - panelHeight,
+                )
+              : stageHeight * PracticeDokkaebiCanvas.contact.dy;
           final contactY = sideBySide ? panelTop + panelHeight : panelTop;
-          final stageTop = contactY - stageSize * .921;
+          final stageTop =
+              contactY - stageHeight * PracticeDokkaebiCanvas.contact.dy;
+          final arenaHeight = math.max(
+            panelTop + panelHeight,
+            stageTop + stageHeight,
+          );
           // The clip stays intact. Its contact point meets the card ledge;
           // its full opaque video rectangle never covers an interactive cell.
           final stage = PracticeDokkaebiStage(
@@ -816,18 +828,16 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
               }
             },
           );
-          return PracticeMagicFrame(
-            pulse: _hintPulse,
-            child: SoriCard(
-              padding: EdgeInsets.zero,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SizedBox(
-                    height: math.max(
-                      panelTop + panelHeight,
-                      stageTop + stageSize,
-                    ),
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              PracticeImpactFrame(
+                key: const ValueKey('dokkaebi-arena-fire'),
+                pulse: _hintPulse,
+                child: SoriCard(
+                  padding: EdgeInsets.zero,
+                  child: SizedBox(
+                    height: arenaHeight,
                     child: Stack(
                       children: [
                         Positioned(
@@ -836,9 +846,9 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                           top: panelTop,
                           child: SoriCard(
                             padding: EdgeInsets.fromLTRB(
-                              sideBySide ? stageSize - panelLeft + 16 : 16,
+                              sideBySide ? stageSize - panelLeft + 8 : 16,
                               16,
-                              16,
+                              sideBySide ? 8 : 16,
                               16,
                             ),
                             child: KeyedSubtree(
@@ -874,10 +884,13 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                       ],
                     ),
                   ),
-                  if (!_solved) _helpPanel(t),
-                ],
+                ),
               ),
-            ),
+              if (!_solved) ...[
+                const SizedBox(height: Spacing.lg),
+                _helpPanel(t),
+              ],
+            ],
           );
         },
       ),
@@ -1026,7 +1039,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     _levelChrome(t),

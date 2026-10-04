@@ -402,9 +402,11 @@ void main() {
         ),
         findsOneWidget,
       );
-      await tester.ensureVisible(find.text('See the swing'));
+      await tester.ensureVisible(
+        find.byKey(const ValueKey('dokkaebi-gesture')),
+      );
       await tester.pump();
-      await tester.tap(find.text('See the swing'));
+      await tester.tap(find.byKey(const ValueKey('dokkaebi-gesture')));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 400));
       await flushNativeFutures(tester);
@@ -418,9 +420,11 @@ void main() {
       platform.events.add(VideoEvent(eventType: VideoEventType.completed));
       await tester.pump();
       await flushNativeFutures(tester);
-      await tester.ensureVisible(find.text('See the swing'));
+      await tester.ensureVisible(
+        find.byKey(const ValueKey('dokkaebi-gesture')),
+      );
       await tester.pump();
-      await tester.tap(find.text('See the swing'));
+      await tester.tap(find.byKey(const ValueKey('dokkaebi-gesture')));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 400));
       await flushNativeFutures(tester);

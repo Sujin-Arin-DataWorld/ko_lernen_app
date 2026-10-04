@@ -936,20 +936,20 @@
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations.dart": {
-    "mtime": 1791128395.6033573,
-    "seen": 1791129585.6427414,
+    "mtime": 1791144380.590729,
+    "seen": 1791144611.3275683,
     "ast_hash": "9fcb9df739957b14738b4062b1d0597e",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_de.dart": {
-    "mtime": 1791128395.202273,
-    "seen": 1791129585.6427455,
+    "mtime": 1791144379.9532802,
+    "seen": 1791144611.32758,
     "ast_hash": "4b90208e2d6b707fc11eae508d25a17c",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_en.dart": {
-    "mtime": 1791128395.3649817,
-    "seen": 1791129585.642748,
+    "mtime": 1791144380.3038745,
+    "seen": 1791144611.3275886,
     "ast_hash": "a910667c2a7bbe56b6ea290c6de48238",
     "semantic_hash": ""
   },
@@ -1614,9 +1614,9 @@
     "semantic_hash": ""
   },
   "lib/screens/silben_kreuz_screen.dart": {
-    "mtime": 1791120503.3062887,
-    "seen": 1791122647.355048,
-    "ast_hash": "8d4908c1cf9d5301361de76655e74a04",
+    "mtime": 1791143232.1446214,
+    "seen": 1791144611.4199214,
+    "ast_hash": "37016390a4a9e82ec969710c79ef8d1d",
     "semantic_hash": ""
   },
   "lib/screens/smalltalk_screen.dart": {
@@ -21516,9 +21516,9 @@
     "semantic_hash": ""
   },
   "test/silben_dokkaebi_screen_test.dart": {
-    "mtime": 1791116419.4284022,
-    "seen": 1791118818.1923387,
-    "ast_hash": "13519ce94435d3a2041b4b73216d518f",
+    "mtime": 1791137568.5869749,
+    "seen": 1791140097.7626204,
+    "ast_hash": "882c82ef375b134593e7002055f4fb7c",
     "semantic_hash": ""
   },
   "test/silben_practice_test.dart": {
@@ -21570,9 +21570,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-10-03-hahoe-dokkaebi-practice.md": {
-    "mtime": 1791125403.0981214,
-    "seen": 1791129586.385738,
-    "ast_hash": "892ebdc2667c84f87657249fe1ead65c",
+    "mtime": 1791143566.3110416,
+    "seen": 1791144612.9948518,
+    "ast_hash": "af48bcc82eef08fccf0acebd67c78ae4",
     "semantic_hash": ""
   },
   "docs/superpowers/specs/2026-10-03-hahoe-dokkaebi-practice-design.md": {
@@ -21630,15 +21630,15 @@
     "semantic_hash": ""
   },
   "lib/widgets/practice_dokkaebi_help.dart": {
-    "mtime": 1791128852.7842133,
-    "seen": 1791129585.7708006,
-    "ast_hash": "4de2bc0023d0e3b1c28158bc1dd9fcfb",
+    "mtime": 1791143566.213442,
+    "seen": 1791144611.545558,
+    "ast_hash": "c87e0684c9e39b29ddc4a9ccaef3bebd",
     "semantic_hash": ""
   },
   "lib/widgets/practice_dokkaebi_introduction.dart": {
-    "mtime": 1791128852.775407,
-    "seen": 1791129585.7708056,
-    "ast_hash": "599f1c2585702cb35ee35423708a6969",
+    "mtime": 1791134115.1338954,
+    "seen": 1791134686.5911798,
+    "ast_hash": "d212cd2d362738c0610872bdf8a6807a",
     "semantic_hash": ""
   },
   "lib/widgets/practice_layout.dart": {
@@ -21648,15 +21648,15 @@
     "semantic_hash": ""
   },
   "lib/widgets/practice_magic.dart": {
-    "mtime": 1791117348.251063,
-    "seen": 1791118818.190908,
-    "ast_hash": "9a3173c5c10f18ca33e7372d4d31d458",
+    "mtime": 1791137353.1769314,
+    "seen": 1791140097.148514,
+    "ast_hash": "146f7d70c5b8cd5c33e3063316930acb",
     "semantic_hash": ""
   },
   "lib/widgets/practice_motion.dart": {
-    "mtime": 1791129176.1512165,
-    "seen": 1791129585.7718349,
-    "ast_hash": "99163a31cb3941611d34d19deae3f38a",
+    "mtime": 1791143977.678744,
+    "seen": 1791144611.547332,
+    "ast_hash": "45c97c4746cf36186e20898890587356",
     "semantic_hash": ""
   },
   "lib/widgets/practice_scholar_art.dart": {
@@ -21684,21 +21684,21 @@
     "semantic_hash": ""
   },
   "test/practice_dokkaebi_introduction_test.dart": {
-    "mtime": 1791128926.4687462,
-    "seen": 1791129585.94176,
-    "ast_hash": "2e3557b4c9a51aaffb4fdd004984c5b7",
+    "mtime": 1791134115.1620128,
+    "seen": 1791134686.9507515,
+    "ast_hash": "1db8c0ab18e774a104654a70da81a32f",
     "semantic_hash": ""
   },
   "test/practice_motion_test.dart": {
-    "mtime": 1791129176.1146533,
-    "seen": 1791129585.942638,
+    "mtime": 1791137353.5112057,
+    "seen": 1791140097.6497197,
     "ast_hash": "41fc0a4481b8ad89317355dc61757edc",
     "semantic_hash": ""
   },
   "test/practice_scholar_clip_test.dart": {
-    "mtime": 1791122062.2043605,
-    "seen": 1791122648.782091,
-    "ast_hash": "0798ddf6fdaf2573bbdaad5255098621",
+    "mtime": 1791131509.3558488,
+    "seen": 1791133835.9979975,
+    "ast_hash": "95225b45d85feea30071f8699df7847d",
     "semantic_hash": ""
   },
   "test/sori_culture_activity_sheet_test.dart": {
@@ -21762,9 +21762,9 @@
     "semantic_hash": ""
   },
   "tool/scholar_fan_preview.dart": {
-    "mtime": 1791120305.1603591,
-    "seen": 1791122649.6498919,
-    "ast_hash": "77e2777fe160b21d85f9244cd123e5e6",
+    "mtime": 1791140776.5445046,
+    "seen": 1791144612.2175748,
+    "ast_hash": "1a3c4319a18e9e0c8355d4a4a8b5ca73",
     "semantic_hash": ""
   },
   "tools/content_factory/review/advanced_vocab_register_20261003_tts_pending.json": {
@@ -21993,6 +21993,30 @@
     "mtime": 1791125846.404366,
     "seen": 1791129586.3857415,
     "ast_hash": "6977406adc508b0255f85c7ef4c6879e",
+    "semantic_hash": ""
+  },
+  "lib/widgets/practice_dokkaebi_canvas.dart": {
+    "mtime": 1791131726.3874807,
+    "seen": 1791133835.7861814,
+    "ast_hash": "aea9f7472ee689be4fa06ecba7d5f545",
+    "semantic_hash": ""
+  },
+  "test/practice_dokkaebi_canvas_test.dart": {
+    "mtime": 1791131509.3111708,
+    "seen": 1791133835.9965773,
+    "ast_hash": "ea3499e7c25767ca5059dbdea2778bc5",
+    "semantic_hash": ""
+  },
+  "lib/widgets/practice_impact_frame.dart": {
+    "mtime": 1791143231.8842998,
+    "seen": 1791144611.546347,
+    "ast_hash": "33cb8d2462536740fe69fcdca2c83126",
+    "semantic_hash": ""
+  },
+  "test/practice_impact_frame_test.dart": {
+    "mtime": 1791143221.8451054,
+    "seen": 1791144611.9476085,
+    "ast_hash": "042191967c5ad3595858fbe753452d5a",
     "semantic_hash": ""
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import 'practice_character_clip.dart';
 import 'practice_dokkaebi_art.dart';
+import 'practice_dokkaebi_canvas.dart';
 import 'practice_dokkaebi_clip.dart';
 import 'practice_dokkaebi_introduction.dart';
 import 'practice_motion.dart';
@@ -84,7 +85,6 @@ class _DokkaebiStageState extends State<_DokkaebiStage>
     vsync: this,
     duration: const Duration(seconds: 6),
   );
-  int _pulse = 0;
   bool _postersCached = false;
   @override
   void didChangeDependencies() {
@@ -103,21 +103,12 @@ class _DokkaebiStageState extends State<_DokkaebiStage>
     }
   }
 
-  @override
-  void didUpdateWidget(_DokkaebiStage oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (oldWidget.requestId != widget.requestId) {
-      _pulse = 0;
-    }
-  }
-
   void _impact(int request) {
     if (!mounted ||
         request != widget.requestId ||
         !TickerMode.valuesOf(context).enabled) {
       return;
     }
-    setState(() => _pulse = request);
     widget.onImpact?.call();
   }
 
@@ -129,7 +120,7 @@ class _DokkaebiStageState extends State<_DokkaebiStage>
       child: SizedBox(
         key: const ValueKey('dokkaebi-motion-stage'),
         width: widget.size,
-        height: widget.size,
+        height: widget.size / PracticeDokkaebiCanvas.aspectRatio,
         child: Stack(
           clipBehavior: Clip.none,
           children: [
@@ -141,23 +132,26 @@ class _DokkaebiStageState extends State<_DokkaebiStage>
                 switchInCurve: Curves.easeOut,
                 switchOutCurve: Curves.easeOut,
                 child: widget.requestId == 0
-                    ? PracticeDokkaebiArt(
+                    ? PracticeDokkaebiRestingArt(
                         key: const ValueKey('dokkaebi-idle-art'),
                         pose: widget.helping
                             ? PracticeDokkaebiPose.helping
                             : PracticeDokkaebiPose.ready,
                       )
-                    : PracticeCharacterClip(
-                        key: ValueKey('dokkaebi-clip-${widget.requestId}'),
-                        videoAsset: clip.videoAsset,
-                        startAsset: clip.startAsset,
-                        endAsset: clip.endAsset,
-                        // Preserve each MP4's matching poster and contact time.
-                        impactAt: clip.impactAt,
-                        play: widget.play,
-                        explaining: widget.helping,
-                        onRequested: widget.onRequested,
-                        onImpact: () => _impact(request),
+                    : PracticeDokkaebiCanvas(
+                        key: ValueKey('dokkaebi-canvas-${widget.requestId}'),
+                        child: PracticeCharacterClip(
+                          key: ValueKey('dokkaebi-clip-${widget.requestId}'),
+                          videoAsset: clip.videoAsset,
+                          startAsset: clip.startAsset,
+                          endAsset: clip.endAsset,
+                          // Preserve each MP4's matching poster and contact time.
+                          impactAt: clip.impactAt,
+                          play: widget.play,
+                          explaining: widget.helping,
+                          onRequested: widget.onRequested,
+                          onImpact: () => _impact(request),
+                        ),
                       ),
               ),
             ),
@@ -215,7 +209,6 @@ class _DokkaebiStageState extends State<_DokkaebiStage>
                   ),
                 ),
               ),
-            Positioned.fill(child: PracticeImpactRipple(pulse: _pulse)),
           ],
         ),
       ),

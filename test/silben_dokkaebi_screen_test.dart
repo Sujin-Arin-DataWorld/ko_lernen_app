@@ -90,8 +90,8 @@ void main() {
         find.byKey(const ValueKey('dokkaebi-board-ledge')),
       );
       final contact = Offset(
-        stage.left + stage.width * .838,
-        stage.top + stage.height * .921,
+        stage.left + stage.width * ((1200 * .838 - 120) / 984),
+        stage.top + stage.height * ((1200 * .921 - 56) / 1088),
       );
       expect(contact.dy, closeTo(ledge.top, .01));
       expect(contact.dx, inInclusiveRange(ledge.left, ledge.right));
@@ -99,6 +99,11 @@ void main() {
         find.byKey(const ValueKey('silben-cell-0-1')),
       );
       expect(stage.overlaps(cell), isFalse);
+      final arena = tester.getRect(
+        find.byKey(const ValueKey('dokkaebi-arena-fire')),
+      );
+      final help = tester.getRect(find.byType(PracticeDokkaebiHelp));
+      expect(help.top - arena.bottom, greaterThanOrEqualTo(16));
       expect(tester.takeException(), isNull);
       await tap(tester, find.byKey(const ValueKey('dokkaebi-introduction')));
       expect(find.text('도깨비'), findsOneWidget);

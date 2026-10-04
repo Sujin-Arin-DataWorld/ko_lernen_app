@@ -48,8 +48,13 @@ class _MagicFrameState extends State<_MagicFrame>
   @override
   void didUpdateWidget(_MagicFrame oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (widget.pulse != oldWidget.pulse && widget.pulse > 0 && _enabled) {
-      _light.forward(from: 0);
+    if (widget.pulse != oldWidget.pulse) {
+      if (widget.pulse > 0 && _enabled) {
+        _light.forward(from: 0);
+      } else {
+        _light.stop();
+        _light.value = 1;
+      }
     }
   }
 

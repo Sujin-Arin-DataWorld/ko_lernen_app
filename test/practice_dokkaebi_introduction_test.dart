@@ -1,6 +1,7 @@
 import 'package:ko_lernen_app/widgets/practice_dokkaebi_art.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
@@ -9,8 +10,10 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/practice_dokkaebi_help.dart';
 import 'support/sori_stage_pump.dart';
+import 'support/real_fonts.dart';
 
 void main() {
+  setUpAll(() => loadSoriRealFonts());
   setUp(() async {
     SharedPreferences.setMockInitialValues({});
     Storage.resetForTesting();
@@ -79,6 +82,8 @@ void main() {
 
   for (final variant in [
     (const Size(390, 844), 1.0, 'de'),
+    (const Size(390, 844), 1.1, 'de'),
+    (const Size(390, 844), 1.1, 'en'),
     (const Size(320, 640), 2.0, 'en'),
     (const Size(812, 375), 1.0, 'en'),
     (const Size(800, 1280), 1.0, 'de'),
@@ -121,12 +126,55 @@ void main() {
       expect(footer.top, greaterThan(0));
       expect(footer.bottom, lessThan(variant.$1.height));
       if (variant.$1.width == 390 && variant.$3 == 'de') {
+        final explanation = find.byKey(const ValueKey('dokkaebi-explanation'));
+        final viewport = find
+            .ancestor(
+              of: explanation,
+              matching: find.byType(SingleChildScrollView),
+            )
+            .first;
+        expect(
+          tester.getRect(explanation).bottom,
+          lessThanOrEqualTo(tester.getRect(viewport).bottom),
+          reason:
+              'The whole initial panel, including its rim, must be visible.',
+        );
+        expect(
+          tester.getRect(find.text(t.practiceDokkaebiLearningBody)).bottom,
+          lessThan(footer.top - 16),
+          reason: 'The complete initial explanation should fit above the CTA.',
+        );
+        final topicHeights = [
+          for (final topic in ['tales', 'home', 'learning'])
+            tester
+                .getSize(find.byKey(ValueKey('dokkaebi-topic-$topic')))
+                .height,
+        ];
+        expect(topicHeights.toSet().length, 1);
         expect(
           tester
               .getSize(find.byKey(const ValueKey('dokkaebi-topic-learning')))
               .width,
-          greaterThanOrEqualTo(100),
-          reason: 'The shared sheet must not double the topic inset.',
+          100,
+          reason: 'The compact topic rail must retain its full touch width.',
+        );
+        final label = tester.renderObject<RenderParagraph>(
+          find.descendant(
+            of: find.byKey(const ValueKey('dokkaebi-topic-learning')),
+            matching: find.text(t.practiceDokkaebiTopicLearning),
+          ),
+        );
+        expect(
+          label
+              .getBoxesForSelection(
+                TextSelection(
+                  baseOffset: 0,
+                  extentOffset: t.practiceDokkaebiTopicLearning.length,
+                ),
+              )
+              .length,
+          1,
+          reason: 'Lernfreund must remain a whole word at normal/1.1x type.',
         );
       }
 
@@ -145,6 +193,7 @@ void main() {
       expect(find.text(t.practiceDokkaebiFireWord), findsNothing);
       await choose('dokkaebi-topic-tales');
       expect(find.text(t.practiceDokkaebiTalesBody), findsOneWidget);
+      await choose('dokkaebi-details');
       await choose('dokkaebi-form-toggle');
       expect(
         find.byWidgetPredicate(
@@ -174,6 +223,7 @@ void main() {
         findsNothing,
       );
       expect(find.text(t.practiceDokkaebiHomeBody), findsOneWidget);
+      await choose('dokkaebi-details');
       await choose('dokkaebi-roof-toggle');
       expect(find.text(t.practiceDokkaebiRoofBody), findsOneWidget);
       await choose('dokkaebi-roof-toggle');
