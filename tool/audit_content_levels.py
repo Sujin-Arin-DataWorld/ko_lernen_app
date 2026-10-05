@@ -1351,19 +1351,16 @@ def build_summary(result: AuditResult, generated_from: str) -> dict:
         )
 
     def _over2_unbacklogged(level: str) -> int:
-        # T2.5 Part C: count of vocab headwords at this level with
-        # delta>=2 (matches 'over2' AND 'fallback_over2' -- both mean the
-        # SAME thing, delta>=2, just split by confidence for the ratchet's
-        # own high-confidence-only ratchet elsewhere) whose blocked_by does
-        # NOT already list 'replacement_backlog' -- i.e. flagged but not
-        # yet triaged into a scheduled fix. DONE target (and ratchet CAP)
-        # is 0 for both a1/a2.
+        # Count only unresolved +2-or-more vocab debt. Historical relevels,
+        # reviewed-current-owner decisions, and explicit replacement queues
+        # are all resolution states and must not be double-counted here.
         return sum(
             1 for it in result.items_by_kind.get("vocab", [])
             if it.level == level
             and it.delta is not None and it.delta >= 2
             and "replacement_backlog" not in it.blocked_by.split("+")
             and "accepted_relevel" not in it.blocked_by.split("+")
+            and "reviewed_owner" not in it.blocked_by.split("+")
         )
 
     def _top10(level: str) -> List[dict]:

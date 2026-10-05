@@ -286,12 +286,44 @@ Validation:
 
 ### Stage C-6 — historical replacement backlog
 
-Status: **next**
+Status: **complete**
 
-The only remaining explicit +2-or-more replacement debt is the **15-row**
-historical `replacement_backlog.json` (the original L4 queue). Review and
-replace these learner-facing rows next, preserving useful upper-level concepts
-where appropriate and keeping six-grade coverage ratchets intact.
+Re-reviewed all **15** rows in the original L4 `replacement_backlog.json`
+against their actual A2 communicative tasks rather than mechanically executing
+the old raw-estimate queue.
+
+Decision:
+- all 15 remain useful, concrete A2 task/culture/domain vocabulary in context
+- forcing paraphrases such as replacing `땅콩`, `왕자`, `염색`, or
+  `윗목/아랫목` solely because of a higher raw general-literacy estimate
+  would reduce learner-facing naturalness and cultural usefulness
+- all 15 therefore moved from the historical replacement queue into the
+  canonical reviewed-current-owner ledger
+- raw external estimates remain visible in `content_level_suspects.csv`; no
+  evidence is hidden and no CEFR ratchet was raised
+
+Permanent evidence:
+- `tools/content_factory/review/lcp_c6_historical_backlog_review_20261005.json`
+- `tools/content_factory/relevel/reviewed_vocab_owners_20261005.json`
+- `tools/content_factory/relevel/replacement_backlog.json` is now empty
+
+Current state:
+- reviewed-owner decisions in ledger: **153**
+- active `reviewed_owner` +2-or-more audit bucket: **146**
+  (the remaining ledger decisions are currently below the +2 threshold)
+- explicit replacement backlog: **0**
+- high-confidence `over2`: **0 for every audited content kind**
+- low-confidence `fallback_over2`: **0 for every audited content kind**
+- A1/A2 pack `over2_unbacklogged`: **0 / 0**
+
+Validation:
+- level/lexicon/can-do/content bundle: **243 passed** (**13 skipped**)
+- `build_can_do_segments.py --check`: fresh
+- `validate_content.py`: passed
+- six-grade coverage ratchets remain intact
+
+This closes the explicit +2-or-more debt scope of the culture-quality Stage C
+program without weakening the audit or forcing unnatural learner-facing copy.
 
 Never raise a ratchet merely to make the suite green.
 

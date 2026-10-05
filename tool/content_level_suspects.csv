@@ -1909,8 +1909,8 @@ vocab,vocab_a1_0234,b1,c2,3,accepted_relevel raw_estimate=c2,satz_ref+can_do_ref
 vocab,vocab_a1_0235,b1,a1,-2,under2,satz_ref+can_do_ref+accepted_relevel,b1_partner_first_gift_1,downgrade_candidate
 vocab,vocab_a1_0236,a2,b1,1,over1,satz_ref+can_do_ref+accepted_relevel,a2_partner_house_entry_1,step_up_or_swap
 vocab,vocab_a1_0237,a2,b1,1,over1,satz_ref+can_do_ref+accepted_relevel,a2_partner_house_entry_1,step_up_or_swap
-vocab,vocab_a1_0239,a2,c2,4,replacement_backlog raw_estimate=c2,satz_ref+can_do_ref+replacement_backlog+accepted_relevel,a2_partner_house_entry_1,replace_backfill
-vocab,vocab_a1_0240,a2,c2,4,replacement_backlog raw_estimate=c2,satz_ref+can_do_ref+replacement_backlog+accepted_relevel,a2_partner_house_entry_1,replace_backfill
+vocab,vocab_a1_0239,a2,c2,4,accepted_relevel raw_estimate=c2,satz_ref+can_do_ref+accepted_relevel+reviewed_owner,a2_partner_house_entry_1,keep_reviewed_owner
+vocab,vocab_a1_0240,a2,c2,4,accepted_relevel raw_estimate=c2,satz_ref+can_do_ref+accepted_relevel+reviewed_owner,a2_partner_house_entry_1,keep_reviewed_owner
 vocab,vocab_a1_0247,a2,b1,1,over1,satz_ref+can_do_ref+accepted_relevel,a2_partner_house_entry_1,step_up_or_swap
 vocab,vocab_a1_0249,a1,a2,1,over1,satz_ref+can_do_ref,a1_partner_table_basic_1,step_up_or_swap
 vocab,vocab_a1_0254,a1,,,unknown,satz_ref+can_do_ref,a1_partner_table_basic_1,keep
@@ -1936,19 +1936,19 @@ vocab,vocab_a1_0296,a2,,,unknown,satz_ref+can_do_ref+accepted_relevel,a2_partner
 vocab,vocab_a1_0298,a2,b1,1,over1,satz_ref+can_do_ref+accepted_relevel,a2_partner_photo_thanks_1,step_up_or_swap
 vocab,vocab_a1_0302,a2,,,unknown,satz_ref+can_do_ref+accepted_relevel,a2_partner_photo_thanks_1,keep
 vocab,vocab_a1_0305,a2,b1,1,over1,satz_ref+can_do_ref+accepted_relevel,a2_partner_photo_thanks_1,step_up_or_swap
-vocab,vocab_a1_0306,a2,c1,3,replacement_backlog raw_estimate=c1,satz_ref+can_do_ref+replacement_backlog+accepted_relevel,a2_partner_photo_thanks_1,replace_backfill
+vocab,vocab_a1_0306,a2,c1,3,accepted_relevel raw_estimate=c1,satz_ref+can_do_ref+accepted_relevel+reviewed_owner,a2_partner_photo_thanks_1,keep_reviewed_owner
 vocab,vocab_a1_0307,a2,b1,1,over1,satz_ref+can_do_ref+accepted_relevel,a2_partner_photo_thanks_1,step_up_or_swap
 vocab,vocab_a1_0309,a1,a2,1,over1,satz_ref+can_do_ref,a1_post_office_1,step_up_or_swap
 vocab,vocab_a1_0312,a1,a2,1,over1,satz_ref+can_do_ref,a1_post_office_1,step_up_or_swap
 vocab,vocab_a1_0313,a1,a2,1,over1,satz_ref+can_do_ref,a1_post_office_1,step_up_or_swap
 vocab,vocab_a1_0320,a2,b1,1,over1,satz_ref+can_do_ref+accepted_relevel,a2_pharmacy_ask_1,step_up_or_swap
 vocab,vocab_a1_0323,a2,b1,1,over1,satz_ref+can_do_ref+accepted_relevel,a2_pharmacy_ask_1,step_up_or_swap
-vocab,vocab_a1_0324,a2,b2,2,replacement_backlog raw_estimate=b2,satz_ref+can_do_ref+replacement_backlog+accepted_relevel,a2_pharmacy_ask_1,replace_backfill
+vocab,vocab_a1_0324,a2,b2,2,accepted_relevel raw_estimate=b2,satz_ref+can_do_ref+accepted_relevel+reviewed_owner,a2_pharmacy_ask_1,keep_reviewed_owner
 vocab,vocab_a1_0325,b1,c1,2,accepted_relevel raw_estimate=c1,satz_ref+can_do_ref+accepted_relevel,b1_health_hospital_1,keep_reviewed_owner
 vocab,vocab_a1_0326,a2,,,unknown,satz_ref+can_do_ref+accepted_relevel,a2_pharmacy_ask_1,keep
 vocab,vocab_a1_0327,a2,b1,1,over1 src=compound,satz_ref+can_do_ref+accepted_relevel,a2_pharmacy_ask_1,step_up_or_swap
 vocab,vocab_a1_0328,a2,b1,1,over1,satz_ref+can_do_ref+accepted_relevel,a2_pharmacy_ask_1,step_up_or_swap
-vocab,vocab_a1_0329,a2,b2,2,replacement_backlog raw_estimate=b2,satz_ref+can_do_ref+replacement_backlog+accepted_relevel,a2_pharmacy_ask_1,replace_backfill
+vocab,vocab_a1_0329,a2,b2,2,accepted_relevel raw_estimate=b2,satz_ref+can_do_ref+accepted_relevel+reviewed_owner,a2_pharmacy_ask_1,keep_reviewed_owner
 vocab,vocab_a1_0331,a2,,,unknown,satz_ref+can_do_ref+accepted_relevel,a2_pharmacy_ask_1,keep
 vocab,vocab_a1_0332,a2,b1,1,over1,satz_ref+can_do_ref+accepted_relevel,a2_daily_1,step_up_or_swap
 vocab,vocab_a1_0335,a1,a2,1,over1,satz_ref+can_do_ref,a1_weekend_promise_1,step_up_or_swap
@@ -1965,7 +1965,7 @@ vocab,vocab_a1_0361,a2,b1,1,over1,satz_ref+can_do_ref+accepted_relevel,a2_school
 vocab,vocab_a1_0362,a2,b1,1,over1,satz_ref+can_do_ref+accepted_relevel,a2_school_supplies_1,step_up_or_swap
 vocab,vocab_a1_0363,a2,b1,1,over1,satz_ref+can_do_ref+accepted_relevel,a2_school_supplies_1,step_up_or_swap
 vocab,vocab_a1_0364,a2,,,unknown,satz_ref+can_do_ref+accepted_relevel,a2_school_supplies_1,keep
-vocab,vocab_a1_0366,a2,b2,2,replacement_backlog raw_estimate=b2,satz_ref+can_do_ref+replacement_backlog+accepted_relevel,a2_school_supplies_1,replace_backfill
+vocab,vocab_a1_0366,a2,b2,2,accepted_relevel raw_estimate=b2,satz_ref+can_do_ref+accepted_relevel+reviewed_owner,a2_school_supplies_1,keep_reviewed_owner
 vocab,vocab_a1_0371,a2,b1,1,over1,satz_ref+can_do_ref+accepted_relevel,a2_subway_card_1,step_up_or_swap
 vocab,vocab_a1_0372,a2,b1,1,over1,satz_ref+can_do_ref+accepted_relevel,a2_subway_card_1,step_up_or_swap
 vocab,vocab_a1_0373,a2,b1,1,over1,satz_ref+can_do_ref+accepted_relevel,a2_subway_card_1,step_up_or_swap
@@ -1975,7 +1975,7 @@ vocab,vocab_a1_0382,a2,b1,1,over1 src=compound,satz_ref+can_do_ref+accepted_rele
 vocab,vocab_a1_0383,a2,b1,1,over1,satz_ref+can_do_ref+accepted_relevel,a2_weather_layer_1,step_up_or_swap
 vocab,vocab_a1_0387,a2,b1,1,over1,satz_ref+can_do_ref+accepted_relevel,a2_weather_layer_1,step_up_or_swap
 vocab,vocab_a1_0390,a2,b1,1,over1,satz_ref+can_do_ref+accepted_relevel,a2_weather_layer_1,step_up_or_swap
-vocab,vocab_a1_0391,a2,b2,2,replacement_backlog raw_estimate=b2,satz_ref+can_do_ref+replacement_backlog+accepted_relevel,a2_weather_layer_1,replace_backfill
+vocab,vocab_a1_0391,a2,b2,2,accepted_relevel raw_estimate=b2,satz_ref+can_do_ref+accepted_relevel+reviewed_owner,a2_weather_layer_1,keep_reviewed_owner
 vocab,vocab_a1_0405,b1,c1,2,accepted_relevel raw_estimate=c1,satz_ref+can_do_ref+accepted_relevel,b1_communication_lang_1,keep_reviewed_owner
 vocab,vocab_a1_0406,a1,a2,1,over1,satz_ref+can_do_ref,a1_particles_in_use_1,step_up_or_swap
 vocab,vocab_a1_0413,a1,a2,1,over1 src=compound,satz_ref+can_do_ref,a1_payment_delivery_1,step_up_or_swap
@@ -1987,7 +1987,7 @@ vocab,vocab_a1_0425,a1,a2,1,over1,satz_ref+can_do_ref,a1_city_services_2026_1,st
 vocab,vocab_a2_0029,a2,b1,1,over1,satz_ref+can_do_ref,a2_health_misc_1,step_up_or_swap
 vocab,vocab_a2_0088,a2,b1,1,over1,satz_ref+can_do_ref,a2_food_1,step_up_or_swap
 vocab,vocab_a2_0089,a2,b1,1,over1,satz_ref+can_do_ref,a2_food_1,step_up_or_swap
-vocab,vocab_a2_0096,a2,c1,3,replacement_backlog raw_estimate=c1,satz_ref+can_do_ref+replacement_backlog,a2_food_2,replace_backfill
+vocab,vocab_a2_0096,a2,c1,3,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,a2_food_2,keep_reviewed_owner
 vocab,vocab_a2_0101,a2,b1,1,over1,satz_ref+can_do_ref,a2_shopping_2,step_up_or_swap
 vocab,vocab_a2_0104,a2,b1,1,over1,satz_ref+can_do_ref,a2_shopping_2,step_up_or_swap
 vocab,vocab_a2_0106,a2,b1,1,over1,satz_ref+can_do_ref,a2_transport,step_up_or_swap
@@ -2015,7 +2015,7 @@ vocab,vocab_a2_0191,a2,b1,1,over1,satz_ref+can_do_ref,a2_restaurant_1,step_up_or
 vocab,vocab_a2_0196,a2,b1,1,over1,satz_ref+can_do_ref,a2_restaurant_1,step_up_or_swap
 vocab,vocab_a2_0207,a2,b1,1,over1,satz_ref+can_do_ref,a2_household_1,step_up_or_swap
 vocab,vocab_a2_0213,a2,b1,1,over1,satz_ref+can_do_ref,a2_food_more_1,step_up_or_swap
-vocab,vocab_a2_0218,a2,b2,2,replacement_backlog raw_estimate=b2,satz_ref+can_do_ref+replacement_backlog,a2_food_more_1,replace_backfill
+vocab,vocab_a2_0218,a2,b2,2,reviewed_owner raw_estimate=b2,satz_ref+can_do_ref+reviewed_owner,a2_food_more_1,keep_reviewed_owner
 vocab,vocab_a2_0219,a2,b1,1,over1,satz_ref+can_do_ref,a2_food_more_1,step_up_or_swap
 vocab,vocab_a2_0223,a2,b1,1,over1,can_do_ref,a2_nature_1,step_up_or_swap
 vocab,vocab_a2_0226,a2,b1,1,over1,satz_ref+can_do_ref,a2_nature_1,step_up_or_swap
@@ -2023,7 +2023,7 @@ vocab,vocab_a2_0228,a2,b1,1,over1,satz_ref+can_do_ref,a2_nature_1,step_up_or_swa
 vocab,vocab_a2_0230,a2,b1,1,over1,satz_ref+can_do_ref,a2_nature_1,step_up_or_swap
 vocab,vocab_a2_0231,a2,b1,1,over1,satz_ref+can_do_ref,a2_nature_1,step_up_or_swap
 vocab,vocab_a2_0237,b1,c1,2,accepted_relevel raw_estimate=c1,satz_ref+can_do_ref+accepted_relevel,b1_work,keep_reviewed_owner
-vocab,vocab_a2_0243,a2,c1,3,replacement_backlog raw_estimate=c1,satz_ref+can_do_ref+replacement_backlog,a2_people_jobs_1,replace_backfill
+vocab,vocab_a2_0243,a2,c1,3,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,a2_people_jobs_1,keep_reviewed_owner
 vocab,vocab_a2_0244,a2,b1,1,over1,satz_ref+can_do_ref,a2_people_jobs_1,step_up_or_swap
 vocab,vocab_a2_0258,a2,b1,1,over1,satz_ref+can_do_ref,a2_change_verbs_1,step_up_or_swap
 vocab,vocab_a2_0260,a2,b1,1,over1,satz_ref+can_do_ref,a2_change_verbs_1,step_up_or_swap
@@ -2062,7 +2062,7 @@ vocab,vocab_a2_0337,b1,a1,-2,under2,satz_ref+can_do_ref+accepted_relevel,b1_part
 vocab,vocab_a2_0338,b1,a1,-2,under2,satz_ref+can_do_ref+accepted_relevel,b1_partner_leftover_bags_1,downgrade_candidate
 vocab,vocab_a2_0339,b1,b2,1,over1,satz_ref+can_do_ref+accepted_relevel,b1_partner_leftover_bags_1,step_up_or_swap
 vocab,vocab_a2_0344,b1,b2,1,over1,satz_ref+can_do_ref+accepted_relevel,b1_travel_change_1,step_up_or_swap
-vocab,vocab_a2_0350,a2,c2,4,replacement_backlog raw_estimate=c2,satz_ref+can_do_ref+replacement_backlog,a2_partner_hometown_trip_1,replace_backfill
+vocab,vocab_a2_0350,a2,c2,4,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,a2_partner_hometown_trip_1,keep_reviewed_owner
 vocab,vocab_a2_0352,a2,b1,1,over1,satz_ref+can_do_ref,a2_partner_hometown_trip_1,step_up_or_swap
 vocab,vocab_a2_0353,b1,c1,2,accepted_relevel raw_estimate=c1,satz_ref+can_do_ref+accepted_relevel,b1_partner_banmal_switch_1,keep_reviewed_owner
 vocab,vocab_a2_0354,b1,b2,1,over1,satz_ref+can_do_ref+accepted_relevel,b1_partner_banmal_switch_1,step_up_or_swap
@@ -2096,15 +2096,15 @@ vocab,vocab_a2_0391,a2,,,unknown,satz_ref+can_do_ref,a2_gym_class_1,keep
 vocab,vocab_a2_0393,a2,b1,1,over1,satz_ref+can_do_ref,a2_gym_class_1,step_up_or_swap
 vocab,vocab_a2_0394,a2,b1,1,over1,satz_ref+can_do_ref,a2_gym_class_1,step_up_or_swap
 vocab,vocab_a2_0396,a2,,,unknown,satz_ref+can_do_ref,a2_gym_class_1,keep
-vocab,vocab_a2_0399,a2,c2,4,replacement_backlog raw_estimate=c2,satz_ref+can_do_ref+replacement_backlog,a2_gym_class_1,replace_backfill
-vocab,vocab_a2_0400,a2,b2,2,replacement_backlog raw_estimate=b2,satz_ref+can_do_ref+replacement_backlog,a2_gym_class_1,replace_backfill
-vocab,vocab_a2_0403,a2,b2,2,replacement_backlog raw_estimate=b2,satz_ref+can_do_ref+replacement_backlog,a2_salon_visit_1,replace_backfill
+vocab,vocab_a2_0399,a2,c2,4,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,a2_gym_class_1,keep_reviewed_owner
+vocab,vocab_a2_0400,a2,b2,2,reviewed_owner raw_estimate=b2,satz_ref+can_do_ref+reviewed_owner,a2_gym_class_1,keep_reviewed_owner
+vocab,vocab_a2_0403,a2,b2,2,reviewed_owner raw_estimate=b2,satz_ref+can_do_ref+reviewed_owner,a2_salon_visit_1,keep_reviewed_owner
 vocab,vocab_a2_0404,a2,,,unknown,satz_ref+can_do_ref,a2_salon_visit_1,keep
 vocab,vocab_a2_0405,a2,b1,1,over1,satz_ref+can_do_ref,a2_salon_visit_1,step_up_or_swap
 vocab,vocab_a2_0406,a2,b1,1,over1,satz_ref+can_do_ref,a2_salon_visit_1,step_up_or_swap
 vocab,vocab_a2_0408,a2,b1,1,over1 src=compound,satz_ref+can_do_ref,a2_salon_visit_1,step_up_or_swap
 vocab,vocab_a2_0410,a2,,,unknown,satz_ref+can_do_ref,a2_salon_visit_1,keep
-vocab,vocab_a2_0412,a2,b2,2,replacement_backlog raw_estimate=b2,satz_ref+can_do_ref+replacement_backlog,a2_salon_visit_1,replace_backfill
+vocab,vocab_a2_0412,a2,b2,2,reviewed_owner raw_estimate=b2,satz_ref+can_do_ref+reviewed_owner,a2_salon_visit_1,keep_reviewed_owner
 vocab,vocab_a2_0417,b1,b2,1,over1 src=compound,satz_ref+can_do_ref+accepted_relevel,b1_apt_rules_1,step_up_or_swap
 vocab,vocab_a2_0419,b1,,,unknown,satz_ref+can_do_ref+accepted_relevel,b1_apt_rules_1,keep
 vocab,vocab_a2_0421,b1,c1,2,accepted_relevel raw_estimate=c1,satz_ref+can_do_ref+accepted_relevel,b1_apt_rules_1,keep_reviewed_owner

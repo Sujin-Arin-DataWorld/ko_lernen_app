@@ -319,12 +319,12 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
       "unknown": 0
     },
     "vocab": {
-      "accepted_relevel": 59,
+      "accepted_relevel": 66,
       "fallback_over2": 0,
       "over1": 313,
       "over2": 0,
-      "replacement_backlog": 15,
-      "reviewed_owner": 138,
+      "replacement_backlog": 0,
+      "reviewed_owner": 146,
       "total": 2968,
       "under2": 227,
       "unknown": 58

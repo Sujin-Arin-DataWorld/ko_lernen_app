@@ -1268,8 +1268,9 @@ class LiveRatchetTest(unittest.TestCase):
         "vocab": 0, "grammar": 0, "scenario": 0, "cloze": 0,
         "satz": 0, "smalltalk": 0, "pronunciation": 0, "media": 0,
     }
-    CAP_REPLACEMENT_BACKLOG = 15
-    REVIEWED_OWNER_EXPECTED = 138
+    CAP_REPLACEMENT_BACKLOG = 0
+    REVIEWED_OWNER_EXPECTED = 146
+    REVIEWED_OWNER_DECISIONS_EXPECTED = 153
     # 2026-10-05 Stage C-1: coverage is now measured for all six NIKL
     # grades. These are lower-only missing caps and upper-only at-level
     # floors. A content change must not make a grade less represented merely
@@ -1364,6 +1365,19 @@ class LiveRatchetTest(unittest.TestCase):
         self.assertEqual(
             self.summary["counts"]["vocab"]["reviewed_owner"],
             self.REVIEWED_OWNER_EXPECTED,
+        )
+        ledger = json.loads(
+            (
+                REPO
+                / "tools"
+                / "content_factory"
+                / "relevel"
+                / "reviewed_vocab_owners_20261005.json"
+            ).read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            len(ledger["decisions"]),
+            self.REVIEWED_OWNER_DECISIONS_EXPECTED,
         )
 
     def test_pack_top10_entries_have_expected_shape(self):
