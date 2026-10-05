@@ -2967,6 +2967,24 @@ class AppL10nEn extends AppL10n {
       'Explore the cultural terms you met in this conversation.';
 
   @override
+  String get cultureStoriesTitle => 'Culture stories';
+
+  @override
+  String get cultureStoriesBody =>
+      'Culture from your completed real-life scenes is collected here.';
+
+  @override
+  String get cultureStoriesEmptyTitle => 'No culture stories yet';
+
+  @override
+  String get cultureStoriesEmptyBody =>
+      'Complete a scene with a cultural term and it will appear here.';
+
+  @override
+  String get cultureStoriesHanokBody =>
+      'Collect cultural terms from your completed scenes.';
+
+  @override
   String get scenarioStartBtn => 'Let\'s go';
 
   @override

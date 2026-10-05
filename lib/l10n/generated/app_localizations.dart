@@ -5161,6 +5161,36 @@ abstract class AppL10n {
   /// **'Entdecke die Kulturbegriffe, die dir in diesem Gespräch begegnet sind.'**
   String get scenarioCultureInSceneBody;
 
+  /// No description provided for @cultureStoriesTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Kulturgeschichten'**
+  String get cultureStoriesTitle;
+
+  /// No description provided for @cultureStoriesBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Kulturelles aus deinen abgeschlossenen Alltagsszenen wird hier gesammelt.'**
+  String get cultureStoriesBody;
+
+  /// No description provided for @cultureStoriesEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine Kulturgeschichte'**
+  String get cultureStoriesEmptyTitle;
+
+  /// No description provided for @cultureStoriesEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Wenn du eine Szene mit einem Kulturbegriff abschließt, erscheint er hier.'**
+  String get cultureStoriesEmptyBody;
+
+  /// No description provided for @cultureStoriesHanokBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Sammle Kulturbegriffe aus deinen abgeschlossenen Szenen.'**
+  String get cultureStoriesHanokBody;
+
   /// No description provided for @scenarioStartBtn.
   ///
   /// In de, this message translates to:

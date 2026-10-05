@@ -2980,6 +2980,24 @@ class AppL10nDe extends AppL10n {
       'Entdecke die Kulturbegriffe, die dir in diesem Gespräch begegnet sind.';
 
   @override
+  String get cultureStoriesTitle => 'Kulturgeschichten';
+
+  @override
+  String get cultureStoriesBody =>
+      'Kulturelles aus deinen abgeschlossenen Alltagsszenen wird hier gesammelt.';
+
+  @override
+  String get cultureStoriesEmptyTitle => 'Noch keine Kulturgeschichte';
+
+  @override
+  String get cultureStoriesEmptyBody =>
+      'Wenn du eine Szene mit einem Kulturbegriff abschließt, erscheint er hier.';
+
+  @override
+  String get cultureStoriesHanokBody =>
+      'Sammle Kulturbegriffe aus deinen abgeschlossenen Szenen.';
+
+  @override
   String get scenarioStartBtn => 'Los geht\'s!';
 
   @override
