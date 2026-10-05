@@ -863,6 +863,54 @@ def _auxiliary_tensed_repair(stem: str) -> Optional[str]:
     return remainder + "다"
 
 
+def _plain_style_repair(source: str) -> Optional[str]:
+    """Restore a narrow set of plain-style present/past predicate forms.
+
+    Sentence-level editorial/audit text uses 해라체 declaratives heavily
+    (한다, 먹는다, 했다, 먹었다). Those forms were outside the original
+    polite-ending table and therefore stayed unresolved. This helper is
+    deliberately narrower than a generic "-다" stripper: vowel-final
+    ㄴ다 forms are ambiguous for ㄹ-stems (산다 could be 살다, not 사다),
+    so only closed, observed families are handled here.
+    """
+
+    if len(source) < 2:
+        return None
+
+    # Productive 하다/되다/주다 and -나다 families with fused ㄴ다.
+    for surface_tail, lemma_tail in (
+        ("한다", "하다"),
+        ("된다", "되다"),
+        ("준다", "주다"),
+        ("난다", "나다"),
+    ):
+        if source.endswith(surface_tail):
+            return source[: -len(surface_tail)] + lemma_tail
+
+    # Consonant-stem plain present: 먹는다/묻는다/않는다 -> 먹다/묻다/않다.
+    if source.endswith("는다") and len(source) > len("는다"):
+        stem = source[: -len("는다")]
+        repaired = _irregular_repair(stem)
+        return repaired if repaired is not None else stem + "다"
+
+    # Transparent past forms where 았/었 remains as its own syllable.
+    for suffix in ("았다", "었다"):
+        if source.endswith(suffix) and len(source) > len(suffix):
+            stem = source[: -len(suffix)]
+            repaired = _irregular_repair(stem)
+            return repaired if repaired is not None else stem + "다"
+
+    # Fused ㅆ-past forms such as 했다/갔다/됐다/보냈다.
+    if source.endswith("다") and len(source) > 1:
+        stem = source[:-1]
+        if _strip_final_batchim(stem, (_TAIL_SSANGSIOT,)) is not None:
+            repaired = _irregular_repair(stem)
+            if repaired is not None:
+                return repaired
+
+    return None
+
+
 def _jamo_attributive_repair(stem: str) -> Optional[str]:
     stripped = _strip_final_batchim(stem, (_TAIL_NIEUN, _TAIL_RIEUL))
     if stripped is None:
@@ -1220,6 +1268,9 @@ def _lemma_candidates(token: str) -> List[str]:
         copula_stem = _copula_noun_stem(source)
         if copula_stem is not None:
             candidates.append(copula_stem)
+        plain_style = _plain_style_repair(source)
+        if plain_style is not None:
+            candidates.append(plain_style)
         direct = _irregular_repair(source)
         if direct is not None:
             candidates.append(direct)

@@ -325,6 +325,43 @@ Validation:
 This closes the explicit +2-or-more debt scope of the culture-quality Stage C
 program without weakening the audit or forcing unnatural learner-facing copy.
 
+### Stage C-7 — audit unknown reduction
+
+Status: **in progress**
+
+#### C-7.1 — plain-style predicate morphology
+
+Status: **complete**
+
+The level auditor was still treating normal plain-style Korean predicate forms
+such as `한다`, `했다`, `먹는다`, and `먹었다` as unknown tokens. This
+distorted lexical confidence and made later over1/under2 review noisier.
+
+Implemented a narrow fail-closed morphology repair in `tool/cefr_lexicon.py`:
+- productive plain-style families such as `한다 → 하다`, `된다 → 되다`,
+  `준다 → 주다`, and `나타난다 → 나타나다`
+- consonant-stem `-는다` forms such as `묻는다 → 묻다`
+- transparent `-았다/-었다` past forms
+- fused ㅆ-past forms such as `했다/됐다/보냈다`
+- ambiguous fused-ㄴ다 forms remain unresolved when the lemma cannot be
+  recovered safely; e.g. `산다` is deliberately not guessed as either
+  `사다` or `살다`
+
+Measured result over all live cloze fullKo sentences:
+- unknown tokens: **641 → 380**
+- unknown-token ratio: **4.35% → 2.58%**
+- live sentence unknown ratchet tightened from the old acceptance ceiling
+  12% to **2.6%**
+- live vocab-headword unknown ratchet tightened from 10% to **2.4%**
+  (current actual: **70/2968 = 2.36%**)
+
+Validation:
+- lexicon + level-audit tests: **200 / 200 passed**
+- audit regeneration: passed
+
+Next C-7 substage: classify and reduce the remaining live vocab unknown owner
+set without inventing lexical grades or weakening the ratchets.
+
 Never raise a ratchet merely to make the suite green.
 
 Use:

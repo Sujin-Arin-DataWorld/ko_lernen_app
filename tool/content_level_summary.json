@@ -3,12 +3,12 @@
     "cloze": {
       "accepted_relevel": 0,
       "fallback_over2": 0,
-      "over1": 155,
+      "over1": 153,
       "over2": 0,
       "replacement_backlog": 0,
       "reviewed_owner": 0,
       "total": 2365,
-      "under2": 460,
+      "under2": 467,
       "unknown": 0
     },
     "grammar": {
@@ -36,7 +36,7 @@
     "pronunciation": {
       "accepted_relevel": 0,
       "fallback_over2": 0,
-      "over1": 7,
+      "over1": 6,
       "over2": 0,
       "replacement_backlog": 0,
       "reviewed_owner": 0,
@@ -47,12 +47,12 @@
     "satz": {
       "accepted_relevel": 0,
       "fallback_over2": 0,
-      "over1": 153,
+      "over1": 151,
       "over2": 0,
       "replacement_backlog": 0,
       "reviewed_owner": 0,
       "total": 2885,
-      "under2": 646,
+      "under2": 653,
       "unknown": 0
     },
     "scenario": {
@@ -74,7 +74,7 @@
       "replacement_backlog": 0,
       "reviewed_owner": 0,
       "total": 590,
-      "under2": 136,
+      "under2": 137,
       "unknown": 0
     },
     "vocab": {
@@ -85,7 +85,7 @@
       "replacement_backlog": 0,
       "reviewed_owner": 146,
       "total": 2968,
-      "under2": 227,
+      "under2": 228,
       "unknown": 58
     }
   },

@@ -436,6 +436,30 @@ class TestRealLexiconGoldenCases(unittest.TestCase):
                 word = self.lex.word_grade(surface)
                 self.assertEqual((word.matched, word.grade, word.cefr), (matched, grade, cefr))
 
+    def test_plain_style_present_and_past_forms_resolve_without_guessing(self):
+        cases = {
+            "한다": ("하다", 1),
+            "분석한다": ("분석", 3),
+            "했다": ("하다", 1),
+            "설명한다": ("설명", 1),
+            "비교했다": ("비교", 2),
+            "된다": ("되다", 1),
+            "검토했다": ("검토", 3),
+            "준다": ("주다", 1),
+            "나타난다": ("나타나다", 2),
+            "않았다": ("않다", 3),
+            "않는다": ("않다", 3),
+        }
+        for surface, (matched, grade) in cases.items():
+            with self.subTest(surface=surface):
+                word = self.lex.word_grade(surface)
+                self.assertEqual(word.grade, grade)
+                self.assertTrue(word.matched.startswith(matched))
+
+        # Ambiguous fused-ㄴ다 forms stay unresolved rather than guessing
+        # 사다 vs 살다 for 산다.
+        self.assertIsNone(self.lex.word_grade("산다").grade)
+
     def test_a1_want_disambiguates_verbal_bogo_and_caps_sipda_component(self):
         self.assertEqual(self.lex.word_grade("보고").grade, 3)
         profile = self.lex.sentence_profile("보고 싶어.", self.grammar)
@@ -681,8 +705,13 @@ class TestR3ConfidenceAndProperNouns(unittest.TestCase):
 
 
 class TestVocabUnknownRatio(unittest.TestCase):
-    """Measures word_grade() unknown-ratio over all 2,499 live headwords
-    (Section 6/T1.2 R3 target: <= 10%, tightened from the original 25%)."""
+    """Ratchet word_grade() unknown-ratio over all live headwords.
+
+    The original R3 acceptance ceiling was 10%; C7-1 tightens the live
+    ratchet to the current 2026-10-05 actual (~2.36%).
+    """
+
+    CAP_UNKNOWN_RATIO = 0.024
 
     @classmethod
     def setUpClass(cls):
@@ -690,7 +719,7 @@ class TestVocabUnknownRatio(unittest.TestCase):
         with cl.VOCAB_CSV.open(encoding="utf-8", newline="") as fh:
             cls.rows = list(csv.DictReader(fh))
 
-    def test_unknown_ratio_at_most_10_percent(self):
+    def test_unknown_ratio_does_not_regress(self):
         unknown = [
             row["korean"] for row in self.rows
             if self.lex.word_grade(row["korean"]).grade is None
@@ -702,7 +731,7 @@ class TestVocabUnknownRatio(unittest.TestCase):
         print("[top 30 unknown headwords]")
         for word, count in top[:30]:
             print("  %s x%d" % (word, count))
-        self.assertLessEqual(ratio, 0.10)
+        self.assertLessEqual(ratio, self.CAP_UNKNOWN_RATIO)
         # C2d-2 (2026-09-16): vocab_a1_0141 deleted (Jin: "아예 쓰지 말자").
         # C3-T3 (2026-09-16): Batch 26/27/28 add 192 words. 2563-1+192=2754.
         # C3-T4 (2026-09-16): Batch 29 adds 64 words. 2754+64=2818.
@@ -713,9 +742,13 @@ class TestVocabUnknownRatio(unittest.TestCase):
 
 
 class TestSentenceUnknownRatio(unittest.TestCase):
-    """Section 6/T1.2 R3 target: sentence unknown-TOKEN ratio over every
-    cloze.json fullKo sentence <= 12% (eojeol-level, not headword-level --
-    a sentence contributes one denominator entry per eojeol)."""
+    """Ratchet sentence unknown-token ratio over every cloze fullKo.
+
+    The original R3 acceptance ceiling was 12%; C7-1 tightens the live
+    ratchet to the current 2026-10-05 actual (~2.58%).
+    """
+
+    CAP_UNKNOWN_RATIO = 0.026
 
     @classmethod
     def setUpClass(cls):
@@ -726,7 +759,7 @@ class TestSentenceUnknownRatio(unittest.TestCase):
             data = json.load(fh)
         cls.sentences = [item["fullKo"] for item in data["items"] if item.get("fullKo")]
 
-    def test_sentence_unknown_token_ratio_at_most_12_percent(self):
+    def test_sentence_unknown_token_ratio_does_not_regress(self):
         total_tokens = 0
         total_unknown = 0
         unknown_counter: Counter = Counter()
@@ -743,7 +776,7 @@ class TestSentenceUnknownRatio(unittest.TestCase):
         print("[top 30 unknown tokens]")
         for token, count in unknown_counter.most_common(30):
             print("  %s x%d" % (token, count))
-        self.assertLessEqual(ratio, 0.12)
+        self.assertLessEqual(ratio, self.CAP_UNKNOWN_RATIO)
         self.assertGreater(len(self.sentences), 0)
 
 

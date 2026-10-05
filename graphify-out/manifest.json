@@ -8196,9 +8196,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791217960.7424488,
-    "seen": 1791218266.3316822,
-    "ast_hash": "7af961e6310b95ab5b16ac15a5bef62b",
+    "mtime": 1791221026.46234,
+    "seen": 1791221269.742774,
+    "ast_hash": "b92010dd9ad8e12a28a0aac7193505f5",
     "semantic_hash": ""
   },
   "BETA_INSTALL_GUIDE.md": {
@@ -14568,9 +14568,9 @@
     "semantic_hash": ""
   },
   "tool/audit_content_levels.py": {
-    "mtime": 1791213750.4273427,
-    "seen": 1791214357.1773498,
-    "ast_hash": "acfd7ed7b257a00f5c7528c75b272603",
+    "mtime": 1791220920.3287537,
+    "seen": 1791221269.4886959,
+    "ast_hash": "724522d7e206c54196878861c395d81e",
     "semantic_hash": ""
   },
   "tool/audit_loanword_spelling.py": {
@@ -14592,9 +14592,9 @@
     "semantic_hash": ""
   },
   "tool/content_level_summary.json": {
-    "mtime": 1791217811.61102,
-    "seen": 1791218266.0287669,
-    "ast_hash": "f30a26a602118576e213ea0267ec1776",
+    "mtime": 1791220950.1175141,
+    "seen": 1791221269.4990356,
+    "ast_hash": "8f6f704528c8e4d79ca54a0c2fa07c3f",
     "semantic_hash": ""
   },
   "tool/ingest_nikl_grade_lists.py": {
@@ -14604,9 +14604,9 @@
     "semantic_hash": ""
   },
   "tool/test_audit_content_levels.py": {
-    "mtime": 1791217912.2661421,
-    "seen": 1791218266.054632,
-    "ast_hash": "1249af6782e2161dbf6a8513187456eb",
+    "mtime": 1791220929.6847045,
+    "seen": 1791221269.5175583,
+    "ast_hash": "a37b078bf48023eb1810fbec14466df3",
     "semantic_hash": ""
   },
   "tool/test_audit_loanword_spelling.py": {
@@ -14664,9 +14664,9 @@
     "semantic_hash": ""
   },
   "docs/data/content_level_report.md": {
-    "mtime": 1791217811.6199372,
-    "seen": 1791218266.3745122,
-    "ast_hash": "ca6af65b2690eeb3f38c07e45cf718bd",
+    "mtime": 1791220950.1250455,
+    "seen": 1791221269.7741916,
+    "ast_hash": "7738b6063eaa13b6c663b54bffd18638",
     "semantic_hash": ""
   },
   "docs/data/level_bible/F10_review_lessons.md": {
@@ -14928,9 +14928,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/relevel/replacement_backlog.json": {
-    "mtime": 1791216746.988364,
-    "seen": 1791217327.0414026,
-    "ast_hash": "5b6d3aea4fdff2b9dc3f87ae2382aafe",
+    "mtime": 1791220831.0064142,
+    "seen": 1791221269.6451182,
+    "ast_hash": "35d0e0b801444bb1f4c2115720f8e4f6",
     "semantic_hash": ""
   },
   "tools/content_factory/relevel_bundle.py": {
@@ -22212,9 +22212,9 @@
     "semantic_hash": ""
   },
   "docs/plans/2026-10-05-culture-quality-followups.md": {
-    "mtime": 1791217935.0072324,
-    "seen": 1791218266.4140244,
-    "ast_hash": "6033c813cafc3ef256d7bbfbaafb35a5",
+    "mtime": 1791221019.4691923,
+    "seen": 1791221269.8020337,
+    "ast_hash": "252a8d7fafb55ca93d03dd325d2559cf",
     "semantic_hash": ""
   },
   "tools/content_factory/relevel/relevel_bundle_V2G2.json": {
@@ -22254,9 +22254,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/relevel/reviewed_vocab_owners_20261005.json": {
-    "mtime": 1791217802.117746,
-    "seen": 1791218266.2109277,
-    "ast_hash": "f2497f4552dc3ef68695c24f3889e020",
+    "mtime": 1791220831.0044138,
+    "seen": 1791221269.6451216,
+    "ast_hash": "5a05c9db2b3296a8d5f5c78fa108026a",
     "semantic_hash": ""
   },
   "tools/content_factory/review/lcp_c4_highlevel_coverage_rehomes_20261005.json": {
@@ -22287,6 +22287,12 @@
     "mtime": 1791217802.121746,
     "seen": 1791218266.2657835,
     "ast_hash": "6e3b1f254d6fe059ca2169a2148a260c",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/lcp_c6_historical_backlog_review_20261005.json": {
+    "mtime": 1791220831.0054128,
+    "seen": 1791221269.6923597,
+    "ast_hash": "8e2bf5edca281c1b60675b2ec0a637e1",
     "semantic_hash": ""
   }
 }
