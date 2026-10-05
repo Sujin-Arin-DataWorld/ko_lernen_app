@@ -74,6 +74,18 @@
         "level": "B2",
         "category": "living_korea_fieldwork",
         "reason": "현아·병철의 문화유산 현장 조사 장면에서 반복 가능한 B2 fieldwork 핵심어다."
+      },
+      {
+        "surface": "캘린더",
+        "level": "B1",
+        "category": "living_korea_contemporary_life",
+        "reason": "안드레아·민호의 가족 일정 농담에서 쓰인 흔한 현대 생활 loanword이며 exact owner만 둔다."
+      },
+      {
+        "surface": "다큐",
+        "level": "B2",
+        "category": "living_korea_media",
+        "reason": "다니엘의 촬영 맥락에서 쓰인 다큐멘터리 축약형으로 exact owner만 둔다."
       }
     ],
     "auditorMorphologyRepairs": [
@@ -84,15 +96,40 @@
       {"surface": "볼까요", "lemma": "보다"},
       {"surface": "봐야겠지요", "lemma": "보다"},
       {"surface": "합시다", "lemma": "하다"},
-      {"surface": "나거나", "lemma": "나다"}
-    ]
+      {"surface": "나거나", "lemma": "나다"},
+      {"surface": "할지", "lemma": "하다"},
+      {"surface": "거야", "lemma": "것"},
+      {"surface": "없애야겠네", "lemma": "없애다"},
+      {"surface": "겁니다", "lemma": "것"},
+      {"surface": "만들어야겠네요", "lemma": "만들다"},
+      {"surface": "맡을게", "lemma": "맡다"},
+      {"surface": "불러서", "lemma": "부르다"},
+      {"surface": "드는", "lemma": "들다"},
+      {"surface": "올리자니", "lemma": "올리다"},
+      {"surface": "나겠다", "lemma": "나다"},
+      {"surface": "올려야겠네", "lemma": "올리다"},
+      {"surface": "무서우면", "lemma": "무섭다"},
+      {"surface": "쓰려다가", "lemma": "쓰다"},
+      {"surface": "거니까요", "lemma": "것"},
+      {"surface": "통제죠", "lemma": "통제"},
+      {"surface": "입는구나", "lemma": "입다"},
+      {"surface": "만드는", "lemma": "만들다"},
+      {"surface": "어떠세요", "lemma": "어떻다"},
+      {"surface": "않을게", "lemma": "않다"},
+      {"surface": "있을게", "lemma": "있다"}
+    ],
+    "conversationToneReview": {
+      "goal": "정보 전달 문장을 줄이고 캐릭터 관계에서 나오는 농담·받아치기·투덜거림을 살린다.",
+      "andreaMinhoPrivateRegister": "banmal",
+      "humanApprovalClaim": false
+    }
   },
   "globalLexiconSideEffect": {
     "clozeSentenceUnknownBeforeSecondWave": 277,
-    "clozeSentenceUnknownAfter": 276,
+    "clozeSentenceUnknownAfter": 274,
     "clozeTokenCount": 14721,
-    "ratioAfter": 0.0187,
-    "ratchetCap": 0.0188
+    "ratioAfter": 0.0186,
+    "ratchetCap": 0.0187
   },
   "claims": {
     "humanApproval": false,

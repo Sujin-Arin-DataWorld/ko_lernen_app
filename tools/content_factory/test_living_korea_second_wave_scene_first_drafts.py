@@ -140,6 +140,27 @@ class LivingKoreaSecondWaveSceneFirstDraftTest(unittest.TestCase):
                 ):
                     self.assertNotIn(forbidden, scene)
 
+    def test_andrea_minho_private_scenes_use_banmal(self) -> None:
+        pair = {"andrea", "minho"}
+        scenes = [
+            scene
+            for scene in self.scenes
+            if set(scene["participantIds"]) == pair
+        ]
+        self.assertEqual(len(scenes), 2)
+        for scene in scenes:
+            with self.subTest(scene=scene["id"]):
+                self.assertIn("반말", scene["relationshipContextKo"])
+                dialogue = "\n".join(turn["ko"] for turn in scene["dialog"])
+                self.assertNotIn("제가 ", dialogue)
+                for turn in scene["dialog"]:
+                    self.assertFalse(
+                        turn["ko"].rstrip().endswith(
+                            ("요.", "요?", "습니다.", "습니까?")
+                        ),
+                        msg=(scene["id"], turn["ko"]),
+                    )
+
     def test_volatile_topic_numbers_are_not_embedded_in_dialogue(self) -> None:
         full_text = "\n".join(
             turn["ko"] for scene in self.scenes for turn in scene["dialog"]
@@ -177,7 +198,7 @@ class LivingKoreaSecondWaveSceneFirstDraftTest(unittest.TestCase):
         )
         text = "\n".join(turn["ko"] for turn in scene["dialog"])
         self.assertIn("먼저 끄고 손대지 마", text)
-        self.assertIn("열어 보지 말고", text)
+        self.assertIn("열어 보진 않을게", text)
         for unsafe in ("분해", "선을 연결", "퓨즈를 교체"):
             self.assertNotIn(unsafe, text)
 

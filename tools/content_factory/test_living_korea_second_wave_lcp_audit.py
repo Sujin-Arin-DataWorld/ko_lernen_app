@@ -93,6 +93,8 @@ class LivingKoreaSecondWaveLcpAuditTest(unittest.TestCase):
             ("맥락", 4, "B2"),
             ("전통 장신구", 4, "B2"),
             ("답사", 4, "B2"),
+            ("캘린더", 3, "B1"),
+            ("다큐", 4, "B2"),
         ]
         for surface, grade, cefr in cases:
             with self.subTest(surface=surface):
@@ -115,9 +117,15 @@ class LivingKoreaSecondWaveLcpAuditTest(unittest.TestCase):
     def test_global_unknown_ratchet_is_tighter_after_second_wave(self) -> None:
         effect = self.audit["globalLexiconSideEffect"]
         self.assertEqual(effect["clozeSentenceUnknownBeforeSecondWave"], 277)
-        self.assertEqual(effect["clozeSentenceUnknownAfter"], 276)
+        self.assertEqual(effect["clozeSentenceUnknownAfter"], 274)
         self.assertEqual(effect["clozeTokenCount"], 14721)
-        self.assertEqual(effect["ratchetCap"], 0.0188)
+        self.assertEqual(effect["ratchetCap"], 0.0187)
+
+    def test_humor_pass_keeps_spouse_private_register_banmal(self) -> None:
+        tone = self.audit["decisions"]["conversationToneReview"]
+        self.assertEqual(tone["andreaMinhoPrivateRegister"], "banmal")
+        self.assertFalse(tone["humanApprovalClaim"])
+        self.assertIn("농담", tone["goal"])
 
 
 if __name__ == "__main__":

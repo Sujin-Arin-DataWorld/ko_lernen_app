@@ -173,11 +173,23 @@ class LivingKoreaProgramManifestTest(unittest.TestCase):
             "첫 만남·초기 관계에서는 해요체, 현재 연애 시점에서는 서로 반말",
         )
 
+    def test_andrea_minho_private_register_is_canonical_banmal(self) -> None:
+        self.assertEqual(
+            self.manifest["coverage"]["andreaMinhoPrivateRegister"],
+            "banmal",
+        )
+        edge = next(
+            row
+            for row in self.personas["relationshipGraph"]["edges"]
+            if {row["a"], row["b"]} == {"andrea", "minho"}
+        )
+        self.assertIn("사적 대화에서는 서로 반말", edge["registerKo"])
+
     def test_global_lcp_and_freshness_closeout(self) -> None:
         lcp = self.manifest["lcpExit"]
-        self.assertEqual(lcp["globalClozeUnknown"], 276)
+        self.assertEqual(lcp["globalClozeUnknown"], 274)
         self.assertEqual(lcp["globalClozeTokenCount"], 14721)
-        self.assertEqual(lcp["globalClozeUnknownRatchet"], 0.0188)
+        self.assertEqual(lcp["globalClozeUnknownRatchet"], 0.0187)
         freshness = self.manifest["freshness"]
         self.assertTrue(
             freshness["allTopicsCoveredExactlyOnceByCardsAcrossWaves"]

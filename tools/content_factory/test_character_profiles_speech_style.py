@@ -195,6 +195,32 @@ class CharacterProfilesSpeechStyleTest(unittest.TestCase):
             "첫 만남·초기 관계에서는 해요체, 현재 연애 시점에서는 서로 반말",
         )
 
+    def test_andrea_minho_private_married_register_uses_banmal(self) -> None:
+        characters = {
+            row["id"]: row for row in self.payload["recurringCharacters"]
+        }
+        self.assertIn(
+            "남편 민호와는 반말",
+            characters["andrea"]["speechStyle"]["ko"]["baseRegister"],
+        )
+        self.assertIn(
+            "아내 안드레아와는 반말",
+            characters["minho"]["speechStyle"]["ko"]["baseRegister"],
+        )
+        self.assertIn(
+            "서로 반말",
+            characters["andrea"]["relationships"]["minho"],
+        )
+        self.assertIn(
+            "서로 반말",
+            characters["minho"]["relationships"]["andrea"],
+        )
+        edge = next(
+            row for row in self.payload["relationshipGraph"]["edges"]
+            if {row["a"], row["b"]} == {"andrea", "minho"}
+        )
+        self.assertIn("사적 대화에서는 서로 반말", edge["registerKo"])
+
     def test_no_leftover_typo_in_괜찮아요(self) -> None:
         # The Fable spec draft mistakenly wrote "괜찬" (sujin/daniel) twice;
         # guard the corrected file against regressing back to the typo.

@@ -767,11 +767,11 @@ class TestSentenceUnknownRatio(unittest.TestCase):
 
     The original R3 acceptance ceiling was 12%; C7-4 lowered the live ratio
     to ~1.92%, Living Korea first-wave repairs lowered it below 1.89%, and
-    second-wave morphology repairs lower it again to ~1.87%. The ratchet is
-    now 1.88%.
+    second-wave conversational repairs lower it again to ~1.86%. The ratchet
+    is now 1.87%.
     """
 
-    CAP_UNKNOWN_RATIO = 0.0188
+    CAP_UNKNOWN_RATIO = 0.0187
 
     @classmethod
     def setUpClass(cls):
@@ -1837,6 +1837,26 @@ class TestLivingKoreaD4SurfaceMorphology(unittest.TestCase):
         ("봐야겠지요.", "보다"),
         ("합시다.", "하다"),
         ("나거나", "나다"),
+        ("할지", "하다"),
+        ("거야?", "것"),
+        ("없애야겠네.", "없애다"),
+        ("겁니다.", "것"),
+        ("만들어야겠네요.", "만들다"),
+        ("맡을게.", "맡다"),
+        ("불러서", "부르다"),
+        ("드는", "들다"),
+        ("올리자니", "올리다"),
+        ("나겠다", "나다"),
+        ("올려야겠네", "올리다"),
+        ("무서우면", "무섭다"),
+        ("쓰려다가", "쓰다"),
+        ("거니까요.", "것"),
+        ("통제죠.", "통제"),
+        ("입는구나", "입다"),
+        ("만드는", "만들다"),
+        ("어떠세요?", "어떻다"),
+        ("않을게.", "않다"),
+        ("있을게.", "있다"),
     ]
 
     def test_living_korea_normal_surfaces_resolve_to_dictionary_forms(self):

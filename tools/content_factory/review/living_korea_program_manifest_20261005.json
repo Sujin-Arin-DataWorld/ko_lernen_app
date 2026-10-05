@@ -38,7 +38,7 @@
     "scenes": 23,
     "dialogueTurns": 138,
     "cultureCards": 11,
-    "minedVocabularyTargets": 164,
+    "minedVocabularyTargets": 130,
     "minedGrammarTargets": 135,
     "minedPragmaticExpressions": 71,
     "registerMarkers": 47
@@ -48,6 +48,7 @@
     "topicsWithCultureCard": 11,
     "personasAssigned": 11,
     "sujinChristianCurrentRegister": "banmal_except_first_meeting_and_early_relationship",
+    "andreaMinhoPrivateRegister": "banmal",
     "hyunaSecondWaveSceneCountMinimum": 5,
     "lenaSecondWaveSceneCountMinimum": 2
   },
@@ -64,9 +65,9 @@
       "minedVocabOver2": 0,
       "maxSentenceLevelDelta": 1
     },
-    "globalClozeUnknown": 276,
+    "globalClozeUnknown": 274,
     "globalClozeTokenCount": 14721,
-    "globalClozeUnknownRatchet": 0.0188
+    "globalClozeUnknownRatchet": 0.0187
   },
   "freshness": {
     "allTopicsCoveredExactlyOnceByCardsAcrossWaves": true,
@@ -85,7 +86,7 @@
     "politicalPersuasion": false
   },
   "validation": {
-    "combinedRelevantTestsPassed": 266,
+    "combinedRelevantTestsPassed": 270,
     "contentValidationPassed": true,
     "nonGraphifyDiffCheckPassed": true
   },
