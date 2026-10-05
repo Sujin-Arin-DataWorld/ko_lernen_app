@@ -1,0 +1,369 @@
+{
+  "schemaVersion": 1,
+  "status": "review_only_scene_first",
+  "programId": "living_korea_2025_2026",
+  "wave": "second_wave",
+  "snapshotDate": "2026-10-05",
+  "topicRegistry": "tools/content_factory/canonical_scenarios/contemporary_korea_topics_20251005_20261005.json",
+  "personaCanon": "tools/content_factory/canonical_scenarios/character_profiles.json",
+  "authoringPolicy": {
+    "dialogueAuthoredBeforeLanguageMining": true,
+    "grammarTargetsAssignedBeforeDialogue": false,
+    "koreanCanonicalFirst": true,
+    "localizationStatus": "pending_after_korean_dialogue_review",
+    "ttsStatus": "excluded_jin_owned",
+    "liveWritePerformed": false
+  },
+  "arcs": [
+    {
+      "id": "shorter_working_week",
+      "titleKo": "시간을 줄이면 일도 줄어야지",
+      "topicIds": ["reduced_work_hours_45_2026"],
+      "purposeKo": "주 4.5일제·실노동시간 단축 이슈를 제도 설명이 아니라 일정·업무량·인수인계의 생활 언어로 다룬다.",
+      "scenes": [
+        {
+          "id": "b1_andrea_minho_friday_schedule",
+          "level": "b1",
+          "playerCharacterId": "andrea",
+          "participantIds": ["andrea", "minho"],
+          "topicIds": ["reduced_work_hours_45_2026"],
+          "relationshipContextKo": "부부가 집에서 서로 해요체로 일정을 조율한다.",
+          "realTaskKo": "안드레아가 회사에서 근무시간 단축 방식이 논의되는 상황을 말하고 금요일 가족 일정을 민호와 조율한다.",
+          "personaBoundaries": [
+            "안드레아의 회사가 정부 사업에 참여한다고 단정하지 않는다.",
+            "민호는 안드레아 회사의 운영 결정을 대신하지 않는다."
+          ],
+          "dialog": [
+            {"speaker": "user", "ko": "요즘 회사에서 금요일 오후를 어떻게 운영할지 얘기가 계속 나와요."},
+            {"speaker": "minho", "ko": "근무시간을 줄이는 쪽으로요?"},
+            {"speaker": "user", "ko": "네. 그런데 시간만 줄이고 일은 그대로면 결국 다른 날이 더 바빠지잖아요."},
+            {"speaker": "minho", "ko": "맞아요. 먼저 줄일 일을 정해야겠네요."},
+            {"speaker": "user", "ko": "그래서 회의 몇 개는 없애자는 얘기가 나왔어요. 금요일 오후가 비면 준이랑 저녁 일찍 먹을까요?"},
+            {"speaker": "minho", "ko": "좋죠. 실제로 시간이 비게 되면 그때 가족 일정도 같이 바꿔 봐요."}
+          ]
+        },
+        {
+          "id": "b2_sujin_minho_shorter_hours_tradeoff",
+          "level": "b2",
+          "playerCharacterId": "sujin",
+          "participantIds": ["sujin", "minho"],
+          "topicIds": ["reduced_work_hours_45_2026"],
+          "relationshipContextKo": "예전 팀장과 전 팀원. 현재 보고·평가 관계는 없고 서로 존댓말로 경험을 나눈다.",
+          "realTaskKo": "근무시간을 줄일 때 업무량·회의·인수인계를 어떻게 함께 조정해야 하는지 전 직장 경험을 바탕으로 이야기한다.",
+          "personaBoundaries": [
+            "민호는 수진의 현재 직장에 지시할 권한이 없다.",
+            "수진은 특정 제도가 모든 회사에 맞는다고 일반화하지 않는다."
+          ],
+          "dialog": [
+            {"speaker": "user", "ko": "팀장님, 요즘 근무시간 줄이는 얘기가 많잖아요. 예전 팀이라면 뭐부터 줄이셨을 것 같아요?"},
+            {"speaker": "minho", "ko": "회의부터 봤을 것 같아요. 시간은 줄였는데 업무량이 그대로면 결국 누군가 더 떠안게 되니까요."},
+            {"speaker": "user", "ko": "저도 그게 제일 걱정돼요. 금요일을 비워도 목요일 밤까지 일하면 의미가 없잖아요."},
+            {"speaker": "minho", "ko": "그렇죠. 업무 자체를 줄이거나 넘기는 기준이 같이 있어야 해요."},
+            {"speaker": "user", "ko": "그러면 근무시간보다 먼저 업무 목록을 다시 보는 게 순서겠네요."},
+            {"speaker": "minho", "ko": "네. 제도 이름보다 실제로 어떤 일을 안 하게 되는지가 더 중요하죠."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "work_family_choices",
+      "titleKo": "숫자보다 각자의 생활",
+      "topicIds": ["work_family_demography_2025_2026"],
+      "purposeKo": "출생·가족 이슈를 출산 장려로 단순화하지 않고 일·돌봄·개인 선택의 균형 언어로 다룬다.",
+      "scenes": [
+        {
+          "id": "b2_hyuna_andrea_work_family_choices",
+          "level": "b2",
+          "playerCharacterId": "hyuna",
+          "participantIds": ["hyuna", "andrea"],
+          "topicIds": ["work_family_demography_2025_2026"],
+          "relationshipContextKo": "독일과 한국 생활 경험을 비교해 보는 지인. 서로 차분한 해요체를 쓴다.",
+          "realTaskKo": "출생 관련 통계와 실제 개인의 일·가정 선택을 같은 것으로 보지 않고 이야기한다.",
+          "personaBoundaries": [
+            "출산을 개인의 의무나 해결책으로 말하지 않는다.",
+            "현아가 사회 전체를 대표해 해설하지 않고 안드레아의 개인 경험도 일반화하지 않는다."
+          ],
+          "dialog": [
+            {"speaker": "user", "ko": "요즘 출생이나 일·가정 균형 얘기가 많이 나오는데, 숫자가 조금 달라졌다고 사람들 선택까지 쉽게 설명할 수는 없잖아요."},
+            {"speaker": "andrea", "ko": "맞아요. 저도 아이가 있지만 제 경험이 다른 사람한테 그대로 맞는 건 아니고요."},
+            {"speaker": "user", "ko": "특히 일하는 시간, 집값, 돌봄처럼 여러 조건이 같이 움직이니까요."},
+            {"speaker": "andrea", "ko": "저는 결국 선택할 수 있는 여지가 있느냐가 중요하다고 봐요."},
+            {"speaker": "user", "ko": "그러니까 통계는 흐름을 보여 주지만 개인의 이유까지 설명해 주는 건 아니네요."},
+            {"speaker": "andrea", "ko": "네. 숫자는 참고하되 사람마다 다른 사정을 남겨 두는 게 필요하죠."}
+          ]
+        },
+        {
+          "id": "b1_andrea_minho_family_calendar",
+          "level": "b1",
+          "playerCharacterId": "andrea",
+          "participantIds": ["andrea", "minho"],
+          "topicIds": ["work_family_demography_2025_2026"],
+          "relationshipContextKo": "부부가 준의 일정과 자기 업무를 함께 조율한다.",
+          "realTaskKo": "한 주의 업무·가족 일정을 한쪽에게 몰지 않고 다시 나눈다.",
+          "personaBoundaries": [
+            "가사와 돌봄을 안드레아의 책임으로 고정하지 않는다.",
+            "준은 16세 청소년이므로 부모가 모든 일정을 대신 관리하지 않는다."
+          ],
+          "dialog": [
+            {"speaker": "user", "ko": "다음 주 화요일은 제가 늦어요. 준 학원 끝나는 시간은 당신이 괜찮아요?"},
+            {"speaker": "minho", "ko": "화요일은 제가 갈 수 있어요. 대신 목요일은 회의가 늦게 끝나요."},
+            {"speaker": "user", "ko": "그럼 목요일 저녁은 제가 맡을게요. 준한테도 먼저 자기 일정 확인하라고 하고요."},
+            {"speaker": "minho", "ko": "좋아요. 이번엔 한 사람이 다 맞추지 말고 셋이 같이 보죠."},
+            {"speaker": "user", "ko": "맞아요. 일도 중요하지만 계속 한쪽만 맞추면 오래 못 가요."},
+            {"speaker": "minho", "ko": "그럼 오늘 저녁에 달력 열어 놓고 셋이 정리하죠."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "small_business_costs",
+      "titleKo": "가격을 올리기도, 안 올리기도 어렵네",
+      "topicIds": ["minimum_wage_small_business_2026"],
+      "purposeKo": "최저임금·인건비 이슈를 실제 가게의 가격표·수선비·손님 안내 같은 소상공인 생활 언어로 바꾼다.",
+      "scenes": [
+        {
+          "id": "b1_dongsun_sujin_repair_price",
+          "level": "b1",
+          "playerCharacterId": "sujin",
+          "participantIds": ["dongsun", "sujin"],
+          "topicIds": ["minimum_wage_small_business_2026"],
+          "relationshipContextKo": "엄마와 딸이 가게 일을 두고 편한 반말로 이야기한다.",
+          "realTaskKo": "동선이 재료비·인건비 부담 때문에 수선 가격표를 다시 보려는 고민을 수진에게 말한다.",
+          "personaBoundaries": [
+            "동선의 실제 매출이나 비용 수치를 만들어 내지 않는다.",
+            "수진이 세무·노무 전문가처럼 결론을 내려 주지 않는다."
+          ],
+          "dialog": [
+            {"speaker": "dongsun", "ko": "수진아, 엄마 수선 가격표 좀 다시 보려고."},
+            {"speaker": "user", "ko": "왜? 요즘 비용이 많이 올랐어?"},
+            {"speaker": "dongsun", "ko": "재료값도 그렇고 사람 도움 받을 때 드는 돈도 만만치 않지. 그렇다고 갑자기 많이 올리기도 어렵고."},
+            {"speaker": "user", "ko": "그럼 자주 들어오는 수선부터 하나씩 계산해 봐. 전부 한꺼번에 바꾸지 말고."},
+            {"speaker": "dongsun", "ko": "나도 그 생각이야. 오래 걸리는 수선만 먼저 다시 보려고."},
+            {"speaker": "user", "ko": "응. 손님한테도 왜 바뀌는지 짧게 알려 주면 될 것 같아."}
+          ]
+        },
+        {
+          "id": "b1_dongsun_maya_price_notice",
+          "level": "b1",
+          "playerCharacterId": "maya",
+          "participantIds": ["dongsun", "maya"],
+          "topicIds": ["minimum_wage_small_business_2026"],
+          "relationshipContextKo": "가게 홍보 조언을 주고받는 사이. 서로 해요체를 쓴다.",
+          "realTaskKo": "수선 가격 변경 안내를 손님에게 부담스럽지 않게 전달할 문구를 함께 정한다.",
+          "personaBoundaries": [
+            "마야는 홍보 문구를 돕지만 동선의 가격을 결정하지 않는다.",
+            "동선은 손님 반응을 무조건 부정적으로 가정하지 않는다."
+          ],
+          "dialog": [
+            {"speaker": "dongsun", "ko": "마야 씨, 수선 가격을 조금 바꾸려고 하는데 공지를 너무 딱딱하게 쓰고 싶진 않아요."},
+            {"speaker": "user", "ko": "그럼 이유를 길게 설명하기보다 언제부터 어떤 항목이 바뀌는지만 먼저 쓰면 어때요?"},
+            {"speaker": "dongsun", "ko": "‘일부 수선 가격이 조정됩니다’ 정도면 괜찮을까요?"},
+            {"speaker": "user", "ko": "네. 그리고 맡기기 전에 가격을 먼저 안내해 드린다고 쓰면 더 안심될 것 같아요."},
+            {"speaker": "dongsun", "ko": "좋네요. 미안하다는 말만 계속 쓰는 것보다 낫겠어요."},
+            {"speaker": "user", "ko": "맞아요. 바뀌는 내용을 정확하게 알려 주는 게 더 중요해요."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tourism_and_local_life",
+      "titleKo": "놀러 온 사람과 사는 사람",
+      "topicIds": ["tourism_local_life_2026"],
+      "purposeKo": "관광 증가를 관광객 비난으로 만들지 않고 혼잡·주민 동선·촬영 시간을 조율하는 언어로 다룬다.",
+      "scenes": [
+        {
+          "id": "b1_lena_hyuna_crowded_weekend",
+          "level": "b1",
+          "playerCharacterId": "lena",
+          "participantIds": ["lena", "hyuna"],
+          "topicIds": ["tourism_local_life_2026"],
+          "relationshipContextKo": "같은 셰어하우스 이웃. 서로 친근한 해요체로 주말 계획을 이야기한다.",
+          "realTaskKo": "레나가 인기 지역에 가고 싶어 하지만 현아와 혼잡한 시간과 주민 생활을 고려해 시간을 바꾼다.",
+          "personaBoundaries": [
+            "레나를 무례한 관광객으로 만들지 않는다.",
+            "현아는 주민 전체를 대표해 말하지 않는다."
+          ],
+          "dialog": [
+            {"speaker": "user", "ko": "현아 씨, 토요일에 그 골목 가 볼래요? 요즘 사진이 진짜 많이 올라오더라고요."},
+            {"speaker": "hyuna", "ko": "좋아요. 다만 토요일 오후에는 사람이 너무 많아서 걷기도 힘들 수 있어요."},
+            {"speaker": "user", "ko": "아, 그 정도예요? 그러면 아침에 갈까요?"},
+            {"speaker": "hyuna", "ko": "아침이면 훨씬 나을 거예요. 가게 문 열기 전이라 조용한 구간도 있고요."},
+            {"speaker": "user", "ko": "좋아요. 사람 적을 때 보고, 사진 찍을 때도 출입구는 안 막을게요."},
+            {"speaker": "hyuna", "ko": "그 정도면 좋죠. 놀러 가는 사람도 편하고 사는 사람도 덜 불편하고요."}
+          ]
+        },
+        {
+          "id": "b2_hyuna_daniel_resident_flow_filming",
+          "level": "b2",
+          "playerCharacterId": "daniel",
+          "participantIds": ["hyuna", "daniel"],
+          "topicIds": ["tourism_local_life_2026"],
+          "relationshipContextKo": "지역 촬영 방식에 관해 의견을 나누는 사이. 서로 전문적인 해요체를 쓴다.",
+          "realTaskKo": "관광객이 많은 골목에서 촬영할 때 주민 통로와 촬영 시간을 조정한다.",
+          "personaBoundaries": [
+            "현아가 주민의 동의를 대신하지 않는다.",
+            "다니엘은 촬영 편의를 이유로 통행을 막지 않는다."
+          ],
+          "dialog": [
+            {"speaker": "user", "ko": "이 골목은 화면이 정말 좋은데 오후에는 사람이 너무 많이 지나가네요."},
+            {"speaker": "hyuna", "ko": "관광객도 많지만 주민들이 집에 드나드는 길이기도 해요. 통로를 막으면 안 돼요."},
+            {"speaker": "user", "ko": "그러면 삼각대는 벽 쪽으로 붙이고, 한 장면 찍는 시간도 짧게 잡을게요."},
+            {"speaker": "hyuna", "ko": "좋아요. 그리고 가게 앞을 오래 쓰려면 가게에도 따로 물어보는 게 좋겠어요."},
+            {"speaker": "user", "ko": "네. 사람 없는 화면을 만들려고 길을 비워 달라고 하진 않을게요."},
+            {"speaker": "hyuna", "ko": "그게 좋아요. 여기서는 예쁜 화면보다 사람들이 계속 생활할 수 있는 게 먼저니까요."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hallyu_beyond_kpop",
+      "titleKo": "한류가 음악만은 아니잖아요",
+      "topicIds": ["hallyu_diversification_2026"],
+      "purposeKo": "한류 관심의 확장을 개인 취향·콘텐츠 기획·전통문화 재해석의 언어로 다룬다.",
+      "scenes": [
+        {
+          "id": "b1_lena_maya_beyond_music",
+          "level": "b1",
+          "playerCharacterId": "lena",
+          "participantIds": ["lena", "maya"],
+          "topicIds": ["hallyu_diversification_2026"],
+          "relationshipContextKo": "음악과 공연 취향을 나누는 친구. 밝은 해요체로 이야기한다.",
+          "realTaskKo": "레나가 K-pop에서 시작한 관심이 소설·음식·여행으로 넓어진 경험을 마야에게 말한다.",
+          "personaBoundaries": [
+            "레나의 취향을 외국인 전체의 한류 소비 방식으로 일반화하지 않는다.",
+            "마야는 무엇이 한국을 대표한다고 단정하지 않는다."
+          ],
+          "dialog": [
+            {"speaker": "user", "ko": "저 처음에는 진짜 음악 때문에 한국에 관심 생겼거든요."},
+            {"speaker": "maya", "ko": "알죠. 공연 얘기만 나오면 레나 씨 눈부터 달라지잖아요."},
+            {"speaker": "user", "ko": "맞아요. 근데 요즘은 소설도 읽고, 음식 찾아다니고, 여행 계획도 그걸 따라가요."},
+            {"speaker": "maya", "ko": "그게 재밌어요. 하나 좋아하다가 다른 분야로 계속 연결되는 거요."},
+            {"speaker": "user", "ko": "그래서 이제 한류라고 하면 음악만 떠오르진 않아요."},
+            {"speaker": "maya", "ko": "저도 콘텐츠 만들 때 그걸 더 보여 주고 싶어요. 다만 유행하는 걸 한국 전체라고 말하진 않게요."}
+          ]
+        },
+        {
+          "id": "b2_maya_daniel_tradition_reinterpretation",
+          "level": "b2",
+          "playerCharacterId": "maya",
+          "participantIds": ["maya", "daniel"],
+          "topicIds": ["hallyu_diversification_2026"],
+          "relationshipContextKo": "문화콘텐츠 영상 프로젝트 동료. 서로 빠르고 전문적인 해요체를 쓴다.",
+          "realTaskKo": "전통 요소를 현대 영상에 쓸 때 원래 맥락과 새로 연출한 부분을 구분한다.",
+          "personaBoundaries": [
+            "마야는 현대적 재해석을 원형이라고 포장하지 않는다.",
+            "다니엘은 촬영한 장면만으로 전통의 의미를 단정하지 않는다."
+          ],
+          "dialog": [
+            {"speaker": "user", "ko": "이번 영상에서 전통 장신구를 현대 의상에 같이 쓰면 화면은 정말 예쁠 것 같아요."},
+            {"speaker": "daniel", "ko": "좋아요. 대신 원래 이렇게 쓰는 방식이라고 보이면 안 되겠죠?"},
+            {"speaker": "user", "ko": "맞아요. 원래 쓰임은 따로 설명하고, 이 장면은 우리가 새로 연출한 거라고 표시하죠."},
+            {"speaker": "daniel", "ko": "그럼 촬영할 때도 전통 자료 장면이랑 재해석 장면을 분리해 둘게요."},
+            {"speaker": "user", "ko": "좋아요. 보기 좋은 것보다 어디까지가 원래 맥락인지 알 수 있게 하는 게 중요해요."},
+            {"speaker": "daniel", "ko": "네. 그래야 나중에 짧게 편집해도 둘이 섞이지 않겠네요."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gyeongju_after_apec",
+      "titleKo": "행사가 끝난 뒤 도시에 남는 것",
+      "topicIds": ["apec_gyeongju_2025"],
+      "purposeKo": "APEC 경주를 국제정치 토론이 아니라 문화유산 도시가 국제행사를 치른 뒤 남는 이미지·기억·자료의 문제로 다룬다.",
+      "scenes": [
+        {
+          "id": "b2_hyuna_daniel_gyeongju_after_apec",
+          "level": "b2",
+          "playerCharacterId": "hyuna",
+          "participantIds": ["hyuna", "daniel"],
+          "topicIds": ["apec_gyeongju_2025"],
+          "relationshipContextKo": "지역을 기록하는 방식에 대해 자주 의견을 나누는 사이.",
+          "realTaskKo": "APEC 이후 경주를 촬영할 때 국제행사 이미지와 지역의 일상·문화유산을 어떻게 함께 보여 줄지 정한다.",
+          "personaBoundaries": [
+            "정상회의의 외교 성과나 정치적 평가를 학습 목표로 삼지 않는다.",
+            "현아와 다니엘 모두 경주 주민을 대신해 도시의 의미를 단정하지 않는다."
+          ],
+          "dialog": [
+            {"speaker": "user", "ko": "APEC 끝난 뒤에 경주를 다시 찍으면 행사 때랑 완전히 다른 화면이 나오겠죠."},
+            {"speaker": "daniel", "ko": "그럴 것 같아요. 저는 큰 행사 흔적도 궁금하지만 사람들이 다시 평소처럼 사는 모습도 찍고 싶어요."},
+            {"speaker": "user", "ko": "좋아요. 국제행사가 열렸다는 사실과 경주가 원래 가진 문화유산을 한 이야기로 섞지만 않으면요."},
+            {"speaker": "daniel", "ko": "그러면 행사 자료는 행사 자료로 두고, 지금 촬영은 현재 도시 모습에 집중할까요?"},
+            {"speaker": "user", "ko": "네. 그리고 행사 때문에 새로 생긴 안내나 동선이 있으면 그건 따로 확인해 보죠."},
+            {"speaker": "daniel", "ko": "좋아요. ‘행사 도시’만 남지 않게 찍어 보고 싶네요."}
+          ]
+        },
+        {
+          "id": "b1_hyuna_byeongcheol_gyeongju_heritage",
+          "level": "b1",
+          "playerCharacterId": "hyuna",
+          "participantIds": ["hyuna", "byeongcheol"],
+          "topicIds": ["apec_gyeongju_2025"],
+          "relationshipContextKo": "수진이 소개한 지역 답사 지인. 현아는 해요체, 병철은 격식 있는 해요체를 쓴다.",
+          "realTaskKo": "경주 답사를 준비하며 국제행사 이후의 홍보 표현과 실제 문화유산 자료를 구분해 보기로 한다.",
+          "personaBoundaries": [
+            "병철은 건축 관심을 바탕으로 질문하지만 역사 전문가처럼 단정하지 않는다.",
+            "현아는 공식 자료와 현장 관찰을 구분한다."
+          ],
+          "dialog": [
+            {"speaker": "user", "ko": "선생님, 다음 답사는 경주로 가 볼까요? APEC 이후에 도시 소개가 어떻게 달라졌는지도 궁금해요."},
+            {"speaker": "byeongcheol", "ko": "좋습니다. 다만 행사 홍보 문구하고 원래 문화유산 설명은 따로 봐야겠지요."},
+            {"speaker": "user", "ko": "네. 행사 때문에 강조된 장소가 어디인지 보고, 역사 설명은 공식 자료로 다시 확인하려고요."},
+            {"speaker": "byeongcheol", "ko": "나는 건물이나 길이 어떻게 연결되는지 보면 재미있을 것 같습니다."},
+            {"speaker": "user", "ko": "좋아요. 선생님이 현장에서 본 건 관찰 메모로 남기고, 연대나 역사 사실은 따로 확인해요."},
+            {"speaker": "byeongcheol", "ko": "그렇게 합시다. 내가 본 느낌과 확인된 사실은 다른 것이니까요."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heatwave_daily_adaptation",
+      "titleKo": "너무 더우면 시간부터 바꾸자",
+      "topicIds": ["heatwave_electricity_safety_2026"],
+      "purposeKo": "기록적 폭염을 숫자 암기보다 외출 시간·실내 일정·기본 전기 안전을 조정하는 생활 언어로 다룬다.",
+      "scenes": [
+        {
+          "id": "a2_lena_hyuna_heatwave_plan",
+          "level": "a2",
+          "playerCharacterId": "lena",
+          "participantIds": ["lena", "hyuna"],
+          "topicIds": ["heatwave_electricity_safety_2026"],
+          "relationshipContextKo": "같은 셰어하우스 이웃. 더운 날 주말 일정을 친근한 해요체로 바꾼다.",
+          "realTaskKo": "한낮 야외 일정을 피하고 아침·실내 중심으로 주말 계획을 바꾼다.",
+          "personaBoundaries": [
+            "의학적 진단이나 치료 조언을 하지 않는다.",
+            "레나를 더위에 무모한 사람으로 희화화하지 않는다."
+          ],
+          "dialog": [
+            {"speaker": "user", "ko": "현아 씨, 내일 오후에 한강 갈까요?"},
+            {"speaker": "hyuna", "ko": "내일도 많이 덥대요. 오후보다는 아침이 낫지 않을까요?"},
+            {"speaker": "user", "ko": "좋아요. 그러면 아침에 걷고 점심부터는 실내에 있어요."},
+            {"speaker": "hyuna", "ko": "네. 물도 챙기고 오래 걷지는 말아요."},
+            {"speaker": "user", "ko": "그럼 카페랑 전시도 같이 찾아볼게요. 더우면 바로 안으로 들어가고요."},
+            {"speaker": "hyuna", "ko": "좋아요. 이런 날은 장소보다 시간을 바꾸는 게 제일 편해요."}
+          ]
+        },
+        {
+          "id": "b1_byeongcheol_sujin_heat_electricity",
+          "level": "b1",
+          "playerCharacterId": "sujin",
+          "participantIds": ["byeongcheol", "sujin"],
+          "topicIds": ["heatwave_electricity_safety_2026"],
+          "relationshipContextKo": "아빠와 딸이 짧은 반말로 폭염 때 집의 전기 사용과 외출 시간을 이야기한다.",
+          "realTaskKo": "더운 날 에어컨 등 전기기기를 오래 사용할 때 무리하게 손대지 않고 이상이 있으면 먼저 끄고 확인하기로 한다.",
+          "personaBoundaries": [
+            "병철의 전기기술 지식을 기후 정책 전문성으로 확대하지 않는다.",
+            "사용자가 직접 위험한 전기 수리를 하도록 안내하지 않는다."
+          ],
+          "dialog": [
+            {"speaker": "byeongcheol", "ko": "수진아, 요즘 에어컨 오래 켜지?"},
+            {"speaker": "user", "ko": "응. 밤에도 더워서 거의 매일 켜."},
+            {"speaker": "byeongcheol", "ko": "그럼 전원 쪽에서 이상한 냄새가 나거나 너무 뜨거워지면 먼저 끄고 손대지 마."},
+            {"speaker": "user", "ko": "알겠어. 내가 열어 보지 말고 이상하면 바로 연락할게."},
+            {"speaker": "byeongcheol", "ko": "그래. 그리고 한낮에 밖에서 오래 버티지 말고 볼일은 가능하면 시간 바꿔."},
+            {"speaker": "user", "ko": "응. 이번 주는 아침에 움직이고 낮에는 집에서 일하려고."}
+          ]
+        }
+      ]
+    }
+  ]
+}
