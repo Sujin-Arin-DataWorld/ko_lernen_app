@@ -2420,7 +2420,10 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
             ScenarioStructureResultCard(result: result),
             const SizedBox(height: Spacing.md),
           ],
-          ScenarioCultureCard(scenarioId: scenario.id),
+          ScenarioCultureCard(
+            scenarioId: scenario.id,
+            learnerLevel: scenario.level.code,
+          ),
           if (feedbackScope != null && feedbackScope.featureGate.isEnabled) ...[
             ContentFeedbackCard(
               feedbackContext: feedbackCompletion.context,

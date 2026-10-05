@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/cultural_glossary.dart';
+import '../../models/smalltalk_context_case.dart';
 import '../../services/cultural_glossary_repository.dart';
 import '../../services/scenario_culture_link_repository.dart';
+import 'button.dart';
 import 'card.dart';
 import 'cultural_help.dart';
 import 'mascot.dart';
@@ -47,11 +49,13 @@ class ScenarioCultureCard extends StatefulWidget {
   const ScenarioCultureCard({
     super.key,
     required this.scenarioId,
+    this.learnerLevel,
     this.entriesLoader = loadScenarioCultureEntries,
     this.previewCompanionPreference,
   });
 
   final String scenarioId;
+  final String? learnerLevel;
   final ScenarioCultureEntriesLoader entriesLoader;
 
   /// Storage-free presentation seam for tests and galleries. Production leaves
@@ -117,6 +121,15 @@ class _ScenarioCultureCardState extends State<ScenarioCultureCard> {
                         color: surfaces.border.withValues(alpha: .6),
                       ),
                     _ScenarioCultureTermRow(entry: entries[index]),
+                  ],
+                  if (widget.learnerLevel != null) ...[
+                    Divider(
+                      height: Spacing.lg,
+                      color: surfaces.border.withValues(alpha: .6),
+                    ),
+                    _ScenarioPragmaticTransfer(
+                      learnerLevel: widget.learnerLevel!,
+                    ),
                   ],
                 ],
               ),
@@ -198,6 +211,62 @@ class _ScenarioCultureHeader extends StatelessWidget {
               const SizedBox(height: Spacing.xs),
               Text(body, style: SoriTextTheme.of(context).bodySmall),
             ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _ScenarioPragmaticTransfer extends StatelessWidget {
+  const _ScenarioPragmaticTransfer({required this.learnerLevel});
+
+  final String learnerLevel;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.asset(
+              'assets/illustrations/tactile/hahoe_scholar.png',
+              width: 32,
+              height: 48,
+              excludeFromSemantics: true,
+            ),
+            const SizedBox(width: Spacing.sm),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    t.scenarioCultureTransferTitle,
+                    style: SoriTextTheme.of(context).h3,
+                  ),
+                  const SizedBox(height: Spacing.xs),
+                  Text(
+                    t.scenarioCultureTransferBody,
+                    style: SoriTextTheme.of(context).bodySmall,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: Spacing.md),
+        SoriButton.outlined(
+          key: const ValueKey('scenario_culture_pragmatic_transfer'),
+          label: t.scenarioCultureTransferAction,
+          fullWidth: true,
+          onTap: () => Navigator.of(context).pushNamed(
+            '/smalltalk/context',
+            arguments: SmalltalkContextRequest(
+              level: learnerLevel.toLowerCase(),
+            ),
           ),
         ),
       ],

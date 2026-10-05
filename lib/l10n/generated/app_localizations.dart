@@ -5173,6 +5173,24 @@ abstract class AppL10n {
   /// **'Joy hat ein kulturelles Detail entdeckt und bringt dir die Neuigkeit.'**
   String get scenarioCultureMagpieReaction;
 
+  /// No description provided for @scenarioCultureTransferTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Gleiche Absicht, andere Beziehung'**
+  String get scenarioCultureTransferTitle;
+
+  /// No description provided for @scenarioCultureTransferBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Übe mit dem Hahoe-Gelehrten, wie sich dieselbe Bitte bei einem Freund, einem Elternteil oder im Kollegenkreis verändert.'**
+  String get scenarioCultureTransferBody;
+
+  /// No description provided for @scenarioCultureTransferAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Tonfall üben'**
+  String get scenarioCultureTransferAction;
+
   /// No description provided for @cultureStoriesTitle.
   ///
   /// In de, this message translates to:

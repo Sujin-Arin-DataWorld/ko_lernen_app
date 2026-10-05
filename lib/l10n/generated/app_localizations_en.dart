@@ -2975,6 +2975,17 @@ class AppL10nEn extends AppL10n {
       'Joy spotted a cultural detail and brought you the news.';
 
   @override
+  String get scenarioCultureTransferTitle =>
+      'Same intent, another relationship';
+
+  @override
+  String get scenarioCultureTransferBody =>
+      'With the Hahoe scholar, try how the same request changes with a friend, parent or coworker.';
+
+  @override
+  String get scenarioCultureTransferAction => 'Practise the tone';
+
+  @override
   String get cultureStoriesTitle => 'Culture stories';
 
   @override

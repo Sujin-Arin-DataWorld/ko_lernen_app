@@ -2988,6 +2988,17 @@ class AppL10nDe extends AppL10n {
       'Joy hat ein kulturelles Detail entdeckt und bringt dir die Neuigkeit.';
 
   @override
+  String get scenarioCultureTransferTitle =>
+      'Gleiche Absicht, andere Beziehung';
+
+  @override
+  String get scenarioCultureTransferBody =>
+      'Übe mit dem Hahoe-Gelehrten, wie sich dieselbe Bitte bei einem Freund, einem Elternteil oder im Kollegenkreis verändert.';
+
+  @override
+  String get scenarioCultureTransferAction => 'Tonfall üben';
+
+  @override
   String get cultureStoriesTitle => 'Kulturgeschichten';
 
   @override

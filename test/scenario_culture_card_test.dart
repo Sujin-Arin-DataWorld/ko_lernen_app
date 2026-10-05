@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/cultural_glossary.dart';
 import 'package:ko_lernen_app/models/scenario_culture_link.dart';
+import 'package:ko_lernen_app/models/smalltalk_context_case.dart';
 import 'package:ko_lernen_app/services/cultural_glossary_repository.dart';
 import 'package:ko_lernen_app/services/scenario_culture_link_repository.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -149,6 +150,55 @@ void main() {
     expect(find.text('Kultur in dieser Szene'), findsNothing);
   });
 
+  testWidgets(
+    'routes a culture scene into existing level-matched Smalltalk practice',
+    (tester) async {
+      final entry = glossary.entry('hanok')!;
+      Future<List<CulturalGlossaryEntry>> entriesLoader(String _) async => [
+        entry,
+      ];
+      SmalltalkContextRequest? capturedRequest;
+
+      await tester.pumpWidget(
+        _host(
+          ScenarioCultureCard(
+            scenarioId: 'scene',
+            learnerLevel: 'B1',
+            entriesLoader: entriesLoader,
+          ),
+          locale: const Locale('en'),
+          onGenerateRoute: (settings) {
+            if (settings.name == '/smalltalk/context') {
+              capturedRequest = settings.arguments as SmalltalkContextRequest;
+              return MaterialPageRoute<void>(
+                settings: settings,
+                builder: (_) => const Scaffold(body: Text('context-practice')),
+              );
+            }
+            return null;
+          },
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('Same intent, another relationship'), findsOneWidget);
+      expect(
+        find.byKey(const ValueKey('scenario_culture_pragmatic_transfer')),
+        findsOneWidget,
+      );
+
+      await tester.tap(
+        find.byKey(const ValueKey('scenario_culture_pragmatic_transfer')),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('context-practice'), findsOneWidget);
+      expect(capturedRequest?.level, 'b1');
+      expect(capturedRequest?.caseId, isNull);
+      expect(capturedRequest?.transfer, isFalse);
+    },
+  );
+
   testWidgets('companion preference changes culture presentation only', (
     tester,
   ) async {
@@ -252,6 +302,7 @@ void main() {
         _host(
           ScenarioCultureCard(
             scenarioId: 'scene',
+            learnerLevel: 'B1',
             entriesLoader: entriesLoader,
             previewCompanionPreference: CompanionPreference.magpie,
           ),
@@ -294,6 +345,7 @@ Widget _host(
   Widget child, {
   Locale locale = const Locale('de'),
   TextScaler? textScaler,
+  RouteFactory? onGenerateRoute,
 }) {
   return MaterialApp(
     debugShowCheckedModeBanner: false,
@@ -301,6 +353,7 @@ Widget _host(
     locale: locale,
     supportedLocales: AppL10n.supportedLocales,
     localizationsDelegates: AppL10n.localizationsDelegates,
+    onGenerateRoute: onGenerateRoute,
     builder: textScaler == null
         ? null
         : (context, child) {
