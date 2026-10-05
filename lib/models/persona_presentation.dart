@@ -111,18 +111,22 @@ abstract final class PersonaPresentationCatalog {
       characterId: 'maya',
       assetPath: 'assets/illustrations/personas/v3/maya.png',
       practiceSummary: LocalizedText(
-        ko: '음악과 관심사 나누기',
-        de: 'Musik und gemeinsame Interessen',
-        en: 'Music and shared interests',
+        ko: '공연·콘텐츠 기획과 표현 조율',
+        de: 'Kulturinhalte planen und verantwortungsvoll darstellen',
+        en: 'Planning culture content and handling representation',
       ),
       intro: LocalizedText(
-        ko: '마야는 K-pop 마케팅 일을 해요. 좋아하는 음악과 공연 이야기를 나누고, 서로의 취향을 알아가요.',
-        de: 'Maya arbeitet im K-Pop-Marketing. Sprich mit ihr über Musik und Konzerte und lerne ihre Vorlieben kennen.',
-        en: 'Maya works in K-pop marketing. Talk about music and concerts and get to know each other’s tastes.',
+        ko: '마야는 K-pop·문화콘텐츠 마케팅 일을 해요. 공연과 지역문화를 소개할 때 무엇을 기록한 것이고 무엇을 새롭게 해석했는지 함께 조율해 봐요.',
+        de: 'Maya arbeitet im K-Pop- und Kulturmarketing. Kläre mit ihr, was bei Aufführungen und lokalen Kulturthemen dokumentiert und was neu interpretiert wurde.',
+        en: 'Maya works in K-pop and culture marketing. Work with her to distinguish what was documented from what was newly interpreted in performances and local culture.',
       ),
       interests: [
-        LocalizedText(ko: '공연', de: 'Konzerte', en: 'Concerts'),
-        LocalizedText(ko: '맛집', de: 'Gutes Essen', en: 'Good food'),
+        LocalizedText(ko: '공연', de: 'Aufführungen', en: 'Performances'),
+        LocalizedText(
+          ko: '콘텐츠 기획',
+          de: 'Content-Konzeption',
+          en: 'Content planning',
+        ),
       ],
       relations: [
         PersonaRelation(
@@ -137,20 +141,36 @@ abstract final class PersonaPresentationCatalog {
             en: 'Her project partner',
           ),
         ),
+        PersonaRelation(
+          'hyuna',
+          LocalizedText(
+            ko: '문화콘텐츠의 맥락을 함께 점검하는 지인',
+            de: 'Gesprächspartnerin für kulturellen Kontext',
+            en: 'Someone she checks cultural context with',
+          ),
+        ),
+        PersonaRelation(
+          'dongsun',
+          LocalizedText(
+            ko: '가게 홍보를 함께 의논하는 사장님',
+            de: 'Ladeninhaberin, mit der sie Werbung plant',
+            en: 'A shop owner she works with on promotion',
+          ),
+        ),
       ],
     ),
     PersonaPresentation(
       characterId: 'hyuna',
       assetPath: 'assets/illustrations/personas/v3/hyuna.png',
       practiceSummary: LocalizedText(
-        ko: '정보와 의도 확인하기',
-        de: 'Informationen und Absichten klären',
-        en: 'Clarifying information and intentions',
+        ko: '지역문화·기억·자료 구분하기',
+        de: 'Lokale Kultur, Erinnerung und Quellen unterscheiden',
+        en: 'Separating local culture, memory and sources',
       ),
       intro: LocalizedText(
-        ko: '현아는 도시와 문화를 연구해요. 설명이 모호하거나 정보가 맞지 않을 때, 함께 맥락을 확인하고 뜻을 분명히 해 봐요.',
-        de: 'Hyuna forscht zu Stadt und Kultur. Wenn eine Erklärung unklar ist oder eine Information nicht stimmt, kläre mit ihr den Zusammenhang.',
-        en: 'Hyuna researches cities and culture. When an explanation is unclear or some information is wrong, work through the context together.',
+        ko: '현아는 도시의 기억·지역문화·생활유산을 연구해요. 사람의 기억과 확인된 자료를 구분하고, 전통이 지금 어떻게 이어지고 바뀌는지 함께 살펴봐요.',
+        de: 'Hyuna erforscht Stadterinnerungen, lokale Kultur und gelebtes Kulturerbe. Mit ihr unterscheidest du persönliche Erinnerung von belegten Quellen und schaust, wie Traditionen heute weiterleben und sich verändern.',
+        en: 'Hyuna researches urban memory, local culture and living heritage. With her, separate personal memory from verified sources and explore how traditions continue and change today.',
       ),
       interests: [
         LocalizedText(
@@ -159,9 +179,9 @@ abstract final class PersonaPresentationCatalog {
           en: 'Neighbourhood walks',
         ),
         LocalizedText(
-          ko: '독립영화',
-          de: 'Independent-Filme',
-          en: 'Independent films',
+          ko: '생활유산·지역 기록',
+          de: 'Alltagskultur und lokale Dokumentation',
+          en: 'Living heritage and local records',
         ),
       ],
       relations: [
@@ -175,6 +195,30 @@ abstract final class PersonaPresentationCatalog {
             ko: '셰어하우스 이웃',
             de: 'Ihre Mitbewohnerin',
             en: 'Her housemate',
+          ),
+        ),
+        PersonaRelation(
+          'daniel',
+          LocalizedText(
+            ko: '지역 촬영 방식을 함께 의논하는 지인',
+            de: 'Gesprächspartner für lokale Drehs',
+            en: 'Someone she discusses local filming with',
+          ),
+        ),
+        PersonaRelation(
+          'byeongcheol',
+          LocalizedText(
+            ko: '지역 답사를 함께하는 지인',
+            de: 'Bekannter für lokale Erkundungen',
+            en: 'A local field-walk acquaintance',
+          ),
+        ),
+        PersonaRelation(
+          'maya',
+          LocalizedText(
+            ko: '문화콘텐츠의 맥락을 함께 점검하는 지인',
+            de: 'Gesprächspartnerin für kulturellen Kontext',
+            en: 'Someone she checks cultural context with',
           ),
         ),
       ],
@@ -251,18 +295,22 @@ abstract final class PersonaPresentationCatalog {
       characterId: 'daniel',
       assetPath: 'assets/illustrations/personas/v3/daniel.png',
       practiceSummary: LocalizedText(
-        ko: '여행 계획 바꾸고 대안 찾기',
-        de: 'Reisepläne ändern und Alternativen finden',
-        en: 'Changing travel plans and finding alternatives',
+        ko: '촬영 범위와 공개 조건 조율',
+        de: 'Drehumfang und Veröffentlichung abstimmen',
+        en: 'Agreeing filming and publication boundaries',
       ),
       intro: LocalizedText(
-        ko: '다니엘은 프리랜서 영상 제작자예요. 여행 중 버스를 놓치거나 비가 올 때, 함께 다음 방법을 찾아봐요.',
-        de: 'Daniel produziert freiberuflich Videos. Wenn unterwegs der Bus weg ist oder es regnet, finde mit ihm eine Alternative.',
-        en: 'Daniel is a freelance video producer. If you miss a bus or it rains on a trip, work out what to do next together.',
+        ko: '다니엘은 프리랜서 다큐·브랜드 영상 제작자예요. 공방·공연·지역 공간을 찍을 때 촬영 허락과 공개 범위를 따로 확인하고 현장에서 대안을 찾아봐요.',
+        de: 'Daniel produziert freiberuflich Dokumentar- und Markenvideos. Bei Drehs in Werkstätten, bei Aufführungen oder an lokalen Orten klärt er Aufnahme- und Veröffentlichungsrechte getrennt und findet vor Ort Alternativen.',
+        en: 'Daniel is a freelance documentary and brand video producer. When filming workshops, performances or local places, he separates filming consent from publication scope and works out alternatives on location.',
       ),
       interests: [
-        LocalizedText(ko: '달리기', de: 'Laufen', en: 'Running'),
         LocalizedText(ko: '영상 촬영', de: 'Filmen', en: 'Filming'),
+        LocalizedText(
+          ko: '공예·공연 기록',
+          de: 'Handwerk und Aufführungen dokumentieren',
+          en: 'Documenting craft and performance',
+        ),
       ],
       relations: [
         PersonaRelation(
@@ -315,21 +363,25 @@ abstract final class PersonaPresentationCatalog {
       characterId: 'dongsun',
       assetPath: 'assets/illustrations/personas/v3/dongsun.png',
       practiceSummary: LocalizedText(
-        ko: '가족 첫 방문과 선물 인사',
-        de: 'Ein erster Familienbesuch mit Geschenk',
-        en: 'A first family visit and a gift',
+        ko: '가게 홍보·수선·손님 배려',
+        de: 'Ladenwerbung, Reparaturen und Rücksicht auf Kunden',
+        en: 'Shop promotion, repairs and customer care',
       ),
       intro: LocalizedText(
-        ko: '동선은 수진의 어머니이고 주얼리 가게를 운영해요. 첫 방문에서 선물을 건네고 인사를 나누는 장면을 함께 연습해요.',
-        de: 'Dongsun ist Sujins Mutter und führt ein Schmuckgeschäft. Übe, sie beim ersten Besuch zu begrüßen und ihr ein Geschenk zu überreichen.',
-        en: 'Dongsun is Sujin’s mother and runs a jewellery shop. Practise greeting her and giving her a gift on your first visit.',
+        ko: '동선은 수진의 어머니이고 수원 남문 근처에서 주얼리·수선 가게를 운영해요. 노리개나 매듭 장식 소품도 일부 다루지만, 직접 만든 것과 들여온 상품은 분명히 구분해요.',
+        de: 'Dongsun ist Sujins Mutter und führt nahe dem Suwoner Nammun ein Schmuck- und Reparaturgeschäft. Sie verkauft auch einige Stücke mit Norigae- oder Knotendekor und trennt klar zwischen eigener Arbeit und zugekaufter Ware.',
+        en: 'Dongsun is Sujin’s mother and runs a jewellery and repair shop near Nammun in Suwon. She also carries some items with norigae or knot decoration and clearly distinguishes her own work from sourced products.',
       ),
       interests: [
-        LocalizedText(ko: '드라마', de: 'Dramen', en: 'TV dramas'),
         LocalizedText(
-          ko: '시장 구경',
-          de: 'Über Märkte bummeln',
-          en: 'Exploring markets',
+          ko: '장신구·수선',
+          de: 'Schmuck und Reparaturen',
+          en: 'Jewellery and repairs',
+        ),
+        LocalizedText(
+          ko: '시장과 선물',
+          de: 'Märkte und Geschenke',
+          en: 'Markets and gifts',
         ),
       ],
       relations: [
@@ -341,27 +393,39 @@ abstract final class PersonaPresentationCatalog {
           'byeongcheol',
           LocalizedText(ko: '남편', de: 'Ihr Mann', en: 'Her husband'),
         ),
+        PersonaRelation(
+          'maya',
+          LocalizedText(
+            ko: '가게 홍보를 함께 의논하는 지인',
+            de: 'Beraterin für Ladenwerbung',
+            en: 'Someone she discusses shop promotion with',
+          ),
+        ),
       ],
     ),
     PersonaPresentation(
       characterId: 'byeongcheol',
       assetPath: 'assets/illustrations/personas/v3/byeongcheol.png',
       practiceSummary: LocalizedText(
-        ko: '산책하며 필요한 도움 요청',
-        de: 'Beim Spaziergang um Hilfe bitten',
-        en: 'Asking for help on a walk',
+        ko: '지역 답사에서 기억과 사실 구분',
+        de: 'Erinnerung und Fakten bei lokalen Rundgängen trennen',
+        en: 'Separating memory from facts on local walks',
       ),
       intro: LocalizedText(
-        ko: '병철은 수진의 아버지이자 전기기술사예요. 함께 산책하며 피곤함을 설명하고 잠깐 쉬자고 말해 봐요.',
-        de: 'Byeongcheol ist Sujins Vater und Fachingenieur für Elektrotechnik. Erkläre ihm bei einem Spaziergang, dass du müde bist, und bitte um eine kurze Pause.',
-        en: 'Byeongcheol is Sujin’s father and an electrical engineering specialist. On a walk, explain that you are tired and ask for a short break.',
+        ko: '병철은 수진의 아버지이자 전기기술사예요. 수원화성과 지역 답사를 좋아하지만 역사 전문가는 아니어서, 직접 본 기억과 확인된 자료를 구분해 이야기해요.',
+        de: 'Byeongcheol ist Sujins Vater und Fachingenieur für Elektrotechnik. Er interessiert sich für Hwaseong und lokale Rundgänge, ist aber kein Historiker und trennt eigene Erinnerungen von belegten Quellen.',
+        en: 'Byeongcheol is Sujin’s father and an electrical engineering specialist. He enjoys Hwaseong and local field walks, but he is not a historian and separates personal memory from verified sources.',
       ),
       interests: [
-        LocalizedText(ko: '역사', de: 'Geschichte', en: 'History'),
         LocalizedText(
-          ko: '산책과 답사',
-          de: 'Spaziergänge und historische Orte',
-          en: 'Walks and historic places',
+          ko: '수원화성·지역 답사',
+          de: 'Hwaseong und lokale Erkundungen',
+          en: 'Hwaseong and local field walks',
+        ),
+        LocalizedText(
+          ko: '생활 수리·구조',
+          de: 'Alltagsreparaturen und Konstruktion',
+          en: 'Practical repairs and structure',
         ),
       ],
       relations: [
@@ -373,20 +437,28 @@ abstract final class PersonaPresentationCatalog {
           'dongsun',
           LocalizedText(ko: '아내', de: 'Seine Frau', en: 'His wife'),
         ),
+        PersonaRelation(
+          'hyuna',
+          LocalizedText(
+            ko: '지역 답사를 함께하는 지인',
+            de: 'Bekannte für lokale Erkundungen',
+            en: 'A local field-walk acquaintance',
+          ),
+        ),
       ],
     ),
     PersonaPresentation(
       characterId: 'jun',
       assetPath: 'assets/illustrations/personas/v3/jun-16.png',
       practiceSummary: LocalizedText(
-        ko: '게임 약속과 시간 조정',
-        de: 'Spielverabredungen und neue Zeiten',
-        en: 'Gaming plans and changing times',
+        ko: '학교 발표·게임·시간 조정',
+        de: 'Schulpräsentationen, Gaming und Zeitplanung',
+        en: 'School presentations, gaming and scheduling',
       ),
       intro: LocalizedText(
-        ko: '준은 16세 고등학교 1학년 학생이에요. 게임과 코딩을 좋아해요. 숙제와 약속이 겹쳤을 때 새 시간을 제안해 봐요.',
-        de: 'Jun ist 16 und im ersten Jahr der koreanischen Oberschule. Er mag Spiele und Programmieren. Wenn die Hausaufgaben noch nicht fertig sind, schlage eine neue Zeit zum Spielen vor.',
-        en: 'Jun is 16 and in his first year of Korean high school. He enjoys gaming and coding. If homework gets in the way of your plans, suggest a new time to play.',
+        ko: '준은 16세 고등학교 1학년 학생이에요. 게임과 코딩을 좋아하고, 학교 발표에서는 사진과 출처를 직접 정리해요. 약속이 겹치거나 자료가 확실하지 않을 때 이유와 대안을 말해 봐요.',
+        de: 'Jun ist 16 und im ersten Jahr der koreanischen Oberschule. Er mag Gaming und Programmieren und bereitet für Schulpräsentationen Fotos und Quellen selbst auf. Übe mit ihm, Gründe und Alternativen zu nennen, wenn Pläne kollidieren oder Informationen noch nicht sicher sind.',
+        en: 'Jun is 16 and in his first year of Korean high school. He likes gaming and coding and organises photos and sources for school presentations himself. Practise giving reasons and alternatives when plans clash or information is not yet certain.',
       ),
       interests: [
         LocalizedText(
@@ -394,7 +466,11 @@ abstract final class PersonaPresentationCatalog {
           de: 'Spiele und Programmieren',
           en: 'Gaming and coding',
         ),
-        LocalizedText(ko: '축구', de: 'Fußball', en: 'Football'),
+        LocalizedText(
+          ko: '발표와 디지털 제작',
+          de: 'Präsentationen und digitale Projekte',
+          en: 'Presentations and digital projects',
+        ),
       ],
       relations: [
         PersonaRelation(
@@ -404,6 +480,14 @@ abstract final class PersonaPresentationCatalog {
         PersonaRelation(
           'minho',
           LocalizedText(ko: '아버지', de: 'Sein Vater', en: 'His father'),
+        ),
+        PersonaRelation(
+          'christian',
+          LocalizedText(
+            ko: '코딩과 게임 이야기를 나누는 가족 지인',
+            de: 'Familienbekannter für Coding und Gaming',
+            en: 'A family acquaintance he talks coding and gaming with',
+          ),
         ),
       ],
     ),
