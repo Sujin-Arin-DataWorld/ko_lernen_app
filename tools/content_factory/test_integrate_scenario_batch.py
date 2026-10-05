@@ -509,5 +509,159 @@ class ScenarioCultureLinkTransactionTest(unittest.TestCase):
                 )
 
 
+class CultureStoryArcTransactionTest(unittest.TestCase):
+    def make_root(self, directory: str) -> tuple[Path, Path, Path]:
+        root = Path(directory)
+        data = root / "assets" / "data"
+        data.mkdir(parents=True)
+        draft = (
+            root
+            / "tools"
+            / "content_factory"
+            / "drafts"
+            / "culture_story_arcs.json"
+        )
+        draft.parent.mkdir(parents=True)
+        (data / "scenario_culture_links.json").write_text(
+            json.dumps(
+                {
+                    "schemaVersion": 1,
+                    "links": [
+                        {"scenarioId": "scene_a", "termIds": ["term_a"]},
+                        {"scenarioId": "scene_b", "termIds": ["term_b"]},
+                    ],
+                }
+            ),
+            encoding="utf-8",
+        )
+        (data / "culture_story_arcs.json").write_text(
+            json.dumps({"schemaVersion": 1, "arcs": []}),
+            encoding="utf-8",
+        )
+        return root, data, draft
+
+    def arc_payload(self) -> dict:
+        return {
+            "schemaVersion": 1,
+            "status": "review_only",
+            "arcs": [
+                {
+                    "arcId": "sample_arc",
+                    "title": {
+                        "ko": "표본 문화 길",
+                        "de": "Beispiel-Kulturpfad",
+                        "en": "Sample culture path",
+                    },
+                    "summary": {
+                        "ko": "기존 장면을 묶는 읽기 전용 문화 길입니다.",
+                        "de": "Ein schreibgeschützter Kulturpfad aus bestehenden Szenen.",
+                        "en": "A read-only culture path grouping existing scenes.",
+                    },
+                    "progressMode": "derived_read_only",
+                    "steps": [
+                        {
+                            "scenarioId": "scene_a",
+                            "personaIds": ["maya"],
+                            "termIds": ["term_a"],
+                        },
+                        {
+                            "scenarioId": "scene_b",
+                            "personaIds": ["jun"],
+                            "termIds": ["term_b"],
+                        },
+                    ],
+                }
+            ],
+        }
+
+    def test_story_arcs_stage_only_after_scenario_culture_links_exist(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root, data, draft = self.make_root(directory)
+            draft.write_text(
+                json.dumps(self.arc_payload(), ensure_ascii=False),
+                encoding="utf-8",
+            )
+            manifest = {
+                "status": "review_only_draft",
+                "cultureStoryArcsDraft": str(draft.relative_to(root)),
+            }
+
+            self.assertTrue(
+                integration._stage_culture_story_arcs(root, data, manifest)
+            )
+            staged = json.loads(
+                (data / "culture_story_arcs.json").read_text(encoding="utf-8")
+            )
+            self.assertEqual(staged["arcs"][0]["arcId"], "sample_arc")
+
+    def test_story_arcs_reject_non_live_scenario_or_unlinked_term(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root, data, draft = self.make_root(directory)
+            payload = self.arc_payload()
+            payload["arcs"][0]["steps"][1]["scenarioId"] = "review_only_scene"
+            draft.write_text(
+                json.dumps(payload, ensure_ascii=False),
+                encoding="utf-8",
+            )
+            manifest = {
+                "status": "review_only_draft",
+                "cultureStoryArcsDraft": str(draft.relative_to(root)),
+            }
+            with self.assertRaisesRegex(
+                ScenarioIntegrationError, "references non-live scenario"
+            ):
+                integration._stage_culture_story_arcs(root, data, manifest)
+
+            payload = self.arc_payload()
+            payload["arcs"][0]["steps"][0]["termIds"] = ["other_term"]
+            draft.write_text(
+                json.dumps(payload, ensure_ascii=False),
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(
+                ScenarioIntegrationError, "not linked to that scenario"
+            ):
+                integration._stage_culture_story_arcs(root, data, manifest)
+
+    def test_merged_story_arcs_are_idempotent_but_frozen(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root, data, draft = self.make_root(directory)
+            payload = self.arc_payload()
+            payload["status"] = "merged"
+            draft.write_text(
+                json.dumps(payload, ensure_ascii=False),
+                encoding="utf-8",
+            )
+            (data / "culture_story_arcs.json").write_text(
+                json.dumps(
+                    {"schemaVersion": 1, "arcs": payload["arcs"]},
+                    ensure_ascii=False,
+                ),
+                encoding="utf-8",
+            )
+            manifest = {
+                "status": "merged",
+                "cultureStoryArcsDraft": str(draft.relative_to(root)),
+            }
+            before = (data / "culture_story_arcs.json").read_bytes()
+            self.assertTrue(
+                integration._stage_culture_story_arcs(root, data, manifest)
+            )
+            self.assertEqual(
+                (data / "culture_story_arcs.json").read_bytes(),
+                before,
+            )
+
+            payload["arcs"][0]["summary"]["en"] = "Changed after review."
+            draft.write_text(
+                json.dumps(payload, ensure_ascii=False),
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(
+                ScenarioIntegrationError, "no longer matches"
+            ):
+                integration._stage_culture_story_arcs(root, data, manifest)
+
+
 if __name__ == "__main__":
     unittest.main()

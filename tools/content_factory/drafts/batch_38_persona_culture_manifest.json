@@ -88,13 +88,14 @@
   "cultureLinkCount": 5,
   "cultureStoryArcsDraft": "tools/content_factory/drafts/persona_culture_story_arcs_20261005.json",
   "mergeOrder": [
-    "scenario + curriculum contentLinks + listening + culture links + audit via integrate_scenario_batch.py",
+    "scenario + curriculum contentLinks + listening + culture links + culture story arcs + audit via integrate_scenario_batch.py",
     "TTS only after explicit content approval"
   ],
   "nonMergeGuards": [
     "All review rows remain draft until Jin reads full learner-facing copy",
     "Do not write non-live IDs into assets/data/scenario_culture_links.json before scenario promotion",
-    "No mastery/reward changes from culture links"
+    "Do not write review-only arcs into assets/data/culture_story_arcs.json before the same scenario promotion transaction",
+    "No mastery/reward changes from culture links or culture story arcs"
   ],
   "vocabLevelingReview": "tools/content_factory/review/persona_culture_vocab_leveling_20261005.json",
   "authoringBrief": "tools/content_factory/drafts/persona_culture_authoring_brief_20261005.json",

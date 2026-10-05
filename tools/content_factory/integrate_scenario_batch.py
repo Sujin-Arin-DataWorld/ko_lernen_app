@@ -449,6 +449,166 @@ def _stage_culture_links(
     return True
 
 
+def _stage_culture_story_arcs(
+    root: Path,
+    data: Path,
+    manifest: dict[str, Any],
+) -> bool:
+    """Stage reviewed culture-story grouping metadata with its scenario batch.
+
+    Story arcs are read-only projections. They may group newly promoted
+    scenarios with already-live scenarios, but every step must resolve through
+    the staged scenario-culture registry and may only reference terms actually
+    linked to that scenario. This keeps review-only IDs out of learner-facing
+    assets and gives scenario/culture/arc promotion one rollback boundary.
+    """
+
+    raw_path = manifest.get("cultureStoryArcsDraft")
+    if not raw_path:
+        return False
+
+    draft = _read_json(_under_root(root, raw_path))
+    if draft.get("schemaVersion") != 1:
+        raise ScenarioIntegrationError(
+            "culture-story-arcs draft must use schemaVersion 1"
+        )
+    if draft.get("status") not in {"review_only", "merged"}:
+        raise ScenarioIntegrationError(
+            "culture-story-arcs draft must declare review_only or merged status"
+        )
+    additions = draft.get("arcs")
+    if not isinstance(additions, list) or any(
+        not isinstance(item, dict) for item in additions
+    ):
+        raise ScenarioIntegrationError(
+            "culture-story-arcs draft arcs must be an array of objects"
+        )
+
+    arc_ids = [str(item.get("arcId") or "") for item in additions]
+    if any(not arc_id for arc_id in arc_ids) or len(set(arc_ids)) != len(arc_ids):
+        raise ScenarioIntegrationError(
+            "culture-story-arcs draft needs unique nonempty arcId values"
+        )
+
+    staged_links = _read_json(data / "scenario_culture_links.json")
+    raw_links = staged_links.get("links")
+    if not isinstance(raw_links, list) or any(
+        not isinstance(item, dict) for item in raw_links
+    ):
+        raise ScenarioIntegrationError(
+            "staged scenario culture links must be an array of objects"
+        )
+    terms_by_scenario = {
+        str(item.get("scenarioId") or ""): {
+            str(term)
+            for term in item.get("termIds", [])
+            if isinstance(term, str) and term
+        }
+        for item in raw_links
+    }
+
+    for arc in additions:
+        arc_id = str(arc.get("arcId") or "")
+        if arc.get("progressMode") != "derived_read_only":
+            raise ScenarioIntegrationError(
+                f"culture story arc {arc_id} must use derived_read_only progress"
+            )
+        for field in ("title", "summary"):
+            localized = arc.get(field)
+            if not isinstance(localized, dict) or any(
+                not isinstance(localized.get(language), str)
+                or not localized[language].strip()
+                for language in ("ko", "de", "en")
+            ):
+                raise ScenarioIntegrationError(
+                    f"culture story arc {arc_id} needs nonempty KO/DE/EN {field}"
+                )
+        steps = arc.get("steps")
+        if not isinstance(steps, list) or not steps or any(
+            not isinstance(step, dict) for step in steps
+        ):
+            raise ScenarioIntegrationError(
+                f"culture story arc {arc_id} needs at least one step"
+            )
+        seen_scenarios: set[str] = set()
+        for step in steps:
+            scenario_id = str(step.get("scenarioId") or "")
+            if not scenario_id or scenario_id in seen_scenarios:
+                raise ScenarioIntegrationError(
+                    f"culture story arc {arc_id} needs unique nonempty scenario steps"
+                )
+            seen_scenarios.add(scenario_id)
+            if scenario_id not in terms_by_scenario:
+                raise ScenarioIntegrationError(
+                    f"culture story arc {arc_id} references non-live scenario "
+                    f"{scenario_id}"
+                )
+            persona_ids = step.get("personaIds")
+            if (
+                not isinstance(persona_ids, list)
+                or not persona_ids
+                or any(
+                    not isinstance(persona, str) or not persona.strip()
+                    for persona in persona_ids
+                )
+                or len(set(persona_ids)) != len(persona_ids)
+            ):
+                raise ScenarioIntegrationError(
+                    f"culture story arc {arc_id}/{scenario_id} needs unique "
+                    "nonempty personaIds"
+                )
+            term_ids = step.get("termIds")
+            if (
+                not isinstance(term_ids, list)
+                or not term_ids
+                or any(
+                    not isinstance(term, str) or not term.strip()
+                    for term in term_ids
+                )
+                or len(set(term_ids)) != len(term_ids)
+            ):
+                raise ScenarioIntegrationError(
+                    f"culture story arc {arc_id}/{scenario_id} needs unique "
+                    "nonempty termIds"
+                )
+            missing_terms = sorted(set(term_ids) - terms_by_scenario[scenario_id])
+            if missing_terms:
+                raise ScenarioIntegrationError(
+                    f"culture story arc {arc_id}/{scenario_id} references terms "
+                    f"not linked to that scenario: {missing_terms}"
+                )
+
+    target = data / "culture_story_arcs.json"
+    live = _read_json(target)
+    if live.get("schemaVersion") != 1 or not isinstance(live.get("arcs"), list):
+        raise ScenarioIntegrationError(
+            "live culture story arcs use an unsupported schema"
+        )
+    live_arcs = live["arcs"]
+    if any(not isinstance(item, dict) for item in live_arcs):
+        raise ScenarioIntegrationError("live culture story arcs must be objects")
+    live_by_id = {str(item.get("arcId") or ""): item for item in live_arcs}
+    overlap = set(live_by_id) & set(arc_ids)
+    if overlap:
+        if overlap != set(arc_ids) or manifest.get("status") != "merged":
+            raise ScenarioIntegrationError(
+                "culture-story-arcs draft duplicates a live arc"
+            )
+        if any(live_by_id[item["arcId"]] != item for item in additions):
+            raise ScenarioIntegrationError(
+                "merged culture-story arc no longer matches its reviewed draft"
+            )
+        return True
+    if manifest.get("status") == "merged":
+        raise ScenarioIntegrationError(
+            "merged batch is missing live culture story arcs"
+        )
+
+    live["arcs"] = [*live_arcs, *additions]
+    target.write_text(_json_text(live), encoding="utf-8")
+    return True
+
+
 def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, apply: bool) -> tuple[dict[str, int], int]:
     root = root.resolve()
     manifest_path, manifest, records_by_kind, backdrops = _validate_bundle(
@@ -545,6 +705,9 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
         )
         includes_culture_links = _stage_culture_links(
             root, data, manifest, records_by_kind.get('scenario', []),
+        )
+        includes_culture_story_arcs = _stage_culture_story_arcs(
+            root, data, manifest,
         )
 
         if already_merged:
@@ -657,6 +820,10 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
         if includes_culture_links:
             outputs[root / 'assets/data/scenario_culture_links.json'] = (
                 data / 'scenario_culture_links.json'
+            ).read_text(encoding='utf-8')
+        if includes_culture_story_arcs:
+            outputs[root / 'assets/data/culture_story_arcs.json'] = (
+                data / 'culture_story_arcs.json'
             ).read_text(encoding='utf-8')
         if not apply:
             return counts, int(manifest["recordCount"])
