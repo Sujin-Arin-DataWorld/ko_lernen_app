@@ -4939,19 +4939,19 @@
       "surfaceFormIds": [],
       "sidekick": "christian",
       "grammarIds": [
-        "grammar_b2_despite",
+        "grammar_b2_according_to",
         "grammar_b2_formal_arrangement"
       ],
       "grammarBlock": {
         "title": {
-          "ko": "N에도 불구하고",
-          "de": "N에도 불구하고: trotz",
-          "en": "N에도 불구하고: despite"
+          "ko": "N에 따라",
+          "de": "N에 따라: je nach / abhängig von",
+          "en": "N에 따라: depending on"
         },
         "explanation": {
-          "ko": "어려운 상황을 인정하면서도 그것과 상관없이 행동하거나 요청할 때 -에도 불구하고를 써요.",
-          "de": "Man benutzt -에도 불구하고, um eine schwierige Lage anzuerkennen und trotzdem zu handeln oder zu bitten.",
-          "en": "Use -에도 불구하고 to acknowledge a difficult situation while still acting or asking regardless."
+          "ko": "조건이나 상황에 따라 결과가 달라질 때 N에 따라를 써요.",
+          "de": "Mit N에 따라 sagst du, dass ein Ergebnis von einer Bedingung oder Situation abhängt.",
+          "en": "Use N에 따라 when an outcome depends on a condition or situation."
         }
       },
       "dialog": [
@@ -4999,9 +4999,9 @@
         },
         {
           "speaker": "user",
-          "ko": "기상 상황 때문에 오늘 이동이 어려울 수 있다는 건 이해합니다. 다른 항공사나 대체 경로가 가능한지 확인해 주실 수 있을까요?",
-          "de": "Ich verstehe, dass die Wetterlage eine Reise heute erschweren kann. Könnten Sie prüfen, ob eine andere Fluggesellschaft oder eine alternative Verbindung möglich ist?",
-          "en": "I understand that the weather may make travel today difficult. Could you check whether another airline or an alternative route is possible?"
+          "ko": "날씨에 따라 오늘 비행이 어려울 수 있다는 건 이해합니다. 다른 항공사나 다른 경로가 가능한지 확인해 주실 수 있을까요?",
+          "de": "Ich verstehe, dass Fliegen heute je nach Wetter schwierig sein kann. Könnten Sie prüfen, ob eine andere Fluggesellschaft oder eine andere Verbindung möglich ist?",
+          "en": "I understand that flying today may be difficult depending on the weather. Could you check whether another airline or another route is possible?"
         },
         {
           "speaker": "manager",
@@ -5015,11 +5015,11 @@
           "id": "quest_b2_w10_travel_hear",
           "type": "hoerverstehen",
           "data": {
-            "audioKo": "기상 상황 때문에 오늘 이동이 어려울 수 있다는 건 이해합니다. 다른 항공사나 대체 경로가 가능한지 확인해 주실 수 있을까요?",
+            "audioKo": "날씨에 따라 오늘 비행이 어려울 수 있다는 건 이해합니다. 다른 항공사나 다른 경로가 가능한지 확인해 주실 수 있을까요?",
             "options": [
               {
-                "de": "Ich verstehe, dass die Wetterlage eine Reise heute erschweren kann. Könnten Sie prüfen, ob eine andere Fluggesellschaft oder eine alternative Verbindung möglich ist?",
-                "en": "I understand that the weather may make travel today difficult. Could you check whether another airline or an alternative route is possible?"
+                "de": "Ich verstehe, dass Fliegen heute je nach Wetter schwierig sein kann. Könnten Sie prüfen, ob eine andere Fluggesellschaft oder eine andere Verbindung möglich ist?",
+                "en": "I understand that flying today may be difficult depending on the weather. Could you check whether another airline or another route is possible?"
               },
               {
                 "de": "Es tut mir leid, aber alle heutigen Flüge sind ausgefallen.",
@@ -5042,7 +5042,7 @@
           "type": "uebersetzen",
           "data": {
             "promptDe": "Ich prüfe Plätze bei der Partnerfluggesellschaft und mögliche Alternativverbindungen und informiere Sie dann über die Möglichkeiten.",
-            "promptEn": "I'll check seats with our partner airline and arrange to get you connected today if possible.",
+            "promptEn": "I'll check seats with partner airlines and possible alternative routes, then let you know what is available.",
             "options": [
               {
                 "ko": "제휴 항공사 좌석과 가능한 대체 경로를 확인해 보고, 가능 여부를 안내해 드리겠습니다."
@@ -5637,8 +5637,7 @@
       "surfaceFormIds": [],
       "sidekick": "christian",
       "grammarIds": [
-        "grammar_b2_not_only",
-        "grammar_b2_despite"
+        "grammar_b2_not_only"
       ],
       "grammarBlock": {
         "title": {
@@ -5673,8 +5672,8 @@
         },
         {
           "speaker": "user",
-          "ko": "마감이 촉박한데도 불구하고 속도보다 정확성을 먼저 챙기는 편이라 가끔 느리다는 말을 듣습니다.",
-          "de": "Selbst bei knappen Fristen stelle ich Genauigkeit oft vor Geschwindigkeit. Deshalb höre ich manchmal, dass ich zu langsam bin.",
+          "ko": "마감이 촉박해도 속도보다 정확성을 먼저 챙기는 편이라 가끔 느리다는 말을 듣습니다.",
+          "de": "Auch bei knappen Fristen stelle ich Genauigkeit oft vor Geschwindigkeit. Deshalb höre ich manchmal, dass ich zu langsam bin.",
           "en": "Even when deadlines are tight, I tend to prioritize accuracy over speed, so I sometimes get told I'm too slow."
         },
         {
@@ -5739,11 +5738,11 @@
           "id": "quest_b2_w10_hiring_translate",
           "type": "uebersetzen",
           "data": {
-            "promptDe": "Obwohl die Frist knapp ist, kümmere ich mich zuerst um Genauigkeit statt um Geschwindigkeit, weshalb ich manchmal höre, ich sei langsam.",
-            "promptEn": "Even though deadlines are tight, I tend to prioritize accuracy over speed, so I sometimes hear that I'm slow.",
+            "promptDe": "Auch bei knappen Fristen stelle ich Genauigkeit oft vor Geschwindigkeit. Deshalb höre ich manchmal, dass ich zu langsam bin.",
+            "promptEn": "Even when deadlines are tight, I tend to prioritize accuracy over speed, so I sometimes get told I'm too slow.",
             "options": [
               {
-                "ko": "마감이 촉박한데도 불구하고 속도보다 정확성을 먼저 챙기는 편이라 가끔 느리다는 말을 듣습니다."
+                "ko": "마감이 촉박해도 속도보다 정확성을 먼저 챙기는 편이라 가끔 느리다는 말을 듣습니다."
               },
               {
                 "ko": "저는 자료를 꼼꼼히 확인할 뿐만 아니라 근거 없는 결론은 내리지 않는 편입니다."
@@ -5876,19 +5875,19 @@
       "surfaceFormIds": [],
       "sidekick": "christian",
       "grammarIds": [
-        "grammar_b2_negative_consequence",
+        "grammar_b2_according_to",
         "grammar_b2_formal_cause"
       ],
       "grammarBlock": {
         "title": {
-          "ko": "V-다가는",
-          "de": "V-다가는: wenn man so weitermacht, dann...",
-          "en": "V-다가는: if you keep doing X, then..."
+          "ko": "N에 따라",
+          "de": "N에 따라: je nach / abhängig von",
+          "en": "N에 따라: depending on"
         },
         "explanation": {
-          "ko": "지금 상태를 계속하면 나쁜 결과가 생길 거라고 경고할 때 -다가는을 써요.",
-          "de": "Man benutzt -다가는, um zu warnen, dass eine schlechte Folge eintritt, wenn man den jetzigen Zustand fortsetzt.",
-          "en": "Use -다가는 to warn that a bad result will happen if the current state continues."
+          "ko": "체류 자격이나 현재 상황처럼 조건에 따라 필요한 내용이 달라질 때 N에 따라를 써요.",
+          "de": "Mit N에 따라 sagst du, dass sich Anforderungen je nach Status oder aktueller Situation unterscheiden.",
+          "en": "Use N에 따라 when requirements differ depending on a status or current situation."
         }
       },
       "dialog": [

@@ -145,17 +145,56 @@ Validation:
 
 ### Stage C-3 — scenario/grammar level regressions
 
+Status: **complete**
+
+Reviewed all six historical scenario→grammar level inversions against the actual
+dialogue and task. No scenario was auto-promoted just to silence the warning.
+
+Resolved:
+- `a1_w10_partner`: keep A1; replace the A2 `N께` teaching owner with A1
+  formal-statement/request ownership, and rewrite learner-facing `어머니께`
+  material to A1 `한테/에게`.
+- `a1_w10_fandom`: keep A1; replace A2 `N(이)나` with short `N도`
+  turns and an A1 `주세요` response.
+- `b1_w10_insurance`: keep B1; remove the relevelled B2 whether-owner and
+  ask coverage directly, synchronizing scenario quests and listening copy.
+- `b2_w10_travel`: keep B2; replace C1 `despite` ownership with grounded
+  B2 `N에 따라` and preserve the alternative-route negotiation.
+- `b2_w10_hiring`: keep B2; remove C1 `despite` and rewrite the sentence
+  with `촉박해도`.
+- `b2_w10_authorities`: keep B2; use the dialogue's existing
+  `체류 자격과 현재 상황에 따라` as the B2 grammar anchor instead of the
+  C1 negative-consequence owner.
+
+Durability:
+- all six live objects equal their W10 authoring-source mirrors
+- a new global regression test rejects any live scenario whose `grammarIds`
+  owner is above the scenario level
+- current live scenario→grammar above-level count: **0**
+- permanent review record:
+  `tools/content_factory/review/lcp_c3_scenario_grammar_reconciliation_20261005.json`
+
+Validation:
+- scenario/listening/relevel Python bundle: **138/138 passed**
+- content validation: **passed**
+- level audit ratchets: **53/53 passed**
+- curriculum matrix: **fresh**
+- learning phases: **fresh; error 0**
+
+### Stage C-4 — remaining high-confidence level debt
+
 Status: **next**
 
-The relevel transaction still reports six historical scenario references whose grammar owner was previously moved above the scenario level. These are the next high-confidence structural debts:
-- `a1_w10_partner` → `grammar_a1_honorific_kke` (now A2)
-- `a1_w10_fandom` → `grammar_a1_or_particle` (now A2)
-- `b1_w10_insurance` → `grammar_b1_whether` (now B2)
-- `b2_w10_travel` → `grammar_b2_despite` (now C1)
-- `b2_w10_hiring` → `grammar_b2_despite` (now C1)
-- `b2_w10_authorities` → `grammar_b2_negative_consequence` (now C1)
+Continue ratchet-down work from current severe counts:
+- vocab over2: 158
+- cloze over2: 20
+- satz over2: 15
+- smalltalk over2: 17
+- media over2: 6
 
-For each one, review the actual dialogue and grammar function before deciding between scenario relevel, grammar substitution, or a justified lexicalized exception. Do not auto-promote a scenario merely to silence the warning.
+For each surface, separate real content errors, justified exceptions, and already
+triaged backlog. Fix or document the owner; never raise a ratchet merely to
+make the suite green.
 
 Use:
 - `AGENTS.md` LCP gate

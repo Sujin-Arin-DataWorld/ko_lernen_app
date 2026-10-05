@@ -215,15 +215,15 @@
 
 - 콘텐츠 규모: 어휘 2968 · 문법 264 · 시나리오 191 · 코스유닛 48 · cloze 2365 · satz 2885 · 스몰토크 590 · 미디어 136 · 발음 84 · 문화노트 36
 - 매트릭스 규모: 주제 32 · 기능 39 · 텍스트 유형 31 · 어휘 영역 26 · 기능 문법 34 · 국제통용 문법 336
-- 갭 행 합계: **510** (`tool/curriculum_matrix_gaps.csv`)
+- 갭 행 합계: **512** (`tool/curriculum_matrix_gaps.csv`)
 
 | 레벨 | 주제(필수) ✅/🟡/❌ | 국제통용 문법 match/mismatch/missing | 브리프 하이라이트 ✅/🟡/❌ | 담화 특징 ✅/❌ | 기능(산출) ✅/🟡/❌ | 텍스트 유형 ✅/🟡/❌/⛔ | 어휘 영역 ✅/🟡/❌ | 문체 ✅/❌ | 시나리오 미연결 문법/전체 |
 |---|---|---|---|---|---|---|---|---|---|
-| A1 | 17/0/0 | 45/0/0 (of 45) | 24/2/1 | 2/0 | 11/4/0 | 4/0/1/5 | 14/0/0 | 2/1 | 31/55 |
-| A2 | 17/0/0 | 43/0/2 (of 45) | 16/8/0 | 1/1 | 7/7/1 | 2/0/3/5 | 11/0/0 | 3/1 | 47/63 |
+| A1 | 17/0/0 | 45/0/0 (of 45) | 24/2/1 | 2/0 | 11/4/0 | 4/0/1/5 | 14/0/0 | 2/1 | 30/55 |
+| A2 | 17/0/0 | 43/0/2 (of 45) | 16/8/0 | 1/1 | 7/7/1 | 2/0/3/5 | 11/0/0 | 3/1 | 49/63 |
 | B1 | 18/0/0 | 14/9/44 (of 67) | 7/10/4 | 4/0 | 11/3/1 | 1/1/1/6 | 8/1/0 | 4/0 | 27/38 |
-| B2 | 17/0/0 | 16/8/43 (of 67) | 5/3/9 | 3/1 | 12/1/1 | 1/1/0/7 | 7/0/0 | 4/0 | 38/54 |
-| C1 | 12/0/0 | 6/6/44 (of 56) | 1/9/4 | 3/1 | 9/2/1 | 2/0/0/7 | 4/0/2 | 3/1 | 8/28 |
+| B2 | 17/0/0 | 16/8/43 (of 67) | 5/3/9 | 3/1 | 12/1/1 | 1/1/0/7 | 7/0/0 | 4/0 | 37/54 |
+| C1 | 12/0/0 | 6/6/44 (of 56) | 1/9/4 | 3/1 | 9/2/1 | 2/0/0/7 | 4/0/2 | 3/1 | 10/28 |
 | C2 | 12/0/0 | 6/10/40 (of 56) | 3/0/5 | 3/0 | 10/0/2 | 1/1/0/8 | 6/0/0 | 3/4 | 11/26 |
 
 ### 1.1 구조적 결손(레벨 무관)
@@ -269,7 +269,7 @@
 | ✅ covered | `house_home` 주거·집 | 집·방·물건 위치(앞/뒤/위/안) | 20 | 9 | 7 | 2 | 2 | 14 | verified_repo |
 | ✅ covered | `language_learning_communication_repair` 언어·학습·의사소통 되묻기 | 못 들었을 때 다시 묻기·천천히 말해 달라고 하기 | 11 | 3 | 3 | 3 | 0 | 22 | verified_repo |
 | ✅ covered | `numbers_time_dates` 숫자·시간·날짜 | 숫자·전화번호·화폐·날짜·요일·시간 | 117 | 18 | 2 | 1 | 0 | 95 | verified_repo |
-| ✅ covered | `personal_identification` 개인 신상·자기소개 | 이름·국적·직업·자기소개 | 63 | 13 | 5 | 2 | 0 | 63 | verified_repo |
+| ✅ covered | `personal_identification` 개인 신상·자기소개 | 이름·국적·직업·자기소개 | 63 | 13 | 6 | 2 | 0 | 63 | verified_repo |
 | ✅ covered | `shopping_consumption` 쇼핑·소비·결제 | 물건 사기·가격·수량 | 28 | 7 | 7 | 3 | 9 | 31 | verified_repo |
 | ✅ covered | `social_etiquette_customs` 예절·관습·명절·호칭 | 인사·호칭 관례·식사 예절·기초 명절 음식 | 52 | 12 | 6 | 0 | 16 | 30 | verified_repo |
 | ✅ covered | `transport_wayfinding` 교통·길 찾기 | 장소·이동·교통수단·길 묻기 기초 | 14 | 5 | 6 | 1 | 8 | 13 | verified_repo |
@@ -321,7 +321,7 @@
 | ✅ covered | ≤8어절·절 ≤2(-고/-지만/-어서) | grammar_a1_sequence_connector, grammar_a1_want, grammar_a2_after_finishing, grammar_a2_cause_sequence … | A1/A2/B2/C1 |
 | ✅ covered | 해요체 기본 + 합쇼체 자기소개 산출 | grammar_a1_formal_statement, grammar_a1_polite_present | A1 |
 
-**⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 A1 문법 (31/55):** `grammar_a1_action_location_particle`, `grammar_a1_approx`, `grammar_a1_cannot_short`, `grammar_a1_copula_negation`, `grammar_a1_duration_span`, `grammar_a1_formal_command`, `grammar_a1_formal_question`, `grammar_a1_formal_statement`, `grammar_a1_from_until`, `grammar_a1_long_negation`, `grammar_a1_motion_purpose`, `grammar_a1_polite_present`, `grammar_a1_possessive_particle`, `grammar_a1_sequence_connector`, `grammar_a1_service_location_question`, `grammar_a1_spoken_dative`, `grammar_a1_subject_new`, `grammar_a1_subject_particle`, `grammar_a1_topic_contrast`, `grammar_a1_topic_particle`, `grammar_a1_which_question`, `grammar_a1_with_connector`, `grammar_a2_ability`, `grammar_a2_cause_nikka`, `grammar_a2_comparative`, `grammar_a2_contrast`, `grammar_a2_dative_person`, `grammar_a2_inability`, `grammar_a2_lets_formal`, `grammar_b1_after`, `grammar_b1_honorific_subject_kkeyseo`
+**⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 A1 문법 (30/55):** `grammar_a1_action_location_particle`, `grammar_a1_approx`, `grammar_a1_cannot_short`, `grammar_a1_copula_negation`, `grammar_a1_duration_span`, `grammar_a1_formal_command`, `grammar_a1_formal_question`, `grammar_a1_from_until`, `grammar_a1_long_negation`, `grammar_a1_motion_purpose`, `grammar_a1_polite_present`, `grammar_a1_possessive_particle`, `grammar_a1_sequence_connector`, `grammar_a1_service_location_question`, `grammar_a1_spoken_dative`, `grammar_a1_subject_new`, `grammar_a1_subject_particle`, `grammar_a1_topic_contrast`, `grammar_a1_topic_particle`, `grammar_a1_which_question`, `grammar_a1_with_connector`, `grammar_a2_ability`, `grammar_a2_cause_nikka`, `grammar_a2_comparative`, `grammar_a2_contrast`, `grammar_a2_dative_person`, `grammar_a2_inability`, `grammar_a2_lets_formal`, `grammar_b1_after`, `grammar_b1_honorific_subject_kkeyseo`
 
 **⚠️ 시나리오·미디어가 참조하지만 grammar.csv 에 없는 문법 id (18):** `grammar_a1_exist_have`, `grammar_a1_feeling_adj`, `grammar_a1_please_do`, `grammar_a1_really_question`, `grammar_a1_shall_we`, `grammar_a1_want_to`, `grammar_a1_weather_come`, `grammar_a1_where_is`, `grammar_a2_background_reason`, `grammar_a2_banmal_base`, `grammar_a2_because_nikka`, `grammar_a2_can_cannot`, `grammar_a2_confirmation_tag`, `grammar_a2_experience`, `grammar_a2_if_when`, `grammar_a2_progressive_form`, `grammar_a2_reminder`, `grammar_a2_wanna`
 
@@ -468,7 +468,7 @@
 | ✅ covered | 이유 + 행동 의도 결합(비가 오니까 택시를 타려고 해요) | grammar_a2_cause_nikka, grammar_b1_intention | A1 |
 | ❌ missing | 반말 인지(친한 사이 대화문) |  |  |
 
-**⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 A2 문법 (47/63):** `grammar_a1_future_modifier`, `grammar_a1_past_modifier`, `grammar_a1_polite_prohibition`, `grammar_a1_present_modifier`, `grammar_a2_additive_location`, `grammar_a2_adverbial`, `grammar_a2_after_finishing`, `grammar_a2_among_set`, `grammar_a2_available_if`, `grammar_a2_become`, `grammar_a2_busy_cause`, `grammar_a2_change`, `grammar_a2_each`, `grammar_a2_exclamation`, `grammar_a2_from_person`, `grammar_a2_gentle_question`, `grammar_a2_humble_give`, `grammar_a2_in_progress`, `grammar_a2_interrupted_action`, `grammar_a2_irregular_bieup`, `grammar_a2_irregular_digeut`, `grammar_a2_irregular_eu`, `grammar_a2_irregular_rieul`, `grammar_a2_like`, `grammar_a2_no_choice_but`, `grammar_a2_nominalizer_eum`, `grammar_a2_noun_cause`, `grammar_a2_only_negative`, `grammar_a2_or_verbs`, `grammar_a2_permission_check_batch20`, `grammar_a2_preference_question`, `grammar_a2_preference_soft_batch20`, `grammar_a2_purpose`, `grammar_a2_reason_because`, `grammar_a2_recommendation`, `grammar_a2_shall_we_time`, `grammar_a2_simultaneous`, `grammar_a2_spoken_result`, `grammar_a2_starting_point`, `grammar_a2_tentative_intention`, `grammar_a2_toward_person`, `grammar_a2_when`, `grammar_a2_written_directive`, `grammar_b1_duration`, `grammar_b1_experience`, `grammar_b1_nominalization`, `grammar_b1_since`
+**⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 A2 문법 (49/63):** `grammar_a1_future_modifier`, `grammar_a1_honorific_kke`, `grammar_a1_or_particle`, `grammar_a1_past_modifier`, `grammar_a1_polite_prohibition`, `grammar_a1_present_modifier`, `grammar_a2_additive_location`, `grammar_a2_adverbial`, `grammar_a2_after_finishing`, `grammar_a2_among_set`, `grammar_a2_available_if`, `grammar_a2_become`, `grammar_a2_busy_cause`, `grammar_a2_change`, `grammar_a2_each`, `grammar_a2_exclamation`, `grammar_a2_from_person`, `grammar_a2_gentle_question`, `grammar_a2_humble_give`, `grammar_a2_in_progress`, `grammar_a2_interrupted_action`, `grammar_a2_irregular_bieup`, `grammar_a2_irregular_digeut`, `grammar_a2_irregular_eu`, `grammar_a2_irregular_rieul`, `grammar_a2_like`, `grammar_a2_no_choice_but`, `grammar_a2_nominalizer_eum`, `grammar_a2_noun_cause`, `grammar_a2_only_negative`, `grammar_a2_or_verbs`, `grammar_a2_permission_check_batch20`, `grammar_a2_preference_question`, `grammar_a2_preference_soft_batch20`, `grammar_a2_purpose`, `grammar_a2_reason_because`, `grammar_a2_recommendation`, `grammar_a2_shall_we_time`, `grammar_a2_simultaneous`, `grammar_a2_spoken_result`, `grammar_a2_starting_point`, `grammar_a2_tentative_intention`, `grammar_a2_toward_person`, `grammar_a2_when`, `grammar_a2_written_directive`, `grammar_b1_duration`, `grammar_b1_experience`, `grammar_b1_nominalization`, `grammar_b1_since`
 
 ### A2 기능(화행)
 
@@ -756,7 +756,7 @@
 | ❌ missing | 피동·사동 본격 활용 |  |  |
 | ✅ covered | 공식 요청·협상 화행(-아/어 주시겠어요, -(으)ㄹ 수 있을까요, -기 바랍니다) | grammar_b2_explicit_formal_request, grammar_b2_formal_written_request | B2 |
 
-**⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 B2 문법 (38/54):** `grammar_b1_as_soon_as`, `grammar_b1_more_more`, `grammar_b1_reason_context`, `grammar_b2_according_to`, `grammar_b2_addition_even`, `grammar_b2_as_if`, `grammar_b2_as_long_as`, `grammar_b2_as_you_see`, `grammar_b2_compared_with`, `grammar_b2_considering_fact_batch20`, `grammar_b2_counterfactual_past`, `grammar_b2_criterion_view_batch20`, `grammar_b2_definition`, `grammar_b2_formal_concession`, `grammar_b2_formal_intention`, `grammar_b2_formal_reference`, `grammar_b2_formal_written_request`, `grammar_b2_futility`, `grammar_b2_granted_limit`, `grammar_b2_impression_appearance`, `grammar_b2_in_light_of`, `grammar_b2_including_start`, `grammar_b2_inclusion`, `grammar_b2_instead_supplement`, `grammar_b2_not_by_one_metric`, `grammar_b2_only`, `grammar_b2_only_after`, `grammar_b2_only_course`, `grammar_b2_outcome_depends`, `grammar_b2_practically`, `grammar_b2_pretense_contrast`, `grammar_b2_reasoned_perspective`, `grammar_b2_summary_judgment`, `grammar_b2_turning_point`, `grammar_b2_unexpected_cause`, `grammar_b2_verify_human_review`, `grammar_b2_whether_or_not`, `grammar_b2_worth_doing`
+**⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 B2 문법 (37/54):** `grammar_b1_as_soon_as`, `grammar_b1_more_more`, `grammar_b1_reason_context`, `grammar_b2_addition_even`, `grammar_b2_as_if`, `grammar_b2_as_long_as`, `grammar_b2_as_you_see`, `grammar_b2_compared_with`, `grammar_b2_considering_fact_batch20`, `grammar_b2_counterfactual_past`, `grammar_b2_criterion_view_batch20`, `grammar_b2_definition`, `grammar_b2_formal_concession`, `grammar_b2_formal_intention`, `grammar_b2_formal_reference`, `grammar_b2_formal_written_request`, `grammar_b2_futility`, `grammar_b2_granted_limit`, `grammar_b2_impression_appearance`, `grammar_b2_in_light_of`, `grammar_b2_including_start`, `grammar_b2_inclusion`, `grammar_b2_instead_supplement`, `grammar_b2_not_by_one_metric`, `grammar_b2_only`, `grammar_b2_only_after`, `grammar_b2_only_course`, `grammar_b2_outcome_depends`, `grammar_b2_practically`, `grammar_b2_pretense_contrast`, `grammar_b2_reasoned_perspective`, `grammar_b2_summary_judgment`, `grammar_b2_turning_point`, `grammar_b2_unexpected_cause`, `grammar_b2_verify_human_review`, `grammar_b2_whether_or_not`, `grammar_b2_worth_doing`
 
 ### B2 기능(화행)
 
@@ -894,7 +894,7 @@
 | ✅ covered | hedging(타당성이 다소 부족한 것으로 보인다/-을 수도 있다/단정하기 어렵다) | grammar_c1_difficult_to_conclude_batch20, grammar_c1_room_for | C1 |
 | ✅ covered | 격식 연결(-기에 앞서/-고자/-(으)며/-(으)므로/-는 데 비해) | grammar_b2_compared_with, grammar_b2_formal_intention, grammar_b2_formal_reason | B2 |
 
-**⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 C1 문법 (8/28):** `grammar_b2_formal_regarding`, `grammar_b2_inevitability`, `grammar_b2_method_dependent`, `grammar_c1_burden_recipient_batch20`, `grammar_c1_even_if_doing`, `grammar_c1_insufficient_for`, `grammar_c1_not_necessarily`, `grammar_c1_while_also_consider`
+**⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 C1 문법 (10/28):** `grammar_b2_despite`, `grammar_b2_formal_regarding`, `grammar_b2_inevitability`, `grammar_b2_method_dependent`, `grammar_b2_negative_consequence`, `grammar_c1_burden_recipient_batch20`, `grammar_c1_even_if_doing`, `grammar_c1_insufficient_for`, `grammar_c1_not_necessarily`, `grammar_c1_while_also_consider`
 
 ### C1 기능(화행)
 

@@ -20,7 +20,7 @@
         "discourse_features": {
           "covered": 2
         },
-        "no_scenario_anchor": 31,
+        "no_scenario_anchor": 30,
         "app_grammar_count": 55
       },
       "speechActs": {
@@ -64,7 +64,7 @@
           "covered": 1,
           "missing": 1
         },
-        "no_scenario_anchor": 47,
+        "no_scenario_anchor": 49,
         "app_grammar_count": 63
       },
       "speechActs": {
@@ -151,7 +151,7 @@
           "covered": 3,
           "missing": 1
         },
-        "no_scenario_anchor": 38,
+        "no_scenario_anchor": 37,
         "app_grammar_count": 54
       },
       "speechActs": {
@@ -193,7 +193,7 @@
           "covered": 3,
           "missing": 1
         },
-        "no_scenario_anchor": 8,
+        "no_scenario_anchor": 10,
         "app_grammar_count": 28
       },
       "speechActs": {
@@ -261,10 +261,10 @@
     "app_earlier": 3,
     "missing": 2
   },
-  "gap_total": 510,
+  "gap_total": 512,
   "gap_counts": {
     "functional_grammar:missing": 2,
-    "grammar_anchor:no_scenario_anchor": 162,
+    "grammar_anchor:no_scenario_anchor": 164,
     "grammar_brief:level_mismatch": 32,
     "grammar_brief:missing": 23,
     "grammar_discourse:missing": 3,

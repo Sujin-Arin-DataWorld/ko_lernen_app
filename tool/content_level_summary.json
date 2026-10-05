@@ -42,7 +42,7 @@
     },
     "scenario": {
       "fallback_over2": 0,
-      "over1": 23,
+      "over1": 17,
       "over2": 0,
       "total": 191,
       "under2": 23,

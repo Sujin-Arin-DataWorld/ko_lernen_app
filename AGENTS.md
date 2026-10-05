@@ -425,7 +425,7 @@ flutter run -d <android-id>   # 안드로이드
 
 > 미완료 게이트만 적는다. 끝난 항목은 지우며, 이력은 `git log` / PR / `.claude/handoffs/`다.
 
-- [ ] **문화세계 품질 후속 프로그램**: Stage A arc 3개와 Stage B cross-device discovery durability 완료. Stage C-1은 NIKL 1~6급 vocab coverage/ratchet, C-2는 grammar high-confidence `over2` 2→0 및 `-(으)ㄹ수록` B2 정본화까지 완료했다. 다음 C-3은 과거 grammar relevel 뒤 남은 scenario↔grammar 레벨 역행 6건을 실제 대화 기능 기준으로 교정한다. 문화 metadata는 계속 mastery/reward owner가 아니며, TTS는 Jin이 VS Code에서 직접 처리하므로 이 프로그램에서 생성·덮어쓰기하지 않는다. 정본 계획: `docs/plans/2026-10-05-culture-quality-followups.md`.
+- [ ] **문화세계 품질 후속 프로그램**: Stage A arc 확장, Stage B cross-device discovery durability, Stage C-1 1~6급 coverage gate, C-2 grammar `over2` 2→0, C-3 scenario↔grammar 레벨 역행 6건 교정까지 완료했다. live scenario의 상위 grammar owner 참조는 현재 0건이며 전역 회귀로 잠겼다. 다음 C-4는 남은 high-confidence `over2`를 vocab 158 / cloze 20 / satz 15 / smalltalk 17 / media 6 순으로 실제 오류·정당한 예외·기존 backlog로 분리해 ratchet 하향한다. 문화 metadata는 계속 mastery/reward owner가 아니며, TTS는 Jin이 VS Code에서 직접 처리하므로 이 프로그램에서 생성·덮어쓰기하지 않는다. 정본 계획: `docs/plans/2026-10-05-culture-quality-followups.md`.
 
 - [ ] **UI 실기기 게이트 (Jin)**: 덱 4방향 손맛·시스템 엣지·히어로 잘림, 승인 대기 중인
   아이콘/리소 자산을 실제 기기에서 검수한다. 승인 전에는 대규모 UI 재설계나 자산 덮어쓰기를

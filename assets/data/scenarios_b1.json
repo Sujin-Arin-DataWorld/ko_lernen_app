@@ -5555,7 +5555,6 @@
       "surfaceFormIds": [],
       "sidekick": "christian",
       "grammarIds": [
-        "grammar_b1_whether",
         "grammar_b1_takes_time"
       ],
       "grammarBlock": {
@@ -5585,15 +5584,15 @@
         },
         {
           "speaker": "user",
-          "ko": "지난주에 병원에서 검사를 받았는데 그게 보장되는지 궁금해서요.",
-          "de": "Ich hatte letzte Woche eine Untersuchung im Krankenhaus und wollte wissen, ob die Kosten dafür übernommen werden.",
-          "en": "I had a test at the hospital last week, and I'm wondering if that's covered."
+          "ko": "지난주에 병원에서 검사를 받았는데, 그 검사도 보험으로 보장돼요? 확인하고 싶어서요.",
+          "de": "Ich hatte letzte Woche eine Untersuchung im Krankenhaus. Ist diese Untersuchung auch versichert? Das möchte ich gern klären.",
+          "en": "I had a test at the hospital last week. Is that test covered by my insurance too? I'd like to check."
         },
         {
           "speaker": "clerk",
-          "ko": "보장 여부는 가입하신 보험 내용과 받은 진료를 확인해 봐야 해요.",
-          "de": "Ob es gedeckt ist, müssen wir anhand Ihres Tarifs und der Behandlung prüfen.",
-          "en": "We need to check your coverage and the treatment you received before we can tell."
+          "ko": "보험 내용과 받은 진료를 먼저 확인해야 해요. 확인한 뒤에 알려 드릴게요.",
+          "de": "Wir müssen zuerst Ihren Tarif und die Behandlung prüfen. Danach kann ich Ihnen Bescheid geben.",
+          "en": "We need to check your coverage and the treatment first. Then I can let you know."
         },
         {
           "speaker": "user",
@@ -5609,9 +5608,9 @@
         },
         {
           "speaker": "user",
-          "ko": "처리 기간도 확인할 수 있을까요?",
-          "de": "Können Sie auch die voraussichtliche Bearbeitungszeit prüfen?",
-          "en": "Could you also check the expected processing time?"
+          "ko": "처리하는 데 얼마나 걸려요?",
+          "de": "Wie lange dauert die Bearbeitung?",
+          "en": "How long does processing take?"
         },
         {
           "speaker": "clerk",
@@ -5625,11 +5624,11 @@
           "id": "quest_b1_w10_insurance_hear",
           "type": "hoerverstehen",
           "data": {
-            "audioKo": "보장 여부는 가입하신 보험 내용과 받은 진료를 확인해 봐야 해요.",
+            "audioKo": "보험 내용과 받은 진료를 먼저 확인해야 해요. 확인한 뒤에 알려 드릴게요.",
             "options": [
               {
-                "de": "Wenn Sie nur die Diagnosebescheinigung und die Quittung haben, ist das meiste gedeckt.",
-                "en": "If you just have the diagnosis certificate and the receipt, most of it is covered."
+                "de": "Wir müssen zuerst Ihren Tarif und die Behandlung prüfen. Danach kann ich Ihnen Bescheid geben.",
+                "en": "We need to check your coverage and the treatment first. Then I can let you know."
               },
               {
                 "de": "Ohne Rezept wird nichts erstattet.",
@@ -5651,11 +5650,11 @@
           "id": "quest_b1_w10_insurance_translate",
           "type": "uebersetzen",
           "data": {
-            "promptDe": "Ich hatte letzte Woche eine Untersuchung im Krankenhaus und frage mich, ob das gedeckt ist.",
-            "promptEn": "I had a test at the hospital last week, and I'm wondering if that's covered.",
+            "promptDe": "Ich hatte letzte Woche eine Untersuchung im Krankenhaus. Ist diese Untersuchung auch versichert? Das möchte ich gern klären.",
+            "promptEn": "I had a test at the hospital last week. Is that test covered by my insurance too? I'd like to check.",
             "options": [
               {
-                "ko": "지난주에 병원에서 검사를 받았는데 그게 보장되는지 궁금해서요."
+                "ko": "지난주에 병원에서 검사를 받았는데, 그 검사도 보험으로 보장돼요? 확인하고 싶어서요."
               },
               {
                 "ko": "안녕하세요, 실손보험 청구 때문에 전화했는데요."
@@ -5664,7 +5663,7 @@
                 "ko": "서류는 어떻게 보내면 돼요?"
               },
               {
-                "ko": "처리 기간도 확인할 수 있을까요?"
+                "ko": "처리하는 데 얼마나 걸려요?"
               }
             ],
             "correctIndex": 0
@@ -5674,9 +5673,9 @@
           "id": "quest_b1_w10_insurance_build",
           "type": "satzBauen",
           "data": {
-            "targetKo": "처리 기간도 확인할 수 있을까요?",
-            "promptDe": "Können Sie auch die voraussichtliche Bearbeitungszeit prüfen?",
-            "promptEn": "Could you also check the expected processing time?",
+            "targetKo": "처리하는 데 얼마나 걸려요?",
+            "promptDe": "Wie lange dauert die Bearbeitung?",
+            "promptEn": "How long does processing take?",
             "distractors": [
               "진단서랑",
               "청구"

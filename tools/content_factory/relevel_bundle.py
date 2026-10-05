@@ -3294,8 +3294,17 @@ def _fsync_overwrite(path: Path, content: bytes) -> None:
         os.fsync(handle.fileno())
 
 
-def _atomic_write_bytes(path: Path, content: bytes) -> None:
+def _atomic_write_bytes(
+    path: Path,
+    content: bytes,
+    *,
+    normalize_newlines: bool = True,
+) -> None:
     """Commit one validated output with rename-first Windows-safe fallback.
+
+    Forward writes are canonicalized to LF so a Windows checkout cannot
+    reintroduce CRLF/mixed-line-ending drift. Rollback callers explicitly set
+    normalize_newlines=False so pre-transaction bytes are restored exactly.
 
     The transaction validates every staged output before this point and owns
     byte-exact rollback for every destination. Some Windows editors/watchers
@@ -3304,13 +3313,14 @@ def _atomic_write_bytes(path: Path, content: bytes) -> None:
     Retry transient locks first; only then fall back to an fsynced overwrite.
     """
 
+    payload = _lf_bytes(content) if normalize_newlines else content
     temporary = path.with_name(f".{path.name}.relevel-bundle.tmp")
     try:
-        temporary.write_bytes(content)
+        temporary.write_bytes(payload)
         try:
             _replace_with_retry(temporary, path)
         except PermissionError:
-            _fsync_overwrite(path, content)
+            _fsync_overwrite(path, payload)
     finally:
         if temporary.exists():
             temporary.unlink()
@@ -3613,13 +3623,21 @@ def migrate(
 
         def _rollback() -> None:
             for path, content in originals.items():
-                _atomic_write_bytes(path, content)
+                _atomic_write_bytes(path, content, normalize_newlines=False)
             if ledger_original is not None:
-                _atomic_write_bytes(ledger_path, ledger_original)
+                _atomic_write_bytes(
+                    ledger_path,
+                    ledger_original,
+                    normalize_newlines=False,
+                )
             elif ledger_path.exists():
                 ledger_path.unlink()
             if aliases_original is not None:
-                _atomic_write_bytes(pack_progress_aliases_path, aliases_original)
+                _atomic_write_bytes(
+                    pack_progress_aliases_path,
+                    aliases_original,
+                    normalize_newlines=False,
+                )
             elif pack_progress_aliases_path.exists():
                 pack_progress_aliases_path.unlink()
             for old_id, new_id in report.artwork_files_renamed:

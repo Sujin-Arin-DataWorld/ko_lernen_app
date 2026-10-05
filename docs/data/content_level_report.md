@@ -37,10 +37,10 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 
 | 앱 레벨 | A1 | A2 | B1 | B2 | C1 | C2 | 미검출 | 합계 |
 |---|---|---|---|---|---|---|---|---|
-| a1 | 12 | 18 | 0 | 0 | 0 | 0 | 0 | 30 |
+| a1 | 14 | 16 | 0 | 0 | 0 | 0 | 0 | 30 |
 | a2 | 4 | 28 | 1 | 0 | 0 | 0 | 0 | 33 |
-| b1 | 0 | 12 | 20 | 2 | 0 | 0 | 0 | 34 |
-| b2 | 0 | 3 | 3 | 23 | 3 | 0 | 0 | 32 |
+| b1 | 0 | 12 | 21 | 1 | 0 | 0 | 0 | 34 |
+| b2 | 0 | 3 | 3 | 26 | 0 | 0 | 0 | 32 |
 | c1 | 0 | 0 | 5 | 14 | 12 | 0 | 0 | 31 |
 | c2 | 0 | 1 | 2 | 12 | 4 | 12 | 0 | 31 |
 
@@ -182,8 +182,6 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 | `a1_message_contact_after_class_2026` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
 | `a1_theme_park_date_choices` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
 | `a1_w10_eat` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
-| `a1_w10_fandom` | a1 | a2 | 1 | over1 grammar_ids_max=2 |
-| `a1_w10_partner` | a1 | a2 | 1 | over1 grammar_ids_max=2 |
 | `a1_w10_phone` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
 | `a1_w10_taxi_stay` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
 | `a2_w10_apt` | a2 | b1 | 1 | over1 dialog_p75=2.8 |
@@ -191,10 +189,6 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 | `ai_hiring_appeal` | c2 | b2 | -2 | under2 dialog_p75=4.0 |
 | `ai_translation_voice_loss` | c1 | b1 | -2 | under2 dialog_p75=3.0 |
 | `automated_benefit_denial` | c2 | b2 | -2 | under2 dialog_p75=4.2 |
-| `b1_w10_insurance` | b1 | b2 | 1 | over1 grammar_ids_max=4 |
-| `b2_w10_authorities` | b2 | c1 | 1 | over1 grammar_ids_max=5 |
-| `b2_w10_hiring` | b2 | c1 | 1 | over1 grammar_ids_max=5 |
-| `b2_w10_travel` | b2 | c1 | 1 | over1 grammar_ids_max=5 |
 | `bakery_payment_bag` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
 | `bakery_queue` | a1 | a2 | 1 | over1 dialog_p75=2.0 |
 | `break_glass_apology` | a1 | a2 | 1 | over1 dialog_p75=1.5 |
@@ -235,7 +229,7 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
 |---|---|---|---|
 | vocab | 120 | 4068 | 2.9% |
 | grammar | 96 | 1502 | 6.4% |
-| scenario | 445 | 10245 | 4.3% |
+| scenario | 443 | 10242 | 4.3% |
 | cloze | 643 | 14734 | 4.4% |
 | satz | 763 | 17336 | 4.4% |
 | smalltalk | 478 | 9739 | 4.9% |
@@ -289,7 +283,7 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
     },
     "scenario": {
       "fallback_over2": 0,
-      "over1": 23,
+      "over1": 17,
       "over2": 0,
       "total": 191,
       "under2": 23,
