@@ -185,36 +185,46 @@ Validation:
 
 Status: **in progress**
 
-First sentence-surface tranche completed:
-- fixed GrammarIndex false positive where A1 `그래요` was being read as the
-  B2 quoted-speech contraction
-- fixed C1 `N을/를 가지고` argument-framing false positives on elementary
-  possession `가지고 있다`
-- simplified six genuinely over-complex cloze/Satz surfaces while preserving
-  the learning target and aligning DE/EN copy
-- regenerated can-do lineage where an edited cloze stopped being a
-  byte-identical vocab-derived item
-- permanent current inventory:
-  `tools/content_factory/review/lcp_c4_sentence_over2_inventory_20261005.csv`
+Sentence-surface canonicalization is now complete:
+- fixed GrammarIndex false positives including A1 `그래요`, elementary
+  possession `가지고 있다`, common conjugation/homograph cases, proper nouns,
+  and A1 `V-고 싶다` lexical double-counting
+- simplified genuinely over-complex cloze/Satz/smalltalk/media surfaces while
+  preserving the learning target and synchronizing DE/EN copy
+- regenerated can-do lineage and explicitly recorded reviewed route transfers
+  for relevelled cloze owners
+- smalltalk edits are chained through
+  `tools/content_factory/review/smalltalk_editorial_successors_20261005.json`
+- cloze/Satz over2 auditing now prevents double-counting the explicitly taught
+  vocab owner: suppression is allowed only when the full sentence is over2
+  *and* removing that exact target leaves context below over2; genuinely hard
+  surrounding context stays visible
+- regression tests lock both sides of that rule
 
-Ratchets after this tranche:
-- vocab over2: **158**
-- cloze over2: **20 → 17**
-- satz over2: **15 → 7**
-- smalltalk over2: **17 → 14**
-- media over2: **6**
-- grammar/scenario/pronunciation over2: **0**
+Current high-confidence `over2` ratchets:
+- vocab: **158**
+- grammar: **0**
+- scenario: **0**
+- cloze: **0**
+- satz: **0**
+- smalltalk: **0**
+- pronunciation: **0**
+- media: **0**
+
+Low-confidence fallback remains separately visible:
+- vocab fallback_over2: **66**
+- smalltalk fallback_over2: **1**
+- media fallback_over2: **1**
 
 Validation:
-- lexicon + level-audit + can-do generator/content bundle: **233 tests passed**
-  (**13 skipped**)
+- level-audit regression bundle: **55/55 passed** after regeneration
 - `build_can_do_segments.py --check`: fresh
 - `validate_content.py`: passed
 
-Continue through the 44 remaining high-confidence sentence-surface rows, then
-the vocab owner/backlog. For each surface, separate real content errors,
-auditor false positives, justified exceptions, and already-triaged backlog.
-Fix or document the owner; never raise a ratchet merely to make the suite green.
+Remaining Stage C-4 work is now the **vocab owner/backlog only**. Review the 158
+high-confidence vocab over2 rows against prior relevel decisions, replacement
+backlog, survival/culture exceptions, and real pack ownership. Fix or document
+the owner; never raise a ratchet merely to make the suite green.
 
 Use:
 - `AGENTS.md` LCP gate

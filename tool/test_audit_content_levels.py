@@ -544,6 +544,47 @@ class FixtureAuditTest(unittest.TestCase):
         self.assertEqual(it.reason, "over2 lex_p90=5.0")
         self.assertEqual(it.blocked_by, "can_do_ref")
 
+    def test_target_owner_over2_is_not_double_counted_when_context_is_easy(self):
+        rows = [
+            {
+                "id": "cloze_a1_target_owner_only",
+                "level": "a1",
+                "fullKo": "정책을 봐요.",
+                "answer": "정책",
+            }
+        ]
+        item = acl._grade_sentence_surface(
+            self.corpus,
+            "cloze",
+            rows,
+            "fullKo",
+            set(),
+            target_field="answer",
+        )[0]
+        self.assertGreaterEqual(item.delta, 2)
+        self.assertEqual(item.bucket, "")
+        self.assertEqual(item.reason, "")
+
+    def test_target_owner_does_not_hide_independent_context_over2(self):
+        rows = [
+            {
+                "id": "cloze_a1_target_and_hard_context",
+                "level": "a1",
+                "fullKo": "정책과 사전을 봐요.",
+                "answer": "정책",
+            }
+        ]
+        item = acl._grade_sentence_surface(
+            self.corpus,
+            "cloze",
+            rows,
+            "fullKo",
+            set(),
+            target_field="answer",
+        )[0]
+        self.assertEqual(item.bucket, "over2")
+        self.assertGreaterEqual(item.delta, 2)
+
     # -- grammar / scenario / smalltalk / pronunciation / media ---------------
 
     def test_grammar_over2_and_can_do_blocked(self):
@@ -1094,8 +1135,8 @@ class LiveRatchetTest(unittest.TestCase):
     # grading fix and V2G2 -(으)ㄹ수록 relevel. Lower-only: preserve every
     # improvement accumulated since the September baseline.
     CAP_OVER2 = {
-        "vocab": 158, "grammar": 0, "scenario": 0, "cloze": 17,
-        "satz": 7, "smalltalk": 14, "pronunciation": 0, "media": 6,
+        "vocab": 158, "grammar": 0, "scenario": 0, "cloze": 0,
+        "satz": 0, "smalltalk": 0, "pronunciation": 0, "media": 0,
     }
     # 실측 unknown/total: vocab .0231(=56/2420, unchanged from T2.4a --
     # the allowance/contraction fix only ever changes sentence_profile's

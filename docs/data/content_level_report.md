@@ -244,7 +244,7 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
     "cloze": {
       "fallback_over2": 0,
       "over1": 159,
-      "over2": 11,
+      "over2": 0,
       "total": 2365,
       "under2": 462,
       "unknown": 0
@@ -276,7 +276,7 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
     "satz": {
       "fallback_over2": 0,
       "over1": 157,
-      "over2": 6,
+      "over2": 0,
       "total": 2885,
       "under2": 646,
       "unknown": 0

@@ -3,7 +3,7 @@
     "cloze": {
       "fallback_over2": 0,
       "over1": 159,
-      "over2": 11,
+      "over2": 0,
       "total": 2365,
       "under2": 462,
       "unknown": 0
@@ -35,7 +35,7 @@
     "satz": {
       "fallback_over2": 0,
       "over1": 157,
-      "over2": 6,
+      "over2": 0,
       "total": 2885,
       "under2": 646,
       "unknown": 0

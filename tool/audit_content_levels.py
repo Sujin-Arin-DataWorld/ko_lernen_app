@@ -818,12 +818,17 @@ def grade_grammar(corpus: Corpus) -> List[Item]:
 def _grade_sentence_surface(
     corpus: Corpus, kind: str, rows: Sequence[dict], text_field: str,
     can_do_ids: set, bundle_map: Optional[Dict[Tuple[str, str], str]] = None,
+    *, target_field: Optional[str] = None,
 ) -> List[Item]:
-    """Shared grading loop for every single-text sentence-level surface
-    (grammar/cloze/satz/pronunciation/media). smalltalk/scenario pool
-    MULTIPLE texts per item, so they build their own SentenceProfile loop
-    (`grade_smalltalk`/`grade_scenarios`) and call `_sentence_verdict`
-    directly on whichever text's profile determines the item's grade."""
+    """Shared grading loop for one-text sentence-level surfaces.
+
+    Cloze/Satz teach an explicit vocab target whose owner is already audited
+    in `grade_vocab`. If the full sentence is over2, a conservative second
+    pass removes that exact target once. We suppress only the duplicate
+    sentence over2 verdict when the remaining context is *not* over2. This
+    never changes a sentence that was not already over2, and it keeps genuine
+    surrounding-context debt visible.
+    """
     items: List[Item] = []
     for row in rows:
         level = (row.get("level") or "").strip().lower()  # R4 item 3
@@ -835,6 +840,36 @@ def _grade_sentence_surface(
         bucket, reason = _classify_with_confidence(
             delta, factor, confidence, source, sentence_level=True,
         )
+        if target_field is not None and bucket == "over2":
+            target = row.get(target_field, "") or ""
+            if isinstance(target, str) and target.strip() and target in text:
+                context_text = text.replace(target, "", 1)
+                context_sp = corpus.lexicon.sentence_profile(
+                    context_text,
+                    corpus.grammar_index,
+                )
+                (
+                    context_grade,
+                    _context_estimate,
+                    context_factor,
+                    context_confidence,
+                    context_source,
+                ) = _sentence_verdict(context_sp)
+                context_delta = (
+                    context_grade - rank
+                    if context_grade is not None and rank is not None
+                    else None
+                )
+                context_bucket, _context_reason = _classify_with_confidence(
+                    context_delta,
+                    context_factor,
+                    context_confidence,
+                    context_source,
+                    sentence_level=True,
+                )
+                if context_bucket not in {"over2", "fallback_over2"}:
+                    bucket = ""
+                    reason = ""
         rid = row.get("id", "")
         blocked = "can_do_ref" if rid in can_do_ids else ""
         bundle_id = ""
@@ -851,12 +886,28 @@ def _grade_sentence_surface(
 
 def grade_cloze(corpus: Corpus, bundle_map: Dict[Tuple[str, str], str]) -> List[Item]:
     can_do = _can_do_ids_by_kind(corpus.can_do_refs).get("cloze", set())
-    return _grade_sentence_surface(corpus, "cloze", corpus.cloze_items, "fullKo", can_do, bundle_map)
+    return _grade_sentence_surface(
+        corpus,
+        "cloze",
+        corpus.cloze_items,
+        "fullKo",
+        can_do,
+        bundle_map,
+        target_field="answer",
+    )
 
 
 def grade_satz(corpus: Corpus, bundle_map: Dict[Tuple[str, str], str]) -> List[Item]:
     can_do = _can_do_ids_by_kind(corpus.can_do_refs).get("satz", set())
-    return _grade_sentence_surface(corpus, "satz", corpus.satz_items, "targetKo", can_do, bundle_map)
+    return _grade_sentence_surface(
+        corpus,
+        "satz",
+        corpus.satz_items,
+        "targetKo",
+        can_do,
+        bundle_map,
+        target_field="vocabKo",
+    )
 
 
 def grade_pronunciation(corpus: Corpus) -> List[Item]:
