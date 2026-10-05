@@ -706,6 +706,22 @@ _STEM_HOMOGRAPH_OVERRIDE_MAP: Mapping[str, str] = {
     "비싸": "비싸다",
 }
 
+# D-4 Living Korea morphology audit: exact, learner-facing colloquial/polite
+# surfaces that are normal Korean but are unsafe to recover through a broad
+# generic ending rule. Keeping these as exact surface -> dictionary-form
+# repairs avoids widening ENDINGS in ways that would collide with nouns or
+# unrelated stems elsewhere in the corpus.
+_SURFACE_LEMMA_OVERRIDE_MAP: Mapping[str, str] = {
+    "어떨까요": "어떻다",
+    "누르래요": "누르다",
+    "마세요": "말다",
+    "다르대": "다르다",
+    "왔대": "오다",
+    "눌렀냐": "누르다",
+    "할게": "하다",
+    "보내": "보내다",
+}
+
 
 def _irregular_repair(stem: str) -> Optional[str]:
     """Try every hand-curated irregular-conjugation table against `stem`
@@ -2606,6 +2622,17 @@ class CefrLexicon:
         if pronoun_contraction is not None:
             wg = self.word_grade(pronoun_contraction)
             return WordGrade(wg.grade, wg.cefr, wg.source, token, wg.confidence_override)
+        surface_override = _SURFACE_LEMMA_OVERRIDE_MAP.get(token)
+        if surface_override is not None:
+            wg = self.word_grade(surface_override)
+            if wg.grade is not None:
+                return WordGrade(
+                    wg.grade,
+                    wg.cefr,
+                    wg.source,
+                    surface_override,
+                    wg.confidence_override,
+                )
         exact = self._exact_headword_lookup(token)
         if exact.grade is not None:
             return WordGrade(exact.grade, exact.cefr, exact.source, token, exact.confidence_override)

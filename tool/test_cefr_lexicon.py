@@ -765,11 +765,12 @@ class TestVocabUnknownRatio(unittest.TestCase):
 class TestSentenceUnknownRatio(unittest.TestCase):
     """Ratchet sentence unknown-token ratio over every cloze fullKo.
 
-    The original R3 acceptance ceiling was 12%; C7-4's fused-past repair
-    lowers the live ratio to ~1.92%, which is now the ratchet baseline.
+    The original R3 acceptance ceiling was 12%; C7-4 lowered the live ratio
+    to ~1.92%, and the Living Korea D-4 surface repairs lower it again to
+    ~1.89%, which is now the ratchet baseline.
     """
 
-    CAP_UNKNOWN_RATIO = 0.0193
+    CAP_UNKNOWN_RATIO = 0.0189
 
     @classmethod
     def setUpClass(cls):
@@ -1801,6 +1802,55 @@ class TestT25LevelExceptionsGoldenCases(unittest.TestCase):
         profile = self.lex.sentence_profile("한국에서 산 지 오래됐어요.", self.gi)
         self.assertTrue(profile.tokens)
         self.assertNotIn("한지", [word.matched for word in profile.tokens])
+
+
+class TestLivingKoreaD4SurfaceMorphology(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.lex = cl.CefrLexicon.load()
+        cls.gi = cl.GrammarIndex.load()
+
+    CASES = [
+        ("어떨까요?", "어떻다"),
+        ("누르래요.", "누르다"),
+        ("마세요.", "말다"),
+        ("다르대.", "다르다"),
+        ("왔대.", "오다"),
+        ("눌렀냐?", "누르다"),
+        ("할게.", "하다"),
+        ("보내", "보내다"),
+    ]
+
+    def test_living_korea_normal_surfaces_resolve_to_dictionary_forms(self):
+        for surface, expected in self.CASES:
+            with self.subTest(surface=surface):
+                token = cl._normalize_token(surface)
+                wg = self.lex._resolve_eojeol(token)
+                self.assertEqual(wg.matched, expected)
+                self.assertIsNotNone(wg.grade)
+
+    def test_living_korea_surface_repairs_remove_unknowns_in_context(self):
+        sentences = [
+            "자세한 설명은 정보 화면에 두면 어떨까요?",
+            "이 링크를 누르래요.",
+            "바로 누르지 마세요.",
+            "쉬는 시간 규칙도 조금 다르대.",
+            "엄마한테 문자가 왔대.",
+            "링크는 눌렀냐?",
+            "판단은 내가 할게.",
+            "돈 보내 달라는 연락도 확인하고.",
+        ]
+        for sentence in sentences:
+            with self.subTest(sentence=sentence):
+                profile = self.lex.sentence_profile(sentence, self.gi)
+                repaired_surfaces = {
+                    cl._normalize_token(surface)
+                    for surface, _ in self.CASES
+                }
+                self.assertFalse(
+                    repaired_surfaces.intersection(profile.unknown),
+                    msg=(sentence, profile.unknown),
+                )
 
 
 class TestC7ReviewedUnknownOwners(unittest.TestCase):
