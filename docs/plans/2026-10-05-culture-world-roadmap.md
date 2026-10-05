@@ -1,6 +1,6 @@
 # Hangul Sori culture-world roadmap
 
-> Status: **9/9 implementation complete on `session/culture-links-20261005-2026-10-05`**. Batch 38 learner-facing promotion remains separately gated by its approval ledger. This document does not grant mastery, reward, or progression authority.
+> Status: **9/9 implementation complete and approved Batch 38 canonically promoted on `session/culture-links-20261005-2026-10-05`**. The rollout preserves the existing mastery, reward, and progression authorities; this document grants none of those responsibilities.
 
 ## Goal
 
@@ -253,14 +253,16 @@ A story arc groups existing scenario/practice/culture surfaces. It is not a new 
 ## PR order
 
 1. Scenario culture-link infrastructure ✅
-2. CulturalGlossary expansion
-3. Persona culture scenes
-4. Scenario culture card
-5. Hanok culture-stories collection
-6. Companion presentation reactions
-7. Hahoe/Dokkaebi bridges
-8. Reward/item extensions only with explicit reward-contract redesign
-9. Culture story arcs
+2. CulturalGlossary expansion ✅
+3. Persona culture scenes ✅
+4. Scenario culture card ✅
+5. Hanok culture-stories collection ✅
+6. Companion presentation reactions ✅
+7. Hahoe/Dokkaebi bridges ✅
+8. Reward/item reuse + contract audit ✅
+9. Culture story arcs ✅
+
+All nine planned rollout stages are complete on the rollout branch. Batch 38 is approved and promoted; no culture-world implementation gate remains in this plan.
 
 ## Implementation rule
 

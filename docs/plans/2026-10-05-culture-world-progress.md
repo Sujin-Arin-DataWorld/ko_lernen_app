@@ -8,15 +8,15 @@
 
 | Phase | Original goal | Implementation status | Live learner status | Key evidence |
 |---|---|---|---|---|
-| 1 | Scenario ↔ culture registry | **Complete** | Not merged to main yet | `ScenarioCultureLinkCatalog`, fail-safe repository, reference validation |
-| 2 | CulturalGlossary expansion | **Complete** | Not merged to main yet | glossary 23 → 33 entries, KO/DE/EN + authoritative sources |
-| 3 | Persona culture scenes | **Draft complete / review-only** | **Not live**; runtime corpus remains 186 scenarios | Batch 38: 5 scenarios, 5 listening lessons, 20 listening questions, 5 culture links |
-| 4 | Scenario result culture card | **Complete** | Not merged to main yet; live registry may still be empty | optional result card backed only by live `scenario_culture_links.json` |
-| 5 | Hanok “Culture stories” collection | **Complete** | Not merged to main yet | read-only discovery projection from existing scenario-completion evidence; no new culture ledger |
-| 6 | Tiger/Magpie presentation reactions | **Complete** | Not merged to main yet | canonical companion preference changes framing/motion only; cultural availability is identical |
-| 7 | Hahoe/Dokkaebi bridges | **Complete** | Not merged to main yet; existing Hahoe/Dokkaebi practice remains the authority | scenario result routes into level-matched Smalltalk; staged Dokkaebi help is reused unchanged |
-| 8 | Culture items / reward reuse | **Complete by reuse + contract audit** | Existing reward surfaces already live; no new reward item added | four glossary-linked decorations stay in deterministic v1 pool; Norigae/Maedeup remain out |
-| 9 | Culture story arcs | **Complete** | Live arc catalog intentionally empty until approved content is promoted | read-only arc model/repository + derived completion projection; review-only `Found around Nammun` stays outside live assets |
+| 1 | Scenario ↔ culture registry | **Complete** | **Live on this rollout branch** | `ScenarioCultureLinkCatalog`, fail-safe repository, reference validation |
+| 2 | CulturalGlossary expansion | **Complete** | **Live on this rollout branch** | glossary 23 → 33 entries, KO/DE/EN + authoritative sources |
+| 3 | Persona culture scenes | **Complete + promoted** | **Live; runtime corpus = 191 scenarios** | Batch 38: 5 scenarios, 5 listening lessons, 20 listening questions, 5 culture links |
+| 4 | Scenario result culture card | **Complete** | **Live metadata available** | optional result card backed only by live `scenario_culture_links.json` |
+| 5 | Hanok “Culture stories” collection | **Complete** | **Live derived discovery surface** | read-only discovery projection from existing scenario-completion evidence; no new culture ledger |
+| 6 | Tiger/Magpie presentation reactions | **Complete** | **Live presentation path** | canonical companion preference changes framing/motion only; cultural availability is identical |
+| 7 | Hahoe/Dokkaebi bridges | **Complete** | **Live bridge path**; existing Hahoe/Dokkaebi practice remains the authority | scenario result routes into level-matched Smalltalk; staged Dokkaebi help is reused unchanged |
+| 8 | Culture items / reward reuse | **Complete by reuse + contract audit** | Existing reward surfaces live; no new reward item added | four glossary-linked decorations stay in deterministic v1 pool; Norigae/Maedeup remain out |
+| 9 | Culture story arcs | **Complete + promoted** | **`Found around Nammun` live** | read-only arc model/repository + derived completion projection; no mastery denominator |
 
 ## Completed implementation
 
@@ -72,7 +72,7 @@ Runtime `PersonaPresentation` copy and writer-bible relationships were synchroni
 Commit:
 - `6aa3a83e2 feat(personas): deepen culture-focused profiles`
 
-## Phase 3 — Batch 38 review-only culture scenes
+## Phase 3 — Batch 38 persona culture scenes (promoted)
 
 Five authored scenes:
 
@@ -117,7 +117,7 @@ The scenario integration transaction was extended so approved promotion can atom
 - culture links
 - audit counts
 
-No Batch 38 scenario is live yet.
+Batch 38 was subsequently approved by the user and promoted atomically; all five scenarios are now live on this rollout branch.
 
 Commit:
 - `9d4d2a4e9 feat(culture): draft persona culture scenes`
@@ -182,7 +182,7 @@ persona writer bible
   -> human review packet
 ```
 
-`--write-derived` regenerates review-only artifacts only. It does not promote live content.
+`--write-derived` regenerates derived audit/review artifacts only. It never promotes live content. The same pipeline now accepts `review_only_draft`, `approved`, and `merged` manifests so a promoted batch can be re-audited reproducibly without touching learner-facing assets.
 
 Batch 38 now has:
 - `authoringBrief`
@@ -213,7 +213,7 @@ Implemented an optional culture surface in the scenario result flow:
 - missing or malformed optional culture data fails closed by omitting the card
 - no score, CanDo, XP, Yeopjeon, Bojagi, Hanok, or navigation authority
 
-The live registry can remain empty safely, so this UI does not promote Batch 38.
+The UI still fails closed when optional culture metadata is absent. After Batch 38 promotion, its five live scenario links resolve through this same path without changing score, mastery, or rewards.
 
 Commit:
 - `aa7674b03 feat(culture): show scenario culture result card`
@@ -298,7 +298,7 @@ Latest focused validation at the Phase 7 checkpoint:
   - Smalltalk interaction, accessibility, retry, and persistence boundaries remain intact
 - targeted Dart analysis: **0 issues**
 - non-generated `git diff --check`: **passed**
-- live learner corpus remains **186** because Batch 38 is still review-only.
+- At this historical Phase 7 checkpoint the live learner corpus was **186**; Batch 38 was promoted later after explicit approval and final editorial/level-fit review.
 
 ## Phase 8 — culture items / existing reward reuse
 
@@ -331,7 +331,7 @@ Commit:
 Implemented the final roadmap layer as read-only grouping metadata, without introducing a second progress system.
 
 Added:
-- `assets/data/culture_story_arcs.json` — live catalog, intentionally empty while Batch 38 is review-only
+- `assets/data/culture_story_arcs.json` — live catalog; initially empty during review, now contains promoted `found_around_nammun`
 - `lib/models/culture_story_arc.dart`
 - `lib/services/culture_story_arc_repository.dart`
 - derived arc projection inside `CultureDiscoveryService`
@@ -344,20 +344,20 @@ Safety/ownership contract:
 - arc completion is calculated only from existing scenario completion evidence
 - no story-arc progress key, mastery denominator, XP source, reward grant, inventory, or ledger exists
 - an arc is projected only when every referenced scenario and cultural term already exists in the live registry/glossary
-- therefore review-only Batch 38 cannot leak into learner UI before explicit promotion
-- the live arc asset remains empty until approved content is promoted
+- review-only data could not leak into learner UI before explicit promotion
+- after user approval, `found_around_nammun` was promoted through the same scenario/listening/culture-link rollback boundary and is now the single live culture-story arc
 
 Validation:
 - persona-culture/content Python regressions: **42 passed**
 - `validate_content.py`: **passed**
-- Batch 38 review-only pipeline: **PASS**
+- pre-promotion Batch 38 review-only pipeline: **PASS**
 - Phase 9 + culture regressions: **43 passed**
 - targeted Dart analysis: **0 issues**
 - `git diff --check`: **passed**
-- scenario promotion integrator now stages culture story arcs in the **same rollback boundary** as scenario shards, curriculum links, listening, culture links, and audit metadata
+- scenario promotion integrator stages culture story arcs in the **same rollback boundary** as scenario shards, curriculum links, listening, culture links, and audit metadata
 - arc promotion rejects non-live scenario references, terms not linked to the staged scenario, duplicate/frozen payload drift, and any progress mode other than `derived_read_only`
 - integration transaction regressions: **15 passed**
-- Batch 38 full promotion preview with arcs: **passed** (live remains untouched)
+- pre-promotion Batch 38 full promotion preview with arcs: **passed**; the later approved transaction promoted the same frozen payload
 
 Commits:
 - `b574050b6 feat(culture): add derived culture story arcs`
@@ -382,18 +382,51 @@ Final pre-approval evidence:
   - scenarios: 186 → 191
   - scenario quests: 579 → 594
 - key vocabulary: **30 total / 6 culture anchors / 24 at-or-below target / 0 above target / 0 unmapped**
-- review ledger remains **draft** for all five scenes; no human approval is claimed and no live learner asset was promoted.
 
 Commits:
 - `dd523fe5b content(culture): refine batch 38 level fit`
 - `9ced4505e fix(culture): sync batch 38 review copy` — aligns grammar/quest copy with the final simplified dialogue before human approval.
 
+## Batch 38 canonical promotion — complete
+
+The user explicitly approved the full Batch 38 bundle for canonical/live promotion after reviewing the dialogue quality and authorizing the remaining scenes as a group. Approval provenance records the authority and date without claiming native-speaker QA.
+
+Promoted in one transaction:
+- 5 scenarios and their 15 scenario quests
+- 5 listening lessons / 20 listening questions
+- 5 scenario-culture links
+- curriculum links and content-audit counts
+- the `found_around_nammun` read-only culture story arc
+- canonical shelf assignments for all five scenes
+
+Live state on this rollout branch:
+- scenario corpus: **191**
+- scenario quests: **594**
+- Batch 38 audit: **5 / 5 `live_verified_modern`**
+- all five review-ledger rows: **approved**
+- Batch 38 manifest: **merged**
+- live culture-story arcs: **1** (`found_around_nammun`)
+
+Final multidimensional level-fit audit:
+- evidence: `tools/content_factory/review/persona_culture_level_fit_judgments_20261005.json`
+- every scene passed task complexity, register/relationship, distractor difficulty, listening burden, and culture-exception review
+- key vocabulary: **30 / 6 culture anchors / 24 at-or-below target / 0 above target / 0 unmapped**
+- merged authoring audit: **MERGED_AUDIT_PASS**
+- no native-speaker QA claim is made by this approval record
+
+Post-promotion validation:
+- Python / content / CEFR regression bundle: **247 / 247 passed**
+- `validate_content.py`: **passed**
+- all-Batch live-promotion audit: **passed**; Batch 38 = **5 / 5 live**
+- targeted Dart analysis: **0 issues**
+- culture UI / discovery / arc regressions: **43 / 43 passed**
+
+The global level audit was regenerated for the 191-scenario corpus. One unrelated historical B2 vocabulary ratchet regression surfaced (`회의 정족수`, audited as C2); it was repaired as learner-facing `참석자` with synchronized vocab/cloze/sentence content. The canonical fallback-over2 vocab cap returned to **66** rather than being relaxed.
+
+Commits:
+- `080f6b036 feat(culture): promote batch 38 canonically`
+- `376b88799 content(levels): align civic meeting vocabulary with B2`
+
 ## Roadmap implementation status
 
-The original nine-phase implementation roadmap is now **9 / 9 technically implemented** on this branch, and Batch 38 is technically/editorially ready for the separate human approval gate.
-
-Remaining live-exposure gate:
-- Batch 38 itself is still `review_only_draft`, exactly as required by the original authoring contract.
-- live learner corpus therefore remains **186 scenarios**.
-- promotion remains a separate explicit transaction through `integrate_scenario_batch.py --apply` only after the review ledger is approved.
-- when that promotion happens, the live scenario/culture registry and live culture-story arc catalog can be advanced together without introducing a second progress system.
+The original nine-phase culture-world roadmap is **9 / 9 implemented and the approved Batch 38 content is canonically promoted on this rollout branch**. There is no remaining culture-world implementation or live-exposure gate in this roadmap. Existing cross-project gates such as device QA, broader level-normalization backlog, release operations, or other independently scoped programs remain owned by their own plans.

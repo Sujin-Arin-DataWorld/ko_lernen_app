@@ -425,8 +425,6 @@ flutter run -d <android-id>   # 안드로이드
 
 > 미완료 게이트만 적는다. 끝난 항목은 지우며, 이력은 `git log` / PR / `.claude/handoffs/`다.
 
-- [ ] **페르소나×문화세계 롤아웃 (9/9 구현 완료, human approval/live 승격만 남음)**: 작업 브랜치 `session/culture-links-20261005-2026-10-05`. 원래 Phase 1~9 구현은 전부 완료했고 Batch 38도 최종 pre-approval 편집 감사를 마쳤다. 현재 5개 시나리오/5 listening/20문항/5 culture link + `Found around Nammun` story arc가 review pipeline에 연결되어 있으며, 핵심어 감사는 30개 중 culture anchor 6 / target 이하 24 / above-target 0 / unmapped 0이다. 관련 Python 회귀는 45/45 PASS, `validate_content.py` 및 전체 승격 preview도 PASS. 다만 approval ledger 5행은 모두 여전히 `draft`이므로 live 186개에는 미승격이며, live `culture_story_arcs.json`도 의도적으로 비어 있다. 다음 게이트는 사람이 review packet을 승인한 뒤 `integrate_scenario_batch.py --apply`로 scenario+curriculum+listening+culture links+story arcs+audit를 같은 rollback boundary에서 승격하고 전체 회귀를 확인하는 것이다. 상세 현재 상태: `docs/plans/2026-10-05-culture-world-progress.md`.
-
 - [ ] **UI 실기기 게이트 (Jin)**: 덱 4방향 손맛·시스템 엣지·히어로 잘림, 승인 대기 중인
   아이콘/리소 자산을 실제 기기에서 검수한다. 승인 전에는 대규모 UI 재설계나 자산 덮어쓰기를
   하지 않는다.
