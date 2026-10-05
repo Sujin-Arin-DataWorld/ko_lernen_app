@@ -7566,9 +7566,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/integrate_scenario_batch.py": {
-    "mtime": 1791157569.563692,
-    "seen": 1791162436.043657,
-    "ast_hash": "fb5db74a490c1db8b10097d1db68653c",
+    "mtime": 1791169749.2120805,
+    "seen": 1791170123.6591713,
+    "ast_hash": "0a5d39fc3aeef80ab0d9a71de2b301f2",
     "semantic_hash": ""
   },
   "tools/content_factory/lexicon/__init__.py": {
@@ -7794,9 +7794,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/test_integrate_scenario_batch.py": {
-    "mtime": 1791157594.018223,
-    "seen": 1791162436.0444026,
-    "ast_hash": "688a0b049ee118e2e5a1568b4e38bf78",
+    "mtime": 1791169786.196018,
+    "seen": 1791170123.7412713,
+    "ast_hash": "a131d1d966a39b497ba498f342515f69",
     "semantic_hash": ""
   },
   "tools/content_factory/test_level_content_4x.py": {
@@ -22038,9 +22038,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/drafts/batch_38_persona_culture_manifest.json": {
-    "mtime": 1791167950.1284096,
-    "seen": 1791169726.7029812,
-    "ast_hash": "1cfe5098f8230b99dd587df470114732",
+    "mtime": 1791169796.7310007,
+    "seen": 1791170123.6358433,
+    "ast_hash": "1024fd063eb73e6540f9d2a618dcb746",
     "semantic_hash": ""
   },
   "tools/content_factory/drafts/persona_culture_authoring_brief_20261005.json": {
@@ -22074,14 +22074,14 @@
     "semantic_hash": ""
   },
   "tools/content_factory/review/persona_culture_authoring_pipeline_20261005.json": {
-    "mtime": 1791168171.44715,
-    "seen": 1791169726.7781324,
+    "mtime": 1791169809.4189157,
+    "seen": 1791170123.7209733,
     "ast_hash": "ff30d2051a39cc70e5f46cfe7cb9e837",
     "semantic_hash": ""
   },
   "tools/content_factory/review/persona_culture_vocab_leveling_20261005.json": {
-    "mtime": 1791168170.5718687,
-    "seen": 1791169726.7781358,
+    "mtime": 1791169808.4592268,
+    "seen": 1791170123.7209766,
     "ast_hash": "b68e17f872b8a1448e6083580cface36",
     "semantic_hash": ""
   },
@@ -22110,9 +22110,9 @@
     "semantic_hash": ""
   },
   "docs/plans/2026-10-05-culture-world-progress.md": {
-    "mtime": 1791169445.5027833,
-    "seen": 1791169726.890185,
-    "ast_hash": "32b977d0dcf2744e3e7ccb4fec75e94e",
+    "mtime": 1791169860.980764,
+    "seen": 1791170123.8469024,
+    "ast_hash": "eeb34b1b791deef2f6435854e359e887",
     "semantic_hash": ""
   },
   "docs/plans/2026-10-05-culture-world-roadmap.md": {
@@ -22128,8 +22128,8 @@
     "semantic_hash": ""
   },
   "tools/content_factory/review/batch_38_persona_culture_review_packet.md": {
-    "mtime": 1791168170.5797424,
-    "seen": 1791169726.927506,
+    "mtime": 1791169808.4692626,
+    "seen": 1791170123.8911564,
     "ast_hash": "798125c46ddf5af4ac4004901bede0ff",
     "semantic_hash": ""
   },

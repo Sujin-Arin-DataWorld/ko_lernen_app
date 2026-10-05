@@ -142,13 +142,15 @@ Classifications:
 - `unmapped_candidate`
 - `phrase_candidate`
 
-Batch 38 result:
+Batch 38 final editorial result after pre-approval refinement:
 - 30 key items
-- 5 culture anchors
-- 15 at/below target
-- 10 above-target review items
-- 0 unmapped
+- 6 culture anchors
+- 24 at/below target
+- **0 above-target review items**
+- **0 unmapped**
 - 5 phrase candidates
+
+The final pass simplified avoidable high-level general vocabulary in the B1/A2/B2 scenes while preserving each real-life task and culture anchor. In particular, the A2 Jun scene now carries `suwon_hwaseong` as an explicit glossary-backed culture anchor instead of treating higher-level editorial terms such as `출처` and `연도` as learner key vocabulary.
 
 Important rule:
 - high-frequency/low-frequency lexical grade does not automatically move a scenario level.
@@ -361,9 +363,33 @@ Commits:
 - `b574050b6 feat(culture): add derived culture story arcs`
 - `11afef94f fix(culture): promote story arcs atomically`
 
+## Batch 38 final pre-approval editorial pass
+
+The five review-only persona-culture scenes were re-read as learner-facing conversations rather than accepted merely because the structural pipeline passed.
+
+Editorial adjustments:
+- B1 Dongsun/Maya: simplified avoidable high-level general vocabulary around display/account/copy while preserving norigae + maedeup and the permission/attribution task.
+- B1 Byeongcheol/Hyuna: simplified note-taking and quietness wording while preserving the personal-memory vs verified-information distinction.
+- A2 Jun/Christian: removed the learner-keyword burden of `출처`, `연도`, `발표`, and `슬라이드`; retained the natural school task and made `수원화성` an explicit culture anchor.
+- B2 Daniel/Hyuna: learner-facing Korean now uses `작업실` instead of relying on the C2-graded `공방` headword while preserving the hanji filming/publication-consent task.
+- C1 talchum scene required no level simplification.
+
+Final pre-approval evidence:
+- persona-culture regression bundle: **45 / 45 passed**
+- `validate_content.py`: **passed**
+- review-only authoring pipeline: **PASS**
+- integration promotion preview: **passed**
+  - scenarios: 186 → 191
+  - scenario quests: 579 → 594
+- key vocabulary: **30 total / 6 culture anchors / 24 at-or-below target / 0 above target / 0 unmapped**
+- review ledger remains **draft** for all five scenes; no human approval is claimed and no live learner asset was promoted.
+
+Commit:
+- `dd523fe5b content(culture): refine batch 38 level fit`
+
 ## Roadmap implementation status
 
-The original nine-phase implementation roadmap is now **9 / 9 technically implemented** on this branch.
+The original nine-phase implementation roadmap is now **9 / 9 technically implemented** on this branch, and Batch 38 is technically/editorially ready for the separate human approval gate.
 
 Remaining live-exposure gate:
 - Batch 38 itself is still `review_only_draft`, exactly as required by the original authoring contract.
