@@ -1653,6 +1653,20 @@ class TestT25LevelExceptionsGoldenCases(unittest.TestCase):
         wg = self.lex.word_grade("환승")
         self.assertEqual(wg.confidence, "high")
 
+    def test_a1_long_negation_caps_only_the_sentence_component(self):
+        wg = self.lex.word_grade("않다")
+        self.assertEqual((wg.grade, wg.cefr, wg.source), (3, "B1", "kiiq"))
+        profile = self.lex.sentence_profile("먹지 않아요.", self.gi)
+        self.assertEqual(profile.level_estimate, "A1")
+        self.assertTrue(
+            any(
+                hit.pattern_id == "grammar_a1_long_negation"
+                for hit in profile.grammar_hits
+            )
+        )
+        auxiliary = next(t for t in profile.tokens if t.matched == "않다")
+        self.assertEqual((auxiliary.grade, auxiliary.cefr), (1, "A1"))
+
     def test_sentence_profile_carries_exception_source_for_listed_token(self):
         prof = self.lex.sentence_profile("추석에 성묘를 갔어요.", self.gi)
         seongmyo = next(t for t in prof.tokens if t.matched == "성묘")

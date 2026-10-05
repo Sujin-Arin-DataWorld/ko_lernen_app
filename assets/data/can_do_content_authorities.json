@@ -1926,6 +1926,10 @@
       "level": "a2"
     },
     {
+      "id": "seed_scenario_a2_jun_hwaseong_school_slide_v1",
+      "level": "a2"
+    },
+    {
       "id": "seed_scenario_a2_message_change_of_plan_2026_v1",
       "level": "a2"
     },
@@ -2950,10 +2954,6 @@
       "level": "b1"
     },
     {
-      "id": "seed_grammar_grammar_b1_more_more_v1",
-      "level": "b1"
-    },
-    {
       "id": "seed_grammar_grammar_b1_near_miss_v1",
       "level": "b1"
     },
@@ -3063,6 +3063,14 @@
     },
     {
       "id": "seed_scenario_apartment_recycling_mixup_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_byeongcheol_hwaseong_memory_check_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_dongsun_norigae_shop_post_v1",
       "level": "b1"
     },
     {
@@ -4094,6 +4102,10 @@
       "level": "b2"
     },
     {
+      "id": "seed_grammar_grammar_b1_more_more_v1",
+      "level": "b2"
+    },
+    {
       "id": "seed_grammar_grammar_b1_reason_context_v1",
       "level": "b2"
     },
@@ -4331,6 +4343,10 @@
     },
     {
       "id": "seed_scenario_ai_image_disclosure_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_daniel_hyuna_hanji_filming_scope_v1",
       "level": "b2"
     },
     {
@@ -6911,6 +6927,10 @@
     },
     {
       "id": "seed_scenario_anonymous_survey_trust_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_scenario_c1_maya_hyuna_daniel_talchum_shortform_v1",
       "level": "c1"
     },
     {
@@ -13164,6 +13184,13 @@
     },
     {
       "kind": "scenario",
+      "id": "a2_jun_hwaseong_school_slide",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_jun_hwaseong_school_slide_v1",
+      "courseUnitId": "a2_06_study_work"
+    },
+    {
+      "kind": "scenario",
       "id": "a2_message_change_of_plan_2026",
       "level": "a2",
       "sourceSeedId": "seed_scenario_a2_message_change_of_plan_2026_v1",
@@ -14956,13 +14983,6 @@
     },
     {
       "kind": "grammar",
-      "id": "grammar_b1_more_more",
-      "level": "b1",
-      "sourceSeedId": "seed_grammar_grammar_b1_more_more_v1",
-      "courseUnitId": "b1_01_experience_reasons"
-    },
-    {
-      "kind": "grammar",
       "id": "grammar_b1_near_miss",
       "level": "b1",
       "sourceSeedId": "seed_grammar_grammar_b1_near_miss_v1",
@@ -15156,6 +15176,20 @@
       "level": "b1",
       "sourceSeedId": "seed_scenario_apartment_recycling_mixup_v1",
       "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_byeongcheol_hwaseong_memory_check",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_byeongcheol_hwaseong_memory_check_v1",
+      "courseUnitId": "b1_02_indirect_speech"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_dongsun_norigae_shop_post",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_dongsun_norigae_shop_post_v1",
+      "courseUnitId": "b1_03_work_softening"
     },
     {
       "kind": "scenario",
@@ -16958,6 +16992,13 @@
     },
     {
       "kind": "grammar",
+      "id": "grammar_b1_more_more",
+      "level": "b2",
+      "sourceSeedId": "seed_grammar_grammar_b1_more_more_v1",
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "kind": "grammar",
       "id": "grammar_b1_reason_context",
       "level": "b2",
       "sourceSeedId": "seed_grammar_grammar_b1_reason_context_v1",
@@ -17375,6 +17416,13 @@
       "level": "b2",
       "sourceSeedId": "seed_scenario_ai_image_disclosure_v1",
       "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_daniel_hyuna_hanji_filming_scope",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_daniel_hyuna_hanji_filming_scope_v1",
+      "courseUnitId": "b2_03_precise_requests"
     },
     {
       "kind": "scenario",
@@ -22590,6 +22638,13 @@
       "level": "c1",
       "sourceSeedId": "seed_scenario_anonymous_survey_trust_v1",
       "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "scenario",
+      "id": "c1_maya_hyuna_daniel_talchum_shortform",
+      "level": "c1",
+      "sourceSeedId": "seed_scenario_c1_maya_hyuna_daniel_talchum_shortform_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "kind": "scenario",
@@ -28617,7 +28672,7 @@
       "vocabPack": 254,
       "grammar": 264,
       "smalltalk": 590,
-      "scenario": 187,
+      "scenario": 192,
       "cloze": 845,
       "satz": 540,
       "project": 8
@@ -64130,7 +64185,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b2_civic_meeting_1",
         "sourceVocabId": "vocab_b2_0572",
-        "sourceVocabFingerprintSha256": "688a5e8bfccbf7c1df0e69906b23cebc734428c7f5641f1cdfb65795c0425898",
+        "sourceVocabFingerprintSha256": "5a306d9d802aa9cda82736dca9d8128beaa1e09c594f091d49cab7c9740f6c3c",
         "level": "b2",
         "canDoSegmentId": "segment_b2_decision_criteria",
         "courseUnitId": "b2_02_professional_opinion"
@@ -68343,7 +68398,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b2_civic_meeting_1",
         "sourceVocabId": "vocab_b2_0572",
-        "sourceVocabFingerprintSha256": "688a5e8bfccbf7c1df0e69906b23cebc734428c7f5641f1cdfb65795c0425898",
+        "sourceVocabFingerprintSha256": "5a306d9d802aa9cda82736dca9d8128beaa1e09c594f091d49cab7c9740f6c3c",
         "level": "b2",
         "canDoSegmentId": "segment_b2_decision_criteria",
         "courseUnitId": "b2_02_professional_opinion"

@@ -2527,6 +2527,11 @@ class CefrLexicon:
         docstring for the confidence-cap and proper-noun changes)."""
         eojeols = tokenize_eojeols(text)
         eojeol_count = len(eojeols)
+        grammar_hits = grammar_index.detect(expand_contractions(text))
+        has_a1_long_negation = any(
+            hit.pattern_id == "grammar_a1_long_negation"
+            for hit in grammar_hits
+        )
 
         tokens: List[WordGrade] = []
         unknown: List[str] = []
@@ -2538,6 +2543,21 @@ class CefrLexicon:
             if not token:
                 continue
             resolved = self._resolve_eojeol(token)
+            # 않다 is a genuine grade-3 lexical headword, so word_grade()
+            # must keep that grade for vocabulary coverage. In the fixed A1
+            # grammar -지 않다, however, the same lemma is the auxiliary
+            # component of the negation construction. Once GrammarIndex has
+            # positively identified that construction, cap only this
+            # sentence token at A1 so the grammar's own lexical material is
+            # not counted twice as unrelated B1 vocabulary.
+            if has_a1_long_negation and resolved.matched == "않다":
+                resolved = WordGrade(
+                    1,
+                    "A1",
+                    "exception",
+                    resolved.matched,
+                    "high",
+                )
             tokens.append(resolved)
             if resolved.source == "proper_noun":
                 proper_nouns.append(resolved.matched)
@@ -2599,7 +2619,6 @@ class CefrLexicon:
 
         lexical_p90 = _percentile([grade for _, grade in percentile_pairs], 90)
 
-        grammar_hits = grammar_index.detect(expand_contractions(text))
         grammar_max = max((h.grade for h in grammar_hits), default=None)
 
         candidates = []

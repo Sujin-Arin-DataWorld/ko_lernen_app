@@ -54,6 +54,7 @@ import re
 import shutil
 import sys
 import tempfile
+import time
 from collections import Counter
 from dataclasses import dataclass, field
 from datetime import date
@@ -3264,11 +3265,52 @@ _STAGED_DATA_FILES = (
 )
 
 
+def _lf_bytes(content: bytes) -> bytes:
+    """Canonicalize text payloads written by the relevel transaction to LF."""
+
+    return content.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+
+
+def _replace_with_retry(source: Path, target: Path) -> None:
+    """Replace a staged file, tolerating only brief Windows delete-share locks."""
+
+    attempts = 6
+    for attempt in range(attempts):
+        try:
+            os.replace(source, target)
+            return
+        except PermissionError:
+            if attempt == attempts - 1:
+                raise
+            time.sleep(0.05 * (attempt + 1))
+
+
+def _fsync_overwrite(path: Path, content: bytes) -> None:
+    """Write validated bytes when Windows permits writes but blocks rename."""
+
+    with path.open("wb") as handle:
+        handle.write(content)
+        handle.flush()
+        os.fsync(handle.fileno())
+
+
 def _atomic_write_bytes(path: Path, content: bytes) -> None:
+    """Commit one validated output with rename-first Windows-safe fallback.
+
+    The transaction validates every staged output before this point and owns
+    byte-exact rollback for every destination. Some Windows editors/watchers
+    open files without FILE_SHARE_DELETE, which can block os.replace for the
+    full lifetime of the watcher even though ordinary writes are allowed.
+    Retry transient locks first; only then fall back to an fsynced overwrite.
+    """
+
     temporary = path.with_name(f".{path.name}.relevel-bundle.tmp")
     try:
         temporary.write_bytes(content)
-        os.replace(temporary, path)
+        try:
+            _replace_with_retry(temporary, path)
+        except PermissionError:
+            _fsync_overwrite(path, content)
     finally:
         if temporary.exists():
             temporary.unlink()
@@ -3504,7 +3546,9 @@ def migrate(
             return report
 
         outputs = {
-            root / "assets" / "data" / name: (data / name).read_bytes()
+            root / "assets" / "data" / name: _lf_bytes(
+                (data / name).read_bytes()
+            )
             for name in _STAGED_DATA_FILES
         }
         dart_paths = (vocab_pack_service_path, pack_artwork_catalog_path, dancheong_stamp_path)

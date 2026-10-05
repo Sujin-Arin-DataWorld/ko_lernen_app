@@ -134,7 +134,6 @@ B1,grammar_anchor,grammar_b1_indirect_suggestion,grammar.csv row never shown in 
 B1,grammar_anchor,grammar_b1_irregular_hieut,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B1,grammar_anchor,grammar_b1_irregular_reu,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B1,grammar_anchor,grammar_b1_irregular_siot,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
-B1,grammar_anchor,grammar_b1_more_more,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B1,grammar_anchor,grammar_b1_near_miss,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B1,grammar_anchor,grammar_b1_negative_cause,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B1,grammar_anchor,grammar_b1_planned_future,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
@@ -220,7 +219,6 @@ B1,speech_act,evaluate_assess_critique,평가·비판·한계 지적하기,missi
 B1,speech_act,negotiate_compromise_conditions,협상·절충·조건 조율하기,thin,scenarios=1;units=0,add_scenario_with_this_intent
 B1,speech_act,persuade_argue_justify,설득·논증·정당화하기,thin,scenarios=1;units=0,add_scenario_with_this_intent
 B1,speech_act,refuse_set_boundaries,거절하고 경계 정하기,thin,scenarios=1;units=0,add_scenario_with_this_intent
-B1,speech_act,structure_discourse_open_close_scope,대화 열고 닫기·범위 정하기,recognition_missing,scenarios=0;units=0,add_scenario_with_this_intent
 B1,text_type,email_letter_formal,격식 이메일·공문,structural_gap,mode=R/P;count=0;surfaces=none,verify_genre_content_and_placement
 B1,text_type,explanatory_informational_text,설명문·안내 텍스트,structural_gap,mode=R/P;count=0;surfaces=none,verify_genre_content_and_placement
 B1,text_type,lecture_speech_monologue,강연·연설·긴 독백,structural_gap,mode=R;count=0;surfaces=none,verify_genre_content_and_placement
@@ -231,6 +229,7 @@ B1,text_type,review_critique_text,리뷰·비평문,structural_gap,mode=P;count=
 B1,text_type,social_media_post_comment,SNS 게시물·댓글·포럼,missing,mode=R;count=0;surfaces=scenario,add_items_of_this_genre
 B1,vocab_domain,language_metalanguage,언어·문법·화법 메타언어,thin,words=7,add_pack_in_domain
 B2,grammar_anchor,grammar_b1_as_soon_as,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
+B2,grammar_anchor,grammar_b1_more_more,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b1_reason_context,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b2_according_to,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b2_addition_even,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
@@ -317,7 +316,6 @@ B2,grammar_nikl,-을 모양이다,표현 -ㄹ 모양이다,missing_in_app,nikl_k
 B2,grammar_nikl,-을 뻔하다,표현,level_mismatch,app_levels=B1;ids=grammar_b1_near_miss,relevel_or_add_same_level_row
 B2,grammar_nikl,-을걸,"종결어미 -ㄹ걸, -을걸요, -ㄹ걸요",missing_in_app,nikl_kiiq_2017,add_grammar_row
 B2,grammar_nikl,-을래야,연결어미 -ㄹ래야,missing_in_app,nikl_kiiq_2017,add_grammar_row
-B2,grammar_nikl,-을수록,연결어미,level_mismatch,app_levels=B1;ids=grammar_b1_more_more,relevel_or_add_same_level_row
 B2,grammar_nikl,마저,조사,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B2,grammar_nikl,만 같아도,표현,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B2,grammar_nikl,에 비하여,표현 에 비하면,missing_in_app,nikl_kiiq_2017,add_grammar_row

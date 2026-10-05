@@ -90,7 +90,7 @@
     },
     "B1": {
       "topics": {
-        "beyond_matrix": 5,
+        "beyond_matrix": 6,
         "covered": 18,
         "optional_covered": 5
       },
@@ -107,13 +107,13 @@
         "discourse_features": {
           "covered": 4
         },
-        "no_scenario_anchor": 28,
-        "app_grammar_count": 39
+        "no_scenario_anchor": 27,
+        "app_grammar_count": 38
       },
       "speechActs": {
         "covered": 11,
         "missing": 1,
-        "recognition_missing": 1,
+        "recognition_thin": 1,
         "thin": 3
       },
       "textTypes": {
@@ -139,8 +139,8 @@
       },
       "grammar": {
         "nikl_rows": 67,
-        "match": 15,
-        "level_mismatch": 9,
+        "match": 16,
+        "level_mismatch": 8,
         "missing_in_app": 43,
         "brief_highlights": {
           "level_mismatch": 3,
@@ -151,8 +151,8 @@
           "covered": 3,
           "missing": 1
         },
-        "no_scenario_anchor": 37,
-        "app_grammar_count": 53
+        "no_scenario_anchor": 38,
+        "app_grammar_count": 54
       },
       "speechActs": {
         "covered": 12,
@@ -261,18 +261,18 @@
     "app_earlier": 3,
     "missing": 2
   },
-  "gap_total": 512,
+  "gap_total": 510,
   "gap_counts": {
     "functional_grammar:missing": 2,
     "grammar_anchor:no_scenario_anchor": 162,
     "grammar_brief:level_mismatch": 32,
     "grammar_brief:missing": 23,
     "grammar_discourse:missing": 3,
-    "grammar_nikl:level_mismatch": 34,
+    "grammar_nikl:level_mismatch": 33,
     "grammar_nikl:missing_in_app": 173,
     "register:absent": 7,
     "speech_act:missing": 6,
-    "speech_act:recognition_missing": 4,
+    "speech_act:recognition_missing": 3,
     "speech_act:thin": 17,
     "text_type:missing": 5,
     "text_type:structural_gap": 38,
@@ -3238,7 +3238,7 @@
         }
       }
     },
-    "candidateRows": 106,
+    "candidateRows": 107,
     "unverifiedUnmappedRows": 0,
     "phasePathConnectedRows": 186,
     "rows": [
@@ -6342,6 +6342,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:a2_jun_hwaseong_school_slide",
           "scenario:delivery_dinner_spicy",
           "scenario:library_card_problem",
           "scenario:pharmacy_cold_medicine",
@@ -7613,6 +7614,7 @@
         "mode": "P",
         "contentCandidates": [
           "scenario:a2_byeongcheol_walk_break",
+          "scenario:a2_jun_hwaseong_school_slide",
           "scenario:a2_w10_apt",
           "scenario:a2_w10_booking",
           "scenario:a2_w10_buy",
@@ -8157,6 +8159,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:b1_byeongcheol_hwaseong_memory_check",
           "scenario:team_update_indirect_speech",
           "unit:b1_02_indirect_speech"
         ],
@@ -8949,8 +8952,10 @@
           "de": "Gespräche eröffnen, beenden und den Rahmen abstecken"
         },
         "mode": "R",
-        "contentCandidates": [],
-        "contentCandidateState": "no_candidate_observed_not_proven_absent",
+        "contentCandidates": [
+          "scenario:b1_dongsun_norigae_shop_post"
+        ],
+        "contentCandidateState": "candidate_observed",
         "draftHoldings": [],
         "draftBindingState": "no_approved_semantic_binding",
         "evidenceStage": "phase_task_path_connected",
@@ -9936,6 +9941,8 @@
         "contentCandidates": [
           "scenario:ai_summary_wrong_fact",
           "scenario:apartment_recycling_mixup",
+          "scenario:b1_byeongcheol_hwaseong_memory_check",
+          "scenario:b1_dongsun_norigae_shop_post",
           "scenario:b1_w10_bill",
           "scenario:b1_w10_cancellation",
           "scenario:b1_w10_form",
@@ -10637,6 +10644,7 @@
         },
         "mode": "P",
         "contentCandidates": [
+          "scenario:b2_daniel_hyuna_hanji_filming_scope",
           "scenario:b2_w10_privacy",
           "scenario:delivery_refund_evidence",
           "scenario:filming_permission",
@@ -11851,6 +11859,7 @@
         "contentCandidates": [
           "scenario:accessible_festival_route",
           "scenario:ai_image_disclosure",
+          "scenario:b2_daniel_hyuna_hanji_filming_scope",
           "scenario:b2_meeting_hold_for_evidence_2026",
           "scenario:b2_w10_hiring",
           "scenario:b2_w10_negotiate",
@@ -12477,6 +12486,7 @@
         "contentCandidates": [
           "scenario:accessible_festival_route",
           "scenario:ai_image_disclosure",
+          "scenario:b2_daniel_hyuna_hanji_filming_scope",
           "scenario:b2_meeting_hold_for_evidence_2026",
           "scenario:b2_w10_hiring",
           "scenario:b2_w10_negotiate",
@@ -13098,6 +13108,7 @@
         "mode": "P",
         "contentCandidates": [
           "scenario:after_hours_messages",
+          "scenario:c1_maya_hyuna_daniel_talchum_shortform",
           "scenario:deepfake_verification",
           "scenario:public_consultation_access",
           "unit:c1_01_evidence_public_reasoning",
@@ -13677,6 +13688,7 @@
         "mode": "P",
         "contentCandidates": [
           "scenario:ai_interview_screening_transparency",
+          "scenario:c1_maya_hyuna_daniel_talchum_shortform",
           "scenario:c1_w10_conflict_interest",
           "scenario:research_limits_presentation",
           "unit:c1_01_evidence_public_reasoning"
@@ -15105,6 +15117,7 @@
           "scenario:ai_interview_screening_transparency",
           "scenario:ai_translation_voice_loss",
           "scenario:anonymous_survey_trust",
+          "scenario:c1_maya_hyuna_daniel_talchum_shortform",
           "scenario:c1_w10_access",
           "scenario:c1_w10_clinical",
           "scenario:c1_w10_conflict_interest",

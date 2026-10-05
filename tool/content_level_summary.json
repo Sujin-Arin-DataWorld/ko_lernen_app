@@ -11,7 +11,7 @@
     "grammar": {
       "fallback_over2": 0,
       "over1": 11,
-      "over2": 2,
+      "over2": 0,
       "total": 264,
       "under2": 42,
       "unknown": 0
@@ -34,7 +34,7 @@
     },
     "satz": {
       "fallback_over2": 0,
-      "over1": 160,
+      "over1": 159,
       "over2": 15,
       "total": 2885,
       "under2": 638,

@@ -57,7 +57,7 @@
 | c2_05_relationship_narratives | c2 | 5 | 기억·관점·관계 서사 조정하기 | Negotiating memory, perspective, and relationship narratives |
 | c2_06_fandom_discourse_power | c2 | 6 | 미디어 프레이밍과 지역 영향 논증하기 | Arguing media framing and local impact |
 
-## 팩 base id -> 코스유닛 매핑 (220개)
+## 팩 base id -> 코스유닛 매핑 (222개)
 
 | pack base id | courseUnitId |
 |---|---|
@@ -263,6 +263,7 @@
 | c1_sustainable_tradeoffs | c1_02_inclusive_sustainable_systems |
 | c2_2026_social_topics | c2_01_interpretation_institutions |
 | c2_appeal_path | c2_02_technology_public_ethics |
+| c2_argument_scope | c2_03_automation_redress |
 | c2_audit_trail | c2_02_technology_public_ethics |
 | c2_authority_language | c2_01_interpretation_institutions |
 | c2_automated_harm | c2_02_technology_public_ethics |
@@ -270,6 +271,7 @@
 | c2_demography_accountability_2026 | c2_01_interpretation_institutions |
 | c2_fandom_discourse | c2_06_fandom_discourse_power |
 | c2_framing_analysis | c2_01_interpretation_institutions |
+| c2_honorific_context | c2_01_interpretation_institutions |
 | c2_institutional_mediation | c2_01_interpretation_institutions |
 | c2_institutional_voice | c2_01_interpretation_institutions |
 | c2_language_framing | c2_01_interpretation_institutions |

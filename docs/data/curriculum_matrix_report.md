@@ -10,7 +10,7 @@
 
 - 산출 평가 초안 보유: 정의 118 · 프로젝트 8 · 자료 조각 32 · 합계 158 · stage `draft_only` · inputAbsent `False` · published 0 · assessable 0
 - 레벨 미지정 초안: 정의 0 · 프로젝트 8 · 자료 조각 32. 초안은 문법 앵커·장르 보유·기술·런타임 숙달에 계산하지 않는다.
-- 요구 행: 186 · 후보 관찰 행: 106 · 미검증/미매핑 행: 0
+- 요구 행: 186 · 후보 관찰 행: 107 · 미검증/미매핑 행: 0
 - 검수된 Phase 과제 경로 연결: 186 · 전체 숙달 판정: 미검증. [문법 원문 근거](phase_context_evidence_report.md) · [전체 필수 목표](phase_objective_coverage_report.md)
 
 | 초안 레벨 | 정의 | 프로젝트 | 자료 조각 |
@@ -68,7 +68,7 @@
 | A2 | speechAct | `A2:speechAct:congratulate_sympathise_comfort:P` | P | unit:a2_07_travel_repair | no_approved_semantic_binding | `phase_task_path_connected` | KP06:speaking:02, KP08:speaking:02 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | A2 | speechAct | `A2:speechAct:small_talk_maintain_relationships:P` | P | scenario:favorite_drama_chat | no_approved_semantic_binding | `phase_task_path_connected` | KP07:speaking:02 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | A2 | speechAct | `A2:speechAct:complain_object_appeal:P` | P | scenario:clothing_refund_size, unit:a2_05_delivery_services, unit:a2_08_home_money | no_approved_semantic_binding | `phase_task_path_connected` | KP05:writing:03, KP08:speaking:02 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| A2 | speechAct | `A2:speechAct:give_follow_instructions_directions:P` | P | scenario:delivery_dinner_spicy, scenario:library_card_problem, scenario:pharmacy_cold_medicine, scenario:samgyeopsal_first_time | no_approved_semantic_binding | `phase_task_path_connected` | KP08:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| A2 | speechAct | `A2:speechAct:give_follow_instructions_directions:P` | P | scenario:a2_jun_hwaseong_school_slide, scenario:delivery_dinner_spicy, scenario:library_card_problem, scenario:pharmacy_cold_medicine, scenario:samgyeopsal_first_time | no_approved_semantic_binding | `phase_task_path_connected` | KP08:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | A2 | speechAct | `A2:speechAct:make_change_cancel_appointments:P` | P | scenario:a2_message_change_of_plan_2026, scenario:a2_w10_booking, scenario:a2_w10_enrolment, scenario:friend_cancelled_plan, scenario:gym_class_cancel, scenario:plans_with_friend … | no_approved_semantic_binding | `phase_task_path_connected` | KP07:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | A2 | speechAct | `A2:speechAct:request_ask_someone_to_do:P` | P | scenario:a2_byeongcheol_walk_break, scenario:forgot_house_key, scenario:taxi_slow_down, unit:a2_05_delivery_services, unit:a2_07_travel_repair, unit:a2_08_home_money | no_approved_semantic_binding | `phase_task_path_connected` | KP05:writing:03 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | A2 | speechAct | `A2:speechAct:order_buy_pay:P` | P | scenario:a2_w10_buy | no_approved_semantic_binding | `phase_task_path_connected` | KP05:writing:02 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
@@ -86,13 +86,13 @@
 | A2 | textType | `A2:textType:narrative_story_diary:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP06:writing:03 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | A2 | textType | `A2:textType:social_media_post_comment:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP08:writing:02 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | A2 | textType | `A2:textType:phone_call:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP05:speaking:02, KP07:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| A2 | register | `A2:register:haeyo_polite:P` | P | scenario:a2_byeongcheol_walk_break, scenario:a2_w10_apt, scenario:a2_w10_booking, scenario:a2_w10_buy, scenario:a2_w10_enrolment, scenario:a2_w10_money … | no_approved_semantic_binding | `phase_task_path_connected` | KP05:speaking:01, KP06:speaking:01, KP07:speaking:01, KP08:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| A2 | register | `A2:register:haeyo_polite:P` | P | scenario:a2_byeongcheol_walk_break, scenario:a2_jun_hwaseong_school_slide, scenario:a2_w10_apt, scenario:a2_w10_booking, scenario:a2_w10_buy, scenario:a2_w10_enrolment … | no_approved_semantic_binding | `phase_task_path_connected` | KP05:speaking:01, KP06:speaking:01, KP07:speaking:01, KP08:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | A2 | register | `A2:register:banmal_casual:P` | P | scenario:a2_jun_game_time_change, scenario:a2_message_change_of_plan_2026, scenario:a2_minho_weekend_cooking_plan, scenario:a2_w10_fandom, scenario:a2_w10_friends, scenario:forgot_house_key … | no_approved_semantic_binding | `phase_task_path_connected` | KP06:speaking:02, KP08:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | A2 | register | `A2:register:hapsyo_formal_business:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP05:writing:03, KP07:speaking:02, KP08:speaking:02 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | A2 | register | `A2:register:intimate:R` | R | scenario:a2_theme_park_date_break, scenario:a2_w10_partner | no_approved_semantic_binding | `phase_task_path_connected` | KP08:reading:03 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B1 | speechAct | `B1:speechAct:report_relay_information:P` | P | scenario:team_update_indirect_speech, unit:b1_02_indirect_speech | no_approved_semantic_binding | `phase_task_path_connected` | KP10:speaking:01, KP13:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B1 | speechAct | `B1:speechAct:summarise_reconstruct:P` | P | scenario:ai_summary_wrong_fact, scenario:subscription_cancel_charge | no_approved_semantic_binding | `phase_task_path_connected` | KP13:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| B1 | speechAct | `B1:speechAct:express_certainty_doubt_hedging:P` | P | scenario:team_update_indirect_speech, unit:b1_02_indirect_speech | no_approved_semantic_binding | `phase_task_path_connected` | KP13:speaking:02 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| B1 | speechAct | `B1:speechAct:express_certainty_doubt_hedging:P` | P | scenario:b1_byeongcheol_hwaseong_memory_check, scenario:team_update_indirect_speech, unit:b1_02_indirect_speech | no_approved_semantic_binding | `phase_task_path_connected` | KP13:speaking:02 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B1 | speechAct | `B1:speechAct:evaluate_assess_critique:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP11:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B1 | speechAct | `B1:speechAct:negotiate_compromise_conditions:P` | P | scenario:secondhand_hidden_defect | no_approved_semantic_binding | `phase_task_path_connected` | KP12:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B1 | speechAct | `B1:speechAct:refuse_set_boundaries:P` | P | scenario:b1_w10_partner | no_approved_semantic_binding | `phase_task_path_connected` | KP12:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
@@ -105,7 +105,7 @@
 | B1 | speechAct | `B1:speechAct:express_opinion_agree_disagree:P` | P | scenario:ktx_sold_out_alternative, unit:b1_04_relationships | no_approved_semantic_binding | `phase_task_path_connected` | KP11:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B1 | speechAct | `B1:speechAct:compare_contrast_alternatives:P` | P | scenario:jeju_rain_plan_change, scenario:ktx_sold_out_alternative, scenario:reel_caption_misunderstanding, unit:b1_01_experience_reasons | no_approved_semantic_binding | `phase_task_path_connected` | KP11:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B1 | speechAct | `B1:speechAct:express_feelings_emotions:P` | P | scenario:b1_theme_park_date_thrill, scenario:cancelled_trip_hurt_feelings, scenario:jeju_rain_plan_change, scenario:park_pet_manners, unit:b1_04_relationships | no_approved_semantic_binding | `phase_task_path_connected` | KP09:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| B1 | speechAct | `B1:speechAct:structure_discourse_open_close_scope:R` | R | — | no_approved_semantic_binding | `phase_task_path_connected` | KP12:reading:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| B1 | speechAct | `B1:speechAct:structure_discourse_open_close_scope:R` | R | scenario:b1_dongsun_norigae_shop_post | no_approved_semantic_binding | `phase_task_path_connected` | KP12:reading:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B1 | textType | `B1:textType:news_article_report:R` | R | — | no_approved_semantic_binding | `phase_task_path_connected` | KP10:reading:01, KP11:reading:02, KP13:reading:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B1 | textType | `B1:textType:explanatory_informational_text:R` | R | — | no_approved_semantic_binding | `phase_task_path_connected` | KP10:reading:02, KP12:reading:02 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B1 | textType | `B1:textType:lecture_speech_monologue:R` | R | — | no_approved_semantic_binding | `phase_task_path_connected` | KP09:listening:02 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
@@ -117,14 +117,14 @@
 | B1 | textType | `B1:textType:review_critique_text:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP11:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B1 | textType | `B1:textType:explanatory_informational_text:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP10:writing:02, KP13:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B1 | textType | `B1:textType:narrative_story_diary:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP09:writing:01, KP10:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| B1 | register | `B1:register:haeyo_polite:P` | P | scenario:ai_summary_wrong_fact, scenario:apartment_recycling_mixup, scenario:b1_w10_bill, scenario:b1_w10_cancellation, scenario:b1_w10_form, scenario:b1_w10_incident … | no_approved_semantic_binding | `phase_task_path_connected` | KP09:speaking:01, KP10:speaking:01, KP11:speaking:01, KP12:speaking:01, KP13:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| B1 | register | `B1:register:haeyo_polite:P` | P | scenario:ai_summary_wrong_fact, scenario:apartment_recycling_mixup, scenario:b1_byeongcheol_hwaseong_memory_check, scenario:b1_dongsun_norigae_shop_post, scenario:b1_w10_bill, scenario:b1_w10_cancellation … | no_approved_semantic_binding | `phase_task_path_connected` | KP09:speaking:01, KP10:speaking:01, KP11:speaking:01, KP12:speaking:01, KP13:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B1 | register | `B1:register:banmal_casual:P` | P | scenario:b1_w10_fandom, scenario:b1_w10_friends, scenario:cancelled_trip_hurt_feelings, scenario:jeju_rain_plan_change, scenario:ktx_sold_out_alternative, scenario:reel_caption_misunderstanding … | no_approved_semantic_binding | `phase_task_path_connected` | KP09:speaking:01, KP13:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B1 | register | `B1:register:hapsyo_formal_business:P` | P | scenario:b1_team_briefing_revised_schedule_2026, scenario:work_message_too_direct | no_approved_semantic_binding | `phase_task_path_connected` | KP10:writing:01, KP11:speaking:02, KP12:writing:01, KP13:speaking:02 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B1 | register | `B1:register:intimate:P` | P | scenario:b1_theme_park_date_thrill, scenario:b1_w10_partner | no_approved_semantic_binding | `phase_task_path_connected` | KP09:speaking:01, KP12:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:persuade_argue_justify:P` | P | scenario:accessible_festival_route, scenario:b2_meeting_hold_for_evidence_2026, scenario:meeting_disagreement_evidence, unit:b2_02_professional_opinion, unit:b2_04_complaint_resolution | no_approved_semantic_binding | `phase_task_path_connected` | KP16:writing:01, KP18:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:negotiate_compromise_conditions:P` | P | scenario:ai_image_disclosure, scenario:b2_w10_hiring, scenario:b2_w10_negotiate, scenario:b2_w10_partner, scenario:community_event_compromise, scenario:delivery_refund_evidence … | no_approved_semantic_binding | `phase_task_path_connected` | KP16:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:complain_object_appeal:P` | P | scenario:b2_w10_notice, scenario:b2_w10_travel, scenario:rental_repair_deposit, unit:b2_04_complaint_resolution | no_approved_semantic_binding | `phase_task_path_connected` | KP15:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| B2 | speechAct | `B2:speechAct:structure_discourse_open_close_scope:P` | P | scenario:b2_w10_privacy, scenario:delivery_refund_evidence, scenario:filming_permission, scenario:freelance_scope_change, scenario:meeting_opening_context, scenario:neighborhood_filming_notice … | no_approved_semantic_binding | `phase_task_path_connected` | KP14:writing:01, KP15:writing:01, KP18:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| B2 | speechAct | `B2:speechAct:structure_discourse_open_close_scope:P` | P | scenario:b2_daniel_hyuna_hanji_filming_scope, scenario:b2_w10_privacy, scenario:delivery_refund_evidence, scenario:filming_permission, scenario:freelance_scope_change, scenario:meeting_opening_context … | no_approved_semantic_binding | `phase_task_path_connected` | KP14:writing:01, KP15:writing:01, KP18:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:manage_turns_interrupt_hold_floor:P` | P | scenario:meeting_opening_context | no_approved_semantic_binding | `phase_task_path_connected` | KP17:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:mediate_between_parties:P` | P | scenario:neighborhood_filming_notice, unit:b2_02_professional_opinion | no_approved_semantic_binding | `phase_task_path_connected` | KP17:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:evaluate_assess_critique:P` | P | scenario:b2_meeting_hold_for_evidence_2026, scenario:b2_w10_hiring, scenario:meeting_disagreement_evidence, unit:b2_05_interview | no_approved_semantic_binding | `phase_task_path_connected` | KP15:writing:01, KP18:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
@@ -140,7 +140,7 @@
 | B2 | textType | `B2:textType:report_proposal_official:R` | R | — | no_approved_semantic_binding | `phase_task_path_connected` | KP14:reading:01, KP15:reading:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | textType | `B2:textType:contract_terms_legal_text:R` | R | — | no_approved_semantic_binding | `phase_task_path_connected` | KP14:reading:02, KP16:reading:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | textType | `B2:textType:literary_text:R` | R | — | no_approved_semantic_binding | `phase_task_path_connected` | KP17:reading:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| B2 | textType | `B2:textType:meeting_formal_discussion:R` | R | scenario:accessible_festival_route, scenario:ai_image_disclosure, scenario:b2_meeting_hold_for_evidence_2026, scenario:b2_w10_hiring, scenario:b2_w10_negotiate, scenario:brand_private_account_boundary … | no_approved_semantic_binding | `phase_task_path_connected` | KP17:listening:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| B2 | textType | `B2:textType:meeting_formal_discussion:R` | R | scenario:accessible_festival_route, scenario:ai_image_disclosure, scenario:b2_daniel_hyuna_hanji_filming_scope, scenario:b2_meeting_hold_for_evidence_2026, scenario:b2_w10_hiring, scenario:b2_w10_negotiate … | no_approved_semantic_binding | `phase_task_path_connected` | KP17:listening:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | textType | `B2:textType:news_article_report:R` | R | — | no_approved_semantic_binding | `phase_task_path_connected` | KP15:reading:01, KP18:reading:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | textType | `B2:textType:essay_opinion_argumentative:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP16:writing:01, KP18:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | textType | `B2:textType:meeting_formal_discussion:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP16:speaking:01, KP17:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
@@ -148,19 +148,19 @@
 | B2 | textType | `B2:textType:report_proposal_official:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP14:writing:01, KP15:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | textType | `B2:textType:email_letter_formal:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP15:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | textType | `B2:textType:review_critique_text:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP17:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| B2 | register | `B2:register:hapsyo_formal_business:P` | P | scenario:accessible_festival_route, scenario:ai_image_disclosure, scenario:b2_meeting_hold_for_evidence_2026, scenario:b2_w10_hiring, scenario:b2_w10_negotiate, scenario:brand_private_account_boundary … | no_approved_semantic_binding | `phase_task_path_connected` | KP14:speaking:01, KP15:speaking:01, KP16:speaking:01, KP17:speaking:01, KP18:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| B2 | register | `B2:register:hapsyo_formal_business:P` | P | scenario:accessible_festival_route, scenario:ai_image_disclosure, scenario:b2_daniel_hyuna_hanji_filming_scope, scenario:b2_meeting_hold_for_evidence_2026, scenario:b2_w10_hiring, scenario:b2_w10_negotiate … | no_approved_semantic_binding | `phase_task_path_connected` | KP14:speaking:01, KP15:speaking:01, KP16:speaking:01, KP17:speaking:01, KP18:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | register | `B2:register:haeyo_polite:P` | P | scenario:b2_w10_authorities, scenario:b2_w10_health, scenario:b2_w10_notice, scenario:b2_w10_privacy, scenario:b2_w10_travel, scenario:delivery_refund_evidence … | no_approved_semantic_binding | `phase_task_path_connected` | KP14:speaking:01, KP15:speaking:01, KP16:speaking:01, KP17:speaking:01, KP18:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | register | `B2:register:banmal_casual:P` | P | scenario:b2_w10_fandom, scenario:direct_feedback_misread, scenario:fremdschaemen_live | no_approved_semantic_binding | `phase_task_path_connected` | KP17:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | register | `B2:register:intimate:P` | P | scenario:b2_theme_park_date_safety, scenario:b2_w10_partner | no_approved_semantic_binding | `phase_task_path_connected` | KP17:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | C1 | speechAct | `C1:speechAct:analyse_framing_implicature_presupposition:P` | P | scenario:kiosk_generation_access | no_approved_semantic_binding | `phase_task_path_connected` | KP23:writing:01, KP24:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | C1 | speechAct | `C1:speechAct:mediate_between_parties:P` | P | scenario:c1_w10_fandom, scenario:delivery_rider_safety_tradeoff, scenario:nightlife_noise_balance, unit:c1_02_inclusive_sustainable_systems | no_approved_semantic_binding | `phase_task_path_connected` | KP21:speaking:01, KP23:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| C1 | speechAct | `C1:speechAct:define_distinguish_terms:P` | P | scenario:after_hours_messages, scenario:deepfake_verification, scenario:public_consultation_access, unit:c1_01_evidence_public_reasoning, unit:c1_02_inclusive_sustainable_systems, unit:c1_03_media_evidence_literacy | no_approved_semantic_binding | `phase_task_path_connected` | KP19:speaking:01, KP20:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| C1 | speechAct | `C1:speechAct:define_distinguish_terms:P` | P | scenario:after_hours_messages, scenario:c1_maya_hyuna_daniel_talchum_shortform, scenario:deepfake_verification, scenario:public_consultation_access, unit:c1_01_evidence_public_reasoning, unit:c1_02_inclusive_sustainable_systems … | no_approved_semantic_binding | `phase_task_path_connected` | KP19:speaking:01, KP20:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | C1 | speechAct | `C1:speechAct:reformulate_paraphrase_rewrite:P` | P | scenario:ai_translation_voice_loss | no_approved_semantic_binding | `phase_task_path_connected` | KP19:writing:02, KP23:writing:01, KP24:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | C1 | speechAct | `C1:speechAct:express_certainty_doubt_hedging:P` | P | scenario:c1_w10_uncertainty, unit:c1_02_inclusive_sustainable_systems, unit:c1_03_media_evidence_literacy, unit:c1_05_fan_labor_sustainability | no_approved_semantic_binding | `phase_task_path_connected` | KP20:speaking:01, KP24:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | C1 | speechAct | `C1:speechAct:evaluate_assess_critique:P` | P | scenario:ai_interview_screening_transparency, scenario:c1_w10_facework, scenario:c1_w10_methodology, scenario:research_limits_presentation, scenario:youth_housing_plain_language, unit:c1_03_media_evidence_literacy | no_approved_semantic_binding | `phase_task_path_connected` | KP20:writing:01, KP22:writing:01, KP24:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | C1 | speechAct | `C1:speechAct:persuade_argue_justify:P` | P | scenario:ai_interview_screening_transparency, scenario:anonymous_survey_trust, scenario:heatwave_shelter_access, unit:c1_01_evidence_public_reasoning, unit:c1_03_media_evidence_literacy | no_approved_semantic_binding | `phase_task_path_connected` | KP21:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | C1 | speechAct | `C1:speechAct:summarise_reconstruct:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP19:writing:01, KP23:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| C1 | speechAct | `C1:speechAct:structure_discourse_open_close_scope:P` | P | scenario:ai_interview_screening_transparency, scenario:c1_w10_conflict_interest, scenario:research_limits_presentation, unit:c1_01_evidence_public_reasoning | no_approved_semantic_binding | `phase_task_path_connected` | KP19:writing:01, KP22:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| C1 | speechAct | `C1:speechAct:structure_discourse_open_close_scope:P` | P | scenario:ai_interview_screening_transparency, scenario:c1_maya_hyuna_daniel_talchum_shortform, scenario:c1_w10_conflict_interest, scenario:research_limits_presentation, unit:c1_01_evidence_public_reasoning | no_approved_semantic_binding | `phase_task_path_connected` | KP19:writing:01, KP22:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | C1 | speechAct | `C1:speechAct:negotiate_compromise_conditions:P` | P | scenario:fan_translation_credit, scenario:heatwave_shelter_access, unit:c1_02_inclusive_sustainable_systems, unit:c1_04_play_time_policy, unit:c1_05_fan_labor_sustainability, unit:c1_06_intimacy_safety_design | no_approved_semantic_binding | `phase_task_path_connected` | KP22:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | C1 | speechAct | `C1:speechAct:refuse_set_boundaries:P` | P | scenario:after_hours_messages, scenario:c1_w10_fandom, unit:c1_06_intimacy_safety_design | no_approved_semantic_binding | `phase_task_path_connected` | KP21:speaking:01, KP22:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | C1 | speechAct | `C1:speechAct:compare_contrast_alternatives:P` | P | scenario:anonymous_survey_trust, scenario:c1_w10_friends, scenario:nightlife_noise_balance | no_approved_semantic_binding | `phase_task_path_connected` | KP20:writing:01, KP21:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
@@ -175,7 +175,7 @@
 | C1 | textType | `C1:textType:presentation_briefing_talk:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP20:speaking:01, KP23:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | C1 | textType | `C1:textType:meeting_formal_discussion:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP21:speaking:01, KP22:speaking:01, KP24:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | C1 | textType | `C1:textType:academic_specialised_text:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP19:writing:01, KP20:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| C1 | register | `C1:register:hapsyo_formal_business:P` | P | scenario:after_hours_messages, scenario:ai_interview_screening_transparency, scenario:ai_translation_voice_loss, scenario:anonymous_survey_trust, scenario:c1_w10_access, scenario:c1_w10_clinical … | no_approved_semantic_binding | `phase_task_path_connected` | KP19:speaking:01, KP20:speaking:01, KP21:speaking:01, KP22:speaking:01, KP23:speaking:01, KP24:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| C1 | register | `C1:register:hapsyo_formal_business:P` | P | scenario:after_hours_messages, scenario:ai_interview_screening_transparency, scenario:ai_translation_voice_loss, scenario:anonymous_survey_trust, scenario:c1_maya_hyuna_daniel_talchum_shortform, scenario:c1_w10_access … | no_approved_semantic_binding | `phase_task_path_connected` | KP19:speaking:01, KP20:speaking:01, KP21:speaking:01, KP22:speaking:01, KP23:speaking:01, KP24:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | C1 | register | `C1:register:haeyo_polite:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP19:speaking:01, KP20:speaking:01, KP21:speaking:01, KP22:speaking:01, KP23:speaking:01, KP24:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | C1 | register | `C1:register:banmal_casual:P` | P | scenario:c1_w10_fandom, scenario:c1_w10_friends | no_approved_semantic_binding | `phase_task_path_connected` | KP24:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | C1 | register | `C1:register:intimate:P` | P | scenario:c1_theme_park_date_next_time | no_approved_semantic_binding | `phase_task_path_connected` | KP24:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
@@ -213,16 +213,16 @@
 
 ## 1. 기존 앱 인벤토리 및 후보 매칭 (학습 완료 판정 아님)
 
-- 콘텐츠 규모: 어휘 2968 · 문법 264 · 시나리오 186 · 코스유닛 48 · cloze 2365 · satz 2885 · 스몰토크 590 · 미디어 136 · 발음 84 · 문화노트 36
+- 콘텐츠 규모: 어휘 2968 · 문법 264 · 시나리오 191 · 코스유닛 48 · cloze 2365 · satz 2885 · 스몰토크 590 · 미디어 136 · 발음 84 · 문화노트 36
 - 매트릭스 규모: 주제 32 · 기능 39 · 텍스트 유형 31 · 어휘 영역 26 · 기능 문법 34 · 국제통용 문법 336
-- 갭 행 합계: **512** (`tool/curriculum_matrix_gaps.csv`)
+- 갭 행 합계: **510** (`tool/curriculum_matrix_gaps.csv`)
 
 | 레벨 | 주제(필수) ✅/🟡/❌ | 국제통용 문법 match/mismatch/missing | 브리프 하이라이트 ✅/🟡/❌ | 담화 특징 ✅/❌ | 기능(산출) ✅/🟡/❌ | 텍스트 유형 ✅/🟡/❌/⛔ | 어휘 영역 ✅/🟡/❌ | 문체 ✅/❌ | 시나리오 미연결 문법/전체 |
 |---|---|---|---|---|---|---|---|---|---|
 | A1 | 17/0/0 | 45/0/0 (of 45) | 24/2/1 | 2/0 | 11/4/0 | 4/0/1/5 | 14/0/0 | 2/1 | 31/55 |
 | A2 | 17/0/0 | 43/0/2 (of 45) | 16/8/0 | 1/1 | 7/7/1 | 2/0/3/5 | 11/0/0 | 3/1 | 47/63 |
-| B1 | 18/0/0 | 14/9/44 (of 67) | 7/10/4 | 4/0 | 11/3/1 | 1/1/1/6 | 8/1/0 | 4/0 | 28/39 |
-| B2 | 17/0/0 | 15/9/43 (of 67) | 5/3/9 | 3/1 | 12/1/1 | 1/1/0/7 | 7/0/0 | 4/0 | 37/53 |
+| B1 | 18/0/0 | 14/9/44 (of 67) | 7/10/4 | 4/0 | 11/3/1 | 1/1/1/6 | 8/1/0 | 4/0 | 27/38 |
+| B2 | 17/0/0 | 16/8/43 (of 67) | 5/3/9 | 3/1 | 12/1/1 | 1/1/0/7 | 7/0/0 | 4/0 | 38/54 |
 | C1 | 12/0/0 | 6/6/44 (of 56) | 1/9/4 | 3/1 | 9/2/1 | 2/0/0/7 | 4/0/2 | 3/1 | 8/28 |
 | C2 | 12/0/0 | 6/10/40 (of 56) | 3/0/5 | 3/0 | 10/0/2 | 1/1/0/8 | 6/0/0 | 3/4 | 11/26 |
 
@@ -406,11 +406,11 @@
 |---|---|---|---|---|---|---|---|---|---|
 | ✅ covered | `communication_phone_digital` 전화·메신저·인터넷 소통 | 전화·메신저·인터넷·약속 변경 알리기 | 10 | 3 | 4 | 1 | 4 | 8 | model_knowledge |
 | ✅ covered | `daily_life_routines` 일상생활·하루 일과 | 약속·일정·문제 상황 | 62 | 6 | 7 | 0 | 7 | 39 | model_knowledge |
-| ✅ covered | `education_study` 교육·학교·학습 | 학교생활·수업 등록·실수 바로잡기 | 36 | 4 | 3 | 1 | 2 | 20 | model_knowledge |
-| ✅ covered | `family_relationships` 가족·인간관계 | 초대·외모/성격·연인·파트너 가족 명절 | 96 | 8 | 3 | 0 | 30 | 96 | model_knowledge |
+| ✅ covered | `education_study` 교육·학교·학습 | 학교생활·수업 등록·실수 바로잡기 | 36 | 4 | 4 | 1 | 2 | 20 | model_knowledge |
+| ✅ covered | `family_relationships` 가족·인간관계 | 초대·외모/성격·연인·파트너 가족 명절 | 96 | 8 | 4 | 0 | 30 | 96 | model_knowledge |
 | ✅ covered | `feelings_character` 감정·성격·외모 묘사 | 감정·기분·성격 묘사 | 48 | 4 | 1 | 1 | 4 | 23 | model_knowledge |
 | ✅ covered | `food_drink` 식음료·식당 | 식당 예약·메뉴 취향·맵기 조절 | 48 | 4 | 4 | 0 | 4 | 13 | model_knowledge |
-| ✅ covered | `free_time_hobbies_sport` 여가·취미·운동 | 취미·운동·휴가·주말 계획 | 18 | 4 | 10 | 0 | 20 | 18 | model_knowledge |
+| ✅ covered | `free_time_hobbies_sport` 여가·취미·운동 | 취미·운동·휴가·주말 계획 | 18 | 4 | 11 | 0 | 20 | 18 | model_knowledge |
 | ✅ covered | `health_body` 건강·신체·병원·약국 | 건강·병원·약국·증상·운동 | 29 | 4 | 2 | 1 | 8 | 25 | model_knowledge |
 | ✅ covered | `house_home` 주거·집 | 주거·집 구하기·이사·집안 문제 | 24 | 4 | 3 | 2 | 8 | 12 | model_knowledge |
 | ✅ covered | `money_finance_contracts` 돈·요금·계약·보험 | 요금·계좌·자동이체(기초) | 12 | 1 | 1 | 1 | 0 | 7 | model_knowledge |
@@ -485,7 +485,7 @@
 | 🟡 thin | `congratulate_sympathise_comfort` 축하·위로하기 | socialising | production | 0 | 1 |
 | 🟡 thin | `small_talk_maintain_relationships` 근황·안부 나누기(스몰토크) | socialising | production | 1 | 0 |
 | ✅ covered | `complain_object_appeal` 불만 제기·이의 신청하기 | suasion | production | 1 | 2 |
-| ✅ covered | `give_follow_instructions_directions` 길·절차 안내하고 따르기 | suasion | production | 4 | 0 |
+| ✅ covered | `give_follow_instructions_directions` 길·절차 안내하고 따르기 | suasion | production | 5 | 0 |
 | ✅ covered | `make_change_cancel_appointments` 약속·예약 잡고 바꾸고 취소하기 | socialising | production | 7 | 2 |
 | ✅ covered | `request_ask_someone_to_do` 요청·부탁하기 | suasion | production | 3 | 3 |
 | 🟡 thin | `order_buy_pay` 주문·구매·결제하기 | suasion | production | 1 | 0 |
@@ -531,9 +531,9 @@
 | ➕ beyond_matrix | `time_calendar` 시간·날짜·요일·계절 | 13 |
 | ➕ beyond_matrix | `weather_nature` 날씨·자연 어휘 | 34 |
 
-### A2 문체·존대 — 시나리오 분포: banmal_casual 11, haeyo_polite 19, intimate 2
+### A2 문체·존대 — 시나리오 분포: banmal_casual 11, haeyo_polite 20, intimate 2
 
-- ✅ present `haeyo_polite` (production) — 시나리오 19
+- ✅ present `haeyo_polite` (production) — 시나리오 20
 - ✅ present `banmal_casual` (production) — 시나리오 11
 - ❌ absent `hapsyo_formal_business` (production) — 시나리오 0
 - ✅ present `intimate` (recognition) — 시나리오 2
@@ -558,25 +558,26 @@
 | ✅ covered | `intercultural_globalisation_migration` 문화 차이·세계화·이주 | 문화 차이·한국 생활의 갈등 | 0 | 2 | 0 | 1 | 0 | 0 | model_knowledge |
 | ✅ covered | `media_entertainment_culture_pop` 미디어·대중문화(K-pop·드라마·SNS) | 미디어·인터넷·SNS 반응 | 12 | 1 | 4 | 0 | 6 | 0 | model_knowledge |
 | ✅ covered | `money_finance_contracts` 돈·요금·계약·보험 | 소비·계약·정산·환불·보험 | 60 | 5 | 7 | 0 | 0 | 52 | model_knowledge |
-| ✅ covered | `neighbourhood_environment` 동네·이웃·주변 환경 | 이웃·공용 공간·소음 | 24 | 2 | 5 | 0 | 0 | 12 | model_knowledge |
+| ✅ covered | `neighbourhood_environment` 동네·이웃·주변 환경 | 이웃·공용 공간·소음 | 24 | 2 | 6 | 0 | 0 | 12 | model_knowledge |
 | ✅ covered | `services_public_admin` 공공 서비스·관공서·은행·우체국 | 서류·대리 접수·민원 기초 | 24 | 3 | 1 | 0 | 2 | 24 | model_knowledge |
 | ✅ covered | `society_current_affairs` 사회 문제·시사·공동체 | 생활 문제·사건/사고·사회생활 | 23 | 6 | 1 | 0 | 0 | 20 | model_knowledge |
 | ✅ covered | `technology_digital_ai` 기술·디지털·AI·데이터 | 인터넷·앱·AI 도구 사용 경험 | 12 | 4 | 2 | 0 | 0 | 5 | model_knowledge |
 | ✅ covered | `transport_wayfinding` 교통·길 찾기 | 지연·사고·대체 경로 | 13 | 1 | 5 | 0 | 2 | 0 | model_knowledge |
 | ✅ covered | `travel_accommodation` 여행·숙박 | 여행 경험·일정 변경 | 36 | 3 | 2 | 0 | 2 | 24 | model_knowledge |
-| ✅ covered | `work_career` 직업·직장·취업 | 취업·직장생활·업무 실수 수습·인수인계 | 80 | 8 | 6 | 1 | 17 | 50 | model_knowledge |
+| ✅ covered | `work_career` 직업·직장·취업 | 취업·직장생활·업무 실수 수습·인수인계 | 80 | 8 | 7 | 1 | 17 | 50 | model_knowledge |
 | ✅ optional_covered | `communication_phone_digital` 전화·메신저·인터넷 소통 | 메신저 어조·업무 메일 | 32 | 6 | 1 | 0 | 6 | 27 | model_knowledge |
 | ✅ optional_covered | `food_drink` 식음료·식당 | 배달 오배송 등 문제 해결 | 0 | 1 | 2 | 0 | 2 | 0 | model_knowledge |
 | ✅ optional_covered | `free_time_hobbies_sport` 여가·취미·운동 | 대회·운동 계획 | 12 | 1 | 4 | 0 | 16 | 12 | model_knowledge |
 | ✅ optional_covered | `shopping_consumption` 쇼핑·소비·결제 | 환불·보상·중고 거래 | 0 | 0 | 5 | 0 | 4 | 0 | model_knowledge |
 | ✅ optional_covered | `social_etiquette_customs` 예절·관습·명절·호칭 | 폐백 등 의례성 문화어·역사 유적 명칭 | 12 | 2 | 2 | 0 | 16 | 0 | verified_repo |
+| ➕ beyond_matrix | `arts_literature_history` 예술·문학·역사·기억 |  | 0 | 0 | 1 | 0 | 0 | 0 |  |
 | ➕ beyond_matrix | `economy_business_labour` 경제·기업·노동시장 |  | 0 | 0 | 0 | 0 | 4 | 0 |  |
 | ➕ beyond_matrix | `language_learning_communication_repair` 언어·학습·의사소통 되묻기 |  | 7 | 1 | 1 | 0 | 0 | 0 |  |
 | ➕ beyond_matrix | `numbers_time_dates` 숫자·시간·날짜 |  | 0 | 3 | 3 | 0 | 0 | 0 |  |
 | ➕ beyond_matrix | `personal_identification` 개인 신상·자기소개 |  | 12 | 2 | 0 | 0 | 0 | 1 |  |
 | ➕ beyond_matrix | `weather_nature_climate` 날씨·계절·자연 |  | 0 | 0 | 0 | 0 | 2 | 0 |  |
 
-### B1 문법 — 국제통용 67항목: match 14 · level_mismatch 9 · missing 44 (앱 B1 문법 39개)
+### B1 문법 — 국제통용 67항목: match 14 · level_mismatch 9 · missing 44 (앱 B1 문법 38개)
 
 **앱에 없는 국제통용 항목:** -었었-(선어말어미) · -는다거나1(연결어미) · -는다고1(연결어미) · -다가1(2)(연결어미) · -도록(연결어미) · -어다가(연결어미) · -어야(연결어미) · -어야지1(연결어미) · -었더니(연결어미) · -으나(연결어미) · -으니2(연결어미) · -으려면(연결어미) · 대로(조사) · 만큼(조사) · 보고(조사) · 뿐(조사) · 아1(조사) · 요1(조사) · 으로부터(조사) · 이고(조사) · -는구나(종결어미) · -는다(종결어미) · -니2(종결어미) · -던데2(종결어미) · -자3(종결어미) · -잖아(종결어미) · -고 말다(표현) · -고 싶어 하다(표현) · -기는(표현) · -나 보다(표현) · -는 모양이다(표현) · -는 반면(표현) · -는 중이다(표현) · -는가 보다(표현) · -어 가다(표현) · -어 두다(표현) · -어 보이다(표현) · -어 오다(표현) · -어야겠-(표현) · -으려다가(표현) · -은 결과(표현) · -은 다음에(표현) · -을 테니(표현) · 만 아니면(표현)
 
@@ -613,7 +614,7 @@
 | ✅ covered | 완곡어법(-는 게 어때요/-을 것 같아요/-아 주시면 좋겠다) | grammar_b1_soft_request, grammar_b1_soft_request_batch19 | B1 |
 | ✅ covered | 사건→원인→결과→의견 담화(-기 때문에/-(으)ㄹ 텐데) | grammar_a2_reason_because, grammar_b1_expectation, grammar_b1_nominalizer_gi, grammar_b2_formal_reason … | A2/B1/B2 |
 
-**⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 B1 문법 (28/39):** `grammar_b1_about`, `grammar_b1_as_kept_doing`, `grammar_b1_concede_but`, `grammar_b1_conceded_context_batch20`, `grammar_b1_conditional_geodeun`, `grammar_b1_consequence`, `grammar_b1_expectation`, `grammar_b1_indirect_command`, `grammar_b1_indirect_question`, `grammar_b1_indirect_suggestion`, `grammar_b1_irregular_hieut`, `grammar_b1_irregular_reu`, `grammar_b1_irregular_siot`, `grammar_b1_more_more`, `grammar_b1_near_miss`, `grammar_b1_negative_cause`, `grammar_b1_planned_future`, `grammar_b1_prepared_state`, `grammar_b1_proportional_mankeum`, `grammar_b1_recalled_past`, `grammar_b1_scheduled_arrangement`, `grammar_b1_self_prompt`, `grammar_b1_self_should`, `grammar_b1_soft_request`, `grammar_b1_state_while`, `grammar_b1_tendency`, `grammar_b1_tentative_plan_batch20`, `grammar_b1_while_already`
+**⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 B1 문법 (27/38):** `grammar_b1_about`, `grammar_b1_as_kept_doing`, `grammar_b1_concede_but`, `grammar_b1_conceded_context_batch20`, `grammar_b1_conditional_geodeun`, `grammar_b1_consequence`, `grammar_b1_expectation`, `grammar_b1_indirect_command`, `grammar_b1_indirect_question`, `grammar_b1_indirect_suggestion`, `grammar_b1_irregular_hieut`, `grammar_b1_irregular_reu`, `grammar_b1_irregular_siot`, `grammar_b1_near_miss`, `grammar_b1_negative_cause`, `grammar_b1_planned_future`, `grammar_b1_prepared_state`, `grammar_b1_proportional_mankeum`, `grammar_b1_recalled_past`, `grammar_b1_scheduled_arrangement`, `grammar_b1_self_prompt`, `grammar_b1_self_should`, `grammar_b1_soft_request`, `grammar_b1_state_while`, `grammar_b1_tendency`, `grammar_b1_tentative_plan_batch20`, `grammar_b1_while_already`
 
 ### B1 기능(화행)
 
@@ -621,7 +622,7 @@
 |---|---|---|---|---|---|
 | ✅ covered | `report_relay_information` 들은 정보 전달하기(간접화법) | information | production | 1 | 1 |
 | ✅ covered | `summarise_reconstruct` 요약·재구성하기 | information | production | 2 | 0 |
-| ✅ covered | `express_certainty_doubt_hedging` 확신·의심·완곡 표현하기 | attitude | production | 1 | 1 |
+| ✅ covered | `express_certainty_doubt_hedging` 확신·의심·완곡 표현하기 | attitude | production | 2 | 1 |
 | ❌ missing | `evaluate_assess_critique` 평가·비판·한계 지적하기 | attitude | production | 0 | 0 |
 | 🟡 thin | `negotiate_compromise_conditions` 협상·절충·조건 조율하기 | suasion | production | 1 | 0 |
 | 🟡 thin | `refuse_set_boundaries` 거절하고 경계 정하기 | suasion | production | 1 | 0 |
@@ -634,7 +635,7 @@
 | ✅ covered | `express_opinion_agree_disagree` 의견 말하고 동의·반대하기 | attitude | production | 1 | 1 |
 | ✅ covered | `compare_contrast_alternatives` 비교·대조·대안 검토하기 | information | production | 3 | 1 |
 | ✅ covered | `express_feelings_emotions` 감정·기분 표현하기 | attitude | production | 4 | 1 |
-| ❌ recognition_missing | `structure_discourse_open_close_scope` 대화 열고 닫기·범위 정하기 | discourse | recognition | 0 | 0 |
+| 🟡 recognition_thin | `structure_discourse_open_close_scope` 대화 열고 닫기·범위 정하기 | discourse | recognition | 1 | 0 |
 
 ### B1 텍스트 유형
 
@@ -674,9 +675,9 @@
 | ➕ beyond_matrix | `school_study_terms` 학교·학습 어휘 | 16 |
 | ➕ beyond_matrix | `transport_travel_vocab` 교통·여행 어휘 | 37 |
 
-### B1 문체·존대 — 시나리오 분포: banmal_casual 8, haeyo_polite 20, hapsyo_formal_business 2, intimate 2
+### B1 문체·존대 — 시나리오 분포: banmal_casual 8, haeyo_polite 22, hapsyo_formal_business 2, intimate 2
 
-- ✅ present `haeyo_polite` (production) — 시나리오 20
+- ✅ present `haeyo_polite` (production) — 시나리오 22
 - ✅ present `banmal_casual` (production) — 시나리오 8
 - ✅ present `hapsyo_formal_business` (production) — 시나리오 2
 - ✅ present `intimate` (production) — 시나리오 2
@@ -702,9 +703,9 @@
 | ✅ covered | `money_finance_contracts` 돈·요금·계약·보험 | 계약 범위·환불 협의·수리비 책임 | 12 | 2 | 5 | 0 | 0 | 15 | model_knowledge |
 | ✅ covered | `neighbourhood_environment` 동네·이웃·주변 환경 | 동네 행사 소음·공용 공간 갈등 | 12 | 1 | 2 | 0 | 0 | 12 | model_knowledge |
 | ✅ covered | `politics_law_institutions` 정치·법·제도·행정 | 제도·법적 절차·과태료 이의·행정 | 36 | 4 | 5 | 1 | 0 | 28 | verified_repo |
-| ✅ covered | `science_research_evidence` 과학·연구·근거·통계 | 과학·근거·지표 해석 기초 | 1 | 2 | 5 | 2 | 0 | 1 | model_knowledge |
+| ✅ covered | `science_research_evidence` 과학·연구·근거·통계 | 과학·근거·지표 해석 기초 | 1 | 2 | 6 | 2 | 0 | 1 | model_knowledge |
 | ✅ covered | `services_public_admin` 공공 서비스·관공서·은행·우체국 | 공식 문의·민원·관공서 | 36 | 3 | 2 | 0 | 2 | 40 | model_knowledge |
-| ✅ covered | `society_current_affairs` 사회 문제·시사·공동체 | 사회 문제·세대·도시생활·사회 변화 | 110 | 13 | 9 | 1 | 0 | 63 | model_knowledge |
+| ✅ covered | `society_current_affairs` 사회 문제·시사·공동체 | 사회 문제·세대·도시생활·사회 변화 | 110 | 13 | 10 | 1 | 0 | 63 | model_knowledge |
 | ✅ covered | `technology_digital_ai` 기술·디지털·AI·데이터 | 기술·AI 생성물·개인정보 | 21 | 2 | 3 | 0 | 0 | 12 | model_knowledge |
 | ✅ covered | `work_career` 직업·직장·취업 | 직업과 노동·면접·회의·협상 | 69 | 8 | 9 | 1 | 16 | 75 | model_knowledge |
 | ✅ optional_covered | `house_home` 주거·집 | 퇴거·수리비 협의 | 36 | 3 | 2 | 0 | 5 | 18 | model_knowledge |
@@ -722,11 +723,11 @@
 | ➕ beyond_matrix | `transport_wayfinding` 교통·길 찾기 |  | 0 | 0 | 1 | 0 | 4 | 0 |  |
 | ➕ beyond_matrix | `weather_nature_climate` 날씨·계절·자연 |  | 2 | 1 | 0 | 0 | 2 | 0 |  |
 
-### B2 문법 — 국제통용 67항목: match 15 · level_mismatch 9 · missing 43 (앱 B2 문법 53개)
+### B2 문법 — 국제통용 67항목: match 16 · level_mismatch 8 · missing 43 (앱 B2 문법 54개)
 
 **앱에 없는 국제통용 항목:** -거니와(연결어미) · -고도(연결어미) · -고서(연결어미) · -는다면1(연결어미) · -더니(연결어미) · -던데1(연결어미) · -든지2(연결어미) · -듯이(연결어미) · -으며(연결어미) · -을래야(연결어미) · 마저(조사) · 으로서(조사) · 으로써(조사) · 이나마(조사) · 이든(조사) · 이라도(조사) · 이야(조사) · 치고(조사) · 커녕(조사) · -는다니2(종결어미) · -는다면서1(종결어미) · -다니1(종결어미) · -더군(종결어미) · -더라(종결어미) · -어라1(종결어미) · -을걸(종결어미) · -고 들다(표현) · -고 보다(표현) · -고 해서(표현) · -나 싶다(표현) · -는 듯(표현) · -는 사이에(표현) · -는 줄(표현) · -는 탓에(표현) · -는 통에(표현) · -는다거나2(표현) · -어 대다(표현) · -어 버리다(표현) · -어서인지(표현) · -을 모양이다(표현) · 만 같아도(표현) · 에 비하여(표현) · 에 의하여(표현)
 
-**레벨 불일치(앱은 다른 레벨에 둠):** -을수록→B1 · 이며→A1 · 이면→A2 · -게5→A2 · -고4→A1 · -나3→A2 · -어야지2→B1 · -는 김에→B1 · -을 뻔하다→B1
+**레벨 불일치(앱은 다른 레벨에 둠):** 이며→A1 · 이면→A2 · -게5→A2 · -고4→A1 · -나3→A2 · -어야지2→B1 · -는 김에→B1 · -을 뻔하다→B1
 
 | 상태 | Jin 브리프 하이라이트 | 국제통용 등급 | 앱 id | 앱 레벨 |
 |---|---|---|---|---|
@@ -755,7 +756,7 @@
 | ❌ missing | 피동·사동 본격 활용 |  |  |
 | ✅ covered | 공식 요청·협상 화행(-아/어 주시겠어요, -(으)ㄹ 수 있을까요, -기 바랍니다) | grammar_b2_explicit_formal_request, grammar_b2_formal_written_request | B2 |
 
-**⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 B2 문법 (37/53):** `grammar_b1_as_soon_as`, `grammar_b1_reason_context`, `grammar_b2_according_to`, `grammar_b2_addition_even`, `grammar_b2_as_if`, `grammar_b2_as_long_as`, `grammar_b2_as_you_see`, `grammar_b2_compared_with`, `grammar_b2_considering_fact_batch20`, `grammar_b2_counterfactual_past`, `grammar_b2_criterion_view_batch20`, `grammar_b2_definition`, `grammar_b2_formal_concession`, `grammar_b2_formal_intention`, `grammar_b2_formal_reference`, `grammar_b2_formal_written_request`, `grammar_b2_futility`, `grammar_b2_granted_limit`, `grammar_b2_impression_appearance`, `grammar_b2_in_light_of`, `grammar_b2_including_start`, `grammar_b2_inclusion`, `grammar_b2_instead_supplement`, `grammar_b2_not_by_one_metric`, `grammar_b2_only`, `grammar_b2_only_after`, `grammar_b2_only_course`, `grammar_b2_outcome_depends`, `grammar_b2_practically`, `grammar_b2_pretense_contrast`, `grammar_b2_reasoned_perspective`, `grammar_b2_summary_judgment`, `grammar_b2_turning_point`, `grammar_b2_unexpected_cause`, `grammar_b2_verify_human_review`, `grammar_b2_whether_or_not`, `grammar_b2_worth_doing`
+**⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 B2 문법 (38/54):** `grammar_b1_as_soon_as`, `grammar_b1_more_more`, `grammar_b1_reason_context`, `grammar_b2_according_to`, `grammar_b2_addition_even`, `grammar_b2_as_if`, `grammar_b2_as_long_as`, `grammar_b2_as_you_see`, `grammar_b2_compared_with`, `grammar_b2_considering_fact_batch20`, `grammar_b2_counterfactual_past`, `grammar_b2_criterion_view_batch20`, `grammar_b2_definition`, `grammar_b2_formal_concession`, `grammar_b2_formal_intention`, `grammar_b2_formal_reference`, `grammar_b2_formal_written_request`, `grammar_b2_futility`, `grammar_b2_granted_limit`, `grammar_b2_impression_appearance`, `grammar_b2_in_light_of`, `grammar_b2_including_start`, `grammar_b2_inclusion`, `grammar_b2_instead_supplement`, `grammar_b2_not_by_one_metric`, `grammar_b2_only`, `grammar_b2_only_after`, `grammar_b2_only_course`, `grammar_b2_outcome_depends`, `grammar_b2_practically`, `grammar_b2_pretense_contrast`, `grammar_b2_reasoned_perspective`, `grammar_b2_summary_judgment`, `grammar_b2_turning_point`, `grammar_b2_unexpected_cause`, `grammar_b2_verify_human_review`, `grammar_b2_whether_or_not`, `grammar_b2_worth_doing`
 
 ### B2 기능(화행)
 
@@ -764,7 +765,7 @@
 | ✅ covered | `persuade_argue_justify` 설득·논증·정당화하기 | suasion | production | 3 | 2 |
 | ✅ covered | `negotiate_compromise_conditions` 협상·절충·조건 조율하기 | suasion | production | 10 | 4 |
 | ✅ covered | `complain_object_appeal` 불만 제기·이의 신청하기 | suasion | production | 3 | 1 |
-| ✅ covered | `structure_discourse_open_close_scope` 대화 열고 닫기·범위 정하기 | discourse | production | 6 | 3 |
+| ✅ covered | `structure_discourse_open_close_scope` 대화 열고 닫기·범위 정하기 | discourse | production | 7 | 3 |
 | 🟡 thin | `manage_turns_interrupt_hold_floor` 발언권 관리·끼어들기 | discourse | production | 1 | 0 |
 | ✅ covered | `mediate_between_parties` 당사자 사이 중재·조정하기 | discourse | production | 1 | 1 |
 | ✅ covered | `evaluate_assess_critique` 평가·비판·한계 지적하기 | attitude | production | 3 | 1 |
@@ -782,7 +783,7 @@
 | 상태 | 텍스트 유형 | R/P | 모드 | 앱 표면 | 건수 |
 |---|---|---|---|---|---|
 | ⛔ structural_gap | `essay_opinion_argumentative` 논설문·의견문(에세이) | R/P | written_production | — | 0 |
-| ✅ covered | `meeting_formal_discussion` 회의·공식 토론 | R/P | spoken_interaction | scenario | 13 |
+| ✅ covered | `meeting_formal_discussion` 회의·공식 토론 | R/P | spoken_interaction | scenario | 14 |
 | 🟡 thin | `presentation_briefing_talk` 발표·브리핑 | P | spoken_production | scenario | 1 |
 | ⛔ structural_gap | `report_proposal_official` 보고서·제안서·공식 문서 | R/P | written_production | — | 0 |
 | ⛔ structural_gap | `email_letter_formal` 격식 이메일·공문 | P | written_interaction | — | 0 |
@@ -815,9 +816,9 @@
 | ➕ beyond_matrix | `technology_devices_internet` 기기·인터넷·디지털 어휘 | 30 |
 | ➕ beyond_matrix | `weather_nature` 날씨·자연 어휘 | 2 |
 
-### B2 문체·존대 — 시나리오 분포: banmal_casual 3, haeyo_polite 13, hapsyo_formal_business 13, intimate 2
+### B2 문체·존대 — 시나리오 분포: banmal_casual 3, haeyo_polite 13, hapsyo_formal_business 14, intimate 2
 
-- ✅ present `hapsyo_formal_business` (production) — 시나리오 13
+- ✅ present `hapsyo_formal_business` (production) — 시나리오 14
 - ✅ present `haeyo_polite` (production) — 시나리오 13
 - ✅ present `banmal_casual` (production) — 시나리오 3
 - ✅ present `intimate` (production) — 시나리오 2
@@ -831,12 +832,12 @@
 
 | 상태 | 주제 | 초점(매트릭스) | 단어 | 팩 | 시나리오 | 유닛 | 스몰토크 | cloze | 근거 출처 |
 |---|---|---|---|---|---|---|---|---|---|
-| ✅ covered | `arts_literature_history` 예술·문학·역사·기억 | 역사·박물관 관점·전통 공연 | 0 | 0 | 2 | 0 | 0 | 0 | model_knowledge |
+| ✅ covered | `arts_literature_history` 예술·문학·역사·기억 | 역사·박물관 관점·전통 공연 | 0 | 0 | 3 | 0 | 0 | 0 | model_knowledge |
 | ✅ covered | `economy_business_labour` 경제·기업·노동시장 | 경제·노동시장·플랫폼 노동·임대료 | 48 | 5 | 4 | 1 | 2 | 45 | model_knowledge |
 | ✅ covered | `environment_sustainability` 환경·기후·지속가능성 | 지속가능성·폭염·자원 제약 | 24 | 2 | 5 | 2 | 0 | 27 | model_knowledge |
 | ✅ covered | `ethics_philosophy_abstract` 윤리·철학·추상적 논쟁 | 윤리·문화비평·이해관계 공개 | 0 | 0 | 6 | 0 | 0 | 0 | model_knowledge |
 | ✅ covered | `health_body` 건강·신체·병원·약국 | 임상 연구·위험 소통 | 12 | 1 | 1 | 0 | 6 | 12 | model_knowledge |
-| ✅ covered | `media_entertainment_culture_pop` 미디어·대중문화(K-pop·드라마·SNS) | 미디어 담론·보도 검증·팬 노동 | 24 | 2 | 8 | 1 | 14 | 27 | model_knowledge |
+| ✅ covered | `media_entertainment_culture_pop` 미디어·대중문화(K-pop·드라마·SNS) | 미디어 담론·보도 검증·팬 노동 | 24 | 2 | 9 | 1 | 14 | 27 | model_knowledge |
 | ✅ covered | `politics_law_institutions` 정치·법·제도·행정 | 사회정책·정치/행정·교육정책·규제 설계 | 48 | 4 | 8 | 1 | 0 | 48 | model_knowledge |
 | ✅ covered | `professional_specialised_fields` 전문 분야·학술·직무 언어 | 전문분야·학술적 논의·임상 동의 | 0 | 0 | 7 | 0 | 0 | 0 | model_knowledge |
 | ✅ covered | `science_research_evidence` 과학·연구·근거·통계 | 과학기술·연구 한계·표본·근거 평가 | 72 | 6 | 9 | 2 | 0 | 79 | model_knowledge |
@@ -901,13 +902,13 @@
 |---|---|---|---|---|---|
 | 🟡 thin | `analyse_framing_implicature_presupposition` 프레임·함축·전제 분석하기 | discourse | production | 1 | 0 |
 | ✅ covered | `mediate_between_parties` 당사자 사이 중재·조정하기 | discourse | production | 3 | 1 |
-| ✅ covered | `define_distinguish_terms` 용어 정의·개념 구분하기 | discourse | production | 3 | 3 |
+| ✅ covered | `define_distinguish_terms` 용어 정의·개념 구분하기 | discourse | production | 4 | 3 |
 | 🟡 thin | `reformulate_paraphrase_rewrite` 바꿔 말하기·문장 고쳐 쓰기 | discourse | production | 1 | 0 |
 | ✅ covered | `express_certainty_doubt_hedging` 확신·의심·완곡 표현하기 | attitude | production | 1 | 3 |
 | ✅ covered | `evaluate_assess_critique` 평가·비판·한계 지적하기 | attitude | production | 5 | 1 |
 | ✅ covered | `persuade_argue_justify` 설득·논증·정당화하기 | suasion | production | 3 | 2 |
 | ❌ missing | `summarise_reconstruct` 요약·재구성하기 | information | production | 0 | 0 |
-| ✅ covered | `structure_discourse_open_close_scope` 대화 열고 닫기·범위 정하기 | discourse | production | 3 | 1 |
+| ✅ covered | `structure_discourse_open_close_scope` 대화 열고 닫기·범위 정하기 | discourse | production | 4 | 1 |
 | ✅ covered | `negotiate_compromise_conditions` 협상·절충·조건 조율하기 | suasion | production | 2 | 4 |
 | ✅ covered | `refuse_set_boundaries` 거절하고 경계 정하기 | suasion | production | 2 | 1 |
 | ✅ covered | `compare_contrast_alternatives` 비교·대조·대안 검토하기 | information | production | 3 | 0 |
@@ -919,7 +920,7 @@
 | ⛔ structural_gap | `report_proposal_official` 보고서·제안서·공식 문서 | R/P | written_production | — | 0 |
 | ⛔ structural_gap | `essay_opinion_argumentative` 논설문·의견문(에세이) | P | written_production | — | 0 |
 | ✅ covered | `presentation_briefing_talk` 발표·브리핑 | P | spoken_production | scenario | 5 |
-| ✅ covered | `meeting_formal_discussion` 회의·공식 토론 | P | spoken_interaction | scenario | 27 |
+| ✅ covered | `meeting_formal_discussion` 회의·공식 토론 | P | spoken_interaction | scenario | 28 |
 | ⛔ structural_gap | `academic_specialised_text` 학술·전문 텍스트 | R/P | written_reception | — | 0 |
 | ⛔ structural_gap | `lecture_speech_monologue` 강연·연설·긴 독백 | R | spoken_reception | — | 0 |
 | ⛔ structural_gap | `literary_text` 문학 텍스트 | R | written_reception | — | 0 |
@@ -943,9 +944,9 @@
 | ➕ beyond_matrix | `public_services_admin_vocab` 행정·공공 서비스 어휘 | 48 |
 | ➕ beyond_matrix | `technology_devices_internet` 기기·인터넷·디지털 어휘 | 12 |
 
-### C1 문체·존대 — 시나리오 분포: banmal_casual 2, hapsyo_formal_business 27, intimate 1
+### C1 문체·존대 — 시나리오 분포: banmal_casual 2, hapsyo_formal_business 28, intimate 1
 
-- ✅ present `hapsyo_formal_business` (production) — 시나리오 27
+- ✅ present `hapsyo_formal_business` (production) — 시나리오 28
 - ❌ absent `haeyo_polite` (production) — 시나리오 0
 - ✅ present `banmal_casual` (production) — 시나리오 2
 - ✅ present `intimate` (production) — 시나리오 1
@@ -1098,7 +1099,7 @@
 | ✅ aligned | `experience_perfect` 경험·완료(-은 적이 있다/present perfect/Perfekt) | A2 | A2 | A2 | A2 | grammar_a2_try_experience(A2), grammar_b1_experience(A2), grammar_b1_resultant_state(A2) | — |  |
 | ✅ aligned | `conditional_real` 현실 조건 | A2 | A2 | A2 | A2 | grammar_a2_conditional(A2) | — |  |
 | ✅ aligned | `conditional_unreal_counterfactual` 비현실·반사실 조건 | B1 | B1 | B1 | B1 | grammar_b1_wish(B1), grammar_b2_counterfactual_past(B2) | — | 소망 가정은 3급, 반사실 과거는 4급 |
-| ✅ aligned | `comparison` 비교·최상 | A1 | A1 | A2 | A1 | grammar_a2_comparative(A1), grammar_a2_like(A2), grammar_b1_more_more(B1) | — |  |
+| ✅ aligned | `comparison` 비교·최상 | A1 | A1 | A2 | A1 | grammar_a2_comparative(A1), grammar_a2_like(A2), grammar_b1_more_more(B2) | — |  |
 | ✅ aligned | `attributive_relative_clauses` 관형절·관계절 | A2 | A2 | B1 | A2 | grammar_a1_future_modifier(A2), grammar_a1_past_modifier(A2), grammar_a1_present_modifier(A2) | — |  |
 | ✅ aligned | `nominalisation_clausal` 절 명사화(-는 것/-기/-음) | A2 | A2 | A2 | A2 | grammar_a2_nominalizer_eum(A2), grammar_b1_nominalization(A2), grammar_b1_nominalizer_gi(A2) | — |  |
 | ✅ aligned | `reported_speech` 간접화법·인용 | B1 | B1 | B2 | B1 | grammar_b1_indirect_speech(B1), grammar_b2_indirect_speech(B2), grammar_b2_quoted_contractions(B2) | — |  |
@@ -1145,7 +1146,7 @@
 | `politics_law_institutions` 정치·법·제도·행정 | B2 | C1 | B2 | B2 | B2, C1, C2 |
 | `economy_business_labour` 경제·기업·노동시장 | B2 | B2 | B2 | A1 | A1, A2, B1, B2, C1, C2 |
 | `science_research_evidence` 과학·연구·근거·통계 | B2 | B2 | B2 | A2 | A2, B2, C1, C2 |
-| `arts_literature_history` 예술·문학·역사·기억 | B2 | B2 | B1 | B2 | B2, C1, C2 |
+| `arts_literature_history` 예술·문학·역사·기억 | B2 | B2 | B1 | B1 | B1, B2, C1, C2 |
 | `ethics_philosophy_abstract` 윤리·철학·추상적 논쟁 | B1 | B2 | C1 | B1 | B1, B2, C1, C2 |
 | `professional_specialised_fields` 전문 분야·학술·직무 언어 | C1 | C1 | C2 | B2 | B2, C1, C2 |
 | `intercultural_globalisation_migration` 문화 차이·세계화·이주 | B1 | B2 | B1 | A1 | A1, A2, B1, B2, C1, C2 |

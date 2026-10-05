@@ -2576,6 +2576,15 @@
       "reason": "NIKL 1급 연결어미 -으려고1 (F1b.md 1.2) -- pairs topically with grammar_a1_motion_purpose (-으러) already in this unit."
     },
     {
+      "id": "grammar_b1_more_more",
+      "kind": "grammar",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-10-05",
+      "batch": "V2G2",
+      "reason": "F1_grammar_map.md and V2_grammar_gaps.csv classify -(으)ㄹ수록 as 4급/B2 while the live app row remains B1. Relevel the immutable ID to B2 and route it with other comparison/criterion forms in b2_02_professional_opinion."
+    },
+    {
       "id": "grammar_b1_nominalization",
       "kind": "grammar",
       "from": "b1",

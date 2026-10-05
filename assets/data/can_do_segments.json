@@ -2989,7 +2989,7 @@
     {
       "id": "cluster_a2_cafe_study_v1",
       "level": "a2",
-      "revision": 15,
+      "revision": 16,
       "sourceSeedIds": [
         "seed_vocab_pack_a2_education_v1",
         "seed_vocab_pack_a2_people_jobs_1_v1",
@@ -3021,7 +3021,8 @@
         "seed_grammar_grammar_a2_interrupted_action_v1",
         "seed_scenario_email_attachment_twice_v1",
         "seed_scenario_forgot_presentation_cable_v1",
-        "seed_grammar_grammar_a2_written_directive_v1"
+        "seed_grammar_grammar_a2_written_directive_v1",
+        "seed_scenario_a2_jun_hwaseong_school_slide_v1"
       ],
       "contentReferences": [
         {
@@ -3147,6 +3148,10 @@
         {
           "kind": "grammar",
           "id": "grammar_a2_written_directive"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_jun_hwaseong_school_slide"
         }
       ]
     },
@@ -3537,7 +3542,7 @@
     {
       "id": "cluster_b1_plans_with_reasons_v1",
       "level": "b1",
-      "revision": 16,
+      "revision": 17,
       "sourceSeedIds": [
         "seed_vocab_pack_b1_city_places_1_v1",
         "seed_vocab_pack_b1_daily_1_v1",
@@ -3548,7 +3553,6 @@
         "seed_grammar_grammar_b1_consequence_v1",
         "seed_grammar_grammar_b1_future_probability_v1",
         "seed_grammar_grammar_b1_immediate_sequence_v1",
-        "seed_grammar_grammar_b1_more_more_v1",
         "seed_grammar_grammar_b1_negative_cause_v1",
         "seed_grammar_grammar_b1_recalled_past_v1",
         "seed_grammar_grammar_b1_takes_time_v1",
@@ -3640,10 +3644,6 @@
         {
           "kind": "grammar",
           "id": "grammar_b1_immediate_sequence"
-        },
-        {
-          "kind": "grammar",
-          "id": "grammar_b1_more_more"
         },
         {
           "kind": "grammar",
@@ -3900,7 +3900,7 @@
     {
       "id": "cluster_b1_relay_social_speech_v1",
       "level": "b1",
-      "revision": 8,
+      "revision": 9,
       "sourceSeedIds": [
         "seed_vocab_pack_b1_communication_lang_1_v1",
         "seed_vocab_pack_b1_tech_society_1_v1",
@@ -3930,7 +3930,8 @@
         "seed_scenario_reel_caption_misunderstanding_v1",
         "seed_grammar_grammar_b1_indirect_command_v1",
         "seed_grammar_grammar_b1_indirect_question_v1",
-        "seed_grammar_grammar_b1_indirect_suggestion_v1"
+        "seed_grammar_grammar_b1_indirect_suggestion_v1",
+        "seed_scenario_b1_byeongcheol_hwaseong_memory_check_v1"
       ],
       "contentReferences": [
         {
@@ -4048,6 +4049,10 @@
         {
           "kind": "grammar",
           "id": "grammar_b1_indirect_suggestion"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_byeongcheol_hwaseong_memory_check"
         }
       ]
     },
@@ -4092,7 +4097,7 @@
     {
       "id": "cluster_b1_team_role_coordination_v1",
       "level": "b1",
-      "revision": 18,
+      "revision": 19,
       "sourceSeedIds": [
         "seed_vocab_pack_b1_work_v1",
         "seed_vocab_pack_b1_work_career_1_v1",
@@ -4138,7 +4143,8 @@
         "seed_grammar_grammar_b1_conditional_geodeun_v1",
         "seed_cloze_cloze_b1_0071_v1",
         "seed_cloze_cloze_b1_0079_v1",
-        "seed_scenario_b1_team_briefing_revised_schedule_2026_v1"
+        "seed_scenario_b1_team_briefing_revised_schedule_2026_v1",
+        "seed_scenario_b1_dongsun_norigae_shop_post_v1"
       ],
       "contentReferences": [
         {
@@ -4320,6 +4326,10 @@
         {
           "kind": "scenario",
           "id": "b1_team_briefing_revised_schedule_2026"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_dongsun_norigae_shop_post"
         }
       ]
     },
@@ -5232,7 +5242,7 @@
     {
       "id": "cluster_b2_decision_criteria_v1",
       "level": "b2",
-      "revision": 14,
+      "revision": 15,
       "sourceSeedIds": [
         "seed_vocab_pack_b2_decisions_perspectives_1_v1",
         "seed_vocab_pack_b2_education_v1",
@@ -5342,7 +5352,8 @@
         "seed_cloze_cloze_b2_0110_v1",
         "seed_cloze_cloze_b2_0116_v1",
         "seed_cloze_cloze_b2_0124_v1",
-        "seed_scenario_b2_meeting_hold_for_evidence_2026_v1"
+        "seed_scenario_b2_meeting_hold_for_evidence_2026_v1",
+        "seed_grammar_grammar_b1_more_more_v1"
       ],
       "contentReferences": [
         {
@@ -5780,6 +5791,10 @@
         {
           "kind": "scenario",
           "id": "b2_meeting_hold_for_evidence_2026"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b1_more_more"
         }
       ]
     },
@@ -5960,7 +5975,7 @@
     {
       "id": "cluster_b2_contract_scope_v1",
       "level": "b2",
-      "revision": 11,
+      "revision": 12,
       "sourceSeedIds": [
         "seed_vocab_pack_b2_formal_agreement_1_v1",
         "seed_vocab_pack_b2_language_grammar_1_v1",
@@ -5996,7 +6011,8 @@
         "seed_scenario_feedback_specific_example_v1",
         "seed_scenario_neighborhood_filming_notice_v1",
         "seed_grammar_grammar_b1_as_soon_as_v1",
-        "seed_cloze_cloze_b2_0065_v1"
+        "seed_cloze_cloze_b2_0065_v1",
+        "seed_scenario_b2_daniel_hyuna_hanji_filming_scope_v1"
       ],
       "contentReferences": [
         {
@@ -6138,6 +6154,10 @@
         {
           "kind": "cloze",
           "id": "cloze_b2_0065"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_daniel_hyuna_hanji_filming_scope"
         }
       ]
     },
@@ -7404,7 +7424,7 @@
     {
       "id": "cluster_c1_evidence_limits_conclusion_v1",
       "level": "c1",
-      "revision": 11,
+      "revision": 12,
       "sourceSeedIds": [
         "seed_batch05_c1_evidence_reasoning_1_v1",
         "seed_project_c1_evidence_v1",
@@ -7553,7 +7573,8 @@
         "seed_scenario_deepfake_verification_v1",
         "seed_scenario_training_data_copyright_v1",
         "seed_grammar_grammar_b2_negative_consequence_v1",
-        "seed_grammar_grammar_b2_despite_v1"
+        "seed_grammar_grammar_b2_despite_v1",
+        "seed_scenario_c1_maya_hyuna_daniel_talchum_shortform_v1"
       ],
       "contentReferences": [
         {
@@ -8203,6 +8224,10 @@
         {
           "kind": "grammar",
           "id": "grammar_b2_despite"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_maya_hyuna_daniel_talchum_shortform"
         }
       ]
     },

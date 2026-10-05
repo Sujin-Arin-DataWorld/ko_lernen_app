@@ -1090,9 +1090,12 @@ class LiveRatchetTest(unittest.TestCase):
     # anything that would move them).
     # 2026-09-08 PR-L3a 실측: vocab 159 · cloze 35 · satz 26 · pronunciation 0
     # (하향), 나머지 불변.
+    # 2026-10-05 LCP Stage C-2 actuals after the long-negation contextual
+    # grading fix and V2G2 -(으)ㄹ수록 relevel. Lower-only: preserve every
+    # improvement accumulated since the September baseline.
     CAP_OVER2 = {
-        "vocab": 159, "grammar": 3, "scenario": 0, "cloze": 35,
-        "satz": 26, "smalltalk": 19, "pronunciation": 0, "media": 6,
+        "vocab": 158, "grammar": 0, "scenario": 0, "cloze": 20,
+        "satz": 15, "smalltalk": 17, "pronunciation": 0, "media": 6,
     }
     # 실측 unknown/total: vocab .0231(=56/2420, unchanged from T2.4a --
     # the allowance/contraction fix only ever changes sentence_profile's

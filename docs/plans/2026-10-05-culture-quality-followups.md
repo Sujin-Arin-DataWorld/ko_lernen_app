@@ -116,6 +116,47 @@ Implemented:
 Validation:
 - `tool.test_audit_content_levels`: **53/53 passed**
 
+### Stage C-2 — eliminate high-confidence grammar over2 debt
+
+Status: **complete**
+
+Resolved the two remaining high-confidence grammar `over2` findings without weakening the audit:
+
+- `grammar_a1_long_negation` stays A1 because `-지 않다` is a Bible/NIKL grade-1 grammar item. The lexicon still grades standalone `않다` as B1; only sentence profiles where `grammar_a1_long_negation` is positively detected cap that auxiliary token to A1, preventing double-counting of the grammar's own lexical material.
+- `grammar_b1_more_more` (`-(으)ㄹ수록`) moved B1 → B2 through relevel batch `V2G2`, matching the level-bible 4급 evidence. Curriculum routing, can-do authority/cluster membership, immutable relevel ledger, and three affected grammar-quiz distractor sets moved atomically.
+- the example is now `읽을수록 더 재미있어요.` with aligned DE/EN copy.
+
+Supporting repairs:
+- regenerated can-do segments/authorities so Batch 38 live scenarios and the earlier B2 vocab fingerprint repair are canonical generator output
+- hardened `relevel_bundle.py` for Windows rename locks with retry + fsynced validated overwrite fallback
+- relevel staged text outputs are explicitly normalized to LF; rollback remains byte-exact
+- refreshed curriculum matrix and generated level-bible tables
+- lowered `CAP_OVER2` ratchets to current actuals: vocab 158 / grammar 0 / scenario 0 / cloze 20 / satz 15 / smalltalk 17 / pronunciation 0 / media 6
+
+Validation:
+- lexicon + level-audit + relevel Python bundle: **290 / 290 passed**
+- `build_can_do_segments.py --check`: fresh
+- `validate_content.py`: passed
+- targeted Dart analysis: **0 issues**
+- can-do asset/loader Flutter tests: **11 / 11 passed**
+- curriculum matrix freshness: passed
+- learning-phase freshness: passed
+- `grammar.over2`: **2 → 0**
+
+### Stage C-3 — scenario/grammar level regressions
+
+Status: **next**
+
+The relevel transaction still reports six historical scenario references whose grammar owner was previously moved above the scenario level. These are the next high-confidence structural debts:
+- `a1_w10_partner` → `grammar_a1_honorific_kke` (now A2)
+- `a1_w10_fandom` → `grammar_a1_or_particle` (now A2)
+- `b1_w10_insurance` → `grammar_b1_whether` (now B2)
+- `b2_w10_travel` → `grammar_b2_despite` (now C1)
+- `b2_w10_hiring` → `grammar_b2_despite` (now C1)
+- `b2_w10_authorities` → `grammar_b2_negative_consequence` (now C1)
+
+For each one, review the actual dialogue and grammar function before deciding between scenario relevel, grammar substitution, or a justified lexicalized exception. Do not auto-promote a scenario merely to silence the warning.
+
 Use:
 - `AGENTS.md` LCP gate
 - latest LCP handoff / level-bible evidence
