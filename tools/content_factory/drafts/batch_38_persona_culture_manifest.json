@@ -95,5 +95,8 @@
     "Do not write non-live IDs into assets/data/scenario_culture_links.json before scenario promotion",
     "No mastery/reward changes from culture links"
   ],
-  "vocabLevelingReview": "tools/content_factory/review/persona_culture_vocab_leveling_20261005.json"
+  "vocabLevelingReview": "tools/content_factory/review/persona_culture_vocab_leveling_20261005.json",
+  "authoringBrief": "tools/content_factory/drafts/persona_culture_authoring_brief_20261005.json",
+  "reviewPacket": "tools/content_factory/review/batch_38_persona_culture_review_packet.md",
+  "pipelineReport": "tools/content_factory/review/persona_culture_authoring_pipeline_20261005.json"
 }

@@ -35,6 +35,10 @@ def _read_json(path: Path) -> dict[str, Any]:
     return value
 
 
+def _repo_path(path: Path) -> str:
+    return path.relative_to(ROOT).as_posix()
+
+
 def _live_vocab_by_headword(path: Path) -> dict[str, list[dict[str, str]]]:
     result: dict[str, list[dict[str, str]]] = {}
     with path.open(encoding="utf-8-sig", newline="") as handle:
@@ -274,12 +278,12 @@ def build(
         "status": "review_only",
         "purpose": "Authoring evidence only; does not mutate live vocabulary or scenario level.",
         "sources": {
-            "scenarios": str(scenarios_path.relative_to(ROOT)),
+            "scenarios": _repo_path(scenarios_path),
             "cultureLinks": (
-                str(culture_links_path.relative_to(ROOT)) if culture_links_path else None
+                _repo_path(culture_links_path) if culture_links_path else None
             ),
-            "culturalGlossary": str(glossary_path.relative_to(ROOT)),
-            "liveVocab": str(live_vocab_path.relative_to(ROOT)),
+            "culturalGlossary": _repo_path(glossary_path),
+            "liveVocab": _repo_path(live_vocab_path),
             "cefrLexicon": "tool/cefr_lexicon.py",
         },
         "policy": {
@@ -319,7 +323,7 @@ def main() -> int:
         json.dumps(result, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
-    print("OK:", result["totals"], "->", output_path.relative_to(ROOT))
+    print("OK:", result["totals"], "->", _repo_path(output_path))
     return 0
 
 

@@ -3,10 +3,10 @@
   "status": "review_only",
   "purpose": "Authoring evidence only; does not mutate live vocabulary or scenario level.",
   "sources": {
-    "scenarios": "tools\\content_factory\\drafts\\persona_culture_scenarios_20261005.json",
-    "cultureLinks": "tools\\content_factory\\drafts\\persona_culture_links_20261005.json",
-    "culturalGlossary": "docs\\data\\cultural_glossary.json",
-    "liveVocab": "assets\\data\\korean_vocab.csv",
+    "scenarios": "tools/content_factory/drafts/persona_culture_scenarios_20261005.json",
+    "cultureLinks": "tools/content_factory/drafts/persona_culture_links_20261005.json",
+    "culturalGlossary": "docs/data/cultural_glossary.json",
+    "liveVocab": "assets/data/korean_vocab.csv",
     "cefrLexicon": "tool/cefr_lexicon.py"
   },
   "policy": {

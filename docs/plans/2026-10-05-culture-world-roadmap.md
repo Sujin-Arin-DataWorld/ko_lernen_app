@@ -75,6 +75,40 @@ Requirements per term:
 - neutral wording; distinguish historical practice from Hangul Sori reinterpretation
 - no gameplay/reward fields
 
+## Persona-culture authoring pipeline
+
+Use one review-only pipeline for new persona-led culture scenes:
+
+```text
+persona writer bible
+  -> structured authoring brief
+  -> scenario + listening draft
+  -> key vocab extraction
+  -> CEFR/live-vocab audit
+  -> CulturalGlossary + culture-link validation
+  -> full integration preview
+  -> human review packet
+```
+
+Command:
+
+```bash
+python tools/content_factory/run_persona_culture_authoring.py \
+  --manifest <batch_manifest> --write-derived
+```
+
+`--write-derived` may regenerate review-only sidecars/packets/reports only. It never promotes live scenarios, mastery, rewards, or vocabulary.
+
+Required manifest links for this pipeline:
+- `authoringBrief`
+- `listeningDraft`
+- `cultureLinksDraft`
+- `vocabLevelingReview`
+- `reviewPacket`
+- `pipelineReport`
+
+Promotion remains a separate explicit step through `integrate_scenario_batch.py --apply` after human review.
+
 ## Phase 3 — persona culture scenes
 
 Do not equalize scene counts mechanically. Add scenes where each persona has a credible reason to be present.
