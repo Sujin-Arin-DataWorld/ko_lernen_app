@@ -59,6 +59,15 @@
       }
     ]
   },
+  "cultureStoryArcs": {
+    "path": "tools/content_factory/drafts/persona_culture_story_arcs_20261005.json",
+    "arcCount": 1,
+    "stepCount": 4,
+    "arcIds": [
+      "found_around_nammun"
+    ],
+    "liveWritePerformed": false
+  },
   "listening": {
     "path": "tools/content_factory/drafts/persona_culture_listening_20261005.json",
     "lessons": 5,

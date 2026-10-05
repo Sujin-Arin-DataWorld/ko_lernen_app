@@ -86,6 +86,7 @@
   "listeningDraft": "tools/content_factory/drafts/persona_culture_listening_20261005.json",
   "cultureLinksDraft": "tools/content_factory/drafts/persona_culture_links_20261005.json",
   "cultureLinkCount": 5,
+  "cultureStoryArcsDraft": "tools/content_factory/drafts/persona_culture_story_arcs_20261005.json",
   "mergeOrder": [
     "scenario + curriculum contentLinks + listening + culture links + audit via integrate_scenario_batch.py",
     "TTS only after explicit content approval"

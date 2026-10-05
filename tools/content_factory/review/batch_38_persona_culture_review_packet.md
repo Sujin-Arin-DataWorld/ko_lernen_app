@@ -173,3 +173,27 @@
 - field notes: rights: original; AUTHOR+AUDIT; read full dialogue, quests, listening draft and culture links before approval
 - Jin memo: —
 
+
+## Culture Story Arcs (review-only)
+
+> Grouping metadata only. These arcs create no mastery, reward, XP, or live progress.
+
+### `found_around_nammun`
+
+- KO: 남문에서 발견한 것들
+- DE: Rund um Nammun entdeckt
+- EN: Found around Nammun
+- progressMode: `derived_read_only`
+
+| Step | Scenario | Personas | Culture terms |
+|---:|---|---|---|
+| 1 | `b1_dongsun_norigae_shop_post` | `maya`, `dongsun` | `norigae`, `maedeup` |
+| 2 | `b1_byeongcheol_hwaseong_memory_check` | `hyuna`, `byeongcheol` | `suwon_hwaseong` |
+| 3 | `a2_jun_hwaseong_school_slide` | `jun` | `suwon_hwaseong` |
+| 4 | `c1_maya_hyuna_daniel_talchum_shortform` | `maya` | `talchum` |
+
+**Summary**
+
+- KO: 남문 주변의 물건, 기억, 기록과 현대적 표현을 여러 인물의 실제 과업을 통해 연결해 보는 문화 이야기 묶음입니다.
+- DE: Ein Kulturpfad rund um Nammun, der Dinge, Erinnerungen, Dokumentation und moderne Darstellung durch reale Aufgaben mehrerer Figuren verbindet.
+- EN: A culture path around Nammun that connects objects, memory, documentation, and modern presentation through practical tasks with several personas.

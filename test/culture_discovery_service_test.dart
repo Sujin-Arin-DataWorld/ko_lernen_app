@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/cultural_glossary.dart';
+import 'package:ko_lernen_app/models/culture_story_arc.dart';
 import 'package:ko_lernen_app/models/scenario_culture_link.dart';
 import 'package:ko_lernen_app/services/cultural_glossary_repository.dart';
 import 'package:ko_lernen_app/services/culture_discovery_service.dart';
@@ -96,6 +97,93 @@ void main() {
     expect(snapshot.entries.single.termId, 'hanok');
   });
 
+  test('projects a story arc only from live linked evidence', () {
+    final arcCatalog = CultureStoryArcCatalog(
+      schemaVersion: 1,
+      arcs: [
+        CultureStoryArc(
+          arcId: 'live_arc',
+          title: const CultureStoryLocalizedText(
+            ko: '라이브',
+            de: 'Live',
+            en: 'Live',
+          ),
+          summary: const CultureStoryLocalizedText(
+            ko: '요약',
+            de: 'Zusammenfassung',
+            en: 'Summary',
+          ),
+          progressMode: 'derived_read_only',
+          steps: [
+            CultureStoryArcStep(
+              scenarioId: 'scene_a',
+              personaIds: const ['maya'],
+              termIds: const ['hanok'],
+            ),
+            CultureStoryArcStep(
+              scenarioId: 'scene_b',
+              personaIds: const ['jun'],
+              termIds: const ['bojagi'],
+            ),
+          ],
+        ),
+      ],
+    );
+
+    final snapshot = CultureDiscoveryService.project(
+      completedScenarioIds: const {'scene_a'},
+      links: links(),
+      glossary: glossary,
+      storyArcs: arcCatalog,
+    );
+
+    expect(snapshot.storyArcs, hasLength(1));
+    expect(snapshot.storyArcs.single.completedStepCount, 1);
+    expect(snapshot.storyArcs.single.stepCount, 2);
+    expect(snapshot.storyArcs.single.isComplete, isFalse);
+  });
+
+  test('hides an arc when any referenced scenario is not live', () {
+    final snapshot = CultureDiscoveryService.project(
+      completedScenarioIds: const {'scene_a'},
+      links: links(),
+      glossary: glossary,
+      storyArcs: CultureStoryArcCatalog(
+        schemaVersion: 1,
+        arcs: [
+          CultureStoryArc(
+            arcId: 'review_only_arc',
+            title: const CultureStoryLocalizedText(
+              ko: '검토',
+              de: 'Pruefung',
+              en: 'Review',
+            ),
+            summary: const CultureStoryLocalizedText(
+              ko: '요약',
+              de: 'Zusammenfassung',
+              en: 'Summary',
+            ),
+            progressMode: 'derived_read_only',
+            steps: [
+              CultureStoryArcStep(
+                scenarioId: 'scene_a',
+                personaIds: const ['maya'],
+                termIds: const ['hanok'],
+              ),
+              CultureStoryArcStep(
+                scenarioId: 'not_promoted_scene',
+                personaIds: const ['maya'],
+                termIds: const ['hanok'],
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+
+    expect(snapshot.storyArcs, isEmpty);
+  });
+
   test(
     'loader union can represent local and cloud-restored completion evidence',
     () async {
@@ -157,6 +245,8 @@ void main() {
     expect(source, isNot(contains('addCompletedScenario')));
     expect(source, isNot(contains('recordScenarioCheckpoint')));
     expect(source, isNot(contains('Yeopjeon')));
+    expect(source, isNot(contains('SharedPreferences')));
+    expect(source, isNot(contains('storyArcProgress')));
     expect(source, contains('Storage.completedScenarios'));
     expect(source, contains('scenarioCheckpoints'));
   });

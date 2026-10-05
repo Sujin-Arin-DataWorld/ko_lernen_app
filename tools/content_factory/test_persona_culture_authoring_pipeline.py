@@ -34,6 +34,9 @@ class PersonaCultureAuthoringPipelineTest(unittest.TestCase):
         cls.culture_links = json.loads(
             (ROOT / cls.manifest["cultureLinksDraft"]).read_text(encoding="utf-8")
         )["links"]
+        cls.story_arcs = json.loads(
+            (ROOT / cls.manifest["cultureStoryArcsDraft"]).read_text(encoding="utf-8")
+        )
 
     def test_batch38_full_review_only_pipeline_is_reproducible(self) -> None:
         report = module.run_pipeline(
@@ -47,6 +50,16 @@ class PersonaCultureAuthoringPipelineTest(unittest.TestCase):
         self.assertEqual(report["listening"]["questions"], 20)
         self.assertEqual(report["vocabLeveling"]["totals"]["items"], 30)
         self.assertEqual(report["vocabLeveling"]["totals"]["cultureAnchor"], 5)
+        self.assertEqual(report["cultureStoryArcs"]["arcCount"], 1)
+        self.assertEqual(report["cultureStoryArcs"]["stepCount"], 4)
+        self.assertEqual(
+            report["cultureStoryArcs"]["arcIds"],
+            ["found_around_nammun"],
+        )
+        self.assertFalse(report["cultureStoryArcs"]["liveWritePerformed"])
+        packet = (ROOT / report["reviewPacket"]).read_text(encoding="utf-8")
+        self.assertIn("## Culture Story Arcs (review-only)", packet)
+        self.assertIn("`found_around_nammun`", packet)
         self.assertFalse(report["liveWritePerformed"])
         self.assertFalse(report["humanApprovalClaimed"])
 
@@ -91,6 +104,59 @@ class PersonaCultureAuthoringPipelineTest(unittest.TestCase):
                 "undeclared persona relationship maya<->dongsun",
             ):
                 module._validate_authoring_brief(
+                    manifest=self.manifest,
+                    scenarios=self.scenarios,
+                    culture_links=self.culture_links,
+                )
+
+    def test_story_arc_matches_review_only_scenarios_personas_and_terms(self) -> None:
+        result = module._validate_story_arcs(
+            manifest=self.manifest,
+            scenarios=self.scenarios,
+            culture_links=self.culture_links,
+        )
+        self.assertEqual(result["arcCount"], 1)
+        self.assertEqual(result["stepCount"], 4)
+        self.assertEqual(result["arcIds"], ["found_around_nammun"])
+        self.assertFalse(result["liveWritePerformed"])
+
+    def test_story_arc_rejects_term_drift(self) -> None:
+        broken = copy.deepcopy(self.story_arcs)
+        broken["arcs"][0]["steps"][0]["termIds"] = ["hanji"]
+        original_read_json = module._read_json
+
+        def fake_read_json(path: Path, label: str) -> dict:
+            if label == "culture story arcs":
+                return broken
+            return original_read_json(path, label)
+
+        with mock.patch.object(module, "_read_json", side_effect=fake_read_json):
+            with self.assertRaisesRegex(
+                module.PersonaCulturePipelineError,
+                "arc terms are not linked to the scenario",
+            ):
+                module._validate_story_arcs(
+                    manifest=self.manifest,
+                    scenarios=self.scenarios,
+                    culture_links=self.culture_links,
+                )
+
+    def test_story_arc_rejects_reward_or_mastery_ownership(self) -> None:
+        broken = copy.deepcopy(self.story_arcs)
+        broken["arcs"][0]["rewardSlug"] = "decoration_soban"
+        original_read_json = module._read_json
+
+        def fake_read_json(path: Path, label: str) -> dict:
+            if label == "culture story arcs":
+                return broken
+            return original_read_json(path, label)
+
+        with mock.patch.object(module, "_read_json", side_effect=fake_read_json):
+            with self.assertRaisesRegex(
+                module.PersonaCulturePipelineError,
+                "may not own reward/mastery state",
+            ):
+                module._validate_story_arcs(
                     manifest=self.manifest,
                     scenarios=self.scenarios,
                     culture_links=self.culture_links,

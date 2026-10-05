@@ -1,7 +1,9 @@
 import '../models/cultural_glossary.dart';
+import '../models/culture_story_arc.dart';
 import '../models/scenario_culture_link.dart';
 import 'course_progress_service.dart';
 import 'cultural_glossary_repository.dart';
+import 'culture_story_arc_repository.dart';
 import 'scenario_culture_link_repository.dart';
 import 'storage_service.dart';
 
@@ -9,6 +11,21 @@ typedef CultureCompletedScenarioIdsLoader = Future<Set<String>> Function();
 typedef CultureLinkCatalogLoader =
     Future<ScenarioCultureLinkCatalog?> Function();
 typedef CultureGlossaryLoader = Future<CulturalGlossary?> Function();
+typedef CultureStoryArcCatalogLoader =
+    Future<CultureStoryArcCatalog?> Function();
+
+class CultureStoryArcProjection {
+  const CultureStoryArcProjection({
+    required this.arc,
+    required this.completedStepCount,
+  });
+
+  final CultureStoryArc arc;
+  final int completedStepCount;
+
+  int get stepCount => arc.steps.length;
+  bool get isComplete => completedStepCount == stepCount;
+}
 
 class CultureDiscoverySnapshot {
   CultureDiscoverySnapshot({
@@ -16,13 +33,16 @@ class CultureDiscoverySnapshot {
     required this.availableTermCount,
     required Set<String> completionScenarioIds,
     required this.catalogAvailable,
+    List<CultureStoryArcProjection> storyArcs = const [],
   }) : entries = List.unmodifiable(entries),
-       completionScenarioIds = Set.unmodifiable(completionScenarioIds);
+       completionScenarioIds = Set.unmodifiable(completionScenarioIds),
+       storyArcs = List.unmodifiable(storyArcs);
 
   final List<CulturalGlossaryEntry> entries;
   final int availableTermCount;
   final Set<String> completionScenarioIds;
   final bool catalogAvailable;
+  final List<CultureStoryArcProjection> storyArcs;
 
   int get discoveredCount => entries.length;
   bool get isEmpty => entries.isEmpty;
@@ -30,10 +50,15 @@ class CultureDiscoverySnapshot {
 
 /// Read-only projection of culture discovery from existing learning evidence.
 ///
-/// No discovered-term list is persisted. Current-generation scenario
-/// completion is reconstructed from the local completion mirror plus
+/// No discovered-term list or story-arc progress is persisted. Current-generation
+/// scenario completion is reconstructed from the local completion mirror plus
 /// course-mastery checkpoints (the cloud-restorable source), then intersected
 /// with the live scenario-culture registry.
+///
+/// Story arcs are optional grouping metadata only. An arc is projected only when
+/// every referenced scenario and cultural term already exists in the live
+/// scenario-culture registry/glossary, so review-only authoring data cannot leak
+/// into learner UI before promotion.
 ///
 /// Course checkpoints are bounded attempt history, not a permanent set of
 /// unique completed scenario IDs. They improve account-restore coverage, but a
@@ -47,15 +72,19 @@ class CultureDiscoveryService {
     CultureCompletedScenarioIdsLoader? completionScenarioIdsLoader,
     CultureLinkCatalogLoader? linkCatalogLoader,
     CultureGlossaryLoader? glossaryLoader,
+    CultureStoryArcCatalogLoader? storyArcCatalogLoader,
   }) : _completionScenarioIdsLoader =
            completionScenarioIdsLoader ?? _loadCurrentCompletionEvidence,
        _linkCatalogLoader =
            linkCatalogLoader ?? ScenarioCultureLinkRepository.load,
-       _glossaryLoader = glossaryLoader ?? CulturalGlossaryRepository.load;
+       _glossaryLoader = glossaryLoader ?? CulturalGlossaryRepository.load,
+       _storyArcCatalogLoader =
+           storyArcCatalogLoader ?? CultureStoryArcRepository.load;
 
   final CultureCompletedScenarioIdsLoader _completionScenarioIdsLoader;
   final CultureLinkCatalogLoader _linkCatalogLoader;
   final CultureGlossaryLoader _glossaryLoader;
+  final CultureStoryArcCatalogLoader _storyArcCatalogLoader;
 
   static Future<Set<String>> _loadCurrentCompletionEvidence() async {
     final completed = Storage.completedScenarios.toSet();
@@ -85,10 +114,19 @@ class CultureDiscoveryService {
         catalogAvailable: false,
       );
     }
+
+    CultureStoryArcCatalog? storyArcs;
+    try {
+      storyArcs = await _storyArcCatalogLoader();
+    } on Object {
+      storyArcs = null;
+    }
+
     return project(
       completedScenarioIds: completed,
       links: links,
       glossary: glossary,
+      storyArcs: storyArcs,
     );
   }
 
@@ -96,6 +134,7 @@ class CultureDiscoveryService {
     required Set<String> completedScenarioIds,
     required ScenarioCultureLinkCatalog links,
     required CulturalGlossary glossary,
+    CultureStoryArcCatalog? storyArcs,
   }) {
     final availableTermIds = <String>{};
     final discoveredTermIds = <String>{};
@@ -119,11 +158,41 @@ class CultureDiscoveryService {
         if (discoveredTermIds.contains(entry.termId)) entry,
     ];
 
+    final projectedArcs = <CultureStoryArcProjection>[];
+    for (final arc in storyArcs?.arcs ?? const <CultureStoryArc>[]) {
+      var validForLiveCatalog = true;
+      for (final step in arc.steps) {
+        final liveLink = links.linkForScenario(step.scenarioId);
+        if (liveLink == null ||
+            step.termIds.any(
+              (termId) =>
+                  glossary.entry(termId) == null ||
+                  !liveLink.termIds.contains(termId),
+            )) {
+          validForLiveCatalog = false;
+          break;
+        }
+      }
+      if (!validForLiveCatalog) {
+        continue;
+      }
+
+      projectedArcs.add(
+        CultureStoryArcProjection(
+          arc: arc,
+          completedStepCount: arc.steps
+              .where((step) => completedScenarioIds.contains(step.scenarioId))
+              .length,
+        ),
+      );
+    }
+
     return CultureDiscoverySnapshot(
       entries: entries,
       availableTermCount: availableTermIds.length,
       completionScenarioIds: completedScenarioIds,
       catalogAvailable: true,
+      storyArcs: projectedArcs,
     );
   }
 }

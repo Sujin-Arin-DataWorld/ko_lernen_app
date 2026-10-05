@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/cultural_glossary.dart';
+import 'package:ko_lernen_app/models/culture_story_arc.dart';
 import 'package:ko_lernen_app/screens/culture_stories_screen.dart';
 import 'package:ko_lernen_app/services/cultural_glossary_repository.dart';
 import 'package:ko_lernen_app/services/culture_discovery_service.dart';
@@ -22,12 +23,14 @@ void main() {
   CultureDiscoverySnapshot snapshot(
     List<String> termIds, {
     int availableTermCount = 3,
+    List<CultureStoryArcProjection> storyArcs = const [],
   }) {
     return CultureDiscoverySnapshot(
       entries: [for (final termId in termIds) glossary.entry(termId)!],
       availableTermCount: availableTermCount,
       completionScenarioIds: const {'completed_scene'},
       catalogAvailable: true,
+      storyArcs: storyArcs,
     );
   }
 
@@ -61,6 +64,60 @@ void main() {
       );
     },
   );
+
+  testWidgets('culture stories renders a derived read-only story arc', (
+    tester,
+  ) async {
+    final arc = CultureStoryArc(
+      arcId: 'sample_arc',
+      title: const CultureStoryLocalizedText(
+        ko: '남문에서 찾은 것들',
+        de: 'Rund um Nammun entdeckt',
+        en: 'Found around Nammun',
+      ),
+      summary: const CultureStoryLocalizedText(
+        ko: '요약',
+        de: 'Ein Kulturpfad rund um Nammun.',
+        en: 'A culture path around Nammun.',
+      ),
+      progressMode: 'derived_read_only',
+      steps: [
+        CultureStoryArcStep(
+          scenarioId: 'scene_a',
+          personaIds: const ['maya'],
+          termIds: const ['hanok'],
+        ),
+        CultureStoryArcStep(
+          scenarioId: 'scene_b',
+          personaIds: const ['jun'],
+          termIds: const ['gye'],
+        ),
+      ],
+    );
+
+    await tester.pumpWidget(
+      _host(
+        CultureStoriesScreen(
+          loadSnapshot: () async => snapshot(
+            ['hanok'],
+            storyArcs: [
+              CultureStoryArcProjection(arc: arc, completedStepCount: 1),
+            ],
+          ),
+        ),
+        locale: const Locale('en'),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(
+      find.byKey(const Key('culture_story_arc_sample_arc')),
+      findsOneWidget,
+    );
+    expect(find.text('Found around Nammun'), findsOneWidget);
+    expect(find.text('A culture path around Nammun.'), findsOneWidget);
+    expect(find.text('1 / 2'), findsOneWidget);
+  });
 
   testWidgets('culture stories empty state does not invent discovery', (
     tester,

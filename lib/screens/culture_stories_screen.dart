@@ -98,6 +98,13 @@ class _CultureStoriesScreenState extends State<CultureStoriesScreen> {
                 ),
               ),
               const SizedBox(height: Spacing.lg),
+              if (data.storyArcs.isNotEmpty) ...[
+                for (var index = 0; index < data.storyArcs.length; index++) ...[
+                  if (index > 0) const SizedBox(height: Spacing.md),
+                  _CultureStoryArcCard(projection: data.storyArcs[index]),
+                ],
+                const SizedBox(height: Spacing.lg),
+              ],
               if (data.isEmpty)
                 SoriEmptyState(
                   icon: Icons.auto_stories_outlined,
@@ -112,6 +119,59 @@ class _CultureStoriesScreenState extends State<CultureStoriesScreen> {
             ],
           );
         },
+      ),
+    );
+  }
+}
+
+class _CultureStoryArcCard extends StatelessWidget {
+  const _CultureStoryArcCard({required this.projection});
+
+  final CultureStoryArcProjection projection;
+
+  @override
+  Widget build(BuildContext context) {
+    final languageCode = Localizations.localeOf(context).languageCode;
+    final arc = projection.arc;
+    final surfaces = SoriSurfaces.of(context);
+
+    return SoriCard(
+      key: Key('culture_story_arc_${arc.arcId}'),
+      variant: SoriCardVariant.hanji,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Icon(
+                Icons.route_outlined,
+                color: SoriColors.accent,
+                size: 28,
+              ),
+              const SizedBox(width: Spacing.md),
+              Expanded(
+                child: Text(
+                  arc.title.forLanguage(languageCode),
+                  style: SoriTextTheme.of(context).h3,
+                ),
+              ),
+              const SizedBox(width: Spacing.sm),
+              Text(
+                '${projection.completedStepCount} / ${projection.stepCount}',
+                key: Key('culture_story_arc_count_${arc.arcId}'),
+                style: SoriTextTheme.of(
+                  context,
+                ).caption.copyWith(color: surfaces.textMuted),
+              ),
+            ],
+          ),
+          const SizedBox(height: Spacing.sm),
+          Text(
+            arc.summary.forLanguage(languageCode),
+            style: SoriTextTheme.of(context).body,
+          ),
+        ],
       ),
     );
   }

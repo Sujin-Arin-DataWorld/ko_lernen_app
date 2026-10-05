@@ -7,8 +7,9 @@ Pipeline contract:
 3. scenario + listening draft
 4. key-vocabulary extraction and CEFR audit
 5. CulturalGlossary / scenario-culture-link integrity
-6. full scenario integration preview
-7. human-readable review packet
+6. review-only culture-story arc integrity
+7. full scenario integration preview
+8. human-readable review packet
 
 This command never promotes content and never mutates live learner assets.
 With --write-derived it only regenerates review artifacts declared in the
@@ -111,6 +112,187 @@ def _glossary_ids() -> set[str]:
         str(item.get("termId") or "").strip()
         for item in entries
         if isinstance(item, dict) and str(item.get("termId") or "").strip()
+    }
+
+
+
+def _validate_story_arcs(
+    *,
+    manifest: dict[str, Any],
+    scenarios: list[dict[str, Any]],
+    culture_links: list[dict[str, Any]],
+) -> dict[str, Any]:
+    arcs_path = _under_root(
+        _nonempty_text(
+            manifest.get("cultureStoryArcsDraft"),
+            "manifest cultureStoryArcsDraft",
+        ),
+        "cultureStoryArcsDraft",
+    )
+    payload = _read_json(arcs_path, "culture story arcs")
+    if payload.get("schemaVersion") != 1 or payload.get("status") != "review_only":
+        raise PersonaCulturePipelineError(
+            "culture story arcs must use schemaVersion 1 and status review_only"
+        )
+
+    arcs = payload.get("arcs")
+    if (
+        not isinstance(arcs, list)
+        or not arcs
+        or any(not isinstance(item, dict) for item in arcs)
+    ):
+        raise PersonaCulturePipelineError(
+            "culture story arcs must contain a nonempty arcs array"
+        )
+
+    scenario_by_id = {
+        _nonempty_text(scene.get("id"), "scenario id"): scene
+        for scene in scenarios
+    }
+    links_by_id = {
+        _nonempty_text(link.get("scenarioId"), "culture-link scenarioId"): link
+        for link in culture_links
+    }
+    required_languages = {"de", "en", "ko"}
+    forbidden_state_fields = {
+        "reward",
+        "rewards",
+        "rewardSlug",
+        "xp",
+        "mastery",
+        "masteryId",
+        "progressLedger",
+        "unlockLedger",
+    }
+
+    arc_ids: list[str] = []
+    step_count = 0
+    for arc in arcs:
+        arc_id = _nonempty_text(arc.get("arcId"), "culture story arcId")
+        if arc_id in arc_ids:
+            raise PersonaCulturePipelineError(
+                f"duplicate culture story arcId: {arc_id}"
+            )
+        arc_ids.append(arc_id)
+
+        forbidden = sorted(forbidden_state_fields.intersection(arc))
+        if forbidden:
+            raise PersonaCulturePipelineError(
+                f"{arc_id}: story arc may not own reward/mastery state {forbidden}"
+            )
+        if arc.get("progressMode") != "derived_read_only":
+            raise PersonaCulturePipelineError(
+                f"{arc_id}: progressMode must be derived_read_only"
+            )
+
+        for copy_field in ("title", "summary"):
+            copy = arc.get(copy_field)
+            if not isinstance(copy, dict) or set(copy) != required_languages:
+                raise PersonaCulturePipelineError(
+                    f"{arc_id}: {copy_field} must contain exactly de, en, and ko"
+                )
+            for language in required_languages:
+                _nonempty_text(
+                    copy.get(language),
+                    f"{arc_id}.{copy_field}.{language}",
+                )
+
+        steps = arc.get("steps")
+        if (
+            not isinstance(steps, list)
+            or not steps
+            or any(not isinstance(item, dict) for item in steps)
+        ):
+            raise PersonaCulturePipelineError(
+                f"{arc_id}: steps must be a nonempty array of objects"
+            )
+
+        seen_scenarios: set[str] = set()
+        for step in steps:
+            forbidden = sorted(forbidden_state_fields.intersection(step))
+            if forbidden:
+                raise PersonaCulturePipelineError(
+                    f"{arc_id}: story step may not own reward/mastery state {forbidden}"
+                )
+
+            scenario_id = _nonempty_text(
+                step.get("scenarioId"),
+                f"{arc_id}.scenarioId",
+            )
+            if scenario_id in seen_scenarios:
+                raise PersonaCulturePipelineError(
+                    f"{arc_id}: duplicate scenario step {scenario_id}"
+                )
+            seen_scenarios.add(scenario_id)
+            scene = scenario_by_id.get(scenario_id)
+            if scene is None:
+                raise PersonaCulturePipelineError(
+                    f"{arc_id}: unknown review-only scenario {scenario_id}"
+                )
+            link = links_by_id.get(scenario_id)
+            if link is None:
+                raise PersonaCulturePipelineError(
+                    f"{arc_id}: scenario has no culture-link draft {scenario_id}"
+                )
+
+            persona_ids = step.get("personaIds")
+            if (
+                not isinstance(persona_ids, list)
+                or not persona_ids
+                or any(
+                    not isinstance(item, str) or not item.strip()
+                    for item in persona_ids
+                )
+                or len(set(persona_ids)) != len(persona_ids)
+            ):
+                raise PersonaCulturePipelineError(
+                    f"{arc_id}/{scenario_id}: personaIds must be unique and nonempty"
+                )
+            participant_ids = scene.get("participantIds")
+            if not isinstance(participant_ids, list):
+                raise PersonaCulturePipelineError(
+                    f"{arc_id}/{scenario_id}: scenario participants are malformed"
+                )
+            unknown_personas = sorted(set(persona_ids) - set(participant_ids))
+            if unknown_personas:
+                raise PersonaCulturePipelineError(
+                    f"{arc_id}/{scenario_id}: personas are not scenario participants "
+                    f"{unknown_personas}"
+                )
+
+            term_ids = step.get("termIds")
+            if (
+                not isinstance(term_ids, list)
+                or not term_ids
+                or any(
+                    not isinstance(item, str) or not item.strip()
+                    for item in term_ids
+                )
+                or len(set(term_ids)) != len(term_ids)
+            ):
+                raise PersonaCulturePipelineError(
+                    f"{arc_id}/{scenario_id}: termIds must be unique and nonempty"
+                )
+            linked_terms = link.get("termIds")
+            if not isinstance(linked_terms, list):
+                raise PersonaCulturePipelineError(
+                    f"{arc_id}/{scenario_id}: culture-link terms are malformed"
+                )
+            unknown_terms = sorted(set(term_ids) - set(linked_terms))
+            if unknown_terms:
+                raise PersonaCulturePipelineError(
+                    f"{arc_id}/{scenario_id}: arc terms are not linked to the scenario "
+                    f"{unknown_terms}"
+                )
+
+            step_count += 1
+
+    return {
+        "path": _repo_path(arcs_path),
+        "arcCount": len(arcs),
+        "stepCount": step_count,
+        "arcIds": arc_ids,
+        "liveWritePerformed": False,
     }
 
 
@@ -331,7 +513,51 @@ def _review_packet(
         _nonempty_text(manifest.get("reviewPacket"), "manifest reviewPacket"),
         "reviewPacket",
     )
-    packet = render_packet(manifest_path=manifest_path, root=ROOT) + "\n"
+    packet = render_packet(manifest_path=manifest_path, root=ROOT)
+    arcs_path = _under_root(
+        _nonempty_text(
+            manifest.get("cultureStoryArcsDraft"),
+            "manifest cultureStoryArcsDraft",
+        ),
+        "cultureStoryArcsDraft",
+    )
+    arcs_payload = _read_json(arcs_path, "culture story arcs")
+    arc_lines = [
+        "",
+        "## Culture Story Arcs (review-only)",
+        "",
+        "> Grouping metadata only. These arcs create no mastery, reward, XP, or live progress.",
+        "",
+    ]
+    for arc in arcs_payload.get("arcs", []):
+        title = arc["title"]
+        arc_lines.extend(
+            [
+                f"### `{arc['arcId']}`",
+                "",
+                f"- KO: {title['ko']}",
+                f"- DE: {title['de']}",
+                f"- EN: {title['en']}",
+                f"- progressMode: `{arc['progressMode']}`",
+                "",
+                "| Step | Scenario | Personas | Culture terms |",
+                "|---:|---|---|---|",
+            ]
+        )
+        for index, step in enumerate(arc["steps"], start=1):
+            personas = ", ".join(f"`{item}`" for item in step["personaIds"])
+            terms = ", ".join(f"`{item}`" for item in step["termIds"])
+            arc_lines.append(
+                f"| {index} | `{step['scenarioId']}` | {personas} | {terms} |"
+            )
+        arc_lines.extend(["", "**Summary**", ""])
+        for language in ("ko", "de", "en"):
+            arc_lines.append(f"- {language.upper()}: {arc['summary'][language]}")
+        arc_lines.append("")
+    packet = packet + "\n" + "\n".join(arc_lines)
+    if not packet.endswith("\n"):
+        packet += "\n"
+
     if write_derived:
         output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(packet, encoding="utf-8")
@@ -397,6 +623,11 @@ def run_pipeline(
         scenarios=scenarios,
         culture_links=culture_links,
     )
+    story_arcs_result = _validate_story_arcs(
+        manifest=manifest,
+        scenarios=scenarios,
+        culture_links=culture_links,
+    )
     listening_result = _validate_listening(manifest, scenarios)
     vocab_result, vocab_path = _vocab_sidecar(
         manifest=manifest,
@@ -429,6 +660,7 @@ def run_pipeline(
         "scenarioCount": amount,
         "scenarioIds": [str(scene["id"]) for scene in scenarios],
         "authoringBrief": brief_result,
+        "cultureStoryArcs": story_arcs_result,
         "listening": listening_result,
         "vocabLeveling": {
             "path": vocab_path,
