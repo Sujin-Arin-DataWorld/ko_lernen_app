@@ -22116,9 +22116,9 @@
     "semantic_hash": ""
   },
   "docs/plans/2026-10-05-culture-world-roadmap.md": {
-    "mtime": 1791194390.4505315,
-    "seen": 1791194754.4475536,
-    "ast_hash": "b1efae52334e1f78d8d81a634e72097d",
+    "mtime": 1791195787.332362,
+    "seen": 1791196081.9473965,
+    "ast_hash": "f1400c8b9025a643f0797cb99f044f98",
     "semantic_hash": ""
   },
   "docs/plans/2026-10-05-persona-culture-batch38-design.md": {
@@ -22203,6 +22203,12 @@
     "mtime": 1791174840.436108,
     "seen": 1791194754.3333306,
     "ast_hash": "533886d96ad2d29f851ca052a5aa250a",
+    "semantic_hash": ""
+  },
+  ".claude/handoffs/2026-10-05-culture-world-final-handoff.md": {
+    "mtime": 1791195909.2588656,
+    "seen": 1791196197.3472407,
+    "ast_hash": "cfdd94d2752419966e69b84f341915f7",
     "semantic_hash": ""
   }
 }

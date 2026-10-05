@@ -55,6 +55,90 @@
           ]
         }
       ]
+    },
+    {
+      "arcId": "made_by_hand_in_korea",
+      "title": {
+        "ko": "손으로 만드는 한국",
+        "de": "Mit der Hand gemacht in Korea",
+        "en": "Made by Hand in Korea"
+      },
+      "summary": {
+        "ko": "노리개와 전통 매듭, 한지를 둘러싼 실제 대화에서 손으로 만드는 물건과 제작자 설명, 촬영 예의를 함께 살펴보는 문화 이야기 묶음입니다.",
+        "de": "Ein Kulturpfad zu Norigae, Maedeup und Hanji, der handgefertigte Dinge mit korrekter Zuschreibung und respektvollem Filmen verbindet.",
+        "en": "A culture path through norigae, maedeup, and hanji that connects handmade objects with accurate maker attribution and respectful filming."
+      },
+      "progressMode": "derived_read_only",
+      "steps": [
+        {
+          "scenarioId": "b1_dongsun_norigae_shop_post",
+          "personaIds": [
+            "maya",
+            "dongsun"
+          ],
+          "termIds": [
+            "norigae",
+            "maedeup"
+          ]
+        },
+        {
+          "scenarioId": "b2_daniel_hyuna_hanji_filming_scope",
+          "personaIds": [
+            "daniel",
+            "hyuna"
+          ],
+          "termIds": [
+            "hanji"
+          ]
+        }
+      ]
+    },
+    {
+      "arcId": "memory_to_record",
+      "title": {
+        "ko": "기억에서 기록으로",
+        "de": "Von Erinnerung zu Dokumentation",
+        "en": "From Memory to Record"
+      },
+      "summary": {
+        "ko": "수원화성의 개인 기억에서 학교 자료 확인, 탈춤 기록과 현대적 재해석의 구분까지 이어지며 무엇을 어떻게 기록할지 생각해 보는 문화 이야기 묶음입니다.",
+        "de": "Ein Kulturpfad von persönlichen Erinnerungen an Hwaseong über Quellenprüfung in der Schule bis zur klaren Trennung von Talchum-Dokumentation und moderner Neuinterpretation.",
+        "en": "A culture path from personal memories of Hwaseong through school source-checking to clearly separating talchum documentation from modern reinterpretation."
+      },
+      "progressMode": "derived_read_only",
+      "steps": [
+        {
+          "scenarioId": "b1_byeongcheol_hwaseong_memory_check",
+          "personaIds": [
+            "hyuna",
+            "byeongcheol"
+          ],
+          "termIds": [
+            "suwon_hwaseong"
+          ]
+        },
+        {
+          "scenarioId": "a2_jun_hwaseong_school_slide",
+          "personaIds": [
+            "jun",
+            "christian"
+          ],
+          "termIds": [
+            "suwon_hwaseong"
+          ]
+        },
+        {
+          "scenarioId": "c1_maya_hyuna_daniel_talchum_shortform",
+          "personaIds": [
+            "maya",
+            "hyuna",
+            "daniel"
+          ],
+          "termIds": [
+            "talchum"
+          ]
+        }
+      ]
     }
   ]
 }

@@ -425,6 +425,8 @@ flutter run -d <android-id>   # 안드로이드
 
 > 미완료 게이트만 적는다. 끝난 항목은 지우며, 이력은 `git log` / PR / `.claude/handoffs/`다.
 
+- [ ] **문화세계 품질 후속 프로그램**: 원래 Phase 1~9 및 Batch 38 live 승격은 완료. 후속은 (A) live story arc 3개로 테마 확장 → (B) 영구/cross-device culture discovery ownership·migration 설계 감사 → (C) 기존 LCP를 통한 앱 전체 레벨 정본화 순서로 진행한다. 문화 metadata는 계속 mastery/reward owner가 아니며, TTS는 Jin이 VS Code에서 직접 처리하므로 이 프로그램에서 생성·덮어쓰기하지 않는다. 정본 계획: `docs/plans/2026-10-05-culture-quality-followups.md`.
+
 - [ ] **UI 실기기 게이트 (Jin)**: 덱 4방향 손맛·시스템 엣지·히어로 잘림, 승인 대기 중인
   아이콘/리소 자산을 실제 기기에서 검수한다. 승인 전에는 대규모 UI 재설계나 자산 덮어쓰기를
   하지 않는다.

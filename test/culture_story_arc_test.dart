@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -61,23 +62,61 @@ void main() {
     );
   });
 
-  test('live arc catalog contains promoted Batch 38 arc', () {
+  test('live arc catalog contains three derived culture paths', () {
     final raw = File(CultureStoryArcRepository.assetPath).readAsStringSync();
     final catalog = CultureStoryArcCatalog.fromJsonString(raw);
 
-    expect(catalog.arcs, hasLength(1));
-    final arc = catalog.arcs.single;
-    expect(arc.arcId, 'found_around_nammun');
-    expect(arc.progressMode, 'derived_read_only');
-    expect(arc.steps, hasLength(4));
+    expect(catalog.arcs, hasLength(3));
+    final byId = {for (final arc in catalog.arcs) arc.arcId: arc};
+
+    expect(byId.keys, {
+      'found_around_nammun',
+      'made_by_hand_in_korea',
+      'memory_to_record',
+    });
+    expect(byId['found_around_nammun']!.steps, hasLength(4));
+    expect(byId['made_by_hand_in_korea']!.steps, hasLength(2));
+    expect(byId['memory_to_record']!.steps, hasLength(3));
     expect(
-      arc.steps.map((step) => step.scenarioId),
-      contains('b1_dongsun_norigae_shop_post'),
+      byId['made_by_hand_in_korea']!.steps.map((step) => step.scenarioId),
+      contains('b2_daniel_hyuna_hanji_filming_scope'),
     );
     expect(
-      arc.steps.map((step) => step.scenarioId),
-      contains('a2_jun_hwaseong_school_slide'),
+      byId['memory_to_record']!.steps.map((step) => step.scenarioId),
+      contains('c1_maya_hyuna_daniel_talchum_shortform'),
     );
+  });
+
+  test('every live arc step is backed by the live culture-link registry', () {
+    final rawArcs = jsonDecode(
+      File(CultureStoryArcRepository.assetPath).readAsStringSync(),
+    ) as Map<String, dynamic>;
+    final rawLinks = jsonDecode(
+      File('assets/data/scenario_culture_links.json').readAsStringSync(),
+    ) as Map<String, dynamic>;
+    final termsByScenario = <String, Set<String>>{
+      for (final rawLink in rawLinks['links'] as List<dynamic>)
+        (rawLink as Map<String, dynamic>)['scenarioId'] as String:
+            ((rawLink['termIds'] as List<dynamic>).cast<String>()).toSet(),
+    };
+
+    for (final rawArc in rawArcs['arcs'] as List<dynamic>) {
+      final arc = rawArc as Map<String, dynamic>;
+      for (final rawStep in arc['steps'] as List<dynamic>) {
+        final step = rawStep as Map<String, dynamic>;
+        final scenarioId = step['scenarioId'] as String;
+        final linkedTerms = termsByScenario[scenarioId];
+        final reason = '${arc['arcId']}/$scenarioId';
+        expect(linkedTerms, isNotNull, reason: reason);
+        expect(
+          linkedTerms!.containsAll(
+            (step['termIds'] as List<dynamic>).cast<String>(),
+          ),
+          isTrue,
+          reason: reason,
+        );
+      }
+    }
   });
 
   test('arc model contains no persistence or reward ownership', () {
