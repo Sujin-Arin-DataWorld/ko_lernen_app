@@ -8196,9 +8196,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791217059.7231796,
-    "seen": 1791217327.1353216,
-    "ast_hash": "269173aff61616551e36e5e456b0e81d",
+    "mtime": 1791217960.7424488,
+    "seen": 1791218266.3316822,
+    "ast_hash": "7af961e6310b95ab5b16ac15a5bef62b",
     "semantic_hash": ""
   },
   "BETA_INSTALL_GUIDE.md": {
@@ -14586,15 +14586,15 @@
     "semantic_hash": ""
   },
   "tool/cefr_lexicon.py": {
-    "mtime": 1791206402.0072193,
-    "seen": 1791210402.765737,
-    "ast_hash": "750dca3b4897d7186fd1be404b029762",
+    "mtime": 1791217586.7976809,
+    "seen": 1791218266.0239837,
+    "ast_hash": "8a7d81d1c03bfa3425975fad2277e0ba",
     "semantic_hash": ""
   },
   "tool/content_level_summary.json": {
-    "mtime": 1791216970.8060315,
-    "seen": 1791217326.8945014,
-    "ast_hash": "af02307b61544d690c2f1485bf2f7524",
+    "mtime": 1791217811.61102,
+    "seen": 1791218266.0287669,
+    "ast_hash": "f30a26a602118576e213ea0267ec1776",
     "semantic_hash": ""
   },
   "tool/ingest_nikl_grade_lists.py": {
@@ -14604,9 +14604,9 @@
     "semantic_hash": ""
   },
   "tool/test_audit_content_levels.py": {
-    "mtime": 1791216823.2345536,
-    "seen": 1791217326.9183724,
-    "ast_hash": "1e5e692c0f419f1019b678fbcc9a17b0",
+    "mtime": 1791217912.2661421,
+    "seen": 1791218266.054632,
+    "ast_hash": "1249af6782e2161dbf6a8513187456eb",
     "semantic_hash": ""
   },
   "tool/test_audit_loanword_spelling.py": {
@@ -14622,9 +14622,9 @@
     "semantic_hash": ""
   },
   "tool/test_cefr_lexicon.py": {
-    "mtime": 1791205495.6161585,
-    "seen": 1791210402.7964456,
-    "ast_hash": "50c60aca2d413111d0de8d3b25acbf55",
+    "mtime": 1791217616.4088295,
+    "seen": 1791218266.0581582,
+    "ast_hash": "eee23b20460e495fa5a5be4f7b670fea",
     "semantic_hash": ""
   },
   "tool/test_ingest_nikl_grade_lists.py": {
@@ -14664,9 +14664,9 @@
     "semantic_hash": ""
   },
   "docs/data/content_level_report.md": {
-    "mtime": 1791216970.8156836,
-    "seen": 1791217327.1663349,
-    "ast_hash": "0edfcc66e8f87fb218a73f0ed1d15186",
+    "mtime": 1791217811.6199372,
+    "seen": 1791218266.3745122,
+    "ast_hash": "ca6af65b2690eeb3f38c07e45cf718bd",
     "semantic_hash": ""
   },
   "docs/data/level_bible/F10_review_lessons.md": {
@@ -22212,9 +22212,9 @@
     "semantic_hash": ""
   },
   "docs/plans/2026-10-05-culture-quality-followups.md": {
-    "mtime": 1791217031.989905,
-    "seen": 1791217327.1928296,
-    "ast_hash": "9f80ddae9912d16f407033ed230387ed",
+    "mtime": 1791217935.0072324,
+    "seen": 1791218266.4140244,
+    "ast_hash": "6033c813cafc3ef256d7bbfbaafb35a5",
     "semantic_hash": ""
   },
   "tools/content_factory/relevel/relevel_bundle_V2G2.json": {
@@ -22254,9 +22254,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/relevel/reviewed_vocab_owners_20261005.json": {
-    "mtime": 1791214315.1163063,
-    "seen": 1791214357.3235643,
-    "ast_hash": "62f8a00fee5a175488e5f207bd894346",
+    "mtime": 1791217802.117746,
+    "seen": 1791218266.2109277,
+    "ast_hash": "f2497f4552dc3ef68695c24f3889e020",
     "semantic_hash": ""
   },
   "tools/content_factory/review/lcp_c4_highlevel_coverage_rehomes_20261005.json": {
@@ -22269,6 +22269,24 @@
     "mtime": 1791215583.0607817,
     "seen": 1791217327.0863197,
     "ast_hash": "f17d22ec1251914ec954b11942af8cd9",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/lcp_c5_b1_fallback_replacements_20261005.json": {
+    "mtime": 1791217412.09415,
+    "seen": 1791218266.2657776,
+    "ast_hash": "5f98d02d6a7e55278bf86bd410372ebe",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/lcp_c5_fallback_owner_review_20261005.json": {
+    "mtime": 1791217802.1187453,
+    "seen": 1791218266.265781,
+    "ast_hash": "4c730272bef3fb6abd28dee3cd7fd9ff",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/lcp_c5_media_relevel_20261005.json": {
+    "mtime": 1791217802.121746,
+    "seen": 1791218266.2657835,
+    "ast_hash": "6e3b1f254d6fe059ca2169a2148a260c",
     "semantic_hash": ""
   }
 }
