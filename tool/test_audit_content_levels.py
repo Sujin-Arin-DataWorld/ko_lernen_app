@@ -1094,8 +1094,8 @@ class LiveRatchetTest(unittest.TestCase):
     # grading fix and V2G2 -(으)ㄹ수록 relevel. Lower-only: preserve every
     # improvement accumulated since the September baseline.
     CAP_OVER2 = {
-        "vocab": 158, "grammar": 0, "scenario": 0, "cloze": 20,
-        "satz": 15, "smalltalk": 17, "pronunciation": 0, "media": 6,
+        "vocab": 158, "grammar": 0, "scenario": 0, "cloze": 17,
+        "satz": 7, "smalltalk": 14, "pronunciation": 0, "media": 6,
     }
     # 실측 unknown/total: vocab .0231(=56/2420, unchanged from T2.4a --
     # the allowance/contraction fix only ever changes sentence_profile's

@@ -2641,9 +2641,9 @@
     {
       "id": "cloze_a1_0088",
       "level": "a1",
-      "sentenceKo": "＿＿＿ 가 본 적 있어요.",
+      "sentenceKo": "＿＿＿ 갔어요.",
       "answer": "거기",
-      "fullKo": "거기 가 본 적 있어요.",
+      "fullKo": "거기 갔어요.",
       "de": "Da war ich schon mal.",
       "en": "I've been there before.",
       "distractors": [

@@ -118,6 +118,10 @@
       "level": "a1"
     },
     {
+      "id": "seed_cloze_cloze_a1_0088_v1",
+      "level": "a1"
+    },
+    {
       "id": "seed_cloze_cloze_a1_0093_v1",
       "level": "a1"
     },
@@ -10017,6 +10021,13 @@
       "level": "a1",
       "sourceSeedId": "seed_cloze_cloze_a1_0078_v1",
       "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_a1_0088",
+      "level": "a1",
+      "sourceSeedId": "seed_cloze_cloze_a1_0088_v1",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "kind": "cloze",
@@ -28673,12 +28684,12 @@
       "grammar": 264,
       "smalltalk": 590,
       "scenario": 192,
-      "cloze": 845,
+      "cloze": 846,
       "satz": 540,
       "project": 8
     },
     "inheritedReferenceCounts": {
-      "cloze": 1520,
+      "cloze": 1519,
       "satz": 2345
     },
     "inheritedContentReferences": [
@@ -29316,17 +29327,6 @@
         "sourceId": "a1_position",
         "sourceVocabId": "vocab_a1_0194",
         "sourceVocabFingerprintSha256": "1863d09ecacab2c75fc47318cd2844d8ea2cff7e21591a2cfddcab2935cd16a6",
-        "level": "a1",
-        "canDoSegmentId": "segment_a1_06_transport_directions",
-        "courseUnitId": "a1_06_transport_directions"
-      },
-      {
-        "kind": "cloze",
-        "id": "cloze_a1_0088",
-        "sourceKind": "vocabPack",
-        "sourceId": "a1_position",
-        "sourceVocabId": "vocab_a1_0195",
-        "sourceVocabFingerprintSha256": "f679dd55cef784b3bef58b3b690fc02b14337eb9776b11bf1705124460261c11",
         "level": "a1",
         "canDoSegmentId": "segment_a1_06_transport_directions",
         "courseUnitId": "a1_06_transport_directions"
@@ -71253,6 +71253,7 @@
       "cloze_a1_0076",
       "cloze_a1_0077",
       "cloze_a1_0078",
+      "cloze_a1_0088",
       "cloze_a1_0093",
       "cloze_a1_0097",
       "cloze_a1_0141",

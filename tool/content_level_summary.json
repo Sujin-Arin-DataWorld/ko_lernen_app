@@ -3,17 +3,17 @@
     "cloze": {
       "fallback_over2": 0,
       "over1": 158,
-      "over2": 20,
+      "over2": 17,
       "total": 2365,
       "under2": 458,
       "unknown": 0
     },
     "grammar": {
       "fallback_over2": 0,
-      "over1": 11,
+      "over1": 10,
       "over2": 0,
       "total": 264,
-      "under2": 42,
+      "under2": 43,
       "unknown": 0
     },
     "media": {
@@ -35,7 +35,7 @@
     "satz": {
       "fallback_over2": 0,
       "over1": 159,
-      "over2": 15,
+      "over2": 7,
       "total": 2885,
       "under2": 638,
       "unknown": 0
@@ -50,10 +50,10 @@
     },
     "smalltalk": {
       "fallback_over2": 1,
-      "over1": 92,
-      "over2": 17,
+      "over1": 91,
+      "over2": 14,
       "total": 590,
-      "under2": 131,
+      "under2": 132,
       "unknown": 0
     },
     "vocab": {

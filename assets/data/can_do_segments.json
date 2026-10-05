@@ -469,7 +469,7 @@
     {
       "id": "cluster_a1_06_transport_directions_v1",
       "level": "a1",
-      "revision": 9,
+      "revision": 10,
       "sourceSeedIds": [
         "seed_scenario_taxi_kakao_v1",
         "seed_vocab_pack_a1_position_v1",
@@ -497,7 +497,8 @@
         "seed_grammar_grammar_b1_intention_v1",
         "seed_scenario_a1_w10_taxi_stay_v1",
         "seed_scenario_a1_w10_wayfinding_v1",
-        "seed_vocab_pack_a1_places_buildings_1_v1"
+        "seed_vocab_pack_a1_places_buildings_1_v1",
+        "seed_cloze_cloze_a1_0088_v1"
       ],
       "contentReferences": [
         {
@@ -607,6 +608,10 @@
         {
           "kind": "vocabPack",
           "id": "a1_places_buildings_1"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0088"
         }
       ]
     },

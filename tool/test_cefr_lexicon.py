@@ -387,11 +387,35 @@ class TestRealLexiconGoldenCases(unittest.TestCase):
                 self.assertTrue(any(hit.grade == 2 and
                     hit.pattern_id == "grammar_a2_preference_question" for hit in hits))
 
+    def test_geuraeyo_is_not_quoted_speech(self):
+        for text in ("그래요.", "제 생각도 그래요.", "저도 그렇게 생각해요."):
+            with self.subTest(text=text):
+                ids = {hit.pattern_id for hit in self.grammar.detect(text)}
+                self.assertNotIn("grammar_b2_quoted_contractions", ids)
+
     def test_genuine_quoted_raeyo_and_copula_remain_detected(self):
         for text in ("엄마가 쓰래요.", "친구가 마시래요.", "그분은 의사래요.", "그분은 선생님이래요.", "이건 물이래요."):
             with self.subTest(text=text):
                 ids = {hit.pattern_id for hit in self.grammar.detect(text)}
                 self.assertIn("grammar_b2_quoted_contractions", ids)
+
+    def test_possession_gajigo_itda_is_not_c1_argument_framing(self):
+        ids = {
+            hit.pattern_id
+            for hit in self.grammar.detect("저는 책을 가지고 있어요.")
+        }
+        self.assertFalse(
+            any(pid.startswith("nikl_g5_를_가지고") for pid in ids)
+        )
+        genuine_ids = {
+            hit.pattern_id
+            for hit in self.grammar.detect(
+                "그 한마디를 가지고 의도를 단정할 수는 없어요."
+            )
+        }
+        self.assertTrue(
+            any(pid.startswith("nikl_g5_를_가지고") for pid in genuine_ids)
+        )
 
     def test_negative_quoted_malraeyo_remains_detected(self):
         for text in ("엄마가 하지 말래요.", "선생님이 떠들지 말래요.", "친구가 가지말래요.",

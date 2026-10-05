@@ -2979,6 +2979,22 @@ class GrammarIndex:
                 if (rule.volitional_raeyo and match.group(0) == "말래요"
                         and re.search(r"지\s*$", text[:match.start()])):
                     continue
+                # 그래요 is the irregular A1 polite form of 그렇다, not
+                # the B2 reported-speech contraction -(으)래요. The shared
+                # matcher used to see only the bare tail 래요.
+                if (
+                    rule.pattern_id == "grammar_b2_quoted_contractions"
+                    and match.group(0) == "래요"
+                    and text[max(match.start() - 1, 0):match.start()] == "그"
+                ):
+                    continue
+                # NIKL C1 N을/를 가지고 is an argument-framing form.
+                # Do not confuse it with elementary possession: 가지고 있다.
+                if (
+                    rule.pattern_id.startswith("nikl_g5_를_가지고")
+                    and re.match(r"\s*있", text[match.end():])
+                ):
+                    continue
                 if rule.short_fragment and not _ends_at_eojeol_boundary(text, match.end()):
                     continue
                 raw.append(

@@ -1168,9 +1168,9 @@
     {
       "id": "satz_a1_0054",
       "level": "a1",
-      "targetKo": "거기 가 본 적 있어요.",
-      "promptDe": "Da war ich schon mal.",
-      "promptEn": "I've been there before.",
+      "targetKo": "거기 갔어요.",
+      "promptDe": "Ich war dort.",
+      "promptEn": "I went there.",
       "distractors": [
         "옷이",
         "침대에서"
@@ -5888,9 +5888,9 @@
     {
       "id": "satz_a1_0101",
       "level": "a1",
-      "targetKo": "수저가 두 벌이라 어느 게 제 것인지 봤어요.",
-      "promptDe": "Es lagen zwei Garnituren da, also schaute ich, welche meine war.",
-      "promptEn": "There were two sets, so I checked which one was mine.",
+      "targetKo": "수저가 여기 있어요.",
+      "promptDe": "Das Besteck ist hier.",
+      "promptEn": "The cutlery is here.",
       "distractors": [
         "현관에서",
         "현우"
@@ -5960,9 +5960,9 @@
     {
       "id": "satz_a1_0107",
       "level": "a1",
-      "targetKo": "국물을 소리 안 나게 떠먹으려고 애썼어요.",
-      "promptDe": "Ich gab mir Mühe, die Brühe geräuschlos zu löffeln.",
-      "promptEn": "I tried hard to spoon the broth without making noise.",
+      "targetKo": "국물이 맛있어요.",
+      "promptDe": "Die Brühe schmeckt gut.",
+      "promptEn": "The broth tastes good.",
       "distractors": [
         "짧은",
         "찌는"
@@ -6152,9 +6152,9 @@
     {
       "id": "satz_a1_0123",
       "level": "a1",
-      "targetKo": "설빔으로 한복 대신 단정한 니트를 골랐어요.",
-      "promptDe": "Als Neujahrskleidung wählte ich statt Hanbok einen schlichten Pullover.",
-      "promptEn": "For New Year clothes I chose a neat sweater instead of hanbok.",
+      "targetKo": "설빔이 예뻐요.",
+      "promptDe": "Die Neujahrskleidung ist schön.",
+      "promptEn": "The New Year clothes are pretty.",
       "distractors": [
         "저는",
         "적었어요"
@@ -19124,9 +19124,9 @@
     {
       "id": "satz_b1_0297",
       "level": "b1",
-      "targetKo": "생각보다 답은 단순하더라고요.",
+      "targetKo": "생각보다 답은 단순했어요.",
       "promptDe": "Die Antwort war einfacher als gedacht.",
-      "promptEn": "The answer turned out to be simpler than expected.",
+      "promptEn": "The answer was simpler than I expected.",
       "distractors": [
         "경험",
         "문화"
@@ -20132,9 +20132,9 @@
     {
       "id": "satz_b1_0314",
       "level": "b1",
-      "targetKo": "저희 둘 공통점이 의외로 많더라고요.",
-      "promptDe": "Wir beide haben überraschend viel gemeinsam.",
-      "promptEn": "Turns out the two of us have a lot in common.",
+      "targetKo": "저희 둘은 공통점이 생각보다 많아요.",
+      "promptDe": "Wir haben mehr gemeinsam, als ich dachte.",
+      "promptEn": "We have more in common than I expected.",
       "distractors": [
         "경험",
         "문화"

@@ -183,18 +183,38 @@ Validation:
 
 ### Stage C-4 — remaining high-confidence level debt
 
-Status: **next**
+Status: **in progress**
 
-Continue ratchet-down work from current severe counts:
-- vocab over2: 158
-- cloze over2: 20
-- satz over2: 15
-- smalltalk over2: 17
-- media over2: 6
+First sentence-surface tranche completed:
+- fixed GrammarIndex false positive where A1 `그래요` was being read as the
+  B2 quoted-speech contraction
+- fixed C1 `N을/를 가지고` argument-framing false positives on elementary
+  possession `가지고 있다`
+- simplified six genuinely over-complex cloze/Satz surfaces while preserving
+  the learning target and aligning DE/EN copy
+- regenerated can-do lineage where an edited cloze stopped being a
+  byte-identical vocab-derived item
+- permanent current inventory:
+  `tools/content_factory/review/lcp_c4_sentence_over2_inventory_20261005.csv`
 
-For each surface, separate real content errors, justified exceptions, and already
-triaged backlog. Fix or document the owner; never raise a ratchet merely to
-make the suite green.
+Ratchets after this tranche:
+- vocab over2: **158**
+- cloze over2: **20 → 17**
+- satz over2: **15 → 7**
+- smalltalk over2: **17 → 14**
+- media over2: **6**
+- grammar/scenario/pronunciation over2: **0**
+
+Validation:
+- lexicon + level-audit + can-do generator/content bundle: **233 tests passed**
+  (**13 skipped**)
+- `build_can_do_segments.py --check`: fresh
+- `validate_content.py`: passed
+
+Continue through the 44 remaining high-confidence sentence-surface rows, then
+the vocab owner/backlog. For each surface, separate real content errors,
+auditor false positives, justified exceptions, and already-triaged backlog.
+Fix or document the owner; never raise a ratchet merely to make the suite green.
 
 Use:
 - `AGENTS.md` LCP gate
