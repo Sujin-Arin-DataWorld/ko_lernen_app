@@ -793,16 +793,14 @@
                 "matched": "한지",
                 "cefr": "B1",
                 "grade": 3,
-                "source": "basic2023",
-                "confidence": "low"
+                "source": "exception",
+                "confidence": "high"
               }
             ]
           },
           "liveVocabMatches": [],
           "classification": "culture_anchor",
-          "flags": [
-            "low_confidence_lexicon_source"
-          ],
+          "flags": [],
           "recommendedAction": "keep_with_glossary_support"
         },
         {

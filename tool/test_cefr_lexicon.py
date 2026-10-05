@@ -1784,6 +1784,24 @@ class TestT25LevelExceptionsGoldenCases(unittest.TestCase):
         self.assertEqual(seongmyo.source, "exception")
         self.assertEqual(seongmyo.grade, 2)
 
+    def test_hanji_culture_noun_wins_over_morphology_collision(self):
+        direct = self.lex.word_grade("한지")
+        self.assertEqual(
+            (direct.grade, direct.cefr, direct.source, direct.matched),
+            (3, "B1", "exception", "한지"),
+        )
+        phrase = self.lex.phrase_grade("한지")
+        self.assertEqual((phrase.grade, phrase.cefr), (3, "B1"))
+        self.assertEqual(
+            [(word.matched, word.source) for word in phrase.words],
+            [("한지", "exception")],
+        )
+        # Spaced grammar remains separate; the exception only owns the exact
+        # culture noun surface and does not change normal eojeol morphology.
+        profile = self.lex.sentence_profile("한국에서 산 지 오래됐어요.", self.gi)
+        self.assertTrue(profile.tokens)
+        self.assertNotIn("한지", [word.matched for word in profile.tokens])
+
 
 class TestC7ReviewedUnknownOwners(unittest.TestCase):
     @classmethod
