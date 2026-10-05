@@ -2,10 +2,10 @@
   "counts": {
     "cloze": {
       "fallback_over2": 0,
-      "over1": 158,
-      "over2": 17,
+      "over1": 159,
+      "over2": 11,
       "total": 2365,
-      "under2": 458,
+      "under2": 462,
       "unknown": 0
     },
     "grammar": {
@@ -19,7 +19,7 @@
     "media": {
       "fallback_over2": 1,
       "over1": 23,
-      "over2": 6,
+      "over2": 0,
       "total": 136,
       "under2": 13,
       "unknown": 0
@@ -34,10 +34,10 @@
     },
     "satz": {
       "fallback_over2": 0,
-      "over1": 159,
-      "over2": 7,
+      "over1": 157,
+      "over2": 6,
       "total": 2885,
-      "under2": 638,
+      "under2": 646,
       "unknown": 0
     },
     "scenario": {
@@ -50,10 +50,10 @@
     },
     "smalltalk": {
       "fallback_over2": 1,
-      "over1": 91,
-      "over2": 14,
+      "over1": 97,
+      "over2": 0,
       "total": 590,
-      "under2": 132,
+      "under2": 136,
       "unknown": 0
     },
     "vocab": {

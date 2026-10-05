@@ -38,10 +38,10 @@
     {
       "id": "media_003",
       "level": "A1",
-      "korean": "내 맘을 알아줘",
-      "romanization": "nae mameul arajwo",
-      "german": "Bitte versteh, wie ich mich fühle.",
-      "english": "Please understand how I feel.",
+      "korean": "내 말 들어 주세요.",
+      "romanization": "nae mal deureo juseyo",
+      "german": "Bitte hör mir zu.",
+      "english": "Please listen to me.",
       "source_type": "song",
       "source_style": "K-Pop 감성",
       "grammar_ids": [
@@ -50,8 +50,8 @@
       "vocab_ids": [],
       "courseUnitId": "a1_08_clarify_repair",
       "conceptIds": [],
-      "context_de": "Jemanden bitten, die eigenen Gefühle zu verstehen",
-      "context_en": "Asking someone to understand your feelings"
+      "context_de": "Jemanden bitten, zuzuhören",
+      "context_en": "Asking someone to listen"
     },
     {
       "id": "media_004",
@@ -158,10 +158,10 @@
     {
       "id": "media_010",
       "level": "A1",
-      "korean": "이리 와봐",
-      "romanization": "iri wabwa",
-      "german": "Komm mal her",
-      "english": "Come here",
+      "korean": "여기 와.",
+      "romanization": "yeogi wa",
+      "german": "Komm her.",
+      "english": "Come here.",
       "source_type": "drama",
       "source_style": "K-Drama 가족",
       "grammar_ids": [],
@@ -777,18 +777,18 @@
     {
       "id": "media_046",
       "level": "A2",
-      "korean": "어떡해, 큰일 났어",
-      "romanization": "eotteokae, keunil nasseo",
-      "german": "Oh nein, das ist ein ernstes Problem. Was jetzt?",
-      "english": "Oh no, this is serious. What now?",
+      "korean": "어떡해, 문제가 생겼어.",
+      "romanization": "eotteokae, munjega saenggyeosseo",
+      "german": "Oh nein, es gibt ein Problem. Was jetzt?",
+      "english": "Oh no, there's a problem. What now?",
       "source_type": "drama",
       "source_style": "K-Drama 위기",
       "grammar_ids": [],
       "vocab_ids": [],
       "courseUnitId": "a2_04_feelings_health",
       "conceptIds": [],
-      "context_de": "Panik über eine plötzliche Krise",
-      "context_en": "Panicking about a sudden crisis"
+      "context_de": "Auf ein plötzliches Problem reagieren",
+      "context_en": "Reacting to a sudden problem"
     },
     {
       "id": "media_047",
@@ -1161,10 +1161,10 @@
     {
       "id": "media_069",
       "level": "A2",
-      "korean": "인스타 아이디 물어봐도 돼요?",
-      "romanization": "inseuta aidi mureobaedo dwaeyo?",
-      "german": "Darf ich nach Ihrem Instagram-Namen fragen?",
-      "english": "May I ask for your Instagram handle?",
+      "korean": "SNS 이름 물어봐도 돼요?",
+      "romanization": "SNS ireum mureobwaedo dwaeyo?",
+      "german": "Darf ich nach Ihrem Namen in den sozialen Medien fragen?",
+      "english": "May I ask for your name on social media?",
       "source_type": "drama",
       "source_style": "K-Drama 연애/소개팅",
       "grammar_ids": [

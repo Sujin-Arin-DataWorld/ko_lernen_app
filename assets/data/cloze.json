@@ -3,8 +3,8 @@
     "total": 2365,
     "perLevel": {
       "a1": 652,
-      "a2": 339,
-      "b1": 436,
+      "a2": 337,
+      "b1": 438,
       "b2": 414,
       "c1": 250,
       "c2": 274
@@ -496,11 +496,11 @@
     {
       "id": "cloze_a1_0033",
       "level": "a1",
-      "sentenceKo": "나뭇잎이 ＿＿＿이에요.",
+      "sentenceKo": "＿＿＿이에요.",
       "answer": "초록색",
-      "fullKo": "나뭇잎이 초록색이에요.",
-      "de": "Die Blätter sind grün.",
-      "en": "The leaves are green.",
+      "fullKo": "초록색이에요.",
+      "de": "Es ist grün.",
+      "en": "It's green.",
       "distractors": [
         "발",
         "일요일",
@@ -661,11 +661,11 @@
     {
       "id": "cloze_a1_0044",
       "level": "a1",
-      "sentenceKo": "＿＿＿을 삶아요.",
+      "sentenceKo": "＿＿＿을 먹어요.",
       "answer": "계란",
-      "fullKo": "계란을 삶아요.",
-      "de": "Ich koche ein Ei.",
-      "en": "I boil an egg.",
+      "fullKo": "계란을 먹어요.",
+      "de": "Ich esse ein Ei.",
+      "en": "I eat an egg.",
       "distractors": [
         "몸",
         "점심",
@@ -2985,7 +2985,7 @@
     },
     {
       "id": "cloze_a2_0054",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿한테 보고했어요.",
       "answer": "상사",
       "fullKo": "상사한테 보고했어요.",
@@ -4020,7 +4020,7 @@
     },
     {
       "id": "cloze_a2_0069",
-      "level": "a2",
+      "level": "b1",
       "sentenceKo": "＿＿＿을 냈어요.",
       "answer": "보증금",
       "fullKo": "보증금을 냈어요.",

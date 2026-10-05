@@ -7343,7 +7343,8 @@
     "a2:natur & draußen": "a2_03_chat_relationships",
     "a2:menschen & berufe": "a2_06_study_work",
     "c2:ehrensprache": "c2_01_interpretation_institutions",
-    "c2:argumentation und verfahrensgestaltung": "c2_03_automation_redress"
+    "c2:argumentation und verfahrensgestaltung": "c2_03_automation_redress",
+    "b1:wohnen": "b1_05_complaint_resolution"
   },
   "scenarioCorpusGeneration": "canonical_120_v1",
   "scenarioCorpusSupplements": [

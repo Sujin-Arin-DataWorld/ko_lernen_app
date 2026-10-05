@@ -425,6 +425,29 @@ class TestRealLexiconGoldenCases(unittest.TestCase):
                 self.assertIn("grammar_b2_quoted_contractions", ids)
                 self.assertNotIn("grammar_a2_preference_question", ids)
 
+    def test_common_conjugations_beat_unrelated_high_grade_homographs(self):
+        cases = {
+            "일해요": ("일", 1, "A1"),
+            "비싸요": ("비싸다", 1, "A1"),
+            "이상한데": ("이상", 2, "A2"),
+        }
+        for surface, (matched, grade, cefr) in cases.items():
+            with self.subTest(surface=surface):
+                word = self.lex.word_grade(surface)
+                self.assertEqual((word.matched, word.grade, word.cefr), (matched, grade, cefr))
+
+    def test_a1_want_disambiguates_verbal_bogo_and_caps_sipda_component(self):
+        self.assertEqual(self.lex.word_grade("보고").grade, 3)
+        profile = self.lex.sentence_profile("보고 싶어.", self.grammar)
+        self.assertEqual(profile.level_estimate, "A1")
+        self.assertEqual(
+            [(word.matched, word.grade) for word in profile.tokens],
+            [("보다(h1,h4)", 1), ("싶다", 1)],
+        )
+        self.assertTrue(
+            any(hit.pattern_id == "grammar_a1_want" for hit in profile.grammar_hits)
+        )
+
     def test_word_grade_gongbuhada_derived(self):
         wg = self.lex.word_grade("공부하다")
         self.assertEqual((wg.grade, wg.cefr, wg.source), (1, "A1", "derived"))

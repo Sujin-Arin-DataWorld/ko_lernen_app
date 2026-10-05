@@ -5972,9 +5972,9 @@
     {
       "id": "satz_a1_0108",
       "level": "a1",
-      "targetKo": "젓가락질이 서툴러서 콩나물을 놓쳤어요.",
-      "promptDe": "Meine Stäbchen waren ungeschickt, und die Sojasprossen rutschten weg.",
-      "promptEn": "My chopstick skills were clumsy, and the bean sprouts slipped away.",
+      "targetKo": "젓가락질을 연습해요.",
+      "promptDe": "Ich übe, mit Stäbchen zu essen.",
+      "promptEn": "I'm practicing using chopsticks.",
       "distractors": [
         "빨개졌어요",
         "사양하다가"

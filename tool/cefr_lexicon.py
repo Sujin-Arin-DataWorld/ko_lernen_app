@@ -225,7 +225,7 @@ ENDINGS: Tuple[str, ...] = (
     "아요", "어요", "여요", "해요", "았어요", "었어요", "했어요", "ㅂ니다",
     "습니다", "습니까", "ㅂ니까", "세요", "으세요", "고", "지만", "어서",
     "아서", "해서", "으니까", "니까", "으면", "면", "으러", "러", "으려고",
-    "려고", "는데", "은데", "ㄴ데", "네요", "군요", "지요", "죠", "을게요",
+    "려고", "는데", "은데", "ㄴ데", "한데", "네요", "군요", "지요", "죠", "을게요",
     "ㄹ게요", "을까요", "ㄹ까요", "을래요", "ㄹ래요", "거든요", "잖아요",
     "겠어요", "았", "었", "겠", "는", "은", "ㄴ", "을", "ㄹ", "기", "음", "ㅁ",
     # R3 item 4: 으니/니 connective ("앉으니" -> 앉다).
@@ -328,7 +328,7 @@ _NOUN_PARTICLE_PRIORITY_SUFFIXES: frozenset = frozenset({"은"})
 # "말하다" at the SAME early priority (see the item-4 addition's own
 # `suf not in _HADA_FUSED_ENDINGS` guard, added at the same time) instead
 # of depending on suffix-length ordering to surface it later.
-_HADA_FUSED_ENDINGS: frozenset = frozenset({"해서", "해야", "했어요"})
+_HADA_FUSED_ENDINGS: frozenset = frozenset({"해서", "해야", "했어요", "한데"})
 
 # Connective (연결어미) subset of ENDINGS used for clause counting.
 CONNECTIVE_ENDINGS: frozenset = frozenset({
@@ -698,6 +698,12 @@ def _swap_final_batchim(token: str, from_tail: int, to_tail: int) -> Optional[st
 _STEM_HOMOGRAPH_OVERRIDE_MAP: Mapping[str, str] = {
     "켜": "켜다",
     "타": "타다",
+    # Regular 하다 / adjective stems whose shorter generic stem is itself
+    # a different high-grade headword. Keep these in the same narrow table
+    # used for 켜/타 so only conjugated-stem recovery changes; exact noun/
+    # dictionary-form lookups still win before lemma fallback.
+    "일": "일하다",
+    "비싸": "비싸다",
 }
 
 
@@ -1437,6 +1443,8 @@ def tokenize_eojeols(text: str) -> List[str]:
 EXTRA_PROPER_NOUNS: Tuple[str, ...] = (
     "현우", "지은", "민수", "수진", "안드레아", "크리스티안", "마리아",
     "다니엘", "제니", "이지윤",
+    # Live geographic names are identity, not lexical CEFR burden.
+    "인사동", "종각역",
 )
 
 # T2.4a (B6): brand/product names -- excluded from grading (`grade=None`,
@@ -1450,7 +1458,7 @@ EXTRA_PROPER_NOUNS: Tuple[str, ...] = (
 # table (docs/data/level_bible/F9_exceptions.md, "브랜드/고유명사" section)
 # alongside every other grade-list-independent exception category.
 PROPER_NOUN_EXCLUSIONS: FrozenSet[str] = frozenset({
-    "카카오톡", "카톡", "네이버", "인스타그램", "유튜브", "쿠팡", "배민",
+    "카카오톡", "카톡", "네이버", "인스타그램", "인스타", "유튜브", "쿠팡", "배민",
     "지도앱",
 })
 
@@ -2532,17 +2540,44 @@ class CefrLexicon:
             hit.pattern_id == "grammar_a1_long_negation"
             for hit in grammar_hits
         )
+        has_a1_want = any(
+            hit.pattern_id in {"grammar_a1_want", "nikl_g1_고_싶다"}
+            for hit in grammar_hits
+        )
 
         tokens: List[WordGrade] = []
         unknown: List[str] = []
         low_confidence: List[str] = []
         proper_nouns: List[str] = []
         connective_hits = 0
-        for raw in eojeols:
+        for index, raw in enumerate(eojeols):
             token = _normalize_token(raw)
             if not token:
                 continue
             resolved = self._resolve_eojeol(token)
+            # In V-고 싶다 the immediately preceding -고 form is verbal,
+            # even when its surface is also an unrelated noun headword
+            # (보고 = report vs 보다+고). Once GrammarIndex confirms the
+            # A1 construction and the next eojeol is 싶-, prefer the verb
+            # lemma only when it resolves lower than the raw homograph.
+            if (
+                has_a1_want
+                and token.endswith("고")
+                and index + 1 < len(eojeols)
+                and _normalize_token(eojeols[index + 1]).startswith("싶")
+            ):
+                stem = token[:-1]
+                repaired = _irregular_repair(stem)
+                verb_candidate = repaired if repaired is not None else _restore_predicate(stem)
+                verb_grade = self.word_grade(verb_candidate)
+                if (
+                    verb_grade.grade is not None
+                    and (
+                        resolved.grade is None
+                        or verb_grade.grade < resolved.grade
+                    )
+                ):
+                    resolved = verb_grade
             # 않다 is a genuine grade-3 lexical headword, so word_grade()
             # must keep that grade for vocabulary coverage. In the fixed A1
             # grammar -지 않다, however, the same lemma is the auxiliary
@@ -2551,6 +2586,18 @@ class CefrLexicon:
             # sentence token at A1 so the grammar's own lexical material is
             # not counted twice as unrelated B1 vocabulary.
             if has_a1_long_negation and resolved.matched == "않다":
+                resolved = WordGrade(
+                    1,
+                    "A1",
+                    "exception",
+                    resolved.matched,
+                    "high",
+                )
+            # 싶다 likewise has an independent higher lexical grade, but in
+            # the positively detected A1 construction V-고 싶다 it is the
+            # grammatical desire component rather than a separate lexical
+            # burden. Keep standalone 싶다 unchanged; cap only this context.
+            if has_a1_want and resolved.matched == "싶다":
                 resolved = WordGrade(
                     1,
                     "A1",
