@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/cultural_glossary.dart';
 import 'package:ko_lernen_app/services/cultural_glossary_repository.dart';
+import 'package:ko_lernen_app/services/decoration_reward_service.dart';
 import 'package:ko_lernen_app/widgets/sori/placed_decoration.dart';
 
 void main() {
@@ -121,6 +122,29 @@ void main() {
     expect(
       actualLinks.keys.length,
       catalog.entries.expand((entry) => entry.decorationSlugs).length,
+    );
+  });
+
+  test('phase 8 reuses only existing deterministic culture rewards', () {
+    const phase8Reuse = <String, String>{
+      'decoration_gat_buchae': 'gat',
+      'decoration_munbangsau': 'munbangsau',
+      'decoration_soban': 'soban',
+      'decoration_jagae_mungap': 'jagae_mungap',
+    };
+
+    for (final link in phase8Reuse.entries) {
+      expect(catalog.termIdForDecoration(link.key), link.value);
+      expect(kDecorationRewardPool, contains(link.key));
+    }
+
+    expect(catalog.entry('norigae')!.decorationSlugs, isEmpty);
+    expect(catalog.entry('maedeup')!.decorationSlugs, isEmpty);
+    expect(
+      kDecorationRewardPool.any(
+        (slug) => slug.contains('norigae') || slug.contains('maedeup'),
+      ),
+      isFalse,
     );
   });
 
