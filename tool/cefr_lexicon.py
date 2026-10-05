@@ -732,6 +732,17 @@ _SURFACE_LEMMA_OVERRIDE_MAP: Mapping[str, str] = {
     "알려줘야겠다": "알려주다",
     "왔다는데": "오다",
     "눌렀대지": "누르다",
+    # Living Korea second-wave surfaces found in natural work/family,
+    # fieldwork, and safety dialogue. Exact repairs remain intentionally
+    # narrow to avoid broad ending collisions.
+    "정해야겠네요": "정하다",
+    "순서겠네요": "순서",
+    "봐야겠죠": "보다",
+    "드나드는": "드나들다",
+    "볼까요": "보다",
+    "봐야겠지요": "보다",
+    "합시다": "하다",
+    "나거나": "나다",
 }
 
 

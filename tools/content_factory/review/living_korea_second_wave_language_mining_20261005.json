@@ -68,11 +68,10 @@
       "sceneId": "b2_hyuna_andrea_work_family_choices",
       "vocabulary": [
         {"lemma": "출생", "attestedSurface": "출생"},
-        {"lemma": "일·가정 균형", "attestedSurface": "일·가정 균형"},
+        {"lemma": "일과 가정의 균형", "attestedSurface": "일과 가정의 균형"},
         {"lemma": "선택", "attestedSurface": "선택"},
         {"lemma": "집값", "attestedSurface": "집값"},
         {"lemma": "돌봄", "attestedSurface": "돌봄"},
-        {"lemma": "여지", "attestedSurface": "여지가"},
         {"lemma": "통계", "attestedSurface": "통계"},
         {"lemma": "흐름", "attestedSurface": "흐름을"}
       ],
@@ -80,9 +79,9 @@
         {"pattern": "V-다고", "attestedSurface": "달라졌다고"},
         {"pattern": "V-(으)ㄹ 수 없다", "attestedSurface": "설명할 수는 없잖아요"},
         {"pattern": "A/V-지만", "attestedSurface": "있지만"},
-        {"pattern": "A/V-느냐", "attestedSurface": "있느냐가"},
+        {"pattern": "V-(으)ㄹ 수 있는지", "attestedSurface": "선택할 수 있는지가"},
         {"pattern": "V-지만", "attestedSurface": "보여 주지만"},
-        {"pattern": "V-되", "attestedSurface": "참고하되"}
+        {"pattern": "V-고", "attestedSurface": "참고하고"}
       ],
       "pragmatics": [
         {"function": "통계와 개인 선택 분리", "attestedSurface": "숫자가 조금 달라졌다고 사람들 선택까지 쉽게 설명할 수는 없잖아요."},
@@ -113,7 +112,7 @@
       ],
       "pragmatics": [
         {"function": "일정 부담을 구체적으로 나누기", "attestedSurface": "화요일은 제가 갈 수 있어요. 대신 목요일은 회의가 늦게 끝나요."},
-        {"function": "청소년의 자기 일정 책임 남기기", "attestedSurface": "준한테도 먼저 자기 일정 확인하라고 하고요."},
+        {"function": "청소년의 자기 일정 책임 남기기", "attestedSurface": "준도 먼저 자기 일정 확인하라고 하고요."},
         {"function": "한 사람에게 몰리지 않게 합의", "attestedSurface": "이번엔 한 사람이 다 맞추지 말고 셋이 같이 보죠."}
       ],
       "registerMarkers": [
@@ -154,7 +153,6 @@
       "vocabulary": [
         {"lemma": "수선 가격", "attestedSurface": "수선 가격"},
         {"lemma": "공지", "attestedSurface": "공지를"},
-        {"lemma": "항목", "attestedSurface": "항목이"},
         {"lemma": "조정되다", "attestedSurface": "조정됩니다"},
         {"lemma": "맡기다", "attestedSurface": "맡기기"},
         {"lemma": "안내하다", "attestedSurface": "안내해"},
@@ -170,7 +168,7 @@
       ],
       "pragmatics": [
         {"function": "공지 톤 요청", "attestedSurface": "공지를 너무 딱딱하게 쓰고 싶진 않아요."},
-        {"function": "정보 우선순위 제안", "attestedSurface": "언제부터 어떤 항목이 바뀌는지만 먼저 쓰면 어때요?"},
+        {"function": "정보 우선순위 제안", "attestedSurface": "언제부터 어떤 수선 가격이 바뀌는지만 먼저 쓰면 어때요?"},
         {"function": "과도한 사과 대신 정확성 강조", "attestedSurface": "바뀌는 내용을 정확하게 알려 주는 게 더 중요해요."}
       ],
       "registerMarkers": [
@@ -183,14 +181,14 @@
       "vocabulary": [
         {"lemma": "골목", "attestedSurface": "골목"},
         {"lemma": "토요일 오후", "attestedSurface": "토요일 오후"},
-        {"lemma": "출입구", "attestedSurface": "출입구는"},
-        {"lemma": "구간", "attestedSurface": "구간도"},
+        {"lemma": "가게 입구", "attestedSurface": "가게 입구는"},
+        {"lemma": "조용한 곳", "attestedSurface": "조용한 곳도"},
         {"lemma": "불편하다", "attestedSurface": "불편하고요"},
         {"lemma": "가게 문", "attestedSurface": "가게 문"}
       ],
       "grammar": [
-        {"pattern": "V-아/어 볼래요?", "attestedSurface": "가 볼래요?"},
-        {"pattern": "A/V-더라고요", "attestedSurface": "올라오더라고요"},
+        {"pattern": "V-는 거 어때요?", "attestedSurface": "같이 가는 거 어때요?"},
+        {"pattern": "A/V-아요/어요", "attestedSurface": "올라와요"},
         {"pattern": "A/V-아서", "attestedSurface": "많아서"},
         {"pattern": "V-(으)ㄹ까요?", "attestedSurface": "갈까요?"},
         {"pattern": "V-(으)ㄹ 때", "attestedSurface": "찍을 때도"},
@@ -198,7 +196,7 @@
       ],
       "pragmatics": [
         {"function": "혼잡도 정보를 듣고 시간 변경", "attestedSurface": "아, 그 정도예요? 그러면 아침에 갈까요?"},
-        {"function": "관광객의 자발적 배려", "attestedSurface": "사진 찍을 때도 출입구는 안 막을게요."},
+        {"function": "관광객의 자발적 배려", "attestedSurface": "사진 찍을 때도 가게 입구는 안 막을게요."},
         {"function": "관광객과 주민 양쪽 고려", "attestedSurface": "놀러 가는 사람도 편하고 사는 사람도 덜 불편하고요."}
       ],
       "registerMarkers": [
@@ -228,7 +226,7 @@
       "pragmatics": [
         {"function": "공간의 이중 용도 설명", "attestedSurface": "관광객도 많지만 주민들이 집에 드나드는 길이기도 해요."},
         {"function": "촬영 장비 위치 조정", "attestedSurface": "삼각대는 벽 쪽으로 붙이고, 한 장면 찍는 시간도 짧게 잡을게요."},
-        {"function": "촬영 편의보다 생활 우선", "attestedSurface": "예쁜 화면보다 사람들이 계속 생활할 수 있는 게 먼저니까요."}
+        {"function": "촬영 편의보다 생활 우선", "attestedSurface": "예쁜 화면보다 사람들이 계속 생활할 수 있는 게 먼저예요."}
       ],
       "registerMarkers": [
         "촬영자와 지역 연구자의 전문적 해요체",
@@ -256,7 +254,7 @@
       ],
       "pragmatics": [
         {"function": "관심의 출발점 말하기", "attestedSurface": "저 처음에는 진짜 음악 때문에 한국에 관심 생겼거든요."},
-        {"function": "취향 확장 설명", "attestedSurface": "요즘은 소설도 읽고, 음식 찾아다니고, 여행 계획도 그걸 따라가요."},
+        {"function": "취향 확장 설명", "attestedSurface": "요즘은 소설도 읽고, 음식 찾아다니고, 여행 계획도 자연스럽게 바뀌었어요."},
         {"function": "대표성 과장 피하기", "attestedSurface": "유행하는 걸 한국 전체라고 말하진 않게요."}
       ],
       "registerMarkers": [
@@ -296,14 +294,13 @@
     {
       "sceneId": "b2_hyuna_daniel_gyeongju_after_apec",
       "vocabulary": [
-        {"lemma": "APEC", "attestedSurface": "APEC"},
         {"lemma": "행사 흔적", "attestedSurface": "행사 흔적도"},
         {"lemma": "평소", "attestedSurface": "평소처럼"},
         {"lemma": "문화유산", "attestedSurface": "문화유산을"},
         {"lemma": "행사 자료", "attestedSurface": "행사 자료는"},
         {"lemma": "현재 도시", "attestedSurface": "현재 도시"},
         {"lemma": "안내", "attestedSurface": "안내"},
-        {"lemma": "동선", "attestedSurface": "동선이"}
+        {"lemma": "길", "attestedSurface": "길이"}
       ],
       "grammar": [
         {"pattern": "V-(으)면", "attestedSurface": "다시 찍으면"},
@@ -324,7 +321,7 @@
       ]
     },
     {
-      "sceneId": "b1_hyuna_byeongcheol_gyeongju_heritage",
+      "sceneId": "b2_hyuna_byeongcheol_gyeongju_heritage",
       "vocabulary": [
         {"lemma": "답사", "attestedSurface": "답사는"},
         {"lemma": "경주", "attestedSurface": "경주로"},
@@ -366,15 +363,16 @@
         {"lemma": "시간", "attestedSurface": "시간을"}
       ],
       "grammar": [
-        {"pattern": "A/V-대요", "attestedSurface": "덥대요"},
-        {"pattern": "N보다", "attestedSurface": "오후보다는"},
+        {"pattern": "A/V-아요/어요", "attestedSurface": "더워요"},
+        {"pattern": "N 말고", "attestedSurface": "오후 말고"},
+        {"pattern": "V-는 게 어때요?", "attestedSurface": "가는 게 어때요?"},
         {"pattern": "V-(으)ㄹ까요?", "attestedSurface": "갈까요?"},
         {"pattern": "V-고", "attestedSurface": "걷고"},
         {"pattern": "V-지 말아요", "attestedSurface": "걷지는 말아요"},
         {"pattern": "A/V-(으)면", "attestedSurface": "더우면"}
       ],
       "pragmatics": [
-        {"function": "더위에 맞춰 시간 변경", "attestedSurface": "오후보다는 아침이 낫지 않을까요?"},
+        {"function": "더위에 맞춰 시간 변경", "attestedSurface": "오후 말고 아침에 가는 게 어때요?"},
         {"function": "야외·실내 일정 조합", "attestedSurface": "아침에 걷고 점심부터는 실내에 있어요."},
         {"function": "장소보다 시간 조정", "attestedSurface": "이런 날은 장소보다 시간을 바꾸는 게 제일 편해요."}
       ],
@@ -445,7 +443,7 @@
       "family": "원형·자료·재해석 분리",
       "sceneIds": [
         "b2_maya_daniel_tradition_reinterpretation",
-        "b1_hyuna_byeongcheol_gyeongju_heritage"
+        "b2_hyuna_byeongcheol_gyeongju_heritage"
       ],
       "repeatedLanguage": ["원래", "자료", "따로", "확인하다"]
     },

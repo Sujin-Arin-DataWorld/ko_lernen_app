@@ -766,11 +766,12 @@ class TestSentenceUnknownRatio(unittest.TestCase):
     """Ratchet sentence unknown-token ratio over every cloze fullKo.
 
     The original R3 acceptance ceiling was 12%; C7-4 lowered the live ratio
-    to ~1.92%, and the Living Korea D-4 surface repairs lower it again to
-    ~1.89%, which is now the ratchet baseline.
+    to ~1.92%, Living Korea first-wave repairs lowered it below 1.89%, and
+    second-wave morphology repairs lower it again to ~1.87%. The ratchet is
+    now 1.88%.
     """
 
-    CAP_UNKNOWN_RATIO = 0.0189
+    CAP_UNKNOWN_RATIO = 0.0188
 
     @classmethod
     def setUpClass(cls):
@@ -1828,6 +1829,14 @@ class TestLivingKoreaD4SurfaceMorphology(unittest.TestCase):
         ("알려줘야겠다.", "알려주다"),
         ("왔다는데", "오다"),
         ("눌렀대지?", "누르다"),
+        ("정해야겠네요.", "정하다"),
+        ("순서겠네요.", "순서"),
+        ("봐야겠죠.", "보다"),
+        ("드나드는", "드나들다"),
+        ("볼까요?", "보다"),
+        ("봐야겠지요.", "보다"),
+        ("합시다.", "하다"),
+        ("나거나", "나다"),
     ]
 
     def test_living_korea_normal_surfaces_resolve_to_dictionary_forms(self):

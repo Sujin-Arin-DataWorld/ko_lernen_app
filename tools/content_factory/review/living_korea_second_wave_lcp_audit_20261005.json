@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "wave": "second_wave",
+  "status": "D4_PASS",
+  "snapshotDate": "2026-10-05",
+  "sourceDraft": "tools/content_factory/drafts/living_korea_second_wave_scene_first_drafts_20261005.json",
+  "languageMining": "tools/content_factory/review/living_korea_second_wave_language_mining_20261005.json",
+  "scope": {
+    "arcs": 7,
+    "scenes": 14,
+    "dialogueTurns": 84
+  },
+  "exitConditions": {
+    "sentenceUnknown": 0,
+    "minedVocabUnknown": 0,
+    "minedVocabOver2": 0,
+    "maxSentenceLevelDelta": 1
+  },
+  "decisions": {
+    "reauthoredTrueDifficultyDebt": [
+      {
+        "sceneId": "b2_hyuna_andrea_work_family_choices",
+        "removedOrSimplified": ["여지", "일·가정"],
+        "principle": "B2 사회대화의 핵심은 개인 선택과 조건을 구분하는 것이므로 불필요한 추상명사와 auditor-unfriendly 표기를 평이한 문장으로 바꿨다."
+      },
+      {
+        "sceneId": "b1_dongsun_maya_price_notice",
+        "removedOrSimplified": ["항목"],
+        "principle": "가게 공지 장면에서는 행정적 명사보다 어떤 수선 가격이 바뀌는지 직접 말하는 것이 더 자연스럽다."
+      },
+      {
+        "sceneId": "b1_lena_hyuna_crowded_weekend",
+        "removedOrSimplified": ["출입구", "구간", "-더라고요"],
+        "principle": "B1 여행 장면의 핵심은 혼잡 시간과 주민 배려이므로 가게 입구·조용한 곳·올라와요처럼 실제 생활어로 조정했다."
+      },
+      {
+        "sceneId": "a2_lena_hyuna_heatwave_plan",
+        "removedOrSimplified": ["-대요"],
+        "principle": "A2 일정 조율 장면은 전달화법보다 직접적인 더위·시간 변경 언어를 우선했다."
+      },
+      {
+        "sceneId": "b2_hyuna_byeongcheol_gyeongju_heritage",
+        "levelChange": "B1 -> B2",
+        "principle": "답사·문화유산·홍보 문구·역사 사실을 구분하는 사고 수준과 어휘가 자연스럽게 B2에 맞아 장면을 억지로 단순화하지 않고 승급했다."
+      }
+    ],
+    "modernLifeExactOwners": [
+      {
+        "surface": "한류",
+        "level": "B1",
+        "category": "living_korea_contemporary_culture",
+        "reason": "레나·마야의 현대 한국 문화 대화에서 핵심 생활문화어이며 기존 external grade C1이 실제 과업보다 높았다."
+      },
+      {
+        "surface": "콘텐츠",
+        "level": "B1",
+        "category": "living_korea_contemporary_culture",
+        "reason": "마케팅·미디어 일상에서 반복되는 B1 핵심어로 exact owner만 둔다."
+      },
+      {
+        "surface": "맥락",
+        "level": "B2",
+        "category": "living_korea_culture_context",
+        "reason": "전통문화 재해석에서 원형과 현대 연출을 구분하는 B2 핵심어다."
+      },
+      {
+        "surface": "전통 장신구",
+        "level": "B2",
+        "category": "living_korea_culture_context",
+        "reason": "마야·다니엘 장면의 정확한 task phrase라 phrase-level owner로 둔다."
+      },
+      {
+        "surface": "답사",
+        "level": "B2",
+        "category": "living_korea_fieldwork",
+        "reason": "현아·병철의 문화유산 현장 조사 장면에서 반복 가능한 B2 fieldwork 핵심어다."
+      }
+    ],
+    "auditorMorphologyRepairs": [
+      {"surface": "정해야겠네요", "lemma": "정하다"},
+      {"surface": "순서겠네요", "lemma": "순서"},
+      {"surface": "봐야겠죠", "lemma": "보다"},
+      {"surface": "드나드는", "lemma": "드나들다"},
+      {"surface": "볼까요", "lemma": "보다"},
+      {"surface": "봐야겠지요", "lemma": "보다"},
+      {"surface": "합시다", "lemma": "하다"},
+      {"surface": "나거나", "lemma": "나다"}
+    ]
+  },
+  "globalLexiconSideEffect": {
+    "clozeSentenceUnknownBeforeSecondWave": 277,
+    "clozeSentenceUnknownAfter": 276,
+    "clozeTokenCount": 14721,
+    "ratioAfter": 0.0187,
+    "ratchetCap": 0.0188
+  },
+  "claims": {
+    "humanApproval": false,
+    "nativeSpeakerQa": false,
+    "ttsTouched": false,
+    "liveScenarioWrite": false
+  }
+}
