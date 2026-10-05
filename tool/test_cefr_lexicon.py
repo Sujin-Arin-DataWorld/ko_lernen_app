@@ -436,6 +436,21 @@ class TestRealLexiconGoldenCases(unittest.TestCase):
                 word = self.lex.word_grade(surface)
                 self.assertEqual((word.matched, word.grade, word.cefr), (matched, grade, cefr))
 
+    def test_deferential_dririda_compounds_resolve_from_real_noun_roots(self):
+        cases = {
+            "인사드리다": ("인사", 1, "A1"),
+            "인사드리겠습니다": ("인사", 1, "A1"),
+            "연락드릴게요": ("연락", 2, "A2"),
+        }
+        for surface, (matched, grade, cefr) in cases.items():
+            with self.subTest(surface=surface):
+                word = self.lex.word_grade(surface)
+                self.assertEqual(
+                    (word.matched, word.grade, word.cefr, word.source),
+                    (matched, grade, cefr, "derived"),
+                )
+        self.assertIsNone(self.lex.word_grade("가나다드리다").grade)
+
     def test_plain_style_present_and_past_forms_resolve_without_guessing(self):
         cases = {
             "한다": ("하다", 1),
@@ -711,7 +726,7 @@ class TestVocabUnknownRatio(unittest.TestCase):
     ratchet to the current 2026-10-05 actual (~2.36%).
     """
 
-    CAP_UNKNOWN_RATIO = 0.024
+    CAP_UNKNOWN_RATIO = 0.023
 
     @classmethod
     def setUpClass(cls):
@@ -748,7 +763,7 @@ class TestSentenceUnknownRatio(unittest.TestCase):
     ratchet to the current 2026-10-05 actual (~2.58%).
     """
 
-    CAP_UNKNOWN_RATIO = 0.026
+    CAP_UNKNOWN_RATIO = 0.0253
 
     @classmethod
     def setUpClass(cls):

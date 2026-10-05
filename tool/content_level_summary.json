@@ -74,7 +74,7 @@
       "replacement_backlog": 0,
       "reviewed_owner": 0,
       "total": 590,
-      "under2": 137,
+      "under2": 140,
       "unknown": 0
     },
     "vocab": {
@@ -85,8 +85,8 @@
       "replacement_backlog": 0,
       "reviewed_owner": 146,
       "total": 2968,
-      "under2": 228,
-      "unknown": 58
+      "under2": 229,
+      "unknown": 55
     }
   },
   "coverage": {
@@ -233,16 +233,16 @@
         {
           "median": 0,
           "n_hm": 9,
-          "n_low": 0,
-          "pack_id": "a2_partner_photo_thanks_1",
-          "share_ge_plus2": 0.1111
-        },
-        {
-          "median": 0,
-          "n_hm": 9,
           "n_low": 2,
           "pack_id": "a2_school_supplies_1",
           "share_ge_plus2": 0.1111
+        },
+        {
+          "median": 0.0,
+          "n_hm": 10,
+          "n_low": 0,
+          "pack_id": "a2_partner_photo_thanks_1",
+          "share_ge_plus2": 0.1
         },
         {
           "median": 0,

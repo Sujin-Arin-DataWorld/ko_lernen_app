@@ -359,8 +359,27 @@ Validation:
 - lexicon + level-audit tests: **200 / 200 passed**
 - audit regeneration: passed
 
-Next C-7 substage: classify and reduce the remaining live vocab unknown owner
-set without inventing lexical grades or weakening the ratchets.
+#### C-7.2a — productive deferential compounds
+
+Status: **complete**
+
+Added a narrow compositional rule for real noun + `드리다` honorific
+predicates:
+- `인사드리다 / 인사드리겠습니다` derive from A1 `인사`
+- `연락드릴게요` derives from A2 `연락`
+- arbitrary unknown strings ending in `드리다` still fail closed
+
+Measured effect:
+- vocab unknown headwords: **70 → 67**
+- vocab unknown ratio: **2.36% → 2.26%**
+- sentence unknown tokens: **380 → 371**
+- sentence unknown ratio: **2.58% → 2.52%**
+- vocab unknown ratchet tightened to **2.3%**
+- sentence unknown ratchet tightened to **2.53%**
+
+Next C-7 substage: classify transparent loanwords, compositional compounds,
+and true domain-lexicon gaps separately; do not manufacture levels merely to
+erase unknowns.
 
 Never raise a ratchet merely to make the suite green.
 

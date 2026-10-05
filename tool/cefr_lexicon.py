@@ -2156,6 +2156,9 @@ class CefrLexicon:
             wg = self._base_chain(candidate)
             if wg.grade is not None:
                 return wg
+            dririda = self._deferential_dririda_lookup(candidate)
+            if dririda.grade is not None:
+                return dririda
             # T2.4a (B4, "드시라고요" -> 드시다): a lemma candidate can
             # ITSELF only be resolvable via aliases.csv (e.g. "드시다",
             # which is neither a kiiq nor a basic2023 headword -- see
@@ -2278,6 +2281,29 @@ class CefrLexicon:
         if prefixed.grade is not None:
             return prefixed
         return self._compound_split_lookup(word)
+
+    def _deferential_dririda_lookup(self, word: str) -> WordGrade:
+        """Resolve transparent N+드리다 honorific compounds.
+
+        Learner-facing forms such as 인사드리다 and 연락드리다 are productive
+        combinations of a real noun plus the A1 honorific verb 드리다. Only
+        accept the construction when the noun stem itself resolves through
+        the ordinary base chain; otherwise fail closed rather than inventing
+        a grade for an arbitrary string ending in 드리다.
+        """
+        suffix = "드리다"
+        if not word.endswith(suffix) or len(word) <= len(suffix):
+            return WordGrade(None, None, None, word)
+        root = word[:-len(suffix)]
+        root_grade = self._base_chain(root)
+        if root_grade.grade is None:
+            return WordGrade(None, None, None, word)
+        return WordGrade(
+            root_grade.grade,
+            root_grade.cefr,
+            "derived",
+            root,
+        )
 
     def _copula_headword_lookup(self, word: str) -> WordGrade:
         """R8 item 4 ("효율적이다" -> 효율적, B2; "학생이다" -> 학생, A1):
@@ -2444,6 +2470,9 @@ class CefrLexicon:
         lemma_fb = self._lemma_fallback_chain(normalized)
         if lemma_fb.grade is not None:
             return lemma_fb
+        dririda = self._deferential_dririda_lookup(normalized)
+        if dririda.grade is not None:
+            return dririda
         # R8 item 4: X이다/X적이다 headword-level copula-stem resolution,
         # inserted BEFORE basic2023 (the brief's own ordering) -- see
         # `_copula_headword_lookup`'s docstring.

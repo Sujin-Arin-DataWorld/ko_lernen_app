@@ -1711,8 +1711,10 @@ smalltalk,smalltalk_b1_0016,b1,a1,-2,under2 grammar=grammar_a1_subject_particle:
 smalltalk,smalltalk_b1_0025,b1,a1,-2,under2 grammar=grammar_a1_which_question:1,can_do_ref,,downgrade_candidate
 smalltalk,smalltalk_b1_0031,b1,b2,1,over1 lex_p90=3.7,can_do_ref,,step_up_or_swap
 smalltalk,smalltalk_b1_0035,b1,a1,-2,under2 grammar=grammar_a1_subject_particle:1,can_do_ref,,downgrade_candidate
-smalltalk,smalltalk_b1_0047,b1,b2,1,over1 lex_p90=3.6,can_do_ref,,step_up_or_swap
+smalltalk,smalltalk_b1_0047,b1,b2,1,over1 lex_p90=3.5,can_do_ref,,step_up_or_swap
 smalltalk,smalltalk_b1_0050,b1,b2,1,over1 grammar=grammar_b1_as_soon_as:4,can_do_ref,,step_up_or_swap
+smalltalk,smalltalk_b1_0056,b1,a1,-2,under2 grammar=grammar_a1_topic_particle:1,can_do_ref,,downgrade_candidate
+smalltalk,smalltalk_b1_0060,b1,a1,-2,under2 grammar=grammar_a1_subject_particle:1,can_do_ref,,downgrade_candidate
 smalltalk,smalltalk_b1_0074,b1,b2,1,over1 lex_p90=3.6,can_do_ref,,step_up_or_swap
 smalltalk,smalltalk_b1_0075,b1,b2,1,over1 lex_p90=4.0,can_do_ref,,step_up_or_swap
 smalltalk,smalltalk_b1_0078,b1,b2,1,over1 lex_p90=4.0,can_do_ref,,step_up_or_swap
@@ -1752,7 +1754,7 @@ smalltalk,smalltalk_b2_0057,b2,a2,-2,under2 lex_p90=2.0,can_do_ref,,downgrade_ca
 smalltalk,smalltalk_b2_0061,b2,a2,-2,under2 lex_p90=2.0,can_do_ref,,downgrade_candidate
 smalltalk,smalltalk_b2_0073,b2,a2,-2,under2 grammar=grammar_a2_conditional:2,can_do_ref,,downgrade_candidate
 smalltalk,smalltalk_b2_0081,b2,c1,1,over1 lex_p90=5.2,can_do_ref,,step_up_or_swap
-smalltalk,smalltalk_b2_0086,b2,a2,-2,under2 lex_p90=2.0,can_do_ref,,downgrade_candidate
+smalltalk,smalltalk_b2_0086,b2,a2,-2,under2 lex_p90=1.7,can_do_ref,,downgrade_candidate
 smalltalk,smalltalk_b2_0087,b2,a2,-2,under2 grammar=grammar_a2_conditional:2,can_do_ref,,downgrade_candidate
 smalltalk,smalltalk_b2_0088,b2,a2,-2,under2 lex_p90=2.2,can_do_ref,,downgrade_candidate
 smalltalk,smalltalk_b2_0089,b2,a2,-2,under2 lex_p90=2.4,can_do_ref,,downgrade_candidate
@@ -1900,8 +1902,6 @@ vocab,vocab_a1_0169,a1,a2,1,over1,satz_ref+can_do_ref,a1_greetings_2,step_up_or_
 vocab,vocab_a1_0197,a1,a2,1,over1,satz_ref+can_do_ref,a1_descriptions,step_up_or_swap
 vocab,vocab_a1_0200,a1,a2,1,over1,satz_ref+can_do_ref,a1_numbers_3,step_up_or_swap
 vocab,vocab_a1_0208,a1,a2,1,over1,can_do_ref,a1_daily_4,step_up_or_swap
-vocab,vocab_a1_0212,a1,,,unknown,satz_ref+can_do_ref,a1_partner_meet_names_1,keep
-vocab,vocab_a1_0213,a1,,,unknown,satz_ref+can_do_ref,a1_partner_meet_names_1,keep
 vocab,vocab_a1_0216,b1,a1,-2,under2,satz_ref+can_do_ref+accepted_relevel,b1_partner_after_visit_1,downgrade_candidate
 vocab,vocab_a1_0220,a1,a2,1,over1,satz_ref+can_do_ref,a1_partner_meet_names_1,step_up_or_swap
 vocab,vocab_a1_0223,a1,a2,1,over1,satz_ref+can_do_ref,a1_partner_meet_names_1,step_up_or_swap
@@ -1941,7 +1941,6 @@ vocab,vocab_a1_0293,b1,a1,-2,under2,satz_ref+can_do_ref+accepted_relevel,b1_part
 vocab,vocab_a1_0294,b1,b2,1,over1,satz_ref+can_do_ref+accepted_relevel,b1_partner_siblings_hello_1,step_up_or_swap
 vocab,vocab_a1_0296,a2,,,unknown,satz_ref+can_do_ref+accepted_relevel,a2_partner_photo_thanks_1,keep
 vocab,vocab_a1_0298,a2,b1,1,over1,satz_ref+can_do_ref+accepted_relevel,a2_partner_photo_thanks_1,step_up_or_swap
-vocab,vocab_a1_0302,a2,,,unknown,satz_ref+can_do_ref+accepted_relevel,a2_partner_photo_thanks_1,keep
 vocab,vocab_a1_0305,a2,b1,1,over1,satz_ref+can_do_ref+accepted_relevel,a2_partner_photo_thanks_1,step_up_or_swap
 vocab,vocab_a1_0306,a2,c1,3,accepted_relevel raw_estimate=c1,satz_ref+can_do_ref+accepted_relevel+reviewed_owner,a2_partner_photo_thanks_1,keep_reviewed_owner
 vocab,vocab_a1_0307,a2,b1,1,over1,satz_ref+can_do_ref+accepted_relevel,a2_partner_photo_thanks_1,step_up_or_swap
@@ -2227,6 +2226,7 @@ vocab,vocab_b1_0273,b1,a1,-2,under2,satz_ref+can_do_ref,b1_partner_awkward_quest
 vocab,vocab_b1_0280,b1,b2,1,over1,satz_ref+can_do_ref,b1_partner_awkward_questions_1,step_up_or_swap
 vocab,vocab_b1_0281,b1,b2,1,over1,satz_ref+can_do_ref,b1_partner_awkward_questions_1,step_up_or_swap
 vocab,vocab_b1_0282,b1,b2,1,over1,satz_ref+can_do_ref,b1_partner_awkward_questions_1,step_up_or_swap
+vocab,vocab_b1_0283,b1,a1,-2,under2,satz_ref+can_do_ref,b1_partner_awkward_questions_1,downgrade_candidate
 vocab,vocab_b1_0284,b1,b2,1,over1,satz_ref+can_do_ref,b1_partner_job_visa_1,step_up_or_swap
 vocab,vocab_b1_0285,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_partner_job_visa_1,keep_reviewed_owner
 vocab,vocab_b1_0286,b1,c2,3,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b1_partner_job_visa_1,keep_reviewed_owner
