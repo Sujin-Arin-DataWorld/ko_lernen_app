@@ -153,8 +153,8 @@
             "concept_b1_softening"
           ],
           "data": {
-            "promptDe": "Ich nehme die Formulierung „von Dongsun selbst gefertigtes Norigae“ heraus.",
-            "promptEn": "I'll remove the wording 'a norigae handmade by Dongsun.'",
+            "promptDe": "Ich nehme die Beschreibung „von Dongsun selbst gefertigtes Norigae“ heraus.",
+            "promptEn": "I'll remove the description 'a norigae handmade by Dongsun.'",
             "options": [
               {
                 "ko": "알겠어요. ‘동선 사장님이 직접 만든 노리개’라는 설명은 빼겠습니다."
@@ -215,7 +215,7 @@
         "hyuna",
         "byeongcheol"
       ],
-      "relationshipContext": "수진이 소개한 지역 답사 지인, 병철은 현장 경험을 말하고 현아는 기록과 확인된 사실을 구분한다",
+      "relationshipContext": "수진이 소개한 지역 답사 지인, 병철은 현장 경험을 말하고 현아는 기억과 확인한 사실을 따로 적는다",
       "intent": "개인 기억을 인용하고 확인이 필요한 사실은 단정하지 않기로 한다",
       "shelf": "b1_neighbor",
       "backdrop": "directions",
@@ -253,7 +253,7 @@
           "en": "Reporting what someone said"
         },
         "explanation": {
-          "ko": "“더 한적했다고 하시는 거죠?”처럼 다른 사람의 말이나 기억을 그대로 단정하지 않고 인용해요.",
+          "ko": "“더 조용했다고 하시는 거죠?”처럼 다른 사람의 말이나 기억을 그대로 단정하지 않고 인용해요.",
           "de": "Mit der indirekten Rede gibst du eine Aussage oder Erinnerung wieder, ohne sie selbst als gesicherte Tatsache zu behaupten.",
           "en": "Use indirect speech to report someone else's statement or memory without presenting it as your own verified fact."
         }
@@ -365,10 +365,10 @@
             "concept_b1_indirect_speech"
           ],
           "data": {
-            "targetKo": "수원화성 설명은 공식 자료를 기준으로 하고, 선생님 이야기는 생활 기억으로 구분하겠습니다.",
-            "audioKo": "수원화성 설명은 공식 자료를 기준으로 하고, 선생님 이야기는 생활 기억으로 구분하겠습니다.",
-            "promptDe": "Für die Erklärung zu Hwaseong nehme ich offizielle Quellen, und Ihre Erzählung kennzeichne ich als Alltagserinnerung.",
-            "promptEn": "I'll use official sources for the explanation of Hwaseong and label your story as an everyday memory.",
+            "targetKo": "맞아요. 수원화성 설명은 공식 자료를 기준으로 하고, 선생님 이야기는 생활 기억이라고 따로 적겠습니다.",
+            "audioKo": "맞아요. 수원화성 설명은 공식 자료를 기준으로 하고, 선생님 이야기는 생활 기억이라고 따로 적겠습니다.",
+            "promptDe": "Genau. Für die Erklärung zu Hwaseong nehme ich offizielle Quellen, und Ihre Erzählung halte ich getrennt als Alltagserinnerung fest.",
+            "promptEn": "Right. I'll use official sources for the explanation of Hwaseong and write your story separately as an everyday memory.",
             "distractors": [
               "제 기억에는",
               "모든 사람이",
@@ -557,10 +557,10 @@
             "concept_a2_work_study"
           ],
           "data": {
-            "targetKo": "오늘은 사진 순서만 정하고, 연도와 출처는 확인한 다음에 넣을게요.",
-            "audioKo": "오늘은 사진 순서만 정하고, 연도와 출처는 확인한 다음에 넣을게요.",
-            "promptDe": "Heute lege ich nur die Reihenfolge fest und ergänze Jahr und Quelle nach der Prüfung.",
-            "promptEn": "Today I'll just decide the photo order, then add the year and source after checking them.",
+            "targetKo": "네. 오늘은 사진 순서만 정하고, 설명에 쓸 해와 사진을 가져온 곳은 확인한 다음에 넣을게요.",
+            "audioKo": "네. 오늘은 사진 순서만 정하고, 설명에 쓸 해와 사진을 가져온 곳은 확인한 다음에 넣을게요.",
+            "promptDe": "Ja. Heute lege ich nur die Reihenfolge fest und ergänze das Jahr und die Herkunft des Fotos nach der Prüfung.",
+            "promptEn": "Yes. Today I'll just decide the photo order, then add the year and where the photo came from after checking them.",
             "distractors": [
               "인터넷에서 바로",
               "친구가 말한 대로",
@@ -787,7 +787,7 @@
         "hyuna"
       ],
       "relationshipContext": "지역 촬영 방식에 대해 자주 의견을 나누는 다니엘과 현아, 한지 작업실 방문을 준비한다",
-      "intent": "촬영 범위와 설명 검수 방식을 정하고 공방이 게시 전에도 선택할 수 있게 한다",
+      "intent": "촬영 범위와 설명 검수 방식을 정하고 작업실이 게시 전에도 선택할 수 있게 한다",
       "shelf": "b2_evidence",
       "backdrop": "office",
       "vocab": [
