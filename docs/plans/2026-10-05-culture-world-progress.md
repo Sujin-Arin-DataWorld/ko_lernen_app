@@ -13,8 +13,8 @@
 | 3 | Persona culture scenes | **Draft complete / review-only** | **Not live**; runtime corpus remains 186 scenarios | Batch 38: 5 scenarios, 5 listening lessons, 20 listening questions, 5 culture links |
 | 4 | Scenario result culture card | **Complete** | Not merged to main yet; live registry may still be empty | optional result card backed only by live `scenario_culture_links.json` |
 | 5 | Hanok “Culture stories” collection | **Complete** | Not merged to main yet | read-only discovery projection from existing scenario-completion evidence; no new culture ledger |
-| 6 | Tiger/Magpie presentation reactions | **Next implementation target** | Not started | same culture state/reward/access; presentation only |
-| 7 | Hahoe/Dokkaebi bridges | Existing systems audited; new bridge work not started | Existing Hahoe/Dokkaebi practice already live | reuse Smalltalk context + staged Dokkaebi help |
+| 6 | Tiger/Magpie presentation reactions | **Complete** | Not merged to main yet | canonical companion preference changes framing/motion only; cultural availability is identical |
+| 7 | Hahoe/Dokkaebi bridges | **Next implementation target** | Existing Hahoe/Dokkaebi practice already live; new bridge not live | reuse Smalltalk context + staged Dokkaebi help |
 | 8 | Culture items / reward reuse | Not started | Not started | must preserve reward determinism |
 | 9 | Culture story arcs | Not started | Not started | later grouping layer, not mastery |
 
@@ -238,32 +238,48 @@ Important recovery limit:
 Commit:
 - `810e37f93 feat(culture): add Hanok culture stories collection`
 
+## Phase 6 — Tiger/Magpie culture presentation
+
+The scenario result culture card now reuses the canonical `MascotPreference.preference` owner through `CompanionBuilder`; it introduces no companion or culture state of its own.
+
+Presentation contract:
+- no companion selected => the original plain culture-card header
+- Joy / Magpie => discovery/news-delivery framing, one-shot entrance plus the existing reduce-motion-aware magpie idle motion
+- Taego / Tiger => calm acknowledgement/protection framing with a slower one-shot settle; the canonical tiger asset remains static
+- the same resolved CulturalGlossary entries remain available in all three variants
+- companion choice never changes term discovery, score, CanDo evidence, rewards, Hanok progression, access, or persistence
+- mascot art is decorative in this card; localized reaction copy carries the meaning for accessibility
+
+Commit:
+- `c0c983bf6 feat(culture): personalize culture card companion presentation`
+
 ## Validation baseline
 
-Latest focused validation at the Phase 5 checkpoint:
+Latest focused validation at the Phase 6 checkpoint:
 - persona-culture/content Python regressions: **39 passed**
 - `validate_content.py`: **passed**
 - Batch 38 integration preview: **passed**
   - scenario preview: 186 → 191
   - scenario quests: 579 → 594
 - Phase 4/5 culture + Hanok focused Flutter tests: **40 passed**
-  - discovery projection and no-new-ledger contract
-  - Culture Stories screen + glossary-sheet integration
-  - scenario culture result card
-  - Hanok shortcut refresh
-  - Hanok fold/adaptive chrome and 200% text regressions
+- Phase 6 culture-card/companion/scenario-player regression suite: **50 passed**
+- Phase 6 culture-card focused suite: **8 passed**
+  - none / Magpie / Tiger keep identical culture terms
+  - canonical companion notifier updates presentation reactively
+  - no progress/reward/storage dependency is introduced
+  - 320dp phone at 200% text scale has no layout exception
 - targeted Dart analysis: **0 issues**
-- `git diff --check`: **passed**
+- non-generated `git diff --check`: **passed**
 - live learner corpus remains **186** because Batch 38 is still review-only.
 
-## Next implementation target — Phase 6
+## Next implementation target — Phase 7
 
-Add Tiger/Magpie presentation-only reactions around culture discovery while keeping the underlying culture state identical.
+Bridge existing Hahoe and Dokkaebi practice systems back to the culture/scenario world without creating parallel learning state.
 
 Constraints:
-- reuse the existing mascot preference/visibility owner
-- Magpie may present discovery/news-delivery motion or framing
-- Tiger may present calm acknowledgement/protection framing
-- no companion selected => plain culture presentation
-- companion choice must not alter term discovery, availability, score, CanDo evidence, reward, access, or persistence
+- reuse the existing Smalltalk/pragmatics context for Hahoe-style register transfer
+- reuse the existing staged Dokkaebi help/practice path rather than inventing a culture-specific hint engine
+- bridges are contextual/navigation/presentation only unless an existing practice system already owns evidence
+- no new mastery, reward, culture-discovery, or companion ledger
+- failures in optional culture metadata must not block the underlying practice route
 - Batch 38 remains review-only until separate human approval/promotion
