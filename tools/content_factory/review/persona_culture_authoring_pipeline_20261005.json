@@ -92,9 +92,9 @@
     "path": "tools/content_factory/review/persona_culture_vocab_leveling_20261005.json",
     "totals": {
       "items": 30,
-      "cultureAnchor": 5,
-      "atOrBelowTarget": 15,
-      "aboveTarget": 10,
+      "cultureAnchor": 6,
+      "atOrBelowTarget": 24,
+      "aboveTarget": 0,
       "unmappedCandidate": 0,
       "phraseCandidate": 5
     }

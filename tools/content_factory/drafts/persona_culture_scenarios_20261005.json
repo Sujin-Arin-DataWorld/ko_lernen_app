@@ -13,9 +13,9 @@
         "en": "Checking details before posting a norigae"
       },
       "intro": {
-        "ko": "마야가 동선의 가게에서 노리개 사진을 찍어 홍보 게시물을 만들려고 해요. 먼저 촬영 범위와 설명을 확인해요.",
-        "de": "Maya möchte in Dongsuns Laden ein Norigae fotografieren und einen Werbepost erstellen. Zuerst klären die beiden Bildausschnitt und Beschreibung.",
-        "en": "Maya wants to photograph a norigae in Dongsun's shop for a promotional post. They first agree on the photo scope and wording."
+        "ko": "마야가 동선의 가게에서 노리개 사진을 찍어 홍보 글을 만들려고 해요. 먼저 어디까지 찍을지와 설명을 확인해요.",
+        "de": "Maya möchte in Dongsuns Laden ein Norigae fotografieren und einen Werbepost erstellen. Zuerst klären die beiden, was fotografiert werden darf und wie das Produkt beschrieben wird.",
+        "en": "Maya wants to photograph a norigae in Dongsun's shop for a promotional post. They first agree on what can be photographed and how the item should be described."
       },
       "courseUnitId": "b1_03_work_softening",
       "playerCharacterId": "maya",
@@ -35,16 +35,16 @@
           "korean": "매듭"
         },
         {
-          "korean": "진열대"
+          "korean": "상품"
         },
         {
-          "korean": "가게 계정"
+          "korean": "가게 페이지"
         },
         {
-          "korean": "문구"
+          "korean": "설명"
         },
         {
-          "korean": "촬영"
+          "korean": "올리다"
         }
       ],
       "conceptIds": [
@@ -69,9 +69,9 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "사장님, 이 노리개 사진을 가게 계정에 올려도 될까요?",
-          "de": "Darf ich dieses Norigae fotografieren und auf dem Ladenkonto posten?",
-          "en": "May I photograph this norigae and post it on the shop account?"
+          "ko": "사장님, 이 노리개 사진을 가게 페이지에 올려도 될까요?",
+          "de": "Darf ich dieses Norigae fotografieren und auf der Seite des Ladens posten?",
+          "en": "May I photograph this norigae and post it on the shop page?"
         },
         {
           "speaker": "dongsun",
@@ -81,21 +81,21 @@
         },
         {
           "speaker": "user",
-          "ko": "네. 진열대 쪽만 찍고, 올리기 전에 먼저 보여 드릴게요.",
-          "de": "Ja. Ich fotografiere nur die Auslage und zeige Ihnen den Post, bevor ich ihn hochlade.",
-          "en": "Yes. I'll photograph only the display and show you the post before I upload it."
+          "ko": "네. 상품만 찍고, 올리기 전에 먼저 보여 드릴게요.",
+          "de": "Ja. Ich fotografiere nur das Produkt und zeige Ihnen den Post, bevor ich ihn hochlade.",
+          "en": "Yes. I'll photograph only the item and show you the post before I upload it."
         },
         {
           "speaker": "dongsun",
-          "ko": "그리고 이건 제가 만든 건 아니에요. 전통 매듭을 쓴 상품이라고만 써 주세요.",
-          "de": "Und das hier habe ich nicht selbst gemacht. Schreiben Sie bitte nur, dass es ein Produkt mit einem traditionellen Knoten ist.",
-          "en": "And I didn't make this myself. Please just say that the item uses a traditional decorative knot."
+          "ko": "그리고 이건 제가 만든 건 아니에요. 전통 매듭이 있는 상품이라고만 써 주세요.",
+          "de": "Und das hier habe ich nicht selbst gemacht. Schreiben Sie bitte nur, dass das Produkt einen traditionellen Knoten hat.",
+          "en": "And I didn't make this myself. Please just say that the item has a traditional decorative knot."
         },
         {
           "speaker": "user",
-          "ko": "알겠어요. ‘동선 사장님이 직접 만든 노리개’라는 문구는 빼겠습니다.",
-          "de": "Verstanden. Ich nehme die Formulierung „von Dongsun selbst gefertigtes Norigae“ heraus.",
-          "en": "Got it. I'll remove the wording 'a norigae handmade by Dongsun.'"
+          "ko": "알겠어요. ‘동선 사장님이 직접 만든 노리개’라는 설명은 빼겠습니다.",
+          "de": "Verstanden. Ich nehme die Beschreibung „von Dongsun selbst gefertigtes Norigae“ heraus.",
+          "en": "Got it. I'll remove the description 'a norigae handmade by Dongsun.'"
         },
         {
           "speaker": "dongsun",
@@ -131,8 +131,8 @@
                 "en": "Sure. Could you make sure no customers' faces appear?"
               },
               {
-                "de": "Darf ich dieses Norigae fotografieren und auf dem Ladenkonto posten?",
-                "en": "May I photograph this norigae and post it on the shop account?"
+                "de": "Darf ich dieses Norigae fotografieren und auf der Seite des Ladens posten?",
+                "en": "May I photograph this norigae and post it on the shop page?"
               },
               {
                 "de": "Und das hier habe ich nicht selbst gemacht.",
@@ -157,10 +157,10 @@
             "promptEn": "I'll remove the wording 'a norigae handmade by Dongsun.'",
             "options": [
               {
-                "ko": "알겠어요. ‘동선 사장님이 직접 만든 노리개’라는 문구는 빼겠습니다."
+                "ko": "알겠어요. ‘동선 사장님이 직접 만든 노리개’라는 설명은 빼겠습니다."
               },
               {
-                "ko": "사장님, 이 노리개 사진을 가게 계정에 올려도 될까요?"
+                "ko": "사장님, 이 노리개 사진을 가게 페이지에 올려도 될까요?"
               },
               {
                 "ko": "그리고 이건 제가 만든 건 아니에요."
@@ -200,14 +200,14 @@
       "register": "polite",
       "speechStyle": "polite",
       "title": {
-        "ko": "수원화성에서 기억과 사실을 구분하기",
-        "de": "Erinnerung und belegte Fakten an Hwaseong trennen",
-        "en": "Separating memory from verified facts at Hwaseong"
+        "ko": "수원화성에서 기억과 사실을 따로 적기",
+        "de": "Erinnerung und Fakten an Hwaseong getrennt festhalten",
+        "en": "Keeping memory and facts separate at Hwaseong"
       },
       "intro": {
-        "ko": "현아와 병철이 수원화성을 걸으며 병철의 생활 기억을 기록해요. 기억과 확인된 역사 정보를 따로 표시하기로 해요.",
-        "de": "Hyuna und Byeongcheol gehen an der Hwaseong-Festung spazieren und halten seine Alltagserinnerungen fest. Erinnerung und belegte Geschichte sollen getrennt bleiben.",
-        "en": "Hyuna and Byeongcheol walk around Hwaseong Fortress and record his everyday memories. They decide to separate memory from verified historical information."
+        "ko": "현아와 병철이 수원화성을 걸으며 병철의 생활 기억을 메모해요. 기억과 확인한 역사 정보를 따로 적기로 해요.",
+        "de": "Hyuna und Byeongcheol gehen an der Hwaseong-Festung spazieren und notieren seine Alltagserinnerungen. Erinnerungen und geprüfte historische Informationen werden getrennt festgehalten.",
+        "en": "Hyuna and Byeongcheol walk around Hwaseong Fortress and note his everyday memories. They decide to keep memory separate from checked historical information."
       },
       "courseUnitId": "b1_02_indirect_speech",
       "playerCharacterId": "hyuna",
@@ -227,7 +227,7 @@
           "korean": "기억"
         },
         {
-          "korean": "기록"
+          "korean": "메모"
         },
         {
           "korean": "자료"
@@ -236,7 +236,7 @@
           "korean": "확인하다"
         },
         {
-          "korean": "한적하다"
+          "korean": "조용하다"
         }
       ],
       "conceptIds": [
@@ -267,7 +267,7 @@
         },
         {
           "speaker": "user",
-          "ko": "그러니까 선생님 기억으로는 이 길이 더 한적했다고 하시는 거죠?",
+          "ko": "그러니까 선생님 기억으로는 이 길이 더 조용했다고 하시는 거죠?",
           "de": "Sie sagen also, dass dieser Weg Ihrer Erinnerung nach ruhiger war, richtig?",
           "en": "So you're saying that, as you remember it, this path used to be quieter, right?"
         },
@@ -279,7 +279,7 @@
         },
         {
           "speaker": "user",
-          "ko": "그 부분은 ‘그렇게 기억한다’고 적고, 시기와 공사 기록은 따로 확인할게요.",
+          "ko": "그 부분은 ‘그렇게 기억한다’고 적고, 시기와 공사 자료는 따로 확인할게요.",
           "de": "Dann notiere ich das als Ihre Erinnerung und prüfe Zeitpunkt und Bauunterlagen getrennt.",
           "en": "I'll record that as your memory and check the dates and construction records separately."
         },
@@ -291,9 +291,9 @@
         },
         {
           "speaker": "user",
-          "ko": "맞아요. 수원화성 설명은 공식 자료를 기준으로 하고, 선생님 이야기는 생활 기억으로 구분하겠습니다.",
-          "de": "Genau. Für die Erklärung zu Hwaseong nehme ich offizielle Quellen, und Ihre Erzählung kennzeichne ich als Alltagserinnerung.",
-          "en": "Right. I'll use official sources for the explanation of Hwaseong and label your story as an everyday memory."
+          "ko": "맞아요. 수원화성 설명은 공식 자료를 기준으로 하고, 선생님 이야기는 생활 기억이라고 따로 적겠습니다.",
+          "de": "Genau. Für die Erklärung zu Hwaseong nehme ich offizielle Quellen, und Ihre Erzählung halte ich getrennt als Alltagserinnerung fest.",
+          "en": "Right. I'll use official sources for the explanation of Hwaseong and write your story separately as an everyday memory."
         },
         {
           "speaker": "byeongcheol",
@@ -310,7 +310,7 @@
             "concept_b1_indirect_speech"
           ],
           "data": {
-            "audioKo": "그러니까 선생님 기억으로는 이 길이 더 한적했다고 하시는 거죠?",
+            "audioKo": "그러니까 선생님 기억으로는 이 길이 더 조용했다고 하시는 거죠?",
             "options": [
               {
                 "de": "Sie sagen also, dass dieser Weg Ihrer Erinnerung nach ruhiger war, richtig?",
@@ -343,7 +343,7 @@
             "promptEn": "I'll record that as your memory and check the dates and construction records separately.",
             "options": [
               {
-                "ko": "그 부분은 ‘그렇게 기억한다’고 적고, 시기와 공사 기록은 따로 확인할게요."
+                "ko": "그 부분은 ‘그렇게 기억한다’고 적고, 시기와 공사 자료는 따로 확인할게요."
               },
               {
                 "ko": "예전에는 이쪽으로 산책 오는 사람이 지금보다 적었던 기억이 납니다."
@@ -386,14 +386,14 @@
       "register": "polite",
       "speechStyle": "polite",
       "title": {
-        "ko": "수원화성 발표 자료 점검하기",
-        "de": "Folien über Hwaseong prüfen",
-        "en": "Checking a Hwaseong presentation"
+        "ko": "학교에서 쓸 수원화성 사진 확인하기",
+        "de": "Hwaseong-Fotos für die Schule prüfen",
+        "en": "Checking Hwaseong photos for school"
       },
       "intro": {
-        "ko": "준이 학교 발표에 쓸 수원화성 사진을 골랐어요. 크리스티안과 슬라이드를 보며 출처와 설명을 확인해요.",
-        "de": "Jun hat Fotos der Hwaseong-Festung für eine Schulpräsentation ausgewählt. Mit Christian prüft er Folien, Quellen und Beschreibungen.",
-        "en": "Jun has chosen photos of Hwaseong Fortress for a school presentation. He checks the slides, sources and descriptions with Christian."
+        "ko": "준이 학교에서 수원화성을 소개할 때 쓸 사진을 골랐어요. 크리스티안과 사진을 보며 설명과 어디서 가져온 사진인지 확인해요.",
+        "de": "Jun hat Fotos der Hwaseong-Festung ausgewählt, die er in der Schule zeigen will. Mit Christian prüft er die Beschreibungen und woher die Fotos stammen.",
+        "en": "Jun has chosen photos of Hwaseong Fortress to show at school. He checks the descriptions and where the photos came from with Christian."
       },
       "courseUnitId": "a2_06_study_work",
       "playerCharacterId": "jun",
@@ -402,24 +402,24 @@
         "christian"
       ],
       "relationshipContext": "코딩과 게임으로 알고 지내는 사이, 준은 크리스티안에게 해요체를 쓰고 크리스티안은 준에게 편하게 말한다",
-      "intent": "학교 발표에 쓸 사진 순서를 정하고 확인하지 않은 연도와 사진 출처는 다시 확인하기로 한다",
+      "intent": "학교에서 수원화성을 소개할 때 쓸 사진 순서를 정하고 사진 설명과 사진을 가져온 곳을 다시 확인하기로 한다",
       "shelf": "a2_friends",
       "backdrop": "home",
       "vocab": [
         {
-          "korean": "발표"
-        },
-        {
-          "korean": "슬라이드"
+          "korean": "수원화성"
         },
         {
           "korean": "사진"
         },
         {
-          "korean": "출처"
+          "korean": "학교"
         },
         {
-          "korean": "연도"
+          "korean": "소개하다"
+        },
+        {
+          "korean": "순서"
         },
         {
           "korean": "확인하다"
@@ -439,7 +439,7 @@
           "en": "Expressing purpose"
         },
         "explanation": {
-          "ko": "“발표에 쓰기 위해서 사진을 골랐어요”처럼 어떤 행동의 목적을 말할 때 써요.",
+          "ko": "“수원화성을 소개하기 위해서 사진을 골랐어요”처럼 어떤 행동의 목적을 말할 때 써요.",
           "de": "Mit -기 위해서 nennst du den Zweck einer Handlung, zum Beispiel warum du Fotos ausgewählt hast.",
           "en": "Use -기 위해서 to state the purpose of an action, such as why you selected photos."
         }
@@ -447,9 +447,9 @@
       "dialog": [
         {
           "speaker": "christian",
-          "ko": "준, 발표 슬라이드 거의 다 만들었어?",
-          "de": "Jun, sind deine Präsentationsfolien fast fertig?",
-          "en": "Jun, are your presentation slides almost done?"
+          "ko": "준, 학교에서 보여 줄 사진 거의 다 골랐어?",
+          "de": "Jun, hast du die Fotos für die Schule fast fertig ausgewählt?",
+          "en": "Jun, have you almost finished choosing the photos for school?"
         },
         {
           "speaker": "user",
@@ -459,39 +459,39 @@
         },
         {
           "speaker": "christian",
-          "ko": "이 사진은 멋있는데, 설명에 쓴 연도도 확인했어?",
+          "ko": "이 사진은 멋있는데, 설명에 쓴 해도 확인했어?",
           "de": "Das Foto ist stark. Hast du auch die Jahreszahl in der Beschreibung geprüft?",
           "en": "This photo looks great. Did you also check the year in the description?"
         },
         {
           "speaker": "user",
-          "ko": "아직요. 인터넷에서 본 글이라서 공식 자료를 다시 찾아보려고 해요.",
-          "de": "Noch nicht. Ich habe die Angabe online gesehen und will sie deshalb noch einmal in einer offiziellen Quelle prüfen.",
-          "en": "Not yet. I saw it online, so I'm going to check it again in an official source."
+          "ko": "아직요. 인터넷에서 본 글이라서 수원화성 공식 안내를 다시 찾아보려고 해요.",
+          "de": "Noch nicht. Ich habe die Angabe online gesehen und will deshalb noch einmal in den offiziellen Informationen zu Hwaseong nachsehen.",
+          "en": "Not yet. I saw it online, so I'm going to check the official information about Hwaseong."
         },
         {
           "speaker": "christian",
-          "ko": "좋아. 사진 출처도 같이 적으면 더 깔끔하겠다.",
-          "de": "Gut. Wenn du die Bildquelle dazuschreibst, wird es noch sauberer.",
-          "en": "Good. It would be clearer if you add the image source too."
+          "ko": "좋아. 사진을 어디서 가져왔는지도 같이 적으면 더 깔끔하겠다.",
+          "de": "Gut. Wenn du dazuschreibst, woher das Foto stammt, wird es noch sauberer.",
+          "en": "Good. It would be clearer if you also say where the photo came from."
         },
         {
           "speaker": "user",
-          "ko": "네. 오늘은 사진 순서만 정하고, 연도와 출처는 확인한 다음에 넣을게요.",
-          "de": "Ja. Heute lege ich nur die Reihenfolge fest und ergänze Jahr und Quelle nach der Prüfung.",
-          "en": "Yes. Today I'll just decide the photo order, then add the year and source after checking them."
+          "ko": "네. 오늘은 사진 순서만 정하고, 설명에 쓸 해와 사진을 가져온 곳은 확인한 다음에 넣을게요.",
+          "de": "Ja. Heute lege ich nur die Reihenfolge fest und ergänze das Jahr und die Herkunft des Fotos nach der Prüfung.",
+          "en": "Yes. Today I'll just decide the photo order, then add the year and where the photo came from after checking them."
         },
         {
           "speaker": "christian",
-          "ko": "그럼 첫 장에는 전체 모습, 다음 장에는 성문 사진이 어때?",
-          "de": "Wie wäre es dann mit der Gesamtansicht zuerst und dem Tor auf der nächsten Folie?",
-          "en": "Then how about the full view first and the gate photo on the next slide?"
+          "ko": "그럼 첫 사진은 전체 모습, 다음 사진은 성문이 어때?",
+          "de": "Wie wäre es zuerst mit der Gesamtansicht und danach mit dem Tor?",
+          "en": "Then how about the full view first and the gate photo next?"
         },
         {
           "speaker": "user",
-          "ko": "좋아요. 발표할 때 길게 설명하지 않도록 핵심만 적을게요.",
-          "de": "Gut. Ich schreibe nur die wichtigsten Punkte auf, damit ich bei der Präsentation nicht zu lange erkläre.",
-          "en": "Sounds good. I'll write only the key points so I don't explain for too long during the presentation."
+          "ko": "좋아요. 학교에서 소개할 때 길게 설명하지 않도록 핵심만 적을게요.",
+          "de": "Gut. Ich schreibe nur die wichtigsten Punkte auf, damit ich es in der Schule nicht zu lange erkläre.",
+          "en": "Sounds good. I'll write only the key points so I don't explain for too long at school."
         }
       ],
       "quests": [
@@ -535,16 +535,16 @@
             "promptEn": "I saw it online, so I'm going to check it again in an official source.",
             "options": [
               {
-                "ko": "아직요. 인터넷에서 본 글이라서 공식 자료를 다시 찾아보려고 해요."
+                "ko": "아직요. 인터넷에서 본 글이라서 수원화성 공식 안내를 다시 찾아보려고 해요."
               },
               {
-                "ko": "준, 발표 슬라이드 거의 다 만들었어?"
+                "ko": "준, 학교에서 보여 줄 사진 거의 다 골랐어?"
               },
               {
-                "ko": "좋아. 사진 출처도 같이 적으면 더 깔끔하겠다."
+                "ko": "좋아. 사진을 어디서 가져왔는지도 같이 적으면 더 깔끔하겠다."
               },
               {
-                "ko": "그럼 첫 장에는 전체 모습, 다음 장에는 성문 사진이 어때?"
+                "ko": "그럼 첫 사진은 전체 모습, 다음 사진은 성문이 어때?"
               }
             ],
             "correctIndex": 0
@@ -771,12 +771,12 @@
       "register": "business",
       "speechStyle": "polite",
       "title": {
-        "ko": "한지 공방 촬영 범위 정하기",
+        "ko": "한지 작업실 촬영 범위 정하기",
         "de": "Den Drehumfang in einer Hanji-Werkstatt festlegen",
         "en": "Setting filming boundaries at a hanji workshop"
       },
       "intro": {
-        "ko": "현아가 연결한 한지 공방 촬영을 앞두고 다니엘과 현아가 촬영·공개 범위를 정해요.",
+        "ko": "현아가 연결한 한지 작업실 촬영을 앞두고 다니엘과 현아가 촬영·공개 범위를 정해요.",
         "de": "Vor einem Dreh in einer von Hyuna vermittelten Hanji-Werkstatt legen Daniel und Hyuna Aufnahme- und Veröffentlichungsumfang fest.",
         "en": "Before filming at a hanji workshop Hyuna connected them with, Daniel and Hyuna agree on the scope of filming and publication."
       },
@@ -786,7 +786,7 @@
         "daniel",
         "hyuna"
       ],
-      "relationshipContext": "지역 촬영 방식에 대해 자주 의견을 나누는 다니엘과 현아, 한지 공방 방문을 준비한다",
+      "relationshipContext": "지역 촬영 방식에 대해 자주 의견을 나누는 다니엘과 현아, 한지 작업실 방문을 준비한다",
       "intent": "촬영 범위와 설명 검수 방식을 정하고 공방이 게시 전에도 선택할 수 있게 한다",
       "shelf": "b2_evidence",
       "backdrop": "office",
@@ -795,7 +795,7 @@
           "korean": "한지"
         },
         {
-          "korean": "공방"
+          "korean": "작업실"
         },
         {
           "korean": "촬영 범위"
@@ -832,7 +832,7 @@
       "dialog": [
         {
           "speaker": "hyuna",
-          "ko": "공방에서 촬영은 가능하다고 했는데, 작업 전 과정을 공개하는 건 부담스럽다고 했어요.",
+          "ko": "작업실에서 촬영은 가능하다고 했는데, 작업 전 과정을 공개하는 건 부담스럽다고 했어요.",
           "de": "Die Werkstatt hat dem Filmen zugestimmt, aber eine Veröffentlichung des gesamten Arbeitsablaufs wäre ihnen unangenehm.",
           "en": "The workshop said filming is possible, but they would be uncomfortable with publishing the entire process."
         },
@@ -868,7 +868,7 @@
         },
         {
           "speaker": "hyuna",
-          "ko": "그러면 공방도 무엇이 나가는지 알고 결정할 수 있겠네요.",
+          "ko": "그러면 작업실도 무엇이 나가는지 알고 결정할 수 있겠네요.",
           "de": "Dann kann die Werkstatt entscheiden, während sie weiß, was tatsächlich veröffentlicht wird.",
           "en": "Then the workshop can decide knowing exactly what will be published."
         }
@@ -917,13 +917,13 @@
                 "ko": "촬영에 동의했다고 해서 모든 장면을 공개해도 된다는 뜻은 아니니까요."
               },
               {
-                "ko": "공방에서 촬영은 가능하다고 했는데, 작업 전 과정을 공개하는 건 부담스럽다고 했어요."
+                "ko": "작업실에서 촬영은 가능하다고 했는데, 작업 전 과정을 공개하는 건 부담스럽다고 했어요."
               },
               {
                 "ko": "좋아요. 제작 방법 설명은 우리가 추측해서 쓰지 말고 장인에게 확인해요."
               },
               {
-                "ko": "그러면 공방도 무엇이 나가는지 알고 결정할 수 있겠네요."
+                "ko": "그러면 작업실도 무엇이 나가는지 알고 결정할 수 있겠네요."
               }
             ],
             "correctIndex": 0

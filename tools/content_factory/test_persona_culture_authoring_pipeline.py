@@ -49,7 +49,9 @@ class PersonaCultureAuthoringPipelineTest(unittest.TestCase):
         self.assertEqual(report["listening"]["lessons"], 5)
         self.assertEqual(report["listening"]["questions"], 20)
         self.assertEqual(report["vocabLeveling"]["totals"]["items"], 30)
-        self.assertEqual(report["vocabLeveling"]["totals"]["cultureAnchor"], 5)
+        self.assertEqual(report["vocabLeveling"]["totals"]["cultureAnchor"], 6)
+        self.assertEqual(report["vocabLeveling"]["totals"]["aboveTarget"], 0)
+        self.assertEqual(report["vocabLeveling"]["totals"]["unmappedCandidate"], 0)
         self.assertEqual(report["cultureStoryArcs"]["arcCount"], 1)
         self.assertEqual(report["cultureStoryArcs"]["stepCount"], 4)
         self.assertEqual(

@@ -35,7 +35,8 @@ class ExtractScenarioKeyVocabTest(unittest.TestCase):
     def test_batch38_has_no_unmapped_key_vocab(self) -> None:
         self.assertEqual(self.result["totals"]["items"], 30)
         self.assertEqual(self.result["totals"]["unmappedCandidate"], 0)
-        self.assertEqual(self.result["totals"]["cultureAnchor"], 5)
+        self.assertEqual(self.result["totals"]["cultureAnchor"], 6)
+        self.assertEqual(self.result["totals"]["aboveTarget"], 0)
 
     def test_culture_anchors_are_only_linked_scene_terms(self) -> None:
         anchors = {
@@ -54,12 +55,17 @@ class ExtractScenarioKeyVocabTest(unittest.TestCase):
                     "수원화성",
                     "suwon_hwaseong",
                 ),
+                (
+                    "a2_jun_hwaseong_school_slide",
+                    "수원화성",
+                    "suwon_hwaseong",
+                ),
                 ("c1_maya_hyuna_daniel_talchum_shortform", "탈춤", "talchum"),
                 ("b2_daniel_hyuna_hanji_filming_scope", "한지", "hanji"),
             },
         )
 
-    def test_a2_jun_scene_surfaces_words_needing_level_review(self) -> None:
+    def test_a2_jun_scene_is_lexically_a2_after_editorial_refinement(self) -> None:
         scene = next(
             row
             for row in self.result["scenes"]
@@ -70,7 +76,11 @@ class ExtractScenarioKeyVocabTest(unittest.TestCase):
             for item in scene["keyWords"]
             if item["classification"] == "above_target"
         }
-        self.assertEqual(above, {"발표", "슬라이드", "출처", "연도"})
+        self.assertEqual(above, set())
+        hwaseong = next(
+            item for item in scene["keyWords"] if item["korean"] == "수원화성"
+        )
+        self.assertEqual(hwaseong["classification"], "culture_anchor")
         photo = next(item for item in scene["keyWords"] if item["korean"] == "사진")
         self.assertEqual(photo["classification"], "at_or_below_target")
         self.assertEqual(photo["lexical"]["cefr"], "A1")
