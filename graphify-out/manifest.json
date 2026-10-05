@@ -8196,9 +8196,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791210098.794254,
-    "seen": 1791210403.0317683,
-    "ast_hash": "1e31fd0a0c06f15569e0c3752b22e477",
+    "mtime": 1791210760.819624,
+    "seen": 1791211058.8820035,
+    "ast_hash": "b35e816f7f99ce2972d1b7bfcb3e00d9",
     "semantic_hash": ""
   },
   "BETA_INSTALL_GUIDE.md": {
@@ -14568,9 +14568,9 @@
     "semantic_hash": ""
   },
   "tool/audit_content_levels.py": {
-    "mtime": 1791209911.7246313,
-    "seen": 1791210402.759389,
-    "ast_hash": "8298cf3d1989bb3c6f56de78e4f4f353",
+    "mtime": 1791210627.7626805,
+    "seen": 1791211058.6050189,
+    "ast_hash": "544fbb73940b8fabc2fa6aa599183525",
     "semantic_hash": ""
   },
   "tool/audit_loanword_spelling.py": {
@@ -14592,9 +14592,9 @@
     "semantic_hash": ""
   },
   "tool/content_level_summary.json": {
-    "mtime": 1791210024.3949444,
-    "seen": 1791210402.7700753,
-    "ast_hash": "2bb355221ddd17c0c4646081c5018a94",
+    "mtime": 1791210796.3703997,
+    "seen": 1791211058.6169837,
+    "ast_hash": "914edc761079e1091793fa29a38f4781",
     "semantic_hash": ""
   },
   "tool/ingest_nikl_grade_lists.py": {
@@ -14604,9 +14604,9 @@
     "semantic_hash": ""
   },
   "tool/test_audit_content_levels.py": {
-    "mtime": 1791210004.1453583,
-    "seen": 1791210402.7927277,
-    "ast_hash": "a95e39d68e7f923bf2456d3d799235bb",
+    "mtime": 1791210728.9122753,
+    "seen": 1791211058.641198,
+    "ast_hash": "aae7097b83e2345ebd3469f70bc71717",
     "semantic_hash": ""
   },
   "tool/test_audit_loanword_spelling.py": {
@@ -14664,9 +14664,9 @@
     "semantic_hash": ""
   },
   "docs/data/content_level_report.md": {
-    "mtime": 1791210024.404459,
-    "seen": 1791210403.0648036,
-    "ast_hash": "c371e8c098b950dd03920b4d2eaf9361",
+    "mtime": 1791210796.3804278,
+    "seen": 1791211058.9127965,
+    "ast_hash": "af0e8bd4967546bf6bcb45d7e00c8335",
     "semantic_hash": ""
   },
   "docs/data/level_bible/F10_review_lessons.md": {
@@ -22212,9 +22212,9 @@
     "semantic_hash": ""
   },
   "docs/plans/2026-10-05-culture-quality-followups.md": {
-    "mtime": 1791210094.9400647,
-    "seen": 1791210403.0986176,
-    "ast_hash": "8938ae7e206214fc8c42fa4e6f3660c6",
+    "mtime": 1791210756.4610572,
+    "seen": 1791211058.939408,
+    "ast_hash": "55a3bbffe15081165928c202ab597679",
     "semantic_hash": ""
   },
   "tools/content_factory/relevel/relevel_bundle_V2G2.json": {
