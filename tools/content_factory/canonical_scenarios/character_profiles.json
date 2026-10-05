@@ -14,7 +14,7 @@
       "background": {
         "origin": "독일",
         "role": "독일 출신 한국의 IT 교환학생",
-        "major": "IT",
+        "major": "인터넷 시스템 통합·시스템 관리",
         "relativeAge": "수진보다 세 살 어림",
         "age": "24세"
       },
@@ -24,14 +24,18 @@
       "writerHints": [
         "모르는 것을 아는 척하지 않는다",
         "실수하면 변명보다 먼저 인정한다",
-        "기술 문제를 설명할 때만 말이 또렷해진다"
+        "시스템·인프라 문제를 설명할 때만 말이 또렷해진다",
+        "데이터 엔지니어·데이터 분석가 역할로 쓰지 않는다",
+        "최근 시스템 보안에 관심이 생겨 네트워크·계정·접근권한·기본 보안 운영을 더 배우고 싶어 한다"
       ],
       "mbtiHint": {
         "value": "ISFJ",
         "weight": "low"
       },
       "interests": [
-        "앱 개발",
+        "인터넷 시스템 통합",
+        "시스템 관리",
+        "시스템 보안",
         "한국 음악",
         "기차 여행",
         "카페"
@@ -56,7 +60,7 @@
             "단어 찾기 망설임: 음… 그… 이거요"
           ],
           "sentenceHabits": [
-            "IT 얘기에서만 문장이 또렷하고 길어진다",
+            "시스템 통합·네트워크·서버·보안 얘기에서 문장이 또렷하고 길어진다",
             "확인을 구하는 질문으로 문장을 맺는다"
           ],
           "avoid": [
@@ -71,7 +75,7 @@
           ],
           "sentenceHabits": [
             "fragt oft nach Bestätigung",
-            "wird bei IT-Themen klarer und länger"
+            "wird bei System-, Infrastruktur- und Sicherheitsthemen klarer und länger"
           ],
           "avoid": [
             "bestimmte, kommandoartige Aussagen"
@@ -84,7 +88,7 @@
           ],
           "sentenceHabits": [
             "asks confirming questions",
-            "gets clear and fluent only when talking about IT"
+            "gets clear and fluent when talking about systems, infrastructure, or security"
           ],
           "avoid": [
             "confident flat statements",
@@ -103,11 +107,12 @@
           ],
           "B1+": [
             "제 생각에는… 아마도….",
-            "기술 설명은 단계별로 차근차근 한다."
+            "시스템·인프라 설명은 단계별로 차근차근 한다.",
+            "보안 이야기는 아는 범위와 모르는 범위를 구분해서 말한다."
           ]
         }
       },
-      "goal": "한국 생활과 학업에 적응하고, 인턴십과 수진과의 관계를 스스로 선택한다.",
+      "goal": "한국 생활과 학업에 적응하고, 인터넷 시스템 통합·시스템 관리 역량을 쌓으면서 최근 관심이 생긴 시스템 보안 분야를 탐색하고, 인턴십과 수진과의 관계를 스스로 선택한다.",
       "strengths": [
         "친절하고 기술 문제에는 꼼꼼하다"
       ],
@@ -1929,7 +1934,7 @@
       "fixedFacts": {
         "christian": {
           "age": 24,
-          "role": "교환학생(IT)",
+          "role": "교환학생(인터넷 시스템 통합·시스템 관리)",
           "residence": "서울"
         },
         "sujin": {
