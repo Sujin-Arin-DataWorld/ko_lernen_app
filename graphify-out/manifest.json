@@ -8196,9 +8196,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791214086.7761714,
-    "seen": 1791214357.4184663,
-    "ast_hash": "15e9d0f865267b5ce83df33f5866cb8d",
+    "mtime": 1791214713.4362502,
+    "seen": 1791214932.0403059,
+    "ast_hash": "0c4e75b7efce591aaab865722c85fb14",
     "semantic_hash": ""
   },
   "BETA_INSTALL_GUIDE.md": {
@@ -14604,9 +14604,9 @@
     "semantic_hash": ""
   },
   "tool/test_audit_content_levels.py": {
-    "mtime": 1791214045.3290782,
-    "seen": 1791214357.2065399,
-    "ast_hash": "ea5221fb218264c1c543b31980886aa1",
+    "mtime": 1791214667.4784555,
+    "seen": 1791214931.8112774,
+    "ast_hash": "d779cece362dd5d49e08a4b92097c389",
     "semantic_hash": ""
   },
   "tool/test_audit_loanword_spelling.py": {
@@ -22212,9 +22212,9 @@
     "semantic_hash": ""
   },
   "docs/plans/2026-10-05-culture-quality-followups.md": {
-    "mtime": 1791214071.3657138,
-    "seen": 1791214357.479097,
-    "ast_hash": "a4eca315a01bb46ebc6a5ba745958ded",
+    "mtime": 1791214709.1483362,
+    "seen": 1791214932.103363,
+    "ast_hash": "0c45d50b9a12fe42e4febd1a9d30c222",
     "semantic_hash": ""
   },
   "tools/content_factory/relevel/relevel_bundle_V2G2.json": {

@@ -232,6 +232,55 @@ class PromotedCopySuccessorTest(unittest.TestCase):
                 {**before, "example_korean": "새 문장"}, original,
                 source_commit=COMMIT, source_path="assets/data/korean_vocab.csv")
 
+    def test_explicit_vocab_headword_opt_in_changes_copy_only_fields(self):
+        before = dict(
+            id="vocab_b1_demo",
+            level="B1",
+            korean="기존 표현",
+            romanization="gijon pyohyeon",
+            german="alte Formulierung",
+            english="old wording",
+            example_korean="기존 표현을 써요.",
+            example_german="Ich benutze die alte Formulierung.",
+            example_english="I use the old wording.",
+        )
+        after = {
+            **before,
+            "korean": "새 표현",
+            "romanization": "sae pyohyeon",
+            "german": "neue Formulierung",
+            "english": "new wording",
+            "example_korean": "새 표현을 써요.",
+            "example_german": "Ich benutze die neue Formulierung.",
+            "example_english": "I use the new wording.",
+        }
+        successor = reconcile.successor_entry(
+            "drafts/manifest.json",
+            "vocab",
+            before,
+            after,
+            None,
+            source_commit=COMMIT,
+            source_path="assets/data/korean_vocab.csv",
+            allow_vocab_headword=True,
+        )
+        self.assertIn("korean", successor["fields"])
+        self.assertIn("romanization", successor["fields"])
+        self.assertIn("LCP vocab headword replacement", successor["reason"])
+
+        for field in ("level", "pack_id"):
+            with self.subTest(field=field), self.assertRaisesRegex(ValueError, "non-copy"):
+                reconcile.successor_entry(
+                    "drafts/manifest.json",
+                    "vocab",
+                    before,
+                    {**after, field: "unregistered"},
+                    None,
+                    source_commit=COMMIT,
+                    source_path="assets/data/korean_vocab.csv",
+                    allow_vocab_headword=True,
+                )
+
 
 if __name__ == "__main__":
     unittest.main()

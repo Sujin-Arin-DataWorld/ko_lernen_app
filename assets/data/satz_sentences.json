@@ -3028,14 +3028,14 @@
     {
       "id": "satz_b2_0079",
       "level": "b2",
-      "targetKo": "작가는 직접 말하지 않고 한 장면에 여러 감정을 함축했어요.",
-      "promptDe": "Die Autorin sprach es nicht direkt aus, sondern verdichtete mehrere Gefühle in einer Szene.",
-      "promptEn": "The author did not say it directly but condensed several feelings into one scene.",
+      "targetKo": "이 장면에는 직접 말하지 않은 숨은 뜻이 있어요.",
+      "promptDe": "Diese Szene hat eine verborgene Bedeutung, die nicht direkt ausgesprochen wird.",
+      "promptEn": "This scene has a hidden meaning that is not stated directly.",
       "distractors": [
         "한 문장에",
         "반복했어요"
       ],
-      "vocabKo": "함축"
+      "vocabKo": "숨은 뜻"
     },
     {
       "id": "satz_b2_0080",
@@ -3184,14 +3184,14 @@
     {
       "id": "satz_b2_0092",
       "level": "b2",
-      "targetKo": "사전의 용례를 보면 이 표현이 어떤 상황에서 쓰이는지 알 수 있어요.",
-      "promptDe": "An den Verwendungsbeispielen im Wörterbuch erkennt man, in welchen Situationen dieser Ausdruck gebraucht wird.",
-      "promptEn": "Dictionary usage examples show the situations in which this expression is used.",
+      "targetKo": "사전의 사용 예를 보면 이 표현을 언제 쓰는지 알 수 있어요.",
+      "promptDe": "An den Verwendungsbeispielen im Wörterbuch sieht man, wann dieser Ausdruck verwendet wird.",
+      "promptEn": "Dictionary usage examples show when this expression is used.",
       "distractors": [
         "상징을",
         "설명할 수 있어요"
       ],
-      "vocabKo": "용례"
+      "vocabKo": "사용 예"
     },
     {
       "id": "satz_b2_0093",
@@ -8672,26 +8672,26 @@
     {
       "id": "satz_b1_0157",
       "level": "b1",
-      "targetKo": "단체 호출은 급한 공지만 쓰라고 현우가 말렸어요.",
-      "promptDe": "Hyunwoo bremste mich: eine Gruppenerwähnung nur für dringende Ankündigungen.",
-      "promptEn": "Hyunwoo stopped me: use a group mention only for urgent notices.",
+      "targetKo": "전체 알림은 급한 공지에만 써요.",
+      "promptDe": "Eine Nachricht an alle nutze ich nur für dringende Hinweise.",
+      "promptEn": "I use a group-wide alert only for urgent notices.",
       "distractors": [
         "엄마께",
         "없다고"
       ],
-      "vocabKo": "단체 호출"
+      "vocabKo": "전체 알림"
     },
     {
       "id": "satz_b1_0158",
       "level": "b1",
-      "targetKo": "이모티콘 과다는 삼촌이 못 읽는다고 해서 줄였어요.",
-      "promptDe": "Zu viele Sticker konnte der Onkel nicht lesen, also reduzierte ich sie.",
-      "promptEn": "Uncle could not read too many stickers, so I cut them.",
+      "targetKo": "단체 채팅에서는 이모티콘을 너무 많이 쓰지 않아요.",
+      "promptDe": "In Gruppenchats verwende ich nicht zu viele Emojis.",
+      "promptEn": "I don't use too many emojis in group chats.",
       "distractors": [
         "먼저라고",
         "멈췄어요"
       ],
-      "vocabKo": "이모티콘 과다"
+      "vocabKo": "이모티콘을 너무 많이 쓰다"
     },
     {
       "id": "satz_b1_0159",
@@ -8720,14 +8720,14 @@
     {
       "id": "satz_b1_0161",
       "level": "b1",
-      "targetKo": "할 말이 없어도 공백만 보내진 않았어요.",
-      "promptDe": "Auch wenn mir nichts einfiel, schickte ich nie nur ein Leerzeichen.",
-      "promptEn": "Even with nothing to say, I never just sent a blank.",
+      "targetKo": "바쁠 때는 답장을 미뤘다가 나중에 보내요.",
+      "promptDe": "Wenn ich beschäftigt bin, verschiebe ich die Antwort und schreibe später.",
+      "promptEn": "When I'm busy, I delay my reply and send it later.",
       "distractors": [
         "듣고",
         "들려도"
       ],
-      "vocabKo": "공백만 보내다"
+      "vocabKo": "답장을 미루다"
     },
     {
       "id": "satz_b1_0162",
@@ -13244,14 +13244,14 @@
     {
       "id": "satz_b1_0202",
       "level": "b1",
-      "targetKo": "자기부담금이 오만 원이라 수리를 다시 계산해요.",
-      "promptDe": "Die Selbstbeteiligung beträgt fünfzigtausend Won, deshalb rechne ich die Reparatur neu.",
-      "promptEn": "The deductible is 50,000 won, so I recalculate the repair.",
+      "targetKo": "내가 내는 금액은 오만 원이에요.",
+      "promptDe": "Mein eigener Kostenanteil beträgt 50.000 Won.",
+      "promptEn": "The amount I pay myself is 50,000 won.",
       "distractors": [
         "사고 접수",
         "보장 범위"
       ],
-      "vocabKo": "자기부담금"
+      "vocabKo": "내가 내는 금액"
     },
     {
       "id": "satz_b1_0203",
@@ -13352,14 +13352,14 @@
     {
       "id": "satz_b1_0211",
       "level": "b1",
-      "targetKo": "사진이 흐려서 지급 보류가 됐어요.",
-      "promptDe": "Weil das Foto unscharf war, gab es einen Auszahlungsstopp.",
-      "promptEn": "The photo was blurry, so the payout was held.",
+      "targetKo": "사진이 흐리면 돈을 늦게 받을 수 있어요.",
+      "promptDe": "Wenn das Foto unscharf ist, kann es länger dauern, bis ich das Geld bekomme.",
+      "promptEn": "If the photo is blurry, I may receive the money later.",
       "distractors": [
         "사고 접수",
         "보장 범위"
       ],
-      "vocabKo": "지급 보류"
+      "vocabKo": "돈을 늦게 받다"
     },
     {
       "id": "satz_b1_0212",
@@ -14072,14 +14072,14 @@
     {
       "id": "satz_b1_0271",
       "level": "b1",
-      "targetKo": "확정 대기 상태라 저녁에 다시 확인해요.",
-      "promptDe": "Die Bestätigung steht noch aus, deshalb sehe ich heute Abend noch einmal nach.",
-      "promptEn": "It's still awaiting confirmation, so I'll check again this evening.",
+      "targetKo": "지금 좌석 확인을 기다리고 있어요.",
+      "promptDe": "Ich warte gerade auf die Sitzplatzbestätigung.",
+      "promptEn": "I'm waiting for the seat confirmation now.",
       "distractors": [
         "일정 변경",
         "환불 규정"
       ],
-      "vocabKo": "확정 대기"
+      "vocabKo": "좌석 확인을 기다리다"
     },
     {
       "id": "satz_b2_0252",
