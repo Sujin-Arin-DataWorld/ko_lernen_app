@@ -706,6 +706,7 @@ class FixtureAuditTest(unittest.TestCase):
                 "unknown": 0,
                 "fallback_over2": 2,
                 "accepted_relevel": 0,
+                "reviewed_owner": 0,
                 "replacement_backlog": 0,
                 "total": 12,
             },
@@ -721,6 +722,7 @@ class FixtureAuditTest(unittest.TestCase):
                 "unknown": 0,
                 "fallback_over2": 1,
                 "accepted_relevel": 0,
+                "reviewed_owner": 0,
                 "replacement_backlog": 0,
                 "total": 5,
             },
@@ -734,6 +736,7 @@ class FixtureAuditTest(unittest.TestCase):
                 "unknown": 1,
                 "fallback_over2": 0,
                 "accepted_relevel": 0,
+                "reviewed_owner": 0,
                 "replacement_backlog": 0,
                 "total": 3,
             },
@@ -1082,6 +1085,68 @@ class CliTest(unittest.TestCase):
         self.assertIn("not yet supported", str(ctx.exception))
 
 
+class ReviewedVocabOwnerLedgerTest(unittest.TestCase):
+    def setUp(self) -> None:
+        self._tmp = tempfile.TemporaryDirectory(prefix="reviewed-vocab-owner-")
+        self.addCleanup(self._tmp.cleanup)
+        self.root = Path(self._tmp.name)
+        path = self.root / acl.REVIEWED_VOCAB_OWNERS_JSON.relative_to(acl.REPO)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        self.path = path
+        self.vocab_rows = [
+            {"id": "vocab_b1_test", "level": "B1", "pack_id": "b1_test"},
+            {"id": "vocab_b2_test", "level": "B2", "pack_id": "b2_test"},
+        ]
+
+    def _write(self, decisions):
+        self.path.write_text(
+            json.dumps(
+                {"schemaVersion": 1, "decisions": decisions},
+                ensure_ascii=False,
+                indent=2,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+
+    def test_matching_keep_current_decision_is_loaded(self):
+        self._write([
+            {
+                "id": "vocab_b1_test",
+                "currentLevel": "b1",
+                "packId": "b1_test",
+                "decision": "keep_current",
+            }
+        ])
+        self.assertEqual(
+            acl._load_reviewed_vocab_owner_ids(self.root, self.vocab_rows),
+            frozenset({"vocab_b1_test"}),
+        )
+
+    def test_duplicate_id_fails_closed(self):
+        row = {
+            "id": "vocab_b1_test",
+            "currentLevel": "b1",
+            "packId": "b1_test",
+            "decision": "keep_current",
+        }
+        self._write([row, dict(row)])
+        with self.assertRaisesRegex(ValueError, "duplicate reviewed vocab owner"):
+            acl._load_reviewed_vocab_owner_ids(self.root, self.vocab_rows)
+
+    def test_stale_live_level_fails_closed(self):
+        self._write([
+            {
+                "id": "vocab_b1_test",
+                "currentLevel": "b2",
+                "packId": "b1_test",
+                "decision": "keep_current",
+            }
+        ])
+        with self.assertRaisesRegex(ValueError, "does not match live"):
+            acl._load_reviewed_vocab_owner_ids(self.root, self.vocab_rows)
+
+
 class LiveRatchetTest(unittest.TestCase):
     """Ratchet against the real repo's tool/content_level_summary.json —
     lower-only caps (2026-09-07 R4b baseline: item 2's confidence-policy
@@ -1162,7 +1227,7 @@ class LiveRatchetTest(unittest.TestCase):
     # grading fix and V2G2 -(으)ㄹ수록 relevel. Lower-only: preserve every
     # improvement accumulated since the September baseline.
     CAP_OVER2 = {
-        "vocab": 105, "grammar": 0, "scenario": 0, "cloze": 0,
+        "vocab": 30, "grammar": 0, "scenario": 0, "cloze": 0,
         "satz": 0, "smalltalk": 0, "pronunciation": 0, "media": 0,
     }
     # 실측 unknown/total: vocab .0231(=56/2420, unchanged from T2.4a --
@@ -1204,6 +1269,7 @@ class LiveRatchetTest(unittest.TestCase):
         "satz": 0, "smalltalk": 1, "pronunciation": 0, "media": 1,
     }
     CAP_REPLACEMENT_BACKLOG = 15
+    REVIEWED_OWNER_EXPECTED = 75
     # 2026-10-05 Stage C-1: coverage is now measured for all six NIKL
     # grades. These are lower-only missing caps and upper-only at-level
     # floors. A content change must not make a grade less represented merely
@@ -1293,6 +1359,12 @@ class LiveRatchetTest(unittest.TestCase):
                     f"{key}.at_level={coverage['at_level']} is below "
                     f"floor {self.MIN_COVERAGE_AT_LEVEL[key]}",
                 )
+
+    def test_reviewed_owner_state_is_loaded(self):
+        self.assertEqual(
+            self.summary["counts"]["vocab"]["reviewed_owner"],
+            self.REVIEWED_OWNER_EXPECTED,
+        )
 
     def test_pack_top10_entries_have_expected_shape(self):
         # R4b item 2a: n_high renamed to n_hm (high+medium), n_low added.

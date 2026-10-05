@@ -1,0 +1,761 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-05",
+  "scope": "assets/data/korean_vocab.csv",
+  "reviewAuthority": "assistant_project_manager_under_user_delegation",
+  "humanApprovalClaim": false,
+  "nativeSpeakerQaClaim": false,
+  "note": "Explicit current-owner decisions for LCP C4. These are pedagogical level-owner decisions, not native-speaker QA. Raw external estimates remain visible in audit output.",
+  "decisions": [
+    {
+      "id": "vocab_b1_0059",
+      "korean": "댓글",
+      "currentLevel": "b1",
+      "packId": "b1_tech_society_1",
+      "topic": "Technologie",
+      "decision": "keep_current",
+      "category": "b1_practical_core",
+      "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0071",
+      "korean": "마감",
+      "currentLevel": "b1",
+      "packId": "b1_work",
+      "topic": "Beruf",
+      "decision": "keep_current",
+      "category": "b1_practical_core",
+      "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0078",
+      "korean": "명상",
+      "currentLevel": "b1",
+      "packId": "b1_health_education",
+      "topic": "Gesundheit",
+      "decision": "keep_current",
+      "category": "b1_practical_core",
+      "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0116",
+      "korean": "광장",
+      "currentLevel": "b1",
+      "packId": "b1_city_places_1",
+      "topic": "Stadt & Orte",
+      "decision": "keep_current",
+      "category": "b1_practical_core",
+      "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0124",
+      "korean": "면세점",
+      "currentLevel": "b1",
+      "packId": "b1_city_places_1",
+      "topic": "Stadt & Orte",
+      "decision": "keep_current",
+      "category": "b1_practical_core",
+      "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0167",
+      "korean": "신입사원",
+      "currentLevel": "b1",
+      "packId": "b1_work_career_1",
+      "topic": "Karriere & Büro",
+      "decision": "keep_current",
+      "category": "b1_practical_core",
+      "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0258",
+      "korean": "중개인",
+      "currentLevel": "b1",
+      "packId": "b1_housing_contract_1",
+      "topic": "Wohnen & Vertrag",
+      "decision": "keep_current",
+      "category": "b1_practical_core",
+      "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0265",
+      "korean": "지연되다",
+      "currentLevel": "b1",
+      "packId": "b1_work_coordination_1",
+      "topic": "Arbeitskoordination & Termine",
+      "decision": "keep_current",
+      "category": "b1_practical_core",
+      "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0267",
+      "korean": "마감일",
+      "currentLevel": "b1",
+      "packId": "b1_work_coordination_1",
+      "topic": "Arbeitskoordination & Termine",
+      "decision": "keep_current",
+      "category": "b1_practical_core",
+      "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0285",
+      "korean": "계약직",
+      "currentLevel": "b1",
+      "packId": "b1_partner_job_visa_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b1_practical_core",
+      "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0287",
+      "korean": "이직 생각",
+      "currentLevel": "b1",
+      "packId": "b1_partner_job_visa_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b1_practical_core",
+      "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0288",
+      "korean": "체류 기간",
+      "currentLevel": "b1",
+      "packId": "b1_partner_job_visa_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b1_practical_core",
+      "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0295",
+      "korean": "안정적으로",
+      "currentLevel": "b1",
+      "packId": "b1_partner_job_visa_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b1_practical_core",
+      "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0332",
+      "korean": "방문 후기",
+      "currentLevel": "b1",
+      "packId": "b1_partner_after_visit_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b1_practical_core",
+      "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0351",
+      "korean": "존댓말 채팅",
+      "currentLevel": "b1",
+      "packId": "b1_partner_group_chat_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b1_practical_core",
+      "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0380",
+      "korean": "공용 선반",
+      "currentLevel": "b1",
+      "packId": "b1_roommate_talk_1",
+      "topic": "WG-Gespräch",
+      "decision": "keep_current",
+      "category": "b1_practical_core",
+      "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0424",
+      "korean": "물품 점검",
+      "currentLevel": "b1",
+      "packId": "b1_volunteer_shift_1",
+      "topic": "Ehrenamtsschicht",
+      "decision": "keep_current",
+      "category": "b1_practical_core",
+      "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0443",
+      "korean": "무상 기간",
+      "currentLevel": "b1",
+      "packId": "b1_repair_words_1",
+      "topic": "Reparaturwortschatz",
+      "decision": "keep_current",
+      "category": "b1_practical_core",
+      "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0448",
+      "korean": "설치 오류",
+      "currentLevel": "b1",
+      "packId": "b1_repair_words_1",
+      "topic": "Reparaturwortschatz",
+      "decision": "keep_current",
+      "category": "b1_practical_core",
+      "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0466",
+      "korean": "대안을 찾다",
+      "currentLevel": "b1",
+      "packId": "b1_work_softening_1",
+      "topic": "직장 소통",
+      "decision": "keep_current",
+      "category": "b1_practical_core",
+      "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0468",
+      "korean": "채용 공고",
+      "currentLevel": "b1",
+      "packId": "b1_work_entry_2026_1",
+      "topic": "취업과 근무 조건",
+      "decision": "keep_current",
+      "category": "b1_practical_core",
+      "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0474",
+      "korean": "체류 자격",
+      "currentLevel": "b1",
+      "packId": "b1_work_entry_2026_1",
+      "topic": "취업과 근무 조건",
+      "decision": "keep_current",
+      "category": "b1_practical_core",
+      "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b2_0011",
+      "korean": "맥락",
+      "currentLevel": "b2",
+      "packId": "b2_thinking_1",
+      "topic": "Denken",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0029",
+      "korean": "추상적이다",
+      "currentLevel": "b2",
+      "packId": "b2_thinking_2",
+      "topic": "Denken",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0033",
+      "korean": "협상",
+      "currentLevel": "b2",
+      "packId": "b2_work",
+      "topic": "Beruf",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0038",
+      "korean": "생산성",
+      "currentLevel": "b2",
+      "packId": "b2_work",
+      "topic": "Beruf",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0049",
+      "korean": "인권",
+      "currentLevel": "b2",
+      "packId": "b2_society_2",
+      "topic": "Gesellschaft",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0051",
+      "korean": "강점",
+      "currentLevel": "b2",
+      "packId": "b2_work",
+      "topic": "Beruf",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0057",
+      "korean": "잠재력",
+      "currentLevel": "b2",
+      "packId": "b2_misc",
+      "topic": "Beschreibung",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0066",
+      "korean": "가설",
+      "currentLevel": "b2",
+      "packId": "b2_thinking_2",
+      "topic": "Denken",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0071",
+      "korean": "모호하다",
+      "currentLevel": "b2",
+      "packId": "b2_communication",
+      "topic": "Kommunikation",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0080",
+      "korean": "폐기물",
+      "currentLevel": "b2",
+      "packId": "b2_environment_1",
+      "topic": "Umwelt",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0082",
+      "korean": "온실가스",
+      "currentLevel": "b2",
+      "packId": "b2_environment_1",
+      "topic": "Umwelt",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0210",
+      "korean": "당사자",
+      "currentLevel": "b2",
+      "packId": "b2_formal_agreement_1",
+      "topic": "Formelle Vereinbarungen",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0211",
+      "korean": "효력",
+      "currentLevel": "b2",
+      "packId": "b2_formal_agreement_1",
+      "topic": "Formelle Vereinbarungen",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0218",
+      "korean": "결함",
+      "currentLevel": "b2",
+      "packId": "b2_formal_complaint_1",
+      "topic": "Formelle Beschwerde & Abhilfe",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0220",
+      "korean": "시정하다",
+      "currentLevel": "b2",
+      "packId": "b2_formal_complaint_1",
+      "topic": "Formelle Beschwerde & Abhilfe",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0225",
+      "korean": "이의 제기",
+      "currentLevel": "b2",
+      "packId": "b2_formal_complaint_1",
+      "topic": "Formelle Beschwerde & Abhilfe",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0227",
+      "korean": "조치",
+      "currentLevel": "b2",
+      "packId": "b2_formal_complaint_1",
+      "topic": "Formelle Beschwerde & Abhilfe",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0235",
+      "korean": "이견",
+      "currentLevel": "b2",
+      "packId": "b2_decisions_perspectives_1",
+      "topic": "Entscheidungen & Perspektiven",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0238",
+      "korean": "결단",
+      "currentLevel": "b2",
+      "packId": "b2_decisions_perspectives_1",
+      "topic": "Entscheidungen & Perspektiven",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0239",
+      "korean": "소신",
+      "currentLevel": "b2",
+      "packId": "b2_decisions_perspectives_1",
+      "topic": "Entscheidungen & Perspektiven",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0266",
+      "korean": "우선순위를 조정하다",
+      "currentLevel": "b2",
+      "packId": "b2_collaborative_feedback_1",
+      "topic": "Teamarbeit & Feedback",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0276",
+      "korean": "후속 조치를 정하다",
+      "currentLevel": "b2",
+      "packId": "b2_collaborative_feedback_1",
+      "topic": "Teamarbeit & Feedback",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0279",
+      "korean": "맥락이 빠지다",
+      "currentLevel": "b2",
+      "packId": "b2_digital_judgment_1",
+      "topic": "Digitale Aufmerksamkeit",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0470",
+      "korean": "재배",
+      "currentLevel": "b2",
+      "packId": "b2_partner_ancestral_rite_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0483",
+      "korean": "생활비 분담",
+      "currentLevel": "b2",
+      "packId": "b2_partner_family_money_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0507",
+      "korean": "타협안",
+      "currentLevel": "b2",
+      "packId": "b2_partner_boundary_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0531",
+      "korean": "역량 기술",
+      "currentLevel": "b2",
+      "packId": "b2_performance_review_1",
+      "topic": "Beurteilung",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0535",
+      "korean": "강점 서술",
+      "currentLevel": "b2",
+      "packId": "b2_performance_review_1",
+      "topic": "Beurteilung",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0540",
+      "korean": "원상복구",
+      "currentLevel": "b2",
+      "packId": "b2_housing_dispute_1",
+      "topic": "Wohnstreit",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0546",
+      "korean": "비용 분담",
+      "currentLevel": "b2",
+      "packId": "b2_housing_dispute_1",
+      "topic": "Wohnstreit",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0547",
+      "korean": "퇴거 통보",
+      "currentLevel": "b2",
+      "packId": "b2_housing_dispute_1",
+      "topic": "Wohnstreit",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0549",
+      "korean": "분쟁 조항",
+      "currentLevel": "b2",
+      "packId": "b2_housing_dispute_1",
+      "topic": "Wohnstreit",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0555",
+      "korean": "인용 맥락",
+      "currentLevel": "b2",
+      "packId": "b2_media_literacy_1",
+      "topic": "Medienkompetenz",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0557",
+      "korean": "익명 제보",
+      "currentLevel": "b2",
+      "packId": "b2_media_literacy_1",
+      "topic": "Medienkompetenz",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0562",
+      "korean": "공유 보류",
+      "currentLevel": "b2",
+      "packId": "b2_media_literacy_1",
+      "topic": "Medienkompetenz",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0564",
+      "korean": "안건 순서",
+      "currentLevel": "b2",
+      "packId": "b2_civic_meeting_1",
+      "topic": "Bürgerversammlung",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0573",
+      "korean": "공개 질의",
+      "currentLevel": "b2",
+      "packId": "b2_civic_meeting_1",
+      "topic": "Bürgerversammlung",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0574",
+      "korean": "후속 공지",
+      "currentLevel": "b2",
+      "packId": "b2_civic_meeting_1",
+      "topic": "Bürgerversammlung",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0580",
+      "korean": "결정 권한",
+      "currentLevel": "b2",
+      "packId": "b2_team_negotiation_1",
+      "topic": "Teamverhandlung",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0584",
+      "korean": "보류 사유",
+      "currentLevel": "b2",
+      "packId": "b2_team_negotiation_1",
+      "topic": "Teamverhandlung",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0585",
+      "korean": "상호 양보",
+      "currentLevel": "b2",
+      "packId": "b2_team_negotiation_1",
+      "topic": "Teamverhandlung",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0593",
+      "korean": "측정 지표",
+      "currentLevel": "b2",
+      "packId": "b2_policy_brief_1",
+      "topic": "Kurzlage",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0594",
+      "korean": "권고 문장",
+      "currentLevel": "b2",
+      "packId": "b2_policy_brief_1",
+      "topic": "Kurzlage",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0599",
+      "korean": "상위 담당자",
+      "currentLevel": "b2",
+      "packId": "b2_customer_escalation_1",
+      "topic": "Eskalation",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0601",
+      "korean": "약속 불이행",
+      "currentLevel": "b2",
+      "packId": "b2_customer_escalation_1",
+      "topic": "Eskalation",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0602",
+      "korean": "보상 한도",
+      "currentLevel": "b2",
+      "packId": "b2_customer_escalation_1",
+      "topic": "Eskalation",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0610",
+      "korean": "종결 확인",
+      "currentLevel": "b2",
+      "packId": "b2_customer_escalation_1",
+      "topic": "Eskalation",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0612",
+      "korean": "표본 크기",
+      "currentLevel": "b2",
+      "packId": "b2_research_summary_1",
+      "topic": "Kurzreferat",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0621",
+      "korean": "후속 조사",
+      "currentLevel": "b2",
+      "packId": "b2_research_summary_1",
+      "topic": "Kurzreferat",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0624",
+      "korean": "임대료 인상",
+      "currentLevel": "b2",
+      "packId": "b2_2026_social_topics_1",
+      "topic": "Gesellschaft & Alltag 2026",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0636",
+      "korean": "임대료",
+      "currentLevel": "b2",
+      "packId": "b2_housing_migration_2026_1",
+      "topic": "주거비와 사회 통합",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0637",
+      "korean": "실질 소득",
+      "currentLevel": "b2",
+      "packId": "b2_housing_migration_2026_1",
+      "topic": "주거비와 사회 통합",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0643",
+      "korean": "이주 배경",
+      "currentLevel": "b2",
+      "packId": "b2_housing_migration_2026_1",
+      "topic": "주거비와 사회 통합",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    }
+  ]
+}

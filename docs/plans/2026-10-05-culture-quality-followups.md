@@ -212,35 +212,46 @@ Current high-confidence `over2` ratchets:
 - media: **0**
 
 Low-confidence fallback remains separately visible:
-- vocab fallback_over2: **66**
+- vocab fallback_over2: **45**
 - smalltalk fallback_over2: **1**
 - media fallback_over2: **1**
 
+Reviewed-current-owner support:
+- new canonical ledger: `tools/content_factory/relevel/reviewed_vocab_owners_20261005.json`
+- first tranche: **75** reviewed keep-current decisions
+  - B1 practical/work-life core: 22
+  - B2 domain-core professional/civic/research/housing/policy/culture: 53
+- invalid schema, duplicate IDs, stale live levels, and stale pack IDs fail closed
+- raw external estimate/delta remains visible; only resolution state changes
+- no native-speaker QA claim is made by this owner ledger
+
 Validation:
-- level-audit regression bundle: **55/55 passed** after regeneration
+- level-audit regression bundle: **59/59 passed** after reviewed-owner support
+- live audit regeneration: passed
 - `build_can_do_segments.py --check`: fresh
 - `validate_content.py`: passed
 
-Remaining Stage C-4 work is now the **vocab owner/backlog only**.
+Remaining Stage C-4 work is still the **vocab owner/backlog only**, but the
+unresolved set is now much smaller.
 
-The raw +2-or-more vocab population is now separated by canonical state instead
-of being reported as one undifferentiated error count:
-- unresolved high-confidence `over2`: **105**
+Current raw +2-or-more vocab population by canonical state:
+- unresolved high-confidence `over2`: **30** (105 → 30)
+- reviewed current owner: **75**
 - accepted historical relevel owner: **59**
 - explicit `replacement_backlog`: **15**
 - unresolved low-confidence `fallback_over2`: **45**
 
-Raw estimate/delta remains visible for accepted/backlog rows; only their
-resolution bucket changes. Replacement backlog takes precedence over an older
-relevel decision when both exist, because the scheduled replacement is the more
-recent owner state. Ratchets now prevent unresolved over2/fallback/backlog from
-growing.
+Replacement backlog takes precedence over an older relevel decision when both
+exist. Reviewed-current-owner decisions are separate from relevel history:
+they explicitly explain why a live row stays where it is despite a higher
+general-literacy estimate. Ratchets now prevent unresolved high-confidence
+over2 from rising above **30**.
 
-Continue with the 105 unresolved high-confidence vocab rows first, then the 45
-low-confidence fallback rows. For each, review prior evidence, survival/culture
-exceptions, pack semantics, and whether the correct action is move, replace, or
-a narrowly documented exception. Never raise a ratchet merely to make the suite
-green.
+Continue with the remaining 30 unresolved high-confidence vocab rows, then the
+45 low-confidence fallback rows. For each, review prior evidence,
+survival/culture exceptions, pack semantics, and whether the correct action is
+move, replace, or a narrowly documented current-owner decision. Never raise a
+ratchet merely to make the suite green.
 
 Use:
 - `AGENTS.md` LCP gate

@@ -247,6 +247,7 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
       "over1": 159,
       "over2": 0,
       "replacement_backlog": 0,
+      "reviewed_owner": 0,
       "total": 2365,
       "under2": 462,
       "unknown": 0
@@ -257,6 +258,7 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
       "over1": 10,
       "over2": 0,
       "replacement_backlog": 0,
+      "reviewed_owner": 0,
       "total": 264,
       "under2": 43,
       "unknown": 0
@@ -267,6 +269,7 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
       "over1": 23,
       "over2": 0,
       "replacement_backlog": 0,
+      "reviewed_owner": 0,
       "total": 136,
       "under2": 13,
       "unknown": 0
@@ -277,6 +280,7 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
       "over1": 7,
       "over2": 0,
       "replacement_backlog": 0,
+      "reviewed_owner": 0,
       "total": 84,
       "under2": 18,
       "unknown": 0
@@ -287,6 +291,7 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
       "over1": 157,
       "over2": 0,
       "replacement_backlog": 0,
+      "reviewed_owner": 0,
       "total": 2885,
       "under2": 646,
       "unknown": 0
@@ -297,6 +302,7 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
       "over1": 17,
       "over2": 0,
       "replacement_backlog": 0,
+      "reviewed_owner": 0,
       "total": 191,
       "under2": 23,
       "unknown": 0
@@ -307,6 +313,7 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
       "over1": 97,
       "over2": 0,
       "replacement_backlog": 0,
+      "reviewed_owner": 0,
       "total": 590,
       "under2": 136,
       "unknown": 0
@@ -315,8 +322,9 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
       "accepted_relevel": 59,
       "fallback_over2": 45,
       "over1": 313,
-      "over2": 105,
+      "over2": 30,
       "replacement_backlog": 15,
+      "reviewed_owner": 75,
       "total": 2968,
       "under2": 226,
       "unknown": 58

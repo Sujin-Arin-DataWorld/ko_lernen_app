@@ -180,6 +180,7 @@ SUMMARY_JSON = REPO / "tool" / "content_level_summary.json"
 # packs.a1/a2.over2_unbacklogged ratchet -- an over2 vocab suspect that IS
 # in this backlog is "triaged", not "unaddressed".
 REPLACEMENT_BACKLOG_JSON = REPO / "tools" / "content_factory" / "relevel" / "replacement_backlog.json"
+REVIEWED_VOCAB_OWNERS_JSON = REPO / "tools" / "content_factory" / "relevel" / "reviewed_vocab_owners_20261005.json"
 RELEVEL_LEDGER_JSON = REPO / "tools" / "content_factory" / "relevel_ledger.json"
 
 # R4 item 3: lowercase throughout -- both the matrix's grouping keys and
@@ -198,7 +199,7 @@ SUSPECTS_HEADER: Tuple[str, ...] = (
 # ratchet's over2 caps stay a high-confidence-only signal.
 REASON_BUCKETS: Tuple[str, ...] = (
     "over2", "over1", "under2", "unknown", "fallback_over2",
-    "accepted_relevel", "replacement_backlog",
+    "accepted_relevel", "reviewed_owner", "replacement_backlog",
 )
 
 
@@ -220,7 +221,7 @@ class Item:
     # R4 item 4: canonical classification driving suggested_action /
     # counts[kind] / suspects-CSV inclusion -- '' | 'over2' | 'over1' |
     # 'under2' | 'unknown' | 'fallback_over2' | 'accepted_relevel' |
-    # 'replacement_backlog'. NOT a CSV column itself
+    # 'reviewed_owner' | 'replacement_backlog'. NOT a CSV column itself
     # (the CSV keeps its original 9-column contract); `reason` below is
     # the column, a human-readable elaboration of this bucket.
     bucket: str
@@ -278,6 +279,7 @@ class Corpus:
     can_do_refs: List[dict]
     kiiq_rows: List[dict]
     replacement_backlog_ids: FrozenSet[str]
+    reviewed_vocab_owner_ids: FrozenSet[str]
 
 
 @dataclass
@@ -311,6 +313,63 @@ def _load_replacement_backlog_ids(root: Path) -> FrozenSet[str]:
         return frozenset()
     rows = json.loads(path.read_text(encoding="utf-8"))
     return frozenset(row["id"] for row in rows if isinstance(row, dict) and row.get("id"))
+
+
+def _load_reviewed_vocab_owner_ids(
+    root: Path,
+    vocab_rows: Sequence[dict],
+) -> FrozenSet[str]:
+    """Load explicit keep-current owner decisions for live vocab rows.
+
+    This ledger is deliberately separate from the immutable relevel ledger:
+    it records reviewed decisions to KEEP a live row at its current level,
+    while preserving the external estimate/delta for audit transparency.
+    Any malformed row, duplicate id, missing live id, or stale level fails
+    closed instead of silently converting unresolved debt into reviewed debt.
+    """
+
+    path = root / REVIEWED_VOCAB_OWNERS_JSON.relative_to(REPO)
+    if not path.exists():
+        return frozenset()
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(payload, dict) or payload.get("schemaVersion") != 1:
+        raise ValueError("reviewed vocab owner ledger must use schemaVersion 1")
+    decisions = payload.get("decisions")
+    if not isinstance(decisions, list):
+        raise ValueError("reviewed vocab owner ledger decisions must be a list")
+
+    live = {
+        row.get("id", ""): row
+        for row in vocab_rows
+        if isinstance(row, dict) and row.get("id")
+    }
+    seen: set[str] = set()
+    reviewed: set[str] = set()
+    for row in decisions:
+        if not isinstance(row, dict):
+            raise ValueError("reviewed vocab owner decision must be an object")
+        ident = row.get("id")
+        current_level = (row.get("currentLevel") or "").strip().lower()
+        if not isinstance(ident, str) or not ident:
+            raise ValueError("reviewed vocab owner decision needs a nonempty id")
+        if ident in seen:
+            raise ValueError(f"duplicate reviewed vocab owner id {ident!r}")
+        if row.get("decision") != "keep_current":
+            raise ValueError(f"reviewed vocab owner {ident!r} must be keep_current")
+        live_row = live.get(ident)
+        if live_row is None:
+            raise ValueError(f"reviewed vocab owner {ident!r} is not live")
+        live_level = (live_row.get("level") or "").strip().lower()
+        if current_level not in LEVELS or current_level != live_level:
+            raise ValueError(
+                f"reviewed vocab owner {ident!r} level {current_level!r} "
+                f"does not match live {live_level!r}"
+            )
+        if row.get("packId") != live_row.get("pack_id"):
+            raise ValueError(f"reviewed vocab owner {ident!r} packId is stale")
+        seen.add(ident)
+        reviewed.add(ident)
+    return frozenset(reviewed)
 
 
 def _load_accepted_vocab_relevel_ids(
@@ -375,6 +434,7 @@ def load_corpus(root: Path = REPO) -> Corpus:
 
     kiiq_rows = _read_csv(root / LEXICON_DIR_REL / "nikl_kiiq_2017_vocab.csv")
     replacement_backlog_ids = _load_replacement_backlog_ids(root)
+    reviewed_vocab_owner_ids = _load_reviewed_vocab_owner_ids(root, vocab_rows)
 
     return Corpus(
         root=root, lexicon=lexicon, grammar_index=grammar_index, vocab_rows=vocab_rows,
@@ -383,6 +443,7 @@ def load_corpus(root: Path = REPO) -> Corpus:
         pronunciation_phrases=pronunciation_phrases, media_phrases=media_phrases,
         can_do_refs=can_do_refs, kiiq_rows=kiiq_rows,
         replacement_backlog_ids=replacement_backlog_ids,
+        reviewed_vocab_owner_ids=reviewed_vocab_owner_ids,
     )
 
 
@@ -446,7 +507,7 @@ def _default_action(kind: str, bucket: str) -> str:
     the now-descriptive `reason` text."""
     if bucket in ("", "unknown"):
         return "keep"
-    if bucket == "accepted_relevel":
+    if bucket in ("accepted_relevel", "reviewed_owner"):
         return "keep_reviewed_owner"
     if bucket == "replacement_backlog":
         return "replace_backfill"
@@ -770,6 +831,8 @@ def grade_vocab(corpus: Corpus) -> List[Item]:
             blocked.append("replacement_backlog")
         if ident in accepted_relevel_ids:
             blocked.append("accepted_relevel")
+        if ident in corpus.reviewed_vocab_owner_ids:
+            blocked.append("reviewed_owner")
 
         # Canonical owner decisions are resolution states, not unresolved
         # level errors. Keep the raw estimate/delta intact for transparency.
@@ -780,6 +843,9 @@ def grade_vocab(corpus: Corpus) -> List[Item]:
             elif ident in accepted_relevel_ids:
                 bucket = "accepted_relevel"
                 reason = f"accepted_relevel raw_estimate={estimate or ''}"
+            elif ident in corpus.reviewed_vocab_owner_ids:
+                bucket = "reviewed_owner"
+                reason = f"reviewed_owner raw_estimate={estimate or ''}"
 
         # R4 item 7: number/proper-noun tokens are never a lexicon gap --
         # exclude them from unknown_count the same way sentence_profile()
@@ -862,6 +928,7 @@ def apply_pack_overrides(
     protected_buckets = {
         "fallback_over2",
         "accepted_relevel",
+        "reviewed_owner",
         "replacement_backlog",
     }
     new_items = [
