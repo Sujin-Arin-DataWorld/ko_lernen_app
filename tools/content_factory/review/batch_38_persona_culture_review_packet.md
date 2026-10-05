@@ -37,9 +37,9 @@
 
 **Jin approval ledger**
 
-- 상태: `draft`
+- 상태: `approved`
 - field notes: rights: original; AUTHOR+AUDIT; read full dialogue, quests, listening draft and culture links before approval
-- Jin memo: —
+- Jin memo: User approved scene 1 after reviewing KO/DE/EN dialogue and assessment structure in chat on 2026-10-05.
 
 ### 2. `b1_byeongcheol_hwaseong_memory_check` · B1
 

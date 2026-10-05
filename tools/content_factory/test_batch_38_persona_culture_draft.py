@@ -54,7 +54,16 @@ class Batch38PersonaCultureDraftTest(unittest.TestCase):
         ) as handle:
             rows = list(csv.DictReader(handle))
         self.assertEqual([row["id"] for row in rows], expected)
-        self.assertTrue(all(row["상태"] == "draft" for row in rows))
+        self.assertTrue(
+            all(row["상태"] in {"draft", "approved"} for row in rows)
+        )
+        self.assertTrue(
+            all(
+                row["jin_memo"].strip()
+                for row in rows
+                if row["상태"] == "approved"
+            )
+        )
 
     def test_culture_links_cover_only_the_batch_and_live_glossary_terms(self) -> None:
         scenario_ids = [scene["id"] for scene in self.scenarios]
