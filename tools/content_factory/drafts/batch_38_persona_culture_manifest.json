@@ -94,5 +94,6 @@
     "All review rows remain draft until Jin reads full learner-facing copy",
     "Do not write non-live IDs into assets/data/scenario_culture_links.json before scenario promotion",
     "No mastery/reward changes from culture links"
-  ]
+  ],
+  "vocabLevelingReview": "tools/content_factory/review/persona_culture_vocab_leveling_20261005.json"
 }

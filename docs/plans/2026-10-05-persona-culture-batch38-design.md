@@ -71,6 +71,18 @@ The batch intentionally strengthens underused personas without mechanically equa
 | Talchum short-form | `c1_03_media_evidence_literacy` | `concept_c1_media_evidence` | `grammar_b2_not_automatic_conclusion` |
 | Hanji filming | `b2_03_precise_requests` | `concept_b2_precise_requests` | `grammar_b2_instead_tradeoff` |
 
+## Key vocabulary leveling
+
+Each authored scene keeps a short explicit `vocab[]` list of key words or phrases. A review-only sidecar is generated with `tools/content_factory/extract_scenario_key_vocab.py` and records:
+- linked culture anchors that may remain despite a high lexical grade when glossary support is immediate,
+- items at or below the target level,
+- above-target items that need rewrite/move/explicit exception review,
+- exact live-vocabulary matches and placement mismatches,
+- phrase candidates that should not be promoted as dictionary headwords without review.
+
+Batch 38 sidecar: `tools/content_factory/review/persona_culture_vocab_leveling_20261005.json`.
+This evidence never changes scenario level, CanDo mastery, or the live vocabulary automatically.
+
 ## Runtime boundary
 
 Before Jin review:
