@@ -10,6 +10,7 @@ import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/models/grammar.dart';
 import 'package:ko_lernen_app/models/pack_progress.dart';
+import 'package:ko_lernen_app/models/scenario_corpus_generation.dart';
 import 'package:ko_lernen_app/services/account/account_reconciliation.dart';
 import 'package:ko_lernen_app/services/account/account_transition_journal.dart';
 import 'package:ko_lernen_app/services/account/cloud_read_result.dart';
@@ -89,6 +90,73 @@ void main() {
 
       expect(result.conflicts, isEmpty);
       expect(result.merged, snapshot);
+    });
+
+    test('unions completed scenarios when corpus generations match', () {
+      final local = _snapshot(
+        fields: {
+          'progress': {
+            'scenario_corpus_generation':
+                ScenarioCorpusGeneration.canonical120,
+            'completed_scenarios': ['scene-local'],
+          },
+        },
+      );
+      final remote = _snapshot(
+        fields: {
+          'progress': {
+            'scenario_corpus_generation':
+                ScenarioCorpusGeneration.canonical120,
+            'completed_scenarios': ['scene-remote'],
+          },
+        },
+      );
+
+      final result = AccountReconciliationMerger.merge(
+        local: local,
+        remote: remote,
+        catalog: catalog,
+      );
+
+      expect(result.conflicts, isEmpty);
+      expect(
+        (result.merged!.fields['progress'] as Map)['completed_scenarios'],
+        ['scene-local', 'scene-remote'],
+      );
+    });
+
+    test('conflicts completed scenarios across corpus generations', () {
+      final result = AccountReconciliationMerger.merge(
+        local: _snapshot(
+          fields: {
+            'progress': {
+              'scenario_corpus_generation':
+                  ScenarioCorpusGeneration.canonical120,
+              'completed_scenarios': ['scene-current'],
+            },
+          },
+        ),
+        remote: _snapshot(
+          fields: {
+            'progress': {
+              'scenario_corpus_generation': ScenarioCorpusGeneration.legacy,
+              'completed_scenarios': ['scene-legacy'],
+            },
+          },
+        ),
+        catalog: catalog,
+      );
+
+      expect(result.merged, isNull);
+      expect(
+        result.conflicts,
+        contains(
+          const AccountReconciliationConflict(
+            kind: AccountReconciliationConflictKind.documentField,
+            id: 'scenario_corpus_generation',
+          ),
+        ),
+      );
     });
 
     test('blocks divergent SRS-card histories', () {

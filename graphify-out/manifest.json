@@ -1986,9 +1986,9 @@
     "semantic_hash": ""
   },
   "lib/services/cloud_sync.dart": {
-    "mtime": 1791155114.705315,
-    "seen": 1791162436.038042,
-    "ast_hash": "76113445339397e624bd066f494beb02",
+    "mtime": 1791196935.9536798,
+    "seen": 1791196962.1742625,
+    "ast_hash": "307ffc0c11d1ec4478638e550c75b4bc",
     "semantic_hash": ""
   },
   "lib/services/cloud_sync_service.dart": {
@@ -3702,9 +3702,9 @@
     "semantic_hash": ""
   },
   "test/cloud_sync_test.dart": {
-    "mtime": 1791155115.168446,
-    "seen": 1791162436.0396836,
-    "ast_hash": "e192216a1c9af8fa25c3cbc5122c5e32",
+    "mtime": 1791196948.6357114,
+    "seen": 1791196962.2769485,
+    "ast_hash": "f88dfef422e025c6169cd83afff3c836",
     "semantic_hash": ""
   },
   "test/cloze_game_screen_ui_test.dart": {
@@ -8196,9 +8196,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791194392.8233244,
-    "seen": 1791194754.3879375,
-    "ast_hash": "5a228cb731fa8083883354b68a1bdb3e",
+    "mtime": 1791196597.440537,
+    "seen": 1791196962.6852443,
+    "ast_hash": "447869f170bc029fdbae9c5c39bebe42",
     "semantic_hash": ""
   },
   "BETA_INSTALL_GUIDE.md": {
@@ -22188,9 +22188,9 @@
     "semantic_hash": ""
   },
   "test/culture_story_arc_test.dart": {
-    "mtime": 1791173451.9246936,
-    "seen": 1791194753.9652982,
-    "ast_hash": "f78a89437d58c143a843ccfb64d0c6d7",
+    "mtime": 1791196636.04193,
+    "seen": 1791196962.2909982,
+    "ast_hash": "044a385723197728f9a141ff2e25fe66",
     "semantic_hash": ""
   },
   "tools/content_factory/drafts/persona_culture_story_arcs_20261005.json": {
@@ -22209,6 +22209,12 @@
     "mtime": 1791195909.2588656,
     "seen": 1791196197.3472407,
     "ast_hash": "cfdd94d2752419966e69b84f341915f7",
+    "semantic_hash": ""
+  },
+  "docs/plans/2026-10-05-culture-quality-followups.md": {
+    "mtime": 1791196595.081809,
+    "seen": 1791196962.7471988,
+    "ast_hash": "f7dfad9acc00b7b0c826e3c4fca6e5c8",
     "semantic_hash": ""
   }
 }

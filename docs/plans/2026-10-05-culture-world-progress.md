@@ -231,11 +231,11 @@ Discovery contract:
 - missing optional catalogs fail closed
 - returning to the long-lived Hanok tab refreshes the derived count
 
-Important recovery limit:
-- `scenarioCheckpoints` are capped **attempt history**, not a permanent set of unique completed scenarios.
-- heavy replay can evict an older unique scenario from restored checkpoint history even while the live scenario catalog is smaller than the checkpoint cap.
-- therefore Culture Stories is a supplementary discovery view, **not** permanent mastery proof and **not** a guaranteed complete cross-device archive.
-- the local current-generation completion mirror remains the strongest on-device source; no new persistence field was introduced just to hide this limitation.
+Cross-device durability follow-up:
+- `scenarioCheckpoints` remain capped attempt history and are still supplementary only.
+- the existing `Storage.completedScenarios` owner is now included in cloud progress backup together with `scenario_corpus_generation`.
+- restore unions scenario IDs only when the remote and local corpus generations match; reconciliation also unions matching lists and conflicts on generation drift.
+- Culture Stories still stores no cultural mastery/discovery ledger: terms and arcs remain derived from scenario completion + the current live culture catalogs.
 
 Commit:
 - `810e37f93 feat(culture): add Hanok culture stories collection`

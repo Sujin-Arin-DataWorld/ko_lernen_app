@@ -50,23 +50,23 @@ class CultureDiscoverySnapshot {
 
 /// Read-only projection of culture discovery from existing learning evidence.
 ///
-/// No discovered-term list or story-arc progress is persisted. Current-generation
-/// scenario completion is reconstructed from the local completion mirror plus
-/// course-mastery checkpoints (the cloud-restorable source), then intersected
-/// with the live scenario-culture registry.
+/// No discovered-term list or story-arc progress is persisted. Culture discovery
+/// is derived from the existing current-generation scenario-completion owner.
+/// That completion list is cloud-backed together with its corpus generation;
+/// course-mastery checkpoints remain supplementary evidence only. The resulting
+/// scenario IDs are then intersected with the live scenario-culture registry.
 ///
 /// Story arcs are optional grouping metadata only. An arc is projected only when
 /// every referenced scenario and cultural term already exists in the live
 /// scenario-culture registry/glossary, so review-only authoring data cannot leak
 /// into learner UI before promotion.
 ///
-/// Course checkpoints are bounded attempt history, not a permanent set of
-/// unique completed scenario IDs. They improve account-restore coverage, but a
-/// long replay history can evict an older scenario even while today's catalog
-/// contains fewer than the 300 retained checkpoints. The local completion
-/// mirror therefore remains the strongest on-device source; this projection is
-/// deliberately supplementary and must not be presented as permanent mastery
-/// or as a complete cross-device archive.
+/// Course checkpoints are bounded attempt history and can still evict older
+/// scenario IDs, but they no longer carry the cross-device durability burden:
+/// CloudSync backs up Storage.completedScenarios with the matching scenario
+/// corpus generation and restores it by union only when generations match.
+/// This projection remains presentation-only and must never be interpreted as
+/// mastery or reward authority.
 class CultureDiscoveryService {
   CultureDiscoveryService({
     CultureCompletedScenarioIdsLoader? completionScenarioIdsLoader,

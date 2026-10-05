@@ -56,30 +56,40 @@ Validation:
 
 ## Stage B — durable culture discovery design audit
 
-Status: **next**
+Status: **complete**
 
-Current sources:
-- local current-generation `Storage.completedScenarios`
-- cloud-restorable bounded `CourseMasterySnapshot.scenarioCheckpoints`
+Decision: **do not create a culture-specific discovery ledger.**
 
-Known limitation:
-- `scenarioCheckpoints` is bounded attempt history, not a permanent set of unique
-  completed scenarios
-- heavy replay can evict old scenario IDs after cross-device restore
+Root cause:
+- `Storage.completedScenarios` is already the canonical current-generation scenario
+  completion owner
+- culture discovery correctly derives from it
+- the durability gap existed because this owner was not included in root cloud backup
 
-Decision questions:
-1. Can an existing durable completion owner provide lossless scenario evidence without
-   adding culture-specific progression?
-2. If not, is a small presentation-only discovery receipt justified?
-3. How should corpus-generation migration and account reconciliation treat it?
-4. Can the receipt store scenario IDs only, deriving terms/arcs from current catalogs,
-   rather than persisting cultural mastery?
+Implemented:
+- cloud `progress` now carries `scenario_corpus_generation`
+- cloud `progress` now carries `completed_scenarios`
+- direct restore unions completed scenario IDs only when the generations match
+- account reconciliation already provides the correct semantics:
+  - same generation string + list values => deterministic union
+  - different generation strings => conflict rather than cross-generation resurrection
+- `CourseMasterySnapshot.scenarioCheckpoints` remain supplementary evidence, not the
+  permanent archive
 
-Do not implement persistence until these ownership/migration questions are resolved.
+Result:
+- cross-device culture discovery becomes durable through the existing scenario-completion
+  owner
+- no culture-specific persistence key, mastery denominator, reward source, or second
+  progression system was introduced
+
+Validation:
+- targeted Dart analysis: **0 issues**
+- CloudSync + account reconciliation test bundle: **116/116 passed**
+- matching-generation union and mismatched-generation fail-closed behavior are locked by tests
 
 ## Stage C — app-wide Level Canonicalization Program
 
-Status: **after Stage B decision**
+Status: **next**
 
 Resume the existing LCP rather than create a culture-specific leveling system.
 
