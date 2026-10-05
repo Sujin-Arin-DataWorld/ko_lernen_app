@@ -89,9 +89,32 @@ Validation:
 
 ## Stage C — app-wide Level Canonicalization Program
 
-Status: **next**
+Status: **in progress**
 
 Resume the existing LCP rather than create a culture-specific leveling system.
+
+### Stage C-1 — six-grade vocabulary coverage gate
+
+Status: **complete**
+
+The previous audit only measured NIKL grade 1/A1 and grade 2/A2 vocabulary
+coverage. Grades 3–6 had no live coverage measurement or ratchet.
+
+Implemented:
+- `tool/audit_content_levels.py` now computes coverage for grades 1–6 with
+  one shared resolved-lemma pass
+- generated summary/report now expose B1, B2, C1, and C2 coverage
+- live ratchets prevent `missing` from increasing and `at_level` from
+  decreasing for every grade
+
+2026-10-05 baseline:
+- B1/grade3: total 1554 / present 310 / at-level 162 / missing 1244
+- B2/grade4: total 2089 / present 276 / at-level 148 / missing 1813
+- C1/grade5: total 2171 / present 154 / at-level 26 / missing 2017
+- C2/grade6: total 2479 / present 129 / at-level 46 / missing 2350
+
+Validation:
+- `tool.test_audit_content_levels`: **53/53 passed**
 
 Use:
 - `AGENTS.md` LCP gate

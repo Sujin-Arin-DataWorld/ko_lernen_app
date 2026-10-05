@@ -1132,6 +1132,26 @@ class LiveRatchetTest(unittest.TestCase):
         "vocab": 66, "grammar": 0, "scenario": 0, "cloze": 0,
         "satz": 0, "smalltalk": 1, "pronunciation": 0, "media": 1,
     }
+    # 2026-10-05 Stage C-1: coverage is now measured for all six NIKL
+    # grades. These are lower-only missing caps and upper-only at-level
+    # floors. A content change must not make a grade less represented merely
+    # by moving/removing words elsewhere.
+    CAP_COVERAGE_MISSING = {
+        "grade1": 1,
+        "grade2": 656,
+        "grade3": 1244,
+        "grade4": 1813,
+        "grade5": 2017,
+        "grade6": 2350,
+    }
+    MIN_COVERAGE_AT_LEVEL = {
+        "grade1": 596,
+        "grade2": 206,
+        "grade3": 162,
+        "grade4": 148,
+        "grade5": 26,
+        "grade6": 46,
+    }
 
     @classmethod
     def setUpClass(cls) -> None:
@@ -1173,6 +1193,25 @@ class LiveRatchetTest(unittest.TestCase):
             with self.subTest(kind=kind):
                 n = self.summary["counts"][kind]["fallback_over2"]
                 self.assertLessEqual(n, cap, f"{kind}.fallback_over2={n} exceeds cap {cap}")
+
+    def test_all_six_coverage_grades_do_not_regress(self):
+        expected = {f"grade{grade}" for grade in range(1, 7)}
+        self.assertEqual(set(self.summary["coverage"]), expected)
+        for key in sorted(expected):
+            with self.subTest(grade=key):
+                coverage = self.summary["coverage"][key]
+                self.assertLessEqual(
+                    coverage["missing"],
+                    self.CAP_COVERAGE_MISSING[key],
+                    f"{key}.missing={coverage['missing']} exceeds "
+                    f"cap {self.CAP_COVERAGE_MISSING[key]}",
+                )
+                self.assertGreaterEqual(
+                    coverage["at_level"],
+                    self.MIN_COVERAGE_AT_LEVEL[key],
+                    f"{key}.at_level={coverage['at_level']} is below "
+                    f"floor {self.MIN_COVERAGE_AT_LEVEL[key]}",
+                )
 
     def test_pack_top10_entries_have_expected_shape(self):
         # R4b item 2a: n_high renamed to n_hm (high+medium), n_low added.

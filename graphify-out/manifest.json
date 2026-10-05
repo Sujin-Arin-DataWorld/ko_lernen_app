@@ -3702,9 +3702,9 @@
     "semantic_hash": ""
   },
   "test/cloud_sync_test.dart": {
-    "mtime": 1791196948.6357114,
-    "seen": 1791196962.2769485,
-    "ast_hash": "f88dfef422e025c6169cd83afff3c836",
+    "mtime": 1791196961.8103776,
+    "seen": 1791197364.1375287,
+    "ast_hash": "4df1e9f5957565c90170569d4afd3435",
     "semantic_hash": ""
   },
   "test/cloze_game_screen_ui_test.dart": {
@@ -5262,9 +5262,9 @@
     "semantic_hash": ""
   },
   "test/services/account/account_reconciliation_test.dart": {
-    "mtime": 1791155115.669309,
-    "seen": 1791162436.041107,
-    "ast_hash": "cffdd9ba4d3b9f3a1a6b381b7cb7325e",
+    "mtime": 1791196983.4840693,
+    "seen": 1791197364.281373,
+    "ast_hash": "959160e0b0ba1e03e1d446ce4f880c4a",
     "semantic_hash": ""
   },
   "test/services/account/account_startup_journal_resolver_test.dart": {
@@ -8196,9 +8196,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791196597.440537,
-    "seen": 1791196962.6852443,
-    "ast_hash": "447869f170bc029fdbae9c5c39bebe42",
+    "mtime": 1791197079.4322944,
+    "seen": 1791197364.6679003,
+    "ast_hash": "6d83abf6d6d52a4c66419a1616d0378f",
     "semantic_hash": ""
   },
   "BETA_INSTALL_GUIDE.md": {
@@ -14568,9 +14568,9 @@
     "semantic_hash": ""
   },
   "tool/audit_content_levels.py": {
-    "mtime": 1791155115.9925637,
-    "seen": 1791162436.0418441,
-    "ast_hash": "5a67e58109daf24b95b3acf51e35a325",
+    "mtime": 1791197327.1638248,
+    "seen": 1791197364.36246,
+    "ast_hash": "173db7589e94f8c351b8d70e99aebdde",
     "semantic_hash": ""
   },
   "tool/audit_loanword_spelling.py": {
@@ -22110,9 +22110,9 @@
     "semantic_hash": ""
   },
   "docs/plans/2026-10-05-culture-world-progress.md": {
-    "mtime": 1791194533.7192137,
-    "seen": 1791194754.4475493,
-    "ast_hash": "3a1afc51d52fcc00accfdaa0947398c6",
+    "mtime": 1791197059.718279,
+    "seen": 1791197364.734963,
+    "ast_hash": "4742e471deb7a69f1b7f92fde8ded1f8",
     "semantic_hash": ""
   },
   "docs/plans/2026-10-05-culture-world-roadmap.md": {
@@ -22140,9 +22140,9 @@
     "semantic_hash": ""
   },
   "lib/services/culture_discovery_service.dart": {
-    "mtime": 1791169216.3747923,
-    "seen": 1791169726.183715,
-    "ast_hash": "1207d79c1ff826abf70748022f99699d",
+    "mtime": 1791197056.9228518,
+    "seen": 1791197364.0127046,
+    "ast_hash": "fb16137fa253e9d2ea6af46bb0c93c81",
     "semantic_hash": ""
   },
   "lib/widgets/sori/culture_stories_entry_card.dart": {
@@ -22212,9 +22212,9 @@
     "semantic_hash": ""
   },
   "docs/plans/2026-10-05-culture-quality-followups.md": {
-    "mtime": 1791196595.081809,
-    "seen": 1791196962.7471988,
-    "ast_hash": "f7dfad9acc00b7b0c826e3c4fca6e5c8",
+    "mtime": 1791197076.8177257,
+    "seen": 1791197364.734959,
+    "ast_hash": "bd2498a71747af63bc7b6ad662216924",
     "semantic_hash": ""
   }
 }

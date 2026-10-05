@@ -9,7 +9,7 @@ level the app currently assigns it (plan §3.C.3).
 
 Outputs (``main()`` / ``run_audit`` + the ``write_*`` helpers):
   - ``docs/data/content_level_report.md``   — human-readable matrices +
-    A1/A2 pack ranking + 1-/2-grade coverage + level-deviating scenarios.
+    A1/A2 pack ranking + 1-/6-grade coverage + level-deviating scenarios.
   - ``tool/content_level_suspects.csv``     — one row per flagged item,
     header ``kind,id,level,estimate,delta,reason,blocked_by,bundle_id,
     suggested_action``, sorted by ``(kind, id)``.
@@ -102,7 +102,7 @@ Rework R4 (this revision)
 
 Rework R4b (this revision)
 ---------------------------
-1. **Coverage present_in_app by resolved lemma.** A kiiq grade-1/grade-2
+1. **Coverage present_in_app by resolved lemma.** A kiiq grade-1/grade-6
    headword now also counts as ``present_in_app`` when it equals the
    RESOLVED lemma of some app vocab row — ``CefrLexicon.word_grade(row
    ['korean']).matched``, with any trailing ``'(hN,hM,...)'`` homograph
@@ -668,7 +668,7 @@ def _vocab_coverage_keys(
     """R4b item 1: one (korean, level_upper, match_keys) tuple per
     non-blank vocab row — `match_keys` is `{korean}` unioned with the
     row's resolved-lemma coverage keys (`_resolved_lemma_keys`), computed
-    ONCE so `compute_coverage`'s grade1/grade2 passes (called from
+    ONCE so `compute_coverage`'s grade1..grade6 passes (called from
     `run_audit`) don't each re-run `CefrLexicon.word_grade` over every
     vocab row."""
     out: List[Tuple[str, str, set]] = []
@@ -1033,7 +1033,7 @@ def compute_coverage(
 ) -> CoverageStat:
     """`_row_keys` (from `_vocab_coverage_keys`) is an optional
     precomputed-once-per-corpus argument — `run_audit` passes it so its
-    two grade1/grade2 calls don't each redo the ``word_grade`` pass over
+    six grade1..grade6 calls don't each redo the ``word_grade`` pass over
     every vocab row; a direct call (e.g. from a test) omits it and pays
     that cost itself, correctly but less efficiently."""
     row_keys = _row_keys if _row_keys is not None else _vocab_coverage_keys(
@@ -1095,13 +1095,17 @@ def run_audit(root: Path = REPO) -> AuditResult:
         "pronunciation": grade_pronunciation(corpus),
         "media": grade_media(corpus),
     }
-    # R4b item 1: computed once and shared by both compute_coverage()
-    # calls below, so the word_grade pass over every vocab row doesn't run
-    # twice.
+    # Coverage keys are computed once and shared by all six grade passes, so
+    # the word_grade pass over every vocab row runs only once per audit.
     vocab_coverage_keys = _vocab_coverage_keys(corpus.lexicon, corpus.vocab_rows)
     coverage = {
-        "grade1": compute_coverage(corpus, 1, "A1", vocab_coverage_keys),
-        "grade2": compute_coverage(corpus, 2, "A2", vocab_coverage_keys),
+        f"grade{grade}": compute_coverage(
+            corpus,
+            grade,
+            level.upper(),
+            vocab_coverage_keys,
+        )
+        for grade, level in enumerate(LEVELS, start=1)
     }
     return AuditResult(items_by_kind=items_by_kind, pack_stats=pack_stats, coverage=coverage)
 
@@ -1214,8 +1218,8 @@ def build_summary(result: AuditResult, generated_from: str) -> dict:
             },
         },
         "coverage": {
-            "grade1": _cov(result.coverage["grade1"]),
-            "grade2": _cov(result.coverage["grade2"]),
+            key: _cov(result.coverage[key])
+            for key in (f"grade{grade}" for grade in range(1, 7))
         },
     }
 

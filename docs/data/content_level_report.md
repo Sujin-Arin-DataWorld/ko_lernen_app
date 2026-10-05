@@ -324,6 +324,30 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
       "missing": 656,
       "present_in_app": 412,
       "total_unique": 1068
+    },
+    "grade3": {
+      "at_level": 162,
+      "missing": 1244,
+      "present_in_app": 310,
+      "total_unique": 1554
+    },
+    "grade4": {
+      "at_level": 148,
+      "missing": 1813,
+      "present_in_app": 276,
+      "total_unique": 2089
+    },
+    "grade5": {
+      "at_level": 26,
+      "missing": 2017,
+      "present_in_app": 154,
+      "total_unique": 2171
+    },
+    "grade6": {
+      "at_level": 46,
+      "missing": 2350,
+      "present_in_app": 129,
+      "total_unique": 2479
     }
   },
   "generatedFrom": "assets/data/* + tools/content_factory/lexicon/* (tool/audit_content_levels.py)",
