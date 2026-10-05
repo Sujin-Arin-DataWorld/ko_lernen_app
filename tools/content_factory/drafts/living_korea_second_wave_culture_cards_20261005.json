@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "status": "review_only",
+  "wave": "second_wave",
+  "snapshotDate": "2026-10-05",
+  "topicRegistry": "tools/content_factory/canonical_scenarios/contemporary_korea_topics_20251005_20261005.json",
+  "sceneDraft": "tools/content_factory/drafts/living_korea_second_wave_scene_first_drafts_20261005.json",
+  "policy": {
+    "factsMustExistInTopicRegistryStableFacts": true,
+    "sourcesMustMatchTopicRegistry": true,
+    "volatileFactsStayOutOfDialogue": true,
+    "cardsMayAgeWithoutRewritingDialogue": true,
+    "liveWritePerformed": false,
+    "ttsTouched": false
+  },
+  "cards": [
+    {
+      "id": "living_korea_reduced_work_hours_2026",
+      "topicId": "reduced_work_hours_45_2026",
+      "titleKo": "시간만 줄이면 일이 줄어드는 걸까?",
+      "sceneIds": [
+        "b1_andrea_minho_friday_schedule",
+        "b2_sujin_minho_shorter_hours_tradeoff"
+      ],
+      "factIndexes": [0, 1],
+      "learnerContextKo": "2026년 한국에서는 주 4.5일제와 실노동시간 단축을 여러 방식으로 시험·지원하는 흐름이 이어지고 있어요. 실제 대화에서는 제도 이름을 외우기보다, 시간을 줄일 때 업무량·회의·인수인계를 어떻게 함께 바꿀지 말하는 능력이 더 중요해요.",
+      "cultureQuestionsKo": [
+        "근무시간만 줄고 업무량은 그대로일 때 어떤 문제가 생길 수 있을까요?",
+        "회의나 업무를 줄이자고 부드럽게 제안하려면 어떻게 말하면 좋을까요?"
+      ],
+      "sourceIndexes": [0, 1],
+      "reviewAfter": "2027-01-31"
+    },
+    {
+      "id": "living_korea_work_family_choices_2026",
+      "topicId": "work_family_demography_2025_2026",
+      "titleKo": "통계와 개인의 선택은 같은 말이 아니에요",
+      "sceneIds": [
+        "b2_hyuna_andrea_work_family_choices",
+        "b1_andrea_minho_family_calendar"
+      ],
+      "factIndexes": [0, 1],
+      "learnerContextKo": "출생 통계와 일·가정 균형은 한국 사회에서 자주 함께 이야기되지만, 숫자 하나가 개인의 가족·돌봄·직장 선택을 모두 설명해 주지는 않아요. 이 장면에서는 통계를 참고하되 사람마다 다른 조건과 선택을 남겨 두는 표현을 연습해요.",
+      "cultureQuestionsKo": [
+        "사회 통계를 말하면서 개인의 선택을 일반화하지 않으려면 어떤 표현이 필요할까요?",
+        "가족 일정을 한 사람에게 몰지 않고 나누려면 어떻게 제안할 수 있을까요?"
+      ],
+      "sourceIndexes": [0, 1],
+      "reviewAfter": "2027-03-31"
+    },
+    {
+      "id": "living_korea_small_business_costs_2026",
+      "topicId": "minimum_wage_small_business_2026",
+      "titleKo": "가격을 바꿔야 할 때 손님에게 어떻게 말할까?",
+      "sceneIds": [
+        "b1_dongsun_sujin_repair_price",
+        "b1_dongsun_maya_price_notice"
+      ],
+      "factIndexes": [0],
+      "learnerContextKo": "2026년 최저임금과 인건비는 가게 운영비를 이야기할 때 중요한 배경 중 하나예요. 하지만 실제 소상공인에게는 재료비·수선 시간·손님 부담처럼 여러 요소가 함께 움직여요. 이 장면에서는 가격을 결정하는 법이 아니라, 바뀌는 가격을 계산하고 손님에게 정확히 안내하는 말을 배워요.",
+      "cultureQuestionsKo": [
+        "가격을 한꺼번에 바꾸지 않고 일부부터 조정하려면 어떻게 말할까요?",
+        "가격 변경 공지를 지나치게 사과하지 않으면서도 친절하게 쓰려면 무엇을 알려야 할까요?"
+      ],
+      "sourceIndexes": [0],
+      "reviewAfter": "2027-01-01"
+    },
+    {
+      "id": "living_korea_tourism_local_life_2026",
+      "topicId": "tourism_local_life_2026",
+      "titleKo": "놀러 온 사람과 사는 사람이 같은 길을 쓸 때",
+      "sceneIds": [
+        "b1_lena_hyuna_crowded_weekend",
+        "b2_hyuna_daniel_resident_flow_filming"
+      ],
+      "factIndexes": [0],
+      "learnerContextKo": "방한 관광객이 크게 늘면서 인기 지역의 혼잡과 주민 생활을 함께 생각해야 하는 상황도 많아졌어요. 관광객을 문제로 단정하기보다, 붐비는 시간을 피하고 출입구·통로·촬영 시간을 조정하는 생활 언어가 중요해요.",
+      "cultureQuestionsKo": [
+        "사람이 많이 몰리는 장소에서 시간을 바꾸자고 어떻게 제안할까요?",
+        "촬영할 때 주민이나 가게의 일상을 방해하지 않으려면 어떤 말을 먼저 확인해야 할까요?"
+      ],
+      "sourceIndexes": [0],
+      "reviewAfter": "2027-01-31"
+    },
+    {
+      "id": "living_korea_hallyu_diversification_2026",
+      "topicId": "hallyu_diversification_2026",
+      "titleKo": "한류가 음악에서 끝나지 않을 때",
+      "sceneIds": [
+        "b1_lena_maya_beyond_music",
+        "b2_maya_daniel_tradition_reinterpretation"
+      ],
+      "factIndexes": [0, 1],
+      "learnerContextKo": "최근 한류 관심은 음악뿐 아니라 문학·영화·관광·음식 등 여러 분야로 넓어지는 흐름을 보여요. 동시에 전통 요소를 현대 콘텐츠에 쓸 때는 원래 쓰임과 새로 만든 연출을 구분하는 책임도 중요해져요.",
+      "cultureQuestionsKo": [
+        "한 가지 관심이 다른 한국 문화 분야로 넓어진 경험을 어떻게 말할까요?",
+        "전통 요소를 현대적으로 재해석할 때 원래 맥락과 새 연출을 어떻게 구분해 설명할까요?"
+      ],
+      "sourceIndexes": [0, 1],
+      "reviewAfter": "2027-03-31"
+    },
+    {
+      "id": "living_korea_apec_gyeongju_2025",
+      "topicId": "apec_gyeongju_2025",
+      "titleKo": "큰 행사가 끝난 뒤 도시에는 무엇이 남을까?",
+      "sceneIds": [
+        "b2_hyuna_daniel_gyeongju_after_apec",
+        "b2_hyuna_byeongcheol_gyeongju_heritage"
+      ],
+      "factIndexes": [0, 1],
+      "learnerContextKo": "2025년 APEC 정상회의가 경주에서 열리면서 경주의 문화유산 도시 이미지가 국제적으로 함께 소개됐어요. 이 장면은 국제정치 평가가 아니라, 큰 행사가 끝난 뒤 도시의 현재 모습·홍보 표현·문화유산 자료를 어떻게 구분해 기록할지에 초점을 둬요.",
+      "cultureQuestionsKo": [
+        "행사 홍보 문구와 역사 자료를 구분해서 말하려면 어떤 표현이 필요할까요?",
+        "큰 행사가 끝난 뒤 도시의 일상을 기록할 때 무엇을 따로 확인해야 할까요?"
+      ],
+      "sourceIndexes": [0],
+      "reviewAfter": "2027-11-01"
+    },
+    {
+      "id": "living_korea_heatwave_safety_2026",
+      "topicId": "heatwave_electricity_safety_2026",
+      "titleKo": "너무 더운 날은 장소보다 시간을 바꾸기",
+      "sceneIds": [
+        "a2_lena_hyuna_heatwave_plan",
+        "b1_byeongcheol_sujin_heat_electricity"
+      ],
+      "factIndexes": [0],
+      "learnerContextKo": "2026년 여름 한국에서는 매우 높은 기온이 기록되며 폭염이 큰 생활 이슈가 됐어요. 이 장면에서는 최고기온 숫자를 외우기보다 한낮 외출을 피하고, 전기기기에 이상이 있으면 먼저 끄고 직접 수리하지 않는 생활 안전 표현을 연습해요.",
+      "cultureQuestionsKo": [
+        "더운 날 야외 일정을 아침이나 실내 일정으로 바꾸려면 어떻게 제안할까요?",
+        "전기기기에 이상이 느껴질 때 직접 고치지 않고 안전하게 중단·확인하려면 어떻게 말할까요?"
+      ],
+      "sourceIndexes": [0],
+      "reviewAfter": "2027-08-31"
+    }
+  ]
+}
