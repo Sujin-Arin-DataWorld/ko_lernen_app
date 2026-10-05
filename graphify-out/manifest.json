@@ -3918,15 +3918,15 @@
     "semantic_hash": ""
   },
   "test/cultural_glossary_catalog_test.dart": {
-    "mtime": 1791156628.207593,
-    "seen": 1791162436.039835,
-    "ast_hash": "d46d3c8e99f6fd5c7d3088258cfa08ee",
+    "mtime": 1791167457.2040334,
+    "seen": 1791167894.6627007,
+    "ast_hash": "a248c20a1ca588ff26780fb43c749893",
     "semantic_hash": ""
   },
   "test/cultural_help_widget_test.dart": {
-    "mtime": 1791155115.219373,
-    "seen": 1791162436.039837,
-    "ast_hash": "2443e3df07afba95062f5bdabbab5dee",
+    "mtime": 1791167469.7985668,
+    "seen": 1791167894.6627042,
+    "ast_hash": "145b46cc75c564d364e1d335f5407028",
     "semantic_hash": ""
   },
   "test/culture_note_card_test.dart": {
@@ -22110,9 +22110,9 @@
     "semantic_hash": ""
   },
   "docs/plans/2026-10-05-culture-world-progress.md": {
-    "mtime": 1791167080.2423947,
-    "seen": 1791167390.7039597,
-    "ast_hash": "18699e9fd7ddb624864c441999c985f8",
+    "mtime": 1791167550.121475,
+    "seen": 1791167895.1926017,
+    "ast_hash": "e2e4bd2b49f0033cd993ffa4b49355d6",
     "semantic_hash": ""
   },
   "docs/plans/2026-10-05-culture-world-roadmap.md": {

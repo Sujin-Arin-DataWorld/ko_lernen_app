@@ -15,8 +15,8 @@
 | 5 | Hanok “Culture stories” collection | **Complete** | Not merged to main yet | read-only discovery projection from existing scenario-completion evidence; no new culture ledger |
 | 6 | Tiger/Magpie presentation reactions | **Complete** | Not merged to main yet | canonical companion preference changes framing/motion only; cultural availability is identical |
 | 7 | Hahoe/Dokkaebi bridges | **Complete** | Not merged to main yet; existing Hahoe/Dokkaebi practice remains the authority | scenario result routes into level-matched Smalltalk; staged Dokkaebi help is reused unchanged |
-| 8 | Culture items / reward reuse | **Next implementation target** | Not started | reuse existing glossary-linked decorations; preserve reward determinism |
-| 9 | Culture story arcs | Not started | Not started | later grouping layer, not mastery |
+| 8 | Culture items / reward reuse | **Complete by reuse + contract audit** | Existing reward surfaces already live; no new reward item added | four glossary-linked decorations stay in deterministic v1 pool; Norigae/Maedeup remain out |
+| 9 | Culture story arcs | **Next implementation target** | Not started | group existing surfaces only; no mastery denominator |
 
 ## Completed implementation
 
@@ -298,13 +298,39 @@ Latest focused validation at the Phase 7 checkpoint:
 - non-generated `git diff --check`: **passed**
 - live learner corpus remains **186** because Batch 38 is still review-only.
 
-## Next implementation target — Phase 8
+## Phase 8 — culture items / existing reward reuse
 
-Reuse existing culture-linked decorations without changing reward-pool determinism.
+The planned Phase 8 behavior was already present in the existing owners, so no production reward code was added. The phase was completed as an ownership audit plus regression lock.
+
+Verified reuse:
+- `gat` -> `decoration_gat_buchae`
+- `munbangsau` -> `decoration_munbangsau`
+- `soban` -> `decoration_soban`
+- `jagae_mungap` -> `decoration_jagae_mungap`
+
+Ownership contract:
+- all four slugs remain in the existing ordered `kDecorationRewardPool` v1
+- CulturalGlossary remains the only meaning/story/source mapping owner
+- `CulturalDecorationHelpButton` reuses those links after Bojagi reveal and on room-decoration surfaces
+- culture UI never grants ownership; `DecorationRewardService` remains the only reward owner
+- `norigae` and `maedeup` still have no decoration slug and no reward-pool entry
+- therefore no pool insertion/reordering/versioning change was introduced
+
+Validation:
+- Phase 8 culture/reward regression bundle: **61 passed**
+- targeted Dart analysis: **0 issues**
+- explicit tests lock both the four existing mappings and the Norigae/Maedeup exclusion
+
+Commit:
+- `7c9ba165b test(culture): lock existing reward reuse contract`
+
+## Next implementation target — Phase 9
+
+Add a culture-story grouping layer only after confirming it can be derived from existing scenario/culture evidence without becoming a new mastery system.
 
 Constraints:
-- start with existing items only: `decoration_gat_buchae`, `decoration_munbangsau`, `decoration_soban`, `decoration_jagae_mungap`
-- culture surfaces may explain or point to an existing item, but must not grant it outside its current reward owner
-- do not add Norigae/Maedeup to Bojagi until reward-pool versioning/determinism has a separate design
-- no second inventory, unlock, culture mastery, or reward ledger
+- story arcs group existing scenarios, glossary terms, persona context, and discovery surfaces
+- do not add a new mastery denominator, XP source, reward ledger, or permanent culture-progress authority
+- prefer a static/read-only arc registry plus derived completion/discovery projection
+- first candidate from the roadmap: `Found around Nammun`
 - Batch 38 remains review-only until separate human approval/promotion
