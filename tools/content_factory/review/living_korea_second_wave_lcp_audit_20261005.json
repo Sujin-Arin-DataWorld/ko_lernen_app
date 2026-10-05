@@ -39,9 +39,14 @@
         "principle": "A2 일정 조율 장면은 전달화법보다 직접적인 더위·시간 변경 언어를 우선했다."
       },
       {
-        "sceneId": "b2_hyuna_byeongcheol_gyeongju_heritage",
+        "sceneId": "b2_hyuna_sujin_gyeongju_fieldnotes",
+        "levelDecision": "B2 retained",
+        "principle": "오래된 친구 수진에게 답사·문화유산·홍보 문구·역사 사실의 구분을 설명하는 장면은 사고 수준과 어휘가 자연스럽게 B2에 맞아 그대로 유지했다."
+      },
+      {
+        "sceneId": "b2_byeongcheol_sujin_heat_electricity",
         "levelChange": "B1 -> B2",
-        "principle": "답사·문화유산·홍보 문구·역사 사실을 구분하는 사고 수준과 어휘가 자연스럽게 B2에 맞아 장면을 억지로 단순화하지 않고 승급했다."
+        "principle": "사용자 검수에서 과부하·차단기·콘센트 같은 실제 전기 안전 어휘가 추가되어 B1로 낮추기보다 기술적 자연스러움을 보존하고 B2로 승급했다."
       }
     ],
     "modernLifeExactOwners": [
@@ -73,7 +78,7 @@
         "surface": "답사",
         "level": "B2",
         "category": "living_korea_fieldwork",
-        "reason": "현아·병철의 문화유산 현장 조사 장면에서 반복 가능한 B2 fieldwork 핵심어다."
+        "reason": "현아가 오래된 친구 수진에게 경주 답사 계획과 검증 방식을 설명하는 B2 fieldwork 장면의 핵심어다."
       },
       {
         "surface": "캘린더",
@@ -116,7 +121,11 @@
       {"surface": "만드는", "lemma": "만들다"},
       {"surface": "어떠세요", "lemma": "어떻다"},
       {"surface": "않을게", "lemma": "않다"},
-      {"surface": "있을게", "lemma": "있다"}
+      {"surface": "있을게", "lemma": "있다"},
+      {"surface": "하잖아", "lemma": "하다"},
+      {"surface": "재밌겠다", "lemma": "재밌다"},
+      {"surface": "있거든", "lemma": "있다"},
+      {"surface": "그렇긴", "lemma": "그렇다"}
     ],
     "conversationToneReview": {
       "goal": "정보 전달 문장을 줄이고 캐릭터 관계에서 나오는 농담·받아치기·투덜거림을 살린다.",

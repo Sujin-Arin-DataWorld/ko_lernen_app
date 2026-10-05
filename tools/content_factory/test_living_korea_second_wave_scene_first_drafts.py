@@ -194,11 +194,11 @@ class LivingKoreaSecondWaveSceneFirstDraftTest(unittest.TestCase):
         scene = next(
             row
             for row in self.scenes
-            if row["id"] == "b1_byeongcheol_sujin_heat_electricity"
+            if row["id"] == "b2_byeongcheol_sujin_heat_electricity"
         )
         text = "\n".join(turn["ko"] for turn in scene["dialog"])
-        self.assertIn("먼저 끄고 손대지 마", text)
-        self.assertIn("열어 보진 않을게", text)
+        self.assertIn("전원부터 끄고", text)
+        self.assertIn("절대 만지면 안 돼", text)
         for unsafe in ("분해", "선을 연결", "퓨즈를 교체"):
             self.assertNotIn(unsafe, text)
 

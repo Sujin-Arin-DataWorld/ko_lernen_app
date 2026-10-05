@@ -114,7 +114,7 @@
     {
       "arcId": "gyeongju_after_apec",
       "shape": "record-to-fieldwork",
-      "continuityKo": "현아·다니엘은 행사 이후 도시 기록 방식을 논의하고, 현아·병철은 답사에서 관찰과 공식 역사 자료를 분리한다.",
+      "continuityKo": "현아·다니엘은 행사 이후 도시 기록 방식을 논의하고, 현아는 오래된 친구 수진에게 경주 답사 준비와 검증 방식을 유쾌하게 설명한다.",
       "edges": [
         {
           "sceneId": "b2_hyuna_daniel_gyeongju_after_apec",
@@ -124,11 +124,11 @@
           "authorityBoundaryKo": "정상회의의 외교 성과나 정치적 평가를 대신하지 않고 도시 기록 방식만 다룬다."
         },
         {
-          "sceneId": "b2_hyuna_byeongcheol_gyeongju_heritage",
+          "sceneId": "b2_hyuna_sujin_gyeongju_fieldnotes",
           "a": "hyuna",
-          "b": "byeongcheol",
-          "canonicalType": "acquaintances",
-          "authorityBoundaryKo": "병철의 건축 관심을 역사 전문 권위로 확대하지 않고 현아도 관찰과 확인된 사실을 분리한다."
+          "b": "sujin",
+          "canonicalType": "friends",
+          "authorityBoundaryKo": "수진은 역사 전문가 역할을 맡지 않고 오래된 친구로서 현아의 답사 계획을 듣고 장난스럽게 질문하며, 현아는 현장 느낌과 확인된 역사 사실을 분리한다."
         }
       ]
     },
@@ -145,7 +145,7 @@
           "authorityBoundaryKo": "현아는 의료 조언을 하지 않고 일정·장소 조정만 제안한다."
         },
         {
-          "sceneId": "b1_byeongcheol_sujin_heat_electricity",
+          "sceneId": "b2_byeongcheol_sujin_heat_electricity",
           "a": "byeongcheol",
           "b": "sujin",
           "canonicalType": "family",

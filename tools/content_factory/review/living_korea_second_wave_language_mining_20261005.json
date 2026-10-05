@@ -728,72 +728,96 @@
       ]
     },
     {
-      "sceneId": "b2_hyuna_byeongcheol_gyeongju_heritage",
+      "sceneId": "b2_hyuna_sujin_gyeongju_fieldnotes",
       "vocabulary": [
+        {
+          "lemma": "답사",
+          "attestedSurface": "답사"
+        },
         {
           "lemma": "도시 소개",
           "attestedSurface": "도시 소개가"
         },
         {
-          "lemma": "문화유산 설명",
-          "attestedSurface": "문화유산 설명은"
+          "lemma": "메모",
+          "attestedSurface": "메모를"
         },
         {
-          "lemma": "공식 자료",
-          "attestedSurface": "공식 자료로"
+          "lemma": "홍보 문구",
+          "attestedSurface": "홍보 문구랑"
+        },
+        {
+          "lemma": "문화유산",
+          "attestedSurface": "문화유산"
         },
         {
           "lemma": "연대",
           "attestedSurface": "연대나"
+        },
+        {
+          "lemma": "역사 사실",
+          "attestedSurface": "역사 사실은"
+        },
+        {
+          "lemma": "자료",
+          "attestedSurface": "자료로"
         }
       ],
       "grammar": [
+        {
+          "pattern": "V-(으)려고",
+          "attestedSurface": "가려고"
+        },
         {
           "pattern": "V-는지도",
           "attestedSurface": "달라졌는지도"
         },
         {
-          "pattern": "V-아/어야겠지요",
-          "attestedSurface": "봐야겠지요"
+          "pattern": "N보다",
+          "attestedSurface": "사진보다"
         },
         {
-          "pattern": "V-(으)려고요",
-          "attestedSurface": "확인하려고요"
+          "pattern": "V-(으)ㄹ 수도 있다",
+          "attestedSurface": "그럴 수도 있지"
+        },
+        {
+          "pattern": "V-아/어야 하잖아",
+          "attestedSurface": "봐야 하잖아"
         },
         {
           "pattern": "V-(으)려고",
-          "attestedSurface": "확인하려고요"
+          "attestedSurface": "확인하려고"
         },
         {
-          "pattern": "V-는 게",
-          "attestedSurface": "보는 게"
-        },
-        {
-          "pattern": "V-(으)면",
-          "attestedSurface": "만들면"
-        },
-        {
-          "pattern": "V-죠",
-          "attestedSurface": "나누죠"
+          "pattern": "N부터",
+          "attestedSurface": "검증부터"
         }
       ],
       "pragmatics": [
         {
-          "function": "답사 주제를 자연스럽게 제안",
-          "attestedSurface": "선생님, 다음 답사 경주 어떠세요?"
+          "function": "친구에게 답사 계획 공유",
+          "attestedSurface": "수진아, 나 다음 주에 경주 답사 가려고."
         },
         {
-          "function": "관찰과 자료 확인을 역할로 분리",
-          "attestedSurface": "선생님이 현장에서 보신 건 관찰 메모, 연대나 역사 사실은 자료 확인. 이렇게 나누죠."
+          "function": "연구 습관을 친구가 장난스럽게 받아치기",
+          "attestedSurface": "또 사진보다 메모를 더 많이 찍어 오는 거 아니야? ㅋㅋ"
         },
         {
-          "function": "느낌을 역사로 만들지 않겠다는 드라이 유머",
-          "attestedSurface": "내가 느낌까지 역사로 만들면 큰일 나겠군요."
+          "function": "홍보 표현과 문화유산 설명 분리",
+          "attestedSurface": "행사 홍보 문구랑 원래 문화유산 설명은 따로 봐야 하잖아."
+        },
+        {
+          "function": "현장 느낌과 확인된 사실 분리",
+          "attestedSurface": "현장에서 느낀 건 메모로 남기고, 연대나 역사 사실은 자료로 다시 확인하려고."
+        },
+        {
+          "function": "친구의 성향을 유쾌하게 마무리",
+          "attestedSurface": "역시 ㅋㅋ. 경주 가서도 감상보다 검증부터 하네."
         }
       ],
       "registerMarkers": [
-        "현아의 차분한 해요체와 병철의 격식 있는 해요체",
-        "병철의 현장 관찰을 역사 사실로 자동 승격하지 않는다"
+        "대학 시절부터 이어진 오래된 친구 사이의 자연스러운 반말",
+        "수진은 역사 전문가 역할을 하지 않고 현아의 검증 습관을 장난스럽게 받아준다"
       ]
     },
     {
@@ -878,60 +902,100 @@
       ]
     },
     {
-      "sceneId": "b1_byeongcheol_sujin_heat_electricity",
+      "sceneId": "b2_byeongcheol_sujin_heat_electricity",
       "vocabulary": [
         {
           "lemma": "에어컨",
           "attestedSurface": "에어컨"
         },
         {
-          "lemma": "전원",
-          "attestedSurface": "전원"
+          "lemma": "전기요금",
+          "attestedSurface": "전기요금"
         },
         {
-          "lemma": "한낮",
-          "attestedSurface": "한낮에"
+          "lemma": "회로",
+          "attestedSurface": "회로에"
+        },
+        {
+          "lemma": "과부하",
+          "attestedSurface": "과부하로"
+        },
+        {
+          "lemma": "차단기",
+          "attestedSurface": "차단기가"
+        },
+        {
+          "lemma": "전기 코드",
+          "attestedSurface": "전기 코드"
+        },
+        {
+          "lemma": "콘센트",
+          "attestedSurface": "콘센트는"
+        },
+        {
+          "lemma": "전원",
+          "attestedSurface": "전원부터"
         }
       ],
       "grammar": [
         {
-          "pattern": "V-지?",
-          "attestedSurface": "켜지?"
+          "pattern": "A/V-는데",
+          "attestedSurface": "켜는데"
         },
         {
-          "pattern": "A/V-거나",
-          "attestedSurface": "나거나"
+          "pattern": "A/V-겠지?",
+          "attestedSurface": "나오겠지?"
         },
         {
-          "pattern": "V-지 마",
-          "attestedSurface": "손대지 마"
+          "pattern": "N보다",
+          "attestedSurface": "요금보다"
         },
         {
-          "pattern": "V-진 않을게",
-          "attestedSurface": "열어 보진 않을게"
+          "pattern": "V-(으)면",
+          "attestedSurface": "많이 쓰면"
         },
         {
-          "pattern": "V-지도 말고",
-          "attestedSurface": "버티지도 말고"
+          "pattern": "V-(으)ㄹ 수도 있다",
+          "attestedSurface": "내려갈 수도 있거든"
+        },
+        {
+          "pattern": "A/V-기는 하다",
+          "attestedSurface": "그렇긴 하지"
+        },
+        {
+          "pattern": "A/V-(으)면",
+          "attestedSurface": "냄새 나면"
+        },
+        {
+          "pattern": "V-(으)면 안 되다",
+          "attestedSurface": "만지면 안 돼"
         }
       ],
       "pragmatics": [
         {
-          "function": "에어컨 사용을 생활 농담으로 표현",
-          "attestedSurface": "응. 밤에도 더워서 거의 같이 살아."
+          "function": "전기요금을 가족에게 가볍게 묻기",
+          "attestedSurface": "아빠, 근데 요새 우리 에어컨 맨날 켜는데 전기요금 엄청 나오겠지?"
         },
         {
-          "function": "전문가 부모를 따라 직접 열지 않겠다고 확인",
-          "attestedSurface": "괜히 아빠 딸이라고 열어 보진 않을게."
+          "function": "요금보다 안전 조건으로 관점 전환",
+          "attestedSurface": "근데 요금보다 같은 회로에 전기를 너무 많이 쓰면 과부하로 차단기가 내려갈 수도 있거든."
         },
         {
-          "function": "과한 자신감을 아빠식 농담으로 경고",
-          "attestedSurface": "그래. 그 자신감이 제일 위험하다."
+          "function": "이상한 냄새 상황에서 행동 질문",
+          "attestedSurface": "갑자기 전기 코드 쪽에서 이상한 냄새 나면 어떻게 해?"
+        },
+        {
+          "function": "전원을 끄고 코드·콘센트를 만지지 않도록 안전하게 안내",
+          "attestedSurface": "그러면 일단 전원부터 끄고 전기 코드나 콘센트는 절대 만지면 안 돼."
+        },
+        {
+          "function": "아버지에게 장난스럽게 감사",
+          "attestedSurface": "응, 알겠어요. 역시 우리 아빠 최고야 ㅎㅎ."
         }
       ],
       "registerMarkers": [
-        "아빠와 딸의 짧은 반말",
-        "병철은 안전한 중지·확인까지만 말하고 직접 수리를 지시하지 않는다"
+        "아빠와 딸의 기본 반말에 수진이 장난스럽게 존댓말 한마디를 섞는다",
+        "병철은 전기기술자답게 과부하·차단기·중지 원칙만 설명하고 직접 수리를 시키지 않는다"
       ]
     }
   ],
@@ -983,7 +1047,7 @@
       "family": "원형·자료·재해석 분리",
       "sceneIds": [
         "b2_maya_daniel_tradition_reinterpretation",
-        "b2_hyuna_byeongcheol_gyeongju_heritage"
+        "b2_hyuna_sujin_gyeongju_fieldnotes"
       ],
       "repeatedLanguage": [
         "원래",
@@ -996,7 +1060,7 @@
       "family": "안전한 다음 행동",
       "sceneIds": [
         "a2_lena_hyuna_heatwave_plan",
-        "b1_byeongcheol_sujin_heat_electricity"
+        "b2_byeongcheol_sujin_heat_electricity"
       ],
       "repeatedLanguage": [
         "시간을 바꾸다",

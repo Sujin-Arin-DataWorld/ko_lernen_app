@@ -1857,6 +1857,10 @@ class TestLivingKoreaD4SurfaceMorphology(unittest.TestCase):
         ("어떠세요?", "어떻다"),
         ("않을게.", "않다"),
         ("있을게.", "있다"),
+        ("하잖아.", "하다"),
+        ("재밌겠다.", "재밌다"),
+        ("있거든.", "있다"),
+        ("그렇긴", "그렇다"),
     ]
 
     def test_living_korea_normal_surfaces_resolve_to_dictionary_forms(self):

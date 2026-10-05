@@ -764,6 +764,11 @@ _SURFACE_LEMMA_OVERRIDE_MAP: Mapping[str, str] = {
     "어떠세요": "어떻다",
     "않을게": "않다",
     "있을게": "있다",
+    # User-reviewed second-wave Gyeongju/electrical dialogue.
+    "하잖아": "하다",
+    "재밌겠다": "재밌다",
+    "있거든": "있다",
+    "그렇긴": "그렇다",
 }
 
 

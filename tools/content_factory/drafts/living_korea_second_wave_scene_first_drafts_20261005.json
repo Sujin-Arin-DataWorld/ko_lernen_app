@@ -6,6 +6,7 @@
   "snapshotDate": "2026-10-05",
   "topicRegistry": "tools/content_factory/canonical_scenarios/contemporary_korea_topics_20251005_20261005.json",
   "personaCanon": "tools/content_factory/canonical_scenarios/character_profiles.json",
+  "dialogueAuthoringContract": "tools/content_factory/canonical_scenarios/dialogue_authoring_contract_20261006.json",
   "authoringPolicy": {
     "dialogueAuthoredBeforeLanguageMining": true,
     "grammarTargetsAssignedBeforeDialogue": false,
@@ -558,46 +559,46 @@
           ]
         },
         {
-          "id": "b2_hyuna_byeongcheol_gyeongju_heritage",
+          "id": "b2_hyuna_sujin_gyeongju_fieldnotes",
           "level": "b2",
           "playerCharacterId": "hyuna",
           "participantIds": [
             "hyuna",
-            "byeongcheol"
+            "sujin"
           ],
           "topicIds": [
             "apec_gyeongju_2025"
           ],
-          "relationshipContextKo": "수진이 소개한 지역 답사 지인. 현아는 해요체, 병철은 격식 있는 해요체를 쓴다.",
-          "realTaskKo": "경주 답사를 준비하며 국제행사 이후의 홍보 표현과 실제 문화유산 자료를 구분해 보기로 한다.",
+          "relationshipContextKo": "오래 대화가 통하는 친구 사이. 둘 다 편한 반말을 쓰고, 수진은 현아의 연구 습관을 잘 알아 장난스럽게 받아준다.",
+          "realTaskKo": "현아가 경주 답사 준비를 수진에게 이야기하면서 행사 홍보 표현과 문화유산 자료, 현장 느낌과 확인된 사실을 구분해 보기로 한다.",
           "personaBoundaries": [
-            "병철은 건축 관심을 바탕으로 질문하지만 역사 전문가처럼 단정하지 않는다.",
-            "현아는 공식 자료와 현장 관찰을 구분한다."
+            "수진은 역사 전문가 역할을 맡지 않고 오래된 친구로서 현아의 조사 방식을 듣고 질문한다.",
+            "현아는 현장 느낌과 확인된 역사 사실을 구분한다."
           ],
           "dialog": [
             {
               "speaker": "user",
-              "ko": "선생님, 다음 답사 경주 어떠세요? APEC 이후에 도시 소개가 어떻게 달라졌는지도 궁금해요."
+              "ko": "수진아, 나 다음 주에 경주 답사 가려고. APEC 이후에 도시 소개가 어떻게 달라졌는지도 좀 보고 오려고."
             },
             {
-              "speaker": "byeongcheol",
-              "ko": "좋습니다. 다만 행사 홍보 문구와 원래 문화유산 설명은 따로 봐야겠지요."
-            },
-            {
-              "speaker": "user",
-              "ko": "네. 행사 때문에 강조된 장소는 보고, 역사 설명은 공식 자료로 다시 확인하려고요."
-            },
-            {
-              "speaker": "byeongcheol",
-              "ko": "나는 건물이나 길이 어떻게 연결되는지 보는 게 더 재미있을 것 같습니다."
+              "speaker": "sujin",
+              "ko": "또 사진보다 메모를 더 많이 찍어 오는 거 아니야? ㅋㅋ"
             },
             {
               "speaker": "user",
-              "ko": "좋아요. 선생님이 현장에서 보신 건 관찰 메모, 연대나 역사 사실은 자료 확인. 이렇게 나누죠."
+              "ko": "그럴 수도 있지 ㅋㅋ. 근데 행사 홍보 문구랑 원래 문화유산 설명은 따로 봐야 하잖아."
             },
             {
-              "speaker": "byeongcheol",
-              "ko": "좋습니다. 내가 느낌까지 역사로 만들면 큰일 나겠군요."
+              "speaker": "sujin",
+              "ko": "그럼 행사 때문에 많이 소개된 장소랑 원래 유명했던 곳이 어떻게 다른지도 보면 재밌겠다."
+            },
+            {
+              "speaker": "user",
+              "ko": "응. 현장에서 느낀 건 메모로 남기고, 연대나 역사 사실은 자료로 다시 확인하려고."
+            },
+            {
+              "speaker": "sujin",
+              "ko": "역시 ㅋㅋ. 경주 가서도 감상보다 검증부터 하네."
             }
           ]
         }
@@ -656,8 +657,8 @@
           ]
         },
         {
-          "id": "b1_byeongcheol_sujin_heat_electricity",
-          "level": "b1",
+          "id": "b2_byeongcheol_sujin_heat_electricity",
+          "level": "b2",
           "playerCharacterId": "sujin",
           "participantIds": [
             "byeongcheol",
@@ -674,28 +675,28 @@
           ],
           "dialog": [
             {
-              "speaker": "byeongcheol",
-              "ko": "수진아, 요즘 에어컨 오래 켜지?"
-            },
-            {
               "speaker": "user",
-              "ko": "응. 밤에도 더워서 거의 같이 살아."
+              "ko": "아빠, 근데 요새 우리 에어컨 맨날 켜는데 전기요금 엄청 나오겠지?"
             },
             {
               "speaker": "byeongcheol",
-              "ko": "그래도 전원 쪽에서 이상한 냄새 나거나 너무 뜨거우면 먼저 끄고 손대지 마."
+              "ko": "그렇지, 아무래도. 근데 요금보다 같은 회로에 전기를 너무 많이 쓰면 과부하로 차단기가 내려갈 수도 있거든."
             },
             {
               "speaker": "user",
-              "ko": "알겠어. 괜히 아빠 딸이라고 열어 보진 않을게."
+              "ko": "아, 그렇긴 하지. 근데 아빠, 갑자기 전기 코드 쪽에서 이상한 냄새 나면 어떻게 해?"
             },
             {
               "speaker": "byeongcheol",
-              "ko": "그래. 그 자신감이 제일 위험하다. 한낮에 밖에서 오래 버티지도 말고."
+              "ko": "어휴, 그러면 일단 전원부터 끄고 전기 코드나 콘센트는 절대 만지면 안 돼."
             },
             {
               "speaker": "user",
-              "ko": "응. 이번 주는 아침에 움직이고 낮에는 에어컨 옆에 붙어 있을게."
+              "ko": "응, 알겠어요. 역시 우리 아빠 최고야 ㅎㅎ."
+            },
+            {
+              "speaker": "byeongcheol",
+              "ko": "그 말 들었으면 됐다. 대신 이상하면 바로 불러."
             }
           ]
         }

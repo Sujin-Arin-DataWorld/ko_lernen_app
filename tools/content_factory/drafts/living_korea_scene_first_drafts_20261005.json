@@ -5,6 +5,7 @@
   "snapshotDate": "2026-10-05",
   "topicRegistry": "tools/content_factory/canonical_scenarios/contemporary_korea_topics_20251005_20261005.json",
   "personaCanon": "tools/content_factory/canonical_scenarios/character_profiles.json",
+  "dialogueAuthoringContract": "tools/content_factory/canonical_scenarios/dialogue_authoring_contract_20261006.json",
   "authoringPolicy": {
     "dialogueAuthoredBeforeLanguageMining": true,
     "grammarTargetsAssignedBeforeDialogue": false,

@@ -247,8 +247,98 @@ class ContentValidator:
         self.validate_usage_notes()
         self.validate_curriculum_graph()
         self.validate_audit_manifest(vocab, grammar, scenarios)
+        self.validate_dialogue_authoring_contract()
         self.validate_ledger_entries()
         return self.issues
+
+    def validate_dialogue_authoring_contract(self) -> None:
+        """Require the canonical user-reviewed dialogue contract on future
+        scene-first/persona authoring artifacts.
+
+        This intentionally validates draft/review metadata rather than live
+        bundled dialogue. It makes the relationship-first, natural-dialogue-
+        before-pedagogy workflow a fail-closed authoring gate without forcing
+        legacy unrelated JSON files into the new schema.
+        """
+
+        expected = (
+            "tools/content_factory/canonical_scenarios/"
+            "dialogue_authoring_contract_20261006.json"
+        )
+        contract_path = self.root / expected
+        source = "dialogue_authoring_contract_20261006.json"
+        if not contract_path.is_file():
+            self.issue(source, f"missing canonical dialogue contract at {expected}")
+            return
+        try:
+            contract = json.loads(contract_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            self.issue(source, f"cannot parse canonical dialogue contract: {exc}")
+            return
+        if contract.get("status") != "CANONICAL":
+            self.issue(source, "dialogue contract status must be CANONICAL")
+        if not contract.get("principles", {}).get("relationshipBeforeTopic"):
+            self.issue(source, "dialogue contract must enforce relationshipBeforeTopic")
+        if not contract.get("principles", {}).get("languageMiningAfterDialogue"):
+            self.issue(source, "dialogue contract must enforce languageMiningAfterDialogue")
+
+        drafts_dir = self.root / "tools" / "content_factory" / "drafts"
+        governed: list[Path] = []
+        if drafts_dir.is_dir():
+            for path in sorted(drafts_dir.glob("*.json")):
+                try:
+                    payload = json.loads(path.read_text(encoding="utf-8"))
+                except (OSError, json.JSONDecodeError):
+                    continue
+                if not isinstance(payload, dict):
+                    continue
+                purpose = str(payload.get("purpose", ""))
+                if (
+                    payload.get("status") == "review_only_scene_first"
+                    or purpose.startswith(
+                        "Pre-script authoring contract for persona-led culture scenes"
+                    )
+                ):
+                    governed.append(path)
+                    if payload.get("dialogueAuthoringContract") != expected:
+                        self.issue(
+                            path.name,
+                            "persona dialogue authoring artifact must reference "
+                            f"{expected}",
+                        )
+
+        pipeline_path = (
+            self.root
+            / "tools"
+            / "content_factory"
+            / "review"
+            / "persona_culture_authoring_pipeline_20261005.json"
+        )
+        if pipeline_path.is_file():
+            try:
+                pipeline = json.loads(pipeline_path.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError) as exc:
+                self.issue(pipeline_path.name, f"cannot parse authoring pipeline: {exc}")
+            else:
+                if pipeline.get("dialogueAuthoringContract") != expected:
+                    self.issue(
+                        pipeline_path.name,
+                        f"authoring pipeline must reference {expected}",
+                    )
+                if not pipeline.get(
+                    "dialogueAuthoringContractRequiredForFuturePersonaDialogue"
+                ):
+                    self.issue(
+                        pipeline_path.name,
+                        "future persona dialogue must require the canonical "
+                        "dialogue authoring contract",
+                    )
+
+        if not governed:
+            self.issue(
+                source,
+                "no governed persona dialogue authoring artifacts were found",
+            )
 
     def validate_ledger_entries(self) -> None:
         """Fail-closed cross-check of relevel_ledger.json against the live
