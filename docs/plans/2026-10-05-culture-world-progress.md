@@ -14,8 +14,8 @@
 | 4 | Scenario result culture card | **Complete** | Not merged to main yet; live registry may still be empty | optional result card backed only by live `scenario_culture_links.json` |
 | 5 | Hanok “Culture stories” collection | **Complete** | Not merged to main yet | read-only discovery projection from existing scenario-completion evidence; no new culture ledger |
 | 6 | Tiger/Magpie presentation reactions | **Complete** | Not merged to main yet | canonical companion preference changes framing/motion only; cultural availability is identical |
-| 7 | Hahoe/Dokkaebi bridges | **Next implementation target** | Existing Hahoe/Dokkaebi practice already live; new bridge not live | reuse Smalltalk context + staged Dokkaebi help |
-| 8 | Culture items / reward reuse | Not started | Not started | must preserve reward determinism |
+| 7 | Hahoe/Dokkaebi bridges | **Complete** | Not merged to main yet; existing Hahoe/Dokkaebi practice remains the authority | scenario result routes into level-matched Smalltalk; staged Dokkaebi help is reused unchanged |
+| 8 | Culture items / reward reuse | **Next implementation target** | Not started | reuse existing glossary-linked decorations; preserve reward determinism |
 | 9 | Culture story arcs | Not started | Not started | later grouping layer, not mastery |
 
 ## Completed implementation
@@ -253,9 +253,29 @@ Presentation contract:
 Commit:
 - `c0c983bf6 feat(culture): personalize culture card companion presentation`
 
+## Phase 7 — Hahoe/Dokkaebi bridges
+
+Added a presentation/navigation bridge from a completed culture-linked scenario into the existing Smalltalk context practice. The result card passes only the scenario CEFR level, so the existing Smalltalk catalog remains the owner of cases, attempts, transfer practice, and persistence.
+
+Hahoe contract:
+- the culture card offers a Hahoe-scholar pragmatic-transfer CTA only when the optional culture card itself resolves
+- the CTA routes to `/smalltalk/context` with the current scenario level
+- no scenario result is rewritten and no Smalltalk attempt is pre-completed
+- Smalltalk practice continues to own its own history/evidence
+
+Dokkaebi audit:
+- `SilbenHelpState` already provides staged help without mutating the solution or tile pool
+- stage 1 = meaning/path/context, stage 2 = crossing structure, stage 3 = one syllable
+- the learner still places the tile; help never auto-completes the answer
+- existing `PracticeDokkaebiHelp` / `PracticeDokkaebiStage` remain the presentation owner
+- no parallel culture-specific hint engine or ledger was added
+
+Commit:
+- `9ea81e139 feat(culture): bridge scenario culture into pragmatic practice`
+
 ## Validation baseline
 
-Latest focused validation at the Phase 6 checkpoint:
+Latest focused validation at the Phase 7 checkpoint:
 - persona-culture/content Python regressions: **39 passed**
 - `validate_content.py`: **passed**
 - Batch 38 integration preview: **passed**
@@ -267,19 +287,24 @@ Latest focused validation at the Phase 6 checkpoint:
   - none / Magpie / Tiger keep identical culture terms
   - canonical companion notifier updates presentation reactively
   - no progress/reward/storage dependency is introduced
-  - 320dp phone at 200% text scale has no layout exception
+- Phase 7 culture-card bridge suite: **9 passed**
+  - level-matched Smalltalk request is routed through the existing `/smalltalk/context` owner
+  - bridge carries no case completion or transfer state of its own
+  - 320dp phone at 200% text scale has no layout exception with the new CTA
+- Phase 7 Smalltalk + Dokkaebi-help regressions: **10 passed**
+  - staged Silben help does not mutate solution/tile pool
+  - Smalltalk interaction, accessibility, retry, and persistence boundaries remain intact
 - targeted Dart analysis: **0 issues**
 - non-generated `git diff --check`: **passed**
 - live learner corpus remains **186** because Batch 38 is still review-only.
 
-## Next implementation target — Phase 7
+## Next implementation target — Phase 8
 
-Bridge existing Hahoe and Dokkaebi practice systems back to the culture/scenario world without creating parallel learning state.
+Reuse existing culture-linked decorations without changing reward-pool determinism.
 
 Constraints:
-- reuse the existing Smalltalk/pragmatics context for Hahoe-style register transfer
-- reuse the existing staged Dokkaebi help/practice path rather than inventing a culture-specific hint engine
-- bridges are contextual/navigation/presentation only unless an existing practice system already owns evidence
-- no new mastery, reward, culture-discovery, or companion ledger
-- failures in optional culture metadata must not block the underlying practice route
+- start with existing items only: `decoration_gat_buchae`, `decoration_munbangsau`, `decoration_soban`, `decoration_jagae_mungap`
+- culture surfaces may explain or point to an existing item, but must not grant it outside its current reward owner
+- do not add Norigae/Maedeup to Bojagi until reward-pool versioning/determinism has a separate design
+- no second inventory, unlock, culture mastery, or reward ledger
 - Batch 38 remains review-only until separate human approval/promotion
