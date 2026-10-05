@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "status": "D6_PASS_REVIEW_ONLY",
+  "wave": "second_wave",
+  "sourceDraft": "tools/content_factory/drafts/living_korea_second_wave_scene_first_drafts_20261005.json",
+  "personaCanon": "tools/content_factory/canonical_scenarios/character_profiles.json",
+  "principle": "남은 현대한국 이슈도 기존 관계에서만 열고, 주제를 넣기 위해 새로운 친분·권한·전문성을 발명하지 않는다.",
+  "arcs": [
+    {
+      "arcId": "shorter_working_week",
+      "shape": "two-perspective",
+      "continuityKo": "안드레아·민호 부부의 가족 일정 조율과 수진·민호 전 동료의 업무 설계 대화를 통해 시간 단축을 생활과 업무 양쪽에서 본다.",
+      "edges": [
+        {
+          "sceneId": "b1_andrea_minho_friday_schedule",
+          "a": "andrea",
+          "b": "minho",
+          "canonicalType": "married",
+          "authorityBoundaryKo": "민호는 안드레아 회사의 근무제 결정을 대신하지 않고 가족 일정만 함께 조율한다."
+        },
+        {
+          "sceneId": "b2_sujin_minho_shorter_hours_tradeoff",
+          "a": "sujin",
+          "b": "minho",
+          "canonicalType": "former_colleagues",
+          "authorityBoundaryKo": "민호는 수진의 현재 팀장이나 평가자가 아니며 과거 팀 경험을 조언으로만 나눈다."
+        }
+      ]
+    },
+    {
+      "arcId": "work_family_choices",
+      "shape": "two-perspective",
+      "continuityKo": "현아·안드레아는 사회 통계와 개인 선택을 분리하고, 안드레아·민호는 실제 가족 일정 분담으로 이어 간다.",
+      "edges": [
+        {
+          "sceneId": "b2_hyuna_andrea_work_family_choices",
+          "a": "hyuna",
+          "b": "andrea",
+          "canonicalType": "acquaintances",
+          "authorityBoundaryKo": "현아는 사회 전체를 대표하지 않고 안드레아도 자신의 가족 경험을 보편 규칙으로 만들지 않는다."
+        },
+        {
+          "sceneId": "b1_andrea_minho_family_calendar",
+          "a": "andrea",
+          "b": "minho",
+          "canonicalType": "married",
+          "authorityBoundaryKo": "가사·일정 책임을 한쪽 배우자에게 고정하지 않고 준의 자기 일정 책임도 남긴다."
+        }
+      ]
+    },
+    {
+      "arcId": "small_business_costs",
+      "shape": "shop-chain",
+      "continuityKo": "동선이 수진과 가격표 고민을 정리한 뒤 마야와 손님 안내 문구를 다듬는다.",
+      "edges": [
+        {
+          "sceneId": "b1_dongsun_sujin_repair_price",
+          "a": "dongsun",
+          "b": "sujin",
+          "canonicalType": "family",
+          "authorityBoundaryKo": "수진은 세무·노무 자문가가 아니라 딸로서 계산 순서와 설명 방식을 제안한다."
+        },
+        {
+          "sceneId": "b1_dongsun_maya_price_notice",
+          "a": "dongsun",
+          "b": "maya",
+          "canonicalType": "acquaintances",
+          "authorityBoundaryKo": "마야는 홍보 문구만 돕고 가격 자체는 동선이 결정한다."
+        }
+      ]
+    },
+    {
+      "arcId": "tourism_and_local_life",
+      "shape": "resident-context-chain",
+      "continuityKo": "레나는 현아와 방문 시간을 조정하고, 다니엘은 현아와 촬영 동선·주민 통행을 조정한다.",
+      "edges": [
+        {
+          "sceneId": "b1_lena_hyuna_crowded_weekend",
+          "a": "lena",
+          "b": "hyuna",
+          "canonicalType": "housemates",
+          "authorityBoundaryKo": "현아는 주민 전체를 대표해 금지하지 않고 혼잡 시간과 생활 맥락을 알려 준다."
+        },
+        {
+          "sceneId": "b2_hyuna_daniel_resident_flow_filming",
+          "a": "hyuna",
+          "b": "daniel",
+          "canonicalType": "acquaintances",
+          "authorityBoundaryKo": "현아는 가게·주민의 동의를 대신하지 않고 다니엘은 촬영 편의를 위해 통행을 통제하지 않는다."
+        }
+      ]
+    },
+    {
+      "arcId": "hallyu_beyond_kpop",
+      "shape": "interest-to-production",
+      "continuityKo": "레나·마야의 개인 취향 확장 대화가 마야·다니엘의 전통문화 재해석 책임으로 이어진다.",
+      "edges": [
+        {
+          "sceneId": "b1_lena_maya_beyond_music",
+          "a": "lena",
+          "b": "maya",
+          "canonicalType": "friends",
+          "authorityBoundaryKo": "레나의 취향을 외국인 전체의 한류 경험으로 일반화하지 않고 마야도 한국 전체의 대표성을 단정하지 않는다."
+        },
+        {
+          "sceneId": "b2_maya_daniel_tradition_reinterpretation",
+          "a": "maya",
+          "b": "daniel",
+          "canonicalType": "colleagues",
+          "authorityBoundaryKo": "마야와 다니엘은 재해석 장면을 원형으로 포장하지 않고 제작자·전승자의 의미를 대신 결정하지 않는다."
+        }
+      ]
+    },
+    {
+      "arcId": "gyeongju_after_apec",
+      "shape": "record-to-fieldwork",
+      "continuityKo": "현아·다니엘은 행사 이후 도시 기록 방식을 논의하고, 현아·병철은 답사에서 관찰과 공식 역사 자료를 분리한다.",
+      "edges": [
+        {
+          "sceneId": "b2_hyuna_daniel_gyeongju_after_apec",
+          "a": "hyuna",
+          "b": "daniel",
+          "canonicalType": "acquaintances",
+          "authorityBoundaryKo": "정상회의의 외교 성과나 정치적 평가를 대신하지 않고 도시 기록 방식만 다룬다."
+        },
+        {
+          "sceneId": "b2_hyuna_byeongcheol_gyeongju_heritage",
+          "a": "hyuna",
+          "b": "byeongcheol",
+          "canonicalType": "acquaintances",
+          "authorityBoundaryKo": "병철의 건축 관심을 역사 전문 권위로 확대하지 않고 현아도 관찰과 확인된 사실을 분리한다."
+        }
+      ]
+    },
+    {
+      "arcId": "heatwave_daily_adaptation",
+      "shape": "daily-safety",
+      "continuityKo": "레나·현아는 외출 시간을 조정하고, 병철·수진은 집의 전기기기 이상 시 중지·확인 원칙을 정한다.",
+      "edges": [
+        {
+          "sceneId": "a2_lena_hyuna_heatwave_plan",
+          "a": "lena",
+          "b": "hyuna",
+          "canonicalType": "housemates",
+          "authorityBoundaryKo": "현아는 의료 조언을 하지 않고 일정·장소 조정만 제안한다."
+        },
+        {
+          "sceneId": "b1_byeongcheol_sujin_heat_electricity",
+          "a": "byeongcheol",
+          "b": "sujin",
+          "canonicalType": "family",
+          "authorityBoundaryKo": "병철은 전기 안전의 중지·확인 원칙만 말하고 수진에게 위험한 직접 수리를 시키지 않는다."
+        }
+      ]
+    }
+  ],
+  "claims": {
+    "inventedRelationshipCount": 0,
+    "inventedAuthorityCount": 0,
+    "liveWritePerformed": false,
+    "humanApproval": false
+  }
+}

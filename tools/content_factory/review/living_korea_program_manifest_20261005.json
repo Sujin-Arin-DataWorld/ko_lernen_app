@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "programId": "living_korea_2025_2026",
+  "status": "ALL_TOPICS_REVIEW_READY_NOT_LIVE",
+  "snapshotDate": "2026-10-05",
+  "researchWindow": {
+    "start": "2025-10-05",
+    "end": "2026-10-05"
+  },
+  "waves": {
+    "first": {
+      "sceneDraft": "tools/content_factory/drafts/living_korea_scene_first_drafts_20261005.json",
+      "languageMining": "tools/content_factory/review/living_korea_language_mining_20261005.json",
+      "lcpAudit": "tools/content_factory/review/living_korea_lcp_audit_20261005.json",
+      "cultureCards": "tools/content_factory/drafts/living_korea_culture_cards_20261005.json",
+      "crossPersonaArcs": "tools/content_factory/review/living_korea_cross_persona_arcs_20261005.json",
+      "reviewState": "USER_REVIEWED_5_ACCEPTED_4_REVISED_PENDING_FINAL_CONFIRMATION"
+    },
+    "second": {
+      "sceneDraft": "tools/content_factory/drafts/living_korea_second_wave_scene_first_drafts_20261005.json",
+      "languageMining": "tools/content_factory/review/living_korea_second_wave_language_mining_20261005.json",
+      "lcpAudit": "tools/content_factory/review/living_korea_second_wave_lcp_audit_20261005.json",
+      "cultureCards": "tools/content_factory/drafts/living_korea_second_wave_culture_cards_20261005.json",
+      "crossPersonaArcs": "tools/content_factory/review/living_korea_second_wave_cross_persona_arcs_20261005.json",
+      "reviewState": "MODEL_AUTHORED_PENDING_USER_REVIEW"
+    }
+  },
+  "canonicalSources": {
+    "personaCanon": "tools/content_factory/canonical_scenarios/character_profiles.json",
+    "topicRegistry": "tools/content_factory/canonical_scenarios/contemporary_korea_topics_20251005_20261005.json",
+    "plan": "docs/plans/2026-10-05-living-korea-2025-2026.md"
+  },
+  "counts": {
+    "canonicalPersonas": 11,
+    "frozenTopics": 11,
+    "personaAssignments": 11,
+    "arcs": 10,
+    "scenes": 23,
+    "dialogueTurns": 138,
+    "cultureCards": 11,
+    "minedVocabularyTargets": 164,
+    "minedGrammarTargets": 135,
+    "minedPragmaticExpressions": 71,
+    "registerMarkers": 47
+  },
+  "coverage": {
+    "topicsWithDialogue": 11,
+    "topicsWithCultureCard": 11,
+    "personasAssigned": 11,
+    "sujinChristianCurrentRegister": "banmal_except_first_meeting_and_early_relationship",
+    "hyunaSecondWaveSceneCountMinimum": 5,
+    "lenaSecondWaveSceneCountMinimum": 2
+  },
+  "lcpExit": {
+    "firstWave": {
+      "sentenceUnknown": 0,
+      "minedVocabUnknown": 0,
+      "minedVocabOver2": 0,
+      "maxSentenceLevelDelta": 1
+    },
+    "secondWave": {
+      "sentenceUnknown": 0,
+      "minedVocabUnknown": 0,
+      "minedVocabOver2": 0,
+      "maxSentenceLevelDelta": 1
+    },
+    "globalClozeUnknown": 276,
+    "globalClozeTokenCount": 14721,
+    "globalClozeUnknownRatchet": 0.0188
+  },
+  "freshness": {
+    "allTopicsCoveredExactlyOnceByCardsAcrossWaves": true,
+    "dynamicReviewAfterGate": true,
+    "eventAndSourceWindowGate": true
+  },
+  "scopeBoundaries": {
+    "ttsOwnedByJin": true,
+    "ttsTouched": false,
+    "liveScenarioWritePerformed": false,
+    "masteryOwnershipChanged": false,
+    "rewardOwnershipChanged": false,
+    "secondWaveHumanLanguageApprovalClaimed": false,
+    "nativeSpeakerQaClaimed": false,
+    "securityContentDefensiveOnly": true,
+    "politicalPersuasion": false
+  },
+  "validation": {
+    "combinedRelevantTestsPassed": 266,
+    "contentValidationPassed": true,
+    "nonGraphifyDiffCheckPassed": true
+  },
+  "next": {
+    "required": "User review of the 14 second-wave Korean scenes, then DE/EN localization and explicit promotion decision.",
+    "optional": "After approval, derive scenario/listening/culture-link integration artifacts without changing TTS ownership."
+  },
+  "dependency": {
+    "basePullRequest": 449,
+    "featurePullRequest": 450,
+    "reason": "Living Korea remains stacked on the culture-world/LCP branch until PR #449 is merged."
+  }
+}

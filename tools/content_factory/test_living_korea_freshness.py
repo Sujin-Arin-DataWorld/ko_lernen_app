@@ -13,6 +13,7 @@ TOPICS = (
     / "contemporary_korea_topics_20251005_20261005.json"
 )
 CARDS = ROOT / "tools/content_factory/drafts/living_korea_culture_cards_20261005.json"
+SECOND_CARDS = ROOT / "tools/content_factory/drafts/living_korea_second_wave_culture_cards_20261005.json"
 PROFILES = (
     ROOT
     / "tools/content_factory/canonical_scenarios"
@@ -25,6 +26,8 @@ class LivingKoreaFreshnessGateTest(unittest.TestCase):
     def setUpClass(cls) -> None:
         cls.payload = json.loads(TOPICS.read_text(encoding="utf-8"))
         cls.cards = json.loads(CARDS.read_text(encoding="utf-8"))
+        cls.second_cards = json.loads(SECOND_CARDS.read_text(encoding="utf-8"))
+        cls.all_cards = cls.cards["cards"] + cls.second_cards["cards"]
         cls.profiles = json.loads(PROFILES.read_text(encoding="utf-8"))
         cls.topics = {row["id"]: row for row in cls.payload["topics"]}
         cls.snapshot = date.fromisoformat(cls.payload["snapshotDate"])
@@ -83,7 +86,7 @@ class LivingKoreaFreshnessGateTest(unittest.TestCase):
                 self.assertTrue(set(ids).issubset(self.topics))
 
     def test_cards_inherit_topic_review_after_and_never_extend_it(self) -> None:
-        for card in self.cards["cards"]:
+        for card in self.all_cards:
             topic = self.topics[card["topicId"]]
             with self.subTest(card=card["id"]):
                 self.assertEqual(card["reviewAfter"], topic["reviewAfter"])
@@ -91,6 +94,19 @@ class LivingKoreaFreshnessGateTest(unittest.TestCase):
                     date.fromisoformat(card["reviewAfter"]),
                     self.today,
                 )
+
+    def test_first_and_second_wave_cards_cover_all_topics_once(self) -> None:
+        topic_ids = [card["topicId"] for card in self.all_cards]
+        self.assertEqual(len(topic_ids), 11)
+        self.assertEqual(len(topic_ids), len(set(topic_ids)))
+        self.assertEqual(set(topic_ids), set(self.topics))
+
+    def test_card_snapshots_match_registry_snapshot(self) -> None:
+        self.assertEqual(self.cards["snapshotDate"], self.payload["snapshotDate"])
+        self.assertEqual(
+            self.second_cards["snapshotDate"],
+            self.payload["snapshotDate"],
+        )
 
     def test_stable_and_volatile_facts_are_separated(self) -> None:
         for topic in self.payload["topics"]:
