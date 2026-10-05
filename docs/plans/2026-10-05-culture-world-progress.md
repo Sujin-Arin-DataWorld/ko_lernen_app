@@ -11,9 +11,9 @@
 | 1 | Scenario ↔ culture registry | **Complete** | Not merged to main yet | `ScenarioCultureLinkCatalog`, fail-safe repository, reference validation |
 | 2 | CulturalGlossary expansion | **Complete** | Not merged to main yet | glossary 23 → 33 entries, KO/DE/EN + authoritative sources |
 | 3 | Persona culture scenes | **Draft complete / review-only** | **Not live**; runtime corpus remains 186 scenarios | Batch 38: 5 scenarios, 5 listening lessons, 20 listening questions, 5 culture links |
-| 4 | Scenario result culture card | **Next implementation target** | Not started | consume live `scenario_culture_links.json` after scenario completion |
-| 5 | Hanok “Culture stories” collection | Not started | Not started | derive discovery from existing completion evidence if possible |
-| 6 | Tiger/Magpie presentation reactions | Not started | Not started | same state/reward; presentation only |
+| 4 | Scenario result culture card | **Complete** | Not merged to main yet; live registry may still be empty | optional result card backed only by live `scenario_culture_links.json` |
+| 5 | Hanok “Culture stories” collection | **Complete** | Not merged to main yet | read-only discovery projection from existing scenario-completion evidence; no new culture ledger |
+| 6 | Tiger/Magpie presentation reactions | **Next implementation target** | Not started | same culture state/reward/access; presentation only |
 | 7 | Hahoe/Dokkaebi bridges | Existing systems audited; new bridge work not started | Existing Hahoe/Dokkaebi practice already live | reuse Smalltalk context + staged Dokkaebi help |
 | 8 | Culture items / reward reuse | Not started | Not started | must preserve reward determinism |
 | 9 | Culture story arcs | Not started | Not started | later grouping layer, not mastery |
@@ -202,33 +202,68 @@ The pipeline rejects:
 Commit:
 - `47b2ef0fc feat(content): add persona culture authoring pipeline`
 
+## Phase 4 — scenario culture result card
+
+Implemented an optional culture surface in the scenario result flow:
+- reads only `ScenarioCultureLinkRepository` + `CulturalGlossaryRepository`
+- shows linked cultural terms only when valid live metadata exists
+- opens the existing CulturalGlossary story sheet
+- missing or malformed optional culture data fails closed by omitting the card
+- no score, CanDo, XP, Yeopjeon, Bojagi, Hanok, or navigation authority
+
+The live registry can remain empty safely, so this UI does not promote Batch 38.
+
+Commit:
+- `aa7674b03 feat(culture): show scenario culture result card`
+
+## Phase 5 — Hanok Culture Stories
+
+Added one collection entry inside the existing Hanok area and a dedicated Culture Stories screen.
+
+Discovery contract:
+- no `discoveredCultureIds` or second culture-progress ledger
+- derives terms from current-generation `Storage.completedScenarios`
+- unions available course-mastery `scenarioCheckpoints` as cloud-restorable supporting evidence
+- intersects only with the live scenario/culture registry and CulturalGlossary
+- deduplicates terms and preserves stable glossary order
+- missing optional catalogs fail closed
+- returning to the long-lived Hanok tab refreshes the derived count
+
+Important recovery limit:
+- `scenarioCheckpoints` are capped **attempt history**, not a permanent set of unique completed scenarios.
+- heavy replay can evict an older unique scenario from restored checkpoint history even while the live scenario catalog is smaller than the checkpoint cap.
+- therefore Culture Stories is a supplementary discovery view, **not** permanent mastery proof and **not** a guaranteed complete cross-device archive.
+- the local current-generation completion mirror remains the strongest on-device source; no new persistence field was introduced just to hide this limitation.
+
+Commit:
+- `810e37f93 feat(culture): add Hanok culture stories collection`
+
 ## Validation baseline
 
-Latest focused validation before this handoff:
+Latest focused validation at the Phase 5 checkpoint:
 - persona-culture/content Python regressions: **39 passed**
-- earlier persona/catalog Flutter regressions: **13 passed**
 - `validate_content.py`: **passed**
 - Batch 38 integration preview: **passed**
   - scenario preview: 186 → 191
   - scenario quests: 579 → 594
-- live learner corpus remains **186** because Batch 38 is review-only.
+- Phase 4/5 culture + Hanok focused Flutter tests: **40 passed**
+  - discovery projection and no-new-ledger contract
+  - Culture Stories screen + glossary-sheet integration
+  - scenario culture result card
+  - Hanok shortcut refresh
+  - Hanok fold/adaptive chrome and 200% text regressions
+- targeted Dart analysis: **0 issues**
+- `git diff --check`: **passed**
+- live learner corpus remains **186** because Batch 38 is still review-only.
 
-## Next implementation target — Phase 4
+## Next implementation target — Phase 6
 
-Implement the optional “이 장면에서 만난 문화 / Culture in this scene” surface after scenario completion.
+Add Tiger/Magpie presentation-only reactions around culture discovery while keeping the underlying culture state identical.
 
 Constraints:
-- consume only the live `ScenarioCultureLinkRepository`
-- open the existing CulturalGlossary presentation/sheet
-- missing/malformed culture data => omit UI
-- no score change
-- no CanDo evidence change
-- no XP / Yeopjeon / Bojagi / Hanok progression
-- no new top-level Culture tab
-- must work even while the live registry is empty
+- reuse the existing mascot preference/visibility owner
+- Magpie may present discovery/news-delivery motion or framing
+- Tiger may present calm acknowledgement/protection framing
+- no companion selected => plain culture presentation
+- companion choice must not alter term discovery, availability, score, CanDo evidence, reward, access, or persistence
 - Batch 38 remains review-only until separate human approval/promotion
-
-After Phase 4:
-1. audit completion evidence for Phase 5 Hanok Culture Stories
-2. derive discovery from existing completion evidence if safe
-3. then add Tiger/Magpie presentation-only reactions

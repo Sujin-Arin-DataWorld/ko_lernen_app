@@ -936,21 +936,21 @@
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations.dart": {
-    "mtime": 1791155465.104041,
-    "seen": 1791162436.0370526,
-    "ast_hash": "9fcb9df739957b14738b4062b1d0597e",
+    "mtime": 1791164537.6314714,
+    "seen": 1791165266.7700057,
+    "ast_hash": "acb2e10eaa5309d3936a8b262f232cca",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_de.dart": {
-    "mtime": 1791155465.1081128,
-    "seen": 1791162436.0370603,
-    "ast_hash": "4b90208e2d6b707fc11eae508d25a17c",
+    "mtime": 1791164537.4244688,
+    "seen": 1791165266.7700093,
+    "ast_hash": "420aa938ae8d6011b8caf7f2691d6881",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_en.dart": {
-    "mtime": 1791155465.111113,
-    "seen": 1791162436.0370684,
-    "ast_hash": "a910667c2a7bbe56b6ea290c6de48238",
+    "mtime": 1791164537.5341475,
+    "seen": 1791165266.7700114,
+    "ast_hash": "e6c2d182f28d6d218d9ec5554d30d1b7",
     "semantic_hash": ""
   },
   "lib/l10n/gye_error_text.dart": {
@@ -966,9 +966,9 @@
     "semantic_hash": ""
   },
   "lib/main.dart": {
-    "mtime": 1791155114.4550798,
-    "seen": 1791162436.0370843,
-    "ast_hash": "1842b0fec785d6d1f6dafc97df5007ca",
+    "mtime": 1791163871.719774,
+    "seen": 1791165266.7704794,
+    "ast_hash": "ced84a05e815b1d90aa7eb1e2c1e5191",
     "semantic_hash": ""
   },
   "lib/models/book_page.dart": {
@@ -1596,9 +1596,9 @@
     "semantic_hash": ""
   },
   "lib/screens/scenario_player_screen.dart": {
-    "mtime": 1791155114.6202412,
-    "seen": 1791162436.0377328,
-    "ast_hash": "740816c50cda6da5d51a50284028b7a4",
+    "mtime": 1791162722.633445,
+    "seen": 1791165266.8153386,
+    "ast_hash": "31fbf411126607282444a541ed4801b7",
     "semantic_hash": ""
   },
   "lib/screens/scenarios_list_screen.dart": {
@@ -1644,9 +1644,9 @@
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_hanok_screen.dart": {
-    "mtime": 1791155114.6313827,
-    "seen": 1791162436.0377696,
-    "ast_hash": "10ddae2c9a5d33af4f9f78ad23403672",
+    "mtime": 1791164595.6358168,
+    "seen": 1791165266.8174226,
+    "ast_hash": "bb57c29a82de28fc45016da48beb0934",
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_preview_screens.dart": {
@@ -22110,9 +22110,9 @@
     "semantic_hash": ""
   },
   "docs/plans/2026-10-05-culture-world-progress.md": {
-    "mtime": 1791162067.4368372,
-    "seen": 1791162436.045406,
-    "ast_hash": "ac44c2e61b9b2d49aac943d53bd16128",
+    "mtime": 1791164968.3126843,
+    "seen": 1791165267.5764885,
+    "ast_hash": "d1e9cca06e719fbfda1a9b6da5ff5d1b",
     "semantic_hash": ""
   },
   "docs/plans/2026-10-05-culture-world-roadmap.md": {
@@ -22131,6 +22131,48 @@
     "mtime": 1791161805.2113016,
     "seen": 1791162436.0458348,
     "ast_hash": "fb2a9d8c83bd4da381a34c05a186d104",
+    "semantic_hash": ""
+  },
+  "lib/screens/culture_stories_screen.dart": {
+    "mtime": 1791163988.992082,
+    "seen": 1791165266.7927139,
+    "ast_hash": "e46709ef74de26582d9d912463a76c39",
+    "semantic_hash": ""
+  },
+  "lib/services/culture_discovery_service.dart": {
+    "mtime": 1791164731.2418613,
+    "seen": 1791165266.842952,
+    "ast_hash": "8a2ae7ff799bfaa23a6c8838736d5ff7",
+    "semantic_hash": ""
+  },
+  "lib/widgets/sori/culture_stories_entry_card.dart": {
+    "mtime": 1791163893.1726713,
+    "seen": 1791165266.9081366,
+    "ast_hash": "679713a3bb5f718378f7fcceaba0fcbd",
+    "semantic_hash": ""
+  },
+  "lib/widgets/sori/scenario_culture_card.dart": {
+    "mtime": 1791162800.9215672,
+    "seen": 1791165266.9282854,
+    "ast_hash": "08406a4b55ca04ed7d37a39f704bb30e",
+    "semantic_hash": ""
+  },
+  "test/culture_discovery_service_test.dart": {
+    "mtime": 1791164766.4052958,
+    "seen": 1791165266.9864993,
+    "ast_hash": "63e25aee3db22d7cee7ae0a39abaf76a",
+    "semantic_hash": ""
+  },
+  "test/culture_stories_ui_test.dart": {
+    "mtime": 1791164775.1590753,
+    "seen": 1791165266.9876611,
+    "ast_hash": "80f6c96aecaf090a1f1a0bb6c94b2aa0",
+    "semantic_hash": ""
+  },
+  "test/scenario_culture_card_test.dart": {
+    "mtime": 1791163114.4434335,
+    "seen": 1791165267.1030777,
+    "ast_hash": "6f0848a1ae73b7459924f4c9eb9cd040",
     "semantic_hash": ""
   }
 }
