@@ -27,16 +27,16 @@
     "dialogueTurns": 54,
     "cultureCards": 4,
     "minedVocabularyTargets": 68,
-    "minedGrammarTargets": 49,
-    "minedPragmaticExpressions": 27,
-    "registerMarkers": 18
+    "minedGrammarTargets": 53,
+    "minedPragmaticExpressions": 29,
+    "registerMarkers": 19
   },
   "d4Exit": {
     "sentenceUnknown": 0,
     "minedVocabUnknown": 0,
     "minedVocabOver2": 0,
     "maxSentenceLevelDelta": 1,
-    "globalClozeUnknown": 278,
+    "globalClozeUnknown": 277,
     "globalClozeTokenCount": 14721,
     "globalClozeUnknownRatchet": 0.0189
   },
@@ -51,7 +51,8 @@
     "securityContentDefensiveOnly": true
   },
   "reviewState": {
-    "koreanDialogue": "MODEL_AUTHORED_REVIEW_READY",
+    "koreanDialogue": "USER_REVIEWED_5_ACCEPTED_4_REVISED_PENDING_FINAL_CONFIRMATION",
+    "userReviewNote": "2026-10-05: user accepted the other five scenes and supplied natural-dialogue revisions for scenes 2, 7, 8, and 9; revisions were applied with standard spelling/grammar normalization and re-audited.",
     "deLocalization": "NOT_STARTED",
     "enLocalization": "NOT_STARTED",
     "livePromotion": "BLOCKED_ON_EXPLICIT_REVIEW",

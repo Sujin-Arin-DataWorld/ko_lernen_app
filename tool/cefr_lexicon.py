@@ -720,6 +720,18 @@ _SURFACE_LEMMA_OVERRIDE_MAP: Mapping[str, str] = {
     "눌렀냐": "누르다",
     "할게": "하다",
     "보내": "보내다",
+    # Living Korea first-wave conversational surfaces retained after Jin's
+    # dialogue review. Exact repairs are intentionally narrow so colloquial
+    # forms do not require broad, collision-prone ending rules.
+    "보내서": "보내다",
+    "빼가는": "빼다",
+    "있다던데": "있다",
+    "조심해야겠어": "조심하다",
+    "들어가서": "들어가다",
+    "써서": "쓰다",
+    "알려줘야겠다": "알려주다",
+    "왔다는데": "오다",
+    "눌렀대지": "누르다",
 }
 
 
@@ -2423,6 +2435,15 @@ class CefrLexicon:
             return None
         if token in self._proper_nouns:
             return token
+        # Living Korea D-4 follow-up: ordinary Korean vocatives attach
+        # -아/-야 directly to a person's name (수진아, 준아, ...). Treat
+        # that surface as the same deliberately-ungraded proper noun before
+        # generic morphology, but only when the stripped root is already in
+        # the curated proper-noun set.
+        if len(token) > 1 and token[-1] in {"아", "야"}:
+            vocative_root = token[:-1]
+            if vocative_root in self._proper_nouns:
+                return vocative_root
         root = _strip_one_particle(token)
         if root != token and root in self._proper_nouns:
             return root
@@ -2678,6 +2699,11 @@ class CefrLexicon:
         for index, raw in enumerate(eojeols):
             token = _normalize_token(raw)
             if not token:
+                continue
+            # Pure Korean chat-laughter markers are paralinguistic, not
+            # vocabulary burden. Keep them in learner-facing dialogue while
+            # excluding them from CEFR unknown-token accounting.
+            if all(char in {"ㅋ", "ㅎ"} for char in token):
                 continue
             resolved = self._resolve_eojeol(token)
             # In V-고 싶다 the immediately preceding -고 form is verbal,

@@ -166,7 +166,7 @@ class LivingKoreaSceneFirstDraftTest(unittest.TestCase):
         text = "\n".join(
             turn["ko"] for scene in arc["scenes"] for turn in scene["dialog"]
         )
-        for expected in ("누르지", "공식 앱", "확인"):
+        for expected in ("누르지", "택배 앱", "확인"):
             self.assertIn(expected, text)
         for prohibited in ("우회", "탈취", "공격 코드", "악성코드 만들"):
             self.assertNotIn(prohibited, text)

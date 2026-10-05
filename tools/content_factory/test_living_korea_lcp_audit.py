@@ -89,6 +89,8 @@ class LivingKoreaLcpAuditTest(unittest.TestCase):
         cases = [
             ("링크", 2, "A2"),
             ("폴더", 3, "B1"),
+            ("보이스피싱", 3, "B1"),
+            ("피싱", 3, "B1"),
         ]
         for surface, grade, cefr in cases:
             with self.subTest(surface=surface):
@@ -108,7 +110,7 @@ class LivingKoreaLcpAuditTest(unittest.TestCase):
     def test_global_unknown_ratchet_is_tighter_after_d4(self) -> None:
         effect = self.audit["globalLexiconSideEffect"]
         self.assertEqual(effect["clozeSentenceUnknownBefore"], 282)
-        self.assertEqual(effect["clozeSentenceUnknownAfter"], 278)
+        self.assertEqual(effect["clozeSentenceUnknownAfter"], 277)
         self.assertEqual(effect["clozeTokenCount"], 14721)
         self.assertEqual(effect["ratchetCap"], 0.0189)
 

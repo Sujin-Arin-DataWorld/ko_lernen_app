@@ -1819,6 +1819,15 @@ class TestLivingKoreaD4SurfaceMorphology(unittest.TestCase):
         ("눌렀냐?", "누르다"),
         ("할게.", "하다"),
         ("보내", "보내다"),
+        ("보내서", "보내다"),
+        ("빼가는", "빼다"),
+        ("있다던데.", "있다"),
+        ("조심해야겠어.", "조심하다"),
+        ("들어가서", "들어가다"),
+        ("써서", "쓰다"),
+        ("알려줘야겠다.", "알려주다"),
+        ("왔다는데", "오다"),
+        ("눌렀대지?", "누르다"),
     ]
 
     def test_living_korea_normal_surfaces_resolve_to_dictionary_forms(self):
@@ -1839,6 +1848,12 @@ class TestLivingKoreaD4SurfaceMorphology(unittest.TestCase):
             "링크는 눌렀냐?",
             "판단은 내가 할게.",
             "돈 보내 달라는 연락도 확인하고.",
+            "택배 문자로 링크 보내서 개인정보 빼가는 피싱도 있다던데.",
+            "정말 조심해야겠어.",
+            "앱 들어가서 확인했어.",
+            "이메일이라도 써서 알려줘야겠다.",
+            "엄마한테 문자가 왔다는데.",
+            "링크 안 눌렀대지?",
         ]
         for sentence in sentences:
             with self.subTest(sentence=sentence):
@@ -1851,6 +1866,15 @@ class TestLivingKoreaD4SurfaceMorphology(unittest.TestCase):
                     repaired_surfaces.intersection(profile.unknown),
                     msg=(sentence, profile.unknown),
                 )
+
+    def test_person_name_vocative_and_chat_laughter_are_not_vocab_unknowns(self):
+        profile = self.lex.sentence_profile(
+            "수진아, 고마워. 사랑해 ㅎㅎ",
+            self.gi,
+        )
+        self.assertNotIn("수진아,", profile.unknown)
+        self.assertNotIn("ㅎㅎ", profile.unknown)
+        self.assertIn("수진", profile.proper_nouns)
 
 
 class TestC7ReviewedUnknownOwners(unittest.TestCase):

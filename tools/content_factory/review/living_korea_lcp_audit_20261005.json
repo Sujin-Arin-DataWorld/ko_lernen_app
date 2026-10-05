@@ -50,6 +50,18 @@
         "level": "B1",
         "category": "living_korea_systems",
         "reason": "인터넷 시스템 통합·시스템 관리를 배우는 크리스티안의 B1 시스템 확인 장면에서 기본적으로 필요한 디지털 시스템 명사다."
+      },
+      {
+        "surface": "보이스피싱",
+        "level": "B1",
+        "category": "living_korea_digital_safety",
+        "reason": "사용자 검수로 강화된 B1 생활 안전 대화의 핵심 현대생활어다."
+      },
+      {
+        "surface": "피싱",
+        "level": "B1",
+        "category": "living_korea_digital_safety",
+        "reason": "보이스피싱 장면에서 자연스럽게 쓰이는 축약형 현대생활어로, 해당 B1 대화에서만 좁게 owner를 둔다."
       }
     ],
     "auditorMorphologyRepairs": [
@@ -60,14 +72,35 @@
       {"surface": "왔대", "lemma": "오다"},
       {"surface": "눌렀냐", "lemma": "누르다"},
       {"surface": "할게", "lemma": "하다"},
-      {"surface": "보내", "lemma": "보내다"}
+      {"surface": "보내", "lemma": "보내다"},
+      {"surface": "보내서", "lemma": "보내다"},
+      {"surface": "빼가는", "lemma": "빼다"},
+      {"surface": "있다던데", "lemma": "있다"},
+      {"surface": "조심해야겠어", "lemma": "조심하다"},
+      {"surface": "들어가서", "lemma": "들어가다"},
+      {"surface": "써서", "lemma": "쓰다"},
+      {"surface": "알려줘야겠다", "lemma": "알려주다"},
+      {"surface": "왔다는데", "lemma": "오다"},
+      {"surface": "눌렀대지", "lemma": "누르다"}
+    ],
+    "auditorConversationSupport": [
+      {
+        "surface": "수진아",
+        "rule": "curated proper noun + vocative -아/-야",
+        "reason": "연인·가족 대화에서 자연스러운 이름 호격을 unknown으로 세지 않는다."
+      },
+      {
+        "surface": "ㅎㅎ/ㅋㅋ",
+        "rule": "pure chat-laughter token",
+        "reason": "학습자 대화의 채팅식 웃음은 lexical CEFR burden이 아닌 paralinguistic marker로 제외한다."
+      }
     ]
   },
   "globalLexiconSideEffect": {
     "clozeSentenceUnknownBefore": 282,
-    "clozeSentenceUnknownAfter": 278,
+    "clozeSentenceUnknownAfter": 277,
     "clozeTokenCount": 14721,
-    "ratioAfter": 0.0189,
+    "ratioAfter": 0.0188,
     "ratchetCap": 0.0189
   },
   "claims": {

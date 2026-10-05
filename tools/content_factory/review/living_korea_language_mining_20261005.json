@@ -37,6 +37,8 @@
     {
       "sceneId": "b2_daniel_sujin_ai_asset_handoff",
       "vocabulary": [
+        {"lemma": "이미지", "attestedSurface": "이미지"},
+        {"lemma": "생성하다", "attestedSurface": "생성한"},
         {"lemma": "폴더", "attestedSurface": "폴더"},
         {"lemma": "구분하다", "attestedSurface": "구분할"},
         {"lemma": "표시", "attestedSurface": "표시를"},
@@ -46,16 +48,15 @@
         {"lemma": "추적하다", "attestedSurface": "추적할"}
       ],
       "grammar": [
-        {"pattern": "V-기 전에", "attestedSurface": "넘기기 전에"},
         {"pattern": "V-(으)ㄹ 수 있다", "attestedSurface": "구분할 수 있으면"},
         {"pattern": "V-(으)ㄹ 수 있는데", "attestedSurface": "복잡해질 수 있는데"},
         {"pattern": "V-(으)면 어떨까요?", "attestedSurface": "두면 어떨까요?"},
         {"pattern": "V-아/어도", "attestedSurface": "바뀌어도"}
       ],
       "pragmatics": [
+        {"function": "자료 유형을 먼저 분리하겠다고 제안", "attestedSurface": "실제로 찍은 이미지랑 AI로 생성한 이미지는 폴더부터 나눠 둘게요."},
         {"function": "UI 장단점 함께 제시", "attestedSurface": "표시를 크게 넣으면 화면이 복잡해질 수 있는데"},
-        {"function": "대안 제안", "attestedSurface": "짧게 표시하고 자세한 설명은 정보 화면에 두면 어떨까요?"},
-        {"function": "판단 기준 명확화", "attestedSurface": "중요한 건 사용자가 실제 장면이라고 오해하지 않는 거예요."}
+        {"function": "판단 기준 명확화", "attestedSurface": "중요한 건 사용자가 실제 촬영 이미지라고 오해하지 않는 거예요."}
       ],
       "registerMarkers": [
         "영상 제작자와 제품 개발자 사이의 전문적 해요체",
@@ -200,9 +201,9 @@
         {"pattern": "A/V-아/어도", "attestedSurface": "급해 보여도"}
       ],
       "pragmatics": [
+        {"function": "도움을 자연스럽게 요청", "attestedSurface": "크리스티안, 이것 좀 봐줄래요?"},
         {"function": "즉시 행동 중지", "attestedSurface": "잠깐만요. 바로 누르지 마세요."},
-        {"function": "공식 경로로 전환", "attestedSurface": "링크 말고 택배 앱에서 직접 확인해 봐요."},
-        {"function": "공포를 키우지 않는 안전 제안", "attestedSurface": "급해 보여도 먼저 확인하는 게 좋을 것 같아요."}
+        {"function": "공식 경로로 전환", "attestedSurface": "링크 말고 택배 앱에서 직접 확인해 봐요."}
       ],
       "registerMarkers": [
         "서로 친근하지만 존댓말을 유지",
@@ -212,55 +213,61 @@
     {
       "sceneId": "b1_christian_sujin_suspicious_text_followup",
       "vocabulary": [
-        {"lemma": "보낸 번호", "attestedSurface": "보낸 번호"},
-        {"lemma": "계정", "attestedSurface": "계정"},
-        {"lemma": "비밀번호", "attestedSurface": "비밀번호"},
-        {"lemma": "상황", "attestedSurface": "상황"},
-        {"lemma": "추측하다", "attestedSurface": "추측하지"},
-        {"lemma": "문자 내용", "attestedSurface": "문자 내용"},
-        {"lemma": "앱 기록", "attestedSurface": "앱 기록"},
-        {"lemma": "공식 고객센터", "attestedSurface": "공식 고객센터"}
+        {"lemma": "보이스피싱", "attestedSurface": "보이스피싱"},
+        {"lemma": "링크", "attestedSurface": "링크"},
+        {"lemma": "개인정보", "attestedSurface": "개인정보"},
+        {"lemma": "피싱", "attestedSurface": "피싱"},
+        {"lemma": "앱", "attestedSurface": "앱"},
+        {"lemma": "고객센터", "attestedSurface": "고객센터"},
+        {"lemma": "이메일", "attestedSurface": "이메일"}
       ],
       "grammar": [
-        {"pattern": "N만 보고", "attestedSurface": "보낸 번호만 보고"},
-        {"pattern": "V-(으)면 안 되다", "attestedSurface": "생각하면 안 돼"},
-        {"pattern": "V-아/어야 하는지", "attestedSurface": "바꿔야 하는지는"},
-        {"pattern": "N부터", "attestedSurface": "상황부터"},
-        {"pattern": "V-지 말고", "attestedSurface": "추측하지 말고"},
-        {"pattern": "V-(으)면", "attestedSurface": "필요하면"}
+        {"pattern": "V-다가", "attestedSurface": "나누다가"},
+        {"pattern": "A/V-아서/어서", "attestedSurface": "같아서"},
+        {"pattern": "V-지 말라고 하다", "attestedSurface": "누르지 말라고 했어"},
+        {"pattern": "V-다던데", "attestedSurface": "있다던데"},
+        {"pattern": "V-(으)ㄹ 수도 있다", "attestedSurface": "유출될 수도 있으니까"},
+        {"pattern": "V-아/어 보니까", "attestedSurface": "확인해 보니까"},
+        {"pattern": "V-다고 하더라", "attestedSurface": "도착한다고 하더라고"},
+        {"pattern": "V-(으)ㄹ 뻔하다", "attestedSurface": "큰일 날 뻔했네"}
       ],
       "pragmatics": [
-        {"function": "확인한 범위만 보고", "attestedSurface": "링크는 안 눌렀고 공식 앱에서만 확인했어요."},
-        {"function": "모르는 상태 명시", "attestedSurface": "아직 모르겠어요."},
-        {"function": "증거 범위 한정", "attestedSurface": "제가 확인한 건 문자 내용이랑 앱 기록까지예요."}
+        {"function": "가까운 연인에게 상황을 바로 공유", "attestedSurface": "수진아, 어머님이랑 대화 나누다가 문자를 봤는데, 보이스피싱 같아서 링크를 누르지 말라고 했어."},
+        {"function": "감사와 놀람을 즉각 표현", "attestedSurface": "아, 정말? 와, 고마워."},
+        {"function": "공식 채널에서 확인한 결과 공유", "attestedSurface": "내가 앱 들어가서 확인했는데 아무 문제 없고, 목요일에 도착한다고 하더라고."},
+        {"function": "친밀한 애정과 후속 행동 표현", "attestedSurface": "고마워, 크리스티안! 사랑해 ㅎㅎ 내가 택배회사 고객센터에 이메일이라도 써서 알려줘야겠다."}
       ],
       "registerMarkers": [
-        "연인 사이의 반말·해요체 혼합",
-        "크리스티안은 확인 사실과 미확인 판단을 분리한다"
+        "1년째 사귀는 연인 사이의 자연스러운 반말",
+        "크리스티안은 보안 전문가처럼 분석하지 않고 자신이 본 문자와 공식 앱 확인 결과를 공유한다",
+        "수진은 놀람·감사·애정을 직접 표현한다"
       ]
     },
     {
       "sceneId": "b1_sujin_byeongcheol_family_verification_rule",
       "vocabulary": [
         {"lemma": "택배 문자", "attestedSurface": "택배 문자"},
+        {"lemma": "보이스피싱", "attestedSurface": "보이스피싱"},
         {"lemma": "링크", "attestedSurface": "링크"},
-        {"lemma": "공식 앱", "attestedSurface": "공식 앱"},
-        {"lemma": "직접", "attestedSurface": "직접"},
         {"lemma": "연락", "attestedSurface": "연락"},
-        {"lemma": "본인", "attestedSurface": "본인"},
-        {"lemma": "확인하다", "attestedSurface": "확인"},
+        {"lemma": "직접", "attestedSurface": "직접"},
+        {"lemma": "전화하다", "attestedSurface": "전화해서"},
         {"lemma": "규칙", "attestedSurface": "규칙"}
       ],
       "grammar": [
-        {"pattern": "V-았/었대", "attestedSurface": "문자가 왔대"},
-        {"pattern": "V-(으)면", "attestedSurface": "문자 오면"},
+        {"pattern": "V-다는데", "attestedSurface": "문자가 왔다는데"},
+        {"pattern": "A/V-(으)ㄴ/는 것 같다", "attestedSurface": "보이스피싱 같아"},
+        {"pattern": "V-았/었대지?", "attestedSurface": "안 눌렀대지?"},
+        {"pattern": "V-지 말라고 하다", "attestedSurface": "누르지 말라고 했어"},
+        {"pattern": "V-(으)면", "attestedSurface": "링크가 오면"},
         {"pattern": "V-지 말고", "attestedSurface": "누르지 말고"},
         {"pattern": "V-아/어 달라고 하다", "attestedSurface": "보내 달라는"},
         {"pattern": "V-기 쉽다", "attestedSurface": "기억하기 쉽지"}
       ],
       "pragmatics": [
-        {"function": "사건 확인 질문", "attestedSurface": "링크는 눌렀냐?"},
-        {"function": "가족 공동 원칙 만들기", "attestedSurface": "우리도 급한 문자 오면 바로 누르지 말고 먼저 확인하자."},
+        {"function": "가족에게 의심 상황을 바로 공유", "attestedSurface": "아빠, 엄마한테 이상한 택배 문자가 왔다는데 보이스피싱 같아."},
+        {"function": "가장 중요한 안전 행동부터 확인", "attestedSurface": "뭐? 링크 안 눌렀대지?"},
+        {"function": "가족 공동 원칙 만들기", "attestedSurface": "앞으로 무슨 링크가 오면 먼저 누르지 말고 확인부터 하자."},
         {"function": "기억하기 쉬운 규칙 선호", "attestedSurface": "규칙은 간단해야 기억하기 쉽지."}
       ],
       "registerMarkers": [
