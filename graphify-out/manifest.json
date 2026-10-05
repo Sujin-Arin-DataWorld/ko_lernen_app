@@ -14586,15 +14586,15 @@
     "semantic_hash": ""
   },
   "tool/cefr_lexicon.py": {
-    "mtime": 1791221818.2306135,
-    "seen": 1791221877.149563,
-    "ast_hash": "1a7fc93db08fc1b442bb97485548a7f3",
+    "mtime": 1791221947.6465836,
+    "seen": 1791222305.3376682,
+    "ast_hash": "c81cc21d524d8f98fca97eb2314d62f7",
     "semantic_hash": ""
   },
   "tool/content_level_summary.json": {
-    "mtime": 1791221515.338059,
-    "seen": 1791221877.1536505,
-    "ast_hash": "0fae9568025093eee17a08e885c4993f",
+    "mtime": 1791222151.7126472,
+    "seen": 1791222305.3421462,
+    "ast_hash": "ac7ab1ce8ce1f88697b0af5ee7dc84fe",
     "semantic_hash": ""
   },
   "tool/ingest_nikl_grade_lists.py": {
@@ -14622,9 +14622,9 @@
     "semantic_hash": ""
   },
   "tool/test_cefr_lexicon.py": {
-    "mtime": 1791221829.0558436,
-    "seen": 1791221877.1818905,
-    "ast_hash": "493c351a68e92a143a7d89ff11cecdec",
+    "mtime": 1791222178.4172447,
+    "seen": 1791222305.3742986,
+    "ast_hash": "896d7ce1391b6db53f499a046d8e3a88",
     "semantic_hash": ""
   },
   "tool/test_ingest_nikl_grade_lists.py": {
@@ -14664,9 +14664,9 @@
     "semantic_hash": ""
   },
   "docs/data/content_level_report.md": {
-    "mtime": 1791221515.3457255,
-    "seen": 1791221877.444708,
-    "ast_hash": "2684a667167238e488be82c1d8e9d67a",
+    "mtime": 1791222151.7300415,
+    "seen": 1791222305.7249951,
+    "ast_hash": "aa0c06ada9e2e7ce11844a273b5c9188",
     "semantic_hash": ""
   },
   "docs/data/level_bible/F10_review_lessons.md": {
@@ -22212,9 +22212,9 @@
     "semantic_hash": ""
   },
   "docs/plans/2026-10-05-culture-quality-followups.md": {
-    "mtime": 1791221631.7550015,
-    "seen": 1791221877.4743707,
-    "ast_hash": "b54526a87163f492c49f5eae787df963",
+    "mtime": 1791222186.9334648,
+    "seen": 1791222305.7628286,
+    "ast_hash": "f65b92b5619713387a40dffe3f6e649f",
     "semantic_hash": ""
   },
   "tools/content_factory/relevel/relevel_bundle_V2G2.json": {
