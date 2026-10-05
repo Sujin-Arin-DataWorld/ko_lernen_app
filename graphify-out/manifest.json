@@ -14586,15 +14586,15 @@
     "semantic_hash": ""
   },
   "tool/cefr_lexicon.py": {
-    "mtime": 1791199909.326431,
-    "seen": 1791200740.6909194,
-    "ast_hash": "916b91723064bfde38a55cd91869baf4",
+    "mtime": 1791203277.0464768,
+    "seen": 1791204790.8337605,
+    "ast_hash": "7d9f136d571b722b9178a3eedc3f7440",
     "semantic_hash": ""
   },
   "tool/content_level_summary.json": {
-    "mtime": 1791202863.2613952,
-    "seen": 1791203144.4374807,
-    "ast_hash": "b0f9719056da4931b9879dcd68aaa865",
+    "mtime": 1791203477.1992798,
+    "seen": 1791204790.8375487,
+    "ast_hash": "82553723b3aebfd2655c050ad299180d",
     "semantic_hash": ""
   },
   "tool/ingest_nikl_grade_lists.py": {
@@ -14604,9 +14604,9 @@
     "semantic_hash": ""
   },
   "tool/test_audit_content_levels.py": {
-    "mtime": 1791200022.4978268,
-    "seen": 1791200740.7155662,
-    "ast_hash": "dde0f72b60318b8cd78fb26b3cf63264",
+    "mtime": 1791203550.0371006,
+    "seen": 1791204790.85854,
+    "ast_hash": "be231c3240c7a5fd65d4b23effbaaced",
     "semantic_hash": ""
   },
   "tool/test_audit_loanword_spelling.py": {
@@ -14622,9 +14622,9 @@
     "semantic_hash": ""
   },
   "tool/test_cefr_lexicon.py": {
-    "mtime": 1791199940.863482,
-    "seen": 1791200740.7187388,
-    "ast_hash": "08c76fd951dc6a76b1dbbf75ec93dc0b",
+    "mtime": 1791203330.123409,
+    "seen": 1791204790.8617413,
+    "ast_hash": "13164a822f2de0d9409f8655d10c64fa",
     "semantic_hash": ""
   },
   "tool/test_ingest_nikl_grade_lists.py": {
@@ -14664,9 +14664,9 @@
     "semantic_hash": ""
   },
   "docs/data/content_level_report.md": {
-    "mtime": 1791202863.2727165,
-    "seen": 1791203144.8359058,
-    "ast_hash": "38371b4771e41c6216c45cc16ec4b608",
+    "mtime": 1791203477.2098446,
+    "seen": 1791204791.1058218,
+    "ast_hash": "10d0ab2beb76537195b712e3d5010501",
     "semantic_hash": ""
   },
   "docs/data/level_bible/F10_review_lessons.md": {
@@ -22212,9 +22212,9 @@
     "semantic_hash": ""
   },
   "docs/plans/2026-10-05-culture-quality-followups.md": {
-    "mtime": 1791202776.1814282,
-    "seen": 1791203144.8781717,
-    "ast_hash": "69e58d15baeb6faffc82b4f14bf92be8",
+    "mtime": 1791204464.7231967,
+    "seen": 1791204791.136458,
+    "ast_hash": "32ee039306cdb9b54b60d6833a58a3ab",
     "semantic_hash": ""
   },
   "tools/content_factory/relevel/relevel_bundle_V2G2.json": {
