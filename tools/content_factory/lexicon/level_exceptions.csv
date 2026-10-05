@@ -176,3 +176,5 @@ lcp_c7_advanced_domain,표집 편향,C2,"LCP C-7 delegated PM review 2026-10-05 
 lcp_c7_advanced_domain,충분조건,C2,"LCP C-7 delegated PM review 2026-10-05 · vocab_c2_0254 · exact live owner C2; external lexicon gap, not native-speaker QA"
 lcp_c7_coverage_owner,오탐 비율,C1,LCP C-7 delegated PM review 2026-10-05 · vocab_c1_0113 · exact live C1 owner; preserves compositional 오탐+비율 coverage
 culture_anchor_exact,한지,B1,"Living Korea preflight 2026-10-05 · exact Korean-paper culture noun already attested at B1 in basic2023; prevents eojeol morphology from misreading 한지 as 한다 while preserving generic inflection rules"
+living_korea_modern_life,링크,A2,"Living Korea D-4 2026-10-05 · ubiquitous digital-life noun used in A2 verification tasks; exact owner only, not a blanket technology downgrade"
+living_korea_systems,폴더,B1,"Living Korea D-4 2026-10-05 · common digital systems noun in Christian systems-administration scenes; exact owner only, no broad technology releveling"

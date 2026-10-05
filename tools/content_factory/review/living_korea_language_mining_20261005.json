@@ -10,12 +10,13 @@
     {
       "sceneId": "b1_maya_daniel_ai_campaign_cut",
       "vocabulary": [
-        {"lemma": "시안", "attestedSurface": "시안"},
-        {"lemma": "촬영본", "attestedSurface": "촬영본"},
-        {"lemma": "생성하다", "attestedSurface": "생성한"},
+        {"lemma": "영상", "attestedSurface": "영상"},
+        {"lemma": "직접", "attestedSurface": "직접"},
+        {"lemma": "찍다", "attestedSurface": "찍은"},
         {"lemma": "표시하다", "attestedSurface": "표시하는"},
-        {"lemma": "썸네일", "attestedSurface": "썸네일"},
-        {"lemma": "헷갈리다", "attestedSurface": "헷갈릴"}
+        {"lemma": "대표 이미지", "attestedSurface": "대표 이미지"},
+        {"lemma": "사진", "attestedSurface": "사진"},
+        {"lemma": "실제 장면", "attestedSurface": "실제 장면"}
       ],
       "grammar": [
         {"pattern": "V-(으)면", "attestedSurface": "올리면"},
@@ -25,7 +26,7 @@
       ],
       "pragmatics": [
         {"function": "출처·제작방식 확인 질문", "attestedSurface": "이 장면도 우리가 지난주에 찍은 거예요?"},
-        {"function": "오해 가능성을 부드럽게 제기", "attestedSurface": "그대로 올리면 실제로 찍은 장면처럼 보일 수도 있겠네요."},
+        {"function": "오해 가능성을 부드럽게 제기", "attestedSurface": "그대로 올리면 우리가 직접 찍은 것처럼 보일 수도 있겠네요."},
         {"function": "책임을 남겨 둔 제안", "attestedSurface": "따로 표시하는 게 좋겠어요."}
       ],
       "registerMarkers": [
@@ -64,17 +65,18 @@
     {
       "sceneId": "b1_sujin_christian_asset_provenance_check",
       "vocabulary": [
-        {"lemma": "생성본", "attestedSurface": "생성본"},
         {"lemma": "파일 이름", "attestedSurface": "파일 이름"},
-        {"lemma": "업로드 기록", "attestedSurface": "업로드 기록"},
-        {"lemma": "구분 값", "attestedSurface": "구분 값"},
-        {"lemma": "폴더 권한", "attestedSurface": "폴더 권한"},
+        {"lemma": "올리다", "attestedSurface": "올린"},
+        {"lemma": "구분 정보", "attestedSurface": "구분 정보"},
+        {"lemma": "폴더", "attestedSurface": "폴더"},
+        {"lemma": "기록", "attestedSurface": "기록"},
         {"lemma": "보안 설정", "attestedSurface": "보안 설정"},
         {"lemma": "추측하다", "attestedSurface": "추측하지"}
       ],
       "grammar": [
+        {"pattern": "N인지", "attestedSurface": "파일인지"},
         {"pattern": "N만 봐서는", "attestedSurface": "파일 이름만 봐서는"},
-        {"pattern": "N부터", "attestedSurface": "업로드 기록부터"},
+        {"pattern": "N부터", "attestedSurface": "기록부터"},
         {"pattern": "V-는 게 좋을 것 같다", "attestedSurface": "확인하는 게 좋을 것 같아요"},
         {"pattern": "V-(으)ㄹ 수 있는지만", "attestedSurface": "확인할 수 있는지만"},
         {"pattern": "V-아/어야 하면", "attestedSurface": "봐야 하면"}
@@ -95,7 +97,7 @@
         {"lemma": "학기", "attestedSurface": "학기"},
         {"lemma": "수업 중", "attestedSurface": "수업 중"},
         {"lemma": "휴대폰", "attestedSurface": "휴대폰"},
-        {"lemma": "필요하다", "attestedSurface": "필요하다고"},
+        {"lemma": "필요하다", "attestedSurface": "필요한"},
         {"lemma": "영어 시간", "attestedSurface": "영어 시간"},
         {"lemma": "쉬는 시간", "attestedSurface": "쉬는 시간"},
         {"lemma": "규칙", "attestedSurface": "규칙"},
@@ -103,14 +105,14 @@
       ],
       "grammar": [
         {"pattern": "V-(으)면 안 되다", "attestedSurface": "쓰면 안 돼"},
-        {"pattern": "V-다고 하면", "attestedSurface": "필요하다고 하면"},
+        {"pattern": "N에서는", "attestedSurface": "필요한 수업에서는"},
         {"pattern": "V-아/어도 되다", "attestedSurface": "써도 돼"},
         {"pattern": "N마다", "attestedSurface": "수업마다"},
         {"pattern": "V-아/어 보다", "attestedSurface": "생각해 보자"}
       ],
       "pragmatics": [
         {"function": "절대 금지인지 확인", "attestedSurface": "아예 못 써?"},
-        {"function": "규칙의 예외 설명", "attestedSurface": "선생님이 수업에 필요하다고 하면 써도 돼."},
+        {"function": "규칙의 예외 설명", "attestedSurface": "필요한 수업에서는 선생님이 허락해. 그때는 써도 돼."},
         {"function": "학교와 가정 규칙 분리", "attestedSurface": "학교 규칙이랑 집 규칙은 따로 생각해 보자."}
       ],
       "registerMarkers": [
@@ -190,7 +192,7 @@
         {"lemma": "급하다", "attestedSurface": "급해"}
       ],
       "grammar": [
-        {"pattern": "V-다고 하다", "attestedSurface": "주소가 틀렸다고"},
+        {"pattern": "V-라고 쓰여 있다", "attestedSurface": "확인하라고 써 있어요"},
         {"pattern": "V-지 마세요", "attestedSurface": "누르지 마세요"},
         {"pattern": "V-기는 한데", "attestedSurface": "있기는 있는데"},
         {"pattern": "N 말고", "attestedSurface": "링크 말고"},
@@ -210,7 +212,7 @@
     {
       "sceneId": "b1_christian_sujin_suspicious_text_followup",
       "vocabulary": [
-        {"lemma": "발신번호", "attestedSurface": "발신번호"},
+        {"lemma": "보낸 번호", "attestedSurface": "보낸 번호"},
         {"lemma": "계정", "attestedSurface": "계정"},
         {"lemma": "비밀번호", "attestedSurface": "비밀번호"},
         {"lemma": "상황", "attestedSurface": "상황"},
@@ -220,7 +222,7 @@
         {"lemma": "공식 고객센터", "attestedSurface": "공식 고객센터"}
       ],
       "grammar": [
-        {"pattern": "N만 보고", "attestedSurface": "발신번호만 보고"},
+        {"pattern": "N만 보고", "attestedSurface": "보낸 번호만 보고"},
         {"pattern": "V-(으)면 안 되다", "attestedSurface": "생각하면 안 돼"},
         {"pattern": "V-아/어야 하는지", "attestedSurface": "바꿔야 하는지는"},
         {"pattern": "N부터", "attestedSurface": "상황부터"},

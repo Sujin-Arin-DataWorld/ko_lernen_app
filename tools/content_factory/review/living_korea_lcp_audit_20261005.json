@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "status": "D4_PASS",
+  "snapshotDate": "2026-10-05",
+  "sourceDraft": "tools/content_factory/drafts/living_korea_scene_first_drafts_20261005.json",
+  "languageMining": "tools/content_factory/review/living_korea_language_mining_20261005.json",
+  "scope": {
+    "arcs": 3,
+    "scenes": 9,
+    "dialogueTurns": 54
+  },
+  "exitConditions": {
+    "sentenceUnknown": 0,
+    "minedVocabUnknown": 0,
+    "minedVocabOver2": 0,
+    "maxSentenceLevelDelta": 1
+  },
+  "decisions": {
+    "reauthoredTrueDifficultyDebt": [
+      {
+        "sceneId": "b1_maya_daniel_ai_campaign_cut",
+        "removedOrSimplified": ["시안", "촬영본", "생성하다", "썸네일", "헷갈리다"],
+        "principle": "B1 장면의 핵심은 AI 투명성이지 영상 제작 전문용어 암기가 아니므로 직접 찍은 영상·대표 이미지처럼 평이한 생활어로 바꿨다."
+      },
+      {
+        "sceneId": "b1_sujin_christian_asset_provenance_check",
+        "removedOrSimplified": ["생성본", "폴더 권한", "업로드 기록", "구분 값"],
+        "principle": "크리스티안은 시스템 관리 학생이므로 전문 보안·데이터 용어를 과도하게 올리지 않고 누가 폴더를 볼 수 있는지·파일을 올린 기록처럼 실제 시스템 확인 행동으로 표현했다."
+      },
+      {
+        "sceneId": "a2_jun_minho_class_phone_rule",
+        "removedOrSimplified": ["필요하다고 하면"],
+        "principle": "A2 학생 장면에서 간접화법보다 허용·금지·예외를 직접 말하도록 단순화했다."
+      },
+      {
+        "sceneId": "b1_christian_sujin_suspicious_text_followup",
+        "removedOrSimplified": ["발신번호"],
+        "principle": "B1 장면에서는 보낸 번호로도 의미가 충분해 불필요한 행정·통신 전문어를 강제하지 않았다."
+      }
+    ],
+    "modernLifeExactOwners": [
+      {
+        "surface": "링크",
+        "level": "A2",
+        "category": "living_korea_modern_life",
+        "reason": "택배·문자·앱 확인 같은 A2 디지털 생활 과제에서 핵심적으로 쓰이는 현대 생활어이며 기존 external grade가 C2로 과대평가했다."
+      },
+      {
+        "surface": "폴더",
+        "level": "B1",
+        "category": "living_korea_systems",
+        "reason": "인터넷 시스템 통합·시스템 관리를 배우는 크리스티안의 B1 시스템 확인 장면에서 기본적으로 필요한 디지털 시스템 명사다."
+      }
+    ],
+    "auditorMorphologyRepairs": [
+      {"surface": "어떨까요", "lemma": "어떻다"},
+      {"surface": "누르래요", "lemma": "누르다"},
+      {"surface": "마세요", "lemma": "말다"},
+      {"surface": "다르대", "lemma": "다르다"},
+      {"surface": "왔대", "lemma": "오다"},
+      {"surface": "눌렀냐", "lemma": "누르다"},
+      {"surface": "할게", "lemma": "하다"},
+      {"surface": "보내", "lemma": "보내다"}
+    ]
+  },
+  "globalLexiconSideEffect": {
+    "clozeSentenceUnknownBefore": 282,
+    "clozeSentenceUnknownAfter": 278,
+    "clozeTokenCount": 14721,
+    "ratioAfter": 0.0189,
+    "ratchetCap": 0.0189
+  },
+  "claims": {
+    "humanApproval": false,
+    "nativeSpeakerQa": false,
+    "ttsTouched": false,
+    "liveScenarioWrite": false
+  }
+}
