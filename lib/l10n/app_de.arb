@@ -1508,6 +1508,8 @@
     }
   },
   "scenarioCulturalNote": "Kulturnotiz",
+  "scenarioCultureInSceneTitle": "Kultur in dieser Szene",
+  "scenarioCultureInSceneBody": "Entdecke die Kulturbegriffe, die dir in diesem Gespräch begegnet sind.",
   "scenarioStartBtn": "Los geht's!",
   "scenarioNextBtn": "Weiter",
   "scenarioCompleteBtn": "Abschließen",

@@ -2973,6 +2973,13 @@ class AppL10nDe extends AppL10n {
   String get scenarioCulturalNote => 'Kulturnotiz';
 
   @override
+  String get scenarioCultureInSceneTitle => 'Kultur in dieser Szene';
+
+  @override
+  String get scenarioCultureInSceneBody =>
+      'Entdecke die Kulturbegriffe, die dir in diesem Gespräch begegnet sind.';
+
+  @override
   String get scenarioStartBtn => 'Los geht\'s!';
 
   @override

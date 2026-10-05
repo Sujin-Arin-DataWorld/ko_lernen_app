@@ -1492,6 +1492,8 @@
     }
   },
   "scenarioCulturalNote": "Culture note",
+  "scenarioCultureInSceneTitle": "Culture in this scene",
+  "scenarioCultureInSceneBody": "Explore the cultural terms you met in this conversation.",
   "scenarioStartBtn": "Let's go",
   "scenarioNextBtn": "Next",
   "scenarioCompleteBtn": "Complete",

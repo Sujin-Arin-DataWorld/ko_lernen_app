@@ -5149,6 +5149,18 @@ abstract class AppL10n {
   /// **'Kulturnotiz'**
   String get scenarioCulturalNote;
 
+  /// No description provided for @scenarioCultureInSceneTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Kultur in dieser Szene'**
+  String get scenarioCultureInSceneTitle;
+
+  /// No description provided for @scenarioCultureInSceneBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Entdecke die Kulturbegriffe, die dir in diesem Gespräch begegnet sind.'**
+  String get scenarioCultureInSceneBody;
+
   /// No description provided for @scenarioStartBtn.
   ///
   /// In de, this message translates to:
