@@ -156,8 +156,29 @@ class LivingKoreaSceneFirstDraftTest(unittest.TestCase):
             for scene in christian_scenes
             for turn in scene["dialog"]
         )
-        self.assertIn("제가 아는 범위에서는", dialog_text)
+        self.assertIn("내가 아는 범위에서는", dialog_text)
         self.assertIn("추측하지 않고", dialog_text)
+
+    def test_current_sujin_christian_scenes_use_banmal(self) -> None:
+        pair = {"sujin", "christian"}
+        scenes = [
+            scene
+            for scene in self.scenes
+            if set(scene["participantIds"]) == pair
+        ]
+        self.assertGreaterEqual(len(scenes), 2)
+        for scene in scenes:
+            with self.subTest(scene=scene["id"]):
+                self.assertIn("반말", scene["relationshipContextKo"])
+                dialogue = "\n".join(turn["ko"] for turn in scene["dialog"])
+                self.assertNotIn("수진 씨", dialogue)
+                self.assertNotIn("제가 ", dialogue)
+                for turn in scene["dialog"]:
+                    if turn["speaker"] == "christian":
+                        self.assertFalse(
+                            turn["ko"].rstrip().endswith(("요.", "요?", "습니다.", "습니까?")),
+                            msg=(scene["id"], turn["ko"]),
+                        )
 
     def test_security_arc_is_defensive_only(self) -> None:
         arc = next(
