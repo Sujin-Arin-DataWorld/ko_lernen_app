@@ -384,8 +384,9 @@ Final pre-approval evidence:
 - key vocabulary: **30 total / 6 culture anchors / 24 at-or-below target / 0 above target / 0 unmapped**
 - review ledger remains **draft** for all five scenes; no human approval is claimed and no live learner asset was promoted.
 
-Commit:
+Commits:
 - `dd523fe5b content(culture): refine batch 38 level fit`
+- `9ced4505e fix(culture): sync batch 38 review copy` — aligns grammar/quest copy with the final simplified dialogue before human approval.
 
 ## Roadmap implementation status
 
