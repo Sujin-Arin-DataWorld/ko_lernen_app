@@ -1227,7 +1227,7 @@ class LiveRatchetTest(unittest.TestCase):
     # grading fix and V2G2 -(으)ㄹ수록 relevel. Lower-only: preserve every
     # improvement accumulated since the September baseline.
     CAP_OVER2 = {
-        "vocab": 30, "grammar": 0, "scenario": 0, "cloze": 0,
+        "vocab": 0, "grammar": 0, "scenario": 0, "cloze": 0,
         "satz": 0, "smalltalk": 0, "pronunciation": 0, "media": 0,
     }
     # 실측 unknown/total: vocab .0231(=56/2420, unchanged from T2.4a --
@@ -1268,8 +1268,8 @@ class LiveRatchetTest(unittest.TestCase):
         "vocab": 45, "grammar": 0, "scenario": 0, "cloze": 0,
         "satz": 0, "smalltalk": 1, "pronunciation": 0, "media": 1,
     }
-    CAP_REPLACEMENT_BACKLOG = 15
-    REVIEWED_OWNER_EXPECTED = 75
+    CAP_REPLACEMENT_BACKLOG = 23
+    REVIEWED_OWNER_EXPECTED = 97
     # 2026-10-05 Stage C-1: coverage is now measured for all six NIKL
     # grades. These are lower-only missing caps and upper-only at-level
     # floors. A content change must not make a grade less represented merely

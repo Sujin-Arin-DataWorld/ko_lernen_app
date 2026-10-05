@@ -756,6 +756,226 @@
       "decision": "keep_current",
       "category": "b2_domain_core",
       "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b1_0079",
+      "korean": "식단",
+      "currentLevel": "b1",
+      "packId": "b1_health_education",
+      "topic": "Gesundheit",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0262",
+      "korean": "우선순위",
+      "currentLevel": "b1",
+      "packId": "b1_work_coordination_1",
+      "topic": "Arbeitskoordination & Termine",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0266",
+      "korean": "업무 분담",
+      "currentLevel": "b1",
+      "packId": "b1_work_coordination_1",
+      "topic": "Arbeitskoordination & Termine",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0286",
+      "korean": "원격 근무",
+      "currentLevel": "b1",
+      "packId": "b1_partner_job_visa_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0317",
+      "korean": "취중진담",
+      "currentLevel": "b1",
+      "packId": "b1_partner_drink_table_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b1_culture_specific",
+      "reason": "Reviewed as a culture-specific B1 item whose meaning is explicitly taught in a bounded partner/family context; cultural specificity does not require moving the entire task to C2."
+    },
+    {
+      "id": "vocab_b1_0363",
+      "korean": "선물 분배",
+      "currentLevel": "b1",
+      "packId": "b1_partner_holiday_plan_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0366",
+      "korean": "일정표 공유",
+      "currentLevel": "b1",
+      "packId": "b1_partner_holiday_plan_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0376",
+      "korean": "후속 메일",
+      "currentLevel": "b1",
+      "packId": "b1_workplace_mail_1",
+      "topic": "Dienstmail",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0377",
+      "korean": "내부망",
+      "currentLevel": "b1",
+      "packId": "b1_workplace_mail_1",
+      "topic": "Dienstmail",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0398",
+      "korean": "청구 서류",
+      "currentLevel": "b1",
+      "packId": "b1_insurance_claim_1",
+      "topic": "Versicherungsfall",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0401",
+      "korean": "사고 경위",
+      "currentLevel": "b1",
+      "packId": "b1_insurance_claim_1",
+      "topic": "Versicherungsfall",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0436",
+      "korean": "준비물 분담",
+      "currentLevel": "b1",
+      "packId": "b1_parent_school_1",
+      "topic": "Elterngespräch",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0446",
+      "korean": "임시 조치",
+      "currentLevel": "b1",
+      "packId": "b1_repair_words_1",
+      "topic": "Reparaturwortschatz",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0454",
+      "korean": "수수료 면제",
+      "currentLevel": "b1",
+      "packId": "b1_travel_change_1",
+      "topic": "Reiseänderung",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0457",
+      "korean": "탑승 마감",
+      "currentLevel": "b1",
+      "packId": "b1_travel_change_1",
+      "topic": "Reiseänderung",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0459",
+      "korean": "좌석 재배정",
+      "currentLevel": "b1",
+      "packId": "b1_travel_change_1",
+      "topic": "Reiseänderung",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0461",
+      "korean": "출발 지연",
+      "currentLevel": "b1",
+      "packId": "b1_travel_change_1",
+      "topic": "Reiseänderung",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0477",
+      "korean": "업무 인수인계",
+      "currentLevel": "b1",
+      "packId": "b1_work_entry_2026_1",
+      "topic": "취업과 근무 조건",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b2_0253",
+      "korean": "어감",
+      "currentLevel": "b2",
+      "packId": "b2_language_society_1",
+      "topic": "Sprache & Gesellschaft",
+      "decision": "keep_current",
+      "category": "b2_language_literature_core",
+      "reason": "Reviewed as B2 language/literature vocabulary used for an explicit analysis task; domain-specific lexical difficulty is supported by the task and does not by itself require C2 ownership."
+    },
+    {
+      "id": "vocab_b2_0258",
+      "korean": "비속어",
+      "currentLevel": "b2",
+      "packId": "b2_language_society_1",
+      "topic": "Sprache & Gesellschaft",
+      "decision": "keep_current",
+      "category": "b2_language_literature_core",
+      "reason": "Reviewed as B2 language/literature vocabulary used for an explicit analysis task; domain-specific lexical difficulty is supported by the task and does not by itself require C2 ownership."
+    },
+    {
+      "id": "vocab_b2_0411",
+      "korean": "서정적이다",
+      "currentLevel": "b2",
+      "packId": "b2_literature_emotion",
+      "topic": "Literatur und Gefühle",
+      "decision": "keep_current",
+      "category": "b2_language_literature_core",
+      "reason": "Reviewed as B2 language/literature vocabulary used for an explicit analysis task; domain-specific lexical difficulty is supported by the task and does not by itself require C2 ownership."
+    },
+    {
+      "id": "vocab_b2_0423",
+      "korean": "소멸하다",
+      "currentLevel": "b2",
+      "packId": "b2_language_change",
+      "topic": "Sprache und Wandel",
+      "decision": "keep_current",
+      "category": "b2_language_literature_core",
+      "reason": "Reviewed as B2 language/literature vocabulary used for an explicit analysis task; domain-specific lexical difficulty is supported by the task and does not by itself require C2 ownership."
     }
   ]
 }

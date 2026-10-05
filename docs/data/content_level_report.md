@@ -322,9 +322,9 @@ basic2023 폴백 적용 — 세 번째 폴백 소스는 R3에서 제거됨)로 �
       "accepted_relevel": 59,
       "fallback_over2": 45,
       "over1": 313,
-      "over2": 30,
-      "replacement_backlog": 15,
-      "reviewed_owner": 75,
+      "over2": 0,
+      "replacement_backlog": 23,
+      "reviewed_owner": 97,
       "total": 2968,
       "under2": 226,
       "unknown": 58

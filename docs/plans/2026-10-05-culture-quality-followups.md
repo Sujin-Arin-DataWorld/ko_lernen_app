@@ -217,41 +217,44 @@ Low-confidence fallback remains separately visible:
 - media fallback_over2: **1**
 
 Reviewed-current-owner support:
-- new canonical ledger: `tools/content_factory/relevel/reviewed_vocab_owners_20261005.json`
-- first tranche: **75** reviewed keep-current decisions
-  - B1 practical/work-life core: 22
-  - B2 domain-core professional/civic/research/housing/policy/culture: 53
+- canonical ledger: `tools/content_factory/relevel/reviewed_vocab_owners_20261005.json`
+- reviewed keep-current decisions: **97**
+  - first tranche: 75
+  - second tranche: 22 additional practical/domain/culture owners
 - invalid schema, duplicate IDs, stale live levels, and stale pack IDs fail closed
 - raw external estimate/delta remains visible; only resolution state changes
 - no native-speaker QA claim is made by this owner ledger
 
+Second-tranche triage also identified **8** rows where the right fix is not a
+level move but a real learner-facing replacement. Those rows were added to the
+explicit replacement backlog for immediate follow-up rather than hidden as
+reviewed owners.
+
 Validation:
-- level-audit regression bundle: **59/59 passed** after reviewed-owner support
+- level-audit regression bundle: **60/60 passed**
 - live audit regeneration: passed
 - `build_can_do_segments.py --check`: fresh
 - `validate_content.py`: passed
 
-Remaining Stage C-4 work is still the **vocab owner/backlog only**, but the
-unresolved set is now much smaller.
-
 Current raw +2-or-more vocab population by canonical state:
-- unresolved high-confidence `over2`: **30** (105 → 30)
-- reviewed current owner: **75**
+- unresolved high-confidence `over2`: **0** (105 → 30 → 0)
+- reviewed current owner: **97**
 - accepted historical relevel owner: **59**
-- explicit `replacement_backlog`: **15**
+- explicit `replacement_backlog`: **23** (15 existing + 8 newly triaged)
 - unresolved low-confidence `fallback_over2`: **45**
 
-Replacement backlog takes precedence over an older relevel decision when both
-exist. Reviewed-current-owner decisions are separate from relevel history:
-they explicitly explain why a live row stays where it is despite a higher
-general-literacy estimate. Ratchets now prevent unresolved high-confidence
-over2 from rising above **30**.
+The high-confidence unresolved ratchet is now **0**. The temporary backlog
+increase to 23 is explicit triage, not a relaxed quality target: the eight new
+LCP_C4 rows are the next immediate implementation task and should be replaced
+in-place, bringing the backlog back down.
 
-Continue with the remaining 30 unresolved high-confidence vocab rows, then the
-45 low-confidence fallback rows. For each, review prior evidence,
-survival/culture exceptions, pack semantics, and whether the correct action is
-move, replace, or a narrowly documented current-owner decision. Never raise a
-ratchet merely to make the suite green.
+Next:
+1. execute the eight LCP_C4 vocab/cloze/Satz replacements with exact lineage
+   and can-do fingerprint updates;
+2. remove those eight completed rows from replacement_backlog.json;
+3. then review the remaining 45 low-confidence fallback rows.
+
+Never raise a ratchet merely to make the suite green.
 
 Use:
 - `AGENTS.md` LCP gate
