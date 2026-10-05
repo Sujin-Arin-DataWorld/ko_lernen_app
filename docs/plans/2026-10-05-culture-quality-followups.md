@@ -183,9 +183,12 @@ Validation:
 
 ### Stage C-4 — remaining high-confidence level debt
 
-Status: **in progress**
+Status: **complete**
 
-Sentence-surface canonicalization is now complete:
+High-confidence +2-or-more debt is now eliminated across every audited content
+surface.
+
+Completed:
 - fixed GrammarIndex false positives including A1 `그래요`, elementary
   possession `가지고 있다`, common conjugation/homograph cases, proper nouns,
   and A1 `V-고 싶다` lexical double-counting
@@ -195,64 +198,59 @@ Sentence-surface canonicalization is now complete:
   for relevelled cloze owners
 - smalltalk edits are chained through
   `tools/content_factory/review/smalltalk_editorial_successors_20261005.json`
-- cloze/Satz over2 auditing now prevents double-counting the explicitly taught
-  vocab owner: suppression is allowed only when the full sentence is over2
-  *and* removing that exact target leaves context below over2; genuinely hard
-  surrounding context stays visible
-- regression tests lock both sides of that rule
+- cloze/Satz over2 auditing prevents double-counting the explicitly taught
+  vocab owner while keeping genuinely hard surrounding context visible
+- reviewed **97** practical/domain/culture vocab owners whose current level
+  remains intentional despite a higher raw external estimate
+- completed the **8** LCP_C4 learner-facing replacements and removed them from
+  `replacement_backlog.json`
+- preserved the four advanced headwords lost by lower-level simplification
+  (`호출`, `과다`, `함축`, `용례`) by rehoming them into reviewed C1/C2
+  slots whose previous headwords were already covered elsewhere; pack sizes
+  and immutable IDs remain unchanged
+- permanent rehome record:
+  `tools/content_factory/review/lcp_c4_highlevel_coverage_rehomes_20261005.json`
 
 Current high-confidence `over2` ratchets:
-- vocab: **158**
-- grammar: **0**
-- scenario: **0**
-- cloze: **0**
-- satz: **0**
-- smalltalk: **0**
-- pronunciation: **0**
-- media: **0**
+- vocab / grammar / scenario / cloze / satz / smalltalk / pronunciation / media:
+  **all 0**
 
-Low-confidence fallback remains separately visible:
-- vocab fallback_over2: **45**
-- smalltalk fallback_over2: **1**
-- media fallback_over2: **1**
+Current raw +2-or-more vocab population by canonical state:
+- unresolved high-confidence `over2`: **0**
+- reviewed current owner: **97**
+- accepted historical relevel owner: **59**
+- explicit `replacement_backlog`: **15**
+- unresolved low-confidence `fallback_over2`: **45**
 
-Reviewed-current-owner support:
-- canonical ledger: `tools/content_factory/relevel/reviewed_vocab_owners_20261005.json`
-- reviewed keep-current decisions: **97**
-  - first tranche: 75
-  - second tranche: 22 additional practical/domain/culture owners
-- invalid schema, duplicate IDs, stale live levels, and stale pack IDs fail closed
-- raw external estimate/delta remains visible; only resolution state changes
-- no native-speaker QA claim is made by this owner ledger
-
-Second-tranche triage also identified **8** rows where the right fix is not a
-level move but a real learner-facing replacement. Those rows were added to the
-explicit replacement backlog for immediate follow-up rather than hidden as
-reviewed owners.
+Coverage after the replacement + rehome pass:
+- C1/grade5: at-level **27**, missing **2017**
+- C2/grade6: at-level **49**, missing **2350**
+- lower-level simplification therefore did not weaken the six-grade coverage
+  ratchet; C1/C2 at-level floors improved.
 
 Validation:
-- level-audit regression bundle: **60/60 passed**
+- focused level/reconciliation/content regression bundle: **113 passed**
+  (**13 skipped**)
 - live audit regeneration: passed
 - `build_can_do_segments.py --check`: fresh
 - `validate_content.py`: passed
+- replacement backlog ratchet tightened **23 → 15**
+- C1/C2 at-level floors tightened to **27 / 49**
 
-Current raw +2-or-more vocab population by canonical state:
-- unresolved high-confidence `over2`: **0** (105 → 30 → 0)
-- reviewed current owner: **97**
-- accepted historical relevel owner: **59**
-- explicit `replacement_backlog`: **23** (15 existing + 8 newly triaged)
-- unresolved low-confidence `fallback_over2`: **45**
+### Stage C-5 — low-confidence fallback review
 
-The high-confidence unresolved ratchet is now **0**. The temporary backlog
-increase to 23 is explicit triage, not a relaxed quality target: the eight new
-LCP_C4 rows are the next immediate implementation task and should be replaced
-in-place, bringing the backlog back down.
+Status: **next**
 
-Next:
-1. execute the eight LCP_C4 vocab/cloze/Satz replacements with exact lineage
-   and can-do fingerprint updates;
-2. remove those eight completed rows from replacement_backlog.json;
-3. then review the remaining 45 low-confidence fallback rows.
+Remaining +2-or-more fallback population:
+- vocab: **45**
+- smalltalk: **1**
+- media: **1**
+
+Review these **47** rows next. For each row, distinguish a real content problem
+from a fallback-dictionary artefact, morphology/tokenization issue, already
+reviewed owner, or justified proper/domain/culture exception. Fix the root cause
+or document the canonical owner; do not promote/demote content merely to silence
+a low-confidence fallback.
 
 Never raise a ratchet merely to make the suite green.
 

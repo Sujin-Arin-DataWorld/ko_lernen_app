@@ -425,7 +425,7 @@ flutter run -d <android-id>   # 안드로이드
 
 > 미완료 게이트만 적는다. 끝난 항목은 지우며, 이력은 `git log` / PR / `.claude/handoffs/`다.
 
-- [ ] **문화세계 품질 후속 프로그램**: Stage A arc 확장, Stage B cross-device discovery durability, Stage C-1 1~6급 coverage gate, C-2 grammar `over2` 2→0, C-3 scenario↔grammar 역행 6건 교정, C-4 sentence-surface 정본화까지 완료했다. non-vocab high-confidence `over2`는 전부 0. vocab high-confidence unresolved도 reviewed-current-owner 97 / accepted historical relevel 59 / replacement backlog 23으로 분류해 **0**까지 낮췄다. backlog 23 중 새 LCP_C4 8건은 바로 실제 vocab/cloze/Satz 교체로 처리해 다시 줄이고, 이후 unresolved fallback 45건을 검수한다. 문화 metadata는 계속 mastery/reward owner가 아니며, TTS는 Jin이 VS Code에서 직접 처리하므로 이 프로그램에서 생성·덮어쓰기하지 않는다. 정본 계획: `docs/plans/2026-10-05-culture-quality-followups.md`.
+- [ ] **문화세계 품질 후속 프로그램**: Stage A arc 확장, Stage B cross-device discovery durability, Stage C-1 1~6급 coverage gate, C-2 grammar `over2` 2→0, C-3 scenario↔grammar 역행 6건 교정, C-4 high-confidence 정본화까지 완료했다. 모든 content kind의 high-confidence `over2`는 **0**. vocab owner는 reviewed-current-owner 97 / accepted historical relevel 59 / replacement backlog 15로 정리했고, 새 LCP_C4 replacement 8건은 실제 vocab/cloze/Satz 교체까지 완료했다. 낮은 레벨 simplification으로 사라진 고급어 `호출/과다/함축/용례`는 C1/C2의 중복보존 slot에 재배치해 coverage를 회복했고 C1/C2 at-level floor는 27/49로 상승했다. 다음 Stage C-5는 unresolved fallback 47건(vocab 45 + smalltalk 1 + media 1) root-cause 검수다. 문화 metadata는 계속 mastery/reward owner가 아니며, TTS는 Jin이 VS Code에서 직접 처리하므로 이 프로그램에서 생성·덮어쓰기하지 않는다. 정본 계획: `docs/plans/2026-10-05-culture-quality-followups.md`.
 
 - [ ] **UI 실기기 게이트 (Jin)**: 덱 4방향 손맛·시스템 엣지·히어로 잘림, 승인 대기 중인
   아이콘/리소 자산을 실제 기기에서 검수한다. 승인 전에는 대규모 UI 재설계나 자산 덮어쓰기를

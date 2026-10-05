@@ -1268,7 +1268,7 @@ class LiveRatchetTest(unittest.TestCase):
         "vocab": 45, "grammar": 0, "scenario": 0, "cloze": 0,
         "satz": 0, "smalltalk": 1, "pronunciation": 0, "media": 1,
     }
-    CAP_REPLACEMENT_BACKLOG = 23
+    CAP_REPLACEMENT_BACKLOG = 15
     REVIEWED_OWNER_EXPECTED = 97
     # 2026-10-05 Stage C-1: coverage is now measured for all six NIKL
     # grades. These are lower-only missing caps and upper-only at-level
@@ -1287,8 +1287,8 @@ class LiveRatchetTest(unittest.TestCase):
         "grade2": 206,
         "grade3": 162,
         "grade4": 148,
-        "grade5": 26,
-        "grade6": 46,
+        "grade5": 27,
+        "grade6": 49,
     }
 
     @classmethod
