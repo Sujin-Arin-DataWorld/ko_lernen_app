@@ -239,18 +239,59 @@ Validation:
 
 ### Stage C-5 — low-confidence fallback review
 
+Status: **complete**
+
+Reviewed all **47** remaining +2-or-more low-confidence fallback rows.
+
+Resolved by root cause:
+- 4 B1 jargon-heavy learner targets were replaced in-place with direct B1
+  expressions while preserving pack/task/IDs and synchronizing cloze + Satz:
+  - `면책` → `보험이 안 되는 경우`
+  - `담당 설계사` → `보험 회사 직원`
+  - `특약` → `보험에 더 넣은 내용`
+  - `결원` → `인원 부족`
+- 41 remaining vocab rows were individually reviewed as intentional current
+  owners. Their only +2-or-more signal came from low-confidence basic2023;
+  practical/domain/culture task ownership remains canonical while raw estimates
+  stay visible in the audit.
+- A1 smalltalk `이건 어떠세요?` was an auditor false positive:
+  `이건/그건/저건` are now recognized as the A1 topic contractions of
+  `이것은/그것은/저것은`.
+- `media_015` `포기하지 마` was a real level-owner issue rather than an
+  auditor exception. It moved A1 → A2 and now routes to
+  `a2_04_feelings_health / concept_a2_feelings`.
+
+Permanent evidence:
+- `tools/content_factory/review/lcp_c5_b1_fallback_replacements_20261005.json`
+- `tools/content_factory/review/lcp_c5_fallback_owner_review_20261005.json`
+- `tools/content_factory/review/lcp_c5_media_relevel_20261005.json`
+- canonical reviewed-owner ledger now contains **138** decisions
+
+Current +2-or-more ratchets:
+- high-confidence `over2`: **0 for every audited content kind**
+- low-confidence `fallback_over2`: **0 for every audited content kind**
+- reviewed vocab owners: **138**
+- explicit replacement backlog: **15**
+
+Coverage also improved during this pass:
+- B1/grade3: at-level **164**, missing **1242**
+- C1/grade5: at-level **27**, missing **2017**
+- C2/grade6: at-level **49**, missing **2350**
+
+Validation:
+- lexicon + level-audit + can-do generator/content bundle: **243 passed**
+  (**13 skipped**)
+- `build_can_do_segments.py --check`: fresh
+- `validate_content.py`: passed
+
+### Stage C-6 — historical replacement backlog
+
 Status: **next**
 
-Remaining +2-or-more fallback population:
-- vocab: **45**
-- smalltalk: **1**
-- media: **1**
-
-Review these **47** rows next. For each row, distinguish a real content problem
-from a fallback-dictionary artefact, morphology/tokenization issue, already
-reviewed owner, or justified proper/domain/culture exception. Fix the root cause
-or document the canonical owner; do not promote/demote content merely to silence
-a low-confidence fallback.
+The only remaining explicit +2-or-more replacement debt is the **15-row**
+historical `replacement_backlog.json` (the original L4 queue). Review and
+replace these learner-facing rows next, preserving useful upper-level concepts
+where appropriate and keeping six-grade coverage ratchets intact.
 
 Never raise a ratchet merely to make the suite green.
 

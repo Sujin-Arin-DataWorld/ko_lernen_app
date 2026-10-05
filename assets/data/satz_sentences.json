@@ -13280,14 +13280,14 @@
     {
       "id": "satz_b1_0205",
       "level": "b1",
-      "targetKo": "기존 질환은 면책이라고 안내받았어요.",
-      "promptDe": "Mir wurde gesagt, dass Vorerkrankungen ein Ausschluss sind.",
-      "promptEn": "I was told existing conditions are an exclusion.",
+      "targetKo": "기존 질환은 보험이 안 되는 경우가 있다고 안내받았어요.",
+      "promptDe": "Mir wurde erklärt, dass bestehende Erkrankungen in manchen Fällen nicht von der Versicherung abgedeckt sind.",
+      "promptEn": "I was told that existing conditions may not be covered by insurance.",
       "distractors": [
         "사고 접수",
         "보장 범위"
       ],
-      "vocabKo": "면책"
+      "vocabKo": "보험이 안 되는 경우"
     },
     {
       "id": "satz_b1_0206",
@@ -13304,14 +13304,14 @@
     {
       "id": "satz_b1_0207",
       "level": "b1",
-      "targetKo": "담당 설계사에게 진행 상황을 물어봤어요.",
-      "promptDe": "Ich habe den Berater nach dem Stand gefragt.",
-      "promptEn": "I asked the agent about the status.",
+      "targetKo": "보험 회사 직원에게 진행 상황을 물어봤어요.",
+      "promptDe": "Ich habe eine Mitarbeiterin der Versicherung nach dem Stand gefragt.",
+      "promptEn": "I asked an insurance company employee about the status.",
       "distractors": [
         "사고 접수",
         "보장 범위"
       ],
-      "vocabKo": "담당 설계사"
+      "vocabKo": "보험 회사 직원"
     },
     {
       "id": "satz_b1_0208",
@@ -13340,14 +13340,14 @@
     {
       "id": "satz_b1_0210",
       "level": "b1",
-      "targetKo": "치과 특약에 스케일링이 포함되는지 약관을 확인했어요.",
-      "promptDe": "Ich prüfte in den Versicherungsbedingungen, ob die Zahnzusatzleistung eine Zahnreinigung umfasst.",
-      "promptEn": "I checked the policy to see whether the dental rider covered a cleaning.",
+      "targetKo": "치과 치료가 보험에 더 넣은 내용인지 확인했어요.",
+      "promptDe": "Ich habe geprüft, ob die Zahnbehandlung zu den zusätzlich aufgenommenen Leistungen gehört.",
+      "promptEn": "I checked whether dental treatment was among the extra items added to the policy.",
       "distractors": [
         "사고 접수",
         "보장 범위"
       ],
-      "vocabKo": "특약"
+      "vocabKo": "보험에 더 넣은 내용"
     },
     {
       "id": "satz_b1_0211",
@@ -13568,14 +13568,14 @@
     {
       "id": "satz_b1_0229",
       "level": "b1",
-      "targetKo": "오전에 결원이 나서 제가 한 시간 더 했어요.",
-      "promptDe": "Am Vormittag gab es einen Ausfall, deshalb blieb ich eine Stunde länger.",
-      "promptEn": "There was a no-show gap in the morning, so I stayed an hour more.",
+      "targetKo": "오전에는 인원 부족 때문에 제가 한 시간 더 했어요.",
+      "promptDe": "Am Vormittag habe ich wegen Personalmangels eine Stunde länger gearbeitet.",
+      "promptEn": "In the morning, I worked an extra hour because we were short-staffed.",
       "distractors": [
         "봉사 시간",
         "배정표"
       ],
-      "vocabKo": "결원"
+      "vocabKo": "인원 부족"
     },
     {
       "id": "satz_b1_0230",

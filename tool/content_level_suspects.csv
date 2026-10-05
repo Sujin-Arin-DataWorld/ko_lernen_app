@@ -185,11 +185,10 @@ cloze,cloze_b1_0189,b1,b2,1,over1 lex_p90=3.8,,b1_workplace_mail_1,step_up_or_sw
 cloze,cloze_b1_0190,b1,b2,1,over1 lex_p90=3.7,,b1_workplace_mail_1,step_up_or_swap
 cloze,cloze_b1_0195,b1,a1,-2,under2 grammar=grammar_a1_topic_particle:1,,b1_roommate_talk_1,downgrade_candidate
 cloze,cloze_b1_0205,b1,b2,1,over1 lex_p90=3.6,,b1_insurance_claim_1,step_up_or_swap
-cloze,cloze_b1_0209,b1,b2,1,over1 lex_p90=3.9,,b1_insurance_claim_1,step_up_or_swap
+cloze,cloze_b1_0209,b1,b2,1,over1 lex_p90=3.5,,b1_insurance_claim_1,step_up_or_swap
 cloze,cloze_b1_0218,b2,a2,-2,under2 lex_p90=1.8,,b2_public_office_1,downgrade_candidate
 cloze,cloze_b1_0222,b2,a2,-2,under2 grammar=grammar_a2_conditional:2,,b2_public_office_1,downgrade_candidate
 cloze,cloze_b1_0228,b1,a1,-2,under2 grammar=grammar_a1_object_particle:1,,b1_volunteer_shift_1,downgrade_candidate
-cloze,cloze_b1_0233,b1,a1,-2,under2 grammar=grammar_a1_subject_particle:1,,b1_volunteer_shift_1,downgrade_candidate
 cloze,cloze_b1_0235,b1,b2,1,over1 lex_p90=4.0,,b1_volunteer_shift_1,step_up_or_swap
 cloze,cloze_b1_0237,b1,a1,-2,under2 grammar=grammar_a1_polite_present:1,,b1_volunteer_shift_1,downgrade_candidate
 cloze,cloze_b1_0253,b1,b2,1,over1 lex_p90=3.7,,b1_repair_words_1,step_up_or_swap
@@ -701,7 +700,7 @@ media,media_007,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,,,step_up_or_swap
 media,media_012,a1,a2,1,over1 lex_p90=2.0,,,step_up_or_swap
 media,media_013,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,,,step_up_or_swap
 media,media_014,a1,a2,1,over1 lex_p90=1.9,,,step_up_or_swap
-media,media_015,a1,b1,2,fallback_over2 fallback:basic2023 lex_p90=2.9,,,review_fallback
+media,media_015,a2,b1,1,over1 lex_p90=2.9,,,step_up_or_swap
 media,media_019,a1,a2,1,over1 lex_p90=1.9,,,step_up_or_swap
 media,media_020,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,,,step_up_or_swap
 media,media_021,a2,b1,1,over1 grammar=nikl_g3_으면_안_되다_v1:3,,,step_up_or_swap
@@ -950,11 +949,10 @@ satz,satz_b1_0185,b1,b2,1,over1 lex_p90=3.8,,b1_workplace_mail_1,step_up_or_swap
 satz,satz_b1_0186,b1,b2,1,over1 lex_p90=3.7,,b1_workplace_mail_1,step_up_or_swap
 satz,satz_b1_0191,b1,a1,-2,under2 grammar=grammar_a1_topic_particle:1,,b1_roommate_talk_1,downgrade_candidate
 satz,satz_b1_0201,b1,b2,1,over1 lex_p90=3.6,,b1_insurance_claim_1,step_up_or_swap
-satz,satz_b1_0205,b1,b2,1,over1 lex_p90=3.9,,b1_insurance_claim_1,step_up_or_swap
+satz,satz_b1_0205,b1,b2,1,over1 lex_p90=3.5,,b1_insurance_claim_1,step_up_or_swap
 satz,satz_b1_0214,b2,a2,-2,under2 lex_p90=1.8,,b2_public_office_1,downgrade_candidate
 satz,satz_b1_0218,b2,a2,-2,under2 grammar=grammar_a2_conditional:2,,b2_public_office_1,downgrade_candidate
 satz,satz_b1_0224,b1,a1,-2,under2 grammar=grammar_a1_object_particle:1,,b1_volunteer_shift_1,downgrade_candidate
-satz,satz_b1_0229,b1,a1,-2,under2 grammar=grammar_a1_subject_particle:1,,b1_volunteer_shift_1,downgrade_candidate
 satz,satz_b1_0231,b1,b2,1,over1 lex_p90=4.0,,b1_volunteer_shift_1,step_up_or_swap
 satz,satz_b1_0233,b1,a1,-2,under2 grammar=grammar_a1_polite_present:1,,b1_volunteer_shift_1,downgrade_candidate
 satz,satz_b1_0249,b1,b2,1,over1 lex_p90=3.7,,b1_repair_words_1,step_up_or_swap
@@ -962,6 +960,7 @@ satz,satz_b1_0250,b1,b2,1,over1 grammar=grammar_b2_quoted_contractions:4,,b1_rep
 satz,satz_b1_0251,b1,b2,1,over1 lex_p90=3.8,,b1_repair_words_1,step_up_or_swap
 satz,satz_b1_0254,b1,b2,1,over1 lex_p90=3.8,,b1_repair_words_1,step_up_or_swap
 satz,satz_b1_0263,b1,b2,1,over1 lex_p90=3.6,,b1_travel_change_1,step_up_or_swap
+satz,satz_b1_0279,b1,a1,-2,under2 grammar=grammar_a1_topic_particle:1,,b1_emotions_relations_1,downgrade_candidate
 satz,satz_b1_0281,b1,a1,-2,under2 grammar=grammar_a1_subject_particle:1,,b1_daily_1,downgrade_candidate
 satz,satz_b1_0282,b1,a1,-2,under2 grammar=grammar_a1_subject_particle:1,,b1_daily_2,downgrade_candidate
 satz,satz_b1_0286,b1,a1,-2,under2 grammar=grammar_a1_polite_present:1,,b1_daily_2,downgrade_candidate
@@ -1608,7 +1607,7 @@ scenario,dance_class_register,a1,a2,1,over1 dialog_p75=2.0,can_do_ref,,step_up_o
 scenario,diaspora_name_identity,c2,b2,-2,under2 dialog_p75=3.5,can_do_ref,,downgrade_candidate
 scenario,fact_check_label_power,c2,b2,-2,under2 grammar_ids_max=4,can_do_ref,,downgrade_candidate
 scenario,library_quiet_zone_conflict,b2,a2,-2,under2 grammar_ids_max=2,can_do_ref,,downgrade_candidate
-scenario,mart_grocery,a1,a2,1,over1 dialog_p75=2.0,can_do_ref,,step_up_or_swap
+scenario,mart_grocery,a1,a2,1,over1 dialog_p75=1.5,can_do_ref,,step_up_or_swap
 scenario,medical_uncertainty_consent,c2,b2,-2,under2 dialog_p75=4.0,can_do_ref,,downgrade_candidate
 scenario,meeting_opening_context,b2,a2,-2,under2 grammar_ids_max=2,can_do_ref,,downgrade_candidate
 scenario,partner_family_titles,b2,a2,-2,under2 dialog_p75=2.0,can_do_ref,,downgrade_candidate
@@ -1651,7 +1650,6 @@ smalltalk,smalltalk_a1_0032,a1,a2,1,over1 grammar=grammar_b1_realization:2,can_d
 smalltalk,smalltalk_a1_0033,a1,a2,1,over1 grammar=grammar_a2_conditional:2,can_do_ref,,step_up_or_swap
 smalltalk,smalltalk_a1_0035,a1,a2,1,over1 grammar=grammar_a2_exclamation:2,can_do_ref,,step_up_or_swap
 smalltalk,smalltalk_a1_0042,a1,a2,1,over1 lex_p90=1.9,can_do_ref,,step_up_or_swap
-smalltalk,smalltalk_a1_0046,a1,b1,2,fallback_over2 fallback:basic2023 lex_p90=3.0,can_do_ref,,review_fallback
 smalltalk,smalltalk_a1_0047,a1,a2,1,over1 lex_p90=1.9,can_do_ref,,step_up_or_swap
 smalltalk,smalltalk_a1_0048,a1,a2,1,over1 lex_p90=1.9,can_do_ref,,step_up_or_swap
 smalltalk,smalltalk_a1_0050,a1,a2,1,over1 grammar=grammar_a2_try_experience:2,can_do_ref,,step_up_or_swap
@@ -2159,12 +2157,12 @@ vocab,vocab_b1_0054,b1,a1,-2,under2,satz_ref+can_do_ref,b1_daily_3,downgrade_can
 vocab,vocab_b1_0059,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_tech_society_1,keep_reviewed_owner
 vocab,vocab_b1_0060,b1,a1,-2,under2,satz_ref+can_do_ref,b1_tech_society_1,downgrade_candidate
 vocab,vocab_b1_0061,b1,,,unknown,satz_ref+can_do_ref,b1_tech_society_2,keep
-vocab,vocab_b1_0062,b1,c1,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_tech_society_2,review_fallback
+vocab,vocab_b1_0062,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_tech_society_2,keep_reviewed_owner
 vocab,vocab_b1_0063,b1,,,unknown,satz_ref+can_do_ref,b1_tech_society_2,keep
 vocab,vocab_b1_0066,b1,b2,1,over1,satz_ref+can_do_ref,b1_tech_society_2,step_up_or_swap
 vocab,vocab_b1_0068,b1,b2,1,over1,satz_ref+can_do_ref,b1_work,step_up_or_swap
 vocab,vocab_b1_0071,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_work,keep_reviewed_owner
-vocab,vocab_b1_0073,b1,c1,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_work,review_fallback
+vocab,vocab_b1_0073,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_work,keep_reviewed_owner
 vocab,vocab_b1_0078,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_health_education,keep_reviewed_owner
 vocab,vocab_b1_0079,b1,c2,3,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b1_health_education,keep_reviewed_owner
 vocab,vocab_b1_0080,b1,b2,1,over1,satz_ref+can_do_ref,b1_tech_society_2,step_up_or_swap
@@ -2204,11 +2202,11 @@ vocab,vocab_b1_0204,b1,b2,1,over1,satz_ref+can_do_ref,b1_character_feelings_1,st
 vocab,vocab_b1_0236,b1,a1,-2,under2,satz_ref+can_do_ref,b1_time_life_1,downgrade_candidate
 vocab,vocab_b1_0248,b1,b2,1,over1,satz_ref+can_do_ref,b1_housing_contract_1,step_up_or_swap
 vocab,vocab_b1_0249,b1,b2,1,over1,satz_ref+can_do_ref,b1_housing_contract_1,step_up_or_swap
-vocab,vocab_b1_0250,b1,c2,3,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_housing_contract_1,review_fallback
+vocab,vocab_b1_0250,b1,c2,3,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b1_housing_contract_1,keep_reviewed_owner
 vocab,vocab_b1_0251,b1,,,unknown,satz_ref+can_do_ref,b1_housing_contract_1,keep
 vocab,vocab_b1_0252,b1,,,unknown,satz_ref+can_do_ref,b1_housing_contract_1,keep
 vocab,vocab_b1_0254,b1,b2,1,over1,satz_ref+can_do_ref,b1_housing_contract_1,step_up_or_swap
-vocab,vocab_b1_0255,b1,c2,3,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_housing_contract_1,review_fallback
+vocab,vocab_b1_0255,b1,c2,3,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b1_housing_contract_1,keep_reviewed_owner
 vocab,vocab_b1_0258,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_housing_contract_1,keep_reviewed_owner
 vocab,vocab_b1_0260,b1,,,unknown,satz_ref+can_do_ref,b1_work_coordination_1,keep
 vocab,vocab_b1_0261,b1,b2,1,over1,satz_ref+can_do_ref,b1_work_coordination_1,step_up_or_swap
@@ -2217,7 +2215,7 @@ vocab,vocab_b1_0265,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+r
 vocab,vocab_b1_0266,b1,c2,3,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b1_work_coordination_1,keep_reviewed_owner
 vocab,vocab_b1_0267,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_work_coordination_1,keep_reviewed_owner
 vocab,vocab_b1_0269,b1,b2,1,over1,satz_ref+can_do_ref,b1_work_coordination_1,step_up_or_swap
-vocab,vocab_b1_0270,b1,c1,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_work_coordination_1,review_fallback
+vocab,vocab_b1_0270,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_work_coordination_1,keep_reviewed_owner
 vocab,vocab_b1_0273,b1,a1,-2,under2,satz_ref+can_do_ref,b1_partner_awkward_questions_1,downgrade_candidate
 vocab,vocab_b1_0280,b1,b2,1,over1,satz_ref+can_do_ref,b1_partner_awkward_questions_1,step_up_or_swap
 vocab,vocab_b1_0281,b1,b2,1,over1,satz_ref+can_do_ref,b1_partner_awkward_questions_1,step_up_or_swap
@@ -2227,10 +2225,10 @@ vocab,vocab_b1_0285,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+r
 vocab,vocab_b1_0286,b1,c2,3,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b1_partner_job_visa_1,keep_reviewed_owner
 vocab,vocab_b1_0287,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_partner_job_visa_1,keep_reviewed_owner
 vocab,vocab_b1_0288,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_partner_job_visa_1,keep_reviewed_owner
-vocab,vocab_b1_0291,b1,c2,3,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_partner_job_visa_1,review_fallback
+vocab,vocab_b1_0291,b1,c2,3,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b1_partner_job_visa_1,keep_reviewed_owner
 vocab,vocab_b1_0292,b1,b2,1,over1,satz_ref+can_do_ref,b1_partner_job_visa_1,step_up_or_swap
 vocab,vocab_b1_0295,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_partner_job_visa_1,keep_reviewed_owner
-vocab,vocab_b1_0299,b1,c1,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_partner_translating_1,review_fallback
+vocab,vocab_b1_0299,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_partner_translating_1,keep_reviewed_owner
 vocab,vocab_b1_0300,b1,b2,1,over1,satz_ref+can_do_ref,b1_partner_translating_1,step_up_or_swap
 vocab,vocab_b1_0301,b1,b2,1,over1,satz_ref+can_do_ref,b1_partner_translating_1,step_up_or_swap
 vocab,vocab_b1_0302,b1,a1,-2,under2,satz_ref+can_do_ref,b1_partner_translating_1,downgrade_candidate
@@ -2238,8 +2236,8 @@ vocab,vocab_b1_0304,b1,,,unknown,satz_ref+can_do_ref,b1_partner_translating_1,ke
 vocab,vocab_b1_0305,b1,b2,1,over1,satz_ref+can_do_ref,b1_partner_translating_1,step_up_or_swap
 vocab,vocab_b1_0306,b1,b2,1,over1,satz_ref+can_do_ref,b1_partner_translating_1,step_up_or_swap
 vocab,vocab_b1_0308,b1,a1,-2,under2,satz_ref+can_do_ref,b1_partner_drink_table_1,downgrade_candidate
-vocab,vocab_b1_0310,b1,c2,3,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_partner_drink_table_1,review_fallback
-vocab,vocab_b1_0311,b1,c2,3,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_partner_drink_table_1,review_fallback
+vocab,vocab_b1_0310,b1,c2,3,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b1_partner_drink_table_1,keep_reviewed_owner
+vocab,vocab_b1_0311,b1,c2,3,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b1_partner_drink_table_1,keep_reviewed_owner
 vocab,vocab_b1_0312,b1,b2,1,over1,satz_ref+can_do_ref,b1_partner_drink_table_1,step_up_or_swap
 vocab,vocab_b1_0317,b1,c2,3,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b1_partner_drink_table_1,keep_reviewed_owner
 vocab,vocab_b1_0318,b1,a1,-2,under2,satz_ref+can_do_ref,b1_partner_drink_table_1,downgrade_candidate
@@ -2248,7 +2246,7 @@ vocab,vocab_b1_0323,b1,b2,1,over1,satz_ref+can_do_ref,b1_partner_sleep_room_1,st
 vocab,vocab_b1_0325,b1,a1,-2,under2,satz_ref+can_do_ref,b1_partner_sleep_room_1,downgrade_candidate
 vocab,vocab_b1_0326,b1,b2,1,over1,satz_ref+can_do_ref,b1_partner_sleep_room_1,step_up_or_swap
 vocab,vocab_b1_0327,b1,a1,-2,under2,satz_ref+can_do_ref,b1_partner_sleep_room_1,downgrade_candidate
-vocab,vocab_b1_0328,b1,c1,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_partner_sleep_room_1,review_fallback
+vocab,vocab_b1_0328,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_partner_sleep_room_1,keep_reviewed_owner
 vocab,vocab_b1_0330,b1,b2,1,over1,satz_ref+can_do_ref,b1_partner_sleep_room_1,step_up_or_swap
 vocab,vocab_b1_0331,b1,a1,-2,under2,satz_ref+can_do_ref,b1_partner_sleep_room_1,downgrade_candidate
 vocab,vocab_b1_0332,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_partner_after_visit_1,keep_reviewed_owner
@@ -2265,13 +2263,13 @@ vocab,vocab_b1_0360,b1,b2,1,over1,satz_ref+can_do_ref,b1_partner_holiday_plan_1,
 vocab,vocab_b1_0361,b1,a1,-2,under2,satz_ref+can_do_ref,b1_partner_holiday_plan_1,downgrade_candidate
 vocab,vocab_b1_0363,b1,c2,3,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b1_partner_holiday_plan_1,keep_reviewed_owner
 vocab,vocab_b1_0364,b1,b2,1,over1,satz_ref+can_do_ref,b1_partner_holiday_plan_1,step_up_or_swap
-vocab,vocab_b1_0365,b1,c1,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_partner_holiday_plan_1,review_fallback
+vocab,vocab_b1_0365,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_partner_holiday_plan_1,keep_reviewed_owner
 vocab,vocab_b1_0366,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_partner_holiday_plan_1,keep_reviewed_owner
 vocab,vocab_b1_0368,b1,b2,1,over1,satz_ref+can_do_ref,b1_workplace_mail_1,step_up_or_swap
 vocab,vocab_b1_0369,b1,,,unknown,satz_ref+can_do_ref,b1_workplace_mail_1,keep
-vocab,vocab_b1_0370,b1,c2,3,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_workplace_mail_1,review_fallback
-vocab,vocab_b1_0371,b1,c2,3,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_workplace_mail_1,review_fallback
-vocab,vocab_b1_0373,b1,c1,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_workplace_mail_1,review_fallback
+vocab,vocab_b1_0370,b1,c2,3,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b1_workplace_mail_1,keep_reviewed_owner
+vocab,vocab_b1_0371,b1,c2,3,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b1_workplace_mail_1,keep_reviewed_owner
+vocab,vocab_b1_0373,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_workplace_mail_1,keep_reviewed_owner
 vocab,vocab_b1_0376,b1,c2,3,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b1_workplace_mail_1,keep_reviewed_owner
 vocab,vocab_b1_0377,b1,c2,3,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b1_workplace_mail_1,keep_reviewed_owner
 vocab,vocab_b1_0378,b1,b2,1,over1,satz_ref+can_do_ref,b1_workplace_mail_1,step_up_or_swap
@@ -2281,13 +2279,10 @@ vocab,vocab_b1_0387,b1,b2,1,over1,satz_ref+can_do_ref,b1_roommate_talk_1,step_up
 vocab,vocab_b1_0390,b1,b2,1,over1,satz_ref+can_do_ref,b1_roommate_talk_1,step_up_or_swap
 vocab,vocab_b1_0391,b1,b2,1,over1,satz_ref+can_do_ref,b1_roommate_talk_1,step_up_or_swap
 vocab,vocab_b1_0393,b1,b2,1,over1,satz_ref+can_do_ref,b1_insurance_claim_1,step_up_or_swap
-vocab,vocab_b1_0396,b1,c1,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_insurance_claim_1,review_fallback
-vocab,vocab_b1_0397,b1,c2,3,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_insurance_claim_1,review_fallback
+vocab,vocab_b1_0396,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_insurance_claim_1,keep_reviewed_owner
 vocab,vocab_b1_0398,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_insurance_claim_1,keep_reviewed_owner
-vocab,vocab_b1_0399,b1,c1,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_insurance_claim_1,review_fallback
 vocab,vocab_b1_0400,b1,b2,1,over1,satz_ref+can_do_ref,b1_insurance_claim_1,step_up_or_swap
 vocab,vocab_b1_0401,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_insurance_claim_1,keep_reviewed_owner
-vocab,vocab_b1_0402,b1,c2,3,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_insurance_claim_1,review_fallback
 vocab,vocab_b1_0403,b1,a1,-2,under2,satz_ref+can_do_ref,b1_insurance_claim_1,downgrade_candidate
 vocab,vocab_b1_0404,b2,c1,1,over1 src=compound,satz_ref+can_do_ref+accepted_relevel,b2_public_office_1,step_up_or_swap
 vocab,vocab_b1_0405,b2,c1,1,over1,satz_ref+can_do_ref+accepted_relevel,b2_public_office_1,step_up_or_swap
@@ -2298,16 +2293,15 @@ vocab,vocab_b1_0412,b2,c1,1,over1,satz_ref+can_do_ref+accepted_relevel,b2_public
 vocab,vocab_b1_0413,b2,c1,1,over1,satz_ref+can_do_ref+accepted_relevel,b2_public_office_1,step_up_or_swap
 vocab,vocab_b1_0415,b2,c1,1,over1,satz_ref+can_do_ref+accepted_relevel,b2_public_office_1,step_up_or_swap
 vocab,vocab_b1_0417,b1,b2,1,over1 src=compound,satz_ref+can_do_ref,b1_volunteer_shift_1,step_up_or_swap
-vocab,vocab_b1_0420,b1,c1,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_volunteer_shift_1,review_fallback
-vocab,vocab_b1_0421,b1,c2,3,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_volunteer_shift_1,review_fallback
-vocab,vocab_b1_0423,b1,c1,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_volunteer_shift_1,review_fallback
+vocab,vocab_b1_0420,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_volunteer_shift_1,keep_reviewed_owner
+vocab,vocab_b1_0423,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_volunteer_shift_1,keep_reviewed_owner
 vocab,vocab_b1_0424,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_volunteer_shift_1,keep_reviewed_owner
 vocab,vocab_b1_0425,b1,b2,1,over1,satz_ref+can_do_ref,b1_volunteer_shift_1,step_up_or_swap
 vocab,vocab_b1_0426,b1,b2,1,over1,satz_ref+can_do_ref,b1_volunteer_shift_1,step_up_or_swap
-vocab,vocab_b1_0427,b1,c1,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_volunteer_shift_1,review_fallback
+vocab,vocab_b1_0427,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_volunteer_shift_1,keep_reviewed_owner
 vocab,vocab_b1_0428,b1,b2,1,over1,satz_ref+can_do_ref,b1_parent_school_1,step_up_or_swap
 vocab,vocab_b1_0432,b1,b2,1,over1,satz_ref+can_do_ref,b1_parent_school_1,step_up_or_swap
-vocab,vocab_b1_0434,b1,c2,3,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_parent_school_1,review_fallback
+vocab,vocab_b1_0434,b1,c2,3,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b1_parent_school_1,keep_reviewed_owner
 vocab,vocab_b1_0435,b1,b2,1,over1,satz_ref+can_do_ref,b1_parent_school_1,step_up_or_swap
 vocab,vocab_b1_0436,b1,c2,3,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b1_parent_school_1,keep_reviewed_owner
 vocab,vocab_b1_0437,b1,a1,-2,under2,satz_ref+can_do_ref,b1_parent_school_1,downgrade_candidate
@@ -2318,7 +2312,7 @@ vocab,vocab_b1_0441,b1,b2,1,over1,satz_ref+can_do_ref,b1_repair_words_1,step_up_
 vocab,vocab_b1_0443,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_repair_words_1,keep_reviewed_owner
 vocab,vocab_b1_0444,b1,b2,1,over1,satz_ref+can_do_ref,b1_repair_words_1,step_up_or_swap
 vocab,vocab_b1_0446,b1,c2,3,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b1_repair_words_1,keep_reviewed_owner
-vocab,vocab_b1_0447,b1,c1,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b1_repair_words_1,review_fallback
+vocab,vocab_b1_0447,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_repair_words_1,keep_reviewed_owner
 vocab,vocab_b1_0448,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_repair_words_1,keep_reviewed_owner
 vocab,vocab_b1_0451,b1,b2,1,over1,satz_ref+can_do_ref,b1_repair_words_1,step_up_or_swap
 vocab,vocab_b1_0453,b1,b2,1,over1,satz_ref+can_do_ref,b1_travel_change_1,step_up_or_swap
@@ -2332,7 +2326,7 @@ vocab,vocab_b1_0464,b1,b2,1,over1,can_do_ref,b1_work_softening_1,step_up_or_swap
 vocab,vocab_b1_0466,b1,c1,2,reviewed_owner raw_estimate=c1,can_do_ref+reviewed_owner,b1_work_softening_1,keep_reviewed_owner
 vocab,vocab_b1_0468,b1,c1,2,reviewed_owner raw_estimate=c1,can_do_ref+reviewed_owner,b1_work_entry_2026_1,keep_reviewed_owner
 vocab,vocab_b1_0470,b1,b2,1,over1,can_do_ref,b1_work_entry_2026_1,step_up_or_swap
-vocab,vocab_b1_0473,b1,c1,2,fallback_over2 fallback:basic2023,can_do_ref,b1_work_entry_2026_1,review_fallback
+vocab,vocab_b1_0473,b1,c1,2,reviewed_owner raw_estimate=c1,can_do_ref+reviewed_owner,b1_work_entry_2026_1,keep_reviewed_owner
 vocab,vocab_b1_0474,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+reviewed_owner,b1_work_entry_2026_1,keep_reviewed_owner
 vocab,vocab_b1_0477,b1,c2,3,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b1_work_entry_2026_1,keep_reviewed_owner
 vocab,vocab_b1_0481,b1,b2,1,over1,satz_ref+can_do_ref,b1_work_softening_1,step_up_or_swap
@@ -2346,7 +2340,7 @@ vocab,vocab_b2_0033,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+r
 vocab,vocab_b2_0036,b2,c1,1,over1,satz_ref+can_do_ref,b2_society_1,step_up_or_swap
 vocab,vocab_b2_0038,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_work,keep_reviewed_owner
 vocab,vocab_b2_0040,b2,c1,1,over1,satz_ref+can_do_ref,b2_work,step_up_or_swap
-vocab,vocab_b2_0042,b2,c2,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b2_work,review_fallback
+vocab,vocab_b2_0042,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_work,keep_reviewed_owner
 vocab,vocab_b2_0049,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_society_2,keep_reviewed_owner
 vocab,vocab_b2_0050,b2,c1,1,over1 src=compound,satz_ref+can_do_ref,b2_society_2,step_up_or_swap
 vocab,vocab_b2_0051,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_work,keep_reviewed_owner
@@ -2367,7 +2361,7 @@ vocab,vocab_b2_0081,b2,c1,1,over1,satz_ref+can_do_ref,b2_environment_1,step_up_o
 vocab,vocab_b2_0082,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_environment_1,keep_reviewed_owner
 vocab,vocab_b2_0083,b2,c1,1,over1,satz_ref+can_do_ref,b2_environment_1,step_up_or_swap
 vocab,vocab_b2_0084,b2,c1,1,over1,satz_ref+can_do_ref,b2_environment_1,step_up_or_swap
-vocab,vocab_b2_0087,b2,c2,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b2_modern_life_1,review_fallback
+vocab,vocab_b2_0087,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_modern_life_1,keep_reviewed_owner
 vocab,vocab_b2_0093,b2,a2,-2,under2,can_do_ref,b2_modern_life_1,downgrade_candidate
 vocab,vocab_b2_0099,b2,a2,-2,under2,satz_ref+can_do_ref,b2_manners_society_1,downgrade_candidate
 vocab,vocab_b2_0100,b2,a2,-2,under2,satz_ref+can_do_ref,b2_manners_society_1,downgrade_candidate
@@ -2383,8 +2377,8 @@ vocab,vocab_b2_0124,b2,c1,1,over1,satz_ref+can_do_ref,b2_language_grammar_1,step
 vocab,vocab_b2_0125,b2,c1,1,over1,satz_ref+can_do_ref,b2_language_grammar_1,step_up_or_swap
 vocab,vocab_b2_0126,b2,c1,1,over1,satz_ref+can_do_ref,b2_language_grammar_1,step_up_or_swap
 vocab,vocab_b2_0127,b2,c1,1,over1,can_do_ref,b2_language_grammar_1,step_up_or_swap
-vocab,vocab_b2_0128,b2,c2,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b2_language_grammar_1,review_fallback
-vocab,vocab_b2_0129,b2,c2,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b2_language_grammar_1,review_fallback
+vocab,vocab_b2_0128,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_language_grammar_1,keep_reviewed_owner
+vocab,vocab_b2_0129,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_language_grammar_1,keep_reviewed_owner
 vocab,vocab_b2_0131,b2,c1,1,over1,satz_ref+can_do_ref,b2_language_grammar_1,step_up_or_swap
 vocab,vocab_b2_0132,b2,a2,-2,under2,satz_ref+can_do_ref,b2_language_grammar_1,downgrade_candidate
 vocab,vocab_b2_0133,b2,a2,-2,under2,satz_ref+can_do_ref,b2_household_practical_1,downgrade_candidate
@@ -2461,14 +2455,14 @@ vocab,vocab_b2_0259,b2,c1,1,over1,satz_ref+can_do_ref,b2_language_society_1,step
 vocab,vocab_b2_0260,b2,c1,1,over1,satz_ref+can_do_ref,b2_language_society_1,step_up_or_swap
 vocab,vocab_b2_0266,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_collaborative_feedback_1,keep_reviewed_owner
 vocab,vocab_b2_0268,b2,c1,1,over1,satz_ref+can_do_ref,b2_collaborative_feedback_1,step_up_or_swap
-vocab,vocab_b2_0271,b2,c2,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b2_collaborative_feedback_1,review_fallback
+vocab,vocab_b2_0271,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_collaborative_feedback_1,keep_reviewed_owner
 vocab,vocab_b2_0272,b2,a2,-2,under2,satz_ref+can_do_ref,b2_collaborative_feedback_1,downgrade_candidate
 vocab,vocab_b2_0275,b2,c1,1,over1,satz_ref+can_do_ref,b2_collaborative_feedback_1,step_up_or_swap
 vocab,vocab_b2_0276,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_collaborative_feedback_1,keep_reviewed_owner
 vocab,vocab_b2_0278,b2,c1,1,over1,satz_ref+can_do_ref,b2_digital_judgment_1,step_up_or_swap
 vocab,vocab_b2_0279,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_digital_judgment_1,keep_reviewed_owner
 vocab,vocab_b2_0281,b2,c1,1,over1,satz_ref+can_do_ref,b2_digital_judgment_1,step_up_or_swap
-vocab,vocab_b2_0287,b2,c2,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b2_digital_judgment_1,review_fallback
+vocab,vocab_b2_0287,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_digital_judgment_1,keep_reviewed_owner
 vocab,vocab_b2_0290,b2,a2,-2,under2,satz_ref+can_do_ref,b2_shared_space_coordination_1,downgrade_candidate
 vocab,vocab_b2_0291,b2,c1,1,over1,satz_ref+can_do_ref,b2_shared_space_coordination_1,step_up_or_swap
 vocab,vocab_b2_0293,b2,a2,-2,under2,satz_ref+can_do_ref,b2_shared_space_coordination_1,downgrade_candidate
@@ -2485,10 +2479,10 @@ vocab,vocab_b2_0406,b2,a2,-2,under2,satz_ref+can_do_ref,b2_life_values,downgrade
 vocab,vocab_b2_0407,b2,c1,1,over1,satz_ref+can_do_ref,b2_life_values,step_up_or_swap
 vocab,vocab_b2_0409,b2,c1,1,over1,satz_ref+can_do_ref,b2_life_values,step_up_or_swap
 vocab,vocab_b2_0411,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_literature_emotion,keep_reviewed_owner
-vocab,vocab_b2_0412,b2,c2,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b2_literature_emotion,review_fallback
+vocab,vocab_b2_0412,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_literature_emotion,keep_reviewed_owner
 vocab,vocab_b2_0413,b2,c1,1,over1,satz_ref+can_do_ref,b2_literature_emotion,step_up_or_swap
 vocab,vocab_b2_0414,b2,c1,1,over1,satz_ref+can_do_ref,b2_literature_emotion,step_up_or_swap
-vocab,vocab_b2_0415,b2,c2,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b2_literature_emotion,review_fallback
+vocab,vocab_b2_0415,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_literature_emotion,keep_reviewed_owner
 vocab,vocab_b2_0419,b2,c1,1,over1,satz_ref+can_do_ref,b2_literature_emotion,step_up_or_swap
 vocab,vocab_b2_0423,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_language_change,keep_reviewed_owner
 vocab,vocab_b2_0425,b2,c1,1,over1,satz_ref+can_do_ref,b2_language_change,step_up_or_swap
@@ -2504,11 +2498,11 @@ vocab,vocab_b2_0439,b2,a1,-3,under2,satz_ref+can_do_ref,b2_partner_inlaws_1,down
 vocab,vocab_b2_0440,b2,a1,-3,under2,satz_ref+can_do_ref,b2_partner_inlaws_1,downgrade_candidate
 vocab,vocab_b2_0441,b2,c1,1,over1,satz_ref+can_do_ref,b2_partner_inlaws_1,step_up_or_swap
 vocab,vocab_b2_0443,b2,c1,1,over1,satz_ref+can_do_ref,b2_partner_marriage_talk_1,step_up_or_swap
-vocab,vocab_b2_0444,b2,c2,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b2_partner_marriage_talk_1,review_fallback
-vocab,vocab_b2_0446,b2,c2,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b2_partner_marriage_talk_1,review_fallback
+vocab,vocab_b2_0444,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_partner_marriage_talk_1,keep_reviewed_owner
+vocab,vocab_b2_0446,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_partner_marriage_talk_1,keep_reviewed_owner
 vocab,vocab_b2_0447,b2,c1,1,over1,satz_ref+can_do_ref,b2_partner_marriage_talk_1,step_up_or_swap
 vocab,vocab_b2_0449,b2,c1,1,over1,satz_ref+can_do_ref,b2_partner_marriage_talk_1,step_up_or_swap
-vocab,vocab_b2_0450,b2,c2,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b2_partner_marriage_talk_1,review_fallback
+vocab,vocab_b2_0450,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_partner_marriage_talk_1,keep_reviewed_owner
 vocab,vocab_b2_0452,b2,a2,-2,under2,satz_ref+can_do_ref,b2_partner_marriage_talk_1,downgrade_candidate
 vocab,vocab_b2_0453,b2,a1,-3,under2,satz_ref+can_do_ref,b2_partner_marriage_talk_1,downgrade_candidate
 vocab,vocab_b2_0454,b2,a2,-2,under2,satz_ref+can_do_ref,b2_partner_marriage_talk_1,downgrade_candidate
@@ -2521,13 +2515,13 @@ vocab,vocab_b2_0463,b2,a1,-3,under2,satz_ref+can_do_ref,b2_partner_honorific_tra
 vocab,vocab_b2_0464,b2,a2,-2,under2,satz_ref+can_do_ref,b2_partner_honorific_trap_1,downgrade_candidate
 vocab,vocab_b2_0465,b2,a1,-3,under2,satz_ref+can_do_ref,b2_partner_honorific_trap_1,downgrade_candidate
 vocab,vocab_b2_0470,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_partner_ancestral_rite_1,keep_reviewed_owner
-vocab,vocab_b2_0471,b2,c2,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b2_partner_ancestral_rite_1,review_fallback
-vocab,vocab_b2_0472,b2,c2,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b2_partner_ancestral_rite_1,review_fallback
+vocab,vocab_b2_0471,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_partner_ancestral_rite_1,keep_reviewed_owner
+vocab,vocab_b2_0472,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_partner_ancestral_rite_1,keep_reviewed_owner
 vocab,vocab_b2_0474,b2,a1,-3,under2,satz_ref+can_do_ref,b2_partner_ancestral_rite_1,downgrade_candidate
 vocab,vocab_b2_0475,b2,a2,-2,under2,satz_ref+can_do_ref,b2_partner_ancestral_rite_1,downgrade_candidate
 vocab,vocab_b2_0477,b2,a2,-2,under2,satz_ref+can_do_ref,b2_partner_ancestral_rite_1,downgrade_candidate
-vocab,vocab_b2_0481,b2,c2,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b2_partner_family_money_1,review_fallback
-vocab,vocab_b2_0482,b2,c2,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b2_partner_family_money_1,review_fallback
+vocab,vocab_b2_0481,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_partner_family_money_1,keep_reviewed_owner
+vocab,vocab_b2_0482,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_partner_family_money_1,keep_reviewed_owner
 vocab,vocab_b2_0483,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_partner_family_money_1,keep_reviewed_owner
 vocab,vocab_b2_0485,b2,c1,1,over1,satz_ref+can_do_ref,b2_partner_family_money_1,step_up_or_swap
 vocab,vocab_b2_0487,b2,a2,-2,under2,satz_ref+can_do_ref,b2_partner_family_money_1,downgrade_candidate
@@ -2562,14 +2556,14 @@ vocab,vocab_b2_0553,b2,c1,1,over1,satz_ref+can_do_ref,b2_media_literacy_1,step_u
 vocab,vocab_b2_0555,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_media_literacy_1,keep_reviewed_owner
 vocab,vocab_b2_0556,b2,c1,1,over1,satz_ref+can_do_ref,b2_media_literacy_1,step_up_or_swap
 vocab,vocab_b2_0557,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_media_literacy_1,keep_reviewed_owner
-vocab,vocab_b2_0558,b2,c2,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b2_media_literacy_1,review_fallback
+vocab,vocab_b2_0558,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_media_literacy_1,keep_reviewed_owner
 vocab,vocab_b2_0559,b2,a2,-2,under2,satz_ref+can_do_ref,b2_media_literacy_1,downgrade_candidate
 vocab,vocab_b2_0561,b2,c1,1,over1,satz_ref+can_do_ref,b2_media_literacy_1,step_up_or_swap
 vocab,vocab_b2_0562,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_media_literacy_1,keep_reviewed_owner
 vocab,vocab_b2_0564,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_civic_meeting_1,keep_reviewed_owner
 vocab,vocab_b2_0565,b2,c1,1,over1,satz_ref+can_do_ref,b2_civic_meeting_1,step_up_or_swap
 vocab,vocab_b2_0568,b2,a2,-2,under2,satz_ref+can_do_ref,b2_civic_meeting_1,downgrade_candidate
-vocab,vocab_b2_0570,b2,c2,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b2_civic_meeting_1,review_fallback
+vocab,vocab_b2_0570,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_civic_meeting_1,keep_reviewed_owner
 vocab,vocab_b2_0571,b2,,,unknown,satz_ref+can_do_ref,b2_civic_meeting_1,keep
 vocab,vocab_b2_0573,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_civic_meeting_1,keep_reviewed_owner
 vocab,vocab_b2_0574,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_civic_meeting_1,keep_reviewed_owner
@@ -2581,18 +2575,18 @@ vocab,vocab_b2_0582,b2,a2,-2,under2,satz_ref+can_do_ref,b2_team_negotiation_1,do
 vocab,vocab_b2_0584,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_team_negotiation_1,keep_reviewed_owner
 vocab,vocab_b2_0585,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_team_negotiation_1,keep_reviewed_owner
 vocab,vocab_b2_0588,b2,a2,-2,under2 src=compound,satz_ref+can_do_ref,b2_policy_brief_1,downgrade_candidate
-vocab,vocab_b2_0589,b2,c2,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b2_policy_brief_1,review_fallback
+vocab,vocab_b2_0589,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_policy_brief_1,keep_reviewed_owner
 vocab,vocab_b2_0591,b2,c1,1,over1,satz_ref+can_do_ref,b2_policy_brief_1,step_up_or_swap
 vocab,vocab_b2_0592,b2,c1,1,over1,satz_ref+can_do_ref,b2_policy_brief_1,step_up_or_swap
 vocab,vocab_b2_0593,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_policy_brief_1,keep_reviewed_owner
 vocab,vocab_b2_0594,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_policy_brief_1,keep_reviewed_owner
 vocab,vocab_b2_0596,b2,c1,1,over1,satz_ref+can_do_ref,b2_policy_brief_1,step_up_or_swap
-vocab,vocab_b2_0597,b2,c2,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b2_policy_brief_1,review_fallback
+vocab,vocab_b2_0597,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_policy_brief_1,keep_reviewed_owner
 vocab,vocab_b2_0598,b2,c1,1,over1 src=compound,satz_ref+can_do_ref,b2_policy_brief_1,step_up_or_swap
 vocab,vocab_b2_0599,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_customer_escalation_1,keep_reviewed_owner
 vocab,vocab_b2_0601,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_customer_escalation_1,keep_reviewed_owner
 vocab,vocab_b2_0602,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_customer_escalation_1,keep_reviewed_owner
-vocab,vocab_b2_0605,b2,c2,2,fallback_over2 fallback:basic2023,satz_ref+can_do_ref,b2_customer_escalation_1,review_fallback
+vocab,vocab_b2_0605,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_customer_escalation_1,keep_reviewed_owner
 vocab,vocab_b2_0610,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_customer_escalation_1,keep_reviewed_owner
 vocab,vocab_b2_0612,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_research_summary_1,keep_reviewed_owner
 vocab,vocab_b2_0618,b2,c1,1,over1,satz_ref+can_do_ref,b2_research_summary_1,step_up_or_swap

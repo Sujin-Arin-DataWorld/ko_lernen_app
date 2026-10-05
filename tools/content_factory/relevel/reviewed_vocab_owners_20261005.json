@@ -5,7 +5,7 @@
   "reviewAuthority": "assistant_project_manager_under_user_delegation",
   "humanApprovalClaim": false,
   "nativeSpeakerQaClaim": false,
-  "note": "Explicit current-owner decisions for LCP C4. These are pedagogical level-owner decisions, not native-speaker QA. Raw external estimates remain visible in audit output.",
+  "note": "Explicit current-owner decisions for LCP C4/C5. These are pedagogical level-owner decisions under delegated project-manager review, not native-speaker QA. Raw external estimates remain visible in audit output.",
   "decisions": [
     {
       "id": "vocab_b1_0059",
@@ -18,6 +18,16 @@
       "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
     },
     {
+      "id": "vocab_b1_0062",
+      "korean": "게시물",
+      "currentLevel": "b1",
+      "packId": "b1_tech_society_2",
+      "topic": "Technologie",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "C5 low-confidence review: this B1 item is required by the live practical/social task and the only +2-or-more evidence is the low-confidence basic2023 fallback. Keep the task owner; raw fallback estimate remains visible for audit transparency."
+    },
+    {
       "id": "vocab_b1_0071",
       "korean": "마감",
       "currentLevel": "b1",
@@ -28,6 +38,16 @@
       "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
     },
     {
+      "id": "vocab_b1_0073",
+      "korean": "회의록",
+      "currentLevel": "b1",
+      "packId": "b1_work",
+      "topic": "Beruf",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "C5 low-confidence review: this B1 item is required by the live practical/social task and the only +2-or-more evidence is the low-confidence basic2023 fallback. Keep the task owner; raw fallback estimate remains visible for audit transparency."
+    },
+    {
       "id": "vocab_b1_0078",
       "korean": "명상",
       "currentLevel": "b1",
@@ -36,6 +56,16 @@
       "decision": "keep_current",
       "category": "b1_practical_core",
       "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0079",
+      "korean": "식단",
+      "currentLevel": "b1",
+      "packId": "b1_health_education",
+      "topic": "Gesundheit",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
     },
     {
       "id": "vocab_b1_0116",
@@ -68,6 +98,26 @@
       "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
     },
     {
+      "id": "vocab_b1_0250",
+      "korean": "세입자",
+      "currentLevel": "b1",
+      "packId": "b1_housing_contract_1",
+      "topic": "Wohnen & Vertrag",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "C5 low-confidence review: this B1 item is required by the live practical/social task and the only +2-or-more evidence is the low-confidence basic2023 fallback. Keep the task owner; raw fallback estimate remains visible for audit transparency."
+    },
+    {
+      "id": "vocab_b1_0255",
+      "korean": "누수",
+      "currentLevel": "b1",
+      "packId": "b1_housing_contract_1",
+      "topic": "Wohnen & Vertrag",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "C5 low-confidence review: this B1 item is required by the live practical/social task and the only +2-or-more evidence is the low-confidence basic2023 fallback. Keep the task owner; raw fallback estimate remains visible for audit transparency."
+    },
+    {
       "id": "vocab_b1_0258",
       "korean": "중개인",
       "currentLevel": "b1",
@@ -76,6 +126,16 @@
       "decision": "keep_current",
       "category": "b1_practical_core",
       "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0262",
+      "korean": "우선순위",
+      "currentLevel": "b1",
+      "packId": "b1_work_coordination_1",
+      "topic": "Arbeitskoordination & Termine",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
     },
     {
       "id": "vocab_b1_0265",
@@ -88,6 +148,16 @@
       "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
     },
     {
+      "id": "vocab_b1_0266",
+      "korean": "업무 분담",
+      "currentLevel": "b1",
+      "packId": "b1_work_coordination_1",
+      "topic": "Arbeitskoordination & Termine",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
       "id": "vocab_b1_0267",
       "korean": "마감일",
       "currentLevel": "b1",
@@ -98,6 +168,16 @@
       "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
     },
     {
+      "id": "vocab_b1_0270",
+      "korean": "부재중",
+      "currentLevel": "b1",
+      "packId": "b1_work_coordination_1",
+      "topic": "Arbeitskoordination & Termine",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "C5 low-confidence review: this B1 item is required by the live practical/social task and the only +2-or-more evidence is the low-confidence basic2023 fallback. Keep the task owner; raw fallback estimate remains visible for audit transparency."
+    },
+    {
       "id": "vocab_b1_0285",
       "korean": "계약직",
       "currentLevel": "b1",
@@ -106,6 +186,16 @@
       "decision": "keep_current",
       "category": "b1_practical_core",
       "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0286",
+      "korean": "원격 근무",
+      "currentLevel": "b1",
+      "packId": "b1_partner_job_visa_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
     },
     {
       "id": "vocab_b1_0287",
@@ -128,6 +218,16 @@
       "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
     },
     {
+      "id": "vocab_b1_0291",
+      "korean": "퇴사",
+      "currentLevel": "b1",
+      "packId": "b1_partner_job_visa_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "C5 low-confidence review: this B1 item is required by the live practical/social task and the only +2-or-more evidence is the low-confidence basic2023 fallback. Keep the task owner; raw fallback estimate remains visible for audit transparency."
+    },
+    {
       "id": "vocab_b1_0295",
       "korean": "안정적으로",
       "currentLevel": "b1",
@@ -136,6 +236,56 @@
       "decision": "keep_current",
       "category": "b1_practical_core",
       "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0299",
+      "korean": "뉘앙스",
+      "currentLevel": "b1",
+      "packId": "b1_partner_translating_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "C5 low-confidence review: this B1 item is required by the live practical/social task and the only +2-or-more evidence is the low-confidence basic2023 fallback. Keep the task owner; raw fallback estimate remains visible for audit transparency."
+    },
+    {
+      "id": "vocab_b1_0310",
+      "korean": "건배",
+      "currentLevel": "b1",
+      "packId": "b1_partner_drink_table_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b1_culture_specific",
+      "reason": "C5 low-confidence review: this B1 item is required by the live practical/social task and the only +2-or-more evidence is the low-confidence basic2023 fallback. Keep the task owner; raw fallback estimate remains visible for audit transparency."
+    },
+    {
+      "id": "vocab_b1_0311",
+      "korean": "폭음",
+      "currentLevel": "b1",
+      "packId": "b1_partner_drink_table_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "C5 low-confidence review: this B1 item is required by the live practical/social task and the only +2-or-more evidence is the low-confidence basic2023 fallback. Keep the task owner; raw fallback estimate remains visible for audit transparency."
+    },
+    {
+      "id": "vocab_b1_0317",
+      "korean": "취중진담",
+      "currentLevel": "b1",
+      "packId": "b1_partner_drink_table_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b1_culture_specific",
+      "reason": "Reviewed as a culture-specific B1 item whose meaning is explicitly taught in a bounded partner/family context; cultural specificity does not require moving the entire task to C2."
+    },
+    {
+      "id": "vocab_b1_0328",
+      "korean": "다용도 공간",
+      "currentLevel": "b1",
+      "packId": "b1_partner_sleep_room_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "C5 low-confidence review: this B1 item is required by the live practical/social task and the only +2-or-more evidence is the low-confidence basic2023 fallback. Keep the task owner; raw fallback estimate remains visible for audit transparency."
     },
     {
       "id": "vocab_b1_0332",
@@ -158,6 +308,86 @@
       "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
     },
     {
+      "id": "vocab_b1_0363",
+      "korean": "선물 분배",
+      "currentLevel": "b1",
+      "packId": "b1_partner_holiday_plan_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0365",
+      "korean": "교통 대란",
+      "currentLevel": "b1",
+      "packId": "b1_partner_holiday_plan_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "C5 low-confidence review: this B1 item is required by the live practical/social task and the only +2-or-more evidence is the low-confidence basic2023 fallback. Keep the task owner; raw fallback estimate remains visible for audit transparency."
+    },
+    {
+      "id": "vocab_b1_0366",
+      "korean": "일정표 공유",
+      "currentLevel": "b1",
+      "packId": "b1_partner_holiday_plan_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0370",
+      "korean": "회신 기한",
+      "currentLevel": "b1",
+      "packId": "b1_workplace_mail_1",
+      "topic": "Dienstmail",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "C5 low-confidence review: this B1 item is required by the live practical/social task and the only +2-or-more evidence is the low-confidence basic2023 fallback. Keep the task owner; raw fallback estimate remains visible for audit transparency."
+    },
+    {
+      "id": "vocab_b1_0371",
+      "korean": "첨부 누락",
+      "currentLevel": "b1",
+      "packId": "b1_workplace_mail_1",
+      "topic": "Dienstmail",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "C5 low-confidence review: this B1 item is required by the live practical/social task and the only +2-or-more evidence is the low-confidence basic2023 fallback. Keep the task owner; raw fallback estimate remains visible for audit transparency."
+    },
+    {
+      "id": "vocab_b1_0373",
+      "korean": "정정 메일",
+      "currentLevel": "b1",
+      "packId": "b1_workplace_mail_1",
+      "topic": "Dienstmail",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "C5 low-confidence review: this B1 item is required by the live practical/social task and the only +2-or-more evidence is the low-confidence basic2023 fallback. Keep the task owner; raw fallback estimate remains visible for audit transparency."
+    },
+    {
+      "id": "vocab_b1_0376",
+      "korean": "후속 메일",
+      "currentLevel": "b1",
+      "packId": "b1_workplace_mail_1",
+      "topic": "Dienstmail",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0377",
+      "korean": "내부망",
+      "currentLevel": "b1",
+      "packId": "b1_workplace_mail_1",
+      "topic": "Dienstmail",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
       "id": "vocab_b1_0380",
       "korean": "공용 선반",
       "currentLevel": "b1",
@@ -166,6 +396,56 @@
       "decision": "keep_current",
       "category": "b1_practical_core",
       "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0396",
+      "korean": "보험금",
+      "currentLevel": "b1",
+      "packId": "b1_insurance_claim_1",
+      "topic": "Versicherungsfall",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "C5 low-confidence review: this B1 item is required by the live practical/social task and the only +2-or-more evidence is the low-confidence basic2023 fallback. Keep the task owner; raw fallback estimate remains visible for audit transparency."
+    },
+    {
+      "id": "vocab_b1_0398",
+      "korean": "청구 서류",
+      "currentLevel": "b1",
+      "packId": "b1_insurance_claim_1",
+      "topic": "Versicherungsfall",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0401",
+      "korean": "사고 경위",
+      "currentLevel": "b1",
+      "packId": "b1_insurance_claim_1",
+      "topic": "Versicherungsfall",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0420",
+      "korean": "인수 메모",
+      "currentLevel": "b1",
+      "packId": "b1_volunteer_shift_1",
+      "topic": "Ehrenamtsschicht",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "C5 low-confidence review: this B1 item is required by the live practical/social task and the only +2-or-more evidence is the low-confidence basic2023 fallback. Keep the task owner; raw fallback estimate remains visible for audit transparency."
+    },
+    {
+      "id": "vocab_b1_0423",
+      "korean": "비상 연락망",
+      "currentLevel": "b1",
+      "packId": "b1_volunteer_shift_1",
+      "topic": "Ehrenamtsschicht",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "C5 low-confidence review: this B1 item is required by the live practical/social task and the only +2-or-more evidence is the low-confidence basic2023 fallback. Keep the task owner; raw fallback estimate remains visible for audit transparency."
     },
     {
       "id": "vocab_b1_0424",
@@ -178,6 +458,36 @@
       "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
     },
     {
+      "id": "vocab_b1_0427",
+      "korean": "봉사 확인서",
+      "currentLevel": "b1",
+      "packId": "b1_volunteer_shift_1",
+      "topic": "Ehrenamtsschicht",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "C5 low-confidence review: this B1 item is required by the live practical/social task and the only +2-or-more evidence is the low-confidence basic2023 fallback. Keep the task owner; raw fallback estimate remains visible for audit transparency."
+    },
+    {
+      "id": "vocab_b1_0434",
+      "korean": "참관 수업",
+      "currentLevel": "b1",
+      "packId": "b1_parent_school_1",
+      "topic": "Elterngespräch",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "C5 low-confidence review: this B1 item is required by the live practical/social task and the only +2-or-more evidence is the low-confidence basic2023 fallback. Keep the task owner; raw fallback estimate remains visible for audit transparency."
+    },
+    {
+      "id": "vocab_b1_0436",
+      "korean": "준비물 분담",
+      "currentLevel": "b1",
+      "packId": "b1_parent_school_1",
+      "topic": "Elterngespräch",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
       "id": "vocab_b1_0443",
       "korean": "무상 기간",
       "currentLevel": "b1",
@@ -188,6 +498,26 @@
       "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
     },
     {
+      "id": "vocab_b1_0446",
+      "korean": "임시 조치",
+      "currentLevel": "b1",
+      "packId": "b1_repair_words_1",
+      "topic": "Reparaturwortschatz",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0447",
+      "korean": "견적 변경",
+      "currentLevel": "b1",
+      "packId": "b1_repair_words_1",
+      "topic": "Reparaturwortschatz",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "C5 low-confidence review: this B1 item is required by the live practical/social task and the only +2-or-more evidence is the low-confidence basic2023 fallback. Keep the task owner; raw fallback estimate remains visible for audit transparency."
+    },
+    {
       "id": "vocab_b1_0448",
       "korean": "설치 오류",
       "currentLevel": "b1",
@@ -196,6 +526,46 @@
       "decision": "keep_current",
       "category": "b1_practical_core",
       "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0454",
+      "korean": "수수료 면제",
+      "currentLevel": "b1",
+      "packId": "b1_travel_change_1",
+      "topic": "Reiseänderung",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0457",
+      "korean": "탑승 마감",
+      "currentLevel": "b1",
+      "packId": "b1_travel_change_1",
+      "topic": "Reiseänderung",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0459",
+      "korean": "좌석 재배정",
+      "currentLevel": "b1",
+      "packId": "b1_travel_change_1",
+      "topic": "Reiseänderung",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
+    },
+    {
+      "id": "vocab_b1_0461",
+      "korean": "출발 지연",
+      "currentLevel": "b1",
+      "packId": "b1_travel_change_1",
+      "topic": "Reiseänderung",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
     },
     {
       "id": "vocab_b1_0466",
@@ -218,6 +588,16 @@
       "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
     },
     {
+      "id": "vocab_b1_0473",
+      "korean": "수습 기간",
+      "currentLevel": "b1",
+      "packId": "b1_work_entry_2026_1",
+      "topic": "취업과 근무 조건",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "C5 low-confidence review: this B1 item is required by the live practical/social task and the only +2-or-more evidence is the low-confidence basic2023 fallback. Keep the task owner; raw fallback estimate remains visible for audit transparency."
+    },
+    {
       "id": "vocab_b1_0474",
       "korean": "체류 자격",
       "currentLevel": "b1",
@@ -226,6 +606,16 @@
       "decision": "keep_current",
       "category": "b1_practical_core",
       "reason": "Reviewed as practical B1 vocabulary required by the live work/life task; the NIKL general-literacy estimate remains visible but does not by itself override the task owner."
+    },
+    {
+      "id": "vocab_b1_0477",
+      "korean": "업무 인수인계",
+      "currentLevel": "b1",
+      "packId": "b1_work_entry_2026_1",
+      "topic": "취업과 근무 조건",
+      "decision": "keep_current",
+      "category": "b1_practical_domain_core",
+      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
     },
     {
       "id": "vocab_b2_0011",
@@ -266,6 +656,16 @@
       "decision": "keep_current",
       "category": "b2_domain_core",
       "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0042",
+      "korean": "협업",
+      "currentLevel": "b2",
+      "packId": "b2_work",
+      "topic": "Beruf",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "C5 low-confidence review: this is B2 domain-core vocabulary for a professional, civic, digital, or policy task. Domain specificity alone does not make the learner task C2; the only higher signal is low-confidence basic2023 fallback."
     },
     {
       "id": "vocab_b2_0049",
@@ -336,6 +736,36 @@
       "decision": "keep_current",
       "category": "b2_domain_core",
       "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0087",
+      "korean": "최신식",
+      "currentLevel": "b2",
+      "packId": "b2_modern_life_1",
+      "topic": "Modernes Leben",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "C5 low-confidence review: this is B2 domain-core vocabulary for a professional, civic, digital, or policy task. Domain specificity alone does not make the learner task C2; the only higher signal is low-confidence basic2023 fallback."
+    },
+    {
+      "id": "vocab_b2_0128",
+      "korean": "반의어",
+      "currentLevel": "b2",
+      "packId": "b2_language_grammar_1",
+      "topic": "Sprache & Grammatik",
+      "decision": "keep_current",
+      "category": "b2_language_literature_core",
+      "reason": "C5 low-confidence review: this is B2 language/literature core vocabulary in the live interpretive task. The C2 estimate comes only from basic2023 fallback, so keep the reviewed B2 owner while preserving the raw estimate."
+    },
+    {
+      "id": "vocab_b2_0129",
+      "korean": "동의어",
+      "currentLevel": "b2",
+      "packId": "b2_language_grammar_1",
+      "topic": "Sprache & Grammatik",
+      "decision": "keep_current",
+      "category": "b2_language_literature_core",
+      "reason": "C5 low-confidence review: this is B2 language/literature core vocabulary in the live interpretive task. The C2 estimate comes only from basic2023 fallback, so keep the reviewed B2 owner while preserving the raw estimate."
     },
     {
       "id": "vocab_b2_0210",
@@ -428,6 +858,26 @@
       "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
     },
     {
+      "id": "vocab_b2_0253",
+      "korean": "어감",
+      "currentLevel": "b2",
+      "packId": "b2_language_society_1",
+      "topic": "Sprache & Gesellschaft",
+      "decision": "keep_current",
+      "category": "b2_language_literature_core",
+      "reason": "Reviewed as B2 language/literature vocabulary used for an explicit analysis task; domain-specific lexical difficulty is supported by the task and does not by itself require C2 ownership."
+    },
+    {
+      "id": "vocab_b2_0258",
+      "korean": "비속어",
+      "currentLevel": "b2",
+      "packId": "b2_language_society_1",
+      "topic": "Sprache & Gesellschaft",
+      "decision": "keep_current",
+      "category": "b2_language_literature_core",
+      "reason": "Reviewed as B2 language/literature vocabulary used for an explicit analysis task; domain-specific lexical difficulty is supported by the task and does not by itself require C2 ownership."
+    },
+    {
       "id": "vocab_b2_0266",
       "korean": "우선순위를 조정하다",
       "currentLevel": "b2",
@@ -436,6 +886,16 @@
       "decision": "keep_current",
       "category": "b2_domain_core",
       "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0271",
+      "korean": "마감이 촉박하다",
+      "currentLevel": "b2",
+      "packId": "b2_collaborative_feedback_1",
+      "topic": "Teamarbeit & Feedback",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "C5 low-confidence review: this is B2 domain-core vocabulary for a professional, civic, digital, or policy task. Domain specificity alone does not make the learner task C2; the only higher signal is low-confidence basic2023 fallback."
     },
     {
       "id": "vocab_b2_0276",
@@ -458,6 +918,86 @@
       "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
     },
     {
+      "id": "vocab_b2_0287",
+      "korean": "링크를 의심하다",
+      "currentLevel": "b2",
+      "packId": "b2_digital_judgment_1",
+      "topic": "Digitale Aufmerksamkeit",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "C5 low-confidence review: this is B2 domain-core vocabulary for a professional, civic, digital, or policy task. Domain specificity alone does not make the learner task C2; the only higher signal is low-confidence basic2023 fallback."
+    },
+    {
+      "id": "vocab_b2_0411",
+      "korean": "서정적이다",
+      "currentLevel": "b2",
+      "packId": "b2_literature_emotion",
+      "topic": "Literatur und Gefühle",
+      "decision": "keep_current",
+      "category": "b2_language_literature_core",
+      "reason": "Reviewed as B2 language/literature vocabulary used for an explicit analysis task; domain-specific lexical difficulty is supported by the task and does not by itself require C2 ownership."
+    },
+    {
+      "id": "vocab_b2_0412",
+      "korean": "심란하다",
+      "currentLevel": "b2",
+      "packId": "b2_literature_emotion",
+      "topic": "Literatur und Gefühle",
+      "decision": "keep_current",
+      "category": "b2_language_literature_core",
+      "reason": "C5 low-confidence review: this is B2 language/literature core vocabulary in the live interpretive task. The C2 estimate comes only from basic2023 fallback, so keep the reviewed B2 owner while preserving the raw estimate."
+    },
+    {
+      "id": "vocab_b2_0415",
+      "korean": "문학성",
+      "currentLevel": "b2",
+      "packId": "b2_literature_emotion",
+      "topic": "Literatur und Gefühle",
+      "decision": "keep_current",
+      "category": "b2_language_literature_core",
+      "reason": "C5 low-confidence review: this is B2 language/literature core vocabulary in the live interpretive task. The C2 estimate comes only from basic2023 fallback, so keep the reviewed B2 owner while preserving the raw estimate."
+    },
+    {
+      "id": "vocab_b2_0423",
+      "korean": "소멸하다",
+      "currentLevel": "b2",
+      "packId": "b2_language_change",
+      "topic": "Sprache und Wandel",
+      "decision": "keep_current",
+      "category": "b2_language_literature_core",
+      "reason": "Reviewed as B2 language/literature vocabulary used for an explicit analysis task; domain-specific lexical difficulty is supported by the task and does not by itself require C2 ownership."
+    },
+    {
+      "id": "vocab_b2_0444",
+      "korean": "예식 날짜",
+      "currentLevel": "b2",
+      "packId": "b2_partner_marriage_talk_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b2_culture_specific",
+      "reason": "C5 low-confidence review: this is culture-specific B2 vocabulary needed to participate in the live family/ritual task. A low-confidence basic2023 C2 fallback is not sufficient evidence to move the owner; raw estimate remains visible."
+    },
+    {
+      "id": "vocab_b2_0446",
+      "korean": "혼수",
+      "currentLevel": "b2",
+      "packId": "b2_partner_marriage_talk_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b2_culture_specific",
+      "reason": "C5 low-confidence review: this is culture-specific B2 vocabulary needed to participate in the live family/ritual task. A low-confidence basic2023 C2 fallback is not sufficient evidence to move the owner; raw estimate remains visible."
+    },
+    {
+      "id": "vocab_b2_0450",
+      "korean": "예단",
+      "currentLevel": "b2",
+      "packId": "b2_partner_marriage_talk_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b2_culture_specific",
+      "reason": "C5 low-confidence review: this is culture-specific B2 vocabulary needed to participate in the live family/ritual task. A low-confidence basic2023 C2 fallback is not sufficient evidence to move the owner; raw estimate remains visible."
+    },
+    {
       "id": "vocab_b2_0470",
       "korean": "재배",
       "currentLevel": "b2",
@@ -466,6 +1006,46 @@
       "decision": "keep_current",
       "category": "b2_domain_core",
       "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0471",
+      "korean": "축문",
+      "currentLevel": "b2",
+      "packId": "b2_partner_ancestral_rite_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b2_culture_specific",
+      "reason": "C5 low-confidence review: this is culture-specific B2 vocabulary needed to participate in the live family/ritual task. A low-confidence basic2023 C2 fallback is not sufficient evidence to move the owner; raw estimate remains visible."
+    },
+    {
+      "id": "vocab_b2_0472",
+      "korean": "음복",
+      "currentLevel": "b2",
+      "packId": "b2_partner_ancestral_rite_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b2_culture_specific",
+      "reason": "C5 low-confidence review: this is culture-specific B2 vocabulary needed to participate in the live family/ritual task. A low-confidence basic2023 C2 fallback is not sufficient evidence to move the owner; raw estimate remains visible."
+    },
+    {
+      "id": "vocab_b2_0481",
+      "korean": "축의금",
+      "currentLevel": "b2",
+      "packId": "b2_partner_family_money_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b2_culture_specific",
+      "reason": "C5 low-confidence review: this is culture-specific B2 vocabulary needed to participate in the live family/ritual task. A low-confidence basic2023 C2 fallback is not sufficient evidence to move the owner; raw estimate remains visible."
+    },
+    {
+      "id": "vocab_b2_0482",
+      "korean": "부조",
+      "currentLevel": "b2",
+      "packId": "b2_partner_family_money_1",
+      "topic": "Partnerschaft & koreanische Familie",
+      "decision": "keep_current",
+      "category": "b2_culture_specific",
+      "reason": "C5 low-confidence review: this is culture-specific B2 vocabulary needed to participate in the live family/ritual task. A low-confidence basic2023 C2 fallback is not sufficient evidence to move the owner; raw estimate remains visible."
     },
     {
       "id": "vocab_b2_0483",
@@ -568,6 +1148,16 @@
       "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
     },
     {
+      "id": "vocab_b2_0558",
+      "korean": "알고리즘 추천",
+      "currentLevel": "b2",
+      "packId": "b2_media_literacy_1",
+      "topic": "Medienkompetenz",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "C5 low-confidence review: this is B2 domain-core vocabulary for a professional, civic, digital, or policy task. Domain specificity alone does not make the learner task C2; the only higher signal is low-confidence basic2023 fallback."
+    },
+    {
       "id": "vocab_b2_0562",
       "korean": "공유 보류",
       "currentLevel": "b2",
@@ -586,6 +1176,16 @@
       "decision": "keep_current",
       "category": "b2_domain_core",
       "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0570",
+      "korean": "표결 방식",
+      "currentLevel": "b2",
+      "packId": "b2_civic_meeting_1",
+      "topic": "Bürgerversammlung",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "C5 low-confidence review: this is B2 domain-core vocabulary for a professional, civic, digital, or policy task. Domain specificity alone does not make the learner task C2; the only higher signal is low-confidence basic2023 fallback."
     },
     {
       "id": "vocab_b2_0573",
@@ -638,6 +1238,16 @@
       "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
     },
     {
+      "id": "vocab_b2_0589",
+      "korean": "가정 명시",
+      "currentLevel": "b2",
+      "packId": "b2_policy_brief_1",
+      "topic": "Kurzlage",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "C5 low-confidence review: this is B2 domain-core vocabulary for a professional, civic, digital, or policy task. Domain specificity alone does not make the learner task C2; the only higher signal is low-confidence basic2023 fallback."
+    },
+    {
       "id": "vocab_b2_0593",
       "korean": "측정 지표",
       "currentLevel": "b2",
@@ -656,6 +1266,16 @@
       "decision": "keep_current",
       "category": "b2_domain_core",
       "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0597",
+      "korean": "근거 각주",
+      "currentLevel": "b2",
+      "packId": "b2_policy_brief_1",
+      "topic": "Kurzlage",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "C5 low-confidence review: this is B2 domain-core vocabulary for a professional, civic, digital, or policy task. Domain specificity alone does not make the learner task C2; the only higher signal is low-confidence basic2023 fallback."
     },
     {
       "id": "vocab_b2_0599",
@@ -686,6 +1306,16 @@
       "decision": "keep_current",
       "category": "b2_domain_core",
       "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
+    },
+    {
+      "id": "vocab_b2_0605",
+      "korean": "우회 채널",
+      "currentLevel": "b2",
+      "packId": "b2_customer_escalation_1",
+      "topic": "Eskalation",
+      "decision": "keep_current",
+      "category": "b2_domain_core",
+      "reason": "C5 low-confidence review: this is B2 domain-core vocabulary for a professional, civic, digital, or policy task. Domain specificity alone does not make the learner task C2; the only higher signal is low-confidence basic2023 fallback."
     },
     {
       "id": "vocab_b2_0610",
@@ -756,226 +1386,6 @@
       "decision": "keep_current",
       "category": "b2_domain_core",
       "reason": "Reviewed as B2 domain-core vocabulary for professional, civic, research, housing, policy, or culture tasks; domain specialization alone does not make the learner task C2."
-    },
-    {
-      "id": "vocab_b1_0079",
-      "korean": "식단",
-      "currentLevel": "b1",
-      "packId": "b1_health_education",
-      "topic": "Gesundheit",
-      "decision": "keep_current",
-      "category": "b1_practical_domain_core",
-      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
-    },
-    {
-      "id": "vocab_b1_0262",
-      "korean": "우선순위",
-      "currentLevel": "b1",
-      "packId": "b1_work_coordination_1",
-      "topic": "Arbeitskoordination & Termine",
-      "decision": "keep_current",
-      "category": "b1_practical_domain_core",
-      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
-    },
-    {
-      "id": "vocab_b1_0266",
-      "korean": "업무 분담",
-      "currentLevel": "b1",
-      "packId": "b1_work_coordination_1",
-      "topic": "Arbeitskoordination & Termine",
-      "decision": "keep_current",
-      "category": "b1_practical_domain_core",
-      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
-    },
-    {
-      "id": "vocab_b1_0286",
-      "korean": "원격 근무",
-      "currentLevel": "b1",
-      "packId": "b1_partner_job_visa_1",
-      "topic": "Partnerschaft & koreanische Familie",
-      "decision": "keep_current",
-      "category": "b1_practical_domain_core",
-      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
-    },
-    {
-      "id": "vocab_b1_0317",
-      "korean": "취중진담",
-      "currentLevel": "b1",
-      "packId": "b1_partner_drink_table_1",
-      "topic": "Partnerschaft & koreanische Familie",
-      "decision": "keep_current",
-      "category": "b1_culture_specific",
-      "reason": "Reviewed as a culture-specific B1 item whose meaning is explicitly taught in a bounded partner/family context; cultural specificity does not require moving the entire task to C2."
-    },
-    {
-      "id": "vocab_b1_0363",
-      "korean": "선물 분배",
-      "currentLevel": "b1",
-      "packId": "b1_partner_holiday_plan_1",
-      "topic": "Partnerschaft & koreanische Familie",
-      "decision": "keep_current",
-      "category": "b1_practical_domain_core",
-      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
-    },
-    {
-      "id": "vocab_b1_0366",
-      "korean": "일정표 공유",
-      "currentLevel": "b1",
-      "packId": "b1_partner_holiday_plan_1",
-      "topic": "Partnerschaft & koreanische Familie",
-      "decision": "keep_current",
-      "category": "b1_practical_domain_core",
-      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
-    },
-    {
-      "id": "vocab_b1_0376",
-      "korean": "후속 메일",
-      "currentLevel": "b1",
-      "packId": "b1_workplace_mail_1",
-      "topic": "Dienstmail",
-      "decision": "keep_current",
-      "category": "b1_practical_domain_core",
-      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
-    },
-    {
-      "id": "vocab_b1_0377",
-      "korean": "내부망",
-      "currentLevel": "b1",
-      "packId": "b1_workplace_mail_1",
-      "topic": "Dienstmail",
-      "decision": "keep_current",
-      "category": "b1_practical_domain_core",
-      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
-    },
-    {
-      "id": "vocab_b1_0398",
-      "korean": "청구 서류",
-      "currentLevel": "b1",
-      "packId": "b1_insurance_claim_1",
-      "topic": "Versicherungsfall",
-      "decision": "keep_current",
-      "category": "b1_practical_domain_core",
-      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
-    },
-    {
-      "id": "vocab_b1_0401",
-      "korean": "사고 경위",
-      "currentLevel": "b1",
-      "packId": "b1_insurance_claim_1",
-      "topic": "Versicherungsfall",
-      "decision": "keep_current",
-      "category": "b1_practical_domain_core",
-      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
-    },
-    {
-      "id": "vocab_b1_0436",
-      "korean": "준비물 분담",
-      "currentLevel": "b1",
-      "packId": "b1_parent_school_1",
-      "topic": "Elterngespräch",
-      "decision": "keep_current",
-      "category": "b1_practical_domain_core",
-      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
-    },
-    {
-      "id": "vocab_b1_0446",
-      "korean": "임시 조치",
-      "currentLevel": "b1",
-      "packId": "b1_repair_words_1",
-      "topic": "Reparaturwortschatz",
-      "decision": "keep_current",
-      "category": "b1_practical_domain_core",
-      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
-    },
-    {
-      "id": "vocab_b1_0454",
-      "korean": "수수료 면제",
-      "currentLevel": "b1",
-      "packId": "b1_travel_change_1",
-      "topic": "Reiseänderung",
-      "decision": "keep_current",
-      "category": "b1_practical_domain_core",
-      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
-    },
-    {
-      "id": "vocab_b1_0457",
-      "korean": "탑승 마감",
-      "currentLevel": "b1",
-      "packId": "b1_travel_change_1",
-      "topic": "Reiseänderung",
-      "decision": "keep_current",
-      "category": "b1_practical_domain_core",
-      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
-    },
-    {
-      "id": "vocab_b1_0459",
-      "korean": "좌석 재배정",
-      "currentLevel": "b1",
-      "packId": "b1_travel_change_1",
-      "topic": "Reiseänderung",
-      "decision": "keep_current",
-      "category": "b1_practical_domain_core",
-      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
-    },
-    {
-      "id": "vocab_b1_0461",
-      "korean": "출발 지연",
-      "currentLevel": "b1",
-      "packId": "b1_travel_change_1",
-      "topic": "Reiseänderung",
-      "decision": "keep_current",
-      "category": "b1_practical_domain_core",
-      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
-    },
-    {
-      "id": "vocab_b1_0477",
-      "korean": "업무 인수인계",
-      "currentLevel": "b1",
-      "packId": "b1_work_entry_2026_1",
-      "topic": "취업과 근무 조건",
-      "decision": "keep_current",
-      "category": "b1_practical_domain_core",
-      "reason": "Reviewed as practical B1 work/family/travel/repair vocabulary needed to complete the live task; the higher general-literacy estimate is retained as evidence but does not override the task owner."
-    },
-    {
-      "id": "vocab_b2_0253",
-      "korean": "어감",
-      "currentLevel": "b2",
-      "packId": "b2_language_society_1",
-      "topic": "Sprache & Gesellschaft",
-      "decision": "keep_current",
-      "category": "b2_language_literature_core",
-      "reason": "Reviewed as B2 language/literature vocabulary used for an explicit analysis task; domain-specific lexical difficulty is supported by the task and does not by itself require C2 ownership."
-    },
-    {
-      "id": "vocab_b2_0258",
-      "korean": "비속어",
-      "currentLevel": "b2",
-      "packId": "b2_language_society_1",
-      "topic": "Sprache & Gesellschaft",
-      "decision": "keep_current",
-      "category": "b2_language_literature_core",
-      "reason": "Reviewed as B2 language/literature vocabulary used for an explicit analysis task; domain-specific lexical difficulty is supported by the task and does not by itself require C2 ownership."
-    },
-    {
-      "id": "vocab_b2_0411",
-      "korean": "서정적이다",
-      "currentLevel": "b2",
-      "packId": "b2_literature_emotion",
-      "topic": "Literatur und Gefühle",
-      "decision": "keep_current",
-      "category": "b2_language_literature_core",
-      "reason": "Reviewed as B2 language/literature vocabulary used for an explicit analysis task; domain-specific lexical difficulty is supported by the task and does not by itself require C2 ownership."
-    },
-    {
-      "id": "vocab_b2_0423",
-      "korean": "소멸하다",
-      "currentLevel": "b2",
-      "packId": "b2_language_change",
-      "topic": "Sprache und Wandel",
-      "decision": "keep_current",
-      "category": "b2_language_literature_core",
-      "reason": "Reviewed as B2 language/literature vocabulary used for an explicit analysis task; domain-specific lexical difficulty is supported by the task and does not by itself require C2 ownership."
     }
   ]
 }

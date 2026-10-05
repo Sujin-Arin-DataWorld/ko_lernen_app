@@ -8,7 +8,7 @@
       "replacement_backlog": 0,
       "reviewed_owner": 0,
       "total": 2365,
-      "under2": 461,
+      "under2": 460,
       "unknown": 0
     },
     "grammar": {
@@ -24,7 +24,7 @@
     },
     "media": {
       "accepted_relevel": 0,
-      "fallback_over2": 1,
+      "fallback_over2": 0,
       "over1": 23,
       "over2": 0,
       "replacement_backlog": 0,
@@ -68,7 +68,7 @@
     },
     "smalltalk": {
       "accepted_relevel": 0,
-      "fallback_over2": 1,
+      "fallback_over2": 0,
       "over1": 97,
       "over2": 0,
       "replacement_backlog": 0,
@@ -79,11 +79,11 @@
     },
     "vocab": {
       "accepted_relevel": 59,
-      "fallback_over2": 45,
+      "fallback_over2": 0,
       "over1": 313,
       "over2": 0,
       "replacement_backlog": 15,
-      "reviewed_owner": 97,
+      "reviewed_owner": 138,
       "total": 2968,
       "under2": 227,
       "unknown": 58
@@ -103,9 +103,9 @@
       "total_unique": 1068
     },
     "grade3": {
-      "at_level": 162,
-      "missing": 1244,
-      "present_in_app": 310,
+      "at_level": 164,
+      "missing": 1242,
+      "present_in_app": 312,
       "total_unique": 1554
     },
     "grade4": {

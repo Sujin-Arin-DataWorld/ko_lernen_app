@@ -53790,7 +53790,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b1_insurance_claim_1",
         "sourceVocabId": "vocab_b1_0397",
-        "sourceVocabFingerprintSha256": "b7ed194d7392720e02a37931e103cef5eb07eed2009b44bc4323655328f9344f",
+        "sourceVocabFingerprintSha256": "d15e478b6dabaf20c5fa7820c45e6c4a5bf8a1d85904d69379ccde908a7caf50",
         "level": "b1",
         "canDoSegmentId": "segment_b1_delivery_resolution",
         "courseUnitId": "b1_05_complaint_resolution"
@@ -53834,7 +53834,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b1_insurance_claim_1",
         "sourceVocabId": "vocab_b1_0402",
-        "sourceVocabFingerprintSha256": "130983e0548e2828bbee18b94e0189529c3b12721b7419894be216e31db4e844",
+        "sourceVocabFingerprintSha256": "382c5cefff99ad4a801ce4202ba876816af36cecb86d425dfb7cdea989964275",
         "level": "b1",
         "canDoSegmentId": "segment_b1_delivery_resolution",
         "courseUnitId": "b1_05_complaint_resolution"
@@ -53911,7 +53911,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b1_volunteer_shift_1",
         "sourceVocabId": "vocab_b1_0421",
-        "sourceVocabFingerprintSha256": "5f53f357191958f02360c57e0ced4e74d5fccae81dc27a8133bb0e1997853e44",
+        "sourceVocabFingerprintSha256": "e0555645b3a01b1d98cb9acc1a3f000a54a5ac7805aa99f599f7f2dd18c92116",
         "level": "b1",
         "canDoSegmentId": "segment_b1_life_course_narrative",
         "courseUnitId": "b1_06_life_capstone"
@@ -58520,7 +58520,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b1_insurance_claim_1",
         "sourceVocabId": "vocab_b1_0397",
-        "sourceVocabFingerprintSha256": "b7ed194d7392720e02a37931e103cef5eb07eed2009b44bc4323655328f9344f",
+        "sourceVocabFingerprintSha256": "d15e478b6dabaf20c5fa7820c45e6c4a5bf8a1d85904d69379ccde908a7caf50",
         "level": "b1",
         "canDoSegmentId": "segment_b1_delivery_resolution",
         "courseUnitId": "b1_05_complaint_resolution"
@@ -58542,7 +58542,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b1_insurance_claim_1",
         "sourceVocabId": "vocab_b1_0399",
-        "sourceVocabFingerprintSha256": "d4b2f02d37f27b981a4fbb2c3d6b33c1d9dc75b18ea17983cdc0945c128f8a18",
+        "sourceVocabFingerprintSha256": "d7d53d042929a57799238f74eafa925a6c3631e07527f043804ce3a63f2a2696",
         "level": "b1",
         "canDoSegmentId": "segment_b1_delivery_resolution",
         "courseUnitId": "b1_05_complaint_resolution"
@@ -58575,7 +58575,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b1_insurance_claim_1",
         "sourceVocabId": "vocab_b1_0402",
-        "sourceVocabFingerprintSha256": "130983e0548e2828bbee18b94e0189529c3b12721b7419894be216e31db4e844",
+        "sourceVocabFingerprintSha256": "382c5cefff99ad4a801ce4202ba876816af36cecb86d425dfb7cdea989964275",
         "level": "b1",
         "canDoSegmentId": "segment_b1_delivery_resolution",
         "courseUnitId": "b1_05_complaint_resolution"
@@ -58652,7 +58652,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b1_volunteer_shift_1",
         "sourceVocabId": "vocab_b1_0421",
-        "sourceVocabFingerprintSha256": "5f53f357191958f02360c57e0ced4e74d5fccae81dc27a8133bb0e1997853e44",
+        "sourceVocabFingerprintSha256": "e0555645b3a01b1d98cb9acc1a3f000a54a5ac7805aa99f599f7f2dd18c92116",
         "level": "b1",
         "canDoSegmentId": "segment_b1_life_course_narrative",
         "courseUnitId": "b1_06_life_capstone"

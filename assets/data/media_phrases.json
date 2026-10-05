@@ -239,7 +239,7 @@
     },
     {
       "id": "media_015",
-      "level": "A1",
+      "level": "A2",
       "korean": "포기하지 마",
       "romanization": "pogihaji ma",
       "german": "Gib nicht auf",
@@ -248,8 +248,10 @@
       "source_style": "힙합 응원",
       "grammar_ids": [],
       "vocab_ids": [],
-      "courseUnitId": "a1_12_daily_negation",
-      "conceptIds": [],
+      "courseUnitId": "a2_04_feelings_health",
+      "conceptIds": [
+        "concept_a2_feelings"
+      ],
       "context_de": "Durchhaltevermögen und Mut zusprechen",
       "context_en": "Encouraging persistence"
     },

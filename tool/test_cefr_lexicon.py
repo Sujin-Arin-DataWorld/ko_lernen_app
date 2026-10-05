@@ -544,6 +544,16 @@ class TestRealLexiconGoldenCases(unittest.TestCase):
         self.assertEqual(sp.unknown, ())
         self.assertEqual(self.lex.word_grade("이게").grade, 1)
 
+    def test_topic_contractions_igeon_geugeon_jeogeon_are_a1(self) -> None:
+        # 이건/그건/저건 are 이것은/그것은/저것은, not unrelated
+        # high-register/basic2023 homographs. The shopping reply
+        # "이건 어떠세요?" must therefore not inherit a C2 lexical burden.
+        for surface in ("이건", "그건", "저건"):
+            with self.subTest(surface=surface):
+                self.assertEqual(self.lex.word_grade(surface).grade, 1)
+        profile = self.lex.sentence_profile("이건 어떠세요?", self.grammar)
+        self.assertEqual(profile.level_estimate, "A1")
+
     def test_sentence_profile_gamgie_geollyeoseo(self):
         sentence = "감기에 걸려서 축제에 못 갔어요."
         sp = self.lex.sentence_profile(sentence, self.grammar)

@@ -946,6 +946,7 @@ PRONOUN_CONTRACTION_MAP: Mapping[str, str] = {
     "거": "것", "걸": "것", "걸로": "것",
     "이거": "이것", "그거": "그것", "저거": "저것",
     "이게": "이것", "그게": "그것", "저게": "저것",
+    "이건": "이것", "그건": "그것", "저건": "저것",
     "뭘": "뭐",
     # C3-T3 (2026-09-16, Fable review of #352): "누가" (who + subject
     # particle 가) is not a casual shortcut -- it is the ONLY natural

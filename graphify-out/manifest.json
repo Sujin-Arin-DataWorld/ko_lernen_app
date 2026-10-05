@@ -8196,9 +8196,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791214713.4362502,
-    "seen": 1791214932.0403059,
-    "ast_hash": "0c4e75b7efce591aaab865722c85fb14",
+    "mtime": 1791217059.7231796,
+    "seen": 1791217327.1353216,
+    "ast_hash": "269173aff61616551e36e5e456b0e81d",
     "semantic_hash": ""
   },
   "BETA_INSTALL_GUIDE.md": {
@@ -14592,9 +14592,9 @@
     "semantic_hash": ""
   },
   "tool/content_level_summary.json": {
-    "mtime": 1791214336.7731652,
-    "seen": 1791214357.1862423,
-    "ast_hash": "baff12924820417446e10d38906d61ae",
+    "mtime": 1791216970.8060315,
+    "seen": 1791217326.8945014,
+    "ast_hash": "af02307b61544d690c2f1485bf2f7524",
     "semantic_hash": ""
   },
   "tool/ingest_nikl_grade_lists.py": {
@@ -14604,9 +14604,9 @@
     "semantic_hash": ""
   },
   "tool/test_audit_content_levels.py": {
-    "mtime": 1791214667.4784555,
-    "seen": 1791214931.8112774,
-    "ast_hash": "d779cece362dd5d49e08a4b92097c389",
+    "mtime": 1791216823.2345536,
+    "seen": 1791217326.9183724,
+    "ast_hash": "1e5e692c0f419f1019b678fbcc9a17b0",
     "semantic_hash": ""
   },
   "tool/test_audit_loanword_spelling.py": {
@@ -14664,9 +14664,9 @@
     "semantic_hash": ""
   },
   "docs/data/content_level_report.md": {
-    "mtime": 1791214336.7831922,
-    "seen": 1791214357.4487376,
-    "ast_hash": "61ce22ef000e4a898c90d87e562b50ac",
+    "mtime": 1791216970.8156836,
+    "seen": 1791217327.1663349,
+    "ast_hash": "0edfcc66e8f87fb218a73f0ed1d15186",
     "semantic_hash": ""
   },
   "docs/data/level_bible/F10_review_lessons.md": {
@@ -14928,9 +14928,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/relevel/replacement_backlog.json": {
-    "mtime": 1791214315.1174538,
-    "seen": 1791214357.3235607,
-    "ast_hash": "ea92041c90a6a03f72813e914421bf1c",
+    "mtime": 1791216746.988364,
+    "seen": 1791217327.0414026,
+    "ast_hash": "5b6d3aea4fdff2b9dc3f87ae2382aafe",
     "semantic_hash": ""
   },
   "tools/content_factory/relevel_bundle.py": {
@@ -21546,9 +21546,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/reconcile_promoted_copy_revisions.py": {
-    "mtime": 1791155117.1481545,
-    "seen": 1791162436.0437357,
-    "ast_hash": "785a56cca437b1438ed334adbb214a0f",
+    "mtime": 1791215057.7435453,
+    "seen": 1791217327.0389254,
+    "ast_hash": "e31d3e461b3e523126273b7bd26cf038",
     "semantic_hash": ""
   },
   "tools/content_factory/review/promoted_editorial_successor_amendments_20261003.json": {
@@ -21564,9 +21564,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/test_reconcile_promoted_copy_revisions.py": {
-    "mtime": 1791155117.6426156,
-    "seen": 1791162436.0444245,
-    "ast_hash": "9107d3325296573481a86881a66be4a8",
+    "mtime": 1791215094.4813273,
+    "seen": 1791217327.1048615,
+    "ast_hash": "333ccb4d459b1121a8c390fcffdbdcbd",
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-10-03-hahoe-dokkaebi-practice.md": {
@@ -22212,9 +22212,9 @@
     "semantic_hash": ""
   },
   "docs/plans/2026-10-05-culture-quality-followups.md": {
-    "mtime": 1791214709.1483362,
-    "seen": 1791214932.103363,
-    "ast_hash": "0c45d50b9a12fe42e4febd1a9d30c222",
+    "mtime": 1791217031.989905,
+    "seen": 1791217327.1928296,
+    "ast_hash": "9f80ddae9912d16f407033ed230387ed",
     "semantic_hash": ""
   },
   "tools/content_factory/relevel/relevel_bundle_V2G2.json": {
@@ -22257,6 +22257,18 @@
     "mtime": 1791214315.1163063,
     "seen": 1791214357.3235643,
     "ast_hash": "62f8a00fee5a175488e5f207bd894346",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/lcp_c4_highlevel_coverage_rehomes_20261005.json": {
+    "mtime": 1791216943.0200455,
+    "seen": 1791217327.0863163,
+    "ast_hash": "242815da3e6bbed1b45995b82a53e3fb",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/lcp_c4_replacement_anchor_map_20261005.json": {
+    "mtime": 1791215583.0607817,
+    "seen": 1791217327.0863197,
+    "ast_hash": "f17d22ec1251914ec954b11942af8cd9",
     "semantic_hash": ""
   }
 }

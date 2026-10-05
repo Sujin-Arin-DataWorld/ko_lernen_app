@@ -1265,11 +1265,11 @@ class LiveRatchetTest(unittest.TestCase):
     # satz_a1_0023) plus this PR's own cloze_a1_0597/satz_a1_0578
     # (에어컨을 켜요), so both actuals are genuinely 0, not padded.
     CAP_FALLBACK_OVER2 = {
-        "vocab": 45, "grammar": 0, "scenario": 0, "cloze": 0,
-        "satz": 0, "smalltalk": 1, "pronunciation": 0, "media": 1,
+        "vocab": 0, "grammar": 0, "scenario": 0, "cloze": 0,
+        "satz": 0, "smalltalk": 0, "pronunciation": 0, "media": 0,
     }
     CAP_REPLACEMENT_BACKLOG = 15
-    REVIEWED_OWNER_EXPECTED = 97
+    REVIEWED_OWNER_EXPECTED = 138
     # 2026-10-05 Stage C-1: coverage is now measured for all six NIKL
     # grades. These are lower-only missing caps and upper-only at-level
     # floors. A content change must not make a grade less represented merely
@@ -1277,7 +1277,7 @@ class LiveRatchetTest(unittest.TestCase):
     CAP_COVERAGE_MISSING = {
         "grade1": 1,
         "grade2": 656,
-        "grade3": 1244,
+        "grade3": 1242,
         "grade4": 1813,
         "grade5": 2017,
         "grade6": 2350,
@@ -1285,7 +1285,7 @@ class LiveRatchetTest(unittest.TestCase):
     MIN_COVERAGE_AT_LEVEL = {
         "grade1": 596,
         "grade2": 206,
-        "grade3": 162,
+        "grade3": 164,
         "grade4": 148,
         "grade5": 27,
         "grade6": 49,
