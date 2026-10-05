@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "programId": "living_korea_2025_2026",
+  "wave": "first_wave",
+  "status": "REVIEW_READY_NOT_LIVE",
+  "snapshotDate": "2026-10-05",
+  "researchWindow": {
+    "start": "2025-10-05",
+    "end": "2026-10-05"
+  },
+  "artifacts": {
+    "plan": "docs/plans/2026-10-05-living-korea-2025-2026.md",
+    "personaCanon": "tools/content_factory/canonical_scenarios/character_profiles.json",
+    "topicRegistry": "tools/content_factory/canonical_scenarios/contemporary_korea_topics_20251005_20261005.json",
+    "sceneDraft": "tools/content_factory/drafts/living_korea_scene_first_drafts_20261005.json",
+    "languageMining": "tools/content_factory/review/living_korea_language_mining_20261005.json",
+    "lcpAudit": "tools/content_factory/review/living_korea_lcp_audit_20261005.json",
+    "cultureCards": "tools/content_factory/drafts/living_korea_culture_cards_20261005.json",
+    "crossPersonaArcs": "tools/content_factory/review/living_korea_cross_persona_arcs_20261005.json"
+  },
+  "counts": {
+    "canonicalPersonas": 11,
+    "frozenTopics": 11,
+    "personaAssignments": 11,
+    "firstWaveArcs": 3,
+    "firstWaveScenes": 9,
+    "dialogueTurns": 54,
+    "cultureCards": 4,
+    "minedVocabularyTargets": 68,
+    "minedGrammarTargets": 49,
+    "minedPragmaticExpressions": 27,
+    "registerMarkers": 18
+  },
+  "d4Exit": {
+    "sentenceUnknown": 0,
+    "minedVocabUnknown": 0,
+    "minedVocabOver2": 0,
+    "maxSentenceLevelDelta": 1,
+    "globalClozeUnknown": 278,
+    "globalClozeTokenCount": 14721,
+    "globalClozeUnknownRatchet": 0.0189
+  },
+  "scopeBoundaries": {
+    "ttsOwnedByJin": true,
+    "ttsTouched": false,
+    "liveScenarioWritePerformed": false,
+    "masteryOwnershipChanged": false,
+    "rewardOwnershipChanged": false,
+    "humanLanguageApprovalClaimed": false,
+    "nativeSpeakerQaClaimed": false,
+    "securityContentDefensiveOnly": true
+  },
+  "reviewState": {
+    "koreanDialogue": "MODEL_AUTHORED_REVIEW_READY",
+    "deLocalization": "NOT_STARTED",
+    "enLocalization": "NOT_STARTED",
+    "livePromotion": "BLOCKED_ON_EXPLICIT_REVIEW",
+    "nextExpansion": "After first-wave review, author additional arcs for the remaining persona/topic assignments, especially Hyuna and Lena plus work-hours, demography, small-business, tourism, Hallyu, APEC, and heatwave themes."
+  },
+  "dependency": {
+    "basePullRequest": 449,
+    "reason": "Living Korea branch is stacked on the culture-world/LCP branch. Keep review separate until PR #449 is merged or use a stacked PR base."
+  }
+}
