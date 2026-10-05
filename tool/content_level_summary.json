@@ -3,12 +3,12 @@
     "cloze": {
       "accepted_relevel": 0,
       "fallback_over2": 0,
-      "over1": 153,
+      "over1": 152,
       "over2": 0,
       "replacement_backlog": 0,
       "reviewed_owner": 0,
       "total": 2365,
-      "under2": 467,
+      "under2": 463,
       "unknown": 0
     },
     "grammar": {
@@ -47,12 +47,12 @@
     "satz": {
       "accepted_relevel": 0,
       "fallback_over2": 0,
-      "over1": 151,
+      "over1": 150,
       "over2": 0,
       "replacement_backlog": 0,
       "reviewed_owner": 0,
       "total": 2885,
-      "under2": 653,
+      "under2": 648,
       "unknown": 0
     },
     "scenario": {
@@ -86,7 +86,7 @@
       "reviewed_owner": 146,
       "total": 2968,
       "under2": 229,
-      "unknown": 55
+      "unknown": 46
     }
   },
   "coverage": {
@@ -218,30 +218,30 @@
         },
         {
           "median": 0.0,
-          "n_hm": 10,
+          "n_hm": 12,
           "n_low": 0,
           "pack_id": "a2_gym_class_1",
-          "share_ge_plus2": 0.2
+          "share_ge_plus2": 0.1667
         },
         {
-          "median": 0.5,
-          "n_hm": 10,
+          "median": 0.0,
+          "n_hm": 12,
           "n_low": 0,
           "pack_id": "a2_salon_visit_1",
-          "share_ge_plus2": 0.2
-        },
-        {
-          "median": 0,
-          "n_hm": 9,
-          "n_low": 2,
-          "pack_id": "a2_school_supplies_1",
-          "share_ge_plus2": 0.1111
+          "share_ge_plus2": 0.1667
         },
         {
           "median": 0.0,
           "n_hm": 10,
           "n_low": 0,
           "pack_id": "a2_partner_photo_thanks_1",
+          "share_ge_plus2": 0.1
+        },
+        {
+          "median": 0.0,
+          "n_hm": 10,
+          "n_low": 2,
+          "pack_id": "a2_school_supplies_1",
           "share_ge_plus2": 0.1
         },
         {

@@ -726,7 +726,7 @@ class TestVocabUnknownRatio(unittest.TestCase):
     ratchet to the current 2026-10-05 actual (~2.36%).
     """
 
-    CAP_UNKNOWN_RATIO = 0.023
+    CAP_UNKNOWN_RATIO = 0.020
 
     @classmethod
     def setUpClass(cls):
@@ -763,7 +763,7 @@ class TestSentenceUnknownRatio(unittest.TestCase):
     ratchet to the current 2026-10-05 actual (~2.58%).
     """
 
-    CAP_UNKNOWN_RATIO = 0.0253
+    CAP_UNKNOWN_RATIO = 0.0245
 
     @classmethod
     def setUpClass(cls):

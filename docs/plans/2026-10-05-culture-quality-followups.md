@@ -377,9 +377,29 @@ Measured effect:
 - vocab unknown ratchet tightened to **2.3%**
 - sentence unknown ratchet tightened to **2.53%**
 
-Next C-7 substage: classify transparent loanwords, compositional compounds,
-and true domain-lexicon gaps separately; do not manufacture levels merely to
-erase unknowns.
+#### C-7.2b — transparent loanword policy completion
+
+Status: **complete**
+
+Extended the existing learner-language-transparent loanword exception policy
+only to currently live, clearly recognizable task vocabulary:
+- A2: `화이트보드`, `러닝머신`, `락커`, `펌`, `트리트먼트`
+- B1: `로밍`, `팔로워`, `업로드하다`, `부스`
+
+These use the same policy already established for `스트레칭`, `트레이너`,
+`파일`, `이메일`, etc.; no Fable approval is retroactively claimed for
+the new rows. Their note records delegated LCP PM review instead.
+
+Measured effect:
+- vocab unknown headwords: **67 → 58**
+- vocab unknown ratio: **2.26% → 1.95%**
+- sentence unknown tokens: **371 → 359**
+- sentence unknown ratio: **2.52% → 2.44%**
+- vocab unknown ratchet tightened to **2.0%**
+- sentence unknown ratchet tightened to **2.45%**
+
+Next C-7 substage: separate compositional compounds from true domain-lexicon
+gaps and learner-facing replacement candidates.
 
 Never raise a ratchet merely to make the suite green.
 
