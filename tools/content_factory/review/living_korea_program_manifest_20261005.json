@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "programId": "living_korea_2025_2026",
-  "status": "ALL_TOPICS_REVIEW_READY_NOT_LIVE",
+  "status": "KO_USER_REVIEWED_NOT_LIVE",
   "snapshotDate": "2026-10-05",
   "researchWindow": {
     "start": "2025-10-05",
@@ -14,7 +14,7 @@
       "lcpAudit": "tools/content_factory/review/living_korea_lcp_audit_20261005.json",
       "cultureCards": "tools/content_factory/drafts/living_korea_culture_cards_20261005.json",
       "crossPersonaArcs": "tools/content_factory/review/living_korea_cross_persona_arcs_20261005.json",
-      "reviewState": "USER_REVIEWED_5_ACCEPTED_4_REVISED_PENDING_FINAL_CONFIRMATION"
+      "reviewState": "USER_REVIEWED_CURRENT_COPY_ACCEPTED_2026-10-06"
     },
     "second": {
       "sceneDraft": "tools/content_factory/drafts/living_korea_second_wave_scene_first_drafts_20261005.json",
@@ -22,7 +22,7 @@
       "lcpAudit": "tools/content_factory/review/living_korea_second_wave_lcp_audit_20261005.json",
       "cultureCards": "tools/content_factory/drafts/living_korea_second_wave_culture_cards_20261005.json",
       "crossPersonaArcs": "tools/content_factory/review/living_korea_second_wave_cross_persona_arcs_20261005.json",
-      "reviewState": "MODEL_AUTHORED_PENDING_USER_REVIEW"
+      "reviewState": "USER_REVIEWED_CURRENT_COPY_ACCEPTED_2026-10-06"
     }
   },
   "canonicalSources": {
@@ -81,13 +81,14 @@
     "liveScenarioWritePerformed": false,
     "masteryOwnershipChanged": false,
     "rewardOwnershipChanged": false,
-    "secondWaveHumanLanguageApprovalClaimed": false,
+    "secondWaveHumanLanguageApprovalClaimed": true,
     "nativeSpeakerQaClaimed": false,
     "securityContentDefensiveOnly": true,
     "politicalPersuasion": false,
     "dialogueAuthoringContractRequired": true,
     "relationshipFirstAuthoringRequired": true,
-    "languageMiningAfterDialogueRequired": true
+    "languageMiningAfterDialogueRequired": true,
+    "displayAndSpokenTtsSurfaceSeparated": true
   },
   "validation": {
     "combinedRelevantTestsPassed": 277,
@@ -95,8 +96,8 @@
     "nonGraphifyDiffCheckPassed": true
   },
   "next": {
-    "required": "User review of the 14 second-wave Korean scenes, then DE/EN localization and explicit promotion decision.",
-    "optional": "After approval, derive scenario/listening/culture-link integration artifacts without changing TTS ownership."
+    "required": "Build the 32-topic KO/EN/DE native-usage corpus to localization-ready depth, then author DE/EN independently from the frozen Korean copy and make an explicit live-promotion decision.",
+    "optional": "After DE/EN localization and release QA, derive scenario/listening/culture-link integration artifacts without changing TTS ownership."
   },
   "dependency": {
     "basePullRequest": 449,

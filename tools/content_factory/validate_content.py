@@ -281,6 +281,28 @@ class ContentValidator:
             self.issue(source, "dialogue contract must enforce relationshipBeforeTopic")
         if not contract.get("principles", {}).get("languageMiningAfterDialogue"):
             self.issue(source, "dialogue contract must enforce languageMiningAfterDialogue")
+        tts_policy = contract.get("ttsSurfacePolicy")
+        if not isinstance(tts_policy, dict):
+            self.issue(source, "dialogue contract must define ttsSurfacePolicy")
+        else:
+            if not tts_policy.get("displayAndSpeechAreDifferentSurfaces"):
+                self.issue(
+                    source,
+                    "ttsSurfacePolicy must separate display and spoken surfaces",
+                )
+            if tts_policy.get("ttsOwnership") != "Jin":
+                self.issue(source, "ttsSurfacePolicy must keep TTS ownership with Jin")
+            if tts_policy.get("ttsGenerationInContentFactory"):
+                self.issue(
+                    source,
+                    "content factory must not generate/overwrite TTS",
+                )
+            markers = tts_policy.get("displayOnlyMarkers")
+            if not isinstance(markers, list) or "ㅋㅋ" not in markers or "ㅎㅎ" not in markers:
+                self.issue(
+                    source,
+                    "ttsSurfacePolicy must classify ㅋㅋ/ㅎㅎ as display-only markers",
+                )
 
         drafts_dir = self.root / "tools" / "content_factory" / "drafts"
         governed: list[Path] = []

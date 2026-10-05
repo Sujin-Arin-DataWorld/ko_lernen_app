@@ -95,6 +95,16 @@ class DialogueAuthoringContractTest(unittest.TestCase):
         self.assertIn("현재 연애 시점에서는 서로 반말", sujin_christian["registerKo"])
         self.assertIn("사적 대화에서는 서로 반말", andrea_minho["registerKo"])
 
+    def test_tts_surface_policy_separates_display_laughter_from_spoken_text(self) -> None:
+        policy = self.contract["ttsSurfacePolicy"]
+        self.assertTrue(policy["displayAndSpeechAreDifferentSurfaces"])
+        self.assertEqual(policy["ttsOwnership"], "Jin")
+        self.assertFalse(policy["ttsGenerationInContentFactory"])
+        self.assertIn("ㅋㅋ", policy["displayOnlyMarkers"])
+        self.assertIn("ㅎㅎ", policy["displayOnlyMarkers"])
+        self.assertIn("must never be synthesized literally", policy["defaultRule"])
+        self.assertIn("spoken-surface", policy["releaseGate"])
+
     def test_human_beat_policy_requires_relationship_texture_not_random_jokes(self) -> None:
         policy = self.contract["humanBeatPolicy"]
         self.assertTrue(policy["required"])

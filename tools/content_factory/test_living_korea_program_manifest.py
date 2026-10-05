@@ -31,11 +31,11 @@ class LivingKoreaProgramManifestTest(unittest.TestCase):
             )
         )
 
-    def test_program_is_review_ready_not_live(self) -> None:
+    def test_program_is_user_reviewed_not_live(self) -> None:
         self.assertEqual(self.manifest["schemaVersion"], 1)
         self.assertEqual(
             self.manifest["status"],
-            "ALL_TOPICS_REVIEW_READY_NOT_LIVE",
+            "KO_USER_REVIEWED_NOT_LIVE",
         )
         scope = self.manifest["scopeBoundaries"]
         self.assertTrue(scope["ttsOwnedByJin"])
@@ -43,19 +43,21 @@ class LivingKoreaProgramManifestTest(unittest.TestCase):
         self.assertFalse(scope["liveScenarioWritePerformed"])
         self.assertFalse(scope["masteryOwnershipChanged"])
         self.assertFalse(scope["rewardOwnershipChanged"])
-        self.assertFalse(scope["secondWaveHumanLanguageApprovalClaimed"])
+        self.assertTrue(scope["secondWaveHumanLanguageApprovalClaimed"])
         self.assertFalse(scope["nativeSpeakerQaClaimed"])
         self.assertTrue(scope["securityContentDefensiveOnly"])
         self.assertFalse(scope["politicalPersuasion"])
+        self.assertTrue(scope["displayAndSpokenTtsSurfaceSeparated"])
 
-    def test_first_wave_reviewed_second_wave_pending_review(self) -> None:
+    def test_both_waves_record_current_user_review_acceptance(self) -> None:
+        expected = "USER_REVIEWED_CURRENT_COPY_ACCEPTED_2026-10-06"
         self.assertEqual(
             self.manifest["waves"]["first"]["reviewState"],
-            "USER_REVIEWED_5_ACCEPTED_4_REVISED_PENDING_FINAL_CONFIRMATION",
+            expected,
         )
         self.assertEqual(
             self.manifest["waves"]["second"]["reviewState"],
-            "MODEL_AUTHORED_PENDING_USER_REVIEW",
+            expected,
         )
 
     def test_program_counts_reproduce_from_wave_artifacts(self) -> None:
@@ -201,7 +203,8 @@ class LivingKoreaProgramManifestTest(unittest.TestCase):
         dependency = self.manifest["dependency"]
         self.assertEqual(dependency["basePullRequest"], 449)
         self.assertEqual(dependency["featurePullRequest"], 450)
-        self.assertIn("User review", self.manifest["next"]["required"])
+        self.assertIn("32-topic KO/EN/DE native-usage corpus", self.manifest["next"]["required"])
+        self.assertIn("live-promotion", self.manifest["next"]["required"])
 
 
 if __name__ == "__main__":

@@ -41,6 +41,18 @@
       "forbiddenPrivatePattern": "Do not make the couple use serial 존댓말 simply because they are discussing work or schedules."
     }
   },
+  "ttsSurfacePolicy": {
+    "displayAndSpeechAreDifferentSurfaces": true,
+    "ttsOwnership": "Jin",
+    "ttsGenerationInContentFactory": false,
+    "defaultRule": "Display-only paralinguistic markers such as ㅋㅋ/ㅎㅎ must never be synthesized literally as Korean letter names/syllables.",
+    "displayOnlyMarkers": ["ㅋㅋ", "ㅎㅎ", "ㅋㅋㅋ", "ㅎㅎㅎ"],
+    "spokenSurfaceDefault": "Omit pure chat-laughter markers from spoken text when the humor or warmth is already carried by wording and delivery.",
+    "spokenLaughterException": "If audible laughter is semantically important, author it explicitly as a separate performance direction or natural laugh event; do not convert ㅋㅋ/ㅎㅎ mechanically to 하하/호호.",
+    "punctuationRule": "Emoji, repeated punctuation, and chat markers may shape performance/tone but are not automatically lexical TTS content.",
+    "localizationRule": "DE/EN may preserve the pragmatic warmth through wording, intonation, or an equivalent laugh cue; they must not transliterate Korean chat laughter.",
+    "releaseGate": "Before TTS generation, produce or review a spoken-surface string distinct from display text whenever display-only markers are present."
+  },
   "humanBeatPolicy": {
     "required": true,
     "minimumPerSixTurnScene": 1,

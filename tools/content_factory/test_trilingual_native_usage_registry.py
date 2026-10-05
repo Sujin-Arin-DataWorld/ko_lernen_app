@@ -46,8 +46,19 @@ class TrilingualNativeUsageRegistryTest(unittest.TestCase):
                     self.assertIsInstance(profile["phraseBank"], list)
                     self.assertIsInstance(profile["avoidTranslationese"], list)
                     self.assertIsInstance(profile["registerNotes"], list)
+                    self.assertIsInstance(profile["speechSurfaceNotes"], list)
                 self.assertIn("crossLanguage", row)
                 self.assertIsInstance(row["sources"], list)
+
+    def test_research_protocol_has_measurable_completion_gates(self) -> None:
+        protocol = self.registry["researchProtocol"]
+        minimum = protocol["hardMinimumPerTopicLanguage"]
+        self.assertEqual(minimum["independentSourceContexts"], 3)
+        self.assertEqual(minimum["normalizedUsagePatterns"], 8)
+        self.assertEqual(minimum["registerLanes"], 2)
+        self.assertEqual(minimum["translationeseAvoidNotes"], 1)
+        self.assertIn("unmappedReason", protocol["mappingRule"])
+        self.assertIn("spoken-surface", protocol["ttsRule"])
 
     def test_language_policy_forbids_translation_chain_corpus(self) -> None:
         policy = self.registry["languagePolicy"]
