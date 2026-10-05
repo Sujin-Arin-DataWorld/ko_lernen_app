@@ -425,6 +425,8 @@ flutter run -d <android-id>   # 안드로이드
 
 > 미완료 게이트만 적는다. 끝난 항목은 지우며, 이력은 `git log` / PR / `.claude/handoffs/`다.
 
+- [ ] **페르소나×문화세계 롤아웃 (Phase 4 다음)**: 작업 브랜치 `session/culture-links-20261005-2026-10-05`. Phase 1(시나리오↔문화 registry)·Phase 2(CulturalGlossary 23→33) 구현 완료, Phase 3 Batch 38은 5개 시나리오/5 listening/20문항/5 culture link의 `review_only_draft`라 live 186개에는 아직 미승격. 재사용 authoring pipeline과 핵심어 CEFR sidecar까지 완료. 다음 구현은 시나리오 완료 후 기존 CulturalGlossary를 여는 **“이 장면에서 만난 문화” 카드**이며 점수·CanDo·XP·엽전·보자기·한옥 진척에는 영향이 없어야 한다. 상세 현재 상태: `docs/plans/2026-10-05-culture-world-progress.md`.
+
 - [ ] **UI 실기기 게이트 (Jin)**: 덱 4방향 손맛·시스템 엣지·히어로 잘림, 승인 대기 중인
   아이콘/리소 자산을 실제 기기에서 검수한다. 승인 전에는 대규모 UI 재설계나 자산 덮어쓰기를
   하지 않는다.
