@@ -180,6 +180,7 @@ SUMMARY_JSON = REPO / "tool" / "content_level_summary.json"
 # packs.a1/a2.over2_unbacklogged ratchet -- an over2 vocab suspect that IS
 # in this backlog is "triaged", not "unaddressed".
 REPLACEMENT_BACKLOG_JSON = REPO / "tools" / "content_factory" / "relevel" / "replacement_backlog.json"
+RELEVEL_LEDGER_JSON = REPO / "tools" / "content_factory" / "relevel_ledger.json"
 
 # R4 item 3: lowercase throughout -- both the matrix's grouping keys and
 # its printed row labels (a data value, unlike the fixed "A1".."C2" table
@@ -195,7 +196,10 @@ SUSPECTS_HEADER: Tuple[str, ...] = (
 # R4 item 4: 'fallback_over2' added -- a >=+2 verdict resting on a
 # medium/low-confidence token/word, split out of plain 'over2' so the
 # ratchet's over2 caps stay a high-confidence-only signal.
-REASON_BUCKETS: Tuple[str, ...] = ("over2", "over1", "under2", "unknown", "fallback_over2")
+REASON_BUCKETS: Tuple[str, ...] = (
+    "over2", "over1", "under2", "unknown", "fallback_over2",
+    "accepted_relevel", "replacement_backlog",
+)
 
 
 # ---------------------------------------------------------------------------
@@ -215,7 +219,8 @@ class Item:
     bundle_id: str
     # R4 item 4: canonical classification driving suggested_action /
     # counts[kind] / suspects-CSV inclusion -- '' | 'over2' | 'over1' |
-    # 'under2' | 'unknown' | 'fallback_over2'. NOT a CSV column itself
+    # 'under2' | 'unknown' | 'fallback_over2' | 'accepted_relevel' |
+    # 'replacement_backlog'. NOT a CSV column itself
     # (the CSV keeps its original 9-column contract); `reason` below is
     # the column, a human-readable elaboration of this bucket.
     bucket: str
@@ -306,6 +311,38 @@ def _load_replacement_backlog_ids(root: Path) -> FrozenSet[str]:
         return frozenset()
     rows = json.loads(path.read_text(encoding="utf-8"))
     return frozenset(row["id"] for row in rows if isinstance(row, dict) and row.get("id"))
+
+
+def _load_accepted_vocab_relevel_ids(
+    root: Path,
+    vocab_rows: Sequence[dict],
+) -> FrozenSet[str]:
+    """Return live vocab ids whose current level matches a recorded relevel.
+
+    The immutable relevel ledger is the canonical explanation for deliberate
+    id-vs-level drift. The audit still keeps the external estimate/delta, but
+    these rows must not be counted again as unresolved over2 debt.
+    """
+
+    path = root / RELEVEL_LEDGER_JSON.relative_to(REPO)
+    if not path.exists():
+        return frozenset()
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    entries = payload.get("entries", []) if isinstance(payload, dict) else []
+    live_levels = {
+        row.get("id", ""): (row.get("level") or "").strip().lower()
+        for row in vocab_rows
+        if isinstance(row, dict) and row.get("id")
+    }
+    accepted: set[str] = set()
+    for entry in entries:
+        if not isinstance(entry, dict) or entry.get("kind") != "vocab":
+            continue
+        ident = entry.get("id")
+        to_level = (entry.get("to") or "").strip().lower()
+        if isinstance(ident, str) and live_levels.get(ident) == to_level:
+            accepted.add(ident)
+    return frozenset(accepted)
 
 
 def load_corpus(root: Path = REPO) -> Corpus:
@@ -409,6 +446,10 @@ def _default_action(kind: str, bucket: str) -> str:
     the now-descriptive `reason` text."""
     if bucket in ("", "unknown"):
         return "keep"
+    if bucket == "accepted_relevel":
+        return "keep_reviewed_owner"
+    if bucket == "replacement_backlog":
+        return "replace_backfill"
     if bucket == "fallback_over2":
         return "review_fallback"
     if kind == "vocab":
@@ -690,6 +731,10 @@ def _vocab_coverage_keys(
 def grade_vocab(corpus: Corpus) -> List[Item]:
     satz_keys = _satz_keys(corpus.satz_items)
     vocab_pack_ids = _can_do_ids_by_kind(corpus.can_do_refs).get("vocabPack", set())
+    accepted_relevel_ids = _load_accepted_vocab_relevel_ids(
+        corpus.root,
+        corpus.vocab_rows,
+    )
     items: List[Item] = []
     for row in corpus.vocab_rows:
         level = (row.get("level") or "").strip().lower()  # R4 item 3
@@ -720,8 +765,21 @@ def grade_vocab(corpus: Corpus) -> List[Item]:
         # (kept alongside satz_ref/can_do_ref, not replacing them, since
         # those structural facts are still true) so build_summary()'s
         # over2_unbacklogged ratchet can exclude it.
-        if row.get("id", "") in corpus.replacement_backlog_ids:
+        ident = row.get("id", "")
+        if ident in corpus.replacement_backlog_ids:
             blocked.append("replacement_backlog")
+        if ident in accepted_relevel_ids:
+            blocked.append("accepted_relevel")
+
+        # Canonical owner decisions are resolution states, not unresolved
+        # level errors. Keep the raw estimate/delta intact for transparency.
+        if delta is not None and delta >= 2:
+            if ident in corpus.replacement_backlog_ids:
+                bucket = "replacement_backlog"
+                reason = f"replacement_backlog raw_estimate={estimate or ''}"
+            elif ident in accepted_relevel_ids:
+                bucket = "accepted_relevel"
+                reason = f"accepted_relevel raw_estimate={estimate or ''}"
 
         # R4 item 7: number/proper-noun tokens are never a lexicon gap --
         # exclude them from unknown_count the same way sentence_profile()
@@ -733,7 +791,7 @@ def grade_vocab(corpus: Corpus) -> List[Item]:
         )
 
         items.append(Item(
-            kind="vocab", id=row.get("id", ""), level=level, grade=grade, estimate=estimate,
+            kind="vocab", id=ident, level=level, grade=grade, estimate=estimate,
             delta=delta, blocked_by="+".join(blocked), bundle_id=pack_id,
             bucket=bucket, reason=reason, suggested_action=_default_action("vocab", bucket),
             confidence=confidence, token_count=len(pg.words), unknown_count=unknown_count,
@@ -801,9 +859,18 @@ def apply_pack_overrides(
         if delta_pack is not None and delta_pack >= 2:
             pack_action[pack_id] = "bundle_move" if n_hm >= 6 else "insufficient_sample"
 
+    protected_buckets = {
+        "fallback_over2",
+        "accepted_relevel",
+        "replacement_backlog",
+    }
     new_items = [
         replace(it, suggested_action=pack_action[it.bundle_id])
-        if it.bundle_id in pack_action and it.bucket and it.bucket != "fallback_over2"
+        if (
+            it.bundle_id in pack_action
+            and it.bucket
+            and it.bucket not in protected_buckets
+        )
         else it
         for it in items
     ]
@@ -1229,6 +1296,7 @@ def build_summary(result: AuditResult, generated_from: str) -> dict:
             if it.level == level
             and it.delta is not None and it.delta >= 2
             and "replacement_backlog" not in it.blocked_by.split("+")
+            and "accepted_relevel" not in it.blocked_by.split("+")
         )
 
     def _top10(level: str) -> List[dict]:

@@ -699,17 +699,44 @@ class FixtureAuditTest(unittest.TestCase):
             # fallback_over2 -- item 2b) raises total again and over2 by 1.
             # fallback_over2 stays 2 -- unchanged, both are still the LOW-
             # confidence 사전 rows.
-            {"over2": 4, "over1": 2, "under2": 0, "unknown": 0, "fallback_over2": 2, "total": 12},
+            {
+                "over2": 4,
+                "over1": 2,
+                "under2": 0,
+                "unknown": 0,
+                "fallback_over2": 2,
+                "accepted_relevel": 0,
+                "replacement_backlog": 0,
+                "total": 12,
+            },
         )
         self.assertEqual(
             summary["counts"]["grammar"],
             # R4b item 2c: +1 over2 (grammar_a1_medium, medium confidence,
             # stays plain over2 instead of fallback_over2).
-            {"over2": 2, "over1": 0, "under2": 0, "unknown": 0, "fallback_over2": 1, "total": 5},
+            {
+                "over2": 2,
+                "over1": 0,
+                "under2": 0,
+                "unknown": 0,
+                "fallback_over2": 1,
+                "accepted_relevel": 0,
+                "replacement_backlog": 0,
+                "total": 5,
+            },
         )
         self.assertEqual(
             summary["counts"]["pronunciation"],
-            {"over2": 1, "over1": 0, "under2": 0, "unknown": 1, "fallback_over2": 0, "total": 3},
+            {
+                "over2": 1,
+                "over1": 0,
+                "under2": 0,
+                "unknown": 1,
+                "fallback_over2": 0,
+                "accepted_relevel": 0,
+                "replacement_backlog": 0,
+                "total": 3,
+            },
         )
         self.assertEqual(
             summary["packs"],
@@ -1135,7 +1162,7 @@ class LiveRatchetTest(unittest.TestCase):
     # grading fix and V2G2 -(으)ㄹ수록 relevel. Lower-only: preserve every
     # improvement accumulated since the September baseline.
     CAP_OVER2 = {
-        "vocab": 158, "grammar": 0, "scenario": 0, "cloze": 0,
+        "vocab": 105, "grammar": 0, "scenario": 0, "cloze": 0,
         "satz": 0, "smalltalk": 0, "pronunciation": 0, "media": 0,
     }
     # 실측 unknown/total: vocab .0231(=56/2420, unchanged from T2.4a --
@@ -1173,9 +1200,10 @@ class LiveRatchetTest(unittest.TestCase):
     # satz_a1_0023) plus this PR's own cloze_a1_0597/satz_a1_0578
     # (에어컨을 켜요), so both actuals are genuinely 0, not padded.
     CAP_FALLBACK_OVER2 = {
-        "vocab": 66, "grammar": 0, "scenario": 0, "cloze": 0,
+        "vocab": 45, "grammar": 0, "scenario": 0, "cloze": 0,
         "satz": 0, "smalltalk": 1, "pronunciation": 0, "media": 1,
     }
+    CAP_REPLACEMENT_BACKLOG = 15
     # 2026-10-05 Stage C-1: coverage is now measured for all six NIKL
     # grades. These are lower-only missing caps and upper-only at-level
     # floors. A content change must not make a grade less represented merely
@@ -1237,6 +1265,15 @@ class LiveRatchetTest(unittest.TestCase):
             with self.subTest(kind=kind):
                 n = self.summary["counts"][kind]["fallback_over2"]
                 self.assertLessEqual(n, cap, f"{kind}.fallback_over2={n} exceeds cap {cap}")
+
+    def test_replacement_backlog_count_does_not_regress(self):
+        n = self.summary["counts"]["vocab"]["replacement_backlog"]
+        self.assertLessEqual(
+            n,
+            self.CAP_REPLACEMENT_BACKLOG,
+            f"vocab.replacement_backlog={n} exceeds cap "
+            f"{self.CAP_REPLACEMENT_BACKLOG}",
+        )
 
     def test_all_six_coverage_grades_do_not_regress(self):
         expected = {f"grade{grade}" for grade in range(1, 7)}

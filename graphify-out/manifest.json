@@ -6588,9 +6588,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/build_can_do_segments.py": {
-    "mtime": 1791155116.416721,
-    "seen": 1791162436.0428655,
-    "ast_hash": "2ff039ba4023068adcdc3ade54d25e81",
+    "mtime": 1791206261.6329904,
+    "seen": 1791210402.830202,
+    "ast_hash": "e4f04b7fcda5efd192d6ac8984edb8ae",
     "semantic_hash": ""
   },
   "tools/content_factory/build_cloze.py": {
@@ -8196,9 +8196,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791202778.971044,
-    "seen": 1791203144.7876525,
-    "ast_hash": "c271c0833e7baa1b7626ffec793e36be",
+    "mtime": 1791210098.794254,
+    "seen": 1791210403.0317683,
+    "ast_hash": "1e31fd0a0c06f15569e0c3752b22e477",
     "semantic_hash": ""
   },
   "BETA_INSTALL_GUIDE.md": {
@@ -14568,9 +14568,9 @@
     "semantic_hash": ""
   },
   "tool/audit_content_levels.py": {
-    "mtime": 1791197327.1638248,
-    "seen": 1791197364.36246,
-    "ast_hash": "173db7589e94f8c351b8d70e99aebdde",
+    "mtime": 1791209911.7246313,
+    "seen": 1791210402.759389,
+    "ast_hash": "8298cf3d1989bb3c6f56de78e4f4f353",
     "semantic_hash": ""
   },
   "tool/audit_loanword_spelling.py": {
@@ -14586,15 +14586,15 @@
     "semantic_hash": ""
   },
   "tool/cefr_lexicon.py": {
-    "mtime": 1791203277.0464768,
-    "seen": 1791204790.8337605,
-    "ast_hash": "7d9f136d571b722b9178a3eedc3f7440",
+    "mtime": 1791206402.0072193,
+    "seen": 1791210402.765737,
+    "ast_hash": "750dca3b4897d7186fd1be404b029762",
     "semantic_hash": ""
   },
   "tool/content_level_summary.json": {
-    "mtime": 1791203477.1992798,
-    "seen": 1791204790.8375487,
-    "ast_hash": "82553723b3aebfd2655c050ad299180d",
+    "mtime": 1791210024.3949444,
+    "seen": 1791210402.7700753,
+    "ast_hash": "2bb355221ddd17c0c4646081c5018a94",
     "semantic_hash": ""
   },
   "tool/ingest_nikl_grade_lists.py": {
@@ -14604,9 +14604,9 @@
     "semantic_hash": ""
   },
   "tool/test_audit_content_levels.py": {
-    "mtime": 1791203550.0371006,
-    "seen": 1791204790.85854,
-    "ast_hash": "be231c3240c7a5fd65d4b23effbaaced",
+    "mtime": 1791210004.1453583,
+    "seen": 1791210402.7927277,
+    "ast_hash": "a95e39d68e7f923bf2456d3d799235bb",
     "semantic_hash": ""
   },
   "tool/test_audit_loanword_spelling.py": {
@@ -14622,9 +14622,9 @@
     "semantic_hash": ""
   },
   "tool/test_cefr_lexicon.py": {
-    "mtime": 1791203330.123409,
-    "seen": 1791204790.8617413,
-    "ast_hash": "13164a822f2de0d9409f8655d10c64fa",
+    "mtime": 1791205495.6161585,
+    "seen": 1791210402.7964456,
+    "ast_hash": "50c60aca2d413111d0de8d3b25acbf55",
     "semantic_hash": ""
   },
   "tool/test_ingest_nikl_grade_lists.py": {
@@ -14634,9 +14634,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/relevel_ledger.json": {
-    "mtime": 1791199620.4527202,
-    "seen": 1791200740.8242664,
-    "ast_hash": "fa7e1472fff9dfc84f5ed0482e032012",
+    "mtime": 1791209107.2742355,
+    "seen": 1791210402.9374053,
+    "ast_hash": "9223bfa25e10e2f29f04c8973f4a5169",
     "semantic_hash": ""
   },
   "tools/content_factory/relevel_ledger.py": {
@@ -14664,9 +14664,9 @@
     "semantic_hash": ""
   },
   "docs/data/content_level_report.md": {
-    "mtime": 1791203477.2098446,
-    "seen": 1791204791.1058218,
-    "ast_hash": "10d0ab2beb76537195b712e3d5010501",
+    "mtime": 1791210024.404459,
+    "seen": 1791210403.0648036,
+    "ast_hash": "c371e8c098b950dd03920b4d2eaf9361",
     "semantic_hash": ""
   },
   "docs/data/level_bible/F10_review_lessons.md": {
@@ -20808,9 +20808,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/smalltalk_editorial_revisions.py": {
-    "mtime": 1791155117.5928931,
-    "seen": 1791162436.0442944,
-    "ast_hash": "04e050fab4258cbd20fa3f67b115c7c7",
+    "mtime": 1791205864.7153542,
+    "seen": 1791210402.990795,
+    "ast_hash": "b2938ec306643ea99364f812977c7711",
     "semantic_hash": ""
   },
   "tools/content_factory/test_kkeunmari_editorial_revisions.py": {
@@ -22212,9 +22212,9 @@
     "semantic_hash": ""
   },
   "docs/plans/2026-10-05-culture-quality-followups.md": {
-    "mtime": 1791204464.7231967,
-    "seen": 1791204791.136458,
-    "ast_hash": "32ee039306cdb9b54b60d6833a58a3ab",
+    "mtime": 1791210094.9400647,
+    "seen": 1791210403.0986176,
+    "ast_hash": "8938ae7e206214fc8c42fa4e6f3660c6",
     "semantic_hash": ""
   },
   "tools/content_factory/relevel/relevel_bundle_V2G2.json": {
@@ -22239,6 +22239,18 @@
     "mtime": 1791202552.21401,
     "seen": 1791203144.7481084,
     "ast_hash": "199091a6534d6784e4355efcf6164c1e",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/relevel/lcp_route_transfers_20261005.json": {
+    "mtime": 1791206136.7167544,
+    "seen": 1791210402.9354827,
+    "ast_hash": "332e96eb509e146e4d183e7256c7b841",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/smalltalk_editorial_successors_20261005.json": {
+    "mtime": 1791205898.7234921,
+    "seen": 1791210402.9868956,
+    "ast_hash": "5edd1771f15b3a5913d5c20b275da86d",
     "semantic_hash": ""
   }
 }

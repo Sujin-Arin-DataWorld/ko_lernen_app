@@ -425,7 +425,7 @@ flutter run -d <android-id>   # 안드로이드
 
 > 미완료 게이트만 적는다. 끝난 항목은 지우며, 이력은 `git log` / PR / `.claude/handoffs/`다.
 
-- [ ] **문화세계 품질 후속 프로그램**: Stage A arc 확장, Stage B cross-device discovery durability, Stage C-1 1~6급 coverage gate, C-2 grammar `over2` 2→0, C-3 scenario↔grammar 역행 6건 교정, C-4 sentence-surface 정본화까지 완료했다. 현재 high-confidence `over2`는 grammar/scenario/cloze/satz/smalltalk/pronunciation/media 전부 0이며 vocab 158건만 남았다. cloze/Satz는 목표 vocab owner를 문장 부채로 중복 집계하지 않되 주변 context 자체가 over2면 계속 실패하도록 회귀로 잠겼다. 다음은 vocab 158건을 기존 relevel 결정·replacement backlog·정당한 예외·실제 pack owner로 분리해 ratchet을 하향한다. 문화 metadata는 계속 mastery/reward owner가 아니며, TTS는 Jin이 VS Code에서 직접 처리하므로 이 프로그램에서 생성·덮어쓰기하지 않는다. 정본 계획: `docs/plans/2026-10-05-culture-quality-followups.md`.
+- [ ] **문화세계 품질 후속 프로그램**: Stage A arc 확장, Stage B cross-device discovery durability, Stage C-1 1~6급 coverage gate, C-2 grammar `over2` 2→0, C-3 scenario↔grammar 역행 6건 교정, C-4 sentence-surface 정본화까지 완료했다. non-vocab high-confidence `over2`는 전부 0. vocab raw +2 이상은 현재 unresolved high-confidence 105 / accepted historical relevel 59 / replacement backlog 15 / unresolved fallback 45로 상태 분리됐다. 다음은 unresolved 105건을 실제 pack owner·survival/culture exception·replacement 필요 여부로 검수하며 ratchet을 하향하고, 이후 fallback 45건을 정리한다. 문화 metadata는 계속 mastery/reward owner가 아니며, TTS는 Jin이 VS Code에서 직접 처리하므로 이 프로그램에서 생성·덮어쓰기하지 않는다. 정본 계획: `docs/plans/2026-10-05-culture-quality-followups.md`.
 
 - [ ] **UI 실기기 게이트 (Jin)**: 덱 4방향 손맛·시스템 엣지·히어로 잘림, 승인 대기 중인
   아이콘/리소 자산을 실제 기기에서 검수한다. 승인 전에는 대규모 UI 재설계나 자산 덮어쓰기를

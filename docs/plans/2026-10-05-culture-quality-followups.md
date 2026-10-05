@@ -221,10 +221,26 @@ Validation:
 - `build_can_do_segments.py --check`: fresh
 - `validate_content.py`: passed
 
-Remaining Stage C-4 work is now the **vocab owner/backlog only**. Review the 158
-high-confidence vocab over2 rows against prior relevel decisions, replacement
-backlog, survival/culture exceptions, and real pack ownership. Fix or document
-the owner; never raise a ratchet merely to make the suite green.
+Remaining Stage C-4 work is now the **vocab owner/backlog only**.
+
+The raw +2-or-more vocab population is now separated by canonical state instead
+of being reported as one undifferentiated error count:
+- unresolved high-confidence `over2`: **105**
+- accepted historical relevel owner: **59**
+- explicit `replacement_backlog`: **15**
+- unresolved low-confidence `fallback_over2`: **45**
+
+Raw estimate/delta remains visible for accepted/backlog rows; only their
+resolution bucket changes. Replacement backlog takes precedence over an older
+relevel decision when both exist, because the scheduled replacement is the more
+recent owner state. Ratchets now prevent unresolved over2/fallback/backlog from
+growing.
+
+Continue with the 105 unresolved high-confidence vocab rows first, then the 45
+low-confidence fallback rows. For each, review prior evidence, survival/culture
+exceptions, pack semantics, and whether the correct action is move, replace, or
+a narrowly documented exception. Never raise a ratchet merely to make the suite
+green.
 
 Use:
 - `AGENTS.md` LCP gate

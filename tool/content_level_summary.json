@@ -1,65 +1,81 @@
 {
   "counts": {
     "cloze": {
+      "accepted_relevel": 0,
       "fallback_over2": 0,
       "over1": 159,
       "over2": 0,
+      "replacement_backlog": 0,
       "total": 2365,
       "under2": 462,
       "unknown": 0
     },
     "grammar": {
+      "accepted_relevel": 0,
       "fallback_over2": 0,
       "over1": 10,
       "over2": 0,
+      "replacement_backlog": 0,
       "total": 264,
       "under2": 43,
       "unknown": 0
     },
     "media": {
+      "accepted_relevel": 0,
       "fallback_over2": 1,
       "over1": 23,
       "over2": 0,
+      "replacement_backlog": 0,
       "total": 136,
       "under2": 13,
       "unknown": 0
     },
     "pronunciation": {
+      "accepted_relevel": 0,
       "fallback_over2": 0,
       "over1": 7,
       "over2": 0,
+      "replacement_backlog": 0,
       "total": 84,
       "under2": 18,
       "unknown": 0
     },
     "satz": {
+      "accepted_relevel": 0,
       "fallback_over2": 0,
       "over1": 157,
       "over2": 0,
+      "replacement_backlog": 0,
       "total": 2885,
       "under2": 646,
       "unknown": 0
     },
     "scenario": {
+      "accepted_relevel": 0,
       "fallback_over2": 0,
       "over1": 17,
       "over2": 0,
+      "replacement_backlog": 0,
       "total": 191,
       "under2": 23,
       "unknown": 0
     },
     "smalltalk": {
+      "accepted_relevel": 0,
       "fallback_over2": 1,
       "over1": 97,
       "over2": 0,
+      "replacement_backlog": 0,
       "total": 590,
       "under2": 136,
       "unknown": 0
     },
     "vocab": {
-      "fallback_over2": 66,
+      "accepted_relevel": 59,
+      "fallback_over2": 45,
       "over1": 313,
-      "over2": 158,
+      "over2": 105,
+      "replacement_backlog": 15,
       "total": 2968,
       "under2": 226,
       "unknown": 58
