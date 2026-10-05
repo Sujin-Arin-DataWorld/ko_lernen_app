@@ -1,17 +1,25 @@
 {
   "version": 1,
   "batch": "38",
-  "status": "review_only_draft",
+  "status": "merged",
   "provenance": {
     "date": "2026-10-05",
     "rights": "original",
-    "scope": "Five persona-led cultural-context scenarios grounded in the approved 11-persona canon; no live promotion.",
+    "scope": "Five persona-led cultural-context scenarios grounded in the approved 11-persona canon; approved for live promotion after editorial and level-fit audit.",
     "jinReviewRequired": true,
     "requiresJinReview": true,
     "modelLanguageQa": "MODEL_QA_PASS",
     "humanLanguageQaClaim": false,
+    "approval": {
+      "authority": "jin",
+      "approvedAt": "2026-10-05",
+      "method": "explicit_user_approval_in_chat",
+      "scope": "Full Batch 38 canonical/live promotion after dialogue-naturalness and CEFR level-fit review",
+      "nativeSpeakerQaClaim": false
+    },
     "triadReview": "Korean is canonical. German and English were independently localized for the same speech act, relationship, agency, modality, and information scope.",
-    "registerDecision": "A2 uses Jun-to-older-contact haeyo while Christian may answer casually; B1/B2/C1 scenes use polite or professional relations already defined in the persona canon."
+    "registerDecision": "A2 uses Jun-to-older-contact haeyo while Christian may answer casually; B1/B2/C1 scenes use polite or professional relations already defined in the persona canon.",
+    "mergedAt": "2026-10-05"
   },
   "artifacts": [
     {

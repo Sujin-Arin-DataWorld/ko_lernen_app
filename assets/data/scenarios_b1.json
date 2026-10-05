@@ -6831,6 +6831,384 @@
       ],
       "culturalNote": null,
       "xpReward": 130
+    },
+    {
+      "id": "b1_dongsun_norigae_shop_post",
+      "level": "b1",
+      "emoji": "🪢",
+      "register": "polite",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "노리개 사진을 올리기 전에 확인하기",
+        "de": "Vor einem Norigae-Post Details abstimmen",
+        "en": "Checking details before posting a norigae"
+      },
+      "intro": {
+        "ko": "마야가 동선의 가게에서 노리개 사진을 찍어 홍보 글을 만들려고 해요. 먼저 어디까지 찍을지와 설명을 확인해요.",
+        "de": "Maya möchte in Dongsuns Laden ein Norigae fotografieren und einen Werbepost erstellen. Zuerst klären die beiden, was fotografiert werden darf und wie das Produkt beschrieben wird.",
+        "en": "Maya wants to photograph a norigae in Dongsun's shop for a promotional post. They first agree on what can be photographed and how the item should be described."
+      },
+      "courseUnitId": "b1_03_work_softening",
+      "playerCharacterId": "maya",
+      "participantIds": [
+        "maya",
+        "dongsun"
+      ],
+      "relationshipContext": "가게 홍보 조언을 주고받는 마야와 동선, 서로 해요체로 말한다",
+      "intent": "사진 촬영과 게시 범위를 확인하고 상품 설명에서 확인되지 않은 제작자 표현을 뺀다",
+      "shelf": "b1_team",
+      "backdrop": "market",
+      "vocab": [
+        {
+          "korean": "노리개"
+        },
+        {
+          "korean": "매듭"
+        },
+        {
+          "korean": "상품"
+        },
+        {
+          "korean": "가게 페이지"
+        },
+        {
+          "korean": "설명"
+        },
+        {
+          "korean": "올리다"
+        }
+      ],
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_b1_soft_request_batch19"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-아/어 주실 수 있을까요?",
+          "de": "Eine Bitte höflich abschwächen",
+          "en": "Softening a request politely"
+        },
+        "explanation": {
+          "ko": "“얼굴이 나오지 않게 찍어 주실 수 있을까요?”처럼 상대가 선택할 수 있도록 부탁을 부드럽게 말해요.",
+          "de": "Mit „-아/어 주실 수 있을까요?“ formulierst du eine Bitte so, dass die andere Person Spielraum behält.",
+          "en": "Use -아/어 주실 수 있을까요? to make a request politely while leaving the other person room to respond."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "사장님, 이 노리개 사진을 가게 페이지에 올려도 될까요?",
+          "de": "Darf ich dieses Norigae fotografieren und auf der Seite des Ladens posten?",
+          "en": "May I photograph this norigae and post it on the shop page?"
+        },
+        {
+          "speaker": "dongsun",
+          "ko": "좋아요. 대신 손님 얼굴이 나오지 않게 찍어 주실 수 있을까요?",
+          "de": "Gern. Könnten Sie nur darauf achten, dass keine Kundengesichter zu sehen sind?",
+          "en": "Sure. Could you make sure no customers' faces appear?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네. 상품만 찍고, 올리기 전에 먼저 보여 드릴게요.",
+          "de": "Ja. Ich fotografiere nur das Produkt und zeige Ihnen den Post, bevor ich ihn hochlade.",
+          "en": "Yes. I'll photograph only the item and show you the post before I upload it."
+        },
+        {
+          "speaker": "dongsun",
+          "ko": "그리고 이건 제가 만든 건 아니에요. 전통 매듭이 있는 상품이라고만 써 주세요.",
+          "de": "Und das hier habe ich nicht selbst gemacht. Schreiben Sie bitte nur, dass das Produkt einen traditionellen Knoten hat.",
+          "en": "And I didn't make this myself. Please just say that the item has a traditional decorative knot."
+        },
+        {
+          "speaker": "user",
+          "ko": "알겠어요. ‘동선 사장님이 직접 만든 노리개’라는 설명은 빼겠습니다.",
+          "de": "Verstanden. Ich nehme die Beschreibung „von Dongsun selbst gefertigtes Norigae“ heraus.",
+          "en": "Got it. I'll remove the description 'a norigae handmade by Dongsun.'"
+        },
+        {
+          "speaker": "dongsun",
+          "ko": "그게 좋겠어요. 예쁘다고 다 제 작품이라고 하면 곤란하잖아요. 하하.",
+          "de": "Das ist besser. Nur weil etwas hübsch ist, kann ich es ja nicht gleich als mein eigenes Werk ausgeben. Haha.",
+          "en": "That's better. I can't call everything my own work just because it's pretty. Haha."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 노리개와 매듭이 잘 보이게 찍고, 설명은 확인받은 내용만 넣을게요.",
+          "de": "Dann fotografiere ich Norigae und Knoten gut sichtbar und schreibe nur das, was wir bestätigt haben.",
+          "en": "Then I'll make sure the norigae and knot are clearly visible and include only the details we've confirmed."
+        },
+        {
+          "speaker": "dongsun",
+          "ko": "네. 그 정도면 마음 놓고 올려도 되겠어요.",
+          "de": "Ja. So kann ich dem Post beruhigt zustimmen.",
+          "en": "Yes. With that, I'd feel comfortable having it posted."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_dongsun_norigae_shop_post_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "audioKo": "좋아요. 대신 손님 얼굴이 나오지 않게 찍어 주실 수 있을까요?",
+            "options": [
+              {
+                "de": "Gern. Könnten Sie nur darauf achten, dass keine Kundengesichter zu sehen sind?",
+                "en": "Sure. Could you make sure no customers' faces appear?"
+              },
+              {
+                "de": "Darf ich dieses Norigae fotografieren und auf der Seite des Ladens posten?",
+                "en": "May I photograph this norigae and post it on the shop page?"
+              },
+              {
+                "de": "Und das hier habe ich nicht selbst gemacht.",
+                "en": "And I didn't make this myself."
+              },
+              {
+                "de": "Ja. So kann ich dem Post beruhigt zustimmen.",
+                "en": "Yes. With that, I'd feel comfortable having it posted."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_dongsun_norigae_shop_post_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "promptDe": "Ich nehme die Beschreibung „von Dongsun selbst gefertigtes Norigae“ heraus.",
+            "promptEn": "I'll remove the description 'a norigae handmade by Dongsun.'",
+            "options": [
+              {
+                "ko": "알겠어요. ‘동선 사장님이 직접 만든 노리개’라는 설명은 빼겠습니다."
+              },
+              {
+                "ko": "사장님, 이 노리개 사진을 가게 페이지에 올려도 될까요?"
+              },
+              {
+                "ko": "그리고 이건 제가 만든 건 아니에요."
+              },
+              {
+                "ko": "네. 그 정도면 마음 놓고 올려도 되겠어요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_dongsun_norigae_shop_post_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "targetKo": "그럼 노리개와 매듭이 잘 보이게 찍고, 설명은 확인받은 내용만 넣을게요.",
+            "audioKo": "그럼 노리개와 매듭이 잘 보이게 찍고, 설명은 확인받은 내용만 넣을게요.",
+            "promptDe": "Dann fotografiere ich Norigae und Knoten gut sichtbar und schreibe nur das, was wir bestätigt haben.",
+            "promptEn": "Then I'll make sure the norigae and knot are clearly visible and include only the details we've confirmed.",
+            "distractors": [
+              "손님 얼굴은",
+              "직접 만든",
+              "다음 주에"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "b1_byeongcheol_hwaseong_memory_check",
+      "level": "b1",
+      "emoji": "🏯",
+      "register": "polite",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "수원화성에서 기억과 사실을 따로 적기",
+        "de": "Erinnerung und Fakten an Hwaseong getrennt festhalten",
+        "en": "Keeping memory and facts separate at Hwaseong"
+      },
+      "intro": {
+        "ko": "현아와 병철이 수원화성을 걸으며 병철의 생활 기억을 메모해요. 기억과 확인한 역사 정보를 따로 적기로 해요.",
+        "de": "Hyuna und Byeongcheol gehen an der Hwaseong-Festung spazieren und notieren seine Alltagserinnerungen. Erinnerungen und geprüfte historische Informationen werden getrennt festgehalten.",
+        "en": "Hyuna and Byeongcheol walk around Hwaseong Fortress and note his everyday memories. They decide to keep memory separate from checked historical information."
+      },
+      "courseUnitId": "b1_02_indirect_speech",
+      "playerCharacterId": "hyuna",
+      "participantIds": [
+        "hyuna",
+        "byeongcheol"
+      ],
+      "relationshipContext": "수진이 소개한 지역 답사 지인, 병철은 현장 경험을 말하고 현아는 기억과 확인한 사실을 따로 적는다",
+      "intent": "개인 기억을 인용하고 확인이 필요한 사실은 단정하지 않기로 한다",
+      "shelf": "b1_neighbor",
+      "backdrop": "directions",
+      "vocab": [
+        {
+          "korean": "수원화성"
+        },
+        {
+          "korean": "기억"
+        },
+        {
+          "korean": "메모"
+        },
+        {
+          "korean": "자료"
+        },
+        {
+          "korean": "확인하다"
+        },
+        {
+          "korean": "조용하다"
+        }
+      ],
+      "conceptIds": [
+        "concept_b1_indirect_speech"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_b1_indirect_speech"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(ㄴ/는)다고 하다",
+          "de": "Aussagen indirekt wiedergeben",
+          "en": "Reporting what someone said"
+        },
+        "explanation": {
+          "ko": "“더 조용했다고 하시는 거죠?”처럼 다른 사람의 말이나 기억을 그대로 단정하지 않고 인용해요.",
+          "de": "Mit der indirekten Rede gibst du eine Aussage oder Erinnerung wieder, ohne sie selbst als gesicherte Tatsache zu behaupten.",
+          "en": "Use indirect speech to report someone else's statement or memory without presenting it as your own verified fact."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "byeongcheol",
+          "ko": "예전에는 이쪽으로 산책 오는 사람이 지금보다 적었던 기억이 납니다.",
+          "de": "Ich erinnere mich, dass früher weniger Menschen hier spazieren gingen als heute.",
+          "en": "I remember fewer people coming to walk around here than today."
+        },
+        {
+          "speaker": "user",
+          "ko": "그러니까 선생님 기억으로는 이 길이 더 조용했다고 하시는 거죠?",
+          "de": "Sie sagen also, dass dieser Weg Ihrer Erinnerung nach ruhiger war, richtig?",
+          "en": "So you're saying that, as you remember it, this path used to be quieter, right?"
+        },
+        {
+          "speaker": "byeongcheol",
+          "ko": "네. 다만 언제부터 달라졌는지는 정확히 모르겠습니다.",
+          "de": "Ja. Ich weiß allerdings nicht genau, wann sich das verändert hat.",
+          "en": "Yes. I don't know exactly when that changed, though."
+        },
+        {
+          "speaker": "user",
+          "ko": "그 부분은 ‘그렇게 기억한다’고 적고, 시기와 공사 자료는 따로 확인할게요.",
+          "de": "Dann notiere ich das als Ihre Erinnerung und prüfe Zeitpunkt und Bauunterlagen getrennt.",
+          "en": "I'll record that as your memory and check the dates and construction records separately."
+        },
+        {
+          "speaker": "byeongcheol",
+          "ko": "좋습니다. 내가 본 것과 역사 자료는 같은 게 아니니까요.",
+          "de": "Gut. Was ich selbst gesehen habe und historische Unterlagen sind schließlich nicht dasselbe.",
+          "en": "Good. What I've personally seen isn't the same thing as historical records."
+        },
+        {
+          "speaker": "user",
+          "ko": "맞아요. 수원화성 설명은 공식 자료를 기준으로 하고, 선생님 이야기는 생활 기억이라고 따로 적겠습니다.",
+          "de": "Genau. Für die Erklärung zu Hwaseong nehme ich offizielle Quellen, und Ihre Erzählung halte ich getrennt als Alltagserinnerung fest.",
+          "en": "Right. I'll use official sources for the explanation of Hwaseong and write your story separately as an everyday memory."
+        },
+        {
+          "speaker": "byeongcheol",
+          "ko": "그렇게 쓰면 나도 부담이 없겠네요.",
+          "de": "Wenn Sie es so schreiben, ist das auch für mich in Ordnung.",
+          "en": "If you write it that way, I'd feel comfortable with it too."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_byeongcheol_hwaseong_memory_check_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_indirect_speech"
+          ],
+          "data": {
+            "audioKo": "그러니까 선생님 기억으로는 이 길이 더 조용했다고 하시는 거죠?",
+            "options": [
+              {
+                "de": "Sie sagen also, dass dieser Weg Ihrer Erinnerung nach ruhiger war, richtig?",
+                "en": "So you're saying that, as you remember it, this path used to be quieter, right?"
+              },
+              {
+                "de": "Ich weiß allerdings nicht genau, wann sich das verändert hat.",
+                "en": "I don't know exactly when that changed, though."
+              },
+              {
+                "de": "Für die Erklärung zu Hwaseong nehme ich offizielle Quellen.",
+                "en": "I'll use official sources for the explanation of Hwaseong."
+              },
+              {
+                "de": "Wenn Sie es so schreiben, ist das auch für mich in Ordnung.",
+                "en": "If you write it that way, I'd feel comfortable with it too."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_byeongcheol_hwaseong_memory_check_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_indirect_speech"
+          ],
+          "data": {
+            "promptDe": "Dann notiere ich das als Ihre Erinnerung und prüfe Zeitpunkt und Bauunterlagen getrennt.",
+            "promptEn": "I'll record that as your memory and check the dates and construction records separately.",
+            "options": [
+              {
+                "ko": "그 부분은 ‘그렇게 기억한다’고 적고, 시기와 공사 자료는 따로 확인할게요."
+              },
+              {
+                "ko": "예전에는 이쪽으로 산책 오는 사람이 지금보다 적었던 기억이 납니다."
+              },
+              {
+                "ko": "좋습니다. 내가 본 것과 역사 자료는 같은 게 아니니까요."
+              },
+              {
+                "ko": "그렇게 쓰면 나도 부담이 없겠네요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_byeongcheol_hwaseong_memory_check_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_indirect_speech"
+          ],
+          "data": {
+            "targetKo": "맞아요. 수원화성 설명은 공식 자료를 기준으로 하고, 선생님 이야기는 생활 기억이라고 따로 적겠습니다.",
+            "audioKo": "맞아요. 수원화성 설명은 공식 자료를 기준으로 하고, 선생님 이야기는 생활 기억이라고 따로 적겠습니다.",
+            "promptDe": "Genau. Für die Erklärung zu Hwaseong nehme ich offizielle Quellen, und Ihre Erzählung halte ich getrennt als Alltagserinnerung fest.",
+            "promptEn": "Right. I'll use official sources for the explanation of Hwaseong and write your story separately as an everyday memory.",
+            "distractors": [
+              "제 기억에는",
+              "모든 사람이",
+              "사진만 보면"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
     }
   ]
 }

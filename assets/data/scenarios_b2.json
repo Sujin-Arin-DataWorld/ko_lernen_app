@@ -6711,6 +6711,192 @@
       ],
       "culturalNote": null,
       "xpReward": 145
+    },
+    {
+      "id": "b2_daniel_hyuna_hanji_filming_scope",
+      "level": "b2",
+      "emoji": "📜",
+      "register": "business",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "한지 작업실 촬영 범위 정하기",
+        "de": "Den Drehumfang in einer Hanji-Werkstatt festlegen",
+        "en": "Setting filming boundaries at a hanji workshop"
+      },
+      "intro": {
+        "ko": "현아가 연결한 한지 작업실 촬영을 앞두고 다니엘과 현아가 촬영·공개 범위를 정해요.",
+        "de": "Vor einem Dreh in einer von Hyuna vermittelten Hanji-Werkstatt legen Daniel und Hyuna Aufnahme- und Veröffentlichungsumfang fest.",
+        "en": "Before filming at a hanji workshop Hyuna connected them with, Daniel and Hyuna agree on the scope of filming and publication."
+      },
+      "courseUnitId": "b2_03_precise_requests",
+      "playerCharacterId": "daniel",
+      "participantIds": [
+        "daniel",
+        "hyuna"
+      ],
+      "relationshipContext": "지역 촬영 방식에 대해 자주 의견을 나누는 다니엘과 현아, 한지 작업실 방문을 준비한다",
+      "intent": "촬영 범위와 설명 검수 방식을 정하고 작업실이 게시 전에도 선택할 수 있게 한다",
+      "shelf": "b2_evidence",
+      "backdrop": "office",
+      "vocab": [
+        {
+          "korean": "한지"
+        },
+        {
+          "korean": "작업실"
+        },
+        {
+          "korean": "촬영 범위"
+        },
+        {
+          "korean": "공개"
+        },
+        {
+          "korean": "자막"
+        },
+        {
+          "korean": "확인"
+        }
+      ],
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_b2_instead_tradeoff"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-는 대신(에)",
+          "de": "Eine Alternative mit Ausgleich wählen",
+          "en": "Choosing an alternative with a trade-off"
+        },
+        "explanation": {
+          "ko": "“전 과정을 찍는 대신 손이 움직이는 장면만 촬영할게요”처럼 한 방법을 줄이고 다른 방법으로 보완할 때 써요.",
+          "de": "Mit -는 대신(에) ersetzt du eine Vorgehensweise durch eine andere und machst den Ausgleich ausdrücklich.",
+          "en": "Use -는 대신(에) to replace one approach with another and state the trade-off explicitly."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "hyuna",
+          "ko": "작업실에서 촬영은 가능하다고 했는데, 작업 전 과정을 공개하는 건 부담스럽다고 했어요.",
+          "de": "Die Werkstatt hat dem Filmen zugestimmt, aber eine Veröffentlichung des gesamten Arbeitsablaufs wäre ihnen unangenehm.",
+          "en": "The workshop said filming is possible, but they would be uncomfortable with publishing the entire process."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 전 과정을 찍는 대신 손이 움직이는 장면과 완성된 한지만 촬영할게요.",
+          "de": "Dann filme ich statt des gesamten Ablaufs nur die Hände bei der Arbeit und das fertige Hanji.",
+          "en": "Then instead of filming the whole process, I'll film only the hands at work and the finished hanji."
+        },
+        {
+          "speaker": "hyuna",
+          "ko": "좋아요. 제작 방법 설명은 우리가 추측해서 쓰지 말고 장인에게 확인해요.",
+          "de": "Gut. Die Erklärung zur Herstellung sollten wir nicht selbst erraten, sondern von der Fachperson bestätigen lassen.",
+          "en": "Good. We shouldn't guess how to describe the making process; let's have the craftsperson confirm it."
+        },
+        {
+          "speaker": "user",
+          "ko": "자막 초안을 먼저 보내고, 공개하기 싫은 장면이 있으면 빼 달라고 하겠습니다.",
+          "de": "Ich schicke zuerst einen Untertitelentwurf und bitte sie, Szenen zu markieren, die nicht veröffentlicht werden sollen.",
+          "en": "I'll send the draft captions first and ask them to flag any scenes they don't want published."
+        },
+        {
+          "speaker": "hyuna",
+          "ko": "촬영에 동의했다고 해서 모든 장면을 공개해도 된다는 뜻은 아니니까요.",
+          "de": "Eine Zustimmung zur Aufnahme bedeutet schließlich nicht automatisch eine Zustimmung zur Veröffentlichung jeder Szene.",
+          "en": "Consent to filming doesn't automatically mean consent to publish every scene."
+        },
+        {
+          "speaker": "user",
+          "ko": "맞아요. 게시 전 확인 범위까지 문서로 정리할게요.",
+          "de": "Genau. Ich halte auch schriftlich fest, was vor der Veröffentlichung noch einmal bestätigt werden soll.",
+          "en": "Right. I'll also put in writing what should be checked again before publication."
+        },
+        {
+          "speaker": "hyuna",
+          "ko": "그러면 작업실도 무엇이 나가는지 알고 결정할 수 있겠네요.",
+          "de": "Dann kann die Werkstatt entscheiden, während sie weiß, was tatsächlich veröffentlicht wird.",
+          "en": "Then the workshop can decide knowing exactly what will be published."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_daniel_hyuna_hanji_filming_scope_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "audioKo": "그럼 전 과정을 찍는 대신 손이 움직이는 장면과 완성된 한지만 촬영할게요.",
+            "options": [
+              {
+                "de": "Dann filme ich statt des gesamten Ablaufs nur die Hände bei der Arbeit und das fertige Hanji.",
+                "en": "Then instead of filming the whole process, I'll film only the hands at work and the finished hanji."
+              },
+              {
+                "de": "Die Werkstatt hat dem Filmen zugestimmt.",
+                "en": "The workshop agreed to filming."
+              },
+              {
+                "de": "Wir sollten die Herstellung nicht selbst erraten.",
+                "en": "We shouldn't guess the making process ourselves."
+              },
+              {
+                "de": "Ich halte den Prüfbereich schriftlich fest.",
+                "en": "I'll put the review scope in writing."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_daniel_hyuna_hanji_filming_scope_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "promptDe": "Eine Zustimmung zur Aufnahme bedeutet nicht automatisch eine Zustimmung zur Veröffentlichung jeder Szene.",
+            "promptEn": "Consent to filming doesn't automatically mean consent to publish every scene.",
+            "options": [
+              {
+                "ko": "촬영에 동의했다고 해서 모든 장면을 공개해도 된다는 뜻은 아니니까요."
+              },
+              {
+                "ko": "작업실에서 촬영은 가능하다고 했는데, 작업 전 과정을 공개하는 건 부담스럽다고 했어요."
+              },
+              {
+                "ko": "좋아요. 제작 방법 설명은 우리가 추측해서 쓰지 말고 장인에게 확인해요."
+              },
+              {
+                "ko": "그러면 작업실도 무엇이 나가는지 알고 결정할 수 있겠네요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_daniel_hyuna_hanji_filming_scope_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "targetKo": "자막 초안을 먼저 보내고, 공개하기 싫은 장면이 있으면 빼 달라고 하겠습니다.",
+            "audioKo": "자막 초안을 먼저 보내고, 공개하기 싫은 장면이 있으면 빼 달라고 하겠습니다.",
+            "promptDe": "Ich schicke zuerst einen Untertitelentwurf und bitte sie, Szenen zu markieren, die nicht veröffentlicht werden sollen.",
+            "promptEn": "I'll send the draft captions first and ask them to flag any scenes they don't want published.",
+            "distractors": [
+              "모든 장면을 바로",
+              "확인 없이",
+              "전 과정을 그대로"
+            ]
+          }
+        }
+      ],
+      "xpReward": 130
     }
   ]
 }

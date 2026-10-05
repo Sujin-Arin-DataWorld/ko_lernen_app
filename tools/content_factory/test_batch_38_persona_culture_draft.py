@@ -37,10 +37,16 @@ class Batch38PersonaCultureDraftTest(unittest.TestCase):
             ).read_text(encoding="utf-8")
         )["recurringCharacters"]
 
-    def test_batch_stays_review_only_with_exact_five_scenes(self) -> None:
-        self.assertEqual(self.manifest["status"], "review_only_draft")
+    def test_batch_is_merged_with_exact_five_approved_scenes(self) -> None:
+        self.assertEqual(self.manifest["status"], "merged")
         self.assertTrue(self.manifest["provenance"]["requiresJinReview"])
         self.assertFalse(self.manifest["provenance"]["humanLanguageQaClaim"])
+        approval = self.manifest["provenance"].get("approval")
+        self.assertIsInstance(approval, dict)
+        self.assertEqual(approval["authority"], "jin")
+        self.assertEqual(approval["method"], "explicit_user_approval_in_chat")
+        self.assertFalse(approval["nativeSpeakerQaClaim"])
+        self.assertIn("mergedAt", self.manifest["provenance"])
         expected = [
             "b1_dongsun_norigae_shop_post",
             "b1_byeongcheol_hwaseong_memory_check",
@@ -54,16 +60,8 @@ class Batch38PersonaCultureDraftTest(unittest.TestCase):
         ) as handle:
             rows = list(csv.DictReader(handle))
         self.assertEqual([row["id"] for row in rows], expected)
-        self.assertTrue(
-            all(row["상태"] in {"draft", "approved"} for row in rows)
-        )
-        self.assertTrue(
-            all(
-                row["jin_memo"].strip()
-                for row in rows
-                if row["상태"] == "approved"
-            )
-        )
+        self.assertTrue(all(row["상태"] == "approved" for row in rows))
+        self.assertTrue(all(row["jin_memo"].strip() for row in rows))
 
     def test_culture_links_cover_only_the_batch_and_live_glossary_terms(self) -> None:
         scenario_ids = [scene["id"] for scene in self.scenarios]

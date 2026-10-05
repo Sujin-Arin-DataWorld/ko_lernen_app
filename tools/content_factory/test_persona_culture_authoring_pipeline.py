@@ -38,12 +38,12 @@ class PersonaCultureAuthoringPipelineTest(unittest.TestCase):
             (ROOT / cls.manifest["cultureStoryArcsDraft"]).read_text(encoding="utf-8")
         )
 
-    def test_batch38_full_review_only_pipeline_is_reproducible(self) -> None:
+    def test_batch38_merged_audit_pipeline_is_reproducible(self) -> None:
         report = module.run_pipeline(
             manifest_path=self.manifest_path,
             write_derived=False,
         )
-        self.assertEqual(report["status"], "REVIEW_ONLY_PIPELINE_PASS")
+        self.assertEqual(report["status"], "MERGED_AUDIT_PASS")
         self.assertEqual(report["scenarioCount"], 5)
         self.assertEqual(report["cultureLinkCount"], 5)
         self.assertEqual(report["listening"]["lessons"], 5)
@@ -63,7 +63,7 @@ class PersonaCultureAuthoringPipelineTest(unittest.TestCase):
         self.assertIn("## Culture Story Arcs (review-only)", packet)
         self.assertIn("`found_around_nammun`", packet)
         self.assertFalse(report["liveWritePerformed"])
-        self.assertFalse(report["humanApprovalClaimed"])
+        self.assertTrue(report["humanApprovalClaimed"])
 
     def test_authoring_brief_matches_scenario_people_and_culture_links(self) -> None:
         result = module._validate_authoring_brief(

@@ -81,6 +81,56 @@ class ScenarioBatchTransactionTest(unittest.TestCase):
                 target.with_name(f".{target.name}.scenario-integration.tmp").exists()
             )
 
+    def test_atomic_write_retries_one_transient_windows_lock(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory) / "content.json"
+            target.write_text('{"old":true}\n', encoding="utf-8")
+            real_replace = integration.os.replace
+            calls = 0
+
+            def flaky_replace(source, destination):
+                nonlocal calls
+                calls += 1
+                if calls == 1:
+                    raise PermissionError(5, "transient Windows file lock")
+                return real_replace(source, destination)
+
+            with (
+                mock.patch.object(integration.os, "replace", side_effect=flaky_replace),
+                mock.patch.object(integration.time, "sleep") as sleeper,
+            ):
+                integration._atomic_write(target, '{"new":true}\n')
+
+            self.assertEqual(target.read_text(encoding="utf-8"), '{"new":true}\n')
+            self.assertEqual(calls, 2)
+            sleeper.assert_called_once()
+
+    def test_manifest_write_can_fallback_when_windows_blocks_rename(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory) / "batch_manifest.json"
+            target.write_text('{"status":"approved"}\n', encoding="utf-8")
+
+            with mock.patch.object(
+                integration,
+                "_replace_with_retry",
+                side_effect=PermissionError(5, "persistent Windows file lock"),
+            ):
+                integration._atomic_write(
+                    target,
+                    '{"status":"merged"}\n',
+                    allow_in_place_fallback=True,
+                )
+
+            self.assertEqual(
+                target.read_text(encoding="utf-8"),
+                '{"status":"merged"}\n',
+            )
+            self.assertFalse(
+                target.with_name(
+                    f".{target.name}.scenario-integration.tmp"
+                ).exists()
+            )
+
     def test_post_write_failure_restores_every_target_byte_exactly(self) -> None:
         repository = SCRIPT_DIR.parents[1]
         with tempfile.TemporaryDirectory() as directory:

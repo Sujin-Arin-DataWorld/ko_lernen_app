@@ -20,6 +20,7 @@ import re
 import shutil
 import sys
 import tempfile
+import time
 from typing import Any
 
 import scenario_store
@@ -290,23 +291,73 @@ def _validate_batch(
     return manifest_path, manifest, records_by_kind["scenario"], backdrops
 
 
-def _atomic_write(path: Path, text: str) -> None:
+def _replace_with_retry(source: Path, target: Path) -> None:
+    """Replace one staged file, tolerating only brief Windows file locks."""
+
+    attempts = 6
+    for attempt in range(attempts):
+        try:
+            os.replace(source, target)
+            return
+        except PermissionError:
+            if attempt == attempts - 1:
+                raise
+            time.sleep(0.05 * (attempt + 1))
+
+
+def _fsync_overwrite(path: Path, data: bytes) -> None:
+    """Overwrite one metadata file when Windows permanently blocks rename.
+
+    The caller must already have staged and validated the bytes. This is used
+    only for the batch manifest: learner-facing assets continue to require an
+    atomic rename. Some Windows editors/watchers open JSON without
+    FILE_SHARE_DELETE, which permits normal writes but makes os.replace fail
+    with WinError 5 for as long as the watcher stays open.
+    """
+
+    with path.open("wb") as handle:
+        handle.write(data)
+        handle.flush()
+        os.fsync(handle.fileno())
+
+
+def _atomic_write(
+    path: Path,
+    text: str,
+    *,
+    allow_in_place_fallback: bool = False,
+) -> None:
     temporary = path.with_name(f".{path.name}.scenario-integration.tmp")
     try:
         temporary.write_text(text, encoding="utf-8")
-        os.replace(temporary, path)
+        try:
+            _replace_with_retry(temporary, path)
+        except PermissionError:
+            if not allow_in_place_fallback:
+                raise
+            _fsync_overwrite(path, temporary.read_bytes())
     finally:
         if temporary.exists():
             temporary.unlink()
 
 
-def _atomic_restore(path: Path, data: bytes) -> None:
+def _atomic_restore(
+    path: Path,
+    data: bytes,
+    *,
+    allow_in_place_fallback: bool = False,
+) -> None:
     """Restore exact pre-transaction bytes, including Windows newlines."""
 
     temporary = path.with_name(f".{path.name}.scenario-integration.tmp")
     try:
         temporary.write_bytes(data)
-        os.replace(temporary, path)
+        try:
+            _replace_with_retry(temporary, path)
+        except PermissionError:
+            if not allow_in_place_fallback:
+                raise
+            _fsync_overwrite(path, data)
     finally:
         if temporary.exists():
             temporary.unlink()
@@ -836,7 +887,11 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
         originals = {path: path.read_bytes() for path in outputs}
         try:
             for path, content in outputs.items():
-                _atomic_write(path, content)
+                _atomic_write(
+                    path,
+                    content,
+                    allow_in_place_fallback=path == manifest_path,
+                )
             final_issues = ContentValidator(root).validate()
             if final_issues:
                 detail = "\n".join(f"{issue.source}: {issue.message}" for issue in final_issues)
@@ -845,7 +900,11 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
             rollback_errors: list[str] = []
             for path, data in originals.items():
                 try:
-                    _atomic_restore(path, data)
+                    _atomic_restore(
+                        path,
+                        data,
+                        allow_in_place_fallback=path == manifest_path,
+                    )
                 except OSError as rollback_error:
                     rollback_errors.append(f"{path}: {rollback_error}")
             suffix = (

@@ -266,7 +266,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "a2_friends": (
         "a2_friends_weekend_slot", "a2_gaming_cant_connect",
-        "a2_w10_friends",
+        "a2_w10_friends", "a2_jun_hwaseong_school_slide",
     ),
     "a2_dating": (
         "a2_dating_slow_replies",
@@ -307,10 +307,11 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "b1_work_deadline_soft_request",
         "b1_job_offer_conditions_batch20",
         "b1_team_briefing_revised_schedule_2026",
+        "b1_dongsun_norigae_shop_post",
     ),
     "b1_neighbor": (
         "b1_guest_notice", "b1_laundry_turn", "b1_quiet_exam",
-        "b1_safety_vest",
+        "b1_safety_vest", "b1_byeongcheol_hwaseong_memory_check",
     ),
     "b1_feel": (
         "couple_argument", "love_confession", "warm_encouragement",
@@ -343,7 +344,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "b2_evidence": (
         "b2_chart_axes", "b2_metric_clear", "b2_cross_check",
         "b2_source_check", "b2_market_source", "b2_assumption",
-        "b2_review_three",
+        "b2_review_three", "b2_daniel_hyuna_hanji_filming_scope",
     ),
     "b2_negotiate": (
         "b2_counter_offer", "b2_must_have", "b2_limit_line",
@@ -476,6 +477,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "c1_attribution_collective_byline",
         "c1_attribution_reuse_without_credit",
         "c1_attribution_unpaid_translation",
+        "c1_maya_hyuna_daniel_talchum_shortform",
     ),
     "c1_friends": (
         "c1_friends_venue_access", "c1_gaming_playtime_policy",

@@ -17870,7 +17870,7 @@
           "explanation": {
             "ko": "들은 말은 “가능한 복용 방법이나 대체 약이 있는지 처방의와 확인해 보겠습니다. 확인하기 전까지는 처방대로 복용해 주세요.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
             "de": "Zu hören ist „가능한 복용 방법이나 대체 약이 있는지 처방의와 확인해 보겠습니다. 확인하기 전까지는 처방대로 복용해 주세요.“: Ich kläre mit der verschreibenden Praxis, ob eine andere Einnahmeweise oder ein Ersatzmedikament möglich ist. Bis das geklärt ist, nehmen Sie das Medikament bitte wie verordnet ein. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “가능한 복용 방법이나 대체 약이 있는지 처방의와 확인해 보겠습니다. 확인하기 전까지는 처방대로 복용해 주세요.”: I'll check with the prescribing clinician whether another way of taking it or an alternative medicine is possible. Until that is clarified, please take it as prescribed. The other options represent different turns in this scene, with different content or conversational functions."
+            "en": "The line is “가능한 복용 방법이나 대체 약이 있는지 처방의와 확인해 보겠습니다. 확인하기 전까지는 처방대로 복용해 주세요.”: I'll check with the prescribing clinician whether there's another way to take it or an alternative medicine. Until that's clarified, please take it as prescribed. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "b2_w10_health"
@@ -17881,7 +17881,7 @@
             {
               "ko": "가능한 복용 방법이나 대체 약이 있는지 처방의와 확인해 보겠습니다. 확인하기 전까지는 처방대로 복용해 주세요.",
               "de": "Ich kläre mit der verschreibenden Praxis, ob eine andere Einnahmeweise oder ein Ersatzmedikament möglich ist. Bis das geklärt ist, nehmen Sie das Medikament bitte wie verordnet ein.",
-              "en": "I'll check with the prescribing clinician whether another way of taking it or an alternative medicine is possible. Until that is clarified, please take it as prescribed."
+              "en": "I'll check with the prescribing clinician whether there's another way to take it or an alternative medicine. Until that's clarified, please take it as prescribed."
             },
             {
               "ko": "그럼 낮에 복용해도 덜 졸린 방법이 있는지 처방의와 확인해 주실 수 있을까요?",
@@ -18365,7 +18365,7 @@
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
             "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Verstanden. Sobald geklärt ist, was nötig ist, bereite ich alles entsprechend vor.",
-            "en": "Put the words in the same order as the recording. Meaning: Understood. Once it is clear what is needed, I'll prepare accordingly."
+            "en": "Put the words in the same order as the recording. Meaning: All right. Once it's clear what's needed, I'll prepare accordingly."
           },
           "explanation": {
             "ko": "이 과제는 들은 어순을 재현해요: “알겠습니다. 필요한 내용이 확인되면 그에 맞춰 준비하겠습니다.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
@@ -22644,7 +22644,7 @@
           "explanation": {
             "ko": "들은 말은 “네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
             "de": "Zu hören ist „네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.“: Ja. Von allen Unterlagen zu dieser Bewerberin halte ich mich fern und prüfe die übrigen vier nach denselben Kriterien. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.”: Yes. I'll step away from all material about that applicant and assess the other four by the same criteria. The other options represent different turns in this scene, with different content or conversational functions."
+            "en": "The line is “네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.”: Yes. I'll keep clear of that applicant's material and assess the other four by the same criteria. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "c1_w10_conflict_interest"
@@ -22655,7 +22655,7 @@
             {
               "ko": "네, 그 지원자 관련 자료에서는 빠지고 나머지 네 건은 같은 기준으로 검토하겠습니다.",
               "de": "Ja. Von allen Unterlagen zu dieser Bewerberin halte ich mich fern und prüfe die übrigen vier nach denselben Kriterien.",
-              "en": "Yes. I'll step away from all material about that applicant and assess the other four by the same criteria."
+              "en": "Yes. I'll keep clear of that applicant's material and assess the other four by the same criteria."
             },
             {
               "ko": "그렇다면 그 지원자 심사에서는 빠지시는 게 좋겠습니다.",
@@ -22761,7 +22761,7 @@
           "explanation": {
             "ko": "근거는 “네. 가능한 선택지는 현재 건강 상태와 연구 기준을 함께 봐야 합니다. 담당 의료진에게 문의할 방법을 안내해 드리겠습니다.”예요. 따라서 “초기 부작용 정보만으로 장기 안전성을 확정할 수 없어요.”가 맞아요. “초기 부작용이 가벼우므로 장기 부작용도 모두 알려졌어요.”와 “연구를 거절하면 기존 치료도 선택할 수 없어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
             "de": "Der Beleg lautet: „네. 가능한 선택지는 현재 건강 상태와 연구 기준을 함께 봐야 합니다. 담당 의료진에게 문의할 방법을 안내해 드리겠습니다.“ (Ja. Welche Optionen möglich sind, hängt von Ihrem aktuellen Gesundheitszustand und den Studienkriterien ab. Ich erkläre Ihnen, wie Sie Ihr Behandlungsteam dazu erreichen können.). Daraus folgt: Frühe Angaben zu Nebenwirkungen belegen noch keine langfristige Sicherheit. Die Alternativen „Weil frühe Nebenwirkungen mild sind, sind auch alle Langzeitfolgen bekannt.“ und „Bei Ablehnung der Studie steht auch die bisherige Behandlung nicht mehr offen.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “네. 가능한 선택지는 현재 건강 상태와 연구 기준을 함께 봐야 합니다. 담당 의료진에게 문의할 방법을 안내해 드리겠습니다.” (Yes. The options that may be available depend on your current health and the study criteria. I'll explain how to contact your care team about them.). This supports: Early side-effect findings do not establish long-term safety. The alternatives “Mild early side effects mean all long-term effects are known.” and “Declining the study removes the option of existing treatment.” change the distinction or condition in the dialogue."
+            "en": "The evidence is “네. 가능한 선택지는 현재 건강 상태와 연구 기준을 함께 봐야 합니다. 담당 의료진에게 문의할 방법을 안내해 드리겠습니다.” (Yes. Which options are possible depends on your current health and the study criteria. I'll explain how to contact your care team about them.). This supports: Early side-effect findings do not establish long-term safety. The alternatives “Mild early side effects mean all long-term effects are known.” and “Declining the study removes the option of existing treatment.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
             "c1_w10_clinical"
@@ -22857,7 +22857,7 @@
           "explanation": {
             "ko": "근거는 “네. 가능한 선택지는 현재 건강 상태와 연구 기준을 함께 봐야 합니다. 담당 의료진에게 문의할 방법을 안내해 드리겠습니다.”예요. 따라서 “초기 부작용 정보만으로 장기 안전성을 확정할 수 없어요.”가 맞아요. “초기 부작용이 가벼우므로 장기 부작용도 모두 알려졌어요.”와 “연구를 거절하면 기존 치료도 선택할 수 없어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
             "de": "Der Beleg lautet: „네. 가능한 선택지는 현재 건강 상태와 연구 기준을 함께 봐야 합니다. 담당 의료진에게 문의할 방법을 안내해 드리겠습니다.“ (Ja. Welche Optionen möglich sind, hängt von Ihrem aktuellen Gesundheitszustand und den Studienkriterien ab. Ich erkläre Ihnen, wie Sie Ihr Behandlungsteam dazu erreichen können.). Daraus folgt: Frühe Angaben zu Nebenwirkungen belegen noch keine langfristige Sicherheit. Die Alternativen „Weil frühe Nebenwirkungen mild sind, sind auch alle Langzeitfolgen bekannt.“ und „Bei Ablehnung der Studie steht auch die bisherige Behandlung nicht mehr offen.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “네. 가능한 선택지는 현재 건강 상태와 연구 기준을 함께 봐야 합니다. 담당 의료진에게 문의할 방법을 안내해 드리겠습니다.” (Yes. The options that may be available depend on your current health and the study criteria. I'll explain how to contact your care team about them.). This supports: Early side-effect findings do not establish long-term safety. The alternatives “Mild early side effects mean all long-term effects are known.” and “Declining the study removes the option of existing treatment.” change the distinction or condition in the dialogue."
+            "en": "The evidence is “네. 가능한 선택지는 현재 건강 상태와 연구 기준을 함께 봐야 합니다. 담당 의료진에게 문의할 방법을 안내해 드리겠습니다.” (Yes. Which options are possible depends on your current health and the study criteria. I'll explain how to contact your care team about them.). This supports: Early side-effect findings do not establish long-term safety. The alternatives “Mild early side effects mean all long-term effects are known.” and “Declining the study removes the option of existing treatment.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
             "c1_w10_clinical"
@@ -27759,7 +27759,7 @@
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
             "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Ja. Ich prüfe heute, was sich klären lässt, und informiere Sie dann über das Ergebnis und die nächsten Schritte.",
-            "en": "Put the words in the same order as the recording. Meaning: Yes. I'll review what can be clarified today and then explain the result and the next steps."
+            "en": "Put the words in the same order as the recording. Meaning: Yes. I'll see what can be clarified today, then explain the result and the next steps."
           },
           "explanation": {
             "ko": "이 과제는 들은 어순을 재현해요: “네. 오늘 안에 확인할 수 있는 범위를 살펴본 뒤, 결과와 다음 절차를 안내드리겠습니다.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
@@ -28736,6 +28736,781 @@
             }
           ],
           "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "listening.b1.b1_dongsun_norigae_shop_post",
+      "kind": "listening",
+      "level": "b1",
+      "topicId": "b1_team",
+      "title": {
+        "ko": "노리개 사진을 올리기 전에 확인하기",
+        "de": "Vor einem Norigae-Post Details abstimmen",
+        "en": "Checking details before posting a norigae"
+      },
+      "intro": {
+        "ko": "마야가 동선의 가게에서 노리개 사진을 찍어 홍보 글을 만들려고 해요. 먼저 어디까지 찍을지와 설명을 확인해요.",
+        "de": "Maya möchte in Dongsuns Laden ein Norigae fotografieren und einen Werbepost erstellen. Zuerst klären die beiden, was fotografiert werden darf und wie das Produkt beschrieben wird.",
+        "en": "Maya wants to photograph a norigae in Dongsun's shop for a promotional post. They first agree on what can be photographed and how the item should be described."
+      },
+      "contentIds": [
+        "b1_dongsun_norigae_shop_post"
+      ],
+      "questions": [
+        {
+          "id": "listening.b1.b1_dongsun_norigae_shop_post.situation",
+          "type": "choice",
+          "skill": "situation",
+          "sourceIds": [
+            "b1_dongsun_norigae_shop_post"
+          ],
+          "evidenceKo": "사장님, 이 노리개 사진을 가게 페이지에 올려도 될까요?",
+          "prompt": {
+            "ko": "대화 전체에 맞는 상황은 무엇인가요?",
+            "de": "Welche Situation passt zum gesamten Gespräch?",
+            "en": "Which situation matches the whole conversation?"
+          },
+          "explanation": {
+            "ko": "“사장님, 이 노리개 사진을 가게 페이지에 올려도 될까요?”라는 말이 근거예요. 대화 전체의 목적과 관계를 함께 확인해요.",
+            "de": "Ein Beleg ist „사장님, 이 노리개 사진을 가게 페이지에 올려도 될까요?“. Prüfe Ziel und Beziehung im gesamten Gespräch.",
+            "en": "One supporting line is “사장님, 이 노리개 사진을 가게 페이지에 올려도 될까요?”. Check the goal and relationship across the whole conversation."
+          },
+          "options": [
+            {
+              "ko": "노리개 홍보 사진을 어디까지 찍을지와 상품 설명을 함께 확인해요.",
+              "de": "Maya und Dongsun stimmen Bildausschnitt und Text für einen Norigae-Post ab.",
+              "en": "Maya and Dongsun agree on the photo scope and wording for a norigae post."
+            },
+            {
+              "ko": "손님이 노리개 가격을 흥정해요.",
+              "de": "Ein Kunde verhandelt über den Preis eines Norigae.",
+              "en": "A customer bargains over the price of a norigae."
+            },
+            {
+              "ko": "가게 문을 닫을 시간을 정해요.",
+              "de": "Sie legen die Ladenschlusszeit fest.",
+              "en": "They decide when to close the shop."
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.b1.b1_dongsun_norigae_shop_post.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "sourceIds": [
+            "b1_dongsun_norigae_shop_post"
+          ],
+          "evidenceKo": "좋아요. 대신 손님 얼굴이 나오지 않게 찍어 주실 수 있을까요?",
+          "prompt": {
+            "ko": "들은 말의 뜻은 무엇인가요?",
+            "de": "Was bedeutet die gehörte Aussage?",
+            "en": "What does the spoken line mean?"
+          },
+          "explanation": {
+            "ko": "“좋아요. 대신 손님 얼굴이 나오지 않게 찍어 주실 수 있을까요?”라는 말이 근거예요. 이 말과 같은 뜻의 문장을 골라요.",
+            "de": "Ein Beleg ist „좋아요. 대신 손님 얼굴이 나오지 않게 찍어 주실 수 있을까요?“. Wähle die Aussage mit derselben Bedeutung.",
+            "en": "One supporting line is “좋아요. 대신 손님 얼굴이 나오지 않게 찍어 주실 수 있을까요?”. Choose the statement with the same meaning."
+          },
+          "options": [
+            {
+              "ko": "좋아요. 대신 손님 얼굴이 나오지 않게 찍어 주실 수 있을까요?",
+              "de": "Gern. Könnten Sie nur darauf achten, dass keine Kundengesichter zu sehen sind?",
+              "en": "Sure. Could you make sure no customers' faces appear?"
+            },
+            {
+              "ko": "사장님, 이 노리개 사진을 가게 페이지에 올려도 될까요?",
+              "de": "Darf ich dieses Norigae fotografieren und auf der Seite des Ladens posten?",
+              "en": "May I photograph this norigae and post it on the shop page?"
+            },
+            {
+              "ko": "네. 상품만 찍고, 올리기 전에 먼저 보여 드릴게요.",
+              "de": "Ja. Ich fotografiere nur das Produkt und zeige Ihnen den Post, bevor ich ihn hochlade.",
+              "en": "Yes. I'll photograph only the item and show you the post before I upload it."
+            }
+          ],
+          "correctIndex": 0,
+          "audioKo": "좋아요. 대신 손님 얼굴이 나오지 않게 찍어 주실 수 있을까요?"
+        },
+        {
+          "id": "listening.b1.b1_dongsun_norigae_shop_post.sentence",
+          "type": "order",
+          "skill": "sentence",
+          "sourceIds": [
+            "b1_dongsun_norigae_shop_post"
+          ],
+          "audioKo": "알겠어요. ‘동선 사장님이 직접 만든 노리개’라는 설명은 빼겠습니다.",
+          "evidenceKo": "알겠어요. ‘동선 사장님이 직접 만든 노리개’라는 설명은 빼겠습니다.",
+          "targetKo": "알겠어요. ‘동선 사장님이 직접 만든 노리개’라는 설명은 빼겠습니다.",
+          "prompt": {
+            "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
+            "de": "Ordne die Wörter genau wie in der Aufnahme.",
+            "en": "Put the words in the same order as the recording."
+          },
+          "explanation": {
+            "ko": "“알겠어요. ‘동선 사장님이 직접 만든 노리개’라는 설명은 빼겠습니다.”라는 말이 근거예요. 들은 어순을 그대로 만들어요.",
+            "de": "Ein Beleg ist „알겠어요. ‘동선 사장님이 직접 만든 노리개’라는 설명은 빼겠습니다.“. Bilde genau die gehörte Wortfolge.",
+            "en": "One supporting line is “알겠어요. ‘동선 사장님이 직접 만든 노리개’라는 설명은 빼겠습니다.”. Recreate the exact word order you heard."
+          }
+        },
+        {
+          "id": "listening.b1.b1_dongsun_norigae_shop_post.response",
+          "type": "choice",
+          "skill": "response",
+          "sourceIds": [
+            "b1_dongsun_norigae_shop_post"
+          ],
+          "evidenceKo": "알겠어요. ‘동선 사장님이 직접 만든 노리개’라는 설명은 빼겠습니다.",
+          "prompt": {
+            "ko": "상대가 직접 만든 제품이 아니라고 했어요. 잘못된 제작자 설명을 빼겠다고 답하세요.",
+            "de": "Die andere Person sagt, dass sie das Produkt nicht selbst hergestellt hat. Antworte, dass du die falsche Herstellerbeschreibung entfernst.",
+            "en": "The other person says they did not make the item. Reply that you will remove the incorrect maker description."
+          },
+          "explanation": {
+            "ko": "“알겠어요. ‘동선 사장님이 직접 만든 노리개’라는 설명은 빼겠습니다.”라는 말이 근거예요. 이 응답은 과제의 목적을 이뤄요.",
+            "de": "Ein Beleg ist „알겠어요. ‘동선 사장님이 직접 만든 노리개’라는 설명은 빼겠습니다.“. Diese Antwort erfüllt das Ziel der Aufgabe.",
+            "en": "One supporting line is “알겠어요. ‘동선 사장님이 직접 만든 노리개’라는 설명은 빼겠습니다.”. This response fulfills the task's goal."
+          },
+          "options": [
+            {
+              "ko": "알겠어요. ‘동선 사장님이 직접 만든 노리개’라는 설명은 빼겠습니다.",
+              "de": "Verstanden. Ich nehme die Beschreibung „von Dongsun selbst gefertigtes Norigae“ heraus.",
+              "en": "Got it. I'll remove the description 'a norigae handmade by Dongsun.'"
+            },
+            {
+              "ko": "그럼 제가 만든 상품이라고 쓸게요.",
+              "de": "Dann schreibe ich, dass ich das Produkt gemacht habe.",
+              "en": "Then I'll write that I made the item."
+            },
+            {
+              "ko": "사진은 손님 얼굴까지 다 나오게 찍을게요.",
+              "de": "Ich fotografiere auch alle Kundengesichter.",
+              "en": "I'll include all the customers' faces in the photo."
+            }
+          ],
+          "correctIndex": 0,
+          "audioKo": "그리고 이건 제가 만든 건 아니에요. 전통 매듭이 있는 상품이라고만 써 주세요."
+        }
+      ]
+    },
+    {
+      "id": "listening.b1.b1_byeongcheol_hwaseong_memory_check",
+      "kind": "listening",
+      "level": "b1",
+      "topicId": "b1_neighbor",
+      "title": {
+        "ko": "수원화성에서 기억과 사실을 따로 적기",
+        "de": "Erinnerung und Fakten an Hwaseong getrennt festhalten",
+        "en": "Keeping memory and facts separate at Hwaseong"
+      },
+      "intro": {
+        "ko": "현아와 병철이 수원화성을 걸으며 병철의 생활 기억을 메모해요. 기억과 확인한 역사 정보를 따로 적기로 해요.",
+        "de": "Hyuna und Byeongcheol gehen an der Hwaseong-Festung spazieren und notieren seine Alltagserinnerungen. Erinnerungen und geprüfte historische Informationen werden getrennt festgehalten.",
+        "en": "Hyuna and Byeongcheol walk around Hwaseong Fortress and note his everyday memories. They decide to keep memory separate from checked historical information."
+      },
+      "contentIds": [
+        "b1_byeongcheol_hwaseong_memory_check"
+      ],
+      "questions": [
+        {
+          "id": "listening.b1.b1_byeongcheol_hwaseong_memory_check.situation",
+          "type": "choice",
+          "skill": "situation",
+          "sourceIds": [
+            "b1_byeongcheol_hwaseong_memory_check"
+          ],
+          "evidenceKo": "예전에는 이쪽으로 산책 오는 사람이 지금보다 적었던 기억이 납니다.",
+          "prompt": {
+            "ko": "대화 전체에 맞는 상황은 무엇인가요?",
+            "de": "Welche Situation passt zum gesamten Gespräch?",
+            "en": "Which situation matches the whole conversation?"
+          },
+          "explanation": {
+            "ko": "“예전에는 이쪽으로 산책 오는 사람이 지금보다 적었던 기억이 납니다.”라는 말이 근거예요. 대화 전체의 목적과 관계를 함께 확인해요.",
+            "de": "Ein Beleg ist „예전에는 이쪽으로 산책 오는 사람이 지금보다 적었던 기억이 납니다.“. Prüfe Ziel und Beziehung im gesamten Gespräch.",
+            "en": "One supporting line is “예전에는 이쪽으로 산책 오는 사람이 지금보다 적었던 기억이 납니다.”. Check the goal and relationship across the whole conversation."
+          },
+          "options": [
+            {
+              "ko": "수원화성을 걸으며 개인 기억과 확인한 역사 정보를 따로 적어요.",
+              "de": "Beim Rundgang an Hwaseong werden persönliche Erinnerungen und belegte historische Informationen getrennt festgehalten.",
+              "en": "While walking around Hwaseong, they record personal memories separately from verified historical information."
+            },
+            {
+              "ko": "성곽 공사 날짜를 병철이 모두 외워서 설명해요.",
+              "de": "Byeongcheol erklärt alle Baudaten der Festung auswendig.",
+              "en": "Byeongcheol recites all the fortress construction dates from memory."
+            },
+            {
+              "ko": "산책을 그만두고 택시를 불러요.",
+              "de": "Sie brechen den Spaziergang ab und rufen ein Taxi.",
+              "en": "They stop the walk and call a taxi."
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.b1.b1_byeongcheol_hwaseong_memory_check.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "sourceIds": [
+            "b1_byeongcheol_hwaseong_memory_check"
+          ],
+          "evidenceKo": "그러니까 선생님 기억으로는 이 길이 더 조용했다고 하시는 거죠?",
+          "prompt": {
+            "ko": "들은 말의 뜻은 무엇인가요?",
+            "de": "Was bedeutet die gehörte Aussage?",
+            "en": "What does the spoken line mean?"
+          },
+          "explanation": {
+            "ko": "“그러니까 선생님 기억으로는 이 길이 더 조용했다고 하시는 거죠?”라는 말이 근거예요. 이 말과 같은 뜻의 문장을 골라요.",
+            "de": "Ein Beleg ist „그러니까 선생님 기억으로는 이 길이 더 조용했다고 하시는 거죠?“. Wähle die Aussage mit derselben Bedeutung.",
+            "en": "One supporting line is “그러니까 선생님 기억으로는 이 길이 더 조용했다고 하시는 거죠?”. Choose the statement with the same meaning."
+          },
+          "options": [
+            {
+              "ko": "그러니까 선생님 기억으로는 이 길이 더 조용했다고 하시는 거죠?",
+              "de": "Sie sagen also, dass dieser Weg Ihrer Erinnerung nach ruhiger war, richtig?",
+              "en": "So you're saying that, as you remember it, this path used to be quieter, right?"
+            },
+            {
+              "ko": "예전에는 이쪽으로 산책 오는 사람이 지금보다 적었던 기억이 납니다.",
+              "de": "Ich erinnere mich, dass früher weniger Menschen hier spazieren gingen als heute.",
+              "en": "I remember fewer people coming to walk around here than today."
+            },
+            {
+              "ko": "네. 다만 언제부터 달라졌는지는 정확히 모르겠습니다.",
+              "de": "Ja. Ich weiß allerdings nicht genau, wann sich das verändert hat.",
+              "en": "Yes. I don't know exactly when that changed, though."
+            }
+          ],
+          "correctIndex": 0,
+          "audioKo": "그러니까 선생님 기억으로는 이 길이 더 조용했다고 하시는 거죠?"
+        },
+        {
+          "id": "listening.b1.b1_byeongcheol_hwaseong_memory_check.sentence",
+          "type": "order",
+          "skill": "sentence",
+          "sourceIds": [
+            "b1_byeongcheol_hwaseong_memory_check"
+          ],
+          "audioKo": "그 부분은 ‘그렇게 기억한다’고 적고, 시기와 공사 자료는 따로 확인할게요.",
+          "evidenceKo": "그 부분은 ‘그렇게 기억한다’고 적고, 시기와 공사 자료는 따로 확인할게요.",
+          "targetKo": "그 부분은 ‘그렇게 기억한다’고 적고, 시기와 공사 자료는 따로 확인할게요.",
+          "prompt": {
+            "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
+            "de": "Ordne die Wörter genau wie in der Aufnahme.",
+            "en": "Put the words in the same order as the recording."
+          },
+          "explanation": {
+            "ko": "“그 부분은 ‘그렇게 기억한다’고 적고, 시기와 공사 자료는 따로 확인할게요.”라는 말이 근거예요. 들은 어순을 그대로 만들어요.",
+            "de": "Ein Beleg ist „그 부분은 ‘그렇게 기억한다’고 적고, 시기와 공사 자료는 따로 확인할게요.“. Bilde genau die gehörte Wortfolge.",
+            "en": "One supporting line is “그 부분은 ‘그렇게 기억한다’고 적고, 시기와 공사 자료는 따로 확인할게요.”. Recreate the exact word order you heard."
+          }
+        },
+        {
+          "id": "listening.b1.b1_byeongcheol_hwaseong_memory_check.response",
+          "type": "choice",
+          "skill": "response",
+          "sourceIds": [
+            "b1_byeongcheol_hwaseong_memory_check"
+          ],
+          "evidenceKo": "맞아요. 수원화성 설명은 공식 자료를 기준으로 하고, 선생님 이야기는 생활 기억이라고 따로 적겠습니다.",
+          "prompt": {
+            "ko": "상대가 개인 경험과 역사 자료가 다르다고 말했어요. 두 종류의 정보를 따로 적겠다고 답하세요.",
+            "de": "Die andere Person unterscheidet persönliche Erfahrung und historische Quellen. Antworte, dass du beide Informationsarten getrennt festhältst.",
+            "en": "The other person distinguishes personal experience from historical records. Reply that you will write the two kinds of information separately."
+          },
+          "explanation": {
+            "ko": "“맞아요. 수원화성 설명은 공식 자료를 기준으로 하고, 선생님 이야기는 생활 기억이라고 따로 적겠습니다.”라는 말이 근거예요. 이 응답은 과제의 목적을 이뤄요.",
+            "de": "Ein Beleg ist „맞아요. 수원화성 설명은 공식 자료를 기준으로 하고, 선생님 이야기는 생활 기억이라고 따로 적겠습니다.“. Diese Antwort erfüllt das Ziel der Aufgabe.",
+            "en": "One supporting line is “맞아요. 수원화성 설명은 공식 자료를 기준으로 하고, 선생님 이야기는 생활 기억이라고 따로 적겠습니다.”. This response fulfills the task's goal."
+          },
+          "options": [
+            {
+              "ko": "맞아요. 수원화성 설명은 공식 자료를 기준으로 하고, 선생님 이야기는 생활 기억이라고 따로 적겠습니다.",
+              "de": "Genau. Für die Erklärung zu Hwaseong nehme ich offizielle Quellen, und Ihre Erzählung halte ich getrennt als Alltagserinnerung fest.",
+              "en": "Right. I'll use official sources for the explanation of Hwaseong and write your story separately as an everyday memory."
+            },
+            {
+              "ko": "그럼 선생님 기억을 공식 역사로 쓰겠습니다.",
+              "de": "Dann schreibe ich Ihre Erinnerung als offizielle Geschichte auf.",
+              "en": "Then I'll present your memory as official history."
+            },
+            {
+              "ko": "자료는 필요 없으니 기억만 적을게요.",
+              "de": "Dann brauche ich keine Quellen und notiere nur Ihre Erinnerung.",
+              "en": "Then I won't need sources and will record only your memory."
+            }
+          ],
+          "correctIndex": 0,
+          "audioKo": "좋습니다. 내가 본 것과 역사 자료는 같은 게 아니니까요."
+        }
+      ]
+    },
+    {
+      "id": "listening.a2.a2_jun_hwaseong_school_slide",
+      "kind": "listening",
+      "level": "a2",
+      "topicId": "a2_friends",
+      "title": {
+        "ko": "학교에서 쓸 수원화성 사진 확인하기",
+        "de": "Hwaseong-Fotos für die Schule prüfen",
+        "en": "Checking Hwaseong photos for school"
+      },
+      "intro": {
+        "ko": "준이 학교에서 수원화성을 소개할 때 쓸 사진을 골랐어요. 크리스티안과 사진을 보며 설명과 어디서 가져온 사진인지 확인해요.",
+        "de": "Jun hat Fotos der Hwaseong-Festung ausgewählt, die er in der Schule zeigen will. Mit Christian prüft er die Beschreibungen und woher die Fotos stammen.",
+        "en": "Jun has chosen photos of Hwaseong Fortress to show at school. He checks the descriptions and where the photos came from with Christian."
+      },
+      "contentIds": [
+        "a2_jun_hwaseong_school_slide"
+      ],
+      "questions": [
+        {
+          "id": "listening.a2.a2_jun_hwaseong_school_slide.situation",
+          "type": "choice",
+          "skill": "situation",
+          "sourceIds": [
+            "a2_jun_hwaseong_school_slide"
+          ],
+          "evidenceKo": "네. 수원화성을 소개하려고 사진을 세 장 골랐어요.",
+          "prompt": {
+            "ko": "대화 전체에 맞는 상황은 무엇인가요?",
+            "de": "Welche Situation passt zum gesamten Gespräch?",
+            "en": "Which situation matches the whole conversation?"
+          },
+          "explanation": {
+            "ko": "“네. 수원화성을 소개하려고 사진을 세 장 골랐어요.”라는 말이 근거예요. 대화 전체의 목적과 관계를 함께 확인해요.",
+            "de": "Ein Beleg ist „네. 수원화성을 소개하려고 사진을 세 장 골랐어요.“. Prüfe Ziel und Beziehung im gesamten Gespräch.",
+            "en": "One supporting line is “네. 수원화성을 소개하려고 사진을 세 장 골랐어요.”. Check the goal and relationship across the whole conversation."
+          },
+          "options": [
+            {
+              "ko": "학교에서 수원화성을 소개할 사진의 순서와 사진을 가져온 곳을 확인해요.",
+              "de": "Sie prüfen die Reihenfolge der Fotos und woher die Bilder stammen, bevor Jun Hwaseong in der Schule vorstellt.",
+              "en": "They check the photo order and where the images came from before Jun introduces Hwaseong at school."
+            },
+            {
+              "ko": "게임 시간을 한 시간 늦춰요.",
+              "de": "Sie verschieben die Spielzeit um eine Stunde.",
+              "en": "They move their gaming time one hour later."
+            },
+            {
+              "ko": "수원화성 입장권을 환불해요.",
+              "de": "Sie erstatten ein Ticket für Hwaseong.",
+              "en": "They refund a ticket for Hwaseong."
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.a2.a2_jun_hwaseong_school_slide.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "sourceIds": [
+            "a2_jun_hwaseong_school_slide"
+          ],
+          "evidenceKo": "아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요.",
+          "prompt": {
+            "ko": "들은 말의 뜻은 무엇인가요?",
+            "de": "Was bedeutet die gehörte Aussage?",
+            "en": "What does the spoken line mean?"
+          },
+          "explanation": {
+            "ko": "“아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요.”라는 말이 근거예요. 이 말과 같은 뜻의 문장을 골라요.",
+            "de": "Ein Beleg ist „아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요.“. Wähle die Aussage mit derselben Bedeutung.",
+            "en": "One supporting line is “아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요.”. Choose the statement with the same meaning."
+          },
+          "options": [
+            {
+              "ko": "아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요.",
+              "de": "Noch nicht. Ich habe es im Internet gesehen. Ich prüfe die Informationen zu Hwaseong noch einmal.",
+              "en": "Not yet. I saw it online. I'll check the Hwaseong information again."
+            },
+            {
+              "ko": "준, 학교에서 보여 줄 사진 거의 다 골랐어?",
+              "de": "Jun, hast du die Fotos für die Schule fast fertig ausgewählt?",
+              "en": "Jun, have you almost finished choosing the photos for school?"
+            },
+            {
+              "ko": "네. 수원화성을 소개하려고 사진을 세 장 골랐어요.",
+              "de": "Ja. Ich habe drei Fotos ausgewählt, um Hwaseong vorzustellen.",
+              "en": "Yes. I chose three photos to introduce Hwaseong Fortress."
+            }
+          ],
+          "correctIndex": 0,
+          "audioKo": "아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요."
+        },
+        {
+          "id": "listening.a2.a2_jun_hwaseong_school_slide.sentence",
+          "type": "order",
+          "skill": "sentence",
+          "sourceIds": [
+            "a2_jun_hwaseong_school_slide"
+          ],
+          "audioKo": "네. 오늘은 사진 순서만 정할게요. 해와 사진을 가져온 곳은 나중에 확인할게요.",
+          "evidenceKo": "네. 오늘은 사진 순서만 정할게요. 해와 사진을 가져온 곳은 나중에 확인할게요.",
+          "targetKo": "네. 오늘은 사진 순서만 정할게요. 해와 사진을 가져온 곳은 나중에 확인할게요.",
+          "prompt": {
+            "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
+            "de": "Ordne die Wörter genau wie in der Aufnahme.",
+            "en": "Put the words in the same order as the recording."
+          },
+          "explanation": {
+            "ko": "“네. 오늘은 사진 순서만 정할게요. 해와 사진을 가져온 곳은 나중에 확인할게요.”라는 말이 근거예요. 들은 어순을 그대로 만들어요.",
+            "de": "Ein Beleg ist „네. 오늘은 사진 순서만 정할게요. 해와 사진을 가져온 곳은 나중에 확인할게요.“. Bilde genau die gehörte Wortfolge.",
+            "en": "One supporting line is “네. 오늘은 사진 순서만 정할게요. 해와 사진을 가져온 곳은 나중에 확인할게요.”. Recreate the exact word order you heard."
+          }
+        },
+        {
+          "id": "listening.a2.a2_jun_hwaseong_school_slide.response",
+          "type": "choice",
+          "skill": "response",
+          "sourceIds": [
+            "a2_jun_hwaseong_school_slide"
+          ],
+          "evidenceKo": "아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요.",
+          "prompt": {
+            "ko": "상대가 설명에 쓴 해를 확인했는지 물었어요. 아직 확인하지 않았고 수원화성 안내를 다시 확인하겠다고 답하세요.",
+            "de": "Die andere Person fragt, ob du das Jahr geprüft hast. Sage, dass du es noch nicht geprüft hast und die Informationen zu Hwaseong noch einmal prüfst.",
+            "en": "The other person asks whether you checked the year. Say you haven't yet and will check the Hwaseong information again."
+          },
+          "explanation": {
+            "ko": "“아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요.”라는 말이 근거예요. 이 응답은 과제의 목적을 이뤄요.",
+            "de": "Ein Beleg ist „아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요.“. Diese Antwort erfüllt das Ziel der Aufgabe.",
+            "en": "One supporting line is “아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요.”. This response fulfills the task's goal."
+          },
+          "options": [
+            {
+              "ko": "아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요.",
+              "de": "Noch nicht. Ich habe es im Internet gesehen. Ich prüfe die Informationen zu Hwaseong noch einmal.",
+              "en": "Not yet. I saw it online. I'll check the Hwaseong information again."
+            },
+            {
+              "ko": "네. 친구가 말해서 그냥 맞을 거예요.",
+              "de": "Ja. Ein Freund hat es gesagt, also stimmt es bestimmt.",
+              "en": "Yes. A friend said it, so it must be right."
+            },
+            {
+              "ko": "해는 빼고 사진을 어디서 가져왔는지도 안 적을게요.",
+              "de": "Ich lasse das Jahr weg und schreibe auch nicht, woher das Foto stammt.",
+              "en": "I'll leave out the year and won't say where the photo came from either."
+            }
+          ],
+          "correctIndex": 0,
+          "audioKo": "이 사진은 멋있는데, 설명에 쓴 해도 확인했어?"
+        }
+      ]
+    },
+    {
+      "id": "listening.c1.c1_maya_hyuna_daniel_talchum_shortform",
+      "kind": "listening",
+      "level": "c1",
+      "topicId": "c1_attribution",
+      "title": {
+        "ko": "탈춤 숏폼에서 원형과 재해석 구분하기",
+        "de": "Originalform und Neuinterpretation in einem Talchum-Kurzvideo trennen",
+        "en": "Separating tradition from reinterpretation in a talchum short video"
+      },
+      "intro": {
+        "ko": "마야·현아·다니엘이 탈춤 관련 숏폼 영상을 준비해요. 실제 공연 기록과 새로 연출한 장면을 어떻게 구분할지 정해요.",
+        "de": "Maya, Hyuna und Daniel planen ein Kurzvideo zu Talchum. Sie legen fest, wie dokumentierte Aufführung und neu inszenierte Szenen unterschieden werden.",
+        "en": "Maya, Hyuna and Daniel are preparing a short video about talchum. They decide how to distinguish recorded performance from newly staged material."
+      },
+      "contentIds": [
+        "c1_maya_hyuna_daniel_talchum_shortform"
+      ],
+      "questions": [
+        {
+          "id": "listening.c1.c1_maya_hyuna_daniel_talchum_shortform.situation",
+          "type": "choice",
+          "skill": "situation",
+          "sourceIds": [
+            "c1_maya_hyuna_daniel_talchum_shortform"
+          ],
+          "evidenceKo": "그럼 실제 공연에는 ‘공연 기록’, 우리가 만든 장면에는 ‘현대적 재해석’이라고 표시할까요?",
+          "prompt": {
+            "ko": "대화 전체에서 화자의 의도와 상황에 가장 맞는 것은 무엇인가요?",
+            "de": "Welche Absicht und Situation passt am besten zum gesamten Gespräch?",
+            "en": "Which intention and situation best matches the whole conversation?"
+          },
+          "explanation": {
+            "ko": "“그럼 실제 공연에는 ‘공연 기록’, 우리가 만든 장면에는 ‘현대적 재해석’이라고 표시할까요?”라는 말이 근거예요. 대화 전체의 목적과 관계를 함께 확인해요.",
+            "de": "Ein Beleg ist „그럼 실제 공연에는 ‘공연 기록’, 우리가 만든 장면에는 ‘현대적 재해석’이라고 표시할까요?“. Prüfe Ziel und Beziehung im gesamten Gespräch.",
+            "en": "One supporting line is “그럼 실제 공연에는 ‘공연 기록’, 우리가 만든 장면에는 ‘현대적 재해석’이라고 표시할까요?”. Check the goal and relationship across the whole conversation."
+          },
+          "options": [
+            {
+              "ko": "탈춤 관련 영상에서 실제 공연 기록과 새로 연출한 장면을 구분해 표시해요.",
+              "de": "In einem Talchum-Video werden dokumentierte Aufführung und neu inszenierte Szenen klar getrennt gekennzeichnet.",
+              "en": "In a talchum video, recorded performance and newly staged scenes are clearly labeled separately."
+            },
+            {
+              "ko": "모든 장면을 전통 동작이라고 홍보해요.",
+              "de": "Alle Szenen werden als traditionelle Bewegungen beworben.",
+              "en": "All scenes are promoted as traditional movements."
+            },
+            {
+              "ko": "관객 동의 없이 얼굴이 나온 장면을 그대로 써요.",
+              "de": "Aufnahmen mit Publikums­gesichtern werden ohne Zustimmung verwendet.",
+              "en": "Shots showing audience faces are used without consent."
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.c1.c1_maya_hyuna_daniel_talchum_shortform.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "sourceIds": [
+            "c1_maya_hyuna_daniel_talchum_shortform"
+          ],
+          "evidenceKo": "맞아요. 비슷하게 보인다고 해서 전승된 동작이라고 볼 수는 없어요.",
+          "prompt": {
+            "ko": "들은 말의 뜻은 무엇인가요?",
+            "de": "Was bedeutet die gehörte Aussage?",
+            "en": "What does the spoken line mean?"
+          },
+          "explanation": {
+            "ko": "“맞아요. 비슷하게 보인다고 해서 전승된 동작이라고 볼 수는 없어요.”라는 말이 근거예요. 이 말과 같은 뜻의 문장을 골라요.",
+            "de": "Ein Beleg ist „맞아요. 비슷하게 보인다고 해서 전승된 동작이라고 볼 수는 없어요.“. Wähle die Aussage mit derselben Bedeutung.",
+            "en": "One supporting line is “맞아요. 비슷하게 보인다고 해서 전승된 동작이라고 볼 수는 없어요.”. Choose the statement with the same meaning."
+          },
+          "options": [
+            {
+              "ko": "맞아요. 비슷하게 보인다고 해서 전승된 동작이라고 볼 수는 없어요.",
+              "de": "Genau. Nur weil etwas ähnlich aussieht, ist es noch keine überlieferte Bewegung.",
+              "en": "Right. Just because something looks similar doesn't mean it's a transmitted movement."
+            },
+            {
+              "ko": "공연 장면 뒤에 우리가 만든 짧은 동작을 붙이면 영상 리듬이 좋아질 것 같아요.",
+              "de": "Wenn wir nach der Aufführung eine kurze selbst inszenierte Bewegung anhängen, bekommt das Video mehr Rhythmus.",
+              "en": "If we add a short movement we staged after the performance footage, the video may flow better."
+            },
+            {
+              "ko": "좋아요. 그런데 그 장면까지 원래 탈춤 동작처럼 보이면 안 될 것 같아요.",
+              "de": "Gern. Aber diese Szene sollte nicht so wirken, als gehöre sie zur überlieferten Talchum-Form.",
+              "en": "I like that. But that scene shouldn't look as if it were part of the transmitted talchum form."
+            }
+          ],
+          "correctIndex": 0,
+          "audioKo": "맞아요. 비슷하게 보인다고 해서 전승된 동작이라고 볼 수는 없어요."
+        },
+        {
+          "id": "listening.c1.c1_maya_hyuna_daniel_talchum_shortform.sentence",
+          "type": "order",
+          "skill": "sentence",
+          "sourceIds": [
+            "c1_maya_hyuna_daniel_talchum_shortform"
+          ],
+          "audioKo": "동의받은 구간만 쓰고, 나머지는 잘라낼게요.",
+          "evidenceKo": "동의받은 구간만 쓰고, 나머지는 잘라낼게요.",
+          "targetKo": "동의받은 구간만 쓰고, 나머지는 잘라낼게요.",
+          "prompt": {
+            "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
+            "de": "Ordne die Wörter genau wie in der Aufnahme.",
+            "en": "Put the words in the same order as the recording."
+          },
+          "explanation": {
+            "ko": "“동의받은 구간만 쓰고, 나머지는 잘라낼게요.”라는 말이 근거예요. 들은 어순을 그대로 만들어요.",
+            "de": "Ein Beleg ist „동의받은 구간만 쓰고, 나머지는 잘라낼게요.“. Bilde genau die gehörte Wortfolge.",
+            "en": "One supporting line is “동의받은 구간만 쓰고, 나머지는 잘라낼게요.”. Recreate the exact word order you heard."
+          }
+        },
+        {
+          "id": "listening.c1.c1_maya_hyuna_daniel_talchum_shortform.response",
+          "type": "choice",
+          "skill": "response",
+          "sourceIds": [
+            "c1_maya_hyuna_daniel_talchum_shortform"
+          ],
+          "evidenceKo": "영상에서는 구분을 분명히 하고, 자세한 설명은 소개 페이지로 보내죠.",
+          "prompt": {
+            "ko": "상대가 탈춤의 맥락과 출처를 연결하자고 했어요. 영상에서는 구분을 명확히 하고 자세한 설명은 소개 페이지로 보내자고 답하세요.",
+            "de": "Die andere Person schlägt Kontext und Quellen zu Talchum vor. Antworte, dass das Video klar trennt und die Details auf die Infoseite kommen.",
+            "en": "The other person suggests adding context and sources about talchum. Reply that the video will clearly distinguish the material and the details will go on the information page."
+          },
+          "explanation": {
+            "ko": "“좋아요. 영상에서는 구분을 분명히 하고, 자세한 설명은 소개 페이지로 보내죠.”라는 말이 근거예요. 이 응답은 과제의 목적을 이뤄요.",
+            "de": "Ein Beleg ist „좋아요. 영상에서는 구분을 분명히 하고, 자세한 설명은 소개 페이지로 보내죠.“. Diese Antwort erfüllt das Ziel der Aufgabe.",
+            "en": "One supporting line is “좋아요. 영상에서는 구분을 분명히 하고, 자세한 설명은 소개 페이지로 보내죠.”. This response fulfills the task's goal."
+          },
+          "options": [
+            {
+              "ko": "영상에서는 구분을 분명히 하고, 자세한 설명은 소개 페이지로 보내죠.",
+              "de": "Im Video machen wir die Unterscheidung klar und verlagern die ausführliche Erklärung auf die Infoseite.",
+              "en": "We'll make the distinction clear in the video and put the detailed explanation on the information page."
+            },
+            {
+              "ko": "영상에서는 모든 설명을 빼고 출처도 쓰지 말죠.",
+              "de": "Lassen wir alle Erklärungen und Quellen aus dem Video weg.",
+              "en": "Let's remove all explanations and sources from the video."
+            },
+            {
+              "ko": "소개 페이지에는 우리가 만든 동작만 전통이라고 적죠.",
+              "de": "Auf der Infoseite nennen wir nur unsere eigenen Bewegungen traditionell.",
+              "en": "On the information page, let's call only our own movements traditional."
+            }
+          ],
+          "correctIndex": 0,
+          "audioKo": "소개 페이지에는 탈춤의 맥락과 출처를 짧게 연결하면 좋겠어요."
+        }
+      ]
+    },
+    {
+      "id": "listening.b2.b2_daniel_hyuna_hanji_filming_scope",
+      "kind": "listening",
+      "level": "b2",
+      "topicId": "b2_evidence",
+      "title": {
+        "ko": "한지 작업실 촬영 범위 정하기",
+        "de": "Den Drehumfang in einer Hanji-Werkstatt festlegen",
+        "en": "Setting filming boundaries at a hanji workshop"
+      },
+      "intro": {
+        "ko": "현아가 연결한 한지 작업실 촬영을 앞두고 다니엘과 현아가 촬영·공개 범위를 정해요.",
+        "de": "Vor einem Dreh in einer von Hyuna vermittelten Hanji-Werkstatt legen Daniel und Hyuna Aufnahme- und Veröffentlichungsumfang fest.",
+        "en": "Before filming at a hanji workshop Hyuna connected them with, Daniel and Hyuna agree on the scope of filming and publication."
+      },
+      "contentIds": [
+        "b2_daniel_hyuna_hanji_filming_scope"
+      ],
+      "questions": [
+        {
+          "id": "listening.b2.b2_daniel_hyuna_hanji_filming_scope.situation",
+          "type": "choice",
+          "skill": "situation",
+          "sourceIds": [
+            "b2_daniel_hyuna_hanji_filming_scope"
+          ],
+          "evidenceKo": "작업실에서 촬영은 가능하다고 했는데, 작업 전 과정을 공개하는 건 부담스럽다고 했어요.",
+          "prompt": {
+            "ko": "대화 전체에서 화자의 의도와 상황에 가장 맞는 것은 무엇인가요?",
+            "de": "Welche Absicht und Situation passt am besten zum gesamten Gespräch?",
+            "en": "Which intention and situation best matches the whole conversation?"
+          },
+          "explanation": {
+            "ko": "“작업실에서 촬영은 가능하다고 했는데, 작업 전 과정을 공개하는 건 부담스럽다고 했어요.”라는 말이 근거예요. 대화 전체의 목적과 관계를 함께 확인해요.",
+            "de": "Ein Beleg ist „작업실에서 촬영은 가능하다고 했는데, 작업 전 과정을 공개하는 건 부담스럽다고 했어요.“. Prüfe Ziel und Beziehung im gesamten Gespräch.",
+            "en": "One supporting line is “작업실에서 촬영은 가능하다고 했는데, 작업 전 과정을 공개하는 건 부담스럽다고 했어요.”. Check the goal and relationship across the whole conversation."
+          },
+          "options": [
+            {
+              "ko": "한지 작업실 방문 전에 촬영과 공개 범위를 구체적으로 정해요.",
+              "de": "Vor dem Besuch einer Hanji-Werkstatt wird der Aufnahme- und Veröffentlichungsumfang genau festgelegt.",
+              "en": "Before visiting a hanji workshop, they define the filming and publication scope precisely."
+            },
+            {
+              "ko": "작업실 동의 없이 제작 과정을 모두 생중계해요.",
+              "de": "Der gesamte Herstellungsprozess wird ohne Zustimmung live übertragen.",
+              "en": "They livestream the entire making process without the workshop's consent."
+            },
+            {
+              "ko": "한지 가격을 두고 흥정해요.",
+              "de": "Sie handeln über den Preis von Hanji.",
+              "en": "They bargain over the price of hanji."
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.b2.b2_daniel_hyuna_hanji_filming_scope.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "sourceIds": [
+            "b2_daniel_hyuna_hanji_filming_scope"
+          ],
+          "evidenceKo": "촬영에 동의했다고 해서 모든 장면을 공개해도 된다는 뜻은 아니니까요.",
+          "prompt": {
+            "ko": "들은 말의 뜻은 무엇인가요?",
+            "de": "Was bedeutet die gehörte Aussage?",
+            "en": "What does the spoken line mean?"
+          },
+          "explanation": {
+            "ko": "“촬영에 동의했다고 해서 모든 장면을 공개해도 된다는 뜻은 아니니까요.”라는 말이 근거예요. 이 말과 같은 뜻의 문장을 골라요.",
+            "de": "Ein Beleg ist „촬영에 동의했다고 해서 모든 장면을 공개해도 된다는 뜻은 아니니까요.“. Wähle die Aussage mit derselben Bedeutung.",
+            "en": "One supporting line is “촬영에 동의했다고 해서 모든 장면을 공개해도 된다는 뜻은 아니니까요.”. Choose the statement with the same meaning."
+          },
+          "options": [
+            {
+              "ko": "촬영에 동의했다고 해서 모든 장면을 공개해도 된다는 뜻은 아니니까요.",
+              "de": "Eine Zustimmung zur Aufnahme bedeutet schließlich nicht automatisch eine Zustimmung zur Veröffentlichung jeder Szene.",
+              "en": "Consent to filming doesn't automatically mean consent to publish every scene."
+            },
+            {
+              "ko": "작업실에서 촬영은 가능하다고 했는데, 작업 전 과정을 공개하는 건 부담스럽다고 했어요.",
+              "de": "Die Werkstatt hat dem Filmen zugestimmt, aber eine Veröffentlichung des gesamten Arbeitsablaufs wäre ihnen unangenehm.",
+              "en": "The workshop said filming is possible, but they would be uncomfortable with publishing the entire process."
+            },
+            {
+              "ko": "그럼 전 과정을 찍는 대신 손이 움직이는 장면과 완성된 한지만 촬영할게요.",
+              "de": "Dann filme ich statt des gesamten Ablaufs nur die Hände bei der Arbeit und das fertige Hanji.",
+              "en": "Then instead of filming the whole process, I'll film only the hands at work and the finished hanji."
+            }
+          ],
+          "correctIndex": 0,
+          "audioKo": "촬영에 동의했다고 해서 모든 장면을 공개해도 된다는 뜻은 아니니까요."
+        },
+        {
+          "id": "listening.b2.b2_daniel_hyuna_hanji_filming_scope.sentence",
+          "type": "order",
+          "skill": "sentence",
+          "sourceIds": [
+            "b2_daniel_hyuna_hanji_filming_scope"
+          ],
+          "audioKo": "그럼 전 과정을 찍는 대신 손이 움직이는 장면과 완성된 한지만 촬영할게요.",
+          "evidenceKo": "그럼 전 과정을 찍는 대신 손이 움직이는 장면과 완성된 한지만 촬영할게요.",
+          "targetKo": "그럼 전 과정을 찍는 대신 손이 움직이는 장면과 완성된 한지만 촬영할게요.",
+          "prompt": {
+            "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
+            "de": "Ordne die Wörter genau wie in der Aufnahme.",
+            "en": "Put the words in the same order as the recording."
+          },
+          "explanation": {
+            "ko": "“그럼 전 과정을 찍는 대신 손이 움직이는 장면과 완성된 한지만 촬영할게요.”라는 말이 근거예요. 들은 어순을 그대로 만들어요.",
+            "de": "Ein Beleg ist „그럼 전 과정을 찍는 대신 손이 움직이는 장면과 완성된 한지만 촬영할게요.“. Bilde genau die gehörte Wortfolge.",
+            "en": "One supporting line is “그럼 전 과정을 찍는 대신 손이 움직이는 장면과 완성된 한지만 촬영할게요.”. Recreate the exact word order you heard."
+          }
+        },
+        {
+          "id": "listening.b2.b2_daniel_hyuna_hanji_filming_scope.response",
+          "type": "choice",
+          "skill": "response",
+          "sourceIds": [
+            "b2_daniel_hyuna_hanji_filming_scope"
+          ],
+          "evidenceKo": "자막 초안을 먼저 보내고, 공개하기 싫은 장면이 있으면 빼 달라고 하겠습니다.",
+          "prompt": {
+            "ko": "상대가 제작 설명을 장인에게 확인하자고 했어요. 자막 초안을 보내고 공개하기 싫은 장면도 확인하겠다고 답하세요.",
+            "de": "Die andere Person will die Herstellungsbeschreibung prüfen lassen. Antworte, dass du einen Untertitelentwurf schickst und auch unerwünschte Szenen abfragst.",
+            "en": "The other person wants the making-process description confirmed. Reply that you'll send draft captions and also check for scenes they don't want published."
+          },
+          "explanation": {
+            "ko": "“네. 자막 초안을 먼저 보내고, 공개하기 싫은 장면이 있으면 빼 달라고 하겠습니다.”라는 말이 근거예요. 이 응답은 과제의 목적을 이뤄요.",
+            "de": "Ein Beleg ist „네. 자막 초안을 먼저 보내고, 공개하기 싫은 장면이 있으면 빼 달라고 하겠습니다.“. Diese Antwort erfüllt das Ziel der Aufgabe.",
+            "en": "One supporting line is “네. 자막 초안을 먼저 보내고, 공개하기 싫은 장면이 있으면 빼 달라고 하겠습니다.”. This response fulfills the task's goal."
+          },
+          "options": [
+            {
+              "ko": "자막 초안을 먼저 보내고, 공개하기 싫은 장면이 있으면 빼 달라고 하겠습니다.",
+              "de": "Ich schicke zuerst einen Untertitelentwurf und bitte sie, Szenen zu markieren, die nicht veröffentlicht werden sollen.",
+              "en": "I'll send the draft captions first and ask them to flag any scenes they don't want published."
+            },
+            {
+              "ko": "네. 제작 방법은 우리가 알아서 추측해서 쓰죠.",
+              "de": "Ja. Wir schreiben die Herstellung einfach nach unserer eigenen Vermutung.",
+              "en": "Yes. Let's just guess how the process works and write it ourselves."
+            },
+            {
+              "ko": "확인은 촬영이 끝난 뒤에는 필요 없어요.",
+              "de": "Nach dem Dreh ist keine weitere Bestätigung nötig.",
+              "en": "No further confirmation is needed after filming."
+            }
+          ],
+          "correctIndex": 0,
+          "audioKo": "좋아요. 제작 방법 설명은 우리가 추측해서 쓰지 말고 장인에게 확인해요."
         }
       ]
     }

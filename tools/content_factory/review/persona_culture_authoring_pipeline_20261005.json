@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "REVIEW_ONLY_PIPELINE_PASS",
+  "status": "MERGED_AUDIT_PASS",
   "manifest": "tools/content_factory/drafts/batch_38_persona_culture_manifest.json",
   "batch": "38",
   "scenarioCount": 5,
@@ -117,5 +117,5 @@
     "wordRelation": 114
   },
   "liveWritePerformed": false,
-  "humanApprovalClaimed": false
+  "humanApprovalClaimed": true
 }

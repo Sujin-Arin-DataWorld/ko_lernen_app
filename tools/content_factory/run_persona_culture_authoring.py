@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Run the review-only persona-culture authoring pipeline.
+"""Run the persona-culture authoring/audit pipeline.
+
+For a new batch this is a review-only authoring pipeline. After explicit
+approval/promotion, the same command can audit the frozen merged source bundle
+without mutating learner-facing assets.
 
 Pipeline contract:
 1. persona writer-bible identities/relationships
@@ -12,8 +16,9 @@ Pipeline contract:
 8. human-readable review packet
 
 This command never promotes content and never mutates live learner assets.
-With --write-derived it only regenerates review artifacts declared in the
-manifest (vocab-leveling sidecar, review packet, pipeline report).
+With --write-derived it only regenerates derived evidence declared in the
+manifest (vocab-leveling sidecar, review packet, pipeline report). It never
+writes live learner assets.
 """
 
 from __future__ import annotations
@@ -583,9 +588,10 @@ def run_pipeline(
     if not manifest_path.is_absolute():
         manifest_path = (ROOT / manifest_path).resolve()
     manifest = _read_json(manifest_path, "manifest")
-    if manifest.get("status") != "review_only_draft":
+    manifest_status = manifest.get("status")
+    if manifest_status not in {"review_only_draft", "approved", "merged"}:
         raise PersonaCulturePipelineError(
-            "authoring pipeline only accepts review_only_draft manifests"
+            "authoring/audit pipeline only accepts review_only_draft, approved, or merged manifests"
         )
     provenance = manifest.get("provenance")
     if (
@@ -652,9 +658,14 @@ def run_pipeline(
             f"scenario integration preview failed: {error}"
         ) from error
 
+    report_status = {
+        "review_only_draft": "REVIEW_ONLY_PIPELINE_PASS",
+        "approved": "APPROVED_PIPELINE_PASS",
+        "merged": "MERGED_AUDIT_PASS",
+    }[manifest_status]
     report = {
         "schemaVersion": 1,
-        "status": "REVIEW_ONLY_PIPELINE_PASS",
+        "status": report_status,
         "manifest": _repo_path(manifest_path),
         "batch": manifest.get("batch"),
         "scenarioCount": amount,
@@ -670,7 +681,7 @@ def run_pipeline(
         "reviewPacket": packet_path,
         "integrationPreviewInventory": inventory,
         "liveWritePerformed": False,
-        "humanApprovalClaimed": False,
+        "humanApprovalClaimed": manifest_status in {"approved", "merged"},
     }
 
     report_raw = manifest.get("pipelineReport")
@@ -704,7 +715,7 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--write-derived",
         action="store_true",
-        help="regenerate review-only sidecars/packets/reports; never write live assets",
+        help="regenerate derived sidecars/packets/reports; never write live assets",
     )
     return parser.parse_args()
 

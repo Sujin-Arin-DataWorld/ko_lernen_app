@@ -430,18 +430,18 @@
       ],
       "surfaceFormIds": [],
       "grammarIds": [
-        "grammar_a2_purpose"
+        "grammar_a2_promise"
       ],
       "grammarBlock": {
         "title": {
-          "ko": "V-기 위해서",
-          "de": "Zweck ausdrücken",
-          "en": "Expressing purpose"
+          "ko": "V-(으)ㄹ게요",
+          "de": "Die eigene Absicht ankündigen",
+          "en": "Announcing your intention"
         },
         "explanation": {
-          "ko": "“수원화성을 소개하기 위해서 사진을 골랐어요”처럼 어떤 행동의 목적을 말할 때 써요.",
-          "de": "Mit -기 위해서 nennst du den Zweck einer Handlung, zum Beispiel warum du Fotos ausgewählt hast.",
-          "en": "Use -기 위해서 to state the purpose of an action, such as why you selected photos."
+          "ko": "“사진을 가져온 곳은 나중에 확인할게요”처럼 앞으로 내가 할 일을 상대에게 말할 때 써요.",
+          "de": "Mit -(으)ㄹ게요 kündigst du an, was du selbst als Nächstes tun wirst, zum Beispiel dass du die Bildangaben später prüfst.",
+          "en": "Use -(으)ㄹ게요 to tell someone what you will do next, such as checking the photo details later."
         }
       },
       "dialog": [
@@ -453,7 +453,7 @@
         },
         {
           "speaker": "user",
-          "ko": "네. 수원화성을 소개하기 위해서 사진을 세 장 골랐어요.",
+          "ko": "네. 수원화성을 소개하려고 사진을 세 장 골랐어요.",
           "de": "Ja. Ich habe drei Fotos ausgewählt, um Hwaseong vorzustellen.",
           "en": "Yes. I chose three photos to introduce Hwaseong Fortress."
         },
@@ -465,21 +465,21 @@
         },
         {
           "speaker": "user",
-          "ko": "아직요. 인터넷에서 본 글이라서 수원화성 공식 안내를 다시 찾아보려고 해요.",
-          "de": "Noch nicht. Ich habe die Angabe online gesehen und will deshalb noch einmal in den offiziellen Informationen zu Hwaseong nachsehen.",
-          "en": "Not yet. I saw it online, so I'm going to check the official information about Hwaseong."
+          "ko": "아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요.",
+          "de": "Noch nicht. Ich habe es im Internet gesehen. Ich prüfe die Informationen zu Hwaseong noch einmal.",
+          "en": "Not yet. I saw it online. I'll check the Hwaseong information again."
         },
         {
           "speaker": "christian",
-          "ko": "좋아. 사진을 어디서 가져왔는지도 같이 적으면 더 깔끔하겠다.",
-          "de": "Gut. Wenn du dazuschreibst, woher das Foto stammt, wird es noch sauberer.",
-          "en": "Good. It would be clearer if you also say where the photo came from."
+          "ko": "좋아. 사진을 가져온 곳도 같이 적어.",
+          "de": "Gut. Schreib auch dazu, woher das Foto stammt.",
+          "en": "Good. Add where the photo came from too."
         },
         {
           "speaker": "user",
-          "ko": "네. 오늘은 사진 순서만 정하고, 설명에 쓸 해와 사진을 가져온 곳은 확인한 다음에 넣을게요.",
-          "de": "Ja. Heute lege ich nur die Reihenfolge fest und ergänze das Jahr und die Herkunft des Fotos nach der Prüfung.",
-          "en": "Yes. Today I'll just decide the photo order, then add the year and where the photo came from after checking them."
+          "ko": "네. 오늘은 사진 순서만 정할게요. 해와 사진을 가져온 곳은 나중에 확인할게요.",
+          "de": "Ja. Heute lege ich nur die Reihenfolge fest. Das Jahr und die Herkunft des Fotos prüfe ich später.",
+          "en": "Yes. Today I'll just decide the photo order. I'll check the year and where the photo came from later."
         },
         {
           "speaker": "christian",
@@ -489,9 +489,9 @@
         },
         {
           "speaker": "user",
-          "ko": "좋아요. 학교에서 소개할 때 길게 설명하지 않도록 핵심만 적을게요.",
-          "de": "Gut. Ich schreibe nur die wichtigsten Punkte auf, damit ich es in der Schule nicht zu lange erkläre.",
-          "en": "Sounds good. I'll write only the key points so I don't explain for too long at school."
+          "ko": "좋아요. 학교에서 소개할 때 중요한 것만 적을게요.",
+          "de": "Gut. Ich schreibe nur die wichtigsten Punkte auf, wenn ich Hwaseong in der Schule vorstelle.",
+          "en": "Sounds good. I'll write only the important points for introducing Hwaseong at school."
         }
       ],
       "quests": [
@@ -502,7 +502,7 @@
             "concept_a2_work_study"
           ],
           "data": {
-            "audioKo": "네. 수원화성을 소개하기 위해서 사진을 세 장 골랐어요.",
+            "audioKo": "네. 수원화성을 소개하려고 사진을 세 장 골랐어요.",
             "options": [
               {
                 "de": "Ja. Ich habe drei Fotos ausgewählt, um Hwaseong vorzustellen.",
@@ -535,13 +535,13 @@
             "promptEn": "I saw it online, so I'm going to check it again in an official source.",
             "options": [
               {
-                "ko": "아직요. 인터넷에서 본 글이라서 수원화성 공식 안내를 다시 찾아보려고 해요."
+                "ko": "아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요."
               },
               {
                 "ko": "준, 학교에서 보여 줄 사진 거의 다 골랐어?"
               },
               {
-                "ko": "좋아. 사진을 어디서 가져왔는지도 같이 적으면 더 깔끔하겠다."
+                "ko": "좋아. 사진을 가져온 곳도 같이 적어."
               },
               {
                 "ko": "그럼 첫 사진은 전체 모습, 다음 사진은 성문이 어때?"
@@ -557,10 +557,10 @@
             "concept_a2_work_study"
           ],
           "data": {
-            "targetKo": "네. 오늘은 사진 순서만 정하고, 설명에 쓸 해와 사진을 가져온 곳은 확인한 다음에 넣을게요.",
-            "audioKo": "네. 오늘은 사진 순서만 정하고, 설명에 쓸 해와 사진을 가져온 곳은 확인한 다음에 넣을게요.",
-            "promptDe": "Ja. Heute lege ich nur die Reihenfolge fest und ergänze das Jahr und die Herkunft des Fotos nach der Prüfung.",
-            "promptEn": "Yes. Today I'll just decide the photo order, then add the year and where the photo came from after checking them.",
+            "targetKo": "네. 오늘은 사진 순서만 정할게요. 해와 사진을 가져온 곳은 나중에 확인할게요.",
+            "audioKo": "네. 오늘은 사진 순서만 정할게요. 해와 사진을 가져온 곳은 나중에 확인할게요.",
+            "promptDe": "Ja. Heute lege ich nur die Reihenfolge fest. Das Jahr und die Herkunft des Fotos prüfe ich später.",
+            "promptEn": "Yes. Today I'll just decide the photo order. I'll check the year and where the photo came from later.",
             "distractors": [
               "인터넷에서 바로",
               "친구가 말한 대로",

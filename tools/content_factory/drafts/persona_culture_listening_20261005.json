@@ -337,16 +337,16 @@
           "sourceIds": [
             "a2_jun_hwaseong_school_slide"
           ],
-          "evidenceKo": "네. 수원화성을 소개하기 위해서 사진을 세 장 골랐어요.",
+          "evidenceKo": "네. 수원화성을 소개하려고 사진을 세 장 골랐어요.",
           "prompt": {
             "ko": "대화 전체에 맞는 상황은 무엇인가요?",
             "de": "Welche Situation passt zum gesamten Gespräch?",
             "en": "Which situation matches the whole conversation?"
           },
           "explanation": {
-            "ko": "“네. 수원화성을 소개하기 위해서 사진을 세 장 골랐어요.”라는 말이 근거예요. 대화 전체의 목적과 관계를 함께 확인해요.",
-            "de": "Ein Beleg ist „네. 수원화성을 소개하기 위해서 사진을 세 장 골랐어요.“. Prüfe Ziel und Beziehung im gesamten Gespräch.",
-            "en": "One supporting line is “네. 수원화성을 소개하기 위해서 사진을 세 장 골랐어요.”. Check the goal and relationship across the whole conversation."
+            "ko": "“네. 수원화성을 소개하려고 사진을 세 장 골랐어요.”라는 말이 근거예요. 대화 전체의 목적과 관계를 함께 확인해요.",
+            "de": "Ein Beleg ist „네. 수원화성을 소개하려고 사진을 세 장 골랐어요.“. Prüfe Ziel und Beziehung im gesamten Gespräch.",
+            "en": "One supporting line is “네. 수원화성을 소개하려고 사진을 세 장 골랐어요.”. Check the goal and relationship across the whole conversation."
           },
           "options": [
             {
@@ -374,22 +374,22 @@
           "sourceIds": [
             "a2_jun_hwaseong_school_slide"
           ],
-          "evidenceKo": "아직요. 인터넷에서 본 글이라서 수원화성 공식 안내를 다시 찾아보려고 해요.",
+          "evidenceKo": "아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요.",
           "prompt": {
             "ko": "들은 말의 뜻은 무엇인가요?",
             "de": "Was bedeutet die gehörte Aussage?",
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "“아직요. 인터넷에서 본 글이라서 수원화성 공식 안내를 다시 찾아보려고 해요.”라는 말이 근거예요. 이 말과 같은 뜻의 문장을 골라요.",
-            "de": "Ein Beleg ist „아직요. 인터넷에서 본 글이라서 수원화성 공식 안내를 다시 찾아보려고 해요.“. Wähle die Aussage mit derselben Bedeutung.",
-            "en": "One supporting line is “아직요. 인터넷에서 본 글이라서 수원화성 공식 안내를 다시 찾아보려고 해요.”. Choose the statement with the same meaning."
+            "ko": "“아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요.”라는 말이 근거예요. 이 말과 같은 뜻의 문장을 골라요.",
+            "de": "Ein Beleg ist „아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요.“. Wähle die Aussage mit derselben Bedeutung.",
+            "en": "One supporting line is “아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요.”. Choose the statement with the same meaning."
           },
           "options": [
             {
-              "ko": "아직요. 인터넷에서 본 글이라서 수원화성 공식 안내를 다시 찾아보려고 해요.",
-              "de": "Noch nicht. Ich habe die Angabe online gesehen und will deshalb noch einmal in den offiziellen Informationen zu Hwaseong nachsehen.",
-              "en": "Not yet. I saw it online, so I'm going to check the official information about Hwaseong."
+              "ko": "아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요.",
+              "de": "Noch nicht. Ich habe es im Internet gesehen. Ich prüfe die Informationen zu Hwaseong noch einmal.",
+              "en": "Not yet. I saw it online. I'll check the Hwaseong information again."
             },
             {
               "ko": "준, 학교에서 보여 줄 사진 거의 다 골랐어?",
@@ -397,13 +397,13 @@
               "en": "Jun, have you almost finished choosing the photos for school?"
             },
             {
-              "ko": "네. 수원화성을 소개하기 위해서 사진을 세 장 골랐어요.",
+              "ko": "네. 수원화성을 소개하려고 사진을 세 장 골랐어요.",
               "de": "Ja. Ich habe drei Fotos ausgewählt, um Hwaseong vorzustellen.",
               "en": "Yes. I chose three photos to introduce Hwaseong Fortress."
             }
           ],
           "correctIndex": 0,
-          "audioKo": "아직요. 인터넷에서 본 글이라서 수원화성 공식 안내를 다시 찾아보려고 해요."
+          "audioKo": "아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요."
         },
         {
           "id": "listening.a2.a2_jun_hwaseong_school_slide.sentence",
@@ -412,18 +412,18 @@
           "sourceIds": [
             "a2_jun_hwaseong_school_slide"
           ],
-          "audioKo": "네. 오늘은 사진 순서만 정하고, 설명에 쓸 해와 사진을 가져온 곳은 확인한 다음에 넣을게요.",
-          "evidenceKo": "네. 오늘은 사진 순서만 정하고, 설명에 쓸 해와 사진을 가져온 곳은 확인한 다음에 넣을게요.",
-          "targetKo": "네. 오늘은 사진 순서만 정하고, 설명에 쓸 해와 사진을 가져온 곳은 확인한 다음에 넣을게요.",
+          "audioKo": "네. 오늘은 사진 순서만 정할게요. 해와 사진을 가져온 곳은 나중에 확인할게요.",
+          "evidenceKo": "네. 오늘은 사진 순서만 정할게요. 해와 사진을 가져온 곳은 나중에 확인할게요.",
+          "targetKo": "네. 오늘은 사진 순서만 정할게요. 해와 사진을 가져온 곳은 나중에 확인할게요.",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
             "de": "Ordne die Wörter genau wie in der Aufnahme.",
             "en": "Put the words in the same order as the recording."
           },
           "explanation": {
-            "ko": "“네. 오늘은 사진 순서만 정하고, 설명에 쓸 해와 사진을 가져온 곳은 확인한 다음에 넣을게요.”라는 말이 근거예요. 들은 어순을 그대로 만들어요.",
-            "de": "Ein Beleg ist „네. 오늘은 사진 순서만 정하고, 설명에 쓸 해와 사진을 가져온 곳은 확인한 다음에 넣을게요.“. Bilde genau die gehörte Wortfolge.",
-            "en": "One supporting line is “네. 오늘은 사진 순서만 정하고, 설명에 쓸 해와 사진을 가져온 곳은 확인한 다음에 넣을게요.”. Recreate the exact word order you heard."
+            "ko": "“네. 오늘은 사진 순서만 정할게요. 해와 사진을 가져온 곳은 나중에 확인할게요.”라는 말이 근거예요. 들은 어순을 그대로 만들어요.",
+            "de": "Ein Beleg ist „네. 오늘은 사진 순서만 정할게요. 해와 사진을 가져온 곳은 나중에 확인할게요.“. Bilde genau die gehörte Wortfolge.",
+            "en": "One supporting line is “네. 오늘은 사진 순서만 정할게요. 해와 사진을 가져온 곳은 나중에 확인할게요.”. Recreate the exact word order you heard."
           }
         },
         {
@@ -433,22 +433,22 @@
           "sourceIds": [
             "a2_jun_hwaseong_school_slide"
           ],
-          "evidenceKo": "아직요. 인터넷에서 본 글이라서 수원화성 공식 안내를 다시 찾아보려고 해요.",
+          "evidenceKo": "아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요.",
           "prompt": {
-            "ko": "상대가 설명에 쓴 해를 확인했는지 물었어요. 아직 확인하지 않았고 수원화성 공식 안내를 다시 보겠다고 답하세요.",
-            "de": "Die andere Person fragt, ob du das Jahr geprüft hast. Sage, dass du es noch nicht geprüft hast und die offiziellen Informationen zu Hwaseong nachsehen wirst.",
-            "en": "The other person asks whether you checked the year. Say you haven't yet and will check the official information about Hwaseong."
+            "ko": "상대가 설명에 쓴 해를 확인했는지 물었어요. 아직 확인하지 않았고 수원화성 안내를 다시 확인하겠다고 답하세요.",
+            "de": "Die andere Person fragt, ob du das Jahr geprüft hast. Sage, dass du es noch nicht geprüft hast und die Informationen zu Hwaseong noch einmal prüfst.",
+            "en": "The other person asks whether you checked the year. Say you haven't yet and will check the Hwaseong information again."
           },
           "explanation": {
-            "ko": "“아직요. 인터넷에서 본 글이라서 수원화성 공식 안내를 다시 찾아보려고 해요.”라는 말이 근거예요. 이 응답은 과제의 목적을 이뤄요.",
-            "de": "Ein Beleg ist „아직요. 인터넷에서 본 글이라서 수원화성 공식 안내를 다시 찾아보려고 해요.“. Diese Antwort erfüllt das Ziel der Aufgabe.",
-            "en": "One supporting line is “아직요. 인터넷에서 본 글이라서 수원화성 공식 안내를 다시 찾아보려고 해요.”. This response fulfills the task's goal."
+            "ko": "“아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요.”라는 말이 근거예요. 이 응답은 과제의 목적을 이뤄요.",
+            "de": "Ein Beleg ist „아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요.“. Diese Antwort erfüllt das Ziel der Aufgabe.",
+            "en": "One supporting line is “아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요.”. This response fulfills the task's goal."
           },
           "options": [
             {
-              "ko": "아직요. 인터넷에서 본 글이라서 수원화성 공식 안내를 다시 찾아보려고 해요.",
-              "de": "Noch nicht. Ich habe die Angabe online gesehen und will deshalb noch einmal in den offiziellen Informationen zu Hwaseong nachsehen.",
-              "en": "Not yet. I saw it online, so I'm going to check the official information about Hwaseong."
+              "ko": "아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요.",
+              "de": "Noch nicht. Ich habe es im Internet gesehen. Ich prüfe die Informationen zu Hwaseong noch einmal.",
+              "en": "Not yet. I saw it online. I'll check the Hwaseong information again."
             },
             {
               "ko": "네. 친구가 말해서 그냥 맞을 거예요.",

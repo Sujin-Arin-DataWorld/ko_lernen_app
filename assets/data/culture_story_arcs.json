@@ -1,4 +1,60 @@
 {
   "schemaVersion": 1,
-  "arcs": []
+  "arcs": [
+    {
+      "arcId": "found_around_nammun",
+      "title": {
+        "ko": "남문에서 발견한 것들",
+        "de": "Rund um Nammun entdeckt",
+        "en": "Found around Nammun"
+      },
+      "summary": {
+        "ko": "남문 주변의 물건, 기억, 기록과 현대적 표현을 여러 인물의 실제 과업을 통해 연결해 보는 문화 이야기 묶음입니다.",
+        "de": "Ein Kulturpfad rund um Nammun, der Dinge, Erinnerungen, Dokumentation und moderne Darstellung durch reale Aufgaben mehrerer Figuren verbindet.",
+        "en": "A culture path around Nammun that connects objects, memory, documentation, and modern presentation through practical tasks with several personas."
+      },
+      "progressMode": "derived_read_only",
+      "steps": [
+        {
+          "scenarioId": "b1_dongsun_norigae_shop_post",
+          "personaIds": [
+            "maya",
+            "dongsun"
+          ],
+          "termIds": [
+            "norigae",
+            "maedeup"
+          ]
+        },
+        {
+          "scenarioId": "b1_byeongcheol_hwaseong_memory_check",
+          "personaIds": [
+            "hyuna",
+            "byeongcheol"
+          ],
+          "termIds": [
+            "suwon_hwaseong"
+          ]
+        },
+        {
+          "scenarioId": "a2_jun_hwaseong_school_slide",
+          "personaIds": [
+            "jun"
+          ],
+          "termIds": [
+            "suwon_hwaseong"
+          ]
+        },
+        {
+          "scenarioId": "c1_maya_hyuna_daniel_talchum_shortform",
+          "personaIds": [
+            "maya"
+          ],
+          "termIds": [
+            "talchum"
+          ]
+        }
+      ]
+    }
+  ]
 }

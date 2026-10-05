@@ -61,13 +61,23 @@ void main() {
     );
   });
 
-  test('live arc catalog stays empty while Batch 38 is review-only', () {
+  test('live arc catalog contains promoted Batch 38 arc', () {
     final raw = File(CultureStoryArcRepository.assetPath).readAsStringSync();
     final catalog = CultureStoryArcCatalog.fromJsonString(raw);
 
-    expect(catalog.arcs, isEmpty);
-    expect(raw, isNot(contains('found_around_nammun')));
-    expect(raw, isNot(contains('b1_dongsun_norigae_shop_post')));
+    expect(catalog.arcs, hasLength(1));
+    final arc = catalog.arcs.single;
+    expect(arc.arcId, 'found_around_nammun');
+    expect(arc.progressMode, 'derived_read_only');
+    expect(arc.steps, hasLength(4));
+    expect(
+      arc.steps.map((step) => step.scenarioId),
+      contains('b1_dongsun_norigae_shop_post'),
+    );
+    expect(
+      arc.steps.map((step) => step.scenarioId),
+      contains('a2_jun_hwaseong_school_slide'),
+    );
   });
 
   test('arc model contains no persistence or reward ownership', () {

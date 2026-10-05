@@ -1,5 +1,37 @@
 {
   "schemaVersion": 1,
   "_comment": "Read-only presentation links from canonical scenarios to CulturalGlossary term IDs. Phase 1 defines the contract only; links are added only after both the scenario context and cultural glossary entry are reviewed.",
-  "links": []
+  "links": [
+    {
+      "scenarioId": "b1_dongsun_norigae_shop_post",
+      "termIds": [
+        "norigae",
+        "maedeup"
+      ]
+    },
+    {
+      "scenarioId": "b1_byeongcheol_hwaseong_memory_check",
+      "termIds": [
+        "suwon_hwaseong"
+      ]
+    },
+    {
+      "scenarioId": "a2_jun_hwaseong_school_slide",
+      "termIds": [
+        "suwon_hwaseong"
+      ]
+    },
+    {
+      "scenarioId": "c1_maya_hyuna_daniel_talchum_shortform",
+      "termIds": [
+        "talchum"
+      ]
+    },
+    {
+      "scenarioId": "b2_daniel_hyuna_hanji_filming_scope",
+      "termIds": [
+        "hanji"
+      ]
+    }
+  ]
 }

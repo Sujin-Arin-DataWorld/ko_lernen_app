@@ -6983,6 +6983,198 @@
       ],
       "culturalNote": null,
       "xpReward": 110
+    },
+    {
+      "id": "a2_jun_hwaseong_school_slide",
+      "level": "a2",
+      "emoji": "🖥️",
+      "register": "polite",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "학교에서 쓸 수원화성 사진 확인하기",
+        "de": "Hwaseong-Fotos für die Schule prüfen",
+        "en": "Checking Hwaseong photos for school"
+      },
+      "intro": {
+        "ko": "준이 학교에서 수원화성을 소개할 때 쓸 사진을 골랐어요. 크리스티안과 사진을 보며 설명과 어디서 가져온 사진인지 확인해요.",
+        "de": "Jun hat Fotos der Hwaseong-Festung ausgewählt, die er in der Schule zeigen will. Mit Christian prüft er die Beschreibungen und woher die Fotos stammen.",
+        "en": "Jun has chosen photos of Hwaseong Fortress to show at school. He checks the descriptions and where the photos came from with Christian."
+      },
+      "courseUnitId": "a2_06_study_work",
+      "playerCharacterId": "jun",
+      "participantIds": [
+        "jun",
+        "christian"
+      ],
+      "relationshipContext": "코딩과 게임으로 알고 지내는 사이, 준은 크리스티안에게 해요체를 쓰고 크리스티안은 준에게 편하게 말한다",
+      "intent": "학교에서 수원화성을 소개할 때 쓸 사진 순서를 정하고 사진 설명과 사진을 가져온 곳을 다시 확인하기로 한다",
+      "shelf": "a2_friends",
+      "backdrop": "home",
+      "vocab": [
+        {
+          "korean": "수원화성"
+        },
+        {
+          "korean": "사진"
+        },
+        {
+          "korean": "학교"
+        },
+        {
+          "korean": "소개하다"
+        },
+        {
+          "korean": "순서"
+        },
+        {
+          "korean": "확인하다"
+        }
+      ],
+      "conceptIds": [
+        "concept_a2_work_study"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_promise"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ게요",
+          "de": "Die eigene Absicht ankündigen",
+          "en": "Announcing your intention"
+        },
+        "explanation": {
+          "ko": "“사진을 가져온 곳은 나중에 확인할게요”처럼 앞으로 내가 할 일을 상대에게 말할 때 써요.",
+          "de": "Mit -(으)ㄹ게요 kündigst du an, was du selbst als Nächstes tun wirst, zum Beispiel dass du die Bildangaben später prüfst.",
+          "en": "Use -(으)ㄹ게요 to tell someone what you will do next, such as checking the photo details later."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "christian",
+          "ko": "준, 학교에서 보여 줄 사진 거의 다 골랐어?",
+          "de": "Jun, hast du die Fotos für die Schule fast fertig ausgewählt?",
+          "en": "Jun, have you almost finished choosing the photos for school?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네. 수원화성을 소개하려고 사진을 세 장 골랐어요.",
+          "de": "Ja. Ich habe drei Fotos ausgewählt, um Hwaseong vorzustellen.",
+          "en": "Yes. I chose three photos to introduce Hwaseong Fortress."
+        },
+        {
+          "speaker": "christian",
+          "ko": "이 사진은 멋있는데, 설명에 쓴 해도 확인했어?",
+          "de": "Das Foto ist stark. Hast du auch die Jahreszahl in der Beschreibung geprüft?",
+          "en": "This photo looks great. Did you also check the year in the description?"
+        },
+        {
+          "speaker": "user",
+          "ko": "아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요.",
+          "de": "Noch nicht. Ich habe es im Internet gesehen. Ich prüfe die Informationen zu Hwaseong noch einmal.",
+          "en": "Not yet. I saw it online. I'll check the Hwaseong information again."
+        },
+        {
+          "speaker": "christian",
+          "ko": "좋아. 사진을 가져온 곳도 같이 적어.",
+          "de": "Gut. Schreib auch dazu, woher das Foto stammt.",
+          "en": "Good. Add where the photo came from too."
+        },
+        {
+          "speaker": "user",
+          "ko": "네. 오늘은 사진 순서만 정할게요. 해와 사진을 가져온 곳은 나중에 확인할게요.",
+          "de": "Ja. Heute lege ich nur die Reihenfolge fest. Das Jahr und die Herkunft des Fotos prüfe ich später.",
+          "en": "Yes. Today I'll just decide the photo order. I'll check the year and where the photo came from later."
+        },
+        {
+          "speaker": "christian",
+          "ko": "그럼 첫 사진은 전체 모습, 다음 사진은 성문이 어때?",
+          "de": "Wie wäre es zuerst mit der Gesamtansicht und danach mit dem Tor?",
+          "en": "Then how about the full view first and the gate photo next?"
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아요. 학교에서 소개할 때 중요한 것만 적을게요.",
+          "de": "Gut. Ich schreibe nur die wichtigsten Punkte auf, wenn ich Hwaseong in der Schule vorstelle.",
+          "en": "Sounds good. I'll write only the important points for introducing Hwaseong at school."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a2_jun_hwaseong_school_slide_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a2_work_study"
+          ],
+          "data": {
+            "audioKo": "네. 수원화성을 소개하려고 사진을 세 장 골랐어요.",
+            "options": [
+              {
+                "de": "Ja. Ich habe drei Fotos ausgewählt, um Hwaseong vorzustellen.",
+                "en": "Yes. I chose three photos to introduce Hwaseong Fortress."
+              },
+              {
+                "de": "Das Foto ist stark. Hast du auch die Jahreszahl geprüft?",
+                "en": "This photo looks great. Did you check the year too?"
+              },
+              {
+                "de": "Heute lege ich nur die Reihenfolge fest.",
+                "en": "Today I'll only decide the order."
+              },
+              {
+                "de": "Wie wäre es mit dem Tor auf der nächsten Folie?",
+                "en": "How about the gate on the next slide?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_jun_hwaseong_school_slide_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a2_work_study"
+          ],
+          "data": {
+            "promptDe": "Ich habe die Angabe online gesehen und will sie deshalb noch einmal in einer offiziellen Quelle prüfen.",
+            "promptEn": "I saw it online, so I'm going to check it again in an official source.",
+            "options": [
+              {
+                "ko": "아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요."
+              },
+              {
+                "ko": "준, 학교에서 보여 줄 사진 거의 다 골랐어?"
+              },
+              {
+                "ko": "좋아. 사진을 가져온 곳도 같이 적어."
+              },
+              {
+                "ko": "그럼 첫 사진은 전체 모습, 다음 사진은 성문이 어때?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_jun_hwaseong_school_slide_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a2_work_study"
+          ],
+          "data": {
+            "targetKo": "네. 오늘은 사진 순서만 정할게요. 해와 사진을 가져온 곳은 나중에 확인할게요.",
+            "audioKo": "네. 오늘은 사진 순서만 정할게요. 해와 사진을 가져온 곳은 나중에 확인할게요.",
+            "promptDe": "Ja. Heute lege ich nur die Reihenfolge fest. Das Jahr und die Herkunft des Fotos prüfe ich später.",
+            "promptEn": "Yes. Today I'll just decide the photo order. I'll check the year and where the photo came from later.",
+            "distractors": [
+              "인터넷에서 바로",
+              "친구가 말한 대로",
+              "사진을 지우고"
+            ]
+          }
+        }
+      ],
+      "xpReward": 110
     }
   ]
 }

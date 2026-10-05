@@ -2,9 +2,9 @@
 
 > Generated read-only from the schema-complete draft and its approval ledger. Edit only the ledger's `상태` and `jin_memo`; fix content in the draft, then regenerate.
 
-- Status: `review_only_draft`
+- Status: `merged`
 - Records: **5**
-- Scope: Five persona-led cultural-context scenarios grounded in the approved 11-persona canon; no live promotion.
+- Scope: Five persona-led cultural-context scenarios grounded in the approved 11-persona canon; approved for live promotion after editorial and level-fit audit.
 
 ## Scenario (5)
 
@@ -39,7 +39,7 @@
 
 - 상태: `approved`
 - field notes: rights: original; AUTHOR+AUDIT; read full dialogue, quests, listening draft and culture links before approval
-- Jin memo: User approved scene 1 after reviewing KO/DE/EN dialogue and assessment structure in chat on 2026-10-05.
+- Jin memo: User explicitly approved the full Batch 38 persona-culture content for canonical/live promotion in chat on 2026-10-05 after reviewing the editorial quality and scene 1 in detail.
 
 ### 2. `b1_byeongcheol_hwaseong_memory_check` · B1
 
@@ -70,9 +70,9 @@
 
 **Jin approval ledger**
 
-- 상태: `draft`
+- 상태: `approved`
 - field notes: rights: original; AUTHOR+AUDIT; read full dialogue, quests, listening draft and culture links before approval
-- Jin memo: —
+- Jin memo: User explicitly approved the full Batch 38 persona-culture content for canonical/live promotion in chat on 2026-10-05 after reviewing the editorial quality and scene 1 in detail.
 
 ### 3. `a2_jun_hwaseong_school_slide` · A2
 
@@ -95,17 +95,17 @@
 | `vocab` | [<br>  {<br>    "korean": "수원화성"<br>  },<br>  {<br>    "korean": "사진"<br>  },<br>  {<br>    "korean": "학교"<br>  },<br>  {<br>    "korean": "소개하다"<br>  },<br>  {<br>    "korean": "순서"<br>  },<br>  {<br>    "korean": "확인하다"<br>  }<br>] |
 | `conceptIds` | [<br>  "concept_a2_work_study"<br>] |
 | `surfaceFormIds` | [] |
-| `grammarIds` | [<br>  "grammar_a2_purpose"<br>] |
-| `grammarBlock` | {<br>  "title": {<br>    "ko": "V-기 위해서",<br>    "de": "Zweck ausdrücken",<br>    "en": "Expressing purpose"<br>  },<br>  "explanation": {<br>    "ko": "“수원화성을 소개하기 위해서 사진을 골랐어요”처럼 어떤 행동의 목적을 말할 때 써요.",<br>    "de": "Mit -기 위해서 nennst du den Zweck einer Handlung, zum Beispiel warum du Fotos ausgewählt hast.",<br>    "en": "Use -기 위해서 to state the purpose of an action, such as why you selected photos."<br>  }<br>} |
-| `dialog` | [<br>  {<br>    "speaker": "christian",<br>    "ko": "준, 학교에서 보여 줄 사진 거의 다 골랐어?",<br>    "de": "Jun, hast du die Fotos für die Schule fast fertig ausgewählt?",<br>    "en": "Jun, have you almost finished choosing the photos for school?"<br>  },<br>  {<br>    "speaker": "user",<br>    "ko": "네. 수원화성을 소개하기 위해서 사진을 세 장 골랐어요.",<br>    "de": "Ja. Ich habe drei Fotos ausgewählt, um Hwaseong vorzustellen.",<br>    "en": "Yes. I chose three photos to introduce Hwaseong Fortress."<br>  },<br>  {<br>    "speaker": "christian",<br>    "ko": "이 사진은 멋있는데, 설명에 쓴 해도 확인했어?",<br>    "de": "Das Foto ist stark. Hast du auch die Jahreszahl in der Beschreibung geprüft?",<br>    "en": "This photo looks great. Did you also check the year in the description?"<br>  },<br>  {<br>    "speaker": "user",<br>    "ko": "아직요. 인터넷에서 본 글이라서 수원화성 공식 안내를 다시 찾아보려고 해요.",<br>    "de": "Noch nicht. Ich habe die Angabe online gesehen und will deshalb noch einmal in den offiziellen Informationen zu Hwaseong nachsehen.",<br>    "en": "Not yet. I saw it online, so I'm going to check the official information about Hwaseong."<br>  },<br>  {<br>    "speaker": "christian",<br>    "ko": "좋아. 사진을 어디서 가져왔는지도 같이 적으면 더 깔끔하겠다.",<br>    "de": "Gut. Wenn du dazuschreibst, woher das Foto stammt, wird es noch sauberer.",<br>    "en": "Good. It would be clearer if you also say where the photo came from."<br>  },<br>  {<br>    "speaker": "user",<br>    "ko": "네. 오늘은 사진 순서만 정하고, 설명에 쓸 해와 사진을 가져온 곳은 확인한 다음에 넣을게요.",<br>    "de": "Ja. Heute lege ich nur die Reihenfolge fest und ergänze das Jahr und die Herkunft des Fotos nach der Prüfung.",<br>    "en": "Yes. Today I'll just decide the photo order, then add the year and where the photo came from after checking them."<br>  },<br>  {<br>    "speaker": "christian",<br>    "ko": "그럼 첫 사진은 전체 모습, 다음 사진은 성문이 어때?",<br>    "de": "Wie wäre es zuerst mit der Gesamtansicht und danach mit dem Tor?",<br>    "en": "Then how about the full view first and the gate photo next?"<br>  },<br>  {<br>    "speaker": "user",<br>    "ko": "좋아요. 학교에서 소개할 때 길게 설명하지 않도록 핵심만 적을게요.",<br>    "de": "Gut. Ich schreibe nur die wichtigsten Punkte auf, damit ich es in der Schule nicht zu lange erkläre.",<br>    "en": "Sounds good. I'll write only the key points so I don't explain for too long at school."<br>  }<br>] |
-| `quests` | [<br>  {<br>    "id": "quest_a2_jun_hwaseong_school_slide_01",<br>    "type": "hoerverstehen",<br>    "conceptIds": [<br>      "concept_a2_work_study"<br>    ],<br>    "data": {<br>      "audioKo": "네. 수원화성을 소개하기 위해서 사진을 세 장 골랐어요.",<br>      "options": [<br>        {<br>          "de": "Ja. Ich habe drei Fotos ausgewählt, um Hwaseong vorzustellen.",<br>          "en": "Yes. I chose three photos to introduce Hwaseong Fortress."<br>        },<br>        {<br>          "de": "Das Foto ist stark. Hast du auch die Jahreszahl geprüft?",<br>          "en": "This photo looks great. Did you check the year too?"<br>        },<br>        {<br>          "de": "Heute lege ich nur die Reihenfolge fest.",<br>          "en": "Today I'll only decide the order."<br>        },<br>        {<br>          "de": "Wie wäre es mit dem Tor auf der nächsten Folie?",<br>          "en": "How about the gate on the next slide?"<br>        }<br>      ],<br>      "correctIndex": 0<br>    }<br>  },<br>  {<br>    "id": "quest_a2_jun_hwaseong_school_slide_02",<br>    "type": "uebersetzen",<br>    "conceptIds": [<br>      "concept_a2_work_study"<br>    ],<br>    "data": {<br>      "promptDe": "Ich habe die Angabe online gesehen und will sie deshalb noch einmal in einer offiziellen Quelle prüfen.",<br>      "promptEn": "I saw it online, so I'm going to check it again in an official source.",<br>      "options": [<br>        {<br>          "ko": "아직요. 인터넷에서 본 글이라서 수원화성 공식 안내를 다시 찾아보려고 해요."<br>        },<br>        {<br>          "ko": "준, 학교에서 보여 줄 사진 거의 다 골랐어?"<br>        },<br>        {<br>          "ko": "좋아. 사진을 어디서 가져왔는지도 같이 적으면 더 깔끔하겠다."<br>        },<br>        {<br>          "ko": "그럼 첫 사진은 전체 모습, 다음 사진은 성문이 어때?"<br>        }<br>      ],<br>      "correctIndex": 0<br>    }<br>  },<br>  {<br>    "id": "quest_a2_jun_hwaseong_school_slide_03",<br>    "type": "satzBauen",<br>    "conceptIds": [<br>      "concept_a2_work_study"<br>    ],<br>    "data": {<br>      "targetKo": "네. 오늘은 사진 순서만 정하고, 설명에 쓸 해와 사진을 가져온 곳은 확인한 다음에 넣을게요.",<br>      "audioKo": "네. 오늘은 사진 순서만 정하고, 설명에 쓸 해와 사진을 가져온 곳은 확인한 다음에 넣을게요.",<br>      "promptDe": "Ja. Heute lege ich nur die Reihenfolge fest und ergänze das Jahr und die Herkunft des Fotos nach der Prüfung.",<br>      "promptEn": "Yes. Today I'll just decide the photo order, then add the year and where the photo came from after checking them.",<br>      "distractors": [<br>        "인터넷에서 바로",<br>        "친구가 말한 대로",<br>        "사진을 지우고"<br>      ]<br>    }<br>  }<br>] |
+| `grammarIds` | [<br>  "grammar_a2_promise"<br>] |
+| `grammarBlock` | {<br>  "title": {<br>    "ko": "V-(으)ㄹ게요",<br>    "de": "Die eigene Absicht ankündigen",<br>    "en": "Announcing your intention"<br>  },<br>  "explanation": {<br>    "ko": "“사진을 가져온 곳은 나중에 확인할게요”처럼 앞으로 내가 할 일을 상대에게 말할 때 써요.",<br>    "de": "Mit -(으)ㄹ게요 kündigst du an, was du selbst als Nächstes tun wirst, zum Beispiel dass du die Bildangaben später prüfst.",<br>    "en": "Use -(으)ㄹ게요 to tell someone what you will do next, such as checking the photo details later."<br>  }<br>} |
+| `dialog` | [<br>  {<br>    "speaker": "christian",<br>    "ko": "준, 학교에서 보여 줄 사진 거의 다 골랐어?",<br>    "de": "Jun, hast du die Fotos für die Schule fast fertig ausgewählt?",<br>    "en": "Jun, have you almost finished choosing the photos for school?"<br>  },<br>  {<br>    "speaker": "user",<br>    "ko": "네. 수원화성을 소개하려고 사진을 세 장 골랐어요.",<br>    "de": "Ja. Ich habe drei Fotos ausgewählt, um Hwaseong vorzustellen.",<br>    "en": "Yes. I chose three photos to introduce Hwaseong Fortress."<br>  },<br>  {<br>    "speaker": "christian",<br>    "ko": "이 사진은 멋있는데, 설명에 쓴 해도 확인했어?",<br>    "de": "Das Foto ist stark. Hast du auch die Jahreszahl in der Beschreibung geprüft?",<br>    "en": "This photo looks great. Did you also check the year in the description?"<br>  },<br>  {<br>    "speaker": "user",<br>    "ko": "아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요.",<br>    "de": "Noch nicht. Ich habe es im Internet gesehen. Ich prüfe die Informationen zu Hwaseong noch einmal.",<br>    "en": "Not yet. I saw it online. I'll check the Hwaseong information again."<br>  },<br>  {<br>    "speaker": "christian",<br>    "ko": "좋아. 사진을 가져온 곳도 같이 적어.",<br>    "de": "Gut. Schreib auch dazu, woher das Foto stammt.",<br>    "en": "Good. Add where the photo came from too."<br>  },<br>  {<br>    "speaker": "user",<br>    "ko": "네. 오늘은 사진 순서만 정할게요. 해와 사진을 가져온 곳은 나중에 확인할게요.",<br>    "de": "Ja. Heute lege ich nur die Reihenfolge fest. Das Jahr und die Herkunft des Fotos prüfe ich später.",<br>    "en": "Yes. Today I'll just decide the photo order. I'll check the year and where the photo came from later."<br>  },<br>  {<br>    "speaker": "christian",<br>    "ko": "그럼 첫 사진은 전체 모습, 다음 사진은 성문이 어때?",<br>    "de": "Wie wäre es zuerst mit der Gesamtansicht und danach mit dem Tor?",<br>    "en": "Then how about the full view first and the gate photo next?"<br>  },<br>  {<br>    "speaker": "user",<br>    "ko": "좋아요. 학교에서 소개할 때 중요한 것만 적을게요.",<br>    "de": "Gut. Ich schreibe nur die wichtigsten Punkte auf, wenn ich Hwaseong in der Schule vorstelle.",<br>    "en": "Sounds good. I'll write only the important points for introducing Hwaseong at school."<br>  }<br>] |
+| `quests` | [<br>  {<br>    "id": "quest_a2_jun_hwaseong_school_slide_01",<br>    "type": "hoerverstehen",<br>    "conceptIds": [<br>      "concept_a2_work_study"<br>    ],<br>    "data": {<br>      "audioKo": "네. 수원화성을 소개하려고 사진을 세 장 골랐어요.",<br>      "options": [<br>        {<br>          "de": "Ja. Ich habe drei Fotos ausgewählt, um Hwaseong vorzustellen.",<br>          "en": "Yes. I chose three photos to introduce Hwaseong Fortress."<br>        },<br>        {<br>          "de": "Das Foto ist stark. Hast du auch die Jahreszahl geprüft?",<br>          "en": "This photo looks great. Did you check the year too?"<br>        },<br>        {<br>          "de": "Heute lege ich nur die Reihenfolge fest.",<br>          "en": "Today I'll only decide the order."<br>        },<br>        {<br>          "de": "Wie wäre es mit dem Tor auf der nächsten Folie?",<br>          "en": "How about the gate on the next slide?"<br>        }<br>      ],<br>      "correctIndex": 0<br>    }<br>  },<br>  {<br>    "id": "quest_a2_jun_hwaseong_school_slide_02",<br>    "type": "uebersetzen",<br>    "conceptIds": [<br>      "concept_a2_work_study"<br>    ],<br>    "data": {<br>      "promptDe": "Ich habe die Angabe online gesehen und will sie deshalb noch einmal in einer offiziellen Quelle prüfen.",<br>      "promptEn": "I saw it online, so I'm going to check it again in an official source.",<br>      "options": [<br>        {<br>          "ko": "아직요. 인터넷에서 봤어요. 수원화성 안내를 다시 확인할게요."<br>        },<br>        {<br>          "ko": "준, 학교에서 보여 줄 사진 거의 다 골랐어?"<br>        },<br>        {<br>          "ko": "좋아. 사진을 가져온 곳도 같이 적어."<br>        },<br>        {<br>          "ko": "그럼 첫 사진은 전체 모습, 다음 사진은 성문이 어때?"<br>        }<br>      ],<br>      "correctIndex": 0<br>    }<br>  },<br>  {<br>    "id": "quest_a2_jun_hwaseong_school_slide_03",<br>    "type": "satzBauen",<br>    "conceptIds": [<br>      "concept_a2_work_study"<br>    ],<br>    "data": {<br>      "targetKo": "네. 오늘은 사진 순서만 정할게요. 해와 사진을 가져온 곳은 나중에 확인할게요.",<br>      "audioKo": "네. 오늘은 사진 순서만 정할게요. 해와 사진을 가져온 곳은 나중에 확인할게요.",<br>      "promptDe": "Ja. Heute lege ich nur die Reihenfolge fest. Das Jahr und die Herkunft des Fotos prüfe ich später.",<br>      "promptEn": "Yes. Today I'll just decide the photo order. I'll check the year and where the photo came from later.",<br>      "distractors": [<br>        "인터넷에서 바로",<br>        "친구가 말한 대로",<br>        "사진을 지우고"<br>      ]<br>    }<br>  }<br>] |
 | `xpReward` | 110 |
 
 **Jin approval ledger**
 
-- 상태: `draft`
+- 상태: `approved`
 - field notes: rights: original; AUTHOR+AUDIT; read full dialogue, quests, listening draft and culture links before approval
-- Jin memo: —
+- Jin memo: User explicitly approved the full Batch 38 persona-culture content for canonical/live promotion in chat on 2026-10-05 after reviewing the editorial quality and scene 1 in detail.
 
 ### 4. `c1_maya_hyuna_daniel_talchum_shortform` · C1
 
@@ -136,9 +136,9 @@
 
 **Jin approval ledger**
 
-- 상태: `draft`
+- 상태: `approved`
 - field notes: rights: original; AUTHOR+AUDIT; read full dialogue, quests, listening draft and culture links before approval
-- Jin memo: —
+- Jin memo: User explicitly approved the full Batch 38 persona-culture content for canonical/live promotion in chat on 2026-10-05 after reviewing the editorial quality and scene 1 in detail.
 
 ### 5. `b2_daniel_hyuna_hanji_filming_scope` · B2
 
@@ -169,9 +169,9 @@
 
 **Jin approval ledger**
 
-- 상태: `draft`
+- 상태: `approved`
 - field notes: rights: original; AUTHOR+AUDIT; read full dialogue, quests, listening draft and culture links before approval
-- Jin memo: —
+- Jin memo: User explicitly approved the full Batch 38 persona-culture content for canonical/live promotion in chat on 2026-10-05 after reviewing the editorial quality and scene 1 in detail.
 
 
 ## Culture Story Arcs (review-only)
