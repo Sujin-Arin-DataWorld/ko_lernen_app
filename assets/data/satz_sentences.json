@@ -14624,14 +14624,14 @@
     {
       "id": "satz_b2_0297",
       "level": "b2",
-      "targetKo": "회의 정족수를 채우지 못해 표결을 다음 회의로 미뤘어요.",
-      "promptDe": "Da das erforderliche Quorum nicht erreicht wurde, haben wir die Abstimmung auf die nächste Sitzung verschoben.",
-      "promptEn": "The meeting did not reach a quorum, so we postponed the vote until the next meeting.",
+      "targetKo": "회의에 필요한 참석자가 부족해서 표결을 다음 회의로 미뤘어요.",
+      "promptDe": "Weil nicht genug Teilnehmende da waren, haben wir die Abstimmung auf die nächste Sitzung verschoben.",
+      "promptEn": "Because there were not enough attendees, we postponed the vote until the next meeting.",
       "distractors": [
         "주민 의견",
         "안건 순서"
       ],
-      "vocabKo": "회의 정족수"
+      "vocabKo": "참석자"
     },
     {
       "id": "satz_b2_0298",
