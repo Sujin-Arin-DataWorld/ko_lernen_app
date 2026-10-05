@@ -2610,6 +2610,10 @@
       "level": "b1"
     },
     {
+      "id": "seed_cloze_cloze_a2_0259_v1",
+      "level": "b1"
+    },
+    {
       "id": "seed_cloze_cloze_b1_0001_v1",
       "level": "b1"
     },
@@ -14381,6 +14385,13 @@
       "id": "cloze_a2_0256",
       "level": "b1",
       "sourceSeedId": "seed_cloze_cloze_a2_0256_v1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_a2_0259",
+      "level": "b1",
+      "sourceSeedId": "seed_cloze_cloze_a2_0259_v1",
       "courseUnitId": "b1_06_life_capstone"
     },
     {
@@ -28684,12 +28695,12 @@
       "grammar": 264,
       "smalltalk": 590,
       "scenario": 192,
-      "cloze": 846,
+      "cloze": 847,
       "satz": 540,
       "project": 8
     },
     "inheritedReferenceCounts": {
-      "cloze": 1519,
+      "cloze": 1518,
       "satz": 2345
     },
     "inheritedContentReferences": [
@@ -52070,17 +52081,6 @@
       },
       {
         "kind": "cloze",
-        "id": "cloze_a2_0259",
-        "sourceKind": "vocabPack",
-        "sourceId": "b1_festival_booth_1",
-        "sourceVocabId": "vocab_a2_0452",
-        "sourceVocabFingerprintSha256": "a6dbc2e408325e6f4821aa81bb7475a9e488c95d73d5987bcd318871d0942a3a",
-        "level": "b1",
-        "canDoSegmentId": "segment_b1_life_course_narrative",
-        "courseUnitId": "b1_06_life_capstone"
-      },
-      {
-        "kind": "cloze",
         "id": "cloze_a2_0260",
         "sourceKind": "vocabPack",
         "sourceId": "b1_festival_booth_1",
@@ -56144,7 +56144,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b1_festival_booth_1",
         "sourceVocabId": "vocab_a2_0452",
-        "sourceVocabFingerprintSha256": "a6dbc2e408325e6f4821aa81bb7475a9e488c95d73d5987bcd318871d0942a3a",
+        "sourceVocabFingerprintSha256": "5a99bed506b2429c121527805f09c661f2db7bab6a4dd99419f95058956b1ea3",
         "level": "b1",
         "canDoSegmentId": "segment_b1_life_course_narrative",
         "courseUnitId": "b1_06_life_capstone"
@@ -71388,6 +71388,7 @@
       "cloze_a2_0201",
       "cloze_a2_0206",
       "cloze_a2_0256",
+      "cloze_a2_0259",
       "cloze_a2_0268",
       "cloze_a2_0273",
       "cloze_a2_0274",

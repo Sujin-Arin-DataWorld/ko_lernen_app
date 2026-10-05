@@ -1234,8 +1234,11 @@ class LiveRatchetTest(unittest.TestCase):
     # the allowance/contraction fix only ever changes sentence_profile's
     # lexical_p90 input, never word_grade's own resolution), 나머지 0.
     # +0.01 여유는 브리프 지시(래칫 조건) 그대로.
+    # C7-3 assigns an explicit reviewed lexicon owner to every live vocab
+    # headword that previously had no resolvable grade. Unknown is now a
+    # zero-tolerance regression signal for every audited content kind.
     CAP_UNKNOWN_RATIO = {
-        "vocab": 0.0231, "grammar": 0.0, "scenario": 0.0, "cloze": 0.0,
+        "vocab": 0.0, "grammar": 0.0, "scenario": 0.0, "cloze": 0.0,
         "satz": 0.0, "smalltalk": 0.0, "pronunciation": 0.0, "media": 0.0,
     }
     # Unchanged from the T2.3-R1 baseline (still 0) -- neither this fix
@@ -1313,7 +1316,11 @@ class LiveRatchetTest(unittest.TestCase):
             with self.subTest(kind=kind):
                 c = self.summary["counts"][kind]
                 ratio = c["unknown"] / c["total"] if c["total"] else 0.0
-                self.assertLessEqual(ratio, cap + 0.01, f"{kind} unknown ratio {ratio:.3f} exceeds cap {cap}")
+                self.assertLessEqual(
+                    ratio,
+                    cap,
+                    f"{kind} unknown ratio {ratio:.3f} exceeds cap {cap}",
+                )
 
     def test_pack_median_ge_plus2_does_not_regress(self):
         a1 = self.summary["packs"]["a1"]["median_ge_plus2"]

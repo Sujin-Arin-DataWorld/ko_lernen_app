@@ -5090,7 +5090,7 @@
     {
       "id": "cluster_b1_life_course_narrative_v1",
       "level": "b1",
-      "revision": 8,
+      "revision": 9,
       "sourceSeedIds": [
         "seed_vocab_pack_b1_time_life_1_v1",
         "seed_vocab_pack_b1_descriptions_adj_1_v1",
@@ -5105,7 +5105,8 @@
         "seed_scenario_ai_summary_wrong_fact_v1",
         "seed_scenario_b1_w10_form_v1",
         "seed_scenario_shared_cup_recycling_v1",
-        "seed_cloze_cloze_a2_0256_v1"
+        "seed_cloze_cloze_a2_0256_v1",
+        "seed_cloze_cloze_a2_0259_v1"
       ],
       "contentReferences": [
         {
@@ -5163,6 +5164,10 @@
         {
           "kind": "cloze",
           "id": "cloze_a2_0256"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a2_0259"
         }
       ]
     },

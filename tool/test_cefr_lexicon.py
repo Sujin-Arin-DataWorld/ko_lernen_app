@@ -722,11 +722,13 @@ class TestR3ConfidenceAndProperNouns(unittest.TestCase):
 class TestVocabUnknownRatio(unittest.TestCase):
     """Ratchet word_grade() unknown-ratio over all live headwords.
 
-    The original R3 acceptance ceiling was 10%; C7-1 tightens the live
-    ratchet to the current 2026-10-05 actual (~2.36%).
+    The original R3 acceptance ceiling was 10%; C7-3 resolves every
+    audit-level vocab unknown. Twelve multiword/proper-name surfaces still
+    intentionally do not receive a direct single-token word_grade, so this
+    lower-level smoke ratchet is pinned to the current ~0.40% actual.
     """
 
-    CAP_UNKNOWN_RATIO = 0.020
+    CAP_UNKNOWN_RATIO = 0.0041
 
     @classmethod
     def setUpClass(cls):
@@ -759,11 +761,11 @@ class TestVocabUnknownRatio(unittest.TestCase):
 class TestSentenceUnknownRatio(unittest.TestCase):
     """Ratchet sentence unknown-token ratio over every cloze fullKo.
 
-    The original R3 acceptance ceiling was 12%; C7-1 tightens the live
-    ratchet to the current 2026-10-05 actual (~2.58%).
+    The original R3 acceptance ceiling was 12%; C7-3's explicit vocab owner
+    pass lowers the live ratio to ~2.02%, which is now the ratchet baseline.
     """
 
-    CAP_UNKNOWN_RATIO = 0.0245
+    CAP_UNKNOWN_RATIO = 0.0203
 
     @classmethod
     def setUpClass(cls):
@@ -1777,6 +1779,42 @@ class TestT25LevelExceptionsGoldenCases(unittest.TestCase):
         seongmyo = next(t for t in prof.tokens if t.matched == "성묘")
         self.assertEqual(seongmyo.source, "exception")
         self.assertEqual(seongmyo.grade, 2)
+
+
+class TestC7ReviewedUnknownOwners(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.lex = cl.CefrLexicon.load()
+        path = (
+            cl.REPO
+            / "tools"
+            / "content_factory"
+            / "review"
+            / "lcp_c7_vocab_unknown_owner_review_20261005.json"
+        )
+        cls.payload = json.loads(path.read_text(encoding="utf-8"))
+
+    def test_owner_ledger_shape_and_claim_boundaries(self):
+        self.assertEqual(self.payload["schemaVersion"], 1)
+        self.assertEqual(self.payload["sourceAuditUnknownCount"], 46)
+        self.assertFalse(self.payload["humanApprovalClaim"])
+        self.assertFalse(self.payload["nativeSpeakerQaClaim"])
+        self.assertEqual(len(self.payload["decisions"]), 46)
+
+    def test_every_reviewed_unknown_owner_resolves_at_exact_current_level(self):
+        for decision in self.payload["decisions"]:
+            word = decision["korean"]
+            level = decision["currentLevel"].upper()
+            expected_grade = cl.CEFR_TO_GRADE[level]
+            with self.subTest(id=decision["id"], korean=word):
+                result = (
+                    self.lex.phrase_grade(word)
+                    if " " in word
+                    else self.lex.word_grade(word)
+                )
+                self.assertEqual(result.grade, expected_grade)
+                if hasattr(result, "source"):
+                    self.assertEqual(result.source, "exception")
 
 
 if __name__ == "__main__":

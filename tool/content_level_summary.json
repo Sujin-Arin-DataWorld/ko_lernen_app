@@ -8,7 +8,7 @@
       "replacement_backlog": 0,
       "reviewed_owner": 0,
       "total": 2365,
-      "under2": 463,
+      "under2": 448,
       "unknown": 0
     },
     "grammar": {
@@ -19,7 +19,7 @@
       "replacement_backlog": 0,
       "reviewed_owner": 0,
       "total": 264,
-      "under2": 43,
+      "under2": 42,
       "unknown": 0
     },
     "media": {
@@ -30,13 +30,13 @@
       "replacement_backlog": 0,
       "reviewed_owner": 0,
       "total": 136,
-      "under2": 13,
+      "under2": 12,
       "unknown": 0
     },
     "pronunciation": {
       "accepted_relevel": 0,
       "fallback_over2": 0,
-      "over1": 6,
+      "over1": 7,
       "over2": 0,
       "replacement_backlog": 0,
       "reviewed_owner": 0,
@@ -52,13 +52,13 @@
       "replacement_backlog": 0,
       "reviewed_owner": 0,
       "total": 2885,
-      "under2": 648,
+      "under2": 633,
       "unknown": 0
     },
     "scenario": {
       "accepted_relevel": 0,
       "fallback_over2": 0,
-      "over1": 17,
+      "over1": 18,
       "over2": 0,
       "replacement_backlog": 0,
       "reviewed_owner": 0,
@@ -74,7 +74,7 @@
       "replacement_backlog": 0,
       "reviewed_owner": 0,
       "total": 590,
-      "under2": 140,
+      "under2": 139,
       "unknown": 0
     },
     "vocab": {
@@ -85,8 +85,8 @@
       "replacement_backlog": 0,
       "reviewed_owner": 146,
       "total": 2968,
-      "under2": 229,
-      "unknown": 46
+      "under2": 224,
+      "unknown": 0
     }
   },
   "coverage": {
@@ -211,10 +211,10 @@
       "share_ge_plus2_top10": [
         {
           "median": 1.0,
-          "n_hm": 8,
+          "n_hm": 10,
           "n_low": 2,
           "pack_id": "a2_pharmacy_ask_1",
-          "share_ge_plus2": 0.25
+          "share_ge_plus2": 0.2
         },
         {
           "median": 0.0,
@@ -233,16 +233,16 @@
         {
           "median": 0.0,
           "n_hm": 10,
-          "n_low": 0,
-          "pack_id": "a2_partner_photo_thanks_1",
-          "share_ge_plus2": 0.1
-        },
-        {
-          "median": 0.0,
-          "n_hm": 10,
           "n_low": 2,
           "pack_id": "a2_school_supplies_1",
           "share_ge_plus2": 0.1
+        },
+        {
+          "median": 0,
+          "n_hm": 11,
+          "n_low": 0,
+          "pack_id": "a2_partner_photo_thanks_1",
+          "share_ge_plus2": 0.0909
         },
         {
           "median": 0,

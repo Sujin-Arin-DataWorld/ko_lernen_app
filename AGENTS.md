@@ -425,7 +425,7 @@ flutter run -d <android-id>   # 안드로이드
 
 > 미완료 게이트만 적는다. 끝난 항목은 지우며, 이력은 `git log` / PR / `.claude/handoffs/`다.
 
-- [ ] **문화세계 품질 후속 프로그램**: Stage A/B와 Stage C-1~C-6의 명시적 +2 이상 부채 정리는 완료(over2/fallback/replacement backlog 모두 0). Stage C-7 audit unknown 정리 진행 중이며 C-7.1에서 `한다/했다/먹는다/먹었다` 계열의 해라체·과거형 lemma 복원을 fail-closed로 보강해 cloze sentence unknown을 641→380(4.35%→2.58%)으로 줄였다. sentence unknown ratchet은 2.6%, vocab unknown ratchet은 2.4%로 하향 고정. 다음은 live vocab unknown owner를 실제 missing lexicon / multiword / proper noun / learner-facing replacement로 분류한다. 문화 metadata는 계속 mastery/reward owner가 아니며 TTS는 Jin이 VS Code에서 직접 처리하므로 이 프로그램에서 생성·덮어쓰기하지 않는다. 정본 계획: `docs/plans/2026-10-05-culture-quality-followups.md`.
+- [ ] **문화세계 품질 후속 프로그램**: Stage A/B와 Stage C-1~C-7.3까지 완료. 명시적 +2 이상 부채(over2/fallback/replacement backlog)는 전 종류 0이며, C-7.3에서 live vocab audit unknown 46건을 실제 task/domain owner 기준으로 모두 검토해 audit-level unknown도 전 종류 0으로 닫았다. vocab audit unknown ratchet=0, raw `word_grade()` smoke unknown≈0.40%(의도된 multiword/proper-name 12면), cloze sentence unknown=298/14,721=2.02%(ratchet 2.03%). Grade 4 coverage missing=1813 유지. `줄서다` learner-facing 예문은 `인기 부스에서는 오전부터 사람들이 줄서요.`로 자연화했고 DE/EN 동기화. 다음은 Stage C 종료조건을 확정하고, 남은 sentence-token unknown은 fail-closed를 해치지 않는 좁은 morphology/segmentation 개선만 선택적으로 진행한다. 문화 metadata는 계속 mastery/reward owner가 아니며 TTS는 Jin이 VS Code에서 직접 처리하므로 이 프로그램에서 생성·덮어쓰기하지 않는다. 정본 계획: `docs/plans/2026-10-05-culture-quality-followups.md`.
 
 - [ ] **UI 실기기 게이트 (Jin)**: 덱 4방향 손맛·시스템 엣지·히어로 잘림, 승인 대기 중인
   아이콘/리소 자산을 실제 기기에서 검수한다. 승인 전에는 대규모 UI 재설계나 자산 덮어쓰기를

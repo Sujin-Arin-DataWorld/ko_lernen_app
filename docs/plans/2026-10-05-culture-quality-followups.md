@@ -398,8 +398,41 @@ Measured effect:
 - vocab unknown ratchet tightened to **2.0%**
 - sentence unknown ratchet tightened to **2.45%**
 
-Next C-7 substage: separate compositional compounds from true domain-lexicon
-gaps and learner-facing replacement candidates.
+#### C-7.3 — explicit reviewed owners for live vocab unknowns
+
+Status: **complete**
+
+Reviewed all **46** remaining live vocab audit unknowns against their actual
+learner-facing task/domain ownership and recorded explicit current-level owners
+in `level_exceptions.csv`. The review ledger is frozen in
+`tools/content_factory/review/lcp_c7_vocab_unknown_owner_review_20261005.json`
+and explicitly does **not** claim native-speaker QA or external human approval.
+
+Key outcomes:
+- vocab audit unknowns: **46 → 0**
+- vocab over2: **0**
+- vocab fallback_over2: **0**
+- all audited content kinds now have audit-level unknown count **0**
+- vocab audit unknown ratchet tightened to **0**
+- sentence unknown tokens: **298 / 14,721 = 2.02%**
+- lower-level raw `word_grade()` smoke unknown ratio: ~**0.40%** for twelve
+  intentionally multiword/proper-name surfaces; ratchet tightened to **0.41%**
+- sentence unknown-token ratchet tightened to **2.03%**
+- six-grade coverage ratchets remain intact; Grade 4 missing is **1813**
+
+One learner-facing copy defect found during review was corrected:
+`인기 부스는 오전에 줄서다 시작해요.` →
+`인기 부스에서는 오전부터 사람들이 줄서요.`, with DE/EN synchronized.
+
+Validation:
+- focused + regression level tests: **247 passed, 13 skipped**
+- `validate_content.py`: passed
+- can-do generator freshness check: passed
+
+C-7 audit-unknown reduction is therefore complete for all audit-level content
+kinds. Remaining sentence-token unknowns are morphology/segmentation depth, not
+unowned live vocabulary, and should only be reduced further when a narrow,
+linguistically justified rule preserves fail-closed behavior.
 
 Never raise a ratchet merely to make the suite green.
 
