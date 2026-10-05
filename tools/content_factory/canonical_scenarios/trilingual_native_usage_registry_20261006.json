@@ -1,0 +1,2376 @@
+{
+  "schemaVersion": 1,
+  "status": "RESEARCH_REGISTRY_ACTIVE",
+  "effectiveDate": "2026-10-06",
+  "scope": {
+    "includeReviewedContent": true,
+    "includeUnreviewedContent": true,
+    "includeLiveContent": true,
+    "includeDraftContent": true,
+    "approvalStateIndependentFromResearch": true,
+    "canonicalTopicCount": 32,
+    "purpose": "Tri-lingual native-usage research SSoT for KO/EN/DE across all Hangul Sori content. Research coverage never implies content approval."
+  },
+  "languagePolicy": {
+    "ko": "Native Korean community usage: contemporary casual, service, work, academic and institutional registers.",
+    "en": "Native English usage researched independently from Korean; prefer real conversational category labels and speech acts over literal translation.",
+    "de": "Native German usage researched independently from Korean; model du/Sie, modal particles, everyday vs Fachsprache, and real collocations.",
+    "crossLanguageRule": "Do not translate corpus phrases across languages. Each language profile is independently evidenced; localization later preserves semantic/pragmatic spine."
+  },
+  "sourcePolicy": {
+    "communitySources": [
+      "Reddit",
+      "TheQoo",
+      "Blind/public mirrors",
+      "other publicly searchable native-language communities"
+    ],
+    "authoritativeSources": [
+      "official terminology sources when legal/medical/policy/technical accuracy matters"
+    ],
+    "useCommunityFor": "word choice, collocation, tone, stance, humor, discourse markers, register range",
+    "doNotUseCommunityFor": "legal/medical/policy factual authority",
+    "storePatternsNotQuotes": true
+  },
+  "topics": [
+    {
+      "topicId": "personal_identification",
+      "group": "self_and_others",
+      "labels": {
+        "ko": "개인 신상·자기소개",
+        "en": "Personal identification",
+        "de": "Person & Identität"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Person",
+          "Begrüßung",
+          "Selbstvorstellung",
+          "자기소개",
+          "첫인사",
+          "Zeit & Lebenslauf",
+          "Geographie"
+        ],
+        "shelfSlugs": [
+          "greet"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "self_intro",
+          "greetings",
+          "identity"
+        ],
+        "titleKeywords": [
+          "자기소개",
+          "이름과 출신",
+          "첫 인사",
+          "처음 만나"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "family_relationships",
+      "group": "self_and_others",
+      "labels": {
+        "ko": "가족·인간관계",
+        "en": "Family & relationships",
+        "de": "Familie & Beziehungen"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Familie",
+          "Beziehungen",
+          "Freundschaft",
+          "Partnerschaft & koreanische Familie",
+          "Menschen & Beziehungen",
+          "Sicherheit & Grenzen"
+        ],
+        "shelfSlugs": [
+          "partner",
+          "friends",
+          "dating"
+        ],
+        "smalltalkCategories": [
+          "family",
+          "dating",
+          "partner_family",
+          "theme_park_date"
+        ],
+        "packKeywords": [
+          "partner",
+          "family",
+          "friend",
+          "dating"
+        ],
+        "titleKeywords": [
+          "가족",
+          "여자친구",
+          "남자친구",
+          "연인",
+          "친구",
+          "부모",
+          "데이트",
+          "연애"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "house_home",
+      "group": "everyday_life",
+      "labels": {
+        "ko": "주거·집",
+        "en": "House & home",
+        "de": "Wohnen"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Position",
+          "Haushalt & Zimmer",
+          "Wohnen",
+          "Wohnen & Vertrag",
+          "Zuhause",
+          "Hausordnung",
+          "WG-Gespräch",
+          "Reparaturwortschatz",
+          "집 구하기",
+          "Haushalt & Praktisches",
+          "Wohnstreit",
+          "주거비와 사회 통합"
+        ],
+        "shelfSlugs": [
+          "home",
+          "apt",
+          "repair"
+        ],
+        "smalltalkCategories": [
+          "moving"
+        ],
+        "packKeywords": [
+          "home",
+          "housing",
+          "house",
+          "room",
+          "apartment",
+          "repair",
+          "moving"
+        ],
+        "titleKeywords": [
+          "집에서",
+          "집 열쇠",
+          "집 구하기",
+          "집안",
+          "집을",
+          "집이",
+          "세탁기",
+          "열쇠",
+          "아파트",
+          "이사",
+          "주거",
+          "퇴거",
+          "입주"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "neighbourhood_environment",
+      "group": "everyday_life",
+      "labels": {
+        "ko": "동네·이웃·주변 환경",
+        "en": "Neighbourhood & surroundings",
+        "de": "Nachbarschaft & Umgebung"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "도시 생활",
+          "Stadt & Orte",
+          "Nachbarschaft",
+          "Gemeinsame Räume & Rücksicht"
+        ],
+        "shelfSlugs": [
+          "apt",
+          "neighbor"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "neighbor",
+          "neighbour",
+          "city",
+          "town"
+        ],
+        "titleKeywords": [
+          "이웃",
+          "동네",
+          "골목",
+          "분리수거",
+          "분리배출",
+          "공용",
+          "주민"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "daily_life_routines",
+      "group": "everyday_life",
+      "labels": {
+        "ko": "일상생활·하루 일과",
+        "en": "Daily life & routines",
+        "de": "Tagesablauf & Alltag"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Alltag",
+          "Bewegung",
+          "Zustandsverben",
+          "Nützliche Verben",
+          "약속과 일정",
+          "생활 종합",
+          "Wochenendzusage"
+        ],
+        "shelfSlugs": [
+          "plan"
+        ],
+        "smalltalkCategories": [
+          "daily",
+          "weekend"
+        ],
+        "packKeywords": [
+          "daily",
+          "routine",
+          "morning"
+        ],
+        "titleKeywords": [
+          "아침",
+          "주말",
+          "하루",
+          "할 일"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "numbers_time_dates",
+      "group": "everyday_life",
+      "labels": {
+        "ko": "숫자·시간·날짜",
+        "en": "Numbers, time & dates",
+        "de": "Zahlen, Uhrzeit & Datum"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Zahlen",
+          "Zeit",
+          "Menge"
+        ],
+        "shelfSlugs": [
+          "numbers"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "number",
+          "time",
+          "date",
+          "count"
+        ],
+        "titleKeywords": [
+          "시간",
+          "몇 시",
+          "날짜",
+          "숫자"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "food_drink",
+      "group": "everyday_life",
+      "labels": {
+        "ko": "식음료·식당",
+        "en": "Food & drink",
+        "de": "Essen & Trinken"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Essen & Trinken",
+          "Im Restaurant",
+          "Essen & Zutaten"
+        ],
+        "shelfSlugs": [
+          "eat",
+          "booking"
+        ],
+        "smalltalkCategories": [
+          "food"
+        ],
+        "packKeywords": [
+          "food",
+          "restaurant",
+          "cafe",
+          "drink",
+          "meal"
+        ],
+        "titleKeywords": [
+          "식당",
+          "카페",
+          "커피",
+          "주문",
+          "떡볶이",
+          "삼겹살",
+          "메뉴",
+          "배달 음식",
+          "디저트",
+          "빵집"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "shopping_consumption",
+      "group": "everyday_life",
+      "labels": {
+        "ko": "쇼핑·소비·결제",
+        "en": "Shopping & consumption",
+        "de": "Einkaufen & Konsum"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Einkaufen",
+          "결제와 배달",
+          "Kleidung",
+          "Anziehen & Accessoires",
+          "Farben"
+        ],
+        "shelfSlugs": [
+          "counter",
+          "buy",
+          "delivery",
+          "refund"
+        ],
+        "smalltalkCategories": [
+          "shopping"
+        ],
+        "packKeywords": [
+          "shop",
+          "market",
+          "store",
+          "clothes",
+          "buy",
+          "delivery",
+          "refund",
+          "exchange"
+        ],
+        "titleKeywords": [
+          "마트",
+          "가게",
+          "사이즈",
+          "옷 사이즈",
+          "옷을",
+          "옷이",
+          "굿즈",
+          "장보기",
+          "물건",
+          "택배",
+          "환불",
+          "교환",
+          "중고 거래"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "transport_wayfinding",
+      "group": "mobility",
+      "labels": {
+        "ko": "교통·길 찾기",
+        "en": "Transport & wayfinding",
+        "de": "Verkehr & Wegbeschreibung"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Verkehr",
+          "U-Bahnkarte",
+          "Reise & Verkehr"
+        ],
+        "shelfSlugs": [
+          "transit",
+          "wayfinding",
+          "move",
+          "delay",
+          "incident"
+        ],
+        "smalltalkCategories": [
+          "transport"
+        ],
+        "packKeywords": [
+          "subway",
+          "transport",
+          "bus",
+          "taxi",
+          "train",
+          "station"
+        ],
+        "titleKeywords": [
+          "지하철",
+          "택시",
+          "버스",
+          "기차",
+          "KTX",
+          "막차",
+          "길 묻",
+          "출구",
+          "내릴",
+          "좌석",
+          "접촉 사고"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "travel_accommodation",
+      "group": "mobility",
+      "labels": {
+        "ko": "여행·숙박",
+        "en": "Travel & accommodation",
+        "de": "Reisen & Unterkunft"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Reise",
+          "Reise & Verkehr",
+          "Reiseänderung",
+          "Fundsachen"
+        ],
+        "shelfSlugs": [
+          "taxi_stay",
+          "move",
+          "travel"
+        ],
+        "smalltalkCategories": [
+          "travel"
+        ],
+        "packKeywords": [
+          "travel",
+          "trip",
+          "hotel",
+          "airport"
+        ],
+        "titleKeywords": [
+          "공항",
+          "숙소",
+          "여행",
+          "제주",
+          "결항",
+          "환승",
+          "비자",
+          "체류"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "health_body",
+      "group": "everyday_life",
+      "labels": {
+        "ko": "건강·신체·병원·약국",
+        "en": "Health & body",
+        "de": "Gesundheit & Körper"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Körper",
+          "Gesundheit",
+          "Apotheke",
+          "Krankenhaus & Apotheke",
+          "Fitnesskurs",
+          "Risikosprache"
+        ],
+        "shelfSlugs": [
+          "body",
+          "health",
+          "clinical"
+        ],
+        "smalltalkCategories": [
+          "health",
+          "hospital",
+          "emergency"
+        ],
+        "packKeywords": [
+          "health",
+          "hospital",
+          "pharmacy",
+          "body",
+          "doctor",
+          "clinic"
+        ],
+        "titleKeywords": [
+          "약국",
+          "병원",
+          "증상",
+          "감기",
+          "무릎",
+          "부작용",
+          "임상",
+          "다친",
+          "치료"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "free_time_hobbies_sport",
+      "group": "leisure_culture",
+      "labels": {
+        "ko": "여가·취미·운동",
+        "en": "Free time, hobbies & sport",
+        "de": "Freizeit, Hobbys & Sport"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Freizeit",
+          "Sport",
+          "Fitnesskurs",
+          "Wochenendzusage",
+          "Feststand"
+        ],
+        "shelfSlugs": [
+          "plan",
+          "enrolment",
+          "cancellation",
+          "friends"
+        ],
+        "smalltalkCategories": [
+          "weekend",
+          "hobby",
+          "health",
+          "theme_park_date"
+        ],
+        "packKeywords": [
+          "hobby",
+          "sport",
+          "leisure",
+          "fitness",
+          "gym",
+          "weekend"
+        ],
+        "titleKeywords": [
+          "운동",
+          "필라테스",
+          "헬스장",
+          "전시",
+          "노래방",
+          "축제",
+          "대회",
+          "놀이공원",
+          "댄스"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "media_entertainment_culture_pop",
+      "group": "leisure_culture",
+      "labels": {
+        "ko": "미디어·대중문화(K-pop·드라마·SNS)",
+        "en": "Media, entertainment & pop culture",
+        "de": "Medien, Unterhaltung & Popkultur"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Medien & Kultur",
+          "Lesen & Reaktionen",
+          "Digitale Aufmerksamkeit",
+          "Medienkompetenz",
+          "Medien & Evidenz",
+          "Fanarbeit & Belastung",
+          "Framinganalyse"
+        ],
+        "shelfSlugs": [
+          "fandom",
+          "critique",
+          "attribution",
+          "representation"
+        ],
+        "smalltalkCategories": [
+          "screen",
+          "music",
+          "kpop"
+        ],
+        "packKeywords": [
+          "kpop",
+          "drama",
+          "media",
+          "fandom",
+          "music",
+          "movie",
+          "sns"
+        ],
+        "titleKeywords": [
+          "음악",
+          "가수",
+          "드라마",
+          "굿즈",
+          "팬과",
+          "팬의",
+          "릴스",
+          "인스타",
+          "라이브 방송",
+          "영상",
+          "보도",
+          "기사",
+          "콘텐츠",
+          "조회 수",
+          "딥페이크",
+          "팩트체크",
+          "명소",
+          "팬 번역",
+          "팬 활동",
+          "팬 프로젝트"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "education_study",
+      "group": "work_education",
+      "labels": {
+        "ko": "교육·학교·학습",
+        "en": "Education & study",
+        "de": "Bildung & Lernen"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Bildung",
+          "Schule & Uni",
+          "Schultasche",
+          "Elterngespräch",
+          "Kurzreferat",
+          "첫 수업"
+        ],
+        "shelfSlugs": [
+          "enrolment"
+        ],
+        "smalltalkCategories": [
+          "work_study"
+        ],
+        "packKeywords": [
+          "school",
+          "class",
+          "study",
+          "university",
+          "education",
+          "lesson"
+        ],
+        "titleKeywords": [
+          "수업",
+          "학교",
+          "도서관",
+          "공부",
+          "연구",
+          "학생",
+          "스마트폰 규제"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "work_career",
+      "group": "work_education",
+      "labels": {
+        "ko": "직업·직장·취업",
+        "en": "Work & career",
+        "de": "Arbeit & Beruf"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Beruf",
+          "Menschen & Berufe",
+          "Karriere & Büro",
+          "Arbeitskoordination & Termine",
+          "Nebenjob",
+          "Dienstmail",
+          "취업과 근무 조건",
+          "직장 소통",
+          "Teamarbeit & Feedback",
+          "Formelle Vereinbarungen",
+          "Beurteilung",
+          "Teamverhandlung",
+          "Kurzlage",
+          "Betriebslast"
+        ],
+        "shelfSlugs": [
+          "work",
+          "team",
+          "meeting",
+          "negotiate",
+          "hiring",
+          "briefing",
+          "conflict_interest",
+          "access",
+          "labor"
+        ],
+        "smalltalkCategories": [
+          "work_study",
+          "interview",
+          "job_hunting"
+        ],
+        "packKeywords": [
+          "work",
+          "office",
+          "job",
+          "career",
+          "interview",
+          "team",
+          "meeting",
+          "hiring"
+        ],
+        "titleKeywords": [
+          "회사",
+          "회의",
+          "면접",
+          "업무",
+          "동료",
+          "발표",
+          "인수인계",
+          "직원",
+          "퇴근",
+          "계약 범위",
+          "프리랜서",
+          "성과",
+          "포트폴리오",
+          "출근",
+          "팀에서",
+          "팀원",
+          "팀장",
+          "팀 조율",
+          "팀 리더"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "services_public_admin",
+      "group": "civic",
+      "labels": {
+        "ko": "공공 서비스·관공서·은행·우체국",
+        "en": "Services & public administration",
+        "de": "Dienstleistungen, Behörden & Banken"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Postamt",
+          "Friseursalon",
+          "Bankschalter",
+          "Fundsachen",
+          "Amtgang",
+          "Formelle Beschwerde & Abhilfe",
+          "Eskalation"
+        ],
+        "shelfSlugs": [
+          "counter",
+          "money",
+          "form",
+          "notice",
+          "authorities",
+          "booking"
+        ],
+        "smalltalkCategories": [
+          "emergency"
+        ],
+        "packKeywords": [
+          "bank",
+          "post",
+          "office",
+          "service",
+          "salon",
+          "authority",
+          "document"
+        ],
+        "titleKeywords": [
+          "은행",
+          "우체국",
+          "미용실",
+          "서류",
+          "접수",
+          "과태료",
+          "계좌",
+          "카드가 인식",
+          "복지 신청",
+          "관할",
+          "등기부",
+          "신청"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "communication_phone_digital",
+      "group": "everyday_life",
+      "labels": {
+        "ko": "전화·메신저·인터넷 소통",
+        "en": "Communication, phone & messaging",
+        "de": "Kommunikation, Telefon & Messenger"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Kommunikation",
+          "Handytarif",
+          "Dienstmail"
+        ],
+        "shelfSlugs": [
+          "phone"
+        ],
+        "smalltalkCategories": [
+          "phone"
+        ],
+        "packKeywords": [
+          "phone",
+          "message",
+          "chat",
+          "contact",
+          "kakao"
+        ],
+        "titleKeywords": [
+          "카카오톡",
+          "전화",
+          "메신저",
+          "연락",
+          "이메일",
+          "답장",
+          "문자",
+          "첨부파일",
+          "메시지"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "weather_nature_climate",
+      "group": "everyday_life",
+      "labels": {
+        "ko": "날씨·계절·자연",
+        "en": "Weather, nature & seasons",
+        "de": "Wetter, Natur & Jahreszeiten"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Wetter",
+          "Wetterschicht",
+          "Natur & Draußen",
+          "Natur",
+          "Tiere"
+        ],
+        "shelfSlugs": [
+          "body"
+        ],
+        "smalltalkCategories": [
+          "weather"
+        ],
+        "packKeywords": [
+          "weather",
+          "season",
+          "nature"
+        ],
+        "titleKeywords": [
+          "비 오는",
+          "우산",
+          "날씨",
+          "폭염",
+          "계절"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "feelings_character",
+      "group": "self_and_others",
+      "labels": {
+        "ko": "감정·성격·외모 묘사",
+        "en": "Feelings, character & appearance",
+        "de": "Gefühle, Charakter & Aussehen"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Gefühle",
+          "Beschreibung",
+          "Motivation",
+          "Charakter & Gefühle",
+          "Eigenschaften",
+          "Rhythmus & Grenzen",
+          "Farben"
+        ],
+        "shelfSlugs": [
+          "feel",
+          "facework",
+          "dating"
+        ],
+        "smalltalkCategories": [
+          "mood",
+          "dating"
+        ],
+        "packKeywords": [
+          "feeling",
+          "emotion",
+          "character",
+          "descriptions",
+          "mood"
+        ],
+        "titleKeywords": [
+          "서운",
+          "실망",
+          "민망",
+          "마음",
+          "감정",
+          "체면",
+          "솔직",
+          "혼자만의 시간",
+          "헷갈릴"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "social_etiquette_customs",
+      "group": "leisure_culture",
+      "labels": {
+        "ko": "예절·관습·명절·호칭",
+        "en": "Etiquette, customs & festivals",
+        "de": "Umgangsformen, Sitten & Feste"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Höflichkeit",
+          "Entschuldigung",
+          "Feste & Einladungen",
+          "Umgangsformen",
+          "Feste & Traditionen",
+          "Ehrensprache",
+          "Begrüßung"
+        ],
+        "shelfSlugs": [
+          "greet",
+          "partner",
+          "facework"
+        ],
+        "smalltalkCategories": [
+          "partner_family"
+        ],
+        "packKeywords": [
+          "etiquette",
+          "holiday",
+          "chuseok",
+          "manners",
+          "politeness",
+          "honorific"
+        ],
+        "titleKeywords": [
+          "추석",
+          "명절",
+          "인사드리",
+          "호칭",
+          "결혼식",
+          "생일",
+          "초대",
+          "말투",
+          "예절",
+          "세배"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "language_learning_communication_repair",
+      "group": "self_and_others",
+      "labels": {
+        "ko": "언어·학습·의사소통 되묻기",
+        "en": "Language, learning & communication repair",
+        "de": "Sprache, Lernen & Verständigung"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "다시 묻기",
+          "Sprache & Ausdruck",
+          "Sprache & Grammatik",
+          "은는과 이가",
+          "Sprache & Gesellschaft",
+          "Sprache und Wandel",
+          "Autoritätssprache",
+          "Sprache, Deutung & Macht"
+        ],
+        "shelfSlugs": [
+          "repeat"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "language",
+          "korean",
+          "hangul",
+          "repeat",
+          "clarify"
+        ],
+        "titleKeywords": [
+          "다시 천천히",
+          "말투",
+          "말을 놓",
+          "번역",
+          "통역",
+          "언어",
+          "발음",
+          "다시 묻",
+          "알아듣",
+          "우리’"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "money_finance_contracts",
+      "group": "civic",
+      "labels": {
+        "ko": "돈·요금·계약·보험",
+        "en": "Money, fees, contracts & insurance",
+        "de": "Geld, Gebühren, Verträge & Versicherungen"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Geld",
+          "Geld & Gebühren",
+          "Wohnen & Vertrag",
+          "Handytarif",
+          "Bankschalter",
+          "Versicherungsfall",
+          "Formelle Vereinbarungen",
+          "Widerrufsrecht"
+        ],
+        "shelfSlugs": [
+          "money",
+          "bill",
+          "refund",
+          "insurance",
+          "cancellation",
+          "contract"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "money",
+          "bank",
+          "fee",
+          "contract",
+          "insurance",
+          "bill",
+          "pay",
+          "budget",
+          "price"
+        ],
+        "titleKeywords": [
+          "결제",
+          "요금",
+          "환불",
+          "보험",
+          "계약",
+          "구독",
+          "영수증",
+          "수리비",
+          "회원권",
+          "금액",
+          "가격",
+          "모금",
+          "보증금",
+          "위임장"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "technology_digital_ai",
+      "group": "society_abstract",
+      "labels": {
+        "ko": "기술·디지털·AI·데이터",
+        "en": "Technology, digital life & AI",
+        "de": "Technologie, Digitalisierung & KI"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Technologie",
+          "Modernes Leben",
+          "Digitale Aufmerksamkeit",
+          "AI 투명성과 문화 노동",
+          "Technikethik & Verantwortung",
+          "Prüfspur",
+          "Automatenfolgen",
+          "Automatisierung & Rechtsweg"
+        ],
+        "shelfSlugs": [
+          "privacy",
+          "automation",
+          "access"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "tech",
+          "digital",
+          "ai",
+          "data",
+          "app",
+          "internet",
+          "automation"
+        ],
+        "titleKeywords": [
+          "AI",
+          "자동",
+          "데이터",
+          "알고리즘",
+          "무인",
+          "계정",
+          "인공지능",
+          "자율",
+          "모델",
+          "개인정보"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "environment_sustainability",
+      "group": "society_abstract",
+      "labels": {
+        "ko": "환경·기후·지속가능성",
+        "en": "Environment & sustainability",
+        "de": "Umwelt & Nachhaltigkeit"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Umwelt",
+          "Nachhaltige Entscheidungen vor Ort",
+          "Ortliche Abwägung"
+        ],
+        "shelfSlugs": [
+          "policy"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "environment",
+          "climate",
+          "sustain",
+          "recycl",
+          "energy"
+        ],
+        "titleKeywords": [
+          "환경",
+          "기후",
+          "쓰레기",
+          "재활용",
+          "분리수거",
+          "일회용",
+          "에너지",
+          "지속"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "society_current_affairs",
+      "group": "society_abstract",
+      "labels": {
+        "ko": "사회 문제·시사·공동체",
+        "en": "Society, current affairs & community",
+        "de": "Gesellschaft, aktuelle Themen & Gemeinschaft"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Gesellschaft",
+          "Modernes Leben",
+          "Ehrenamtsschicht",
+          "Sicherheit & Regeln",
+          "Handeln & Verändern",
+          "Sprache & Gesellschaft",
+          "Bürgerversammlung",
+          "Gesellschaft & Alltag 2026",
+          "주거비와 사회 통합",
+          "Zugänglichkeit & Teilhabe",
+          "Risiko & öffentliche Information",
+          "Zugangskosten",
+          "Gesellschaft im Wandel",
+          "인구 담론과 제도 책임",
+          "Sprache und Wandel"
+        ],
+        "shelfSlugs": [
+          "public",
+          "evidence",
+          "mediation",
+          "impact"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "society",
+          "social",
+          "community",
+          "public",
+          "civic"
+        ],
+        "titleKeywords": [
+          "사회",
+          "주민",
+          "공동체",
+          "세대",
+          "청년",
+          "봉사",
+          "공공",
+          "쉼터",
+          "접근",
+          "참여",
+          "휠체어",
+          "상권",
+          "재난",
+          "이주",
+          "인구"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "politics_law_institutions",
+      "group": "society_abstract",
+      "labels": {
+        "ko": "정치·법·제도·행정",
+        "en": "Politics, law & institutions",
+        "de": "Politik, Recht & Institutionen"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Sicherheit & Regeln",
+          "Formelle Beschwerde & Abhilfe",
+          "Bürgerversammlung",
+          "Öffentliche Lage",
+          "Beteiligungsdesign",
+          "Ortliche Abwägung",
+          "Regulierung & Nebenwirkung",
+          "Institutionelle Vermittlung",
+          "Institutionsstimme",
+          "Autoritätssprache",
+          "Einspruchsweg",
+          "Widerrufsrecht",
+          "Automatisierung & Rechtsweg",
+          "Sanktion & Rechenschaft",
+          "Diskurs, Macht & Verantwortung",
+          "인구 담론과 제도 책임"
+        ],
+        "shelfSlugs": [
+          "notice",
+          "authorities",
+          "privacy",
+          "policy",
+          "record",
+          "mandate",
+          "limitation",
+          "jurisdiction",
+          "access"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "law",
+          "legal",
+          "policy",
+          "regulation",
+          "rights",
+          "authority",
+          "government"
+        ],
+        "titleKeywords": [
+          "권리",
+          "규제",
+          "정책",
+          "책임",
+          "제도",
+          "이의",
+          "과태료",
+          "관할",
+          "소멸시효",
+          "위임",
+          "집회",
+          "표현의 자유",
+          "보유세",
+          "행정",
+          "심사",
+          "권한",
+          "동의",
+          "법률",
+          "법적",
+          "법을",
+          "법이",
+          "법에"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "economy_business_labour",
+      "group": "society_abstract",
+      "labels": {
+        "ko": "경제·기업·노동시장",
+        "en": "Economy, business & labour market",
+        "de": "Wirtschaft, Unternehmen & Arbeitsmarkt"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Zugangskosten",
+          "Betriebslast",
+          "Fanarbeit & Belastung",
+          "AI 투명성과 문화 노동"
+        ],
+        "shelfSlugs": [
+          "labor",
+          "negotiate",
+          "impact"
+        ],
+        "smalltalkCategories": [
+          "job_hunting"
+        ],
+        "packKeywords": [
+          "economy",
+          "business",
+          "labor",
+          "labour",
+          "market",
+          "wage",
+          "startup"
+        ],
+        "titleKeywords": [
+          "임대료",
+          "노동",
+          "경제",
+          "사업",
+          "라이더",
+          "비용",
+          "물가",
+          "보상 구조",
+          "공로"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "science_research_evidence",
+      "group": "society_abstract",
+      "labels": {
+        "ko": "과학·연구·근거·통계",
+        "en": "Science, research & evidence",
+        "de": "Wissenschaft, Forschung & Evidenz"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Wissenschaft",
+          "Forschung & Evidenz",
+          "Evidenzvorbehalt",
+          "Erhebungsdesign",
+          "Risikosprache",
+          "Medien & Evidenz",
+          "Risiko & öffentliche Information"
+        ],
+        "shelfSlugs": [
+          "uncertainty",
+          "methodology",
+          "critique",
+          "clinical",
+          "evidence"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "science",
+          "research",
+          "evidence",
+          "survey",
+          "study",
+          "data"
+        ],
+        "titleKeywords": [
+          "연구",
+          "설문",
+          "표본",
+          "근거",
+          "통계",
+          "상관관계",
+          "재현",
+          "불확실",
+          "수치",
+          "지표",
+          "평균",
+          "예측",
+          "모델",
+          "결론"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "arts_literature_history",
+      "group": "society_abstract",
+      "labels": {
+        "ko": "예술·문학·역사·기억",
+        "en": "Arts, literature, history & memory",
+        "de": "Kunst, Literatur, Geschichte & Erinnerung"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Literatur und Gefühle",
+          "Erinnerung & Erzählperspektive",
+          "Erinnerungsnarrativ",
+          "Narrativ & Perspektive"
+        ],
+        "shelfSlugs": [
+          "memory",
+          "history",
+          "aesthetic"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "art",
+          "literature",
+          "history",
+          "museum",
+          "memory",
+          "narrative"
+        ],
+        "titleKeywords": [
+          "박물관",
+          "전통 공연",
+          "작품",
+          "역사",
+          "기억",
+          "서사",
+          "예술",
+          "문학",
+          "과거",
+          "원형"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "ethics_philosophy_abstract",
+      "group": "society_abstract",
+      "labels": {
+        "ko": "윤리·철학·추상적 논쟁",
+        "en": "Ethics, philosophy & abstract debate",
+        "de": "Ethik, Philosophie & abstrakte Debatten"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Abstrakte Begriffe",
+          "Denken",
+          "Entscheidungen & Perspektiven",
+          "Lebensphilosophie",
+          "Diskurs & Macht",
+          "Diskurs, Macht & Verantwortung",
+          "Sprache, Deutung & Macht",
+          "Technikethik & Verantwortung",
+          "Framinganalyse",
+          "Argumentation und Verfahrensgestaltung"
+        ],
+        "shelfSlugs": [
+          "ethics",
+          "discourse",
+          "conflict_interest",
+          "mediation",
+          "representation"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "ethic",
+          "philosoph",
+          "abstract",
+          "value",
+          "discourse"
+        ],
+        "titleKeywords": [
+          "윤리",
+          "책임",
+          "권력",
+          "프레임",
+          "의미",
+          "정의",
+          "가치",
+          "화해",
+          "사과 한마디",
+          "‘우리’",
+          "관점",
+          "담론",
+          "논쟁",
+          "이해관계"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "professional_specialised_fields",
+      "group": "society_abstract",
+      "labels": {
+        "ko": "전문 분야·학술·직무 언어",
+        "en": "Professional & specialised fields",
+        "de": "Fach- & Berufssprache"
+      },
+      "appAliases": {
+        "vocabTopics": [],
+        "shelfSlugs": [
+          "clinical",
+          "methodology",
+          "briefing"
+        ],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "academic",
+          "professional",
+          "specialised",
+          "legal",
+          "medical"
+        ],
+        "titleKeywords": [
+          "논문",
+          "학술",
+          "전문",
+          "임상",
+          "계약서",
+          "위임장",
+          "등기"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    },
+    {
+      "topicId": "intercultural_globalisation_migration",
+      "group": "society_abstract",
+      "labels": {
+        "ko": "문화 차이·세계화·이주",
+        "en": "Intercultural contact, globalisation & migration",
+        "de": "Interkulturelles, Globalisierung & Migration"
+      },
+      "appAliases": {
+        "vocabTopics": [
+          "Geographie"
+        ],
+        "shelfSlugs": [],
+        "smalltalkCategories": [],
+        "packKeywords": [
+          "culture",
+          "abroad",
+          "foreign",
+          "migration",
+          "visa"
+        ],
+        "titleKeywords": [
+          "한국 생활",
+          "외국",
+          "비자",
+          "체류",
+          "이주",
+          "문화 차이",
+          "번역",
+          "발음과 소속감",
+          "이름의 발음"
+        ]
+      },
+      "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
+      "researchStatus": "inventory_complete_corpus_collection_in_progress",
+      "ko": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "en": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "de": {
+        "nativeUsageProfileStatus": "pending_deep_pass",
+        "phraseBank": [],
+        "avoidTranslationese": [],
+        "registerNotes": []
+      },
+      "crossLanguage": {
+        "falseFriends": [],
+        "categoryShiftRisks": [],
+        "pedagogicalAlignmentNotes": []
+      },
+      "sources": []
+    }
+  ]
+}
