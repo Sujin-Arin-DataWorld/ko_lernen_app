@@ -1510,6 +1510,8 @@
   "scenarioCulturalNote": "Kulturnotiz",
   "scenarioCultureInSceneTitle": "Kultur in dieser Szene",
   "scenarioCultureInSceneBody": "Entdecke die Kulturbegriffe, die dir in diesem Gespräch begegnet sind.",
+  "scenarioCultureTigerReaction": "Taego bewahrt diesen Kulturhinweis ruhig für dich auf.",
+  "scenarioCultureMagpieReaction": "Joy hat ein kulturelles Detail entdeckt und bringt dir die Neuigkeit.",
   "cultureStoriesTitle": "Kulturgeschichten",
   "cultureStoriesBody": "Kulturelles aus deinen abgeschlossenen Alltagsszenen wird hier gesammelt.",
   "cultureStoriesEmptyTitle": "Noch keine Kulturgeschichte",

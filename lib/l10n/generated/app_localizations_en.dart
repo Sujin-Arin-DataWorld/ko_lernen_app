@@ -2967,6 +2967,14 @@ class AppL10nEn extends AppL10n {
       'Explore the cultural terms you met in this conversation.';
 
   @override
+  String get scenarioCultureTigerReaction =>
+      'Taego quietly keeps this cultural note safe for you.';
+
+  @override
+  String get scenarioCultureMagpieReaction =>
+      'Joy spotted a cultural detail and brought you the news.';
+
+  @override
   String get cultureStoriesTitle => 'Culture stories';
 
   @override

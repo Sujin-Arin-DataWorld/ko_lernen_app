@@ -1494,6 +1494,8 @@
   "scenarioCulturalNote": "Culture note",
   "scenarioCultureInSceneTitle": "Culture in this scene",
   "scenarioCultureInSceneBody": "Explore the cultural terms you met in this conversation.",
+  "scenarioCultureTigerReaction": "Taego quietly keeps this cultural note safe for you.",
+  "scenarioCultureMagpieReaction": "Joy spotted a cultural detail and brought you the news.",
   "cultureStoriesTitle": "Culture stories",
   "cultureStoriesBody": "Culture from your completed real-life scenes is collected here.",
   "cultureStoriesEmptyTitle": "No culture stories yet",

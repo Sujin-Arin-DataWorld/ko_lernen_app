@@ -2980,6 +2980,14 @@ class AppL10nDe extends AppL10n {
       'Entdecke die Kulturbegriffe, die dir in diesem Gespräch begegnet sind.';
 
   @override
+  String get scenarioCultureTigerReaction =>
+      'Taego bewahrt diesen Kulturhinweis ruhig für dich auf.';
+
+  @override
+  String get scenarioCultureMagpieReaction =>
+      'Joy hat ein kulturelles Detail entdeckt und bringt dir die Neuigkeit.';
+
+  @override
   String get cultureStoriesTitle => 'Kulturgeschichten';
 
   @override

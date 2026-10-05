@@ -5161,6 +5161,18 @@ abstract class AppL10n {
   /// **'Entdecke die Kulturbegriffe, die dir in diesem Gespräch begegnet sind.'**
   String get scenarioCultureInSceneBody;
 
+  /// No description provided for @scenarioCultureTigerReaction.
+  ///
+  /// In de, this message translates to:
+  /// **'Taego bewahrt diesen Kulturhinweis ruhig für dich auf.'**
+  String get scenarioCultureTigerReaction;
+
+  /// No description provided for @scenarioCultureMagpieReaction.
+  ///
+  /// In de, this message translates to:
+  /// **'Joy hat ein kulturelles Detail entdeckt und bringt dir die Neuigkeit.'**
+  String get scenarioCultureMagpieReaction;
+
   /// No description provided for @cultureStoriesTitle.
   ///
   /// In de, this message translates to:

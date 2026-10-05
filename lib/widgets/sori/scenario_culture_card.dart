@@ -6,6 +6,9 @@ import '../../services/cultural_glossary_repository.dart';
 import '../../services/scenario_culture_link_repository.dart';
 import 'card.dart';
 import 'cultural_help.dart';
+import 'mascot.dart';
+import 'mascot_preference.dart';
+import 'motion.dart';
 import 'tokens.dart';
 
 typedef ScenarioCultureEntriesLoader =
@@ -45,10 +48,15 @@ class ScenarioCultureCard extends StatefulWidget {
     super.key,
     required this.scenarioId,
     this.entriesLoader = loadScenarioCultureEntries,
+    this.previewCompanionPreference,
   });
 
   final String scenarioId;
   final ScenarioCultureEntriesLoader entriesLoader;
+
+  /// Storage-free presentation seam for tests and galleries. Production leaves
+  /// this null so the card reacts to [MascotPreference.preference].
+  final CompanionPreference? previewCompanionPreference;
 
   @override
   State<ScenarioCultureCard> createState() => _ScenarioCultureCardState();
@@ -98,34 +106,8 @@ class _ScenarioCultureCardState extends State<ScenarioCultureCard> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Icon(
-                        Icons.auto_stories_outlined,
-                        color: SoriColors.accent,
-                        size: 24,
-                      ),
-                      const SizedBox(width: Spacing.md),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              t.scenarioCultureInSceneTitle,
-                              style: SoriTextTheme.of(
-                                context,
-                              ).h3.copyWith(color: SoriColors.accent),
-                            ),
-                            const SizedBox(height: Spacing.xs),
-                            Text(
-                              t.scenarioCultureInSceneBody,
-                              style: SoriTextTheme.of(context).bodySmall,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+                  _ScenarioCultureHeader(
+                    previewPreference: widget.previewCompanionPreference,
                   ),
                   const SizedBox(height: Spacing.md),
                   for (var index = 0; index < entries.length; index++) ...[
@@ -142,6 +124,83 @@ class _ScenarioCultureCardState extends State<ScenarioCultureCard> {
           ),
         );
       },
+    );
+  }
+}
+
+class _ScenarioCultureHeader extends StatelessWidget {
+  const _ScenarioCultureHeader({required this.previewPreference});
+
+  final CompanionPreference? previewPreference;
+
+  @override
+  Widget build(BuildContext context) {
+    return CompanionBuilder(
+      previewPreference: previewPreference,
+      noneBuilder: (context) => _buildHeader(
+        context,
+        leading: const Icon(
+          Icons.auto_stories_outlined,
+          color: SoriColors.accent,
+          size: 24,
+        ),
+        body: AppL10n.of(context).scenarioCultureInSceneBody,
+      ),
+      builder: (context, kind) {
+        final isMagpie = kind == MascotKind.magpie;
+        final t = AppL10n.of(context);
+        final mascot = ExcludeSemantics(
+          child: Mascot(
+            kind: kind,
+            emotion: isMagpie ? MascotEmotion.surprised : MascotEmotion.neutral,
+            size: 52,
+            animate: isMagpie,
+          ),
+        );
+        return _buildHeader(
+          context,
+          leading: SoriEntrance(
+            key: ValueKey('scenario-culture-companion-${kind.name}'),
+            duration: isMagpie ? SoriMotion.medium : SoriMotion.slow,
+            slideY: isMagpie ? 10 : 4,
+            startScale: isMagpie ? .92 : .98,
+            child: mascot,
+          ),
+          body: isMagpie
+              ? t.scenarioCultureMagpieReaction
+              : t.scenarioCultureTigerReaction,
+        );
+      },
+    );
+  }
+
+  Widget _buildHeader(
+    BuildContext context, {
+    required Widget leading,
+    required String body,
+  }) {
+    final t = AppL10n.of(context);
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        leading,
+        const SizedBox(width: Spacing.md),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                t.scenarioCultureInSceneTitle,
+                style: SoriTextTheme.of(
+                  context,
+                ).h3.copyWith(color: SoriColors.accent),
+              ),
+              const SizedBox(height: Spacing.xs),
+              Text(body, style: SoriTextTheme.of(context).bodySmall),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
