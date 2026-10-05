@@ -1314,6 +1314,23 @@ def _lemma_candidates(token: str) -> List[str]:
                 aux_tensed = _auxiliary_tensed_repair(stem)
                 if aux_tensed is not None:
                     candidates.append(aux_tensed)
+                # C-7.4: polite past forms with a fused tense batchim ㅆ
+                # can leave a stem such as 만났/잤/났/끝났 after stripping
+                # -어요.  Remove only that final tense batchim and restore
+                # the citation -다 form.  Keep separate 았/었/였 syllables
+                # (있었어요 -> 있었) on the existing literal-ending path,
+                # and do not reinterpret lexical 있 as a past marker.
+                if suf in {"아요", "어요", "여요"}:
+                    tense_stem = _strip_final_batchim(stem, (_TAIL_SSANGSIOT,))
+                    if (
+                        tense_stem is not None
+                        and stem != "있"
+                        and not tense_stem.endswith(("아", "어", "여"))
+                    ):
+                        tense_repaired = _irregular_repair(stem)
+                        candidates.append(
+                            tense_repaired if tense_repaired is not None else tense_stem + "다"
+                        )
                 # R7 item 4 ("만들어요" -> 만들다): a stem that ALREADY
                 # ends in batchim ㄹ (e.g. "만들" after stripping "-어요")
                 # is already a complete, valid regular citation stem

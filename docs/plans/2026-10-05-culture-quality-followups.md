@@ -434,6 +434,42 @@ kinds. Remaining sentence-token unknowns are morphology/segmentation depth, not
 unowned live vocabulary, and should only be reduced further when a narrow,
 linguistically justified rule preserves fail-closed behavior.
 
+#### C-7.4 — fused polite-past morphology
+
+Status: **complete**
+
+Added a narrow lemma repair for polite past forms where the tense marker is
+fused as final batchim `ㅆ` before `-아요/-어요/-여요`, e.g.
+`만났어요 → 만나다`, `잤어요 → 자다`, `났어요 → 나다`,
+`끝났어요 → 끝나다`. Separate `았/었/였` syllables stay on the existing
+literal-ending path, and lexical `있` is explicitly excluded from this fused
+repair.
+
+Measured effect:
+- sentence unknown tokens: **298 → 282**
+- sentence unknown-token ratio: **2.02% → 1.92%**
+- sentence unknown-token ratchet tightened to **1.93%**
+- vocab audit unknown remains **0**
+- all over2/fallback_over2 counts remain **0**
+
+Validation:
+- level/content regression suite: **247 passed, 13 skipped**
+- `validate_content.py`: passed
+- can-do generator freshness check: passed
+
+### Stage C closeout
+
+Status: **complete**
+
+Stage C exit conditions are now satisfied:
+- six-grade coverage ratchets are active
+- grammar/scenario/content high-confidence +2 debt is **0**
+- fallback +2 debt is **0**
+- historical replacement backlog is **0**
+- audit-level unknown is **0** for every audited content kind
+- residual sentence-token unknown is below **2%** and is treated as optional
+  morphology/segmentation quality work, not unresolved ownership debt
+
 Never raise a ratchet merely to make the suite green.
 
 Use:

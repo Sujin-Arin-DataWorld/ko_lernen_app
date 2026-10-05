@@ -464,6 +464,10 @@ class TestRealLexiconGoldenCases(unittest.TestCase):
             "나타난다": ("나타나다", 2),
             "않았다": ("않다", 3),
             "않는다": ("않다", 3),
+            "만났어요": ("만나다", 1),
+            "잤어요": ("자다", 1),
+            "났어요": ("나다", 1),
+            "끝났어요": ("끝나다", 1),
         }
         for surface, (matched, grade) in cases.items():
             with self.subTest(surface=surface):
@@ -761,11 +765,11 @@ class TestVocabUnknownRatio(unittest.TestCase):
 class TestSentenceUnknownRatio(unittest.TestCase):
     """Ratchet sentence unknown-token ratio over every cloze fullKo.
 
-    The original R3 acceptance ceiling was 12%; C7-3's explicit vocab owner
-    pass lowers the live ratio to ~2.02%, which is now the ratchet baseline.
+    The original R3 acceptance ceiling was 12%; C7-4's fused-past repair
+    lowers the live ratio to ~1.92%, which is now the ratchet baseline.
     """
 
-    CAP_UNKNOWN_RATIO = 0.0203
+    CAP_UNKNOWN_RATIO = 0.0193
 
     @classmethod
     def setUpClass(cls):
