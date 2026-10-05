@@ -1,6 +1,6 @@
 # Hangul Sori culture-world roadmap
 
-> Status: implementation roadmap. Phase 1 registry exists. This document does not grant mastery, reward, or progression authority.
+> Status: **9/9 implementation complete on `session/culture-links-20261005-2026-10-05`**. Batch 38 learner-facing promotion remains separately gated by its approval ledger. This document does not grant mastery, reward, or progression authority.
 
 ## Goal
 
@@ -48,7 +48,7 @@ Wire format:
 
 No copy, reward, animation, or persona logic belongs in this file.
 
-## Phase 2 — cultural glossary expansion
+## Phase 2 — cultural glossary expansion ✅
 
 Add a small reviewed set before any new UI.
 
@@ -109,7 +109,7 @@ Required manifest links for this pipeline:
 
 Promotion remains a separate explicit step through `integrate_scenario_batch.py --apply` after human review.
 
-## Phase 3 — persona culture scenes
+## Phase 3 — persona culture scenes ✅ (review-only draft; live promotion gated)
 
 Do not equalize scene counts mechanically. Add scenes where each persona has a credible reason to be present.
 
@@ -149,7 +149,7 @@ Minho stays primarily in social-language culture:
 - requests, explanation vs control
 - boundaries and honorific choices
 
-## Phase 4 — scenario culture card
+## Phase 4 — scenario culture card ✅
 
 Consume Phase 1 registry after a scenario.
 
@@ -166,7 +166,7 @@ Must not:
 
 Missing/malformed culture data -> omit card.
 
-## Phase 5 — Hanok "Culture stories"
+## Phase 5 — Hanok "Culture stories" ✅
 
 Add one collection entry inside the existing Hanok area, not a new main tab.
 
@@ -180,7 +180,7 @@ Before implementation, audit:
 - cloud restore/account switching
 - retired/replaced assessment evidence
 
-## Phase 6 — Tiger/Magpie presentation
+## Phase 6 — Tiger/Magpie presentation ✅
 
 Same learning state, different presentation.
 
@@ -199,7 +199,7 @@ Companion choice must never alter:
 - mastery
 - cultural availability
 
-## Phase 7 — Hahoe/Dokkaebi bridges
+## Phase 7 — Hahoe/Dokkaebi bridges ✅
 
 Reuse current practice systems.
 
@@ -225,7 +225,7 @@ Expand only after checking the current implementation for:
 - Satz Arcade
 - Daily Challenge
 
-## Phase 8 — culture items and existing rewards
+## Phase 8 — culture items and existing rewards ✅
 
 Do not immediately add new reward items.
 
@@ -237,7 +237,7 @@ First reuse existing glossary-linked decorations:
 
 New Norigae/Maedeup decorations require a separate reward-pool versioning/determinism design before entering Bojagi.
 
-## Phase 9 — culture story arcs
+## Phase 9 — culture story arcs ✅
 
 Only after Phases 2–7 are stable.
 

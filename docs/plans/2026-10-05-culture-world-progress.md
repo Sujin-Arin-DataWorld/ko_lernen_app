@@ -16,7 +16,7 @@
 | 6 | Tiger/Magpie presentation reactions | **Complete** | Not merged to main yet | canonical companion preference changes framing/motion only; cultural availability is identical |
 | 7 | Hahoe/Dokkaebi bridges | **Complete** | Not merged to main yet; existing Hahoe/Dokkaebi practice remains the authority | scenario result routes into level-matched Smalltalk; staged Dokkaebi help is reused unchanged |
 | 8 | Culture items / reward reuse | **Complete by reuse + contract audit** | Existing reward surfaces already live; no new reward item added | four glossary-linked decorations stay in deterministic v1 pool; Norigae/Maedeup remain out |
-| 9 | Culture story arcs | **Next implementation target** | Not started | group existing surfaces only; no mastery denominator |
+| 9 | Culture story arcs | **Complete** | Live arc catalog intentionally empty until approved content is promoted | read-only arc model/repository + derived completion projection; review-only `Found around Nammun` stays outside live assets |
 
 ## Completed implementation
 
@@ -324,13 +324,49 @@ Validation:
 Commit:
 - `7c9ba165b test(culture): lock existing reward reuse contract`
 
-## Next implementation target — Phase 9
+## Phase 9 — culture story arcs
 
-Add a culture-story grouping layer only after confirming it can be derived from existing scenario/culture evidence without becoming a new mastery system.
+Implemented the final roadmap layer as read-only grouping metadata, without introducing a second progress system.
 
-Constraints:
-- story arcs group existing scenarios, glossary terms, persona context, and discovery surfaces
-- do not add a new mastery denominator, XP source, reward ledger, or permanent culture-progress authority
-- prefer a static/read-only arc registry plus derived completion/discovery projection
-- first candidate from the roadmap: `Found around Nammun`
-- Batch 38 remains review-only until separate human approval/promotion
+Added:
+- `assets/data/culture_story_arcs.json` — live catalog, intentionally empty while Batch 38 is review-only
+- `lib/models/culture_story_arc.dart`
+- `lib/services/culture_story_arc_repository.dart`
+- derived arc projection inside `CultureDiscoveryService`
+- optional arc cards inside the existing Hanok Culture Stories collection
+- review-only `persona_culture_story_arcs_20261005.json` with the first candidate, `Found around Nammun`
+- authoring-pipeline validation + review-packet rendering for story arcs
+
+Safety/ownership contract:
+- `progressMode` must be `derived_read_only`
+- arc completion is calculated only from existing scenario completion evidence
+- no story-arc progress key, mastery denominator, XP source, reward grant, inventory, or ledger exists
+- an arc is projected only when every referenced scenario and cultural term already exists in the live registry/glossary
+- therefore review-only Batch 38 cannot leak into learner UI before explicit promotion
+- the live arc asset remains empty until approved content is promoted
+
+Validation:
+- persona-culture/content Python regressions: **42 passed**
+- `validate_content.py`: **passed**
+- Batch 38 review-only pipeline: **PASS**
+- Phase 9 + culture regressions: **43 passed**
+- targeted Dart analysis: **0 issues**
+- `git diff --check`: **passed**
+- scenario promotion integrator now stages culture story arcs in the **same rollback boundary** as scenario shards, curriculum links, listening, culture links, and audit metadata
+- arc promotion rejects non-live scenario references, terms not linked to the staged scenario, duplicate/frozen payload drift, and any progress mode other than `derived_read_only`
+- integration transaction regressions: **15 passed**
+- Batch 38 full promotion preview with arcs: **passed** (live remains untouched)
+
+Commits:
+- `b574050b6 feat(culture): add derived culture story arcs`
+- `11afef94f fix(culture): promote story arcs atomically`
+
+## Roadmap implementation status
+
+The original nine-phase implementation roadmap is now **9 / 9 technically implemented** on this branch.
+
+Remaining live-exposure gate:
+- Batch 38 itself is still `review_only_draft`, exactly as required by the original authoring contract.
+- live learner corpus therefore remains **186 scenarios**.
+- promotion remains a separate explicit transaction through `integrate_scenario_batch.py --apply` only after the review ledger is approved.
+- when that promotion happens, the live scenario/culture registry and live culture-story arc catalog can be advanced together without introducing a second progress system.
