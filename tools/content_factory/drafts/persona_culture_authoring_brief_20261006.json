@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "status": "review_only",
+  "purpose": "Batch 39 pre-script contract: reuse existing glossary entries through real tasks and existing persona relationships.",
+  "scenes": [
+    {
+      "scenarioId": "a2_andrea_minho_bojagi_housewarming",
+      "level": "a2",
+      "playerCharacterId": "andrea",
+      "personaIds": [
+        "andrea",
+        "minho"
+      ],
+      "realTaskKo": "친구 집들이 선물의 포장 방법과 보자기 재사용 방식을 부부가 함께 정한다.",
+      "learningIntentKo": "가까운 사이에서 조건을 붙여 제안하고 역할을 나눈다.",
+      "cultureTermIds": [
+        "bojagi"
+      ],
+      "personaBoundaries": [
+        "민호의 가족 경험을 보편적인 한국 예절로 일반화하지 않는다.",
+        "보자기는 선물 포장 맥락의 실제 물건이며 보상 아이템으로 다루지 않는다."
+      ]
+    },
+    {
+      "scenarioId": "b1_minho_christian_hanok_cafe_meeting",
+      "level": "b1",
+      "playerCharacterId": "christian",
+      "personaIds": [
+        "christian",
+        "minho"
+      ],
+      "realTaskKo": "IT 멘토링에 필요한 조용한 자리와 전원 사용 조건을 고려해 한옥 카페의 자리를 정한다.",
+      "learningIntentKo": "필요한 조건을 부드럽게 요청하고 현실적인 대안을 정한다.",
+      "cultureTermIds": [
+        "hanok",
+        "madang"
+      ],
+      "personaBoundaries": [
+        "민호는 IT 멘토이지 채용 권한자가 아니다.",
+        "한옥 카페는 실제 만남 장소이며 문화 강의용 배경으로 소비하지 않는다.",
+        "크리스티안은 공간의 기능을 묻고 단순 감탄형 외국인으로 쓰지 않는다."
+      ]
+    },
+    {
+      "scenarioId": "a2_lena_maya_buchae_gift_choice",
+      "level": "a2",
+      "playerCharacterId": "lena",
+      "personaIds": [
+        "lena",
+        "maya"
+      ],
+      "realTaskKo": "셰어하우스 친구에게 줄 실제 사용 가능한 부채의 색과 장식을 정한다.",
+      "learningIntentKo": "가까운 사이에서 취향을 묻고 선택을 좁힌다.",
+      "cultureTermIds": [
+        "buchae"
+      ],
+      "personaBoundaries": [
+        "레나는 사용 맥락과 선물 취향을 중심으로 판단한다.",
+        "마야를 전통 부채 전문가로 설정하지 않는다.",
+        "부채는 실제로 쓰는 선물이며 의상 소품으로만 다루지 않는다."
+      ]
+    },
+    {
+      "scenarioId": "b2_maya_daniel_pansori_promo_clip",
+      "level": "b2",
+      "playerCharacterId": "maya",
+      "personaIds": [
+        "maya",
+        "daniel"
+      ],
+      "realTaskKo": "판소리 홍보 영상을 줄이되 짧은 발췌가 전체 공연을 대표하는 것처럼 보이지 않도록 편집 원칙을 정한다.",
+      "learningIntentKo": "자료 범위를 정확히 표시하고 줄인 정보는 자막과 설명으로 보완한다.",
+      "cultureTermIds": [
+        "pansori"
+      ],
+      "personaBoundaries": [
+        "짧은 홍보 영상 한 편을 판소리 전체의 대표로 일반화하지 않는다.",
+        "마야는 표현 책임을, 다니엘은 편집 실행을 맡는다."
+      ]
+    },
+    {
+      "scenarioId": "b2_hyuna_daniel_nongak_festival_filming",
+      "level": "b2",
+      "playerCharacterId": "daniel",
+      "personaIds": [
+        "daniel",
+        "hyuna"
+      ],
+      "realTaskKo": "농악 축제에서 공연팀이 이동하는 길을 방해하지 않으면서 관객 공개 범위를 확인할 수 있는 촬영 위치를 정한다.",
+      "learningIntentKo": "상황과 이동 경로에 따라 촬영 조건을 조정하고 촬영과 공개 범위를 분리한다.",
+      "cultureTermIds": [
+        "nongak"
+      ],
+      "personaBoundaries": [
+        "현아는 맥락과 참여자 경계를 지키지만 공연자를 대신해 권위를 주장하지 않는다.",
+        "다니엘은 촬영 실행을 맡고 관객이 화면에 잡혔다는 이유만으로 공개 동의를 추정하지 않는다."
+      ]
+    }
+  ]
+}

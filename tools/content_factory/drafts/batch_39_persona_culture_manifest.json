@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "batch": "39",
+  "status": "review_only_draft",
+  "provenance": {
+    "date": "2026-10-06",
+    "rights": "original",
+    "scope": "Five existing-relationship persona culture scenes reusing live CulturalGlossary entries; Minho activation + unused glossary coverage.",
+    "requiresJinReview": true,
+    "jinReviewRequired": true,
+    "modelLanguageQa": "MODEL_QA_PASS",
+    "humanLanguageQaClaim": false,
+    "triadReview": "Korean is canonical. German and English are localized for the same task, relation, agency, modality, and information scope.",
+    "registerDecision": "Andrea/Minho and Lena/Maya use casual Korean; Minho/Christian uses polite mentoring Korean; B2 production scenes use professional haeyo/business register."
+  },
+  "artifacts": [
+    {
+      "kind": "scenario",
+      "draft": "tools/content_factory/drafts/persona_culture_scenarios_20261006.json",
+      "review": "tools/content_factory/review/persona_culture_scenarios_20261006.csv",
+      "count": 5,
+      "levels": {
+        "a2": 2,
+        "b1": 1,
+        "b2": 2
+      }
+    }
+  ],
+  "recordCount": 5,
+  "questCount": 15,
+  "contentLinks": [
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_andrea_minho_bojagi_housewarming",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_casual"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_minho_christian_hanok_cafe_meeting",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_lena_maya_buchae_gift_choice",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_casual"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_maya_daniel_pansori_promo_clip",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_hyuna_daniel_nongak_festival_filming",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "assess"
+    }
+  ],
+  "backdrops": {
+    "a2_andrea_minho_bojagi_housewarming": "home",
+    "b1_minho_christian_hanok_cafe_meeting": "cafe",
+    "a2_lena_maya_buchae_gift_choice": "market",
+    "b2_maya_daniel_pansori_promo_clip": "office",
+    "b2_hyuna_daniel_nongak_festival_filming": "directions"
+  },
+  "authoringBrief": "tools/content_factory/drafts/persona_culture_authoring_brief_20261006.json",
+  "listeningDraft": "tools/content_factory/drafts/persona_culture_listening_20261006.json",
+  "cultureLinksDraft": "tools/content_factory/drafts/persona_culture_links_20261006.json",
+  "cultureLinkCount": 5,
+  "vocabLevelingReview": "tools/content_factory/review/persona_culture_vocab_leveling_20261006.json",
+  "reviewPacket": "tools/content_factory/review/batch_39_persona_culture_review_packet.md",
+  "pipelineReport": "tools/content_factory/review/persona_culture_authoring_pipeline_20261006.json",
+  "mergeOrder": [
+    "scenario + curriculum contentLinks + listening + culture links + culture story arcs + audit via integrate_scenario_batch.py",
+    "TTS only after explicit content approval"
+  ],
+  "nonMergeGuards": [
+    "All review rows remain draft until Jin reviews learner-facing copy",
+    "Do not write review-only arcs into assets/data/culture_story_arcs.json before the same scenario promotion transaction",
+    "No mastery/reward authority is added",
+    "No TTS generation in this batch"
+  ],
+  "cultureStoryArcsDraft": "tools/content_factory/drafts/persona_culture_story_arcs_20261006.json"
+}

@@ -1,0 +1,941 @@
+{
+  "version": 1,
+  "scenarios": [
+    {
+      "id": "a2_andrea_minho_bojagi_housewarming",
+      "level": "a2",
+      "emoji": "🎁",
+      "register": "casual",
+      "speechStyle": "casual",
+      "title": {
+        "ko": "보자기로 집들이 선물 포장하기",
+        "de": "Ein Einzugsgeschenk mit Bojagi verpacken",
+        "en": "Wrapping a housewarming gift with bojagi"
+      },
+      "intro": {
+        "ko": "안드레아와 민호가 친구의 집들이 선물을 준비해요. 보자기로 포장할지, 포장 천을 다시 쓸 수 있게 할지 함께 정해요.",
+        "de": "Andrea und Minho bereiten ein Einzugsgeschenk für Freunde vor. Sie entscheiden, ob sie es in Bojagi einpacken und wie das Tuch weiterverwendet werden kann.",
+        "en": "Andrea and Minho are preparing a housewarming gift for friends. They decide whether to wrap it in bojagi and how the cloth can be reused."
+      },
+      "courseUnitId": "a2_02_plans_proposals",
+      "playerCharacterId": "andrea",
+      "participantIds": [
+        "andrea",
+        "minho"
+      ],
+      "relationshipContext": "부부, 집에서 편하게 반말로 상의한다",
+      "intent": "집들이 선물 포장 방법과 보자기 재사용 방법을 함께 정한다",
+      "shelf": "a2_plan",
+      "backdrop": "home",
+      "vocab": [
+        {
+          "korean": "보자기"
+        },
+        {
+          "korean": "집들이"
+        },
+        {
+          "korean": "선물"
+        },
+        {
+          "korean": "포장하다"
+        },
+        {
+          "korean": "다시 쓰다"
+        },
+        {
+          "korean": "색"
+        }
+      ],
+      "conceptIds": [
+        "concept_proposal_casual"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_conditional"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)면",
+          "de": "조건을 붙여 제안하기",
+          "en": "Making a suggestion with a condition"
+        },
+        "explanation": {
+          "ko": "“보자기로 싸면 어때?”처럼 한 가지 방법을 조건처럼 놓고 제안할 수 있어요.",
+          "de": "Mit -(으)면 kannst du eine Möglichkeit als Vorschlag formulieren: „Wie wäre es, wenn wir es in Bojagi einpacken?“",
+          "en": "Use -(으)면 to frame an option as a suggestion: 'How about wrapping it in bojagi?'"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minho",
+          "ko": "집들이 선물은 준비했는데, 포장은 어떻게 할까?",
+          "de": "Das Einzugsgeschenk ist fertig. Wie wollen wir es einpacken?",
+          "en": "The housewarming gift is ready. How should we wrap it?"
+        },
+        {
+          "speaker": "user",
+          "ko": "종이 대신 이 보자기로 싸면 어때?",
+          "de": "Wie wäre es mit diesem Bojagi statt Papier?",
+          "en": "How about wrapping it in this bojagi instead of paper?"
+        },
+        {
+          "speaker": "minho",
+          "ko": "좋아. 이 색이면 선물하고도 잘 어울리겠다.",
+          "de": "Gute Idee. Diese Farbe passt auch gut zum Geschenk.",
+          "en": "Good idea. This color goes well with the gift too."
+        },
+        {
+          "speaker": "user",
+          "ko": "근데 보자기를 다시 쓰고 싶으면 나중에 돌려달라고 해야 할까?",
+          "de": "Wenn wir das Bojagi wiederverwenden wollen, sollen wir später darum bitten, es zurückzugeben?",
+          "en": "If we want to reuse the bojagi, should we ask for it back later?"
+        },
+        {
+          "speaker": "minho",
+          "ko": "꼭 그럴 필요는 없을 것 같아. 선물에 같이 주고 다시 써도 된다고 말하자.",
+          "de": "Das müssen wir wohl nicht. Geben wir es mit und sagen wir, dass sie es gern weiterverwenden können.",
+          "en": "I don't think we need to. Let's give it with the gift and say they can reuse it."
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아. 그럼 보자기도 선물처럼 같이 주는 거네.",
+          "de": "Gut. Dann gehört das Bojagi also mit zum Geschenk.",
+          "en": "Great. Then the bojagi becomes part of the gift too."
+        },
+        {
+          "speaker": "minho",
+          "ko": "응. 너무 단단하게 묶지 말고 열기 쉽게 포장하자.",
+          "de": "Ja. Binden wir es nicht zu fest, damit es leicht zu öffnen ist.",
+          "en": "Yes. Let's not tie it too tightly so it's easy to open."
+        },
+        {
+          "speaker": "user",
+          "ko": "알겠어. 내가 포장하고, 너는 카드 써 줘.",
+          "de": "Alles klar. Ich verpacke es, und du schreibst die Karte.",
+          "en": "Got it. I'll wrap it, and you write the card."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a2_andrea_minho_bojagi_housewarming_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "audioKo": "종이 대신 이 보자기로 싸면 어때?",
+            "options": [
+              {
+                "de": "Wie wäre es mit diesem Bojagi statt Papier?",
+                "en": "How about wrapping it in this bojagi instead of paper?"
+              },
+              {
+                "de": "Wie wollen wir es einpacken?",
+                "en": "How should we wrap it?"
+              },
+              {
+                "de": "Diese Farbe passt gut zum Geschenk.",
+                "en": "This color goes well with the gift."
+              },
+              {
+                "de": "Schreib bitte die Karte.",
+                "en": "Please write the card."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_andrea_minho_bojagi_housewarming_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "promptDe": "Das müssen wir wohl nicht. Geben wir es mit und sagen wir, dass sie es gern weiterverwenden können.",
+            "promptEn": "I don't think we need to. Let's give it with the gift and say they can reuse it.",
+            "options": [
+              {
+                "ko": "꼭 그럴 필요는 없을 것 같아. 선물에 같이 주고 다시 써도 된다고 말하자."
+              },
+              {
+                "ko": "보자기를 꼭 돌려달라고 하자."
+              },
+              {
+                "ko": "종이로만 포장하자."
+              },
+              {
+                "ko": "선물은 다음에 사자."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_andrea_minho_bojagi_housewarming_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "targetKo": "응. 너무 단단하게 묶지 말고 열기 쉽게 포장하자.",
+            "audioKo": "응. 너무 단단하게 묶지 말고 열기 쉽게 포장하자.",
+            "promptDe": "Ja. Binden wir es nicht zu fest, damit es leicht zu öffnen ist.",
+            "promptEn": "Yes. Let's not tie it too tightly so it's easy to open.",
+            "distractors": [
+              "카드는",
+              "다음 주에",
+              "종이만"
+            ]
+          }
+        }
+      ],
+      "xpReward": 110
+    },
+    {
+      "id": "b1_minho_christian_hanok_cafe_meeting",
+      "level": "b1",
+      "emoji": "🏠",
+      "register": "polite",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "한옥 카페에서 멘토링 자리 정하기",
+        "de": "Einen Platz für ein Mentoring-Treffen im Hanok-Café wählen",
+        "en": "Choosing a mentoring spot in a hanok café"
+      },
+      "intro": {
+        "ko": "민호와 크리스티안이 다음 IT 멘토링 만날 장소를 정해요. 한옥 카페의 조용한 실내 자리와 마당 쪽 자리 중에서 실제 작업하기 편한 곳을 골라요.",
+        "de": "Minho und Christian planen ihr nächstes IT-Mentoring. In einem Hanok-Café wählen sie zwischen einem ruhigen Innenplatz und einem Platz am Madang danach, wo sie praktisch arbeiten können.",
+        "en": "Minho and Christian are choosing a place for their next IT mentoring session. At a hanok café, they compare a quiet indoor seat and a seat by the madang based on what works for actual work."
+      },
+      "courseUnitId": "b1_03_work_softening",
+      "playerCharacterId": "christian",
+      "participantIds": [
+        "christian",
+        "minho"
+      ],
+      "relationshipContext": "안드레아가 소개한 IT 직무 멘토 민호와 교환학생 크리스티안, 서로 해요체를 쓴다",
+      "intent": "멘토링에 필요한 조용한 자리와 전원 사용 조건을 확인해 만날 장소를 정한다",
+      "shelf": "b1_team",
+      "backdrop": "cafe",
+      "vocab": [
+        {
+          "korean": "한옥"
+        },
+        {
+          "korean": "마당"
+        },
+        {
+          "korean": "자리"
+        },
+        {
+          "korean": "전원"
+        },
+        {
+          "korean": "조용하다"
+        },
+        {
+          "korean": "예약하다"
+        }
+      ],
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_b1_soft_request_batch19"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-아/어 주실 수 있을까요?",
+          "de": "Eine Bitte höflich formulieren",
+          "en": "Making a polite request"
+        },
+        "explanation": {
+          "ko": "“전원을 연결할 수 있는 자리를 봐 주실 수 있을까요?”처럼 필요한 조건을 상대에게 부드럽게 부탁할 때 써요.",
+          "de": "Mit -아/어 주실 수 있을까요? kannst du höflich darum bitten, eine praktische Bedingung zu prüfen.",
+          "en": "Use -아/어 주실 수 있을까요? to politely ask someone to check a practical condition."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minho",
+          "ko": "다음 멘토링은 회사 말고 밖에서 해도 괜찮아요?",
+          "de": "Ist es für das nächste Mentoring okay, wenn wir uns außerhalb der Firma treffen?",
+          "en": "Would it be okay to meet outside the office for our next mentoring session?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네. 조용하고 노트북 쓰기 편한 곳이면 좋아요.",
+          "de": "Ja. Ein ruhiger Ort, an dem ich gut mit dem Laptop arbeiten kann, wäre ideal.",
+          "en": "Yes. A quiet place that's comfortable for using a laptop would be great."
+        },
+        {
+          "speaker": "minho",
+          "ko": "제가 아는 한옥 카페가 있는데, 실내하고 마당 쪽 자리가 있어요.",
+          "de": "Ich kenne ein Hanok-Café mit Plätzen drinnen und am Madang.",
+          "en": "I know a hanok café with indoor seats and seats by the madang."
+        },
+        {
+          "speaker": "user",
+          "ko": "실내에 노트북 전원을 연결할 수 있는 자리가 있는지 봐 주실 수 있을까요?",
+          "de": "Könnten Sie bitte prüfen, ob es drinnen einen Platz gibt, an dem ich den Laptop ans Stromnetz anschließen kann?",
+          "en": "Could you check whether there's an indoor seat where I can plug in my laptop?"
+        },
+        {
+          "speaker": "minho",
+          "ko": "네. 마당 쪽은 분위기는 좋은데 노트북 쓰기에는 조금 불편할 수 있어요.",
+          "de": "Ja. Am Madang ist die Atmosphäre schön, aber für den Laptop könnte es etwas unpraktisch sein.",
+          "en": "Yes. The madang side has a nice atmosphere, but it may be a little inconvenient for using a laptop."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 실내 자리를 예약하고, 쉬는 시간에 마당에 나가면 좋겠어요.",
+          "de": "Dann würde ich gern einen Platz drinnen reservieren und in der Pause in den Madang gehen.",
+          "en": "Then I'd like to reserve an indoor seat and step out to the madang during the break."
+        },
+        {
+          "speaker": "minho",
+          "ko": "좋아요. 제가 오늘 예약 가능한지 확인해 볼게요.",
+          "de": "Gut. Ich prüfe heute, ob wir reservieren können.",
+          "en": "Great. I'll check today whether we can make a reservation."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_minho_christian_hanok_cafe_meeting_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "audioKo": "실내에 노트북 전원을 연결할 수 있는 자리가 있는지 봐 주실 수 있을까요?",
+            "options": [
+              {
+                "de": "Könnten Sie bitte prüfen, ob es drinnen einen Platz gibt, an dem ich den Laptop ans Stromnetz anschließen kann?",
+                "en": "Could you check whether there's an indoor seat where I can plug in my laptop?"
+              },
+              {
+                "de": "Ich kenne ein Hanok-Café.",
+                "en": "I know a hanok café."
+              },
+              {
+                "de": "Am Madang ist die Atmosphäre schön.",
+                "en": "The madang has a nice atmosphere."
+              },
+              {
+                "de": "Ich prüfe die Reservierung.",
+                "en": "I'll check the reservation."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_minho_christian_hanok_cafe_meeting_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "promptDe": "Dann würde ich gern einen Platz drinnen reservieren und in der Pause in den Madang gehen.",
+            "promptEn": "Then I'd like to reserve an indoor seat and step out to the madang during the break.",
+            "options": [
+              {
+                "ko": "그럼 실내 자리를 예약하고, 쉬는 시간에 마당에 나가면 좋겠어요."
+              },
+              {
+                "ko": "그럼 마당에서만 노트북을 쓸게요."
+              },
+              {
+                "ko": "그럼 다음 멘토링은 취소할게요."
+              },
+              {
+                "ko": "그럼 콘센트는 필요 없어요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_minho_christian_hanok_cafe_meeting_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "targetKo": "좋아요. 제가 오늘 예약 가능한지 확인해 볼게요.",
+            "audioKo": "좋아요. 제가 오늘 예약 가능한지 확인해 볼게요.",
+            "promptDe": "Gut. Ich prüfe heute, ob wir reservieren können.",
+            "promptEn": "Great. I'll check today whether we can make a reservation.",
+            "distractors": [
+              "마당에서",
+              "노트북은",
+              "회사만"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "a2_lena_maya_buchae_gift_choice",
+      "level": "a2",
+      "emoji": "🪭",
+      "register": "casual",
+      "speechStyle": "casual",
+      "title": {
+        "ko": "선물용 부채 고르기",
+        "de": "Einen Fächer als Geschenk auswählen",
+        "en": "Choosing a fan as a gift"
+      },
+      "intro": {
+        "ko": "레나가 셰어하우스 친구에게 줄 작은 선물을 고르려고 해요. 마야와 함께 실제로 쓸 수 있는 부채의 색과 글씨를 정해요.",
+        "de": "Lena sucht ein kleines Geschenk für eine Mitbewohnerin. Mit Maya wählt sie Farbe und Beschriftung eines Fächers, der auch wirklich benutzt werden kann.",
+        "en": "Lena is choosing a small gift for a housemate. With Maya, she picks the color and lettering of a fan that can actually be used."
+      },
+      "courseUnitId": "a2_02_plans_proposals",
+      "playerCharacterId": "lena",
+      "participantIds": [
+        "lena",
+        "maya"
+      ],
+      "relationshipContext": "음악과 공연 취향을 나누는 친구, 편하게 반말로 쇼핑 의견을 나눈다",
+      "intent": "선물 받을 사람의 취향과 실제 사용을 생각해 부채의 색과 장식을 정한다",
+      "shelf": "a2_buy",
+      "backdrop": "market",
+      "vocab": [
+        {
+          "korean": "부채"
+        },
+        {
+          "korean": "선물"
+        },
+        {
+          "korean": "색"
+        },
+        {
+          "korean": "가볍다"
+        },
+        {
+          "korean": "글씨"
+        },
+        {
+          "korean": "고르다"
+        }
+      ],
+      "conceptIds": [
+        "concept_proposal_casual"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_preference_question"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ래요",
+          "de": "선택 의향 묻기",
+          "en": "Asking what someone wants to choose"
+        },
+        "explanation": {
+          "ko": "“글씨를 넣을래?”처럼 가까운 사이에서 어떤 선택을 할지 물을 때 쓸 수 있어요.",
+          "de": "Mit -(으)ㄹ래요 kannst du in einer vertrauten Beziehung nach einer Auswahl oder Absicht fragen.",
+          "en": "Use -(으)ㄹ래요 to ask about a choice or intention in a familiar relationship."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "현아한테 작은 선물을 주고 싶은데, 이 부채 어때?",
+          "de": "Ich möchte Hyuna ein kleines Geschenk geben. Wie findest du diesen Fächer?",
+          "en": "I want to give Hyuna a small gift. What do you think of this fan?"
+        },
+        {
+          "speaker": "maya",
+          "ko": "예쁘다. 근데 장식이 너무 많으면 실제로 쓰기 불편하지 않을까?",
+          "de": "Schön. Aber wenn zu viel Deko dran ist, ist er vielleicht unpraktisch.",
+          "en": "It's pretty. But if it has too much decoration, it might be inconvenient to use."
+        },
+        {
+          "speaker": "user",
+          "ko": "맞아. 가볍고 접기 쉬운 걸로 고르고 싶어.",
+          "de": "Stimmt. Ich möchte einen leichten nehmen, der sich gut zusammenfalten lässt.",
+          "en": "Right. I want to choose one that's light and easy to fold."
+        },
+        {
+          "speaker": "maya",
+          "ko": "그럼 이 파란색은 어때? 현아가 이런 색 좋아하잖아.",
+          "de": "Wie wäre es dann mit dem blauen? Hyuna mag doch solche Farben.",
+          "en": "Then how about this blue one? Hyuna likes colors like this."
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아. 짧은 글씨도 넣을래?",
+          "de": "Gut. Soll ich auch einen kurzen Schriftzug hinzufügen?",
+          "en": "Sounds good. Should I add a short bit of lettering too?"
+        },
+        {
+          "speaker": "maya",
+          "ko": "너무 길게 쓰지 말고 이름 정도만 넣으면 좋겠다.",
+          "de": "Nicht zu lang. Vielleicht nur den Namen.",
+          "en": "Don't make it too long. Maybe just the name."
+        },
+        {
+          "speaker": "user",
+          "ko": "알겠어. 이 색으로 하고 이름만 넣을게.",
+          "de": "Alles klar. Ich nehme diese Farbe und lasse nur den Namen draufschreiben.",
+          "en": "Got it. I'll choose this color and add only the name."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a2_lena_maya_buchae_gift_choice_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "audioKo": "좋아. 짧은 글씨도 넣을래?",
+            "options": [
+              {
+                "de": "Gut. Soll ich auch einen kurzen Schriftzug hinzufügen?",
+                "en": "Sounds good. Should I add a short bit of lettering too?"
+              },
+              {
+                "de": "Wie findest du diesen Fächer?",
+                "en": "What do you think of this fan?"
+              },
+              {
+                "de": "Hyuna mag solche Farben.",
+                "en": "Hyuna likes colors like this."
+              },
+              {
+                "de": "Ich nehme diese Farbe.",
+                "en": "I'll choose this color."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_lena_maya_buchae_gift_choice_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "promptDe": "Stimmt. Ich möchte einen leichten nehmen, der sich gut zusammenfalten lässt.",
+            "promptEn": "Right. I want to choose one that's light and easy to fold.",
+            "options": [
+              {
+                "ko": "맞아. 가볍고 접기 쉬운 걸로 고르고 싶어."
+              },
+              {
+                "ko": "장식이 많은 걸로 고르고 싶어."
+              },
+              {
+                "ko": "무거운 부채가 더 좋아."
+              },
+              {
+                "ko": "선물은 안 줄래."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_lena_maya_buchae_gift_choice_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "targetKo": "알겠어. 이 색으로 하고 이름만 넣을게.",
+            "audioKo": "알겠어. 이 색으로 하고 이름만 넣을게.",
+            "promptDe": "Alles klar. Ich nehme diese Farbe und lasse nur den Namen draufschreiben.",
+            "promptEn": "Got it. I'll choose this color and add only the name.",
+            "distractors": [
+              "다음 달에",
+              "장식은 많이",
+              "선물 대신"
+            ]
+          }
+        }
+      ],
+      "xpReward": 110
+    },
+    {
+      "id": "b2_maya_daniel_pansori_promo_clip",
+      "level": "b2",
+      "emoji": "🎙️",
+      "register": "business",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "판소리 홍보 영상에서 일부 장면 표시하기",
+        "de": "Einen Pansori-Ausschnitt im Promo-Video klar kennzeichnen",
+        "en": "Labeling a pansori excerpt clearly in a promo video"
+      },
+      "intro": {
+        "ko": "마야와 다니엘이 판소리 공연 홍보 영상을 편집해요. 짧은 장면을 전체 공연처럼 보이게 하지 않으면서 영상 길이를 줄일 방법을 정해요.",
+        "de": "Maya und Daniel schneiden ein Promo-Video zu einer Pansori-Aufführung. Sie überlegen, wie sie kürzen können, ohne einen kurzen Ausschnitt wie die gesamte Aufführung wirken zu lassen.",
+        "en": "Maya and Daniel are editing a promo video for a pansori performance. They decide how to shorten it without making a brief excerpt look like the whole performance."
+      },
+      "courseUnitId": "b2_02_professional_opinion",
+      "playerCharacterId": "maya",
+      "participantIds": [
+        "maya",
+        "daniel"
+      ],
+      "relationshipContext": "문화 홍보 영상을 함께 만드는 프로젝트 동료, 업무 해요체로 의견을 조율한다",
+      "intent": "짧은 판소리 발췌 영상을 전체 공연으로 오해하지 않게 표시하고 설명을 보완한다",
+      "shelf": "b2_evidence",
+      "backdrop": "office",
+      "vocab": [
+        {
+          "korean": "판소리"
+        },
+        {
+          "korean": "공연 일부"
+        },
+        {
+          "korean": "짧게 줄이다"
+        },
+        {
+          "korean": "설명"
+        },
+        {
+          "korean": "자막"
+        },
+        {
+          "korean": "연결하다"
+        }
+      ],
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_b2_instead_supplement"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-는 대신 N을/를 보완하다",
+          "de": "Kürzen und an anderer Stelle ergänzen",
+          "en": "Reducing one part while supplementing another"
+        },
+        "explanation": {
+          "ko": "“영상 길이를 줄이는 대신 설명을 보완해요”처럼 한 부분을 줄이고 필요한 정보를 다른 방식으로 채울 때 써요.",
+          "de": "Mit „-는 대신 ... 보완하다“ kannst du ausdrücken, dass du einen Teil reduzierst und die fehlende Information an anderer Stelle ergänzt.",
+          "en": "Use '-는 대신 ... 보완하다' to reduce one part while supplementing the missing information elsewhere."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "daniel",
+          "ko": "지금 편집본은 50초인데, 홍보용으로는 조금 길어요.",
+          "de": "Der aktuelle Schnitt ist 50 Sekunden lang. Für Werbung ist das etwas lang.",
+          "en": "The current edit is 50 seconds. That's a little long for promotion."
+        },
+        {
+          "speaker": "user",
+          "ko": "30초 정도로 줄이고 싶은데, 소리 대목을 너무 짧게 자르면 판소리의 흐름이 안 보일 것 같아요.",
+          "de": "Ich würde gern auf etwa 30 Sekunden kürzen, aber wenn wir den Gesangsteil zu stark schneiden, geht der Pansori-Fluss verloren.",
+          "en": "I'd like to cut it to around 30 seconds, but if we trim the sung section too much, the flow of the pansori won't come through."
+        },
+        {
+          "speaker": "daniel",
+          "ko": "그럼 한 대목을 조금 길게 두고 다른 장면을 줄일까요?",
+          "de": "Sollen wir dann einen Abschnitt etwas länger lassen und andere Szenen kürzen?",
+          "en": "Then should we keep one passage a little longer and shorten the other shots?"
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아요. 영상 길이를 줄이는 대신 ‘공연 일부’라는 설명을 자막으로 보완해요.",
+          "de": "Gut. Wenn wir die Videolänge kürzen, ergänzen wir dafür im Untertitel den Hinweis „Ausschnitt aus der Aufführung“.",
+          "en": "Good. If we shorten the video, let's supplement it with a caption saying 'excerpt from the performance.'"
+        },
+        {
+          "speaker": "daniel",
+          "ko": "전체 판소리를 이 30초로 대표하는 것처럼 보이지 않게 하자는 거죠?",
+          "de": "Wir wollen also vermeiden, dass diese 30 Sekunden wie eine Darstellung des gesamten Pansori wirken, richtig?",
+          "en": "So we want to avoid making these 30 seconds look like they represent the entire pansori, right?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네. 자세한 공연 정보는 소개 페이지로 연결하고, 영상에는 발췌라는 점만 분명히 하죠.",
+          "de": "Genau. Die ausführlichen Aufführungsinfos verlinken wir auf der Infoseite, und im Video machen wir nur klar, dass es ein Ausschnitt ist.",
+          "en": "Yes. We'll link detailed performance information on the information page and make it clear in the video that this is an excerpt."
+        },
+        {
+          "speaker": "daniel",
+          "ko": "알겠습니다. 그 기준으로 다시 편집해 볼게요.",
+          "de": "Alles klar. Ich schneide es nach diesem Prinzip neu.",
+          "en": "Got it. I'll re-edit it using that approach."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_maya_daniel_pansori_promo_clip_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "audioKo": "좋아요. 영상 길이를 줄이는 대신 ‘공연 일부’라는 설명을 자막으로 보완해요.",
+            "options": [
+              {
+                "de": "Gut. Wenn wir die Videolänge kürzen, ergänzen wir dafür im Untertitel den Hinweis „Ausschnitt aus der Aufführung“.",
+                "en": "Good. If we shorten the video, let's supplement it with a caption saying 'excerpt from the performance.'"
+              },
+              {
+                "de": "Der aktuelle Schnitt ist 50 Sekunden lang.",
+                "en": "The current edit is 50 seconds."
+              },
+              {
+                "de": "Lassen wir einen Abschnitt länger.",
+                "en": "Let's keep one passage longer."
+              },
+              {
+                "de": "Ich schneide es neu.",
+                "en": "I'll re-edit it."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_maya_daniel_pansori_promo_clip_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "promptDe": "Wir wollen also vermeiden, dass diese 30 Sekunden wie eine Darstellung des gesamten Pansori wirken, richtig?",
+            "promptEn": "So we want to avoid making these 30 seconds look like they represent the entire pansori, right?",
+            "options": [
+              {
+                "ko": "전체 판소리를 이 30초로 대표하는 것처럼 보이지 않게 하자는 거죠?"
+              },
+              {
+                "ko": "이 30초가 전체 판소리라고 설명하자는 거죠?"
+              },
+              {
+                "ko": "영상은 50초 그대로 두자는 거죠?"
+              },
+              {
+                "ko": "공연 정보는 모두 빼자는 거죠?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_maya_daniel_pansori_promo_clip_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "targetKo": "알겠습니다. 그 기준으로 다시 편집해 볼게요.",
+            "audioKo": "알겠습니다. 그 기준으로 다시 편집해 볼게요.",
+            "promptDe": "Alles klar. Ich schneide es nach diesem Prinzip neu.",
+            "promptEn": "Got it. I'll re-edit it using that approach.",
+            "distractors": [
+              "전체 공연처럼",
+              "설명 없이",
+              "다음 달에"
+            ]
+          }
+        }
+      ],
+      "xpReward": 130
+    },
+    {
+      "id": "b2_hyuna_daniel_nongak_festival_filming",
+      "level": "b2",
+      "emoji": "🥁",
+      "register": "business",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "농악 축제 촬영 위치 조율하기",
+        "de": "Die Kameraposition bei einem Nongak-Fest abstimmen",
+        "en": "Coordinating filming positions at a nongak festival"
+      },
+      "intro": {
+        "ko": "현아와 다니엘이 지역 농악 축제를 기록하려고 해요. 공연팀이 지나가는 길을 막지 않고 관객 얼굴이 공개되는 범위도 확인할 수 있도록 촬영 위치를 정해요.",
+        "de": "Hyuna und Daniel wollen ein lokales Nongak-Fest dokumentieren. Sie wählen Kamerapositionen, die den Weg des Ensembles nicht blockieren, und klären, in welchem Umfang Gesichter des Publikums veröffentlicht werden dürfen.",
+        "en": "Hyuna and Daniel are documenting a local nongak festival. They choose filming positions that won't block the performers' route and make sure the publication scope for audience faces can be checked."
+      },
+      "courseUnitId": "b2_03_precise_requests",
+      "playerCharacterId": "daniel",
+      "participantIds": [
+        "daniel",
+        "hyuna"
+      ],
+      "relationshipContext": "지역 촬영 방식과 연구 맥락을 자주 의논하는 지인, 현장에서 업무 해요체로 조율한다",
+      "intent": "농악 공연팀이 이동하는 길과 관객 공개 범위에 따라 촬영 위치와 사용 범위를 조정한다",
+      "shelf": "b2_public",
+      "backdrop": "directions",
+      "vocab": [
+        {
+          "korean": "농악"
+        },
+        {
+          "korean": "공연팀"
+        },
+        {
+          "korean": "이동하다"
+        },
+        {
+          "korean": "촬영 위치"
+        },
+        {
+          "korean": "관객"
+        },
+        {
+          "korean": "공개"
+        }
+      ],
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_b2_according_to"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N에 따라",
+          "de": "Bedingungen entsprechend anpassen",
+          "en": "Adjusting according to conditions"
+        },
+        "explanation": {
+          "ko": "“공연팀이 이동하는 길에 따라 촬영 위치를 바꿔요”처럼 상황이나 기준이 달라질 때 행동을 조정하는 표현이에요.",
+          "de": "Mit N에 따라 beschreibst du, dass du dein Handeln an eine Bedingung oder einen Ablauf anpasst.",
+          "en": "Use N에 따라 to show that an action changes according to a condition or route."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "hyuna",
+          "ko": "담당자가 농악 공연팀이 지나가는 길은 막지 말아 달라고 했어요.",
+          "de": "Die Koordination hat darum gebeten, den Weg des Nongak-Ensembles nicht zu blockieren.",
+          "en": "The coordinator asked us not to block the path used by the nongak performers."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 공연팀이 이동하는 길에 따라 촬영 위치를 옆으로 옮기겠습니다.",
+          "de": "Dann verlege ich die Kameraposition entsprechend dem Weg des Ensembles an die Seite.",
+          "en": "Then I'll move the filming position to the side according to the performers' route."
+        },
+        {
+          "speaker": "hyuna",
+          "ko": "좋아요. 공연팀이 이동하는 모습은 보이면서도 길은 비워 둘 수 있겠네요.",
+          "de": "Gut. So bleibt die Bewegung des Ensembles sichtbar und der Weg frei.",
+          "en": "Good. That should keep the performers' movement visible while leaving the path clear."
+        },
+        {
+          "speaker": "user",
+          "ko": "관객이 많이 보이는 장면은 어떻게 할까요?",
+          "de": "Wie gehen wir mit Aufnahmen um, auf denen viele Zuschauer zu sehen sind?",
+          "en": "What should we do with shots that show a lot of audience members?"
+        },
+        {
+          "speaker": "hyuna",
+          "ko": "촬영된다고 해서 얼굴을 모두 공개해도 된다는 뜻은 아니니까, 사용 범위를 다시 확인해요.",
+          "de": "Nur weil Menschen gefilmt werden, heißt das nicht, dass alle Gesichter veröffentlicht werden dürfen. Prüfen wir den Nutzungsumfang noch einmal.",
+          "en": "Being filmed doesn't mean every face can be published, so let's check the usage scope again."
+        },
+        {
+          "speaker": "user",
+          "ko": "알겠습니다. 넓은 장면은 먼저 확인하고, 필요하면 관객이 적게 보이는 구도로 바꿀게요.",
+          "de": "Verstanden. Ich lasse weite Aufnahmen zuerst prüfen und ändere den Bildausschnitt bei Bedarf so, dass weniger Zuschauer zu sehen sind.",
+          "en": "Got it. I'll have wide shots checked first and, if needed, change the framing so fewer audience members are visible."
+        },
+        {
+          "speaker": "hyuna",
+          "ko": "그렇게 하면 공연 흐름도 지키고 촬영 범위도 분명해지겠어요.",
+          "de": "So können wir sowohl den Ablauf der Aufführung respektieren als auch den Aufnahmeumfang klar halten.",
+          "en": "That way we can respect the flow of the performance and keep the filming scope clear."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_hyuna_daniel_nongak_festival_filming_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "audioKo": "그럼 공연팀이 이동하는 길에 따라 촬영 위치를 옆으로 옮기겠습니다.",
+            "options": [
+              {
+                "de": "Dann verlege ich die Kameraposition entsprechend dem Weg des Ensembles an die Seite.",
+                "en": "Then I'll move the filming position to the side according to the performers' route."
+              },
+              {
+                "de": "Blockieren Sie den vorderen Bereich nicht.",
+                "en": "Don't block the front area."
+              },
+              {
+                "de": "Wie gehen wir mit dem Publikum um?",
+                "en": "What should we do about the audience?"
+              },
+              {
+                "de": "Prüfen wir den Nutzungsumfang.",
+                "en": "Let's check the usage scope."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_hyuna_daniel_nongak_festival_filming_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "promptDe": "Nur weil Menschen gefilmt werden, heißt das nicht, dass alle Gesichter veröffentlicht werden dürfen. Prüfen wir den Nutzungsumfang noch einmal.",
+            "promptEn": "Being filmed doesn't mean every face can be published, so let's check the usage scope again.",
+            "options": [
+              {
+                "ko": "촬영된다고 해서 얼굴을 모두 공개해도 된다는 뜻은 아니니까, 사용 범위를 다시 확인해요."
+              },
+              {
+                "ko": "촬영되면 모든 얼굴을 공개해도 돼요."
+              },
+              {
+                "ko": "관객이 보이면 영상을 모두 버려요."
+              },
+              {
+                "ko": "공연자만 촬영하면 동선은 상관없어요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_hyuna_daniel_nongak_festival_filming_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "targetKo": "그렇게 하면 공연 흐름도 지키고 촬영 범위도 분명해지겠어요.",
+            "audioKo": "그렇게 하면 공연 흐름도 지키고 촬영 범위도 분명해지겠어요.",
+            "promptDe": "So können wir sowohl den Ablauf der Aufführung respektieren als auch den Aufnahmeumfang klar halten.",
+            "promptEn": "That way we can respect the flow of the performance and keep the filming scope clear.",
+            "distractors": [
+              "행렬 앞에서",
+              "모든 얼굴을",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 130
+    }
+  ]
+}

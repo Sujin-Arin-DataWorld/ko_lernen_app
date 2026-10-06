@@ -1,0 +1,944 @@
+{
+  "schemaVersion": 1,
+  "status": "review_only",
+  "purpose": "Authoring evidence only; does not mutate live vocabulary or scenario level.",
+  "sources": {
+    "scenarios": "tools/content_factory/drafts/persona_culture_scenarios_20261006.json",
+    "cultureLinks": "tools/content_factory/drafts/persona_culture_links_20261006.json",
+    "culturalGlossary": "docs/data/cultural_glossary.json",
+    "liveVocab": "assets/data/korean_vocab.csv",
+    "cefrLexicon": "tool/cefr_lexicon.py"
+  },
+  "policy": {
+    "cultureAnchor": "Keep when the scene directly teaches the linked culture term and glossary support is available.",
+    "aboveTarget": "Review wording; rewrite, move, or add an explicit governed exception. Do not silently promote the learner level.",
+    "unmappedCandidate": "Requires human level review; the tool does not guess.",
+    "phraseCandidate": "Review as a phrase or expression before adding a dictionary headword."
+  },
+  "totals": {
+    "items": 30,
+    "cultureAnchor": 6,
+    "atOrBelowTarget": 24,
+    "aboveTarget": 0,
+    "unmappedCandidate": 0,
+    "phraseCandidate": 4
+  },
+  "scenes": [
+    {
+      "scenarioId": "a2_andrea_minho_bojagi_housewarming",
+      "targetLevel": "A2",
+      "linkedCultureTermIds": [
+        "bojagi"
+      ],
+      "keyWords": [
+        {
+          "korean": "보자기",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": "bojagi",
+          "lexical": {
+            "cefr": "A2",
+            "grade": 2,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "보자기",
+                "cefr": "A2",
+                "grade": 2,
+                "source": "exception",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [
+            {
+              "id": "vocab_a2_0333",
+              "level": "B1",
+              "packId": "b1_partner_leftover_bags_1"
+            }
+          ],
+          "classification": "culture_anchor",
+          "flags": [
+            "live_vocab_above_target",
+            "lexicon_live_level_mismatch"
+          ],
+          "recommendedAction": "keep_with_glossary_support"
+        },
+        {
+          "korean": "집들이",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": null,
+          "lexical": {
+            "cefr": "A2",
+            "grade": 2,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "집들이",
+                "cefr": "A2",
+                "grade": 2,
+                "source": "kiiq",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [
+            {
+              "id": "vocab_b1_0178",
+              "level": "B1",
+              "packId": "b1_social_events_1"
+            }
+          ],
+          "classification": "at_or_below_target",
+          "flags": [
+            "live_vocab_above_target",
+            "lexicon_live_level_mismatch"
+          ],
+          "recommendedAction": "keep"
+        },
+        {
+          "korean": "선물",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": null,
+          "lexical": {
+            "cefr": "A1",
+            "grade": 1,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "선물",
+                "cefr": "A1",
+                "grade": 1,
+                "source": "kiiq",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [
+            {
+              "id": "vocab_a1_0708",
+              "level": "A1",
+              "packId": "a1_time_family_1"
+            }
+          ],
+          "classification": "at_or_below_target",
+          "flags": [],
+          "recommendedAction": "keep"
+        },
+        {
+          "korean": "포장하다",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": null,
+          "lexical": {
+            "cefr": "A2",
+            "grade": 2,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "포장하다",
+                "cefr": "A2",
+                "grade": 2,
+                "source": "derived",
+                "confidence": "medium"
+              }
+            ]
+          },
+          "liveVocabMatches": [
+            {
+              "id": "vocab_a2_0094",
+              "level": "A2",
+              "packId": "a2_food_2"
+            }
+          ],
+          "classification": "at_or_below_target",
+          "flags": [],
+          "recommendedAction": "keep"
+        },
+        {
+          "korean": "다시 쓰다",
+          "kind": "phrase",
+          "attestedInDialog": false,
+          "cultureTermId": null,
+          "lexical": {
+            "cefr": "A1",
+            "grade": 1,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "다시",
+                "cefr": "A1",
+                "grade": 1,
+                "source": "kiiq",
+                "confidence": "high"
+              },
+              {
+                "matched": "쓰다",
+                "cefr": "A1",
+                "grade": 1,
+                "source": "kiiq",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [],
+          "classification": "at_or_below_target",
+          "flags": [
+            "phrase_candidate",
+            "not_attested_in_dialog"
+          ],
+          "recommendedAction": "keep"
+        },
+        {
+          "korean": "색",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": null,
+          "lexical": {
+            "cefr": "A2",
+            "grade": 2,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "색",
+                "cefr": "A2",
+                "grade": 2,
+                "source": "kiiq",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [],
+          "classification": "at_or_below_target",
+          "flags": [],
+          "recommendedAction": "keep"
+        }
+      ],
+      "summary": {
+        "items": 6,
+        "cultureAnchor": 1,
+        "aboveTarget": 0,
+        "unmappedCandidate": 0
+      }
+    },
+    {
+      "scenarioId": "b1_minho_christian_hanok_cafe_meeting",
+      "targetLevel": "B1",
+      "linkedCultureTermIds": [
+        "hanok",
+        "madang"
+      ],
+      "keyWords": [
+        {
+          "korean": "한옥",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": "hanok",
+          "lexical": {
+            "cefr": "A2",
+            "grade": 2,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "한옥",
+                "cefr": "A2",
+                "grade": 2,
+                "source": "kiiq",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [],
+          "classification": "culture_anchor",
+          "flags": [],
+          "recommendedAction": "keep_with_glossary_support"
+        },
+        {
+          "korean": "마당",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": "madang",
+          "lexical": {
+            "cefr": "A2",
+            "grade": 2,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "마당",
+                "cefr": "A2",
+                "grade": 2,
+                "source": "kiiq",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [
+            {
+              "id": "vocab_a2_0531",
+              "level": "A2",
+              "packId": "a2_home_1"
+            }
+          ],
+          "classification": "culture_anchor",
+          "flags": [],
+          "recommendedAction": "keep_with_glossary_support"
+        },
+        {
+          "korean": "자리",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": null,
+          "lexical": {
+            "cefr": "A2",
+            "grade": 2,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "자리",
+                "cefr": "A2",
+                "grade": 2,
+                "source": "kiiq",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [],
+          "classification": "at_or_below_target",
+          "flags": [],
+          "recommendedAction": "keep"
+        },
+        {
+          "korean": "전원",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": null,
+          "lexical": {
+            "cefr": "B1",
+            "grade": 3,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "전원",
+                "cefr": "B1",
+                "grade": 3,
+                "source": "kiiq",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [],
+          "classification": "at_or_below_target",
+          "flags": [],
+          "recommendedAction": "keep"
+        },
+        {
+          "korean": "조용하다",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": null,
+          "lexical": {
+            "cefr": "A1",
+            "grade": 1,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "조용하다",
+                "cefr": "A1",
+                "grade": 1,
+                "source": "kiiq",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [
+            {
+              "id": "vocab_a1_0123",
+              "level": "A1",
+              "packId": "a1_descriptions"
+            }
+          ],
+          "classification": "at_or_below_target",
+          "flags": [],
+          "recommendedAction": "keep"
+        },
+        {
+          "korean": "예약하다",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": null,
+          "lexical": {
+            "cefr": "A2",
+            "grade": 2,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "예약하다",
+                "cefr": "A2",
+                "grade": 2,
+                "source": "derived",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [
+            {
+              "id": "vocab_a2_0052",
+              "level": "A2",
+              "packId": "a2_health_misc_2"
+            }
+          ],
+          "classification": "at_or_below_target",
+          "flags": [],
+          "recommendedAction": "keep"
+        }
+      ],
+      "summary": {
+        "items": 6,
+        "cultureAnchor": 2,
+        "aboveTarget": 0,
+        "unmappedCandidate": 0
+      }
+    },
+    {
+      "scenarioId": "a2_lena_maya_buchae_gift_choice",
+      "targetLevel": "A2",
+      "linkedCultureTermIds": [
+        "buchae"
+      ],
+      "keyWords": [
+        {
+          "korean": "부채",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": "buchae",
+          "lexical": {
+            "cefr": "B1",
+            "grade": 3,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "부채",
+                "cefr": "B1",
+                "grade": 3,
+                "source": "kiiq",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [],
+          "classification": "culture_anchor",
+          "flags": [],
+          "recommendedAction": "keep_with_glossary_support"
+        },
+        {
+          "korean": "선물",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": null,
+          "lexical": {
+            "cefr": "A1",
+            "grade": 1,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "선물",
+                "cefr": "A1",
+                "grade": 1,
+                "source": "kiiq",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [
+            {
+              "id": "vocab_a1_0708",
+              "level": "A1",
+              "packId": "a1_time_family_1"
+            }
+          ],
+          "classification": "at_or_below_target",
+          "flags": [],
+          "recommendedAction": "keep"
+        },
+        {
+          "korean": "색",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": null,
+          "lexical": {
+            "cefr": "A2",
+            "grade": 2,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "색",
+                "cefr": "A2",
+                "grade": 2,
+                "source": "kiiq",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [],
+          "classification": "at_or_below_target",
+          "flags": [],
+          "recommendedAction": "keep"
+        },
+        {
+          "korean": "가볍다",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": null,
+          "lexical": {
+            "cefr": "A1",
+            "grade": 1,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "가볍다",
+                "cefr": "A1",
+                "grade": 1,
+                "source": "kiiq",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [
+            {
+              "id": "vocab_a2_0073",
+              "level": "A2",
+              "packId": "a2_descriptions_1"
+            }
+          ],
+          "classification": "at_or_below_target",
+          "flags": [
+            "lexicon_live_level_mismatch"
+          ],
+          "recommendedAction": "keep"
+        },
+        {
+          "korean": "글씨",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": null,
+          "lexical": {
+            "cefr": "A2",
+            "grade": 2,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "글씨",
+                "cefr": "A2",
+                "grade": 2,
+                "source": "kiiq",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [],
+          "classification": "at_or_below_target",
+          "flags": [],
+          "recommendedAction": "keep"
+        },
+        {
+          "korean": "고르다",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": null,
+          "lexical": {
+            "cefr": "A1",
+            "grade": 1,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "고르다",
+                "cefr": "A1",
+                "grade": 1,
+                "source": "kiiq",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [
+            {
+              "id": "vocab_a1_0512",
+              "level": "A1",
+              "packId": "a1_misc_2"
+            }
+          ],
+          "classification": "at_or_below_target",
+          "flags": [],
+          "recommendedAction": "keep"
+        }
+      ],
+      "summary": {
+        "items": 6,
+        "cultureAnchor": 1,
+        "aboveTarget": 0,
+        "unmappedCandidate": 0
+      }
+    },
+    {
+      "scenarioId": "b2_maya_daniel_pansori_promo_clip",
+      "targetLevel": "B2",
+      "linkedCultureTermIds": [
+        "pansori"
+      ],
+      "keyWords": [
+        {
+          "korean": "판소리",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": "pansori",
+          "lexical": {
+            "cefr": "C1",
+            "grade": 5,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "판소리",
+                "cefr": "C1",
+                "grade": 5,
+                "source": "kiiq",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [],
+          "classification": "culture_anchor",
+          "flags": [],
+          "recommendedAction": "keep_with_glossary_support"
+        },
+        {
+          "korean": "공연 일부",
+          "kind": "phrase",
+          "attestedInDialog": true,
+          "cultureTermId": null,
+          "lexical": {
+            "cefr": "B1",
+            "grade": 3,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "공연",
+                "cefr": "B1",
+                "grade": 3,
+                "source": "kiiq",
+                "confidence": "high"
+              },
+              {
+                "matched": "일부",
+                "cefr": "A2",
+                "grade": 2,
+                "source": "kiiq",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [],
+          "classification": "at_or_below_target",
+          "flags": [
+            "phrase_candidate"
+          ],
+          "recommendedAction": "keep"
+        },
+        {
+          "korean": "짧게 줄이다",
+          "kind": "phrase",
+          "attestedInDialog": false,
+          "cultureTermId": null,
+          "lexical": {
+            "cefr": "A2",
+            "grade": 2,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "짧다",
+                "cefr": "A2",
+                "grade": 2,
+                "source": "kiiq",
+                "confidence": "high"
+              },
+              {
+                "matched": "줄이다",
+                "cefr": "A2",
+                "grade": 2,
+                "source": "kiiq",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [],
+          "classification": "at_or_below_target",
+          "flags": [
+            "phrase_candidate",
+            "not_attested_in_dialog"
+          ],
+          "recommendedAction": "keep"
+        },
+        {
+          "korean": "설명",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": null,
+          "lexical": {
+            "cefr": "A1",
+            "grade": 1,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "설명",
+                "cefr": "A1",
+                "grade": 1,
+                "source": "kiiq",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [
+            {
+              "id": "vocab_a1_0651",
+              "level": "A1",
+              "packId": "a1_feelings_talk_1"
+            }
+          ],
+          "classification": "at_or_below_target",
+          "flags": [],
+          "recommendedAction": "keep"
+        },
+        {
+          "korean": "자막",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": null,
+          "lexical": {
+            "cefr": "B2",
+            "grade": 4,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "자막",
+                "cefr": "B2",
+                "grade": 4,
+                "source": "kiiq",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [],
+          "classification": "at_or_below_target",
+          "flags": [],
+          "recommendedAction": "keep"
+        },
+        {
+          "korean": "연결하다",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": null,
+          "lexical": {
+            "cefr": "A2",
+            "grade": 2,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "연결하다",
+                "cefr": "A2",
+                "grade": 2,
+                "source": "derived",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [],
+          "classification": "at_or_below_target",
+          "flags": [],
+          "recommendedAction": "keep"
+        }
+      ],
+      "summary": {
+        "items": 6,
+        "cultureAnchor": 1,
+        "aboveTarget": 0,
+        "unmappedCandidate": 0
+      }
+    },
+    {
+      "scenarioId": "b2_hyuna_daniel_nongak_festival_filming",
+      "targetLevel": "B2",
+      "linkedCultureTermIds": [
+        "nongak"
+      ],
+      "keyWords": [
+        {
+          "korean": "농악",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": "nongak",
+          "lexical": {
+            "cefr": "C1",
+            "grade": 5,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "농악",
+                "cefr": "C1",
+                "grade": 5,
+                "source": "kiiq",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [],
+          "classification": "culture_anchor",
+          "flags": [],
+          "recommendedAction": "keep_with_glossary_support"
+        },
+        {
+          "korean": "공연팀",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": null,
+          "lexical": {
+            "cefr": "B1",
+            "grade": 3,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "공연팀",
+                "cefr": "B1",
+                "grade": 3,
+                "source": "compound",
+                "confidence": "medium"
+              }
+            ]
+          },
+          "liveVocabMatches": [],
+          "classification": "at_or_below_target",
+          "flags": [],
+          "recommendedAction": "keep"
+        },
+        {
+          "korean": "이동하다",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": null,
+          "lexical": {
+            "cefr": "A2",
+            "grade": 2,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "이동하다",
+                "cefr": "A2",
+                "grade": 2,
+                "source": "derived",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [],
+          "classification": "at_or_below_target",
+          "flags": [],
+          "recommendedAction": "keep"
+        },
+        {
+          "korean": "촬영 위치",
+          "kind": "phrase",
+          "attestedInDialog": true,
+          "cultureTermId": null,
+          "lexical": {
+            "cefr": "B1",
+            "grade": 3,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "촬영",
+                "cefr": "B1",
+                "grade": 3,
+                "source": "kiiq",
+                "confidence": "high"
+              },
+              {
+                "matched": "위치",
+                "cefr": "A2",
+                "grade": 2,
+                "source": "kiiq",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [],
+          "classification": "at_or_below_target",
+          "flags": [
+            "phrase_candidate"
+          ],
+          "recommendedAction": "keep"
+        },
+        {
+          "korean": "관객",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": null,
+          "lexical": {
+            "cefr": "B1",
+            "grade": 3,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "관객",
+                "cefr": "B1",
+                "grade": 3,
+                "source": "kiiq",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [
+            {
+              "id": "vocab_b2_0174",
+              "level": "B2",
+              "packId": "b2_events_culture_1"
+            }
+          ],
+          "classification": "at_or_below_target",
+          "flags": [
+            "lexicon_live_level_mismatch"
+          ],
+          "recommendedAction": "keep"
+        },
+        {
+          "korean": "공개",
+          "kind": "term",
+          "attestedInDialog": true,
+          "cultureTermId": null,
+          "lexical": {
+            "cefr": "B2",
+            "grade": 4,
+            "unknown": [],
+            "parts": [
+              {
+                "matched": "공개",
+                "cefr": "B2",
+                "grade": 4,
+                "source": "kiiq",
+                "confidence": "high"
+              }
+            ]
+          },
+          "liveVocabMatches": [],
+          "classification": "at_or_below_target",
+          "flags": [],
+          "recommendedAction": "keep"
+        }
+      ],
+      "summary": {
+        "items": 6,
+        "cultureAnchor": 1,
+        "aboveTarget": 0,
+        "unmappedCandidate": 0
+      }
+    }
+  ]
+}

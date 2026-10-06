@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "status": "review_only",
+  "arcs": [
+    {
+      "arcId": "culture_in_everyday_use",
+      "title": {
+        "ko": "생활 속에서 쓰이는 것들",
+        "de": "Kultur im Alltag verwenden",
+        "en": "Culture in everyday use"
+      },
+      "summary": {
+        "ko": "보자기, 한옥 공간, 부채를 특별한 전시물이 아니라 선물·만남·선택 같은 실제 생활 과업 속에서 경험하는 이야기 묶음입니다.",
+        "de": "Ein Kulturpfad, der Bojagi, Hanok-Räume und Fächer nicht als Ausstellungsstücke, sondern in echten Aufgaben wie Schenken, Treffen und Auswählen erlebt.",
+        "en": "A culture path that encounters bojagi, hanok spaces, and fans through real tasks such as gifting, meeting, and choosing rather than as display objects."
+      },
+      "progressMode": "derived_read_only",
+      "steps": [
+        {
+          "scenarioId": "a2_andrea_minho_bojagi_housewarming",
+          "personaIds": ["andrea", "minho"],
+          "termIds": ["bojagi"]
+        },
+        {
+          "scenarioId": "b1_minho_christian_hanok_cafe_meeting",
+          "personaIds": ["christian", "minho"],
+          "termIds": ["hanok", "madang"]
+        },
+        {
+          "scenarioId": "a2_lena_maya_buchae_gift_choice",
+          "personaIds": ["lena", "maya"],
+          "termIds": ["buchae"]
+        }
+      ]
+    },
+    {
+      "arcId": "performance_in_context",
+      "title": {
+        "ko": "공연을 맥락과 함께 기록하기",
+        "de": "Aufführungen im Kontext dokumentieren",
+        "en": "Documenting performance in context"
+      },
+      "summary": {
+        "ko": "판소리와 농악을 짧은 영상이나 현장 기록으로 다룰 때 발췌 범위, 촬영 동선, 관객 공개 범위를 실제 제작 과업 속에서 조율하는 이야기 묶음입니다.",
+        "de": "Ein Kulturpfad über Pansori und Nongak, der bei realen Produktionsaufgaben Ausschnitt, Kameraposition und Sichtbarkeit des Publikums verantwortungsvoll abstimmt.",
+        "en": "A culture path about pansori and nongak that handles excerpt scope, filming position, and audience visibility through real production tasks."
+      },
+      "progressMode": "derived_read_only",
+      "steps": [
+        {
+          "scenarioId": "b2_maya_daniel_pansori_promo_clip",
+          "personaIds": ["maya", "daniel"],
+          "termIds": ["pansori"]
+        },
+        {
+          "scenarioId": "b2_hyuna_daniel_nongak_festival_filming",
+          "personaIds": ["daniel", "hyuna"],
+          "termIds": ["nongak"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "status": "REVIEW_ONLY_PIPELINE_PASS",
+  "manifest": "tools/content_factory/drafts/batch_39_persona_culture_manifest.json",
+  "batch": "39",
+  "scenarioCount": 5,
+  "scenarioIds": [
+    "a2_andrea_minho_bojagi_housewarming",
+    "b1_minho_christian_hanok_cafe_meeting",
+    "a2_lena_maya_buchae_gift_choice",
+    "b2_maya_daniel_pansori_promo_clip",
+    "b2_hyuna_daniel_nongak_festival_filming"
+  ],
+  "authoringBrief": {
+    "path": "tools/content_factory/drafts/persona_culture_authoring_brief_20261006.json",
+    "sceneCount": 5,
+    "relationChecks": [
+      {
+        "scenarioId": "a2_andrea_minho_bojagi_housewarming",
+        "left": "andrea",
+        "right": "minho",
+        "declaredBy": "andrea"
+      },
+      {
+        "scenarioId": "b1_minho_christian_hanok_cafe_meeting",
+        "left": "christian",
+        "right": "minho",
+        "declaredBy": "christian"
+      },
+      {
+        "scenarioId": "a2_lena_maya_buchae_gift_choice",
+        "left": "lena",
+        "right": "maya",
+        "declaredBy": "lena"
+      },
+      {
+        "scenarioId": "b2_maya_daniel_pansori_promo_clip",
+        "left": "maya",
+        "right": "daniel",
+        "declaredBy": "maya"
+      },
+      {
+        "scenarioId": "b2_hyuna_daniel_nongak_festival_filming",
+        "left": "daniel",
+        "right": "hyuna",
+        "declaredBy": "daniel"
+      }
+    ]
+  },
+  "cultureStoryArcs": {
+    "path": "tools/content_factory/drafts/persona_culture_story_arcs_20261006.json",
+    "arcCount": 2,
+    "stepCount": 5,
+    "arcIds": [
+      "culture_in_everyday_use",
+      "performance_in_context"
+    ],
+    "liveWritePerformed": false
+  },
+  "listening": {
+    "path": "tools/content_factory/drafts/persona_culture_listening_20261006.json",
+    "lessons": 5,
+    "questions": 20,
+    "levels": {
+      "a2": 2,
+      "b1": 1,
+      "b2": 2
+    },
+    "skills": {
+      "situation": 5,
+      "meaning": 5,
+      "sentence": 5,
+      "response": 5
+    },
+    "advancedInferenceItems": 2,
+    "sha256": null,
+    "status": "STRUCTURAL_PASS; model-authored language QA, no human approval claimed"
+  },
+  "vocabLeveling": {
+    "path": "tools/content_factory/review/persona_culture_vocab_leveling_20261006.json",
+    "totals": {
+      "items": 30,
+      "cultureAnchor": 6,
+      "atOrBelowTarget": 24,
+      "aboveTarget": 0,
+      "unmappedCandidate": 0,
+      "phraseCandidate": 4
+    }
+  },
+  "cultureLinkCount": 5,
+  "reviewPacket": "tools/content_factory/review/batch_39_persona_culture_review_packet.md",
+  "integrationPreviewInventory": {
+    "vocab": 2968,
+    "grammar": 264,
+    "scenario": 196,
+    "scenarioQuest": 609,
+    "smalltalk": 590,
+    "cloze": 2365,
+    "satz": 2885,
+    "silben": 120,
+    "kkeunmari": 2662,
+    "grammarPattern": 43,
+    "pronunciation": 84,
+    "mediaPhrase": 136,
+    "wordRelation": 114
+  },
+  "liveWritePerformed": false,
+  "humanApprovalClaimed": false
+}
