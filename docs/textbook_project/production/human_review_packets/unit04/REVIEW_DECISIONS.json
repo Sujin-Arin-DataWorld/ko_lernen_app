@@ -1,42 +1,89 @@
 {
   "schemaVersion": 1,
   "unitId": "a1_04_order_request_object",
-  "packetDate": "2026-10-06",
-  "status": "OPEN",
-  "decisions": {
-    "koreanEducator": {
-      "reviewer": "",
-      "date": "",
-      "decision": "",
-      "notes": []
-    },
-    "englishPedagogy": {
-      "reviewer": "",
-      "date": "",
-      "decision": "",
-      "notes": []
-    },
-    "germanPedagogy": {
-      "reviewer": "",
-      "date": "",
-      "decision": "",
-      "notes": []
-    },
-    "audioSpoken": {
-      "reviewer": "Jin",
-      "date": "",
-      "decision": "",
-      "notes": []
-    },
-    "learnerPilot": {
-      "cohortIds": [],
-      "decision": "",
-      "notes": []
-    }
+  "snapshot": {
+    "sourceCommit": "3df150a080014a87899db5bf4a03e8f612684b1e",
+    "manifestSha256": "d38e156ea528998e99cd85067aa745875b7dbddd62d2fd37db01dcfc6dcf655b"
   },
+  "status": "OPEN",
   "allowedDecisions": [
     "APPROVE",
     "APPROVE_WITH_EDITS",
     "HOLD"
-  ]
+  ],
+  "lanes": {
+    "koreanEducator": {
+      "reviewerCode": "",
+      "reviewerRole": "Korean educator / native-language editorial reviewer",
+      "date": "",
+      "decision": "",
+      "checks": {
+        "dialogueNaturalness": "",
+        "relationshipRegister": "",
+        "a1ProductionCeiling": "",
+        "formulaicVsRecognition": "",
+        "vocabularyLoad": "",
+        "pragmatics": "",
+        "cultureAccuracy": "",
+        "pronunciationFocus": "",
+        "assessmentAlignment": ""
+      },
+      "notes": []
+    },
+    "englishPedagogy": {
+      "reviewerCode": "",
+      "reviewerRole": "English-native Korean pedagogy reviewer",
+      "date": "",
+      "decision": "",
+      "checks": {
+        "idiomaticEnglish": "",
+        "noTranslationese": "",
+        "counterExplanation": "",
+        "serviceFormulaLocalization": "",
+        "transferRiskAccuracy": "",
+        "workbookClarity": "",
+        "answerVariants": "",
+        "adultTone": ""
+      },
+      "notes": []
+    },
+    "germanPedagogy": {
+      "reviewerCode": "",
+      "reviewerRole": "German-native Korean pedagogy reviewer",
+      "date": "",
+      "decision": "",
+      "checks": {
+        "idiomaticGerman": "",
+        "noEnglishChain": "",
+        "noCaseParticleEquivalence": "",
+        "noDuSieHonorificEquivalence": "",
+        "counterExplanation": "",
+        "serviceFormulaLocalization": "",
+        "workbookClarity": "",
+        "answerVariants": "",
+        "adultTone": ""
+      },
+      "notes": []
+    },
+    "audioSpoken": {
+      "reviewerCode": "Jin",
+      "reviewerRole": "Final audio/TTS owner",
+      "date": "",
+      "decision": "",
+      "checks": {
+        "spokenSurfaceNatural": "",
+        "displayMarkersHandled": "",
+        "intonation": "",
+        "numberContrast": "",
+        "pronunciationConsistency": "",
+        "noUntrackedTargets": ""
+      },
+      "notes": []
+    }
+  },
+  "pilotGate": {
+    "cohortIds": [],
+    "decision": "",
+    "notes": []
+  }
 }

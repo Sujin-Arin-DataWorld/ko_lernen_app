@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hangulsori://textbook/schemas/HUMAN_REVIEW_DECISION",
+  "title": "Human review decision record",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "unitId",
+    "snapshot",
+    "status",
+    "allowedDecisions",
+    "lanes"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "const": 1
+    },
+    "unitId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "snapshot": {
+      "type": "object",
+      "required": [
+        "sourceCommit",
+        "manifestSha256"
+      ],
+      "properties": {
+        "sourceCommit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "manifestSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "OPEN",
+        "CHANGES_REQUESTED",
+        "HUMAN_REVIEWED_READY_FOR_PILOT"
+      ]
+    },
+    "allowedDecisions": {
+      "type": "array",
+      "const": [
+        "APPROVE",
+        "APPROVE_WITH_EDITS",
+        "HOLD"
+      ]
+    },
+    "lanes": {
+      "type": "object",
+      "required": [
+        "koreanEducator",
+        "englishPedagogy",
+        "germanPedagogy",
+        "audioSpoken"
+      ],
+      "properties": {
+        "koreanEducator": {
+          "$ref": "#/$defs/lane"
+        },
+        "englishPedagogy": {
+          "$ref": "#/$defs/lane"
+        },
+        "germanPedagogy": {
+          "$ref": "#/$defs/lane"
+        },
+        "audioSpoken": {
+          "$ref": "#/$defs/lane"
+        }
+      },
+      "additionalProperties": false
+    },
+    "pilotGate": {
+      "type": "object",
+      "required": [
+        "cohortIds",
+        "decision",
+        "notes"
+      ],
+      "properties": {
+        "cohortIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "decision": {
+          "type": "string",
+          "enum": [
+            "",
+            "READY",
+            "HOLD"
+          ]
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "lane": {
+      "type": "object",
+      "required": [
+        "reviewerCode",
+        "reviewerRole",
+        "date",
+        "decision",
+        "checks",
+        "notes"
+      ],
+      "properties": {
+        "reviewerCode": {
+          "type": "string"
+        },
+        "reviewerRole": {
+          "type": "string",
+          "minLength": 1
+        },
+        "date": {
+          "type": "string"
+        },
+        "decision": {
+          "type": "string",
+          "enum": [
+            "",
+            "APPROVE",
+            "APPROVE_WITH_EDITS",
+            "HOLD"
+          ]
+        },
+        "checks": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "enum": [
+              "",
+              "PASS",
+              "EDIT",
+              "HOLD",
+              "N/A"
+            ]
+          }
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

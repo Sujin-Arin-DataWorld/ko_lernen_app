@@ -480,3 +480,39 @@ Validator:
 - tools/textbook_project/validate_unit04_human_review_packet.py
 
 Human decisions remain OPEN.
+
+## Phase 3A operational readiness — 2026-10-06
+
+Status:
+OPERATIONALLY_READY / REAL_HUMAN_EVIDENCE_NOT_YET_COLLECTED
+
+Unit 04 human-review operations:
+- KO review form
+- EN review form
+- DE review form
+- audio/spoken review form
+- structured decision schema
+- snapshot-bound decision record
+- decision validator
+
+Current human lanes:
+OPEN / OPEN / OPEN / OPEN
+
+Pilot operations:
+- EN cohort template (5 starter pseudonymous codes)
+- DE cohort template (5 starter pseudonymous codes)
+- separate baseline / immediate / 24h / 7d / transfer sheets for EN and DE
+- shared facilitator guide
+- stable pilot task IDs
+- sample pilot log corrected to canonical IDs/schema
+- automatic log validator + summary report
+
+Phase 3 operational validation:
+PASS review_forms=4 cohorts=2 stage_sheets=10 pilot_registry=50 sample_events=2
+
+Important:
+No human approval and no real learner result is claimed.
+Next substantive evidence must come from real reviewers/learners.
+
+Closeout:
+docs/textbook_project/production/PHASE3A_OPERATIONAL_READINESS_CLOSEOUT_20261006.md
