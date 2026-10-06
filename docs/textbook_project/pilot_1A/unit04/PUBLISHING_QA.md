@@ -59,3 +59,15 @@ Status: pilot vertical slice draft
 - [ ] visual page design / typography.
 - [ ] human audio recording or Jin-approved TTS.
 - [ ] final answer key/distractor review.
+
+## Localization completion checkpoint — 2026-10-06
+
+- [x] STUDENT_EN.md exists and uses English learner-facing explanations.
+- [x] STUDENT_DE.md exists and uses German learner-facing explanations.
+- [x] WORKBOOK_EN.md exists.
+- [x] WORKBOOK_DE.md exists.
+- [x] Internal speaker IDs are not exposed in learner-facing editions.
+- [x] Assessment fields contain Korean target forms rather than editorial shorthand.
+- [x] Unit 04 package validator passes with 10 required files.
+
+This is still a model/editorial checkpoint, not human native-speaker approval.
