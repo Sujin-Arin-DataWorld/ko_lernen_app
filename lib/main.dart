@@ -90,6 +90,7 @@ import 'screens/custom_pack_typing_screen.dart';
 import 'screens/my_words_screen.dart';
 import 'screens/word_web_screen.dart';
 import 'screens/bojagi_screen.dart';
+import 'screens/culture_stories_screen.dart';
 import 'screens/dojangcheop_screen.dart';
 import 'screens/gye_create_screen.dart';
 import 'screens/gye_join_screen.dart';
@@ -1297,6 +1298,11 @@ class _KoLernenAppState extends State<KoLernenApp> {
             case '/dojangcheop':
               return SoriTransitions.page(
                 (_) => const DojangcheopScreen(),
+                settings: settings,
+              );
+            case '/culture-stories':
+              return SoriTransitions.page(
+                (_) => const CultureStoriesScreen(),
                 settings: settings,
               );
             case '/dancheong-studio':

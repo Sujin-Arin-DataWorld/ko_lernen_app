@@ -29,13 +29,17 @@ COPY_FIELDS = {
 def successor_entry(
     manifest: str, kind: str, before: dict[str, Any], after: dict[str, Any],
     previous: dict[str, Any] | None, *, source_commit: str, source_path: str,
+    allow_vocab_headword: bool = False,
 ) -> dict[str, Any] | None:
     if before == after:
         return None
     fields = sorted(field for field in before.keys() | after.keys()
                     if before.get(field) != after.get(field))
+    allowed_fields = COPY_FIELDS.get(kind, set())
+    if kind == "vocab" and allow_vocab_headword:
+        allowed_fields = promoted.EDITORIAL_COPY_FIELDS["vocab"]
     if (before.keys() != after.keys() or before.get("id") != after.get("id")
-            or not set(fields) <= COPY_FIELDS.get(kind, set())
+            or not set(fields) <= allowed_fields
             or promoted._editorial_route_identity(before) != promoted._editorial_route_identity(after)):
         raise ValueError(f"{kind}:{before.get('id')}: new non-copy changes: {fields}")
     if previous is not None and previous["after"] != before:
@@ -48,7 +52,13 @@ def successor_entry(
         "sourceGitCommit": source_commit, "sourceGitPath": source_path,
         "predecessorSuccessorSha256": promoted._fingerprint(previous) if previous else None,
         "normalization": "Existing exact promotion and relevel comparison projection",
-        "reason": "Direct final copy correction and synchronized practice; model-only review, original human gates retained",
+        "reason": (
+            "Explicit LCP vocab headword replacement with synchronized practice; "
+            "model/project-manager review only, original human gates retained"
+            if kind == "vocab" and "korean" in fields
+            else "Direct final copy correction and synchronized practice; "
+                 "model-only review, original human gates retained"
+        ),
     }
 
 
@@ -62,6 +72,7 @@ def _records(path: Path, kind: str) -> list[dict[str, Any]]:
 def reconcile(
     manifest_refs: list[str], *, source_ref: str, root: Path = ROOT,
     existing_only: bool = False, ids: set[str] | None = None,
+    allow_vocab_headword: bool = False,
 ) -> tuple[dict[str, Any], int]:
     root = root.resolve()
     source_commit = subprocess.run(
@@ -133,8 +144,16 @@ def reconcile(
                         kind, ident, promoted._promotion_projection(kind, value), draft, levels,
                     )
                 before, after = comparison(predecessor), comparison(live[ident])
-                successor = successor_entry(manifest_ref, kind, before, after, prior,
-                    source_commit=source_commit, source_path=source_path)
+                successor = successor_entry(
+                    manifest_ref,
+                    kind,
+                    before,
+                    after,
+                    prior,
+                    source_commit=source_commit,
+                    source_path=source_path,
+                    allow_vocab_headword=allow_vocab_headword,
+                )
                 if successor is not None:
                     reviewed = promoted._editorial_predecessor(kind, ident, before, originals)
                     if reviewed != draft:
@@ -179,10 +198,23 @@ def main() -> None:
     parser.add_argument("--existing-only", action="store_true")
     parser.add_argument("--id", action="append")
     parser.add_argument("--source-ref", required=True, help="exact published Git predecessor")
+    parser.add_argument(
+        "--allow-vocab-headword",
+        action="store_true",
+        help=(
+            "explicitly allow selected vocab ids to change the Korean headword; "
+            "all frozen-review and route-identity checks remain enabled"
+        ),
+    )
     parser.add_argument("--write", action="store_true")
     args = parser.parse_args()
-    payload, changed = reconcile(args.manifest, source_ref=args.source_ref,
-        existing_only=args.existing_only, ids=set(args.id) if args.id else None)
+    payload, changed = reconcile(
+        args.manifest,
+        source_ref=args.source_ref,
+        existing_only=args.existing_only,
+        ids=set(args.id) if args.id else None,
+        allow_vocab_headword=args.allow_vocab_headword,
+    )
     if args.write:
         (ROOT / promoted.EDITORIAL_SUCCESSOR_AMENDMENT_LEDGER).write_bytes(
             (json.dumps(payload, ensure_ascii=False, indent=2) + "\n").encode("utf-8"))

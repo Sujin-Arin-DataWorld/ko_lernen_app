@@ -113,6 +113,8 @@ class CloudSync {
       'progress': {
         'xp': Storage.xp,
         'level': Storage.userLevelCode,
+        'scenario_corpus_generation': Storage.scenarioCorpusGeneration,
+        'completed_scenarios': Storage.completedScenarios,
         'earned_stamps': Storage.earnedStamps,
         'quest_completions': Storage.questCompletions,
         // 사랑방 장식은 중복 없는 보유 컬렉션이라 기기 간 합집합 복원이
@@ -545,6 +547,16 @@ class CloudSync {
         beforeWrite,
         () => Storage.setUserLevelCode(lvl),
       ); // aktives Level nicht überschreiben
+    }
+    final cloudScenarioGeneration = progress['scenario_corpus_generation'];
+    if (cloudScenarioGeneration is String &&
+        cloudScenarioGeneration == Storage.scenarioCorpusGeneration) {
+      for (final scenarioId in _stringValues(progress['completed_scenarios'])) {
+        await _guardedWrite(
+          beforeWrite,
+          () => Storage.addCompletedScenario(scenarioId),
+        );
+      }
     }
     for (final stamp in _stringValues(progress['earned_stamps'])) {
       await _guardedWrite(

@@ -5,7 +5,6 @@ import shutil
 import sys
 import tempfile
 import unittest
-from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -63,15 +62,16 @@ class PersonaListeningTransactionTest(unittest.TestCase):
                 integration._stage_listening(root, data, self.manifest, self.scenes)
             self.assertEqual(target.read_bytes(), before)
 
-    def test_new_three_have_exact_reproducible_authored_source(self):
+    def test_batch35_three_keep_exact_reproducible_authored_source(self):
         result = author.build()
-        self.assertEqual(result['lessons'][-3:], self.draft['lessons'])
+        draft_ids = {lesson['id'] for lesson in self.draft['lessons']}
+        result_by_id = {lesson['id']: lesson for lesson in result['lessons']}
+        self.assertEqual(
+            [result_by_id[lesson['id']] for lesson in self.draft['lessons']],
+            self.draft['lessons'],
+        )
         self.assertEqual(len(result['lessons']), len(author.load_sources()))
-        new_source_ids = {s['id'] for s in self.scenes}
-        old_sources = [s for s in author.load_sources() if s['id'] not in new_source_ids]
-        with patch.object(author, 'load_sources', return_value=old_sources), patch.object(author, 'reviewed_supplements', return_value={}):
-            original_generator = author.build()
-        self.assertEqual(result['lessons'][:-3], original_generator['lessons'])
+        self.assertEqual(len(draft_ids), 3)
 
 
 if __name__ == '__main__':

@@ -16,6 +16,7 @@ import '../../widgets/sori/button.dart';
 import '../../widgets/sori/settings_button.dart';
 import '../../widgets/sori/collapsing_header.dart';
 import '../../widgets/sori/cultural_help.dart';
+import '../../widgets/sori/culture_stories_entry_card.dart';
 import '../../widgets/sori/dancheong_stamp.dart';
 import '../../widgets/sori/hanok_v3_preview.dart';
 import '../../widgets/sori/responsive.dart';
@@ -221,6 +222,11 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                             _ShortcutTiles(
                               snapshot: data,
                               onOpen: _openShortcut,
+                            ),
+                            const SizedBox(height: Spacing.lg),
+                            CultureStoriesEntryCard(
+                              key: ObjectKey(_future),
+                              onOpen: () => _openShortcut('/culture-stories'),
                             ),
                             const SizedBox(height: Spacing.xl),
                           ],

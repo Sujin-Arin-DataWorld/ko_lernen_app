@@ -1136,6 +1136,24 @@
       "reason": "NIKL 1급 단일어; Q-C 최악불일치(delta=-1; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down"
     },
     {
+      "id": "cloze_a2_0054",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-10-05",
+      "batch": "LCP_C4_ROUTE",
+      "reason": "Target vocab 상사 was already canonically relevelled A2->B1; align cloze owner and can-do route."
+    },
+    {
+      "id": "cloze_a2_0069",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "b1",
+      "movedAt": "2026-10-05",
+      "batch": "LCP_C4_ROUTE",
+      "reason": "Target vocab 보증금 was already canonically relevelled A2->B1; align cloze owner and can-do route."
+    },
+    {
       "id": "cloze_a2_0082",
       "kind": "cloze",
       "from": "a2",
@@ -2574,6 +2592,15 @@
       "movedAt": "2026-09-07",
       "batch": "L2b",
       "reason": "NIKL 1급 연결어미 -으려고1 (F1b.md 1.2) -- pairs topically with grammar_a1_motion_purpose (-으러) already in this unit."
+    },
+    {
+      "id": "grammar_b1_more_more",
+      "kind": "grammar",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-10-05",
+      "batch": "V2G2",
+      "reason": "F1_grammar_map.md and V2_grammar_gaps.csv classify -(으)ㄹ수록 as 4급/B2 while the live app row remains B1. Relevel the immutable ID to B2 and route it with other comparison/criterion forms in b2_02_professional_opinion."
     },
     {
       "id": "grammar_b1_nominalization",

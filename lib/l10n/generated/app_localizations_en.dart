@@ -2960,6 +2960,50 @@ class AppL10nEn extends AppL10n {
   String get scenarioCulturalNote => 'Culture note';
 
   @override
+  String get scenarioCultureInSceneTitle => 'Culture in this scene';
+
+  @override
+  String get scenarioCultureInSceneBody =>
+      'Explore the cultural terms you met in this conversation.';
+
+  @override
+  String get scenarioCultureTigerReaction =>
+      'Taego quietly keeps this cultural note safe for you.';
+
+  @override
+  String get scenarioCultureMagpieReaction =>
+      'Joy spotted a cultural detail and brought you the news.';
+
+  @override
+  String get scenarioCultureTransferTitle =>
+      'Same intent, another relationship';
+
+  @override
+  String get scenarioCultureTransferBody =>
+      'With the Hahoe scholar, try how the same request changes with a friend, parent or coworker.';
+
+  @override
+  String get scenarioCultureTransferAction => 'Practise the tone';
+
+  @override
+  String get cultureStoriesTitle => 'Culture stories';
+
+  @override
+  String get cultureStoriesBody =>
+      'Culture from your completed real-life scenes is collected here.';
+
+  @override
+  String get cultureStoriesEmptyTitle => 'No culture stories yet';
+
+  @override
+  String get cultureStoriesEmptyBody =>
+      'Complete a scene with a cultural term and it will appear here.';
+
+  @override
+  String get cultureStoriesHanokBody =>
+      'Collect cultural terms from your completed scenes.';
+
+  @override
   String get scenarioStartBtn => 'Let\'s go';
 
   @override

@@ -18,11 +18,10 @@ class BatchLivePromotionAuditTest(unittest.TestCase):
 
         self.assertTrue(result["ok"], result["errors"])
         self.assertEqual(result["version"], 4)
-        # The persona batch adds three scenarios. The later C2 and priority
-        # batches add 88 records: 24 each vocab/cloze/satz, three grammar,
-        # eight smalltalk, and five scenarios (main 80f82470).
-        self.assertEqual(result["trackedIds"], 7760)
-        self.assertEqual(result["liveIds"], 7389)
+        # Batch 38 and Batch 39 each add five canonical persona-culture
+        # scenarios; pending/retired history is unchanged.
+        self.assertEqual(result["trackedIds"], 7770)
+        self.assertEqual(result["liveIds"], 7399)
         self.assertEqual(result["pendingIds"], 576)
         self.assertEqual(result["retiredScenarioIds"], 371)
         self.assertEqual(
@@ -49,6 +48,11 @@ class BatchLivePromotionAuditTest(unittest.TestCase):
                 self.assertEqual(report["live"], count)
                 self.assertEqual(report["auditStatus"], "live_verified_modern")
                 self.assertEqual(report["reviewStatuses"], {"approved": count})
+        batch38 = manifests["batch_38_persona_culture_manifest.json"]
+        self.assertEqual(batch38["tracked"], 5)
+        self.assertEqual(batch38["live"], 5)
+        self.assertEqual(batch38["auditStatus"], "live_verified_modern")
+        self.assertEqual(batch38["reviewStatuses"], {"approved": 5})
         for number in (32, 33, 34):
             report = reports[f"c3_batch{number}_a2_reinforcement"]
             self.assertEqual(report["auditStatus"], "pending_not_live")

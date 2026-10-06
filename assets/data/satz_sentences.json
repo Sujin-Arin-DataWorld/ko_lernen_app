@@ -1168,9 +1168,9 @@
     {
       "id": "satz_a1_0054",
       "level": "a1",
-      "targetKo": "거기 가 본 적 있어요.",
-      "promptDe": "Da war ich schon mal.",
-      "promptEn": "I've been there before.",
+      "targetKo": "거기 갔어요.",
+      "promptDe": "Ich war dort.",
+      "promptEn": "I went there.",
       "distractors": [
         "옷이",
         "침대에서"
@@ -3028,14 +3028,14 @@
     {
       "id": "satz_b2_0079",
       "level": "b2",
-      "targetKo": "작가는 직접 말하지 않고 한 장면에 여러 감정을 함축했어요.",
-      "promptDe": "Die Autorin sprach es nicht direkt aus, sondern verdichtete mehrere Gefühle in einer Szene.",
-      "promptEn": "The author did not say it directly but condensed several feelings into one scene.",
+      "targetKo": "이 장면에는 직접 말하지 않은 숨은 뜻이 있어요.",
+      "promptDe": "Diese Szene hat eine verborgene Bedeutung, die nicht direkt ausgesprochen wird.",
+      "promptEn": "This scene has a hidden meaning that is not stated directly.",
       "distractors": [
         "한 문장에",
         "반복했어요"
       ],
-      "vocabKo": "함축"
+      "vocabKo": "숨은 뜻"
     },
     {
       "id": "satz_b2_0080",
@@ -3184,14 +3184,14 @@
     {
       "id": "satz_b2_0092",
       "level": "b2",
-      "targetKo": "사전의 용례를 보면 이 표현이 어떤 상황에서 쓰이는지 알 수 있어요.",
-      "promptDe": "An den Verwendungsbeispielen im Wörterbuch erkennt man, in welchen Situationen dieser Ausdruck gebraucht wird.",
-      "promptEn": "Dictionary usage examples show the situations in which this expression is used.",
+      "targetKo": "사전의 사용 예를 보면 이 표현을 언제 쓰는지 알 수 있어요.",
+      "promptDe": "An den Verwendungsbeispielen im Wörterbuch sieht man, wann dieser Ausdruck verwendet wird.",
+      "promptEn": "Dictionary usage examples show when this expression is used.",
       "distractors": [
         "상징을",
         "설명할 수 있어요"
       ],
-      "vocabKo": "용례"
+      "vocabKo": "사용 예"
     },
     {
       "id": "satz_b2_0093",
@@ -5888,9 +5888,9 @@
     {
       "id": "satz_a1_0101",
       "level": "a1",
-      "targetKo": "수저가 두 벌이라 어느 게 제 것인지 봤어요.",
-      "promptDe": "Es lagen zwei Garnituren da, also schaute ich, welche meine war.",
-      "promptEn": "There were two sets, so I checked which one was mine.",
+      "targetKo": "수저가 여기 있어요.",
+      "promptDe": "Das Besteck ist hier.",
+      "promptEn": "The cutlery is here.",
       "distractors": [
         "현관에서",
         "현우"
@@ -5960,9 +5960,9 @@
     {
       "id": "satz_a1_0107",
       "level": "a1",
-      "targetKo": "국물을 소리 안 나게 떠먹으려고 애썼어요.",
-      "promptDe": "Ich gab mir Mühe, die Brühe geräuschlos zu löffeln.",
-      "promptEn": "I tried hard to spoon the broth without making noise.",
+      "targetKo": "국물이 맛있어요.",
+      "promptDe": "Die Brühe schmeckt gut.",
+      "promptEn": "The broth tastes good.",
       "distractors": [
         "짧은",
         "찌는"
@@ -5972,9 +5972,9 @@
     {
       "id": "satz_a1_0108",
       "level": "a1",
-      "targetKo": "젓가락질이 서툴러서 콩나물을 놓쳤어요.",
-      "promptDe": "Meine Stäbchen waren ungeschickt, und die Sojasprossen rutschten weg.",
-      "promptEn": "My chopstick skills were clumsy, and the bean sprouts slipped away.",
+      "targetKo": "젓가락질을 연습해요.",
+      "promptDe": "Ich übe, mit Stäbchen zu essen.",
+      "promptEn": "I'm practicing using chopsticks.",
       "distractors": [
         "빨개졌어요",
         "사양하다가"
@@ -6152,9 +6152,9 @@
     {
       "id": "satz_a1_0123",
       "level": "a1",
-      "targetKo": "설빔으로 한복 대신 단정한 니트를 골랐어요.",
-      "promptDe": "Als Neujahrskleidung wählte ich statt Hanbok einen schlichten Pullover.",
-      "promptEn": "For New Year clothes I chose a neat sweater instead of hanbok.",
+      "targetKo": "설빔이 예뻐요.",
+      "promptDe": "Die Neujahrskleidung ist schön.",
+      "promptEn": "The New Year clothes are pretty.",
       "distractors": [
         "저는",
         "적었어요"
@@ -8672,26 +8672,26 @@
     {
       "id": "satz_b1_0157",
       "level": "b1",
-      "targetKo": "단체 호출은 급한 공지만 쓰라고 현우가 말렸어요.",
-      "promptDe": "Hyunwoo bremste mich: eine Gruppenerwähnung nur für dringende Ankündigungen.",
-      "promptEn": "Hyunwoo stopped me: use a group mention only for urgent notices.",
+      "targetKo": "전체 알림은 급한 공지에만 써요.",
+      "promptDe": "Eine Nachricht an alle nutze ich nur für dringende Hinweise.",
+      "promptEn": "I use a group-wide alert only for urgent notices.",
       "distractors": [
         "엄마께",
         "없다고"
       ],
-      "vocabKo": "단체 호출"
+      "vocabKo": "전체 알림"
     },
     {
       "id": "satz_b1_0158",
       "level": "b1",
-      "targetKo": "이모티콘 과다는 삼촌이 못 읽는다고 해서 줄였어요.",
-      "promptDe": "Zu viele Sticker konnte der Onkel nicht lesen, also reduzierte ich sie.",
-      "promptEn": "Uncle could not read too many stickers, so I cut them.",
+      "targetKo": "단체 채팅에서는 이모티콘을 너무 많이 쓰지 않아요.",
+      "promptDe": "In Gruppenchats verwende ich nicht zu viele Emojis.",
+      "promptEn": "I don't use too many emojis in group chats.",
       "distractors": [
         "먼저라고",
         "멈췄어요"
       ],
-      "vocabKo": "이모티콘 과다"
+      "vocabKo": "이모티콘을 너무 많이 쓰다"
     },
     {
       "id": "satz_b1_0159",
@@ -8720,14 +8720,14 @@
     {
       "id": "satz_b1_0161",
       "level": "b1",
-      "targetKo": "할 말이 없어도 공백만 보내진 않았어요.",
-      "promptDe": "Auch wenn mir nichts einfiel, schickte ich nie nur ein Leerzeichen.",
-      "promptEn": "Even with nothing to say, I never just sent a blank.",
+      "targetKo": "바쁠 때는 답장을 미뤘다가 나중에 보내요.",
+      "promptDe": "Wenn ich beschäftigt bin, verschiebe ich die Antwort und schreibe später.",
+      "promptEn": "When I'm busy, I delay my reply and send it later.",
       "distractors": [
         "듣고",
         "들려도"
       ],
-      "vocabKo": "공백만 보내다"
+      "vocabKo": "답장을 미루다"
     },
     {
       "id": "satz_b1_0162",
@@ -13244,14 +13244,14 @@
     {
       "id": "satz_b1_0202",
       "level": "b1",
-      "targetKo": "자기부담금이 오만 원이라 수리를 다시 계산해요.",
-      "promptDe": "Die Selbstbeteiligung beträgt fünfzigtausend Won, deshalb rechne ich die Reparatur neu.",
-      "promptEn": "The deductible is 50,000 won, so I recalculate the repair.",
+      "targetKo": "내가 내는 금액은 오만 원이에요.",
+      "promptDe": "Mein eigener Kostenanteil beträgt 50.000 Won.",
+      "promptEn": "The amount I pay myself is 50,000 won.",
       "distractors": [
         "사고 접수",
         "보장 범위"
       ],
-      "vocabKo": "자기부담금"
+      "vocabKo": "내가 내는 금액"
     },
     {
       "id": "satz_b1_0203",
@@ -13280,14 +13280,14 @@
     {
       "id": "satz_b1_0205",
       "level": "b1",
-      "targetKo": "기존 질환은 면책이라고 안내받았어요.",
-      "promptDe": "Mir wurde gesagt, dass Vorerkrankungen ein Ausschluss sind.",
-      "promptEn": "I was told existing conditions are an exclusion.",
+      "targetKo": "기존 질환은 보험이 안 되는 경우가 있다고 안내받았어요.",
+      "promptDe": "Mir wurde erklärt, dass bestehende Erkrankungen in manchen Fällen nicht von der Versicherung abgedeckt sind.",
+      "promptEn": "I was told that existing conditions may not be covered by insurance.",
       "distractors": [
         "사고 접수",
         "보장 범위"
       ],
-      "vocabKo": "면책"
+      "vocabKo": "보험이 안 되는 경우"
     },
     {
       "id": "satz_b1_0206",
@@ -13304,14 +13304,14 @@
     {
       "id": "satz_b1_0207",
       "level": "b1",
-      "targetKo": "담당 설계사에게 진행 상황을 물어봤어요.",
-      "promptDe": "Ich habe den Berater nach dem Stand gefragt.",
-      "promptEn": "I asked the agent about the status.",
+      "targetKo": "보험 회사 직원에게 진행 상황을 물어봤어요.",
+      "promptDe": "Ich habe eine Mitarbeiterin der Versicherung nach dem Stand gefragt.",
+      "promptEn": "I asked an insurance company employee about the status.",
       "distractors": [
         "사고 접수",
         "보장 범위"
       ],
-      "vocabKo": "담당 설계사"
+      "vocabKo": "보험 회사 직원"
     },
     {
       "id": "satz_b1_0208",
@@ -13340,26 +13340,26 @@
     {
       "id": "satz_b1_0210",
       "level": "b1",
-      "targetKo": "치과 특약에 스케일링이 포함되는지 약관을 확인했어요.",
-      "promptDe": "Ich prüfte in den Versicherungsbedingungen, ob die Zahnzusatzleistung eine Zahnreinigung umfasst.",
-      "promptEn": "I checked the policy to see whether the dental rider covered a cleaning.",
+      "targetKo": "치과 치료가 보험에 더 넣은 내용인지 확인했어요.",
+      "promptDe": "Ich habe geprüft, ob die Zahnbehandlung zu den zusätzlich aufgenommenen Leistungen gehört.",
+      "promptEn": "I checked whether dental treatment was among the extra items added to the policy.",
       "distractors": [
         "사고 접수",
         "보장 범위"
       ],
-      "vocabKo": "특약"
+      "vocabKo": "보험에 더 넣은 내용"
     },
     {
       "id": "satz_b1_0211",
       "level": "b1",
-      "targetKo": "사진이 흐려서 지급 보류가 됐어요.",
-      "promptDe": "Weil das Foto unscharf war, gab es einen Auszahlungsstopp.",
-      "promptEn": "The photo was blurry, so the payout was held.",
+      "targetKo": "사진이 흐리면 돈을 늦게 받을 수 있어요.",
+      "promptDe": "Wenn das Foto unscharf ist, kann es länger dauern, bis ich das Geld bekomme.",
+      "promptEn": "If the photo is blurry, I may receive the money later.",
       "distractors": [
         "사고 접수",
         "보장 범위"
       ],
-      "vocabKo": "지급 보류"
+      "vocabKo": "돈을 늦게 받다"
     },
     {
       "id": "satz_b1_0212",
@@ -13568,14 +13568,14 @@
     {
       "id": "satz_b1_0229",
       "level": "b1",
-      "targetKo": "오전에 결원이 나서 제가 한 시간 더 했어요.",
-      "promptDe": "Am Vormittag gab es einen Ausfall, deshalb blieb ich eine Stunde länger.",
-      "promptEn": "There was a no-show gap in the morning, so I stayed an hour more.",
+      "targetKo": "오전에는 인원 부족 때문에 제가 한 시간 더 했어요.",
+      "promptDe": "Am Vormittag habe ich wegen Personalmangels eine Stunde länger gearbeitet.",
+      "promptEn": "In the morning, I worked an extra hour because we were short-staffed.",
       "distractors": [
         "봉사 시간",
         "배정표"
       ],
-      "vocabKo": "결원"
+      "vocabKo": "인원 부족"
     },
     {
       "id": "satz_b1_0230",
@@ -14072,14 +14072,14 @@
     {
       "id": "satz_b1_0271",
       "level": "b1",
-      "targetKo": "확정 대기 상태라 저녁에 다시 확인해요.",
-      "promptDe": "Die Bestätigung steht noch aus, deshalb sehe ich heute Abend noch einmal nach.",
-      "promptEn": "It's still awaiting confirmation, so I'll check again this evening.",
+      "targetKo": "지금 좌석 확인을 기다리고 있어요.",
+      "promptDe": "Ich warte gerade auf die Sitzplatzbestätigung.",
+      "promptEn": "I'm waiting for the seat confirmation now.",
       "distractors": [
         "일정 변경",
         "환불 규정"
       ],
-      "vocabKo": "확정 대기"
+      "vocabKo": "좌석 확인을 기다리다"
     },
     {
       "id": "satz_b2_0252",
@@ -14624,14 +14624,14 @@
     {
       "id": "satz_b2_0297",
       "level": "b2",
-      "targetKo": "회의 정족수를 채우지 못해 표결을 다음 회의로 미뤘어요.",
-      "promptDe": "Da das erforderliche Quorum nicht erreicht wurde, haben wir die Abstimmung auf die nächste Sitzung verschoben.",
-      "promptEn": "The meeting did not reach a quorum, so we postponed the vote until the next meeting.",
+      "targetKo": "회의에 필요한 참석자가 부족해서 표결을 다음 회의로 미뤘어요.",
+      "promptDe": "Weil nicht genug Teilnehmende da waren, haben wir die Abstimmung auf die nächste Sitzung verschoben.",
+      "promptEn": "Because there were not enough attendees, we postponed the vote until the next meeting.",
       "distractors": [
         "주민 의견",
         "안건 순서"
       ],
-      "vocabKo": "회의 정족수"
+      "vocabKo": "참석자"
     },
     {
       "id": "satz_b2_0298",
@@ -19124,9 +19124,9 @@
     {
       "id": "satz_b1_0297",
       "level": "b1",
-      "targetKo": "생각보다 답은 단순하더라고요.",
+      "targetKo": "생각보다 답은 단순했어요.",
       "promptDe": "Die Antwort war einfacher als gedacht.",
-      "promptEn": "The answer turned out to be simpler than expected.",
+      "promptEn": "The answer was simpler than I expected.",
       "distractors": [
         "경험",
         "문화"
@@ -20132,9 +20132,9 @@
     {
       "id": "satz_b1_0314",
       "level": "b1",
-      "targetKo": "저희 둘 공통점이 의외로 많더라고요.",
-      "promptDe": "Wir beide haben überraschend viel gemeinsam.",
-      "promptEn": "Turns out the two of us have a lot in common.",
+      "targetKo": "저희 둘은 공통점이 생각보다 많아요.",
+      "promptDe": "Wir haben mehr gemeinsam, als ich dachte.",
+      "promptEn": "We have more in common than I expected.",
       "distractors": [
         "경험",
         "문화"
@@ -25760,14 +25760,14 @@
     {
       "id": "satz_c1_0220",
       "level": "c1",
-      "targetKo": "신고 처리 기한을 안내하면 이용자가 언제 답변을 받을지 예상할 수 있다.",
-      "promptDe": "Eine angegebene Bearbeitungsfrist für Meldungen hilft Nutzenden einzuschätzen, wann sie eine Antwort erhalten.",
-      "promptEn": "Stating the timeframe for handling reports helps users know when to expect a response.",
+      "targetKo": "긴급 호출 버튼은 실제 도움이 필요할 때만 눌러야 한다.",
+      "promptDe": "Den Notrufknopf sollte man nur drücken, wenn tatsächlich Hilfe nötig ist.",
+      "promptEn": "The emergency call button should be pressed only when help is actually needed.",
       "distractors": [
         "익명이",
         "수위를"
       ],
-      "vocabKo": "신고"
+      "vocabKo": "호출"
     },
     {
       "id": "satz_c1_0221",
@@ -25940,14 +25940,14 @@
     {
       "id": "satz_c2_0187",
       "level": "c2",
-      "targetKo": "제재 결정문은 위반 사실과 적용 기준을 제시했지만 처분 수위의 근거는 설명하지 않았다.",
-      "promptDe": "Der Sanktionsbescheid nannte den Verstoß und die angewandten Kriterien, begründete aber nicht die Schwere der Sanktion.",
-      "promptEn": "The sanction notice set out the violation and the applicable criteria but did not explain the severity of the sanction.",
+      "targetKo": "과다 제재는 문제를 해결하기보다 반발을 키울 수 있다.",
+      "promptDe": "Übermäßige Sanktionen können eher Widerstand verstärken als das Problem lösen.",
+      "promptEn": "Excessive sanctions can increase resistance rather than solve the problem.",
       "distractors": [
         "누적이",
         "재량을"
       ],
-      "vocabKo": "제재"
+      "vocabKo": "과다"
     },
     {
       "id": "satz_c2_0188",
@@ -26084,14 +26084,14 @@
     {
       "id": "satz_c2_0199",
       "level": "c2",
-      "targetKo": "소설은 이별을 겪은 두 인물의 서사를 나란히 제시해 같은 사건의 다른 해석을 보여 준다.",
-      "promptDe": "Der Roman stellt die Erzählungen zweier Figuren nach ihrer Trennung nebeneinander und zeigt unterschiedliche Deutungen desselben Ereignisses.",
-      "promptEn": "The novel presents two characters' post-breakup narratives side by side, showing different interpretations of the same event.",
+      "targetKo": "짧은 대사의 함축을 이해하려면 앞뒤 장면을 함께 봐야 한다.",
+      "promptDe": "Um die implizite Bedeutung einer kurzen Replik zu verstehen, muss man die Szenen davor und danach mitbetrachten.",
+      "promptEn": "To understand the implication of a short line, you need to consider the surrounding scenes.",
       "distractors": [
         "투사가",
         "왜곡을"
       ],
-      "vocabKo": "서사"
+      "vocabKo": "함축"
     },
     {
       "id": "satz_c2_0200",
@@ -36020,10 +36020,10 @@
       "id": "satz_c2_0255",
       "sourceVocabId": "vocab_c2_0243",
       "level": "c2",
-      "vocabKo": "높임법",
-      "targetKo": "연구는 높임법을 지위의 반영으로만 설명하기보다, 화자가 상대와의 거리를 조절하는 자원으로 분석했다.",
-      "promptDe": "Die Studie analysierte koreanische Höflichkeitsformen als sprachliche Mittel zur Regulierung der Distanz zum Gegenüber, statt sie lediglich als Ausdruck des sozialen Status zu erklären.",
-      "promptEn": "The study analyzed Korean honorifics as a resource for regulating distance from the addressee rather than explaining them solely as a reflection of social status.",
+      "vocabKo": "용례",
+      "targetKo": "같은 높임 표현도 용례를 비교하면 쓰이는 상황의 차이가 보인다.",
+      "promptDe": "Vergleicht man die Verwendungsbeispiele derselben Höflichkeitsform, werden die Unterschiede zwischen den Verwendungssituationen sichtbar.",
+      "promptEn": "Comparing usage examples of the same honorific form reveals differences in when it is used.",
       "distractors": [
         "규칙 하나를",
         "혼자서만"

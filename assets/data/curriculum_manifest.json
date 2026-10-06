@@ -4640,6 +4640,96 @@
         "concept_proposal_casual"
       ],
       "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_dongsun_norigae_shop_post",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_byeongcheol_hwaseong_memory_check",
+      "courseUnitId": "b1_02_indirect_speech",
+      "conceptIds": [
+        "concept_b1_indirect_speech"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_jun_hwaseong_school_slide",
+      "courseUnitId": "a2_06_study_work",
+      "conceptIds": [
+        "concept_a2_work_study"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_maya_hyuna_daniel_talchum_shortform",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_daniel_hyuna_hanji_filming_scope",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_andrea_minho_bojagi_housewarming",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_casual"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_minho_christian_hanok_cafe_meeting",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_lena_maya_buchae_gift_choice",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_casual"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_maya_daniel_pansori_promo_clip",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_hyuna_daniel_nongak_festival_filming",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "assess"
     }
   ],
   "grammarRuleMap": {
@@ -5130,9 +5220,9 @@
       ]
     },
     "grammar_b1_more_more": {
-      "courseUnitId": "b1_01_experience_reasons",
+      "courseUnitId": "b2_02_professional_opinion",
       "conceptIds": [
-        "concept_b1_reasons_experience"
+        "concept_b2_opinion"
       ]
     },
     "grammar_b1_consequence": {
@@ -7298,7 +7388,8 @@
     "a2:natur & draußen": "a2_03_chat_relationships",
     "a2:menschen & berufe": "a2_06_study_work",
     "c2:ehrensprache": "c2_01_interpretation_institutions",
-    "c2:argumentation und verfahrensgestaltung": "c2_03_automation_redress"
+    "c2:argumentation und verfahrensgestaltung": "c2_03_automation_redress",
+    "b1:wohnen": "b1_05_complaint_resolution"
   },
   "scenarioCorpusGeneration": "canonical_120_v1",
   "scenarioCorpusSupplements": [

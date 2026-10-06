@@ -570,19 +570,19 @@
     "surfaceFormIds": [],
     "sidekick": "christian",
     "grammarIds": [
-      "grammar_b2_despite",
+      "grammar_b2_according_to",
       "grammar_b2_formal_arrangement"
     ],
     "grammarBlock": {
       "title": {
-        "ko": "N에도 불구하고",
-        "de": "N에도 불구하고: trotz",
-        "en": "N에도 불구하고: despite"
+        "ko": "N에 따라",
+        "de": "N에 따라: je nach / abhängig von",
+        "en": "N에 따라: depending on"
       },
       "explanation": {
-        "ko": "어려운 상황을 인정하면서도 그것과 상관없이 행동하거나 요청할 때 -에도 불구하고를 써요.",
-        "de": "Man benutzt -에도 불구하고, um eine schwierige Lage anzuerkennen und trotzdem zu handeln oder zu bitten.",
-        "en": "Use -에도 불구하고 to acknowledge a difficult situation while still acting or asking regardless."
+        "ko": "조건이나 상황에 따라 결과가 달라질 때 N에 따라를 써요.",
+        "de": "Mit N에 따라 sagst du, dass ein Ergebnis von einer Bedingung oder Situation abhängt.",
+        "en": "Use N에 따라 when an outcome depends on a condition or situation."
       }
     },
     "dialog": [
@@ -595,50 +595,50 @@
       {
         "speaker": "user",
         "ko": "다음 항공편은 언제 가능한가요?",
-        "de": "Wann ist der nächste Flug möglich?",
+        "de": "Wann geht der nächste verfügbare Flug?",
         "en": "When is the next available flight?"
       },
       {
         "speaker": "clerk",
         "ko": "지금으로선 이틀 후에 자리가 있습니다.",
         "de": "Im Moment gibt es erst in zwei Tagen wieder einen Platz.",
-        "en": "Right now there's a seat available only in two days."
+        "en": "At the moment, the next available seat is in two days."
       },
       {
         "speaker": "user",
         "ko": "이틀 후면 일정에 큰 문제가 생기는데, 다른 방법이 없을까요?",
-        "de": "In zwei Tagen gibt es ein großes Problem mit meinem Zeitplan, gibt es keine andere Möglichkeit?",
-        "en": "In two days there'd be a big problem with my schedule, isn't there another way?"
+        "de": "Wenn ich erst in zwei Tagen fliegen kann, bringt das meinen Zeitplan völlig durcheinander. Gibt es keine andere Möglichkeit?",
+        "en": "If I can't fly for two days, that will seriously disrupt my plans. Is there any other option?"
       },
       {
         "speaker": "clerk",
         "ko": "저희 쪽에서는 더 드릴 수 있는 옵션이 없습니다.",
-        "de": "Von unserer Seite gibt es keine weiteren Optionen, die wir anbieten können.",
+        "de": "Mehr können wir Ihnen von unserer Seite leider nicht anbieten.",
         "en": "There aren't any further options we can offer on our end."
       },
       {
         "speaker": "user",
         "ko": "그럼 책임자분과 이야기할 수 있을까요? 급한 일정이라서요.",
-        "de": "Könnte ich dann mit einer verantwortlichen Person sprechen? Es ist ein dringender Termin.",
-        "en": "Could I speak with the person in charge, then? It's an urgent schedule."
+        "de": "Könnte ich dann mit einer verantwortlichen Person sprechen? Ich habe einen dringenden Termin.",
+        "en": "Could I speak with the person in charge? I have an urgent commitment."
       },
       {
         "speaker": "manager",
         "ko": "제가 담당 매니저입니다. 상황을 들어 보겠습니다.",
-        "de": "Ich bin der zuständige Manager. Ich höre mir die Situation an.",
-        "en": "I'm the manager in charge. Let me hear the situation."
+        "de": "Ich bin der zuständige Manager. Schildern Sie mir bitte kurz die Situation.",
+        "en": "I'm the manager on duty. Please tell me what happened."
       },
       {
         "speaker": "user",
-        "ko": "기상 상황에도 불구하고 오늘 안에 다른 항공사 편으로라도 갈 방법이 있는지 궁금합니다.",
-        "de": "Ich frage mich, ob es trotz der Wetterlage eine Möglichkeit gibt, heute notfalls mit einer anderen Fluggesellschaft zu fliegen.",
-        "en": "I'm wondering whether, despite the weather situation, there's a way to fly with another airline today, even if that's what it takes."
+        "ko": "날씨에 따라 오늘 비행이 어려울 수 있다는 건 이해합니다. 다른 항공사나 다른 경로가 가능한지 확인해 주실 수 있을까요?",
+        "de": "Ich verstehe, dass Fliegen heute je nach Wetter schwierig sein kann. Könnten Sie prüfen, ob eine andere Fluggesellschaft oder eine andere Verbindung möglich ist?",
+        "en": "I understand that flying today may be difficult depending on the weather. Could you check whether another airline or another route is possible?"
       },
       {
         "speaker": "manager",
-        "ko": "제휴 항공사 좌석을 확인해서 가능하면 오늘 중으로 연결해 드리도록 하겠습니다.",
-        "de": "Ich prüfe die Plätze bei der Partnerfluggesellschaft und werde versuchen, Sie noch heute umzubuchen.",
-        "en": "I'll check seats with our partner airline and arrange to get you connected today if possible."
+        "ko": "제휴 항공사 좌석과 가능한 대체 경로를 확인해 보고, 가능 여부를 안내해 드리겠습니다.",
+        "de": "Ich prüfe Plätze bei der Partnerfluggesellschaft und mögliche Alternativverbindungen und informiere Sie dann über die Möglichkeiten.",
+        "en": "I'll check seats with partner airlines and possible alternative routes, then let you know what is available."
       }
     ],
     "quests": [
@@ -646,11 +646,11 @@
         "id": "quest_b2_w10_travel_hear",
         "type": "hoerverstehen",
         "data": {
-          "audioKo": "기상 상황에도 불구하고 오늘 안에 다른 항공사 편으로라도 갈 방법이 있는지 궁금합니다.",
+          "audioKo": "날씨에 따라 오늘 비행이 어려울 수 있다는 건 이해합니다. 다른 항공사나 다른 경로가 가능한지 확인해 주실 수 있을까요?",
           "options": [
             {
-              "de": "Ich frage mich, ob es trotz der Wetterlage eine Möglichkeit gibt, heute notfalls mit einer anderen Fluggesellschaft zu fliegen.",
-              "en": "I'm wondering whether, despite the weather situation, there's a way to fly with another airline today, even if that's what it takes."
+              "de": "Ich verstehe, dass Fliegen heute je nach Wetter schwierig sein kann. Könnten Sie prüfen, ob eine andere Fluggesellschaft oder eine andere Verbindung möglich ist?",
+              "en": "I understand that flying today may be difficult depending on the weather. Could you check whether another airline or another route is possible?"
             },
             {
               "de": "Es tut mir leid, aber alle heutigen Flüge sind ausgefallen.",
@@ -672,11 +672,11 @@
         "id": "quest_b2_w10_travel_translate",
         "type": "uebersetzen",
         "data": {
-          "promptDe": "Ich prüfe die Plätze bei der Partnerfluggesellschaft und werde versuchen, Sie noch heute umzubuchen.",
-          "promptEn": "I'll check seats with our partner airline and arrange to get you connected today if possible.",
+          "promptDe": "Ich prüfe Plätze bei der Partnerfluggesellschaft und mögliche Alternativverbindungen und informiere Sie dann über die Möglichkeiten.",
+          "promptEn": "I'll check seats with partner airlines and possible alternative routes, then let you know what is available.",
           "options": [
             {
-              "ko": "제휴 항공사 좌석을 확인해서 가능하면 오늘 중으로 연결해 드리도록 하겠습니다."
+              "ko": "제휴 항공사 좌석과 가능한 대체 경로를 확인해 보고, 가능 여부를 안내해 드리겠습니다."
             },
             {
               "ko": "죄송하지만 오늘 항공편이 전부 결항됐습니다."
@@ -1264,8 +1264,7 @@
     "surfaceFormIds": [],
     "sidekick": "christian",
     "grammarIds": [
-      "grammar_b2_not_only",
-      "grammar_b2_despite"
+      "grammar_b2_not_only"
     ],
     "grammarBlock": {
       "title": {
@@ -1289,50 +1288,50 @@
       {
         "speaker": "user",
         "ko": "저는 자료를 꼼꼼히 확인할 뿐만 아니라 근거 없는 결론은 내리지 않는 편입니다.",
-        "de": "Ich prüfe Unterlagen nicht nur sorgfältig, sondern ziehe auch keine Schlüsse ohne Grundlage.",
-        "en": "I not only check materials carefully, but I also don't draw conclusions without evidence."
+        "de": "Ich prüfe Unterlagen sehr sorgfältig und ziehe keine Schlussfolgerungen ohne solide Grundlage.",
+        "en": "I'm very careful when reviewing materials, and I don't draw conclusions without solid evidence."
       },
       {
         "speaker": "interviewer",
         "ko": "약점은 어떤 부분이라고 생각하세요?",
-        "de": "Und was denken Sie, ist Ihre Schwäche?",
-        "en": "And what do you think your weakness is?"
+        "de": "Und wo sehen Sie Ihre größte Schwäche?",
+        "en": "And what would you say is your weakness?"
       },
       {
         "speaker": "user",
-        "ko": "마감이 촉박한데도 불구하고 속도보다 정확성을 먼저 챙기는 편이라 가끔 느리다는 말을 듣습니다.",
-        "de": "Obwohl die Frist knapp ist, kümmere ich mich zuerst um Genauigkeit statt um Geschwindigkeit, weshalb ich manchmal höre, ich sei langsam.",
-        "en": "Even though deadlines are tight, I tend to prioritize accuracy over speed, so I sometimes hear that I'm slow."
+        "ko": "마감이 촉박해도 속도보다 정확성을 먼저 챙기는 편이라 가끔 느리다는 말을 듣습니다.",
+        "de": "Auch bei knappen Fristen stelle ich Genauigkeit oft vor Geschwindigkeit. Deshalb höre ich manchmal, dass ich zu langsam bin.",
+        "en": "Even when deadlines are tight, I tend to prioritize accuracy over speed, so I sometimes get told I'm too slow."
       },
       {
         "speaker": "interviewer",
         "ko": "이 자리는 논문을 쓰시는 동안 주 삼 일만 근무하시면 되는데 괜찮으신가요?",
-        "de": "Diese Stelle erfordert nur drei Tage pro Woche, während Sie an Ihrer Abschlussarbeit schreiben — ist das für Sie in Ordnung?",
-        "en": "This position only requires three days a week while you're writing your thesis — is that okay with you?"
+        "de": "Während Sie an Ihrer Abschlussarbeit schreiben, würden Sie hier nur drei Tage pro Woche arbeiten. Wäre das für Sie in Ordnung?",
+        "en": "This position would be three days a week while you're working on your thesis. Would that work for you?"
       },
       {
         "speaker": "user",
         "ko": "네, 그 조건이면 논문 일정도 지킬 수 있을 것 같습니다.",
-        "de": "Ja, mit dieser Bedingung könnte ich auch meinen Abschlussarbeit-Zeitplan einhalten.",
-        "en": "Yes, with that condition I think I could also keep up with my thesis schedule."
+        "de": "Ja, unter diesen Bedingungen könnte ich auch meinen Zeitplan für die Abschlussarbeit einhalten.",
+        "en": "Yes, under those conditions I think I could stay on track with my thesis."
       },
       {
         "speaker": "interviewer",
         "ko": "근무 요일은 화, 목, 금으로 고정하려고 하는데 괜찮으신가요?",
-        "de": "Wir planen, die Arbeitstage auf Dienstag, Donnerstag und Freitag festzulegen — passt das für Sie?",
-        "en": "We're planning to fix the work days as Tuesday, Thursday, and Friday — does that work for you?"
+        "de": "Wir planen, die Arbeitstage auf Dienstag, Donnerstag und Freitag festzulegen. Passt das für Sie?",
+        "en": "We're planning to set the workdays as Tuesday, Thursday, and Friday. Does that work for you?"
       },
       {
         "speaker": "user",
         "ko": "화요일은 지도 교수님과 상담이 있어서 수요일로 바꿀 수 있을까요?",
-        "de": "Am Dienstag habe ich ein Gespräch mit meinem Betreuer, könnten wir das auf Mittwoch verschieben?",
-        "en": "I have a meeting with my advisor on Tuesdays — could we change that to Wednesday instead?"
+        "de": "Am Dienstag habe ich ein Gespräch mit meinem Betreuer. Könnten wir das auf Mittwoch verschieben?",
+        "en": "I have a meeting with my advisor on Tuesdays. Could we change that to Wednesday instead?"
       },
       {
         "speaker": "interviewer",
         "ko": "네, 수요일로 조정해서 다시 안내해 드리겠습니다.",
-        "de": "Ja, ich passe es auf Mittwoch an und gebe Ihnen erneut Bescheid.",
-        "en": "Yes, I'll adjust it to Wednesday and let you know again."
+        "de": "Ja, ich passe es auf Mittwoch an und schicke Ihnen die aktualisierte Einteilung.",
+        "en": "Yes, I'll switch it to Wednesday and send you the updated schedule."
       }
     ],
     "quests": [
@@ -1343,8 +1342,8 @@
           "audioKo": "이 자리는 논문을 쓰시는 동안 주 삼 일만 근무하시면 되는데 괜찮으신가요?",
           "options": [
             {
-              "de": "Diese Stelle erfordert nur drei Tage pro Woche, während Sie an Ihrer Abschlussarbeit schreiben — ist das für Sie in Ordnung?",
-              "en": "This position only requires three days a week while you're writing your thesis — is that okay with you?"
+              "de": "Diese Stelle erfordert nur drei Tage pro Woche, während Sie an Ihrer Abschlussarbeit schreiben. Ist das für Sie in Ordnung?",
+              "en": "This position only requires three days a week while you're writing your thesis. Is that okay with you?"
             },
             {
               "de": "Könnten Sie uns jeweils eine Stärke und eine Schwäche von sich nennen?",
@@ -1355,8 +1354,8 @@
               "en": "And what do you think your weakness is?"
             },
             {
-              "de": "Wir planen, die Arbeitstage auf Dienstag, Donnerstag und Freitag festzulegen — passt das für Sie?",
-              "en": "We're planning to fix the work days as Tuesday, Thursday, and Friday — does that work for you?"
+              "de": "Wir planen, die Arbeitstage auf Dienstag, Donnerstag und Freitag festzulegen. Passt das für Sie?",
+              "en": "We're planning to fix the work days as Tuesday, Thursday, and Friday. Does that work for you?"
             }
           ],
           "correctIndex": 0
@@ -1366,11 +1365,11 @@
         "id": "quest_b2_w10_hiring_translate",
         "type": "uebersetzen",
         "data": {
-          "promptDe": "Obwohl die Frist knapp ist, kümmere ich mich zuerst um Genauigkeit statt um Geschwindigkeit, weshalb ich manchmal höre, ich sei langsam.",
-          "promptEn": "Even though deadlines are tight, I tend to prioritize accuracy over speed, so I sometimes hear that I'm slow.",
+          "promptDe": "Auch bei knappen Fristen stelle ich Genauigkeit oft vor Geschwindigkeit. Deshalb höre ich manchmal, dass ich zu langsam bin.",
+          "promptEn": "Even when deadlines are tight, I tend to prioritize accuracy over speed, so I sometimes get told I'm too slow.",
           "options": [
             {
-              "ko": "마감이 촉박한데도 불구하고 속도보다 정확성을 먼저 챙기는 편이라 가끔 느리다는 말을 듣습니다."
+              "ko": "마감이 촉박해도 속도보다 정확성을 먼저 챙기는 편이라 가끔 느리다는 말을 듣습니다."
             },
             {
               "ko": "저는 자료를 꼼꼼히 확인할 뿐만 아니라 근거 없는 결론은 내리지 않는 편입니다."
@@ -1425,9 +1424,9 @@
       "en": "Visa extension: asking before it's too late"
     },
     "intro": {
-      "ko": "레나가 체류 기간이 끝나기 전에 출입국사무소에서 연장 신청 기한과 필요 서류를 확인합니다.",
-      "de": "Bevor ihr Aufenthalt endet, erkundigt sich Lena bei der Ausländerbehörde nach der Frist und den nötigen Unterlagen für die Verlängerung.",
-      "en": "Before her stay period ends, Lena asks at the immigration office about the deadline and documents needed for an extension."
+      "ko": "레나는 체류 기간이 끝나기 전에 출입국사무소에서 자신의 체류 자격에 맞는 신청 시기와 필요 서류를 확인합니다.",
+      "de": "Bevor ihr Aufenthalt endet, erkundigt sich Lena bei der Ausländerbehörde nach Antragszeitpunkt und Unterlagen, die zu ihrem Aufenthaltsstatus passen.",
+      "en": "Before her stay ends, Lena asks the immigration office which timing and documents apply to her residence status."
     },
     "courseUnitId": "b2_01_formal_opening",
     "playerCharacterId": "lena",
@@ -1436,7 +1435,7 @@
       "official"
     ],
     "relationshipContext": "official",
-    "intent": "ask_about_a_visa_extension_deadline_and_consequences",
+    "intent": "ask_about_visa_extension_requirements_for_an_individual_case",
     "shelf": "b2_authorities",
     "backdrop": "office",
     "vocab": [
@@ -1465,35 +1464,35 @@
         }
       },
       {
-        "korean": "불법체류",
+        "korean": "체류 자격",
         "note": {
-          "ko": "허가된 기간을 넘겨 머무는 것",
-          "de": "illegaler Aufenthalt",
-          "en": "illegal stay/overstay"
+          "ko": "한 나라에 머물 수 있는 허가의 종류나 상태",
+          "de": "Aufenthaltsstatus",
+          "en": "residence status"
         }
       },
       {
-        "korean": "재학증명서",
+        "korean": "안내문",
         "note": {
-          "ko": "학교에 다니고 있음을 증명하는 서류",
-          "de": "Immatrikulationsbescheinigung",
-          "en": "certificate of enrollment"
+          "ko": "절차나 필요한 내용을 알려 주는 문서",
+          "de": "Hinweisblatt",
+          "en": "guidance notice"
         }
       },
       {
-        "korean": "통장 잔고 증명서",
+        "korean": "신청 방법",
         "note": {
-          "ko": "통장에 남은 돈을 증명하는 서류",
-          "de": "Kontostandsnachweis",
-          "en": "bank balance certificate"
+          "ko": "신청을 진행하는 방식",
+          "de": "Antragsweg",
+          "en": "application method"
         }
       },
       {
-        "korean": "등록금",
+        "korean": "현재 상황",
         "note": {
-          "ko": "학교에 내는 수업료",
-          "de": "Studiengebühr",
-          "en": "tuition fee"
+          "ko": "지금 적용되는 개인의 조건이나 상태",
+          "de": "aktuelle Situation",
+          "en": "current situation"
         }
       }
     ],
@@ -1503,19 +1502,19 @@
     "surfaceFormIds": [],
     "sidekick": "christian",
     "grammarIds": [
-      "grammar_b2_negative_consequence",
+      "grammar_b2_according_to",
       "grammar_b2_formal_cause"
     ],
     "grammarBlock": {
       "title": {
-        "ko": "V-다가는",
-        "de": "V-다가는: wenn man so weitermacht, dann...",
-        "en": "V-다가는: if you keep doing X, then..."
+        "ko": "N에 따라",
+        "de": "N에 따라: je nach / abhängig von",
+        "en": "N에 따라: depending on"
       },
       "explanation": {
-        "ko": "지금 상태를 계속하면 나쁜 결과가 생길 거라고 경고할 때 -다가는을 써요.",
-        "de": "Man benutzt -다가는, um zu warnen, dass eine schlechte Folge eintritt, wenn man den jetzigen Zustand fortsetzt.",
-        "en": "Use -다가는 to warn that a bad result will happen if the current state continues."
+        "ko": "체류 자격이나 현재 상황처럼 조건에 따라 필요한 내용이 달라질 때 N에 따라를 써요.",
+        "de": "Mit N에 따라 sagst du, dass sich Anforderungen je nach Status oder aktueller Situation unterscheiden.",
+        "en": "Use N에 따라 when requirements differ depending on a status or current situation."
       }
     },
     "dialog": [
@@ -1527,45 +1526,45 @@
       },
       {
         "speaker": "user",
-        "ko": "체류 기간 연장 신청 때문에 왔는데요, 언제까지 신청해야 하나요?",
-        "de": "Ich bin wegen der Verlängerung meines Aufenthaltszeitraums hier — bis wann muss ich das beantragen?",
-        "en": "I'm here about extending my stay period — by when do I need to apply?"
+        "ko": "체류 기간을 연장하려고 하는데, 제 경우에 신청 시기와 필요한 서류를 확인하고 싶습니다.",
+        "de": "Ich möchte meinen Aufenthalt verlängern und möchte wissen, welcher Antragstermin und welche Unterlagen in meinem Fall gelten.",
+        "en": "I would like to extend my stay and want to know which timing and documents apply in my case."
       },
       {
         "speaker": "official",
-        "ko": "만료일 네 달 전부터 신청하실 수 있고, 만료일 전까지는 꼭 접수하셔야 합니다.",
-        "de": "Sie können den Antrag ab vier Monaten vor dem Ablaufdatum stellen, müssen ihn aber unbedingt vor dem Ablaufdatum einreichen.",
-        "en": "You can apply starting four months before the expiration date, but you must be sure to submit it before the expiration date."
+        "ko": "신청 시기와 필요한 서류는 체류 자격과 현재 상황에 따라 달라질 수 있어요. 여권과 현재 체류 정보를 먼저 확인해 볼게요.",
+        "de": "Antragszeitpunkt und Unterlagen können je nach Aufenthaltsstatus und aktueller Situation unterschiedlich sein. Wir sehen uns zuerst Ihren Pass und Ihre aktuellen Aufenthaltsdaten an.",
+        "en": "The timing and documents can vary by residence status and current situation. Let's first check your passport and current stay information."
       },
       {
         "speaker": "user",
-        "ko": "만약 그 날짜를 놓치면 어떻게 되나요?",
-        "de": "Was passiert, wenn ich dieses Datum verpasse?",
-        "en": "What happens if I miss that date?"
+        "ko": "만료일이 가까우면 어떤 점을 먼저 확인해야 할까요?",
+        "de": "Was sollte ich zuerst prüfen, wenn das Ablaufdatum nahe ist?",
+        "en": "What should I check first if the expiration date is close?"
       },
       {
         "speaker": "official",
-        "ko": "기한을 놓치다가는 불법체류로 처리되어서 벌금은 물론 앞으로 비자 발급에도 불이익이 있을 수 있습니다.",
-        "de": "Wenn Sie die Frist verpassen, kann das als illegaler Aufenthalt gewertet werden, wodurch nicht nur eine Geldstrafe, sondern auch Nachteile bei künftigen Visa entstehen können.",
-        "en": "If you miss the deadline, it can be treated as an illegal stay, which can result in a fine as well as disadvantages for future visa issuance."
+        "ko": "기한과 절차는 관련 안내문이나 공식 웹사이트에서 다시 확인하셔야 합니다. 가능한 빨리 신청 가능 여부를 확인해 보세요.",
+        "de": "Fristen und Verfahren sollten Sie noch einmal in den einschlägigen Hinweisen oder auf der offiziellen Website prüfen. Klären Sie möglichst bald, ob ein Antrag möglich ist.",
+        "en": "You should check the deadlines and procedure again in the relevant guidance or on the official website. Confirm as soon as possible whether an application is possible."
       },
       {
         "speaker": "user",
-        "ko": "그렇군요. 필요한 서류는 어떤 것들이 있나요?",
-        "de": "Verstehe. Welche Unterlagen werden benötigt?",
-        "en": "I see. What documents are needed?"
+        "ko": "그럼 제 경우에 필요한 서류와 신청 방법을 확인해 주세요.",
+        "de": "Dann prüfen Sie bitte, welche Unterlagen und welcher Antragsweg in meinem Fall nötig sind.",
+        "en": "Then please check which documents and application method are needed in my case."
       },
       {
         "speaker": "official",
-        "ko": "재학증명서와 통장 잔고 증명서가 필요합니다. 잔고가 부족하면 등록금 납부 영수증으로 대체할 수 있습니다.",
-        "de": "Sie benötigen eine Immatrikulationsbescheinigung und einen Kontostandsnachweis. Sollte der Kontostand zu niedrig sein, können Sie das durch eine Quittung über die gezahlte Studiengebühr ersetzen.",
-        "en": "You need a certificate of enrollment and a bank balance certificate. If your balance is low, you can substitute a tuition payment receipt."
+        "ko": "확인한 뒤 필요한 서류와 다음 절차를 안내해 드리겠습니다.",
+        "de": "Nachdem wir das geprüft haben, erkläre ich Ihnen die nötigen Unterlagen und die nächsten Schritte.",
+        "en": "Once we've checked, I'll explain which documents you need and what happens next."
       },
       {
         "speaker": "user",
-        "ko": "알겠습니다. 서류는 이번 주 안에 준비해서 다시 오겠습니다.",
-        "de": "Verstanden. Ich bereite die Unterlagen diese Woche vor und komme dann wieder.",
-        "en": "Understood. I'll prepare the documents this week and come back."
+        "ko": "알겠습니다. 필요한 내용이 확인되면 그에 맞춰 준비하겠습니다.",
+        "de": "Verstanden. Sobald geklärt ist, was nötig ist, bereite ich alles entsprechend vor.",
+        "en": "All right. Once it's clear what's needed, I'll prepare accordingly."
       }
     ],
     "quests": [
@@ -1573,23 +1572,27 @@
         "id": "quest_b2_w10_authorities_hear",
         "type": "hoerverstehen",
         "data": {
-          "audioKo": "기한을 놓치다가는 불법체류로 처리되어서 벌금은 물론 앞으로 비자 발급에도 불이익이 있을 수 있습니다.",
+          "audioKo": "기한과 절차는 관련 안내문이나 공식 웹사이트에서 다시 확인하셔야 합니다. 가능한 빨리 신청 가능 여부를 확인해 보세요.",
           "options": [
             {
-              "de": "Wenn Sie die Frist verpassen, kann das als illegaler Aufenthalt gewertet werden, wodurch nicht nur eine Geldstrafe, sondern auch Nachteile bei künftigen Visa entstehen können.",
-              "en": "If you miss the deadline, it can be treated as an illegal stay, which can result in a fine as well as disadvantages for future visa issuance."
+              "ko": "기한과 절차는 관련 안내문이나 공식 웹사이트에서 다시 확인하셔야 합니다. 가능한 빨리 신청 가능 여부를 확인해 보세요.",
+              "de": "Fristen und Verfahren sollten Sie noch einmal in den einschlägigen Hinweisen oder auf der offiziellen Website prüfen. Klären Sie möglichst bald, ob ein Antrag möglich ist.",
+              "en": "You should check the deadlines and procedure again in the relevant guidance or on the official website. Confirm as soon as possible whether an application is possible."
             },
             {
+              "ko": "안녕하세요. 오늘은 어떤 업무로 오셨어요?",
               "de": "Guten Tag. Weswegen sind Sie heute hier?",
               "en": "Hello. What brings you in today?"
             },
             {
-              "de": "Sie können den Antrag ab vier Monaten vor dem Ablaufdatum stellen, müssen ihn aber unbedingt vor dem Ablaufdatum einreichen.",
-              "en": "You can apply starting four months before the expiration date, but you must be sure to submit it before the expiration date."
+              "ko": "신청 시기와 필요한 서류는 체류 자격과 현재 상황에 따라 달라질 수 있어요. 여권과 현재 체류 정보를 먼저 확인해 볼게요.",
+              "de": "Antragszeitpunkt und Unterlagen können je nach Aufenthaltsstatus und aktueller Situation unterschiedlich sein. Wir sehen uns zuerst Ihren Pass und Ihre aktuellen Aufenthaltsdaten an.",
+              "en": "The timing and documents can vary by residence status and current situation. Let's first check your passport and current stay information."
             },
             {
-              "de": "Sie benötigen eine Immatrikulationsbescheinigung und einen Kontostandsnachweis. Sollte der Kontostand zu niedrig sein, können Sie das durch eine Quittung über die gezahlte Studiengebühr ersetzen.",
-              "en": "You need a certificate of enrollment and a bank balance certificate. If your balance is low, you can substitute a tuition payment receipt."
+              "ko": "확인한 뒤 필요한 서류와 다음 절차를 안내해 드리겠습니다.",
+              "de": "Nachdem wir das geprüft haben, erkläre ich Ihnen die nötigen Unterlagen und die nächsten Schritte.",
+              "en": "Once we've checked, I'll explain which documents you need and what happens next."
             }
           ],
           "correctIndex": 0
@@ -1599,8 +1602,8 @@
         "id": "quest_b2_w10_authorities_translate",
         "type": "uebersetzen",
         "data": {
-          "promptDe": "Ich bin wegen der Verlängerung meines Aufenthaltszeitraums hier — bis wann muss ich das beantragen?",
-          "promptEn": "I'm here about extending my stay period — by when do I need to apply?",
+          "promptDe": "Ich bin wegen der Verlängerung meines Aufenthaltszeitraums hier. Bis wann muss ich das beantragen?",
+          "promptEn": "I'm here about extending my stay period. By when do I need to apply?",
           "options": [
             {
               "ko": "체류 기간 연장 신청 때문에 왔는데요, 언제까지 신청해야 하나요?"
@@ -1622,26 +1625,26 @@
         "id": "quest_b2_w10_authorities_build",
         "type": "satzBauen",
         "data": {
-          "targetKo": "알겠습니다. 서류는 이번 주 안에 준비해서 다시 오겠습니다.",
-          "promptDe": "Verstanden. Ich bereite die Unterlagen diese Woche vor und komme dann wieder.",
-          "promptEn": "Understood. I'll prepare the documents this week and come back.",
+          "targetKo": "알겠습니다. 필요한 내용이 확인되면 그에 맞춰 준비하겠습니다.",
+          "promptDe": "Verstanden. Sobald geklärt ist, was nötig ist, bereite ich alles entsprechend vor.",
+          "promptEn": "All right. Once it's clear what's needed, I'll prepare accordingly.",
           "distractors": [
-            "통장 잔고",
-            "만료일"
+            "현재 체류",
+            "신청 방법"
           ]
         }
       }
     ],
     "culturalNote": {
       "title": {
-        "ko": "체류 기간 연장과 정확한 기한",
-        "de": "Aufenthaltsverlängerung und die genaue Frist",
-        "en": "Visa extension and the exact deadline"
+        "ko": "체류 기간 연장과 개별 조건 확인",
+        "de": "Aufenthaltsverlängerung und individuelle Voraussetzungen",
+        "en": "Extending a stay and checking individual requirements"
       },
       "body": {
-        "ko": "한국에서는 체류 기간이 하루라도 지나면 바로 불법체류로 처리될 수 있어서, 서류를 다 갖추지 못했더라도 만료일 전에 일단 신청 접수부터 해 두는 게 안전해요.",
-        "de": "In Korea kann schon ein einziger Tag nach Ablauf der Aufenthaltsfrist als illegaler Aufenthalt gelten; deshalb ist es sicherer, den Antrag vor dem Ablaufdatum einzureichen, selbst wenn noch nicht alle Unterlagen vollständig sind.",
-        "en": "In Korea, even a single day past your stay's expiration date can be treated as an illegal stay, so it's safer to at least submit your application before the deadline, even if you don't have every document ready yet."
+        "ko": "체류 기간 연장의 신청 시기, 서류, 처리 방식은 체류 자격과 개인 상황에 따라 달라질 수 있어요. 최신 안내문과 공식 기관에서 자신의 조건에 맞는 절차를 확인하는 표현을 연습합니다.",
+        "de": "Antragszeitpunkt, Unterlagen und Verfahren für eine Aufenthaltsverlängerung können je nach Aufenthaltsstatus und persönlicher Situation variieren. Diese Szene übt, anhand aktueller Hinweise und bei der zuständigen Stelle das Verfahren für den eigenen Fall zu klären.",
+        "en": "The timing, documents, and process for extending a stay can vary by residence status and individual situation. This scene practices checking current guidance and the responsible office for the procedure that applies to you."
       }
     },
     "xpReward": 136

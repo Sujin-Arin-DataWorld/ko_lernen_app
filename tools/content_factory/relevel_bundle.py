@@ -54,6 +54,7 @@ import re
 import shutil
 import sys
 import tempfile
+import time
 from collections import Counter
 from dataclasses import dataclass, field
 from datetime import date
@@ -3264,11 +3265,62 @@ _STAGED_DATA_FILES = (
 )
 
 
-def _atomic_write_bytes(path: Path, content: bytes) -> None:
+def _lf_bytes(content: bytes) -> bytes:
+    """Canonicalize text payloads written by the relevel transaction to LF."""
+
+    return content.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+
+
+def _replace_with_retry(source: Path, target: Path) -> None:
+    """Replace a staged file, tolerating only brief Windows delete-share locks."""
+
+    attempts = 6
+    for attempt in range(attempts):
+        try:
+            os.replace(source, target)
+            return
+        except PermissionError:
+            if attempt == attempts - 1:
+                raise
+            time.sleep(0.05 * (attempt + 1))
+
+
+def _fsync_overwrite(path: Path, content: bytes) -> None:
+    """Write validated bytes when Windows permits writes but blocks rename."""
+
+    with path.open("wb") as handle:
+        handle.write(content)
+        handle.flush()
+        os.fsync(handle.fileno())
+
+
+def _atomic_write_bytes(
+    path: Path,
+    content: bytes,
+    *,
+    normalize_newlines: bool = True,
+) -> None:
+    """Commit one validated output with rename-first Windows-safe fallback.
+
+    Forward writes are canonicalized to LF so a Windows checkout cannot
+    reintroduce CRLF/mixed-line-ending drift. Rollback callers explicitly set
+    normalize_newlines=False so pre-transaction bytes are restored exactly.
+
+    The transaction validates every staged output before this point and owns
+    byte-exact rollback for every destination. Some Windows editors/watchers
+    open files without FILE_SHARE_DELETE, which can block os.replace for the
+    full lifetime of the watcher even though ordinary writes are allowed.
+    Retry transient locks first; only then fall back to an fsynced overwrite.
+    """
+
+    payload = _lf_bytes(content) if normalize_newlines else content
     temporary = path.with_name(f".{path.name}.relevel-bundle.tmp")
     try:
-        temporary.write_bytes(content)
-        os.replace(temporary, path)
+        temporary.write_bytes(payload)
+        try:
+            _replace_with_retry(temporary, path)
+        except PermissionError:
+            _fsync_overwrite(path, payload)
     finally:
         if temporary.exists():
             temporary.unlink()
@@ -3504,7 +3556,9 @@ def migrate(
             return report
 
         outputs = {
-            root / "assets" / "data" / name: (data / name).read_bytes()
+            root / "assets" / "data" / name: _lf_bytes(
+                (data / name).read_bytes()
+            )
             for name in _STAGED_DATA_FILES
         }
         dart_paths = (vocab_pack_service_path, pack_artwork_catalog_path, dancheong_stamp_path)
@@ -3569,13 +3623,21 @@ def migrate(
 
         def _rollback() -> None:
             for path, content in originals.items():
-                _atomic_write_bytes(path, content)
+                _atomic_write_bytes(path, content, normalize_newlines=False)
             if ledger_original is not None:
-                _atomic_write_bytes(ledger_path, ledger_original)
+                _atomic_write_bytes(
+                    ledger_path,
+                    ledger_original,
+                    normalize_newlines=False,
+                )
             elif ledger_path.exists():
                 ledger_path.unlink()
             if aliases_original is not None:
-                _atomic_write_bytes(pack_progress_aliases_path, aliases_original)
+                _atomic_write_bytes(
+                    pack_progress_aliases_path,
+                    aliases_original,
+                    normalize_newlines=False,
+                )
             elif pack_progress_aliases_path.exists():
                 pack_progress_aliases_path.unlink()
             for old_id, new_id in report.artwork_files_renamed:

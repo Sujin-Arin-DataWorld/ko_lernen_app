@@ -5149,6 +5149,78 @@ abstract class AppL10n {
   /// **'Kulturnotiz'**
   String get scenarioCulturalNote;
 
+  /// No description provided for @scenarioCultureInSceneTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Kultur in dieser Szene'**
+  String get scenarioCultureInSceneTitle;
+
+  /// No description provided for @scenarioCultureInSceneBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Entdecke die Kulturbegriffe, die dir in diesem Gespräch begegnet sind.'**
+  String get scenarioCultureInSceneBody;
+
+  /// No description provided for @scenarioCultureTigerReaction.
+  ///
+  /// In de, this message translates to:
+  /// **'Taego bewahrt diesen Kulturhinweis ruhig für dich auf.'**
+  String get scenarioCultureTigerReaction;
+
+  /// No description provided for @scenarioCultureMagpieReaction.
+  ///
+  /// In de, this message translates to:
+  /// **'Joy hat ein kulturelles Detail entdeckt und bringt dir die Neuigkeit.'**
+  String get scenarioCultureMagpieReaction;
+
+  /// No description provided for @scenarioCultureTransferTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Gleiche Absicht, andere Beziehung'**
+  String get scenarioCultureTransferTitle;
+
+  /// No description provided for @scenarioCultureTransferBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Übe mit dem Hahoe-Gelehrten, wie sich dieselbe Bitte bei einem Freund, einem Elternteil oder im Kollegenkreis verändert.'**
+  String get scenarioCultureTransferBody;
+
+  /// No description provided for @scenarioCultureTransferAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Tonfall üben'**
+  String get scenarioCultureTransferAction;
+
+  /// No description provided for @cultureStoriesTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Kulturgeschichten'**
+  String get cultureStoriesTitle;
+
+  /// No description provided for @cultureStoriesBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Kulturelles aus deinen abgeschlossenen Alltagsszenen wird hier gesammelt.'**
+  String get cultureStoriesBody;
+
+  /// No description provided for @cultureStoriesEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine Kulturgeschichte'**
+  String get cultureStoriesEmptyTitle;
+
+  /// No description provided for @cultureStoriesEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Wenn du eine Szene mit einem Kulturbegriff abschließt, erscheint er hier.'**
+  String get cultureStoriesEmptyBody;
+
+  /// No description provided for @cultureStoriesHanokBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Sammle Kulturbegriffe aus deinen abgeschlossenen Szenen.'**
+  String get cultureStoriesHanokBody;
+
   /// No description provided for @scenarioStartBtn.
   ///
   /// In de, this message translates to:

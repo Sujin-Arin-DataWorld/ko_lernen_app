@@ -466,6 +466,9 @@ void main() {
         'kl_best_streak': 52,
         'kl_xp': 61,
         'kl_user_level': 'b1',
+        Storage.scenarioCorpusGenerationPreferenceKey:
+            ScenarioCorpusGeneration.canonical120,
+        'kl_completed_scenarios': <String>['scenario-local'],
         'kl_stamps_earned': <String>['stamp1'],
         'kl_quests_completed_v1': '{"quest1":"2026-07-01T00:00:00.000Z"}',
         'kl_owned_decor': <String>['decoration_soban'],
@@ -503,6 +506,8 @@ void main() {
         'progress': {
           'xp': 61,
           'level': 'b1',
+          'scenario_corpus_generation': ScenarioCorpusGeneration.canonical120,
+          'completed_scenarios': ['scenario-local'],
           'earned_stamps': ['stamp1'],
           'quest_completions': {'quest1': '2026-07-01T00:00:00.000Z'},
           'owned_decor': ['decoration_soban'],
@@ -522,6 +527,43 @@ void main() {
       expect(payload, isNot(contains('browse_level')));
     },
   );
+
+  test('scenario completion restore unions a matching corpus generation', () async {
+    await _initializeStorage({
+      Storage.scenarioCorpusGenerationPreferenceKey:
+          ScenarioCorpusGeneration.canonical120,
+      'kl_completed_scenarios': <String>['scenario-local'],
+    });
+
+    await CloudSync.applyRestorePayload({
+      'progress': {
+        'scenario_corpus_generation': ScenarioCorpusGeneration.canonical120,
+        'completed_scenarios': <String>['scenario-remote', 'scenario-local'],
+      },
+    });
+
+    expect(Storage.completedScenarios.toSet(), {
+      'scenario-local',
+      'scenario-remote',
+    });
+  });
+
+  test('scenario completion restore ignores a different corpus generation', () async {
+    await _initializeStorage({
+      Storage.scenarioCorpusGenerationPreferenceKey:
+          ScenarioCorpusGeneration.canonical120,
+      'kl_completed_scenarios': <String>['scenario-local'],
+    });
+
+    await CloudSync.applyRestorePayload({
+      'progress': {
+        'scenario_corpus_generation': ScenarioCorpusGeneration.legacy,
+        'completed_scenarios': <String>['legacy-scenario'],
+      },
+    });
+
+    expect(Storage.completedScenarios, <String>['scenario-local']);
+  });
 
   test(
     'backup omits empty, malformed, and wrong-shaped grammar plans',

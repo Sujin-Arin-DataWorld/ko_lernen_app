@@ -1,0 +1,62 @@
+{
+  "status": "approved",
+  "batch": "V2G2",
+  "note": "LCP 2026-10-05 follow-up: fix remaining high-confidence grammar level debt. User delegated project-manager authority for app-wide canonicalization. grammar_b1_more_more is documented as 4급/B2 in F1_grammar_map and V2_grammar_gaps; ID stays immutable.",
+  "moves": [],
+  "grammarMoves": [
+    {
+      "id": "grammar_b1_more_more",
+      "from": "b1",
+      "to": "b2",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "reason": "F1_grammar_map.md and V2_grammar_gaps.csv classify -(으)ㄹ수록 as 4급/B2 while the live app row remains B1. Relevel the immutable ID to B2 and route it with other comparison/criterion forms in b2_02_professional_opinion."
+    }
+  ],
+  "grammarQuizRepairs": [
+    {
+      "id": "grammar_b1_more_more",
+      "beforeIds": [
+        "grammar_b1_indirect_speech",
+        "grammar_b1_near_miss",
+        "grammar_b1_immediate_sequence"
+      ],
+      "afterIds": [
+        "grammar_b2_according_to",
+        "grammar_b2_compared_with",
+        "grammar_b2_in_light_of"
+      ],
+      "reason": "After -(으)ㄹ수록 moves to B2, use three B2 relational/comparison forms as plausible but semantically distinct distractors."
+    },
+    {
+      "id": "grammar_b1_near_miss",
+      "beforeIds": [
+        "grammar_b1_more_more",
+        "grammar_b1_negative_cause",
+        "grammar_b1_indirect_speech"
+      ],
+      "afterIds": [
+        "grammar_b1_expectation",
+        "grammar_b1_negative_cause",
+        "grammar_b1_indirect_speech"
+      ],
+      "reason": "Replace the moved B2 form with B1 -(으)ㄹ 텐데, which shares a future/modal surface cue but does not express a near miss."
+    },
+    {
+      "id": "grammar_b1_negative_cause",
+      "beforeIds": [
+        "grammar_b1_near_miss",
+        "grammar_b1_planned_future",
+        "grammar_b1_more_more"
+      ],
+      "afterIds": [
+        "grammar_b1_near_miss",
+        "grammar_b1_planned_future",
+        "grammar_b1_consequence"
+      ],
+      "reason": "Replace the moved B2 form with B1 -다 보면, another consequence-oriented form that remains meaningfully distinct from -느라고."
+    }
+  ]
+}

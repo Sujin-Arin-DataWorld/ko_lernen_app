@@ -1,0 +1,780 @@
+{
+  "version": 1,
+  "lessons": [
+    {
+      "id": "listening.a2.a2_andrea_minho_bojagi_housewarming",
+      "kind": "listening",
+      "level": "a2",
+      "topicId": "a2_plan",
+      "title": {
+        "ko": "보자기로 집들이 선물 포장하기",
+        "de": "Ein Einzugsgeschenk mit Bojagi verpacken",
+        "en": "Wrapping a housewarming gift with bojagi"
+      },
+      "intro": {
+        "ko": "안드레아와 민호가 친구 집들이 선물을 보자기로 포장해요. 포장을 마친 뒤 선물이 어떻게 보이는지와 매듭을 어떻게 할지 이야기해요.",
+        "de": "Andrea und Minho verpacken ein Einzugsgeschenk für Freunde in Bojagi. Danach sprechen sie darüber, wie das Geschenk wirkt und wie fest sie den Knoten binden wollen.",
+        "en": "Andrea and Minho wrap a housewarming gift in bojagi. Afterward, they talk about how the gift looks and how tightly to tie the knot."
+      },
+      "contentIds": [
+        "a2_andrea_minho_bojagi_housewarming"
+      ],
+      "questions": [
+        {
+          "id": "listening.a2.a2_andrea_minho_bojagi_housewarming.situation",
+          "type": "choice",
+          "skill": "situation",
+          "sourceIds": [
+            "a2_andrea_minho_bojagi_housewarming"
+          ],
+          "evidenceKo": "와, 집들이 선물을 보자기에 싸니까 훨씬 고급스러워 보이네.",
+          "prompt": {
+            "ko": "대화 전체에 맞는 상황은 무엇인가요?",
+            "de": "Welche Situation passt zum gesamten Gespräch?",
+            "en": "Which situation matches the whole conversation?"
+          },
+          "explanation": {
+            "ko": "“와, 집들이 선물을 보자기에 싸니까 훨씬 고급스러워 보이네.”라는 말이 근거예요. 대화 전체의 목적과 관계를 함께 확인해요.",
+            "de": "Ein Beleg ist „와, 집들이 선물을 보자기에 싸니까 훨씬 고급스러워 보이네.“. Prüfe Ziel und Beziehung im gesamten Gespräch.",
+            "en": "One supporting line is “와, 집들이 선물을 보자기에 싸니까 훨씬 고급스러워 보이네.”. Check the goal and relationship across the whole conversation."
+          },
+          "options": [
+            {
+              "ko": "보자기로 포장한 집들이 선물의 느낌과 매듭을 이야기해요.",
+              "de": "Sie sprechen über Aussehen und Knoten eines in Bojagi verpackten Einzugsgeschenks.",
+              "en": "They talk about the look and knot of a housewarming gift wrapped in bojagi."
+            },
+            {
+              "ko": "집들이 선물을 다시 사러 가요.",
+              "de": "Sie kaufen ein neues Einzugsgeschenk.",
+              "en": "They go buy another housewarming gift."
+            },
+            {
+              "ko": "보자기를 빌린 사람을 찾아요.",
+              "de": "Sie suchen die Person, von der sie das Bojagi geliehen haben.",
+              "en": "They look for the person they borrowed the bojagi from."
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.a2.a2_andrea_minho_bojagi_housewarming.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "sourceIds": [
+            "a2_andrea_minho_bojagi_housewarming"
+          ],
+          "audioKo": "매듭을 너무 세게 묶으면 열기 힘들 수 있으니까 조금만 느슨하게 하자.",
+          "evidenceKo": "매듭을 너무 세게 묶으면 열기 힘들 수 있으니까 조금만 느슨하게 하자.",
+          "prompt": {
+            "ko": "들은 말의 뜻은 무엇인가요?",
+            "de": "Was bedeutet die gehörte Aussage?",
+            "en": "What does the spoken line mean?"
+          },
+          "explanation": {
+            "ko": "“매듭을 너무 세게 묶으면 열기 힘들 수 있으니까 조금만 느슨하게 하자.”라는 말이 근거예요. 같은 뜻의 대사를 골라요.",
+            "de": "Ein Beleg ist „매듭을 너무 세게 묶으면 열기 힘들 수 있으니까 조금만 느슨하게 하자.“. Wähle die Aussage mit derselben Bedeutung.",
+            "en": "One supporting line is “매듭을 너무 세게 묶으면 열기 힘들 수 있으니까 조금만 느슨하게 하자.”. Choose the line with the same meaning."
+          },
+          "options": [
+            {
+              "ko": "매듭을 너무 세게 묶으면 열기 힘들 수 있으니까 조금만 느슨하게 하자.",
+              "de": "Wenn wir den Knoten zu fest binden, könnte er schwer aufgehen. Machen wir ihn lieber etwas lockerer.",
+              "en": "If we tie the knot too tightly, it may be hard to open. Let's leave it a little looser."
+            },
+            {
+              "ko": "와, 집들이 선물을 보자기에 싸니까 훨씬 고급스러워 보이네.",
+              "de": "Wow, in Bojagi eingepackt wirkt das Einzugsgeschenk gleich viel edler.",
+              "en": "Wow, wrapping the housewarming gift in bojagi makes it look much more elegant."
+            },
+            {
+              "ko": "그치? 종이로 포장했을 때랑 느낌이 좀 다르지?",
+              "de": "Stimmt, oder? Es wirkt schon anders als mit Geschenkpapier.",
+              "en": "Right? It feels a bit different from wrapping it in paper."
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.a2.a2_andrea_minho_bojagi_housewarming.sentence",
+          "type": "order",
+          "skill": "sentence",
+          "sourceIds": [
+            "a2_andrea_minho_bojagi_housewarming"
+          ],
+          "audioKo": "좋아. 이 정도면 예쁘고 열기도 쉽겠다.",
+          "evidenceKo": "좋아. 이 정도면 예쁘고 열기도 쉽겠다.",
+          "targetKo": "좋아. 이 정도면 예쁘고 열기도 쉽겠다.",
+          "prompt": {
+            "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
+            "de": "Ordne die Wörter genau wie in der Aufnahme.",
+            "en": "Put the words in the same order as the recording."
+          },
+          "explanation": {
+            "ko": "“좋아. 이 정도면 예쁘고 열기도 쉽겠다.”라는 말이 근거예요. 들은 어순을 그대로 만들어요.",
+            "de": "Ein Beleg ist „좋아. 이 정도면 예쁘고 열기도 쉽겠다.“. Bilde genau die gehörte Wortfolge.",
+            "en": "One supporting line is “좋아. 이 정도면 예쁘고 열기도 쉽겠다.”. Recreate the exact word order you heard."
+          }
+        },
+        {
+          "id": "listening.a2.a2_andrea_minho_bojagi_housewarming.response",
+          "type": "choice",
+          "skill": "response",
+          "sourceIds": [
+            "a2_andrea_minho_bojagi_housewarming"
+          ],
+          "audioKo": "와, 집들이 선물을 보자기에 싸니까 훨씬 고급스러워 보이네.",
+          "evidenceKo": "그치? 종이로 포장했을 때랑 느낌이 좀 다르지?",
+          "prompt": {
+            "ko": "상대의 말에 가장 자연스럽게 이어지는 응답은 무엇인가요?",
+            "de": "Welche Antwort passt am natürlichsten zur Aussage?",
+            "en": "Which response follows most naturally?"
+          },
+          "explanation": {
+            "ko": "“그치? 종이로 포장했을 때랑 느낌이 좀 다르지?”라는 응답이 대화의 목적에 가장 잘 맞아요.",
+            "de": "„그치? 종이로 포장했을 때랑 느낌이 좀 다르지?“ passt am besten zum Ziel des Gesprächs.",
+            "en": "“그치? 종이로 포장했을 때랑 느낌이 좀 다르지?” best fits the goal of the conversation."
+          },
+          "options": [
+            {
+              "ko": "그치? 종이로 포장했을 때랑 느낌이 좀 다르지?",
+              "de": "Stimmt, oder? Es wirkt schon anders als mit Geschenkpapier.",
+              "en": "Right? It feels a bit different from wrapping it in paper."
+            },
+            {
+              "ko": "응. 그냥 이대로 가져가자.",
+              "de": "Ja. Nehmen wir es einfach so mit.",
+              "en": "Yeah. Let's take it just like this."
+            },
+            {
+              "ko": "와, 집들이 선물을 보자기에 싸니까 훨씬 고급스러워 보이네.",
+              "de": "Wow, in Bojagi eingepackt wirkt das Einzugsgeschenk gleich viel edler.",
+              "en": "Wow, wrapping the housewarming gift in bojagi makes it look much more elegant."
+            }
+          ],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "listening.b1.b1_minho_christian_hanok_cafe_meeting",
+      "kind": "listening",
+      "level": "b1",
+      "topicId": "b1_team",
+      "title": {
+        "ko": "한옥 카페에서 멘토링 자리 정하기",
+        "de": "Einen Platz für ein Mentoring-Treffen im Hanok-Café wählen",
+        "en": "Choosing a mentoring spot in a hanok café"
+      },
+      "intro": {
+        "ko": "민호와 크리스티안이 멘토링하러 한옥 카페에 왔어요. 크리스티안은 노트북을 쓰려고 직원에게 콘센트 있는 자리를 물어봐요.",
+        "de": "Minho und Christian sind für ihr Mentoring in einem Hanok-Café. Christian fragt die Servicekraft nach einem Platz mit Steckdose für seinen Laptop.",
+        "en": "Minho and Christian have come to a hanok café for mentoring. Christian asks the server for a seat with a power outlet for his laptop."
+      },
+      "contentIds": [
+        "b1_minho_christian_hanok_cafe_meeting"
+      ],
+      "questions": [
+        {
+          "id": "listening.b1.b1_minho_christian_hanok_cafe_meeting.situation",
+          "type": "choice",
+          "skill": "situation",
+          "sourceIds": [
+            "b1_minho_christian_hanok_cafe_meeting"
+          ],
+          "evidenceKo": "혹시 여기 콘센트 쓸 수 있는 자리 있을까요?",
+          "prompt": {
+            "ko": "대화 전체에 맞는 상황은 무엇인가요?",
+            "de": "Welche Situation passt zum gesamten Gespräch?",
+            "en": "Which situation matches the whole conversation?"
+          },
+          "explanation": {
+            "ko": "“혹시 여기 콘센트 쓸 수 있는 자리 있을까요?”라는 말이 근거예요. 대화 전체의 목적과 관계를 함께 확인해요.",
+            "de": "Ein Beleg ist „혹시 여기 콘센트 쓸 수 있는 자리 있을까요?“. Prüfe Ziel und Beziehung im gesamten Gespräch.",
+            "en": "One supporting line is “혹시 여기 콘센트 쓸 수 있는 자리 있을까요?”. Check the goal and relationship across the whole conversation."
+          },
+          "options": [
+            {
+              "ko": "한옥 카페에서 노트북을 쓸 자리를 직원에게 묻고 안내받아요.",
+              "de": "Im Hanok-Café fragen sie nach einem Laptop-Platz und lassen sich dorthin führen.",
+              "en": "At a hanok café, they ask the server for a laptop-friendly seat and are shown to it."
+            },
+            {
+              "ko": "한옥 카페의 메뉴를 새로 만들어요.",
+              "de": "Sie erstellen eine neue Speisekarte für das Hanok-Café.",
+              "en": "They create a new menu for the hanok café."
+            },
+            {
+              "ko": "마당을 수리할 사람을 찾아요.",
+              "de": "Sie suchen jemanden, der den Madang repariert.",
+              "en": "They look for someone to repair the madang."
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.b1.b1_minho_christian_hanok_cafe_meeting.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "sourceIds": [
+            "b1_minho_christian_hanok_cafe_meeting"
+          ],
+          "audioKo": "혹시 여기 콘센트 쓸 수 있는 자리 있을까요?",
+          "evidenceKo": "혹시 여기 콘센트 쓸 수 있는 자리 있을까요?",
+          "prompt": {
+            "ko": "들은 말의 뜻은 무엇인가요?",
+            "de": "Was bedeutet die gehörte Aussage?",
+            "en": "What does the spoken line mean?"
+          },
+          "explanation": {
+            "ko": "“혹시 여기 콘센트 쓸 수 있는 자리 있을까요?”라는 말이 근거예요. 같은 뜻의 대사를 골라요.",
+            "de": "Ein Beleg ist „혹시 여기 콘센트 쓸 수 있는 자리 있을까요?“. Wähle die Aussage mit derselben Bedeutung.",
+            "en": "One supporting line is “혹시 여기 콘센트 쓸 수 있는 자리 있을까요?”. Choose the line with the same meaning."
+          },
+          "options": [
+            {
+              "ko": "혹시 여기 콘센트 쓸 수 있는 자리 있을까요?",
+              "de": "Entschuldigung, gibt es hier einen Platz, an dem ich eine Steckdose benutzen kann?",
+              "en": "Excuse me, is there a seat here where I can use a power outlet?"
+            },
+            {
+              "ko": "여기가 제가 말한 한옥 카페예요. 마당 쪽에도 자리가 있네요.",
+              "de": "Das ist das Hanok-Café, von dem ich erzählt habe. Am Madang gibt es auch Plätze.",
+              "en": "This is the hanok café I told you about. There are seats by the madang too."
+            },
+            {
+              "ko": "네. 안쪽 창가 자리에 콘센트가 있어요.",
+              "de": "Ja. Am Fenster weiter drinnen gibt es einen Platz mit Steckdose.",
+              "en": "Yes. There's a seat by the inside window with a power outlet."
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.b1.b1_minho_christian_hanok_cafe_meeting.sentence",
+          "type": "order",
+          "skill": "sentence",
+          "sourceIds": [
+            "b1_minho_christian_hanok_cafe_meeting"
+          ],
+          "audioKo": "좋아요. 자리 잡고 시작하죠.",
+          "evidenceKo": "좋아요. 자리 잡고 시작하죠.",
+          "targetKo": "좋아요. 자리 잡고 시작하죠.",
+          "prompt": {
+            "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
+            "de": "Ordne die Wörter genau wie in der Aufnahme.",
+            "en": "Put the words in the same order as the recording."
+          },
+          "explanation": {
+            "ko": "“좋아요. 자리 잡고 시작하죠.”라는 말이 근거예요. 들은 어순을 그대로 만들어요.",
+            "de": "Ein Beleg ist „좋아요. 자리 잡고 시작하죠.“. Bilde genau die gehörte Wortfolge.",
+            "en": "One supporting line is “좋아요. 자리 잡고 시작하죠.”. Recreate the exact word order you heard."
+          }
+        },
+        {
+          "id": "listening.b1.b1_minho_christian_hanok_cafe_meeting.response",
+          "type": "choice",
+          "skill": "response",
+          "sourceIds": [
+            "b1_minho_christian_hanok_cafe_meeting"
+          ],
+          "audioKo": "네. 안쪽 창가 자리에 콘센트가 있어요.",
+          "evidenceKo": "그럼 저쪽 자리 써도 될까요?",
+          "prompt": {
+            "ko": "직원이 안쪽 창가 자리에 콘센트가 있다고 했어요. 그 자리를 써도 되는지 물으세요.",
+            "de": "Die Servicekraft sagt, dass es am Fenster einen Platz mit Steckdose gibt. Frage, ob du diesen Platz benutzen darfst.",
+            "en": "The server says there's a window seat with a power outlet. Ask whether you may use that seat."
+          },
+          "explanation": {
+            "ko": "“그럼 저쪽 자리 써도 될까요?”라는 응답이 자리 사용 허락을 자연스럽게 물어요.",
+            "de": "„그럼 저쪽 자리 써도 될까요?“ fragt natürlich um Erlaubnis, den Platz zu benutzen.",
+            "en": "“그럼 저쪽 자리 써도 될까요?” best fits the goal of asking permission to use the seat."
+          },
+          "options": [
+            {
+              "ko": "그럼 저쪽 자리 써도 될까요?",
+              "de": "Darf ich dann den Platz dort benutzen?",
+              "en": "Then would it be okay if I use that seat?"
+            },
+            {
+              "ko": "분위기 좋네요. 그런데 오늘은 노트북을 써야 해서 안쪽이 더 좋을 것 같아요.",
+              "de": "Die Atmosphäre ist schön. Aber heute brauche ich meinen Laptop, daher wäre ein Platz drinnen wohl besser.",
+              "en": "The atmosphere is nice. But I need to use my laptop today, so an indoor seat would probably be better."
+            },
+            {
+              "ko": "좋아요. 자리 잡고 시작하죠.",
+              "de": "Gut. Dann setzen wir uns und legen los.",
+              "en": "Great. Let's get settled and start."
+            }
+          ],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "listening.a2.a2_lena_maya_buchae_gift_choice",
+      "kind": "listening",
+      "level": "a2",
+      "topicId": "a2_buy",
+      "title": {
+        "ko": "선물용 부채 고르기",
+        "de": "Einen Fächer als Geschenk auswählen",
+        "en": "Choosing a fan as a gift"
+      },
+      "intro": {
+        "ko": "레나가 셰어하우스 친구에게 줄 작은 선물을 고르려고 해요. 마야와 함께 실제로 쓸 수 있는 부채의 색과 글씨를 정해요.",
+        "de": "Lena sucht ein kleines Geschenk für eine Mitbewohnerin. Mit Maya wählt sie Farbe und Beschriftung eines Fächers, der auch wirklich benutzt werden kann.",
+        "en": "Lena is choosing a small gift for a housemate. With Maya, she picks the color and lettering of a fan that can actually be used."
+      },
+      "contentIds": [
+        "a2_lena_maya_buchae_gift_choice"
+      ],
+      "questions": [
+        {
+          "id": "listening.a2.a2_lena_maya_buchae_gift_choice.situation",
+          "type": "choice",
+          "skill": "situation",
+          "sourceIds": [
+            "a2_lena_maya_buchae_gift_choice"
+          ],
+          "evidenceKo": "현아한테 작은 선물을 주고 싶은데, 이 부채 어때?",
+          "prompt": {
+            "ko": "대화 전체에 맞는 상황은 무엇인가요?",
+            "de": "Welche Situation passt zum gesamten Gespräch?",
+            "en": "Which situation matches the whole conversation?"
+          },
+          "explanation": {
+            "ko": "“현아한테 작은 선물을 주고 싶은데, 이 부채 어때?”라는 말이 근거예요. 대화 전체의 목적과 관계를 함께 확인해요.",
+            "de": "Ein Beleg ist „현아한테 작은 선물을 주고 싶은데, 이 부채 어때?“. Prüfe Ziel und Beziehung im gesamten Gespräch.",
+            "en": "One supporting line is “현아한테 작은 선물을 주고 싶은데, 이 부채 어때?”. Check the goal and relationship across the whole conversation."
+          },
+          "options": [
+            {
+              "ko": "실제로 쓰기 편한 부채를 선물로 고르고 이름을 넣을지 정해요.",
+              "de": "Sie wählen einen praktischen Fächer als Geschenk und entscheiden, ob ein Name darauf soll.",
+              "en": "They choose a practical fan as a gift and decide whether to add a name."
+            },
+            {
+              "ko": "공연용 큰 부채를 빌려요.",
+              "de": "Sie leihen einen großen Bühnenfächer.",
+              "en": "They borrow a large stage fan."
+            },
+            {
+              "ko": "부채 만드는 방법을 배워요.",
+              "de": "Sie lernen, wie man einen Fächer herstellt.",
+              "en": "They learn how to make a fan."
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.a2.a2_lena_maya_buchae_gift_choice.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "sourceIds": [
+            "a2_lena_maya_buchae_gift_choice"
+          ],
+          "audioKo": "좋아. 나는 이걸로 할래. 이름도 넣을까?",
+          "evidenceKo": "좋아. 나는 이걸로 할래. 이름도 넣을까?",
+          "prompt": {
+            "ko": "들은 말의 뜻은 무엇인가요?",
+            "de": "Was bedeutet die gehörte Aussage?",
+            "en": "What does the spoken line mean?"
+          },
+          "explanation": {
+            "ko": "“좋아. 나는 이걸로 할래. 이름도 넣을까?”라는 말이 근거예요. 같은 뜻의 대사를 골라요.",
+            "de": "Ein Beleg ist „좋아. 나는 이걸로 할래. 이름도 넣을까?“. Wähle die Aussage mit derselben Bedeutung.",
+            "en": "One supporting line is “좋아. 나는 이걸로 할래. 이름도 넣을까?”. Choose the line with the same meaning."
+          },
+          "options": [
+            {
+              "ko": "좋아. 나는 이걸로 할래. 이름도 넣을까?",
+              "de": "Gut. Dann nehme ich diesen. Soll ich auch ihren Namen draufschreiben lassen?",
+              "en": "Great. I'll go with this one. Should I add her name too?"
+            },
+            {
+              "ko": "현아한테 작은 선물을 주고 싶은데, 이 부채 어때?",
+              "de": "Ich möchte Hyuna eine Kleinigkeit schenken. Wie findest du diesen Fächer?",
+              "en": "I want to give Hyuna a small gift. What do you think of this fan?"
+            },
+            {
+              "ko": "예쁘다. 근데 장식이 너무 많으면 실제로 쓰기 불편하지 않을까?",
+              "de": "Schön. Aber wenn zu viel Deko dran ist, ist er vielleicht unpraktisch.",
+              "en": "It's pretty. But if it has too much decoration, it might be inconvenient to use."
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.a2.a2_lena_maya_buchae_gift_choice.sentence",
+          "type": "order",
+          "skill": "sentence",
+          "sourceIds": [
+            "a2_lena_maya_buchae_gift_choice"
+          ],
+          "audioKo": "좋아. 그럼 그렇게 할게.",
+          "evidenceKo": "좋아. 그럼 그렇게 할게.",
+          "targetKo": "좋아. 그럼 그렇게 할게.",
+          "prompt": {
+            "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
+            "de": "Ordne die Wörter genau wie in der Aufnahme.",
+            "en": "Put the words in the same order as the recording."
+          },
+          "explanation": {
+            "ko": "“좋아. 그럼 그렇게 할게.”라는 말이 근거예요. 들은 어순을 그대로 만들어요.",
+            "de": "Ein Beleg ist „좋아. 그럼 그렇게 할게.“. Bilde genau die gehörte Wortfolge.",
+            "en": "One supporting line is “좋아. 그럼 그렇게 할게.”. Recreate the exact word order you heard."
+          }
+        },
+        {
+          "id": "listening.a2.a2_lena_maya_buchae_gift_choice.response",
+          "type": "choice",
+          "skill": "response",
+          "sourceIds": [
+            "a2_lena_maya_buchae_gift_choice"
+          ],
+          "audioKo": "그럼 이 파란색은 어때? 현아가 이런 색 좋아하잖아.",
+          "evidenceKo": "좋아. 나는 이걸로 할래. 이름도 넣을까?",
+          "prompt": {
+            "ko": "상대의 말에 가장 자연스럽게 이어지는 응답은 무엇인가요?",
+            "de": "Welche Antwort passt am natürlichsten zur Aussage?",
+            "en": "Which response follows most naturally?"
+          },
+          "explanation": {
+            "ko": "“좋아. 나는 이걸로 할래. 이름도 넣을까?”라는 응답이 대화의 목적에 가장 잘 맞아요.",
+            "de": "„좋아. 나는 이걸로 할래. 이름도 넣을까?“ passt am besten zum Ziel des Gesprächs.",
+            "en": "“좋아. 나는 이걸로 할래. 이름도 넣을까?” best fits the goal of the conversation."
+          },
+          "options": [
+            {
+              "ko": "좋아. 나는 이걸로 할래. 이름도 넣을까?",
+              "de": "Gut. Dann nehme ich diesen. Soll ich auch ihren Namen draufschreiben lassen?",
+              "en": "Great. I'll go with this one. Should I add her name too?"
+            },
+            {
+              "ko": "좋아. 그럼 그렇게 할게.",
+              "de": "Gut. Dann mache ich es so.",
+              "en": "Great. I'll do that."
+            },
+            {
+              "ko": "현아한테 작은 선물을 주고 싶은데, 이 부채 어때?",
+              "de": "Ich möchte Hyuna eine Kleinigkeit schenken. Wie findest du diesen Fächer?",
+              "en": "I want to give Hyuna a small gift. What do you think of this fan?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "listening.b2.b2_maya_daniel_pansori_promo_clip",
+      "kind": "listening",
+      "level": "b2",
+      "topicId": "b2_evidence",
+      "title": {
+        "ko": "판소리 공연 보고 이야기하기",
+        "de": "Nach einer Pansori-Aufführung darüber sprechen",
+        "en": "Talking after a pansori performance"
+      },
+      "intro": {
+        "ko": "마야와 다니엘이 판소리 공연을 보고 나온 뒤 인상 깊었던 장면을 이야기해요. 처음 보는 사람에게 낯설었던 추임새와 고수의 역할, 이야기 흐름을 자연스럽게 짚어봐요.",
+        "de": "Maya und Daniel sprechen nach einer Pansori-Aufführung über besonders eindrucksvolle Momente. Dabei kommen natürlich die Chueimsae-Rufe, die Rolle des Gosu und der Erzählfluss zur Sprache.",
+        "en": "Maya and Daniel talk after a pansori performance about what stood out to them. Their conversation naturally touches on chueimsae calls, the gosu's role, and the flow of the story."
+      },
+      "contentIds": [
+        "b2_maya_daniel_pansori_promo_clip"
+      ],
+      "questions": [
+        {
+          "id": "listening.b2.b2_maya_daniel_pansori_promo_clip.situation",
+          "type": "choice",
+          "skill": "situation",
+          "sourceIds": [
+            "b2_maya_daniel_pansori_promo_clip"
+          ],
+          "evidenceKo": "와… 생각보다 훨씬 강렬하네요. 무대에는 두 분밖에 없는데 꽉 찬 느낌이었어요.",
+          "prompt": {
+            "ko": "대화 전체에서 화자의 의도와 상황에 가장 맞는 것은 무엇인가요?",
+            "de": "Welche Absicht und Situation passt am besten zum gesamten Gespräch?",
+            "en": "Which intention and situation best matches the whole conversation?"
+          },
+          "explanation": {
+            "ko": "“와… 생각보다 훨씬 강렬하네요. 무대에는 두 분밖에 없는데 꽉 찬 느낌이었어요.”라는 말이 근거예요. 공연을 본 뒤 감상을 나누는 상황인지 확인해요.",
+            "de": "Ein Beleg ist „와… 생각보다 훨씬 강렬하네요. 무대에는 두 분밖에 없는데 꽉 찬 느낌이었어요.“. Prüfe, ob die beiden nach einer Aufführung ihre Eindrücke austauschen.",
+            "en": "One supporting line is “와… 생각보다 훨씬 강렬하네요. 무대에는 두 분밖에 없는데 꽉 찬 느낌이었어요.”. Check that they are sharing reactions after a performance."
+          },
+          "options": [
+            {
+              "ko": "판소리 공연을 본 뒤 인상 깊었던 점과 다음 관람 이야기를 나눠요.",
+              "de": "Nach einer Pansori-Aufführung sprechen sie über ihre Eindrücke und einen nächsten Besuch.",
+              "en": "After a pansori performance, they talk about what stood out and about seeing another performance."
+            },
+            {
+              "ko": "판소리 홍보 영상을 편집해요.",
+              "de": "Sie schneiden ein Werbevideo für Pansori.",
+              "en": "They edit a promotional video for pansori."
+            },
+            {
+              "ko": "판소리 공연 시간을 예약해요.",
+              "de": "Sie reservieren eine Zeit für eine Pansori-Aufführung.",
+              "en": "They book a time for a pansori performance."
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.b2.b2_maya_daniel_pansori_promo_clip.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "sourceIds": [
+            "b2_maya_daniel_pansori_promo_clip"
+          ],
+          "audioKo": "아, 그래서 옆에서 갑자기 ‘얼씨구!’ 하는 사람이 있었구나. 처음에는 좀 놀랐는데 듣다 보니 그게 더 재밌더라고요.",
+          "evidenceKo": "아, 그래서 옆에서 갑자기 ‘얼씨구!’ 하는 사람이 있었구나. 처음에는 좀 놀랐는데 듣다 보니 그게 더 재밌더라고요.",
+          "prompt": {
+            "ko": "들은 말의 뜻은 무엇인가요?",
+            "de": "Was bedeutet die gehörte Aussage?",
+            "en": "What does the spoken line mean?"
+          },
+          "explanation": {
+            "ko": "“아, 그래서 옆에서 갑자기 ‘얼씨구!’ 하는 사람이 있었구나. 처음에는 좀 놀랐는데 듣다 보니 그게 더 재밌더라고요.”라는 말이 근거예요. 처음에는 낯설었지만 듣다 보니 더 재미있어졌다는 뜻이에요.",
+            "de": "Ein Beleg ist „아, 그래서 옆에서 갑자기 ‘얼씨구!’ 하는 사람이 있었구나. 처음에는 좀 놀랐는데 듣다 보니 그게 더 재밌더라고요.“. Es bedeutet, dass es zuerst ungewohnt war, beim weiteren Zuhören aber mehr Spaß machte.",
+            "en": "One supporting line is “아, 그래서 옆에서 갑자기 ‘얼씨구!’ 하는 사람이 있었구나. 처음에는 좀 놀랐는데 듣다 보니 그게 더 재밌더라고요.”. It means it felt unfamiliar at first but became more fun as he kept listening."
+          },
+          "options": [
+            {
+              "ko": "아, 그래서 옆에서 갑자기 ‘얼씨구!’ 하는 사람이 있었구나. 처음에는 좀 놀랐는데 듣다 보니 그게 더 재밌더라고요.",
+              "de": "Ah, deshalb hat neben mir plötzlich jemand „Eolssigu!“ gerufen. Erst hat mich das überrascht, aber je länger ich zuhörte, desto mehr Spaß hat mir genau das gemacht.",
+              "en": "Ah, so that's why someone next to me suddenly shouted 'Eolssigu!' I was a little surprised at first, but the more I listened, the more fun that became."
+            },
+            {
+              "ko": "와… 생각보다 훨씬 강렬하네요. 무대에는 두 분밖에 없는데 꽉 찬 느낌이었어요.",
+              "de": "Wow … das war viel intensiver, als ich erwartet hatte. Obwohl nur zwei Personen auf der Bühne waren, wirkte sie völlig ausgefüllt.",
+              "en": "Wow… that was much more intense than I expected. There were only two people on stage, but it still felt completely full."
+            },
+            {
+              "ko": "오늘은 내용을 다 알아들은 건 아닌데, 웃긴 장면인지 슬픈 장면인지는 목소리만 들어도 어느 정도 느껴졌어요.",
+              "de": "Heute habe ich zwar nicht alles verstanden, aber allein an der Stimme konnte ich ungefähr spüren, ob eine Szene lustig oder traurig war.",
+              "en": "I didn't understand everything today, but just from the voice I could still tell to some extent whether a scene was funny or sad."
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.b2.b2_maya_daniel_pansori_promo_clip.sentence",
+          "type": "order",
+          "skill": "sentence",
+          "sourceIds": [
+            "b2_maya_daniel_pansori_promo_clip"
+          ],
+          "audioKo": "좋아요. 다음에는 저도 타이밍 봐서 ‘얼씨구!’ 한번 해볼게요.",
+          "evidenceKo": "좋아요. 다음에는 저도 타이밍 봐서 ‘얼씨구!’ 한번 해볼게요.",
+          "targetKo": "좋아요. 다음에는 저도 타이밍 봐서 ‘얼씨구!’ 한번 해볼게요.",
+          "prompt": {
+            "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
+            "de": "Ordne die Wörter genau wie in der Aufnahme.",
+            "en": "Put the words in the same order as the recording."
+          },
+          "explanation": {
+            "ko": "“좋아요. 다음에는 저도 타이밍 봐서 ‘얼씨구!’ 한번 해볼게요.”라는 말이 근거예요. 들은 어순을 그대로 만들어요.",
+            "de": "Ein Beleg ist „좋아요. 다음에는 저도 타이밍 봐서 ‘얼씨구!’ 한번 해볼게요.“. Bilde genau die gehörte Wortfolge.",
+            "en": "One supporting line is “좋아요. 다음에는 저도 타이밍 봐서 ‘얼씨구!’ 한번 해볼게요.”. Recreate the exact word order you heard."
+          }
+        },
+        {
+          "id": "listening.b2.b2_maya_daniel_pansori_promo_clip.response",
+          "type": "choice",
+          "skill": "response",
+          "sourceIds": [
+            "b2_maya_daniel_pansori_promo_clip"
+          ],
+          "audioKo": "맞아요. 다음에는 줄거리 먼저 조금 보고 다른 공연도 보러 갈래요?",
+          "evidenceKo": "좋아요. 다음에는 저도 타이밍 봐서 ‘얼씨구!’ 한번 해볼게요.",
+          "prompt": {
+            "ko": "상대가 다음에 다른 판소리 공연도 보러 가자고 했어요. 가장 자연스러운 응답은 무엇인가요?",
+            "de": "Die andere Person schlägt vor, beim nächsten Mal noch eine Pansori-Aufführung zu sehen. Welche Antwort passt am besten?",
+            "en": "The other person suggests seeing another pansori performance next time. Which response fits best?"
+          },
+          "explanation": {
+            "ko": "“좋아요. 다음에는 저도 타이밍 봐서 ‘얼씨구!’ 한번 해볼게요.”라는 응답이 다음 관람 계획이라는 goal에 가장 잘 맞아요.",
+            "de": "„좋아요. 다음에는 저도 타이밍 봐서 ‘얼씨구!’ 한번 해볼게요.“ passt am besten zum gemeinsamen Plan für die nächste Aufführung.",
+            "en": "“좋아요. 다음에는 저도 타이밍 봐서 ‘얼씨구!’ 한번 해볼게요.” best fits the goal of planning the next performance together."
+          },
+          "options": [
+            {
+              "ko": "좋아요. 다음에는 저도 타이밍 봐서 ‘얼씨구!’ 한번 해볼게요.",
+              "de": "Gern. Beim nächsten Mal versuche ich auch, im richtigen Moment einmal „Eolssigu!“ zu rufen.",
+              "en": "Sounds good. Next time I'll try shouting 'Eolssigu!' at the right moment too."
+            },
+            {
+              "ko": "그렇죠? 저도 처음 봤을 때 소리꾼 목소리가 이렇게 힘이 센 줄 몰랐어요.",
+              "de": "Stimmt, oder? Als ich Pansori zum ersten Mal gesehen habe, wusste ich auch nicht, dass die Stimme des Sängers so kraftvoll sein kann.",
+              "en": "Right? The first time I saw pansori, I had no idea the singer's voice could be that powerful."
+            },
+            {
+              "ko": "맞아요. 가만히 듣기만 하는 공연이랑 느낌이 좀 다르죠.",
+              "de": "Genau. Es fühlt sich anders an als eine Aufführung, bei der man einfach still zuhört.",
+              "en": "Exactly. It feels different from a performance where you just sit quietly and listen."
+            }
+          ],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "listening.b2.b2_hyuna_daniel_nongak_festival_filming",
+      "kind": "listening",
+      "level": "b2",
+      "topicId": "b2_evidence",
+      "title": {
+        "ko": "농악 공연 보고 다음 약속 잡기",
+        "de": "Nach einer Nongak-Aufführung das nächste Treffen planen",
+        "en": "Planning the next outing after a nongak performance"
+      },
+      "intro": {
+        "ko": "현아와 다니엘이 농악 공연을 본 뒤 이야기를 나눠요. 다니엘은 장구를 배워 보고 싶다고 말하고, 둘은 다음 공연도 같이 보러 가기로 해요.",
+        "de": "Hyuna und Daniel sprechen nach einer Nongak-Aufführung. Daniel sagt, dass er gern Janggu lernen würde, und beide verabreden sich für eine weitere Aufführung.",
+        "en": "Hyuna and Daniel talk after watching a nongak performance. Daniel says he'd like to learn the janggu, and they make plans to see another performance together."
+      },
+      "contentIds": [
+        "b2_hyuna_daniel_nongak_festival_filming"
+      ],
+      "questions": [
+        {
+          "id": "listening.b2.b2_hyuna_daniel_nongak_festival_filming.situation",
+          "type": "choice",
+          "skill": "situation",
+          "sourceIds": [
+            "b2_hyuna_daniel_nongak_festival_filming"
+          ],
+          "evidenceKo": "그럼 다음에 또 다른 데서 공연 있으면 같이 보러 갈래요?",
+          "prompt": {
+            "ko": "대화 전체에서 화자의 의도와 상황에 가장 맞는 것은 무엇인가요?",
+            "de": "Welche Absicht und Situation passt am besten zum gesamten Gespräch?",
+            "en": "Which intention and situation best matches the whole conversation?"
+          },
+          "explanation": {
+            "ko": "“그럼 다음에 또 다른 데서 공연 있으면 같이 보러 갈래요?”라는 말이 근거예요. 대화 전체의 목적과 관계를 함께 확인해요.",
+            "de": "Ein Beleg ist „그럼 다음에 또 다른 데서 공연 있으면 같이 보러 갈래요?“. Prüfe Ziel und Beziehung im gesamten Gespräch.",
+            "en": "One supporting line is “그럼 다음에 또 다른 데서 공연 있으면 같이 보러 갈래요?”. Check the goal and relationship across the whole conversation."
+          },
+          "options": [
+            {
+              "ko": "농악 공연을 본 뒤 관심사를 나누고 다음 공연도 함께 보기로 해요.",
+              "de": "Nach einer Nongak-Aufführung sprechen sie über ihre Interessen und verabreden sich für eine weitere Aufführung.",
+              "en": "After a nongak performance, they talk about their interests and make plans to see another performance together."
+            },
+            {
+              "ko": "농악 공연 촬영 위치를 다시 정해요.",
+              "de": "Sie legen die Kameraposition für eine Nongak-Aufführung neu fest.",
+              "en": "They change the filming position for a nongak performance."
+            },
+            {
+              "ko": "장구 수업 시간을 예약해요.",
+              "de": "Sie reservieren eine Zeit für eine Janggu-Stunde.",
+              "en": "They book a time for a janggu lesson."
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.b2.b2_hyuna_daniel_nongak_festival_filming.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "sourceIds": [
+            "b2_hyuna_daniel_nongak_festival_filming"
+          ],
+          "audioKo": "아, 정말요? 한번 배워 봐요! 농악은 지역마다 장단이나 공연 방식이 좀 다르대요.",
+          "evidenceKo": "아, 정말요? 한번 배워 봐요! 농악은 지역마다 장단이나 공연 방식이 좀 다르대요.",
+          "prompt": {
+            "ko": "들은 말의 뜻은 무엇인가요?",
+            "de": "Was bedeutet die gehörte Aussage?",
+            "en": "What does the spoken line mean?"
+          },
+          "explanation": {
+            "ko": "“아, 정말요? 한번 배워 봐요! 농악은 지역마다 장단이나 공연 방식이 좀 다르대요.”라는 말이 근거예요. 같은 뜻의 대사를 골라요.",
+            "de": "Ein Beleg ist „아, 정말요? 한번 배워 봐요! 농악은 지역마다 장단이나 공연 방식이 좀 다르대요.“. Wähle die Aussage mit derselben Bedeutung.",
+            "en": "One supporting line is “아, 정말요? 한번 배워 봐요! 농악은 지역마다 장단이나 공연 방식이 좀 다르대요.”. Choose the line with the same meaning."
+          },
+          "options": [
+            {
+              "ko": "아, 정말요? 한번 배워 봐요! 농악은 지역마다 장단이나 공연 방식이 좀 다르대요.",
+              "de": "Ach, wirklich? Probieren Sie es doch mal! Ich habe gehört, dass Rhythmen und Aufführungsweise beim Nongak je nach Region etwas unterschiedlich sind.",
+              "en": "Oh, really? You should try it! I heard that nongak rhythms and performance styles vary a bit by region."
+            },
+            {
+              "ko": "아까 본 게 농악이죠? 저는 음악만 하는 줄 알았는데 사람들이 계속 움직이고 춤도 추더라고요.",
+              "de": "Das eben war Nongak, oder? Ich dachte, es gehe nur um Musik, aber die Leute haben sich ständig bewegt und auch getanzt.",
+              "en": "That was nongak just now, right? I thought it was only music, but people kept moving around and dancing too."
+            },
+            {
+              "ko": "그럼 다음에 또 다른 데서 공연 있으면 같이 보러 갈래요?",
+              "de": "Wollen wir dann gemeinsam hingehen, wenn es demnächst anderswo wieder eine Aufführung gibt?",
+              "en": "Then if there's another performance somewhere else, do you want to go see it together?"
+            }
+          ],
+          "correctIndex": 0
+        },
+        {
+          "id": "listening.b2.b2_hyuna_daniel_nongak_festival_filming.sentence",
+          "type": "order",
+          "skill": "sentence",
+          "sourceIds": [
+            "b2_hyuna_daniel_nongak_festival_filming"
+          ],
+          "audioKo": "하하, 제가 한국에 산 지가 몇 년인데요. 전 장구를 한번 배워 보고 싶어요.",
+          "evidenceKo": "하하, 제가 한국에 산 지가 몇 년인데요. 전 장구를 한번 배워 보고 싶어요.",
+          "targetKo": "하하, 제가 한국에 산 지가 몇 년인데요. 전 장구를 한번 배워 보고 싶어요.",
+          "prompt": {
+            "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
+            "de": "Ordne die Wörter genau wie in der Aufnahme.",
+            "en": "Put the words in the same order as the recording."
+          },
+          "explanation": {
+            "ko": "“하하, 제가 한국에 산 지가 몇 년인데요. 전 장구를 한번 배워 보고 싶어요.”라는 말이 근거예요. 들은 어순을 그대로 만들어요.",
+            "de": "Ein Beleg ist „하하, 제가 한국에 산 지가 몇 년인데요. 전 장구를 한번 배워 보고 싶어요.“. Bilde genau die gehörte Wortfolge.",
+            "en": "One supporting line is “하하, 제가 한국에 산 지가 몇 년인데요. 전 장구를 한번 배워 보고 싶어요.”. Recreate the exact word order you heard."
+          }
+        },
+        {
+          "id": "listening.b2.b2_hyuna_daniel_nongak_festival_filming.response",
+          "type": "choice",
+          "skill": "response",
+          "sourceIds": [
+            "b2_hyuna_daniel_nongak_festival_filming"
+          ],
+          "audioKo": "그럼 다음에 또 다른 데서 공연 있으면 같이 보러 갈래요?",
+          "evidenceKo": "완전 좋아요. 제 친구 중에 국악 하는 친구 있는데, 그 친구한테도 같이 가자고 해볼까요?",
+          "prompt": {
+            "ko": "상대가 다음 공연도 같이 보자고 했어요. 가장 자연스러운 응답은 무엇인가요?",
+            "de": "Die andere Person schlägt vor, auch die nächste Aufführung gemeinsam zu sehen. Welche Antwort passt am besten?",
+            "en": "The other person suggests seeing another performance together. Which response fits best?"
+          },
+          "explanation": {
+            "ko": "“완전 좋아요. 제 친구 중에 국악 하는 친구 있는데, 그 친구한테도 같이 가자고 해볼까요?”라는 응답이 다음 약속을 자연스럽게 이어 가요.",
+            "de": "„완전 좋아요. 제 친구 중에 국악 하는 친구 있는데, 그 친구한테도 같이 가자고 해볼까요?“ führt die gemeinsame Planung natürlich weiter.",
+            "en": "“완전 좋아요. 제 친구 중에 국악 하는 친구 있는데, 그 친구한테도 같이 가자고 해볼까요?” best fits the goal of making the next performance plan together."
+          },
+          "options": [
+            {
+              "ko": "완전 좋아요. 제 친구 중에 국악 하는 친구 있는데, 그 친구한테도 같이 가자고 해볼까요?",
+              "de": "Sehr gern. Ich habe eine Freundin, die Gugak macht. Sollen wir sie auch fragen, ob sie mitkommen möchte?",
+              "en": "I'd love that. I have a friend who does traditional Korean music. Should we ask her to come with us too?"
+            },
+            {
+              "ko": "어? 농악도 알아요? 와, 다니엘 진짜 한국 사람 다 됐네요.",
+              "de": "Oh, Sie kennen sogar Nongak? Wow, Daniel, Sie sind ja schon fast ein richtiger Koreaner.",
+              "en": "Oh, you even know nongak? Wow, Daniel, you're practically Korean now."
+            },
+            {
+              "ko": "좋죠. 그러면 제가 공연 있는지 인터넷에서 한번 찾아볼게요!",
+              "de": "Gern. Dann schaue ich im Internet nach, ob es eine Aufführung gibt!",
+              "en": "Sounds good. Then I'll look online and see if there's another performance!"
+            }
+          ],
+          "correctIndex": 0
+        }
+      ]
+    }
+  ]
+}

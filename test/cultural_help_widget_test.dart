@@ -127,6 +127,34 @@ void main() {
     expect(find.byKey(const Key('cultural_help_hanok')), findsNothing);
   });
 
+  testWidgets(
+    'phase 8 reward decorations open their existing culture stories',
+    (tester) async {
+      const links = <String, String>{
+        'decoration_gat_buchae': 'gat',
+        'decoration_munbangsau': 'munbangsau',
+        'decoration_soban': 'soban',
+        'decoration_jagae_mungap': 'jagae_mungap',
+      };
+
+      for (final link in links.entries) {
+        await tester.pumpWidget(
+          _host(CulturalDecorationHelpButton(decorationSlug: link.key)),
+        );
+        await tester.pumpAndSettle();
+
+        final key = Key('cultural_help_${link.value}');
+        expect(find.byKey(key), findsOneWidget);
+        await tester.tap(find.byKey(key));
+        await tester.pumpAndSettle();
+        expect(find.text(catalog.entry(link.value)!.korean), findsOneWidget);
+
+        await tester.tap(find.byKey(const Key('cultural_help_close')));
+        await tester.pumpAndSettle();
+      }
+    },
+  );
+
   testWidgets('read-only decoration exposes a labeled 48dp inspection tap', (
     tester,
   ) async {

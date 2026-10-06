@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-05",
+  "reviewStatus": "PROJECT_MANAGER_REVIEWED",
+  "humanNativeQaClaim": false,
+  "before": {
+    "id": "media_015",
+    "level": "A1",
+    "korean": "포기하지 마",
+    "romanization": "pogihaji ma",
+    "german": "Gib nicht auf",
+    "english": "Don't give up",
+    "source_type": "song",
+    "source_style": "힙합 응원",
+    "grammar_ids": [],
+    "vocab_ids": [],
+    "courseUnitId": "a1_12_daily_negation",
+    "conceptIds": [],
+    "context_de": "Durchhaltevermögen und Mut zusprechen",
+    "context_en": "Encouraging persistence"
+  },
+  "after": {
+    "id": "media_015",
+    "level": "A2",
+    "korean": "포기하지 마",
+    "romanization": "pogihaji ma",
+    "german": "Gib nicht auf",
+    "english": "Don't give up",
+    "source_type": "song",
+    "source_style": "힙합 응원",
+    "grammar_ids": [],
+    "vocab_ids": [],
+    "courseUnitId": "a2_04_feelings_health",
+    "conceptIds": [
+      "concept_a2_feelings"
+    ],
+    "context_de": "Durchhaltevermögen und Mut zusprechen",
+    "context_en": "Encouraging persistence"
+  },
+  "reason": "The informal prohibition '포기하지 마' is better owned by A2 than A1. This is a real level correction, not a dictionary fallback suppression; route it with feelings/health encouragement."
+}
