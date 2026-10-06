@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hangulsori://textbook/schemas/PILOT_COHORT_MANIFEST",
+  "title": "Korean 1A pilot cohort manifest",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "cohortId",
+    "edition",
+    "unitId",
+    "status",
+    "participantCodes",
+    "taskIds",
+    "schedulePolicy",
+    "consentPolicy"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "const": 1
+    },
+    "cohortId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "edition": {
+      "type": "string",
+      "enum": [
+        "en",
+        "de"
+      ]
+    },
+    "unitId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "DRAFT",
+        "READY",
+        "IN_PROGRESS",
+        "COMPLETE",
+        "CANCELLED"
+      ]
+    },
+    "participantCodes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^(EN|DE)[0-9]{2,3}$"
+      }
+    },
+    "taskIds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "schedulePolicy": {
+      "type": "object",
+      "required": [
+        "baseline",
+        "immediatePost",
+        "delayed24h",
+        "delayed7d",
+        "transfer"
+      ],
+      "properties": {
+        "baseline": {
+          "type": "boolean"
+        },
+        "immediatePost": {
+          "type": "boolean"
+        },
+        "delayed24h": {
+          "type": "boolean"
+        },
+        "delayed7d": {
+          "type": "boolean"
+        },
+        "transfer": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "consentPolicy": {
+      "type": "object",
+      "required": [
+        "pseudonymousOnly",
+        "recordingSeparateConsent",
+        "noEmailInEventLog"
+      ],
+      "properties": {
+        "pseudonymousOnly": {
+          "type": "boolean",
+          "const": true
+        },
+        "recordingSeparateConsent": {
+          "type": "boolean"
+        },
+        "noEmailInEventLog": {
+          "type": "boolean",
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "facilitatorCode": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

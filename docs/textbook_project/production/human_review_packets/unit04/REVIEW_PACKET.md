@@ -106,3 +106,37 @@ If any reviewed file changes, regenerate the packet before relying on previous d
 - learner pilot: OPEN
 
 A model/editorial pass is already complete, but it is not a substitute for these gates.
+
+## Operational review forms
+
+Use the lane-specific forms rather than editing this overview directly:
+
+- `KO_REVIEW_FORM.md`
+- `EN_REVIEW_FORM.md`
+- `DE_REVIEW_FORM.md`
+- `AUDIO_REVIEW_FORM.md`
+
+Then enter the reviewer identity/code, date, check results, notes and final lane decision in:
+
+`REVIEW_DECISIONS.json`
+
+The decision record is schema-validated and tied to this packet's frozen manifest SHA-256.
+
+## Pilot handoff after human review
+
+When the human-review gate is ready, use:
+
+`../../pilot_packets/unit04/FACILITATOR_GUIDE.md`
+
+Cohort templates:
+- `../../pilot_packets/unit04/EN_COHORT_TEMPLATE.json`
+- `../../pilot_packets/unit04/DE_COHORT_TEMPLATE.json`
+
+Stage sheets are intentionally separated so learners cannot preview delayed tasks:
+- baseline
+- immediate post
+- delayed 24h
+- delayed 7d
+- transfer
+
+Do not mark `HUMAN_REVIEWED_READY_FOR_PILOT` until the required review lanes have non-empty reviewer codes, dates, completed checks and no HOLD decision.
