@@ -166,3 +166,91 @@ research/SOURCE_GENRE_DISCOURSE_MAP_KO_EN_DE_20261006.md
 
 Next 1A-readiness research batch:
 personal_identification, communication_phone_digital, language_learning_communication_repair, social_etiquette_customs.
+
+## Phase 2 — 1A Publishing Readiness checkpoint
+
+Completed on 2026-10-06:
+
+### Native usage / multi-genre research
+Batch 01:
+- family_relationships
+- house_home
+- food_drink
+
+Batch 02:
+- shopping_consumption
+- transport_wayfinding
+- health_body
+- work_career
+- source-genre discourse map added for KO/EN/DE
+
+Batch 03 / 1A readiness:
+- personal_identification
+- communication_phone_digital
+- language_learning_communication_repair
+- social_etiquette_customs
+
+Research lanes now explicitly distinguish:
+- news/institutional
+- blog/personal experience
+- review
+- community/Reddit
+- service/casual speech
+
+Korean source sampling includes Naver/blog/review/community materials where accessible.
+English and German are independently sampled from their own news/editorial/review/community ecosystems.
+
+### Learner transfer
+A1 EN/DE learner-error matrix complete:
+- 8 English-L1 priority risks
+- 8 German-L1 priority risks
+- evidence tiers A/B/C
+- direct unit links
+
+### Hangul onboarding
+Hangul Zero contract complete:
+- principle/assembly before full alphabet inventory
+- real-world decoding
+- selective batchim
+- pronunciation awareness
+- romanization sunset
+- EN/DE-specific pronunciation risks
+
+### 1A unit contracts
+All 8 1A units now have machine-readable + rendered contracts:
+- can-do
+- communicative problem
+- relationship/register
+- authoritative scenarios
+- productive vs recognition-only grammar
+- native-usage references
+- EN/DE learner risks
+- input/output/interaction/assessment
+- recycling links
+
+Validation:
+PASS book=1A units=8 native_topics=11 error_ids=16
+
+### Publishing vertical slice
+Pilot unit:
+a1_04_order_request_object — 음식과 수량 주문하기
+
+Created:
+- STUDENT_MASTER.md
+- WORKBOOK.md
+- TEACHER_GUIDE.md
+- PUBLISHING_QA.md
+- UNIT04_AUDIO_SCRIPT.json
+- UNIT04_PUBLISHING_MANIFEST.json
+
+Audio is script-only; no TTS generated. TTS remains Jin-owned.
+
+Pilot validation:
+PASS unit04 files=6 dialogue_lines=12 selected_practice=6
+
+### Next recommended execution
+1. Run human/editorial pass on Unit 04 pilot (KO + EN + DE pedagogy).
+2. Use Unit 04 findings to adjust the 1A template.
+3. Materialize the remaining seven 1A units from their locked contracts.
+4. Add print-layout/page-budget schema and teacher answer-key schema.
+5. Start learner pilot instrumentation before mass-authoring 1B.
