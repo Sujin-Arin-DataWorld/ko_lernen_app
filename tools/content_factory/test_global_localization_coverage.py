@@ -17,8 +17,8 @@ class GlobalLocalizationCoverageTest(unittest.TestCase):
 
     def test_inventory_is_complete_for_registered_surfaces(self) -> None:
         self.assertEqual(self.summary["trackedSurfaceCount"], len(self.records))
-        self.assertEqual(self.summary["trackedSurfaceCount"], 14409)
-        self.assertEqual(self.summary["canonicalOwnerSurfaceCount"], 9159)
+        self.assertEqual(self.summary["trackedSurfaceCount"], 14547)
+        self.assertEqual(self.summary["canonicalOwnerSurfaceCount"], 9297)
         self.assertEqual(self.summary["derivedSurfaceCount"], 5250)
 
     def test_every_registered_surface_has_ko_en_de(self) -> None:

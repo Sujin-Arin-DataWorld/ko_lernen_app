@@ -56,7 +56,7 @@ A derived surface must not be “fixed” independently if the owner is wrong. F
 
 ### G-0 — inventory + owner graph
 
-Status: in progress
+Status: **baseline complete — 2026-10-06**
 
 Create a generated ledger that records every live localization-bearing surface and the canonical owner relationship where known.
 
@@ -71,6 +71,8 @@ Required summary:
 - QA/promotion status tracked separately from research coverage
 
 ### G-1 — Living Korea reference batch
+
+Status: **complete + live promoted as batch 39 — 2026-10-06**
 
 Target: 23/23 scenes, 138 Korean turns.
 
@@ -98,6 +100,10 @@ Living Korea is the reference implementation for the rest of the repo.
 
 ### G-2 — existing vocab + expressions + every canonical example
 
+Status: **in progress**
+
+Baseline owner audit now tracks 7,706 surfaces: vocab lexeme 2,968 + vocab example 2,968 + smalltalk expression/variant/follow-up 590 each. Structural owner linkage currently passes 7,706/7,706; 444 rows carry explicit manual-review flags and 1,497 owner rows still need topic review. This is not human-native sign-off and corpus/native QA remains open.
+
 Audit the canonical localization owners first:
 
 - `assets/data/korean_vocab.csv`
@@ -115,6 +121,10 @@ Audit the canonical localization owners first:
 Do not mechanically require a 1:1 dictionary equivalent when the Korean expression is pragmatic.
 
 ### G-3 — derived exercise reconciliation
+
+Status: **owner-parity baseline complete — 2026-10-06**
+
+Cloze 2,365 + Satz 2,885 = 5,250 derived surfaces are tracked. 4,641 have resolved vocab-example owners and were regenerated/reconciled to exact EN/DE owner parity (post-reconcile drift 0); 609 remain explicitly unresolved rather than guessed. One confirmed owner semantic mismatch (`vocab_a1_0218`, 호칭 example) was corrected before propagation.
 
 Reconcile:
 

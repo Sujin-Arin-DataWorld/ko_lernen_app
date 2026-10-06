@@ -64,7 +64,7 @@
       "sentenceKo": "어느 ＿＿＿ 사람이에요?",
       "answer": "나라",
       "fullKo": "어느 나라 사람이에요?",
-      "de": "Aus welchem Land kommst du?",
+      "de": "Aus welchem Land kommen Sie?",
       "en": "Which country are you from?",
       "distractors": [
         "책",
@@ -199,7 +199,7 @@
       "sentenceKo": "＿＿＿이 있어요?",
       "answer": "핸드폰",
       "fullKo": "핸드폰이 있어요?",
-      "de": "Hast du ein Handy?",
+      "de": "Haben Sie ein Handy?",
       "en": "Do you have a phone?",
       "distractors": [
         "타다",
@@ -259,7 +259,7 @@
       "sentenceKo": "＿＿＿ 어디 갔어요?",
       "answer": "어제",
       "fullKo": "어제 어디 갔어요?",
-      "de": "Wo bist du gestern hingegangen?",
+      "de": "Wohin sind Sie gestern gegangen?",
       "en": "Where did you go yesterday?",
       "distractors": [
         "내일",
@@ -4385,7 +4385,7 @@
       "answer": "연장했어요",
       "fullKo": "집주인과 상의해서 계약 기간을 1년 더 연장했어요.",
       "de": "Nach Rücksprache mit der Vermieterseite habe ich die Vertragslaufzeit um ein Jahr verlängert.",
-      "en": "After talking with the landlord, I extended the contract by another year.",
+      "en": "After talking with the landlord I extended the contract term by another year.",
       "distractors": [
         "퇴거했어요",
         "입주했어요",
@@ -8593,7 +8593,7 @@
       "sentenceKo": "할머니, ＿＿＿ 드세요.",
       "answer": "진지",
       "fullKo": "할머니, 진지 드세요.",
-      "de": "Oma, essen Sie bitte.",
+      "de": "Oma, iss bitte etwas.",
       "en": "Grandma, please eat.",
       "distractors": [
         "형부",
@@ -9253,8 +9253,8 @@
       "sentenceKo": "남편이 ＿＿＿을 소개했어요. 악수를 해도 될까요?",
       "answer": "동생",
       "fullKo": "남편이 동생을 소개했어요. 악수를 해도 될까요?",
-      "de": "Mein Mann hat mir einen jüngeren Bruder oder eine jüngere Schwester vorgestellt. Darf ich dieser Person zur Begrüßung die Hand geben?",
-      "en": "My husband introduced me to a younger sibling. Would it be okay to shake their hand?",
+      "de": "Mein Mann hat mir seinen jüngeren Bruder vorgestellt. Darf ich ihm die Hand geben?",
+      "en": "My husband introduced me to his younger brother. Is it okay to shake his hand?",
       "distractors": [
         "처남",
         "매형",
@@ -9568,8 +9568,8 @@
       "sentenceKo": "＿＿＿이 아니라 동아리에서 만났어요.",
       "answer": "소개팅",
       "fullKo": "소개팅이 아니라 동아리에서 만났어요.",
-      "de": "Wir haben uns nicht über ein Date, sondern im Verein kennengelernt.",
-      "en": "We met in a club, not on a set-up date.",
+      "de": "Wir haben uns nicht durch ein Blind Date, sondern im Verein kennengelernt.",
+      "en": "We met in a club, not on a blind date.",
       "distractors": [
         "설날 인사말",
         "성묘 옷",
@@ -14668,7 +14668,7 @@
       "sentenceKo": "독일까지 ＿＿＿ 걸려요?",
       "answer": "며칠",
       "fullKo": "독일까지 며칠 걸려요?",
-      "de": "Wie viele Tage dauert es bis Deutschland?",
+      "de": "Wie viele Tage braucht das Paket nach Deutschland?",
       "en": "How many days does it take to Germany?",
       "distractors": [
         "언제",
@@ -14908,7 +14908,7 @@
       "sentenceKo": "＿＿＿을 세 시로 바꿀까요?",
       "answer": "약속 시간",
       "fullKo": "약속 시간을 세 시로 바꿀까요?",
-      "de": "Sollen wir die Terminzeit auf drei Uhr ändern?",
+      "de": "Sollen wir die Uhrzeit unseres Treffens auf drei Uhr ändern?",
       "en": "Shall we change the meeting time to three?",
       "distractors": [
         "지갑",
@@ -14968,7 +14968,7 @@
       "sentenceKo": "내일 친구와 시간을 ＿＿＿.",
       "answer": "맞춰요",
       "fullKo": "내일 친구와 시간을 맞춰요.",
-      "de": "Morgen stimme ich die Zeit mit einem Freund ab.",
+      "de": "Morgen spreche ich mit einem Freund die Uhrzeit ab.",
       "en": "Tomorrow I coordinate the time with a friend.",
       "distractors": [
         "먹다",
@@ -15418,7 +15418,7 @@
       "sentenceKo": "수업 시작 전에 ＿＿＿?",
       "answer": "준비됐나요",
       "fullKo": "수업 시작 전에 준비됐나요?",
-      "de": "Bist du vor der Stunde soweit?",
+      "de": "Sind Sie bereit, bevor der Unterricht beginnt?",
       "en": "Are you ready before class starts?",
       "distractors": [
         "타다",
@@ -15613,8 +15613,8 @@
       "sentenceKo": "바람이 불어서 ＿＿＿을 입어요.",
       "answer": "겉옷",
       "fullKo": "바람이 불어서 겉옷을 입어요.",
-      "de": "Es ist windig, deshalb ziehe ich einen Überzieher an.",
-      "en": "It is windy, so I put on an outer layer.",
+      "de": "Es ist windig, deshalb ziehe ich eine Jacke an.",
+      "en": "It is windy, so I put on a jacket.",
       "distractors": [
         "현금",
         "정기권",
@@ -16393,8 +16393,8 @@
       "sentenceKo": "이 동작의 반복 ＿＿＿는 열 번이에요.",
       "answer": "횟수",
       "fullKo": "이 동작의 반복 횟수는 열 번이에요.",
-      "de": "Diese Bewegung wird zehnmal wiederholt.",
-      "en": "This movement is repeated ten times.",
+      "de": "Diese Übung wiederhole ich zehnmal.",
+      "en": "I repeat this exercise ten times.",
       "distractors": [
         "비타민제",
         "비행기",
@@ -16633,8 +16633,8 @@
       "sentenceKo": "향이 약한 ＿＿＿로 감겨 주세요.",
       "answer": "샴푸",
       "fullKo": "향이 약한 샴푸로 감겨 주세요.",
-      "de": "Bitte waschen Sie mit einem schwachen Shampoo.",
-      "en": "Please wash with a mild-scent shampoo.",
+      "de": "Bitte waschen Sie mir die Haare mit einem Shampoo mit mildem Duft.",
+      "en": "Please wash my hair with a lightly scented shampoo.",
       "distractors": [
         "택시",
         "거기",
@@ -21509,7 +21509,7 @@
       "answer": "야간 조명",
       "fullKo": "야간 조명을 늘릴 때는 보행 안전과 주변 주민의 수면에 미칠 영향을 함께 살펴요.",
       "de": "Bei zusätzlicher Nachtbeleuchtung prüfen wir sowohl die Sicherheit der zu Fuß Gehenden als auch mögliche Auswirkungen auf den Schlaf der Anwohnenden.",
-      "en": "When adding night lighting, we consider both the safety of people walking and possible effects on nearby residents’ sleep.",
+      "en": "When adding night lighting, we consider both pedestrian safety and possible effects on nearby residents’ sleep.",
       "distractors": [
         "시행",
         "넷",
@@ -26277,7 +26277,7 @@
       "fullKo": "제 국적은 독일이에요.",
       "answer": "국적",
       "sentenceKo": "제 ＿＿＿은 독일이에요.",
-      "de": "Meine Staatsangehörigkeit ist deutsch.",
+      "de": "Ich habe die deutsche Staatsangehörigkeit.",
       "en": "My nationality is German.",
       "distractors": [
         "고향",
@@ -26328,8 +26328,8 @@
       "fullKo": "저는 학생이에요.",
       "answer": "저는",
       "sentenceKo": "＿＿＿ 학생이에요.",
-      "de": "Ich bin Studentin.",
-      "en": "I am a student.",
+      "de": "Ich bin Student.",
+      "en": "I'm a student.",
       "distractors": [
         "알다",
         "모르다",
@@ -27917,8 +27917,8 @@
       "fullKo": "입을 여세요.",
       "answer": "여세요",
       "sentenceKo": "입을 ＿＿＿.",
-      "de": "Öffne den Mund.",
-      "en": "Open your mouth.",
+      "de": "Machen Sie bitte den Mund auf.",
+      "en": "Please open your mouth.",
       "distractors": [
         "읽으세요",
         "앉으세요",
@@ -28013,7 +28013,7 @@
       "fullKo": "한국어 수업은 처음이에요.",
       "answer": "처음",
       "sentenceKo": "한국어 수업은 ＿＿＿이에요.",
-      "de": "Koreanischunterricht habe ich zum ersten Mal.",
+      "de": "Ich habe zum ersten Mal Koreanischunterricht.",
       "en": "It's my first time taking a Korean class.",
       "distractors": [
         "책상",
@@ -28365,7 +28365,7 @@
       "fullKo": "제 번호는 십오 번이에요.",
       "answer": "번호",
       "sentenceKo": "제 ＿＿＿는 십오 번이에요.",
-      "de": "Meine Nummer ist die Fünfzehn.",
+      "de": "Meine Nummer ist fünfzehn.",
       "en": "My number is fifteen.",
       "distractors": [
         "머리",
@@ -36223,7 +36223,7 @@
       ],
       "level": "a2",
       "topic": "Freizeit",
-      "de": "Lena, wollen Sie mit mir Badminton spielen?",
+      "de": "Lena, willst du mit mir Badminton spielen?",
       "en": "Lena, do you want to play badminton with me?",
       "courseUnitId": "a2_04_feelings_health"
     },
@@ -36614,8 +36614,8 @@
       ],
       "level": "a2",
       "topic": "Beruf",
-      "de": "Andrea, arbeiten Sie schon lange an diesem Arbeitsplatz?",
-      "en": "Andrea, have you been working at this workplace for a long time?",
+      "de": "Andrea, arbeiten Sie schon lange hier?",
+      "en": "Andrea, have you been working here long?",
       "courseUnitId": "a2_06_study_work"
     },
     {

@@ -41,7 +41,7 @@
       "id": "satz_a1_0003",
       "level": "a1",
       "targetKo": "어느 나라 사람이에요?",
-      "promptDe": "Aus welchem Land kommst du?",
+      "promptDe": "Aus welchem Land kommen Sie?",
       "promptEn": "Which country are you from?",
       "distractors": [
         "진짜",
@@ -77,7 +77,7 @@
       "id": "satz_a1_0006",
       "level": "a1",
       "targetKo": "어제 어디 갔어요?",
-      "promptDe": "Wo bist du gestern hingegangen?",
+      "promptDe": "Wohin sind Sie gestern gegangen?",
       "promptEn": "Where did you go yesterday?",
       "distractors": [
         "아빠",
@@ -2358,7 +2358,7 @@
       "level": "b1",
       "targetKo": "집주인과 상의해서 계약 기간을 1년 더 연장했어요.",
       "promptDe": "Nach Rücksprache mit der Vermieterseite habe ich die Vertragslaufzeit um ein Jahr verlängert.",
-      "promptEn": "After talking with the landlord, I extended the contract by another year.",
+      "promptEn": "After talking with the landlord I extended the contract term by another year.",
       "distractors": [
         "퇴거해야",
         "누수가"
@@ -5877,7 +5877,7 @@
       "id": "satz_a1_0100",
       "level": "a1",
       "targetKo": "할머니, 진지 드세요.",
-      "promptDe": "Oma, essen Sie bitte.",
+      "promptDe": "Oma, iss bitte etwas.",
       "promptEn": "Grandma, please eat.",
       "distractors": [
         "발이",
@@ -6405,8 +6405,8 @@
       "id": "satz_a1_0144",
       "level": "b1",
       "targetKo": "남편이 동생을 소개했어요. 악수를 해도 될까요?",
-      "promptDe": "Mein Mann hat mir einen jüngeren Bruder oder eine jüngere Schwester vorgestellt. Darf ich dieser Person zur Begrüßung die Hand geben?",
-      "promptEn": "My husband introduced me to a younger sibling. Would it be okay to shake their hand?",
+      "promptDe": "Mein Mann hat mir seinen jüngeren Bruder vorgestellt. Darf ich ihm die Hand geben?",
+      "promptEn": "My husband introduced me to his younger brother. Is it okay to shake his hand?",
       "distractors": [
         "처음",
         "처음에는"
@@ -6657,8 +6657,8 @@
       "id": "satz_a2_0044",
       "level": "a2",
       "targetKo": "소개팅이 아니라 동아리에서 만났어요.",
-      "promptDe": "Wir haben uns nicht über ein Date, sondern im Verein kennengelernt.",
-      "promptEn": "We met in a club, not on a set-up date.",
+      "promptDe": "Wir haben uns nicht durch ein Blind Date, sondern im Verein kennengelernt.",
+      "promptEn": "We met in a club, not on a blind date.",
       "distractors": [
         "그냥",
         "그릇이"
@@ -10737,7 +10737,7 @@
       "id": "satz_a1_0169",
       "level": "a1",
       "targetKo": "독일까지 며칠 걸려요?",
-      "promptDe": "Wie viele Tage dauert es bis Deutschland?",
+      "promptDe": "Wie viele Tage braucht das Paket nach Deutschland?",
       "promptEn": "How many days does it take to Germany?",
       "distractors": [
         "학교",
@@ -10929,7 +10929,7 @@
       "id": "satz_a1_0185",
       "level": "a1",
       "targetKo": "약속 시간을 세 시로 바꿀까요?",
-      "promptDe": "Sollen wir die Terminzeit auf drei Uhr ändern?",
+      "promptDe": "Sollen wir die Uhrzeit unseres Treffens auf drei Uhr ändern?",
       "promptEn": "Shall we change the meeting time to three?",
       "distractors": [
         "늦잠",
@@ -10953,8 +10953,8 @@
       "id": "satz_a1_0187",
       "level": "a1",
       "targetKo": "비가 와서 산책을 취소했어요.",
-      "promptDe": "Es hat geregnet, deshalb habe ich den Spaziergang abgesagt.",
-      "promptEn": "It rained, so I canceled the walk.",
+      "promptDe": "Weil es geregnet hat, habe ich den Spaziergang abgesagt.",
+      "promptEn": "It rained, so I cancelled the walk.",
       "distractors": [
         "소포를",
         "만나서"
@@ -10977,7 +10977,7 @@
       "id": "satz_a1_0189",
       "level": "a1",
       "targetKo": "내일 친구와 시간을 맞춰요.",
-      "promptDe": "Morgen stimme ich die Zeit mit einem Freund ab.",
+      "promptDe": "Morgen spreche ich mit einem Freund die Uhrzeit ab.",
       "promptEn": "Tomorrow I coordinate the time with a friend.",
       "distractors": [
         "늦잠",
@@ -11337,7 +11337,7 @@
       "id": "satz_a1_0219",
       "level": "a2",
       "targetKo": "수업 시작 전에 준비됐나요?",
-      "promptDe": "Bist du vor der Stunde soweit?",
+      "promptDe": "Sind Sie bereit, bevor der Unterricht beginnt?",
       "promptEn": "Are you ready before class starts?",
       "distractors": [
         "필통",
@@ -11493,8 +11493,8 @@
       "id": "satz_a1_0232",
       "level": "a2",
       "targetKo": "바람이 불어서 겉옷을 입어요.",
-      "promptDe": "Es ist windig, deshalb ziehe ich einen Überzieher an.",
-      "promptEn": "It is windy, so I put on an outer layer.",
+      "promptDe": "Es ist windig, deshalb ziehe ich eine Jacke an.",
+      "promptEn": "It is windy, so I put on a jacket.",
       "distractors": [
         "미세먼지",
         "일기예보"
@@ -12117,8 +12117,8 @@
       "id": "satz_a2_0163",
       "level": "a2",
       "targetKo": "이 동작의 반복 횟수는 열 번이에요.",
-      "promptDe": "Diese Bewegung wird zehnmal wiederholt.",
-      "promptEn": "This movement is repeated ten times.",
+      "promptDe": "Diese Übung wiederhole ich zehnmal.",
+      "promptEn": "I repeat this exercise ten times.",
       "distractors": [
         "헬스장",
         "운동복"
@@ -12309,8 +12309,8 @@
       "id": "satz_a2_0179",
       "level": "a2",
       "targetKo": "향이 약한 샴푸로 감겨 주세요.",
-      "promptDe": "Bitte waschen Sie mit einem schwachen Shampoo.",
-      "promptEn": "Please wash with a mild-scent shampoo.",
+      "promptDe": "Bitte waschen Sie mir die Haare mit einem Shampoo mit mildem Duft.",
+      "promptEn": "Please wash my hair with a lightly scented shampoo.",
       "distractors": [
         "미용실",
         "커트"
@@ -17541,7 +17541,7 @@
       "id": "satz_a1_0256",
       "level": "a1",
       "targetKo": "안녕하세요, 처음 뵙겠습니다.",
-      "promptDe": "Hallo, freut mich.",
+      "promptDe": "Guten Tag, schön, Sie kennenzulernen.",
       "promptEn": "Hello, nice to meet you.",
       "distractors": [
         "감사합니다",
@@ -18285,7 +18285,7 @@
       "id": "satz_a2_0262",
       "level": "a2",
       "targetKo": "학생 할인 되나요?",
-      "promptDe": "Gibt es Studentenrabatt?",
+      "promptDe": "Gibt es einen Studierendenrabatt?",
       "promptEn": "Is there a student discount?",
       "distractors": [
         "회사",
@@ -19521,7 +19521,7 @@
       "id": "satz_a1_0293",
       "level": "a1",
       "targetKo": "오늘 수고했어요. 잘 자요.",
-      "promptDe": "Heute war viel. Schlaf gut.",
+      "promptDe": "Du hast heute viel geschafft. Schlaf gut.",
       "promptEn": "You did a lot today. Sleep well.",
       "distractors": [
         "안녕하세요",
@@ -19737,7 +19737,7 @@
       "id": "satz_a2_0315",
       "level": "a2",
       "targetKo": "이 색이 진짜 잘 어울려요.",
-      "promptDe": "Die Farbe steht dir echt gut.",
+      "promptDe": "Die Farbe steht Ihnen wirklich gut.",
       "promptEn": "This color really suits you.",
       "distractors": [
         "회사",
@@ -21501,8 +21501,8 @@
       "id": "satz_b1_0393",
       "level": "b1",
       "targetKo": "부장님 송별회가 금요일이에요.",
-      "promptDe": "Die Abschiedsfeier des Abteilungsleiters ist am Freitag.",
-      "promptEn": "The manager's farewell party is on Friday.",
+      "promptDe": "Die Abschiedsfeier für die Abteilungsleitung ist am Freitag.",
+      "promptEn": "The department head’s farewell party is on Friday.",
       "distractors": [
         "경험",
         "문화"
@@ -22989,7 +22989,7 @@
       "id": "satz_b2_0437",
       "level": "b2",
       "targetKo": "애인과 영화를 봤어요.",
-      "promptDe": "Ich habe mit meinem Partner einen Film gesehen.",
+      "promptDe": "Ich habe mit meiner Partnerin oder meinem Partner einen Film gesehen.",
       "promptEn": "I watched a movie with my partner.",
       "distractors": [
         "갈등",
@@ -23793,7 +23793,7 @@
       "id": "satz_a2_0366",
       "level": "a2",
       "targetKo": "넥타이를 매는 법을 배웠어요.",
-      "promptDe": "Ich habe gelernt eine Krawatte zu binden.",
+      "promptDe": "Ich habe gelernt, eine Krawatte zu binden.",
       "promptEn": "I learned how to tie a tie.",
       "distractors": [
         "회사",
@@ -24609,8 +24609,8 @@
       "id": "satz_a2_0434",
       "level": "a2",
       "targetKo": "교과서 20쪽을 펴세요.",
-      "promptDe": "Öffnet das Lehrbuch auf Seite zwanzig.",
-      "promptEn": "Open the textbook to page twenty.",
+      "promptDe": "Schlagen Sie das Lehrbuch auf Seite zwanzig auf.",
+      "promptEn": "Please open the textbook to page twenty.",
       "distractors": [
         "회사",
         "직업"
@@ -24681,7 +24681,7 @@
       "id": "satz_a2_0440",
       "level": "a2",
       "targetKo": "교수님 수업이 재미있어요.",
-      "promptDe": "Die Vorlesung des Professors ist interessant.",
+      "promptDe": "Die Vorlesung ist interessant.",
       "promptEn": "The professor's lecture is interesting.",
       "distractors": [
         "회사",
@@ -27675,7 +27675,7 @@
       "id": "satz_a1_0306",
       "level": "a1",
       "targetKo": "제 국적은 독일이에요.",
-      "promptDe": "Meine Staatsangehörigkeit ist deutsch.",
+      "promptDe": "Ich habe die deutsche Staatsangehörigkeit.",
       "promptEn": "My nationality is German.",
       "vocabKo": "국적",
       "distractors": [
@@ -27816,7 +27816,7 @@
       "level": "a1",
       "targetKo": "짧은 예문을 하나 적어 주세요.",
       "promptDe": "Bitte schreiben Sie einen kurzen Beispielsatz auf.",
-      "promptEn": "Please write one short example sentence.",
+      "promptEn": "Please write down one short example sentence.",
       "vocabKo": "예문",
       "distractors": [
         "단어",
@@ -28838,7 +28838,7 @@
       "id": "satz_a1_0352",
       "level": "a1",
       "targetKo": "한국어 수업은 처음이에요.",
-      "promptDe": "Koreanischunterricht habe ich zum ersten Mal.",
+      "promptDe": "Ich habe zum ersten Mal Koreanischunterricht.",
       "promptEn": "It's my first time taking a Korean class.",
       "vocabKo": "처음",
       "distractors": [
@@ -29059,7 +29059,7 @@
       "id": "satz_a1_0369",
       "level": "a1",
       "targetKo": "제 번호는 십오 번이에요.",
-      "promptDe": "Meine Nummer ist die Fünfzehn.",
+      "promptDe": "Meine Nummer ist fünfzehn.",
       "promptEn": "My number is fifteen.",
       "vocabKo": "번호",
       "distractors": [
@@ -35522,7 +35522,7 @@
         "편지"
       ],
       "level": "a2",
-      "promptDe": "Lena, wollen Sie mit mir Badminton spielen?",
+      "promptDe": "Lena, willst du mit mir Badminton spielen?",
       "promptEn": "Lena, do you want to play badminton with me?",
       "courseUnitId": "a2_04_feelings_health"
     },
@@ -35844,8 +35844,8 @@
         "편지에서"
       ],
       "level": "a2",
-      "promptDe": "Andrea, arbeiten Sie schon lange an diesem Arbeitsplatz?",
-      "promptEn": "Andrea, have you been working at this workplace for a long time?",
+      "promptDe": "Andrea, arbeiten Sie schon lange hier?",
+      "promptEn": "Andrea, have you been working here long?",
       "courseUnitId": "a2_06_study_work"
     },
     {
