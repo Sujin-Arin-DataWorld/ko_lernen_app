@@ -117,3 +117,18 @@ Sanity corrections:
 - historical V2/NIKL conflicts do not override current canonical level decisions by themselves.
 
 The 8 REJECT rows are four cloze + four sentence-building derivatives whose four target lexemes are explicitly marked in the Level Bible as invented poetic noun phrases requiring replacement.
+
+## Second-pass editorial repair
+
+The first-pass flags were re-read against current content rather than accepted mechanically.
+
+Result:
+- 101 first-pass false positives closed to KEEP.
+- 37 true rewrite rows remain, all with materialized textbook overrides.
+- 12 relevel candidates reduced to 2 actual moves after task/sense review.
+- 8 retired originals have 8/8 replacement coverage.
+
+Override coverage manifest:
+`docs/textbook_project/data/TEXTBOOK_OVERRIDE_MANIFEST_20261006.json`
+
+No live app asset was mutated.

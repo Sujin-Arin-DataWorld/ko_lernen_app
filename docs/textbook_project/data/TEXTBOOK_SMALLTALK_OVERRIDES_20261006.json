@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "TEXTBOOK_OVERRIDE",
+  "sourcePolicy": "These overrides replace only textbook-facing copy. App live assets remain unchanged until a separate promotion decision.",
+  "lessons": [
+    {
+      "lessonId": "smalltalk.b2.phone.complaint",
+      "level": "B2",
+      "reason": "Remove invented universal appeal deadline/written-submission procedure.",
+      "replacementCore": {
+        "ko": "결정에 이의를 제기하려면 먼저 결정문이나 안내문에 적힌 절차와 기한을 확인해야 합니다. 기관과 결정의 종류에 따라 제출 방법이 다를 수 있습니다.",
+        "de": "Wenn Sie gegen eine Entscheidung Einspruch einlegen möchten, prüfen Sie zuerst das Verfahren und die Frist in der Entscheidung oder den zugehörigen Hinweisen. Die Art der Einreichung kann je nach Stelle und Entscheidung unterschiedlich sein.",
+        "en": "If you want to appeal a decision, first check the procedure and deadline stated in the decision or its accompanying guidance. The submission method can vary by institution and type of decision."
+      },
+      "textbookTask": "Find the decision-specific appeal route without inventing a universal legal procedure."
+    },
+    {
+      "lessonId": "smalltalk.b2.partner_family.schedule",
+      "level": "B2",
+      "reason": "Make the core lesson perspective-neutral; move 시댁/친정 to a culture/pragmatics note.",
+      "replacementCore": {
+        "ko": "배우자 가족과 제 가족 일정을 어떻게 나누는 게 공평할까요?",
+        "de": "Wie können wir die Besuche bei der Familie meines Partners und bei meiner eigenen Familie fair aufteilen?",
+        "en": "How can we fairly split visits between my partner's family and my own family?"
+      },
+      "cultureNote": {
+        "ko": "시댁은 전통적으로 기혼 여성이 남편 쪽 집안을 가리킬 때, 친정은 결혼한 사람이 자신의 본가를 가리킬 때 쓰는 말이에요. 화자의 성별·결혼 여부·관계에 따라 자연스러운 표현이 달라질 수 있어요.",
+        "de": "시댁 bezeichnet traditionell aus der Perspektive einer verheirateten Frau die Familie des Ehemanns; 친정 bezeichnet das eigene Elternhaus bzw. die Herkunftsfamilie nach der Heirat. Welche Bezeichnung natürlich ist, hängt von Perspektive, Geschlecht, Familienform und Beziehung ab.",
+        "en": "시댁 traditionally refers, from a married woman's perspective, to her husband's family, while 친정 refers to one's own family of origin after marriage. The natural term depends on perspective, gender, family structure, and relationship."
+      }
+    }
+  ]
+}

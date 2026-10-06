@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "TEXTBOOK_CANONICAL_REPLACEMENT_DRAFT_REVIEWED",
+  "policy": "Replace four invented poetic headwords with attested-looking standard Korean lexical/collocational targets while preserving the original advanced communicative function. App live assets are not mutated by this file.",
+  "replacements": [
+    {
+      "conceptId": "tb_c1_family_voice_participation",
+      "level": "C1",
+      "bookBand": "5A/5B",
+      "canonicalTopicId": "family_relationships",
+      "replacesLexeme": "말의 자리",
+      "targetLexeme": "발언권",
+      "glossEn": "right/opportunity to speak",
+      "glossDe": "Rederecht / Möglichkeit, sich zu äußern",
+      "rationale": "발언권 is a standard Korean noun for the right/opportunity to speak and expresses the intended family-discussion power relation without an invented metaphor.",
+      "sourceIds": [
+        "cloze_c1_0061",
+        "satz_c1_0063"
+      ],
+      "cloze": {
+        "sentenceKo": "이 글은 가족회의에서 호칭과 발언 순서가 구성원별 ＿＿＿에 어떤 영향을 주는지 분석한다.",
+        "answer": "발언권",
+        "fullKo": "이 글은 가족회의에서 호칭과 발언 순서가 구성원별 발언권에 어떤 영향을 주는지 분석한다.",
+        "de": "Der Text analysiert, wie Anredeformen und Redereihenfolge das Rederecht der einzelnen Familienmitglieder beeinflussen.",
+        "en": "The text analyzes how forms of address and speaking order affect each family member’s opportunity to speak.",
+        "distractors": [
+          "친밀감",
+          "역할 분담",
+          "세대 차이"
+        ]
+      },
+      "sentenceBuilding": {
+        "targetKo": "이 글은 가족회의에서 호칭과 발언 순서가 구성원별 발언권에 어떤 영향을 주는지 분석한다.",
+        "promptDe": "Der Text analysiert, wie Anredeformen und Redereihenfolge das Rederecht der einzelnen Familienmitglieder beeinflussen.",
+        "promptEn": "The text analyzes how forms of address and speaking order affect each family member’s opportunity to speak.",
+        "vocabKo": "발언권"
+      }
+    },
+    {
+      "conceptId": "tb_c1_custom_continuity",
+      "level": "C1",
+      "bookBand": "5A/5B",
+      "canonicalTopicId": "social_etiquette_customs",
+      "replacesLexeme": "전통의 선택",
+      "targetLexeme": "계승하다",
+      "glossEn": "to carry on / inherit",
+      "glossDe": "weiterführen / übernehmen",
+      "rationale": "계승하다 is a standard verb for carrying a tradition or practice forward and lets the learner discuss agency without treating '전통의 선택' as a lexicalized noun phrase.",
+      "sourceIds": [
+        "cloze_c1_0069",
+        "satz_c1_0071"
+      ],
+      "cloze": {
+        "sentenceKo": "이 에세이는 어떤 관습을 ＿＿＿ 가족이 함께 논의해야 한다고 주장한다.",
+        "answer": "계승할지",
+        "fullKo": "이 에세이는 어떤 관습을 계승할지 가족이 함께 논의해야 한다고 주장한다.",
+        "de": "Der Essay argumentiert, dass Familien gemeinsam besprechen sollten, welche Bräuche sie weiterführen wollen.",
+        "en": "The essay argues that families should discuss together which customs they want to carry on.",
+        "distractors": [
+          "기록했는지",
+          "비교할지",
+          "설명했는지"
+        ]
+      },
+      "sentenceBuilding": {
+        "targetKo": "이 에세이는 어떤 관습을 계승할지 가족이 함께 논의해야 한다고 주장한다.",
+        "promptDe": "Der Essay argumentiert, dass Familien gemeinsam besprechen sollten, welche Bräuche sie weiterführen wollen.",
+        "promptEn": "The essay argues that families should discuss together which customs they want to carry on.",
+        "vocabKo": "계승하다"
+      }
+    },
+    {
+      "conceptId": "tb_c2_hierarchy_in_interaction",
+      "level": "C2",
+      "bookBand": "6A/6B",
+      "canonicalTopicId": "family_relationships",
+      "replacesLexeme": "말의 위계",
+      "targetLexeme": "위계적 관계",
+      "glossEn": "hierarchical relationship",
+      "glossDe": "hierarchisches Verhältnis",
+      "rationale": "위계적 관계 is a standard transparent academic collocation. It preserves the analysis of address terms and speaking order without inventing a lexical item.",
+      "sourceIds": [
+        "cloze_c2_0059",
+        "satz_c2_0061"
+      ],
+      "cloze": {
+        "sentenceKo": "이 글은 가족회의에서 호칭과 발언 순서가 ＿＿＿를 어떻게 강화하거나 완화하는지 분석한다.",
+        "answer": "위계적 관계",
+        "fullKo": "이 글은 가족회의에서 호칭과 발언 순서가 위계적 관계를 어떻게 강화하거나 완화하는지 분석한다.",
+        "de": "Der Text analysiert, wie Anredeformen und Redereihenfolge hierarchische Beziehungen in Familiengesprächen verstärken oder abschwächen.",
+        "en": "The text analyzes how forms of address and speaking order reinforce or soften hierarchical relationships in family discussions.",
+        "distractors": [
+          "세대 구성",
+          "의견 차이",
+          "시간 배분"
+        ]
+      },
+      "sentenceBuilding": {
+        "targetKo": "이 글은 가족회의에서 호칭과 발언 순서가 위계적 관계를 어떻게 강화하거나 완화하는지 분석한다.",
+        "promptDe": "Der Text analysiert, wie Anredeformen und Redereihenfolge hierarchische Beziehungen in Familiengesprächen verstärken oder abschwächen.",
+        "promptEn": "The text analyzes how forms of address and speaking order reinforce or soften hierarchical relationships in family discussions.",
+        "vocabKo": "위계적 관계"
+      }
+    },
+    {
+      "conceptId": "tb_c2_avoidance_and_record",
+      "level": "C2",
+      "bookBand": "6A/6B",
+      "canonicalTopicId": "arts_literature_history",
+      "replacesLexeme": "망각의 예절",
+      "targetLexeme": "회피하다",
+      "glossEn": "to avoid / evade",
+      "glossDe": "vermeiden / ausweichen",
+      "rationale": "회피하다 is a standard verb that can distinguish considerate non-intrusion from deliberate avoidance; this supports nuanced memory/record discourse without a coined metaphor.",
+      "sourceIds": [
+        "cloze_c2_0069",
+        "satz_c2_0071"
+      ],
+      "cloze": {
+        "sentenceKo": "이 에세이는 상처를 되묻지 않으려는 배려와 과거를 의도적으로 ＿＿＿ 태도를 구분하면서 기록의 필요성을 강조한다.",
+        "answer": "회피하는",
+        "fullKo": "이 에세이는 상처를 되묻지 않으려는 배려와 과거를 의도적으로 회피하는 태도를 구분하면서 기록의 필요성을 강조한다.",
+        "de": "Der Essay unterscheidet zwischen Rücksicht, die schmerzhafte Nachfragen vermeidet, und einer bewussten Vermeidung der Vergangenheit und betont zugleich die Bedeutung von Aufzeichnungen.",
+        "en": "The essay distinguishes considerate restraint from deliberately avoiding the past while also stressing the importance of keeping records.",
+        "distractors": [
+          "요약하는",
+          "반복하는",
+          "분류하는"
+        ]
+      },
+      "sentenceBuilding": {
+        "targetKo": "이 에세이는 상처를 되묻지 않으려는 배려와 과거를 의도적으로 회피하는 태도를 구분하면서 기록의 필요성을 강조한다.",
+        "promptDe": "Der Essay unterscheidet zwischen Rücksicht, die schmerzhafte Nachfragen vermeidet, und einer bewussten Vermeidung der Vergangenheit und betont zugleich die Bedeutung von Aufzeichnungen.",
+        "promptEn": "The essay distinguishes considerate restraint from deliberately avoiding the past while also stressing the importance of keeping records.",
+        "vocabKo": "회피하다"
+      }
+    }
+  ]
+}

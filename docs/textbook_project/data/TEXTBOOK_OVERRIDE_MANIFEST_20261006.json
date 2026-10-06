@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "COMPLETE_TEXTBOOK_OVERRIDE_COVERAGE",
+  "rewriteCoverage": {
+    "expected": 37,
+    "covered": 37,
+    "uncovered": 0,
+    "duplicateCoverage": 0,
+    "byLane": {
+      "lexical_materialized": 31,
+      "smalltalk_override": 2,
+      "scenario_override": 2,
+      "listening_override": 2
+    }
+  },
+  "rejectReplacementCoverage": {
+    "expected": 8,
+    "covered": 8,
+    "uncovered": 0
+  },
+  "files": [
+    {
+      "path": "docs/textbook_project/data/TEXTBOOK_LEXICAL_MATERIALIZED_20261006.json",
+      "sha256": "df9b888c084f8e02f5d8dc7917db56509125e57ad891fd7ff7b679fd1f00bb1e"
+    },
+    {
+      "path": "docs/textbook_project/data/TEXTBOOK_SMALLTALK_OVERRIDES_20261006.json",
+      "sha256": "b096bb6f74ce9a5bf5f04407078450fd3063ceeb6c6caf9358d1b22fdfd86daa"
+    },
+    {
+      "path": "docs/textbook_project/data/TEXTBOOK_SCENARIO_OVERRIDES_20261006.json",
+      "sha256": "02934044e3d3954413d1636cc8ca4ef6b24d1f6b6d4a8c912ce518b96598bcf5"
+    },
+    {
+      "path": "docs/textbook_project/data/TEXTBOOK_LISTENING_OVERRIDES_20261006.json",
+      "sha256": "e6b203799c1fd4b2a763c9b45167c6a9c5493d48a81f7f7c1c0140f1c242642d"
+    },
+    {
+      "path": "docs/textbook_project/data/TEXTBOOK_REJECT_REPLACEMENTS_20261006.json",
+      "sha256": "c7c292a32f86c65de2eec4cd7f069bd5b76298e14dcc6ffa54fe587389961ec4"
+    }
+  ],
+  "rewriteSourceIds": [
+    "a1_message_contact_after_class_2026",
+    "c2_public_redress_briefing_2026",
+    "cloze_a1_0194",
+    "cloze_a1_0212",
+    "cloze_b1_0175",
+    "cloze_b2_0178",
+    "cloze_b2_0179",
+    "cloze_b2_0201",
+    "cloze_c1_0056",
+    "cloze_c1_0065",
+    "cloze_c1_0087",
+    "cloze_c2_0068",
+    "cloze_c2_0107",
+    "cloze_c2_0126",
+    "cloze_c2_0243",
+    "listening.a1.a1_message_contact_after_class_2026",
+    "listening.c2.c2_public_redress_briefing_2026",
+    "satz_a1_0158",
+    "satz_a1_0176",
+    "satz_b1_0171",
+    "satz_b2_0159",
+    "satz_b2_0164",
+    "satz_b2_0165",
+    "satz_b2_0187",
+    "satz_c1_0032",
+    "satz_c1_0056",
+    "satz_c1_0058",
+    "satz_c1_0066",
+    "satz_c1_0067",
+    "satz_c1_0089",
+    "satz_c2_0070",
+    "satz_c2_0077",
+    "satz_c2_0109",
+    "satz_c2_0128",
+    "satz_c2_0245",
+    "smalltalk.b2.partner_family.schedule",
+    "smalltalk.b2.phone.complaint"
+  ],
+  "rejectSourceIds": [
+    "cloze_c1_0061",
+    "cloze_c1_0069",
+    "cloze_c2_0059",
+    "cloze_c2_0069",
+    "satz_c1_0063",
+    "satz_c1_0071",
+    "satz_c2_0061",
+    "satz_c2_0071"
+  ],
+  "policy": {
+    "appLiveAssetsMutated": false,
+    "textbookOverridesAreCanonicalForPublishingTrack": true,
+    "ttsOwnership": "Jin"
+  }
+}

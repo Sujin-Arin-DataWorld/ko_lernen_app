@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "stage": "SECOND_PASS_RESOLVED",
+  "total": 5961,
+  "decisionCounts": {
+    "KEEP": 5914,
+    "REWRITE": 37,
+    "RELEVEL": 2,
+    "REJECT": 8
+  },
+  "resolutionCounts": {
+    "UNCHANGED_FROM_FIRST_PASS": 5813,
+    "SCENARIO_OVERRIDE_READY": 4,
+    "DIRECT_SECOND_PASS_SCENARIO_KEEP": 22,
+    "HISTORICAL_SMALLTALK_FLAG_CLOSED": 26,
+    "LEVEL_FALSE_POSITIVE_CLOSED": 10,
+    "SMALLTALK_OVERRIDE_READY": 2,
+    "LEVEL_MOVE_CONFIRMED": 2,
+    "FALSE_POSITIVE_LEXICAL_FLAG_CLOSED": 43,
+    "LEXICAL_OVERRIDE_READY": 31,
+    "ORIGINAL_RETIRED_REPLACEMENT_READY": 8
+  },
+  "bySurface": {
+    "canonical_scenario": {
+      "KEEP": 120
+    },
+    "cloze": {
+      "KEEP": 2348,
+      "REWRITE": 13,
+      "REJECT": 4
+    },
+    "listening_lesson": {
+      "KEEP": 189,
+      "REWRITE": 2
+    },
+    "live_scenario": {
+      "KEEP": 189,
+      "REWRITE": 2
+    },
+    "sentence_building": {
+      "KEEP": 2863,
+      "REWRITE": 18,
+      "REJECT": 4
+    },
+    "smalltalk_lesson": {
+      "KEEP": 205,
+      "REWRITE": 2,
+      "RELEVEL": 2
+    }
+  },
+  "byFinalTextbookLevel": {
+    "A1": {
+      "KEEP": 1413,
+      "REWRITE": 2
+    },
+    "A2": {
+      "KEEP": 960,
+      "REWRITE": 4
+    },
+    "B1": {
+      "KEEP": 1187,
+      "REWRITE": 2
+    },
+    "B2": {
+      "KEEP": 1094,
+      "REWRITE": 9,
+      "RELEVEL": 1
+    },
+    "C1": {
+      "KEEP": 606,
+      "RELEVEL": 1,
+      "REWRITE": 9,
+      "REJECT": 4
+    },
+    "C2": {
+      "KEEP": 654,
+      "REWRITE": 11,
+      "REJECT": 4
+    }
+  },
+  "rewriteRowsWithOverrideReady": 37,
+  "unpreparedRewriteRows": 0,
+  "confirmedRelevelRows": 2,
+  "retiredOriginalRowsWithReplacement": 8,
+  "policy": {
+    "firstPassKeepStillNeedsPublicationPassForExerciseBank": true,
+    "appLiveAssetsMutated": false,
+    "textbookOverridesAreSeparate": true
+  }
+}
