@@ -1,0 +1,300 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "scope": "Korean 1A pedagogical risk matrix for L1-English and L1-German adult learners",
+  "evidenceTiers": {
+    "A": "Direct learner-corpus, experimental, or target-L1 error evidence.",
+    "B": "Contrastive linguistic/pedagogical evidence strongly relevant to the learner group, but not a direct frequency claim.",
+    "C": "Pedagogical hypothesis to validate in future learner corpus/pilot; never present as a proven group stereotype."
+  },
+  "rules": [
+    "Do not say 'English speakers always...' or 'German speakers always...'.",
+    "Use the matrix to design explanations, examples and diagnostics, not to predict an individual learner.",
+    "Tier C items require pilot evidence before becoming strong textbook claims.",
+    "Every trap must link to a repair strategy and 1A unit."
+  ],
+  "en": [
+    {
+      "id": "EN-A1-PARTICLES-OMIT-REPLACE",
+      "priority": 1,
+      "evidenceTier": "A",
+      "target": "은/는, 이/가, 을/를, 에/에서",
+      "risk": "Particle omission or replacement remains a major error class for English-speaking Korean learners.",
+      "evidenceNote": "English lacks a comparable productive particle system; corpus research reports subject/object/topic/locative particles as 64.41% of particle errors, with replacement+omission 86.74% of particle error types.",
+      "pedagogy": "Never teach particles once-and-done. Spiral them through noun+predicate frames and information context.",
+      "units": [
+        "a1_02_self_intro_identity",
+        "a1_03_topic_subject_particles",
+        "a1_06_transport_directions"
+      ]
+    },
+    {
+      "id": "EN-A1-TOPIC-SUBJECT",
+      "priority": 2,
+      "evidenceTier": "A",
+      "target": "은/는 vs 이/가",
+      "risk": "Treating both as a single English-style subject marker or swapping them without discourse motivation.",
+      "evidenceNote": "Learner-corpus studies document reciprocal replacement errors; topic/focus cannot be derived from English subject syntax alone.",
+      "pedagogy": "Teach mini-context pairs: '저는...' for frame/topic vs '누가? 제가...' for focused/new subject. Delay exhaustive theory.",
+      "units": [
+        "a1_02_self_intro_identity",
+        "a1_03_topic_subject_particles"
+      ]
+    },
+    {
+      "id": "EN-A1-E-ESEO",
+      "priority": 3,
+      "evidenceTier": "A",
+      "target": "에 vs 에서",
+      "risk": "Using one generic location marker because English 'at/in' does not align with Korean predicate-conditioned location marking.",
+      "evidenceNote": "Particle-error studies report reciprocal 에/에서 replacement across proficiency.",
+      "pedagogy": "Teach scene contrast: 학교에 가요 / 학교에 있어요 / 학교에서 공부해요 with movement/existence/action rather than translation labels.",
+      "units": [
+        "a1_03_topic_subject_particles",
+        "a1_06_transport_directions"
+      ]
+    },
+    {
+      "id": "EN-A1-HONORIFIC-SI",
+      "priority": 4,
+      "evidenceTier": "A",
+      "target": "-(으)시-",
+      "risk": "Interpreting subject honorification as a general extra-politeness marker.",
+      "evidenceNote": "2025 multi-method research found English-L1 learners associated -(으)시- with greater politeness regardless of subject type and often used it with addressee honorification.",
+      "pedagogy": "Separate 'respecting the subject referent' from 'speaking politely to the listener'. Use person-role diagrams, not 'add 시 to be more polite'.",
+      "units": [
+        "a1_01_greetings_hangul",
+        "a1_11_titles_relationships"
+      ]
+    },
+    {
+      "id": "EN-A1-SPEECHLEVEL",
+      "priority": 5,
+      "evidenceTier": "B",
+      "target": "해요체 vs 반말 recognition",
+      "risk": "Expecting politeness to be optional lexical courtesy rather than sentence-final grammar.",
+      "evidenceNote": "English has no grammatical speech-level system comparable to Korean.",
+      "pedagogy": "Treat sentence ending as relationship information. Keep 해요체 productive default; introduce register switching as recognition/social event.",
+      "units": [
+        "a1_01_greetings_hangul",
+        "a1_13_register_switching"
+      ]
+    },
+    {
+      "id": "EN-A1-SUBJECT-OMISSION",
+      "priority": 6,
+      "evidenceTier": "B",
+      "target": "contextual subject omission",
+      "risk": "Repeating 저는/제가 or explicit pronouns because English clauses normally require overt subjects.",
+      "evidenceNote": "Contrastive structural risk; future project learner-corpus pass should quantify it.",
+      "pedagogy": "Show dialogue pairs where the first subject establishes context and subsequent Korean clauses omit it naturally.",
+      "units": [
+        "a1_02_self_intro_identity",
+        "a1_07_contact_address"
+      ]
+    },
+    {
+      "id": "EN-A1-WORDORDER",
+      "priority": 7,
+      "evidenceTier": "B",
+      "target": "verb-final Korean",
+      "risk": "Transferring English SVO sequencing into Korean production.",
+      "evidenceNote": "Basic typological contrast; not treated as a frequency claim.",
+      "pedagogy": "Use movable noun-card chunks but keep predicate as the final anchor. Avoid metalanguage-heavy SOV lectures on day one.",
+      "units": [
+        "a1_02_self_intro_identity",
+        "a1_04_order_request_object"
+      ]
+    },
+    {
+      "id": "EN-A1-COUNTERS",
+      "priority": 8,
+      "evidenceTier": "C",
+      "target": "native/Sino-Korean numbers + counters",
+      "risk": "Using bare numerals because English normally does not require classifier-like counters.",
+      "evidenceNote": "Pedagogical transfer hypothesis; validate in pilot.",
+      "pedagogy": "Teach high-frequency lexical chunks (한 명, 한 잔, 한 개, 두 시) by task, not an exhaustive classifier table.",
+      "units": [
+        "a1_04_order_request_object",
+        "a1_05_numbers_time"
+      ]
+    }
+  ],
+  "de": [
+    {
+      "id": "DE-A1-E-ESEO-EURO",
+      "priority": 1,
+      "evidenceTier": "A",
+      "target": "에/에서/(으)로",
+      "risk": "Mapping Korean location/direction particles directly onto German prepositions/cases.",
+      "evidenceNote": "Research specifically on German-speaking Korean learners reports beginner difficulty with 에/에서 semantic differentiation and proposes conceptual spatial mapping; a 2024 dissertation extends the target to 에/에서/(으)로.",
+      "pedagogy": "Use destination/current location/action-path semantic maps. Do not teach '에 = in/an/zu' as a translation table.",
+      "units": [
+        "a1_03_topic_subject_particles",
+        "a1_06_transport_directions"
+      ]
+    },
+    {
+      "id": "DE-A1-PARTICLE-CASE",
+      "priority": 2,
+      "evidenceTier": "B",
+      "target": "Korean particles vs German case/prepositions",
+      "risk": "Treating 은/는, 이/가, 을/를 as equivalents of German Nominativ/Akkusativ or articles.",
+      "evidenceNote": "Contrastive research shows Korean postpositions and German case/preposition systems divide grammatical, semantic and pragmatic work differently.",
+      "pedagogy": "Explicit warning box: '조사 ≠ Kasusartikel'. Teach predicate frames and discourse function.",
+      "units": [
+        "a1_02_self_intro_identity",
+        "a1_03_topic_subject_particles"
+      ]
+    },
+    {
+      "id": "DE-A1-TOPIC-FOCUS",
+      "priority": 3,
+      "evidenceTier": "B",
+      "target": "은/는 vs 이/가",
+      "risk": "Searching for a German case-form equivalent instead of learning Korean information structure.",
+      "evidenceNote": "German-Korean contrastive work identifies different relationships among case, word order, topic and focus.",
+      "pedagogy": "Use contextual contrast and answer-to-question pairs; German notes can compare information structure without claiming direct equivalence.",
+      "units": [
+        "a1_02_self_intro_identity",
+        "a1_03_topic_subject_particles"
+      ]
+    },
+    {
+      "id": "DE-A1-DU-SIE",
+      "priority": 4,
+      "evidenceTier": "B",
+      "target": "존댓말/반말 vs du/Sie",
+      "risk": "Assuming 존댓말=Sie and 반말=du.",
+      "evidenceNote": "German-Korean politeness research explicitly notes German du/Sie alongside broader Korean honorific systems; Korean honorification also tracks subject/object relationships and endings.",
+      "pedagogy": "Teach two independent social maps. A German translation may use du while Korean remains 해요체, depending on relationship.",
+      "units": [
+        "a1_01_greetings_hangul",
+        "a1_13_register_switching"
+      ]
+    },
+    {
+      "id": "DE-A1-HONORIFIC-SUBJECT",
+      "priority": 5,
+      "evidenceTier": "B",
+      "target": "-(으)시-",
+      "risk": "Looking for a German pronoun/register equivalent for Korean subject honorification.",
+      "evidenceNote": "German lacks a comparable morphogrammatical subject-honorific system; translation research emphasizes relation/status/context.",
+      "pedagogy": "Use subject-referent diagrams and separate it from du/Sie choice.",
+      "units": [
+        "a1_11_titles_relationships"
+      ]
+    },
+    {
+      "id": "DE-A1-WORDORDER",
+      "priority": 6,
+      "evidenceTier": "B",
+      "target": "Korean head-final / predicate-final order",
+      "risk": "Overusing German clause analogies ('Korean is like a German subordinate clause') until learners misgeneralize.",
+      "evidenceNote": "German/Korean contrastive studies show major word-order and case differences; German has multiple verb-position patterns while Korean is consistently head-final in core clause structure.",
+      "pedagogy": "German subordinate-clause verb-final can be a temporary mnemonic only; label it explicitly as an analogy, not a rule equivalence.",
+      "units": [
+        "a1_02_self_intro_identity",
+        "a1_04_order_request_object"
+      ]
+    },
+    {
+      "id": "DE-A1-SUBJECT-OMISSION",
+      "priority": 7,
+      "evidenceTier": "C",
+      "target": "contextual subject omission",
+      "risk": "Restoring ich/du mechanically in Korean because German finite clauses usually express a subject.",
+      "evidenceNote": "Contrastive hypothesis requiring project learner-corpus validation.",
+      "pedagogy": "Show natural Korean dialogue where topic is set once and omitted afterward; DE translation may need explicit pronouns.",
+      "units": [
+        "a1_02_self_intro_identity",
+        "a1_07_contact_address"
+      ]
+    },
+    {
+      "id": "DE-A1-COUNTERS",
+      "priority": 8,
+      "evidenceTier": "C",
+      "target": "numbers/counters",
+      "risk": "Expecting German numeral+noun structure to transfer directly.",
+      "evidenceNote": "Pedagogical hypothesis; validate in pilot.",
+      "pedagogy": "Teach task chunks rather than classifier taxonomy; contrast only when it helps.",
+      "units": [
+        "a1_04_order_request_object",
+        "a1_05_numbers_time"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "en_particle_2019",
+      "type": "learner_corpus",
+      "title": "A Quantitative Study on the Particle Errors of English-speaking Korean Learners",
+      "year": 2019,
+      "url": "https://www.kci.go.kr/kciportal/landing/article.kci?arti_id=ART002472590"
+    },
+    {
+      "id": "en_particle_2025",
+      "type": "learner_corpus",
+      "title": "L2 Errors in Korean Nominative and Accusative Case Particles",
+      "year": 2025,
+      "url": "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003239591"
+    },
+    {
+      "id": "en_honorific_2025",
+      "type": "multi_method_experiment",
+      "title": "Overgeneralization of Korean subject honorification by English-speaking learners of Korean",
+      "year": 2025,
+      "url": "https://www.cambridge.org/core/journals/bilingualism-language-and-cognition/article/overgeneralization-of-korean-subject-honorification-by-englishspeaking-learners-of-korean/01AD28C4C357497A0E75C1CFD70AF31E"
+    },
+    {
+      "id": "de_locative_2022",
+      "type": "german_l1_targeted_pedagogy",
+      "title": "독일어권 학습자 대상 처격조사 '-에/-에서' 교육 방안 연구",
+      "year": 2022,
+      "url": "https://www.kci.go.kr/kciportal/landing/article.kci?arti_id=ART002900974"
+    },
+    {
+      "id": "de_adverbial_2024",
+      "type": "doctoral_dissertation",
+      "title": "독일어권 학습자를 위한 한국어 부사격 조사 교육 연구: 에, 에서, (으)로",
+      "year": 2024,
+      "url": "https://www.riss4u.net/search/detail/DetailView.do?control_no=4ebc0c9e3fb3fdb7ffe0bdc3ef48d419"
+    },
+    {
+      "id": "de_particle_contrast_2020",
+      "type": "contrastive_thesis",
+      "title": "한국어 조사와 독일어 전치사 대조연구",
+      "year": 2020,
+      "url": "https://www.dbpia.co.kr/journal/detail?nodeId=T15511773"
+    },
+    {
+      "id": "de_case_order_2004",
+      "type": "contrastive_linguistics",
+      "title": "Kasus und Wortstellung im Deutschen und Koreanischen",
+      "year": 2004,
+      "url": "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART000954801"
+    },
+    {
+      "id": "de_politeness_2008",
+      "type": "contrastive_pedagogy",
+      "title": "Höflichkeit im Sprachcurriculum — ein Deutsch-Koreanischer Vergleich",
+      "year": 2008,
+      "url": "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART001267910"
+    },
+    {
+      "id": "de_honorific_translation_2023",
+      "type": "contrastive_translation",
+      "title": "Die koreanischen Honorative und ihre deutsche Übersetzung",
+      "year": 2023,
+      "url": "https://www.kci.go.kr/kciportal/landing/article.kci?arti_id=ART002969954"
+    },
+    {
+      "id": "honorific_textbook_2026",
+      "type": "textbook_analysis",
+      "title": "A Study on the Instructional Content of Subject Honorifics in Korean Language Textbooks",
+      "year": 2026,
+      "url": "https://www.kci.go.kr/kciportal/landing/article.kci?arti_id=ART003330418"
+    }
+  ]
+}
