@@ -718,9 +718,9 @@
         ]
       },
       "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
-      "researchStatus": "broad_pass_complete_deep_pass_pending",
+      "researchStatus": "deep_pass_complete",
       "ko": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "family_ko_01",
@@ -861,6 +861,79 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "family_ko_11",
+            "surfacePattern": "연락을 줄이다 / 잠시 연락하지 않다",
+            "function": "reduce contact temporarily",
+            "registerLane": "relationship_sensitive",
+            "relationshipLane": "friend_or_partner",
+            "tone": "boundary",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "family_ko_friend_hurt"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "family_ko_12",
+            "surfacePattern": "관계를 계속할지 고민하다",
+            "function": "consider whether to continue relationship",
+            "registerLane": "relationship_sensitive",
+            "relationshipLane": "friend_or_partner",
+            "tone": "reflective",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "family_ko_friend_hurt",
+              "family_ko_family_distance"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "family_ko_13",
+            "surfacePattern": "솔직하게 얘기하다",
+            "function": "talk honestly",
+            "registerLane": "relationship_sensitive",
+            "relationshipLane": "close_relationship",
+            "tone": "open",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "family_ko_long_distance",
+              "family_ko_friend_hurt"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "family_ko_14",
+            "surfacePattern": "서로 맞춰 가다",
+            "function": "adjust to each other",
+            "registerLane": "relationship_sensitive",
+            "relationshipLane": "partner_or_family",
+            "tone": "cooperative",
+            "domainTermStatus": "idiomatic",
+            "sourceRefs": [
+              "family_ko_long_distance"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "family_ko_15",
+            "surfacePattern": "연락 먼저 해 보다",
+            "function": "initiate repair/contact",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "friend_or_family",
+            "tone": "tentative",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "family_ko_family_distance",
+              "family_ko_friend_hurt"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -897,6 +970,14 @@
             "retrievedDate": "2026-10-06",
             "evidenceUse": "native_usage_pattern",
             "notes": "가족 관계의 거리두기, 연락, 사과와 감정 누적을 말하는 맥락."
+          },
+          {
+            "sourceId": "family_ko_friend_hurt",
+            "url": "https://theqoo.net/review/2875913845",
+            "community": "TheQoo 후기",
+            "retrievedDate": "2026-10-06",
+            "evidenceUse": "native_usage_pattern",
+            "notes": "친구 관계에서 서운함, 연락, 관계 유지와 감정 누적."
           }
         ],
         "researchDate": "2026-10-06",
@@ -904,7 +985,7 @@
         "deepRegisterLaneTarget": 3
       },
       "en": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "family_en_01",
@@ -1047,6 +1128,79 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "family_en_11",
+            "surfacePattern": "ask for space",
+            "function": "request temporary distance",
+            "registerLane": "relationship_sensitive",
+            "relationshipLane": "partner_or_family",
+            "tone": "boundary",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "family_en_space"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "family_en_12",
+            "surfacePattern": "give someone space",
+            "function": "respect requested distance",
+            "registerLane": "relationship_sensitive",
+            "relationshipLane": "partner_or_family",
+            "tone": "supportive",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "family_en_space"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "family_en_13",
+            "surfacePattern": "check in with someone",
+            "function": "make a low-pressure contact",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "friend_or_family",
+            "tone": "warm",
+            "domainTermStatus": "idiomatic",
+            "sourceRefs": [
+              "family_en_mother_distance",
+              "family_en_space"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "family_en_14",
+            "surfacePattern": "work things out",
+            "function": "try to resolve relationship problem",
+            "registerLane": "relationship_sensitive",
+            "relationshipLane": "partner_or_family",
+            "tone": "cooperative",
+            "domainTermStatus": "idiomatic",
+            "sourceRefs": [
+              "family_en_space",
+              "family_en_inlaws"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "family_en_15",
+            "surfacePattern": "set expectations",
+            "function": "make relationship expectations explicit",
+            "registerLane": "relationship_reflective",
+            "relationshipLane": "partner_or_family",
+            "tone": "practical",
+            "domainTermStatus": "current_stable",
+            "sourceRefs": [
+              "family_en_grandparents_boundary",
+              "family_en_space"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -1083,6 +1237,14 @@
             "retrievedDate": "2026-10-06",
             "evidenceUse": "native_usage_pattern",
             "notes": "Family pressure, guilt, visit frequency, plans and holding boundaries."
+          },
+          {
+            "sourceId": "family_en_space",
+            "url": "https://www.reddit.com/r/relationships/comments/15agpd7/my_28m_girlfriend_25f_has_asked_for_space_but_im/",
+            "community": "Reddit r/relationships",
+            "retrievedDate": "2026-10-06",
+            "evidenceUse": "native_usage_pattern",
+            "notes": "Partner asks for space; talk/boundary language."
           }
         ],
         "researchDate": "2026-10-06",
@@ -1090,7 +1252,7 @@
         "deepRegisterLaneTarget": 3
       },
       "de": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "family_de_01",
@@ -1234,6 +1396,78 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "family_de_11",
+            "surfacePattern": "Abstand brauchen",
+            "function": "need relational space",
+            "registerLane": "relationship_sensitive",
+            "relationshipLane": "partner_or_family",
+            "tone": "boundary",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "family_de_space"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "family_de_12",
+            "surfacePattern": "jemandem Zeit geben",
+            "function": "give someone time",
+            "registerLane": "relationship_sensitive",
+            "relationshipLane": "partner_or_family",
+            "tone": "supportive",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "family_de_space"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "family_de_13",
+            "surfacePattern": "in Ruhe darüber reden",
+            "function": "discuss issue calmly",
+            "registerLane": "relationship_sensitive",
+            "relationshipLane": "partner_or_family",
+            "tone": "cooperative",
+            "domainTermStatus": "idiomatic",
+            "sourceRefs": [
+              "family_de_space",
+              "family_de_partner_limits"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "family_de_14",
+            "surfacePattern": "sich wieder annähern",
+            "function": "become closer again",
+            "registerLane": "relationship_reflective",
+            "relationshipLane": "partner_or_family",
+            "tone": "hopeful",
+            "domainTermStatus": "current_stable",
+            "sourceRefs": [
+              "family_de_space"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "family_de_15",
+            "surfacePattern": "Erwartungen klären",
+            "function": "clarify relationship expectations",
+            "registerLane": "relationship_reflective",
+            "relationshipLane": "partner_or_family",
+            "tone": "practical",
+            "domainTermStatus": "professional_everyday",
+            "sourceRefs": [
+              "family_de_partner_limits",
+              "family_de_space"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -1270,6 +1504,14 @@
             "retrievedDate": "2026-10-06",
             "evidenceUse": "native_usage_pattern",
             "notes": "Grenzüberschreitung, Selbstwahrnehmung und Frage, was sich falsch anfühlt."
+          },
+          {
+            "sourceId": "family_de_space",
+            "url": "https://www.reddit.com/r/beziehungen/comments/1iy0my3/partner_braucht_abstand_und_wei%C3%9F_nicht_ob_er_die/",
+            "community": "Reddit r/beziehungen",
+            "retrievedDate": "2026-10-06",
+            "evidenceUse": "native_usage_pattern",
+            "notes": "Partner braucht Abstand; Beziehung, Gefühle, Zukunft."
           }
         ],
         "researchDate": "2026-10-06",
@@ -1346,9 +1588,9 @@
         ]
       },
       "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
-      "researchStatus": "broad_pass_complete_deep_pass_pending",
+      "researchStatus": "deep_pass_complete",
       "ko": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "house_ko_01",
@@ -1493,6 +1735,77 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "house_ko_11",
+            "surfacePattern": "물이 새다 / 누수가 있다",
+            "function": "report a leak",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "tenant_landlord",
+            "tone": "concerned",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "house_ko_repair"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "house_ko_12",
+            "surfacePattern": "집주인에게 수리 요청하다",
+            "function": "request repair",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "tenant_landlord",
+            "tone": "practical",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "house_ko_repair",
+              "house_ko_repair_cost"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "house_ko_13",
+            "surfacePattern": "계약을 연장하다 / 재계약하다",
+            "function": "renew lease",
+            "registerLane": "service_public",
+            "relationshipLane": "tenant_landlord",
+            "tone": "neutral",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "house_ko_contract_noise"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "house_ko_14",
+            "surfacePattern": "이사 날짜를 잡다",
+            "function": "plan move date",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "household",
+            "tone": "practical",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "house_ko_contract_noise"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "house_ko_15",
+            "surfacePattern": "보증금 돌려받다",
+            "function": "receive deposit back",
+            "registerLane": "service_public",
+            "relationshipLane": "tenant_landlord",
+            "tone": "practical",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "house_ko_contract_noise"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -1544,7 +1857,7 @@
         "deepRegisterLaneTarget": 3
       },
       "en": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "house_en_01",
@@ -1688,6 +2001,77 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "house_en_11",
+            "surfacePattern": "put in a maintenance request / work order",
+            "function": "formally request repair",
+            "registerLane": "service_public",
+            "relationshipLane": "tenant_management",
+            "tone": "practical",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "house_en_leak"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "house_en_12",
+            "surfacePattern": "report the issue to management",
+            "function": "escalate housing issue",
+            "registerLane": "service_public",
+            "relationshipLane": "tenant_management",
+            "tone": "firm",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "house_en_leak",
+              "house_en_upstairs_noise"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "house_en_13",
+            "surfacePattern": "the leak keeps coming back",
+            "function": "describe recurring repair failure",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "tenant_management",
+            "tone": "frustrated",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "house_en_leak"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "house_en_14",
+            "surfacePattern": "when is my lease up? / renew the lease",
+            "function": "talk about lease term",
+            "registerLane": "service_public",
+            "relationshipLane": "tenant_landlord",
+            "tone": "neutral",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "house_en_leak"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "house_en_15",
+            "surfacePattern": "security deposit",
+            "function": "name rental deposit",
+            "registerLane": "housing_institutional",
+            "relationshipLane": "tenant_landlord",
+            "tone": "neutral",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "house_en_leak"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -1724,6 +2108,14 @@
             "retrievedDate": "2026-10-06",
             "evidenceUse": "native_usage_pattern",
             "notes": "Shared-wall noise, late-night disturbances and quiet hours."
+          },
+          {
+            "sourceId": "house_en_leak",
+            "url": "https://www.reddit.com/r/Apartmentliving/comments/1kbjuki/need_help_asap_i_dont_know_what_to_do/",
+            "community": "Reddit r/Apartmentliving",
+            "retrievedDate": "2026-10-06",
+            "evidenceUse": "native_usage_pattern",
+            "notes": "Repeated leak, work orders, management, repairs and tenant complaint."
           }
         ],
         "researchDate": "2026-10-06",
@@ -1731,7 +2123,7 @@
         "deepRegisterLaneTarget": 3
       },
       "de": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "house_de_01",
@@ -1875,6 +2267,77 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "house_de_11",
+            "surfacePattern": "einen Mangel melden",
+            "function": "report rental defect",
+            "registerLane": "service_public",
+            "relationshipLane": "tenant_landlord",
+            "tone": "practical",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "house_de_mold"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "house_de_12",
+            "surfacePattern": "den Vermieter zur Reparatur auffordern",
+            "function": "request landlord repair",
+            "registerLane": "service_public",
+            "relationshipLane": "tenant_landlord",
+            "tone": "firm",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "house_de_mold",
+              "house_de_ruhezeiten"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "house_de_13",
+            "surfacePattern": "eine Frist setzen",
+            "function": "set repair/action deadline",
+            "registerLane": "housing_institutional",
+            "relationshipLane": "tenant_landlord",
+            "tone": "formal",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "house_de_mold"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "house_de_14",
+            "surfacePattern": "Mietvertrag verlängern / kündigen",
+            "function": "renew/terminate lease",
+            "registerLane": "housing_institutional",
+            "relationshipLane": "tenant_landlord",
+            "tone": "neutral",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "house_de_mold"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "house_de_15",
+            "surfacePattern": "Kaution zurückbekommen",
+            "function": "receive security deposit back",
+            "registerLane": "housing_institutional",
+            "relationshipLane": "tenant_landlord",
+            "tone": "practical",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "house_de_mold"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -1911,6 +2374,14 @@
             "retrievedDate": "2026-10-06",
             "evidenceUse": "native_usage_pattern",
             "notes": "Wiederholter Lärm, Gespräche, Abmahnung und Lärmprotokoll."
+          },
+          {
+            "sourceId": "house_de_mold",
+            "url": "https://www.reddit.com/r/wohnen/comments/11gg0fp",
+            "community": "Reddit r/wohnen",
+            "retrievedDate": "2026-10-06",
+            "evidenceUse": "native_usage_pattern",
+            "notes": "Mangel melden, Vermieter, Frist, Mietwohnung."
           }
         ],
         "researchDate": "2026-10-06",
@@ -3885,9 +4356,9 @@
         ]
       },
       "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
-      "researchStatus": "broad_pass_complete_deep_pass_pending",
+      "researchStatus": "deep_pass_complete",
       "ko": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "food_ko_01",
@@ -4004,6 +4475,106 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "food_ko_09",
+            "surfacePattern": "덜 달게 / 당도 낮게 해 주세요",
+            "function": "request sweetness adjustment",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_staff",
+            "tone": "polite_practical",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "food_ko_drinks"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "food_ko_10",
+            "surfacePattern": "얼음 빼 주세요 / 얼음 적게",
+            "function": "request ice customization",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_staff",
+            "tone": "polite_practical",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "food_ko_drinks"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "food_ko_11",
+            "surfacePattern": "간이 세다 / 슴슴하다",
+            "function": "evaluate seasoning intensity",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "friend_or_review",
+            "tone": "evaluative",
+            "domainTermStatus": "colloquial",
+            "sourceRefs": [
+              "food_ko_restaurant_review",
+              "food_ko_drinks"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "food_ko_12",
+            "surfacePattern": "양이 많다 / 적다",
+            "function": "evaluate portion size",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "friend_or_review",
+            "tone": "evaluative",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "food_ko_takeout",
+              "food_ko_restaurant_review"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "food_ko_13",
+            "surfacePattern": "이거 빼 주세요",
+            "function": "request ingredient omission",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_staff",
+            "tone": "polite_practical",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "food_ko_barista"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "food_ko_14",
+            "surfacePattern": "알레르기가 있어요",
+            "function": "state food allergy",
+            "registerLane": "food_safety_service",
+            "relationshipLane": "customer_staff",
+            "tone": "serious",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "food_ko_barista"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "food_ko_15",
+            "surfacePattern": "계산할게요 / 계산 부탁드려요",
+            "function": "ask to pay",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_staff",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "food_ko_restaurant_review"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -4040,6 +4611,14 @@
             "retrievedDate": "2026-10-06",
             "evidenceUse": "native_usage_pattern",
             "notes": "카페 주문 현장에서 먹고 가는지/포장하는지, 메뉴판에 없는 주문 등을 실제 근무자가 설명하는 맥락."
+          },
+          {
+            "sourceId": "food_ko_drinks",
+            "url": "https://theqoo.net/review/4196043594",
+            "community": "TheQoo 후기",
+            "retrievedDate": "2026-10-06",
+            "evidenceUse": "native_usage_pattern",
+            "notes": "음료 맛, 당도, 메뉴 선택, 주문 옵션."
           }
         ],
         "researchDate": "2026-10-06",
@@ -4047,7 +4626,7 @@
         "deepRegisterLaneTarget": 3
       },
       "en": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "food_en_01",
@@ -4163,6 +4742,105 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "food_en_09",
+            "surfacePattern": "Can we get the check?",
+            "function": "ask for restaurant bill",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_staff",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "food_en_split",
+              "food_en_checks"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "food_en_10",
+            "surfacePattern": "Can we get a box? / to-go box",
+            "function": "ask to pack leftovers",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_staff",
+            "tone": "practical",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "food_en_takeout"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "food_en_11",
+            "surfacePattern": "no onions / without ... please",
+            "function": "request ingredient omission",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_staff",
+            "tone": "polite_direct",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "food_en_order"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "food_en_12",
+            "surfacePattern": "I have a food allergy to ...",
+            "function": "state allergy",
+            "registerLane": "food_safety_service",
+            "relationshipLane": "customer_staff",
+            "tone": "serious",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "food_en_order"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "food_en_13",
+            "surfacePattern": "How spicy is this?",
+            "function": "ask spice level",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_staff",
+            "tone": "curious",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "food_en_order"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "food_en_14",
+            "surfacePattern": "medium / well-done",
+            "function": "specify doneness",
+            "registerLane": "food_service_specialist",
+            "relationshipLane": "customer_staff",
+            "tone": "neutral",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "food_en_order"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "food_en_15",
+            "surfacePattern": "we're ready to order",
+            "function": "signal readiness",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_staff",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "food_en_order"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -4214,7 +4892,7 @@
         "deepRegisterLaneTarget": 3
       },
       "de": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "food_de_01",
@@ -4357,6 +5035,76 @@
             ],
             "freshness": "core_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "food_de_11",
+            "surfacePattern": "getrennt / zusammen zahlen",
+            "function": "choose separate/together payment",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "group_and_staff",
+            "tone": "practical",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "food_de_bill"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "food_de_12",
+            "surfacePattern": "ohne ... bitte",
+            "function": "request ingredient omission",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_staff",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "food_de_order_variants"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "food_de_13",
+            "surfacePattern": "Ich habe eine Allergie gegen ...",
+            "function": "state allergy",
+            "registerLane": "food_safety_service",
+            "relationshipLane": "customer_staff",
+            "tone": "serious",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "food_de_order_variants"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "food_de_14",
+            "surfacePattern": "Wie scharf ist das?",
+            "function": "ask spice level",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_staff",
+            "tone": "curious",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "food_de_order_variants"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "food_de_15",
+            "surfacePattern": "Könnten Sie das einpacken?",
+            "function": "ask to pack leftovers",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_staff",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "food_de_here_takeaway"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -4478,9 +5226,9 @@
         ]
       },
       "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
-      "researchStatus": "broad_pass_complete_deep_pass_pending",
+      "researchStatus": "deep_pass_complete",
       "ko": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "shop_ko_01",
@@ -4600,6 +5348,105 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "shop_ko_09",
+            "surfacePattern": "영수증 있어요? / 영수증 필요해요?",
+            "function": "ask about receipt",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_staff",
+            "tone": "practical",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "shop_ko_wrong_delivery"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "shop_ko_10",
+            "surfacePattern": "다른 색 / 다른 사이즈 있나요?",
+            "function": "ask for another variant",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_staff",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "shop_ko_size",
+              "shop_ko_exchange_system"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "shop_ko_11",
+            "surfacePattern": "입어 봐도 돼요? / 착용해 봐도 돼요?",
+            "function": "ask to try item on",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_staff",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "shop_ko_size"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "shop_ko_12",
+            "surfacePattern": "카드로 결제할게요",
+            "function": "choose payment method",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_staff",
+            "tone": "practical",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "shop_ko_wrong_delivery"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "shop_ko_13",
+            "surfacePattern": "배송이 늦다 / 아직 안 왔다",
+            "function": "report delayed delivery",
+            "registerLane": "service_public",
+            "relationshipLane": "customer_service",
+            "tone": "complaint",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "shop_ko_wrong_delivery"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "shop_ko_14",
+            "surfacePattern": "주문번호 확인해 주세요",
+            "function": "provide/check order reference",
+            "registerLane": "service_public",
+            "relationshipLane": "customer_service",
+            "tone": "practical",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "shop_ko_wrong_delivery"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "shop_ko_15",
+            "surfacePattern": "재고 있나요?",
+            "function": "ask stock availability",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_staff",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "shop_ko_exchange_system"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -4651,7 +5498,7 @@
         "deepRegisterLaneTarget": 3
       },
       "en": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "shop_en_01",
@@ -4768,6 +5615,104 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "shop_en_09",
+            "surfacePattern": "Do you have this in a different size/color?",
+            "function": "ask for variant",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_staff",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "shop_en_two_sizes"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "shop_en_10",
+            "surfacePattern": "Can I try this on?",
+            "function": "ask to try clothing",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_staff",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "shop_en_two_sizes"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "shop_en_11",
+            "surfacePattern": "Do you have the receipt? / keep the receipt",
+            "function": "refer to receipt for return",
+            "registerLane": "service_public",
+            "relationshipLane": "customer_staff",
+            "tone": "practical",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "shop_en_wrong_item"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "shop_en_12",
+            "surfacePattern": "return window",
+            "function": "name allowed return period",
+            "registerLane": "service_public",
+            "relationshipLane": "customer_service",
+            "tone": "neutral",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "shop_en_fee"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "shop_en_13",
+            "surfacePattern": "free returns / return fee",
+            "function": "describe return cost policy",
+            "registerLane": "service_public",
+            "relationshipLane": "customer_service",
+            "tone": "neutral",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "shop_en_fee"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "shop_en_14",
+            "surfacePattern": "track my order / package",
+            "function": "check delivery status",
+            "registerLane": "service_public",
+            "relationshipLane": "customer_service",
+            "tone": "practical",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "shop_en_wrong_item"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "shop_en_15",
+            "surfacePattern": "it's out of stock",
+            "function": "say item unavailable",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_staff",
+            "tone": "neutral",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "shop_en_two_sizes"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -4804,6 +5749,14 @@
             "retrievedDate": "2026-10-06",
             "evidenceUse": "native_usage_pattern",
             "notes": "Ordering two sizes because fit/measurements are unreliable."
+          },
+          {
+            "sourceId": "shop_en_fee",
+            "url": "https://www.reddit.com/r/malefashionadvice/comments/13cze8x/the_freereturns_party_is_over/",
+            "community": "Reddit r/malefashionadvice",
+            "retrievedDate": "2026-10-06",
+            "evidenceUse": "native_usage_pattern",
+            "notes": "Fit uncertainty, shipping fees, return shipping, measurements."
           }
         ],
         "researchDate": "2026-10-06",
@@ -4811,7 +5764,7 @@
         "deepRegisterLaneTarget": 3
       },
       "de": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "shop_de_01",
@@ -4932,6 +5885,105 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "shop_de_09",
+            "surfacePattern": "Haben Sie das in einer anderen Größe/Farbe?",
+            "function": "ask for variant",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_staff",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "shop_de_wrong_item"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "shop_de_10",
+            "surfacePattern": "Kann ich das anprobieren?",
+            "function": "ask to try clothing",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_staff",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "shop_de_wrong_return"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "shop_de_11",
+            "surfacePattern": "Kassenbon / Beleg",
+            "function": "refer to receipt",
+            "registerLane": "service_public",
+            "relationshipLane": "customer_staff",
+            "tone": "neutral",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "shop_de_return2"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "shop_de_12",
+            "surfacePattern": "Rückgabefrist",
+            "function": "name return deadline/window",
+            "registerLane": "service_public",
+            "relationshipLane": "customer_service",
+            "tone": "neutral",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "shop_de_return2"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "shop_de_13",
+            "surfacePattern": "Versandkosten / Rücksendekosten",
+            "function": "name shipping/return costs",
+            "registerLane": "service_public",
+            "relationshipLane": "customer_service",
+            "tone": "neutral",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "shop_de_wrong_item",
+              "shop_de_return2"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "shop_de_14",
+            "surfacePattern": "Sendung verfolgen",
+            "function": "track shipment",
+            "registerLane": "service_public",
+            "relationshipLane": "customer_service",
+            "tone": "practical",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "shop_de_wrong_item"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "shop_de_15",
+            "surfacePattern": "nicht auf Lager / ausverkauft",
+            "function": "say item unavailable",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_staff",
+            "tone": "neutral",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "shop_de_wrong_return"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -4968,6 +6020,14 @@
             "retrievedDate": "2026-10-06",
             "evidenceUse": "native_usage_pattern",
             "notes": "Falschlieferung, zurückschicken, Erstattung und erneute Berechnung."
+          },
+          {
+            "sourceId": "shop_de_return2",
+            "url": "https://www.reddit.com/r/LegaladviceGerman/comments/1n97f8k/amazon_m%C3%B6chte_artikel_nicht_zur%C3%BCck_haben_sondern/",
+            "community": "Reddit r/LegaladviceGerman",
+            "retrievedDate": "2026-10-06",
+            "evidenceUse": "native_usage_pattern",
+            "notes": "Erstattung, Rücksendung, Artikel behalten."
           }
         ],
         "researchDate": "2026-10-06",
@@ -5032,9 +6092,9 @@
         ]
       },
       "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
-      "researchStatus": "broad_pass_complete_deep_pass_pending",
+      "researchStatus": "deep_pass_complete",
       "ko": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "transport_ko_01",
@@ -5151,6 +6211,105 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "transport_ko_09",
+            "surfacePattern": "몇 번 출구예요?",
+            "function": "ask station exit",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "traveler_local",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "transport_ko_commute"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "transport_ko_10",
+            "surfacePattern": "어디에서 내려요?",
+            "function": "ask where to get off",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "traveler_local",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "transport_ko_commute"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "transport_ko_11",
+            "surfacePattern": "이쪽으로 가면 돼요?",
+            "function": "confirm direction",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "traveler_local",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "transport_ko_commute"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "transport_ko_12",
+            "surfacePattern": "몇 번 승강장이에요?",
+            "function": "ask platform number",
+            "registerLane": "service_public",
+            "relationshipLane": "traveler_staff",
+            "tone": "practical",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "transport_ko_ktx_chaos"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "transport_ko_13",
+            "surfacePattern": "표를 다시 예매하다 / 변경하다",
+            "function": "rebook ticket",
+            "registerLane": "service_public",
+            "relationshipLane": "traveler_staff",
+            "tone": "practical",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "transport_ko_missed",
+              "transport_ko_ktx_chaos"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "transport_ko_14",
+            "surfacePattern": "교통카드 찍다 / 태그하다",
+            "function": "use transit card",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "traveler",
+            "tone": "practical",
+            "domainTermStatus": "culture_specific",
+            "sourceRefs": [
+              "transport_ko_commute"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "transport_ko_15",
+            "surfacePattern": "길을 잘못 들다",
+            "function": "take wrong route",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "traveler",
+            "tone": "frustrated",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "transport_ko_commute"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -5202,7 +6361,7 @@
         "deepRegisterLaneTarget": 3
       },
       "en": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "transport_en_01",
@@ -5318,6 +6477,104 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "transport_en_09",
+            "surfacePattern": "Which platform / track?",
+            "function": "ask departure platform",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "traveler_staff",
+            "tone": "practical",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "transport_en_missed2"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "transport_en_10",
+            "surfacePattern": "Which exit should I take?",
+            "function": "ask station exit",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "traveler_local",
+            "tone": "practical",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "transport_en_missed_stop"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "transport_en_11",
+            "surfacePattern": "Am I going the right way?",
+            "function": "confirm direction",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "traveler_local",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "transport_en_missed_stop"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "transport_en_12",
+            "surfacePattern": "tap in / tap out",
+            "function": "use fare card",
+            "registerLane": "transport_system",
+            "relationshipLane": "traveler",
+            "tone": "practical",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "transport_en_missed_stop"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "transport_en_13",
+            "surfacePattern": "service disruption / suspended service",
+            "function": "describe interruption",
+            "registerLane": "service_public",
+            "relationshipLane": "traveler_transport",
+            "tone": "neutral",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "transport_en_missed2"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "transport_en_14",
+            "surfacePattern": "alternate route",
+            "function": "name route workaround",
+            "registerLane": "service_public",
+            "relationshipLane": "traveler_staff",
+            "tone": "practical",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "transport_en_missed2"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "transport_en_15",
+            "surfacePattern": "I got on the wrong train",
+            "function": "report route mistake",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "traveler",
+            "tone": "frustrated",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "transport_en_missed_stop"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -5354,6 +6611,14 @@
             "retrievedDate": "2026-10-06",
             "evidenceUse": "native_usage_pattern",
             "notes": "Delay, missed connection, rebooking onto another train."
+          },
+          {
+            "sourceId": "transport_en_missed2",
+            "url": "https://www.reddit.com/r/Amtrak/comments/1pnue17/amtrak_missed_connection_experience_chigago/",
+            "community": "Reddit r/Amtrak",
+            "retrievedDate": "2026-10-06",
+            "evidenceUse": "native_usage_pattern",
+            "notes": "Delay, missed connection, station services and onward arrangements."
           }
         ],
         "researchDate": "2026-10-06",
@@ -5361,7 +6626,7 @@
         "deepRegisterLaneTarget": 3
       },
       "de": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "transport_de_01",
@@ -5479,6 +6744,105 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "transport_de_09",
+            "surfacePattern": "Welches Gleis?",
+            "function": "ask platform",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "traveler_staff",
+            "tone": "practical",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "transport_de_first_transfer",
+              "transport_de_delay2"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "transport_de_10",
+            "surfacePattern": "Wo muss ich aussteigen?",
+            "function": "ask where to get off",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "traveler_local",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "transport_de_first_transfer"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "transport_de_11",
+            "surfacePattern": "Bin ich hier richtig?",
+            "function": "confirm route/place",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "traveler_local",
+            "tone": "polite",
+            "domainTermStatus": "idiomatic",
+            "sourceRefs": [
+              "transport_de_first_transfer"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "transport_de_12",
+            "surfacePattern": "Zug fällt aus / Ausfall",
+            "function": "describe cancellation",
+            "registerLane": "service_public",
+            "relationshipLane": "traveler_transport",
+            "tone": "neutral",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "transport_de_delay2"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "transport_de_13",
+            "surfacePattern": "Ersatzverbindung / alternative Verbindung",
+            "function": "name workaround",
+            "registerLane": "service_public",
+            "relationshipLane": "traveler_staff",
+            "tone": "practical",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "transport_de_delay2"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "transport_de_14",
+            "surfacePattern": "Ticket umbuchen",
+            "function": "change ticket booking",
+            "registerLane": "service_public",
+            "relationshipLane": "traveler_staff",
+            "tone": "practical",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "transport_de_delay2"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "transport_de_15",
+            "surfacePattern": "in den falschen Zug steigen",
+            "function": "board wrong train",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "traveler",
+            "tone": "frustrated",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "transport_de_first_transfer"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -5515,6 +6879,14 @@
             "retrievedDate": "2026-10-06",
             "evidenceUse": "native_usage_pattern",
             "notes": "Erste Bahnfahrt, richtiges Gleis, knapper Umstieg, Anschlusszug."
+          },
+          {
+            "sourceId": "transport_de_delay2",
+            "url": "https://www.reddit.com/r/deutschebahn/comments/1w0u3oh",
+            "community": "Reddit r/deutschebahn",
+            "retrievedDate": "2026-10-06",
+            "evidenceUse": "native_usage_pattern",
+            "notes": "Verspätung, Anschluss, nächster Zug, Fahrgastreise."
           }
         ],
         "researchDate": "2026-10-06",
@@ -6216,9 +7588,9 @@
         ]
       },
       "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
-      "researchStatus": "broad_pass_complete_deep_pass_pending",
+      "researchStatus": "deep_pass_complete",
       "ko": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "health_ko_01",
@@ -6336,6 +7708,107 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "health_ko_09",
+            "surfacePattern": "열이 나다 / 기침이 나다",
+            "function": "state common symptom",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "patient_clinician",
+            "tone": "plain",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "health_ko_er",
+              "health_ko_doctor_tone"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "health_ko_10",
+            "surfacePattern": "증상이 심해지다 / 나아지다",
+            "function": "describe symptom change",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "patient_clinician",
+            "tone": "neutral",
+            "domainTermStatus": "everyday_clinical",
+            "sourceRefs": [
+              "health_ko_er",
+              "health_ko_stone"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "health_ko_11",
+            "surfacePattern": "알레르기가 있다",
+            "function": "report allergy",
+            "registerLane": "clinical_or_institutional",
+            "relationshipLane": "patient_clinician",
+            "tone": "precise",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "health_ko_registration"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "health_ko_12",
+            "surfacePattern": "공복에 / 식후에 복용하다",
+            "function": "describe medication timing",
+            "registerLane": "clinical_or_institutional",
+            "relationshipLane": "patient_pharmacy",
+            "tone": "practical",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "health_ko_registration"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "health_ko_13",
+            "surfacePattern": "예약을 변경하다 / 취소하다",
+            "function": "change medical appointment",
+            "registerLane": "service_public",
+            "relationshipLane": "patient_clinic",
+            "tone": "practical",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "health_ko_registration"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "health_ko_14",
+            "surfacePattern": "결과가 언제 나와요?",
+            "function": "ask when test results are available",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "patient_clinician",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "health_ko_stone",
+              "health_ko_er"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "health_ko_15",
+            "surfacePattern": "다시 오라고 하다 / 재진 예약하다",
+            "function": "arrange follow-up visit",
+            "registerLane": "service_public",
+            "relationshipLane": "patient_clinic",
+            "tone": "practical",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "health_ko_stone"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -6393,7 +7866,7 @@
         "deepRegisterLaneTarget": 3
       },
       "en": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "health_en_01",
@@ -6509,6 +7982,104 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "health_en_09",
+            "surfacePattern": "where does it hurt?",
+            "function": "ask pain location",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "clinician_patient",
+            "tone": "clinical_neutral",
+            "domainTermStatus": "everyday_clinical",
+            "sourceRefs": [
+              "health_en_specialist"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "health_en_10",
+            "surfacePattern": "how long have you had this?",
+            "function": "ask symptom duration",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "clinician_patient",
+            "tone": "clinical_neutral",
+            "domainTermStatus": "everyday_clinical",
+            "sourceRefs": [
+              "health_en_specialist"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "health_en_11",
+            "surfacePattern": "it's getting worse / better",
+            "function": "describe symptom trajectory",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "patient_or_friend",
+            "tone": "neutral",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "health_en_specialist"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "health_en_12",
+            "surfacePattern": "any allergies? / I'm allergic to ...",
+            "function": "ask/report allergy",
+            "registerLane": "clinical_or_institutional",
+            "relationshipLane": "patient_clinician",
+            "tone": "precise",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "health_en_pharmacist"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "health_en_13",
+            "surfacePattern": "take it with food / on an empty stomach",
+            "function": "give medication timing instruction",
+            "registerLane": "clinical_or_institutional",
+            "relationshipLane": "pharmacist_patient",
+            "tone": "practical",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "health_en_pharmacist"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "health_en_14",
+            "surfacePattern": "when will the results be back?",
+            "function": "ask result timing",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "patient_clinician",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "health_en_specialist"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "health_en_15",
+            "surfacePattern": "follow-up appointment",
+            "function": "name subsequent visit",
+            "registerLane": "clinical_or_institutional",
+            "relationshipLane": "patient_clinic",
+            "tone": "neutral",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "health_en_specialist"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -6566,7 +8137,7 @@
         "deepRegisterLaneTarget": 3
       },
       "de": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "health_de_01",
@@ -6680,6 +8251,105 @@
             "sourceRefs": [
               "health_de_symptoms",
               "health_de_exhaustion"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "health_de_09",
+            "surfacePattern": "Wo tut es weh?",
+            "function": "ask pain location",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "clinician_patient",
+            "tone": "clinical_neutral",
+            "domainTermStatus": "everyday_clinical",
+            "sourceRefs": [
+              "health_de_appointment"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "health_de_10",
+            "surfacePattern": "Seit wann haben Sie das?",
+            "function": "ask duration",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "clinician_patient",
+            "tone": "clinical_neutral",
+            "domainTermStatus": "everyday_clinical",
+            "sourceRefs": [
+              "health_de_symptoms"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "health_de_11",
+            "surfacePattern": "es wird schlimmer / besser",
+            "function": "describe symptom change",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "patient_or_friend",
+            "tone": "neutral",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "health_de_symptoms",
+              "health_de_exhaustion"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "health_de_12",
+            "surfacePattern": "Allergien haben / allergisch gegen ... sein",
+            "function": "report allergy",
+            "registerLane": "clinical_or_institutional",
+            "relationshipLane": "patient_clinician",
+            "tone": "precise",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "health_de_appointment"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "health_de_13",
+            "surfacePattern": "vor / nach dem Essen einnehmen",
+            "function": "describe medication timing",
+            "registerLane": "clinical_or_institutional",
+            "relationshipLane": "pharmacist_patient",
+            "tone": "practical",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "health_de_appointment"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "health_de_14",
+            "surfacePattern": "Wann sind die Ergebnisse da?",
+            "function": "ask result timing",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "patient_clinician",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "health_de_symptoms"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "health_de_15",
+            "surfacePattern": "Kontrolltermin / Folgetermin",
+            "function": "name follow-up appointment",
+            "registerLane": "clinical_or_institutional",
+            "relationshipLane": "patient_clinic",
+            "tone": "neutral",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "health_de_symptoms"
             ],
             "freshness": "current_stable",
             "confidence": "high"
@@ -8766,9 +10436,9 @@
         ]
       },
       "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
-      "researchStatus": "broad_pass_complete_deep_pass_pending",
+      "researchStatus": "deep_pass_complete",
       "ko": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "work_ko_01",
@@ -8914,6 +10584,78 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "work_ko_11",
+            "surfacePattern": "마감이 언제예요? / 마감 맞추다",
+            "function": "ask/meet deadline",
+            "registerLane": "work_professional",
+            "relationshipLane": "team",
+            "tone": "practical",
+            "domainTermStatus": "everyday_work",
+            "sourceRefs": [
+              "work_ko_adjust",
+              "work_ko_split"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "work_ko_12",
+            "surfacePattern": "일정이 밀리다",
+            "function": "say schedule slipped",
+            "registerLane": "work_professional",
+            "relationshipLane": "team",
+            "tone": "concerned",
+            "domainTermStatus": "everyday_work",
+            "sourceRefs": [
+              "work_ko_adjust"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "work_ko_13",
+            "surfacePattern": "진행 상황 공유하다",
+            "function": "give status update",
+            "registerLane": "business_formal",
+            "relationshipLane": "team_or_manager",
+            "tone": "neutral",
+            "domainTermStatus": "professional",
+            "sourceRefs": [
+              "work_ko_adjust",
+              "work_ko_split"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "work_ko_14",
+            "surfacePattern": "이건 제가 맡을게요",
+            "function": "claim task ownership",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "coworkers",
+            "tone": "cooperative",
+            "domainTermStatus": "everyday_work",
+            "sourceRefs": [
+              "work_ko_split"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "work_ko_15",
+            "surfacePattern": "도움이 필요하다 / 지원을 요청하다",
+            "function": "request help/resources",
+            "registerLane": "business_formal",
+            "relationshipLane": "employee_manager",
+            "tone": "careful",
+            "domainTermStatus": "professional",
+            "sourceRefs": [
+              "work_ko_overload"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -8965,7 +10707,7 @@
         "deepRegisterLaneTarget": 3
       },
       "en": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "work_en_01",
@@ -9110,6 +10852,76 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "work_en_11",
+            "surfacePattern": "What's the deadline?",
+            "function": "ask deadline",
+            "registerLane": "work_professional",
+            "relationshipLane": "team",
+            "tone": "practical",
+            "domainTermStatus": "everyday_work",
+            "sourceRefs": [
+              "work_en_overload"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "work_en_12",
+            "surfacePattern": "we're falling behind / running behind",
+            "function": "say schedule is slipping",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "coworkers",
+            "tone": "concerned",
+            "domainTermStatus": "idiomatic",
+            "sourceRefs": [
+              "work_en_overload"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "work_en_13",
+            "surfacePattern": "status update / progress update",
+            "function": "give project status",
+            "registerLane": "business_formal",
+            "relationshipLane": "team_or_stakeholder",
+            "tone": "neutral",
+            "domainTermStatus": "professional",
+            "sourceRefs": [
+              "work_en_overload"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "work_en_14",
+            "surfacePattern": "I'll take this / I can own this",
+            "function": "claim task ownership",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "coworkers",
+            "tone": "cooperative",
+            "domainTermStatus": "idiomatic",
+            "sourceRefs": [
+              "work_en_cover"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "work_en_15",
+            "surfacePattern": "ask for more support / resources",
+            "function": "request capacity",
+            "registerLane": "business_formal",
+            "relationshipLane": "employee_manager",
+            "tone": "careful",
+            "domainTermStatus": "professional",
+            "sourceRefs": [
+              "work_en_overload"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -9161,7 +10973,7 @@
         "deepRegisterLaneTarget": 3
       },
       "de": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "work_de_01",
@@ -9305,6 +11117,76 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "work_de_11",
+            "surfacePattern": "Wann ist die Deadline / Abgabe?",
+            "function": "ask deadline",
+            "registerLane": "work_professional",
+            "relationshipLane": "team",
+            "tone": "practical",
+            "domainTermStatus": "everyday_work",
+            "sourceRefs": [
+              "work_de_tasks"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "work_de_12",
+            "surfacePattern": "hinter dem Zeitplan liegen",
+            "function": "say schedule is behind",
+            "registerLane": "work_professional",
+            "relationshipLane": "team",
+            "tone": "concerned",
+            "domainTermStatus": "professional",
+            "sourceRefs": [
+              "work_de_overload"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "work_de_13",
+            "surfacePattern": "Status-/Projektupdate geben",
+            "function": "give status update",
+            "registerLane": "business_formal",
+            "relationshipLane": "team_or_stakeholder",
+            "tone": "neutral",
+            "domainTermStatus": "professional",
+            "sourceRefs": [
+              "work_de_tasks"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "work_de_14",
+            "surfacePattern": "Das übernehme ich",
+            "function": "claim task ownership",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "coworkers",
+            "tone": "cooperative",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "work_de_tasks"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "work_de_15",
+            "surfacePattern": "Unterstützung / Ressourcen anfordern",
+            "function": "request capacity/resources",
+            "registerLane": "business_formal",
+            "relationshipLane": "employee_manager",
+            "tone": "careful",
+            "domainTermStatus": "professional",
+            "sourceRefs": [
+              "work_de_overload"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -9420,9 +11302,9 @@
         ]
       },
       "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
-      "researchStatus": "broad_pass_complete_deep_pass_pending",
+      "researchStatus": "deep_pass_complete",
       "ko": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "services_ko_01",
@@ -9574,6 +11456,79 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "services_ko_11",
+            "surfacePattern": "온라인으로 신청하다",
+            "function": "apply online",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "resident",
+            "tone": "practical",
+            "domainTermStatus": "current_stable",
+            "sourceRefs": [
+              "services_ko_docs",
+              "services_ko_appeal"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "services_ko_12",
+            "surfacePattern": "본인 확인이 필요하다",
+            "function": "state identity verification requirement",
+            "registerLane": "service_public",
+            "relationshipLane": "resident_service",
+            "tone": "neutral",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "services_ko_docs",
+              "services_ko_post"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "services_ko_13",
+            "surfacePattern": "대기번호를 뽑다",
+            "function": "take queue number",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "resident",
+            "tone": "practical",
+            "domainTermStatus": "culture_specific",
+            "sourceRefs": [
+              "services_ko_move"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "services_ko_14",
+            "surfacePattern": "수수료를 내다",
+            "function": "pay service fee",
+            "registerLane": "service_public",
+            "relationshipLane": "resident_service",
+            "tone": "practical",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "services_ko_post"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "services_ko_15",
+            "surfacePattern": "처리 기간이 얼마나 걸려요?",
+            "function": "ask processing time",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "resident_staff",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "services_ko_appeal",
+              "services_ko_publichousing"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -9639,7 +11594,7 @@
         "deepRegisterLaneTarget": 3
       },
       "en": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "services_en_01",
@@ -9787,6 +11742,79 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "services_en_11",
+            "surfacePattern": "apply online",
+            "function": "use online service channel",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "resident",
+            "tone": "practical",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "services_en_dmv1",
+              "services_en_uscis"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "services_en_12",
+            "surfacePattern": "verify my identity",
+            "function": "complete identity verification",
+            "registerLane": "service_public",
+            "relationshipLane": "resident_service",
+            "tone": "neutral",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "services_en_dmv2",
+              "services_en_usps"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "services_en_13",
+            "surfacePattern": "wait in line / take a number",
+            "function": "manage queue",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "resident",
+            "tone": "practical",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "services_en_dmv1"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "services_en_14",
+            "surfacePattern": "pay a fee",
+            "function": "pay service charge",
+            "registerLane": "service_public",
+            "relationshipLane": "resident_service",
+            "tone": "practical",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "services_en_dmv2"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "services_en_15",
+            "surfacePattern": "How long does processing take?",
+            "function": "ask processing time",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "resident_staff",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "services_en_uscis",
+              "services_en_dmv2"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -9852,7 +11880,7 @@
         "deepRegisterLaneTarget": 3
       },
       "de": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "services_de_01",
@@ -10002,6 +12030,78 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "services_de_11",
+            "surfacePattern": "online beantragen",
+            "function": "apply online",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "resident",
+            "tone": "practical",
+            "domainTermStatus": "current_stable",
+            "sourceRefs": [
+              "services_de_online",
+              "services_de_perso"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "services_de_12",
+            "surfacePattern": "Identität nachweisen",
+            "function": "verify identity",
+            "registerLane": "service_public",
+            "relationshipLane": "resident_service",
+            "tone": "neutral",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "services_de_perso"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "services_de_13",
+            "surfacePattern": "eine Wartenummer ziehen",
+            "function": "take queue number",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "resident",
+            "tone": "practical",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "services_de_buerger1"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "services_de_14",
+            "surfacePattern": "eine Gebühr bezahlen",
+            "function": "pay service fee",
+            "registerLane": "service_public",
+            "relationshipLane": "resident_service",
+            "tone": "practical",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "services_de_buerger1"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "services_de_15",
+            "surfacePattern": "Wie lange dauert die Bearbeitung?",
+            "function": "ask processing time",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "resident_staff",
+            "tone": "polite",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "services_de_perso",
+              "services_de_online"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -10109,9 +12209,9 @@
         ]
       },
       "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
-      "researchStatus": "broad_pass_complete_deep_pass_pending",
+      "researchStatus": "deep_pass_complete",
       "ko": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "comm_ko_01",
@@ -10257,6 +12357,77 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "comm_ko_11",
+            "surfacePattern": "전화 못 받았어 / 부재중 전화",
+            "function": "talk about missed call",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "friend_or_work",
+            "tone": "neutral",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "comm_ko_workmsg",
+              "comm_ko_late_reply"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "comm_ko_12",
+            "surfacePattern": "다시 전화할게 / 전화 줘",
+            "function": "return/request call",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "friend_or_work",
+            "tone": "practical",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "comm_ko_late_reply"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "comm_ko_13",
+            "surfacePattern": "파일 첨부했어요 / 파일 보내드릴게요",
+            "function": "send attachment",
+            "registerLane": "work_professional",
+            "relationshipLane": "coworker_or_client",
+            "tone": "polite",
+            "domainTermStatus": "everyday_work",
+            "sourceRefs": [
+              "comm_ko_workmsg"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "comm_ko_14",
+            "surfacePattern": "멘션하다 / 태그하다",
+            "function": "draw attention in chat",
+            "registerLane": "online_chat",
+            "relationshipLane": "team_or_group",
+            "tone": "practical",
+            "domainTermStatus": "current_stable",
+            "sourceRefs": [
+              "comm_ko_thread"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "comm_ko_15",
+            "surfacePattern": "DM 보내다 / 개인 메시지로 보내다",
+            "function": "move to private message",
+            "registerLane": "online_chat",
+            "relationshipLane": "peer_or_group",
+            "tone": "practical",
+            "domainTermStatus": "current_stable",
+            "sourceRefs": [
+              "comm_ko_thread"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -10308,7 +12479,7 @@
         "deepRegisterLaneTarget": 3
       },
       "en": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "comm_en_01",
@@ -10454,6 +12625,76 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "comm_en_11",
+            "surfacePattern": "missed call",
+            "function": "refer to unanswered call",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "friend_or_work",
+            "tone": "neutral",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "comm_en_personalphone"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "comm_en_12",
+            "surfacePattern": "send / attach the file",
+            "function": "share attachment",
+            "registerLane": "work_professional",
+            "relationshipLane": "coworker_or_client",
+            "tone": "practical",
+            "domainTermStatus": "everyday_work",
+            "sourceRefs": [
+              "comm_en_slack"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "comm_en_13",
+            "surfacePattern": "reply in the thread",
+            "function": "keep response in message thread",
+            "registerLane": "online_chat",
+            "relationshipLane": "team",
+            "tone": "practical",
+            "domainTermStatus": "current_stable",
+            "sourceRefs": [
+              "comm_en_slack"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "comm_en_14",
+            "surfacePattern": "tag / mention someone",
+            "function": "notify person in group channel",
+            "registerLane": "online_chat",
+            "relationshipLane": "team_or_group",
+            "tone": "practical",
+            "domainTermStatus": "current_stable",
+            "sourceRefs": [
+              "comm_en_slack"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "comm_en_15",
+            "surfacePattern": "DM me / send me a direct message",
+            "function": "move conversation private",
+            "registerLane": "online_chat",
+            "relationshipLane": "peer_or_group",
+            "tone": "casual_practical",
+            "domainTermStatus": "current_stable",
+            "sourceRefs": [
+              "comm_en_slack"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -10505,7 +12746,7 @@
         "deepRegisterLaneTarget": 3
       },
       "de": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "comm_de_01",
@@ -10648,6 +12889,76 @@
             "domainTermStatus": "idiomatic",
             "sourceRefs": [
               "comm_de_whatsapp"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "comm_de_11",
+            "surfacePattern": "verpasster Anruf",
+            "function": "refer to missed call",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "friend_or_work",
+            "tone": "neutral",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "comm_de_phone"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "comm_de_12",
+            "surfacePattern": "zurückrufen",
+            "function": "return a call",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "friend_or_work",
+            "tone": "practical",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "comm_de_phone"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "comm_de_13",
+            "surfacePattern": "Datei anhängen / schicken",
+            "function": "send attachment",
+            "registerLane": "work_professional",
+            "relationshipLane": "coworker_or_client",
+            "tone": "practical",
+            "domainTermStatus": "everyday_work",
+            "sourceRefs": [
+              "comm_de_status"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "comm_de_14",
+            "surfacePattern": "im Thread antworten",
+            "function": "reply in thread",
+            "registerLane": "online_chat",
+            "relationshipLane": "team",
+            "tone": "practical",
+            "domainTermStatus": "current_stable",
+            "sourceRefs": [
+              "comm_de_status"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "comm_de_15",
+            "surfacePattern": "jemanden taggen / erwähnen",
+            "function": "mention in group chat",
+            "registerLane": "online_chat",
+            "relationshipLane": "team_or_group",
+            "tone": "practical",
+            "domainTermStatus": "current_stable",
+            "sourceRefs": [
+              "comm_de_status"
             ],
             "freshness": "current_stable",
             "confidence": "high"
@@ -12048,9 +14359,9 @@
         ]
       },
       "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
-      "researchStatus": "broad_pass_complete_deep_pass_pending",
+      "researchStatus": "deep_pass_complete",
       "ko": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "etiquette_ko_01",
@@ -12197,6 +14508,77 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "etiquette_ko_11",
+            "surfacePattern": "처음 인사드리다",
+            "function": "make respectful first greeting",
+            "registerLane": "formal_or_institutional",
+            "relationshipLane": "older_or_family_elder",
+            "tone": "respectful",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "etiquette_ko_permission",
+              "etiquette_ko_store"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "etiquette_ko_12",
+            "surfacePattern": "성함이 어떻게 되세요?",
+            "function": "ask name respectfully",
+            "registerLane": "formal_or_institutional",
+            "relationshipLane": "older_or_customer",
+            "tone": "respectful",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "etiquette_ko_service"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "etiquette_ko_13",
+            "surfacePattern": "먼저 들어가세요 / 먼저 하세요",
+            "function": "yield turn politely",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "mixed",
+            "tone": "considerate",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "etiquette_ko_service"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "etiquette_ko_14",
+            "surfacePattern": "괜찮으시면 ...",
+            "function": "soften a request/proposal",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "mixed",
+            "tone": "polite_softening",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "etiquette_ko_store"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "etiquette_ko_15",
+            "surfacePattern": "실례지만 ...",
+            "function": "preface potentially intrusive question",
+            "registerLane": "formal_or_institutional",
+            "relationshipLane": "stranger_or_service",
+            "tone": "careful",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "etiquette_ko_service"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -12248,7 +14630,7 @@
         "deepRegisterLaneTarget": 3
       },
       "en": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "etiquette_en_01",
@@ -12394,6 +14776,76 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "etiquette_en_11",
+            "surfacePattern": "after you",
+            "function": "yield turn politely",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "stranger_or_service",
+            "tone": "considerate",
+            "domainTermStatus": "idiomatic",
+            "sourceRefs": [
+              "etiquette_en_sirmaam"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "etiquette_en_12",
+            "surfacePattern": "if you don't mind ...",
+            "function": "soften potentially intrusive request/question",
+            "registerLane": "relationship_sensitive",
+            "relationshipLane": "mixed",
+            "tone": "polite_softening",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "etiquette_en_titles"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "etiquette_en_13",
+            "surfacePattern": "Would it be okay if ...?",
+            "function": "ask permission politely",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "mixed",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "etiquette_en_firstname1"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "etiquette_en_14",
+            "surfacePattern": "I hope I'm not being rude, but ...",
+            "function": "soften sensitive comment",
+            "registerLane": "relationship_sensitive",
+            "relationshipLane": "acquaintance_or_colleague",
+            "tone": "careful",
+            "domainTermStatus": "current_stable",
+            "sourceRefs": [
+              "etiquette_en_titles"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "etiquette_en_15",
+            "surfacePattern": "please, go ahead",
+            "function": "yield speaking/action turn",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "mixed",
+            "tone": "considerate",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "etiquette_en_sirmaam"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -12445,7 +14897,7 @@
         "deepRegisterLaneTarget": 3
       },
       "de": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "etiquette_de_01",
@@ -12590,6 +15042,76 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "etiquette_de_11",
+            "surfacePattern": "Nach Ihnen / Bitte, nach Ihnen",
+            "function": "yield turn formally",
+            "registerLane": "formal_or_institutional",
+            "relationshipLane": "stranger_or_service",
+            "tone": "considerate",
+            "domainTermStatus": "idiomatic",
+            "sourceRefs": [
+              "etiquette_de_excuse"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "etiquette_de_12",
+            "surfacePattern": "Wenn es Ihnen nichts ausmacht ...",
+            "function": "soften request formally",
+            "registerLane": "formal_or_institutional",
+            "relationshipLane": "stranger_or_service",
+            "tone": "polite_softening",
+            "domainTermStatus": "current_stable",
+            "sourceRefs": [
+              "etiquette_de_excuse"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "etiquette_de_13",
+            "surfacePattern": "Wäre es okay, wenn ...?",
+            "function": "ask permission",
+            "registerLane": "relationship_sensitive",
+            "relationshipLane": "mixed",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "etiquette_de_offerdu"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "etiquette_de_14",
+            "surfacePattern": "Ich will nicht unhöflich sein, aber ...",
+            "function": "preface sensitive statement",
+            "registerLane": "relationship_sensitive",
+            "relationshipLane": "acquaintance_or_colleague",
+            "tone": "careful",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "etiquette_de_strangers"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "etiquette_de_15",
+            "surfacePattern": "bitte zuerst / du zuerst",
+            "function": "yield turn casually",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "peer",
+            "tone": "friendly",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "etiquette_de_offerdu"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -12695,9 +15217,9 @@
         ]
       },
       "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
-      "researchStatus": "broad_pass_complete_deep_pass_pending",
+      "researchStatus": "deep_pass_complete",
       "ko": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "repair_ko_01",
@@ -12843,6 +15365,76 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "repair_ko_11",
+            "surfacePattern": "한 번만 더요",
+            "function": "ask once more concisely",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "mixed",
+            "tone": "polite_neutral",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "repair_ko_hear"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "repair_ko_12",
+            "surfacePattern": "좀 더 쉽게 말해 주세요",
+            "function": "ask for simpler wording",
+            "registerLane": "language_learning",
+            "relationshipLane": "learner_interlocutor",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "repair_ko_translator"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "repair_ko_13",
+            "surfacePattern": "예를 들어 줄 수 있어요?",
+            "function": "ask for example",
+            "registerLane": "language_learning",
+            "relationshipLane": "learner_teacher",
+            "tone": "curious",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "repair_ko_meaning"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "repair_ko_14",
+            "surfacePattern": "제가 잘못 이해했나 봐요",
+            "function": "acknowledge misunderstanding",
+            "registerLane": "relationship_sensitive",
+            "relationshipLane": "mixed",
+            "tone": "self_correcting",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "repair_ko_translator"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "repair_ko_15",
+            "surfacePattern": "아, 그런 뜻이구나 / 그런 뜻이에요?",
+            "function": "confirm newly understood meaning",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "friend_or_teacher",
+            "tone": "realizing",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "repair_ko_meaning"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -12894,7 +15486,7 @@
         "deepRegisterLaneTarget": 3
       },
       "en": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "repair_en_01",
@@ -13038,6 +15630,76 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "repair_en_11",
+            "surfacePattern": "one more time, please",
+            "function": "ask for repetition concisely",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "mixed",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "repair_en_repeat"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "repair_en_12",
+            "surfacePattern": "Could you put that another way?",
+            "function": "ask for rephrasing",
+            "registerLane": "language_learning",
+            "relationshipLane": "learner_interlocutor",
+            "tone": "polite",
+            "domainTermStatus": "idiomatic",
+            "sourceRefs": [
+              "repair_en_rephrase"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "repair_en_13",
+            "surfacePattern": "Can you give me an example?",
+            "function": "ask for example",
+            "registerLane": "language_learning",
+            "relationshipLane": "learner_teacher",
+            "tone": "curious",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "repair_en_rephrase"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "repair_en_14",
+            "surfacePattern": "I think I misunderstood",
+            "function": "acknowledge misunderstanding",
+            "registerLane": "relationship_sensitive",
+            "relationshipLane": "mixed",
+            "tone": "self_correcting",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "repair_en_catch"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "repair_en_15",
+            "surfacePattern": "Oh, I see what you mean",
+            "function": "confirm understanding",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "mixed",
+            "tone": "realizing",
+            "domainTermStatus": "idiomatic",
+            "sourceRefs": [
+              "repair_en_rephrase"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -13097,7 +15759,7 @@
         "deepRegisterLaneTarget": 3
       },
       "de": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "repair_de_01",
@@ -13239,6 +15901,76 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "repair_de_11",
+            "surfacePattern": "Einmal noch, bitte",
+            "function": "ask once more",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "mixed",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "repair_de_wiebitte"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "repair_de_12",
+            "surfacePattern": "Könnten Sie das einfacher sagen?",
+            "function": "ask for simpler wording",
+            "registerLane": "language_learning",
+            "relationshipLane": "learner_interlocutor",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "repair_de_repeat"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "repair_de_13",
+            "surfacePattern": "Können Sie ein Beispiel geben?",
+            "function": "ask for example",
+            "registerLane": "language_learning",
+            "relationshipLane": "learner_teacher",
+            "tone": "curious",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "repair_de_mean"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "repair_de_14",
+            "surfacePattern": "Ich glaube, ich habe das falsch verstanden",
+            "function": "acknowledge misunderstanding",
+            "registerLane": "relationship_sensitive",
+            "relationshipLane": "mixed",
+            "tone": "self_correcting",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "repair_de_understand"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "repair_de_15",
+            "surfacePattern": "Ach so, jetzt verstehe ich",
+            "function": "confirm understanding",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "mixed",
+            "tone": "realizing",
+            "domainTermStatus": "idiomatic",
+            "sourceRefs": [
+              "repair_de_mean"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -13357,9 +16089,9 @@
         ]
       },
       "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
-      "researchStatus": "broad_pass_complete_deep_pass_pending",
+      "researchStatus": "deep_pass_complete",
       "ko": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "money_ko_01",
@@ -13508,6 +16240,77 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "money_ko_11",
+            "surfacePattern": "결제 내역을 확인하다",
+            "function": "check transaction/billing history",
+            "registerLane": "money_service",
+            "relationshipLane": "customer_provider",
+            "tone": "practical",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "money_ko_sub1",
+              "money_ko_sub3"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "money_ko_12",
+            "surfacePattern": "청구 금액이 다르다",
+            "function": "report incorrect charge amount",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_support",
+            "tone": "complaint",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "money_ko_sub1"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "money_ko_13",
+            "surfacePattern": "다음 결제일이 언제예요?",
+            "function": "ask next billing date",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_support",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "money_ko_sub2"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "money_ko_14",
+            "surfacePattern": "계약 기간 / 약정 기간",
+            "function": "name contract commitment term",
+            "registerLane": "financial_institutional",
+            "relationshipLane": "customer_provider",
+            "tone": "neutral",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "money_ko_loan"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "money_ko_15",
+            "surfacePattern": "중도해지 / 조기상환",
+            "function": "end contract/repay early",
+            "registerLane": "financial_institutional",
+            "relationshipLane": "customer_bank_or_provider",
+            "tone": "formal_practical",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "money_ko_loan"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -13565,7 +16368,7 @@
         "deepRegisterLaneTarget": 3
       },
       "en": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "money_en_01",
@@ -13715,6 +16518,77 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "money_en_11",
+            "surfacePattern": "check my billing history",
+            "function": "review past charges",
+            "registerLane": "money_service",
+            "relationshipLane": "customer_provider",
+            "tone": "practical",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "money_en_recurring",
+              "money_en_autopay"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "money_en_12",
+            "surfacePattern": "I was charged the wrong amount",
+            "function": "report billing error",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_support",
+            "tone": "complaint",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "money_en_refund"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "money_en_13",
+            "surfacePattern": "when is my next billing date?",
+            "function": "ask next charge timing",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_support",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "money_en_cancel"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "money_en_14",
+            "surfacePattern": "contract term / commitment period",
+            "function": "name contract duration",
+            "registerLane": "financial_institutional",
+            "relationshipLane": "customer_provider",
+            "tone": "neutral",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "money_en_cancel"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "money_en_15",
+            "surfacePattern": "early repayment / pay off early",
+            "function": "repay debt before term",
+            "registerLane": "financial_institutional",
+            "relationshipLane": "customer_bank",
+            "tone": "practical",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "money_en_autopay"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -13772,7 +16646,7 @@
         "deepRegisterLaneTarget": 3
       },
       "de": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "money_de_01",
@@ -13921,6 +16795,78 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "money_de_11",
+            "surfacePattern": "Abbuchungen prüfen",
+            "function": "review debits",
+            "registerLane": "money_service",
+            "relationshipLane": "customer_bank",
+            "tone": "practical",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "money_de_debit",
+              "money_de_sub"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "money_de_12",
+            "surfacePattern": "falscher Betrag abgebucht",
+            "function": "report incorrect charge amount",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_support",
+            "tone": "complaint",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "money_de_debit"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "money_de_13",
+            "surfacePattern": "Wann wird wieder abgebucht?",
+            "function": "ask next billing date",
+            "registerLane": "relationship_or_service",
+            "relationshipLane": "customer_support",
+            "tone": "polite",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "money_de_sub"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "money_de_14",
+            "surfacePattern": "Vertragslaufzeit / Mindestlaufzeit",
+            "function": "name contract term",
+            "registerLane": "financial_institutional",
+            "relationshipLane": "customer_provider",
+            "tone": "neutral",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "money_de_cancel",
+              "money_de_aftercancel"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "money_de_15",
+            "surfacePattern": "Sondertilgung / vorzeitig zurückzahlen",
+            "function": "repay debt early",
+            "registerLane": "financial_institutional",
+            "relationshipLane": "customer_bank",
+            "tone": "practical",
+            "domainTermStatus": "domain_term",
+            "sourceRefs": [
+              "money_de_debit"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -14036,9 +16982,9 @@
         ]
       },
       "contentApprovalScope": "mixed_live_reviewed_unreviewed_draft",
-      "researchStatus": "broad_pass_complete_deep_pass_pending",
+      "researchStatus": "deep_pass_complete",
       "ko": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "tech_ko_01",
@@ -14182,6 +17128,78 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "tech_ko_11",
+            "surfacePattern": "수상한 로그인 알림",
+            "function": "name suspicious login notification",
+            "registerLane": "technical_practical",
+            "relationshipLane": "user_support",
+            "tone": "warning",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "tech_ko_account"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "tech_ko_12",
+            "surfacePattern": "비밀번호를 재사용하지 않다",
+            "function": "avoid password reuse",
+            "registerLane": "technical_practical",
+            "relationshipLane": "user_support",
+            "tone": "practical",
+            "domainTermStatus": "current_stable",
+            "sourceRefs": [
+              "tech_ko_account"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "tech_ko_13",
+            "surfacePattern": "공식 앱에서 직접 확인하다",
+            "function": "verify via official app",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "user_or_family",
+            "tone": "practical",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "tech_ko_account"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "tech_ko_14",
+            "surfacePattern": "AI 여부를 밝히다",
+            "function": "disclose whether media uses AI",
+            "registerLane": "media_professional",
+            "relationshipLane": "creator_or_audience",
+            "tone": "transparent",
+            "domainTermStatus": "current_stable",
+            "sourceRefs": [
+              "tech_ko_ai_label",
+              "tech_ko_ai_product"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "tech_ko_15",
+            "surfacePattern": "오해를 부를 수 있다 / 진짜처럼 보이다",
+            "function": "describe misleading realism risk",
+            "registerLane": "media_professional",
+            "relationshipLane": "creator_or_audience",
+            "tone": "cautious",
+            "domainTermStatus": "current_stable",
+            "sourceRefs": [
+              "tech_ko_ai_label",
+              "tech_ko_fake_ai"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -14239,7 +17257,7 @@
         "deepRegisterLaneTarget": 3
       },
       "en": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "tech_en_01",
@@ -14380,6 +17398,76 @@
             ],
             "freshness": "current_stable",
             "confidence": "high"
+          },
+          {
+            "patternId": "tech_en_11",
+            "surfacePattern": "suspicious login alert",
+            "function": "name unusual-login notification",
+            "registerLane": "technical_practical",
+            "relationshipLane": "user_support",
+            "tone": "warning",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "tech_en_account"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "tech_en_12",
+            "surfacePattern": "don't reuse passwords",
+            "function": "warn against password reuse",
+            "registerLane": "technical_practical",
+            "relationshipLane": "user_support",
+            "tone": "practical",
+            "domainTermStatus": "current_stable",
+            "sourceRefs": [
+              "tech_en_account"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "tech_en_13",
+            "surfacePattern": "verify it in the official app",
+            "function": "use trusted verification channel",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "user_or_family",
+            "tone": "practical",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "tech_en_delivery"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "tech_en_14",
+            "surfacePattern": "make it clear that it's AI-generated",
+            "function": "disclose AI use plainly",
+            "registerLane": "media_professional",
+            "relationshipLane": "creator_or_audience",
+            "tone": "transparent",
+            "domainTermStatus": "professional",
+            "sourceRefs": [
+              "tech_en_ai_label"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "tech_en_15",
+            "surfacePattern": "could be misleading / looks real",
+            "function": "describe deception risk",
+            "registerLane": "media_professional",
+            "relationshipLane": "creator_or_audience",
+            "tone": "cautious",
+            "domainTermStatus": "current_stable",
+            "sourceRefs": [
+              "tech_en_ai_label"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
           }
         ],
         "avoidTranslationese": [
@@ -14437,7 +17525,7 @@
         "deepRegisterLaneTarget": 3
       },
       "de": {
-        "nativeUsageProfileStatus": "broad_pass_complete",
+        "nativeUsageProfileStatus": "deep_pass_complete",
         "phraseBank": [
           {
             "patternId": "tech_de_01",
@@ -14579,6 +17667,77 @@
             "domainTermStatus": "everyday_technical",
             "sourceRefs": [
               "tech_de_account"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "tech_de_11",
+            "surfacePattern": "verdächtige Anmeldung / Login-Warnung",
+            "function": "name suspicious login notification",
+            "registerLane": "technical_practical",
+            "relationshipLane": "user_support",
+            "tone": "warning",
+            "domainTermStatus": "domain_everyday",
+            "sourceRefs": [
+              "tech_de_account"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "tech_de_12",
+            "surfacePattern": "Passwörter nicht mehrfach verwenden",
+            "function": "warn against password reuse",
+            "registerLane": "technical_practical",
+            "relationshipLane": "user_support",
+            "tone": "practical",
+            "domainTermStatus": "current_stable",
+            "sourceRefs": [
+              "tech_de_account"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "tech_de_13",
+            "surfacePattern": "direkt in der offiziellen App prüfen",
+            "function": "verify via trusted app",
+            "registerLane": "everyday_casual",
+            "relationshipLane": "user_or_family",
+            "tone": "practical",
+            "domainTermStatus": "everyday",
+            "sourceRefs": [
+              "tech_de_scam"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "tech_de_14",
+            "surfacePattern": "klar als KI-generiert kennzeichnen",
+            "function": "disclose AI use plainly",
+            "registerLane": "media_professional",
+            "relationshipLane": "creator_or_audience",
+            "tone": "transparent",
+            "domainTermStatus": "professional",
+            "sourceRefs": [
+              "tech_de_ai_label",
+              "tech_de_ai_output"
+            ],
+            "freshness": "current_stable",
+            "confidence": "high"
+          },
+          {
+            "patternId": "tech_de_15",
+            "surfacePattern": "irreführend wirken / echt aussehen",
+            "function": "describe misleading realism risk",
+            "registerLane": "media_professional",
+            "relationshipLane": "creator_or_audience",
+            "tone": "cautious",
+            "domainTermStatus": "current_stable",
+            "sourceRefs": [
+              "tech_de_ai_label"
             ],
             "freshness": "current_stable",
             "confidence": "high"

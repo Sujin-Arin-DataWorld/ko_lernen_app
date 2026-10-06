@@ -186,8 +186,9 @@ Current progress (2026-10-06):
 - Tier 1: **13/13 topics**
 - Tier 2: **12/12 topics**
 - Tier 3: **7/7 topics**
-- deep-pass: **0/96 profiles, 0/32 topics** — not claimed yet
-- next stage is evidence-deepening, not missing-topic coverage
+- deep-pass: **39/96 profiles, 13/32 topics**
+- **Tier 1 deep-pass complete: 13/13 topics, 39/39 language profiles**
+- Tier 2/3 deep-pass remains pending
 
 Tier-1 completed topics:
 `family_relationships`, `house_home`, `food_drink`,

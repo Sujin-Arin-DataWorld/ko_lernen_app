@@ -108,16 +108,35 @@ class TrilingualNativeUsageProgressTest(unittest.TestCase):
                     self.by_topic[topic_id]["allLanguagesBroadPassComplete"]
                 )
 
+    def test_tier1_all_languages_deep_pass_is_complete(self) -> None:
+        tier1 = {
+            "family_relationships",
+            "house_home",
+            "food_drink",
+            "shopping_consumption",
+            "transport_wayfinding",
+            "health_body",
+            "work_career",
+            "services_public_admin",
+            "communication_phone_digital",
+            "social_etiquette_customs",
+            "language_learning_communication_repair",
+            "money_finance_contracts",
+            "technology_digital_ai",
+        }
+        for topic_id in tier1:
+            with self.subTest(topic=topic_id):
+                self.assertTrue(
+                    self.by_topic[topic_id]["allLanguagesDeepPassComplete"]
+                )
+
     def test_all_32_topics_all_96_profiles_complete_broad_pass(self) -> None:
         summary = self.report["summary"]
         self.assertEqual(summary["broadPassCompleteProfileCount"], 96)
         self.assertEqual(summary["allLanguagesBroadPassCompleteTopicCount"], 32)
-        self.assertEqual(summary["deepPassCompleteProfileCount"], 0)
-        self.assertEqual(summary["allLanguagesDeepPassCompleteTopicCount"], 0)
         for topic_id, row in self.by_topic.items():
             with self.subTest(topic=topic_id):
                 self.assertTrue(row["allLanguagesBroadPassComplete"])
-                self.assertFalse(row["allLanguagesDeepPassComplete"])
 
     def test_status_is_computed_not_claimed(self) -> None:
         registry_topics = {row["topicId"]: row for row in self.registry["topics"]}
