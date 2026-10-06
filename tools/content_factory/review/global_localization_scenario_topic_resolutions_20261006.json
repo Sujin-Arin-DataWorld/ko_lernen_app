@@ -1,0 +1,338 @@
+{
+  "schemaVersion": 1,
+  "status": "MODEL_ASSISTED_PRIMARY_TOPIC_REVIEW",
+  "reviewedDate": "2026-10-06",
+  "humanNativeSignoff": false,
+  "policy": "Explicit primary-topic assignments for previously unmapped live scenario owners. Assignments are based on the scene's actual learner task and dialogue, not title-keyword guessing. They do not change approval state or constitute localization/native QA.",
+  "scenarioCount": 82,
+  "mappings": {
+    "a1_w10_fandom": {
+      "canonicalTopicId": "media_entertainment_culture_pop",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "a1_w10_numbers": {
+      "canonicalTopicId": "numbers_time_dates",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "a1_w10_taxi_stay": {
+      "canonicalTopicId": "transport_wayfinding",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "a2_byeongcheol_walk_break": {
+      "canonicalTopicId": "health_body",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "a2_dongsun_christian_suspicious_delivery_text": {
+      "canonicalTopicId": "technology_digital_ai",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "a2_jun_minho_class_phone_rule": {
+      "canonicalTopicId": "education_study",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "a2_lena_hyuna_heatwave_plan": {
+      "canonicalTopicId": "weather_nature_climate",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "a2_theme_park_date_break": {
+      "canonicalTopicId": "free_time_hobbies_sport",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "a2_w10_apt": {
+      "canonicalTopicId": "environment_sustainability",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "a2_w10_fandom": {
+      "canonicalTopicId": "media_entertainment_culture_pop",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "ai_hiring_appeal": {
+      "canonicalTopicId": "technology_digital_ai",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "ai_interview_screening_transparency": {
+      "canonicalTopicId": "technology_digital_ai",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "ai_translation_voice_loss": {
+      "canonicalTopicId": "technology_digital_ai",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "airport_arrival": {
+      "canonicalTopicId": "travel_accommodation",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "anonymous_survey_trust": {
+      "canonicalTopicId": "work_career",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "automated_benefit_denial": {
+      "canonicalTopicId": "services_public_admin",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "autonomous_delivery_liability": {
+      "canonicalTopicId": "politics_law_institutions",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b1_andrea_minho_family_calendar": {
+      "canonicalTopicId": "family_relationships",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b1_andrea_minho_friday_schedule": {
+      "canonicalTopicId": "family_relationships",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b1_christian_sujin_suspicious_text_followup": {
+      "canonicalTopicId": "technology_digital_ai",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b1_dongsun_maya_price_notice": {
+      "canonicalTopicId": "shopping_consumption",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b1_dongsun_norigae_shop_post": {
+      "canonicalTopicId": "arts_literature_history",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b1_dongsun_sujin_repair_price": {
+      "canonicalTopicId": "money_finance_contracts",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b1_jun_andrea_phone_house_rules": {
+      "canonicalTopicId": "family_relationships",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b1_jun_christian_phone_study_habit": {
+      "canonicalTopicId": "education_study",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b1_lena_hyuna_crowded_weekend": {
+      "canonicalTopicId": "neighbourhood_environment",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b1_lena_maya_beyond_music": {
+      "canonicalTopicId": "media_entertainment_culture_pop",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b1_maya_daniel_ai_campaign_cut": {
+      "canonicalTopicId": "technology_digital_ai",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b1_sujin_byeongcheol_family_verification_rule": {
+      "canonicalTopicId": "technology_digital_ai",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b1_sujin_christian_asset_provenance_check": {
+      "canonicalTopicId": "technology_digital_ai",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b1_theme_park_date_thrill": {
+      "canonicalTopicId": "free_time_hobbies_sport",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b1_w10_cancellation": {
+      "canonicalTopicId": "money_finance_contracts",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b1_w10_fandom": {
+      "canonicalTopicId": "media_entertainment_culture_pop",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b2_byeongcheol_sujin_heat_electricity": {
+      "canonicalTopicId": "professional_specialised_fields",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b2_daniel_hyuna_hanji_filming_scope": {
+      "canonicalTopicId": "arts_literature_history",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b2_daniel_sujin_ai_asset_handoff": {
+      "canonicalTopicId": "technology_digital_ai",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b2_hyuna_andrea_work_family_choices": {
+      "canonicalTopicId": "society_current_affairs",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b2_hyuna_daniel_gyeongju_after_apec": {
+      "canonicalTopicId": "society_current_affairs",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b2_hyuna_daniel_resident_flow_filming": {
+      "canonicalTopicId": "neighbourhood_environment",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b2_hyuna_sujin_gyeongju_fieldnotes": {
+      "canonicalTopicId": "arts_literature_history",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b2_maya_daniel_tradition_reinterpretation": {
+      "canonicalTopicId": "arts_literature_history",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b2_sujin_minho_shorter_hours_tradeoff": {
+      "canonicalTopicId": "economy_business_labour",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b2_theme_park_date_safety": {
+      "canonicalTopicId": "free_time_hobbies_sport",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b2_w10_authorities": {
+      "canonicalTopicId": "services_public_admin",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b2_w10_hiring": {
+      "canonicalTopicId": "work_career",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "b2_w10_travel": {
+      "canonicalTopicId": "travel_accommodation",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "bakery_payment_bag": {
+      "canonicalTopicId": "shopping_consumption",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "brand_private_account_boundary": {
+      "canonicalTopicId": "communication_phone_digital",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "c1_maya_hyuna_daniel_talchum_shortform": {
+      "canonicalTopicId": "arts_literature_history",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "c1_theme_park_date_next_time": {
+      "canonicalTopicId": "free_time_hobbies_sport",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "c1_w10_access": {
+      "canonicalTopicId": "work_career",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "c1_w10_clinical": {
+      "canonicalTopicId": "science_research_evidence",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "c1_w10_conflict_interest": {
+      "canonicalTopicId": "ethics_philosophy_abstract",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "c2_w10_fandom": {
+      "canonicalTopicId": "politics_law_institutions",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "c2_w10_mandate": {
+      "canonicalTopicId": "politics_law_institutions",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "c2_w10_record": {
+      "canonicalTopicId": "politics_law_institutions",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "central_local_disaster_responsibility": {
+      "canonicalTopicId": "politics_law_institutions",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "clarify_repeat": {
+      "canonicalTopicId": "language_learning_communication_repair",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "community_event_compromise": {
+      "canonicalTopicId": "neighbourhood_environment",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "community_festival_shift": {
+      "canonicalTopicId": "neighbourhood_environment",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "filming_permission": {
+      "canonicalTopicId": "social_etiquette_customs",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "fremdschaemen_live": {
+      "canonicalTopicId": "feelings_character",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "friend_cancelled_plan": {
+      "canonicalTopicId": "feelings_character",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "gentrification_storefront": {
+      "canonicalTopicId": "society_current_affairs",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "group_chat_photo_permission": {
+      "canonicalTopicId": "communication_phone_digital",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "gym_class_cancel": {
+      "canonicalTopicId": "health_body",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "kiosk_generation_access": {
+      "canonicalTopicId": "technology_digital_ai",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "library_card_problem": {
+      "canonicalTopicId": "services_public_admin",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "library_quiet_zone_conflict": {
+      "canonicalTopicId": "social_etiquette_customs",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "medical_uncertainty_consent": {
+      "canonicalTopicId": "health_body",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "noisy_neighbor_evening": {
+      "canonicalTopicId": "neighbourhood_environment",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "park_pet_manners": {
+      "canonicalTopicId": "social_etiquette_customs",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "passive_voice_accountability": {
+      "canonicalTopicId": "language_learning_communication_repair",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "plans_with_friend": {
+      "canonicalTopicId": "free_time_hobbies_sport",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "platform_moderation_appeal": {
+      "canonicalTopicId": "communication_phone_digital",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "recycling_policy_pilot": {
+      "canonicalTopicId": "environment_sustainability",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "reel_caption_misunderstanding": {
+      "canonicalTopicId": "communication_phone_digital",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "rental_repair_deposit": {
+      "canonicalTopicId": "house_home",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "running_injury_training_plan": {
+      "canonicalTopicId": "health_body",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "samgyeopsal_first_time": {
+      "canonicalTopicId": "food_drink",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "tradition_reinterpreted_stage": {
+      "canonicalTopicId": "arts_literature_history",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    },
+    "youth_housing_plain_language": {
+      "canonicalTopicId": "services_public_admin",
+      "reviewBasis": "scene_task_and_dialogue_primary_topic"
+    }
+  }
+}

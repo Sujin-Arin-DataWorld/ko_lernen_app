@@ -4415,7 +4415,7 @@
       "answer": "누수",
       "fullKo": "천장에서 누수가 생겨서 바로 부동산에 연락했어요.",
       "de": "Es gab ein Wasserleck an der Decke, deshalb habe ich sofort das Immobilienbüro angerufen.",
-      "en": "There was a water leak in the ceiling so I called the real estate agency right away.",
+      "en": "Water started leaking from the ceiling and I called the real estate agency right away.",
       "distractors": [
         "관리비",
         "세입자",
@@ -12028,8 +12028,8 @@
       "sentenceKo": "＿＿＿이 길어질까 봐 짧게라도 답했어요.",
       "answer": "읽씹",
       "fullKo": "읽씹이 길어질까 봐 짧게라도 답했어요.",
-      "de": "Damit es nicht zu lange gelesen und unbeantwortet blieb, antwortete ich wenigstens kurz.",
-      "en": "So it would not sit read and unanswered too long, I replied at least briefly.",
+      "de": "Ich antwortete wenigstens kurz, weil ich die Nachricht nicht zu lange auf „gelesen“ stehen lassen wollte.",
+      "en": "I sent at least a quick reply because I didn't want to leave it on read for too long.",
       "distractors": [
         "폭음",
         "취향",
@@ -18298,8 +18298,8 @@
       "sentenceKo": "학기말에 ＿＿＿를 받아요.",
       "answer": "봉사 확인서",
       "fullKo": "학기말에 봉사 확인서를 받아요.",
-      "de": "Am Semesterende bekomme ich den Nachweis.",
-      "en": "I receive the service certificate at the end of the term.",
+      "de": "Am Semesterende bekomme ich die Bescheinigung über meine ehrenamtliche Tätigkeit.",
+      "en": "I receive my volunteer service certificate at the end of the term.",
       "distractors": [
         "정도",
         "한계",
@@ -18329,7 +18329,7 @@
       "answer": "알림장",
       "fullKo": "알림장에 준비물을 적어 보내요.",
       "de": "Ins Mitteilungsheft schreibe ich, was mitzubringen ist.",
-      "en": "I write in the home note what they need to bring.",
+      "en": "I write the things to bring in the school communication notebook and send it home.",
       "distractors": [
         "학부모 면담",
         "상담 시간",
@@ -18613,7 +18613,7 @@
       "sentenceKo": "＿＿＿인지 사용 문제인지 구분해 주세요.",
       "answer": "설치 오류",
       "fullKo": "설치 오류인지 사용 문제인지 구분해 주세요.",
-      "de": "Bitte trennen Sie Montagefehler und Bedienproblem.",
+      "de": "Bitte unterscheiden Sie zwischen einem Montagefehler und einem Bedienproblem.",
       "en": "Please distinguish an install error from a usage problem.",
       "distractors": [
         "고장 부위",
@@ -18673,7 +18673,7 @@
       "sentenceKo": "태풍 때문에 ＿＿＿을 요청했어요.",
       "answer": "일정 변경",
       "fullKo": "태풍 때문에 일정 변경을 요청했어요.",
-      "de": "Wegen des Taifuns habe ich eine Terminänderung gebeten.",
+      "de": "Wegen des Taifuns habe ich um eine Terminänderung gebeten.",
       "en": "I requested a schedule change because of the typhoon.",
       "distractors": [
         "감기약",
@@ -18704,7 +18704,7 @@
       "answer": "수수료 면제",
       "fullKo": "천재지변이면 수수료 면제가 가능하대요.",
       "de": "Bei höherer Gewalt sei ein Gebührenerlass möglich.",
-      "en": "They said a fee waiver is possible for a natural disaster.",
+      "en": "They said a fee waiver is possible in the event of a natural disaster.",
       "distractors": [
         "케이크",
         "옷걸이",
@@ -19409,7 +19409,7 @@
       "answer": "안건 순서",
       "fullKo": "안건 순서가 바뀌어서 발표 자료의 순서도 조정했어요.",
       "de": "Da sich die Reihenfolge der Tagesordnungspunkte änderte, habe ich auch meine Präsentationsunterlagen angepasst.",
-      "en": "The order of the agenda items changed, so I adjusted the order of my presentation materials as well.",
+      "en": "The agenda changed, so I rearranged my presentation materials too.",
       "distractors": [
         "경찰서",
         "소화제",
@@ -19933,8 +19933,8 @@
       "sentenceKo": "처리가 계속 지연되어 ＿＿＿자에게 문의를 전달해 달라고 요청했어요.",
       "answer": "상위 담당",
       "fullKo": "처리가 계속 지연되어 상위 담당자에게 문의를 전달해 달라고 요청했어요.",
-      "de": "Da sich die Bearbeitung weiter verzögerte, habe ich darum gebeten, meine Anfrage an eine übergeordnete zuständige Person weiterzuleiten.",
-      "en": "The handling of my case kept being delayed, so I asked for my inquiry to be passed to a more senior staff member.",
+      "de": "Da sich die Bearbeitung weiter verzögerte, bat ich darum, meine Anfrage an eine übergeordnete Ansprechperson weiterzuleiten.",
+      "en": "My case kept being delayed, so I asked for my inquiry to be passed on to a senior staff member.",
       "distractors": [
         "사건 번호",
         "약속 불이행",
@@ -28958,7 +28958,7 @@
       "answer": "위로했어요",
       "sentenceKo": "슬퍼하는 친구를 ＿＿＿.",
       "de": "Ich habe eine traurige Person aus meinem Freundeskreis getröstet.",
-      "en": "I comforted my sad friend.",
+      "en": "I comforted a friend who was sad.",
       "distractors": [
         "다양했어요",
         "참석했어요",

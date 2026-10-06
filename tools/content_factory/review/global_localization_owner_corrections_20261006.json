@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "MODEL_ASSISTED_DIRECT_FROM_KO_CORRECTION",
+  "humanNativeSignoff": false,
+  "policy": "Corrections were made only where direct KO-to-EN/DE review found a concrete semantic, grammatical, collocational, tone, punctuation, or native-fluency improvement. Length-ratio flags alone are not correction evidence.",
+  "itemIds": [
+    "vocab_b1_0032",
+    "vocab_b1_0047",
+    "vocab_b1_0050",
+    "vocab_b1_0057",
+    "vocab_b1_0126",
+    "vocab_b1_0225",
+    "vocab_b2_0099",
+    "vocab_b2_0179",
+    "vocab_b2_0183",
+    "vocab_b2_0199",
+    "vocab_b1_0255",
+    "vocab_b1_0345",
+    "vocab_b1_0427",
+    "vocab_b1_0429",
+    "vocab_b1_0454",
+    "vocab_b2_0564",
+    "vocab_b2_0599",
+    "vocab_b1_0485",
+    "vocab_b1_0452",
+    "vocab_b1_0448"
+  ],
+  "correctionCount": 20,
+  "categories": [
+    "semantic_precision",
+    "native_collocation",
+    "register_or_tone",
+    "grammar_and_punctuation",
+    "learner_facing_terminology"
+  ],
+  "derivedReconciliation": {
+    "script": "tools/content_factory/reconcile_global_derived_localization.py",
+    "resolvedOwnerCount": 4641,
+    "unresolvedOwnerCount": 609,
+    "postReconcileDriftCount": 0
+  }
+}

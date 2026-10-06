@@ -2382,7 +2382,7 @@
       "level": "b1",
       "targetKo": "천장에서 누수가 생겨서 바로 부동산에 연락했어요.",
       "promptDe": "Es gab ein Wasserleck an der Decke, deshalb habe ich sofort das Immobilienbüro angerufen.",
-      "promptEn": "There was a water leak in the ceiling so I called the real estate agency right away.",
+      "promptEn": "Water started leaking from the ceiling and I called the real estate agency right away.",
       "distractors": [
         "난방이",
         "계약서에"
@@ -8625,8 +8625,8 @@
       "id": "satz_b1_0153",
       "level": "b1",
       "targetKo": "읽씹이 길어질까 봐 짧게라도 답했어요.",
-      "promptDe": "Damit es nicht zu lange gelesen und unbeantwortet blieb, antwortete ich wenigstens kurz.",
-      "promptEn": "So it would not sit read and unanswered too long, I replied at least briefly.",
+      "promptDe": "Ich antwortete wenigstens kurz, weil ich die Nachricht nicht zu lange auf „gelesen“ stehen lassen wollte.",
+      "promptEn": "I sent at least a quick reply because I didn't want to leave it on read for too long.",
       "distractors": [
         "다음엔",
         "다음이"
@@ -13641,8 +13641,8 @@
       "id": "satz_b1_0235",
       "level": "b1",
       "targetKo": "학기말에 봉사 확인서를 받아요.",
-      "promptDe": "Am Semesterende bekomme ich den Nachweis.",
-      "promptEn": "I receive the service certificate at the end of the term.",
+      "promptDe": "Am Semesterende bekomme ich die Bescheinigung über meine ehrenamtliche Tätigkeit.",
+      "promptEn": "I receive my volunteer service certificate at the end of the term.",
       "distractors": [
         "봉사 시간",
         "배정표"
@@ -13666,7 +13666,7 @@
       "level": "b1",
       "targetKo": "알림장에 준비물을 적어 보내요.",
       "promptDe": "Ins Mitteilungsheft schreibe ich, was mitzubringen ist.",
-      "promptEn": "I write in the home note what they need to bring.",
+      "promptEn": "I write the things to bring in the school communication notebook and send it home.",
       "distractors": [
         "학부모 면담",
         "상담 시간"
@@ -13893,7 +13893,7 @@
       "id": "satz_b1_0256",
       "level": "b1",
       "targetKo": "설치 오류인지 사용 문제인지 구분해 주세요.",
-      "promptDe": "Bitte trennen Sie Montagefehler und Bedienproblem.",
+      "promptDe": "Bitte unterscheiden Sie zwischen einem Montagefehler und einem Bedienproblem.",
       "promptEn": "Please distinguish an install error from a usage problem.",
       "distractors": [
         "고장 부위",
@@ -13941,7 +13941,7 @@
       "id": "satz_b1_0260",
       "level": "b1",
       "targetKo": "태풍 때문에 일정 변경을 요청했어요.",
-      "promptDe": "Wegen des Taifuns habe ich eine Terminänderung gebeten.",
+      "promptDe": "Wegen des Taifuns habe ich um eine Terminänderung gebeten.",
       "promptEn": "I requested a schedule change because of the typhoon.",
       "distractors": [
         "환불 규정",
@@ -13966,7 +13966,7 @@
       "level": "b1",
       "targetKo": "천재지변이면 수수료 면제가 가능하대요.",
       "promptDe": "Bei höherer Gewalt sei ein Gebührenerlass möglich.",
-      "promptEn": "They said a fee waiver is possible for a natural disaster.",
+      "promptEn": "They said a fee waiver is possible in the event of a natural disaster.",
       "distractors": [
         "일정 변경",
         "환불 규정"
@@ -14530,7 +14530,7 @@
       "level": "b2",
       "targetKo": "안건 순서가 바뀌어서 발표 자료의 순서도 조정했어요.",
       "promptDe": "Da sich die Reihenfolge der Tagesordnungspunkte änderte, habe ich auch meine Präsentationsunterlagen angepasst.",
-      "promptEn": "The order of the agenda items changed, so I adjusted the order of my presentation materials as well.",
+      "promptEn": "The agenda changed, so I rearranged my presentation materials too.",
       "distractors": [
         "주민 의견",
         "발언권"
@@ -14949,8 +14949,8 @@
       "id": "satz_b2_0324",
       "level": "b2",
       "targetKo": "처리가 계속 지연되어 상위 담당자에게 문의를 전달해 달라고 요청했어요.",
-      "promptDe": "Da sich die Bearbeitung weiter verzögerte, habe ich darum gebeten, meine Anfrage an eine übergeordnete zuständige Person weiterzuleiten.",
-      "promptEn": "The handling of my case kept being delayed, so I asked for my inquiry to be passed to a more senior staff member.",
+      "promptDe": "Da sich die Bearbeitung weiter verzögerte, bat ich darum, meine Anfrage an eine übergeordnete Ansprechperson weiterzuleiten.",
+      "promptEn": "My case kept being delayed, so I asked for my inquiry to be passed on to a senior staff member.",
       "distractors": [
         "사건 번호",
         "약속 불이행"
@@ -19150,7 +19150,7 @@
       "level": "b1",
       "targetKo": "결국 오늘도 야근이네요.",
       "promptDe": "Am Ende mache ich heute also doch wieder Überstunden.",
-      "promptEn": "In the end, I'm working overtime again today.",
+      "promptEn": "Looks like I'm working overtime again today after all.",
       "distractors": [
         "경험",
         "문화"
@@ -20938,7 +20938,7 @@
       "level": "b1",
       "targetKo": "우체국에서 소포를 보냈어요.",
       "promptDe": "Ich habe bei der Post ein Paket verschickt.",
-      "promptEn": "I sent a package at the post office.",
+      "promptEn": "I mailed a package at the post office.",
       "distractors": [
         "경험",
         "문화"
@@ -22438,7 +22438,7 @@
       "level": "b2",
       "targetKo": "버스에서 자리를 양보했어요.",
       "promptDe": "Im Bus habe ich meinen Platz überlassen.",
-      "promptEn": "I gave up my seat on the bus.",
+      "promptEn": "I gave my seat to someone on the bus.",
       "distractors": [
         "갈등",
         "관점"
@@ -23338,7 +23338,7 @@
       "level": "b2",
       "targetKo": "내일은 공휴일이라서 쉬어요.",
       "promptDe": "Morgen ist Feiertag und wir haben frei.",
-      "promptEn": "Tomorrow is a public holiday so we rest.",
+      "promptEn": "Tomorrow is a public holiday so we have the day off.",
       "distractors": [
         "갈등",
         "관점"
@@ -23385,7 +23385,7 @@
       "id": "satz_b2_0470",
       "level": "b2",
       "targetKo": "회의가 밤까지 이어졌어요.",
-      "promptDe": "Die Sitzung zog sich bis in die Nacht.",
+      "promptDe": "Die Sitzung dauerte bis in die Nacht.",
       "promptEn": "The meeting continued into the night.",
       "distractors": [
         "갈등",
@@ -29541,7 +29541,7 @@
       "level": "b1",
       "targetKo": "슬퍼하는 친구를 위로했어요.",
       "promptDe": "Ich habe eine traurige Person aus meinem Freundeskreis getröstet.",
-      "promptEn": "I comforted my sad friend.",
+      "promptEn": "I comforted a friend who was sad.",
       "vocabKo": "위로하다",
       "distractors": [
         "납부일",

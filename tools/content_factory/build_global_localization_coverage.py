@@ -26,6 +26,15 @@ LIVING = [
 LIVING_LOCALIZATION = (
     ROOT / "tools/content_factory/review/living_korea_localization_20261006.json"
 )
+SCENARIO_TOPIC_RESOLUTIONS = (
+    ROOT / "tools/content_factory/review/global_localization_scenario_topic_resolutions_20261006.json"
+)
+EDITORIAL_TOPIC_RESOLUTIONS = (
+    ROOT / "tools/content_factory/review/global_localization_editorial_topic_resolutions_20261006.json"
+)
+DERIVED_TOPIC_RESOLUTIONS = (
+    ROOT / "tools/content_factory/review/global_localization_derived_topic_resolutions_20261006.json"
+)
 
 # Stable source taxonomies that can be mapped to one canonical native-usage topic
 # without inspecting the localized copy. Mixed smalltalk buckets are handled by
@@ -174,6 +183,26 @@ def load_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def scenario_topic_resolution_index() -> dict[str, str]:
+    payload = load_json(SCENARIO_TOPIC_RESOLUTIONS)
+    return {
+        str(scene_id): str(row["canonicalTopicId"])
+        for scene_id, row in payload.get("mappings", {}).items()
+    }
+
+
+def editorial_topic_resolution_index() -> tuple[dict[str, str], dict[str, str]]:
+    payload = load_json(EDITORIAL_TOPIC_RESOLUTIONS)
+    lessons = {str(k): str(v) for k, v in payload.get("smalltalkLessons", {}).items()}
+    arcs = {str(k): str(v) for k, v in payload.get("cultureArcs", {}).items()}
+    return lessons, arcs
+
+
+def derived_topic_resolution_index() -> dict[str, str]:
+    payload = load_json(DERIVED_TOPIC_RESOLUTIONS)
+    return {str(k): str(v) for k, v in payload.get("mappings", {}).items()}
+
+
 def text_present(value: Any) -> bool:
     return isinstance(value, str) and bool(value.strip())
 
@@ -242,6 +271,7 @@ def build() -> dict[str, Any]:
 
     vocab_example_owner: dict[tuple[str, str], str] = {}
     vocab_example_by_ko: dict[str, list[str]] = collections.defaultdict(list)
+    vocab_example_topic: dict[str, dict[str, Any]] = {}
     for row in vocab_rows:
         vocab_id = row["id"]
         topic_row = topic_index.get(("vocab", vocab_id))
@@ -286,6 +316,8 @@ def build() -> dict[str, Any]:
         )
         key = (row.get("korean", "").strip(), row.get("example_korean", "").strip())
         vocab_example_owner[key] = example_id
+        if topic_row and topic_row.get("canonicalTopicId"):
+            vocab_example_topic[example_id] = topic_row
         if row.get("example_korean", "").strip():
             vocab_example_by_ko[row["example_korean"].strip()].append(example_id)
 
@@ -360,11 +392,28 @@ def build() -> dict[str, Any]:
                 )
             )
 
+    scenario_topic_resolutions = scenario_topic_resolution_index()
+    smalltalk_lesson_topic_resolutions, culture_arc_topic_resolutions = (
+        editorial_topic_resolution_index()
+    )
+    derived_topic_resolutions = derived_topic_resolution_index()
+
+    def scenario_topic_for(scene_id: str) -> dict[str, Any] | None:
+        topic_row = topic_index.get(("scenario", scene_id))
+        if (topic_row or {}).get("canonicalTopicId"):
+            return topic_row
+        explicit = scenario_topic_resolutions.get(scene_id)
+        if explicit:
+            return inferred_topic_row(
+                explicit, f"explicit scenario primary-topic review={scene_id}"
+            )
+        return None
+
     # Existing live scenario dialogue is a canonical dialogue owner surface.
     for path in SCENARIOS:
         payload = load_json(path)
         for scene in payload.get("scenarios", []):
-            topic_row = topic_index.get(("scenario", scene["id"]))
+            topic_row = scenario_topic_for(scene["id"])
             for idx, turn in enumerate(scene.get("dialog", []), 1):
                 records.append(
                     base_record(
@@ -443,7 +492,7 @@ def build() -> dict[str, Any]:
             if source_kind == "smalltalk":
                 row = smalltalk_topic_for(source_id)
             else:
-                row = topic_index.get(("scenario", source_id))
+                row = scenario_topic_for(source_id)
                 if not (row or {}).get("canonicalTopicId"):
                     row = smalltalk_topic_for(source_id)
             topic = (row or {}).get("canonicalTopicId")
@@ -465,13 +514,22 @@ def build() -> dict[str, Any]:
             content_ids = [str(x) for x in lesson.get("contentIds", [])]
             lesson_topic = source_topic_for(content_ids, source_kind)
             if lesson_topic is None and source_kind == "smalltalk":
-                canonical = SMALLTALK_CATEGORY_TO_CANONICAL.get(
-                    str(lesson.get("topicId") or "").strip()
+                explicit_lesson_topic = smalltalk_lesson_topic_resolutions.get(
+                    str(lesson.get("id") or "")
                 )
-                if canonical:
+                if explicit_lesson_topic:
                     lesson_topic = inferred_topic_row(
-                        canonical, f"smalltalk.lesson.topicId={lesson.get('topicId','')}"
+                        explicit_lesson_topic,
+                        f"explicit mixed-source lesson primary-topic review={lesson.get('id','')}",
                     )
+                else:
+                    canonical = SMALLTALK_CATEGORY_TO_CANONICAL.get(
+                        str(lesson.get("topicId") or "").strip()
+                    )
+                    if canonical:
+                        lesson_topic = inferred_topic_row(
+                            canonical, f"smalltalk.lesson.topicId={lesson.get('topicId','')}"
+                        )
             owner_ref = source_owner_ref(content_ids)
             for field in ("title", "intro"):
                 localized = lesson.get(field) or {}
@@ -606,6 +664,13 @@ def build() -> dict[str, Any]:
             if step.get("scenarioId")
         ]
         topic_row = source_topic_for(scenario_ids, "scenario")
+        if topic_row is None:
+            explicit_arc_topic = culture_arc_topic_resolutions.get(str(arc.get("arcId") or ""))
+            if explicit_arc_topic:
+                topic_row = inferred_topic_row(
+                    explicit_arc_topic,
+                    f"explicit culture-arc primary-topic review={arc.get('arcId','')}",
+                )
         for field in ("title", "summary"):
             localized = arc.get(field) or {}
             item_id = f"{arc['arcId']}#{field}"
@@ -627,6 +692,9 @@ def build() -> dict[str, Any]:
             )
 
     # Derived cloze translations should reconcile to the canonical vocab example.
+    # When the older content-topic ledger has no row, reuse the cloze source taxonomy
+    # rather than leaving a silent topic gap.
+    cloze_topic_by_ko: dict[str, set[str]] = collections.defaultdict(set)
     for item in load_json(CLOZE).get("items", []):
         key = (str(item.get("answer", "")).strip(), str(item.get("fullKo", "")).strip())
         owner_id = vocab_example_owner.get(key)
@@ -634,6 +702,20 @@ def build() -> dict[str, Any]:
             candidates = vocab_example_by_ko.get(str(item.get("fullKo", "")).strip(), [])
             owner_id = candidates[0] if len(candidates) == 1 else ""
         topic_row = topic_index.get(("cloze", item["id"]))
+        if not (topic_row or {}).get("canonicalTopicId") and owner_id:
+            topic_row = vocab_example_topic.get(owner_id)
+        if not (topic_row or {}).get("canonicalTopicId"):
+            canonical = VOCAB_TOPIC_TO_CANONICAL.get(
+                str(item.get("topic") or "").strip()
+            )
+            if canonical:
+                topic_row = inferred_topic_row(
+                    canonical, f"cloze.topic={item.get('topic','')}"
+                )
+        if (topic_row or {}).get("canonicalTopicId"):
+            cloze_topic_by_ko[str(item.get("fullKo") or "").strip()].add(
+                str(topic_row["canonicalTopicId"])
+            )
         records.append(
             base_record(
                 surface_type="cloze_translation",
@@ -666,6 +748,24 @@ def build() -> dict[str, Any]:
             candidates = vocab_example_by_ko.get(str(item.get("targetKo", "")).strip(), [])
             owner_id = candidates[0] if len(candidates) == 1 else ""
         topic_row = topic_index.get(("satz", item["id"]))
+        if not (topic_row or {}).get("canonicalTopicId") and owner_id:
+            topic_row = vocab_example_topic.get(owner_id)
+        if not (topic_row or {}).get("canonicalTopicId"):
+            inherited_topics = cloze_topic_by_ko.get(
+                str(item.get("targetKo") or "").strip(), set()
+            )
+            if len(inherited_topics) == 1:
+                topic_row = inferred_topic_row(
+                    next(iter(inherited_topics)),
+                    "satz.targetKo exact match to uniquely topic-mapped cloze surface",
+                )
+        if not (topic_row or {}).get("canonicalTopicId"):
+            explicit_derived_topic = derived_topic_resolutions.get(str(item.get("id") or ""))
+            if explicit_derived_topic:
+                topic_row = inferred_topic_row(
+                    explicit_derived_topic,
+                    f"explicit derived Satz primary-topic review={item.get('id','')}",
+                )
         records.append(
             base_record(
                 surface_type="satz_prompt",

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "HEURISTIC_TRIAGE_NOT_NATIVE_SIGNOFF",
+  "humanNativeSignoff": false,
+  "levels": {
+    "A1": {"rows": 735, "flaggedRows": 101, "hits": 119, "unexplained": 0},
+    "A2": {"rows": 519, "flaggedRows": 96, "hits": 115, "unexplained": 0},
+    "B1": {"rows": 650, "flaggedRows": 81, "hits": 101, "rawUnexplained": 101},
+    "B2": {"rows": 560, "flaggedRows": 82, "hits": 97, "rawUnexplained": 97},
+    "C1": {"rows": 240, "flaggedRows": 29, "hits": 29, "rawUnexplained": 29},
+    "C2": {"rows": 264, "flaggedRows": 29, "hits": 29, "rawUnexplained": 29}
+  },
+  "postTriage": {
+    "R3_headwordMissing": {
+      "hitsB1C2": 138,
+      "status": "superseded_by_morphology_aware_owner_anchor_audit",
+      "openDebt": 0
+    },
+    "R1_englishInGerman": {
+      "hitsB1C2": 2,
+      "status": "explicit_false_positive",
+      "reason": "Both hits are German Social-Media usage of the established loanword Like."
+    },
+    "R7_identicalGloss": {
+      "hitsB1C2": 8,
+      "status": "explicit_false_positive",
+      "reason": "International/cognate German-English glosses; examples themselves are independently localized.",
+      "itemIds": [
+        "vocab_b1_0026",
+        "vocab_b1_0060",
+        "vocab_b1_0078",
+        "vocab_b1_0111",
+        "vocab_b2_0045",
+        "vocab_b2_0076",
+        "vocab_b2_0246",
+        "vocab_c1_0200"
+      ]
+    },
+    "R4_lengthRatio": {
+      "hitsB1C2": 108,
+      "uniqueRows": 82,
+      "status": "pending_semantic_native_qa",
+      "reason": "Length-ratio heuristic is only a triage queue; each row must be read against Korean before correction."
+    },
+    "highConfidenceLeakOrRegisterRules": {
+      "rules": ["R2_de_calque_fronting", "R5_du_sie_mixed", "R6_em_en_dash", "R8_question_mismatch", "R9_numeral_label"],
+      "hitsB1C2": 0
+    }
+  },
+  "policy": "Heuristic lint never promotes content or claims native fluency. Corrections require direct KO-to-EN/DE semantic review."
+}
