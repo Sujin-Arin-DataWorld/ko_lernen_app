@@ -936,20 +936,20 @@
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations.dart": {
-    "mtime": 1791226178.6488554,
-    "seen": 1791226956.0915668,
+    "mtime": 1791310165.5295076,
+    "seen": 1791312113.2116132,
     "ast_hash": "730fbce07d601516d77b1315cb3cc50b",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_de.dart": {
-    "mtime": 1791226178.654252,
-    "seen": 1791226956.091569,
+    "mtime": 1791310164.9535077,
+    "seen": 1791312113.2116194,
     "ast_hash": "56c72789a1d8bb231f532998655a36cd",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_en.dart": {
-    "mtime": 1791226178.657849,
-    "seen": 1791226956.0915709,
+    "mtime": 1791310165.2642798,
+    "seen": 1791312113.2116244,
     "ast_hash": "83ad6777ffe98fedc5b2426bd9780f5a",
     "semantic_hash": ""
   },
@@ -7566,9 +7566,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/integrate_scenario_batch.py": {
-    "mtime": 1791287091.117202,
-    "seen": 1791287906.5033877,
-    "ast_hash": "4c5bcd466f1f656a1378ac38dcc7d3af",
+    "mtime": 1791310563.1443098,
+    "seen": 1791312114.304612,
+    "ast_hash": "c33884ab2f47182377da5b6f6c23f9c1",
     "semantic_hash": ""
   },
   "tools/content_factory/lexicon/__init__.py": {
@@ -7698,9 +7698,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/shelf_assignment.py": {
-    "mtime": 1791226181.5465176,
-    "seen": 1791226956.096746,
-    "ast_hash": "04c4855f489d02b1026c2bdfd4e66611",
+    "mtime": 1791310673.565801,
+    "seen": 1791312114.4364805,
+    "ast_hash": "bdae510b131349f6f64a5ff076766922",
     "semantic_hash": ""
   },
   "tools/content_factory/sync_review_ledgers.py": {
@@ -8196,9 +8196,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791303528.786869,
-    "seen": 1791303855.7035332,
-    "ast_hash": "86b6312ac8c799e77f923742eb9d676c",
+    "mtime": 1791311406.171669,
+    "seen": 1791312114.5288281,
+    "ast_hash": "53d7c73d265ca5b38373fa94ded7d69d",
     "semantic_hash": ""
   },
   "BETA_INSTALL_GUIDE.md": {
@@ -13164,9 +13164,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/content_audit_manifest.json": {
-    "mtime": 1791226180.624268,
-    "seen": 1791226956.0957053,
-    "ast_hash": "bf1a511eaecc1f5b4f3df7396a39fae5",
+    "mtime": 1791310691.2363412,
+    "seen": 1791312114.1405184,
+    "ast_hash": "3290f68932c3ffbdb105070dbc3b23e8",
     "semantic_hash": ""
   },
   "docs/store/firebase-backend-release-gates.md": {
@@ -22314,9 +22314,9 @@
     "semantic_hash": ""
   },
   "docs/plans/2026-10-05-living-korea-2025-2026.md": {
-    "mtime": 1791287567.8570566,
-    "seen": 1791287906.6953802,
-    "ast_hash": "41628a9cdc5863c9e63c5cc802988be7",
+    "mtime": 1791306559.516445,
+    "seen": 1791312114.6530635,
+    "ast_hash": "a636efc6d1b4fa994cd419a349aa3fc1",
     "semantic_hash": ""
   },
   "tools/content_factory/drafts/living_korea_scene_first_drafts_20261005.json": {
@@ -22494,9 +22494,9 @@
     "semantic_hash": ""
   },
   "docs/plans/2026-10-06-trilingual-native-usage-corpus.md": {
-    "mtime": 1791287323.6684306,
-    "seen": 1791287906.6956072,
-    "ast_hash": "69933c59840a42714c64614e800e4d7a",
+    "mtime": 1791304920.9004197,
+    "seen": 1791305288.9311857,
+    "ast_hash": "02d911157d1117b1d583184aa19b3e5b",
     "semantic_hash": ""
   },
   "docs/review/2026-10-06-living-korea-dialogue-tts-checkpoint.md": {
@@ -22512,9 +22512,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/build_trilingual_content_topic_coverage.py": {
-    "mtime": 1791267734.7131698,
-    "seen": 1791287906.405797,
-    "ast_hash": "4e689de868ebcc586353f9fbac5e4707",
+    "mtime": 1791304788.7204916,
+    "seen": 1791305288.6051962,
+    "ast_hash": "44ab46845bb8f15b6683bc3778fc694c",
     "semantic_hash": ""
   },
   "tools/content_factory/canonical_scenarios/dialogue_localization_contract_20261006.json": {
@@ -22536,15 +22536,105 @@
     "semantic_hash": ""
   },
   "tools/content_factory/test_trilingual_content_topic_coverage.py": {
-    "mtime": 1791267785.676425,
-    "seen": 1791287906.6065297,
-    "ast_hash": "ff38df754d6f4d06a5acd51deffcd2db",
+    "mtime": 1791304799.746845,
+    "seen": 1791305288.817004,
+    "ast_hash": "b2c95ca159baf7cc13c42ae6070d875a",
     "semantic_hash": ""
   },
   "tools/content_factory/test_trilingual_native_usage_progress.py": {
     "mtime": 1791286844.1012623,
     "seen": 1791287906.606533,
     "ast_hash": "21a575df2627b507c9a57bf40c94eb41",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/build_global_localization_coverage.py": {
+    "mtime": 1791306280.966582,
+    "seen": 1791312114.0925288,
+    "ast_hash": "7f3be197d04693b85e91e7e675d41384",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/build_global_localization_owner_audit.py": {
+    "mtime": 1791310978.4820652,
+    "seen": 1791312114.0925345,
+    "ast_hash": "386cebd817cb73fbdfc2c0c935a1025d",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/build_living_korea_localization.py": {
+    "mtime": 1791306107.3377116,
+    "seen": 1791312114.093548,
+    "ast_hash": "9d0fb7d8d05d15f07d8abea45bcbef52",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/build_living_korea_promotion_batch.py": {
+    "mtime": 1791306941.4246857,
+    "seen": 1791312114.0935528,
+    "ast_hash": "26e80a467f2ff2068cc2db758c19f8fd",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/canonical_scenarios/global_localization_contract_20261006.json": {
+    "mtime": 1791305670.4363747,
+    "seen": 1791312114.108793,
+    "ast_hash": "be0fa0e78bf2878e4e34534e7eaabc70",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/drafts/batch_39_living_korea_manifest.json": {
+    "mtime": 1791310691.2558417,
+    "seen": 1791312114.2642741,
+    "ast_hash": "d90894f1b0f8a817b35e201c1af8ffca",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/drafts/living_korea_scenarios_20261006.json": {
+    "mtime": 1791310500.2482815,
+    "seen": 1791312114.2892737,
+    "ast_hash": "8e73109deb147aa615b7a0a74a5317b0",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/reconcile_global_derived_localization.py": {
+    "mtime": 1791311525.36877,
+    "seen": 1791312114.3184197,
+    "ast_hash": "9aa1a544073cdcb758b5548a14b012d9",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/global_localization_derived_reconciliation_20261006.json": {
+    "mtime": 1791311561.7805545,
+    "seen": 1791312114.4138255,
+    "ast_hash": "2cf586e49ca36ea02864d7a0fccdf80b",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/living_korea_localization_20261006.json": {
+    "mtime": 1791306202.914485,
+    "seen": 1791312114.4197187,
+    "ast_hash": "b7383605599b0c5255c190dcbd53838d",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/test_global_localization_coverage.py": {
+    "mtime": 1791311382.44131,
+    "seen": 1791312114.4565063,
+    "ast_hash": "f1591fcf92dd70c1ea3809ae3bd7c087",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/test_global_localization_owner_audit.py": {
+    "mtime": 1791310989.2343695,
+    "seen": 1791312114.4565105,
+    "ast_hash": "261d98eeede25542bf9ca8621e881f8b",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/test_living_korea_localization.py": {
+    "mtime": 1791306242.7704444,
+    "seen": 1791312114.4619107,
+    "ast_hash": "e377cad98b9070cf75a1926ba780951a",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/test_reconcile_global_derived_localization.py": {
+    "mtime": 1791311239.3872201,
+    "seen": 1791312114.4671183,
+    "ast_hash": "3610e5cd35985eea54541636afcb5a3e",
+    "semantic_hash": ""
+  },
+  "docs/plans/2026-10-06-global-localization-canonicalization.md": {
+    "mtime": 1791311327.2378714,
+    "seen": 1791312114.6535187,
+    "ast_hash": "13f2ee4137641d34c51e73fa1fccbdcd",
     "semantic_hash": ""
   }
 }
