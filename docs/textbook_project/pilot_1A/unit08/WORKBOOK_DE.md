@@ -10,7 +10,6 @@ Ordne die koreanischen Chunks ihrer Funktion in der Situation zu.
 - 천천히 말씀해 주세요
 - 잘 못 들었어요
 - 무슨 뜻이에요?
-- 제가 잘 이해한 게 맞아요?
 - 13번이요?
 
 Nicht zuerst Wort für Wort übersetzen. Erkenne, was der Satz im Gespräch tut.
@@ -44,6 +43,7 @@ Diese Formen können im authentischen Input vorkommen:
 - 몰랐어요
 - -ㄹ게요
 - 뭐라고요?
+- 제가 잘 이해한 게 맞아요?
 
 Notiere zu jeder Form:
 1. wer sie sagt;

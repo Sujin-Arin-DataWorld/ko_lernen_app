@@ -21,13 +21,19 @@ Status: DRAFT_MATERIALIZED
 
 ## Productive language
 
-- 이에요/예요: basic copula identification
 - -아/어 주세요: polite request
+
+## Formulaic production
+
+- 감사합니다: 감사합니다 — high-frequency fixed thanks formula; does not imply productive control of 합니다체
+
+These are learner-usable chunks whose full grammar analysis is intentionally deferred.
 
 ## Recognition/context only
 
+- 이에요/예요: appears naturally in the airport response; active copula work begins in Unit 02
 - -(으)시-: subject honorification appears in authentic service speech; do not teach as generic extra-politeness marker
-- 합니다/합니다체 인사: recognize fixed service formulas before broader productive formal register
+- 합니다체 어미 전반: full formal-style morphology is deferred; fixed greetings may still be used as chunks
 
 ## Teaching order
 
@@ -73,10 +79,11 @@ Do not convert contextual patterns into universal rules.
 Must produce:
 - 안녕하세요
 - 다시 말씀해 주세요
+- 감사합니다
 
 Must recognize:
 - 네?
-- 감사합니다
+- 한국은 처음이세요?
 
 Success:
 maintains interaction after one comprehension breakdown

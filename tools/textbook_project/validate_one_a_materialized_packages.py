@@ -81,7 +81,8 @@ def main():
         else:
             manifest=load_json(folder/"data"/"UNIT_MANIFEST.json")
             audio=load_json(folder/"data"/"AUDIO_SCRIPT.json")
-            assert manifest["status"]=="DRAFT_MATERIALIZED_NO_UNIT_EDITORIAL_PASS"
+            assert manifest["status"]=="MODEL_EDITORIAL_PASS_COMPLETE_HUMAN_REVIEW_OPEN"
+            assert manifest.get("modelEditorialPassDate")=="2026-10-06"
 
         assert manifest["unitId"]==u["unitId"]
         assert manifest["surfacePolicy"]["ttsOwner"]=="Jin"

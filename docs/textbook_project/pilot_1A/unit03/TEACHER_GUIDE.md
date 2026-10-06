@@ -25,6 +25,12 @@ Status: DRAFT_MATERIALIZED
 - 이/가: subject/focus in identification/existence
 - 에 있다: location/existence
 
+## Formulaic production
+
+- none
+
+These are learner-usable chunks whose full grammar analysis is intentionally deferred.
+
 ## Recognition/context only
 
 - none
@@ -74,6 +80,7 @@ Do not convert contextual patterns into universal rules.
 Must produce:
 - ___는 어디에 있어요?
 - ___에 있어요
+- ___가 여기 있어요
 
 Must recognize:
 - 은/는

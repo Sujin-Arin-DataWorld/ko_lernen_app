@@ -6,6 +6,7 @@
 Ordne die koreanischen Chunks ihrer Funktion in der Situation zu.
 
 - 몇 시에 만나요?
+- 오후 한 시 어때요?
 - 일곱 시에 만나요
 - 여섯 시 아니에요?
 - 아니요, 일곱 시예요

@@ -52,7 +52,6 @@ Kontaktaustausch als soziale Entscheidung behandeln, nicht als automatische Pfli
 - **카톡 하세요?**
 - **카카오톡으로 연락할까요?**
 - **제가 카톡 보낼게요**
-- **연락처 알려 주실래요?**
 - **도착하면 연락할게요**
 - **10분 정도 늦을 것 같아요**
 
@@ -62,14 +61,22 @@ Diese Chunks gehören zur aktiven Produktion dieser Einheit.
 
 - **(으)로** — aktive Form dieser Einheit
 - **있어요** — aktive Form dieser Einheit
-- **-아/어 주세요** — aktive Form dieser Einheit
 
 Die Bezeichnungen sind nicht das Lernziel. Benutze die Formen, um die Situation zu lösen.
 
+### Nützliche feste Chunks für die aktive Produktion
+
+- **-세요?** — jetzt als festen Chunk benutzen: 카톡 하세요?
+- **-(으)ㄹ까요?** — jetzt als festen Chunk benutzen: 카카오톡으로 연락할까요?
+- **-ㄹ게요** — jetzt als festen Chunk benutzen: 제가 카톡 보낼게요 / 도착하면 연락할게요
+- **-(으)ㄹ 것 같아요** — jetzt als festen Chunk benutzen: 10분 정도 늦을 것 같아요
+
+Diese Chunks darfst du jetzt benutzen; die vollständige Grammatik kommt später.
+
+
 ## 3. Zuerst verstehen — noch nicht überlernen
 
-- **-(으)ㄹ까요?** — zunächst im Kontext erkennen
-- **-ㄹ게요** — zunächst im Kontext erkennen
+- **-(으)실래요?** — zunächst im Kontext erkennen
 
 Authentischer Input kann Formen enthalten, die noch über deinem aktiven Produktionsziel liegen. Verstehen ist hier genug.
 

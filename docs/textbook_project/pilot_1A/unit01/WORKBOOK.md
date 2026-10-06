@@ -39,8 +39,9 @@ Do not change grammar just to make the sentence harder.
 
 The following may appear in authentic input but are not all active targets yet:
 
+- 이에요/예요
 - -(으)시-
-- 합니다/합니다체 인사
+- 합니다체 어미 전반
 
 For each, write only:
 1. who might say it;
@@ -68,10 +69,11 @@ Close the unit.
 Produce:
 - 안녕하세요
 - 다시 말씀해 주세요
+- 감사합니다
 
 Recognize:
 - 네?
-- 감사합니다
+- 한국은 처음이세요?
 
 ## H. Self-check
 

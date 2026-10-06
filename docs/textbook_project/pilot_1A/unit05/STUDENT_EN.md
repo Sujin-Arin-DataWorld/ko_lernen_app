@@ -3,7 +3,7 @@
 
 ## By the end of this unit, you can:
 
-- Ask for a meeting time and confirm or correct the time.
+- Ask for a meeting time, propose a time, and confirm or correct it.
 - Use basic native-Korean hour numbers in a real scheduling task.
 
 ## Why this unit exists
@@ -46,6 +46,7 @@ Do not translate every word. Identify:
 ## 2. What you should be able to say
 
 - **몇 시에 만나요?**
+- **오후 한 시 어때요?**
 - **일곱 시에 만나요**
 - **여섯 시 아니에요?**
 - **아니요, 일곱 시예요**
@@ -59,6 +60,13 @@ These are the productive chunks for this unit.
 - **아니에요** — correction/negation
 
 The goal is not to memorize labels. Use the forms to solve the scene.
+
+### Useful formulaic production
+
+- **N시 어때요?** — use now as a fixed chunk: 오후 한 시 어때요?
+
+Use these chunks now; study the full grammar later.
+
 
 ## 3. Understand first — do not overlearn yet
 
@@ -100,7 +108,7 @@ Avoid the rule “Koreans always say X.” Learn who says what, to whom, and why
 
 ## 8. Output mission
 
-- Set a meeting time.
+- Ask for and propose a meeting time.
 - Correct one intentionally wrong time.
 
 ## 9. Reading

@@ -8,6 +8,7 @@ Status: DRAFT_MATERIALIZED
 Read the core chunks and match each one to its communicative job.
 
 - 몇 시에 만나요?
+- 오후 한 시 어때요?
 - 일곱 시에 만나요
 - 여섯 시 아니에요?
 - 아니요, 일곱 시예요
@@ -15,6 +16,7 @@ Read the core chunks and match each one to its communicative job.
 
 Functions:
 - ask_time
+- propose_time
 - confirm_time
 - correct_number
 - repeat_number

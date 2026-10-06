@@ -23,12 +23,19 @@ Status: DRAFT_MATERIALIZED
 
 - (으)로: channel/means, e.g. 카카오톡으로
 - 있어요: presence/contact resource
-- -아/어 주세요: simple instruction/request
+
+## Formulaic production
+
+- -세요?: 카톡 하세요? — fixed polite contact-channel question; honorific morphology is not generalized here
+- -(으)ㄹ까요?: 카카오톡으로 연락할까요? — high-value proposal chunk; learner may produce the chunk before full grammar analysis
+- -ㄹ게요: 제가 카톡 보낼게요 / 도착하면 연락할게요 — high-value promise/intention chunks for messaging; full paradigm deferred
+- -(으)ㄹ 것 같아요: 10분 정도 늦을 것 같아요 — useful delay-notice chunk; broader inference/probability grammar deferred
+
+These are learner-usable chunks whose full grammar analysis is intentionally deferred.
 
 ## Recognition/context only
 
-- -(으)ㄹ까요?: high-value proposal chunk; production can begin as formula but full grammar analysis belongs later
-- -ㄹ게요: promise/intent chunk in messaging; recognition/formula only in early A1
+- -(으)실래요?: polite invitation/request form may be heard in contact exchange; not required learner production in 1A
 
 ## Teaching order
 

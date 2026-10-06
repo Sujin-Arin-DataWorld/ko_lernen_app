@@ -5,8 +5,10 @@
 
 Match the Korean chunks to what they do in the situation.
 
+- 저기요
 - ___는 어디에 있어요?
 - ___에 있어요
+- ___가 여기 있어요
 - 이거 ___예요?
 - 아니요, 그건 ___예요
 - 그럼 이거예요?
@@ -67,6 +69,7 @@ Close the student pages.
 Produce:
 - ___는 어디에 있어요?
 - ___에 있어요
+- ___가 여기 있어요
 
 Recognize:
 - 은/는

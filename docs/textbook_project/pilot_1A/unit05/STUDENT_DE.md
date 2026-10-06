@@ -3,7 +3,7 @@
 
 ## Nach dieser Einheit kannst du:
 
-- Nach einer Uhrzeit fragen und eine Verabredung bestätigen oder korrigieren.
+- Nach einer Uhrzeit fragen, eine Uhrzeit vorschlagen und die Verabredung bestätigen oder korrigieren.
 - Grundlegende koreanische Stundenangaben in einer echten Terminaufgabe benutzen.
 
 ## Warum diese Einheit existiert
@@ -46,6 +46,7 @@ Zahlen zum Bestätigen echter Informationen verwenden statt nur Zahlenlisten aus
 ## 2. Das solltest du selbst sagen können
 
 - **몇 시에 만나요?**
+- **오후 한 시 어때요?**
 - **일곱 시에 만나요**
 - **여섯 시 아니에요?**
 - **아니요, 일곱 시예요**
@@ -59,6 +60,13 @@ Diese Chunks gehören zur aktiven Produktion dieser Einheit.
 - **아니에요** — aktive Form dieser Einheit
 
 Die Bezeichnungen sind nicht das Lernziel. Benutze die Formen, um die Situation zu lösen.
+
+### Nützliche feste Chunks für die aktive Produktion
+
+- **N시 어때요?** — jetzt als festen Chunk benutzen: 오후 한 시 어때요?
+
+Diese Chunks darfst du jetzt benutzen; die vollständige Grammatik kommt später.
+
 
 ## 3. Zuerst verstehen — noch nicht überlernen
 
@@ -90,8 +98,8 @@ Lerne nicht „Koreaner sagen immer X“, sondern Beziehung, Situation und Funkt
 ## 6. Aussprachefokus
 
 - 몇 시에 만나요?
+- 오후 한 시 어때요?
 - 일곱 시에 만나요
-- 여섯 시 아니에요?
 
 ## 7. Hör-/Inputaufgabe
 
@@ -100,7 +108,7 @@ Lerne nicht „Koreaner sagen immer X“, sondern Beziehung, Situation und Funkt
 
 ## 8. Sprech-/Outputaufgabe
 
-- Eine Uhrzeit vereinbaren.
+- Nach einer Uhrzeit fragen und selbst eine Uhrzeit vorschlagen.
 - Eine absichtlich falsche Uhrzeit korrigieren.
 
 ## 9. Lesen

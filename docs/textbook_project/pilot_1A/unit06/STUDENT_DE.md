@@ -48,7 +48,7 @@ Nach Weg/Haltestelle fragen und ein Gespräch reparieren, wenn die Richtung fals
 - **여기 세워 주세요**
 - **몇 번 출구예요?**
 - **어디서 갈아타요?**
-- **이 버스 ___ 가요?**
+- **이 버스 ___에 가요?**
 - **저기 앞에 세워 주세요**
 
 Diese Chunks gehören zur aktiven Produktion dieser Einheit.
@@ -56,11 +56,16 @@ Diese Chunks gehören zur aktiven Produktion dieser Einheit.
 ### Produktive Grammatik
 
 - **에** — aktive Form dieser Einheit
-- **에서** — aktive Form dieser Einheit
-- **(으)로** — aktive Form dieser Einheit
 - **-아/어 주세요** — aktive Form dieser Einheit
 
 Die Bezeichnungen sind nicht das Lernziel. Benutze die Formen, um die Situation zu lösen.
+
+### Nützliche feste Chunks für die aktive Produktion
+
+- **어디서 갈아타요?** — jetzt als festen Chunk benutzen: 어디서 갈아타요?
+
+Diese Chunks darfst du jetzt benutzen; die vollständige Grammatik kommt später.
+
 
 ## 3. Zuerst verstehen — noch nicht überlernen
 

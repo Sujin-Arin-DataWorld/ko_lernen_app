@@ -131,6 +131,7 @@ def render_student(u, scenario, lang, err_lookup, learner_meta):
 
     can_do="\n".join(f"- {x}" for x in meta["canDo"])
     prod="\n".join(f"- **{x}**" for x in u["coreChunks"])
+    formulaic_items=u.get("formulaicProduction",[])
     if is_en:
         rec="\n".join(
             f"- **{x['form']}** — {x['reason']}"
@@ -139,6 +140,10 @@ def render_student(u, scenario, lang, err_lookup, learner_meta):
         grammar="\n".join(
             f"- **{x['form']}** — {x['function']}"
             for x in u["productiveGrammar"]
+        )
+        formulaic="\n".join(
+            f"- **{x['form']}** — use now as a fixed chunk: " + " / ".join(x.get("examples",[]))
+            for x in formulaic_items
         )
         pron="\n".join(f"- {x}" for x in u["pronunciation"])
     else:
@@ -149,6 +154,10 @@ def render_student(u, scenario, lang, err_lookup, learner_meta):
         grammar="\n".join(
             f"- **{x['form']}** — aktive Form dieser Einheit"
             for x in u["productiveGrammar"]
+        )
+        formulaic="\n".join(
+            f"- **{x['form']}** — jetzt als festen Chunk benutzen: " + " / ".join(x.get("examples",[]))
+            for x in formulaic_items
         )
         pron="\n".join(f"- {x}" for x in u["coreChunks"][:3])
     prag="\n".join(f"- {x}" for x in meta["pragmatics"])
@@ -192,6 +201,8 @@ These are the productive chunks for this unit.
 {grammar}
 
 The goal is not to memorize labels. Use the forms to solve the scene.
+
+{("### Useful formulaic production\n\n" + formulaic + "\n\nUse these chunks now; study the full grammar later.\n") if formulaic else ""}
 
 ## 3. {rec_label}
 
@@ -293,6 +304,8 @@ Diese Chunks gehören zur aktiven Produktion dieser Einheit.
 {grammar}
 
 Die Bezeichnungen sind nicht das Lernziel. Benutze die Formen, um die Situation zu lösen.
+
+{("### Nützliche feste Chunks für die aktive Produktion\n\n" + formulaic + "\n\nDiese Chunks darfst du jetzt benutzen; die vollständige Grammatik kommt später.\n") if formulaic else ""}
 
 ## 3. {rec_label}
 
@@ -607,6 +620,10 @@ def render_teacher(u, err_lookup):
     enrisks="\n".join(f"- **{rid}**: {err_lookup[rid]['risk']}" for rid in u.get("enLearnerRisks",[])) or "- none"
     derisks="\n".join(f"- **{rid}**: {err_lookup[rid]['risk']}" for rid in u.get("deLearnerRisks",[])) or "- none"
     prod="\n".join(f"- {x['form']}: {x['function']}" for x in u["productiveGrammar"])
+    formulaic="\n".join(
+        f"- {x['form']}: {' / '.join(x.get('examples',[]))} — {x['reason']}"
+        for x in u.get("formulaicProduction",[])
+    ) or "- none"
     rec="\n".join(f"- {x['form']}: {x['reason']}" for x in u.get("recognitionOnly",[])) or "- none"
     return f"""# Teacher Guide — Korean 1A Unit {u['order']:02d}
 # {u['titleKo']}
@@ -631,6 +648,12 @@ Status: DRAFT_MATERIALIZED
 ## Productive language
 
 {prod}
+
+## Formulaic production
+
+{formulaic}
+
+These are learner-usable chunks whose full grammar analysis is intentionally deferred.
 
 ## Recognition/context only
 
@@ -720,7 +743,8 @@ def main():
         manifest={
             "schemaVersion":1,
             "date":"2026-10-06",
-            "status":"DRAFT_MATERIALIZED_NO_UNIT_EDITORIAL_PASS",
+            "status":"MODEL_EDITORIAL_PASS_COMPLETE_HUMAN_REVIEW_OPEN",
+            "modelEditorialPassDate":"2026-10-06",
             "unitId":u["unitId"],
             "order":u["order"],
             "titleKo":u["titleKo"],
@@ -731,6 +755,7 @@ def main():
             "enLearnerRisks":u.get("enLearnerRisks",[]),
             "deLearnerRisks":u.get("deLearnerRisks",[]),
             "productiveGrammar":u["productiveGrammar"],
+            "formulaicProduction":u.get("formulaicProduction",[]),
             "recognitionOnly":u.get("recognitionOnly",[]),
             "surfacePolicy":{
                 "displayVsSpokenSeparated":True,
@@ -739,10 +764,10 @@ def main():
                 "audioGenerated":False,
             },
             "editorialRequirements":[
-                "unit-specific Korean editorial pass",
-                "EN pedagogy pass",
-                "DE pedagogy pass",
-                "practice-bank selection",
+                "human Korean educator review",
+                "native EN pedagogy review",
+                "native DE pedagogy review",
+                "unit-specific practice-bank selection",
                 "adult learner pilot",
             ],
         }

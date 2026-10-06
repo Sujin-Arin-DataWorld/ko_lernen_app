@@ -45,8 +45,10 @@ Partikeln beim Finden und Identifizieren von Dingen benutzen statt abstrakte Def
 
 ## 2. Das solltest du selbst sagen können
 
+- **저기요**
 - **___는 어디에 있어요?**
 - **___에 있어요**
+- **___가 여기 있어요**
 - **이거 ___예요?**
 - **아니요, 그건 ___예요**
 - **그럼 이거예요?**
@@ -60,6 +62,8 @@ Diese Chunks gehören zur aktiven Produktion dieser Einheit.
 - **에 있다** — aktive Form dieser Einheit
 
 Die Bezeichnungen sind nicht das Lernziel. Benutze die Formen, um die Situation zu lösen.
+
+
 
 ## 3. Zuerst verstehen — noch nicht überlernen
 
@@ -102,9 +106,9 @@ Lerne nicht „Koreaner sagen immer X“, sondern Beziehung, Situation und Funkt
 
 ## 6. Aussprachefokus
 
+- 저기요
 - ___는 어디에 있어요?
 - ___에 있어요
-- 이거 ___예요?
 
 ## 7. Hör-/Inputaufgabe
 
@@ -134,6 +138,7 @@ Das solltest du produzieren können:
 
 - ___는 어디에 있어요?
 - ___에 있어요
+- ___가 여기 있어요
 
 Das solltest du erkennen können:
 

@@ -25,6 +25,9 @@
     {
       "unitId": "a1_01_greetings_hangul",
       "order": 1,
+      "prerequisites": [
+        "HANGUL_ZERO"
+      ],
       "titleKo": "첫 인사와 다시 묻기",
       "titleEn": "First greetings and asking again",
       "titleDe": "Erste Begrüßung und noch einmal fragen",
@@ -58,11 +61,6 @@
       ],
       "productiveGrammar": [
         {
-          "form": "이에요/예요",
-          "function": "basic copula identification",
-          "appAnchor": "grammar_a1_copula_polite"
-        },
-        {
           "form": "-아/어 주세요",
           "function": "polite request",
           "mode": "chunk-first"
@@ -70,12 +68,16 @@
       ],
       "recognitionOnly": [
         {
+          "form": "이에요/예요",
+          "reason": "appears naturally in the airport response; active copula work begins in Unit 02"
+        },
+        {
           "form": "-(으)시-",
           "reason": "subject honorification appears in authentic service speech; do not teach as generic extra-politeness marker"
         },
         {
-          "form": "합니다/합니다체 인사",
-          "reason": "recognize fixed service formulas before broader productive formal register"
+          "form": "합니다체 어미 전반",
+          "reason": "full formal-style morphology is deferred; fixed greetings may still be used as chunks"
         }
       ],
       "coreChunks": [
@@ -85,6 +87,15 @@
         "죄송해요",
         "다시 말씀해 주세요",
         "감사합니다"
+      ],
+      "formulaicProduction": [
+        {
+          "form": "감사합니다",
+          "examples": [
+            "감사합니다"
+          ],
+          "reason": "high-frequency fixed thanks formula; does not imply productive control of 합니다체"
+        }
       ],
       "pronunciation": [
         "안녕하세요 rhythm",
@@ -126,11 +137,12 @@
       "assessment": {
         "mustProduce": [
           "안녕하세요",
-          "다시 말씀해 주세요"
+          "다시 말씀해 주세요",
+          "감사합니다"
         ],
         "mustRecognize": [
           "네?",
-          "감사합니다"
+          "한국은 처음이세요?"
         ],
         "success": "maintains interaction after one comprehension breakdown"
       },
@@ -185,7 +197,7 @@
           "appAnchor": "grammar_a1_copula_polite"
         },
         {
-          "form": "에서 오다",
+          "form": "N에서 왔어요",
           "function": "origin/source",
           "mode": "lexical-frame"
         }
@@ -198,7 +210,7 @@
       ],
       "coreChunks": [
         "저는 ___이에요/예요",
-        "어디에서 오셨어요?",
+        "어디에서 왔어요?",
         "___에서 왔어요",
         "이름을 다시 말해 주세요",
         "저도 그래요/저도 좋아해요"
@@ -311,8 +323,10 @@
       ],
       "recognitionOnly": [],
       "coreChunks": [
+        "저기요",
         "___는 어디에 있어요?",
         "___에 있어요",
+        "___가 여기 있어요",
         "이거 ___예요?",
         "아니요, 그건 ___예요",
         "그럼 이거예요?"
@@ -357,7 +371,8 @@
       "assessment": {
         "mustProduce": [
           "___는 어디에 있어요?",
-          "___에 있어요"
+          "___에 있어요",
+          "___가 여기 있어요"
         ],
         "mustRecognize": [
           "은/는",
@@ -528,10 +543,12 @@
         "listening.a1.a1_w10_numbers"
       ],
       "nativeUsageTopics": [
+        "numbers_time_dates",
         "communication_phone_digital"
       ],
       "targetFunctions": [
         "ask_time",
+        "propose_time",
         "confirm_time",
         "correct_number",
         "repeat_number"
@@ -551,10 +568,20 @@
       "recognitionOnly": [],
       "coreChunks": [
         "몇 시에 만나요?",
+        "오후 한 시 어때요?",
         "일곱 시에 만나요",
         "여섯 시 아니에요?",
         "아니요, 일곱 시예요",
         "몇 번이에요?"
+      ],
+      "formulaicProduction": [
+        {
+          "form": "N시 어때요?",
+          "examples": [
+            "오후 한 시 어때요?"
+          ],
+          "reason": "high-value time-proposal chunk; broader 어때요? uses expand later"
+        }
       ],
       "pronunciation": [
         "native Korean hour numbers",
@@ -649,14 +676,6 @@
           "function": "destination/location"
         },
         {
-          "form": "에서",
-          "function": "action/source contrast, limited use"
-        },
-        {
-          "form": "(으)로",
-          "function": "direction/means, chunk-first"
-        },
-        {
           "form": "-아/어 주세요",
           "function": "request stop/direction",
           "appAnchor": "grammar_a1_polite_request"
@@ -668,11 +687,20 @@
           "reason": "driver service-side confirmation; learner understands without productive analysis"
         }
       ],
+      "formulaicProduction": [
+        {
+          "form": "어디서 갈아타요?",
+          "examples": [
+            "어디서 갈아타요?"
+          ],
+          "reason": "high-value transfer question; full 에서 contrast is recycled later"
+        }
+      ],
       "coreChunks": [
         "여기 세워 주세요",
         "몇 번 출구예요?",
         "어디서 갈아타요?",
-        "이 버스 ___ 가요?",
+        "이 버스 ___에 가요?",
         "저기 앞에 세워 주세요"
       ],
       "pronunciation": [
@@ -778,29 +806,51 @@
         {
           "form": "있어요",
           "function": "presence/contact resource"
-        },
-        {
-          "form": "-아/어 주세요",
-          "function": "simple instruction/request"
         }
       ],
       "recognitionOnly": [
         {
-          "form": "-(으)ㄹ까요?",
-          "reason": "high-value proposal chunk; production can begin as formula but full grammar analysis belongs later"
-        },
-        {
-          "form": "-ㄹ게요",
-          "reason": "promise/intent chunk in messaging; recognition/formula only in early A1"
+          "form": "-(으)실래요?",
+          "reason": "polite invitation/request form may be heard in contact exchange; not required learner production in 1A"
         }
       ],
       "coreChunks": [
         "카톡 하세요?",
         "카카오톡으로 연락할까요?",
         "제가 카톡 보낼게요",
-        "연락처 알려 주실래요?",
         "도착하면 연락할게요",
         "10분 정도 늦을 것 같아요"
+      ],
+      "formulaicProduction": [
+        {
+          "form": "-세요?",
+          "examples": [
+            "카톡 하세요?"
+          ],
+          "reason": "fixed polite contact-channel question; honorific morphology is not generalized here"
+        },
+        {
+          "form": "-(으)ㄹ까요?",
+          "examples": [
+            "카카오톡으로 연락할까요?"
+          ],
+          "reason": "high-value proposal chunk; learner may produce the chunk before full grammar analysis"
+        },
+        {
+          "form": "-ㄹ게요",
+          "examples": [
+            "제가 카톡 보낼게요",
+            "도착하면 연락할게요"
+          ],
+          "reason": "high-value promise/intention chunks for messaging; full paradigm deferred"
+        },
+        {
+          "form": "-(으)ㄹ 것 같아요",
+          "examples": [
+            "10분 정도 늦을 것 같아요"
+          ],
+          "reason": "useful delay-notice chunk; broader inference/probability grammar deferred"
+        }
       ],
       "pronunciation": [
         "카카오톡 contraction/rhythm",
@@ -937,6 +987,10 @@
         {
           "form": "뭐라고요?",
           "reason": "intonation-sensitive and can sound surprised/challenging; recognition first"
+        },
+        {
+          "form": "제가 잘 이해한 게 맞아요?",
+          "reason": "useful confirmation phrase but structurally dense for 1A; recognition/optional extension only"
         }
       ],
       "coreChunks": [
@@ -945,7 +999,6 @@
         "천천히 말씀해 주세요",
         "잘 못 들었어요",
         "무슨 뜻이에요?",
-        "제가 잘 이해한 게 맞아요?",
         "13번이요?"
       ],
       "pronunciation": [

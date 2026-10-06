@@ -29,8 +29,10 @@ Dialogue occurrence never automatically becomes a grammar target.
 - 못 들었을 때 정중하게 한 번 더 말해 달라고 할 수 있다.
 
 **Productive language**
-- 이에요/예요 — basic copula identification
 - -아/어 주세요 — polite request
+
+**Formulaic production — use now, analyze later**
+- 감사합니다 — 감사합니다 — high-frequency fixed thanks formula; does not imply productive control of 합니다체
 
 **Core chunks**
 - 안녕하세요
@@ -41,8 +43,9 @@ Dialogue occurrence never automatically becomes a grammar target.
 - 감사합니다
 
 **Recognition/context only**
+- 이에요/예요 — appears naturally in the airport response; active copula work begins in Unit 02
 - -(으)시- — subject honorification appears in authentic service speech; do not teach as generic extra-politeness marker
-- 합니다/합니다체 인사 — recognize fixed service formulas before broader productive formal register
+- 합니다체 어미 전반 — full formal-style morphology is deferred; fixed greetings may still be used as chunks
 
 **Pragmatics / culture**
 - service politeness
@@ -61,8 +64,9 @@ Dialogue occurrence never automatically becomes a grammar target.
 **Assessment**
 - Must produce: 안녕하세요
 - Must produce: 다시 말씀해 주세요
+- Must produce: 감사합니다
 - Must recognize: 네?
-- Must recognize: 감사합니다
+- Must recognize: 한국은 처음이세요?
 - Success: maintains interaction after one comprehension breakdown
 
 **Production ceiling**
@@ -81,11 +85,11 @@ short single-clause A1 turns; no explanation of full honorific system
 **Productive language**
 - 은/는 — set personal topic
 - 이에요/예요 — identify self
-- 에서 오다 — origin/source
+- N에서 왔어요 — origin/source
 
 **Core chunks**
 - 저는 ___이에요/예요
-- 어디에서 오셨어요?
+- 어디에서 왔어요?
 - ___에서 왔어요
 - 이름을 다시 말해 주세요
 - 저도 그래요/저도 좋아해요
@@ -134,8 +138,10 @@ one idea per sentence; no résumé-style extended self-introduction
 - 에 있다 — location/existence
 
 **Core chunks**
+- 저기요
 - ___는 어디에 있어요?
 - ___에 있어요
+- ___가 여기 있어요
 - 이거 ___예요?
 - 아니요, 그건 ___예요
 - 그럼 이거예요?
@@ -158,6 +164,7 @@ one idea per sentence; no résumé-style extended self-introduction
 **Assessment**
 - Must produce: ___는 어디에 있어요?
 - Must produce: ___에 있어요
+- Must produce: ___가 여기 있어요
 - Must recognize: 은/는
 - Must recognize: 이/가
 - Success: uses particles in context, not through isolated translation
@@ -227,8 +234,12 @@ counter chunks limited to high-frequency items; no exhaustive counter taxonomy
 - N시에 — time point
 - 아니에요 — correction/negation
 
+**Formulaic production — use now, analyze later**
+- N시 어때요? — 오후 한 시 어때요? — high-value time-proposal chunk; broader 어때요? uses expand later
+
 **Core chunks**
 - 몇 시에 만나요?
+- 오후 한 시 어때요?
 - 일곱 시에 만나요
 - 여섯 시 아니에요?
 - 아니요, 일곱 시예요
@@ -267,15 +278,16 @@ time + one location; no complex scheduling clauses
 
 **Productive language**
 - 에 — destination/location
-- 에서 — action/source contrast, limited use
-- (으)로 — direction/means, chunk-first
 - -아/어 주세요 — request stop/direction
+
+**Formulaic production — use now, analyze later**
+- 어디서 갈아타요? — 어디서 갈아타요? — high-value transfer question; full 에서 contrast is recycled later
 
 **Core chunks**
 - 여기 세워 주세요
 - 몇 번 출구예요?
 - 어디서 갈아타요?
-- 이 버스 ___ 가요?
+- 이 버스 ___에 가요?
 - 저기 앞에 세워 주세요
 
 **Recognition/context only**
@@ -317,19 +329,22 @@ one- or two-step routes only; no dense transit instructions
 **Productive language**
 - (으)로 — channel/means, e.g. 카카오톡으로
 - 있어요 — presence/contact resource
-- -아/어 주세요 — simple instruction/request
+
+**Formulaic production — use now, analyze later**
+- -세요? — 카톡 하세요? — fixed polite contact-channel question; honorific morphology is not generalized here
+- -(으)ㄹ까요? — 카카오톡으로 연락할까요? — high-value proposal chunk; learner may produce the chunk before full grammar analysis
+- -ㄹ게요 — 제가 카톡 보낼게요 / 도착하면 연락할게요 — high-value promise/intention chunks for messaging; full paradigm deferred
+- -(으)ㄹ 것 같아요 — 10분 정도 늦을 것 같아요 — useful delay-notice chunk; broader inference/probability grammar deferred
 
 **Core chunks**
 - 카톡 하세요?
 - 카카오톡으로 연락할까요?
 - 제가 카톡 보낼게요
-- 연락처 알려 주실래요?
 - 도착하면 연락할게요
 - 10분 정도 늦을 것 같아요
 
 **Recognition/context only**
-- -(으)ㄹ까요? — high-value proposal chunk; production can begin as formula but full grammar analysis belongs later
-- -ㄹ게요 — promise/intent chunk in messaging; recognition/formula only in early A1
+- -(으)실래요? — polite invitation/request form may be heard in contact exchange; not required learner production in 1A
 
 **Pragmatics / culture**
 - contact exchange is a boundary act
@@ -376,7 +391,6 @@ short chat messages; no complex explanation of why plans changed
 - 천천히 말씀해 주세요
 - 잘 못 들었어요
 - 무슨 뜻이에요?
-- 제가 잘 이해한 게 맞아요?
 - 13번이요?
 
 **Recognition/context only**
@@ -385,6 +399,7 @@ short chat messages; no complex explanation of why plans changed
 - 몰랐어요 — past explanation; not target grammar here
 - -ㄹ게요 — promise/next action; recognition only
 - 뭐라고요? — intonation-sensitive and can sound surprised/challenging; recognition first
+- 제가 잘 이해한 게 맞아요? — useful confirmation phrase but structurally dense for 1A; recognition/optional extension only
 
 **Pragmatics / culture**
 - hearing problem ≠ meaning problem ≠ confirmation

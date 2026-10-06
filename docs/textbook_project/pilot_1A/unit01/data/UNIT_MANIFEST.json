@@ -1,7 +1,8 @@
 {
   "schemaVersion": 1,
   "date": "2026-10-06",
-  "status": "DRAFT_MATERIALIZED_NO_UNIT_EDITORIAL_PASS",
+  "status": "MODEL_EDITORIAL_PASS_COMPLETE_HUMAN_REVIEW_OPEN",
+  "modelEditorialPassDate": "2026-10-06",
   "unitId": "a1_01_greetings_hangul",
   "order": 1,
   "titleKo": "첫 인사와 다시 묻기",
@@ -25,24 +26,32 @@
   ],
   "productiveGrammar": [
     {
-      "form": "이에요/예요",
-      "function": "basic copula identification",
-      "appAnchor": "grammar_a1_copula_polite"
-    },
-    {
       "form": "-아/어 주세요",
       "function": "polite request",
       "mode": "chunk-first"
     }
   ],
+  "formulaicProduction": [
+    {
+      "form": "감사합니다",
+      "examples": [
+        "감사합니다"
+      ],
+      "reason": "high-frequency fixed thanks formula; does not imply productive control of 합니다체"
+    }
+  ],
   "recognitionOnly": [
+    {
+      "form": "이에요/예요",
+      "reason": "appears naturally in the airport response; active copula work begins in Unit 02"
+    },
     {
       "form": "-(으)시-",
       "reason": "subject honorification appears in authentic service speech; do not teach as generic extra-politeness marker"
     },
     {
-      "form": "합니다/합니다체 인사",
-      "reason": "recognize fixed service formulas before broader productive formal register"
+      "form": "합니다체 어미 전반",
+      "reason": "full formal-style morphology is deferred; fixed greetings may still be used as chunks"
     }
   ],
   "surfacePolicy": {
@@ -52,10 +61,10 @@
     "audioGenerated": false
   },
   "editorialRequirements": [
-    "unit-specific Korean editorial pass",
-    "EN pedagogy pass",
-    "DE pedagogy pass",
-    "practice-bank selection",
+    "human Korean educator review",
+    "native EN pedagogy review",
+    "native DE pedagogy review",
+    "unit-specific practice-bank selection",
     "adult learner pilot"
   ]
 }

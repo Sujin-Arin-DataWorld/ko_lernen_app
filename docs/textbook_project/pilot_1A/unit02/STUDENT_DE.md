@@ -46,7 +46,7 @@ Eine echte kurze Begegnung führen statt einen auswendig gelernten Vorstellungst
 ## 2. Das solltest du selbst sagen können
 
 - **저는 ___이에요/예요**
-- **어디에서 오셨어요?**
+- **어디에서 왔어요?**
 - **___에서 왔어요**
 - **이름을 다시 말해 주세요**
 - **저도 그래요/저도 좋아해요**
@@ -57,9 +57,11 @@ Diese Chunks gehören zur aktiven Produktion dieser Einheit.
 
 - **은/는** — aktive Form dieser Einheit
 - **이에요/예요** — aktive Form dieser Einheit
-- **에서 오다** — aktive Form dieser Einheit
+- **N에서 왔어요** — aktive Form dieser Einheit
 
 Die Bezeichnungen sind nicht das Lernziel. Benutze die Formen, um die Situation zu lösen.
+
+
 
 ## 3. Zuerst verstehen — noch nicht überlernen
 
@@ -109,7 +111,7 @@ Lerne nicht „Koreaner sagen immer X“, sondern Beziehung, Situation und Funkt
 ## 6. Aussprachefokus
 
 - 저는 ___이에요/예요
-- 어디에서 오셨어요?
+- 어디에서 왔어요?
 - ___에서 왔어요
 
 ## 7. Hör-/Inputaufgabe

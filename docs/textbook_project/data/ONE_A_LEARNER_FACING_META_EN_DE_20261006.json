@@ -202,7 +202,7 @@
     "a1_05_numbers_time": {
       "en": {
         "canDo": [
-          "Ask for a meeting time and confirm or correct the time.",
+          "Ask for a meeting time, propose a time, and confirm or correct it.",
           "Use basic native-Korean hour numbers in a real scheduling task."
         ],
         "problem": "Use numbers to confirm real information instead of memorizing a number list in isolation.",
@@ -218,7 +218,7 @@
           "Listen for a time/place pair."
         ],
         "output": [
-          "Set a meeting time.",
+          "Ask for and propose a meeting time.",
           "Correct one intentionally wrong time."
         ],
         "reading": [
@@ -233,7 +233,7 @@
       },
       "de": {
         "canDo": [
-          "Nach einer Uhrzeit fragen und eine Verabredung bestätigen oder korrigieren.",
+          "Nach einer Uhrzeit fragen, eine Uhrzeit vorschlagen und die Verabredung bestätigen oder korrigieren.",
           "Grundlegende koreanische Stundenangaben in einer echten Terminaufgabe benutzen."
         ],
         "problem": "Zahlen zum Bestätigen echter Informationen verwenden statt nur Zahlenlisten auswendig zu lernen.",
@@ -249,7 +249,7 @@
           "Zeit und Ort aus einem kurzen Dialog heraushören."
         ],
         "output": [
-          "Eine Uhrzeit vereinbaren.",
+          "Nach einer Uhrzeit fragen und selbst eine Uhrzeit vorschlagen.",
           "Eine absichtlich falsche Uhrzeit korrigieren."
         ],
         "reading": [

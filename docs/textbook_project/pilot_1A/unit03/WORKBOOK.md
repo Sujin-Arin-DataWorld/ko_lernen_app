@@ -7,8 +7,10 @@ Status: DRAFT_MATERIALIZED
 
 Read the core chunks and match each one to its communicative job.
 
+- 저기요
 - ___는 어디에 있어요?
 - ___에 있어요
+- ___가 여기 있어요
 - 이거 ___예요?
 - 아니요, 그건 ___예요
 - 그럼 이거예요?
@@ -65,6 +67,7 @@ Close the unit.
 Produce:
 - ___는 어디에 있어요?
 - ___에 있어요
+- ___가 여기 있어요
 
 Recognize:
 - 은/는

@@ -6,7 +6,7 @@
 Ordne die koreanischen Chunks ihrer Funktion in der Situation zu.
 
 - 저는 ___이에요/예요
-- 어디에서 오셨어요?
+- 어디에서 왔어요?
 - ___에서 왔어요
 - 이름을 다시 말해 주세요
 - 저도 그래요/저도 좋아해요

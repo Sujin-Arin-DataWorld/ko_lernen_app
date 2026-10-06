@@ -38,8 +38,9 @@ Die Änderung muss zur Situation passen.
 
 Diese Formen können im authentischen Input vorkommen:
 
+- 이에요/예요
 - -(으)시-
-- 합니다/합니다체 인사
+- 합니다체 어미 전반
 
 Notiere zu jeder Form:
 1. wer sie sagt;
@@ -69,10 +70,11 @@ Schließe die Erklärungsseiten.
 Produzieren:
 - 안녕하세요
 - 다시 말씀해 주세요
+- 감사합니다
 
 Erkennen:
 - 네?
-- 감사합니다
+- 한국은 처음이세요?
 
 ## H. Selbstkontrolle
 

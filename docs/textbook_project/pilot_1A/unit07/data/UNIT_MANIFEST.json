@@ -1,7 +1,8 @@
 {
   "schemaVersion": 1,
   "date": "2026-10-06",
-  "status": "DRAFT_MATERIALIZED_NO_UNIT_EDITORIAL_PASS",
+  "status": "MODEL_EDITORIAL_PASS_COMPLETE_HUMAN_REVIEW_OPEN",
+  "modelEditorialPassDate": "2026-10-06",
   "unitId": "a1_07_contact_address",
   "order": 7,
   "titleKo": "자연스럽게 연락 방법 정하기",
@@ -32,20 +33,43 @@
     {
       "form": "있어요",
       "function": "presence/contact resource"
+    }
+  ],
+  "formulaicProduction": [
+    {
+      "form": "-세요?",
+      "examples": [
+        "카톡 하세요?"
+      ],
+      "reason": "fixed polite contact-channel question; honorific morphology is not generalized here"
     },
     {
-      "form": "-아/어 주세요",
-      "function": "simple instruction/request"
+      "form": "-(으)ㄹ까요?",
+      "examples": [
+        "카카오톡으로 연락할까요?"
+      ],
+      "reason": "high-value proposal chunk; learner may produce the chunk before full grammar analysis"
+    },
+    {
+      "form": "-ㄹ게요",
+      "examples": [
+        "제가 카톡 보낼게요",
+        "도착하면 연락할게요"
+      ],
+      "reason": "high-value promise/intention chunks for messaging; full paradigm deferred"
+    },
+    {
+      "form": "-(으)ㄹ 것 같아요",
+      "examples": [
+        "10분 정도 늦을 것 같아요"
+      ],
+      "reason": "useful delay-notice chunk; broader inference/probability grammar deferred"
     }
   ],
   "recognitionOnly": [
     {
-      "form": "-(으)ㄹ까요?",
-      "reason": "high-value proposal chunk; production can begin as formula but full grammar analysis belongs later"
-    },
-    {
-      "form": "-ㄹ게요",
-      "reason": "promise/intent chunk in messaging; recognition/formula only in early A1"
+      "form": "-(으)실래요?",
+      "reason": "polite invitation/request form may be heard in contact exchange; not required learner production in 1A"
     }
   ],
   "surfacePolicy": {
@@ -55,10 +79,10 @@
     "audioGenerated": false
   },
   "editorialRequirements": [
-    "unit-specific Korean editorial pass",
-    "EN pedagogy pass",
-    "DE pedagogy pass",
-    "practice-bank selection",
+    "human Korean educator review",
+    "native EN pedagogy review",
+    "native DE pedagogy review",
+    "unit-specific practice-bank selection",
     "adult learner pilot"
   ]
 }

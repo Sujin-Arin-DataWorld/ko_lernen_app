@@ -10,7 +10,6 @@ Read the core chunks and match each one to its communicative job.
 - 카톡 하세요?
 - 카카오톡으로 연락할까요?
 - 제가 카톡 보낼게요
-- 연락처 알려 주실래요?
 - 도착하면 연락할게요
 - 10분 정도 늦을 것 같아요
 
@@ -39,8 +38,7 @@ Do not change grammar just to make the sentence harder.
 
 The following may appear in authentic input but are not all active targets yet:
 
-- -(으)ㄹ까요?
-- -ㄹ게요
+- -(으)실래요?
 
 For each, write only:
 1. who might say it;

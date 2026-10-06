@@ -50,7 +50,6 @@ Mit kurzen Reparaturstrategien im Gespräch bleiben statt nur so zu tun, als hä
 - **천천히 말씀해 주세요**
 - **잘 못 들었어요**
 - **무슨 뜻이에요?**
-- **제가 잘 이해한 게 맞아요?**
 - **13번이요?**
 
 Diese Chunks gehören zur aktiven Produktion dieser Einheit.
@@ -63,6 +62,8 @@ Diese Chunks gehören zur aktiven Produktion dieser Einheit.
 
 Die Bezeichnungen sind nicht das Lernziel. Benutze die Formen, um die Situation zu lösen.
 
+
+
 ## 3. Zuerst verstehen — noch nicht überlernen
 
 - **-는데요** — zunächst im Kontext erkennen
@@ -70,6 +71,7 @@ Die Bezeichnungen sind nicht das Lernziel. Benutze die Formen, um die Situation 
 - **몰랐어요** — zunächst im Kontext erkennen
 - **-ㄹ게요** — zunächst im Kontext erkennen
 - **뭐라고요?** — zunächst im Kontext erkennen
+- **제가 잘 이해한 게 맞아요?** — zunächst im Kontext erkennen
 
 Authentischer Input kann Formen enthalten, die noch über deinem aktiven Produktionsziel liegen. Verstehen ist hier genug.
 
