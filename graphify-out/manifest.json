@@ -8196,9 +8196,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791224112.133922,
-    "seen": 1791224449.9372916,
-    "ast_hash": "a5196800a99db1291635d0646d215f2c",
+    "mtime": 1791306331.4882085,
+    "seen": 1791306768.4662297,
+    "ast_hash": "94677f6be9361ac986721e13621b44e1",
     "semantic_hash": ""
   },
   "BETA_INSTALL_GUIDE.md": {
@@ -14586,15 +14586,15 @@
     "semantic_hash": ""
   },
   "tool/cefr_lexicon.py": {
-    "mtime": 1791221947.6465836,
-    "seen": 1791222305.3376682,
-    "ast_hash": "c81cc21d524d8f98fca97eb2314d62f7",
+    "mtime": 1791224589.513718,
+    "seen": 1791306767.9813285,
+    "ast_hash": "355748ac4da7d40e3e8832ed30677396",
     "semantic_hash": ""
   },
   "tool/content_level_summary.json": {
-    "mtime": 1791223741.2344,
-    "seen": 1791224449.6002371,
-    "ast_hash": "f59cb39ec2d3996d5dfe0bf15cd1c19f",
+    "mtime": 1791224739.2504349,
+    "seen": 1791306767.9920876,
+    "ast_hash": "7a957cf2f150d1084e3d2881a263efdf",
     "semantic_hash": ""
   },
   "tool/ingest_nikl_grade_lists.py": {
@@ -14622,9 +14622,9 @@
     "semantic_hash": ""
   },
   "tool/test_cefr_lexicon.py": {
-    "mtime": 1791223689.1679065,
-    "seen": 1791224449.6325736,
-    "ast_hash": "31a47641593788c32291266bb584cac1",
+    "mtime": 1791227329.6819081,
+    "seen": 1791306768.055305,
+    "ast_hash": "873ed2cdfda1eca92d3f1fb757251044",
     "semantic_hash": ""
   },
   "tool/test_ingest_nikl_grade_lists.py": {
@@ -14664,9 +14664,9 @@
     "semantic_hash": ""
   },
   "docs/data/content_level_report.md": {
-    "mtime": 1791223741.251016,
-    "seen": 1791224449.9860003,
-    "ast_hash": "eeb9062970614756c27b3b81527783a8",
+    "mtime": 1791224739.2583597,
+    "seen": 1791306768.526908,
+    "ast_hash": "4980cc23e7f7cd5f3adc2f6df607c0f5",
     "semantic_hash": ""
   },
   "docs/data/level_bible/F10_review_lessons.md": {
@@ -22080,9 +22080,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/review/persona_culture_vocab_leveling_20261005.json": {
-    "mtime": 1791194141.2238562,
-    "seen": 1791194754.3333356,
-    "ast_hash": "20c3fa2a56f6dd3c648474a8ac0f9747",
+    "mtime": 1791227329.6844149,
+    "seen": 1791306768.3784149,
+    "ast_hash": "badb6570e5c15297801b03b61d3c3060",
     "semantic_hash": ""
   },
   "tools/content_factory/run_persona_culture_authoring.py": {
@@ -22212,9 +22212,9 @@
     "semantic_hash": ""
   },
   "docs/plans/2026-10-05-culture-quality-followups.md": {
-    "mtime": 1791224091.915271,
-    "seen": 1791224450.019857,
-    "ast_hash": "4373242d64412c1be8e4676d6af7a01a",
+    "mtime": 1791306271.8857944,
+    "seen": 1791306768.5861077,
+    "ast_hash": "a7ac5c3f48b3dc561fce7819d53a5951",
     "semantic_hash": ""
   },
   "tools/content_factory/relevel/relevel_bundle_V2G2.json": {
@@ -22295,40 +22295,16 @@
     "ast_hash": "8e2bf5edca281c1b60675b2ec0a637e1",
     "semantic_hash": ""
   },
-  "tools/content_factory/_tmp_apply_c7_unknown_owners.py": {
-    "mtime": 1791223348.881644,
-    "seen": 1791224449.6463988,
-    "ast_hash": "02d69f37dea179f64df8f1c540321259",
-    "semantic_hash": ""
-  },
-  "tools/content_factory/_tmp_compare_c7_coverage.py": {
-    "mtime": 1791223613.0638063,
-    "seen": 1791224449.6464024,
-    "ast_hash": "0c8db50fd9f056f07c11d5fc3f1b7bad",
-    "semantic_hash": ""
-  },
-  "tools/content_factory/_tmp_find_biyul_source.py": {
-    "mtime": 1791223636.5570412,
-    "seen": 1791224449.646405,
-    "ast_hash": "a12d251d5aaf7a602c1380da1aafa7a0",
-    "semantic_hash": ""
-  },
-  "tools/content_factory/_tmp_fix_c7_coverage.py": {
-    "mtime": 1791223672.9287202,
-    "seen": 1791224449.6464074,
-    "ast_hash": "7c39f1cb9fac7063c26d6600835ce163",
-    "semantic_hash": ""
-  },
   "tools/content_factory/review/lcp_c7_vocab_unknown_owner_review_20261005.json": {
     "mtime": 1791223675.8358514,
     "seen": 1791224449.8726208,
     "ast_hash": "d26289046e7197550c37df332e712130",
     "semantic_hash": ""
   },
-  "tools/content_factory/review/_tmp_c7_dupes.txt": {
-    "mtime": 1791223310.5981224,
-    "seen": 1791224450.0653226,
-    "ast_hash": "c35a2958040495727b2346dea3e7953b",
+  "docs/plans/2026-10-06-culture-world-current-handoff.md": {
+    "mtime": 1791306316.3540342,
+    "seen": 1791306768.5872536,
+    "ast_hash": "efa5ac181e79597f07c2db80087070eb",
     "semantic_hash": ""
   }
 }
