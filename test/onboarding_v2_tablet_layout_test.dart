@@ -5,7 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/learner_level.dart';
-import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_character_media.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/c_onboarding.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_companion_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
@@ -13,15 +13,18 @@ import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_presentation.d
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_shell.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
-import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
 
 import 'support/real_fonts.dart';
+import 'support/c_fonts.dart';
 
 const _safeInsets = EdgeInsets.only(top: 44, bottom: 34);
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  setUpAll(loadSoriRealFonts);
+  setUpAll(() async {
+    await loadSoriRealFonts();
+    await loadCFonts();
+  });
 
   testWidgets('step 02 gives Korean examples a separate Pad reading size', (
     tester,
@@ -48,6 +51,11 @@ void main() {
           ),
         ),
       );
+      await tester.pumpAndSettle();
+      final preview = find.byKey(const ValueKey('c-onboarding-preview-2'));
+      await tester.ensureVisible(preview);
+      await tester.pumpAndSettle();
+      await tester.tap(preview);
       await tester.pumpAndSettle();
       for (final (choice, example) in [
         (0, 'ㄱ  ㄴ  ㅏ'),
@@ -189,20 +197,19 @@ void main() {
         tester.getRect(taegoTile).right,
         lessThan(tester.getRect(joyTile).left),
       );
-      expect(tester.getSize(taegoTile).height, lessThanOrEqualTo(440));
       for (final (tile, companion) in [(taegoTile, taego), (joyTile, joy)]) {
         final artwork = find.descendant(
           of: tile,
-          matching: find.byType(OnboardingCharacterMedia),
+          matching: find.byType(COnboardingArt),
         );
         final name = find.descendant(
           of: tile,
           matching: find.text(companion.name),
         );
-        final rhythm = find.descendant(
-          of: tile,
-          matching: find.text(companion.rhythm),
-        );
+        final role = companion.id == OnboardingV2Ids.companionTaego
+            ? lookupAppL10n(const Locale('en')).onboardingCTaegoRole
+            : lookupAppL10n(const Locale('en')).onboardingCJoyRole;
+        final rhythm = find.descendant(of: tile, matching: find.text(role));
         expect(
           tester.getRect(artwork).bottom,
           lessThan(tester.getRect(name).top),
@@ -245,23 +252,21 @@ void main() {
       expect(taegoSemantics.flagsCollection.isSelected, Tristate.isFalse);
       expect(joySemantics.flagsCollection.isSelected, Tristate.isTrue);
       expect(joySemantics.flagsCollection.isButton, isTrue);
-      final chosenVideo = tester.widget<CharacterClipPlayer>(
-        find.byType(CharacterClipPlayer),
+      final chosenArt = tester.widget<COnboardingArt>(
+        find.descendant(of: joyTile, matching: find.byType(COnboardingArt)),
       );
-      expect(chosenVideo.asset, CharacterClips.magpieChoose);
-      expect(chosenVideo.loop, isFalse);
-      final idle = tester.widget<OnboardingCharacterMedia>(
-        find.byType(OnboardingCharacterMedia),
+      expect(chosenArt.name, '07-joy-selected');
+      final idle = tester.widget<COnboardingArt>(
+        find.descendant(of: taegoTile, matching: find.byType(COnboardingArt)),
       );
-      expect(idle.characterId, 'tiger');
-      expect(idle.active, isFalse);
+      expect(idle.name, '07-taego-unselected');
 
       final cta = find.byKey(
         const ValueKey('onboarding-v2-companion-continue'),
       );
       _expectLabeled48DpButton(tester, cta);
       _expectInsideSafeViewport(tester, cta, size);
-      expect(find.byType(SingleChildScrollView), findsNothing);
+      expect(find.byType(SingleChildScrollView), findsOneWidget);
       await tester.tap(cta);
       expect(
         harnessKey.currentState?.submittedCompanionId,
@@ -285,7 +290,15 @@ void main() {
       await _pumpFinite(tester);
       final taego = find.byKey(const ValueKey('onboarding-v2-companion-taego'));
       final joy = find.byKey(const ValueKey('onboarding-v2-companion-joy'));
-      expect(tester.getRect(taego).bottom, lessThan(tester.getRect(joy).top));
+      final taegoRect = tester.getRect(taego);
+      final joyRect = tester.getRect(joy);
+      expect(
+        taegoRect.right <= joyRect.left || taegoRect.bottom < joyRect.top,
+        isTrue,
+        reason: 'Measured names determine columns without shrinking text.',
+      );
+      await tester.ensureVisible(joy);
+      await tester.pumpAndSettle();
       final cta = find.byKey(
         const ValueKey('onboarding-v2-companion-continue'),
       );

@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/learner_level.dart';
+import '../../widgets/sori/activity_illustration.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/study_frame.dart';
 import '../../widgets/sori/tokens.dart';
+import '../../widgets/sori/c_gallery/c_materials.dart';
+import '../../widgets/sori/c_gallery/c_objects.dart';
 import 'content_learning_models.dart';
 import 'content_learning_layout.dart';
 import 'content_learning_day_refresh.dart';
@@ -16,8 +19,13 @@ String contentKindTitle(AppL10n t, LearningContentKind kind) =>
     kind == LearningContentKind.smalltalk ? t.smalltalkTitle : t.listeningTitle;
 
 class ContentLearningFailure extends StatefulWidget {
-  const ContentLearningFailure({super.key, required this.onRetry});
+  const ContentLearningFailure({
+    super.key,
+    required this.onRetry,
+    this.conceptC = false,
+  });
   final VoidCallback onRetry;
+  final bool conceptC;
   @override
   State<ContentLearningFailure> createState() => _ContentLearningFailureState();
 }
@@ -49,6 +57,28 @@ class _ContentLearningFailureState extends State<ContentLearningFailure> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    if (widget.conceptC) {
+      return CPaperPanel(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Semantics(
+              liveRegion: true,
+              child: Text(
+                t.contentLearningError,
+                style: cMaterialText(SoriTextTheme.of(context).body),
+              ),
+            ),
+            const SizedBox(height: 12),
+            CMaterialAction(
+              label: t.contentLearningRetry,
+              gold: false,
+              onTap: _retrying ? null : _retry,
+            ),
+          ],
+        ),
+      );
+    }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -239,7 +269,8 @@ class _ContentGoalSettingsScreenState extends State<ContentGoalSettingsScreen> {
 
 /// Only explicitly configured positive targets appear. Reading never starts a day.
 class ContentDailyGoals extends StatefulWidget {
-  const ContentDailyGoals({super.key});
+  const ContentDailyGoals({super.key, this.conceptC = false});
+  final bool conceptC;
   @override
   State<ContentDailyGoals> createState() => _ContentDailyGoalsState();
 }
@@ -254,12 +285,80 @@ class _ContentDailyGoalsState extends State<ContentDailyGoals>
       try {
         goals = ContentLearningService.activeDaily();
       } catch (_) {
-        return ContentLearningFailure(onRetry: () => setState(() {}));
+        return ContentLearningFailure(
+          conceptC: widget.conceptC,
+          onRetry: () => setState(() {}),
+        );
       }
       if (goals.isEmpty) {
         return const SizedBox.shrink();
       }
       final t = AppL10n.of(context);
+      if (widget.conceptC) {
+        final type = SoriTextTheme.of(context);
+        return Padding(
+          padding: const EdgeInsets.only(top: 12),
+          child: CPaperPanel(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(t.contentLearningGoals, style: cMaterialText(type.h3)),
+                for (final goal in goals)
+                  CImageTap(
+                    label:
+                        '${contentKindTitle(t, goal.kind)}. ${t.contentLearningToday(goal.completedCount, goal.target)}',
+                    onTap: () => Navigator.of(context).pushNamed(
+                      goal.kind == LearningContentKind.smalltalk
+                          ? '/smalltalk'
+                          : '/listening',
+                      arguments: goal.level,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 48,
+                            height: 48,
+                            child: goal.kind == LearningContentKind.smalltalk
+                                ? const CReferenceArt(
+                                    CReferencePart.studyTogether,
+                                  )
+                                : const CReferenceArt(CReferencePart.listening),
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                Text(
+                                  '${contentKindTitle(t, goal.kind)} · ${goal.level.toUpperCase()}',
+                                  style: cMaterialText(type.body),
+                                ),
+                                Text(
+                                  [
+                                    t.contentLearningToday(
+                                      goal.completedCount,
+                                      goal.target,
+                                    ),
+                                    if (goal.isComplete)
+                                      t.contentLearningTodayDone,
+                                  ].join('\n'),
+                                  style: cMaterialText(type.caption),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const CArrow(dark: true),
+                        ],
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        );
+      }
       return Padding(
         padding: const EdgeInsets.only(top: Spacing.lg),
         child: SoriCard(
@@ -284,10 +383,16 @@ class _ContentDailyGoalsState extends State<ContentDailyGoals>
                         if (goal.isComplete) t.contentLearningTodayDone,
                       ].join('\n'),
                     ),
-                    trailing: Icon(
-                      goal.isComplete
-                          ? Icons.check_circle_outline
-                          : Icons.chevron_right,
+                    leading: Image.asset(
+                      goal.kind == LearningContentKind.smalltalk
+                          ? SoriArtwork.conversation
+                          : SoriArtwork.speaker,
+                      width: 40,
+                      height: 40,
+                      fit: BoxFit.contain,
+                      excludeFromSemantics: true,
+                      cacheWidth: (40 * MediaQuery.devicePixelRatioOf(context))
+                          .ceil(),
                     ),
                     onTap: () => Navigator.of(context).pushNamed(
                       goal.kind == LearningContentKind.smalltalk

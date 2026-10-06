@@ -10,6 +10,8 @@ import 'card.dart';
 import 'tokens.dart';
 import 'window_class.dart';
 import 'activity_illustration.dart';
+import 'c_gallery/c_materials.dart';
+import 'c_gallery/c_objects.dart';
 
 class LearningFocusScope extends InheritedNotifier<LearningFocusController> {
   const LearningFocusScope({
@@ -30,8 +32,19 @@ class LearningFocusScope extends InheritedNotifier<LearningFocusController> {
 }
 
 class SoriLearningFocus extends StatelessWidget {
-  const SoriLearningFocus({super.key, this.introduction});
+  const SoriLearningFocus({
+    super.key,
+    this.introduction,
+    this.conceptC = false,
+    this.conceptArt,
+    this.conceptSummary = true,
+    this.conceptCourseOverview = true,
+  });
   final Widget? introduction;
+  final bool conceptC;
+  final Widget? conceptArt;
+  final bool conceptSummary;
+  final bool conceptCourseOverview;
   @override
   Widget build(BuildContext context) {
     final scope = LearningFocusScope.maybeOf(context)!;
@@ -43,7 +56,7 @@ class SoriLearningFocus extends StatelessWidget {
     final title =
         focus?.brief?.unit.title.pick(language) ??
         switch (focus?.today.pick) {
-          HangulIntroPick() => t.screenHangulTitle,
+          HangulIntroPick() => t.foundationTitle,
           PackPick(:final pack) => VocabPackService.displayLabel(
             pack.id,
             lang: language,
@@ -63,6 +76,130 @@ class SoriLearningFocus extends StatelessWidget {
             subject.contains('카페')
         ? SoriArtwork.coffee
         : SoriArtwork.action(entry?.id ?? 'course');
+    if (conceptC) {
+      const body = TextStyle(
+        fontFamily: 'Paperlogy',
+        fontFamilyFallback: ['NotoSansKR'],
+        fontSize: 16,
+        height: 1.3,
+        color: CPalette.ink,
+      );
+      final subjectArt =
+          conceptArt ??
+          (subject.contains('coffee') ||
+                  subject.contains('kaffee') ||
+                  subject.contains('카페')
+              ? const CSceneArt(CScene.coffee, height: 168)
+              : AspectRatio(
+                  aspectRatio: 268 / 130,
+                  child: switch (focus?.today.pick) {
+                    HangulIntroPick() => const CReferenceArt(
+                      CReferencePart.hangul,
+                    ),
+                    ReviewPick() => const CReferenceArt(CReferencePart.review),
+                    _ => const CObjectArt(CObject.book),
+                  },
+                ));
+      return Column(
+        key: const ValueKey('learning-focus-surface'),
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          if (introduction != null) introduction!,
+          if (conceptSummary) ...[
+            Text(
+              t.soriStageTodayMissionEyebrow.toUpperCase(),
+              style: body.copyWith(fontSize: 13),
+            ),
+            const SizedBox(height: 6),
+            Semantics(
+              container: true,
+              header: true,
+              child: Text(
+                title,
+                style: body.copyWith(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w700,
+                  height: 1.15,
+                ),
+              ),
+            ),
+            if (focus?.minutes case final minutes?) ...[
+              const SizedBox(height: 6),
+              Text(
+                t.learningFocusMinutes(minutes),
+                style: body.copyWith(fontSize: 14),
+              ),
+            ],
+          ],
+          if (focus?.ready == true) ...[
+            const SizedBox(height: 8),
+            subjectArt,
+            const SizedBox(height: 10),
+            CMaterialAction(
+              key: const ValueKey('learning-focus-start'),
+              label: t.learningFocusStart,
+              onTap: controller.loading || controller.launching
+                  ? null
+                  : () => scope.open(
+                      context,
+                      focus!.destination!,
+                      focus: focus,
+                      activityId: focus.activityId,
+                    ),
+            ),
+          ],
+          if (controller.loading) ...[
+            const SizedBox(height: 12),
+            LinearProgressIndicator(semanticsLabel: t.speechIndicatorResolving),
+          ],
+          if (!controller.loading &&
+              (controller.error != null || focus?.failure != null)) ...[
+            Text(
+              focus?.failure == LearningFocusFailure.destinationUnavailable
+                  ? t.learningFocusDestinationUnavailable
+                  : t.loadErrorTryAgain,
+              style: body,
+            ),
+            const SizedBox(height: 8),
+            CMaterialAction(
+              label: t.btnRetry,
+              compact: true,
+              gold: false,
+              onTap: () => controller.refresh(force: true),
+            ),
+            if (focus?.today.isUnavailable == true &&
+                (focus?.today.dueCount ?? 0) > 0)
+              TextButton(
+                onPressed: () => scope.open(
+                  context,
+                  const TodayLearningDestination(route: '/review'),
+                ),
+                child: Text(t.reviewHubTitle, style: body),
+              ),
+          ],
+          if (!controller.loading &&
+              focus != null &&
+              focus.failure == null &&
+              !focus.ready)
+            Text(t.soriStageTodayEmpty, style: body),
+          if (conceptCourseOverview)
+            TextButton(
+              key: const ValueKey('learning-focus-course-overview'),
+              onPressed: controller.launching
+                  ? null
+                  : () => scope.open(
+                      context,
+                      const TodayLearningDestination(route: '/path'),
+                      activityId: 'course',
+                    ),
+              child: Text(
+                t.learningFocusViewCourse,
+                style: body.copyWith(fontSize: 14),
+              ),
+            ),
+        ],
+      );
+    }
     final foreground = focal ? Colors.white : SoriSurfaces.of(context).text;
     final metadata = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,7 +225,6 @@ class SoriLearningFocus extends StatelessWidget {
         ? SoriButton(
             label: t.learningFocusStart,
             illustrationAsset: SoriArtwork.action(entry?.id ?? 'course'),
-            trailingIcon: Icons.arrow_forward_rounded,
             accent: SoriActivityColors.actionGold,
             fullWidth: true,
             onTap: controller.launching

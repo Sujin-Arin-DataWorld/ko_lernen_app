@@ -1,41 +1,41 @@
-import '../services/haptic_service.dart';
-import '../widgets/sori/game_reward.dart';
-import '../services/learning_journey.dart';
-import '../models/sori_stage_progression.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
-
 import '../l10n/generated/app_localizations.dart';
-import '../widgets/app_error.dart';
-import '../widgets/app_loading.dart';
+import '../models/companion_art.dart';
 import '../models/feedback_completion.dart';
+import '../models/sori_stage_progression.dart';
+import '../services/analytics_service.dart';
 import '../services/data_loader.dart';
+import '../services/haptic_service.dart';
 import '../services/kkeunmari_dictionary_service.dart';
 import '../services/kkeunmari_engine.dart';
-import '../services/vocab_deck_source.dart';
-import '../services/analytics_service.dart';
+import '../services/learning_journey.dart';
 import '../services/quest_abandon_tracker.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
+import '../services/vocab_deck_source.dart';
+import '../widgets/app_error.dart';
+import '../widgets/app_loading.dart';
 import '../widgets/sori/badge.dart';
-import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
-import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/game_result_recovery.dart';
-import '../widgets/sori/study_evidence_recovery.dart';
+import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/mascot.dart';
+import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
-import '../widgets/sori/sori_icon.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/sori_icon.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/text_field.dart';
 import '../widgets/sori/tokens.dart';
@@ -746,7 +746,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
         onLeave: _retireStudy,
         title: t.kkeunmariTitle,
         child: SoriEmptyState(
-          asset: 'assets/illustrations/mascot/magpie_encourage.png',
+          asset: CompanionArt.joyGuide,
           icon: Icons.link_off_rounded,
           title: t.kkeunmariTitle,
           body: widget.source == null

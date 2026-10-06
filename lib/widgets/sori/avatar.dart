@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../../models/home_navigation_art.dart';
 import 'mascot.dart';
 import 'mascot_preference.dart';
 import 'pressable.dart';
@@ -9,7 +10,7 @@ import 'tokens.dart';
 /// **SoriAvatar** — 40dp 원형 프로필 진입점 (§W-G G3/G5.2).
 ///
 /// 프로필과 같은 선택 캐릭터를 표시하고 변경을 즉시 구독한다.
-/// 캐릭터를 숨겼으면 일반 프로필 아이콘을 표시한다.
+/// 캐릭터를 숨겼으면 승인된 사람 원화로 프로필 진입을 표시한다.
 /// 모든 Sori Stage 루트 탭 헤더의 옛 프로필 `IconButton`
 /// (`sori_stage_common.dart`의 `SoriStageRootHeader`)을 대체한다 — 두 곳
 /// (구 아이콘 버튼·`SoriCollapsingHeader` trailing) 모두 같은 48dp 탭타깃 +
@@ -34,31 +35,39 @@ class SoriAvatar extends StatelessWidget {
     final t = AppL10n.of(context);
     final label = semanticLabel ?? t.soriStageProfileTooltip;
 
-    return Semantics(
-      button: true,
-      label: label,
-      child: SoriPressable(
-        onTap: onTap ?? () => Navigator.of(context).pushNamed('/profile'),
-        child: SizedBox.square(
-          dimension: _tapTarget,
-          child: Center(
-            child: ExcludeSemantics(
-              child: ClipOval(
-                child: SizedBox.square(
-                  dimension: size,
-                  child: ColoredBox(
+    return Tooltip(
+      message: label,
+      excludeFromSemantics: true,
+      child: Semantics(
+        button: true,
+        label: label,
+        child: SoriPressable(
+          onTap: onTap ?? () => Navigator.of(context).pushNamed('/profile'),
+          child: SizedBox.square(
+            dimension: _tapTarget,
+            child: Center(
+              child: ExcludeSemantics(
+                child: Container(
+                  width: size,
+                  height: size,
+                  decoration: const BoxDecoration(
                     color: SoriColors.primarySoft,
-                    child: CompanionBuilder(
-                      builder: (_, kind) => Mascot(
-                        kind: kind,
-                        emotion: MascotEmotion.neutral,
-                        size: size,
-                      ),
-                      noneBuilder: (_) => Icon(
-                        Icons.person_outline_rounded,
-                        size: size * 0.65,
-                        color: SoriColors.primaryOnLight,
-                      ),
+                    shape: BoxShape.circle,
+                  ),
+                  child: CompanionBuilder(
+                    builder: (_, kind) => Mascot(
+                      kind: kind,
+                      emotion: MascotEmotion.neutral,
+                      size: size,
+                    ),
+                    noneBuilder: (_) => Image.asset(
+                      HomeNavigationArt.gye,
+                      width: size,
+                      height: size,
+                      fit: BoxFit.contain,
+                      cacheWidth:
+                          (size * MediaQuery.devicePixelRatioOf(context))
+                              .ceil(),
                     ),
                   ),
                 ),

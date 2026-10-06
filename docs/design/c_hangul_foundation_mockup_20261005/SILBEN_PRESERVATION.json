@@ -1,0 +1,186 @@
+{
+  "scope": "Source-backed preservation contract for priority3 Silben + Dokkaebi. Raw26 PNGs include14 scene kinds; read-only review is not human approval or runtime completion.",
+  "sourceRoot": "C:/dev/hangulsori/ko_lernen_app_worktrees/canonical-reward-onboarding-20261004",
+  "sourceHead": "a1d798bda6a36ff4dd95faa16e14484ad7b1a2f5",
+  "route": "/wordle",
+  "corpus": {
+    "levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2",
+      "C1",
+      "C2"
+    ],
+    "puzzlesPerLevel": 20,
+    "totalPuzzles": 120,
+    "wordOccurrences": 415,
+    "uniqueAnswers": 301,
+    "maxWordSyllables": 3,
+    "maxPoolTiles": 12,
+    "gridLimits": "Current rows/columns can each reach5; no current5x5 puzzle"
+  },
+  "entryAndHeader": [
+    "Level selector retains level-specific skz_<level> progress and completed/20",
+    "Actual voice speed retained; not visible in the currently packaged basic PNG",
+    "Spiele C card/details use unchanged activity ID and guarded Start callback"
+  ],
+  "states": [
+    {
+      "id": "01",
+      "name": "실제 퍼즐",
+      "imageInSidePackage": "screens/01-puzzle.png",
+      "source": "lib/screens/silben_kreuz_screen.dart:410; :451",
+      "contract": "Select cell/clue → unused tile click. Correct tile locks immediately and advances in the same word. Wrong tile is not placed or consumed. Unused puzzle cells stay blocked.",
+      "mustNotInvent": [
+        "text keyboard",
+        "delete correct locked syllables",
+        "mandatory drag",
+        "automatic intermediate-placement save"
+      ]
+    },
+    {
+      "id": "02",
+      "name": "도움1",
+      "source": "lib/screens/silben_kreuz_screen.dart:662",
+      "contract": "Reveal length, starting position and masked Korean example. Record help for actual word occurrence; no automatic placement or currency debit."
+    },
+    {
+      "id": "03",
+      "name": "도움2",
+      "source": "lib/screens/silben_kreuz_screen.dart:662; lib/models/silben_practice.dart:34",
+      "contract": "Select shared crossing cell, record help for implicated crossing words; preserve clue/grid direction synchronization."
+    },
+    {
+      "id": "04",
+      "name": "도움3",
+      "source": "lib/screens/silben_kreuz_screen.dart:662",
+      "contract": "Reveal only one target syllable. User still selects and places the real unused tile. Do not fill a solved cell."
+    },
+    {
+      "id": "05",
+      "name": "방망이 접촉",
+      "source": "lib/widgets/practice_dokkaebi_clip.dart:4; lib/widgets/practice_impact_frame.dart:20",
+      "contract": "Actual video position667/1300ms determines contact; then existing board border emphasis100+150+900ms. Not a timer started from button press. Missing/failed clip leaves learning controls usable."
+    },
+    {
+      "id": "06",
+      "name": "오답·다시 시도",
+      "source": "lib/screens/silben_kreuz_screen.dart:451",
+      "contract": "No placement or tile consumption on wrong click. Preserve selected cell/clue and explicit readable retry feedback."
+    },
+    {
+      "id": "07",
+      "name": "단어 완성·다시 듣기",
+      "source": "lib/screens/silben_kreuz_screen.dart:477",
+      "contract": "Correct sound and TTS of answer plus reconstructed Korean example. Completed words remain replayable; letter/meaning alone is not the full audio contract."
+    },
+    {
+      "id": "08",
+      "name": "신규게임 결과",
+      "source": "lib/screens/silben_kreuz_screen.dart:515; lib/widgets/sori/game_reward.dart:362",
+      "contract": "Save practice completion, then actual XP/best, then success receipt. Normal game+30 XP only after persisted award. No invented Yeopjeon amount or Dancheong ownership."
+    },
+    {
+      "id": "09",
+      "name": "기록 복습 결과",
+      "source": "lib/screens/silben_kreuz_screen.dart:515",
+      "contract": "Replay source is validated; record independent/assisted completion but do not change game XP/best."
+    },
+    {
+      "id": "10",
+      "name": "저장 실패·재시도",
+      "source": "lib/screens/silben_kreuz_screen.dart:515; lib/widgets/sori/game_reward.dart:362",
+      "contract": "Suppress confirmed-success/reward labels until durable stages finish. Retry same attempt; fence duplicates, account change and old async work."
+    },
+    {
+      "id": "11",
+      "name": "수준 선택",
+      "source": "lib/screens/silben_kreuz_screen.dart:264",
+      "contract": "Actual A1–C2 selection applies immediately, uses stored per-level progress and intended puzzle. No new Apply gate or silent award."
+    },
+    {
+      "id": "intro",
+      "name": "선택적 도깨비 소개",
+      "source": "lib/widgets/practice_dokkaebi_introduction.dart:10; lib/widgets/sori/dokkaebi_flame_frame.dart:19",
+      "contract": "Existing fixed frame,16 flame phases over1.8s, supplied intro clip and replay. Optional culture introduction, separate from gameplay help/contact/reward."
+    },
+    {
+      "id": "12",
+      "name": "세로 단어 선택",
+      "source": "lib/screens/silben_kreuz_screen.dart:410; :451",
+      "contract": "Synchronize selected clue2, vertical3-syllable word and3 connected empty cells. The shared first cell keeps seals1 and2. No reveal or reward on selection."
+    },
+    {
+      "id": "14",
+      "name": "첫 정답 타일·아직0단어",
+      "source": "lib/screens/silben_kreuz_screen.dart:451",
+      "contract": "Place and lock 어 in first cell, disable only the used pool tile and advance to 제. Count remains0/3 words; do not award XP or trigger full-word completion audio yet."
+    },
+    {
+      "id": "wide",
+      "name": "넓은 퍼즐·큰 글자",
+      "source": "lib/screens/silben_kreuz_screen.dart:900",
+      "contract": "C design must reserve at least48dp real tile targets at320dp/200% and5 columns; move character above if needed and make explicit scroll content. Side formula1800 cases is not actual Flutter rendering proof."
+    },
+    {
+      "id": "loading",
+      "name": "로딩·재시도",
+      "source": "lib/services/silben_puzzle_loader.dart",
+      "contract": "Preserve visible loader/error/retry, per-item invalid-data handling and bundle cache reset."
+    },
+    {
+      "id": "empty",
+      "name": "빈 수준·유효하지 않은 복습",
+      "source": "lib/screens/silben_kreuz_screen.dart",
+      "contract": "Never fabricate a playable puzzle, old result, solved state or award; provide current safe return/retry path."
+    },
+    {
+      "id": "audio",
+      "name": "음성 실패·오프라인",
+      "source": "lib/services/silben_puzzle_loader.dart; lib/screens/silben_kreuz_screen.dart",
+      "contract": "Puzzle data is local; un-cached audio is not guaranteed offline. Keep puzzle usable and expose replay/retry without falsely confirming audio success."
+    },
+    {
+      "id": "last",
+      "name": "마지막 퍼즐",
+      "source": "lib/screens/silben_kreuz_screen.dart",
+      "contract": "Preserve next/remaining-level, Sarangbang and stored practice-history choices. Use actual completion counts; do not force next-level mastery."
+    },
+    {
+      "id": "leave",
+      "name": "진행 중 이탈",
+      "source": "lib/screens/silben_kreuz_screen.dart:1013",
+      "contract": "Existing confirmation remains; no promise of automatic mid-grid restore."
+    },
+    {
+      "id": "motion",
+      "name": "모션 감소·인터럽트",
+      "source": "lib/widgets/practice_dokkaebi_clip.dart; lib/widgets/practice_impact_frame.dart; lib/widgets/practice_dokkaebi_introduction.dart",
+      "contract": "Use original reduced-motion behavior and cleanup/late-callback guards. Keep input/help accessible during failed media, background and return."
+    }
+  ],
+  "currentVisualEvidence": {
+    "basicScreen": "present and inspected against actual fixture skz_a1_001",
+    "semanticScreensFolder": "screens/ currently contains only01-puzzle.png; this is a packaging gap, not absence of generated scenes",
+    "rawPNGDirectlyInspected": 26,
+    "rawSceneKinds": 14,
+    "rawReviewManifest": "SILBEN_RAW_SCREEN_REVIEW.json",
+    "planDrift": "Older12-scene plan12 is optional introduction; newer prompts12/13/14 show vertical/wide/first-tile. Do not infer final approval from filenames or generation times.",
+    "formulaCases": 1800,
+    "formulaBoundary": "new design logic only; no actual Flutter/device grid rendering proof"
+  },
+  "acceptance": [
+    "Native C game implementation with all original action contracts",
+    "DE/EN and actual source data text",
+    "320dp,390dp,393dp,600dp,800dp at100/130/200% actual-render review",
+    "Real input and actual clip contact, offline/audio failure, save retry and replay no-award review",
+    "Human design approval and Android/iOS device QA separately recorded"
+  ],
+  "reviewers": [
+    "UI designer: inspected8 additional raw state PNGs and distinguished original-number/word errors from corrected variants",
+    "Frontend engineer:30 anchors/17 hashes and2 fixtures match live source; inspected8 additional state PNGs and wide variants",
+    "Root: directly inspected basic, wide, intermediate and final normal/replay outputs; reconciled26 variants into14 review candidates"
+  ],
+  "mutationsPerformedByThisTask": "None to app, side-chat artifacts, tests, graphs or source."
+}

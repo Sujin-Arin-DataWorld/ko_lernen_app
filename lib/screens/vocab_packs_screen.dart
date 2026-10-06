@@ -1,16 +1,16 @@
-import '../services/haptic_service.dart';
 import 'package:flutter/material.dart';
-
 import '../l10n/generated/app_localizations.dart';
+import '../models/companion_art.dart';
 import '../models/course_mission_step_plan.dart';
 import '../models/course_practice_context.dart';
 import '../models/curriculum.dart';
 import '../models/learner_level.dart';
-import '../services/course_mission_navigation.dart';
 import '../models/pack_progress.dart';
 import '../models/vocab_pack.dart';
-import '../services/pack_progress_service.dart';
+import '../services/course_mission_navigation.dart';
 import '../services/curriculum_catalog.dart';
+import '../services/haptic_service.dart';
+import '../services/pack_progress_service.dart';
 import '../services/storage_service.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/app_error.dart';
@@ -328,7 +328,7 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
                     SliverFillRemaining(
                       hasScrollBody: false,
                       child: SoriEmptyState(
-                        asset: 'assets/illustrations/mascot/magpie_wave.png',
+                        asset: CompanionArt.joyGuide,
                         icon: Icons.menu_book_outlined,
                         title: t.vocabPacksEmptyTitle,
                         body: t.vocabPacksEmptyBody,

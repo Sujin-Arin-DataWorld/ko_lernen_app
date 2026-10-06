@@ -1,19 +1,19 @@
-import '../services/haptic_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import '../widgets/sori/tokens.dart';
+import '../l10n/generated/app_localizations.dart';
+import '../models/companion_art.dart';
+import '../motion/transitions.dart';
+import '../services/haptic_service.dart';
+import '../services/storage_service.dart';
+import '../widgets/sori/ambient_particles.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/hanok/hanji_texture.dart';
 import '../widgets/sori/hanok_header.dart' show SoriPosterLoop;
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/motion.dart';
-import '../widgets/sori/ambient_particles.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tiger_video.dart' show TigerStageVideo;
-import '../motion/transitions.dart';
-import '../services/storage_service.dart';
-import '../l10n/generated/app_localizations.dart';
+import '../widgets/sori/tokens.dart';
 import 'character_selection_screen.dart';
 
 /// **온보딩 3장 캐러셀** — Consent→캐릭터 선택 사이 핵심 기능 미리보기.
@@ -145,8 +145,7 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
                     _PreviewPage(
                       index: 2,
                       // 투명 PNG → contain 중앙 + 글로우 (잘림 없음).
-                      imageAsset:
-                          'assets/illustrations/onboarding/tiger_crystal.png',
+                      imageAsset: CompanionArt.taegoGuide,
                       accentColor: SoriColors.tiger,
                       title: t.previewPage3Title,
                       body: t.previewPage3Body,

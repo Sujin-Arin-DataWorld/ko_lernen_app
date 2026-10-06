@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:ko_lernen_app/widgets/sori/adaptive_navigation.dart';
 
 const items = [
@@ -115,25 +114,22 @@ void main() {
       }
     });
 
-    testWidgets('rail labels stay inside the 96dp rail (×$scale)', (
+    testWidgets('rail labels stay inside their text-aware rail (×$scale)', (
       tester,
     ) async {
       await _pump(tester, width: 800, textScale: scale, constrainToRail: true);
 
+      final railRect = tester.getRect(find.byType(NavigationRail));
       for (final item in items) {
-        // `Text` 자체는 `softWrap: false` 라 자연 폭 그대로 레이아웃된다 —
-        // 화면이 실제로 내주는 폭은 이를 축소하는 `FittedBox` 쪽이다.
-        final box = find.ancestor(
-          of: find.text(item.label),
-          matching: find.byType(FittedBox),
-        );
-        expect(box, findsOneWidget, reason: item.label);
+        final labelRect = tester.getRect(find.text(item.label));
+        expect(labelRect.left, greaterThanOrEqualTo(railRect.left));
         expect(
-          tester.getSize(box).width,
-          lessThanOrEqualTo(96),
+          labelRect.right,
+          lessThanOrEqualTo(railRect.right + .01),
           reason: item.label,
         );
       }
+      expect(tester.takeException(), isNull);
     });
   }
 }
@@ -164,7 +160,10 @@ Future<void> _pump(
         ? Row(
             children: [
               SizedBox(
-                width: SoriAdaptiveNavigation.railWidthForWidth(width),
+                width: SoriAdaptiveNavigation.railWidthForWidth(
+                  width,
+                  textScale: textScale,
+                ),
                 child: rail,
               ),
               const Expanded(child: SizedBox.shrink()),

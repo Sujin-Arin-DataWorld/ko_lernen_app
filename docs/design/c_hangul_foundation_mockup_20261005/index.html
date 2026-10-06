@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C · 한글 입문과 전체 연습 목업</title>
+<style>
+@font-face{font-family:Paperlogy;src:url(Paperlogy-Regular.ttf);font-weight:400;font-display:swap}
+@font-face{font-family:Paperlogy;src:url(Paperlogy-Bold.ttf);font-weight:700;font-display:swap}
+:root{--jade:#123e37;--paper:#f6ede0;--brass:#d59f58;--ink:#1c2520}
+*{box-sizing:border-box}
+body{margin:0;background:var(--jade);color:var(--paper);font-family:Paperlogy,system-ui,sans-serif}
+header{padding:24px clamp(16px,4vw,64px) 16px;max-width:1760px;margin:auto}
+.brand{font-size:12px;letter-spacing:.16em;color:#e1b879;margin:0 0 8px}
+h1{margin:0;font-size:clamp(23px,3vw,34px);line-height:1.25}
+.subtitle{margin:10px 0 0;font-size:15px;line-height:1.6;color:#e4dccb;max-width:70ch}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0}
+button,a.control{font:inherit;font-size:14px;border-radius:9px;min-height:48px;padding:12px 18px;border:1px solid #9a8054;background:#ede3ce;color:var(--ink);cursor:pointer;box-shadow:0 3px 0 #775531;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;transition:background .12s,transform .12s}
+button[aria-pressed=true]{background:var(--brass);font-weight:700}
+button:hover,a.control:hover{background:#f8ebcf}
+button:active,a.control:active{transform:translateY(2px);box-shadow:0 1px 0 #775531}
+button:focus-visible,a:focus-visible{outline:3px solid #f5c979;outline-offset:4px}
+a{color:inherit}
+main{max-width:1760px;padding:0 clamp(12px,3vw,48px) 32px;margin:auto}
+[hidden]{display:none!important}
+.board{margin:16px 0 24px}
+.board img{display:block;width:100%;height:auto;border-radius:16px;border:1px solid #b79665}
+.board figcaption{font-size:14px;line-height:1.6;padding:10px 2px;color:#e4dccb;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.selectors{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 20px}
+.selectors button{flex:1 0 140px;text-align:left;justify-content:flex-start}
+.detail{display:grid;grid-template-columns:minmax(250px,410px) minmax(260px,520px);gap:clamp(20px,5vw,72px);align-items:start;justify-content:center;margin-top:12px}
+.preview{max-width:410px;width:100%;margin:auto}
+.crop{position:relative;overflow:hidden;border-radius:28px;box-shadow:0 16px 42px #050f0bb3;border:1px solid #cfab70;background:var(--jade)}
+.crop img{position:absolute;max-width:none;left:0;top:0;height:auto;display:block;pointer-events:none;user-select:none}
+.transport{display:flex;gap:10px;margin-top:18px;align-items:center}
+.transport button{flex:1}
+.info{background:var(--paper);color:var(--ink);padding:24px;border-radius:16px;border:1px solid #c7b18f;box-shadow:0 4px 0 #8d6946}
+.info .eyebrow{margin:0 0 8px;font-size:12px;letter-spacing:.1em;color:#755730}
+.info h2{font-size:24px;margin:0 0 14px}
+.info p{font-size:15px;line-height:1.7;margin:0 0 14px}
+.info h3{font-size:15px;margin:18px 0 8px}
+.info ul{padding-left:20px;font-size:14px;line-height:1.75}
+.info code{overflow-wrap:anywhere;font-size:12px;color:#3d5549}
+.info details{border-top:1px solid #cdbd9f;padding-top:14px;margin-top:14px}
+.info summary{cursor:pointer;min-height:48px;font-weight:700;display:flex;align-items:center}
+.info .source a{color:#1c5148;text-underline-offset:3px}
+.notice{padding:18px 20px;border:1px solid #9c8058;border-radius:12px;max-width:1080px;margin:30px auto 0;color:#ede3d3;font-size:14px;line-height:1.8}
+footer{padding:20px 0;text-align:center;color:#dacaa9;font-size:12px}
+@media(max-width:740px){.detail{grid-template-columns:1fr}.info{max-width:520px;width:100%;margin:auto}.selectors{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px}.selectors button{flex:0 0 152px}header{padding-top:18px}.board img{border-radius:10px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+<p class="brand">HANGUL SORI · C FOUNDATION</p>
+<h1>C안 그대로, 한글 입문과 전체 연습</h1>
+<p class="subtitle">짧은 입문 8장과 기존 Hangul 전체 연습 8장. 녹청·한지·원목·황동의 C 질감으로 소리부터 음절표·카드·쓰기까지 이어 갑니다.</p>
+<nav class="toolbar" aria-label="목업 보기 방식">
+<button id="boards-toggle" aria-pressed="true">전체 보드</button>
+<button id="screens-toggle" aria-pressed="false">한 화면씩 확대</button>
+<a class="control" href="C-Foundation-Mockups-20261005.zip" download>목업·연결표 ZIP</a>
+<a class="control" href="DESIGN_SPEC.md">설계 기준</a>
+<a class="control" href="DESIGN_CONTENT_REVIEW.md">진행 상태·누락 검토</a>
+<a class="control" href="silben-review.html">3번 Silben 원본·상태 검토</a>
+</nav>
+</header>
+<main>
+<section id="boards" aria-label="입문 목업 전체 보드">
+<figure class="board">
+<img src="c-foundation-01-learning.png" alt="C안 입문 시작, 소리 듣기, 음절 구성 선택, 따라 쓰기 화면의 전체 목업 보드" width="1672" height="941">
+<figcaption><span>01–04 · 입문 시작 / 소리·자모 / 음절 구성 / 획 피드백</span><a href="c-foundation-01-learning.png" download>첫 보드 PNG 저장</a></figcaption>
+</figure>
+<figure class="board">
+<img src="c-foundation-02-continuation.png" alt="C안 첫 단어, 첫 인사, 저장된 진도에서 재개, 입문 저장 결과와 A1 선택의 전체 목업 보드" width="1672" height="941" loading="lazy">
+<figcaption><span>05–08 · 첫 단어 / 첫 인사 / 이어하기 / 저장 결과·A1 선택</span><a href="c-foundation-02-continuation.png" download>둘째 보드 PNG 저장</a></figcaption>
+</figure>
+<figure class="board">
+<img src="c-hangul-03-explore-cards.png" alt="C안 전체 음절표, 자모 상세, 카드 앞면과 뒷면. 기존 전체 Hangul 연습을 보존하는 목업" width="1672" height="941" loading="lazy">
+<figcaption><span>09–12 · 음절표 / 전체 자모·상세 / 카드 앞면 / 카드 뒷면</span><a href="c-hangul-03-explore-cards.png" download>셋째 보드 PNG 저장</a></figcaption>
+</figure>
+<figure class="board">
+<img src="c-hangul-04-practice-settings.png" alt="C안 카드 분류와 음성속도, 전체 자모 쓰기, 자유와 엄격한 획 검사, 세션 완료와 선택적 피드백 목업" width="1672" height="941" loading="lazy">
+<figcaption><span>13–16 · 카드 설정 / 전체 쓰기 / 획 검사·규칙 / 실제 세션 완료</span><a href="c-hangul-04-practice-settings.png" download>넷째 보드 PNG 저장</a></figcaption>
+</figure>
+</section>
+<section id="screens" hidden aria-label="한 화면씩 자세히 보기">
+<nav class="selectors" id="selectors" aria-label="입문 목업 화면 선택"></nav>
+<div class="detail">
+<div class="preview">
+<div class="crop" id="crop"><img id="screen-image" alt=""></div>
+<div class="transport"><button id="previous">이전 화면</button><span id="position" aria-live="polite">1 / 16</span><button id="next">다음 화면</button></div>
+</div>
+<article class="info">
+<p class="eyebrow">C · LEARNING WORKSPACE</p>
+<h2 id="screen-title"></h2>
+<p id="screen-copy"></p>
+<p>아래 동작은 Flutter에서 연결할 기존 기능입니다. 이 갤러리에서는 디자인만 확인합니다.</p>
+<details>
+<summary>기존 기능 연결 보기</summary>
+<ul id="screen-actions"></ul>
+<p class="source">연결 소스: <code id="screen-source"></code></p>
+<p id="screen-state"></p>
+</details>
+</article>
+</div>
+</section>
+<div class="notice">
+<strong>그림과 실제 조작을 함께 가져가는 기준</strong><br>
+재료와 사물은 이미지로, 글자·진도·선택·쓰기 캔버스는 Flutter 요소로 구현합니다. 짧은 입문 12과제와 기존 Hangul의 자음19·모음15·음절 카드16·기본 음절표140칸은 별도로 유지합니다. 입문 저장은 A1 평가·XP·엽전 지급을 뜻하지 않습니다. 전체 연습의 기존 완료·보상 계약은 그대로 연결합니다. 이 갤러리는 디자인을 보여 주며 실제 앱 조작은 실행하지 않습니다.
+</div>
+<footer>2026.10.05 · C 입문·전체 Hangul 16장 목업 · 새 안쪽 디자인의 Flutter 적용은 별도 작업</footer>
+</main>
+<script>
+const descriptions=[
+"첫 행동을 큰 소리 카드와 황동 CTA로 바로 보여 줍니다. 네 가지 학습 작업은 같은 한지 판에서 고를 수 있고, A1과 전체 Hangul 카드도 열 수 있습니다.",
+"커다란 도자기 글자가 학습의 중심입니다. 소리를 듣고 직접 따라 말한 뒤 확인해 저장합니다. 확인 표시는 발음 자동 평가가 아닙니다.",
+"원래의 구성 선택 조작을 도자기 조합 행으로 보여 줍니다. 가·나·한의 실제 구성과 정답·재선택 상태를 같은 화면에서 표현합니다.",
+"한지 쓰기 판은 실제 입력 캔버스가 될 자리입니다. 이 장면은 ㅏ의 첫 획만 통과했고 둘째 획이 남아 있어 저장이 비활성인 상태입니다.",
+"가방·나무를 글자와 뜻, 큰 사물로 연결합니다. 듣기와 말하기 확인 후 저장하는 기존 흐름을 유지합니다.",
+"첫 인사는 안녕하세요.입니다. 짧은 뜻과 듣기 행동에 집중하며 자동 발음 점수나 새로운 대화 기능을 넣지 않습니다.",
+"예시 진도는 소리 4개를 저장한 4/12입니다. 앱에서는 실제 저장 상태를 읽고 마지막 미완료 단계의 첫 남은 과제로 이어갑니다.",
+"실습 12개를 저장한 결과와 다음 선택을 함께 보여 줍니다. 다시 연습할 수 있고 A1은 사용자가 선택해 이동합니다.",
+"기본 자음14×모음10의 140칸 음절표입니다. 칸을 누르면 조합과 소리를 보여 주며 가로·세로로 탐색합니다. 전체 자모 목록도 같은 개요에서 이어집니다.",
+"자음19개·모음15개의 목록에서 글자를 누르면 즉시 듣고 상세 설명을 엽니다. 큰 글자와 로마자, 언어에 맞는 설명·다시 듣기를 유지합니다.",
+"카드는 앞면을 뒤집기 전까지 앎·모름 판정을 막습니다. 넘기기·이전·무작위 한 장 이동·듣기와 별도 좋아요·공유를 유지합니다.",
+"카드 뒷면은 낱자와 예시 단어의 듣기를 분리합니다. 앎·모름은 기존 어려운 글자 목록을 갱신하고, 완료는 실제 세션 상호작용을 기준으로 합니다.",
+"카드 분류 세 가지, 어려운 글자 필터와 실제 음성속도 여섯 가지를 보여 줍니다. 앱에서는 원래의 설정 진입점을 보존하며 선택 즉시 적용합니다. 3개라는 값은 예시입니다.",
+"전체 쓰기는 자음19개·모음15개를 연습합니다. ㄱ은 한 번 꺾는 한 획이며, 글자를 하나 이상 완성해야 완료할 수 있습니다. 입문의 확인·저장 체크박스를 붙이지 않습니다.",
+"자유 연습은 틀린 획을 남기고 안내합니다. 엄격한 검사는 방향도 검사하며 마지막 오답 획만 거절합니다. 규칙·옵션과 오류 예시를 한 검토 장면에 펼쳐 보여 줍니다.",
+"실제 세션 완료 횟수·획 시도 수·검사 모드를 전달합니다. Tiger-Check는 기존 기능이 켜진 경우에만 나타나며 닫기를 막지 않습니다. 전체 한글 숙련도 인증을 만들지 않습니다."
+];
+let data,index=0;
+const byId=id=>document.getElementById(id);
+function setMode(screens){
+byId("boards").hidden=screens;byId("screens").hidden=!screens;
+byId("boards-toggle").setAttribute("aria-pressed",String(!screens));
+byId("screens-toggle").setAttribute("aria-pressed",String(screens));
+const url=new URL(location.href);url.searchParams.set("view",screens?"screen":"board");history.replaceState(null,"",url);
+}
+function showScreen(nextIndex){
+index=(nextIndex+data.screens.length)%data.screens.length;
+const s=data.screens[index],c=s.crop,img=byId("screen-image");
+byId("crop").style.aspectRatio=c.w+"/"+c.h;
+img.src=s.asset;img.alt=s.id+" "+s.name+" · C안 고충실도 화면 목업";
+img.style.width=(1672/c.w*100)+"%";
+img.style.transform="translate("+(-c.x/1672*100)+"%,"+(-c.y/941*100)+"%)";
+byId("screen-title").textContent=s.id+" · "+s.name;
+byId("screen-copy").textContent=descriptions[index];
+byId("screen-source").textContent=s.source;
+byId("screen-state").textContent=s.state;
+byId("screen-actions").replaceChildren(...s.actions.map(text=>{const li=document.createElement("li");li.textContent=text;return li}));
+byId("position").textContent=(index+1)+" / "+data.screens.length;
+document.querySelectorAll(".selectors button").forEach((b,i)=>b.setAttribute("aria-pressed",String(i===index)));
+const url=new URL(location.href);url.searchParams.set("screen",s.id);history.replaceState(null,"",url);
+}
+byId("boards-toggle").addEventListener("click",()=>setMode(false));
+byId("screens-toggle").addEventListener("click",()=>setMode(true));
+byId("previous").addEventListener("click",()=>showScreen(index-1));
+byId("next").addEventListener("click",()=>showScreen(index+1));
+fetch("SCREEN_MAP.json").then(r=>{if(!r.ok)throw new Error("연결표를 열 수 없습니다.");return r.json()}).then(value=>{
+data=value;
+data.screens.forEach((s,i)=>{const b=document.createElement("button");b.type="button";b.textContent=s.id+" "+s.name;b.setAttribute("aria-pressed","false");b.addEventListener("click",()=>showScreen(i));byId("selectors").append(b)});
+const params=new URLSearchParams(location.search);const initial=data.screens.findIndex(s=>s.id===params.get("screen"));
+showScreen(initial<0?0:initial);setMode(params.get("view")==="screen");
+}).catch(e=>{byId("screens-toggle").disabled=true;byId("screens-toggle").textContent="화면 연결표 확인 필요";console.error(e)});
+</script>
+</body>
+</html>

@@ -1,12 +1,10 @@
 import 'dart:async';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 import 'package:ko_lernen_app/data/learner_motivation.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/companion_art.dart';
 import 'package:ko_lernen_app/models/gye.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
@@ -24,6 +22,7 @@ import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 import 'package:ko_lernen_app/widgets/sori/responsive.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 /// Smoke-Test für den Profil-Hub (Tier 1 — 2026-06-03).
 ///
@@ -619,10 +618,16 @@ void main() {
     // Name rechts) ist ein Flex, in dem die animierte Fallback-Semantik im
     // Testharnisch nicht zuverlässig als a11y-Label erscheint — der Charakter
     // selbst (das gerenderte Mascot) schon.
-    final mascot = tester.widget<Mascot>(find.byType(Mascot));
-    expect(mascot.kind, MascotKind.magpie);
-    expect(mascot.emotion, MascotEmotion.neutral);
-    expect(mascot.animate, isFalse);
+    final portrait = tester.widget<Image>(
+      find.descendant(
+        of: find.byKey(const ValueKey('profile_avatar_magpie')),
+        matching: find.byType(Image),
+      ),
+    );
+    final provider = portrait.image is ResizeImage
+        ? (portrait.image as ResizeImage).imageProvider
+        : portrait.image;
+    expect((provider as AssetImage).assetName, CompanionArt.joyPortrait);
     expect(
       find.descendant(
         of: find.byKey(const ValueKey('profile_avatar_magpie')),

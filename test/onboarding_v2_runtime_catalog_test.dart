@@ -7,9 +7,13 @@ import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'support/real_fonts.dart';
+import 'support/c_fonts.dart';
 
 void main() {
-  setUpAll(() => loadSoriRealFonts(materialIcons: true));
+  setUpAll(() async {
+    await loadSoriRealFonts(materialIcons: true);
+    await loadCFonts();
+  });
   testWidgets('path presents the validated official source names', (
     tester,
   ) async {
@@ -17,7 +21,7 @@ void main() {
       tester,
       evidence: OnboardingCurriculumEvidenceProjector.project,
     );
-    await tester.tap(find.text('The structure'));
+    await tester.tap(find.byKey(const ValueKey('onboarding-v3-path-details')));
     await tester.pumpAndSettle();
     for (final reference
         in OnboardingCurriculumEvidenceProjector.project()!.references) {
@@ -32,7 +36,9 @@ void main() {
       find.textContaining('A1 to C2 identify the learning stages in this app.'),
       findsOneWidget,
     );
-    await tester.tap(find.text(lookupAppL10n(const Locale('en')).btnClose));
+    await tester.tap(
+      find.text(lookupAppL10n(const Locale('en')).btnClose).hitTestable(),
+    );
     await tester.pumpAndSettle();
     expect(
       find.byKey(const ValueKey('onboarding-v2-story-next')),
@@ -44,7 +50,9 @@ void main() {
     'a rejected curriculum projection cannot expose official source links',
     (tester) async {
       await _show(tester, evidence: () => null);
-      await tester.tap(find.text('The structure'));
+      await tester.tap(
+        find.byKey(const ValueKey('onboarding-v3-path-details')),
+      );
       await tester.pumpAndSettle();
       for (final reference
           in OnboardingCurriculumEvidenceProjector.project()!.references) {
@@ -110,5 +118,10 @@ Future<void> _show(
       ),
     ),
   );
+  await tester.pumpAndSettle();
+  final preview = find.byKey(const ValueKey('c-onboarding-preview-2'));
+  await tester.ensureVisible(preview);
+  await tester.pumpAndSettle();
+  await tester.tap(preview);
   await tester.pumpAndSettle();
 }

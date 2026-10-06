@@ -1,27 +1,26 @@
-import '../services/learning_journey.dart';
 import 'dart:async';
 import 'dart:math' as math;
 import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
-
 import '../l10n/generated/app_localizations.dart';
+import '../models/companion_art.dart';
 import '../models/pronunciation_phrase.dart';
 import '../services/analytics_service.dart';
 import '../services/learner_level_selection.dart';
+import '../services/learning_journey.dart';
+import '../services/privacy_consent_service.dart';
 import '../services/pronunciation_assessment_client.dart';
 import '../services/pronunciation_phrase_loader.dart';
 import '../services/pronunciation_playback.dart';
 import '../services/pronunciation_progress_service.dart';
 import '../services/pronunciation_recorder.dart';
 import '../services/storage_service.dart';
-import '../services/privacy_consent_service.dart';
-import '../widgets/sori/privacy_choice_feedback.dart';
 import '../services/tts_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/privacy_choice_feedback.dart';
 import '../widgets/sori/speakable.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
@@ -675,7 +674,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
           }
           if (_loadFailed) {
             return SoriEmptyState(
-              asset: 'assets/illustrations/mascot/magpie_encourage.png',
+              asset: CompanionArt.joyGuide,
               icon: Icons.volume_off_rounded,
               title: t.pronunciationPhrasesUnavailableTitle,
               body: t.pronunciationPhrasesUnavailableBody,
@@ -686,7 +685,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
           }
           if (phrase == null) {
             return SoriEmptyState(
-              asset: 'assets/illustrations/mascot/magpie_encourage.png',
+              asset: CompanionArt.joyGuide,
               icon: Icons.record_voice_over_outlined,
               title: t.pronunciationPhrasesEmptyTitle,
               body: t.pronunciationPhrasesEmptyBody,

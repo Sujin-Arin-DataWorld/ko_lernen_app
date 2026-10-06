@@ -1,10 +1,9 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
-
-import 'tokens.dart';
-import 'activity_illustration.dart';
 import '../../l10n/generated/app_localizations.dart';
+import '../../models/companion_art.dart';
+import 'activity_illustration.dart';
+import 'tokens.dart';
+import 'c_gallery/c_palette.dart';
 
 /// Sori mascot widget backed by separated tiger and magpie pose PNGs.
 ///
@@ -14,8 +13,7 @@ import '../../l10n/generated/app_localizations.dart';
 class Mascot extends StatefulWidget {
   /// 호랑이 마스코트 정지 한 장. **잠금 자산** — 바꾸려면
   /// `test/mascot_asset_lock_test.dart` 를 먼저 고쳐야 한다(Jin 2026-08-25).
-  static const String kTigerAsset =
-      'assets/illustrations/mascot/tiger_front.png';
+  static const String kTigerAsset = CompanionArt.taego;
 
   final MascotKind kind;
   final MascotEmotion emotion;
@@ -95,149 +93,36 @@ class Mascot extends StatefulWidget {
   State<Mascot> createState() => _MascotState();
 }
 
-// TickerProviderStateMixin (nicht Single): _motion kann beim Umschalten von
-// widget.animate (true→false→true) mehrfach neu erstellt werden.
-class _MascotState extends State<Mascot> with TickerProviderStateMixin {
-  // Jin 2026-08-06: 호랑이는 감정·프레임 구분 없이 정지 한 장으로 통일
-  // (옛 tiger_* 포즈 PNG 전량 폐지). 까치는 기존 포즈 시스템 유지.
-  //
-  // Jin 2026-08-25: 단일 포즈 규칙은 그대로 두고 **어느 한 장이냐만** 바꿨다.
-  // 옛 `tiger_sitting2.png` 는 누워서 정면을 보는 자세라 정지 상태에서 축 처져
-  // 보였다 — 같은 그림인 `tiger_sitting2.mp4` 는 움직이니 괜찮았지만 마스코트는
-  // 항상 멈춰 있다. 새 `tiger_front.png` 는 정본 페어 아트
-  // `magpie_tiger_together.png` 속 호랑이와 같은 태고 저폴리 캐논·같은 서 있는
-  // 자세다. 화풍이 아니라 자세만 바꿨다.
-  static const _tigerAsset = Mascot.kTigerAsset;
-
-  /// 조이 정면 — 태고의 `tiger_neutral`(정면)과 짝을 맞추는 중립 자세.
-  /// 기존 중립 정지는 `magpie_perched`(측면)이라 태고는 사용자를 보고
-  /// 조이는 옆을 보는 비대칭이 있었다.
-  static const _magpieFront = 'assets/illustrations/mascot/magpie_front.png';
-
-  AnimationController? _motion;
-
-  bool get _isMagpie => widget.kind == MascotKind.magpie;
-
-  @override
-  void initState() {
-    super.initState();
-    // Motion is started in didChangeDependencies once MediaQuery is available —
-    // starting the ticker here would ignore the OS "reduce motion" setting.
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    _syncMotion();
-  }
-
-  void _startMotion() {
-    _motion = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 2600),
-    )..repeat();
-  }
-
-  /// Runs the idle ticker only when the caller asked for motion AND the OS
-  /// "reduce motion" accessibility setting is off (WCAG 2.3.3). Reduce-motion →
-  /// no ticker → static pose. Called from didChangeDependencies + didUpdateWidget
-  /// so both widget.animate flips and MediaQuery changes are honoured.
-  void _syncMotion() {
-    // 호랑이는 정지 한 장 → 티커 불필요. 까치만 애니메이션.
-    final wantMotion =
-        widget.animate && _isMagpie && !SoriMotion.reduceMotion(context);
-    if (wantMotion && _motion == null) {
-      _startMotion();
-    } else if (!wantMotion && _motion != null) {
-      _motion!.dispose();
-      _motion = null;
-    }
-  }
-
-  @override
-  void didUpdateWidget(covariant Mascot old) {
-    super.didUpdateWidget(old);
-    _syncMotion();
-  }
-
-  @override
-  void dispose() {
-    _motion?.dispose();
-    super.dispose();
-  }
-
-  String _assetFor(double t, {required bool animating}) {
-    // Approved mature silhouettes remain consistent across every state.
-    return _isMagpie ? _magpieFront : _tigerAsset;
-  }
-
-  String get _semanticsLabel {
-    final kindLabel = _isMagpie ? '까치' : '호랑이';
-    final emotionLabel = switch (widget.emotion) {
-      MascotEmotion.celebrate => ', 축하',
-      MascotEmotion.worry => ', 걱정',
-      MascotEmotion.sleepy => ', 졸림',
-      MascotEmotion.surprised => ', 놀람',
-      MascotEmotion.thinking => ', 생각 중',
-      MascotEmotion.smile => ', 미소',
-      MascotEmotion.neutral => '',
-    };
-    return '마스코트 $kindLabel$emotionLabel';
-  }
-
+/// Approved static poses remain steady while the learner reads or listens.
+class _MascotState extends State<Mascot> {
   @override
   Widget build(BuildContext context) {
-    final motion = _motion;
-    final pose = motion == null
-        ? _buildPose(0, animating: false)
-        : AnimatedBuilder(
-            animation: motion,
-            builder: (_, __) => _buildPose(motion.value, animating: true),
-          );
-
+    final magpie = widget.kind == MascotKind.magpie;
+    final id = magpie ? 'magpie' : 'tiger';
+    final t = AppL10n.of(context);
+    final asset = widget.size <= 64
+        ? CompanionArt.portrait(id)
+        : widget.emotion == MascotEmotion.thinking ||
+              widget.emotion == MascotEmotion.worry
+        ? CompanionArt.guide(id)
+        : magpie && widget.emotion == MascotEmotion.celebrate
+        ? CompanionArt.joyCelebrate
+        : !magpie && widget.emotion == MascotEmotion.sleepy
+        ? CompanionArt.taegoSeated
+        : CompanionArt.fullBody(id);
     return Semantics(
-      label: _semanticsLabel,
       image: true,
+      label: magpie ? t.characterRomanMagpie : t.characterRomanTiger,
       excludeSemantics: true,
-      child: pose,
-    );
-  }
-
-  Widget _img(String asset, {Key? key}) {
-    return Image.asset(
-      asset,
-      key: key,
-      width: widget.size,
-      height: widget.size,
-      fit: BoxFit.contain,
-      filterQuality: FilterQuality.high,
-      errorBuilder: (_, __, ___) =>
-          _Fallback(kind: widget.kind, size: widget.size),
-    );
-  }
-
-  Widget _buildPose(double t, {required bool animating}) {
-    final wave = math.sin(t * math.pi * 2);
-    final bob = _isMagpie && animating ? wave * widget.size * 0.006 : 0.0;
-    final scale = animating && !_isMagpie ? 1.0 + (wave + 1) * 0.018 : 1.0;
-    final asset = _assetFor(t, animating: animating);
-
-    // 호랑이: 프레임 전환(smile↔blink↔idle)을 150ms 크로스페이드로 부드럽게 →
-    // 정면↔눈감기 하드컷 끊김 해소. ValueKey(asset)이 바뀔 때만 전환 발동.
-    // 까치: 날갯짓이 빠른 교대(~5Hz)라 페이드하면 뭉개짐 → 즉시 교대 유지.
-    final framed = (_isMagpie || !animating)
-        ? _img(asset)
-        : AnimatedSwitcher(
-            duration: const Duration(milliseconds: 150),
-            child: _img(asset, key: ValueKey<String>(asset)),
-          );
-
-    return SizedBox(
-      width: widget.size,
-      height: widget.size,
-      child: Transform.translate(
-        offset: Offset(0, bob),
-        child: Transform.scale(scale: scale, child: framed),
+      child: Image.asset(
+        asset,
+        width: widget.size,
+        height: widget.size,
+        fit: BoxFit.contain,
+        cacheWidth: (widget.size * MediaQuery.devicePixelRatioOf(context))
+            .ceil(),
+        errorBuilder: (_, __, ___) =>
+            _Fallback(kind: widget.kind, size: widget.size),
       ),
     );
   }
@@ -252,7 +137,7 @@ class _Fallback extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isMagpie = kind == MascotKind.magpie;
-    final color = isMagpie ? const Color(0xFF5A7BA0) : const Color(0xFFFF8C42);
+    final color = SoriSurfaces.of(context).textMuted;
     return Container(
       width: size,
       height: size,
@@ -261,9 +146,10 @@ class _Fallback extends StatelessWidget {
         shape: BoxShape.circle,
       ),
       alignment: Alignment.center,
-      child: Text(
-        isMagpie ? '🐦' : '🐯',
-        style: TextStyle(fontSize: size * 0.5, height: 1),
+      child: Icon(
+        isMagpie ? Icons.flutter_dash : Icons.pets_outlined,
+        size: size * .5,
+        color: color,
       ),
     );
   }
@@ -294,19 +180,25 @@ enum SoriCulturalRole { haechi, hahoeMask, dokkaebi }
 /// the human dialogue cast and their TTS identity. No selection or reward logic.
 /// The Hahoe mask is an object beside a neutral activity hint, not a speaker.
 class SoriCultureComment extends StatelessWidget {
-  const SoriCultureComment({super.key, required this.role});
+  const SoriCultureComment({
+    super.key,
+    required this.role,
+    this.conceptC = false,
+  });
   final SoriCulturalRole role;
+  final bool conceptC;
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final type = SoriTextTheme.of(context);
+    TextStyle style(TextStyle value) => conceptC ? cMaterialText(value) : value;
     final (asset, name, korean, translation) = switch (role) {
       SoriCulturalRole.haechi => (
-        SoriArtwork.haechi,
-        t.cultureHaechiName,
-        t.cultureHaechiLineKo,
-        t.cultureHaechiLine,
+        CompanionArt.dokkaebi,
+        t.cultureDokkaebiName,
+        t.cultureDokkaebiLineKo,
+        t.cultureDokkaebiLine,
       ),
       SoriCulturalRole.hahoeMask => (
         SoriArtwork.hahoeMask,
@@ -328,7 +220,7 @@ class SoriCultureComment extends StatelessWidget {
         Image.asset(
           asset,
           width: 64,
-          height: role == SoriCulturalRole.hahoeMask ? 64 : 88,
+          height: 88,
           fit: BoxFit.contain,
           excludeFromSemantics: true,
         ),
@@ -337,13 +229,13 @@ class SoriCultureComment extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(name, style: type.meta),
+              Text(name, style: style(type.meta)),
               Text(
                 korean,
-                style: type.body.copyWith(fontWeight: FontWeight.w500),
+                style: style(type.body.copyWith(fontWeight: FontWeight.w500)),
               ),
               const SizedBox(height: Spacing.xs),
-              Text(translation, style: type.bodySmall),
+              Text(translation, style: style(type.bodySmall)),
             ],
           ),
         ),

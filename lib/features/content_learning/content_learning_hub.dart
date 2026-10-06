@@ -216,10 +216,8 @@ class _ContentLearningHubState extends State<ContentLearningHub>
       title: contentKindTitle(t, widget.kind),
       bottomNavigationBar:
           widget.kind == LearningContentKind.smalltalk &&
-              !_editingGoal &&
               !_loading &&
-              !_error &&
-              ContentLearningService.goal(widget.kind, _level) != null
+              !_error
           ? SmalltalkPracticeEntry(level: _level)
           : null,
       child: _loading

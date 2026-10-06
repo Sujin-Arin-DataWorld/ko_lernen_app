@@ -1,0 +1,375 @@
+{
+  "date": "2026-10-05",
+  "source": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994",
+  "scope": "26 Silben PNGs directly inspected. Review candidates, not approval or runtime-completion proof.",
+  "totalImagesReviewed": 26,
+  "distinctSceneKinds": 14,
+  "planDrift": "DESIGN_PLAN.md has 12 scenes with optional introduction at12. Newer prompts12/13/14 depict vertical selection, wide grid and first correct tile placement. Optional introduction remains a separate original runtime flow.",
+  "reviewMethod": "UI designer and frontend engineer independent image/source review; root inspected basic, wide, intermediate and both final results. Metadata is used for source tracking, not approval.",
+  "images": [
+    {
+      "file": "exec-ce62d4e5-29bc-4175-918f-fdbc7525a478.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-ce62d4e5-29bc-4175-918f-fdbc7525a478.png",
+      "state": "01",
+      "name": "실제 퍼즐 · 초기 배치",
+      "reviewer": "root",
+      "observation": "C 재질·5 유효칸·8 타일·0/3 일치. 시작번호와 선택 방향을 표준 후속안으로 보강.",
+      "selectedReviewCandidate": false,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": [
+        "Start markers and active word not explicit"
+      ]
+    },
+    {
+      "file": "exec-5cea1ec8-b410-430e-bce0-2dd45dce8e1f.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-5cea1ec8-b410-430e-bce0-2dd45dce8e1f.png",
+      "state": "03",
+      "name": "도움2 · 초기 교차안",
+      "reviewer": "root",
+      "observation": "교차칸과 두 단어 안내·빈 판·8 타일·0/3. 시작번호를 후속안으로 보강.",
+      "selectedReviewCandidate": false,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": [
+        "Keep both start seals 1 and 2"
+      ]
+    },
+    {
+      "file": "exec-09b3ff63-9980-4b67-a48c-c5f4409fa7b7.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-09b3ff63-9980-4b67-a48c-c5f4409fa7b7.png",
+      "state": "01",
+      "name": "실제 퍼즐 · 기본판",
+      "reviewer": "root",
+      "observation": "skz_a1_001: 3×2·5 유효칸·시작번호1/2 공유·8 타일·0/3 일치.",
+      "selectedReviewCandidate": true,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": []
+    },
+    {
+      "file": "exec-5503d24d-ebb9-4138-883c-0aadd74f867c.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-5503d24d-ebb9-4138-883c-0aadd74f867c.png",
+      "state": "02",
+      "name": "도움1 · 뜻·방향",
+      "reviewer": "UI designer",
+      "observation": "가로2음절·시작1행1열·마스킹예문·빈칸·0/3·8 타일 일치.",
+      "selectedReviewCandidate": true,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": []
+    },
+    {
+      "file": "exec-90ed5804-d58f-42ef-b3e1-57db12c00435.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-90ed5804-d58f-42ef-b3e1-57db12c00435.png",
+      "state": "03",
+      "name": "도움2 · 교차칸",
+      "reviewer": "UI designer",
+      "observation": "교차 위치만 안내·정답 미공개·0/3·8 타일.",
+      "selectedReviewCandidate": false,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": [
+        "Preserve seals 1 and 2 during highlight"
+      ]
+    },
+    {
+      "file": "exec-e7448ca7-a474-4ea3-a3e2-6b594acb2e45.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-e7448ca7-a474-4ea3-a3e2-6b594acb2e45.png",
+      "state": "04",
+      "name": "도움3 · 한 음절 공개",
+      "reviewer": "UI designer",
+      "observation": "어를 안내하고 미사용 타일만 강조. 격자는 비어 있고 직접 배치.",
+      "selectedReviewCandidate": false,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": [
+        "Weitere Silbe ansehen copy must track actual selected empty cell; no implied auto placement"
+      ]
+    },
+    {
+      "file": "exec-cc2926db-406a-4f56-ac7d-4760cc3794f6.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-cc2926db-406a-4f56-ac7d-4760cc3794f6.png",
+      "state": "05",
+      "name": "방망이 접촉·일시 강조",
+      "reviewer": "UI designer",
+      "observation": "빈칸·0/3·8 타일 유지. 파란 강조는 일시 접촉 효과.",
+      "selectedReviewCandidate": true,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": [
+        "Runtime must retain word/direction and fixed grid position while clip contact occurs"
+      ]
+    },
+    {
+      "file": "exec-6ae6abbc-6ab0-4f55-8c4c-5c41dcf65c49.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-6ae6abbc-6ab0-4f55-8c4c-5c41dcf65c49.png",
+      "state": "06",
+      "name": "오답 자 · 초기안",
+      "reviewer": "UI designer",
+      "observation": "오답 자는 배치·소모하지 않고0/3 유지.",
+      "selectedReviewCandidate": false,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": [
+        "Shared first cell must keep start seal 2"
+      ]
+    },
+    {
+      "file": "exec-96e10845-fdf9-482b-9eaf-5ccc1caeea30.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-96e10845-fdf9-482b-9eaf-5ccc1caeea30.png",
+      "state": "07",
+      "name": "어제 완성 · 초기안",
+      "reviewer": "UI designer",
+      "observation": "어/제 사용 비활성·1/3·다음렵선택은 일치.",
+      "selectedReviewCandidate": false,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": [
+        "Start seal 2 incorrectly moves to 제; both 1 and 2 belong on 어"
+      ]
+    },
+    {
+      "file": "exec-0c92c0f4-e5ce-4191-a744-4643a6f56758.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-0c92c0f4-e5ce-4191-a744-4643a6f56758.png",
+      "state": "08",
+      "name": "신규 결과 · 초기안",
+      "reviewer": "UI designer",
+      "observation": "저장성공·3단어·도움·+30XP 의미 일치.",
+      "selectedReviewCandidate": false,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": [
+        "Start seal 2 incorrectly moves to 렵",
+        "Verify legibility of 다 glyph using native source text"
+      ]
+    },
+    {
+      "file": "exec-ed9e954c-ea68-4c4b-9526-ab1ba6127725.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-ed9e954c-ea68-4c4b-9526-ab1ba6127725.png",
+      "state": "09",
+      "name": "복습 결과 · 초기안",
+      "reviewer": "UI designer",
+      "observation": "추가XP 없이 도움완료.",
+      "selectedReviewCandidate": false,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": [
+        "Replace abbreviated 렵 with full 어렵다",
+        "Restore seal 2 on 어",
+        "Remove or disable used pool after completion"
+      ]
+    },
+    {
+      "file": "exec-6603f5d0-697c-4d29-b449-64630e4dcff1.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-6603f5d0-697c-4d29-b449-64630e4dcff1.png",
+      "state": "03",
+      "name": "도움2 · 교차칸 보강",
+      "reviewer": "Frontend engineer",
+      "observation": "공유 첫칸 선택·빈판·8 타일·0/3. 자동 배치·XP 없음.",
+      "selectedReviewCandidate": true,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": []
+    },
+    {
+      "file": "exec-85189dbb-8e56-4e5f-9d6f-b298fedd5dc5.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-85189dbb-8e56-4e5f-9d6f-b298fedd5dc5.png",
+      "state": "04",
+      "name": "도움3 · 직접 놓기 보강",
+      "reviewer": "Frontend engineer",
+      "observation": "어 공개·판은 빈상태·미사용어강조·0/3·직접 선택 안내.",
+      "selectedReviewCandidate": true,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": []
+    },
+    {
+      "file": "exec-ef2a15b1-2e15-448d-8031-3ad7875fbe64.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-ef2a15b1-2e15-448d-8031-3ad7875fbe64.png",
+      "state": "10",
+      "name": "저장 실패 · 초기안",
+      "reviewer": "Frontend engineer",
+      "observation": "전체정답·XP/성공배지없음·같은attempt재시도.",
+      "selectedReviewCandidate": false,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": [
+        "Seal 2 incorrectly sits on 렵",
+        "Consumed tiles and pending-save input lock must remain explicit"
+      ]
+    },
+    {
+      "file": "exec-f0e2afad-0a5f-4634-967a-f5283fc979cb.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-f0e2afad-0a5f-4634-967a-f5283fc979cb.png",
+      "state": "13",
+      "name": "넓은3×5판 · 초기안",
+      "reviewer": "Frontend engineer",
+      "observation": "skz_a1_004·11 타일·0/4. 마지막행c4는목재blocked.",
+      "selectedReviewCandidate": false,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": [
+        "Shared start cell must keep seals 2 and 3"
+      ]
+    },
+    {
+      "file": "exec-41ad8497-2057-4b3f-b287-4093ef572521.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-41ad8497-2057-4b3f-b287-4093ef572521.png",
+      "state": "11",
+      "name": "A1–C2 수준 선택",
+      "reviewer": "Frontend engineer",
+      "observation": "각20개·현재A1·선택 즉시 적용·닫기. 일반게임의 진입점.",
+      "selectedReviewCandidate": true,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": [
+        "Hide level changes for practice-history replay",
+        "Use actual per-level completed/20 values"
+      ]
+    },
+    {
+      "file": "exec-03b6d51a-b21f-4738-b0c0-91e9808b66e4.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-03b6d51a-b21f-4738-b0c0-91e9808b66e4.png",
+      "state": "12",
+      "name": "세로 단어 선택 · 초기안",
+      "reviewer": "Frontend engineer",
+      "observation": "어렵다3음절·세로빈판·0/3.",
+      "selectedReviewCandidate": false,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": [
+        "Seal 2 incorrectly moves to middle cell; restore on shared first cell"
+      ]
+    },
+    {
+      "file": "exec-f7a808e1-5c4c-4eba-a77d-79cbee60ab3a.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-f7a808e1-5c4c-4eba-a77d-79cbee60ab3a.png",
+      "state": "06",
+      "name": "오답 자 · 번호 보강",
+      "reviewer": "Frontend engineer",
+      "observation": "첫칸에자시도·빈판·타일 소모없음·0/3.",
+      "selectedReviewCandidate": true,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": []
+    },
+    {
+      "file": "exec-625a0185-b886-41e5-8d23-2ceca8bd427a.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-625a0185-b886-41e5-8d23-2ceca8bd427a.png",
+      "state": "07",
+      "name": "어제 완성·예문 듣기",
+      "reviewer": "Frontend engineer",
+      "observation": "어/제사용처리·1/3·다음렵선택·복원예문·듣기. XP아직없음.",
+      "selectedReviewCandidate": true,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": []
+    },
+    {
+      "file": "exec-2635f7c6-911d-43c2-81ac-36226c98b8d4.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-2635f7c6-911d-43c2-81ac-36226c98b8d4.png",
+      "state": "08",
+      "name": "신규 결과 · 번호 보강",
+      "reviewer": "root",
+      "observation": "시작번호1/2복원·3단어·+30XP·다음/사랑방·별도단어듣기.",
+      "selectedReviewCandidate": false,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": [
+        "Use unambiguous native 다 text; painted grid glyph is not the content source",
+        "Remove stray asterisk next to club"
+      ]
+    },
+    {
+      "file": "exec-fcfd4042-aed6-4ab1-8712-4392c7d4af0f.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-fcfd4042-aed6-4ab1-8712-4392c7d4af0f.png",
+      "state": "10",
+      "name": "저장 실패·번호 보강",
+      "reviewer": "root",
+      "observation": "정답 유지·성공/XP미표시·재저장/뒤로·번호1/2공유.",
+      "selectedReviewCandidate": true,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": [
+        "Preserve consumed-tile disabled state and block duplicate input during pending save",
+        "Copy must describe actual failed persistence stage; reward-stage failure does not erase an already saved practice record"
+      ]
+    },
+    {
+      "file": "exec-352d9390-61c0-4d73-bee2-168b7131d29a.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-352d9390-61c0-4d73-bee2-168b7131d29a.png",
+      "state": "12",
+      "name": "세로 단어 선택·번호 보강",
+      "reviewer": "root",
+      "observation": "2·senkrecht·3Silben·왼쪽3빈칸·번호1/2공유·0/3·8미사용타일.",
+      "selectedReviewCandidate": true,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": []
+    },
+    {
+      "file": "exec-14351317-fbc2-4ef2-8634-904fad58dc37.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-14351317-fbc2-4ef2-8634-904fad58dc37.png",
+      "state": "13",
+      "name": "넓은3×5판·번호 보강",
+      "reviewer": "root and frontend engineer",
+      "observation": "skz_a1_004·8유효칸·11타일·0/4·화장실3음절·공유번호2/3. 마지막행c4목재blocked를픽셀색과독립검토로확인.",
+      "selectedReviewCandidate": true,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": []
+    },
+    {
+      "file": "exec-18668fda-1d3e-4cb0-802d-25f59eaccad0.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-18668fda-1d3e-4cb0-802d-25f59eaccad0.png",
+      "state": "14",
+      "name": "첫 정답 타일 놓기",
+      "reviewer": "root",
+      "observation": "어한칸잠금·다음제빈칸선택·사용어비활성·0/3단어·XP없음. 타일1개와완성단어를구분.",
+      "selectedReviewCandidate": true,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": []
+    },
+    {
+      "file": "exec-fb48b7ee-2720-4749-b996-cd6149c5e975.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-fb48b7ee-2720-4749-b996-cd6149c5e975.png",
+      "state": "09",
+      "name": "복습 결과 · 전체답 보강",
+      "reviewer": "root",
+      "observation": "Erneut geübt·3단어·Mit Hilfe·추가XP없음·완료전체답/번호·별도듣기·Lernheft.",
+      "selectedReviewCandidate": true,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": [
+        "Actual Lernheft callback must route to existing saved-practice history; do not invent a new notebook module",
+        "Use source-rendered Hangul glyphs"
+      ]
+    },
+    {
+      "file": "exec-a88c4b5e-3464-4797-905f-08e68c75c863.png",
+      "path": "C:/Users/vjinn/.codex/generated_images/01a10981-52b8-7171-9152-7c911290e994/exec-a88c4b5e-3464-4797-905f-08e68c75c863.png",
+      "state": "08",
+      "name": "신규 결과 · 전체답 보강",
+      "reviewer": "root",
+      "observation": "Geschafft·저장확정·+30XP·3단어·Mit Hilfe·전체답/번호·다음/사랑방.",
+      "selectedReviewCandidate": true,
+      "approval": "not established by this audit",
+      "runtimeConnectedByThisTask": false,
+      "changesBeforeRuntime": [
+        "Remove stray asterisk next to club",
+        "Use source-rendered Hangul glyphs"
+      ]
+    }
+  ],
+  "commonRequiredRuntimeWork": [
+    "Actual level progress completed/20 and voice-speed controls are not visible in these scene PNGs.",
+    "Preserve exact source characters, not generative visual variations; no fake OS overlays need runtime implementation.",
+    "Native Korean/DE/EN text and counters; state-specific inputs, semantics, screen reader and 200% layouts.",
+    "Actual clip contact drives emphasis; a static screenshot does not prove animation timing.",
+    "Saving practice and saving XP/best are separate stages with same-attempt retry and confirmed-receipt timing.",
+    "Optional introduction, loading/empty/invalid replay/audio failure/last puzzle/leave/reduced-motion still need design and actual-render checks.",
+    "320dp/200%/5 columns and48dp tap targets require actual Flutter render/input proof;1800 formula cases are insufficient."
+  ]
+}

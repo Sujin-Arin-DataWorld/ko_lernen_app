@@ -1,0 +1,41 @@
+Use case: ui-mockup.
+Create BOARD 2 of the same approved Hangul Sori C Foundation mobile application: FOUR complete parallel portrait canvases, same image size, spacing and 390:844 app proportions as reference Image 1. High fidelity approval PNG, not wireframe. Image 1 is the FIRST FOUR FINISHED SCREENS: match its precise jade/hanji/oak/aged brass textures, warm lighting, clean bold SANS-SERIF in-app typography, raised buttons, rounded continuous paper board, gold narrow edge. Image 2 is the APPROVED C world reference, use style only, not its wrong tiger or fake status bar. Image 3 is the ONLY approved Taego portrait identity, natural furry white tiger with blue eyes and jade/gold shoulder emblem. In screen 7 reuse that identity and face.
+
+NO LINE ICONS OR EMOJI. No black line chevrons on buttons; center labels only. Back is text "Zurück" without arrow. Use tactile brass wax seals/check stamps, ceramic pieces, cloth speaker and actual objects. NO OS clock, Wi-Fi, battery, notch, device hardware frame, bottom navigation or floating disconnected boxes. NO XP, coins, fake mastery scores or level-completion certificates. A1 remains an OPTIONAL course choice. Real saved progress only; practice count is not CEFR mastery. All four canvases same width and complete, gold CTA visible. A subtle gold-edged app canvas is fine.
+
+Palette #123E37 / #1C5148 jade fabric/patina, #F6EDE0 hanji, #D59F58 brushed brass, #82522F warm oak, #1C2520 ink. Typography inside app ALL humanist sans close to Paperlogy, Korean Noto Sans KR. Short header 28-30dp bold, card titles21dp, copy16dp, CTA17dp semibold, 12dp outer gutters and 8/16/24dp rhythm. Every screen's content, confirmation and CTA are on ONE cohesive raised ivory hanji board. Oak grounds learning artwork but does not clutter text. Compact header. Large tactile objects and legible Korean are the main content. Real phone usable design, premium C rather than generic flat app. Keep outside exhibition board/plaques tasteful serif if desired.
+BOARD TITLE "C · Erste Wörter & Weiterlernen"; small subtitle "Verstehen · Sprechen · Wiederkommen".
+
+SCREEN 05 — FIRST WORD (task1/3):
+Jade header "Erste Wörter", small "01 / 03", top brand "HANGUL SORI", "Zurück".
+Three task markers matching board1. Large scene: a jade/linen Korean study bag with subtle embroidered golden blossom and brass hardware, on warm oak desk, not a modern backpack. Match the exact bag material already shown in Image1 station4. Beautiful little paper word plaque under it, CORRECT WORD "가방" large and "Tasche" below. Give word enough room, don't crop any glyph.
+Small next-item strip within same paper workspace shows a mini potted TREE "나무" and speech-pair object; these indicate tasks2/3, not new choices or compulsory extra features.
+Short instruction "Höre das Wort. Sprich es nach." A tactile cloth/celadon speaker object beside jade button "Anhören". Selected brass confirmation "Ich habe das Wort laut gesagt." Gold action "Übung speichern". A shallow cohesive photo/art area, generous object scale, no oversized explanatory copy.
+
+SCREEN 06 — FIRST GREETING (task3/3):
+Jade header "Eine erste Begrüßung", small "03 / 03", "HANGUL SORI", "Zurück".
+Three task markers, third current. Main art on oak shelf: two thick jade-and-ivory glazed ceramic speech bubble objects (their form is the physical object, NOT line icons), three tiny brass dots. A small Korean hanok window view behind objects adds the C environment but the phrase dominates. NO invented speaking character, no microphone.
+Native-style Korean phrase displayed once large and correctly "안녕하세요." on paper. German beneath "Hallo / Guten Tag." Short instruction "Hören und laut nachsprechen."
+Raised jade "Anhören" button. Selected brass confirmation "Ich habe die Begrüßung laut gesagt." Gold "Übung speichern". Small "3 von 3" stage status. No fake speech assessment or conversation branches.
+
+SCREEN 07 — RESUME AFTER LEAVING:
+Jade header "Weiterlernen", small "HANGUL SORI", "Zurück". Approved Taego portrait upper right, small, same crop/style as screen1 of reference1. Heading below "Dein Platz ist gespeichert." can be brief copy within paper rather than duplicate huge title.
+ONE ivory board. Four progression wax seals1-4, first complete and second current. Exact progress "4 von 12 Übungen".
+Main resumable scene "Als Nächstes: Silben" with tactile jade ㄱ + ochre ㅏ and ivory tile 가 on oak mini-desk, large clear objects. Tiny "가 · 나 · 한". Gold primary "Mit Silben weiterlernen".
+Below concise four rows INTEGRATED in same paper, no separate giant cards:
+"Laute" right "4 / 4" with completion seal
+"Silben" right "0 / 3"
+"Schreiben" right "0 / 2"
+"Erste Wörter" right "0 / 3"
+Secondary quiet action "A1-Kurs ansehen", tertiary "Alle Hangul-Karten". Returning learner resumes first unfinished task. No fake completed course, no locked tasks.
+
+SCREEN 08 — ALL 12 STARTER EXERCISES SAVED / OPTIONAL A1:
+Jade header "Deine ersten Schritte", "HANGUL SORI", "Zurück".
+One calm hanji board. Four finished brass-and-jade embossed completion seals, SMALL and elegant, not giant medal illustration. Clear title "12 Übungen gespeichert". Short "Du kannst jederzeit weiterüben."
+A 2x2 overview of the four familiar physical learning objects from reference1: speaker, ceramic 가 tile, writing brush and paper, bag/tree — tiny check seals to mark practiced tasks.
+Below an elegant LARGE jade-and-gold closed study book on a low oak ledge, not a big long hero. Copy "Dein nächster Weg" and "A1 · Schritt für Schritt".
+Gold main CTA "Zum A1-Kurs". Native secondary jade button "Noch einmal üben". Quiet integrated "Alle Hangul-Karten". Small helper "A1 ist deine Wahl. Die Übungen bleiben gespeichert." This is saved starter PRACTICE, not passing an exam, not Hangul mastery, not A1 passed.
+No price, no countdown, no gifts/coins, no forced course lock. Jade and gold touchable buttons, book and seals tactile 3D like C.
+
+Outside captions below complete canvases "05 Erste Wörter", "06 Begrüßung", "07 Wiederkommen", "08 A1 wählen".
+Spelling exact German and Korean, match the typography and shared materials of the previous board. C's unique tactile library aesthetic must be maintained throughout.

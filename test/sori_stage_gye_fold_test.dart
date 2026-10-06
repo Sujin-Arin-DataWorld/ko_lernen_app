@@ -11,11 +11,12 @@ import 'package:ko_lernen_app/screens/sori_stage/sori_stage_gye_screen.dart';
 import 'package:ko_lernen_app/services/cultural_glossary_repository.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
-import 'package:ko_lernen_app/widgets/sori/settings_button.dart';
-import 'package:ko_lernen_app/widgets/sori/stepper.dart';
-import 'package:ko_lernen_app/widgets/sori/updating_scene.dart';
+import 'package:ko_lernen_app/screens/sori_stage/c_stage_chrome.dart';
+import 'package:ko_lernen_app/widgets/sori/c_gallery/c_materials.dart';
+import 'package:ko_lernen_app/widgets/sori/c_gallery/c_objects.dart';
 
 import 'support/real_fonts.dart';
+import 'support/c_fonts.dart';
 
 // Compact root prioritizes a real group goal or the optional entry action.
 const _bottomTabReserve = 80.0;
@@ -24,7 +25,10 @@ const _viewportSize = Size(390, 844);
 void main() {
   late CulturalGlossary glossary;
 
-  setUpAll(loadSoriRealFonts);
+  setUpAll(() async {
+    await loadSoriRealFonts(materialIcons: true);
+    await loadCFonts();
+  });
   setUpAll(() async {
     glossary = CulturalGlossary.fromJsonString(
       await File(CulturalGlossaryRepository.assetPath).readAsString(),
@@ -86,7 +90,7 @@ void main() {
   }
 
   testWidgets(
-    'empty state: header, stepper, poster and CTA are within the fold at 390x844',
+    'C empty state: native header, approved scene and join CTA fit at 390x844',
     (tester) async {
       setViewport(tester);
       await tester.pumpWidget(app(loadGyeMetas: () async => const []));
@@ -95,22 +99,21 @@ void main() {
       final t = await AppL10n.delegate.load(const Locale('de'));
       final fold = _viewportSize.height - _bottomTabReserve;
 
-      final header = find.byKey(
-        const ValueKey('sori-collapsing-header-expanded'),
-      );
-      final stepper = find.byType(SoriStepper);
-      // Jin 2026-09-03: kHanokWorldUpdating swaps the showcase poster
-      // for SoriUpdatingScene while compound-map art is retired — same
-      // fold slot, different widget/key.
-      final poster = kHanokWorldUpdating
-          ? find.byKey(const ValueKey('gye-current-preview'))
-          : find.byKey(const ValueKey('gye-showcase-artwork'));
-      final cta = find.text(t.gyeFindOrCreate);
+      final header = find.byType(CStageHeader);
+      final poster = find.byType(CSceneArt);
+      final cta = find.byKey(const ValueKey('gye-empty-start'));
 
       expect(header, findsOneWidget);
-      expect(stepper, findsNothing);
       expect(poster, findsOneWidget);
       expect(cta, findsOneWidget, reason: 'CTA는 스크롤 없이 첫 화면에서 빌드돼야 한다');
+      expect(find.text(t.gyeMembersN(4)), findsNothing);
+      expect(
+        find.descendant(
+          of: find.byKey(const ValueKey('c-gye-board')),
+          matching: cta,
+        ),
+        findsOneWidget,
+      );
 
       for (final finder in [header, poster, cta]) {
         final rect = tester.getRect(finder);
@@ -125,7 +128,7 @@ void main() {
   );
 
   testWidgets(
-    '1 gye: header, stepper and the first gye card peek within the fold',
+    'C actual group: native name, actual member count and lit lanterns share one board',
     (tester) async {
       setViewport(tester);
       await tester.pumpWidget(
@@ -150,14 +153,10 @@ void main() {
 
       final fold = _viewportSize.height - _bottomTabReserve;
 
-      final header = find.byKey(
-        const ValueKey('sori-collapsing-header-expanded'),
-      );
-      final stepper = find.byType(SoriStepper);
+      final header = find.byType(CStageHeader);
       final firstCard = find.byKey(const ValueKey('gye-card-g1'));
 
       expect(header, findsOneWidget);
-      expect(stepper, findsNothing);
       expect(
         firstCard,
         findsOneWidget,
@@ -182,12 +181,21 @@ void main() {
       );
 
       expect(find.text('5 / 5'), findsOneWidget);
+      final t = AppL10n.of(tester.element(firstCard));
+      expect(find.text(t.gyeMembersN(3)), findsOneWidget);
+      expect(find.text(t.gyeMembersN(4)), findsNothing);
+      expect(
+        tester
+            .widgetList<CLantern>(find.byType(CLantern))
+            .every((lamp) => lamp.lit),
+        isTrue,
+      );
       expect(tester.takeException(), isNull);
     },
   );
 
   testWidgets(
-    'after a 600dp scroll the collapsed bar shows Gye once with both trailing actions',
+    'C group board scrolls as one surface and retains all actual groups and actions',
     (tester) async {
       setViewport(tester);
       // 계 1개는 390×844에서 이미 스크롤 없이 다 들어간다(위 "1 gye" 테스트
@@ -214,51 +222,44 @@ void main() {
       await tester.drag(find.byType(CustomScrollView), const Offset(0, -600));
       await tester.pumpAndSettle();
 
-      final collapsedBar = find.byKey(
-        const ValueKey('sori-collapsing-header-collapsed'),
+      final board = find.byKey(const ValueKey('c-gye-board'));
+      expect(board, findsOneWidget);
+      expect(
+        tester
+            .state<ScrollableState>(find.byType(Scrollable).first)
+            .position
+            .pixels,
+        greaterThan(0),
       );
-      expect(collapsedBar, findsOneWidget);
-      final barRect = tester.getRect(collapsedBar);
-      expect(barRect.height, closeTo(kToolbarHeight, 0.5));
-      expect(kToolbarHeight, 56.0);
-
-      // `soriStageNavGye` is the German/English literal "Gye" — the
-      // collapsed chrome bar's title.
-      expect(find.text('Gye'), findsOneWidget);
-      // §W-J2: `find.byType(CulturalHelpButton)` passes even when the
-      // button's `CulturalGlossaryBuilder` hasn't resolved yet and it
-      // renders as a zero-size `SizedBox.shrink()` — key + width assert
-      // that it is the real 48dp button, not just present in the tree.
-      final helpButton = find.byKey(const ValueKey('cultural_help_gye'));
-      expect(helpButton, findsOneWidget);
-      expect(tester.getSize(helpButton).width, greaterThanOrEqualTo(48));
-      expect(find.byType(SoriSettingsButton), findsOneWidget);
+      for (var i = 0; i < 5; i++) {
+        expect(find.byKey(ValueKey('gye-card-g$i')), findsOneWidget);
+      }
+      final join = find.byKey(const ValueKey('gye-empty-start'));
+      await tester.ensureVisible(join);
+      await tester.pumpAndSettle();
+      expect(join.hitTestable(), findsOneWidget);
+      expect(
+        find.descendant(of: board, matching: find.byType(CMaterialAction)),
+        findsNWidgets(7),
+      );
       expect(tester.takeException(), isNull);
     },
   );
 
-  testWidgets('renders without exceptions at textScale 1.6', (tester) async {
+  testWidgets('C group actions remain reachable at textScale 2', (
+    tester,
+  ) async {
     setViewport(tester);
     await tester.pumpWidget(
-      app(textScale: 1.6, loadGyeMetas: () async => const []),
+      app(textScale: 2, loadGyeMetas: () async => const []),
     );
     await settle(tester);
 
-    // skipOffstage:false — at 1.6x text scale these can legitimately sit
-    // beyond the fold; this test only asserts they exist and nothing threw.
-    expect(find.byType(SoriStepper, skipOffstage: false), findsNothing);
-    expect(
-      kHanokWorldUpdating
-          ? find.byKey(
-              const ValueKey('gye-current-preview'),
-              skipOffstage: false,
-            )
-          : find.byKey(
-              const ValueKey('gye-showcase-artwork'),
-              skipOffstage: false,
-            ),
-      findsOneWidget,
-    );
+    expect(find.byType(CSceneArt), findsOneWidget);
+    final action = find.byKey(const ValueKey('gye-empty-start'));
+    await tester.ensureVisible(action);
+    await tester.pumpAndSettle();
+    expect(action.hitTestable(), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 }

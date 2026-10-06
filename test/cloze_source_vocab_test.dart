@@ -28,6 +28,11 @@ void main() {
               as Map<String, dynamic>)['items']
           as List<dynamic>;
   late Map<String, dynamic> row;
+  late ByteData assetManifest;
+
+  setUpAll(() async {
+    assetManifest = await rootBundle.load('AssetManifest.bin');
+  });
 
   setUp(() async {
     Storage.resetForTesting();
@@ -40,6 +45,9 @@ void main() {
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
         .setMockMessageHandler('flutter/assets', (message) async {
           final asset = const StringCodec().decodeMessage(message)!;
+          if (asset == 'AssetManifest.bin') {
+            return assetManifest;
+          }
           if (asset == 'assets/data/cloze.json') {
             return ByteData.sublistView(
               Uint8List.fromList(

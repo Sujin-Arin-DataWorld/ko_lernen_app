@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -10,14 +11,20 @@ import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_hanok_screen.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
-import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/c_gallery/c_materials.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
 
 import 'support/hanok_competence_fixture.dart';
+import 'support/real_fonts.dart';
+import 'support/c_fonts.dart';
 
 void main() {
+  setUpAll(() async {
+    await loadSoriRealFonts(materialIcons: true);
+    await loadCFonts();
+  });
   setUp(() async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues(<String, Object>{
@@ -44,6 +51,7 @@ void main() {
         supportedLocales: AppL10n.supportedLocales,
         localizationsDelegates: AppL10n.localizationsDelegates,
         home: SoriStageHanokScreen(
+          loadConstruction: () async => _constructionFixture(),
           loadSnapshot: () async {
             loads++;
             return loads == 1
@@ -66,6 +74,13 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 400));
 
+    final history = find.byKey(const ValueKey('c-hanok-stage-details'));
+    final historyHeader = find
+        .descendant(of: history, matching: find.byType(ListTile))
+        .first;
+    await _reveal(tester, historyHeader);
+    await tester.tap(historyHeader);
+    await tester.pumpAndSettle();
     expect(find.byType(SarangchaeStageArtwork), findsOneWidget);
     expect(
       find.byKey(const ValueKey('sarangchae-stage-artwork-1')),
@@ -91,6 +106,8 @@ void main() {
       '1',
     );
 
+    await _reveal(tester, find.text('Tasks'), delta: 240);
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Tasks'));
     await tester.pumpAndSettle();
     expect(find.text('Return from quests'), findsOneWidget);
@@ -122,6 +139,11 @@ void main() {
         label: 'Tasks, 1 / 1',
         isButton: true,
         hasTapAction: true,
+        hasFocusAction: true,
+        isFocusable: true,
+        hasEnabledState: true,
+        isEnabled: true,
+        hasSelectedState: true,
       ),
     );
     semantics.dispose();
@@ -203,14 +225,21 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(seconds: 1));
 
+    final history = find.byKey(const ValueKey('c-hanok-stage-details'));
+    final historyHeader = find
+        .descendant(of: history, matching: find.byType(ListTile))
+        .first;
+    await _reveal(tester, historyHeader);
+    await tester.tap(historyHeader);
+    await tester.pumpAndSettle();
+
     expect(
       find.byKey(const ValueKey('sarangchae-stage-artwork-8')),
       findsOneWidget,
     );
-    await tester.scrollUntilVisible(
+    await _reveal(
+      tester,
       find.byKey(const ValueKey('sarangchae-stage-choice-5')),
-      240,
-      scrollable: find.byType(Scrollable).first,
     );
     // A lazily built history chip may still lie below the viewport edge after
     // scrollUntilVisible stops; the new atelier entry must remain scrollable.
@@ -227,10 +256,10 @@ void main() {
     );
     expect(find.text('Title 5'), findsOneWidget);
 
-    await tester.scrollUntilVisible(
+    await _reveal(
+      tester,
       find.byKey(const ValueKey('hanok-shortcut-quests')),
-      -240,
-      scrollable: find.byType(Scrollable).first,
+      delta: 240,
     );
     await tester.tap(find.byKey(const ValueKey('hanok-shortcut-quests')));
     await tester.pumpAndSettle();
@@ -276,19 +305,14 @@ void main() {
       );
       await tester.pumpAndSettle();
       final help = find.text('How does my Hanok grow?');
-      await tester.scrollUntilVisible(
-        help,
-        240,
-        scrollable: find.byType(Scrollable).first,
-      );
+      await _reveal(tester, help);
       await tester.tap(help);
       await tester.pumpAndSettle();
-      final action = find.widgetWithText(SoriButton, 'Open my learning path');
-      await tester.scrollUntilVisible(
-        action,
-        240,
-        scrollable: find.byType(Scrollable).first,
+      final action = find.widgetWithText(
+        CMaterialAction,
+        'Open my learning path',
       );
+      await _reveal(tester, action);
       await tester.ensureVisible(action);
       await tester.pumpAndSettle();
       await tester.tap(action);
@@ -298,6 +322,43 @@ void main() {
       expect(tester.takeException(), isNull);
     },
   );
+
+  testWidgets('390dp German shortcut keeps Studierstube on one line', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: AppTheme.light,
+        locale: const Locale('de'),
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        home: SoriStageHanokScreen(
+          loadSnapshot: () async =>
+              _snapshot(questDone: false, pendingBojagi: 0),
+          loadConstruction: () async => _constructionFixture(),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    final label = find.byKey(const ValueKey('hanok-shortcut-label-furnish'));
+    await _reveal(tester, label);
+    final paragraph = tester.renderObject<RenderParagraph>(label);
+    final wordBoxes = paragraph.getBoxesForSelection(
+      const TextSelection(baseOffset: 0, extentOffset: 12),
+    );
+    expect(wordBoxes, hasLength(1));
+    expect(
+      tester
+          .getSize(find.byKey(const ValueKey('hanok-shortcut-furnish')))
+          .width,
+      greaterThan(300),
+    );
+    expect(tester.takeException(), isNull);
+  });
 
   testWidgets('Hanok Stage shortcuts stay complete at 320dp and 200%', (
     tester,
@@ -345,6 +406,20 @@ void main() {
     }
     expect(tester.takeException(), isNull);
   });
+}
+
+Future<void> _reveal(
+  WidgetTester tester,
+  Finder target, {
+  double delta = -240,
+}) async {
+  await tester.dragUntilVisible(
+    target.hitTestable(),
+    find.byType(ListView).first,
+    Offset(0, delta),
+  );
+  await tester.pumpAndSettle();
+  expect(target.hitTestable(), findsOneWidget);
 }
 
 SoriStageProgressionSnapshot _snapshot({

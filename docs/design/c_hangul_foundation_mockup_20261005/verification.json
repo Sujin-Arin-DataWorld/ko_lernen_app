@@ -1,0 +1,279 @@
+{
+  "generatedOn": "2026-10-05",
+  "sourceHead": "a1d798bda6a36ff4dd95faa16e14484ad7b1a2f5",
+  "verified": {
+    "actualTaskIds": [
+      "sound_g",
+      "sound_n",
+      "sound_a",
+      "sound_i",
+      "read_ga",
+      "read_na",
+      "read_han",
+      "trace_g",
+      "trace_a",
+      "word_bag",
+      "word_tree",
+      "greeting_hello"
+    ],
+    "steps": 4,
+    "tasks": 12,
+    "mockupScreens": 16,
+    "wholeHangulCounts": {
+      "consonants": 19,
+      "vowels": 15,
+      "syllableCards": 16,
+      "basicChartCells": 140
+    },
+    "generatedOriginalCopiesIdentical": true,
+    "cropBoundsValid": true,
+    "galleryLocalLinksExist": true,
+    "silbenRawImagesInspected": 26,
+    "silbenSceneKinds": 14,
+    "sideReviewCopiesIdentical": true,
+    "galleryScreenSelectionCases": 16,
+    "gallery320WidthNoDocumentOverflow": true,
+    "silbenSceneGalleryCases": 14
+  },
+  "images": {
+    "c-foundation-01-learning.png": {
+      "width": 1672,
+      "height": 941,
+      "format": "PNG"
+    },
+    "c-foundation-02-continuation.png": {
+      "width": 1672,
+      "height": 941,
+      "format": "PNG"
+    },
+    "c-hangul-03-explore-cards.png": {
+      "width": 1672,
+      "height": 941,
+      "format": "PNG"
+    },
+    "c-hangul-04-practice-settings.png": {
+      "width": 1672,
+      "height": 941,
+      "format": "PNG"
+    }
+  },
+  "files": [
+    {
+      "path": "c-foundation-01-learning.png",
+      "bytes": 2146712,
+      "sha256": "ee537385552467e50683875b51411b243a93110395f17dd4bb19050c4100fad0"
+    },
+    {
+      "path": "c-foundation-02-continuation.png",
+      "bytes": 2364421,
+      "sha256": "a0f1c8526bc12ff19cf5f4050c266cfcca8ad1af13901148b51a85f26683251b"
+    },
+    {
+      "path": "c-hangul-03-explore-cards.png",
+      "bytes": 1982726,
+      "sha256": "a4d3048b26e5744cc13c23e276c266a47afeee7ceb86ded4fb97033468b1c505"
+    },
+    {
+      "path": "c-hangul-04-practice-settings.png",
+      "bytes": 2110478,
+      "sha256": "e249998b8642fd490d7285fe5a077f7d4b878d93a4525c1a146a6e73ceb70921"
+    },
+    {
+      "path": "SCREEN_MAP.json",
+      "bytes": 19984,
+      "sha256": "ebc5ec802d76d7fed7f3ed2bf49af60fcb8b28065140b030e4962dc76d28adbb"
+    },
+    {
+      "path": "DESIGN_SPEC.md",
+      "bytes": 11531,
+      "sha256": "1f17e18d2fb11e1933eec0303bd7d69e64c76cda0e992097d6e996cbdcb06e90"
+    },
+    {
+      "path": "DESIGN_CONTENT_REVIEW.md",
+      "bytes": 12895,
+      "sha256": "e3cac51997b439ae7dbfe2582b36facecb981384278678f8fa83878285bedcea"
+    },
+    {
+      "path": "REVIEW_STATUS.json",
+      "bytes": 19012,
+      "sha256": "d3f398971aef3a75b00a441b890454253979c14b980c0de1abef4906c982a181"
+    },
+    {
+      "path": "SILBEN_PRESERVATION.json",
+      "bytes": 9243,
+      "sha256": "00604f9e56c1dac4291546126f7b019eab5d8cb0ea17198185743efe0eaa5e41"
+    },
+    {
+      "path": "index.html",
+      "bytes": 13750,
+      "sha256": "b66ce1a8cc11f047bbdc7bd971972e37dcff1b3eb640a3b3b9705d5d2b94ded6"
+    },
+    {
+      "path": "prompt-board-01.txt",
+      "bytes": 6880,
+      "sha256": "4a6910d8150e0ab7be39aeb3746b85181040403a6faa41821679a8f1590b9c3f"
+    },
+    {
+      "path": "prompt-board-01-polish.txt",
+      "bytes": 1424,
+      "sha256": "21d962e86c46359421c2026483638cf6e38528031f1aec73aacc6141de24ed55"
+    },
+    {
+      "path": "prompt-board-02.txt",
+      "bytes": 6272,
+      "sha256": "55ce3e08ea644b0efaa55b4bf0a748aba2c1ebdc58712d645e48ca5fcb101c8b"
+    },
+    {
+      "path": "prompt-board-03.txt",
+      "bytes": 6859,
+      "sha256": "f76b0fd0717ad383ae0077eec422cf58b530940a94a8414cfc2d8a53ec9e6a56"
+    },
+    {
+      "path": "prompt-board-03-polish.txt",
+      "bytes": 1076,
+      "sha256": "0a8bcc167938c4176f07fac2beae3b1fbfaa4125b17fc01aba45f9f95b88cabe"
+    },
+    {
+      "path": "prompt-board-04.txt",
+      "bytes": 6377,
+      "sha256": "1873fc0ee9b62fc95938af749d607e0ed6ecfb84f464150e324606cab2f3ea62"
+    },
+    {
+      "path": "prompt-board-04-polish.txt",
+      "bytes": 1370,
+      "sha256": "6fce3497020939177b952fde24249a4766a95a4f97c7a30e6aca315e56a13e60"
+    },
+    {
+      "path": "Paperlogy-Regular.ttf",
+      "bytes": 1312616,
+      "sha256": "05e1021e3de620dddc97875342e2be1a94c5f8e9b9f792bd16c4c1d0085343b3"
+    },
+    {
+      "path": "Paperlogy-Bold.ttf",
+      "bytes": 1307936,
+      "sha256": "7effb892621474e9c2a9112f482eb87dd25b65a470e5ae5971be5a68d89ad89b"
+    },
+    {
+      "path": "Paperlogy-OFL.txt",
+      "bytes": 4473,
+      "sha256": "938f22d657804edfed66e0597beeb7897a40b2045080fb995b8bdec4aede316e"
+    },
+    {
+      "path": "verify_bundle.py",
+      "bytes": 6432,
+      "sha256": "621cc2121e89e0afb8c0ab470ef92fd953610af900489b761975bec81057116b"
+    },
+    {
+      "path": "SIDE_IMAGE_INVENTORY.json",
+      "bytes": 54233,
+      "sha256": "1c781bcb12883eb1fc6769e7d9d9ed94708a068d6226e48150b2b704eb03f5f7"
+    },
+    {
+      "path": "SILBEN_RAW_SCREEN_REVIEW.json",
+      "bytes": 18508,
+      "sha256": "3c97a1d5f9a673d0529eafa16a9fedfce2bed7da01a25d2b16d7d82006987cdb"
+    },
+    {
+      "path": "SILBEN_REVIEW_COPY_MANIFEST.json",
+      "bytes": 5475,
+      "sha256": "651073f8a8a26f94c42f7e6fc82d79d49458620f680bfc103ba485e7a2817bff"
+    },
+    {
+      "path": "audit_snapshot.py",
+      "bytes": 6637,
+      "sha256": "96439d5d2f3752d51c50095f7a8970ff38d8b3f24623554d0304822d2c73ffd6"
+    },
+    {
+      "path": "build_silben_review.py",
+      "bytes": 6010,
+      "sha256": "f51ab9129e6c5c6c3895b9de1bcac8a03d3b854a2501e12db15390da89e1db23"
+    },
+    {
+      "path": "silben-review.html",
+      "bytes": 14048,
+      "sha256": "fa6d55a3a516e716c9de56bf7640c03ddce9367573035f033ed765f16b1af455"
+    },
+    {
+      "path": "BROWSER_REVIEW.json",
+      "bytes": 4735,
+      "sha256": "e79ef660321c347b5ce38bcf4d2271b9c47b15b28a8357cf724a46419d1ac3fd"
+    },
+    {
+      "path": "silben-review-assets/S01.png",
+      "bytes": 2027659,
+      "sha256": "b1fe6292e513ca71ebe8444ae17a18d5209a859e705ad587081b2742cdae25bf"
+    },
+    {
+      "path": "silben-review-assets/S02.png",
+      "bytes": 2043588,
+      "sha256": "eae11622a0c874e75453f4f1130e437ff0f640719f293932dd916306b296ff81"
+    },
+    {
+      "path": "silben-review-assets/S03.png",
+      "bytes": 1919821,
+      "sha256": "021ae4b8e4e533f9dbcc06327500557aefff8f9ee09bcc065410b61861b50ae4"
+    },
+    {
+      "path": "silben-review-assets/S04.png",
+      "bytes": 1993972,
+      "sha256": "0f5c413ff61e402a25fba9de9e537ad972943752755207a9b9de234a44ddcf63"
+    },
+    {
+      "path": "silben-review-assets/S05.png",
+      "bytes": 2008316,
+      "sha256": "67f63fb0c6e4ece2352a7adc6e20a9024af964d8a94dbf46cfe9596f20ccea02"
+    },
+    {
+      "path": "silben-review-assets/S06.png",
+      "bytes": 1993775,
+      "sha256": "db50a1210d422d4e0fa239f01c13d998daf68056032ec863c4aa0b49ee523893"
+    },
+    {
+      "path": "silben-review-assets/S07.png",
+      "bytes": 1947408,
+      "sha256": "ea26949e87f3ce5bb90fb0cc884625462e6bba89a01d1c2c9cc132f8b28b242c"
+    },
+    {
+      "path": "silben-review-assets/S08.png",
+      "bytes": 2005059,
+      "sha256": "c118d7fc9c12644a362228914087873463c3a1c0d0d7b0b8610d7e694a6bd959"
+    },
+    {
+      "path": "silben-review-assets/S09.png",
+      "bytes": 1983402,
+      "sha256": "e19057d2871812a76c0b23159050db1a444fb81b690157d60242ae48b3a6d666"
+    },
+    {
+      "path": "silben-review-assets/S10.png",
+      "bytes": 2112011,
+      "sha256": "0a90f7da6599c1534d628f13407d82df94597e6518cf58a8dd05e6e45a6198a1"
+    },
+    {
+      "path": "silben-review-assets/S11.png",
+      "bytes": 1846917,
+      "sha256": "3bd9d96bc9c559c05cdcf219b93f815a9fcf8fb43033a59fdf82cbfd28c38c79"
+    },
+    {
+      "path": "silben-review-assets/S12.png",
+      "bytes": 1981287,
+      "sha256": "c428cc8ddd9bd115f28b90d490dc389b18329ebd83162f0a4685a9ce2e9a212f"
+    },
+    {
+      "path": "silben-review-assets/S13.png",
+      "bytes": 2032397,
+      "sha256": "af3a0cb627e3db33f9f090967590722548524dddfab87fa5f7e7f00251f43210"
+    },
+    {
+      "path": "silben-review-assets/S14.png",
+      "bytes": 1938028,
+      "sha256": "29629110b20c8cf36726aa590bb1d8ade9557ad387fc220ea34d16c2b5e5bc5f"
+    }
+  ],
+  "limitations": [
+    "visual mockups plus source contracts only",
+    "no Flutter/runtime edits by this task",
+    "no device/accessibility/performance proof",
+    "generated PNG text must become native editable localized text in runtime",
+    "Silben raw image coverage and formula checks do not prove native implementation or human approval"
+  ]
+}

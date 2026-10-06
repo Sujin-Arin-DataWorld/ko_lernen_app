@@ -152,9 +152,11 @@ void main() {
     // 2026-09-15 (C8): +1 — ai_voice_notice_host joins Study and evidence.
     // 2026-10-03: +3 — persona portrait, scene introduction and touch motion.
     // 2026-10-04: +5 — tactile reveal and auxiliary catalog/settings entrances.
-    expect(actual, hasLength(152));
+    // 2026-10-04: +1 — confirmed Yeopjeon reward presentation.
+    // 2026-10-05: +4 — isolated Concept C visual/material/object/DIY preview.
+    expect(actual, hasLength(157));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(152));
+    expect(listed, hasLength(157));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

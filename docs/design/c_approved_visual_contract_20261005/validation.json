@@ -1,0 +1,44 @@
+{
+  "contractId": "c-approved-visual-20261005-v1",
+  "approvedReferences": 8,
+  "sourceRegions": 46,
+  "geometryTokens": 33,
+  "sourceValueReview": "33/33 values and 33/33 source pointers verified after two line corrections",
+  "galleryScreensVerified": 12,
+  "galleryResponsive": [
+    {
+      "imageReady": true,
+      "pageWidth": 305,
+      "targets": [],
+      "width": 320
+    },
+    {
+      "imageReady": true,
+      "pageWidth": 375,
+      "targets": [],
+      "width": 390
+    },
+    {
+      "imageReady": true,
+      "pageWidth": 1085,
+      "targets": [],
+      "width": 1100
+    }
+  ],
+  "courseLayoutsAndStatesVerified": 33,
+  "sourceHashesMatched": 26,
+  "courseContent": {
+    "courseUnits": 48,
+    "learningPhases": 30,
+    "taskIdsAndVersions": 902,
+    "explicitCourseReferences": 224,
+    "originalFileHashes": 26,
+    "hashMismatches": []
+  },
+  "errorsAfterRepair": 0,
+  "evidenceDirectory": "C:\\dev\\hangulsori\\_codex_artifacts\\c-course-mockup-20261005",
+  "flutterIntegration": "not changed in this documentation/mockup phase",
+  "deviceValidation": "not performed",
+  "externalDesignConnectorCalls": 0,
+  "imageGenerationCalls": 0
+}

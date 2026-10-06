@@ -1,10 +1,8 @@
 import 'dart:async';
-
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
-
-import 'storage_service.dart';
 import 'diagnostics_service.dart';
+import 'storage_service.dart';
 
 /// 소리 카테고리 — 실제 존재하는 소스에서만 뽑았다 (ADR-002 §3-1).
 /// 없는 소리를 위한 카테고리는 만들지 않는다.
@@ -43,6 +41,9 @@ class AudioPolicy extends ChangeNotifier {
   AudioPolicy._();
 
   static final AudioPolicy instance = AudioPolicy._();
+
+  /// Decorative practice gestures are silent; learning speech keeps ownership.
+  static const double silentGestureVolume = 0;
 
   // ── 채널 기본값 (ADR-002 §3-1 확정표) ────────────────────────────────
   // 기본값을 Storage getter 의 **인자로** 넘기는 게 핵심 — 저장값이 없을 때
@@ -90,6 +91,13 @@ class AudioPolicy extends ChangeNotifier {
     final v = _clamp01(masterVolume * sliderOf(c) * gainFor(asset));
     return v * _duckFactor(c);
   }
+
+  /// Reward-film audio yields completely to learning speech, even when the
+  /// optional ambience ducking preference is off.
+  double rewardVideoVolume({required String asset}) =>
+      _duckActive ? 0.0 : volumeFor(SoundChannel.gameFeedback, asset: asset);
+
+  bool get learningSpeechActive => _duckActive;
 
   // ── 쓰기 (Storage 저장 + notifyListeners) ────────────────────────────
   Future<void> setMasterOn(bool v) async {

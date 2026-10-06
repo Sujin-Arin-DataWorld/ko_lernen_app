@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '../l10n/generated/app_localizations.dart';
+import '../models/companion_art.dart';
 import '../services/analytics_service.dart';
 import '../services/pack_progress_service.dart';
 import '../services/stamp_entitlement_reconciler.dart';
@@ -15,8 +15,8 @@ import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sori_term.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
-import '../widgets/sori/tokens.dart';
 import '../widgets/sori/toast.dart';
+import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
 /// 도장첩 — 팩 클리어로 획득한 단청·생활문화 도장 컬렉션.
@@ -121,7 +121,7 @@ class _DojangcheopScreenState extends State<DojangcheopScreen>
             container: true,
             explicitChildNodes: true,
             child: SoriEmptyState(
-              asset: 'assets/illustrations/mascot/magpie_encourage.png',
+              asset: CompanionArt.joyGuide,
               icon: Icons.workspace_premium_outlined,
               title: t.dojangEmptyTitle,
               body: t.dojangEmptyBody,

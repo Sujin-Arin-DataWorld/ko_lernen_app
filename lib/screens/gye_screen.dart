@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
-
+import '../l10n/generated/app_localizations.dart';
+import '../l10n/gye_error_text.dart';
+import '../models/companion_art.dart';
+import '../models/gye.dart';
 import '../models/gye_dedication.dart';
 import '../models/gye_weekly_promise.dart';
-import '../l10n/gye_error_text.dart';
-import '../l10n/generated/app_localizations.dart';
-import '../models/gye.dart';
 import '../services/account/cloud_write_session.dart';
 import '../services/gye_dedication_service.dart';
 import '../services/gye_service.dart';
@@ -18,8 +18,8 @@ import '../widgets/app_loading.dart';
 import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
-import '../widgets/sori/dure_board.dart';
 import '../widgets/sori/dialog.dart';
+import '../widgets/sori/dure_board.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/gye_dedication_action.dart';
 import '../widgets/sori/gye_feed.dart';
@@ -278,7 +278,7 @@ class _GyeScreenState extends State<GyeScreen>
                   padding: padding,
                   child: Center(
                     child: SoriEmptyState(
-                      asset: 'assets/illustrations/mascot/magpie_perched.png',
+                      asset: CompanionArt.joy,
                       icon: Icons.groups_2_outlined,
                       title: t.gyeNotFoundTitle,
                       body: t.gyeNotFoundBody,

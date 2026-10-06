@@ -1,22 +1,22 @@
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-
 import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
+import '../models/companion_art.dart';
 import '../models/custom_pack.dart';
 import '../models/vocab.dart';
 import '../services/book_analysis_service.dart';
 import '../services/book_image_service.dart';
-import '../services/custom_pack_service.dart';
 import '../services/custom_pack_import_service.dart';
+import '../services/custom_pack_service.dart';
 import '../services/data_loader.dart';
 import '../services/saved_word_localization.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../services/word_image_service.dart';
+import '../widgets/managed_media_image.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/dialog.dart';
@@ -29,7 +29,6 @@ import '../widgets/sori/text_field.dart';
 import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
-import '../widgets/managed_media_image.dart';
 
 /// "나만의 단어장" 편집 화면 — 단어를 직접 추가·수정·삭제하고, 학습/퀴즈로 이동.
 ///
@@ -277,7 +276,7 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
           padding: resolvedPadding,
           child: Center(
             child: SoriEmptyState(
-              asset: 'assets/illustrations/mascot/tiger_front.png',
+              asset: CompanionArt.taego,
               icon: Icons.help_outline,
               title: t.customPackNotFoundTitle,
               body: t.customPackNotFoundBody,
@@ -454,7 +453,7 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
               constraints: const BoxConstraints(minHeight: 240),
               child: Center(
                 child: SoriEmptyState(
-                  asset: 'assets/illustrations/mascot/magpie_wave.png',
+                  asset: CompanionArt.joyGuide,
                   icon: Icons.playlist_add,
                   title: t.wbEmptyTitle,
                   body: t.wbEmptyBody,

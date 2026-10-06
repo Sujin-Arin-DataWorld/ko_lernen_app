@@ -1,0 +1,55 @@
+Use case: ui-mockup.
+Create BOARD 4 continuing the Hangul Sori C design in reference Image 1: FOUR complete parallel portrait APP CANVASES, same precise materials, proportions, slim brass edge, spacing and landscape 1672x941 board size. High-fidelity finished approval image, not wireframe. Outside title "C · Üben auf deine Art", subtitle "Auswählen · Schreiben · Abschließen". Outside four wood/brass labels "13 Kartenauswahl", "14 Schreiben", "15 Schreiboptionen", "16 Übung beenden".
+
+Exactly preserve C: deep jade patinated/fabric background #123E37/#1C5148, ONE cohesive raised bright hanji workspace #F6EDE0 per screen, warm oak #82522F rims/desk, aged brass #D59F58 bevels and delicate wax seals, readable ink #1C2520. Same warm realistic lighting and subtle paper/button surface textures as reference, physically crafted depth. Within app all text clean humanist SANS-SERIF, bold clear headings; Korean Noto Sans KR. Short jade header at top, "HANGUL SORI", text "Zurück", heading "Hangul", small brass/ivory voice speed plaque "1×". Compact 3-tab hanji top rim "Übersicht", "Karten", "Schreiben"; Karten active on screen13, Schreiben active on14,15,16. Screen16 can retain underlying writing mode visible behind completion sheet.
+No OS clock/time/battery/Wifi/notch/hardware, no inner bottom five-nav. NO LINE ICONS, outline pictograms, tiny black chevrons, emoji, generic flat boxes. Use TEXT actions and physical jade ceramic speaker / ivory plaques / brass seals instead. Learning strokes, guides and letters are content and must be correct. No coins/XP/mock mastery stars or huge confetti certificate. Do NOT reuse Foundation's 12/12 completion or explicit save checkbox for whole Hangul practice.
+
+SCREEN 13 — CARD MODE / HARD FILTER / VOICE SPEED:
+Active Karten. Current practice deck subtly visible behind a centered tactile bright hanji options sheet.
+Sheet title "Kartenauswahl".
+Three full-width raised choice rows with small accurate ceramic objects and clear text:
+"Konsonanten · 19" selected via brass wax seal
+"Vokale · 15"
+"Silben · 16".
+Small heading "Wiederholen", existing filter "Nur schwierige Zeichen", selected jade toggle, small "3 Zeichen" illustrative filtered count. No invented spaced-repetition dates, no mastery percentage.
+Small integrated heading "Sprechtempo"; compact six brass/ivory rate plaques in TWO ROWS, all exact:
+"0,5×" "0,75×" "0,8×"
+"1×" "1,25×" "1,5×"
+1× selected jade/brass.
+Soft concise footnote "Zufall öffnet eine einzelne Karte."
+Jade bottom action "Schließen". This screen is a mockup of the mode/filter sheet plus a nested voice-speed view shown expanded within the same workspace; do not imply changes wait for Apply. Selection applies immediately in the actual app. Craft tactile switch/plaques, no flat sliders icon.
+
+SCREEN 14 — ALL-LETTER WRITING, INITIAL ㄱ GUIDE:
+Active Schreiben. Brief top toolbar WITH REAL TEXT ACTIONS "Regeln", compact brass "Strich 1 / 1", mini physical speaker "Anhören", ivory "Optionen".
+Huge framed square native drawing canvas on bright hanji. Actual Korean ㄱ guide is ONE continuous stroke starting at top-left, horizontally to right, then turning DOWN at right edge. Ghost guide in warm translucent clay-green ink, single round brass start marker1 at TOP LEFT, no second numbered stroke. No whole giant red canvas, no diagonal glitch, no wrong two-strokeㄱ. Small natural brush in jade ceramic holder OUTSIDE actual square canvas on right/bottom, does not reduce touch canvas.
+Below concise "Jetzt Strich 1 zeichnen."
+Control row TEXT "Vorherige" / "1 / 19" / "Nächste". Secondary pale ivory "Löschen".
+Bottom "Übung abschließen" is muted DISABLED because zero letters yet completed. No learner confirmation checkbox and no "Übung speichern". This single screen template covers actual 19 consonants +15 vowels, with character choice in options.
+
+SCREEN 15 — WRITING OPTIONS AND RULES, ERROR FEEDBACK:
+Active Schreiben. Underlying square writing workspace with a faint existing stroke visible.
+Centered raised hanji sheet title "Schreiboptionen", oak/brass edge; use real tactile native radio seals:
+"Konsonanten · 19" selected
+"Vokale · 15"
+Under short "Strichprüfung":
+"Streng" selected, supporting "Reihenfolge und Richtung müssen stimmen."
+"Frei üben", supporting "Hinweise, ohne Striche zu löschen."
+Below concise rules WITH WORDS, not arrows/pictograms:
+"Oben nach unten"
+"Horizontal vor vertikal"
+"Links nach rechts".
+Integrated small error feedback sample paper strip "Zeichne von links nach rechts." and tiny restrained ink sample: grey ghost of a rejected last stroke, previously correct ink remains green. Label above it "Hinweis bei falscher Richtung". This is a UI-state example, not showing a failure caused by switching settings.
+Bottom jade "Schließen", no Apply/Save gate. Real setting applies immediately; rules explanation can be opened separately from the Regeln button. Clearly one options overlay, not new full navigation destination.
+
+SCREEN 16 — WHOLE HANGUL SESSION COMPLETION:
+Active Schreiben in lightly dimmed underlying jade/hanji canvas. Centered graceful hanji completion sheet with oak border and SMALL brass seal, no trophy, no giant dramatic pop-up.
+Title "Hangul-Übung abgeschlossen". Clear example session data "3 Buchstaben geübt"; smaller "5 Striche · Streng". These are actual SESSION counts in this sample, not lifetime completion or all letters mastered. Show small handwritten genuine ㄱ ㄴ ㄷ on three ivory tiles on oak shelf, no full course score.
+Optional existing feedback block on the same sheet (this is the feature-enabled example):
+"Tiger-Check"
+"Zwei kurze Auswahlen helfen uns."
+Ivory raised action "Gib dem Tiger einen Hinweis".
+Do NOT invent three rating buttons, new survey, new currency. Keep feedback optional and not blocking Close.
+Gold primary "Schließen" wide, strong texture and bevel. Small calm text "Du kannst jederzeit weiterüben."
+No A1 course button here, no Foundation12taskresult, no fake 100% Hangul mastery. Session completion must preserve existing completion/feedback behavior instead of creating new reward data.
+
+Every card/button should be physically sculpted, continuous hanji with compact rhythm, best C design quality. Don't crop app bottom CTAs. No ornamental leaf clipping over actual text/input. All scenes fully legible at board full size.

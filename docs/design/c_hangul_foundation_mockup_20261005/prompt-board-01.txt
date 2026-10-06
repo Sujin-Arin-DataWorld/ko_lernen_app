@@ -1,0 +1,45 @@
+Use case: ui-mockup.
+Asset type: a HIGH FIDELITY mobile app design approval board, four complete screens of Hangul Sori's Foundation learning flow. Generate a large landscape image around 3840x2160, four parallel portrait app canvases, each with the same 390:844 aspect ratio. Clear 24px gaps, tidy board title above, small numbered captions below. Show readable finished UI, not a wireframe or explanatory diagram.
+
+REFERENCES: Image 1 is the APPROVED "C" style authority. Carry its exact rich dark jade fabric/patina background, ivory hanji paper, warm oak, aged brass edging and tactile relief into NEW inner learning screens. Do NOT imitate a generic modern flat app. Ignore the reference phone hardware, OS status bars, old labels and tiger. Image 2 is the ONLY approved Taego white tiger identity, blue eyes, natural furry proportions, jade/gold shoulder ornament. Place that SAME portrait in the first screen only; do not invent a cartoon tiger. Image 3 is the approved tactile glazed-ceramic ㄱ and ㅏ object style, use it to guide educational ceramic materials and correct glyph shapes.
+
+ART DIRECTION: C's exquisite small Korean study room translated into a real mobile learning interface. Dense, polished, restrained and warm. Deep jade #123E37 / #1C5148 behind short headers. One continuous ivory hanji board #F6EDE0 holds each screen's exercise and controls, with fine paper fibers, a rounded subtly raised edge, real depth and gentle shadows. Oak appears only as a low workbench under learning objects. Jade enamel and engraved brass tactile buttons, 4dp sidewall, fine texture and specular highlight. Text is clean humanist sans approximating Paperlogy; Korean examples clear correct Noto Sans KR. Header 28-30dp, card title 21dp, copy 16dp, button 17dp. 12dp outer gutters, orderly 8/16/24 spacing. Give every object enough room; compact headers and no empty hero padding. Readable and buildable at real phone size.
+
+NO LINE ICONS, no emoji, no SVG-looking line arrows, no flat generic Material cards. Use image objects (brass fittings, ceramic pieces, textured speaker) for pictorial elements; back navigation is simply the visible text "Zurück". NO time, Wi-Fi, battery, notch, Dynamic Island, device frame, fake system UI. NO bottom navigation in these pushed learning screens. Never add XP or money rewards, lives, grading percentages, microphone scoring or level certification. No fake user/group data. No neon cyan or purple. Do not pack diagrams or arrows outside the screens. Board background is quiet warm oak/ivory, not an elaborate advertising scene.
+
+BOARD TITLE: "C · Hangul entdecken". Small subtitle: "Laute · Silben · Schreiben".
+
+SCREEN 01 — ENTRY/START:
+At top small brass-colored brand "HANGUL SORI", text "Zurück", main header "Hangul entdecken". Approved Taego portrait small upper right, about 94dp visible width, adjacent concise subheading "Deine ersten Schritte." Main continuous hanji panel starts early.
+Four tactile wax seals in a horizontal row numbered 1,2,3,4, connected by fine brass rails, first selected. Below "0 von 12 Übungen".
+Within the SAME board a beautiful 2x2 grid of shallow recessed learning stations:
+1 "Laute" with small cloth-and-celadon speaker and ceramic ㄱ, tiny "ㄱ · ㄴ · ㅏ · ㅣ";
+2 "Silben" with correctly shaped jade ㄱ and ochre ㅏ and a small ivory 가 tile, tiny "가 · 나 · 한";
+3 "Schreiben" with ivory writing pad and traditional brush, tiny "ㄱ · ㅏ";
+4 "Erste Wörter" with linen school bag and miniature living tree, tiny "Wörter & Begrüßung".
+Keep the stages inviting and available, not locked. Primary gold full-width CTA "Mit Lauten beginnen". Secondary jade or quiet ivory integrated action "Alle Hangul-Karten". Quiet tertiary "A1-Kurs ansehen". Short optional helper "Du kannst jederzeit zurückkommen." No paragraphs.
+
+SCREEN 02 — LISTEN TO A SOUND:
+Short jade header "Laute kennenlernen", small "01 / 04" indicator and four tiny progress seals. One continuous hanji exercise board.
+Centered ceramic upright ㄱ in celadon glaze, LARGE and crisp, on a low oak plinth, little label "g / k". This is ㄱ, the corner goes RIGHT at top then DOWN on the right; NOT ㄴ. Below short phrase "Hören. Dann laut nachsprechen." and a linen-blue/celadon speaker object alongside jade raised button "Noch einmal anhören".
+A calm selected native-looking confirmation row with brass check seal, text "Ich habe laut nachgesprochen." Playback has succeeded; no pretend pronunciation score. Gold primary bottom button "Übung speichern". The panels and control remain one cohesive paper workspace; obvious 48dp minimum control target. No coins or congratulations fireworks.
+
+SCREEN 03 — READ / SELECT SYLLABLE PARTS:
+Short jade header "Silben lesen", small "01 / 03".
+Big assembled ivory ceramic tile with correct "가", on oak desk, framed by jade-and-ochre small constituent pieces. Prompt "Welche Teile bilden 가?"
+Three shallow tactile option rows within the same board:
+"ㄱ + ㅏ" selected, jade/brass edge and clear selected seal;
+"ㄴ + ㅏ" neutral ivory;
+"ㄷ + ㅏ" neutral ivory.
+The gesture is TAP A COMPOSITION OPTION, not drag-only. Korean components exact, no Latin substitutions. Selected feedback "Das passt. Lies 가 laut."
+Confirmation row selected "Ich habe die Silbe laut gelesen." Bottom gold action "Übung speichern". Light coherent object depth, no boxed nested flat cards.
+
+SCREEN 04 — TRACE WITH REAL STROKE FEEDBACK:
+Short jade header "Buchstaben schreiben", small "02 / 02".
+Beautiful ivory hanji writing surface in a slim oak frame, functional and large (~280dp square). Exact correct glyph ㅏ: long vertical line, one short horizontal arm to the right at center.
+Above canvas "ㅏ · Strich 1 von 2". Vertical stroke has been correctly traced in jade ink; horizontal right arm is a pale guide not yet traced. Discrete brass start point labelled "2" at center; show rightward direction with a tiny sculptural brass arrowhead or printed instructional cue, not a line-icon arrow. No ornamental flourish across the writing area. Brush resting OUTSIDE the canvas.
+Below feedback "Jetzt Strich 2 zeichnen." Quiet tactile "Löschen" control. Unchecked and inactive confirmation "Ich habe den Buchstaben nachgezeichnet." Clearly inactive ivory save action "Übung speichern", with stable size and contrast. Don't show success until both real strokes are accepted.
+No fake completion despite a partially traced character.
+
+Caption below each full canvas: "01 Einstieg", "02 Laute", "03 Silben", "04 Schreiben".
+Four matching canvases, coherent typography, pristine correctly spelled DE and Korean text. The characters, buttons, margins, lighting and text should feel like the same approved C application. Important: learning diagrams may show real strokes, but all navigation/tool pictograms are rendered image objects rather than outline icons.

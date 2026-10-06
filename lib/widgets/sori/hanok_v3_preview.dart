@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/sarangchae_construction.dart';
+import '../hanok_asset_image.dart';
 import 'card.dart';
 import 'chip.dart';
 import 'progress.dart';
@@ -73,7 +73,7 @@ class SarangchaeStageArtwork extends StatelessWidget {
         .toInt();
     final stage = construction.stage(shown);
     final unlocked = shown <= earned;
-    final image = Image.asset(
+    final image = HanokAssetImage(
       stage.assetPath,
       key: ValueKey('sarangchae-stage-artwork-$shown'),
       fit: BoxFit.contain,

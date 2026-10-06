@@ -5,6 +5,7 @@ import '../../services/storage_service.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/tokens.dart';
+import '../../widgets/sori/c_gallery/c_materials.dart';
 import 'dancheong_catalog.dart';
 import 'dancheong_models.dart';
 import 'dancheong_renderer.dart';
@@ -77,7 +78,6 @@ class DancheongEntryCard extends StatelessWidget {
                   ],
                 ),
               ),
-              const Icon(Icons.chevron_right),
             ],
           ),
         );
@@ -128,9 +128,11 @@ class DancheongDraftResume extends StatelessWidget {
     super.key,
     required this.store,
     required this.onOpen,
+    this.conceptC = false,
   });
   final DancheongStore store;
   final ValueChanged<DancheongEditorArgs> onOpen;
+  final bool conceptC;
   @override
   Widget build(BuildContext context) => AnimatedBuilder(
     animation: store.changes,
@@ -147,6 +149,17 @@ class DancheongDraftResume extends StatelessWidget {
         return const SizedBox.shrink();
       }
       final selected = draft;
+      if (conceptC) {
+        return Padding(
+          padding: const EdgeInsets.only(top: 12),
+          child: CMaterialAction(
+            key: const ValueKey('today-dancheong-draft'),
+            label: AppL10n.of(context).dancheongDraft,
+            gold: false,
+            onTap: () => onOpen(DancheongEditorArgs(draftId: selected.id)),
+          ),
+        );
+      }
       return Padding(
         padding: const EdgeInsets.only(top: Spacing.md),
         child: SoriButton.outlined(

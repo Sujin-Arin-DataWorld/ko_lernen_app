@@ -9,14 +9,19 @@ import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_presentation.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/c_gallery/c_materials.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'support/real_fonts.dart';
+import 'support/c_fonts.dart';
 import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 import 'support/sori_speech_stubs.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  setUpAll(() => loadSoriRealFonts(materialIcons: true));
+  setUpAll(() async {
+    await loadSoriRealFonts(materialIcons: true);
+    await loadCFonts();
+  });
   setUp(() {
     stubSoriSpeech();
     TigerStageVideo.videoReady = false;
@@ -25,7 +30,9 @@ void main() {
     Size(320, 640),
     Size(360, 640),
     Size(390, 844),
+    Size(600, 960),
     Size(720, 1152),
+    Size(800, 1100),
     Size(1152, 720),
   ]) {
     for (final language in ['de', 'en']) {
@@ -135,7 +142,12 @@ Future<void> _expectScreenFits(
   String evidence,
 ) async {
   expect(tester.takeException(), isNull, reason: evidence);
-  for (final button in find.byType(SoriButton).evaluate()) {
+  for (final button
+      in find
+          .byWidgetPredicate(
+            (widget) => widget is SoriButton || widget is CMaterialAction,
+          )
+          .evaluate()) {
     final finder = find.byWidget(button.widget);
     var rect = tester.getRect(finder);
     if (rect.top < 44 || rect.bottom > size.height - 34) {

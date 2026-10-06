@@ -1,13 +1,23 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart'
     show SynchronousFuture, visibleForTesting;
+import 'package:uuid/uuid.dart';
 
 import '../data/quest_catalog.dart';
+import '../models/decoration_reward_receipt.dart';
+import '../models/yeopjeon_wallet.dart';
 import '../widgets/sori/placed_decoration.dart';
+import 'account/cloud_write_session.dart';
 import 'analytics_service.dart';
+import 'local_data_lifetime.dart';
 import 'room_layout_service.dart';
 import 'storage_service.dart';
+
+export '../models/decoration_reward_receipt.dart';
+
+part 'decoration_reward_claim_journal.dart';
 
 /// 사랑방 보자기에서 나올 수 있는 실내 장식의 v1 순서.
 ///
@@ -64,6 +74,77 @@ class DecorationRewardOffer {
   final List<String> candidates;
 }
 
+enum SingleDecorationRewardOfferState {
+  ready,
+  receiptAvailable,
+  noPendingBox,
+  unknownQuest,
+  noEligibleCandidates,
+  collectionComplete,
+  recoveryConflict,
+  accountUnavailable,
+}
+
+/// An opaque offer for one occurrence of the first queued box. The queue and
+/// ownership preimages cannot be replaced by a caller-provided source ID.
+final class SingleDecorationRewardOffer {
+  SingleDecorationRewardOffer._({
+    required this.state,
+    this.sourceQuestId,
+    this.decorationSlug,
+    this.receipt,
+    this._lease,
+    this._receiptId,
+    Iterable<String> pendingBefore = const [],
+    Iterable<String> ownedBefore = const [],
+  }) : _pendingBefore = List.unmodifiable(pendingBefore),
+       _ownedBefore = List.unmodifiable(ownedBefore);
+
+  final SingleDecorationRewardOfferState state;
+  final String? sourceQuestId;
+  final String? decorationSlug;
+  final DecorationRewardReceipt? receipt;
+  final _RewardOperationLease? _lease;
+  final String? _receiptId;
+  final List<String> _pendingBefore;
+  final List<String> _ownedBefore;
+}
+
+final class SingleDecorationRewardClaim {
+  const SingleDecorationRewardClaim(this.result, {this.receipt});
+
+  final DecorationRewardClaimResult result;
+  final DecorationRewardReceipt? receipt;
+}
+
+final class _RewardOperationLease {
+  _RewardOperationLease({required this.allowReconciliation})
+    : lifetime = LocalDataLifetime.capture(),
+      session = cloudWriteSessionController.current,
+      identityEpoch = cloudWriteSessionController.identityEpoch;
+
+  final LocalDataLifetimeLease lifetime;
+  final CloudWriteSession? session;
+  final int identityEpoch;
+  final bool allowReconciliation;
+
+  void assertCurrent() {
+    lifetime.assertCurrent();
+    if (identityEpoch != cloudWriteSessionController.identityEpoch ||
+        session != cloudWriteSessionController.current ||
+        (session != null &&
+            session!.mode != CloudWriteMode.ready &&
+            !(allowReconciliation &&
+                session!.mode == CloudWriteMode.reconciling))) {
+      throw const _RewardAccountUnavailableException();
+    }
+  }
+}
+
+final class _RewardAccountUnavailableException implements Exception {
+  const _RewardAccountUnavailableException();
+}
+
 /// 사랑방 보상 선택의 비시각적 규칙.
 ///
 /// 화면은 이 서비스로부터 후보를 받고, 이후 단계에서 제공될 claim API로만
@@ -75,6 +156,8 @@ class DecorationRewardService {
   /// 모든 공개 요청을 한 줄로 처리한다. 같은 보자기를 빠르게 두 번 눌러도
   /// 두 번째 요청은 첫 번째의 journal 정리 뒤 현재 큐를 다시 읽는다.
   static Future<void> _mutation = Future<void>.value();
+  static final Object _leaseZoneKey = Object();
+  static Expando<_RewardOperationLease> _receiptLeases = Expando();
 
   static Future<void> get packCompletionDrain => _mutation;
 
@@ -85,6 +168,7 @@ class DecorationRewardService {
   @visibleForTesting
   static void resetForTesting() {
     _mutation = SynchronousFuture<void>(null);
+    _receiptLeases = Expando();
   }
 
   /// 팩 클리어 보상 출처의 접두사. 출처 id 는 `pack:<packId>`(예 `pack:food_a1`).
@@ -173,6 +257,225 @@ class DecorationRewardService {
   static Future<DecorationRewardOffer> loadNextOffer() =>
       _serialize(_loadNextOffer);
 
+  /// Returns a durable unfinished presentation before offering another box.
+  static Future<SingleDecorationRewardOffer> loadSingleOffer() async {
+    try {
+      return await _serialize(_loadSingleOffer);
+    } on _RewardAccountUnavailableException {
+      return SingleDecorationRewardOffer._(
+        state: SingleDecorationRewardOfferState.accountUnavailable,
+      );
+    } on StaleLocalDataLifetimeException {
+      return SingleDecorationRewardOffer._(
+        state: SingleDecorationRewardOfferState.accountUnavailable,
+      );
+    }
+  }
+
+  static Future<SingleDecorationRewardOffer> _loadSingleOffer() async {
+    final recovery = await _resumePendingClaim();
+    _assertCurrent();
+    if (recovery == DecorationRewardRecoveryResult.conflict) {
+      return SingleDecorationRewardOffer._(
+        state: SingleDecorationRewardOfferState.recoveryConflict,
+      );
+    }
+    final history = await _readReceiptHistory();
+    final receipt = history.pending;
+    if (receipt != null) {
+      return SingleDecorationRewardOffer._(
+        state: SingleDecorationRewardOfferState.receiptAvailable,
+        sourceQuestId: receipt.sourceQuestId,
+        decorationSlug: receipt.decorationSlug,
+        receipt: _bindReceipt(receipt),
+        lease: _currentLease,
+      );
+    }
+    final pending = Storage.pendingBoxes;
+    if (pending.isEmpty) {
+      return SingleDecorationRewardOffer._(
+        state: SingleDecorationRewardOfferState.noPendingBox,
+      );
+    }
+    final source = pending.first;
+    if (!isRewardSource(source)) {
+      return SingleDecorationRewardOffer._(
+        state: SingleDecorationRewardOfferState.unknownQuest,
+        sourceQuestId: source,
+      );
+    }
+    final owned = Storage.ownedDecor;
+    final candidates = candidatesForQuest(source, owned: owned);
+    if (candidates.isEmpty) {
+      return SingleDecorationRewardOffer._(
+        state: _hasCompleteRewardCollection(owned)
+            ? SingleDecorationRewardOfferState.collectionComplete
+            : SingleDecorationRewardOfferState.noEligibleCandidates,
+        sourceQuestId: source,
+      );
+    }
+    return SingleDecorationRewardOffer._(
+      state: SingleDecorationRewardOfferState.ready,
+      sourceQuestId: source,
+      decorationSlug: candidates.first,
+      lease: _currentLease,
+      receiptId: const Uuid().v4(),
+      pendingBefore: pending,
+      ownedBefore: owned,
+    );
+  }
+
+  static Future<SingleDecorationRewardClaim> claimSingleOffer(
+    SingleDecorationRewardOffer offer,
+  ) async {
+    try {
+      return await _serialize(() => _claimSingleOffer(offer));
+    } on _RewardAccountUnavailableException {
+      return const SingleDecorationRewardClaim(
+        DecorationRewardClaimResult.notOffered,
+      );
+    } on StaleLocalDataLifetimeException {
+      return const SingleDecorationRewardClaim(
+        DecorationRewardClaimResult.notOffered,
+      );
+    }
+  }
+
+  static Future<SingleDecorationRewardClaim> _claimSingleOffer(
+    SingleDecorationRewardOffer offer,
+  ) async {
+    offer._lease?.assertCurrent();
+    if (offer._lease == null) {
+      return const SingleDecorationRewardClaim(
+        DecorationRewardClaimResult.notOffered,
+      );
+    }
+    final recovery = await _resumePendingClaim();
+    _assertCurrent();
+    if (recovery == DecorationRewardRecoveryResult.conflict) {
+      return const SingleDecorationRewardClaim(
+        DecorationRewardClaimResult.recoveryConflict,
+      );
+    }
+    final history = await _readReceiptHistory();
+    final priorId = offer._receiptId ?? offer.receipt?.id;
+    final prior = priorId == null ? null : history.find(priorId);
+    if (prior != null) {
+      return SingleDecorationRewardClaim(
+        DecorationRewardClaimResult.claimed,
+        receipt: _bindReceipt(prior),
+      );
+    }
+    if (offer.state != SingleDecorationRewardOfferState.ready ||
+        offer._receiptId == null ||
+        history.pending != null ||
+        !_startsWith(Storage.pendingBoxes, offer._pendingBefore) ||
+        !_sameOwned(Storage.ownedDecor, offer._ownedBefore)) {
+      return const SingleDecorationRewardClaim(
+        DecorationRewardClaimResult.notOffered,
+      );
+    }
+    final pending = Storage.pendingBoxes;
+    final candidates = candidatesForQuest(offer.sourceQuestId!);
+    if (pending.isEmpty ||
+        pending.first != offer.sourceQuestId ||
+        candidates.isEmpty ||
+        candidates.first != offer.decorationSlug) {
+      return const SingleDecorationRewardClaim(
+        DecorationRewardClaimResult.notOffered,
+      );
+    }
+    final receipt = await _captureReceipt(
+      id: offer._receiptId,
+      sourceQuestId: offer.sourceQuestId!,
+      decorationSlug: offer.decorationSlug!,
+    );
+    final journal = _RewardClaimJournal.decoration(
+      sourceQuestId: receipt.sourceQuestId,
+      decorationSlug: receipt.decorationSlug,
+      ownedBefore: offer._ownedBefore,
+      pendingBefore: pending,
+      receipt: receipt,
+    );
+    await Storage.setDecorationRewardClaimJournalRawJson(
+      journal.toRawJson(),
+      assertCurrentWrite: _assertCurrent,
+    );
+    _assertCurrent();
+    final resumed = await _resumePendingClaim();
+    _assertCurrent();
+    if (resumed != DecorationRewardRecoveryResult.resumed) {
+      return const SingleDecorationRewardClaim(
+        DecorationRewardClaimResult.recoveryConflict,
+      );
+    }
+    // Return the confirmed receipt directly; looking up the next offer would
+    // erase the just-completed presentation when the last box was consumed.
+    final confirmed = (await _readReceiptHistory()).find(receipt.id);
+    return SingleDecorationRewardClaim(
+      confirmed == null
+          ? DecorationRewardClaimResult.recoveryConflict
+          : DecorationRewardClaimResult.claimed,
+      receipt: confirmed == null ? null : _bindReceipt(confirmed),
+    );
+  }
+
+  /// Only the presentation's final CTA calls this. Replays and culture reads
+  /// use the frozen receipt and never enter a reward mutation.
+  static Future<bool> acknowledgeSingleReward(
+    DecorationRewardReceipt receipt,
+  ) async {
+    try {
+      return await _serialize(() async {
+        final lease = _receiptLeases[receipt];
+        if (lease == null) {
+          return false;
+        }
+        lease.assertCurrent();
+        final history = await _readReceiptHistory();
+        final stored = history.find(receipt.id);
+        if (stored == null || !stored.hasSameReward(receipt)) {
+          return false;
+        }
+        if (!stored.acknowledged) {
+          await Storage.setDecorationRewardReceiptRawJson(
+            history.acknowledge(receipt.id).encode(),
+            assertCurrentWrite: _assertCurrent,
+          );
+          _assertCurrent();
+        }
+        return true;
+      });
+    } on _RewardAccountUnavailableException {
+      return false;
+    } on StaleLocalDataLifetimeException {
+      return false;
+    }
+  }
+
+  /// Cloud reconciliation restores presentation only. It cannot mint rewards,
+  /// replay a claim journal, restore ownership, or recreate a queued box.
+  static Future<void> mergeReceiptPresentation(
+    String raw, {
+    void Function()? beforeWrite,
+  }) => _serialize(() async {
+    final history = await _readReceiptHistory();
+    final merged = DecorationRewardReceiptHistory.mergeJson(
+      history.encode(),
+      raw,
+    );
+    _assertCurrent();
+    beforeWrite?.call();
+    await Storage.setDecorationRewardReceiptRawJson(
+      merged,
+      assertCurrentWrite: () {
+        _assertCurrent();
+        beforeWrite?.call();
+      },
+    );
+    _assertCurrent();
+  }, allowReconciliation: beforeWrite != null);
+
   /// 새로 완료된 보상 출처(퀘스트 또는 팩 클리어)의 보자기를 최대 한 개만
   /// 큐에 넣는다.
   ///
@@ -190,10 +493,16 @@ class DecorationRewardService {
     if (!isRewardSource(sourceId)) {
       return;
     }
+    if (await _resumePendingClaim() ==
+        DecorationRewardRecoveryResult.conflict) {
+      throw StateError('Decoration reward recovery is blocked.');
+    }
+    _assertCurrent();
     if (Storage.pendingBoxes.contains(sourceId)) {
       return;
     }
-    await Storage.addPendingBox(sourceId);
+    await Storage.addPendingBox(sourceId, assertCurrentWrite: _assertCurrent);
+    _assertCurrent();
   }
 
   static Future<DecorationRewardOffer> _loadNextOffer() async {
@@ -281,7 +590,11 @@ class DecorationRewardService {
       ownedBefore: Storage.ownedDecor,
       pendingBefore: pendingBefore,
     );
-    await Storage.setDecorationRewardClaimJournalRawJson(journal.toRawJson());
+    await Storage.setDecorationRewardClaimJournalRawJson(
+      journal.toRawJson(),
+      assertCurrentWrite: _assertCurrent,
+    );
+    _assertCurrent();
 
     final recovery = await _resumePendingClaim();
     return switch (recovery) {
@@ -331,7 +644,11 @@ class DecorationRewardService {
       ownedBefore: Storage.ownedDecor,
       pendingBefore: pendingBefore,
     );
-    await Storage.setDecorationRewardClaimJournalRawJson(journal.toRawJson());
+    await Storage.setDecorationRewardClaimJournalRawJson(
+      journal.toRawJson(),
+      assertCurrentWrite: _assertCurrent,
+    );
+    _assertCurrent();
 
     final recovery = await _resumePendingClaim();
     return switch (recovery) {
@@ -348,14 +665,37 @@ class DecorationRewardService {
       _serialize(_resumePendingClaim);
 
   static Future<DecorationRewardRecoveryResult> _resumePendingClaim() async {
+    DecorationRewardReceiptHistory history;
+    try {
+      history = await _readReceiptHistory();
+    } on FormatException {
+      return DecorationRewardRecoveryResult.conflict;
+    }
     final rawJournal = Storage.decorationRewardClaimJournalRawJson;
     if (rawJournal.isEmpty) {
       return DecorationRewardRecoveryResult.none;
     }
 
-    final journal = _RewardClaimJournal.tryParse(rawJournal);
+    var journal = _RewardClaimJournal.tryParse(rawJournal);
     if (journal == null || !_isClaimableJournal(journal)) {
       return DecorationRewardRecoveryResult.conflict;
+    }
+
+    if (journal.receipt != null) {
+      final stored = history.find(journal.receipt!.id);
+      if (stored != null) {
+        if (!stored.hasSameReward(journal.receipt!) ||
+            journal.stage != _RewardClaimStage.queueCommitStarted) {
+          return DecorationRewardRecoveryResult.conflict;
+        }
+        // The receipt is written only after queue consumption. A failed clear
+        // must never consume a newly appended occurrence of the same source.
+        await Storage.clearDecorationRewardClaimJournal(
+          assertCurrentWrite: _assertCurrent,
+        );
+        _assertCurrent();
+        return DecorationRewardRecoveryResult.resumed;
+      }
     }
 
     final current = Storage.pendingBoxes;
@@ -363,38 +703,150 @@ class DecorationRewardService {
         !_startsWith(current, journal.pendingBefore)) {
       return DecorationRewardRecoveryResult.conflict;
     }
+    if (!_startsWith(current, journal.pendingBefore) &&
+        !(journal.stage == _RewardClaimStage.queueCommitStarted &&
+            _startsWith(current, journal.pendingAfter))) {
+      return DecorationRewardRecoveryResult.conflict;
+    }
+    if (journal.kind == _RewardClaimKind.decoration &&
+        journal.receipt == null) {
+      final receipt = await _captureReceipt(
+        id: const Uuid().v4(),
+        sourceQuestId: journal.sourceQuestId,
+        decorationSlug: journal.decorationSlug!,
+      );
+      journal = journal.withReceipt(receipt);
+      // Upgrade v1/v2 before the next mutation so recovery freezes the same
+      // receipt without rerolling their already-selected decoration.
+      await Storage.setDecorationRewardClaimJournalRawJson(
+        journal.toRawJson(),
+        assertCurrentWrite: _assertCurrent,
+      );
+      _assertCurrent();
+    }
+    if (journal.receipt != null) {
+      try {
+        history = history.add(journal.receipt!);
+      } on FormatException {
+        return DecorationRewardRecoveryResult.conflict;
+      }
+    }
     if (_startsWith(current, journal.pendingBefore)) {
       final suffix = current.sublist(journal.pendingBefore.length);
       if (journal.kind == _RewardClaimKind.decoration) {
-        await Storage.addOwnedDecor(journal.decorationSlug!);
+        await Storage.addOwnedDecor(
+          journal.decorationSlug!,
+          assertCurrentWrite: _assertCurrent,
+        );
+        _assertCurrent();
         await Storage.recordDecorEarnedAt(
           journal.decorationSlug!,
-          DateTime.now().toIso8601String(),
+          journal.receipt!.claimedAtUtc.toIso8601String(),
+          assertCurrentWrite: _assertCurrent,
         );
+        _assertCurrent();
       }
       if (journal.stage == _RewardClaimStage.prepared) {
         await Storage.setDecorationRewardClaimJournalRawJson(
           journal.withQueueCommitStarted().toRawJson(),
+          assertCurrentWrite: _assertCurrent,
         );
+        _assertCurrent();
       }
-      await Storage.setPendingBoxes([...journal.pendingAfter, ...suffix]);
-      await Storage.clearDecorationRewardClaimJournal();
+      await Storage.setPendingBoxes([
+        ...journal.pendingAfter,
+        ...suffix,
+      ], assertCurrentWrite: _assertCurrent);
+      _assertCurrent();
+      await _finishJournal(journal, history);
       return DecorationRewardRecoveryResult.resumed;
     }
     if (journal.stage == _RewardClaimStage.queueCommitStarted &&
         _startsWith(current, journal.pendingAfter)) {
       if (journal.kind == _RewardClaimKind.decoration) {
-        await Storage.addOwnedDecor(journal.decorationSlug!);
+        await Storage.addOwnedDecor(
+          journal.decorationSlug!,
+          assertCurrentWrite: _assertCurrent,
+        );
+        _assertCurrent();
         await Storage.recordDecorEarnedAt(
           journal.decorationSlug!,
-          DateTime.now().toIso8601String(),
+          journal.receipt!.claimedAtUtc.toIso8601String(),
+          assertCurrentWrite: _assertCurrent,
         );
+        _assertCurrent();
       }
-      await Storage.clearDecorationRewardClaimJournal();
+      await _finishJournal(journal, history);
       return DecorationRewardRecoveryResult.resumed;
     }
     return DecorationRewardRecoveryResult.conflict;
   }
+
+  static Future<void> _finishJournal(
+    _RewardClaimJournal journal,
+    DecorationRewardReceiptHistory history,
+  ) async {
+    if (journal.receipt != null) {
+      await Storage.setDecorationRewardReceiptRawJson(
+        history.encode(),
+        assertCurrentWrite: _assertCurrent,
+      );
+      _assertCurrent();
+    }
+    await Storage.clearDecorationRewardClaimJournal(
+      assertCurrentWrite: _assertCurrent,
+    );
+    _assertCurrent();
+  }
+
+  static Future<DecorationRewardReceiptHistory> _readReceiptHistory() async {
+    final raw = await Storage.readDecorationRewardReceiptRawJsonStrict(
+      assertCurrentRead: _assertCurrent,
+    );
+    _assertCurrent();
+    return DecorationRewardReceiptHistory.decode(raw);
+  }
+
+  static Future<DecorationRewardReceipt> _captureReceipt({
+    required String id,
+    required String sourceQuestId,
+    required String decorationSlug,
+  }) async {
+    final walletRevision = Storage.captureYeopjeonReadRevision();
+    final walletRaw = await Storage.readYeopjeonRawJsonStrict();
+    _assertCurrent();
+    Storage.assertYeopjeonReadRevision(walletRevision);
+    final xp = Storage.xp;
+    return DecorationRewardReceipt(
+      id: id,
+      sourceQuestId: sourceQuestId,
+      decorationSlug: decorationSlug,
+      claimedAtUtc: DateTime.now().toUtc(),
+      totalXp: xp,
+      xpLevel: xp ~/ 100 + 1,
+      xpToNext: 100 - xp % 100,
+      yeopjeonBalance: walletRaw == null
+          ? null
+          : YeopjeonWallet.decode(walletRaw).balance,
+    );
+  }
+
+  static DecorationRewardReceipt _bindReceipt(DecorationRewardReceipt receipt) {
+    _receiptLeases[receipt] = _currentLease;
+    return receipt;
+  }
+
+  static bool _sameOwned(List<String> first, List<String> second) {
+    final firstSet = first.toSet();
+    final secondSet = second.toSet();
+    return firstSet.length == secondSet.length &&
+        firstSet.containsAll(secondSet);
+  }
+
+  static _RewardOperationLease get _currentLease =>
+      Zone.current[_leaseZoneKey] as _RewardOperationLease;
+
+  static void _assertCurrent() => _currentLease.assertCurrent();
 
   static bool _isClaimableJournal(_RewardClaimJournal journal) {
     if (!isRewardSource(journal.sourceQuestId)) {
@@ -487,9 +939,19 @@ class DecorationRewardService {
     return true;
   }
 
-  static Future<T> _serialize<T>(Future<T> Function() operation) {
+  static Future<T> _serialize<T>(
+    Future<T> Function() operation, {
+    bool allowReconciliation = false,
+  }) {
     PackCompletionStorage.assertAdmission();
-    final result = _mutation.then<T>((_) => operation());
+    final lease = _RewardOperationLease(
+      allowReconciliation: allowReconciliation,
+    );
+    lease.assertCurrent();
+    final result = _mutation.then<T>((_) {
+      lease.assertCurrent();
+      return runZoned(operation, zoneValues: {_leaseZoneKey: lease});
+    });
     _mutation = result.then<void>(
       (_) {},
       onError: (Object _, StackTrace __) {},
@@ -503,236 +965,5 @@ class DecorationRewardService {
       hash = (hash * 31 + codeUnit) % kDecorationRewardPool.length;
     }
     return hash;
-  }
-}
-
-enum _RewardClaimStage { prepared, queueCommitStarted }
-
-enum _RewardClaimKind { decoration, archiveCompleteCollection }
-
-/// `kl_reward_claim_v1`의 유일한 해석기. v1 장식 journal은 계속 읽고, 새
-/// v2 journal은 후보 산출 당시의 보유 스냅샷과 전체 수집 보관 처리를 추가한다.
-///
-/// pending 목록 전체를 같이 보관하므로 반복 출처 ID에서도 처음 선택한 상자 하나만
-/// 제거하고, 그 뒤에 추가된 상자는 보존한다.
-class _RewardClaimJournal {
-  _RewardClaimJournal.decoration({
-    required this.sourceQuestId,
-    required this.decorationSlug,
-    required Iterable<String> ownedBefore,
-    required List<String> pendingBefore,
-  }) : kind = _RewardClaimKind.decoration,
-       stage = _RewardClaimStage.prepared,
-       ownedBefore = List<String>.unmodifiable(ownedBefore),
-       pendingBefore = List<String>.unmodifiable(pendingBefore),
-       pendingAfter = List<String>.unmodifiable(pendingBefore.skip(1));
-
-  _RewardClaimJournal.archiveCompleteCollection({
-    required this.sourceQuestId,
-    required Iterable<String> ownedBefore,
-    required List<String> pendingBefore,
-  }) : kind = _RewardClaimKind.archiveCompleteCollection,
-       stage = _RewardClaimStage.prepared,
-       decorationSlug = null,
-       ownedBefore = List<String>.unmodifiable(ownedBefore),
-       pendingBefore = List<String>.unmodifiable(pendingBefore),
-       pendingAfter = List<String>.unmodifiable(pendingBefore.skip(1));
-
-  _RewardClaimJournal._decoded({
-    required this.kind,
-    required this.stage,
-    required this.sourceQuestId,
-    required this.decorationSlug,
-    required Iterable<String> ownedBefore,
-    required List<String> pendingBefore,
-    required List<String> pendingAfter,
-  }) : ownedBefore = List<String>.unmodifiable(ownedBefore),
-       pendingBefore = List<String>.unmodifiable(pendingBefore),
-       pendingAfter = List<String>.unmodifiable(pendingAfter);
-
-  final _RewardClaimKind kind;
-  final _RewardClaimStage stage;
-  final String sourceQuestId;
-  final String? decorationSlug;
-  final List<String> ownedBefore;
-  final List<String> pendingBefore;
-  final List<String> pendingAfter;
-
-  String toRawJson() {
-    final raw = <String, Object?>{
-      'version': 2,
-      'kind': _kindWire(kind),
-      'stage': _stageWire(stage),
-      'sourceQuestId': sourceQuestId,
-      'ownedBefore': ownedBefore,
-      'pendingBefore': pendingBefore,
-      'pendingAfter': pendingAfter,
-    };
-    if (kind == _RewardClaimKind.decoration) {
-      raw['decorationSlug'] = decorationSlug;
-    }
-    return jsonEncode(raw);
-  }
-
-  static _RewardClaimJournal? tryParse(String raw) {
-    try {
-      final decoded = jsonDecode(raw);
-      if (decoded is! Map) return null;
-
-      final version = decoded['version'];
-      if (version == 1) {
-        return _tryParseV1(decoded);
-      }
-      if (version == 2) {
-        return _tryParseV2(decoded);
-      }
-      return null;
-    } on Object {
-      return null;
-    }
-  }
-
-  static _RewardClaimJournal? _tryParseV1(Map decoded) {
-    final stage = _stageFromWire(decoded['stage']);
-    final sourceQuestId = decoded['sourceQuestId'];
-    final decorationSlug = decoded['decorationSlug'];
-    final pendingBefore = _stringList(decoded['pendingBefore']);
-    final pendingAfter = _stringList(decoded['pendingAfter']);
-    if (!_hasValidQueueShape(
-          stage: stage,
-          sourceQuestId: sourceQuestId,
-          pendingBefore: pendingBefore,
-          pendingAfter: pendingAfter,
-        ) ||
-        decorationSlug is! String ||
-        decorationSlug.isEmpty) {
-      return null;
-    }
-    return _RewardClaimJournal._decoded(
-      kind: _RewardClaimKind.decoration,
-      stage: stage!,
-      sourceQuestId: sourceQuestId as String,
-      decorationSlug: decorationSlug,
-      ownedBefore: const <String>[],
-      pendingBefore: pendingBefore!,
-      pendingAfter: pendingAfter!,
-    );
-  }
-
-  static _RewardClaimJournal? _tryParseV2(Map decoded) {
-    final kind = _kindFromWire(decoded['kind']);
-    final stage = _stageFromWire(decoded['stage']);
-    final sourceQuestId = decoded['sourceQuestId'];
-    final ownedBefore = _stringList(decoded['ownedBefore']);
-    final pendingBefore = _stringList(decoded['pendingBefore']);
-    final pendingAfter = _stringList(decoded['pendingAfter']);
-    if (kind == null ||
-        ownedBefore == null ||
-        ownedBefore.any((slug) => slug.isEmpty) ||
-        !_hasValidQueueShape(
-          stage: stage,
-          sourceQuestId: sourceQuestId,
-          pendingBefore: pendingBefore,
-          pendingAfter: pendingAfter,
-        )) {
-      return null;
-    }
-
-    if (kind == _RewardClaimKind.decoration) {
-      final decorationSlug = decoded['decorationSlug'];
-      if (decorationSlug is! String || decorationSlug.isEmpty) {
-        return null;
-      }
-      return _RewardClaimJournal._decoded(
-        kind: kind,
-        stage: stage!,
-        sourceQuestId: sourceQuestId as String,
-        decorationSlug: decorationSlug,
-        ownedBefore: ownedBefore,
-        pendingBefore: pendingBefore!,
-        pendingAfter: pendingAfter!,
-      );
-    }
-
-    if (decoded.containsKey('decorationSlug')) {
-      return null;
-    }
-    return _RewardClaimJournal._decoded(
-      kind: kind,
-      stage: stage!,
-      sourceQuestId: sourceQuestId as String,
-      decorationSlug: null,
-      ownedBefore: ownedBefore,
-      pendingBefore: pendingBefore!,
-      pendingAfter: pendingAfter!,
-    );
-  }
-
-  static bool _hasValidQueueShape({
-    required _RewardClaimStage? stage,
-    required Object? sourceQuestId,
-    required List<String>? pendingBefore,
-    required List<String>? pendingAfter,
-  }) {
-    return stage != null &&
-        sourceQuestId is String &&
-        sourceQuestId.isNotEmpty &&
-        pendingBefore != null &&
-        pendingBefore.isNotEmpty &&
-        pendingAfter != null &&
-        sourceQuestId == pendingBefore.first &&
-        _sameList(pendingAfter, pendingBefore.skip(1));
-  }
-
-  _RewardClaimJournal withQueueCommitStarted() => _RewardClaimJournal._decoded(
-    kind: kind,
-    stage: _RewardClaimStage.queueCommitStarted,
-    sourceQuestId: sourceQuestId,
-    decorationSlug: decorationSlug,
-    ownedBefore: ownedBefore,
-    pendingBefore: pendingBefore,
-    pendingAfter: pendingAfter,
-  );
-
-  static String _kindWire(_RewardClaimKind kind) => switch (kind) {
-    _RewardClaimKind.decoration => 'decoration',
-    _RewardClaimKind.archiveCompleteCollection => 'archive_complete_collection',
-  };
-
-  static _RewardClaimKind? _kindFromWire(Object? raw) => switch (raw) {
-    'decoration' => _RewardClaimKind.decoration,
-    'archive_complete_collection' => _RewardClaimKind.archiveCompleteCollection,
-    _ => null,
-  };
-
-  static String _stageWire(_RewardClaimStage stage) => switch (stage) {
-    _RewardClaimStage.prepared => 'prepared',
-    _RewardClaimStage.queueCommitStarted => 'queue_commit_started',
-  };
-
-  static _RewardClaimStage? _stageFromWire(Object? raw) => switch (raw) {
-    'prepared' => _RewardClaimStage.prepared,
-    'queue_commit_started' => _RewardClaimStage.queueCommitStarted,
-    _ => null,
-  };
-
-  static List<String>? _stringList(Object? value) {
-    if (value is! List) return null;
-    final strings = <String>[];
-    for (final item in value) {
-      if (item is! String) return null;
-      strings.add(item);
-    }
-    return strings;
-  }
-
-  static bool _sameList(Iterable<String> first, Iterable<String> second) {
-    final firstList = first.toList();
-    final secondList = second.toList();
-    if (firstList.length != secondList.length) return false;
-    for (var i = 0; i < firstList.length; i++) {
-      if (firstList[i] != secondList[i]) return false;
-    }
-    return true;
   }
 }

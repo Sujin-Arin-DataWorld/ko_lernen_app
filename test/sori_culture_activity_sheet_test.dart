@@ -69,7 +69,7 @@ void main() {
             );
             expect((mask.image as AssetImage).assetName, SoriArtwork.hahoeMask);
             expect(mask.width, 64);
-            expect(mask.height, 64);
+            expect(mask.height, 88);
             // The readable object name supplies semantics; the image must not
             // imply a separate speaking person or duplicate the label.
             expect(mask.excludeFromSemantics, isTrue);

@@ -1,636 +1,425 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/cultural_glossary.dart';
+import '../services/account/cloud_write_session.dart';
+import '../services/catalog_history_lease.dart';
+import '../services/cultural_glossary_repository.dart';
 import '../services/decoration_reward_service.dart';
-import '../services/haptic_service.dart';
-import '../services/learning_journey.dart';
+import '../services/local_data_lifetime.dart';
+import '../services/storage_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
-import '../widgets/sori/button.dart';
-import '../widgets/sori/bojagi_reveal.dart';
-import '../widgets/sori/cultural_help.dart';
+import '../widgets/sori/c_gallery/c_materials.dart';
 import '../widgets/sori/empty_state.dart';
-import '../widgets/sori/motion.dart';
 import '../widgets/sori/placed_decoration.dart';
 import '../widgets/sori/pressable.dart';
-import '../widgets/sori/sori_term.dart';
+import '../widgets/sori/reward_chest/reward_chest_screen.dart';
+import '../widgets/sori/reward_chest/reward_cultural_story.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
-export '../widgets/sori/bojagi_reveal.dart' show kBojagiClosed, kBojagiOpen;
+// Stable route remains /bojagi; the approved presentation is a najeon chest.
+const kBojagiClosed =
+    'assets/illustrations/reward_chest/najeon_chest_closed.png';
+const kBojagiOpen = 'assets/illustrations/reward_chest/najeon_chest_open.png';
 
-/// 보자기 꾸러미 개봉 — 퀘스트 보상으로 받은 꾸러미를 열어 장식 하나를 고른다.
-///
-/// **이 화면은 저장소를 직접 건드리지 않는다.** 소유권·큐 소비·journal 복구는
-/// 전부 [DecorationRewardService] 가 한다. 화면이 `Storage.addOwnedDecor` 를
-/// 직접 부르면 중간에 앱이 죽었을 때 큐와 보유 목록이 어긋난다.
+/// The service commits one item before the approved opening plays. Recovered
+/// receipts settle directly on that same item; replay and culture are read-only.
 class BojagiScreen extends StatefulWidget {
-  const BojagiScreen({super.key, this.offerLoader});
-
-  /// 화면 상태 검증용 주입 지점. 런타임에서는 보상 서비스가 유일한 소유자다.
+  const BojagiScreen({super.key, this.offerLoader, this.singleOfferLoader});
   final Future<DecorationRewardOffer> Function()? offerLoader;
+  final Future<SingleDecorationRewardOffer> Function()? singleOfferLoader;
 
   @override
   State<BojagiScreen> createState() => _BojagiScreenState();
 }
 
 class _BojagiScreenState extends State<BojagiScreen> {
-  bool _loading = true;
-  bool _loadFailed = false;
-  DecorationRewardOffer? _offer;
-
-  /// 매듭을 풀었는가. 후보를 바로 보여주지 않는 이유는 ADR-002 개정 그대로 —
-  /// 싸여 있다는 것 자체가 물음표라 여는 동작이 보상의 일부다.
-  bool _untied = false;
-
-  /// 방금 수령한 장식. 있으면 축하 화면.
-  String? _claimed;
-
-  /// 수령 직후 확인한 다음 꾸러미. 선택 가능하거나 전체 수집 보관이 필요한 경우에만
-  /// "다음 꾸러미"를 띄운다.
-  bool _hasNext = false;
-  int _offerGeneration = 0;
+  SingleDecorationRewardOffer? _offer;
+  DecorationRewardOffer? _legacyState;
+  DecorationRewardReceipt? _receipt;
+  CulturalGlossary? _glossary;
+  bool _loading = true, _loadFailed = false, _busy = false;
+  bool _animate = false, _storyFailed = false;
+  int _generation = 0, _replay = 0;
+  CatalogHistoryLease? _lease;
 
   @override
   void initState() {
     super.initState();
-    _load();
+    cloudWriteSessionController.changes.addListener(_accountChanged);
+    LocalDataLifetime.changes.addListener(_accountChanged);
+    unawaited(_load());
   }
 
-  /// 중단된 수령 복구까지 [DecorationRewardService.loadNextOffer] 안에서
-  /// 처리된다. 그래서 진입·재시도 모두 이 한 번의 호출로 충분하다.
-  Future<DecorationRewardOffer> _loadOffer() =>
-      widget.offerLoader?.call() ?? DecorationRewardService.loadNextOffer();
+  @override
+  void dispose() {
+    _generation++;
+    cloudWriteSessionController.changes.removeListener(_accountChanged);
+    LocalDataLifetime.changes.removeListener(_accountChanged);
+    super.dispose();
+  }
+
+  void _accountChanged() {
+    if (mounted) {
+      unawaited(_load());
+    }
+  }
+
+  bool _current(int generation, CatalogHistoryLease lease) =>
+      mounted && generation == _generation && lease.isCurrent;
 
   Future<void> _load() async {
-    final generation = ++_offerGeneration;
+    final generation = ++_generation;
+    final lease = CatalogHistoryLease.capture();
+    _lease = lease;
     setState(() {
       _loading = true;
       _loadFailed = false;
-      _claimed = null;
-      _untied = false;
-      _hasNext = false;
+      _busy = false;
+      _receipt = null;
+      _offer = null;
+      _legacyState = null;
+      _animate = false;
+      _glossary = null;
+      _storyFailed = false;
     });
     try {
-      final offer = await _loadOffer();
-      if (!mounted || generation != _offerGeneration) {
+      // Historical test seams can still classify non-ready source states.
+      final legacy = await widget.offerLoader?.call();
+      final offer =
+          legacy != null && legacy.state != DecorationRewardOfferState.ready
+          ? null
+          : await (widget.singleOfferLoader?.call() ??
+                DecorationRewardService.loadSingleOffer());
+      if (!_current(generation, lease)) {
         return;
       }
       setState(() {
+        _legacyState = legacy;
         _offer = offer;
+        _receipt = offer?.receipt;
         _loading = false;
       });
-    } on Object {
-      if (generation == _offerGeneration) _showLoadFailure();
+      unawaited(_loadStory(generation, lease));
+    } catch (_) {
+      if (_current(generation, lease)) {
+        setState(() {
+          _loading = false;
+          _loadFailed = true;
+        });
+      }
     }
   }
 
-  Future<void> _claim(String slug) async {
-    final offer = _offer;
-    if (_loading ||
-        _claimed != null ||
-        offer?.state != DecorationRewardOfferState.ready ||
-        !offer!.candidates.contains(slug)) {
-      return;
-    }
-    final generation = ++_offerGeneration;
-    setState(() {
-      _loading = true;
-      _loadFailed = false;
-    });
-    late final DecorationRewardClaimResult result;
+  Future<void> _loadStory(int generation, CatalogHistoryLease lease) async {
     try {
-      result = await DecorationRewardService.claimNextBox(
-        slug,
-        expectedSourceQuestId: offer.sourceQuestId,
-      );
-    } on Object {
-      _showLoadFailure();
-      return;
-    }
-    if (!mounted || generation != _offerGeneration) {
-      return;
-    }
-    if (result != DecorationRewardClaimResult.claimed) {
-      // 성공이 아니면 상태를 추측하지 않는다 — 서비스에서 다시 읽는다.
-      // (다른 기기에서 이미 열었거나 큐가 바뀐 경우가 여기로 온다.)
-      await _load();
-      return;
-    }
-
-    // Confirmed ownership is shown immediately. A slow next-offer read must
-    // never hide the received item behind a spinner or offer it twice.
-    setState(() {
-      _claimed = slug;
-      _hasNext = false;
-      _loading = false;
-    });
-    try {
-      final next = await _loadOffer();
-      if (!mounted || generation != _offerGeneration) {
+      final glossary = await CulturalGlossaryRepository.load();
+      if (!_current(generation, lease)) {
         return;
       }
       setState(() {
-        _offer = next;
-        _hasNext =
-            next.state == DecorationRewardOfferState.ready ||
-            next.state == DecorationRewardOfferState.collectionComplete;
+        _glossary = glossary;
+        _storyFailed = glossary == null;
       });
-    } on Object {
-      // The successful receipt and room entrance remain available.
+    } catch (_) {
+      if (_current(generation, lease)) {
+        setState(() => _storyFailed = true);
+      }
     }
   }
 
-  Future<void> _archiveCompleteCollection() async {
-    if (_loading) return;
-    setState(() {
-      _loading = true;
-      _loadFailed = false;
-    });
+  Future<void> _open() async {
+    final offer = _offer, lease = _lease;
+    if (_busy ||
+        offer?.state != SingleDecorationRewardOfferState.ready ||
+        lease == null ||
+        !lease.isCurrent) {
+      return;
+    }
+    final generation = _generation;
+    setState(() => _busy = true);
     try {
-      final result = await DecorationRewardService.archiveCompleteCollectionBox(
-        expectedSourceQuestId: _offer?.sourceQuestId,
-      );
-      if (!mounted) {
+      final result = await DecorationRewardService.claimSingleOffer(offer!);
+      if (!_current(generation, lease)) {
         return;
       }
-      if (result != DecorationRewardClaimResult.collectionArchived) {
-        // 큐나 보유 목록이 다른 경로에서 바뀌었을 수 있으므로, 성공 외에는 화면이
-        // 상태를 추측하지 않는다.
+      final receipt = result.receipt;
+      if (result.result != DecorationRewardClaimResult.claimed ||
+          receipt == null) {
         await _load();
         return;
       }
-      await _load();
-    } on Object {
-      _showLoadFailure();
+      setState(() {
+        _receipt = receipt;
+        _animate = true;
+        _busy = false;
+        _replay++;
+      });
+    } catch (_) {
+      if (_current(generation, lease)) {
+        setState(() {
+          _busy = false;
+          _loadFailed = true;
+        });
+      }
     }
   }
 
-  void _showLoadFailure() {
-    if (!mounted) {
+  Future<bool> _acknowledge() async {
+    final receipt = _receipt, lease = _lease;
+    if (_busy || receipt == null || lease == null || !lease.isCurrent) {
+      return false;
+    }
+    final generation = _generation;
+    setState(() => _busy = true);
+    try {
+      final saved = await DecorationRewardService.acknowledgeSingleReward(
+        receipt,
+      );
+      if (!_current(generation, lease)) {
+        return false;
+      }
+      if (!saved) {
+        throw StateError('Receipt acknowledgment unavailable.');
+      }
+      setState(() {
+        _receipt = receipt.acknowledge();
+        _busy = false;
+      });
+      return true;
+    } catch (_) {
+      if (mounted && _current(generation, lease)) {
+        setState(() => _busy = false);
+        soriToast(context, AppL10n.of(context).loadErrorTryAgain);
+      }
+      return false;
+    }
+  }
+
+  Future<void> _place() async {
+    final lease = _lease, generation = _generation;
+    final saved = await _acknowledge();
+    if (!mounted || !saved || lease == null || !_current(generation, lease)) {
       return;
     }
-    setState(() {
-      _loading = false;
-      _loadFailed = true;
-    });
+    if (ModalRoute.of(context)?.settings.arguments == 'furnish') {
+      Navigator.of(context).pop();
+    } else {
+      // Keeping the receipt route alive restores the same object on return.
+      await Navigator.of(context).pushNamed('/sarangbang/furnish');
+    }
+  }
+
+  Future<void> _next() async {
+    final lease = _lease, generation = _generation;
+    final saved = await _acknowledge();
+    if (mounted && saved && lease != null && _current(generation, lease)) {
+      await _load();
+    }
+  }
+
+  Future<void> _archive() async {
+    if (_busy) {
+      return;
+    }
+    final lease = _lease;
+    if (lease == null || !lease.isCurrent) {
+      return;
+    }
+    final generation = _generation;
+    setState(() => _busy = true);
+    try {
+      await DecorationRewardService.archiveCompleteCollectionBox(
+        expectedSourceQuestId:
+            _offer?.sourceQuestId ?? _legacyState?.sourceQuestId,
+      );
+      if (_current(generation, lease)) {
+        await _load();
+      }
+    } catch (_) {
+      if (_current(generation, lease)) {
+        setState(() {
+          _busy = false;
+          _loadFailed = true;
+        });
+      }
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    return SoriStandardFrame(
-      appBarTitle: t.bojagiTitle,
-      maxWidth: SoriMaxWidth.prose,
-      padding: const EdgeInsets.symmetric(
-        horizontal: Spacing.lg,
-        vertical: Spacing.md,
-      ),
-      actions: const [CulturalHelpButton(termId: 'bojagi')],
-      builder: (context, resolvedPadding) => LayoutBuilder(
-        builder: (context, constraints) {
-          final contentHeight =
-              (constraints.maxHeight - resolvedPadding.vertical)
-                  .clamp(0.0, double.infinity)
-                  .toDouble();
-          return SingleChildScrollView(
-            key: const ValueKey('bojagi-scroll'),
-            padding: resolvedPadding,
-            child: ConstrainedBox(
-              constraints: BoxConstraints(minHeight: contentHeight),
-              child: Container(
-                padding: const EdgeInsets.all(Spacing.lg),
-                decoration: BoxDecoration(
-                  color: SoriActivityColors.giftSurface,
-                  borderRadius: SoriRadius.brLg,
-                ),
-                child: Center(child: _body(t)),
+    final receipt = _receipt;
+    if (receipt != null) {
+      final slug = receipt.decorationSlug;
+      final asset = 'assets/illustrations/decorations/$slug.png';
+      final termId = _glossary?.termIdForDecoration(slug);
+      final entry = termId == null ? null : _glossary?.entry(termId);
+      return Stack(
+        children: [
+          RewardChestScreen(
+            key: ValueKey('receipt-${receipt.id}-$_replay'),
+            itemAsset: asset,
+            itemName: decorName(t, slug),
+            subtitle: decorTerm(t, slug),
+            itemDescription: entry
+                ?.localized(Localizations.localeOf(context).languageCode)
+                .meaning,
+            totalXp: receipt.totalXp,
+            xpLevel: receipt.xpLevel,
+            xpToNext: receipt.xpToNext,
+            previewSecond: _animate ? null : 4,
+            showBlueMagic: true,
+            continueBusy: _busy,
+            continueLabel: t.rewardChestPlaceSarangbang,
+            onContinue: () => unawaited(_place()),
+            onLearnMore: entry == null
+                ? null
+                : () => showRewardCulturalStory(
+                    context,
+                    entry: entry,
+                    itemAsset: asset,
+                    itemName: decorName(t, slug),
+                  ),
+          ),
+          Positioned(
+            top: MediaQuery.paddingOf(context).top + 4,
+            right: 8,
+            child: SafeArea(
+              top: false,
+              bottom: false,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (_storyFailed)
+                    IconButton(
+                      tooltip: t.btnRetry,
+                      onPressed: () => _loadStory(_generation, _lease!),
+                      icon: const Icon(Icons.refresh_rounded),
+                    ),
+                  if (Storage.pendingBoxes.isNotEmpty)
+                    IconButton(
+                      tooltip: t.bojagiNext,
+                      onPressed: _busy ? null : () => unawaited(_next()),
+                      icon: const Icon(Icons.card_giftcard_rounded),
+                    ),
+                  IconButton(
+                    tooltip: t.rewardChestReplay,
+                    onPressed: _busy
+                        ? null
+                        : () {
+                            setState(() {
+                              _animate = true;
+                              _replay++;
+                            });
+                          },
+                    icon: const Icon(Icons.replay_rounded),
+                  ),
+                ],
               ),
             ),
-          );
-        },
+          ),
+        ],
+      );
+    }
+    return SoriStandardFrame(
+      appBarTitle: t.rewardChestTitle,
+      maxWidth: SoriMaxWidth.prose,
+      builder: (context, padding) => SingleChildScrollView(
+        key: const ValueKey('bojagi-scroll'),
+        padding: padding,
+        child: _body(t),
       ),
     );
   }
 
   Widget _body(AppL10n t) {
     if (_loading) {
-      return Semantics(
-        liveRegion: true,
-        label: t.bojagiLoading,
-        excludeSemantics: true,
-        child: AppLoading(message: t.bojagiLoading),
+      return AppLoading(message: t.bojagiLoading);
+    }
+    if (_loadFailed) {
+      return AppError(message: t.bojagiProblemBody, onRetry: _load);
+    }
+    final state = _offer?.state;
+    if (state == SingleDecorationRewardOfferState.ready) {
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            t.rewardChestTitle,
+            style: SoriTextTheme.of(context).h2,
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 16),
+          Semantics(
+            button: true,
+            label: t.rewardChestOpen,
+            enabled: !_busy,
+            child: SoriPressable(
+              key: const Key('bojagi_knot'),
+              onTap: _busy ? null : () => unawaited(_open()),
+              child: ExcludeSemantics(
+                child: Image.asset(
+                  kBojagiClosed,
+                  width: 300,
+                  height: 300,
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 16),
+          CMaterialAction(
+            key: const ValueKey('reward-chest-open-action'),
+            label: _busy ? t.bojagiLoading : t.rewardChestOpen,
+            onTap: _busy ? null : () => unawaited(_open()),
+            child: _busy
+                ? const SizedBox(
+                    width: 24,
+                    height: 24,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                      color: CPalette.ink,
+                    ),
+                  )
+                : null,
+          ),
+        ],
       );
     }
-    final claimed = _claimed;
-    if (claimed != null) {
-      return _ClaimedView(
-        slug: claimed,
-        hasNext: _hasNext,
-        onNext: _load,
-        onRoom: _goToRoom,
-        onHome: _goHome,
-      );
-    }
-
-    final offer = _offer;
-    if (_loadFailed || offer == null) {
-      return AppError(
-        message: t.bojagiProblemBody,
-        messageLiveRegion: true,
-        retryLabel: t.bojagiRetry,
-        onRetry: _load,
-      );
-    }
-
-    return switch (offer.state) {
-      DecorationRewardOfferState.ready =>
-        _untied
-            ? _PickView(candidates: offer.candidates, onPick: _claim)
-            : _KnotView(onUntie: () => setState(() => _untied = true)),
-      DecorationRewardOfferState.noPendingBox => SoriEmptyState(
+    final legacy = _legacyState?.state;
+    if (state == SingleDecorationRewardOfferState.noPendingBox ||
+        legacy == DecorationRewardOfferState.noPendingBox) {
+      return SoriEmptyState(
         asset: kBojagiClosed,
-        icon: Icons.card_giftcard_rounded,
         title: t.bojagiEmptyTitle,
         body: t.bojagiEmptyBody,
-      ),
-      DecorationRewardOfferState.noEligibleCandidates => SoriEmptyState(
+      );
+    }
+    if (state == SingleDecorationRewardOfferState.collectionComplete ||
+        legacy == DecorationRewardOfferState.collectionComplete) {
+      return SoriEmptyState(
         asset: kBojagiOpen,
-        icon: Icons.inventory_2_outlined,
-        title: t.bojagiAllOwnedTitle,
-        body: t.bojagiAllOwnedBody,
-      ),
-      DecorationRewardOfferState.collectionComplete => SoriEmptyState(
-        asset: kBojagiOpen,
-        icon: Icons.collections_bookmark_outlined,
         title: t.bojagiCollectionCompleteTitle,
         body: t.bojagiCollectionCompleteBody,
         ctaLabel: t.bojagiArchiveComplete,
-        onCta: _archiveCompleteCollection,
-      ),
-      DecorationRewardOfferState.unknownQuest ||
-      DecorationRewardOfferState.recoveryConflict => SoriEmptyState(
-        icon: Icons.refresh_rounded,
-        title: t.bojagiProblemTitle,
-        body: t.bojagiProblemBody,
-        ctaLabel: t.bojagiRetry,
-        onCta: _load,
-      ),
-    };
-  }
-
-  void _goToRoom() {
-    final navigator = Navigator.of(context);
-    if (ModalRoute.of(context)?.settings.arguments == 'furnish') {
-      navigator.pop();
-    } else {
-      navigator.pushReplacementNamed('/sarangbang/furnish');
+        onCta: _busy ? null : _archive,
+      );
     }
-  }
-
-  void _goHome() {
-    if (LearningJourneyObserver.forContext(context)?.returnHome(context) ==
-        true) {
-      return;
+    if (state == SingleDecorationRewardOfferState.noEligibleCandidates ||
+        legacy == DecorationRewardOfferState.noEligibleCandidates) {
+      return SoriEmptyState(
+        asset: kBojagiOpen,
+        title: t.bojagiAllOwnedTitle,
+        body: t.bojagiAllOwnedBody,
+      );
     }
-    Navigator.of(
-      context,
-      rootNavigator: true,
-    ).pushNamedAndRemoveUntil('/', (route) => false);
-  }
-}
-
-/// 매듭이 묶인 상태 — 탭 하나로 연다. 물음표를 그릴 필요가 없다,
-/// 싸여 있다는 것 자체가 물음표다 (ADR-002 개정).
-class _KnotView extends StatefulWidget {
-  final VoidCallback onUntie;
-
-  const _KnotView({required this.onUntie});
-
-  @override
-  State<_KnotView> createState() => _KnotViewState();
-}
-
-class _KnotViewState extends State<_KnotView> {
-  bool _opening = false;
-
-  void _open() {
-    if (_opening) return;
-    setState(() => _opening = true);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final t = AppL10n.of(context);
-    return SoriEntrance(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Semantics(
-            container: true,
-            button: true,
-            enabled: !_opening,
-            label: _opening ? t.bojagiLoading : t.bojagiOpenHint,
-            onTap: _opening ? null : _open,
-            excludeSemantics: true,
-            child: SoriPressable(
-              // 테스트에서 매듭만 정확히 누르기 위한 앵커.
-              key: const Key('bojagi_knot'),
-              onTap: _opening ? null : _open,
-              haptic: SoriHaptic.selection,
-              child: SoriBojagiReveal(
-                opening: _opening,
-                onOpened: widget.onUntie,
-              ),
-            ),
-          ),
-          const SizedBox(height: Spacing.xl),
-          SoriButton.filled(
-            label: t.soriStageOpenBojagi,
-            illustrationAsset: kBojagiClosed,
-            trailingIcon: Icons.arrow_forward_rounded,
-            onTap: _opening ? null : _open,
-            fullWidth: true,
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-/// 매듭이 풀린 뒤 — 후보 카드. 안 고른 것은 사라지지 않는다는 안내가
-/// 본문에 있어야 한다. 선택이 벌처럼 느껴지면 수집 동기가 꺾인다.
-class _PickView extends StatelessWidget {
-  final List<String> candidates;
-  final void Function(String slug) onPick;
-
-  const _PickView({required this.candidates, required this.onPick});
-
-  @override
-  Widget build(BuildContext context) {
-    final t = AppL10n.of(context);
-    final text = SoriTextTheme.of(context);
-
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        SizedBox(
-          height: 92,
-          child: Image.asset(
-            kBojagiOpen,
-            fit: BoxFit.contain,
-            errorBuilder: (_, __, ___) => const SizedBox.shrink(),
-          ),
-        ),
-        const SizedBox(height: Spacing.md),
-        Semantics(
-          header: true,
-          child: Text(
-            t.bojagiPickTitle,
-            textAlign: TextAlign.center,
-            style: text.h2,
-          ),
-        ),
-        const SizedBox(height: Spacing.sm),
-        Text(
-          t.bojagiPickBody,
-          textAlign: TextAlign.center,
-          style: text.bodySmall,
-        ),
-        const SizedBox(height: Spacing.xl),
-        CulturalGlossaryBuilder(
-          builder: (context, glossary) {
-            final shownTermIds = <String>{};
-            final cards = <Widget>[];
-            for (var i = 0; i < candidates.length; i++) {
-              final slug = candidates[i];
-              final termId = glossary?.termIdForDecoration(slug);
-              final culturalEntry = termId == null
-                  ? null
-                  : glossary?.entry(termId);
-              cards.add(
-                SoriEntrance(
-                  delay: Duration(milliseconds: 90 * i),
-                  child: Padding(
-                    padding: const EdgeInsets.only(bottom: Spacing.md),
-                    child: _CandidateCard(
-                      slug: slug,
-                      culturalEntry: culturalEntry,
-                      showCulturalHelp:
-                          culturalEntry != null && shownTermIds.add(termId!),
-                      onTap: () => onPick(slug),
-                    ),
-                  ),
-                ),
-              );
-            }
-            return Column(children: cards);
-          },
-        ),
-      ],
-    );
-  }
-}
-
-/// 후보 한 장. 카드 톤은 `SoriCard` 규약(면 + 얇은 테두리 + md 라운드)을 따른다.
-class _CandidateCard extends StatelessWidget {
-  final String slug;
-  final VoidCallback onTap;
-  final bool showCulturalHelp;
-  final CulturalGlossaryEntry? culturalEntry;
-
-  const _CandidateCard({
-    required this.slug,
-    required this.onTap,
-    required this.showCulturalHelp,
-    this.culturalEntry,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
-    final text = SoriTextTheme.of(context);
-    final name = decorName(t, slug);
-    final term = decorTerm(t, slug);
-    final entry = culturalEntry;
-    // §W-C C3: the inline term line sits OUTSIDE the pick-tap Semantics/
-    // SoriPressable below, as a sibling — same reason the "?" help button
-    // is a sibling rather than nested inside it. Two independent
-    // GestureDetectors sharing one tap point would both fire, so a tap
-    // meant for "open the glossary" would also silently pick the candidate.
-    final showTerm = entry != null && term != name;
-    return Container(
-      key: ValueKey('bojagi-candidate-$slug'),
-      decoration: BoxDecoration(
-        color: s.surface,
-        borderRadius: SoriRadius.brMd,
-        border: Border.all(
-          color: s.brightness == Brightness.light
-              ? SoriColors.lightBorderStrong
-              : SoriColors.darkBorderStrong,
-          width: 1.5,
-        ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: Semantics(
-                  container: true,
-                  button: true,
-                  enabled: true,
-                  label: t.bojagiChooseDecoration(name),
-                  onTap: onTap,
-                  excludeSemantics: true,
-                  child: SoriPressable(
-                    onTap: onTap,
-                    haptic: SoriHaptic.selection,
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                        Spacing.lg,
-                        Spacing.lg,
-                        showCulturalHelp ? Spacing.sm : Spacing.lg,
-                        showTerm ? Spacing.xs : Spacing.lg,
-                      ),
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 64,
-                            height: 64,
-                            // 장식마다 세로 비율이 달라 폭만 주면 넘친다 — 시트와 같은 규약.
-                            child: FittedBox(
-                              fit: BoxFit.contain,
-                              child: SoriDecorationImage(slug: slug, size: 58),
-                            ),
-                          ),
-                          const SizedBox(width: Spacing.lg),
-                          Expanded(child: Text(name, style: text.cardTitle)),
-                          Icon(Icons.chevron_right_rounded, color: s.textDim),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              if (showCulturalHelp)
-                Padding(
-                  padding: const EdgeInsetsDirectional.only(end: Spacing.sm),
-                  child: CulturalTermHelpButton(entry: entry!),
-                ),
-            ],
-          ),
-          if (showTerm)
-            Padding(
-              padding: const EdgeInsetsDirectional.only(
-                start: 64 + Spacing.lg + Spacing.lg,
-                end: Spacing.lg,
-                bottom: Spacing.sm,
-              ),
-              child: SoriTerm(
-                termId: entry.termId,
-                text: term,
-                style: text.meta,
-                surface: 'bojagi_candidate',
-              ),
-            ),
-        ],
-      ),
-    );
-  }
-}
-
-/// 수령 직후 — **무엇을 받았는지 크게** 보여주고 사랑방으로 보낸다.
-///
-/// `SoriEmptyState` 를 쓰지 않는 이유: 그건 `asset` 경로를 직접 받는데,
-/// 장식은 화이트리스트에 없으면 로드 시도조차 하면 안 된다
-/// ([SoriDecorationImage] 가 그 판단을 한다).
-class _ClaimedView extends StatelessWidget {
-  final String slug;
-  final bool hasNext;
-  final Future<void> Function() onNext;
-  final VoidCallback onRoom;
-  final VoidCallback onHome;
-
-  const _ClaimedView({
-    required this.slug,
-    required this.hasNext,
-    required this.onNext,
-    required this.onRoom,
-    required this.onHome,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final t = AppL10n.of(context);
-    final text = SoriTextTheme.of(context);
-    final name = decorName(t, slug);
-
-    return SoriEntrance(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: Spacing.xl,
-          vertical: Spacing.lg,
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SoriBojagiReveal(
-              key: ValueKey('bojagi-reveal-$slug'),
-              rewardSlug: slug,
-              onRewardRevealed: HapticService.lightImpact,
-            ),
-            const SizedBox(height: Spacing.lg),
-            Semantics(
-              header: true,
-              liveRegion: true,
-              label: t.bojagiClaimedAnnouncement(name),
-              excludeSemantics: true,
-              child: Text(
-                t.bojagiClaimedTitle,
-                textAlign: TextAlign.center,
-                style: text.h2,
-              ),
-            ),
-            const SizedBox(height: Spacing.sm),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Flexible(
-                  child: ExcludeSemantics(
-                    child: Text(
-                      name,
-                      textAlign: TextAlign.center,
-                      style: text.bodySmall,
-                    ),
-                  ),
-                ),
-                CulturalDecorationHelpButton(decorationSlug: slug),
-              ],
-            ),
-            const SizedBox(height: Spacing.xl),
-            SoriButton(label: t.bojagiGoToRoom, onTap: onRoom),
-            const SizedBox(height: Spacing.sm),
-            SoriButton(
-              label: t.homeActionLabel,
-              variant: SoriButtonVariant.outlined,
-              onTap: onHome,
-            ),
-            if (hasNext) ...[
-              const SizedBox(height: Spacing.sm),
-              SoriButton(
-                label: t.bojagiNext,
-                variant: SoriButtonVariant.outlined,
-                onTap: onNext,
-              ),
-            ],
-          ],
-        ),
-      ),
-    );
+    return AppError(message: t.bojagiProblemBody, onRetry: _load);
   }
 }

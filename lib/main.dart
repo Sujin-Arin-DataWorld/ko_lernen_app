@@ -122,6 +122,7 @@ import 'screens/sarangbang_furnish_screen.dart';
 import 'screens/sarangbang_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/hangul_screen.dart';
+import 'screens/foundation_learning_screen.dart';
 import 'screens/stats_screen.dart';
 import 'screens/study_library_screen.dart';
 import 'screens/onboarding_v2/onboarding_v2_journey_screen.dart';
@@ -674,12 +675,21 @@ class KoLernenApp extends StatefulWidget {
     super.key,
     this.splashDisplayDuration,
     this.firstRunCoordinator,
+    this.startRoute = '/splash',
+    this.reviewTextScaler,
   });
 
   /// Test seam for deterministic whole-app startup tests. Production uses the
   /// bounded SplashGate timing when this is null.
   final Duration? splashDisplayDuration;
   final FirstRunCoordinator? firstRunCoordinator;
+
+  /// Local review targets can open an existing route without duplicating it.
+  final String startRoute;
+
+  /// Optional text scale for local accessibility inspection. Production uses
+  /// the platform's scale when this is null.
+  final TextScaler? reviewTextScaler;
 
   @override
   State<KoLernenApp> createState() => _KoLernenAppState();
@@ -733,6 +743,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
         // ai_voice_notice_host.dart).
         builder: (context, child) => MediaQuery(
           data: MediaQuery.of(context).copyWith(
+            textScaler: widget.reviewTextScaler,
             disableAnimations:
                 MediaQuery.of(context).disableAnimations ||
                 Storage.reducedMotion,
@@ -782,7 +793,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
         // 동의/V2 설명·설정·동행 → 솟을대문 1회 → Today.
         // 기존 완료 사용자는 V2를 건너뛰고 바로 셸로 들어간다.
         // 모든 화면 전환은 SoriTransitions (fade + 깊이 scale-in) — "상자 슬라이드" 탈피.
-        initialRoute: '/splash',
+        initialRoute: widget.startRoute,
         onGenerateRoute: (settings) {
           final name = settings.name ?? '';
           if (PackCompletionStorage.invalid &&
@@ -998,6 +1009,11 @@ class _KoLernenAppState extends State<KoLernenApp> {
             case '/kkeunmari':
               return SoriTransitions.page(
                 (_) => const KkeunmariScreen(),
+                settings: settings,
+              );
+            case '/foundation':
+              return SoriTransitions.page(
+                (_) => const FoundationLearningScreen(),
                 settings: settings,
               );
             case '/hangul':

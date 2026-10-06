@@ -138,6 +138,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     descriptionDe: 'Silben bauen und sicher lesen.',
     descriptionEn: 'Build syllables and read with confidence.',
     route: '/hangul',
+    detailRouteAliases: const ['/foundation'],
     minutes: 6,
     color: SoriActivityColorRole.review,
     icon: 'hangul',
@@ -378,7 +379,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
   _entry(
     id: 'sentence_arcade',
     tab: SoriStageTab.games,
-    de: 'Satz-Arcade',
+    de: 'Satzbau',
     en: 'Sentence arcade',
     descriptionDe: 'Sätze unter Zeitdruck richtig bauen.',
     descriptionEn: 'Build sentences under time pressure.',
@@ -391,8 +392,8 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
   _entry(
     id: 'kkeunmari',
     tab: SoriStageTab.games,
-    de: 'Kkeunmari',
-    en: 'Kkeunmari',
+    de: 'Wortkette',
+    en: 'Word chain',
     descriptionDe: 'Eine Wortkette gegen den Tiger spielen.',
     descriptionEn: 'Play a word chain against the tiger.',
     route: '/kkeunmari',

@@ -1,0 +1,505 @@
+{
+  "title": "C · Hangul Foundation & Practice",
+  "kind": "16 visual mockups plus source contracts; not runtime integration",
+  "generatedOn": "2026-10-05",
+  "authority": "Approved C five-tab PNG; latest user request overrides previous app/V3 appearance",
+  "sourceRoot": "C:/dev/hangulsori/ko_lernen_app_worktrees/canonical-reward-onboarding-20261004",
+  "tasks": [
+    {
+      "id": "sound_g",
+      "step": "sounds",
+      "label": "ㄱ"
+    },
+    {
+      "id": "sound_n",
+      "step": "sounds",
+      "label": "ㄴ"
+    },
+    {
+      "id": "sound_a",
+      "step": "sounds",
+      "label": "ㅏ"
+    },
+    {
+      "id": "sound_i",
+      "step": "sounds",
+      "label": "ㅣ"
+    },
+    {
+      "id": "read_ga",
+      "step": "syllables",
+      "label": "가",
+      "composition": "ㄱ + ㅏ"
+    },
+    {
+      "id": "read_na",
+      "step": "syllables",
+      "label": "나",
+      "composition": "ㄴ + ㅏ"
+    },
+    {
+      "id": "read_han",
+      "step": "syllables",
+      "label": "한",
+      "composition": "ㅎ + ㅏ + ㄴ"
+    },
+    {
+      "id": "trace_g",
+      "step": "tracing",
+      "label": "ㄱ",
+      "strokes": 1
+    },
+    {
+      "id": "trace_a",
+      "step": "tracing",
+      "label": "ㅏ",
+      "strokes": 2
+    },
+    {
+      "id": "word_bag",
+      "step": "first_words",
+      "label": "가방",
+      "de": "Tasche"
+    },
+    {
+      "id": "word_tree",
+      "step": "first_words",
+      "label": "나무",
+      "de": "Baum"
+    },
+    {
+      "id": "greeting_hello",
+      "step": "first_words",
+      "label": "안녕하세요.",
+      "de": "Hallo / Guten Tag."
+    }
+  ],
+  "invariants": [
+    "All four stages are available; no invented lock",
+    "Audio success + learner confirmation before sound/word save",
+    "Correct composition + read confirmation before syllable save",
+    "Accepted direction/order/shape of all strokes + confirmation before tracing save",
+    "No automatic pronunciation scoring",
+    "No CEFR mastery, XP, currency or course-unit completion from Foundation",
+    "Resume uses currentStep if unfinished then nextStep, and first unpracticed task",
+    "A1 choice remains available before and after starter completion",
+    "Continue chooses A1 and opens /course/phases with A1, never grants mastery",
+    "All Hangul cards open /hangul with overview"
+  ],
+  "screens": [
+    {
+      "id": "01",
+      "name": "입문 시작",
+      "asset": "c-foundation-01-learning.png",
+      "crop": {
+        "x": 64,
+        "y": 80,
+        "w": 387,
+        "h": 782
+      },
+      "source": "lib/screens/foundation_learning_screen.dart",
+      "actions": [
+        "Mit Lauten beginnen → /foundation/sounds",
+        "each learning station → /foundation/{step.id}",
+        "Alle Hangul-Karten → /hangul, overview",
+        "A1-Kurs ansehen → chooseContinueA1 + /course/phases, A1"
+      ],
+      "state": "0 practiced tasks. First seal highlights the proposed start, not completion."
+    },
+    {
+      "id": "02",
+      "name": "소리·자모",
+      "asset": "c-foundation-01-learning.png",
+      "crop": {
+        "x": 461,
+        "y": 80,
+        "w": 369,
+        "h": 782
+      },
+      "source": "lib/screens/foundation_practice_screen.dart",
+      "actions": [
+        "Anhören / Noch einmal anhören → _listen(speakableJamo(letter))",
+        "confirmation → learner explicitly confirms after successful playback",
+        "Übung speichern → savePractice(listen evidence)"
+      ],
+      "state": "sound_g representative. Same screen supports sound_n, sound_a, sound_i. Before playback/confirmation save is disabled."
+    },
+    {
+      "id": "03",
+      "name": "음절 구성 선택",
+      "asset": "c-foundation-01-learning.png",
+      "crop": {
+        "x": 840,
+        "y": 80,
+        "w": 379,
+        "h": 782
+      },
+      "source": "lib/screens/foundation_practice_screen.dart",
+      "actions": [
+        "composition rows → _choice",
+        "confirmation → read aloud by learner",
+        "Übung speichern → savePractice(read evidence)"
+      ],
+      "state": "read_ga correct composition selected and confirmed. Use actual stable candidates; read_na/read_han reuse anatomy. Tap options, no mandatory drag."
+    },
+    {
+      "id": "04",
+      "name": "따라 쓰기·획 피드백",
+      "asset": "c-foundation-01-learning.png",
+      "crop": {
+        "x": 1225,
+        "y": 80,
+        "w": 387,
+        "h": 782
+      },
+      "source": "lib/screens/foundation_practice_screen.dart",
+      "actions": [
+        "TraceCanvas → evaluateStroke(checkDirection:true)",
+        "Löschen → reset stroke state",
+        "confirmation → enabled only when all target strokes accepted",
+        "Übung speichern → savePractice(trace evidence)"
+      ],
+      "state": "trace_a, vertical stroke accepted (1/2); right horizontal stroke next. Save and confirmation are not yet available. trace_g uses one continuous right-then-down stroke."
+    },
+    {
+      "id": "05",
+      "name": "첫 단어",
+      "asset": "c-foundation-02-continuation.png",
+      "crop": {
+        "x": 65,
+        "y": 80,
+        "w": 387,
+        "h": 795
+      },
+      "source": "lib/screens/foundation_practice_screen.dart",
+      "actions": [
+        "Anhören → _listen(word)",
+        "confirmation → learner said the word",
+        "Übung speichern → savePractice(word evidence)"
+      ],
+      "state": "word_bag representative. word_tree is the next actual task. Small thumbnails are task context, not invented skip controls."
+    },
+    {
+      "id": "06",
+      "name": "첫 인사",
+      "asset": "c-foundation-02-continuation.png",
+      "crop": {
+        "x": 461,
+        "y": 80,
+        "w": 369,
+        "h": 795
+      },
+      "source": "lib/screens/foundation_practice_screen.dart",
+      "actions": [
+        "Anhören → _listen(안녕하세요.)",
+        "confirmation → learner said the greeting",
+        "Übung speichern → savePractice(word evidence)"
+      ],
+      "state": "greeting_hello task 3 of 3 within first_words. No microphone analysis or assessment score."
+    },
+    {
+      "id": "07",
+      "name": "저장 후 이어하기",
+      "asset": "c-foundation-02-continuation.png",
+      "crop": {
+        "x": 840,
+        "y": 80,
+        "w": 379,
+        "h": 795
+      },
+      "source": "lib/screens/foundation_learning_screen.dart",
+      "actions": [
+        "Mit Silben weiterlernen → _openStep(syllables), first unpracticed task",
+        "stage rows → revisit/open same stable stage",
+        "A1-Kurs ansehen → chooseContinueA1 + /course/phases, A1",
+        "Alle Hangul-Karten → /hangul, overview"
+      ],
+      "state": "Illustrative progress 4/12, all four sounds practiced. Real app must render practicedCount/practicedIn/currentStep/nextStep; never fix these displayed numbers in runtime."
+    },
+    {
+      "id": "08",
+      "name": "입문 저장 결과·A1 선택",
+      "asset": "c-foundation-02-continuation.png",
+      "crop": {
+        "x": 1227,
+        "y": 80,
+        "w": 387,
+        "h": 795
+      },
+      "source": "lib/screens/foundation_learning_screen.dart",
+      "actions": [
+        "Zum A1-Kurs → chooseContinueA1 + /course/phases, A1",
+        "Noch einmal üben → choose a practiced stage, not mark new mastery",
+        "Alle Hangul-Karten → /hangul, overview"
+      ],
+      "state": "Illustrative progress 12/12 practiced tasks. Starter practice saved, not A1/Hangul mastery. Revisit remains available."
+    },
+    {
+      "id": "09",
+      "name": "음절표·전체 탐색",
+      "asset": "c-hangul-03-explore-cards.png",
+      "crop": {
+        "x": 64,
+        "y": 80,
+        "w": 387,
+        "h": 783
+      },
+      "source": "lib/widgets/hangul_syllable_table.dart; lib/screens/hangul_screen.dart",
+      "actions": [
+        "/hangul → HangulTarget.overview",
+        "14×10=140 basic syllable cells; tap selects and immediately plays composed syllable",
+        "Selected cell → consonant+vowel preview → explicit replay",
+        "Keep consonant header fixed; horizontal vowel scrolling plus vertical overview scrolling",
+        "The same overview continues with 19 consonants, 15 vowels and 한·국·말 composition examples"
+      ],
+      "state": "The PNG displays the first 6 rows and 5 vowel columns of a real larger table; it is not the complete data atlas. More rows/columns are native scroll content; audio failures must not disable exploration."
+    },
+    {
+      "id": "10",
+      "name": "전체 자모·문자 상세",
+      "asset": "c-hangul-03-explore-cards.png",
+      "crop": {
+        "x": 460,
+        "y": 80,
+        "w": 371,
+        "h": 783
+      },
+      "source": "lib/screens/hangul_screen.dart:379; :453",
+      "actions": [
+        "Overview all 19 consonants including double consonants and all current 15 vowels",
+        "Character tap → immediate actual Jamo playback plus centered detail dialog",
+        "Detail → large true glyph, romanization, descriptionFor(DE/EN), replay and Close",
+        "Overview composition examples: 한=ㅎ+ㅏ+ㄴ; 국=ㄱ+ㅜ+ㄱ; 말=ㅁ+ㅏ+ㄹ"
+      ],
+      "state": "ㄱ detail sample only. One shared native dialog supports all 34 letters. The underlying full list remains accessible after close; do not bake data into artwork."
+    },
+    {
+      "id": "11",
+      "name": "카드 앞면",
+      "asset": "c-hangul-03-explore-cards.png",
+      "crop": {
+        "x": 840,
+        "y": 80,
+        "w": 379,
+        "h": 783
+      },
+      "source": "lib/screens/hangul_screen.dart:679; :1080",
+      "actions": [
+        "/hangul + HangulTargetDestination(HangulTarget.cards); 19 consonants/15 vowels/16 syllable mode pools",
+        "Tap/flip → back; feed gestures remain available with explicit alternatives",
+        "Known/unknown judgments disabled until the card is flipped; Skip remains available",
+        "Previous, letter playback, random single-card jump",
+        "Like and share are separate actions; keep likedContent identity=letter and double-tap like",
+        "Finish enabled only after at least one actual session interaction"
+      ],
+      "state": "Untouched front sample1/19: knowledge judgments and Finish disabled. The material glyph is a design treatment; actual native letter rendering must stay readable, localized and scalable."
+    },
+    {
+      "id": "12",
+      "name": "카드 뒷면",
+      "asset": "c-hangul-03-explore-cards.png",
+      "crop": {
+        "x": 1225,
+        "y": 80,
+        "w": 387,
+        "h": 783
+      },
+      "source": "lib/screens/hangul_screen.dart:968; :1132",
+      "actions": [
+        "Large glyph → romanization → localized description → exampleWord and exampleFor(lang)",
+        "Letter listen and example-word listen call different existing speech functions",
+        "Unknown → Storage.markHangulHard; Known → Storage.markHangulEasy; both advance",
+        "Skip, previous, next/feed, random jump retain existing interaction behavior",
+        "Separate like/share, stale-card async guards and platform share recovery",
+        "Finish → existing learning attempt/analytics/FeedbackCompletion.hangulCards; actual interactions passed"
+      ],
+      "state": "Back sample1/19: flip counts as an interaction so Finish is enabled. This position is not mastery of the entire deck; hangulHard is not a new SRS record."
+    },
+    {
+      "id": "13",
+      "name": "카드 분류·어려운 글자·음성속도",
+      "asset": "c-hangul-04-practice-settings.png",
+      "crop": {
+        "x": 64,
+        "y": 80,
+        "w": 387,
+        "h": 783
+      },
+      "source": "lib/screens/hangul_screen.dart:896; lib/services/tts_service.dart:1058",
+      "actions": [
+        "Choose consonants19, vowels15 or syllables16; apply immediately and close actual mode sheet",
+        "Hard-only filter appears only when stored hard items exist; if selected pool becomes empty, fall back to full base pool",
+        "Global TtsSpeedAction opens its existing separate speed sheet; choices0.5,0.75,0.8,1,1.25,1.5",
+        "Keep current selection, storage semantics and immediate application; no new Apply or Save gate",
+        "Random action jumps to one random card; it does not rewrite/shuffle the stored deck"
+      ],
+      "state": "Expanded mockup presents mode/filter and speed together to show all controls. Runtime retains separate native sheet entry points and immediate selection callbacks. Sample3 difficult letters is illustrative, never fixed."
+    },
+    {
+      "id": "14",
+      "name": "전체 자모 쓰기",
+      "asset": "c-hangul-04-practice-settings.png",
+      "crop": {
+        "x": 460,
+        "y": 80,
+        "w": 371,
+        "h": 783
+      },
+      "source": "lib/screens/hangul_screen.dart:1270; :1518; :1655",
+      "actions": [
+        "/hangul + HangulTargetDestination(HangulTarget.write); 19 consonants and15 vowels (34 letters)",
+        "Correct current glyph and stroke path; ㄱ is one continuous horizontal-then-down stroke",
+        "Rules, options, letter playback, previous/next and real currentIndex/pool length",
+        "Real TraceCanvas input; evaluate each stroke for order/shape/length and direction in strict mode",
+        "Clear resets current canvas/judgment, preserving completed-session counts",
+        "Accepted full letter → correct response → next letter after existing650ms; Finish only when completedLetters>0"
+      ],
+      "state": "Initial ㄱ sample1/19 and stroke1/1, zero complete letters: Finish disabled. No Foundation self-confirmation or explicit practice-save gate is added to whole Hangul writing."
+    },
+    {
+      "id": "15",
+      "name": "쓰기 모드·규칙·오류 피드백",
+      "asset": "c-hangul-04-practice-settings.png",
+      "crop": {
+        "x": 840,
+        "y": 80,
+        "w": 379,
+        "h": 783
+      },
+      "source": "lib/screens/hangul_screen.dart:1338; :1374; :1573",
+      "actions": [
+        "Options → consonants/vowels and persisted Storage.hangulStrictStrokes selection",
+        "Strict → direction/order checks, reject only last wrong stroke, retain accepted ink and temporary error ghost",
+        "Free practice → direction check off, keep wrong attempt and explain other failures",
+        "Rules dialog preserves first-visit seen flag and explicit reopen from Rules",
+        "Feedback identifies direction/order/too-short/off-shape in text and stroke state, not by color alone"
+      ],
+      "state": "Expanded state board combines existing options, rules and one error example for review. In runtime they remain distinct sheets/inline feedback; changing options does not manufacture a failed stroke."
+    },
+    {
+      "id": "16",
+      "name": "실제 연습 세션 완료·피드백",
+      "asset": "c-hangul-04-practice-settings.png",
+      "crop": {
+        "x": 1225,
+        "y": 80,
+        "w": 387,
+        "h": 783
+      },
+      "source": "lib/screens/hangul_screen.dart:149; :166; :185",
+      "actions": [
+        "Cards finish needs interactions>0; writing finish needs completedLetters>0",
+        "Use existing attempt.complete/analytics/abandon hooks and FeedbackCompletion kind",
+        "Whole-writing receipt receives completed letters, total stroke attempts and actual strict mode",
+        "Show existing Tiger-Check only when ContentFeedbackControllerScope and feature gate are available",
+        "Feedback opens current feedback flow; it does not block Close or create a new compulsory survey",
+        "Close → actual retained Hangul view, reset correct session state after completion"
+      ],
+      "state": "Illustrative writing session3 completed letters/5 total stroke attempts/strict. Attempts may include one rejected stroke; this is not lifetime mastery. Existing reward behavior stays with the original journey/receipt owner; no invented amount."
+    }
+  ],
+  "exceptionalStates": [
+    {
+      "state": "audio failure",
+      "surface": "02/05/06",
+      "de": "Die Stimme ist gerade nicht verfügbar. Versuche es noch einmal.",
+      "action": "Same audio button retries; confirmation/save remain gated by successful playback. No new false completed task."
+    },
+    {
+      "state": "wrong composition",
+      "surface": "03",
+      "de": "Das passt noch nicht. Wähle die Bestandteile dieser Silbe.",
+      "action": "Keep options; wrong selection uses oak/red cue plus text; no stored success."
+    },
+    {
+      "state": "wrong stroke direction/order/shape or too short",
+      "surface": "04",
+      "de": "Existing hangulStroke* localized feedback",
+      "action": "Reject only the last wrong stroke, keep accepted strokes and show next target. No generic all-red canvas."
+    },
+    {
+      "state": "save pending",
+      "surface": "02–06",
+      "de": "Wird gespeichert…",
+      "action": "Stable CTA geometry, disabled repeats, transition only on confirmed persistence."
+    },
+    {
+      "state": "save failure",
+      "surface": "02–06",
+      "de": "Die Übung wurde noch nicht bestätigt. Versuche das Speichern noch einmal.",
+      "action": "Preserve local exercise/confirmation state; same CTA retries, progress unchanged."
+    },
+    {
+      "state": "load failure",
+      "surface": "01/07/08",
+      "de": "Deine Übungen konnten nicht geladen werden. Versuche es noch einmal.",
+      "action": "No invented progress; use existing fresh-lease load retry."
+    },
+    {
+      "state": "account change/reset or stale async result",
+      "surface": "all",
+      "de": "Reload current account state",
+      "action": "Existing FoundationLearningLease and revision guards prevent old progress/audio/save being applied."
+    },
+    {
+      "state": "A1 navigation failure after choice persistence",
+      "surface": "01/07/08",
+      "de": "Der nächste Schritt konnte nicht geöffnet werden. Versuche es noch einmal.",
+      "action": "Preserve saved practice and choice; retry routing without granting completion."
+    }
+  ],
+  "visualTokens": {
+    "jade": "#1C5148",
+    "deepJade": "#123E37",
+    "paper": "#F6EDE0",
+    "brass": "#D59F58",
+    "oak": "#82522F",
+    "ink": "#1C2520",
+    "interfaceFont": "Paperlogy",
+    "learningFont": "Noto Sans KR",
+    "referenceWidthDp": 390,
+    "headingDp": 30,
+    "bodyDp": 16,
+    "buttonDp": 17,
+    "primaryMinHeightDp": 54,
+    "minTouchTargetDp": 48,
+    "pressDepthDp": 4,
+    "pressScale": 0.99
+  },
+  "buildBoundary": "PNG mockups are concept approval references. All words, amounts, progress, controls and tracing canvas must be native Flutter later. Do not ship a screenshot with hotspots. Generated character appearance is illustrative; use the existing exact canonical CompanionArt source PNG in runtime. No source/runtime modifications, CI, device or screen-reader QA claimed.",
+  "catalogue": {
+    "consonants": 19,
+    "vowels": 15,
+    "letterPractice": 34,
+    "syllableCards": 16,
+    "syllableTable": {
+      "consonants": 14,
+      "vowels": 10,
+      "cells": 140
+    },
+    "existingVowelsMissingFromStandard21": [
+      "ㅒ",
+      "ㅖ",
+      "ㅙ",
+      "ㅚ",
+      "ㅞ",
+      "ㅟ"
+    ],
+    "source": "lib/data/hangul_data.dart; lib/widgets/hangul_syllable_table.dart",
+    "note": "These are actual current content counts. 12 starter tasks do not replace whole Hangul practice or indicate mastery."
+  },
+  "preservationReview": {
+    "designers": "C materials and functional hierarchy reviewed by UI designer",
+    "engineers": "Foundation versus whole Hangul corpus and controls reviewed against live source",
+    "corrections": [
+      "Like/share separated in final board3",
+      "Unapproved generated tiger ornament removed from board4",
+      "Whole-writing complete button state corrected",
+      "No invented extra vowels or mastery status"
+    ],
+    "runtimeNotDone": [
+      "C inner Hangul visual implementation",
+      "real device/input/localization/golden validation"
+    ]
+  }
+}

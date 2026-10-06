@@ -1,24 +1,23 @@
-import '../../services/yeopjeon_service.dart';
-import '../../widgets/sori/yeopjeon_wallet_card.dart';
-import '../../services/sound_service.dart';
-import '../../services/haptic_service.dart';
-import '../../models/grammar.dart';
-import '../../services/data_loader.dart';
-import '../../services/local_data_lifetime.dart';
-import '../../services/learning_journey.dart';
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
-
 import '../../l10n/generated/app_localizations.dart';
-import '../../motion/transitions.dart';
-import '../../widgets/app_loading.dart';
+import '../../models/grammar.dart';
 import '../../models/scenario.dart';
 import '../../models/smalltalk.dart';
+import '../../models/yeopjeon_reward_moment.dart';
+import '../../models/yeopjeon_wallet.dart';
+import '../../motion/transitions.dart';
+import '../../services/data_loader.dart';
+import '../../services/haptic_service.dart';
+import '../../services/learning_journey.dart';
+import '../../services/local_data_lifetime.dart';
 import '../../services/scenario_loader.dart';
 import '../../services/smalltalk_loader.dart';
-import '../../widgets/sori/speakable.dart';
-import '../../widgets/sori/route_observer.dart';
+import '../../services/sound_service.dart';
+import '../../services/storage_service.dart';
+import '../../services/yeopjeon_service.dart';
+import '../../widgets/app_loading.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/celebration.dart';
@@ -26,15 +25,18 @@ import '../../widgets/sori/character_clip.dart';
 import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/mascot_preference.dart';
 import '../../widgets/sori/motion.dart';
-import '../../widgets/sori/progress_meter.dart';
-import '../../widgets/sori/persona_portrait.dart';
 import '../../widgets/sori/persona_card_motion.dart';
+import '../../widgets/sori/persona_portrait.dart';
+import '../../widgets/sori/progress_meter.dart';
 import '../../widgets/sori/responsive.dart';
+import '../../widgets/sori/route_observer.dart';
+import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/study_frame.dart';
 import '../../widgets/sori/tokens.dart';
-import 'content_learning_models.dart';
-import 'content_learning_layout.dart';
+import '../../widgets/sori/yeopjeon_reward_presentation.dart';
 import 'content_learning_day_refresh.dart';
+import 'content_learning_layout.dart';
+import 'content_learning_models.dart';
 import 'content_learning_service.dart';
 import 'content_learning_widgets.dart';
 
@@ -87,7 +89,9 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
   List<SmalltalkPhrase> _phrases = [];
   Scenario? _scenario;
   ContentLessonQuestion? _feedback;
-  int _earnedYeopjeon = 0;
+  YeopjeonRewardMoment? _rewardMoment;
+  LearningAttempt? _attempt;
+  Set<String>? _claimBaseline;
   bool _claimPending = false;
   bool? _correct;
   String? _selectionId;
@@ -713,42 +717,108 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
       }
     },
   );
-  Future<void> _finish() => _run(() async {
-    // Reading and answering need no wallet I/O. Establish ownership and settle
-    // earlier proof immediately before this lesson produces completion proof.
+  Future<void> _finish() => _run(() {
+    _attempt ??= LearningJourneyObserver.forContext(
+      context,
+    )?.active?.beginAttempt();
+    final work = _completeLesson();
+    return _attempt == null ? work : _attempt!.journey.track(work, _attempt!);
+  });
+
+  Future<void> _completeLesson() async {
     await (_walletReady ??= _prepareWallet(recover: true));
     _lifetime.assertCurrent();
     await _prepareWallet();
+    _lifetime.assertCurrent();
+    try {
+      final frozen = Storage.captureConfirmedYeopjeonRawJson();
+      if (frozen != null) {
+        _claimBaseline ??= YeopjeonWallet.decode(frozen).claims.keys.toSet();
+      }
+      final raw = await YeopjeonService.captureBackupJson();
+      if (raw != null) {
+        _claimBaseline ??= YeopjeonWallet.decode(raw).claims.keys.toSet();
+      }
+    } catch (_) {
+      // An optional receipt read cannot prevent durable learning completion.
+    }
     _lifetime.assertCurrent();
     await ContentLearningService.startLesson(widget.lesson, widget.scope);
     _lifetime.assertCurrent();
     final alreadyCompleted = _progress.completed;
     await ContentLearningService.finish(widget.lesson);
-    _earnedYeopjeon = 0;
+    _lifetime.assertCurrent();
+    _attempt?.complete(passed: true);
     if (!alreadyCompleted || _claimPending) {
-      _claimPending = true;
-      try {
-        final reward = await YeopjeonService.grantConfirmedLesson(
-          lessonId: widget.lesson.id,
-        );
-        _lifetime.assertCurrent();
-        _claimPending =
-            reward.status == YeopjeonTransactionStatus.failed ||
-            reward.status == YeopjeonTransactionStatus.unknown;
-        if (reward.amount > 0) {
-          _earnedYeopjeon = reward.amount;
-        }
-      } catch (_) {
-        _lifetime.assertCurrent();
-        // Persisted learning is successful. The ledger recovers its proof later.
-      }
+      await _confirmReward(source: YeopjeonRewardSource.currentActivity);
     }
     if (mounted) {
       setState(() {
         _feedback = null;
       });
-      SoundService.complete();
-      SoriCelebration.burst(context, particles: 26);
+      if (_rewardMoment == null && !_claimPending) {
+        SoundService.complete();
+      }
+    }
+  }
+
+  Future<void> _confirmReward({required YeopjeonRewardSource source}) async {
+    _claimPending = true;
+    _attempt?.pendingReward(
+      YeopjeonPendingReward(
+        sourceIds: {'lesson:${widget.lesson.id}'},
+        baselineClaimIds: _claimBaseline ?? const {},
+        hasClaimBaseline: _claimBaseline != null,
+      ),
+    );
+    try {
+      final reward = await YeopjeonService.grantConfirmedLesson(
+        lessonId: widget.lesson.id,
+      );
+      _lifetime.assertCurrent();
+      _claimPending = !{
+        YeopjeonTransactionStatus.granted,
+        YeopjeonTransactionStatus.noReward,
+        YeopjeonTransactionStatus.alreadyClaimed,
+      }.contains(reward.status);
+      if (!_claimPending) {
+        _attempt?.pendingReward(null);
+      }
+      var moment = reward.rewardMoment(source: source);
+      // An outcome-unknown write can have reached disk. A retry acknowledges
+      // its confirmed delta once, without finishing the lesson a second time.
+      if (moment == null &&
+          reward.wallet != null &&
+          _claimBaseline != null &&
+          reward.status == YeopjeonTransactionStatus.alreadyClaimed) {
+        final claims = <String, int>{
+          for (final claim in reward.wallet!.claims.entries)
+            if (!_claimBaseline!.contains(claim.key) && claim.value > 0)
+              claim.key: claim.value,
+        };
+        if (claims.isNotEmpty) {
+          moment = YeopjeonRewardMoment(
+            claims: claims,
+            balance: reward.wallet!.balance,
+            source: YeopjeonRewardSource.recovery,
+            day: YeopjeonRewardMoment.dayKey(DateTime.now()),
+          );
+        }
+      }
+      if (moment != null) {
+        _rewardMoment = moment;
+        _attempt?.confirmedReward(moment);
+      }
+    } catch (_) {
+      _lifetime.assertCurrent();
+      // Learning remains complete; the existing ledger verifier can retry.
+    }
+  }
+
+  Future<void> _retryReward() => _run(() async {
+    await _confirmReward(source: YeopjeonRewardSource.recovery);
+    if (mounted) {
+      setState(() {});
     }
   });
   Future<void> _replace(ContentLesson lesson, {bool review = false}) =>
@@ -1434,17 +1504,27 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
         : t.contentLearningDone;
     return _LessonContent(
       body: [
-        if (_earnedYeopjeon > 0) ...[
-          Semantics(
-            liveRegion: true,
-            child: Text(
-              t.yeopjeonEarned(_earnedYeopjeon),
-              key: const ValueKey('content-yeopjeon-earned'),
-              style: SoriTextTheme.of(context).h2,
+        if (_rewardMoment != null) ...[
+          YeopjeonRewardPresentation(
+            key: ValueKey(
+              'content-yeopjeon-${_rewardMoment!.claims.keys.join('|')}',
             ),
+            moment: _rewardMoment!,
+            attempt: _attempt,
+            maxStageSize: 224,
           ),
           const SizedBox(height: Spacing.md),
-          const YeopjeonWalletCard(compact: true),
+        ] else if (_claimPending) ...[
+          Text(
+            t.yeopjeonConfirmationPending,
+            style: SoriTextTheme.of(context).body,
+          ),
+          const SizedBox(height: Spacing.sm),
+          SoriButton.outlined(
+            label: t.yeopjeonCheckAgain,
+            key: const ValueKey('content-yeopjeon-retry'),
+            onTap: _busy ? null : _retryReward,
+          ),
           const SizedBox(height: Spacing.md),
         ],
         SoriEntrance(

@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/yeopjeon_wallet.dart';
 import 'package:ko_lernen_app/services/cloud_sync.dart';
@@ -8,7 +7,6 @@ import 'package:ko_lernen_app/services/local_data_lifetime.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/yeopjeon_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../support/hanok_competence_fixture.dart';
 
 final class _WalletStore implements PreferenceStringStore {
@@ -156,12 +154,17 @@ void main() {
           preferences: store,
         );
     final day1 = DateTime(2026, 10, 1, 12);
-    expect((await grant('u1', day1)).amount, 20);
+    final first = await grant('u1', day1);
+    expect(first.amount, 20);
+    expect(first.confirmedClaimIds, ['daily:2026-10-01:first']);
+    expect(() => first.confirmedClaimIds.add('bad'), throwsUnsupportedError);
     expect(
       (await grant('u1', day1)).status,
       YeopjeonTransactionStatus.alreadyClaimed,
     );
-    expect((await grant('u2', day1)).amount, 10);
+    final second = await grant('u2', day1);
+    expect(second.amount, 10);
+    expect(second.confirmedClaimIds, ['daily:2026-10-01:second']);
     expect(
       (await grant('u3', day1)).status,
       YeopjeonTransactionStatus.noReward,
@@ -279,6 +282,7 @@ void main() {
         preferences: store,
       );
       expect(result.status, YeopjeonTransactionStatus.unknown);
+      expect(result.confirmedClaimIds, isEmpty);
       expect(YeopjeonWallet.decode(store.durable!).balance, 0);
       store.acknowledgeWithoutCommit = false;
       expect(
@@ -396,6 +400,10 @@ void main() {
       );
       expect(recovered.status, YeopjeonTransactionStatus.granted);
       expect(recovered.amount, 30);
+      expect(recovered.confirmedClaimIds, [
+        'daily:2026-10-01:first',
+        'daily:2026-10-01:second',
+      ]);
       expect(recovered.wallet!.balance, 30);
       expect(
         (await YeopjeonService.recoverConfirmedLearningRewards(

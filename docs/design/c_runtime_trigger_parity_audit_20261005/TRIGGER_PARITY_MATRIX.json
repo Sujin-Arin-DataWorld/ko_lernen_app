@@ -1,0 +1,762 @@
+{
+  "schemaVersion": 1,
+  "generatedAtUtc": "2026-10-05T21:31:29.171737+00:00",
+  "status": "FAIL_100_PERCENT_TRIGGER_PARITY",
+  "repo": {
+    "head": "a1d798bda6a36ff4dd95faa16e14484ad7b1a2f5",
+    "originMain": "44727c1921b4b7f40748ac0d210d0ca62a094028",
+    "aheadBehind": "0\t1",
+    "behindCommits": [
+      "44727c192 Unify Dokkaebi and scholar practice with tactile actions and native media (#446)"
+    ],
+    "dirtyEntries": 274
+  },
+  "sourceAudit": {
+    "status": "source_integrity_passed_with_declared_gaps",
+    "checks": 14948,
+    "hardErrors": 0,
+    "declaredGaps": 556,
+    "counts": {
+      "course_units": 48,
+      "learning_phases": 30,
+      "phase_tasks": 902,
+      "phase_objectives": 1668,
+      "smalltalk_native_lessons": 209,
+      "smalltalk_phrases": 590,
+      "smalltalk_categories": 24,
+      "smalltalk_context_cases": 10,
+      "listening_native_lessons": 186,
+      "scenarios": 186,
+      "vocabulary_records": 2968,
+      "grammar_records": 264,
+      "cloze_items": 2365,
+      "sentence_items": 2885,
+      "vocabulary_packs": 254,
+      "can_do_segments": 86,
+      "canonical_content_clusters": 86,
+      "canonical_source_seeds": 2448,
+      "learn_entries": 13,
+      "game_entries": 8,
+      "production_tabs": 5,
+      "foundation_steps": 4,
+      "foundation_tasks": 12
+    }
+  },
+  "catalog": {
+    "current": [
+      {
+        "id": "course",
+        "tab": "learn",
+        "route": "/path"
+      },
+      {
+        "id": "hangul",
+        "tab": "learn",
+        "route": "/hangul"
+      },
+      {
+        "id": "calligraphy",
+        "tab": "learn",
+        "route": "/calligraphy"
+      },
+      {
+        "id": "pronunciation",
+        "tab": "learn",
+        "route": "/pronunciation"
+      },
+      {
+        "id": "vocab_packs",
+        "tab": "learn",
+        "route": "/vocab"
+      },
+      {
+        "id": "srs",
+        "tab": "learn",
+        "route": "/review/hub"
+      },
+      {
+        "id": "my_words",
+        "tab": "learn",
+        "route": "/my_words"
+      },
+      {
+        "id": "grammar",
+        "tab": "learn",
+        "route": "/grammar"
+      },
+      {
+        "id": "book_capture",
+        "tab": "learn",
+        "route": "/book"
+      },
+      {
+        "id": "listening",
+        "tab": "learn",
+        "route": "/listening"
+      },
+      {
+        "id": "scenarios",
+        "tab": "learn",
+        "route": "/scenarios"
+      },
+      {
+        "id": "smalltalk",
+        "tab": "learn",
+        "route": "/smalltalk"
+      },
+      {
+        "id": "word_web",
+        "tab": "learn",
+        "route": "/word_web"
+      },
+      {
+        "id": "daily_game",
+        "tab": "games",
+        "route": "/daily"
+      },
+      {
+        "id": "chosung",
+        "tab": "games",
+        "route": "/chosung"
+      },
+      {
+        "id": "syllable_cross",
+        "tab": "games",
+        "route": "/wordle"
+      },
+      {
+        "id": "cloze",
+        "tab": "games",
+        "route": "/cloze"
+      },
+      {
+        "id": "speed_match",
+        "tab": "games",
+        "route": "/speed_match"
+      },
+      {
+        "id": "sentence_arcade",
+        "tab": "games",
+        "route": "/satz_arcade"
+      },
+      {
+        "id": "kkeunmari",
+        "tab": "games",
+        "route": "/kkeunmari"
+      },
+      {
+        "id": "custom_practice",
+        "tab": "games",
+        "route": "/my_words"
+      }
+    ],
+    "originMain": [
+      {
+        "id": "course",
+        "tab": "learn",
+        "route": "/path"
+      },
+      {
+        "id": "hangul",
+        "tab": "learn",
+        "route": "/hangul"
+      },
+      {
+        "id": "calligraphy",
+        "tab": "learn",
+        "route": "/calligraphy"
+      },
+      {
+        "id": "pronunciation",
+        "tab": "learn",
+        "route": "/pronunciation"
+      },
+      {
+        "id": "vocab_packs",
+        "tab": "learn",
+        "route": "/vocab"
+      },
+      {
+        "id": "srs",
+        "tab": "learn",
+        "route": "/review/hub"
+      },
+      {
+        "id": "my_words",
+        "tab": "learn",
+        "route": "/my_words"
+      },
+      {
+        "id": "grammar",
+        "tab": "learn",
+        "route": "/grammar"
+      },
+      {
+        "id": "book_capture",
+        "tab": "learn",
+        "route": "/book"
+      },
+      {
+        "id": "listening",
+        "tab": "learn",
+        "route": "/listening"
+      },
+      {
+        "id": "scenarios",
+        "tab": "learn",
+        "route": "/scenarios"
+      },
+      {
+        "id": "smalltalk",
+        "tab": "learn",
+        "route": "/smalltalk"
+      },
+      {
+        "id": "word_web",
+        "tab": "learn",
+        "route": "/word_web"
+      },
+      {
+        "id": "daily_game",
+        "tab": "games",
+        "route": "/daily"
+      },
+      {
+        "id": "chosung",
+        "tab": "games",
+        "route": "/chosung"
+      },
+      {
+        "id": "syllable_cross",
+        "tab": "games",
+        "route": "/wordle"
+      },
+      {
+        "id": "cloze",
+        "tab": "games",
+        "route": "/cloze"
+      },
+      {
+        "id": "speed_match",
+        "tab": "games",
+        "route": "/speed_match"
+      },
+      {
+        "id": "sentence_arcade",
+        "tab": "games",
+        "route": "/satz_arcade"
+      },
+      {
+        "id": "kkeunmari",
+        "tab": "games",
+        "route": "/kkeunmari"
+      },
+      {
+        "id": "custom_practice",
+        "tab": "games",
+        "route": "/my_words"
+      }
+    ],
+    "currentCount": 21,
+    "originMainCount": 21,
+    "exactParity": true
+  },
+  "approvedC": {
+    "contractPresent": true,
+    "rootCaptures": [
+      {
+        "tab": "today",
+        "locale": "de",
+        "png": true,
+        "provenance": true
+      },
+      {
+        "tab": "learn",
+        "locale": "de",
+        "png": true,
+        "provenance": true
+      },
+      {
+        "tab": "games",
+        "locale": "de",
+        "png": true,
+        "provenance": true
+      },
+      {
+        "tab": "hanok",
+        "locale": "de",
+        "png": true,
+        "provenance": true
+      },
+      {
+        "tab": "gye",
+        "locale": "de",
+        "png": true,
+        "provenance": true
+      },
+      {
+        "tab": "today",
+        "locale": "en",
+        "png": true,
+        "provenance": true
+      },
+      {
+        "tab": "learn",
+        "locale": "en",
+        "png": true,
+        "provenance": true
+      },
+      {
+        "tab": "games",
+        "locale": "en",
+        "png": true,
+        "provenance": true
+      },
+      {
+        "tab": "hanok",
+        "locale": "en",
+        "png": true,
+        "provenance": true
+      },
+      {
+        "tab": "gye",
+        "locale": "en",
+        "png": true,
+        "provenance": true
+      }
+    ],
+    "allRootRenderEvidencePresent": true
+  },
+  "freeLearning": {
+    "counts": {
+      "vocab": 2968,
+      "packs": 254,
+      "grammar": 264,
+      "pronunciation": 84,
+      "listening": 186,
+      "listeningQuestions": 744,
+      "scenarios": 186,
+      "scenarioQuests": 579,
+      "relations": 114,
+      "extras": {
+        "usage": 120,
+        "culture": 36,
+        "media": 136,
+        "patterns": 43
+      },
+      "triggerRows": 8514,
+      "questTypes": {
+        "hoerverstehen": 186,
+        "uebersetzen": 186,
+        "satzBauen": 186,
+        "luecken": 10,
+        "diktat": 10,
+        "particlePop": 1
+      }
+    },
+    "liveCounts": {
+      "vocab": 2968,
+      "packs": 254,
+      "grammar": 264,
+      "pronunciation": 84,
+      "listening": 186,
+      "listeningQuestions": 744,
+      "scenarios": 186,
+      "scenarioQuests": 579,
+      "relations": 114,
+      "questTypes": {
+        "hoerverstehen": 186,
+        "uebersetzen": 186,
+        "satzBauen": 186,
+        "luecken": 10,
+        "diktat": 10,
+        "particlePop": 1
+      }
+    },
+    "countsMatchLive": true,
+    "sourceParity": {
+      "sourceCount": 26,
+      "currentByteMismatch": [],
+      "originMainByteMismatch": [
+        "lib/services/vocab_pack_service.dart",
+        "lib/models/vocab_pack.dart",
+        "lib/services/grammar_choice_quiz.dart",
+        "lib/services/review_deck_service.dart",
+        "lib/services/word_relation_service.dart",
+        "lib/services/tts_cache_key.dart",
+        "lib/services/tts_service.dart",
+        "lib/features/content_learning/content_learning_catalog.dart",
+        "lib/services/scenario_loader.dart"
+      ],
+      "originMainSemanticDiff": [],
+      "originMainMissing": []
+    },
+    "screenReferencesAppMjs": true,
+    "appMjsExists": false,
+    "ledger": {
+      "rows": 8514,
+      "invalid": 0,
+      "invalidExamples": [],
+      "moduleCounts": {
+        "words": 3222,
+        "grammar": 264,
+        "pronunciation": 84,
+        "scenarios": 3210,
+        "listening": 930,
+        "relations": 469,
+        "extras": 335
+      },
+      "directReviewRows": 0
+    }
+  },
+  "course": {
+    "acceptance": {
+      "schemaVersion": 1,
+      "kind": "C_course_mockup_acceptance",
+      "sourceHead": "a1d798bda6a36ff4dd95faa16e14484ad7b1a2f5",
+      "implementationScope": "Standalone HTML/CSS/JS prototype only; Flutter source was not edited for this mockup.",
+      "designStatus": {
+        "fourCoreScenes": "ready_for_review",
+        "newScreenApproval": "pending_user_review",
+        "flutterIntegration": "followup",
+        "deviceValidation": "not_performed"
+      },
+      "contentPreserved": {
+        "courseUnits": 48,
+        "learningPhases": 30,
+        "taskIdsAndVersions": 902,
+        "explicitCourseReferences": 224,
+        "originalFileHashes": 26,
+        "hashMismatches": []
+      },
+      "interactiveCoverage": {
+        "vocabulary": "25 original words in their 12-word and 13-word packs",
+        "scenario": "airport_arrival, all three original quests",
+        "phases": "Related phase goal and original task-title list; task execution remains followup"
+      },
+      "browserChecks": {
+        "passedLayoutsAndStates": 33,
+        "evidence": "C:\\dev\\hangulsori\\_codex_artifacts\\c-course-mockup-20261005\\approved-geometry-course-checks.json",
+        "normal": "390 x 844, DE/EN, 100%",
+        "largeText": "320 x 844, DE/EN, 200%",
+        "landscape": "700 x 390, DE/EN, 100%",
+        "exceptionStates": "DE, 320px, 200%; loading/error/first visit/locked/correct/wrong/help/saving/save failure",
+        "horizontalClipping": 0,
+        "enabledTargetsBelow48px": 0
+      },
+      "verifiedInteractions": [
+        "mission begins at quest 1 of 3",
+        "audio unavailable uses marked transcript help",
+        "first wrong answer stays wrong",
+        "hint does not place sentence pieces",
+        "result 0 of 3 unaided and 2 assisted stays identical after reload",
+        "word pack 2 resumes at 1 of 13 with meaning visible after pause and reload",
+        "save failure retries to saved state",
+        "modal Escape closes and returns focus",
+        "task ID search resolves KP01:production:12"
+      ],
+      "accountBoundary": {
+        "realProgressWrites": false,
+        "XPOrRewardWrites": false,
+        "unitUnlockChanges": false,
+        "storage": "Mockup-only namespaced sessionStorage"
+      },
+      "costBoundary": {
+        "externalDesignConnectorsUsed": false,
+        "generatedNewImagesOrVideo": false
+      },
+      "run": {
+        "url": "http://127.0.0.1:8263/docs/design/c_course_mockup_20261005/index.html?v=7",
+        "server": "python -m http.server 8263 --bind 127.0.0.1 --directory C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004",
+        "export": "python -X utf8 C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\docs\\design\\c_course_mockup_20261005\\build_content.py"
+      },
+      "approvedVisualContract": {
+        "id": "c-approved-visual-20261005-v1",
+        "document": "../c_approved_visual_contract_20261005/APPROVED_C_DESIGN.md",
+        "sourcePreservation": "8 approval PNGs and 46 unchanged existing regions",
+        "spacing": "C semantic tokens imported directly",
+        "scope": "HTML style only; Flutter source integration remains owned by C design"
+      }
+    },
+    "sourceParity": {
+      "sourceCount": 26,
+      "currentByteMismatch": [],
+      "originMainByteMismatch": [],
+      "originMainSemanticDiff": [],
+      "originMainMissing": [
+        "assets/illustrations/concept_c/material_atlas.png",
+        "assets/illustrations/concept_c/book_v2.png",
+        "assets/illustrations/concept_c/cloud_v2.png",
+        "assets/illustrations/concept_c/seal_v2.png",
+        "assets/illustrations/concept_c/stampbook_v2.png",
+        "assets/illustrations/concept_c/coin_v2.png",
+        "assets/illustrations/companions/canonical/taego_guide.png"
+      ]
+    }
+  },
+  "foundationHangul": {
+    "artifactReviewPresent": true,
+    "foundationCImports": {
+      "lib/screens/foundation_learning_screen.dart": true,
+      "lib/screens/foundation_learning_widgets.dart": true,
+      "lib/screens/foundation_practice_screen.dart": true
+    },
+    "wholeHangulDirectCImport": false,
+    "artifactOwnMockups": {
+      "foundationScreens": 8,
+      "wholeHangulScreens": 8,
+      "boards": 4,
+      "newInnerCFlutterIntegration": false
+    },
+    "originMainFoundationPresent": false
+  },
+  "silben": {
+    "artifactStatus": {
+      "corpus": {
+        "levels": {
+          "A1": 20,
+          "A2": 20,
+          "B1": 20,
+          "B2": 20,
+          "C1": 20,
+          "C2": 20
+        },
+        "puzzles": 120,
+        "wordOccurrences": 415,
+        "uniqueAnswers": 301
+      },
+      "sourceAnchors": 30,
+      "uniqueSourceFiles": 17,
+      "anchorHashMismatches": [],
+      "namedScreensPresent": [
+        "01-puzzle.png"
+      ],
+      "plannedScreens": 12,
+      "layoutFormulaCases": 1800,
+      "formulaIsNotFlutterRender": true,
+      "newInnerCIntegrationComplete": false,
+      "rawPNGDirectlyInspected": 26,
+      "rawSceneKinds": 14,
+      "selectedReviewCandidates": 14,
+      "rawReviewManifest": "SILBEN_RAW_SCREEN_REVIEW.json",
+      "planDrift": "DESIGN_PLAN.md has 12 scenes with optional introduction at12. Newer prompts12/13/14 depict vertical selection, wide grid and first correct tile placement. Optional introduction remains a separate original runtime flow.",
+      "approval": "Generated scene coverage is not human approval or native runtime completion"
+    },
+    "designPlanPresent": true,
+    "routeInCatalog": true
+  },
+  "settingsProfile": {
+    "artifactPresent": true,
+    "screens": 16,
+    "actions": 72,
+    "existingActions": 71,
+    "proposedActions": [
+      "NEW-IOS-STORE"
+    ],
+    "currentMissingOriginalAnchors": [
+      "P12"
+    ],
+    "originMainMissingOriginalAnchors": [
+      "P12"
+    ],
+    "p12MovedHandlerVerified": true,
+    "runtimeIntegration": false
+  },
+  "onboardingVisualDeltas": {
+    "headerStillHangulSori": true,
+    "storyPreviewCtaStillPresent": true,
+    "pageSpecificContinueLabels": true,
+    "page7DetailsStillPresent": true
+  },
+  "matrix": [
+    {
+      "scope": "C root five tabs",
+      "live": "5 tabs / 13 Learn / 8 Games",
+      "design": "approved",
+      "mockup": "rendered",
+      "native": "C WIP integrated",
+      "trigger": "21/21 root IDs/routes",
+      "verdict": "YELLOW"
+    },
+    {
+      "scope": "Einleitung 7",
+      "live": "7 stages",
+      "design": "approved",
+      "mockup": "rendered",
+      "native": "integrated with current visual deltas",
+      "trigger": "journey IDs preserved",
+      "verdict": "ORANGE"
+    },
+    {
+      "scope": "Comprehensive course",
+      "live": "48 units / 30 phases / 902 tasks",
+      "design": "4 core scenes ready_for_review",
+      "mockup": "standalone HTML",
+      "native": "C entry only; inner integration followup",
+      "trigger": "source mapped; task execution sampled",
+      "verdict": "ORANGE"
+    },
+    {
+      "scope": "Foundation starter",
+      "live": "4 steps / 12 tasks (WIP only)",
+      "design": "8 screens",
+      "mockup": "reviewed",
+      "native": "C WIP imports",
+      "trigger": "WIP route/task coverage",
+      "verdict": "YELLOW"
+    },
+    {
+      "scope": "Whole Hangul",
+      "live": "34 letters + cards/writing",
+      "design": "8 inner screens",
+      "mockup": "reviewed",
+      "native": "existing live screen; no direct C inner import",
+      "trigger": "route exists; C inner parity not proven",
+      "verdict": "ORANGE"
+    },
+    {
+      "scope": "Free learning universal",
+      "live": "7 modules / 8,514 ledger rows",
+      "design": "planned/data-bound",
+      "mockup": "BROKEN: missing app.mjs",
+      "native": "separate from catalog",
+      "trigger": "structural rows only; UI execution impossible",
+      "verdict": "RED"
+    },
+    {
+      "scope": "Vocabulary packs",
+      "live": "2,968 words / 254 packs",
+      "design": "free-learning",
+      "mockup": "data complete; app broken",
+      "native": "live existing flow",
+      "trigger": "all IDs structurally mapped",
+      "verdict": "RED"
+    },
+    {
+      "scope": "Review / SRS / My Words",
+      "live": "2,968 base words + user data / 10 My Words routes",
+      "design": "review-card subset",
+      "mockup": "no direct review ledger rows",
+      "native": "live existing flows",
+      "trigger": "per-ID review proof incomplete",
+      "verdict": "RED"
+    },
+    {
+      "scope": "Grammar",
+      "live": "264 records + 43 pattern notes",
+      "design": "free-learning",
+      "mockup": "data complete; app broken",
+      "native": "live existing flow",
+      "trigger": "264 IDs mapped",
+      "verdict": "RED"
+    },
+    {
+      "scope": "Pronunciation",
+      "live": "84 phrases",
+      "design": "free-learning",
+      "mockup": "data complete; app broken",
+      "native": "live existing flow",
+      "trigger": "84 IDs mapped",
+      "verdict": "RED"
+    },
+    {
+      "scope": "Listening",
+      "live": "186 lessons / 744 questions",
+      "design": "free-learning",
+      "mockup": "data complete; app broken",
+      "native": "live existing flow",
+      "trigger": "lesson/question rows mapped",
+      "verdict": "RED"
+    },
+    {
+      "scope": "Scenarios",
+      "live": "186 scenarios / 579 quests",
+      "design": "free-learning",
+      "mockup": "data complete; app broken",
+      "native": "live existing flow",
+      "trigger": "scenario/child rows mapped",
+      "verdict": "RED"
+    },
+    {
+      "scope": "Word relations",
+      "live": "114 clusters",
+      "design": "free-learning",
+      "mockup": "data complete; app broken",
+      "native": "live existing flow",
+      "trigger": "cluster/child rows mapped",
+      "verdict": "RED"
+    },
+    {
+      "scope": "Small Talk / TalSunbi",
+      "live": "209 lessons / 590 phrases",
+      "design": "separate tactile/TalSunbi work",
+      "mockup": "not in universal free-learning",
+      "native": "live existing/tactile flow",
+      "trigger": "root route only in C catalog",
+      "verdict": "ORANGE"
+    },
+    {
+      "scope": "Book capture / notebook",
+      "live": "8 registered routes",
+      "design": "Einleitung sample only",
+      "mockup": "no full C flow",
+      "native": "live existing flow",
+      "trigger": "root/full routes exist; not C-mocked",
+      "verdict": "ORANGE"
+    },
+    {
+      "scope": "Daily calligraphy",
+      "live": "34 Hangul records",
+      "design": "no dedicated inner C mockup found",
+      "mockup": "not in free-learning",
+      "native": "live existing flow",
+      "trigger": "root route only",
+      "verdict": "ORANGE"
+    },
+    {
+      "scope": "Games root + interiors",
+      "live": "8 entries; cloze 2365 / Satz 2885 + other pools",
+      "design": "C root approved; Silben dedicated",
+      "mockup": "no all-game content ledger",
+      "native": "8 roots preserved",
+      "trigger": "8/8 root routes; internal parity incomplete",
+      "verdict": "ORANGE"
+    },
+    {
+      "scope": "Silben + Dokkaebi",
+      "live": "120 puzzles / 415 word occurrences",
+      "design": "12-plan -> 14 reviewed scene kinds",
+      "mockup": "state images exist",
+      "native": "help/motion exists; exact C inner parity open",
+      "trigger": "/wordle preserved",
+      "verdict": "ORANGE"
+    },
+    {
+      "scope": "Settings + Profile",
+      "live": "71 existing anchors + 1 proposed iOS action",
+      "design": "16 PNG screens",
+      "mockup": "gallery/contract only",
+      "native": "mockup runtimeIntegration=false",
+      "trigger": "70 old anchors + moved P12; iOS proposal not live",
+      "verdict": "ORANGE"
+    },
+    {
+      "scope": "Hanok / Gye / Rewards",
+      "live": "stateful live services",
+      "design": "approved C root + reward assets",
+      "mockup": "representative states",
+      "native": "C WIP integrated/reported tests",
+      "trigger": "route/state contracts; backend/device proof pending",
+      "verdict": "YELLOW"
+    },
+    {
+      "scope": "Productive authoring drafts",
+      "live": "118 definitions / 8 projects / 32 snippets / 16 bundles",
+      "design": "not runtime",
+      "mockup": "must stay excluded",
+      "native": "runtimeContentApproved=false",
+      "trigger": "correctly blocked",
+      "verdict": "OUT_OF_RUNTIME"
+    }
+  ]
+}

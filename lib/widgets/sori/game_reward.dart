@@ -1,21 +1,93 @@
-import '../../services/learning_journey.dart';
-import '../../models/sori_stage_progression.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-
 import '../../config/tester_feedback_feature.dart';
 import '../../models/content_feedback.dart';
+import '../../models/sori_stage_progression.dart';
+import '../../services/learning_journey.dart';
+import '../../services/local_data_lifetime.dart';
 import '../../services/sound_service.dart';
 import '../../services/storage_service.dart';
-import '../../services/local_data_lifetime.dart';
 import 'celebration.dart';
 import 'character_clip.dart';
 import 'content_feedback_card.dart';
 import 'content_feedback_sheet.dart';
 import 'mascot.dart';
 import 'mascot_preference.dart';
+import 'pressable.dart';
 import 'sori_icon.dart';
 import 'tokens.dart';
+
+/// A material reward face. Only cards with a real detail action are pressable.
+class SoriRewardSurface extends StatelessWidget {
+  const SoriRewardSurface({
+    super.key,
+    required this.child,
+    this.onTap,
+    this.semanticLabel,
+    this.padding = const EdgeInsets.all(Spacing.md),
+    this.gold = false,
+  });
+  final Widget child;
+  final VoidCallback? onTap;
+  final String? semanticLabel;
+  final EdgeInsetsGeometry padding;
+  final bool gold;
+
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+    final light = s.brightness == Brightness.light;
+    final base = gold
+        ? Color.alphaBlend(
+            SoriColors.gold.withValues(alpha: light ? .20 : .13),
+            s.surface,
+          )
+        : s.surfaceAlt;
+    final face = Container(
+      padding: padding,
+      decoration: BoxDecoration(
+        borderRadius: SoriRadius.brLg,
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            Color.lerp(base, light ? Colors.white : SoriColors.gold, .10)!,
+            base,
+            Color.lerp(base, Colors.black, .035)!,
+          ],
+        ),
+        border: Border.all(
+          color: gold
+              ? SoriColors.gold.withValues(alpha: light ? .55 : .40)
+              : s.border,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: light ? .09 : .24),
+            blurRadius: 14,
+            offset: const Offset(0, 6),
+          ),
+        ],
+      ),
+      child: child,
+    );
+    if (onTap == null) {
+      return face;
+    }
+    return Semantics(
+      button: true,
+      label: semanticLabel,
+      child: SoriPressable(
+        onTap: onTap,
+        pressScale: .99,
+        surfaceDepth: 4,
+        surfaceEdgeColor: Color.lerp(base, Colors.black, .32),
+        child: face,
+      ),
+    );
+  }
+}
 
 /// 아이콘 + 라벨 한 줄 (🏆/🔥 이모지 대체 — 시맨틱 아이콘).
 Widget _iconLine(IconData icon, String text, Color color) => Row(
@@ -50,6 +122,7 @@ class LearningRewardPresentation extends StatefulWidget {
     required this.child,
     this.identity,
     this.presentationComplete = true,
+    this.onShown,
   });
 
   final LearningAttempt? attempt;
@@ -57,6 +130,7 @@ class LearningRewardPresentation extends StatefulWidget {
   final int amount;
   final String? identity;
   final bool presentationComplete;
+  final VoidCallback? onShown;
   final Widget child;
 
   @override
@@ -64,17 +138,43 @@ class LearningRewardPresentation extends StatefulWidget {
       _LearningRewardPresentationState();
 }
 
-class _LearningRewardPresentationState
-    extends State<LearningRewardPresentation> {
+class _LearningRewardPresentationState extends State<LearningRewardPresentation>
+    with WidgetsBindingObserver {
   final _paintKey = GlobalKey();
   final Set<Listenable> _fades = {};
   ScrollPosition? _scroll;
   bool _painted = false;
   bool _scheduled = false;
+  bool _reported = false;
+  ValueListenable<TickerModeData>? _tickerMode;
+  AppLifecycleState _lifecycle = AppLifecycleState.resumed;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+    _lifecycle =
+        WidgetsBinding.instance.lifecycleState ?? AppLifecycleState.resumed;
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    _lifecycle = state;
+    if (state == AppLifecycleState.resumed) {
+      _painted = false;
+      _paintKey.currentContext?.findRenderObject()?.markNeedsPaint();
+      _schedule();
+    }
+  }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+    final ticker = TickerMode.getValuesNotifier(context);
+    if (!identical(ticker, _tickerMode)) {
+      _tickerMode?.removeListener(_schedule);
+      _tickerMode = ticker..addListener(_schedule);
+    }
     final scroll = Scrollable.maybeOf(context)?.position;
     if (!identical(scroll, _scroll)) {
       _scroll?.removeListener(_schedule);
@@ -91,6 +191,7 @@ class _LearningRewardPresentationState
         oldWidget.amount != widget.amount ||
         oldWidget.identity != widget.identity) {
       _painted = false;
+      _reported = false;
     }
     _schedule();
   }
@@ -114,6 +215,10 @@ class _LearningRewardPresentationState
   }
 
   void _check() {
+    if (_lifecycle != AppLifecycleState.resumed ||
+        !(_tickerMode?.value.enabled ?? true)) {
+      return;
+    }
     final box = _paintKey.currentContext?.findRenderObject();
     if (box is! RenderBox || !box.attached || !box.hasSize) {
       return;
@@ -175,11 +280,17 @@ class _LearningRewardPresentationState
         widget.amount,
         identity: widget.identity,
       );
+      if (!_reported) {
+        _reported = true;
+        widget.onShown?.call();
+      }
     }
   }
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    _tickerMode?.removeListener(_schedule);
     _scroll?.removeListener(_schedule);
     for (final fade in _fades) {
       fade.removeListener(_schedule);

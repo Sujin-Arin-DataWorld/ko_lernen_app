@@ -10,6 +10,7 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/yeopjeon_wallet_card.dart';
 import 'package:ko_lernen_app/widgets/sori/video_lease.dart';
 import 'support/real_fonts.dart';
+import 'support/c_fonts.dart';
 
 YeopjeonWallet wallet({int owned = 0}) => YeopjeonWallet(
   balance: owned == 0 ? 40 : 0,
@@ -25,7 +26,10 @@ YeopjeonWallet wallet({int owned = 0}) => YeopjeonWallet(
 );
 
 void main() {
-  setUpAll(() => loadSoriRealFonts(materialIcons: true));
+  setUpAll(() async {
+    await loadSoriRealFonts(materialIcons: true);
+    await loadCFonts();
+  });
   setUp(() async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({'kl_haptics_enabled': false});
@@ -37,6 +41,7 @@ void main() {
     required String language,
     required Future<YeopjeonTransactionResult> Function(YeopjeonBuilding) build,
     double scale = 1,
+    bool conceptC = false,
   }) async {
     tester.view.physicalSize = const Size(390, 844);
     tester.view.devicePixelRatio = 1;
@@ -58,6 +63,7 @@ void main() {
         home: Scaffold(
           body: SingleChildScrollView(
             child: YeopjeonWalletCard(
+              conceptC: conceptC,
               loader: () async => wallet(),
               builder: build,
             ),
@@ -69,68 +75,74 @@ void main() {
     await tester.pump(const Duration(milliseconds: 100));
   }
 
-  testWidgets(
-    'purchase never spends or celebrates before durable confirmation and blocks double tap',
-    (tester) async {
-      final pending = Completer<YeopjeonTransactionResult>();
-      var calls = 0;
-      await render(
-        tester,
-        language: 'en',
-        build: (_) {
-          calls++;
-          return pending.future;
-        },
-      );
-      final build = find.byKey(const ValueKey('yeopjeon-build-sarangchae'));
-      await tester.tap(build);
-      await tester.pump();
-      await tester.tap(build);
-      await tester.pump();
-      expect(calls, 1);
-      expect(find.text('40 yeopjeon'), findsOneWidget);
-      expect(find.text('A new part of your hanok is ready!'), findsNothing);
-      pending.complete(
-        YeopjeonTransactionResult(
-          status: YeopjeonTransactionStatus.built,
-          amount: -40,
-          wallet: wallet(owned: 1),
-        ),
-      );
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 100));
-      await tester.pump();
-      expect(find.text('0 yeopjeon'), findsOneWidget);
-      expect(find.text('A new part of your hanok is ready!'), findsOneWidget);
-      expect(tester.takeException(), isNull);
-    },
-  );
-  testWidgets(
-    'unknown purchase keeps saved money visible and offers safe retry',
-    (tester) async {
-      await render(
-        tester,
-        language: 'de',
-        build: (_) async => const YeopjeonTransactionResult(
-          status: YeopjeonTransactionStatus.unknown,
-          amount: 0,
-        ),
-      );
-      await tester.tap(find.byKey(const ValueKey('yeopjeon-build-sarangchae')));
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 100));
-      expect(find.text('40 Yeopjeon'), findsOneWidget);
-      expect(
-        find.textContaining('Transaktion konnte nicht bestätigt'),
-        findsOneWidget,
-      );
-      expect(
-        find.text('Ein neuer Teil deines Hanok ist fertig!'),
-        findsNothing,
-      );
-      expect(tester.takeException(), isNull);
-    },
-  );
+  for (final conceptC in [false, true]) {
+    testWidgets(
+      'C=$conceptC purchase never spends or celebrates before durable confirmation and blocks double tap',
+      (tester) async {
+        final pending = Completer<YeopjeonTransactionResult>();
+        var calls = 0;
+        await render(
+          tester,
+          language: 'en',
+          conceptC: conceptC,
+          build: (_) {
+            calls++;
+            return pending.future;
+          },
+        );
+        final build = find.byKey(const ValueKey('yeopjeon-build-sarangchae'));
+        await tester.tap(build);
+        await tester.pump();
+        await tester.tap(build);
+        await tester.pump();
+        expect(calls, 1);
+        expect(find.text('40 yeopjeon'), findsOneWidget);
+        expect(find.text('A new part of your hanok is ready!'), findsNothing);
+        pending.complete(
+          YeopjeonTransactionResult(
+            status: YeopjeonTransactionStatus.built,
+            amount: -40,
+            wallet: wallet(owned: 1),
+          ),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 100));
+        await tester.pump();
+        expect(find.text('0 yeopjeon'), findsOneWidget);
+        expect(find.text('A new part of your hanok is ready!'), findsOneWidget);
+        expect(tester.takeException(), isNull);
+      },
+    );
+    testWidgets(
+      'C=$conceptC unknown purchase keeps saved money visible and offers safe retry',
+      (tester) async {
+        await render(
+          tester,
+          language: 'de',
+          conceptC: conceptC,
+          build: (_) async => const YeopjeonTransactionResult(
+            status: YeopjeonTransactionStatus.unknown,
+            amount: 0,
+          ),
+        );
+        await tester.tap(
+          find.byKey(const ValueKey('yeopjeon-build-sarangchae')),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 100));
+        expect(find.text('40 Yeopjeon'), findsOneWidget);
+        expect(
+          find.textContaining('Transaktion konnte nicht bestätigt'),
+          findsOneWidget,
+        );
+        expect(
+          find.text('Ein neuer Teil deines Hanok ist fertig!'),
+          findsNothing,
+        );
+        expect(tester.takeException(), isNull);
+      },
+    );
+  }
   testWidgets(
     'explicit reduced motion revokes video eligibility independently of OS flags',
     (tester) async {
@@ -152,28 +164,31 @@ void main() {
     },
   );
   for (final language in ['de', 'en']) {
-    testWidgets(
-      '$language at 390dp and 200% text keeps wallet and build action accessible',
-      (tester) async {
-        await render(
-          tester,
-          language: language,
-          scale: 2,
-          build: (_) async => const YeopjeonTransactionResult(
-            status: YeopjeonTransactionStatus.locked,
-            amount: 0,
-          ),
-        );
-        await tester.ensureVisible(
-          find.byKey(const ValueKey('yeopjeon-build-sarangchae')),
-        );
-        await tester.pump();
-        expect(
-          find.byKey(const ValueKey('yeopjeon-build-sarangchae')),
-          findsOneWidget,
-        );
-        expect(tester.takeException(), isNull);
-      },
-    );
+    for (final conceptC in [false, true]) {
+      testWidgets(
+        '$language C=$conceptC at 390dp and 200% text keeps wallet and build action accessible',
+        (tester) async {
+          await render(
+            tester,
+            language: language,
+            scale: 2,
+            conceptC: conceptC,
+            build: (_) async => const YeopjeonTransactionResult(
+              status: YeopjeonTransactionStatus.locked,
+              amount: 0,
+            ),
+          );
+          await tester.ensureVisible(
+            find.byKey(const ValueKey('yeopjeon-build-sarangchae')),
+          );
+          await tester.pump();
+          expect(
+            find.byKey(const ValueKey('yeopjeon-build-sarangchae')),
+            findsOneWidget,
+          );
+          expect(tester.takeException(), isNull);
+        },
+      );
+    }
   }
 }

@@ -586,6 +586,9 @@ class SoriMotion {
 ///
 /// **2026-09-30**: Noto Sans KR 한 파일이 한글·영어·독일어 문자를 모두
 /// 포함하므로 세 언어를 같은 서체로 그린다.
+/// Language role for controls that contain Korean learning text.
+enum SoriTextRole { ui, learning }
+
 class SoriFonts {
   SoriFonts._();
   static const String sans = 'NotoSansKR';

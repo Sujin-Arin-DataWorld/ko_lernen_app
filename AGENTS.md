@@ -425,6 +425,7 @@ flutter run -d <android-id>   # 안드로이드
 
 > 미완료 게이트만 적는다. 끝난 항목은 지우며, 이력은 `git log` / PR / `.claude/handoffs/`다.
 
+- [ ] **C안 runtime/trigger parity (2026-10-05 감사)**: 승인 C 시안·목업·현재 C WIP·`origin/main`·기존 source audit를 분리 대조한 정본은 `docs/design/c_runtime_trigger_parity_audit_20261005/AUDIT_REPORT.md`와 `TRIGGER_PARITY_MATRIX.json`. 현재 판정은 **100% trigger parity FAIL**: Sori catalog 21/21 root ID/route parity와 free-learning 8,514 ledger row 구조 검증은 통과했지만 `c_free_learning_mockup_20261005/screen.html`이 없는 `app.mjs`를 요구해 universal 목업은 실행 불가. Small Talk 209/590, Book/Notebook, Calligraphy, My Words user/custom, Cloze/Satz 내부 corpus, Course 902 task, Whole Hangul 내부 C 화면, Settings/Profile 16장 native wiring, Einleitung 승인 시안 차이를 닫고 latest main 기준으로 재감사하기 전에는 100%/ship-ready라고 부르지 않는다. 재실행: `python -X utf8 tool/audit_c_runtime_trigger_parity.py`.
 - [ ] **UI 실기기 게이트 (Jin)**: 덱 4방향 손맛·시스템 엣지·히어로 잘림, 승인 대기 중인
   아이콘/리소 자산을 실제 기기에서 검수한다. 승인 전에는 대규모 UI 재설계나 자산 덮어쓰기를
   하지 않는다.

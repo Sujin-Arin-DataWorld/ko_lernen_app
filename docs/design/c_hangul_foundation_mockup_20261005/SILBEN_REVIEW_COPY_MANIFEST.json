@@ -1,0 +1,118 @@
+{
+  "copies": [
+    {
+      "state": "01",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-09b3ff63-9980-4b67-a48c-c5f4409fa7b7.png",
+      "reviewCopy": "silben-review-assets/S01.png",
+      "sha256": "b1fe6292e513ca71ebe8444ae17a18d5209a859e705ad587081b2742cdae25bf",
+      "bytes": 2027659,
+      "sourceBytesUnchanged": true
+    },
+    {
+      "state": "02",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-5503d24d-ebb9-4138-883c-0aadd74f867c.png",
+      "reviewCopy": "silben-review-assets/S02.png",
+      "sha256": "eae11622a0c874e75453f4f1130e437ff0f640719f293932dd916306b296ff81",
+      "bytes": 2043588,
+      "sourceBytesUnchanged": true
+    },
+    {
+      "state": "03",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-6603f5d0-697c-4d29-b449-64630e4dcff1.png",
+      "reviewCopy": "silben-review-assets/S03.png",
+      "sha256": "021ae4b8e4e533f9dbcc06327500557aefff8f9ee09bcc065410b61861b50ae4",
+      "bytes": 1919821,
+      "sourceBytesUnchanged": true
+    },
+    {
+      "state": "04",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-85189dbb-8e56-4e5f-9d6f-b298fedd5dc5.png",
+      "reviewCopy": "silben-review-assets/S04.png",
+      "sha256": "0f5c413ff61e402a25fba9de9e537ad972943752755207a9b9de234a44ddcf63",
+      "bytes": 1993972,
+      "sourceBytesUnchanged": true
+    },
+    {
+      "state": "05",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-cc2926db-406a-4f56-ac7d-4760cc3794f6.png",
+      "reviewCopy": "silben-review-assets/S05.png",
+      "sha256": "67f63fb0c6e4ece2352a7adc6e20a9024af964d8a94dbf46cfe9596f20ccea02",
+      "bytes": 2008316,
+      "sourceBytesUnchanged": true
+    },
+    {
+      "state": "06",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-f7a808e1-5c4c-4eba-a77d-79cbee60ab3a.png",
+      "reviewCopy": "silben-review-assets/S06.png",
+      "sha256": "db50a1210d422d4e0fa239f01c13d998daf68056032ec863c4aa0b49ee523893",
+      "bytes": 1993775,
+      "sourceBytesUnchanged": true
+    },
+    {
+      "state": "07",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-625a0185-b886-41e5-8d23-2ceca8bd427a.png",
+      "reviewCopy": "silben-review-assets/S07.png",
+      "sha256": "ea26949e87f3ce5bb90fb0cc884625462e6bba89a01d1c2c9cc132f8b28b242c",
+      "bytes": 1947408,
+      "sourceBytesUnchanged": true
+    },
+    {
+      "state": "08",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-a88c4b5e-3464-4797-905f-08e68c75c863.png",
+      "reviewCopy": "silben-review-assets/S08.png",
+      "sha256": "c118d7fc9c12644a362228914087873463c3a1c0d0d7b0b8610d7e694a6bd959",
+      "bytes": 2005059,
+      "sourceBytesUnchanged": true
+    },
+    {
+      "state": "09",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-fb48b7ee-2720-4749-b996-cd6149c5e975.png",
+      "reviewCopy": "silben-review-assets/S09.png",
+      "sha256": "e19057d2871812a76c0b23159050db1a444fb81b690157d60242ae48b3a6d666",
+      "bytes": 1983402,
+      "sourceBytesUnchanged": true
+    },
+    {
+      "state": "10",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-fcfd4042-aed6-4ab1-8712-4392c7d4af0f.png",
+      "reviewCopy": "silben-review-assets/S10.png",
+      "sha256": "0a90f7da6599c1534d628f13407d82df94597e6518cf58a8dd05e6e45a6198a1",
+      "bytes": 2112011,
+      "sourceBytesUnchanged": true
+    },
+    {
+      "state": "11",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-41ad8497-2057-4b3f-b287-4093ef572521.png",
+      "reviewCopy": "silben-review-assets/S11.png",
+      "sha256": "3bd9d96bc9c559c05cdcf219b93f815a9fcf8fb43033a59fdf82cbfd28c38c79",
+      "bytes": 1846917,
+      "sourceBytesUnchanged": true
+    },
+    {
+      "state": "12",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-352d9390-61c0-4d73-bee2-168b7131d29a.png",
+      "reviewCopy": "silben-review-assets/S12.png",
+      "sha256": "c428cc8ddd9bd115f28b90d490dc389b18329ebd83162f0a4685a9ce2e9a212f",
+      "bytes": 1981287,
+      "sourceBytesUnchanged": true
+    },
+    {
+      "state": "13",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-14351317-fbc2-4ef2-8634-904fad58dc37.png",
+      "reviewCopy": "silben-review-assets/S13.png",
+      "sha256": "af3a0cb627e3db33f9f090967590722548524dddfab87fa5f7e7f00251f43210",
+      "bytes": 2032397,
+      "sourceBytesUnchanged": true
+    },
+    {
+      "state": "14",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-18668fda-1d3e-4cb0-802d-25f59eaccad0.png",
+      "reviewCopy": "silben-review-assets/S14.png",
+      "sha256": "29629110b20c8cf36726aa590bb1d8ade9557ad387fc220ea34d16c2b5e5bc5f",
+      "bytes": 1938028,
+      "sourceBytesUnchanged": true
+    }
+  ],
+  "allCopiesByteIdentical": true,
+  "approval": "review candidates only"
+}

@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "approved": "2026-10-04",
+  "selection_ids": [
+    "tiger",
+    "magpie"
+  ],
+  "files": [
+    {
+      "source": "백호정본채택/exec-d9e47a8d-6278-485e-a4f3-effc288da9a4.png",
+      "asset": "assets/illustrations/companions/canonical/taego.png",
+      "sha256": "9dd03e4c62fb4513b5c97f788d48189bce939e510d39a1b34a2bd9b0415bfbe2",
+      "role": "full_body"
+    },
+    {
+      "source": "백호정본채택/exec-da0092d4-29ab-4c7d-99ac-3d6628855a4e.png",
+      "asset": "assets/illustrations/companions/canonical/taego_guide.png",
+      "sha256": "8eace5ec15342a2d816f095bd1953aa73c22cdf4c9c1b8fe06a235b458ac4f98",
+      "role": "inward_guide"
+    },
+    {
+      "source": "백호정본채택/exec-2283fd5e-881e-4887-b4e5-528dd38f289c.png",
+      "asset": "assets/illustrations/companions/canonical/taego_seated.png",
+      "sha256": "444eed7e6e7188432b5fe0c6e125dc5790d84a71c93255e9149396b12ee20a2f",
+      "role": "seated"
+    },
+    {
+      "source": "백호정본채택/exec-59fe7aff-0d16-40cf-8904-8f433de124e4.png",
+      "asset": "assets/illustrations/companions/canonical/taego_portrait.png",
+      "sha256": "8d7137edfe97df4c63b5048962c6660e189c9ad37b6031799b152abf38065479",
+      "role": "portrait"
+    },
+    {
+      "source": "까치정본/exec-75fbc678-9c71-4a8f-af27-8920e62b9896.png",
+      "asset": "assets/illustrations/companions/canonical/joy.png",
+      "sha256": "c1d79c59ea954d2bacee01abe48d4283d6e8ee7dc3fd47a9a30d80b58742a588",
+      "role": "full_body"
+    },
+    {
+      "source": "까치정본/exec-fb0af650-849a-4385-8c42-520916394aea.png",
+      "asset": "assets/illustrations/companions/canonical/joy_guide.png",
+      "sha256": "0d793e51b645df67603b90b6fcedb3a358f03f1d714838f8d9ccf1ab8b3228cc",
+      "role": "inward_guide"
+    },
+    {
+      "source": "까치정본/exec-dbbba68f-00b2-451c-8dc1-d24169650b4f.png",
+      "asset": "assets/illustrations/companions/canonical/joy_celebrate.png",
+      "sha256": "f70f5fcee6770a0953071afb4cd526ec88dce3fef17ec1cf313ac4328e7a4db5",
+      "role": "celebration"
+    },
+    {
+      "source": "까치정본/exec-257d9975-6169-40f6-9211-ae5befad4040.png",
+      "asset": "assets/illustrations/companions/canonical/joy_portrait.png",
+      "sha256": "15c3c966c0ae190c11777977587943cdef1975d7e186349b4dc7408987749d29",
+      "role": "portrait"
+    },
+    {
+      "source": "도깨비/making_money.mp4",
+      "asset": "assets/video/rewards/making_money.mp4",
+      "sha256": "6e850b717ec285fd1d9be057da361fed629c178e750a15c77b592cbda6f91ff5",
+      "role": "confirmed_daily_first_reward"
+    },
+    {
+      "asset": "assets/illustrations/companions/canonical/making_money_poster.png",
+      "sha256": "857f2a6dee2b9c976db8c75474112852ead5065301bf03d65d672438606a9a7c",
+      "role": "poster",
+      "derived_from": "assets/video/rewards/making_money.mp4",
+      "frame": 0
+    }
+  ]
+}

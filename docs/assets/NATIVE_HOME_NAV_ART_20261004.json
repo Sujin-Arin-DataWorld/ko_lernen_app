@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "approved": "2026-10-04",
+  "palette_reference": [
+    "assets/illustrations/activities/speed_match.webp",
+    "assets/illustrations/tactile/dokkaebi.png"
+  ],
+  "rendering": "Full original image via BoxFit.contain; no crop, tint, mirror, or re-encoding.",
+  "files": [
+    {
+      "source": "C:/Users/vjinn/.codex/generated_images/Nevi_Bar5/exec-d0abcd6e-3c27-46de-8c6b-85caa1ac23e3.png",
+      "asset": "assets/icons/navigation/today_calendar.png",
+      "sha256": "a8ef18b79cc93d75600f2fccb35d8830c2277e9d42151176c0e22d34eb6bf22a",
+      "role": "today_and_streak",
+      "transformation": "none",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "source": "C:/Users/vjinn/.codex/generated_images/Nevi_Bar5/exec-0341b149-61b9-4a48-acb3-74fa59314392.png",
+      "asset": "assets/icons/navigation/games_controller.png",
+      "sha256": "11c9d9004f23cb9a4c63eb53fe546b3c745e7b5c10047996b94b724f9eabe5b1",
+      "role": "games",
+      "transformation": "none",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        254
+      ]
+    },
+    {
+      "source": "C:/Users/vjinn/.codex/generated_images/Nevi_Bar5/exec-801c0e2c-d79d-466c-b2ea-915356b4fe29.png",
+      "asset": "assets/icons/navigation/hanok_gate.png",
+      "sha256": "4c42fda8e624093c8ba39699492bbc5bf27efc1f3a04d9669b1d7d8720df61bf",
+      "role": "hanok",
+      "transformation": "none",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "source": "C:/Users/vjinn/.codex/generated_images/Nevi_Bar5/exec-effff9d2-a719-420a-9eb2-54f9b5d4a076.png",
+      "asset": "assets/icons/navigation/gye_people.png",
+      "sha256": "42c2618b59241ff79f5413471b7b4f2bd61ce6d8c18b6acbdee9fff4f51a19b5",
+      "role": "gye_and_hidden_companion_profile",
+      "transformation": "none",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "source": "C:/Users/vjinn/.codex/generated_images/Nevi_Bar5/exec-05498f3d-5155-4ae2-a84b-147e724e66b6.png",
+      "asset": "assets/icons/navigation/settings_gear.png",
+      "sha256": "7db025816a5225d92a58a642f5ecc5085369c0838085173cd54bba0fd9ce59e4",
+      "role": "settings",
+      "transformation": "none",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "source": "C:/Users/vjinn/ELibrary/Downloads/edited-photo.png",
+      "asset": "assets/illustrations/reward/treasure_chest.png",
+      "sha256": "5ba8ad3799ab846b208d0cbe2858d302a58333bf9a907ec943574342e2e89d97",
+      "role": "pending_bojagi",
+      "transformation": "none",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "source": "C:/Users/vjinn/.codex/generated_images/01a107ac-29c9-7cd2-aa98-be5bfe0c4b7d/exec-d4b132de-c9c0-4222-80ab-b67106a02ff0.png",
+      "asset": "assets/icons/navigation/learn.png",
+      "sha256": "48df8d3540f0a58f149e6a6303b5825d5a1cd05887aec3351cedea399136ddd8",
+      "role": "learn",
+      "transformation": "none",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ]
+    }
+  ]
+}

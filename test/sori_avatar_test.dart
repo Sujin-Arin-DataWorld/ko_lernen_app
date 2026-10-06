@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/home_navigation_art.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/avatar.dart';
@@ -43,7 +44,19 @@ void main() {
       await MascotPreference.setNone();
       await tester.pump();
       expect(find.byType(Mascot), findsNothing);
-      expect(find.byIcon(Icons.person_outline_rounded), findsOneWidget);
+      expect(
+        find.byWidgetPredicate((widget) {
+          if (widget is! Image) {
+            return false;
+          }
+          final provider = widget.image is ResizeImage
+              ? (widget.image as ResizeImage).imageProvider
+              : widget.image;
+          return provider is AssetImage &&
+              provider.assetName == HomeNavigationArt.gye;
+        }),
+        findsOneWidget,
+      );
       expect(MascotPreference.chosenKind, MascotKind.magpie);
 
       final semantics = tester.ensureSemantics();

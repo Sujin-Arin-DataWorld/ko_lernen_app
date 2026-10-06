@@ -1,0 +1,36 @@
+// Reference constants only. Not imported by the app.
+abstract final class CApprovedGeometry {
+  static const double mainGutter = 12; // dp
+  static const double cardPadding = 12; // dp
+  static const double cardRadius = 14; // dp
+  static const double boardRadius = 18; // dp
+  static const double learnCardGap = 10; // dp
+  static const double learnCardPadding = 8; // dp
+  static const double learnCardArtHeight = 76; // dp
+  static const double gameCardGap = 8; // dp
+  static const double gameCardPadding = 6; // dp
+  static const double gameCardArtHeight = 70; // dp
+  static const double tileRadius = 10; // dp
+  static const double tileArtToLabel = 4; // dp
+  static const double gameHeroToTitle = 8; // dp
+  static const double gameTitleToCta = 10; // dp
+  static const double gameCtaToCards = 12; // dp
+  static const double gameRowGap = 10; // dp
+  static const double ctaMinHeight = 54; // dp
+  static const double ctaCompactMinHeight = 48; // dp
+  static const double ctaRadius = 9; // dp
+  static const double ctaPaddingX = 12; // dp
+  static const double ctaPaddingY = 10; // dp
+  static const double ctaDepth = 4; // dp
+  static const double ctaBorder = 1.3; // dp
+  static const double ctaLabelSize = 21; // sp
+  static const double ctaCompactLabelSize = 16; // sp
+  static const double ctaArrowWidth = 18; // dp
+  static const double ctaArrowHeight = 24; // dp
+  static const double navigationHeight = 64; // dp
+  static const double introBodyGutter = 14; // dp
+  static const double introInterestGap = 9; // dp
+  static const double introCompanionGap = 9; // dp
+  static const double introCompanionToGye = 14; // dp
+  static const double touchMin = 48; // dp
+}

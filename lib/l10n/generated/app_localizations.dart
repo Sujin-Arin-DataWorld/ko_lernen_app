@@ -97,6 +97,78 @@ abstract class AppL10n {
     Locale('en'),
   ];
 
+  /// No description provided for @rewardConfirmedBalance.
+  ///
+  /// In de, this message translates to:
+  /// **'Guthaben: {amount} Yeopjeon'**
+  String rewardConfirmedBalance(int amount);
+
+  /// No description provided for @onboardingCtaPath.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernweg ansehen'**
+  String get onboardingCtaPath;
+
+  /// No description provided for @onboardingCtaTry.
+  ///
+  /// In de, this message translates to:
+  /// **'Kurz ausprobieren'**
+  String get onboardingCtaTry;
+
+  /// No description provided for @onboardingCtaGames.
+  ///
+  /// In de, this message translates to:
+  /// **'Spiele entdecken'**
+  String get onboardingCtaGames;
+
+  /// No description provided for @onboardingCtaBook.
+  ///
+  /// In de, this message translates to:
+  /// **'Buchbeispiel ansehen'**
+  String get onboardingCtaBook;
+
+  /// No description provided for @onboardingCtaHanok.
+  ///
+  /// In de, this message translates to:
+  /// **'Hanok entdecken'**
+  String get onboardingCtaHanok;
+
+  /// No description provided for @onboardingCtaCompanion.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernbegleiter wählen'**
+  String get onboardingCtaCompanion;
+
+  /// No description provided for @yeopjeonConfirmationPending.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Lektion ist gespeichert. Deine Yeopjeon werden noch geprüft.'**
+  String get yeopjeonConfirmationPending;
+
+  /// No description provided for @yeopjeonCheckAgain.
+  ///
+  /// In de, this message translates to:
+  /// **'Yeopjeon erneut prüfen'**
+  String get yeopjeonCheckAgain;
+
+  /// No description provided for @rewardConstructionDetails.
+  ///
+  /// In de, this message translates to:
+  /// **'Neue Bauphase ansehen'**
+  String get rewardConstructionDetails;
+
+  /// No description provided for @rewardDetailsUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Belohnung ist gespeichert. Diese Ansicht lässt sich gerade nicht öffnen. Versuche es erneut.'**
+  String get rewardDetailsUnavailable;
+
+  /// No description provided for @rewardArtworkUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Das Gebäudebild konnte nicht geladen werden.'**
+  String get rewardArtworkUnavailable;
+
   /// No description provided for @settingsHaptics.
   ///
   /// In de, this message translates to:
@@ -126,6 +198,30 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Meine Yeopjeon'**
   String get yeopjeonTitle;
+
+  /// No description provided for @rewardYeopjeonReceived.
+  ///
+  /// In de, this message translates to:
+  /// **'Yeopjeon erhalten'**
+  String get rewardYeopjeonReceived;
+
+  /// No description provided for @rewardViewWallet.
+  ///
+  /// In de, this message translates to:
+  /// **'Guthaben ansehen'**
+  String get rewardViewWallet;
+
+  /// No description provided for @rewardViewProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernfortschritt ansehen'**
+  String get rewardViewProgress;
+
+  /// No description provided for @rewardXpDetails.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese XP stammen aus deinem abgeschlossenen Lernen. Sie zählen zu deinem Lernfortschritt.'**
+  String get rewardXpDetails;
 
   /// No description provided for @yeopjeonBalance.
   ///
@@ -13119,7 +13215,7 @@ abstract class AppL10n {
   /// No description provided for @bojagiAllOwnedBody.
   ///
   /// In de, this message translates to:
-  /// **'Alle drei Stücke aus diesem Bündel hast du schon.'**
+  /// **'Alle verfügbaren Fundstücke gehören dir bereits.'**
   String get bojagiAllOwnedBody;
 
   /// No description provided for @bojagiProblemTitle.
@@ -14775,19 +14871,19 @@ abstract class AppL10n {
   /// No description provided for @soriStageBojagiTitle.
   ///
   /// In de, this message translates to:
-  /// **'Ein Bojagi wartet'**
+  /// **'Deine Schatztruhe wartet'**
   String get soriStageBojagiTitle;
 
   /// No description provided for @soriStageBojagiBody.
   ///
   /// In de, this message translates to:
-  /// **'Wähle eines von drei Stücken für dein Zimmer.'**
+  /// **'Entdecke dein Fundstück für dein Hanok.'**
   String get soriStageBojagiBody;
 
   /// No description provided for @soriStageOpenBojagi.
   ///
   /// In de, this message translates to:
-  /// **'Bojagi öffnen'**
+  /// **'Schatztruhe öffnen'**
   String get soriStageOpenBojagi;
 
   /// No description provided for @soriStageHanokNow.
@@ -14835,7 +14931,7 @@ abstract class AppL10n {
   /// No description provided for @soriStageHanokUpdating.
   ///
   /// In de, this message translates to:
-  /// **'Hanok-Vorschau · die neue Ansicht entsteht.'**
+  /// **'Schließe Lernaktivitäten ab und baue mit Yeopjeon neue Bauabschnitte.'**
   String get soriStageHanokUpdating;
 
   /// No description provided for @sarangchaeConstructionProgress.
@@ -14907,7 +15003,7 @@ abstract class AppL10n {
   /// No description provided for @soriStageGyeUpdating.
   ///
   /// In de, this message translates to:
-  /// **'Der gemeinsame Hof wird gerade erneuert.'**
+  /// **'Lerne gemeinsam: Tritt einer Lerngruppe bei und arbeite am Wochenziel.'**
   String get soriStageGyeUpdating;
 
   /// No description provided for @pronunciationTitle.
@@ -15195,13 +15291,13 @@ abstract class AppL10n {
   /// No description provided for @soriStageReceiptEyebrow.
   ///
   /// In de, this message translates to:
-  /// **'GERADE VERÄNDERT'**
+  /// **'GESCHAFFT'**
   String get soriStageReceiptEyebrow;
 
   /// No description provided for @soriStageReceiptTitle.
   ///
   /// In de, this message translates to:
-  /// **'Dein Lernen hat den Weg weitergebracht.'**
+  /// **'Dein Lernerfolg'**
   String get soriStageReceiptTitle;
 
   /// No description provided for @soriStageReceiptSemantics.
@@ -15237,7 +15333,7 @@ abstract class AppL10n {
   /// No description provided for @soriStageActivityTitle.
   ///
   /// In de, this message translates to:
-  /// **'{activityId, select, course{Lernpfad} hangul{Hangul} calligraphy{Buchstabe des Tages} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{Wiederholen} hard_words{Schwierige Wörter} word_web{Nuancen & Gegenteile} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} vocab_notebook{Vokabelheft} bookshelf{Bücherregal} word_search{Wortsuche} my_words{Meine Wörter} daily_game{Tageschallenge} chosung{Anlaut-Quiz} syllable_cross{Silben-Rätsel} cloze{Lückentext} speed_match{Blitz-Paare} sentence_arcade{Satz-Arcade} kkeunmari{Kkeunmari} custom_practice{Eigene Wörter üben} other{Lernaktivität}}}'**
+  /// **'{activityId, select, course{Lernpfad} hangul{Hangul} calligraphy{Buchstabe des Tages} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{Wiederholen} hard_words{Schwierige Wörter} word_web{Nuancen & Gegenteile} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} vocab_notebook{Vokabelheft} bookshelf{Bücherregal} word_search{Wortsuche} my_words{Meine Wörter} daily_game{Tageschallenge} chosung{Anlaut-Quiz} syllable_cross{Silben-Rätsel} cloze{Lückentext} speed_match{Blitz-Paare} sentence_arcade{Satzbau} kkeunmari{Wortkette} custom_practice{Eigene Wörter üben} other{Lernaktivität}}}'**
   String soriStageActivityTitle(String activityId);
 
   /// No description provided for @soriStageActivityDescription.
@@ -17886,6 +17982,12 @@ abstract class AppL10n {
   /// **'So funktioniert’s'**
   String get catalogHowItWorks;
 
+  /// No description provided for @catalogViewGame.
+  ///
+  /// In de, this message translates to:
+  /// **'Spiel ansehen'**
+  String get catalogViewGame;
+
   /// No description provided for @catalogStartSession.
   ///
   /// In de, this message translates to:
@@ -19977,7 +20079,7 @@ abstract class AppL10n {
   /// No description provided for @cultureHahoeMaskName.
   ///
   /// In de, this message translates to:
-  /// **'Hahoe-Maske'**
+  /// **'Maskierter Gelehrter'**
   String get cultureHahoeMaskName;
 
   /// No description provided for @cultureDokkaebiName.
@@ -20069,6 +20171,600 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Hilfe & App-Infos'**
   String get settingsGroupHelp;
+
+  /// No description provided for @onboardingCStartLevel.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Startniveau'**
+  String get onboardingCStartLevel;
+
+  /// No description provided for @onboardingCChange.
+  ///
+  /// In de, this message translates to:
+  /// **'Ändern'**
+  String get onboardingCChange;
+
+  /// No description provided for @onboardingCLevelRange.
+  ///
+  /// In de, this message translates to:
+  /// **'Ganz neu oder A1–C2.'**
+  String get onboardingCLevelRange;
+
+  /// No description provided for @onboardingCInterest.
+  ///
+  /// In de, this message translates to:
+  /// **'Was ist dir wichtig?'**
+  String get onboardingCInterest;
+
+  /// No description provided for @onboardingCLater.
+  ///
+  /// In de, this message translates to:
+  /// **'Du kannst das später ändern.'**
+  String get onboardingCLater;
+
+  /// No description provided for @onboardingCPathSummary.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein klarer Lernweg.'**
+  String get onboardingCPathSummary;
+
+  /// No description provided for @onboardingCPathBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Von den ersten Lauten bis zum echten Gespräch.'**
+  String get onboardingCPathBody;
+
+  /// No description provided for @onboardingCSoundSummary.
+  ///
+  /// In de, this message translates to:
+  /// **'Zwei Zeichen. Ein Klang.'**
+  String get onboardingCSoundSummary;
+
+  /// No description provided for @onboardingCSoundBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Hören, verbinden, ausprobieren.'**
+  String get onboardingCSoundBody;
+
+  /// No description provided for @onboardingCGamesSummary.
+  ///
+  /// In de, this message translates to:
+  /// **'8 Spiele. Viele Aha-Momente.'**
+  String get onboardingCGamesSummary;
+
+  /// No description provided for @onboardingCGamesBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Übe mit deinen gespeicherten Wörtern. Entdecke Belohnungen für deine Fortschritte.'**
+  String get onboardingCGamesBody;
+
+  /// No description provided for @onboardingCBookSummary.
+  ///
+  /// In de, this message translates to:
+  /// **'Aus deinen Büchern lernen.'**
+  String get onboardingCBookSummary;
+
+  /// No description provided for @onboardingCBookBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Entdecke Wörter und ihren Kontext. TalSunbi hilft dir, sie zu verstehen.'**
+  String get onboardingCBookBody;
+
+  /// No description provided for @onboardingCHanokSummary.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit Yeopjeon wächst dein Hanok.'**
+  String get onboardingCHanokSummary;
+
+  /// No description provided for @onboardingCHanokBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Stempelbuch & Dancheong-Atelier. Deine Werke für die Sarangbang.'**
+  String get onboardingCHanokBody;
+
+  /// No description provided for @onboardingCGyeTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Auch gemeinsam: Gye'**
+  String get onboardingCGyeTitle;
+
+  /// No description provided for @onboardingCGyeBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Finde später deine Lerngruppe. Du kannst alleine starten.'**
+  String get onboardingCGyeBody;
+
+  /// No description provided for @onboardingCTaegoRole.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein ruhiger Begleiter'**
+  String get onboardingCTaegoRole;
+
+  /// No description provided for @onboardingCJoyRole.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine neugierige Begleiterin'**
+  String get onboardingCJoyRole;
+
+  /// No description provided for @practiceReplayGesture.
+  ///
+  /// In de, this message translates to:
+  /// **'Fächergeste wiederholen'**
+  String get practiceReplayGesture;
+
+  /// No description provided for @practiceDokkaebiMeet.
+  ///
+  /// In de, this message translates to:
+  /// **'Den Dokkaebi kennenlernen'**
+  String get practiceDokkaebiMeet;
+
+  /// No description provided for @practiceDokkaebiAbout.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Rätselgefährte'**
+  String get practiceDokkaebiAbout;
+
+  /// No description provided for @practiceDokkaebiGesture.
+  ///
+  /// In de, this message translates to:
+  /// **'Den Schwung ansehen'**
+  String get practiceDokkaebiGesture;
+
+  /// No description provided for @practiceDokkaebiReturn.
+  ///
+  /// In de, this message translates to:
+  /// **'Zurück zum Rätsel'**
+  String get practiceDokkaebiReturn;
+
+  /// No description provided for @practiceDokkaebiTopicTales.
+  ///
+  /// In de, this message translates to:
+  /// **'Märchen'**
+  String get practiceDokkaebiTopicTales;
+
+  /// No description provided for @practiceDokkaebiTopicHome.
+  ///
+  /// In de, this message translates to:
+  /// **'Haus & Glück'**
+  String get practiceDokkaebiTopicHome;
+
+  /// No description provided for @practiceDokkaebiTopicLearning.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernfreund'**
+  String get practiceDokkaebiTopicLearning;
+
+  /// No description provided for @practiceDokkaebiTalesTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Zauber, Schabernack und eine Brücke'**
+  String get practiceDokkaebiTalesTitle;
+
+  /// No description provided for @practiceDokkaebiTalesBody.
+  ///
+  /// In de, this message translates to:
+  /// **'In koreanischen Erzählungen schenkt der Dokkaebi Reichtum, fordert Menschen zum Ringkampf heraus oder setzt nachts eine Brücke wieder instand. Hilfsbereit, verspielt und manchmal leicht zu überlisten.'**
+  String get practiceDokkaebiTalesBody;
+
+  /// No description provided for @practiceDokkaebiHomeTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Beschützer? Manchmal, ja.'**
+  String get practiceDokkaebiHomeTitle;
+
+  /// No description provided for @practiceDokkaebiHomeBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Auf Jeju wurde der Dokkaebi in manchen Glaubenstraditionen auch als Schutzgeist eines Hauses verehrt. Seine Rolle ist je nach Region und Erzählung verschieden.'**
+  String get practiceDokkaebiHomeBody;
+
+  /// No description provided for @practiceDokkaebiLearningTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wir knobeln zusammen'**
+  String get practiceDokkaebiLearningTitle;
+
+  /// No description provided for @practiceDokkaebiLearningBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Satzhinweis → Kreuzungsfelder → eine Silbe. Du setzt die Plättchen selbst. Hinweise sind kostenlos.'**
+  String get practiceDokkaebiLearningBody;
+
+  /// No description provided for @practiceDokkaebiLearningNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Im Sarangbang übst du später allein weiter. Gespeicherte Erfolge feiern wir gemeinsam.'**
+  String get practiceDokkaebiLearningNote;
+
+  /// No description provided for @practiceDokkaebiAppStory.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine neue Rolle in Hangul Sori.'**
+  String get practiceDokkaebiAppStory;
+
+  /// No description provided for @practiceDokkaebiFireAction.
+  ///
+  /// In de, this message translates to:
+  /// **'도깨비불 entdecken'**
+  String get practiceDokkaebiFireAction;
+
+  /// No description provided for @practiceDokkaebiFireWord.
+  ///
+  /// In de, this message translates to:
+  /// **'도깨비불 · das Dokkaebifeuer'**
+  String get practiceDokkaebiFireWord;
+
+  /// No description provided for @practiceDokkaebiRoofAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Und die Dachziegel?'**
+  String get practiceDokkaebiRoofAction;
+
+  /// No description provided for @practiceDokkaebiRoofBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Dachziegel tragen ein ausdrucksstarkes Gesicht. Das Motiv steht für das Abwehren böser Einflüsse. Es ist nicht automatisch das Bild eines Dokkaebi.'**
+  String get practiceDokkaebiRoofBody;
+
+  /// No description provided for @practiceDokkaebiFolkloreSource.
+  ///
+  /// In de, this message translates to:
+  /// **'Quelle: 한국민족문화대백과사전'**
+  String get practiceDokkaebiFolkloreSource;
+
+  /// No description provided for @practiceDokkaebiMuseumSource.
+  ///
+  /// In de, this message translates to:
+  /// **'Quelle: 국립중앙박물관'**
+  String get practiceDokkaebiMuseumSource;
+
+  /// No description provided for @practiceDokkaebiFormAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine andere Gestalt ansehen'**
+  String get practiceDokkaebiFormAction;
+
+  /// No description provided for @practiceDokkaebiFormReturn.
+  ///
+  /// In de, this message translates to:
+  /// **'Zur freundlichen Gestalt'**
+  String get practiceDokkaebiFormReturn;
+
+  /// No description provided for @practiceDokkaebiFormNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine Fantasiegestalt für Hangul Sori.'**
+  String get practiceDokkaebiFormNote;
+
+  /// New structural clue for the selected crossword word; no answer is placed.
+  ///
+  /// In de, this message translates to:
+  /// **'{count} Silben · Start: Zeile {row}, Spalte {column}'**
+  String practiceHintWordPath(int count, int row, int column);
+
+  /// No description provided for @foundationTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangul von Anfang an'**
+  String get foundationTitle;
+
+  /// No description provided for @foundationIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'Höre erste Laute, lies Silben und schreibe selbst. Du kannst jederzeit hierher zurückkehren.'**
+  String get foundationIntro;
+
+  /// No description provided for @foundationEvidenceNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier wird deine Übung gespeichert. Das ist kein Einstufungstest und schließt keine A1-Lektion ab.'**
+  String get foundationEvidenceNote;
+
+  /// No description provided for @foundationProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'{done} von {total} Übungen'**
+  String foundationProgress(int done, int total);
+
+  /// No description provided for @foundationSoundsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Laute kennenlernen'**
+  String get foundationSoundsTitle;
+
+  /// No description provided for @foundationSoundsBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Höre ㄱ, ㄴ, ㅏ und ㅣ und sprich sie nach.'**
+  String get foundationSoundsBody;
+
+  /// No description provided for @foundationSyllablesTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Silben lesen'**
+  String get foundationSyllablesTitle;
+
+  /// No description provided for @foundationSyllablesBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Lies 가, 나 und 한. Setze ihre Bestandteile zusammen.'**
+  String get foundationSyllablesBody;
+
+  /// No description provided for @foundationTraceTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Buchstaben schreiben'**
+  String get foundationTraceTitle;
+
+  /// No description provided for @foundationTraceBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Zeichne ㄱ und ㅏ in der richtigen Strichfolge nach.'**
+  String get foundationTraceBody;
+
+  /// No description provided for @foundationWordsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Erste Wörter und Begrüßung'**
+  String get foundationWordsTitle;
+
+  /// No description provided for @foundationWordsBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Höre 가방, 나무 und 안녕하세요. Sprich sie nach und lies ihre Bedeutung.'**
+  String get foundationWordsBody;
+
+  /// No description provided for @foundationNotStarted.
+  ///
+  /// In de, this message translates to:
+  /// **'Bereit'**
+  String get foundationNotStarted;
+
+  /// No description provided for @foundationOpened.
+  ///
+  /// In de, this message translates to:
+  /// **'Geöffnet'**
+  String get foundationOpened;
+
+  /// No description provided for @foundationPracticed.
+  ///
+  /// In de, this message translates to:
+  /// **'Geübt'**
+  String get foundationPracticed;
+
+  /// No description provided for @foundationPracticeAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Üben'**
+  String get foundationPracticeAction;
+
+  /// No description provided for @foundationRevisitAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch einmal üben'**
+  String get foundationRevisitAction;
+
+  /// No description provided for @foundationContinueA1.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit dem A1-Kurs weitermachen'**
+  String get foundationContinueA1;
+
+  /// No description provided for @foundationCompletedBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine ersten Übungen sind gespeichert. Im A1-Kurs lernst du Schritt für Schritt weiter.'**
+  String get foundationCompletedBody;
+
+  /// No description provided for @foundationFullHangul.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Hangul-Karten öffnen'**
+  String get foundationFullHangul;
+
+  /// No description provided for @foundationLoadError.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Übungen konnten nicht geladen werden. Versuche es noch einmal.'**
+  String get foundationLoadError;
+
+  /// No description provided for @foundationSaveError.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Übung wurde noch nicht bestätigt. Versuche das Speichern noch einmal.'**
+  String get foundationSaveError;
+
+  /// No description provided for @foundationSavePractice.
+  ///
+  /// In de, this message translates to:
+  /// **'Übung speichern'**
+  String get foundationSavePractice;
+
+  /// No description provided for @foundationListen.
+  ///
+  /// In de, this message translates to:
+  /// **'Anhören'**
+  String get foundationListen;
+
+  /// No description provided for @foundationAudioUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Stimme ist gerade nicht verfügbar. Versuche es noch einmal.'**
+  String get foundationAudioUnavailable;
+
+  /// No description provided for @foundationSelectParts.
+  ///
+  /// In de, this message translates to:
+  /// **'Welche Buchstaben bilden diese Silbe?'**
+  String get foundationSelectParts;
+
+  /// No description provided for @foundationRepeatConfirmation.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich habe zugehört und laut nachgesprochen.'**
+  String get foundationRepeatConfirmation;
+
+  /// No description provided for @foundationReadConfirmation.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich habe die Silbe laut gelesen.'**
+  String get foundationReadConfirmation;
+
+  /// No description provided for @foundationWordConfirmation.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich habe das Wort oder die Begrüßung laut gesagt.'**
+  String get foundationWordConfirmation;
+
+  /// No description provided for @foundationTraceConfirmation.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich habe den Buchstaben nachgezeichnet.'**
+  String get foundationTraceConfirmation;
+
+  /// No description provided for @foundationPracticeSaved.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Übungen sind gespeichert.'**
+  String get foundationPracticeSaved;
+
+  /// No description provided for @foundationSaved.
+  ///
+  /// In de, this message translates to:
+  /// **'Gespeichert'**
+  String get foundationSaved;
+
+  /// No description provided for @foundationTryPartsAgain.
+  ///
+  /// In de, this message translates to:
+  /// **'Das passt noch nicht. Wähle die Bestandteile dieser Silbe.'**
+  String get foundationTryPartsAgain;
+
+  /// No description provided for @foundationPartsCorrect.
+  ///
+  /// In de, this message translates to:
+  /// **'Das passt. Lies die Silbe jetzt laut.'**
+  String get foundationPartsCorrect;
+
+  /// No description provided for @onboardingCPathArt.
+  ///
+  /// In de, this message translates to:
+  /// **'Joy vor einem aufgeschlagenen Buch. Drei Stationen: Entdecken, Üben und Behalten.'**
+  String get onboardingCPathArt;
+
+  /// No description provided for @onboardingCSoundArt.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Buchstaben ㄱ und ㅏ ergeben die Silbe 가. Ein Lautsprecher steht daneben.'**
+  String get onboardingCSoundArt;
+
+  /// No description provided for @onboardingCGamesArt.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Dokkaebi mit Silbenplättchen, einem Knoten, einer Schatztruhe und einer Münze.'**
+  String get onboardingCGamesArt;
+
+  /// No description provided for @onboardingCBookArt.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Maskengelehrte mit einem Buch, koreanischen Wörtern und ihren Bedeutungen.'**
+  String get onboardingCBookArt;
+
+  /// No description provided for @onboardingCHanokArt.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Hanok mit Bäumen, einem Stempelbuch, einem Kranichbild und einer Münze.'**
+  String get onboardingCHanokArt;
+
+  /// No description provided for @rewardChestNewDecoration.
+  ///
+  /// In de, this message translates to:
+  /// **'Neue Dekoration'**
+  String get rewardChestNewDecoration;
+
+  /// No description provided for @rewardChestLearningXp.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Lern-XP'**
+  String get rewardChestLearningXp;
+
+  /// No description provided for @rewardChestCulturalStory.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Geschichte dahinter'**
+  String get rewardChestCulturalStory;
+
+  /// No description provided for @rewardChestPlaceSarangbang.
+  ///
+  /// In de, this message translates to:
+  /// **'Im Sarangbang platzieren'**
+  String get rewardChestPlaceSarangbang;
+
+  /// No description provided for @rewardChestReplay.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch einmal ansehen'**
+  String get rewardChestReplay;
+
+  /// No description provided for @rewardChestOpen.
+  ///
+  /// In de, this message translates to:
+  /// **'Truhe öffnen'**
+  String get rewardChestOpen;
+
+  /// No description provided for @rewardChestTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Perlmutt-Truhe'**
+  String get rewardChestTitle;
+
+  /// No description provided for @lernenFoundation.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangul-Einstieg'**
+  String get lernenFoundation;
+
+  /// No description provided for @lernenCourse.
+  ///
+  /// In de, this message translates to:
+  /// **'Gesamtkurs'**
+  String get lernenCourse;
+
+  /// No description provided for @lernenFree.
+  ///
+  /// In de, this message translates to:
+  /// **'Freies Lernen'**
+  String get lernenFree;
+
+  /// No description provided for @lernenPathsBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle deinen Einstieg. Deine gespeicherten Übungen bleiben in allen Bereichen erhalten.'**
+  String get lernenPathsBody;
+
+  /// No description provided for @lernenCourseBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Folge deinem Lernpfad und setze die aktuelle Mission fort.'**
+  String get lernenCourseBody;
+
+  /// No description provided for @lernenFreeBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle Wörter, Hören, Schreiben oder eine andere Übung aus der Sammlung.'**
+  String get lernenFreeBody;
+
+  /// No description provided for @lernenFreeOpen.
+  ///
+  /// In de, this message translates to:
+  /// **'Übungen ansehen'**
+  String get lernenFreeOpen;
+
+  /// No description provided for @foundationOpenError.
+  ///
+  /// In de, this message translates to:
+  /// **'Der nächste Schritt konnte nicht geöffnet werden. Versuche es noch einmal.'**
+  String get foundationOpenError;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

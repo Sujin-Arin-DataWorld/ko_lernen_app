@@ -1,63 +1,62 @@
-import '../services/haptic_service.dart';
-import '../services/learning_journey.dart';
 import 'dart:async';
 import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
-
 import '../features/study_library/study_library_models.dart';
-import '../motion/transitions.dart';
-import '../models/course_practice_context.dart';
+import '../l10n/generated/app_localizations.dart';
+import '../models/companion_art.dart';
 import '../models/course_mission_step_plan.dart';
+import '../models/course_practice_context.dart';
 import '../models/curriculum.dart';
-import '../models/grammar.dart';
-import '../models/grammar_study_plan.dart';
-import '../models/grammar_study_copy.dart';
 import '../models/feedback_completion.dart';
+import '../models/grammar.dart';
+import '../models/grammar_study_copy.dart';
+import '../models/grammar_study_plan.dart';
 import '../models/learner_level.dart';
-import '../services/course_activity_reporter.dart';
-import '../services/course_mission_navigation.dart';
-import '../services/course_checkpoint_questions.dart';
-import '../services/curriculum_catalog.dart';
+import '../motion/transitions.dart';
 import '../services/analytics_service.dart';
-import '../services/quest_abandon_tracker.dart';
-import '../services/data_loader.dart';
-import '../services/grammar_plan_service.dart';
-import '../services/grammar_choice_quiz.dart';
-import '../services/storage_service.dart';
-import '../widgets/flip_card.dart';
-import '../widgets/app_loading.dart';
-import '../widgets/app_error.dart';
+import '../services/course_activity_reporter.dart';
+import '../services/course_checkpoint_questions.dart';
+import '../services/course_mission_navigation.dart';
+import '../services/curriculum_catalog.dart';
 import '../services/custom_pack_service.dart';
-import '../widgets/sori/empty_state.dart';
-import '../widgets/sori/ko_wrap.dart';
-import '../widgets/sori/tokens.dart';
+import '../services/data_loader.dart';
+import '../services/grammar_choice_quiz.dart';
+import '../services/grammar_plan_service.dart';
+import '../services/haptic_service.dart';
+import '../services/learning_journey.dart';
+import '../services/liked_content_service.dart';
+import '../services/local_data_lifetime.dart';
+import '../services/quest_abandon_tracker.dart';
+import '../services/storage_service.dart';
+import '../widgets/app_error.dart';
+import '../widgets/app_loading.dart';
+import '../widgets/flip_card.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/chrome_row.dart';
+import '../widgets/sori/confirmed_choice_action.dart';
+import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/content_feedback_card.dart';
+import '../widgets/sori/deck_coach.dart';
+import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/ko_wrap.dart';
 import '../widgets/sori/level_filter_bar.dart';
-import '../widgets/sori/motion.dart';
 import '../widgets/sori/mission_context_bar.dart';
+import '../widgets/sori/motion.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
-import '../widgets/sori/window_class.dart';
-import '../widgets/sori/sheet.dart';
-import '../widgets/sori/study_frame.dart';
-import '../widgets/sori/content_feed.dart';
-import '../widgets/sori/confirmed_choice_action.dart';
-import '../widgets/sori/deck_coach.dart';
-import '../services/liked_content_service.dart';
-import '../services/local_data_lifetime.dart';
-import '../widgets/sori/wordbook_add.dart';
 import '../widgets/sori/screen_coach.dart';
-import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/sheet.dart';
 import '../widgets/sori/speakable.dart';
+import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/toast.dart';
+import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
-import '../l10n/generated/app_localizations.dart';
+import '../widgets/sori/window_class.dart';
+import '../widgets/sori/wordbook_add.dart';
 import 'grammar_choice_quiz_screen.dart';
 
 /// 문법 학습 본문이 넘치지 않고 들어가는 최소 높이. 이보다 짧은 뷰포트에서는
@@ -1819,7 +1818,7 @@ class _GrammarScreenState extends State<GrammarScreen>
         child: SoriStudyFrame(
           title: t.screenGrammarTitle,
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/magpie_wave.png',
+            asset: CompanionArt.joyGuide,
             icon: Icons.menu_book_outlined,
             title: t.emptyGrammar,
             ctaLabel: _isCoursePractice ? null : t.filterOpenBtn,

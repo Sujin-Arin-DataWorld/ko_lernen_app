@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '../l10n/generated/app_localizations.dart';
+import '../models/companion_art.dart';
 import '../models/word_relation.dart';
 import '../motion/transitions.dart';
 import '../services/tts_service.dart';
@@ -281,7 +281,7 @@ class _WordWebScreenState extends State<WordWebScreen>
   Widget _empty(AppL10n t) {
     return Center(
       child: SoriEmptyState(
-        asset: 'assets/illustrations/mascot/magpie_encourage.png',
+        asset: CompanionArt.joyGuide,
         icon: Icons.hub_outlined,
         title: t.wordWebEmptyTitle,
         body: t.wordWebEmptyBody,
@@ -302,7 +302,7 @@ class _WordWebScreenState extends State<WordWebScreen>
   Widget _loadError(AppL10n t) {
     return Center(
       child: SoriEmptyState(
-        asset: 'assets/illustrations/error/lost_magpie.png',
+        asset: CompanionArt.joyGuide,
         icon: Icons.hub_outlined,
         title: t.wordWebLoadErrorTitle,
         body: t.wordWebLoadErrorBody,

@@ -1,0 +1,1242 @@
+{
+  "scope": "Files present, not an approval or runtime-completion classification",
+  "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994",
+  "images": [
+    {
+      "file": "exec-000f02b9-46be-4e18-a3ee-d32343eaa91d.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-000f02b9-46be-4e18-a3ee-d32343eaa91d.png",
+      "bytes": 2225500,
+      "modifiedAtUTC": "2026-10-05T02:50:02.004106+00:00",
+      "size": [
+        1122,
+        1402
+      ],
+      "sha256": "cfbff3e6af0210f64e73a7915e6b4db895c0095646fab6112c3caf0525b2c0f3",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-00f4b1fc-8952-4dab-8e5b-6a55d368c9b8.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-00f4b1fc-8952-4dab-8e5b-6a55d368c9b8.png",
+      "bytes": 2428099,
+      "modifiedAtUTC": "2026-10-05T01:12:10.947762+00:00",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "39bfd8ced97829f2e8bedbabdf96cf582fa3600f26e2e14ee1aa8892884e0036",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-033e5332-7eae-4763-8da3-8a827e332f7a.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-033e5332-7eae-4763-8da3-8a827e332f7a.png",
+      "bytes": 1310033,
+      "modifiedAtUTC": "2026-10-05T02:30:36.047047+00:00",
+      "size": [
+        1429,
+        1100
+      ],
+      "sha256": "5ba9ee8d83d2db10128735ccbd68f63a3df16654fda166de13c1f52408d033cc",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\derived\\audio-jade-speaker.png"
+      ]
+    },
+    {
+      "file": "exec-03b6d51a-b21f-4738-b0c0-91e9808b66e4.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-03b6d51a-b21f-4738-b0c0-91e9808b66e4.png",
+      "bytes": 2019122,
+      "modifiedAtUTC": "2026-10-05T10:33:08.807698+00:00",
+      "size": [
+        854,
+        1840
+      ],
+      "sha256": "7790177af5fac2df720c682b4ec3807c87987520b9495240051aae8327d07cdf",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-03fdb07d-38f5-468c-b36a-1aa8125c73c9.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-03fdb07d-38f5-468c-b36a-1aa8125c73c9.png",
+      "bytes": 1970616,
+      "modifiedAtUTC": "2026-10-05T02:07:34.844150+00:00",
+      "size": [
+        853,
+        1844
+      ],
+      "sha256": "baf9badf9571781fd1e2942db7035cc5cb3fd29e61bab5148def88d501a3a782",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\exact-assets-20261005\\sources\\01-level-picker.png",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\mockups\\01-level-picker.png"
+      ]
+    },
+    {
+      "file": "exec-0532e953-d18d-48f1-a693-f2459766e822.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-0532e953-d18d-48f1-a693-f2459766e822.png",
+      "bytes": 2272664,
+      "modifiedAtUTC": "2026-10-05T02:50:24.856611+00:00",
+      "size": [
+        1122,
+        1402
+      ],
+      "sha256": "ccd0153cfc559be76a365845486b96bfc207b8f2d3c53522d275c92ebb4a63dc",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-09b3ff63-9980-4b67-a48c-c5f4409fa7b7.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-09b3ff63-9980-4b67-a48c-c5f4409fa7b7.png",
+      "bytes": 2027659,
+      "modifiedAtUTC": "2026-10-05T10:18:54.827661+00:00",
+      "size": [
+        854,
+        1840
+      ],
+      "sha256": "b1fe6292e513ca71ebe8444ae17a18d5209a859e705ad587081b2742cdae25bf",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-silben-dokkaebi-20261005-01a10981\\screens\\01-puzzle.png"
+      ]
+    },
+    {
+      "file": "exec-0c92c0f4-e5ce-4191-a744-4643a6f56758.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-0c92c0f4-e5ce-4191-a744-4643a6f56758.png",
+      "bytes": 2107659,
+      "modifiedAtUTC": "2026-10-05T10:26:36.286270+00:00",
+      "size": [
+        854,
+        1840
+      ],
+      "sha256": "7aef13f6cbc12be6467487eb36bc20c02b8b5a2a54c68ab597cfe6655c2f9df0",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-13d95ef0-1e31-45e1-a9b4-af141cd1d45c.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-13d95ef0-1e31-45e1-a9b4-af141cd1d45c.png",
+      "bytes": 1899475,
+      "modifiedAtUTC": "2026-10-05T04:28:51.196918+00:00",
+      "size": [
+        887,
+        1774
+      ],
+      "sha256": "71fd48623e7b706945465c3ada680f26284d6862db0c582fc260156a21647c78",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-14351317-fbc2-4ef2-8634-904fad58dc37.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-14351317-fbc2-4ef2-8634-904fad58dc37.png",
+      "bytes": 2032397,
+      "modifiedAtUTC": "2026-10-05T10:40:12.984613+00:00",
+      "size": [
+        854,
+        1840
+      ],
+      "sha256": "af3a0cb627e3db33f9f090967590722548524dddfab87fa5f7e7f00251f43210",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-1492b2fe-69c7-4bb6-9d4b-7e0b54c514d0.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-1492b2fe-69c7-4bb6-9d4b-7e0b54c514d0.png",
+      "bytes": 1004285,
+      "modifiedAtUTC": "2026-10-05T01:40:45.600997+00:00",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "efb9e4fd903a87685a568de4a191d3a9f66fc4cc270aeea7a75228d45b932ce6",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\iphone16-large\\hangulsori-red-seal.png",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\originals\\hangulsori-red-seal.png"
+      ]
+    },
+    {
+      "file": "exec-14f15d4f-21dc-4a46-9e3f-fb4d3c1a6af9.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-14f15d4f-21dc-4a46-9e3f-fb4d3c1a6af9.png",
+      "bytes": 1969234,
+      "modifiedAtUTC": "2026-10-05T04:13:46.187201+00:00",
+      "size": [
+        887,
+        1774
+      ],
+      "sha256": "639892ca208a783769668dd00288c88a98777c26610a8856a5cf892c4d2a7596",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-settings-profile-20261005-01a10981\\screens\\05-ton-bewegung.png"
+      ]
+    },
+    {
+      "file": "exec-18668fda-1d3e-4cb0-802d-25f59eaccad0.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-18668fda-1d3e-4cb0-802d-25f59eaccad0.png",
+      "bytes": 1938028,
+      "modifiedAtUTC": "2026-10-05T10:40:44.571471+00:00",
+      "size": [
+        854,
+        1840
+      ],
+      "sha256": "29629110b20c8cf36726aa590bb1d8ade9557ad387fc220ea34d16c2b5e5bc5f",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-2635f7c6-911d-43c2-81ac-36226c98b8d4.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-2635f7c6-911d-43c2-81ac-36226c98b8d4.png",
+      "bytes": 2027809,
+      "modifiedAtUTC": "2026-10-05T10:38:34.686507+00:00",
+      "size": [
+        854,
+        1840
+      ],
+      "sha256": "cdb4faed1dad1088949cd565377c4ee0876094d61481ba7d1725bc1d3dcc87a3",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-2f373952-8a83-4741-9750-ee78605c9142.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-2f373952-8a83-4741-9750-ee78605c9142.png",
+      "bytes": 2194843,
+      "modifiedAtUTC": "2026-10-05T02:44:17.338648+00:00",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "86a57c4e1528d6ea4d857e186a08d62b00f3a991c080081114dc3bdddb07ecd5",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-3011c980-717b-4260-9b6b-964e650be56a.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-3011c980-717b-4260-9b6b-964e650be56a.png",
+      "bytes": 2474379,
+      "modifiedAtUTC": "2026-10-05T01:15:57.417608+00:00",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "a87e1d4a70fefe6b8c659e037ea548e11d4b83eb4a682844709b00884e49f003",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\c-einleitung-05-07.png"
+      ]
+    },
+    {
+      "file": "exec-3056275f-07ee-4c80-a6f5-080a53e24fc9.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-3056275f-07ee-4c80-a6f5-080a53e24fc9.png",
+      "bytes": 2322816,
+      "modifiedAtUTC": "2026-10-05T01:18:19.539742+00:00",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "61453ebc76e73b77e66061d144a3538340f73286b2a7de6f451b83334d003cab",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\c-einleitung-01-04.png"
+      ]
+    },
+    {
+      "file": "exec-30eab357-1eb1-4529-95a4-aa17a2af9bc8.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-30eab357-1eb1-4529-95a4-aa17a2af9bc8.png",
+      "bytes": 2341324,
+      "modifiedAtUTC": "2026-10-05T02:48:09.123715+00:00",
+      "size": [
+        1122,
+        1402
+      ],
+      "sha256": "96db2b7733fb025ba3dc0aac978bcbb770ba80c7f32489e5eaecedc48175c9ed",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-352d9390-61c0-4d73-bee2-168b7131d29a.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-352d9390-61c0-4d73-bee2-168b7131d29a.png",
+      "bytes": 1981287,
+      "modifiedAtUTC": "2026-10-05T10:39:41.161824+00:00",
+      "size": [
+        854,
+        1840
+      ],
+      "sha256": "c428cc8ddd9bd115f28b90d490dc389b18329ebd83162f0a4685a9ce2e9a212f",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-36c12d9d-2523-484f-a86b-db8ec5944d62.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-36c12d9d-2523-484f-a86b-db8ec5944d62.png",
+      "bytes": 2388753,
+      "modifiedAtUTC": "2026-10-05T01:31:13.180351+00:00",
+      "size": [
+        853,
+        1844
+      ],
+      "sha256": "285599737eb0a7bf309748c71987eac6e4c4ad0089ee02cb79872c6cf388f783",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\iphone16-large\\c-einleitung-05.png",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\exact-assets-20261005\\sources\\05-book-learning.png",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\mockups\\c-einleitung-05.png"
+      ]
+    },
+    {
+      "file": "exec-3b30e939-9a36-471b-a59a-8c65e8025a5f.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-3b30e939-9a36-471b-a59a-8c65e8025a5f.png",
+      "bytes": 2351904,
+      "modifiedAtUTC": "2026-10-05T02:45:15.008452+00:00",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "7c8aa83530dd33c24e836443123916b5535f4b406c8d71b1e387f321f9d6c602",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-3c8952f5-d2be-409f-b084-e84d592694a7.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-3c8952f5-d2be-409f-b084-e84d592694a7.png",
+      "bytes": 2642437,
+      "modifiedAtUTC": "2026-10-05T02:18:41.974102+00:00",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "102da3a4483477b33112e41957a515b09a2b4ef11fb91738a798801208119df0",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\derived\\material-wood.png"
+      ]
+    },
+    {
+      "file": "exec-40292fa6-b17b-4fbe-a79e-03d3c472e065.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-40292fa6-b17b-4fbe-a79e-03d3c472e065.png",
+      "bytes": 2126987,
+      "modifiedAtUTC": "2026-10-05T04:31:55.861754+00:00",
+      "size": [
+        887,
+        1774
+      ],
+      "sha256": "b086ef4db400f7cdd554ec27dd1f0529780261ad5c77b7ff4b4920bd84ab1128",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-settings-profile-20261005-01a10981\\screens\\15-lernbegleitung.png"
+      ]
+    },
+    {
+      "file": "exec-41ad8497-2057-4b3f-b287-4093ef572521.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-41ad8497-2057-4b3f-b287-4093ef572521.png",
+      "bytes": 1846917,
+      "modifiedAtUTC": "2026-10-05T10:32:39.944933+00:00",
+      "size": [
+        854,
+        1842
+      ],
+      "sha256": "3bd9d96bc9c559c05cdcf219b93f815a9fcf8fb43033a59fdf82cbfd28c38c79",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-432d8b55-1b63-49d7-9dc8-1d80ced6f272.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-432d8b55-1b63-49d7-9dc8-1d80ced6f272.png",
+      "bytes": 1177273,
+      "modifiedAtUTC": "2026-10-05T02:19:02.859254+00:00",
+      "size": [
+        2171,
+        724
+      ],
+      "sha256": "5d3ce82ad26b5bbf00ab5457fbef0cfaf0fb7c3e65d774f5846e1893fe98312f",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\derived\\button-gold-blank.png"
+      ]
+    },
+    {
+      "file": "exec-4736a58b-24de-47ab-be74-ee267cd17736.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-4736a58b-24de-47ab-be74-ee267cd17736.png",
+      "bytes": 1868978,
+      "modifiedAtUTC": "2026-10-05T04:37:36.596532+00:00",
+      "size": [
+        887,
+        1774
+      ],
+      "sha256": "590a6e6685c585a9f2b9b7f6c47d4e56cb013f962d656d7628c408c0d8603c98",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-settings-profile-20261005-01a10981\\screens\\08-konto-sicherung.png"
+      ]
+    },
+    {
+      "file": "exec-4f9cfed2-1773-4a15-85b5-3442e9ffb8e4.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-4f9cfed2-1773-4a15-85b5-3442e9ffb8e4.png",
+      "bytes": 2246106,
+      "modifiedAtUTC": "2026-10-05T02:06:38.433692+00:00",
+      "size": [
+        853,
+        1844
+      ],
+      "sha256": "cc69dbe998a37195bf6d0e0566f0845c7e3828af5929ae7ba5d69cc7211859ba",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\exact-assets-20261005\\sources\\07-joy-selected.png",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\mockups\\07-joy-selected.png"
+      ]
+    },
+    {
+      "file": "exec-4fa3fa46-240e-4d64-a4f6-d29d2eca35ef.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-4fa3fa46-240e-4d64-a4f6-d29d2eca35ef.png",
+      "bytes": 1935215,
+      "modifiedAtUTC": "2026-10-05T02:32:23.079366+00:00",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "37d1c3a9c5c019df2cb0b73b0e9feb8549fd00ee728bb333dfaceb57013eae3e",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\derived\\game-word-chain-knot.png"
+      ]
+    },
+    {
+      "file": "exec-512da3ce-6193-43d9-9c9a-136322422ab2.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-512da3ce-6193-43d9-9c9a-136322422ab2.png",
+      "bytes": 1318638,
+      "modifiedAtUTC": "2026-10-05T02:31:15.144680+00:00",
+      "size": [
+        1312,
+        1199
+      ],
+      "sha256": "e96b77e04af64dfb30130f7ae8df34899e5e7ccb13eadce47c9c8f2ae0bc621f",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\derived\\tile-ga.png"
+      ]
+    },
+    {
+      "file": "exec-5503d24d-ebb9-4138-883c-0aadd74f867c.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-5503d24d-ebb9-4138-883c-0aadd74f867c.png",
+      "bytes": 2043588,
+      "modifiedAtUTC": "2026-10-05T10:21:43.636954+00:00",
+      "size": [
+        854,
+        1842
+      ],
+      "sha256": "eae11622a0c874e75453f4f1130e437ff0f640719f293932dd916306b296ff81",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-5cea1ec8-b410-430e-bce0-2dd45dce8e1f.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-5cea1ec8-b410-430e-bce0-2dd45dce8e1f.png",
+      "bytes": 2072777,
+      "modifiedAtUTC": "2026-10-05T10:17:04.929271+00:00",
+      "size": [
+        854,
+        1842
+      ],
+      "sha256": "568e14d20a2ade28ece065005204c37cfa1cd26e4c7d3d9c4cea00f3288930e3",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-5ec1718f-f54b-4d06-a213-8b147c85f5ec.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-5ec1718f-f54b-4d06-a213-8b147c85f5ec.png",
+      "bytes": 1703962,
+      "modifiedAtUTC": "2026-10-05T02:22:17.565158+00:00",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "1fca7f57aafc7799d9055a2be9dc5246063f51f10ee92aa6ec0c88920421d97c",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\derived\\path-brass-medallion-blank.png"
+      ]
+    },
+    {
+      "file": "exec-625a0185-b886-41e5-8d23-2ceca8bd427a.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-625a0185-b886-41e5-8d23-2ceca8bd427a.png",
+      "bytes": 1947408,
+      "modifiedAtUTC": "2026-10-05T10:38:05.097075+00:00",
+      "size": [
+        854,
+        1840
+      ],
+      "sha256": "ea26949e87f3ce5bb90fb0cc884625462e6bba89a01d1c2c9cc132f8b28b242c",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-6573551b-838c-4e12-aee3-b6edf4177828.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-6573551b-838c-4e12-aee3-b6edf4177828.png",
+      "bytes": 1942868,
+      "modifiedAtUTC": "2026-10-05T04:33:20.633038+00:00",
+      "size": [
+        887,
+        1774
+      ],
+      "sha256": "f96b801c9ea49b7351d1da1c5d05894624679ffc098eda316ea6c9091faa9e64",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-settings-profile-20261005-01a10981\\screens\\11-hilfe-appinfo.png"
+      ]
+    },
+    {
+      "file": "exec-6603f5d0-697c-4d29-b449-64630e4dcff1.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-6603f5d0-697c-4d29-b449-64630e4dcff1.png",
+      "bytes": 1919821,
+      "modifiedAtUTC": "2026-10-05T10:31:21.227575+00:00",
+      "size": [
+        854,
+        1840
+      ],
+      "sha256": "021ae4b8e4e533f9dbcc06327500557aefff8f9ee09bcc065410b61861b50ae4",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-6ae6abbc-6ab0-4f55-8c4c-5c41dcf65c49.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-6ae6abbc-6ab0-4f55-8c4c-5c41dcf65c49.png",
+      "bytes": 2023330,
+      "modifiedAtUTC": "2026-10-05T10:25:32.703971+00:00",
+      "size": [
+        854,
+        1842
+      ],
+      "sha256": "dcf870a82a4def0d17f33bb3fb0ec7c01b26741e8aebff562b90e03507a36e06",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-71724704-9259-4e92-a869-f99a6bde74bb.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-71724704-9259-4e92-a869-f99a6bde74bb.png",
+      "bytes": 1983518,
+      "modifiedAtUTC": "2026-10-05T04:32:25.523436+00:00",
+      "size": [
+        887,
+        1774
+      ],
+      "sha256": "8b42ca3d5b9ce233d45c0f7894feb2ec69225ae16ee46d471de2ebec71eb02e2",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-72a8a393-22cf-41d7-93a7-81d090a0f62f.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-72a8a393-22cf-41d7-93a7-81d090a0f62f.png",
+      "bytes": 2182608,
+      "modifiedAtUTC": "2026-10-05T02:06:09.832017+00:00",
+      "size": [
+        853,
+        1844
+      ],
+      "sha256": "6aa6eef64dbdaa72e5d833aa6f077e56fe008c6e266b581611996b578fa989ab",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\exact-assets-20261005\\sources\\07-taego-selected.png",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\mockups\\07-taego-selected.png"
+      ]
+    },
+    {
+      "file": "exec-7894cf94-c61f-4298-be2b-8d1db55f329f.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-7894cf94-c61f-4298-be2b-8d1db55f329f.png",
+      "bytes": 2695011,
+      "modifiedAtUTC": "2026-10-05T02:49:35.653011+00:00",
+      "size": [
+        1122,
+        1402
+      ],
+      "sha256": "099ad939e1fa88d20d9dcbbe3d5f15a8aefa54523fdd919e46692335d711287c",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-79980d19-0193-417c-a623-85cc226c2db3.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-79980d19-0193-417c-a623-85cc226c2db3.png",
+      "bytes": 1984424,
+      "modifiedAtUTC": "2026-10-05T04:18:51.955383+00:00",
+      "size": [
+        887,
+        1774
+      ],
+      "sha256": "9d405ac8800c8ddae239f46b277d45980ba4536475255170ad824ce8ead94521",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-settings-profile-20261005-01a10981\\screens\\09-datenschutz-daten.png"
+      ]
+    },
+    {
+      "file": "exec-7a875fda-e7a1-4f89-85fb-b8332a4eb28a.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-7a875fda-e7a1-4f89-85fb-b8332a4eb28a.png",
+      "bytes": 2010102,
+      "modifiedAtUTC": "2026-10-05T04:17:17.919507+00:00",
+      "size": [
+        887,
+        1774
+      ],
+      "sha256": "0d570774a91eedb484bfc51ce90e6b9bdc0a023497dd7b2eb3d57e79db7ea5a2",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-settings-profile-20261005-01a10981\\screens\\06-klangdetails.png"
+      ]
+    },
+    {
+      "file": "exec-7c3bdaaf-e565-494b-893c-08de15914472.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-7c3bdaaf-e565-494b-893c-08de15914472.png",
+      "bytes": 1900256,
+      "modifiedAtUTC": "2026-10-05T02:26:54.336798+00:00",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "b04c94a2e9454aac7816f17f6b67b3583274492a095e03806230ddaa137fec65",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\derived\\book-hangul-sori.png"
+      ]
+    },
+    {
+      "file": "exec-80258973-9730-432f-b33b-db5d120aeb00.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-80258973-9730-432f-b33b-db5d120aeb00.png",
+      "bytes": 2172798,
+      "modifiedAtUTC": "2026-10-05T02:26:20.541232+00:00",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "125ed2c93bc7309e9a52c5034c871c514d4c11872baac943ee48c68ca39dde1f",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\derived\\purpose-kpop-duo.png"
+      ]
+    },
+    {
+      "file": "exec-85189dbb-8e56-4e5f-9d6f-b298fedd5dc5.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-85189dbb-8e56-4e5f-9d6f-b298fedd5dc5.png",
+      "bytes": 1993972,
+      "modifiedAtUTC": "2026-10-05T10:31:49.436143+00:00",
+      "size": [
+        854,
+        1842
+      ],
+      "sha256": "0f5c413ff61e402a25fba9de9e537ad972943752755207a9b9de234a44ddcf63",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-85bd852e-8d0b-4385-b482-98cfb1595661.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-85bd852e-8d0b-4385-b482-98cfb1595661.png",
+      "bytes": 1377146,
+      "modifiedAtUTC": "2026-10-05T02:21:39.805196+00:00",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "89144f953ef9235c7263bde06fc8c1f283ca046598527adcd0b1b84d1b8b7e3f",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\derived\\selected-brass-check.png"
+      ]
+    },
+    {
+      "file": "exec-85dc2f8e-dc09-481b-8869-b317c3a15c6d.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-85dc2f8e-dc09-481b-8869-b317c3a15c6d.png",
+      "bytes": 2053572,
+      "modifiedAtUTC": "2026-10-05T02:17:41.989871+00:00",
+      "size": [
+        853,
+        1844
+      ],
+      "sha256": "c03ae18d08556d3e6a62cf0cfb39a2764d1db35793021049a19c8b55c59e9857",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\exact-assets-20261005\\sources\\01-level-a2-selected.png",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\mockups\\01-level-a2-selected.png"
+      ]
+    },
+    {
+      "file": "exec-8e6b93b8-c9be-4dc9-ab59-37506ef67961.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-8e6b93b8-c9be-4dc9-ab59-37506ef67961.png",
+      "bytes": 2501587,
+      "modifiedAtUTC": "2026-10-05T01:34:01.218815+00:00",
+      "size": [
+        853,
+        1844
+      ],
+      "sha256": "d7ac0e8deb8039e6d59017e7b0c2c15a82d3b3d5cb523f145479735b8df5de61",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\iphone16-large\\c-einleitung-06.png",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\exact-assets-20261005\\sources\\06-hanok-culture.png",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\mockups\\c-einleitung-06.png"
+      ]
+    },
+    {
+      "file": "exec-90ed5804-d58f-42ef-b3e1-57db12c00435.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-90ed5804-d58f-42ef-b3e1-57db12c00435.png",
+      "bytes": 2022230,
+      "modifiedAtUTC": "2026-10-05T10:22:14.458654+00:00",
+      "size": [
+        854,
+        1842
+      ],
+      "sha256": "d0565b7e688e30551cc2fafa18678e5b8f20f9ce6249622523b3094f4d2392f2",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-953bd7e2-749c-4e9a-82e4-9c51d8116000.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-953bd7e2-749c-4e9a-82e4-9c51d8116000.png",
+      "bytes": 2149737,
+      "modifiedAtUTC": "2026-10-05T02:07:06.346682+00:00",
+      "size": [
+        853,
+        1844
+      ],
+      "sha256": "0cd2c1a4474fb5c1a9e3a036e208f5413c034f5710522a9b01fde063b089d8c1",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\exact-assets-20261005\\sources\\01-startniveau.png",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\mockups\\01-startniveau.png",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-settings-profile-20261005-01a10981\\references\\c-einleitung-startniveau.png"
+      ]
+    },
+    {
+      "file": "exec-9563b555-c730-4f98-becf-7ec17087fa07.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-9563b555-c730-4f98-becf-7ec17087fa07.png",
+      "bytes": 1088567,
+      "modifiedAtUTC": "2026-10-05T02:27:28.786167+00:00",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "19e8c8613351fb62cf66d565fd8761347801f89409e2bb499211e7306783b461",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\derived\\tile-g.png"
+      ]
+    },
+    {
+      "file": "exec-96e10845-fdf9-482b-9eaf-5ccc1caeea30.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-96e10845-fdf9-482b-9eaf-5ccc1caeea30.png",
+      "bytes": 2012166,
+      "modifiedAtUTC": "2026-10-05T10:26:04.306643+00:00",
+      "size": [
+        854,
+        1840
+      ],
+      "sha256": "2a323612f7bb9b5f4a4ef6a7abe3f1776e4e54759c8ce71cc12a1f0d325cc525",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-986b681c-7a7d-4fac-99fa-46ef2d180c47.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-986b681c-7a7d-4fac-99fa-46ef2d180c47.png",
+      "bytes": 1965446,
+      "modifiedAtUTC": "2026-10-05T04:06:46.645997+00:00",
+      "size": [
+        887,
+        1774
+      ],
+      "sha256": "e6d75356523895b0148f6940d110ccea0fb4012d681645efe41db17452bfaa80",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-settings-profile-20261005-01a10981\\screens\\01-einstellungen.png",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-silben-dokkaebi-20261005-01a10981\\references\\c-settings-master.png"
+      ]
+    },
+    {
+      "file": "exec-99010cb0-b066-4f14-b8d6-e9d7aadf8e0a.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-99010cb0-b066-4f14-b8d6-e9d7aadf8e0a.png",
+      "bytes": 2289571,
+      "modifiedAtUTC": "2026-10-05T02:44:42.556098+00:00",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "e4c08cd0634fad426e3b231c8f086b23dbdb1637262d86c7257d3f624ec53065",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-9a225fa1-2c7d-4afb-94a6-8a6609560f30.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-9a225fa1-2c7d-4afb-94a6-8a6609560f30.png",
+      "bytes": 2012761,
+      "modifiedAtUTC": "2026-10-05T04:12:09.841257+00:00",
+      "size": [
+        887,
+        1774
+      ],
+      "sha256": "2aab07851ea627012e6389f3e8cd93db0fe99871b4ac073fb7f32652691e68dc",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-settings-profile-20261005-01a10981\\screens\\02-profil-gast.png"
+      ]
+    },
+    {
+      "file": "exec-9d0fbdc4-51c6-4f15-b161-89480d675cb9.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-9d0fbdc4-51c6-4f15-b161-89480d675cb9.png",
+      "bytes": 1727506,
+      "modifiedAtUTC": "2026-10-05T02:18:19.514991+00:00",
+      "size": [
+        941,
+        1672
+      ],
+      "sha256": "6d9fcb2e702e515634911a83ece52b73ee441f86a74e41d19a1e1b903f043602",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\derived\\material-hanji.png"
+      ]
+    },
+    {
+      "file": "exec-a516ed52-fd38-4bd5-b723-ff52f6ce9c1e.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-a516ed52-fd38-4bd5-b723-ff52f6ce9c1e.png",
+      "bytes": 2164276,
+      "modifiedAtUTC": "2026-10-05T02:46:12.596503+00:00",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "22bd64700dbd8992a8b368f938846a2442f7d44067e2755f1613239d7ce8f8f1",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-a576db89-9426-48a2-b44d-8da99060486f.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-a576db89-9426-48a2-b44d-8da99060486f.png",
+      "bytes": 1881795,
+      "modifiedAtUTC": "2026-10-05T04:32:52.351275+00:00",
+      "size": [
+        887,
+        1774
+      ],
+      "sha256": "5947ab0a23b807275798c63e10af927b67c23771fb3bb0a2a78ac2c6c7816f2d",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-a5a60663-3d20-4c97-8fac-5c325c41c3e2.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-a5a60663-3d20-4c97-8fac-5c325c41c3e2.png",
+      "bytes": 2261796,
+      "modifiedAtUTC": "2026-10-05T01:30:41.019022+00:00",
+      "size": [
+        853,
+        1844
+      ],
+      "sha256": "50dc62b261ee4b85c8000711d8a9d0c9f1a57f9a87e9a98034f18a26f183462a",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\iphone16-large\\c-einleitung-04.png",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\exact-assets-20261005\\sources\\04-games-reward.png",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\mockups\\c-einleitung-04.png"
+      ]
+    },
+    {
+      "file": "exec-a88c4b5e-3464-4797-905f-08e68c75c863.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-a88c4b5e-3464-4797-905f-08e68c75c863.png",
+      "bytes": 2005059,
+      "modifiedAtUTC": "2026-10-05T10:50:58.721720+00:00",
+      "size": [
+        855,
+        1840
+      ],
+      "sha256": "c118d7fc9c12644a362228914087873463c3a1c0d0d7b0b8610d7e694a6bd959",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-b1a08f0d-aeaa-412c-9120-89e785306b77.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-b1a08f0d-aeaa-412c-9120-89e785306b77.png",
+      "bytes": 2034671,
+      "modifiedAtUTC": "2026-10-05T04:16:45.559728+00:00",
+      "size": [
+        887,
+        1774
+      ],
+      "sha256": "24fa7588b450b94f44413229cb0837d946f53b822c0038ce7d29b2ae43bb8968",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-settings-profile-20261005-01a10981\\screens\\03-profil-verbunden.png"
+      ]
+    },
+    {
+      "file": "exec-b1b41d0d-f8ff-48bd-848e-ab2e332badd0.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-b1b41d0d-f8ff-48bd-848e-ab2e332badd0.png",
+      "bytes": 2366263,
+      "modifiedAtUTC": "2026-10-05T02:18:02.773402+00:00",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "88bd3a7d543ac5fb7b7436c892b174ec977bc717520f218699fc137c255c77fe",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\derived\\material-jade.png"
+      ]
+    },
+    {
+      "file": "exec-b415aa8c-5482-42a6-bbe2-4bdd970265d7.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-b415aa8c-5482-42a6-bbe2-4bdd970265d7.png",
+      "bytes": 1926411,
+      "modifiedAtUTC": "2026-10-05T04:28:24.509135+00:00",
+      "size": [
+        887,
+        1774
+      ],
+      "sha256": "f416aa054580a5862a5620fad1ae1b830e3ad6e615d9f49d5c9a658d75087875",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-settings-profile-20261005-01a10981\\screens\\12-appinfo-ios.png"
+      ]
+    },
+    {
+      "file": "exec-b4235369-db28-4c4f-86d4-436c2a6dc126.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-b4235369-db28-4c4f-86d4-436c2a6dc126.png",
+      "bytes": 2075451,
+      "modifiedAtUTC": "2026-10-05T02:25:51.025019+00:00",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "88f586385cd16cf603dbbd3d2e4ce5b117a38923e24057a77e8aed3a363c3207",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\derived\\purpose-study-books.png"
+      ]
+    },
+    {
+      "file": "exec-b89f95ee-98f3-4299-9e75-310c15c71965.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-b89f95ee-98f3-4299-9e75-310c15c71965.png",
+      "bytes": 1955267,
+      "modifiedAtUTC": "2026-10-05T04:38:07.697139+00:00",
+      "size": [
+        887,
+        1774
+      ],
+      "sha256": "059f906c081f643e74da805ab86084ecb6f97ad7bc4128f7aece59b12188f9c7",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-settings-profile-20261005-01a10981\\screens\\16-konto-wiederaufnahme.png"
+      ]
+    },
+    {
+      "file": "exec-c0e3273a-305d-47d5-80e7-01a684228c82.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-c0e3273a-305d-47d5-80e7-01a684228c82.png",
+      "bytes": 2111519,
+      "modifiedAtUTC": "2026-10-05T01:25:44.092849+00:00",
+      "size": [
+        853,
+        1844
+      ],
+      "sha256": "dabe8e033784f6239960dd6d216a1cd40c074e8aeaf876dd0d9c28f446af056f",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\iphone16-large\\c-einleitung-03.png",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\exact-assets-20261005\\sources\\03-learning-preview.png",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\mockups\\c-einleitung-03.png"
+      ]
+    },
+    {
+      "file": "exec-c10abb38-d643-4d95-a93c-c4c3a926fe1a.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-c10abb38-d643-4d95-a93c-c4c3a926fe1a.png",
+      "bytes": 2169264,
+      "modifiedAtUTC": "2026-10-05T02:45:54.615252+00:00",
+      "size": [
+        1122,
+        1402
+      ],
+      "sha256": "d6375143215a654bfd58318d5c6552b60a0571e9a630569e787a01705c7d5872",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-c5eb404d-a158-4dc4-8560-0958086c82dc.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-c5eb404d-a158-4dc4-8560-0958086c82dc.png",
+      "bytes": 2155701,
+      "modifiedAtUTC": "2026-10-05T02:38:39.869979+00:00",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "937cbf7fa63fef733a2e7e2282254437fc53065317709a8e238221cff47f57e1",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-cb500809-fff4-4825-82d5-c54cc328932a.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-cb500809-fff4-4825-82d5-c54cc328932a.png",
+      "bytes": 1942945,
+      "modifiedAtUTC": "2026-10-05T04:13:14.456630+00:00",
+      "size": [
+        887,
+        1774
+      ],
+      "sha256": "984c106f629046a76e8c9c631513b128c1ec5842cedd99da3b6cd53899a3c821",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-settings-profile-20261005-01a10981\\screens\\04-sprache-lernen.png"
+      ]
+    },
+    {
+      "file": "exec-cc2926db-406a-4f56-ac7d-4760cc3794f6.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-cc2926db-406a-4f56-ac7d-4760cc3794f6.png",
+      "bytes": 2008316,
+      "modifiedAtUTC": "2026-10-05T10:23:18.169047+00:00",
+      "size": [
+        854,
+        1842
+      ],
+      "sha256": "67f63fb0c6e4ece2352a7adc6e20a9024af964d8a94dbf46cfe9596f20ccea02",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-cc5b9c9a-1eed-4502-b235-b789b315c999.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-cc5b9c9a-1eed-4502-b235-b789b315c999.png",
+      "bytes": 2118571,
+      "modifiedAtUTC": "2026-10-05T02:31:49.687961+00:00",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "6bbbfa26334b52b62180fdaab308d8047d41d58ee520061bf61ec230275f7de3",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\derived\\reward-pearl-treasure-chest.png"
+      ]
+    },
+    {
+      "file": "exec-cdc3385e-3e13-43b0-a9fc-1d3ecb5f6c28.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-cdc3385e-3e13-43b0-a9fc-1d3ecb5f6c28.png",
+      "bytes": 1868329,
+      "modifiedAtUTC": "2026-10-05T04:17:47.286023+00:00",
+      "size": [
+        887,
+        1774
+      ],
+      "sha256": "55477f5530b45d53fb0faac5109ac325c24b0af17c6f8927e68f72e3d551cf5f",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-settings-profile-20261005-01a10981\\screens\\07-erinnerungen.png"
+      ]
+    },
+    {
+      "file": "exec-ce62d4e5-29bc-4175-918f-fdbc7525a478.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-ce62d4e5-29bc-4175-918f-fdbc7525a478.png",
+      "bytes": 2165120,
+      "modifiedAtUTC": "2026-10-05T10:13:56.666539+00:00",
+      "size": [
+        854,
+        1842
+      ],
+      "sha256": "91786693048d25bd99f62ffe1a3e97cb989bd43b277f224f75a30d7777a01eae",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-silben-dokkaebi-20261005-01a10981\\evidence\\01-before-start-mapping.png"
+      ]
+    },
+    {
+      "file": "exec-cf591d65-11e5-45ac-ac25-ee2ff1ec5beb.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-cf591d65-11e5-45ac-ac25-ee2ff1ec5beb.png",
+      "bytes": 1938579,
+      "modifiedAtUTC": "2026-10-05T04:31:25.451969+00:00",
+      "size": [
+        887,
+        1774
+      ],
+      "sha256": "312dab59dda7766bb08a3375cfd11a7f57e9f221ac30c44021fb1fcdfca9da10",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-settings-profile-20261005-01a10981\\screens\\14-startpunkt-bestaetigen.png"
+      ]
+    },
+    {
+      "file": "exec-d1fb7af6-bd6d-44f0-957e-4137c2f20bae.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-d1fb7af6-bd6d-44f0-957e-4137c2f20bae.png",
+      "bytes": 2036841,
+      "modifiedAtUTC": "2026-10-05T02:23:22.853799+00:00",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "762f6a5711a3714042e3e08cdc90732379894030e4001c9d5cfe4d11702feef5",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\derived\\purpose-culture-couple.png"
+      ]
+    },
+    {
+      "file": "exec-d200d8d0-c8dc-434a-9bd7-7559ddeb0881.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-d200d8d0-c8dc-434a-9bd7-7559ddeb0881.png",
+      "bytes": 2462560,
+      "modifiedAtUTC": "2026-10-05T01:00:11.802609+00:00",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "28fe5130dd9a25d2c62a610ba1c12e5559b0c2ded18b53dae25851dceca0f645",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\c-einstieg-01-start-learn-games.png"
+      ]
+    },
+    {
+      "file": "exec-d20f279f-64c6-4136-90b8-e6b0f59a2f80.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-d20f279f-64c6-4136-90b8-e6b0f59a2f80.png",
+      "bytes": 2455281,
+      "modifiedAtUTC": "2026-10-05T02:48:53.170305+00:00",
+      "size": [
+        1122,
+        1402
+      ],
+      "sha256": "d7b7732a43ac48eab8d3bb245cddb6f1e27e77d0367e3bf19e9b34eac293c4bd",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-d767a8e0-8de7-4780-a531-e0521fb92d38.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-d767a8e0-8de7-4780-a531-e0521fb92d38.png",
+      "bytes": 1994706,
+      "modifiedAtUTC": "2026-10-05T04:30:53.871474+00:00",
+      "size": [
+        887,
+        1774
+      ],
+      "sha256": "e63462597973215c6be9f01204772c164253e2f982119a8c622eef9987abba05",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-settings-profile-20261005-01a10981\\screens\\13-startpunkt-sheet.png"
+      ]
+    },
+    {
+      "file": "exec-e7448ca7-a474-4ea3-a3e2-6b594acb2e45.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-e7448ca7-a474-4ea3-a3e2-6b594acb2e45.png",
+      "bytes": 2012811,
+      "modifiedAtUTC": "2026-10-05T10:22:45.270670+00:00",
+      "size": [
+        854,
+        1842
+      ],
+      "sha256": "ee649b554bb2b01232181712f05e71ba3f9a609b7bda2f458ed4104b63fdd488",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-eab6d3d6-2855-4e21-8c75-6851ad680cd3.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-eab6d3d6-2855-4e21-8c75-6851ad680cd3.png",
+      "bytes": 1948877,
+      "modifiedAtUTC": "2026-10-05T04:14:18.250816+00:00",
+      "size": [
+        887,
+        1774
+      ],
+      "sha256": "6f4338209e4608f5c36699aa75b2041150307b80644c32ab9b60f160683fdcef",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-eb24f3b2-ec95-44b9-86ae-4b58b5bbd880.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-eb24f3b2-ec95-44b9-86ae-4b58b5bbd880.png",
+      "bytes": 2065432,
+      "modifiedAtUTC": "2026-10-05T04:27:25.349261+00:00",
+      "size": [
+        887,
+        1774
+      ],
+      "sha256": "1c16964f7c22c5bcf3553cbf9a424818afb93462c1f3c3d0ecbab55e5b055dc4",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-settings-profile-20261005-01a10981\\screens\\10-downloads.png"
+      ]
+    },
+    {
+      "file": "exec-ed9e954c-ea68-4c4b-9526-ab1ba6127725.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-ed9e954c-ea68-4c4b-9526-ab1ba6127725.png",
+      "bytes": 2063162,
+      "modifiedAtUTC": "2026-10-05T10:27:12.465760+00:00",
+      "size": [
+        854,
+        1840
+      ],
+      "sha256": "1df10ba05c429c68e4f13323e03ee4149f498a79375103857a88f8feeb500489",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-ef2a15b1-2e15-448d-8031-3ad7875fbe64.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-ef2a15b1-2e15-448d-8031-3ad7875fbe64.png",
+      "bytes": 2129033,
+      "modifiedAtUTC": "2026-10-05T10:32:10.030973+00:00",
+      "size": [
+        854,
+        1842
+      ],
+      "sha256": "b813c180afa022f46fb3bca0dbdb69ab8dd43e6c1917ab6c6cd6dd2755a64f82",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-efcabadf-1c35-408f-a052-4209b9969487.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-efcabadf-1c35-408f-a052-4209b9969487.png",
+      "bytes": 1522562,
+      "modifiedAtUTC": "2026-10-05T02:32:56.643381+00:00",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "9786f2acaae738972bfdb91104d8be43c9bc0ec8ce64c4b3ac1ad2a3ae51c0c9",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\derived\\reward-brass-preview-coin.png"
+      ]
+    },
+    {
+      "file": "exec-f0e2afad-0a5f-4634-967a-f5283fc979cb.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-f0e2afad-0a5f-4634-967a-f5283fc979cb.png",
+      "bytes": 2081740,
+      "modifiedAtUTC": "2026-10-05T10:32:21.767920+00:00",
+      "size": [
+        854,
+        1840
+      ],
+      "sha256": "eabc1dea5472a98a513d5e5d6217fd8d19ed57bd65ea54d315f99f2931629eba",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-f31f3392-7adf-4a47-8b82-d18cf48297a1.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-f31f3392-7adf-4a47-8b82-d18cf48297a1.png",
+      "bytes": 838548,
+      "modifiedAtUTC": "2026-10-05T02:28:01.225484+00:00",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "8d16369adc2b79c8579d925001a1269f7e28fb159d4bac9a894409e11283ba1d",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\derived\\tile-a.png"
+      ]
+    },
+    {
+      "file": "exec-f5cf1c0d-bbd5-47dc-9b84-6d1f83c248bc.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-f5cf1c0d-bbd5-47dc-9b84-6d1f83c248bc.png",
+      "bytes": 2070045,
+      "modifiedAtUTC": "2026-10-05T04:05:32.741067+00:00",
+      "size": [
+        887,
+        1774
+      ],
+      "sha256": "09b9ebcfbdf6aac049855f95618403be88fd2ac7741d7412e21bc7c4f5b739ef",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-f7a808e1-5c4c-4eba-a77d-79cbee60ab3a.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-f7a808e1-5c4c-4eba-a77d-79cbee60ab3a.png",
+      "bytes": 1993775,
+      "modifiedAtUTC": "2026-10-05T10:37:34.472448+00:00",
+      "size": [
+        854,
+        1842
+      ],
+      "sha256": "db50a1210d422d4e0fa239f01c13d998daf68056032ec863c4aa0b49ee523893",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-f83cccd6-d60f-4bca-a691-905885633fa3.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-f83cccd6-d60f-4bca-a691-905885633fa3.png",
+      "bytes": 2001059,
+      "modifiedAtUTC": "2026-10-05T04:27:55.955819+00:00",
+      "size": [
+        887,
+        1774
+      ],
+      "sha256": "3fcae3b69837b2295ef6c83a156a1801bbc6364824b201f4fb09c1eda6ea68ab",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-f8cd77ee-61ad-4453-b4ef-d9554632ef7d.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-f8cd77ee-61ad-4453-b4ef-d9554632ef7d.png",
+      "bytes": 1928771,
+      "modifiedAtUTC": "2026-10-05T02:22:46.336933+00:00",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "c6685b235736279d371f8434ca3eaf39c1bea85ba9a80e6c3f8b88807b7e7111",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\derived\\purpose-everyday-cup.png"
+      ]
+    },
+    {
+      "file": "exec-fb48b7ee-2720-4749-b996-cd6149c5e975.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-fb48b7ee-2720-4749-b996-cd6149c5e975.png",
+      "bytes": 1983402,
+      "modifiedAtUTC": "2026-10-05T10:50:00.886441+00:00",
+      "size": [
+        854,
+        1840
+      ],
+      "sha256": "e19057d2871812a76c0b23159050db1a444fb81b690157d60242ae48b3a6d666",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-fcfd4042-aed6-4ab1-8712-4392c7d4af0f.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-fcfd4042-aed6-4ab1-8712-4392c7d4af0f.png",
+      "bytes": 2112011,
+      "modifiedAtUTC": "2026-10-05T10:39:10.420207+00:00",
+      "size": [
+        854,
+        1842
+      ],
+      "sha256": "0a90f7da6599c1534d628f13407d82df94597e6518cf58a8dd05e6e45a6198a1",
+      "semanticCopies": []
+    },
+    {
+      "file": "exec-ff5c2bf7-201c-4241-b124-c4db14a9b51d.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-ff5c2bf7-201c-4241-b124-c4db14a9b51d.png",
+      "bytes": 2141946,
+      "modifiedAtUTC": "2026-10-05T01:49:28.874514+00:00",
+      "size": [
+        853,
+        1844
+      ],
+      "sha256": "a6606255345712510086b482b52c2492e82ae9af26317310fb6f9d98f28f30e0",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\iphone16-large\\c-einleitung-02-sori-seal-weiter.png",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\exact-assets-20261005\\sources\\02-learning-path.png",
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\mockups\\c-einleitung-02-sori-seal-weiter.png"
+      ]
+    },
+    {
+      "file": "exec-ffc97698-c44d-4c51-b7a4-202ac3c82860.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-ffc97698-c44d-4c51-b7a4-202ac3c82860.png",
+      "bytes": 1252638,
+      "modifiedAtUTC": "2026-10-05T02:21:01.020579+00:00",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "450076250c667e2db2bdaec0b1169375958f16684aa76c9cc71170961eb9b368",
+      "semanticCopies": [
+        "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\derived\\brand-cloud-ivory.png"
+      ]
+    }
+  ]
+}

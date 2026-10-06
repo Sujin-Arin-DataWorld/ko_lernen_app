@@ -9,9 +9,15 @@ import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_catalog_screen.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
-import 'package:ko_lernen_app/widgets/sori/settings_button.dart';
+import 'package:ko_lernen_app/widgets/sori/c_gallery/c_objects.dart';
+import 'support/c_fonts.dart';
+import 'support/real_fonts.dart';
 
 void main() {
+  setUpAll(() async {
+    await loadSoriRealFonts(materialIcons: true);
+    await loadCFonts();
+  });
   for (final size in const <Size>[
     Size(320, 640),
     Size(360, 400),
@@ -66,7 +72,7 @@ void main() {
       expect(find.byType(SoriStageCatalogScreen), findsOneWidget);
       // The approved gear opens Settings, whose profile row retains the full
       // profile destination. Reduced motion keeps this entrance reachable.
-      expect(find.byType(SoriSettingsButton), findsOneWidget);
+      expect(find.byType(CSettingsCog), findsOneWidget);
     });
   }
 

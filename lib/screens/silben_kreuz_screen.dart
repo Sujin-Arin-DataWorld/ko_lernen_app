@@ -1,7 +1,13 @@
 import '../models/practice_history.dart';
 import '../models/silben_practice.dart';
 import '../services/practice_history_store.dart';
+import '../widgets/practice_dokkaebi_help.dart';
+import '../widgets/practice_dokkaebi_art.dart';
+import '../widgets/practice_dokkaebi_canvas.dart';
 import '../widgets/practice_guide.dart';
+import '../widgets/practice_motion.dart';
+import '../widgets/practice_layout.dart';
+import '../widgets/practice_impact_frame.dart';
 import '../services/haptic_service.dart';
 import '../widgets/sori/game_reward.dart';
 import '../services/learning_journey.dart';
@@ -22,6 +28,7 @@ import '../services/storage_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/pressable.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/chrome_row.dart';
@@ -98,6 +105,10 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   int _presentation = 0;
   final _practiceSession = PracticeHistoryStore.session();
   SilbenHelpState _helpState = SilbenHelpState();
+  final _helpAnchor = GlobalKey();
+  int _hintGesture = 0, _hintPulse = 0;
+  String? _hintWordKey;
+  bool _hintPlay = false;
   PracticeAttempt? _historyAttempt;
   bool _practiceFailed = false;
   DateTime? _viewedAt;
@@ -281,6 +292,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
         '$_level · ${_solvedCount(_level)}/$total',
         style: SoriTextTheme.of(context).meta,
       ),
+      trailing: const TtsSpeedAction(),
     );
   }
 
@@ -291,6 +303,9 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     _learningAttempt = null;
     _rewardPersisted = false;
     _helpState = SilbenHelpState();
+    _hintPulse = 0;
+    _hintPlay = false;
+    _hintWordKey = null;
     _historyAttempt = null;
     _practiceFailed = false;
     _viewedAt = DateTime.now().toUtc();
@@ -585,7 +600,44 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       return;
     }
     final next = (_helpState.levelFor(word) + 1).clamp(1, 3);
-    setState(() => _helpState.use(p, word, next, cell: cell));
+    setState(() {
+      _helpState.use(p, word, next, cell: cell);
+      _hintPulse = 0;
+      _hintPlay = false;
+    });
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      final anchor = _helpAnchor.currentContext;
+      if (!mounted ||
+          anchor == null ||
+          _solved ||
+          _finishing ||
+          presentation != _presentation ||
+          word != _activeWord ||
+          !_practiceSession.isCurrent) {
+        return;
+      }
+      await Scrollable.ensureVisible(
+        anchor,
+        alignment: 1,
+        alignmentPolicy: ScrollPositionAlignmentPolicy.keepVisibleAtEnd,
+        duration: Storage.reducedMotion
+            ? Duration.zero
+            : SoriMotion.respect(context, SoriMotion.medium),
+      );
+      if (!mounted ||
+          _solved ||
+          _finishing ||
+          presentation != _presentation ||
+          word != _activeWord ||
+          !_practiceSession.isCurrent) {
+        return;
+      }
+      setState(() {
+        _hintGesture++;
+        _hintWordKey = silbenWordOccurrence(word);
+        _hintPlay = true;
+      });
+    });
   }
 
   Widget _helpPanel(AppL10n t) {
@@ -597,39 +649,89 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     final presentation = _presentation;
     final crossings = _helpState.crossingCells(_puzzle!, word);
     final reveal = _helpState.revealedCell;
-    return SoriCard(
-      child: PracticeGuide(
-        dokkaebi: true,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(t.practiceHintTitle, style: SoriTextTheme.of(context).h3),
-            if (level > 0) ...[
-              Text(
-                '${word.meaningFor(_hintLanguage)} · ${word.isHorizontal ? t.silbenDirectionHorizontal : t.silbenDirectionVertical}',
-                style: SoriTextTheme.of(context).body,
+    final occurrence = silbenWordOccurrence(word);
+    final pulse = _hintWordKey == occurrence ? _hintPulse : 0;
+    final example = word.exampleFor(_hintLanguage);
+    return PracticeDokkaebiHelp(
+      key: ValueKey('dokkaebi-help-$presentation-$occurrence'),
+      compact: level == 0,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          if (level == 1) ...[
+            PracticeHintEmphasis(
+              pulse: pulse,
+              child: Semantics(
+                liveRegion: true,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      t.practiceHintWordPath(
+                        word.cells.length,
+                        word.row + 1,
+                        word.col + 1,
+                      ),
+                      key: const ValueKey('dokkaebi-word-path'),
+                      style: SoriTextTheme.of(context).meta,
+                    ),
+                    // Unmasked inflected examples can disclose the answer. Show
+                    // those after completion, rather than as a light hint.
+                    if (word.exampleKo.contains('◯')) ...[
+                      const SizedBox(height: Spacing.sm),
+                      Text(
+                        word.exampleKo,
+                        key: const ValueKey('dokkaebi-sentence-clue'),
+                        style: SoriTextTheme.of(context).h3,
+                      ),
+                    ],
+                    if (example.isNotEmpty) ...[
+                      const SizedBox(height: Spacing.xs),
+                      Text(example, style: SoriTextTheme.of(context).bodySmall),
+                    ],
+                  ],
+                ),
               ),
-              Text(word.exampleKo, style: SoriTextTheme.of(context).body),
-            ],
-            if (level > 1) ...[
-              if (crossings.isEmpty)
-                Text(
-                  t.practiceHintNoCrossing,
-                  style: SoriTextTheme.of(context).body,
-                ),
-              for (final cell in crossings)
-                SoriButton.outlined(
-                  key: ValueKey('dokkaebi-cross-${cell.$1}-${cell.$2}'),
-                  label: t.silbenCellPosition(cell.$1 + 1, cell.$2 + 1),
-                  onTap: _locked.contains(cell)
-                      ? null
-                      : () => _onCellTap(cell, presentation),
-                ),
-            ],
-            if (reveal != null &&
-                word.cells.contains(reveal) &&
-                !_locked.contains(reveal))
-              Semantics(
+            ),
+            const SizedBox(height: Spacing.md),
+          ],
+          if (level == 2) ...[
+            if (crossings.isEmpty)
+              Text(
+                t.practiceHintNoCrossing,
+                style: SoriTextTheme.of(context).bodySmall,
+              ),
+            Wrap(
+              spacing: Spacing.sm,
+              runSpacing: Spacing.sm,
+              children: [
+                for (final cell in crossings)
+                  PracticeHintEmphasis(
+                    pulse: pulse,
+                    child: IntrinsicWidth(
+                      child: PracticeRaisedAction(
+                        child: SoriButton.outlined(
+                          key: ValueKey('dokkaebi-cross-${cell.$1}-${cell.$2}'),
+                          label: t.silbenCellPosition(cell.$1 + 1, cell.$2 + 1),
+                          onTap: _locked.contains(cell)
+                              ? null
+                              : () => _onCellTap(cell, presentation),
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+            const SizedBox(height: Spacing.md),
+          ],
+          if (level == 3 &&
+              reveal != null &&
+              word.cells.contains(reveal) &&
+              !_locked.contains(reveal)) ...[
+            PracticeHintEmphasis(
+              pulse: pulse,
+              child: Semantics(
                 liveRegion: true,
                 child: Text(
                   '${t.silbenCellPosition(reveal.$1 + 1, reveal.$2 + 1)}: ${_solution[reveal]}',
@@ -637,21 +739,185 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                   style: SoriTextTheme.of(context).h2,
                 ),
               ),
-            if (level == 3)
-              Text(t.practiceHintPlace, style: SoriTextTheme.of(context).body),
-            SoriButton.outlined(
+            ),
+            const SizedBox(height: Spacing.sm),
+            Text(
+              t.practiceHintPlace,
+              style: SoriTextTheme.of(context).bodySmall,
+            ),
+            const SizedBox(height: Spacing.md),
+          ],
+          PracticeRaisedAction(
+            child: SoriButton.outlined(
               key: const ValueKey('dokkaebi-hint'),
               label: level == 0
                   ? t.practiceHintMeaning
                   : level == 1
                   ? t.practiceHintCrossing
                   : t.practiceHintReveal,
-              onTap: _finishing ? null : () => _requestHint(presentation),
+              fullWidth: true,
+              onTap:
+                  _finishing || _selected == null || _locked.contains(_selected)
+                  ? null
+                  : () => _requestHint(presentation),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
+  }
+
+  Widget _puzzleBoard(SilbenPuzzle p, SoriSurfaces s, AppL10n t) {
+    final word = _activeWord;
+    final occurrence = word == null ? null : silbenWordOccurrence(word);
+    final gesture = _hintGesture;
+    final presentation = _presentation;
+    return KeyedSubtree(
+      key: _helpAnchor,
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final width = constraints.maxWidth;
+          final minGrid = p.cols * 48.0 + (p.cols - 1) * Spacing.xs;
+          final sideBySide = width - minGrid - 16 >= 104;
+          final stageSize = sideBySide
+              ? (width - minGrid - 16).clamp(104.0, 240.0)
+              : math.min(240.0, width - 32);
+          final stageHeight = stageSize / PracticeDokkaebiCanvas.aspectRatio;
+          final gridWidth = sideBySide ? width - stageSize - 16 : width - 32;
+          final metrics = _gridMetrics(p, gridWidth);
+          final gridHeight = metrics.cell * p.rows + metrics.gap * (p.rows - 1);
+          final panelHeight = gridHeight + 32;
+          final panelLeft = sideBySide
+              ? stageSize * PracticeDokkaebiCanvas.contact.dx - 16
+              : 0.0;
+          final panelTop = sideBySide
+              ? math.max(
+                  0.0,
+                  stageHeight * PracticeDokkaebiCanvas.contact.dy - panelHeight,
+                )
+              : stageHeight * PracticeDokkaebiCanvas.contact.dy;
+          final contactY = sideBySide ? panelTop + panelHeight : panelTop;
+          final stageTop =
+              contactY - stageHeight * PracticeDokkaebiCanvas.contact.dy;
+          final arenaHeight = math.max(
+            panelTop + panelHeight,
+            stageTop + stageHeight,
+          );
+          // The clip stays intact. Its contact point meets the card ledge;
+          // its full opaque video rectangle never covers an interactive cell.
+          final stage = PracticeDokkaebiStage(
+            key: ValueKey('dokkaebi-board-$presentation-$occurrence'),
+            size: stageSize,
+            requestId: gesture,
+            play: !_solved && _hintPlay && _hintWordKey == occurrence,
+            helping: word != null && _helpState.levelFor(word) > 0,
+            onRequested: () {
+              if (mounted && gesture == _hintGesture && _hintPlay) {
+                setState(() => _hintPlay = false);
+              }
+            },
+            onImpact: () {
+              if (mounted &&
+                  !_solved &&
+                  !_finishing &&
+                  _practiceSession.isCurrent &&
+                  presentation == _presentation &&
+                  word == _activeWord &&
+                  gesture == _hintGesture) {
+                setState(() => _hintPulse = gesture);
+              }
+            },
+          );
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              PracticeImpactFrame(
+                key: const ValueKey('dokkaebi-arena-fire'),
+                pulse: _hintPulse,
+                child: SoriCard(
+                  padding: EdgeInsets.zero,
+                  child: SizedBox(
+                    height: arenaHeight,
+                    child: Stack(
+                      children: [
+                        Positioned(
+                          left: panelLeft,
+                          right: 0,
+                          top: panelTop,
+                          child: SoriCard(
+                            padding: EdgeInsets.fromLTRB(
+                              sideBySide ? stageSize - panelLeft + 8 : 16,
+                              16,
+                              sideBySide ? 8 : 16,
+                              16,
+                            ),
+                            child: KeyedSubtree(
+                              key: _gridKey,
+                              child: _grid(p, s),
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          left: 0,
+                          top: stageTop,
+                          child: IgnorePointer(child: stage),
+                        ),
+                        Positioned(
+                          left: panelLeft + 16,
+                          right: 16,
+                          top: contactY,
+                          child: IgnorePointer(
+                            child: SizedBox(
+                              key: const ValueKey('dokkaebi-board-ledge'),
+                              height: 3,
+                              child: DecoratedBox(
+                                decoration: BoxDecoration(
+                                  color: s.border,
+                                  borderRadius: BorderRadius.circular(
+                                    SoriRadius.sm,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              if (!_solved) ...[
+                const SizedBox(height: Spacing.lg),
+                _helpPanel(t),
+              ],
+            ],
+          );
+        },
+      ),
+    );
+  }
+
+  ({double cell, double gap}) _gridMetrics(SilbenPuzzle p, double width) {
+    const maxGap = 10.0;
+    const minCell = 48.0;
+    final maxCell = width >= SoriAdaptiveWidth.crosswordLargeCells
+        ? 96.0
+        : 52.0;
+    double cellFor(double gap) =>
+        math.min(maxCell, (width - (p.cols - 1) * gap) / p.cols);
+    var gap = maxGap;
+    var cell = cellFor(gap);
+    if (cell < minCell) {
+      final cellNoGap = math.min(maxCell, width / p.cols);
+      if (cellNoGap >= minCell && p.cols > 1) {
+        gap = ((width - minCell * p.cols) / (p.cols - 1)).clamp(0.0, maxGap);
+        cell = cellFor(gap);
+      } else {
+        gap = 0;
+        cell = cellNoGap;
+      }
+    }
+    return (cell: cell, gap: gap);
   }
 
   /// 다음 퍼즐 → 없으면 미완료 레벨로 → 전부 끝이면 null.
@@ -750,7 +1016,8 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       homeEscape: SoriHomeEscape(
         confirmWhen: !_solved && (_locked.isNotEmpty || _wrongTick > 0),
       ),
-      actions: const [TtsSpeedAction()],
+      adaptTitleAtNormalScale: true,
+      actions: const [PracticeDokkaebiFireAction()],
       padding: EdgeInsets.zero,
       child: p == null
           ? SoriEmptyState(
@@ -772,7 +1039,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     _levelChrome(t),
@@ -780,16 +1047,20 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                     // 섹션 간격 md→lg: 격자·타일풀·힌트가 "다닥다닥"
                     // 붙어 무엇을 하는 화면인지 안 읽혔다(2026-08-12
                     // Jin 실기기).
-                    KeyedSubtree(key: _gridKey, child: _grid(p, s)),
+                    if (!_solved) ...[
+                      KeyedSubtree(key: _cluesKey, child: _clues(p, s)),
+                      const SizedBox(height: Spacing.lg),
+                    ],
+                    _puzzleBoard(p, s, t),
                     const SizedBox(height: Spacing.lg),
                     if (!_solved) ...[
-                      _helpPanel(t),
-                      const SizedBox(height: Spacing.md),
                       KeyedSubtree(key: _poolKey, child: _tilePool(p, s)),
                     ],
-                    if (_solved) _solvedCard(t),
-                    const SizedBox(height: Spacing.lg),
-                    KeyedSubtree(key: _cluesKey, child: _clues(p, s)),
+                    if (_solved)
+                      PracticeMotionSurface(enter: true, child: _solvedCard(t)),
+                    const SizedBox(height: Spacing.xl),
+                    if (_solved)
+                      KeyedSubtree(key: _cluesKey, child: _clues(p, s)),
                   ],
                 ),
               ),
@@ -800,35 +1071,9 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   Widget _grid(SilbenPuzzle p, SoriSurfaces s) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        // gap 6→10: 셀이 붙어 보여 교차 구조가 안 읽혔다(2026-08-12 Jin).
-        // 최소 터치 영역 48을 우선 보장한다: 좁은 화면(360dp)에서는
-        // gap을 먼저 줄여 48을 확보하고, gap이 0까지 줄어도 모자라면
-        // 그때만 48 미만을 허용하되 격자가 가로로 넘치지 않게 한다
-        // (2026-09-04 스윕 sub-48dp).
-        const maxGap = 10.0;
-        const minCell = 48.0;
-        final cols = p.cols;
-        final maxCell =
-            constraints.maxWidth >= SoriAdaptiveWidth.crosswordLargeCells
-            ? 96.0
-            : 52.0;
-        double cellFor(double gap) =>
-            math.min(maxCell, (constraints.maxWidth - (cols - 1) * gap) / cols);
-        var gap = maxGap;
-        var cell = cellFor(gap);
-        if (cell < minCell) {
-          final cellNoGap = math.min(maxCell, constraints.maxWidth / cols);
-          if (cellNoGap >= minCell && cols > 1) {
-            gap = ((constraints.maxWidth - minCell * cols) / (cols - 1)).clamp(
-              0.0,
-              maxGap,
-            );
-            cell = cellFor(gap);
-          } else {
-            gap = 0.0;
-            cell = cellNoGap;
-          }
-        }
+        final metrics = _gridMetrics(p, constraints.maxWidth);
+        final gap = metrics.gap;
+        final cell = metrics.cell;
         return Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -894,7 +1139,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                 : inActiveWord
                 ? SoriColors.info.withValues(alpha: 0.06)
                 : s.surfaceAlt,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(SoriRadius.sm),
             border: Border.all(
               color: locked
                   ? SoriColors.success
@@ -946,6 +1191,21 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       ],
     );
 
+    final hintLevel = _activeWord == null
+        ? 0
+        : _helpState.levelFor(_activeWord!);
+    final currentPulse =
+        _activeWord != null &&
+        _hintWordKey == silbenWordOccurrence(_activeWord!) &&
+        !locked &&
+        (hintLevel == 1 && inActiveWord ||
+            hintLevel == 2 && helpCrossing ||
+            hintLevel == 3 && _helpState.revealedCell == cell);
+    box = PracticeHintEmphasis(
+      pulse: currentPulse ? _hintPulse : 0,
+      child: box,
+    );
+
     if (selected && wrong && !reduceMotion) {
       // 오답 흔들림 — _wrongTick 이 바뀔 때마다 좌우 스냅.
       box = TweenAnimationBuilder<double>(
@@ -991,8 +1251,9 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       label: '${semanticsParts.join('. ')}.',
       onTap: locked ? null : () => _onCellTap(cell, presentation),
       excludeSemantics: true,
-      child: GestureDetector(
-        behavior: HitTestBehavior.opaque,
+      child: SoriPressable(
+        pressScale: 1,
+        haptic: null,
         onTap: locked ? null : () => _onCellTap(cell, presentation),
         child: box,
       ),
@@ -1017,24 +1278,33 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
               label: p.pool[i],
               onTap: _tileUsed[i] ? null : () => _onTileTap(i, presentation),
               excludeSemantics: true,
-              child: GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: _tileUsed[i] ? null : () => _onTileTap(i, presentation),
-                child: Container(
-                  width: 48,
-                  height: 48,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: s.surface,
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: s.border),
-                  ),
-                  child: Text(
-                    p.pool[i],
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
-                      color: s.text,
+              child: PracticeMotionSurface(
+                interactive: false,
+                child: SoriPressable(
+                  pressScale: .99,
+                  surfaceDepth: _tileUsed[i] ? 0 : 3,
+                  surfaceRadius: SoriRadius.sm,
+                  surfaceEdgeColor: s.border,
+                  haptic: null,
+                  onTap: _tileUsed[i]
+                      ? null
+                      : () => _onTileTap(i, presentation),
+                  child: Container(
+                    width: 48,
+                    height: 48,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: s.surface,
+                      borderRadius: BorderRadius.circular(SoriRadius.sm),
+                      border: Border.all(color: s.border),
+                    ),
+                    child: Text(
+                      p.pool[i],
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
+                        color: s.text,
+                      ),
                     ),
                   ),
                 ),
@@ -1053,6 +1323,29 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                 ? a.word.row - b.word.row
                 : a.word.col - b.word.col,
           );
+    if (!_solved) {
+      return LayoutBuilder(
+        key: const ValueKey('silben-compact-clues'),
+        builder: (context, constraints) => Wrap(
+          spacing: Spacing.sm,
+          runSpacing: Spacing.sm,
+          children: [
+            if (_lastCompletedWord case final completed?)
+              SoriSpeechIndicator(
+                key: const Key('silben-clue-speak'),
+                text: _speechFor(completed),
+              ),
+            for (final entry in words)
+              ConstrainedBox(
+                constraints: BoxConstraints(maxWidth: constraints.maxWidth),
+                child: IntrinsicWidth(
+                  child: _clueRow(entry.word, entry.index, s),
+                ),
+              ),
+          ],
+        ),
+      );
+    }
     final card = SoriCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -1090,83 +1383,96 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     final active = _activeWord == w;
     final meaning = w.meaningFor(_hintLanguage);
     final localizedExample = w.exampleFor(_hintLanguage);
-    final label = done
+    final label = done && _solved
         ? '${w.answer} · $meaning. $localizedExample ${w.exampleKo}'
-        : '$meaning. $localizedExample ${w.exampleKo}';
+        : done
+        ? '${w.answer} · $meaning'
+        : meaning;
     void onTap() => _onClueTap(w, presentation);
     return Semantics(
       key: ValueKey('silben-clue-$declaredIndex'),
       button: true,
+      enabled: !done,
       selected: active,
       label: label,
-      onTap: onTap,
+      onTap: done ? null : onTap,
       excludeSemantics: true,
-      child: GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onTap: onTap,
-        child: AnimatedContainer(
-          key: ValueKey('silben-clue-surface-$declaredIndex'),
-          duration: SoriMotion.respect(context, SoriMotion.fast),
-          padding: const EdgeInsets.symmetric(
-            horizontal: Spacing.sm,
-            vertical: Spacing.xs,
-          ),
-          decoration: BoxDecoration(
-            color: active
-                ? SoriColors.info.withValues(alpha: 0.06)
-                : Colors.transparent,
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(
-              color: active ? SoriColors.info : Colors.transparent,
-              width: active ? 1.5 : 0,
+      child: PracticeMotionSurface(
+        interactive: false,
+        child: SoriPressable(
+          pressScale: .99,
+          surfaceDepth: done ? 0 : 3,
+          surfaceRadius: SoriRadius.md,
+          surfaceEdgeColor: s.border,
+          haptic: null,
+          onTap: done ? null : onTap,
+          child: AnimatedContainer(
+            key: ValueKey('silben-clue-surface-$declaredIndex'),
+            duration: SoriMotion.respect(context, SoriMotion.fast),
+            constraints: const BoxConstraints(minHeight: 48),
+            padding: const EdgeInsets.symmetric(
+              horizontal: Spacing.sm,
+              vertical: Spacing.sm,
             ),
-          ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Icon(
-                w.isHorizontal
-                    ? Icons.arrow_forward_rounded
-                    : Icons.arrow_downward_rounded,
-                size: 16,
-                color: done
-                    ? SoriColors.success
-                    : active
-                    ? SoriColors.info
-                    : SoriColors.accent,
+            decoration: BoxDecoration(
+              color: active
+                  ? SoriColors.info.withValues(alpha: .10)
+                  : SoriCard.resolvedBackground(context),
+              borderRadius: BorderRadius.circular(SoriRadius.md),
+              border: Border.all(
+                color: active ? SoriColors.info : s.border,
+                width: active ? 1.5 : 1,
               ),
-              const SizedBox(width: Spacing.sm),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      done ? '${w.answer} · $meaning' : meaning,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 15,
-                        color: done
-                            ? SoriColors.success
-                            : active
-                            ? SoriColors.info
-                            : s.text,
-                      ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      localizedExample,
-                      style: SoriTextTheme.of(context).caption,
-                    ),
-                    Text(
-                      w.exampleKo,
-                      style: SoriTextTheme.of(
-                        context,
-                      ).caption.copyWith(fontWeight: FontWeight.w600),
-                    ),
-                  ],
+              boxShadow: [
+                BoxShadow(color: s.border, offset: const Offset(0, Spacing.xs)),
+              ],
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(
+                  done
+                      ? Icons.check_circle_outline_rounded
+                      : w.isHorizontal
+                      ? Icons.arrow_forward_rounded
+                      : Icons.arrow_downward_rounded,
+                  size: 18,
+                  color: done
+                      ? SoriColors.success
+                      : active
+                      ? SoriColors.info
+                      : SoriColors.accent,
                 ),
-              ),
-            ],
+                const SizedBox(width: Spacing.sm),
+                Flexible(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        done ? '${w.answer} · $meaning' : meaning,
+                        style: SoriTextTheme.of(context).label.copyWith(
+                          fontWeight: FontWeight.w700,
+                          color: done ? SoriColors.success : s.text,
+                        ),
+                      ),
+                      if (done && _solved) ...[
+                        const SizedBox(height: Spacing.xs),
+                        Text(
+                          localizedExample,
+                          style: SoriTextTheme.of(context).caption,
+                        ),
+                        Text(
+                          w.exampleKo,
+                          style: SoriTextTheme.of(context).caption,
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -1180,15 +1486,31 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       return SoriCard(
         child: Column(
           children: [
-            Text(t.practiceReplaySaved, style: SoriTextTheme.of(context).h2),
-            Text(
-              _helpState.levels.isEmpty
-                  ? t.practiceIndependent
-                  : t.practiceAssisted,
+            PracticeGuide(
+              dokkaebi: true,
+              dokkaebiPose: PracticeDokkaebiPose.celebrate,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    t.practiceReplaySaved,
+                    style: SoriTextTheme.of(context).h2,
+                  ),
+                  const SizedBox(height: Spacing.md),
+                  Text(
+                    _helpState.levels.isEmpty
+                        ? t.practiceIndependent
+                        : t.practiceAssisted,
+                  ),
+                ],
+              ),
             ),
-            SoriButton.outlined(
-              label: t.practiceHistoryOpen,
-              onTap: () => Navigator.of(context).pushNamed('/hanok/practice'),
+            const SizedBox(height: Spacing.xl),
+            PracticeRaisedAction(
+              child: SoriButton.outlined(
+                label: t.practiceHistoryOpen,
+                onTap: () => Navigator.of(context).pushNamed('/hanok/practice'),
+              ),
             ),
           ],
         ),
@@ -1204,38 +1526,46 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
         tinted: true,
         child: Column(
           children: [
-            LearningRewardPresentation(
-              attempt: _learningAttempt,
-              kind: SoriRewardKind.xp,
-              amount: _xpPerPuzzle,
-              presentationComplete: _rewardPersisted,
-              child: Text(
-                _rewardPersisted
-                    ? '${t.wordleResultWin} +$_xpPerPuzzle XP'
-                    : t.wordleResultWin,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
-                  color: SoriColors.success,
+            PracticeGuide(
+              dokkaebi: true,
+              dokkaebiPose: PracticeDokkaebiPose.celebrate,
+              child: LearningRewardPresentation(
+                attempt: _learningAttempt,
+                kind: SoriRewardKind.xp,
+                amount: _xpPerPuzzle,
+                presentationComplete: _rewardPersisted,
+                child: Text(
+                  _rewardPersisted
+                      ? '${t.wordleResultWin} +$_xpPerPuzzle XP'
+                      : t.wordleResultWin,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: SoriColors.success,
+                  ),
                 ),
               ),
             ),
-            const SizedBox(height: Spacing.md),
+            const SizedBox(height: Spacing.xl),
             if (next != null)
-              SoriButton.filled(
-                label: t.btnNext,
-                icon: Icons.arrow_forward,
-                accent: SoriColors.success,
-                onTap: next,
-                fullWidth: true,
+              PracticeRaisedAction(
+                primary: true,
+                child: SoriButton.filled(
+                  label: t.btnNext,
+                  accent: SoriColors.success,
+                  onTap: next,
+                  fullWidth: true,
+                ),
               )
             else
               const Text('🎉', style: TextStyle(fontSize: 28)),
             const SizedBox(height: Spacing.md),
-            SoriButton.outlined(
-              label: t.practiceToSarangbang,
-              fullWidth: true,
-              onTap: () => Navigator.of(context).pushNamed('/sarangbang'),
+            PracticeRaisedAction(
+              child: SoriButton.outlined(
+                label: t.practiceToSarangbang,
+                fullWidth: true,
+                onTap: () => Navigator.of(context).pushNamed('/sarangbang'),
+              ),
             ),
           ],
         ),

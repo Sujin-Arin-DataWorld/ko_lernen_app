@@ -5,9 +5,10 @@ import 'pressable.dart';
 
 /// Tactile settings entry. The existing SettingsScreen owns every setting.
 class SoriSettingsButton extends StatelessWidget {
-  const SoriSettingsButton({super.key});
+  const SoriSettingsButton({super.key, this.artworkAsset = asset});
 
   static const asset = 'assets/icons/tactile_settings.png';
+  final String artworkAsset;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,14 @@ class SoriSettingsButton extends StatelessWidget {
             dimension: 48,
             child: Center(
               child: ExcludeSemantics(
-                child: Image.asset(asset, width: 36, height: 36),
+                child: Image.asset(
+                  artworkAsset,
+                  width: 36,
+                  height: 36,
+                  fit: BoxFit.contain,
+                  cacheWidth: (36 * MediaQuery.devicePixelRatioOf(context))
+                      .ceil(),
+                ),
               ),
             ),
           ),

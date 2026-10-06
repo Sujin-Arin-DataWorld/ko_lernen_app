@@ -1,27 +1,26 @@
-import '../widgets/sori/game_result_recovery.dart';
-import '../widgets/sori/study_evidence_recovery.dart';
-import 'dart:math';
 import 'dart:async';
-
+import 'dart:math';
 import 'package:flutter/material.dart';
-
+import '../features/study_library/study_library.dart';
 import '../l10n/generated/app_localizations.dart';
-import '../widgets/app_loading.dart';
+import '../models/companion_art.dart';
 import '../models/feedback_completion.dart';
 import '../models/vocab.dart';
-import '../features/study_library/study_library.dart';
 import '../services/analytics_service.dart';
 import '../services/cloze_loader.dart';
 import '../services/data_loader.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
+import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/cloze_prompt.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/game_result_recovery.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
@@ -288,7 +287,7 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
         padding: EdgeInsets.zero,
         child: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/magpie_encourage.png',
+            asset: CompanionArt.joyGuide,
             icon: Icons.today_outlined,
             title: t.dailyTitle,
             body: t.clozeEmptyBody,

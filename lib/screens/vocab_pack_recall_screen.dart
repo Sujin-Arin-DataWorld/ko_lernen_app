@@ -1,13 +1,12 @@
-import '../services/haptic_service.dart';
 import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
-
 import '../l10n/generated/app_localizations.dart';
+import '../models/companion_art.dart';
 import '../models/vocab.dart';
 import '../models/vocab_pack.dart';
-import '../services/sound_service.dart';
+import '../services/haptic_service.dart';
 import '../services/pack_session_srs_ledger.dart';
+import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../services/vocab_pack_service.dart';
@@ -18,8 +17,8 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
-import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/study_evidence_recovery.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/text_field.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
@@ -293,7 +292,7 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen>
         title: t.vocabPackRecallTitle,
         child: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_front.png',
+            asset: CompanionArt.taego,
             icon: Icons.keyboard_alt_outlined,
             title: t.vocabPackRecallTitle,
             body: t.vocabPackRecallNoBossWords,

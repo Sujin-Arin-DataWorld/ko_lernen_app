@@ -4,7 +4,7 @@ import 'dart:typed_data';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
-/// 앱의 단일 Noto Sans KR 번들에 라틴·한글 글리프가 모두 있는지 검사한다.
+/// 승인 서체 Noto Sans KR / C 인터페이스 Paperlogy에 글리프가 있는지 검사한다.
 ///
 /// 2026-08-19 발견: `PretendardStd-*.otf` 5개가 라틴 전용 서브셋이라 한글 글리프가
 /// 0개였고, 한국어 전부가 OS 폴백 폰트로 그려지고 있었다. pubspec 주석은
@@ -18,12 +18,18 @@ void main() {
     expect(SoriFonts.fallback, isEmpty);
   });
 
-  test('pubspec 단일 폰트는 독일어와 한글 글리프를 포함한다', () {
+  test('approved bundled faces include German and complete Hangul glyphs', () {
     final pubspec = File('pubspec.yaml').readAsStringSync();
     final assets = RegExp(
       r'asset:\s*(assets/fonts/\S+\.(?:otf|ttf))',
     ).allMatches(pubspec).map((m) => m.group(1)!).toList();
-    expect(assets, ['assets/fonts/NotoSansKR/NotoSansKR-Variable.ttf']);
+    expect(assets, [
+      'assets/fonts/Paperlogy/Paperlogy-Regular.ttf',
+      'assets/fonts/Paperlogy/Paperlogy-Medium.ttf',
+      'assets/fonts/Paperlogy/Paperlogy-SemiBold.ttf',
+      'assets/fonts/Paperlogy/Paperlogy-Bold.ttf',
+      'assets/fonts/NotoSansKR/NotoSansKR-Variable.ttf',
+    ]);
     const requiredLatin = <String, int>{
       'A': 0x41,
       'a': 0x61,

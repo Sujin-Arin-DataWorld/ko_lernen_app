@@ -1,0 +1,54 @@
+Use case: ui-mockup.
+Extend the approved Hangul Sori C app design in Image 1 into BOARD 3: FOUR complete parallel portrait APP CANVASES (screens 09–12), matching Image 1's precise high-fidelity material quality, canvas proportions, layout density, warm oak and hanji gallery setting. This is a continuation of the C visual design, not old app UI. Output wide landscape 1672x941 or equivalent 16:9. All four canvases complete in view, labels at bottom outside them. Board title "C · Hangul im Ganzen", subtitle "Entdecken · Hören · Wiederholen". If Image 1 has an outer serif board title, keep that only outside the app. Inside ALL text clean bold humanist SANS-SERIF close to Paperlogy; Korean correctly rendered as Noto Sans KR.
+
+Preserve C's deep jade fabric/patina (#123E37, #1C5148), continuous warm ivory hanji workspace (#F6EDE0) with subtle real paper fibers, rounded tactile raised frames with bevel, oak (#82522F) shelves/edges, aged brushed brass (#D59F58), dark readable ink (#1C2520), graceful gold-edged app canvas. Every screen feels like ONE crafted hanji panel on jade, not disconnected floating generic white rectangles. Compact typography and 8/16/24dp spacing, large readable Hangul. Text and genuine learning controls dominate, decorations secondary. The original bright hanji and jade CTA texture must be clearly visible.
+
+No fake OS clock/date/WiFi/battery/notch/device hardware. No bottom five-tab navigation in this inner learning route. NO LINE ICONS, outline pictograms, black arrows/chevrons, emoji or flat vector toolbar symbols. Learning LETTERS and syllable diagrams are real content and must remain accurate. Navigation can be plain words and physical ceramic/brass objects. All action buttons raised/tactile, gold primary finish, jade listen. No invented scores, XP, coins, forced unlocks, automatic speech grading.
+
+ALL FOUR SCREENS share compact jade header: tiny gold "HANGUL SORI", left text "Zurück", heading "Hangul", a small brass/ivory "1×" voice-speed plaque upper right. Directly below, compact 3 tabs "Übersicht", "Karten", "Schreiben" on the hanji rim: the active tab jade with soft brass edge, inactive ivory. Each tab has real 48dp target, no drawn icon. NO FOUR-STAGE FOUNDATION PROGRESS because these are the separate whole Hangul practice screens.
+
+SCREEN 09 — FULL BASIC SYLLABLE TABLE / active Übersicht:
+Short title "Silbentafel", small instruction "Tippen zum Hören." One large oak-framed paper table workspace.
+At top selected big "가" with "ㄱ + ㅏ" and tactile small celadon cloth speaker object + jade "Anhören".
+Actual table with fixed left consonant headers and horizontal-scroll vowel columns. Visible window first FIVE VOWELS and first SIX CONSONANTS, big readable cells, ivory ceramic square cells with shallow shadows and gold top headers. EXACT labels:
+column headers ㅏ ㅑ ㅓ ㅕ ㅗ
+left headers ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ
+row ㄱ: 가 갸 거 겨 고
+row ㄴ: 나 냐 너 녀 노
+row ㄷ: 다 댜 더 뎌 도
+row ㄹ: 라 랴 러 려 로
+row ㅁ: 마 먀 머 며 모
+row ㅂ: 바 뱌 버 벼 보
+Selected "가" cell jade, lettering ivory. Rightmost column naturally hints more columns with a cropped next column edge and horizontal scroll thumb under grid. Full chart is BASIC 14 consonants x 10 vowels = 140 cells, not 19x15. Small beneath "14 Konsonanten · 10 Vokale". Bottom compact content links "Alle Konsonanten (19)" and "Alle Vokale (15)" within SAME hanji panel; next section hint "Silbenaufbau". The overview scrolls vertically, table horizontally. Everything must read as real tactile interactive letter board, not huge illustrated puzzle screenshot. Do not place arbitrary Hangul character combinations.
+
+SCREEN 10 — LETTER OVERVIEW WITH OPEN DETAIL / active Übersicht:
+Behind a modest centered hanji detail panel, show overview headings "Konsonanten · 19", small 4-column ceramic tiles ㄱ ㄴ ㄷ ㄹ / ㅁ ㅂ ㅅ ㅇ, then "Vokale · 15" and visible ㅏ ㅑ ㅓ ㅕ. Dim underlying view lightly while retaining materials.
+Centered raised ivory detail card, same C oak/brass craftsmanship:
+Large genuine "ㄱ" letter above "[g/k]".
+Two-line explanation exactly "wie 'g' in Gabe (Anfang)" and "/ 'k' (Ende)".
+Small real jade ceramic ㄱ standing on oak base (subordinate to large native-style glyph, not replacing readable letter). Jade "Noch einmal anhören"; ivory "Schließen". No speech-score or known/unknown in letter detail.
+At bottom visible UNDERLYING composition content header "Silbenaufbau" and concise correct examples:
+한 = ㅎ + ㅏ + ㄴ
+국 = ㄱ + ㅜ + ㄱ
+말 = ㅁ + ㅏ + ㄹ
+Ensure this is one overview with a centered detail overlay, not an invented fourth main tab.
+
+SCREEN 11 — FLASHCARD FRONT / active Karten:
+Header "Konsonanten" small gold/ivory "Auswahl" control; actual current count "1 / 19".
+Large thick ivory hanji flip card with strong oak edge. HUGE native-style jade "ㄱ" centered, ceramic tactile board material visible. Label beneath "Tippen zum Umdrehen".
+At foot of card small physical brass heart token and text "Teilen" on real ivory action plaques; heart filled brass object, not drawn line heart. Sharing/like are actual actions and should not dominate letter.
+Judgment row THREE separate genuine native-sized labels "Nicht gewusst" / "Überspringen" / "Gewusst". The first and last visibly muted/disabled on the front; skip active. Short secondary "Erst umdrehen."
+Below control row ivory "Vorherige", jade with mini speaker object "Anhören", ivory "Zufall".
+Bottom "Übung abschließen" gold-style DISABLED pale ivory/brass in this untouched initial sample. No score/progress ring.
+
+SCREEN 12 — FLASHCARD BACK / active Karten:
+Header same "Konsonanten", "Auswahl", count "1 / 19". Card back inside same oak/hanji material:
+Native-style large "ㄱ" and "[g/k]".
+Readable explanation "wie 'g' in Gabe (Anfang)" then "/ 'k' (Ende)".
+Lower word example section: miniature C jade bag with gold embroidered flower on small oak shelf, WORD "가방", translation "Tasche". Small separate jade "Wort anhören" control, which is distinct from LETTER listen.
+Near card foot brass heart token and text "Teilen".
+Judgment row all active tactile "Nicht gewusst", "Überspringen", "Gewusst" (no green-check emoji).
+Bottom "Vorherige" / mini physical speaker + "Laut anhören" / "Zufall" controls.
+Active gold "Übung abschließen", since the flip is a real session interaction. This is practice completion, not mastery of all 19. No Foundation "Übung speichern" confirmation checkbox.
+
+Outside bottom small wood/brass plaques "09 Silbentafel", "10 Buchstaben", "11 Karten · vorne", "12 Karten · hinten". All inside type clean sans-serif, large enough to read at full board, no tiny excessive instructions. Keep C crafted depth on every cell, button and paper card. Do not let dark patterns overwhelm learning ink.

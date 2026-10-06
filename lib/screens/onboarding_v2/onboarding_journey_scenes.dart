@@ -8,10 +8,11 @@ import '../../models/learner_level.dart';
 import '../../widgets/app_loading.dart';
 import '../../widgets/sori/dialog.dart';
 import '../../widgets/sori/external_link.dart';
+import '../../widgets/sori/pressable.dart';
 import '../../widgets/sori/tokens.dart';
+import '../../widgets/sori/window_class.dart';
 import 'onboarding_v2_shell.dart';
 import 'onboarding_v3_demo_support.dart';
-import '../../widgets/sori/window_class.dart';
 
 /// A short heading leaves the learning surface and footer their own space.
 class JourneyHeading extends StatelessWidget {
@@ -20,26 +21,42 @@ class JourneyHeading extends StatelessWidget {
     required this.title,
     this.shortTitle,
     this.titleKey,
+    this.illustration,
   });
   final String title;
+  final String? illustration;
   final Key? titleKey;
   final String? shortTitle;
   @override
   Widget build(BuildContext context) {
     final short = MediaQuery.sizeOf(context).height < 700;
-    return Semantics(
-      header: true,
-      label: title,
-      excludeSemantics: true,
-      child: Text(
-        short && MediaQuery.textScalerOf(context).scale(16) > 24
-            ? (shortTitle ?? title)
-            : title,
-        key: titleKey,
-        style: SoriTextTheme.of(
-          context,
-        ).h2.copyWith(fontSize: short ? 22 : 28, height: 1.12),
-      ),
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Expanded(
+          child: Semantics(
+            header: true,
+            child: Text(
+              title,
+              key: titleKey,
+              style: SoriTextTheme.of(
+                context,
+              ).h2.copyWith(fontSize: short ? 22 : 28, height: 1.12),
+            ),
+          ),
+        ),
+        if (illustration != null) ...[
+          const SizedBox(width: Spacing.sm),
+          Image.asset(
+            illustration!,
+            width: 80,
+            height: 80,
+            fit: BoxFit.contain,
+            cacheWidth: (80 * MediaQuery.devicePixelRatioOf(context)).ceil(),
+            excludeFromSemantics: true,
+          ),
+        ],
+      ],
     );
   }
 }
@@ -61,74 +78,80 @@ class JourneyChoice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = Theme.of(context).colorScheme;
+    final surfaces = SoriSurfaces.of(context);
     return Semantics(
       selected: selected,
-      child: LayoutBuilder(
-        builder: (context, b) {
-          final showDetail =
-              b.maxHeight > 160 &&
-              MediaQuery.textScalerOf(context).scale(16) < 24;
-          return Material(
-            color: selected ? c.primaryContainer : c.surface,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(SoriRadius.md),
-              side: BorderSide(
-                color: selected ? c.primary : c.outlineVariant,
-                width: selected ? 2 : 1,
-              ),
-            ),
-            child: InkWell(
-              borderRadius: BorderRadius.circular(SoriRadius.md),
-              onTap: onTap,
-              child: Padding(
-                padding: EdgeInsets.all(b.maxHeight < 100 ? 4 : 12),
-                child: Column(
+      label: [
+        if (art != null) art!,
+        label,
+        if (detail != null) detail!,
+      ].join('. '),
+      excludeSemantics: true,
+      button: true,
+      onTap: onTap,
+      child: Material(
+        color: selected ? surfaces.surfaceAlt : surfaces.surface,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(SoriRadius.md),
+          side: BorderSide(
+            color: selected ? c.primary : surfaces.border,
+            width: selected ? 2 : 1,
+          ),
+        ),
+        child: SoriPressable(
+          onTap: onTap,
+          pressScale: .99,
+          surfaceDepth: 4,
+          surfaceEdgeColor: surfaces.border,
+          surfaceRadius: SoriRadius.md,
+          child: Padding(
+            padding: const EdgeInsets.all(Spacing.md),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                if (art != null) ...[
+                  Text(
+                    art!,
+                    locale: const Locale('ko'),
+                    textAlign: TextAlign.center,
+                    style: SoriTextTheme.of(
+                      context,
+                    ).h1.copyWith(fontSize: 28, color: c.primary),
+                  ),
+                  const SizedBox(height: Spacing.sm),
+                ],
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    if (art != null &&
-                        b.maxHeight >
-                            (MediaQuery.textScalerOf(context).scale(16) > 24
-                                ? 240
-                                : 115))
-                      Expanded(
-                        child: Center(
-                          child: Text(
-                            art!,
-                            locale: const Locale('ko'),
-                            style: SoriTextTheme.of(context).h1.copyWith(
-                              fontSize: b.maxHeight > 230 ? 46 : 30,
-                              color: c.primary,
-                              fontFamily: SoriFonts.learningKorean,
-                            ),
-                          ),
-                        ),
-                      ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Flexible(
-                          child: Text(
-                            label,
-                            textAlign: TextAlign.center,
-                            style: SoriTextTheme.of(context).cardTitle,
-                          ),
-                        ),
-                      ],
-                    ),
-                    if (showDetail && detail != null) ...[
-                      const SizedBox(height: 6),
-                      Text(
-                        detail!,
+                    Flexible(
+                      child: Text(
+                        label,
                         textAlign: TextAlign.center,
-                        style: SoriTextTheme.of(context).bodySmall,
+                        style: SoriTextTheme.of(context).cardTitle,
+                      ),
+                    ),
+                    if (selected) ...[
+                      const SizedBox(width: Spacing.sm),
+                      Icon(
+                        Icons.check_circle_rounded,
+                        size: 22,
+                        color: c.primary,
                       ),
                     ],
                   ],
                 ),
-              ),
+                if (detail != null) ...[
+                  const SizedBox(height: Spacing.sm),
+                  Text(
+                    detail!,
+                    textAlign: TextAlign.center,
+                    style: SoriTextTheme.of(context).bodySmall,
+                  ),
+                ],
+              ],
             ),
-          );
-        },
+          ),
+        ),
       ),
     );
   }
@@ -341,6 +364,7 @@ class _OnboardingPathSceneState extends State<OnboardingPathScene> {
               ],
             ),
             OnboardingV2DetailsButton(
+              key: const ValueKey('onboarding-v3-path-details'),
               label: t.onboardingJourneyMethod,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -596,12 +620,12 @@ class _OnboardingHanokSceneState extends State<OnboardingHanokScene> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    const labels = ['문', '누마루', '방'];
     final meanings = [
       t.onboardingJourneyDoor,
       t.onboardingJourneyVeranda,
       t.onboardingJourneyRoom,
     ];
+    final labels = meanings;
     Widget houseImage() =>
         Image.asset(_house, fit: BoxFit.contain, semanticLabel: '사랑채');
     return LayoutBuilder(
@@ -735,7 +759,7 @@ class _OnboardingHanokSceneState extends State<OnboardingHanokScene> {
                     DemoChoice(
                       key: ValueKey('onboarding-v3-place-$i'),
                       label: labels[i],
-                      korean: true,
+                      korean: false,
                       dense: compact,
                       selected: _place == i,
                       onTap: () => setState(() => _place = i),

@@ -22,6 +22,9 @@ import '../widgets/sori/sheet.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/updating_scene.dart';
 import '../widgets/sori/window_class.dart';
+import '../widgets/sori/c_gallery/c_materials.dart';
+import '../widgets/sori/c_gallery/c_objects.dart';
+import 'sori_stage/c_stage_chrome.dart';
 
 /// **Lerngruppe(계) 탭** — BottomNav 탭 3 (D4-5 방향 C: 탭 유지 + 맥락화).
 ///
@@ -139,6 +142,182 @@ class _GyeTabScreenState extends State<GyeTabScreen>
     }
   }
 
+  Future<void> _openGyeEntry(String route) async {
+    if (widget.onFindOrCreate case final override?) {
+      override();
+      return;
+    }
+    if (!await ensureGyeAgeAllowed(context) || !mounted) return;
+    await Navigator.of(context).pushNamed(route);
+    if (mounted) _reload();
+  }
+
+  Widget _cContent(BuildContext context, AsyncSnapshot<List<GyeMeta>> snap) {
+    final t = AppL10n.of(context);
+    final groups =
+        snap.connectionState == ConnectionState.done && !snap.hasError
+        ? snap.data ?? const <GyeMeta>[]
+        : const <GyeMeta>[];
+    final waiting =
+        snap.connectionState == ConnectionState.none ||
+        snap.connectionState == ConnectionState.waiting;
+    return SliverPadding(
+      padding: soriClampPadding(
+        MediaQuery.sizeOf(context).width,
+        maxWidth: 600,
+        base: const EdgeInsets.fromLTRB(12, 0, 12, 24),
+      ),
+      sliver: SliverToBoxAdapter(
+        child: CPaperPanel(
+          key: const ValueKey('c-gye-board'),
+          radius: 18,
+          padding: EdgeInsets.zero,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const ClipRRect(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(17)),
+                child: CSceneArt(CScene.studyTogether, height: 260, radius: 0),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    if (waiting)
+                      const AppLoading()
+                    else if (snap.hasError)
+                      AppError(message: t.errorOffline, onRetry: _reload)
+                    else if (groups.isEmpty) ...[
+                      Text(
+                        t.gyeRootPurpose,
+                        key: _introKey,
+                        style: cStageCardTitle.copyWith(fontSize: 22),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(t.gyeRootPrivacy, style: cStageBody),
+                    ] else
+                      for (final group in groups) ...[
+                        Text(
+                          group.name,
+                          key: ValueKey('gye-card-${group.id}'),
+                          style: cStageCardTitle,
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          t.gyeMembersN(group.memberCount),
+                          style: cStageBody,
+                        ),
+                        if (GyeLanternProgress.fromMeta(
+                          group,
+                          elementCount: GyeHanok.elementCount,
+                        ).hasWeeklyGoal) ...[
+                          const SizedBox(height: 10),
+                          CPaperPanel(
+                            child: Column(
+                              children: [
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    _cUsesPromise(group)
+                                        ? switch (group.weeklyPromiseId) {
+                                            GyeWeeklyPromises.cafeOrder =>
+                                              t.gyePromiseCafeOrderTitle,
+                                            GyeWeeklyPromises.directions =>
+                                              t.gyePromiseDirectionsTitle,
+                                            GyeWeeklyPromises
+                                                .selfIntroduction =>
+                                              t.gyePromiseSelfIntroductionTitle,
+                                            _ => t.gyeWeeklyTitle,
+                                          }
+                                        : t.gyeWeeklyTitle,
+                                    style: cStageBody.copyWith(
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    for (var i = 0; i < 3; i++)
+                                      SizedBox(
+                                        width: 64,
+                                        height: 96,
+                                        child: CLantern(
+                                          lit:
+                                              GyeLanternProgress.fromMeta(
+                                                group,
+                                                elementCount:
+                                                    GyeHanok.elementCount,
+                                              ).weeklyFraction >=
+                                              (i + 1) / 3,
+                                        ),
+                                      ),
+                                  ],
+                                ),
+                                Text(
+                                  _cUsesPromise(group)
+                                      ? t.gyePromiseProgress(
+                                          group.weeklyPromiseProgress,
+                                          group.weeklyPromiseTarget,
+                                        )
+                                      : '${group.weeklyGoalProgress} / ${group.weeklyGoalPacks}',
+                                  style: cStageBody,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                        const SizedBox(height: 10),
+                        CMaterialAction(
+                          label: t.gyeOpenCta,
+                          gold: false,
+                          onTap: () => _openGye(group),
+                        ),
+                        const SizedBox(height: 12),
+                      ],
+                    if (!waiting && !snap.hasError) ...[
+                      const SizedBox(height: 12),
+                      CMaterialAction(
+                        key: const ValueKey('gye-empty-start'),
+                        label: t.gyeChooserJoin,
+                        compact: true,
+                        gold: false,
+                        onTap: () => _openGyeEntry('/gye/join'),
+                      ),
+                      const SizedBox(height: 10),
+                      CMaterialAction(
+                        label: t.gyeChooserCreate,
+                        compact: true,
+                        onTap: () => _openGyeEntry('/gye/create'),
+                      ),
+                      const SizedBox(height: 6),
+                      TextButton(
+                        key: const ValueKey('gye-continue-solo'),
+                        onPressed: _resolvedOnContinueSolo(context),
+                        child: Text(t.gyeContinueSolo, style: cStageBody),
+                      ),
+                      TextButton(
+                        onPressed: () => showGyeDetails(context),
+                        child: Text(t.gyeExplainMore, style: cStageBody),
+                      ),
+                    ],
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  bool _cUsesPromise(GyeMeta group) =>
+      group.weeklyPromiseSchemaVersion == 1 &&
+      group.weeklyPromiseId.isNotEmpty &&
+      group.weeklyPromiseTarget > 0;
+
   VoidCallback _resolvedOnContinueSolo(BuildContext context) =>
       widget.onContinueSolo ??
       () =>
@@ -150,6 +329,7 @@ class _GyeTabScreenState extends State<GyeTabScreen>
     return FutureBuilder<List<GyeMeta>>(
       future: _gyeFuture,
       builder: (context, snap) {
+        if (widget.embedded) return _cContent(context, snap);
         if (snap.connectionState == ConnectionState.none ||
             snap.connectionState == ConnectionState.waiting) {
           // §W-F F2 의 로딩 슬리버와 같은 패턴 — CustomScrollView 는 절대

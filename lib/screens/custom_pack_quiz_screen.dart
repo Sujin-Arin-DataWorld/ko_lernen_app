@@ -1,11 +1,8 @@
-import '../widgets/sori/study_evidence_recovery.dart';
-import '../widgets/sori/game_result_recovery.dart';
 import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
-
 import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
+import '../models/companion_art.dart';
 import '../models/custom_pack.dart';
 import '../models/feedback_completion.dart';
 import '../services/custom_pack_service.dart';
@@ -13,16 +10,18 @@ import '../services/quiz_distractor_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
-import '../widgets/sori/button.dart';
 import '../widgets/managed_media_image.dart';
+import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/game_result_recovery.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/quiz_choice.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
@@ -274,7 +273,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
         title: t.wbQuiz,
         child: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_front.png',
+            asset: CompanionArt.taego,
             icon: Icons.help_outline,
             title: t.customPackNotFoundTitle,
             body: t.customPackNotFoundBody,
@@ -289,7 +288,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
         title: t.wbQuiz,
         child: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/magpie_encourage.png',
+            asset: CompanionArt.joyGuide,
             icon: Icons.quiz_outlined,
             title: t.wbQuiz,
             body: t.quizNeedMore,

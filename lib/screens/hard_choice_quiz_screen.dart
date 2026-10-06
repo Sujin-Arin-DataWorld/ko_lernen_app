@@ -1,8 +1,7 @@
 import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
-
 import '../l10n/generated/app_localizations.dart';
+import '../models/companion_art.dart';
 import '../models/vocab.dart';
 import '../services/data_loader.dart';
 import '../services/hangul_perturbation.dart';
@@ -18,8 +17,8 @@ import '../widgets/sori/game_result_recovery.dart';
 import '../widgets/sori/lazy_scroll_reveal.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/quiz_choice.dart';
-import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/study_evidence_recovery.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 
 /// **어려운 철자 퀴즈** — Extra-Lernset(어려운 단어)의 2단계 연습
@@ -400,7 +399,7 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen>
 
   Widget _buildEmpty(AppL10n t, int presentation) => Center(
     child: SoriEmptyState(
-      asset: 'assets/illustrations/mascot/magpie_encourage.png',
+      asset: CompanionArt.joyGuide,
       icon: Icons.fact_check_outlined,
       title: t.hardWordsEmptyTitle,
       body: t.hardWordsEmptyBody,

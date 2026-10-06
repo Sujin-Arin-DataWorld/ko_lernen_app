@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'pressable.dart';
 import 'tokens.dart';
 
+export 'tokens.dart' show SoriTextRole;
+
 enum SoriButtonVariant { filled, outlined, ghost }
 
 enum SoriButtonSize { lg, md, sm }
@@ -50,6 +52,13 @@ class SoriButton extends StatelessWidget {
   /// Result and purchase actions emit feedback after confirmation.
   final bool feedbackOnTap;
 
+  /// Reward actions can expose a lit upper face over the shared 4dp edge.
+  final bool sculpted;
+
+  /// Null preserves existing callers; explicit UI/learning roles select the
+  /// C interface face or the Korean learning face during migration.
+  final SoriTextRole? textRole;
+
   const SoriButton({
     super.key,
     required this.label,
@@ -66,6 +75,8 @@ class SoriButton extends StatelessWidget {
     this.maxLines,
     this.loading = false,
     this.feedbackOnTap = true,
+    this.sculpted = false,
+    this.textRole,
   }) : assert(maxLines == null || maxLines > 0);
 
   const SoriButton.filled({
@@ -83,6 +94,8 @@ class SoriButton extends StatelessWidget {
     this.maxLines,
     this.loading = false,
     this.feedbackOnTap = true,
+    this.sculpted = false,
+    this.textRole,
   }) : variant = SoriButtonVariant.filled,
        assert(maxLines == null || maxLines > 0);
 
@@ -101,6 +114,8 @@ class SoriButton extends StatelessWidget {
     this.maxLines,
     this.loading = false,
     this.feedbackOnTap = true,
+    this.sculpted = false,
+    this.textRole,
   }) : variant = SoriButtonVariant.outlined,
        assert(maxLines == null || maxLines > 0);
 
@@ -119,6 +134,8 @@ class SoriButton extends StatelessWidget {
     this.maxLines,
     this.loading = false,
     this.feedbackOnTap = true,
+    this.sculpted = false,
+    this.textRole,
   }) : variant = SoriButtonVariant.ghost,
        assert(maxLines == null || maxLines > 0);
 
@@ -261,7 +278,11 @@ class SoriButton extends StatelessWidget {
                       maxLines: maxLines,
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontFamily: SoriFonts.sans,
+                        fontFamily: switch (textRole) {
+                          SoriTextRole.ui => 'Paperlogy',
+                          SoriTextRole.learning => SoriFonts.learningKorean,
+                          null => SoriFonts.sans,
+                        },
                         fontFamilyFallback: SoriFonts.fallback,
                         color: fg,
                         fontWeight: variant == SoriButtonVariant.filled
@@ -301,8 +322,29 @@ class SoriButton extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         color: bg,
+        gradient: sculpted && variant == SoriButtonVariant.filled && !disabled
+            ? LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Color.lerp(bg, Colors.white, .08)!,
+                  bg,
+                  Color.lerp(bg, Colors.black, .08)!,
+                ],
+                stops: const [0, .48, 1],
+              )
+            : null,
         border: border,
         borderRadius: BorderRadius.circular(_radius * comfortScale),
+        boxShadow: sculpted && !disabled
+            ? [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: isLight ? .15 : .30),
+                  blurRadius: 12,
+                  offset: const Offset(0, 6),
+                ),
+              ]
+            : null,
       ),
       alignment: Alignment.center,
       child: content,

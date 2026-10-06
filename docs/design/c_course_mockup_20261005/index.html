@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Hangul Sori · C 종합코스 목업</title>
+<link rel="stylesheet" href="course.css?v=20261005-7">
+<style>
+body{background:#102f29;color:var(--paper);min-height:100dvh;background-image:radial-gradient(ellipse at 50% -20%,#51796844,transparent 60%)}.gallery{max-width:1752px;margin:auto;padding:42px 32px 48px}.masthead{display:flex;gap:28px;align-items:flex-end;justify-content:space-between;padding-bottom:25px;border-bottom:1px solid #bd9c6755}.gallery-brand{display:flex;align-items:center;gap:9px;letter-spacing:.19em;color:var(--gold);font-size:12px;font-weight:600}.gallery-brand img{width:30px;height:30px}.gallery h1{font:400 42px/1.24 MaruBuri,serif;color:#f3e5cb;margin-top:10px;letter-spacing:-.045em}.gallery .intro{font-size:14px;color:#d2d8cc;margin-top:14px;max-width:700px;line-height:1.6}.toolbar{display:flex;align-items:center;flex-wrap:wrap;gap:12px}.toolbar label{font-size:13px;color:#d9d7c7;display:flex;gap:8px;align-items:center}.toolbar select,.tool-button{border:1px solid #bda578;border-radius:7px;background:#173f36;color:var(--paper);min-height:48px;padding:10px 13px;font:14px Paperlogy;cursor:pointer}.tool-button{display:flex;align-items:center;gap:8px;text-decoration:none}.toolbar option{background:#173f36}.demo-note{font-size:12px;color:#cdd5c5;margin:20px 0 28px;line-height:1.6}.board{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}.phone-column{min-width:0}.scene-label{display:flex;align-items:center;gap:10px;margin-bottom:12px;color:var(--gold);font-size:13px;font-weight:600;letter-spacing:.03em}.scene-label span:first-child{font-size:11px;border-bottom:1px solid #c5a473;padding-bottom:4px}.phone{position:relative;border:2px solid #b09a68;border-radius:28px;padding:5px;background:#082b23;box-shadow:inset 0 0 0 1px #e6d0a563,0 24px 48px #04171166}.phone-inner{position:relative;width:100%;aspect-ratio:390/844;border-radius:21px;overflow:hidden;background:var(--jade)}.phone iframe{position:absolute;top:0;left:0;display:block;width:390px;height:844px;border:0;transform:scale(var(--preview-scale,1));transform-origin:0 0}.scene-footer{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 3px 0}.scene-footer p{color:#d0d9ce;font-size:12px;line-height:1.5}.scene-footer button{border-bottom:1px solid #bba57b;white-space:nowrap;min-height:48px;color:var(--gold);font-size:12px;display:flex;gap:4px;align-items:center;padding:8px 0}.scene-footer svg{width:14px;height:14px}.gallery-bottom{border-top:1px solid #bc9c6255;margin-top:32px;padding-top:21px;display:flex;gap:30px;align-items:flex-start;justify-content:space-between}.gallery-bottom p{font-size:12px;color:#c7d0c1;max-width:860px;line-height:1.7}.gallery-bottom a{font-size:12px;color:var(--gold);min-height:48px;display:flex;align-items:center;gap:7px;text-decoration:none}.preview-dialog{color:var(--paper);background:#0c2c25;border:1px solid #ba9e68;border-radius:20px;padding:16px;max-width:calc(100vw - 16px);max-height:calc(100dvh - 16px);margin:auto;box-shadow:0 30px 90px #031912aa}.preview-dialog::backdrop{background:#041b15dd;backdrop-filter:blur(5px)}.preview-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px;max-width:700px}.preview-tools h2{font-size:16px;flex:1}.preview-tools select{font-size:13px;max-width:170px;border:1px solid #baa278;border-radius:6px;background:#17443a;color:var(--paper);padding:8px;min-height:48px}.preview-tools button{color:var(--paper);width:48px;display:grid;place-items:center}.preview-viewport{width:390px;max-width:calc(100vw - 52px);height:min(844px,calc(100dvh - 112px));margin:auto;background:var(--jade);border:1px solid #bda475;border-radius:12px;overflow:hidden}.preview-viewport iframe{width:100%;height:100%;border:0;display:block}.preview-dialog.landscape .preview-viewport{width:700px;height:min(390px,calc(100dvh - 112px))}@media(max-width:1050px){.board{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;max-width:800px;margin:auto}.masthead{align-items:flex-start;flex-direction:column}.gallery{padding:28px 22px 40px}}@media(max-width:550px){.gallery{padding:24px 16px}.gallery h1{font-size:32px}.board{grid-template-columns:minmax(0,1fr);gap:28px;max-width:390px}.gallery-bottom{flex-direction:column;gap:8px}.toolbar{gap:8px}.toolbar label{font-size:12px}.demo-note{font-size:12px}.scene-footer p{font-size:13px}.preview-tools{gap:6px}}
+</style>
+<style>
+.native-compare .gallery{width:1752px;max-width:none;padding:42px 32px 48px}.native-compare .board{grid-template-columns:repeat(4,404px);max-width:none;margin:0;gap:24px}.native-compare .phone-inner{width:390px;height:844px;aspect-ratio:auto}.native-compare .phone iframe{transform:none}.native-compare .masthead{flex-direction:row;align-items:flex-end}.native-compare .gallery h1{font-size:42px}.native-compare .gallery-bottom{flex-direction:row;gap:30px}.native-compare .scene-footer p{font-size:12px}
+</style>
+</head>
+<body>
+<main class="gallery">
+  <header class="masthead">
+    <div>
+      <div class="gallery-brand"><img src="../../../assets/illustrations/concept_c/cloud_v2.png" alt="">HANGUL SORI · CONCEPT C</div>
+      <h1>Dein Koreanischkurs</h1>
+      <p class="intro">한 장씩 넘기며, 실제 대화까지.<br>승인된 C안의 소재와 책을 그대로 이어 만든 종합코스의 네 장면입니다.</p>
+    </div>
+    <div class="toolbar" aria-label="목업 보기 설정">
+      <label>언어 <select id="gallery-lang" aria-label="언어"><option value="de">Deutsch</option><option value="en">English</option></select></label>
+      <label>보기 <select id="gallery-scale" aria-label="보기"><option value="1">기본 크기 · 100%</option><option value="2">확대 검수 · 200%</option></select></label>
+      <a class="tool-button" href="screen.html?screen=path&lang=de" id="play-link" target="_blank" rel="noopener">코스 직접 눌러보기 <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+  <p class="demo-note">인터랙티브 목업 · 48유닛 제목·목표·원본 ID 사용 · 학습 예시는 첫 유닛의 원본 자료 · 진행·결과는 목업용이며 실제 계정·XP·잠금에 반영되지 않습니다.</p>
+  <section class="board" aria-label="종합코스 네 장면">
+    <article class="phone-column" data-screen="path">
+      <h2 class="scene-label"><span>01</span><span>코스 경로 · 어디서 이어갈까</span></h2>
+      <div class="phone"><div class="phone-inner"><iframe title="코스 경로 목업" src="screen.html?screen=path&lang=de&fresh=1"></iframe></div></div>
+      <div class="scene-footer"><p>현재 미션을 먼저, 전체 경로는 그 아래.</p><button data-open="path">화면 열기 <span aria-hidden="true">↗</span></button></div>
+    </article>
+    <article class="phone-column" data-screen="mission">
+      <h2 class="scene-label"><span>02</span><span>미션 · 무엇을 배우게 될까</span></h2>
+      <div class="phone"><div class="phone-inner"><iframe title="코스 미션 목업" src="screen.html?screen=mission&lang=de&fresh=1"></iframe></div></div>
+      <div class="scene-footer"><p>목표, 연결 자료, 시작할 행동.</p><button data-open="mission">화면 열기 <span aria-hidden="true">↗</span></button></div>
+    </article>
+    <article class="phone-column" data-screen="learn">
+      <h2 class="scene-label"><span>03</span><span>학습 · 한 번 직접 말해보기</span></h2>
+      <div class="phone"><div class="phone-inner"><iframe title="실제 상황 문제를 사용한 학습 목업" src="screen.html?screen=learn&lang=de&fresh=1"></iframe></div></div>
+      <div class="scene-footer"><p>듣기·답 고르기·문장 조립과 도움.</p><button data-open="learn">화면 열기 <span aria-hidden="true">↗</span></button></div>
+    </article>
+    <article class="phone-column" data-screen="result">
+      <h2 class="scene-label"><span>04</span><span>결과 · 배운 것을 챙겨가기</span></h2>
+      <div class="phone"><div class="phone-inner"><iframe title="도움과 첫 시도를 구분한 결과 목업" src="screen.html?screen=result&lang=de&fresh=1"></iframe></div></div>
+      <div class="scene-footer"><p>첫 시도, 도움, 표현 복습과 이어가기.</p><button data-open="result">화면 열기 <span aria-hidden="true">↗</span></button></div>
+    </article>
+  </section>
+  <footer class="gallery-bottom">
+    <p>한지·녹청·원목·황동은 C 원본 소재를 참조합니다. 인터페이스는 Paperlogy, 한국어 학습문은 Noto Sans KR입니다.<br>‘화면 열기’에서 320px·390px·가로 화면과 로딩·실패·잠금·정오답·도움·저장 실패 상태를 볼 수 있습니다.</p>
+    <div><a href="../c_approved_visual_contract_20261005/index.html">최종 승인 C 간격 기준 <span aria-hidden="true">↗</span></a><a href="connections.html">콘텐츠·화면 연결표 · 48유닛 / 30단계 / 902태스크 <span aria-hidden="true">↗</span></a><a href="index.html?view=compare">390px 실제 크기로 네 장면 비교 <span aria-hidden="true">↗</span></a><a href="http://127.0.0.1:8253/c-live.html">기존 C안과 실제 앱 보기 <span aria-hidden="true">↗</span></a></div>
+  </footer>
+</main>
+<dialog class="preview-dialog" id="preview" aria-labelledby="preview-title">
+  <div class="preview-tools">
+    <h2 id="preview-title">코스 경로</h2>
+    <label><span class="sr-only">화면 크기</span><select id="preview-size" aria-label="화면 크기"><option value="390">390px</option><option value="320">320px</option><option value="landscape">가로 화면</option></select></label>
+    <label><span class="sr-only">화면 상태</span><select id="preview-state" aria-label="화면 상태"><option value="default">기본</option><option value="loading">로딩</option><option value="error">조회 실패</option><option value="empty">첫 방문</option><option value="locked">잠긴 유닛</option><option value="correct">정답 피드백</option><option value="wrong">오답 피드백</option><option value="help">도움 사용</option><option value="saving">저장 중</option><option value="save-error">저장 실패</option></select></label>
+    <button id="close-preview" aria-label="미리보기 닫기"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="preview-viewport" id="preview-viewport"><iframe id="focused-screen" title="확대된 종합코스 목업"></iframe></div>
+</dialog>
+<script>
+const galleryLang=document.getElementById('gallery-lang');
+const galleryScale=document.getElementById('gallery-scale');
+const preview=document.getElementById('preview');
+const previewFrame=document.getElementById('focused-screen');
+const stateSelect=document.getElementById('preview-state');
+const viewport=document.getElementById('preview-viewport');
+let focusScreen='path';
+const names={path:'코스 경로',mission:'미션',learn:'학습',result:'결과'};
+const query=new URLSearchParams(location.search);
+if(query.get('view')==='compare'){document.body.classList.add('native-compare');}
+galleryLang.value=query.get('lang')==='en'?'en':'de';
+galleryScale.value=query.get('scale')==='2'?'2':'1';
+function url(screen,state='default'){const resolved=state==='saving'||state==='save-error'?'result':screen;return `screen.html?screen=${resolved}&lang=${galleryLang.value}&scale=${galleryScale.value}&state=${state}&fresh=1`;}
+function updateBoard(){document.querySelectorAll('.phone-column').forEach(column=>{column.querySelector('iframe').src=url(column.dataset.screen);});document.getElementById('play-link').href=url('path');}
+function updatePreview(){previewFrame.src=url(focusScreen,stateSelect.value);}
+galleryLang.addEventListener('change',updateBoard);galleryScale.addEventListener('change',updateBoard);
+document.querySelectorAll('[data-open]').forEach(button=>button.addEventListener('click',()=>{focusScreen=button.dataset.open;stateSelect.value='default';document.getElementById('preview-title').textContent=names[focusScreen];updatePreview();preview.showModal();}));
+document.getElementById('close-preview').addEventListener('click',()=>preview.close());
+stateSelect.addEventListener('change',updatePreview);
+document.getElementById('preview-size').addEventListener('change',event=>{preview.classList.toggle('landscape',event.target.value==='landscape');viewport.style.width=event.target.value==='landscape'?'700px':event.target.value+'px';});
+window.addEventListener('message',event=>{if(event.origin===location.origin&&event.data?.type==='close-course-preview'){preview.close();}});
+new ResizeObserver(entries=>{entries.forEach(entry=>entry.target.style.setProperty('--preview-scale',entry.contentRect.width/390));}).observe(document.querySelectorAll('.phone-inner')[0]);
+document.querySelectorAll('.phone-inner').forEach((element,index)=>{if(index){new ResizeObserver(entries=>entries.forEach(entry=>entry.target.style.setProperty('--preview-scale',entry.contentRect.width/390))).observe(element);}});
+if(galleryLang.value!=='de'||galleryScale.value!=='1'){updateBoard();}
+</script>
+</body>
+</html>

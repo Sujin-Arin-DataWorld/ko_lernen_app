@@ -15,9 +15,15 @@ import 'package:ko_lernen_app/models/learner_level.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../support/real_fonts.dart';
+import '../../support/c_fonts.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(() async {
+    await loadSoriRealFonts(materialIcons: true);
+    await loadCFonts();
+  });
 
   const hubCopy = GuideHubCopy(
     appBarTitle: 'App guide',
@@ -410,127 +416,137 @@ void main() {
   });
 
   group('TodayGuideChecklistCard', () {
-    testWidgets('exposes progress actions without activating non-live topics', (
-      tester,
-    ) async {
-      final semantics = tester.ensureSemantics();
-      var dismissed = 0;
-      var openedGuide = 0;
-      final openedTopics = <GuideTopicId>[];
-      final topics = [
-        _viewModel(
-          topic: GuideTopicId.learn,
-          availability: FeatureAvailability.live,
-          availabilityLabel: 'Available now',
-          completed: true,
-        ),
-        _viewModel(
-          topic: GuideTopicId.cardsAndMemory,
-          availability: FeatureAvailability.comingSoon,
-          availabilityLabel: 'Coming soon',
-        ),
-      ];
+    for (final conceptC in [false, true]) {
+      testWidgets(
+        'C=$conceptC exposes progress actions without activating non-live topics',
+        (tester) async {
+          final semantics = tester.ensureSemantics();
+          var dismissed = 0;
+          var openedGuide = 0;
+          final openedTopics = <GuideTopicId>[];
+          final topics = [
+            _viewModel(
+              topic: GuideTopicId.learn,
+              availability: FeatureAvailability.live,
+              availabilityLabel: 'Available now',
+              completed: true,
+            ),
+            _viewModel(
+              topic: GuideTopicId.cardsAndMemory,
+              availability: FeatureAvailability.comingSoon,
+              availabilityLabel: 'Coming soon',
+            ),
+          ];
 
-      await tester.pumpWidget(
-        _testApp(
-          Scaffold(
-            body: SingleChildScrollView(
-              child: TodayGuideChecklistCard(
-                copy: checklistCopy,
-                topics: topics,
-                onOpenGuide: () => openedGuide++,
-                onDismiss: () => dismissed++,
-                onDestinationRequested: (topic) => openedTopics.add(topic.id),
+          await tester.pumpWidget(
+            _testApp(
+              Scaffold(
+                body: SingleChildScrollView(
+                  child: TodayGuideChecklistCard(
+                    conceptC: conceptC,
+                    copy: checklistCopy,
+                    topics: topics,
+                    onOpenGuide: () => openedGuide++,
+                    onDismiss: () => dismissed++,
+                    onDestinationRequested: (topic) =>
+                        openedTopics.add(topic.id),
+                  ),
+                ),
               ),
             ),
-          ),
-        ),
-      );
+          );
 
-      expect(
-        find.byKey(const ValueKey('today-guide-topic-learn')),
-        findsNothing,
-      );
-      expect(
-        find.byKey(const ValueKey('today-guide-topic-cards-and-memory')),
-        findsOneWidget,
-      );
-      await tester.tap(find.byKey(const ValueKey('today-guide-expand')));
-      await tester.pump();
-      final liveRow = find.byKey(const ValueKey('today-guide-topic-learn'));
-      final liveSemantics = tester.getSemantics(liveRow).getSemanticsData();
-      expect(liveSemantics.hasAction(ui.SemanticsAction.tap), isTrue);
+          expect(
+            find.byKey(const ValueKey('today-guide-topic-learn')),
+            findsNothing,
+          );
+          expect(
+            find.byKey(const ValueKey('today-guide-topic-cards-and-memory')),
+            findsOneWidget,
+          );
+          await tester.tap(find.byKey(const ValueKey('today-guide-expand')));
+          await tester.pump();
+          final liveRow = find.byKey(const ValueKey('today-guide-topic-learn'));
+          final liveSemantics = tester.getSemantics(liveRow).getSemanticsData();
+          expect(liveSemantics.hasAction(ui.SemanticsAction.tap), isTrue);
 
-      await tester.tap(liveRow);
-      final nonLiveRow = find.byKey(
-        const ValueKey('today-guide-topic-cards-and-memory'),
-      );
-      expect(
-        find.descendant(of: nonLiveRow, matching: find.byType(SoriPressable)),
-        findsNothing,
-      );
-      await tester.tap(find.byKey(const ValueKey('today-guide-open-hub')));
-      await tester.tap(find.byKey(const ValueKey('today-guide-dismiss')));
-      await tester.pump();
-
-      expect(openedTopics, [GuideTopicId.learn]);
-      expect(openedGuide, 1);
-      expect(dismissed, 1);
-      expect(find.text('Completed'), findsOneWidget);
-      expect(
-        tester
-            .getSize(find.byKey(const ValueKey('today-guide-dismiss')))
-            .height,
-        greaterThanOrEqualTo(48),
-      );
-      semantics.dispose();
-    });
-
-    testWidgets('wraps safely at large text without imposing a fixed height', (
-      tester,
-    ) async {
-      await _setCompactView(tester);
-
-      await tester.pumpWidget(
-        _testApp(
-          Scaffold(
-            body: SingleChildScrollView(
-              padding: const EdgeInsets.all(16),
-              child: TodayGuideChecklistCard(
-                copy: checklistCopy,
-                topics: [
-                  _viewModel(
-                    topic: GuideTopicId.personalizedStart,
-                    availability: FeatureAvailability.live,
-                    availabilityLabel: 'Available now',
-                  ),
-                  _viewModel(
-                    topic: GuideTopicId.gamesAndRewards,
-                    availability: FeatureAvailability.live,
-                    availabilityLabel: 'Available now',
-                  ),
-                ],
-                onOpenGuide: () {},
-                onDismiss: () {},
-                onDestinationRequested: (_) {},
-              ),
+          await tester.tap(liveRow);
+          final nonLiveRow = find.byKey(
+            const ValueKey('today-guide-topic-cards-and-memory'),
+          );
+          expect(
+            find.descendant(
+              of: nonLiveRow,
+              matching: find.byType(SoriPressable),
             ),
-          ),
-          textScale: 2,
-        ),
-      );
-      await tester.pumpAndSettle();
+            findsNothing,
+          );
+          await tester.tap(find.byKey(const ValueKey('today-guide-open-hub')));
+          await tester.tap(find.byKey(const ValueKey('today-guide-dismiss')));
+          await tester.pump();
 
-      expect(tester.takeException(), isNull);
-      await tester.tap(find.byKey(const ValueKey('today-guide-expand')));
-      await tester.pumpAndSettle();
-      expect(
-        tester
-            .getSize(find.byKey(const ValueKey('today-guide-open-hub')))
-            .height,
-        greaterThanOrEqualTo(48),
+          expect(openedTopics, [GuideTopicId.learn]);
+          expect(openedGuide, 1);
+          expect(dismissed, 1);
+          expect(find.text('Completed'), findsOneWidget);
+          expect(
+            tester
+                .getSize(find.byKey(const ValueKey('today-guide-dismiss')))
+                .height,
+            greaterThanOrEqualTo(48),
+          );
+          semantics.dispose();
+        },
       );
-    });
+
+      testWidgets(
+        'C=$conceptC wraps safely at large text without imposing a fixed height',
+        (tester) async {
+          await _setCompactView(tester);
+
+          await tester.pumpWidget(
+            _testApp(
+              Scaffold(
+                body: SingleChildScrollView(
+                  padding: const EdgeInsets.all(16),
+                  child: TodayGuideChecklistCard(
+                    conceptC: conceptC,
+                    copy: checklistCopy,
+                    topics: [
+                      _viewModel(
+                        topic: GuideTopicId.personalizedStart,
+                        availability: FeatureAvailability.live,
+                        availabilityLabel: 'Available now',
+                      ),
+                      _viewModel(
+                        topic: GuideTopicId.gamesAndRewards,
+                        availability: FeatureAvailability.live,
+                        availabilityLabel: 'Available now',
+                      ),
+                    ],
+                    onOpenGuide: () {},
+                    onDismiss: () {},
+                    onDestinationRequested: (_) {},
+                  ),
+                ),
+              ),
+              textScale: 2,
+            ),
+          );
+          await tester.pumpAndSettle();
+
+          expect(tester.takeException(), isNull);
+          await tester.tap(find.byKey(const ValueKey('today-guide-expand')));
+          await tester.pumpAndSettle();
+          expect(
+            tester
+                .getSize(find.byKey(const ValueKey('today-guide-open-hub')))
+                .height,
+            greaterThanOrEqualTo(48),
+          );
+        },
+      );
+    }
   });
 
   group('guide runtime focus continuity', () {

@@ -4,6 +4,8 @@ import '../../l10n/generated/app_localizations.dart';
 import '../../models/sori_stage_progression.dart';
 import 'activity_illustration.dart';
 import 'button.dart';
+import 'catalog_card.dart';
+import 'c_gallery/c_materials.dart';
 import 'localized_copy.dart';
 import 'reward_icon.dart';
 import 'sheet.dart';
@@ -22,18 +24,142 @@ Future<void> showSoriActivitySheet(
   required ActivityCatalogEntry entry,
   required SoriActivityProgress? progress,
   required VoidCallback onStart,
+  bool conceptC = false,
 }) {
   final isLocked = isActivityLocked(entry, progress);
 
   return showSoriSheet<void>(
     context: context,
-    builder: (ctx) => _ActivitySheetContent(
-      entry: entry,
-      progress: progress,
-      isLocked: isLocked,
-      onStart: onStart,
-    ),
+    maxTextScaleFactor: conceptC ? 2 : 1.3,
+    contentPadding: conceptC ? const EdgeInsets.fromLTRB(12, 12, 12, 16) : null,
+    builder: (ctx) => conceptC
+        ? _CActivitySheetContent(
+            entry: entry,
+            isLocked: isLocked,
+            onStart: onStart,
+          )
+        : _ActivitySheetContent(
+            entry: entry,
+            progress: progress,
+            isLocked: isLocked,
+            onStart: onStart,
+          ),
   );
+}
+
+/// The same start/lock contract on the approved C paper board. Artwork is
+/// decorative; descriptions and reward expectations stay localized native text.
+class _CActivitySheetContent extends StatelessWidget {
+  const _CActivitySheetContent({
+    required this.entry,
+    required this.isLocked,
+    required this.onStart,
+  });
+
+  final ActivityCatalogEntry entry;
+  final bool isLocked;
+  final VoidCallback onStart;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    const body = TextStyle(
+      fontFamily: 'Paperlogy',
+      fontFamilyFallback: ['NotoSansKR'],
+      fontSize: 16,
+      height: 1.3,
+      color: CPalette.ink,
+    );
+    return CPaperPanel(
+      key: ValueKey('c-activity-sheet-${entry.id}'),
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: AspectRatio(
+              aspectRatio: entry.id == 'syllable_cross'
+                  ? CGameReferenceArt.heroAspectRatio
+                  : 2,
+              child: cCatalogArt(entry),
+            ),
+          ),
+          const SizedBox(height: 12),
+          Text(
+            localCopy(context, entry.title),
+            style: body.copyWith(fontSize: 24, fontWeight: FontWeight.w700),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            t.soriStageMinutes(entry.minutes),
+            style: body.copyWith(color: CPalette.mutedInk),
+          ),
+          const SizedBox(height: 12),
+          Text(localCopy(context, entry.description), style: body),
+          if (entry.id == 'smalltalk' || entry.id == 'daily_game') ...[
+            const SizedBox(height: 16),
+            SoriCultureComment(
+              conceptC: true,
+              role: entry.id == 'smalltalk'
+                  ? SoriCulturalRole.hahoeMask
+                  : SoriCulturalRole.dokkaebi,
+            ),
+          ],
+          if (isLocked && entry.unlock.explanation != null) ...[
+            const SizedBox(height: 16),
+            CPaperPanel(
+              raised: false,
+              child: Text(
+                localCopy(context, entry.unlock.explanation!),
+                style: body.copyWith(fontWeight: FontWeight.w600),
+              ),
+            ),
+          ],
+          if (entry.reward.items.isNotEmpty) ...[
+            const SizedBox(height: 16),
+            CPaperPanel(
+              raised: false,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    localCopy(context, entry.reward.condition),
+                    style: body.copyWith(fontWeight: FontWeight.w600),
+                  ),
+                  const SizedBox(height: 8),
+                  for (final item in entry.reward.items)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 2),
+                      child: Text(
+                        '${item.amount == null ? '' : '+${item.amount} '}'
+                        '${localCopy(context, item.label)}',
+                        style: body,
+                      ),
+                    ),
+                ],
+              ),
+            ),
+          ],
+          const SizedBox(height: 18),
+          CMaterialAction(
+            key: ValueKey('c-activity-start-${entry.id}'),
+            label: isLocked
+                ? t.soriStageActivityLocked
+                : t.soriStageActivityStart,
+            gold: entry.tab != SoriStageTab.games,
+            onTap: isLocked
+                ? null
+                : () {
+                    Navigator.of(context).pop();
+                    onStart();
+                  },
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class _ActivitySheetContent extends StatelessWidget {

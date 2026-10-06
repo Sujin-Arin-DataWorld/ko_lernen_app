@@ -1,12 +1,10 @@
 import 'dart:async';
 import 'dart:collection';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:video_player/video_player.dart';
-
-import 'route_observer.dart';
 import '../../services/storage_service.dart';
+import 'route_observer.dart';
 
 typedef VideoLeaseCreate<H> = Future<H> Function(String asset);
 typedef VideoLeaseDispose<H> = Future<void> Function(H handle);
@@ -505,7 +503,10 @@ class VideoLeaseEligibilityBinding with WidgetsBindingObserver, RouteAware {
 }
 
 Future<VideoPlayerController> _createNativeVideoController(String asset) async {
-  final controller = VideoPlayerController.asset(asset);
+  final controller = VideoPlayerController.asset(
+    asset,
+    videoPlayerOptions: VideoPlayerOptions(mixWithOthers: true),
+  );
   try {
     await controller.initialize();
     return controller;

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:ko_lernen_app/models/yeopjeon_reward_moment.dart';
 import 'package:ko_lernen_app/models/yeopjeon_wallet.dart';
 import 'package:ko_lernen_app/services/yeopjeon_learning_checkpoint.dart';
 
@@ -12,6 +13,68 @@ import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'support/hanok_competence_fixture.dart';
 
 void main() {
+  for (final failure in [
+    'local',
+    'network-before',
+    'aggregate-after',
+    'missing-wallet',
+  ]) {
+    test(
+      'confirmed unseen native coins survive $failure aggregate failure',
+      () async {
+        final moment = YeopjeonRewardMoment(
+          claims: {'daily:2026-10-04:first': 20},
+          balance: 20,
+          source: YeopjeonRewardSource.currentActivity,
+          day: '2026-10-04',
+        );
+        final receipt = await SoriStageRewardReceiptService.capture(
+          activityId: 'lesson',
+          captureCheckpoint: () async =>
+              throw StateError('optional baseline unavailable'),
+          captureLocalBefore: () {
+            if (failure == 'local') {
+              throw StateError('local summary unavailable');
+            }
+            return (
+              xp: 0,
+              stamps: 0,
+              pendingBojagiCount: 0,
+              streakDays: 0,
+              gameBests: const {},
+            );
+          },
+          loadNetworkBefore: () async {
+            if (failure == 'network-before') {
+              throw StateError('network summary unavailable');
+            }
+            return (
+              hanokCompetence: _snapshot().hanokCompetence,
+              quests: const <QuestProgress>[],
+              gyeLanternCount: 0,
+            );
+          },
+          loadSnapshot: () async {
+            if (failure == 'aggregate-after') {
+              throw StateError('after summary unavailable');
+            }
+            return _snapshot(xp: 10);
+          },
+          openActivity: () async {},
+          confirmedRewardMoments: () => [moment],
+        );
+        expect(receipt, isNotNull);
+        final coins = receipt!.items.where(
+          (i) => i.kind == SoriRewardKind.yeopjeon,
+        );
+        expect(coins.single.identity, moment.claims.keys.single);
+        expect(coins.single.amount, 20);
+        expect(receipt.yeopjeonReward!.balance, 20);
+        expect(receipt.yeopjeonReward!.playMintVideo, isTrue);
+      },
+    );
+  }
+
   test(
     'a stalled money baseline never delays learning or hides proven XP',
     () async {
@@ -319,6 +382,92 @@ void main() {
     streakDays: 0,
     pendingBojagiCount: 0,
     gameBests: const <String, int>{},
+  );
+
+  test(
+    'failed native lesson confirmation survives failed checkpoint and summary',
+    () async {
+      final pending = YeopjeonPendingReward(
+        sourceIds: {'lesson:finished'},
+        baselineClaimIds: {'old:paid'},
+      );
+      final receipt = await SoriStageRewardReceiptService.capture(
+        activityId: 'course',
+        captureLocalBefore: () => localFields(xp: 2),
+        loadNetworkBefore: () async => throw StateError('summary unavailable'),
+        captureCheckpoint: () async => throw StateError('ledger unavailable'),
+        pendingRewardMoments: () => [pending],
+        openActivity: () async {},
+        loadSnapshot: () async => _snapshot(xp: 20),
+      );
+      expect(receipt, isNotNull);
+      expect(receipt!.pendingYeopjeon!.sourceIds, {'lesson:finished'});
+      expect(receipt.pendingYeopjeon!.baselineClaimIds, {'old:paid'});
+      expect(receipt.yeopjeonReward, isNull);
+      expect(receipt.items, isEmpty);
+      expect(receipt.isEmpty, isFalse);
+    },
+  );
+
+  test(
+    'verified source readback clears native pending even without a checkpoint',
+    () async {
+      final wallet = YeopjeonWallet.grandfather(
+        sarangchaeStage: 0,
+        b2Stage: 0,
+      ).copyWith(completedSourceIds: {'lesson:finished'});
+      final receipt = await SoriStageRewardReceiptService.capture(
+        activityId: 'course',
+        captureLocalBefore: () => localFields(),
+        loadNetworkBefore: () async => networkFields(),
+        captureCheckpoint: () async => throw StateError('baseline unavailable'),
+        pendingRewardMoments: () => [
+          YeopjeonPendingReward(
+            sourceIds: {'lesson:finished'},
+            baselineClaimIds: {},
+          ),
+        ],
+        openActivity: () async {},
+        loadSnapshot: () async => _snapshot(wallet: wallet),
+      );
+      expect(
+        receipt,
+        isNull,
+        reason: 'Resolved no-reward completion has no receipt.',
+      );
+    },
+  );
+
+  test(
+    'outcome-unknown native write is acknowledged from its frozen baseline',
+    () async {
+      final wallet = YeopjeonWallet.grandfather(sarangchaeStage: 0, b2Stage: 0)
+          .copyWith(
+            balance: 30,
+            claims: {'historical:paid': 10, 'daily:2026-10-04:first': 20},
+            completedSourceIds: {'lesson:finished'},
+          );
+      final receipt = await SoriStageRewardReceiptService.capture(
+        activityId: 'course',
+        captureLocalBefore: () => localFields(),
+        loadNetworkBefore: () async => networkFields(),
+        captureCheckpoint: () async =>
+            throw StateError('checkpoint unavailable'),
+        pendingRewardMoments: () => [
+          YeopjeonPendingReward(
+            sourceIds: {'lesson:finished'},
+            baselineClaimIds: {'historical:paid'},
+          ),
+        ],
+        openActivity: () async {},
+        loadSnapshot: () async => _snapshot(wallet: wallet),
+      );
+      expect(receipt!.pendingYeopjeon, isNull);
+      expect(receipt.items.single.amount, 20);
+      expect(receipt.yeopjeonReward!.balance, 30);
+      expect(receipt.yeopjeonReward!.playMintVideo, isFalse);
+      expect(receipt.yeopjeonReward!.source, YeopjeonRewardSource.recovery);
+    },
   );
 
   test(

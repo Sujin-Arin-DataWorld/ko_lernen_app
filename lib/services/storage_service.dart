@@ -27,6 +27,7 @@ import 'pack_completion_owner.dart';
 
 part 'pack_completion_storage.dart';
 part 'privacy_choice_storage.dart';
+part 'foundation_progress_storage.dart';
 
 /// Mastery-Status eines Vokabel-/Lerneintrags. Aus SRS-Daten abgeleitet,
 /// nicht separat persistiert.
@@ -1743,6 +1744,8 @@ class Storage {
   static void resetForTesting() {
     _contentLearningConfirmedRaw = null;
     _hanokPracticeConfirmedRaw = null;
+    final foundationDrain = FoundationProgressStorage.drain();
+    FoundationProgressStorage.invalidate();
     CatalogHistoryLease.resetForTesting();
     final privacyDrain = PrivacyChoiceStorage.drain();
     final privacyHasWrites = PrivacyChoiceStorage._native.isNotEmpty;
@@ -1750,7 +1753,10 @@ class Storage {
     PackCompletionStorage.resetForTesting();
     _packProgressMutation = Future<void>.value();
     _packProgressMutationCount = 0;
-    final drains = <Future<void>>[if (privacyHasWrites) privacyDrain];
+    final drains = <Future<void>>[
+      if (privacyHasWrites) privacyDrain,
+      foundationDrain,
+    ];
     if (_contentLearningMutation case final pendingContentLearning?) {
       drains.add(pendingContentLearning);
     }
@@ -1908,6 +1914,7 @@ class Storage {
   static void resetCachesAfterExternalWrite() {
     _contentLearningConfirmedRaw = null;
     _hanokPracticeConfirmedRaw = null;
+    FoundationProgressStorage.invalidate();
     contentLearningChanges.value++;
     hanokPracticeChanges.value++;
     // A draining migration may invalidate caches while deletion still owns
@@ -4795,30 +4802,177 @@ class Storage {
   static Future<void> setGyeUniqueMemberCount(int value) =>
       _si(_gyeUniqueMemberCountKey, value < 0 ? 0 : value);
 
-  static Future<void> addPendingBox(String questId) async =>
-      _sl('kl_reward_boxes', [...pendingBoxes, questId]);
+  static Future<void> addPendingBox(
+    String questId, {
+    void Function()? assertCurrentWrite,
+  }) async => _writeDecorationListVerified(
+    'kl_reward_boxes',
+    [...pendingBoxes, questId],
+    assertCurrentWrite: assertCurrentWrite,
+  );
 
   /// 검증·복구 서비스가 사용하는 미개봉 꾸러미 전체 교체 경계.
   ///
   /// UI는 이 메서드를 직접 쓰지 않고 [DecorationRewardService]를 통해
   /// 첫 상자를 소비한다. 새 퀘스트 보상이 수령 중 뒤에 추가됐을 때도 서비스가
   /// 해당 suffix를 보존한 완성 목록만 넘긴다.
-  static Future<void> setPendingBoxes(List<String> boxes) async =>
-      _sl('kl_reward_boxes', List<String>.from(boxes));
+  static Future<void> setPendingBoxes(
+    List<String> boxes, {
+    void Function()? assertCurrentWrite,
+  }) async => _writeDecorationListVerified(
+    'kl_reward_boxes',
+    List<String>.from(boxes),
+    assertCurrentWrite: assertCurrentWrite,
+  );
 
   /// 수령 중단 복구용 versioned raw journal. 해석·유효성 검증은
   /// [DecorationRewardService]가 담당하고 Storage는 직렬화 경계만 맡는다.
   static String get decorationRewardClaimJournalRawJson =>
       _s('kl_reward_claim_v1');
 
-  static Future<void> setDecorationRewardClaimJournalRawJson(String json) =>
-      _ss('kl_reward_claim_v1', json);
+  static Future<void> setDecorationRewardClaimJournalRawJson(
+    String json, {
+    void Function()? assertCurrentWrite,
+  }) => _writeDecorationStringVerified(
+    'kl_reward_claim_v1',
+    json,
+    assertCurrentWrite: assertCurrentWrite,
+  );
 
-  static Future<void> clearDecorationRewardClaimJournal() async {
-    await PackCompletionStorage.trackWrite('kl_reward_claim_v1', () async {
-      await _prefs?.remove('kl_reward_claim_v1');
-    });
+  static Future<void> clearDecorationRewardClaimJournal({
+    void Function()? assertCurrentWrite,
+  }) async {
+    await _removeDecorationStringVerified(
+      'kl_reward_claim_v1',
+      assertCurrentWrite: assertCurrentWrite,
+    );
   }
+
+  static const decorationRewardReceiptPreferenceKey =
+      PackCompletionRecord.decorationReceiptKey;
+
+  static String get decorationRewardReceiptRawJson =>
+      _s(decorationRewardReceiptPreferenceKey);
+
+  static Future<String> readDecorationRewardReceiptRawJsonStrict({
+    void Function()? assertCurrentRead,
+  }) async {
+    final lifetime = LocalDataLifetime.capture();
+    final preferences = _prefs;
+    if (preferences == null) {
+      throw StateError('Storage has not been initialized.');
+    }
+    final store = _SharedPreferenceStringStore(preferences);
+    await _refreshUnknownStringKeys(store, [decorationRewardReceiptPreferenceKey]);
+    final state = await _reloadStringState(
+      store,
+      decorationRewardReceiptPreferenceKey,
+    );
+    lifetime.assertCurrent();
+    assertCurrentRead?.call();
+    return state.value ?? '';
+  }
+
+  static Future<void> setDecorationRewardReceiptRawJson(
+    String json, {
+    void Function()? assertCurrentWrite,
+  }) => _writeDecorationStringVerified(
+    decorationRewardReceiptPreferenceKey,
+    json,
+    assertCurrentWrite: assertCurrentWrite,
+  );
+
+  /// Destructive reset only; a presentation acknowledgment retains history.
+  static Future<void> clearDecorationRewardReceipt({
+    void Function()? assertCurrentWrite,
+  }) async {
+    await _removeDecorationStringVerified(
+      decorationRewardReceiptPreferenceKey,
+      assertCurrentWrite: assertCurrentWrite,
+    );
+  }
+
+  // Reward recovery may clear its journal only after these exact native
+  // documents are confirmed. A successful platform reply alone is insufficient.
+  static Future<void> _writeDecorationStringVerified(
+    String key,
+    String value, {
+    void Function()? assertCurrentWrite,
+  }) => PackCompletionStorage.trackWrite(key, () async {
+    final lifetime = LocalDataLifetime.capture();
+    final preferences = _prefs;
+    if (preferences == null) {
+      throw PreferenceWriteException(key);
+    }
+    final store = _SharedPreferenceStringStore(preferences);
+    void guard() {
+      lifetime.assertCurrent();
+      if (_learningResetCount > 0) {
+        throw const StaleLocalDataLifetimeException();
+      }
+      assertCurrentWrite?.call();
+    }
+    await _ssStrictImpl(key, value, preferences: store, assertCurrentWrite: guard);
+    final after = await _reloadStringState(store, key);
+    guard();
+    if (!after.isPresent || after.value != value) {
+      _unknownStrictKeys.add(key);
+      throw PreferenceOutcomeUnknownException(key);
+    }
+  });
+
+  static Future<void> _writeDecorationListVerified(
+    String key,
+    List<String> value, {
+    void Function()? assertCurrentWrite,
+  }) => PackCompletionStorage.trackWrite(key, () async {
+    final lifetime = LocalDataLifetime.capture();
+    final preferences = _prefs;
+    if (preferences == null) {
+      throw PreferenceWriteException(key);
+    }
+    final store = _SharedPreferenceStringListStore(preferences);
+    void guard() {
+      lifetime.assertCurrent();
+      if (_learningResetCount > 0) {
+        throw const StaleLocalDataLifetimeException();
+      }
+      assertCurrentWrite?.call();
+    }
+    await _slStrictImpl(key, value, preferences: store, assertCurrentWrite: guard);
+    final after = await _reloadStringListState(store, key);
+    guard();
+    if (!after.isPresent || !_preferenceValueEquals(after.value, value)) {
+      _unknownStrictKeys.add(key);
+      throw PreferenceOutcomeUnknownException(key);
+    }
+  });
+
+  static Future<void> _removeDecorationStringVerified(
+    String key, {
+    void Function()? assertCurrentWrite,
+  }) => PackCompletionStorage.trackWrite(key, () async {
+    final lifetime = LocalDataLifetime.capture();
+    final preferences = _prefs;
+    if (preferences == null) {
+      throw PreferenceWriteException(key);
+    }
+    final store = _SharedPreferenceStringStore(preferences);
+    void guard() {
+      lifetime.assertCurrent();
+      if (_learningResetCount > 0) {
+        throw const StaleLocalDataLifetimeException();
+      }
+      assertCurrentWrite?.call();
+    }
+    await _removeStringStrictImpl(key, preferences: store, assertCurrentWrite: guard);
+    final after = await _reloadStringState(store, key);
+    guard();
+    if (after.isPresent) {
+      _unknownStrictKeys.add(key);
+      throw PreferenceOutcomeUnknownException(key);
+    }
+  });
 
   /// 꾸러미 하나를 소비한다. 없으면 false.
   static Future<bool> consumePendingBox() async {
@@ -4832,10 +4986,17 @@ class Storage {
   /// 보유 장식 — 꾸러미에서 고른 것들. 순서 무의미, 중복 없음.
   static List<String> get ownedDecor => _l('kl_owned_decor');
 
-  static Future<void> addOwnedDecor(String slug) async {
+  static Future<void> addOwnedDecor(
+    String slug, {
+    void Function()? assertCurrentWrite,
+  }) async {
     final list = ownedDecor;
     if (list.contains(slug)) return;
-    await _sl('kl_owned_decor', [...list, slug]);
+    await _writeDecorationListVerified(
+      'kl_owned_decor',
+      [...list, slug],
+      assertCurrentWrite: assertCurrentWrite,
+    );
   }
 
   /// 장식 slug → 획득 시각(ISO 8601). `reward_unused` 계측(며칠째 미배치인지)
@@ -4855,10 +5016,18 @@ class Storage {
     }
   }
 
-  static Future<void> recordDecorEarnedAt(String slug, String isoDate) async {
+  static Future<void> recordDecorEarnedAt(
+    String slug,
+    String isoDate, {
+    void Function()? assertCurrentWrite,
+  }) async {
     final current = decorEarnedAt;
     if (current.containsKey(slug)) return;
-    await _ss('kl_decor_earned_at', jsonEncode({...current, slug: isoDate}));
+    await _writeDecorationStringVerified(
+      'kl_decor_earned_at',
+      jsonEncode({...current, slug: isoDate}),
+      assertCurrentWrite: assertCurrentWrite,
+    );
   }
 
   /// `reward_unused`를 하루 한 번만 보내기 위한 dedup 플래그(로컬 날짜, YYYY-MM-DD).
@@ -8368,6 +8537,7 @@ class Storage {
     operation = () async {
       try {
         await Future.wait([
+          FoundationProgressStorage.drain(),
           if (_contentLearningMutation case final pendingContentLearning?)
             pendingContentLearning,
           if (_hanokPracticeMutation case final pendingPractice?)

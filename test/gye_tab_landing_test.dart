@@ -13,9 +13,14 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_error.dart';
 import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/c_gallery/c_materials.dart';
+import 'package:ko_lernen_app/widgets/sori/c_gallery/c_objects.dart';
 import 'package:ko_lernen_app/widgets/sori/gye_hanok.dart';
 import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 import 'package:ko_lernen_app/widgets/sori/updating_scene.dart';
+import 'support/c_fonts.dart';
+import 'support/real_fonts.dart';
+import 'support/sori_stage_pump.dart';
 
 void main() {
   setUp(() async {
@@ -121,15 +126,144 @@ void main() {
     semantics.dispose();
   });
 
-  testWidgets('embedded empty Gye landing fills the space above navigation', (
-    tester,
-  ) async {
-    await _pumpEmbedded(tester, () async => const <GyeMeta>[]);
+  testWidgets(
+    'embedded Gye preserves scrollable optional routes, errors and real weekly state',
+    (tester) async {
+      tester.view.physicalSize = const Size(320, 844);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.runAsync(() async {
+        await loadSoriRealFonts(materialIcons: true);
+        await loadCFonts();
+      });
+      await Storage.setBirthYear(2000);
+      final prefs = await SharedPreferences.getInstance();
+      final before = {for (final key in prefs.getKeys()) key: prefs.get(key)};
+      final routes = <RouteSettings>[];
+      var soloCalls = 0;
+      var outcome = 0;
+      Future<List<GyeMeta>> loader() async {
+        if (outcome == 1) throw StateError('offline');
+        return outcome == 0
+            ? const []
+            : const [
+                GyeMeta(
+                  id: 'ABC234',
+                  name: 'Mondhof',
+                  code: 'ABC234',
+                  ownerId: 'owner',
+                  memberCount: 3,
+                  weeklyGoalPacks: 3,
+                  weeklyGoalProgress: 1,
+                ),
+              ];
+      }
 
-    expect(find.byType(SliverFillRemaining), findsOneWidget);
-    expect(find.byKey(const ValueKey('gye-continue-solo')), findsOneWidget);
-    expect(tester.takeException(), isNull);
-  });
+      Route<dynamic> open(RouteSettings settings) {
+        routes.add(settings);
+        return MaterialPageRoute<void>(
+          settings: settings,
+          builder: (_) => Scaffold(body: Text('opened ${settings.name}')),
+        );
+      }
+
+      await _pumpEmbedded(
+        tester,
+        loader,
+        textScale: 2,
+        onContinueSolo: () => soloCalls++,
+        onGenerateRoute: open,
+      );
+      final t = lookupAppL10n(const Locale('de'));
+      expect(find.byType(CustomScrollView), findsOneWidget);
+      expect(find.text(t.gyeRootPurpose), findsOneWidget);
+      expect(find.text(t.gyeRootPrivacy), findsOneWidget);
+      final semantics = tester.ensureSemantics();
+      for (final entry in {
+        t.gyeChooserJoin: '/gye/join',
+        t.gyeChooserCreate: '/gye/create',
+      }.entries) {
+        final action = find.byWidgetPredicate(
+          (widget) => widget is CMaterialAction && widget.label == entry.key,
+        );
+        await Scrollable.ensureVisible(tester.element(action), alignment: .5);
+        await pumpSoriStage(tester);
+        expect(action.hitTestable(), findsOneWidget);
+        expect(tester.getSize(action).height, greaterThanOrEqualTo(48));
+        final data = tester.getSemantics(action).getSemanticsData();
+        expect(data.flagsCollection.isButton, isTrue);
+        expect(data.hasAction(SemanticsAction.tap), isTrue);
+        await tester.tap(action);
+        await pumpSoriStage(tester);
+        expect(routes.last.name, entry.value);
+        expect(routes.last.arguments, isNull);
+        final destination = find.text('opened ${entry.value}');
+        expect(destination, findsOneWidget);
+        Navigator.of(tester.element(destination)).pop();
+        await pumpSoriStage(tester);
+      }
+      final solo = find.byKey(const ValueKey('gye-continue-solo'));
+      await Scrollable.ensureVisible(tester.element(solo), alignment: .5);
+      await pumpSoriStage(tester);
+      expect(solo.hitTestable(), findsOneWidget);
+      expect(tester.getSize(solo).height, greaterThanOrEqualTo(48));
+      await tester.tap(solo);
+      expect(soloCalls, 1);
+      expect(routes.map((route) => route.name), ['/gye/join', '/gye/create']);
+
+      outcome = 1;
+      await _pumpEmbedded(
+        tester,
+        loader,
+        textScale: 2,
+        refreshGeneration: 1,
+        onContinueSolo: () => soloCalls++,
+        onGenerateRoute: open,
+      );
+      expect(find.byType(AppError), findsOneWidget);
+      expect(find.text(t.gyeRootPurpose), findsNothing);
+      expect(find.text(t.gyeRootPrivacy), findsNothing);
+      expect(find.byKey(const ValueKey('gye-empty-start')), findsNothing);
+      expect(solo, findsNothing);
+      expect(find.byType(CLantern), findsNothing);
+      outcome = 2;
+      final retry = find.descendant(
+        of: find.byType(AppError),
+        matching: find.byType(SoriButton),
+      );
+      await Scrollable.ensureVisible(tester.element(retry), alignment: .5);
+      await pumpSoriStage(tester);
+      expect(retry.hitTestable(), findsOneWidget);
+      await tester.tap(retry);
+      await pumpSoriStage(tester);
+      expect(find.byType(AppError), findsNothing);
+      expect(find.text('Mondhof'), findsOneWidget);
+      expect(find.text(t.gyeMembersN(3)), findsOneWidget);
+      expect(find.text('1 / 3'), findsOneWidget);
+      expect(
+        tester.widgetList<CLantern>(find.byType(CLantern)).map((l) => l.lit),
+        [true, false, false],
+      );
+      final group = find.byWidgetPredicate(
+        (widget) => widget is CMaterialAction && widget.label == t.gyeOpenCta,
+      );
+      await Scrollable.ensureVisible(tester.element(group), alignment: .5);
+      await pumpSoriStage(tester);
+      expect(group.hitTestable(), findsOneWidget);
+      expect(tester.getSize(group).height, greaterThanOrEqualTo(48));
+      await tester.tap(group);
+      await pumpSoriStage(tester);
+      expect(routes.last.name, '/gye');
+      expect(routes.last.arguments, 'ABC234');
+      expect(find.text('opened /gye'), findsOneWidget);
+      expect(Storage.xp, 0);
+      expect(Storage.pendingBoxes, isEmpty);
+      expect({for (final key in prefs.getKeys()) key: prefs.get(key)}, before);
+      semantics.dispose();
+      expect(tester.takeException(), isNull);
+    },
+  );
 
   testWidgets('existing Gye list keeps the optional shared-courtyard context', (
     tester,
@@ -335,16 +469,32 @@ Future<void> _pump(
 
 Future<void> _pumpEmbedded(
   WidgetTester tester,
-  Future<List<GyeMeta>> Function() loadGyeMetas,
-) async {
+  Future<List<GyeMeta>> Function() loadGyeMetas, {
+  double textScale = 1,
+  int refreshGeneration = 0,
+  VoidCallback? onContinueSolo,
+  RouteFactory? onGenerateRoute,
+}) async {
   await tester.pumpWidget(
     MaterialApp(
       theme: AppTheme.light,
       locale: const Locale('de'),
       supportedLocales: AppL10n.supportedLocales,
       localizationsDelegates: AppL10n.localizationsDelegates,
-      home: SoriStageGyeScreen(loadGyeMetas: loadGyeMetas),
+      onGenerateRoute: onGenerateRoute,
+      builder: (context, child) => MediaQuery(
+        data: MediaQuery.of(context).copyWith(
+          disableAnimations: true,
+          textScaler: TextScaler.linear(textScale),
+        ),
+        child: child!,
+      ),
+      home: SoriStageGyeScreen(
+        loadGyeMetas: loadGyeMetas,
+        refreshGeneration: refreshGeneration,
+        onContinueSolo: onContinueSolo,
+      ),
     ),
   );
-  await tester.pumpAndSettle();
+  await pumpSoriStage(tester);
 }

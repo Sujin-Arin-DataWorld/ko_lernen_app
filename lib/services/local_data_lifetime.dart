@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 /// Process-local generation for app-owned data stored on this device.
 ///
 /// A restore captures a [LocalDataLifetimeLease] before it starts remote I/O.
@@ -6,6 +8,7 @@
 /// data lifetime.
 abstract final class LocalDataLifetime {
   static int _epoch = 0;
+  static final changes = ValueNotifier<int>(0);
 
   static LocalDataLifetimeLease capture() => LocalDataLifetimeLease._(_epoch);
 
@@ -15,6 +18,7 @@ abstract final class LocalDataLifetime {
   /// the first destructive mutation.
   static void invalidate() {
     _epoch += 1;
+    changes.value = _epoch;
   }
 
   static bool _isCurrent(int epoch) => epoch == _epoch;

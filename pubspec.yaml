@@ -117,6 +117,7 @@ dev_dependencies:
   # backoffDelay without real Duration waits. Also used by PR S3's
   # PackSyncQueue 디바운스/유휴 타이머 테스트 (fake_async 로 시간 조작).
   fake_async: ^1.3.3
+  video_player_platform_interface: ^6.9.0
 
   # ── Icon / Splash Generierung ───────────────────────────
   flutter_launcher_icons: ^0.14.1
@@ -139,6 +140,7 @@ flutter:
     - assets/tts/recorded_jamo/
     - docs/data/cultural_glossary.json
     - assets/icons/
+    - assets/icons/navigation/
     - assets/illustrations/hanok/
     # hanok_compound/ (동결 프로토타입, lib/ 참조 0건) — 번들에서 제외해 ~11MB 절감.
     # #208(360d61c8)에서 삭제됨 — 필요시 f29f87e7 참조.
@@ -161,6 +163,7 @@ flutter:
     - assets/illustrations/stamps/
     - assets/illustrations/dancheong_studio/v1/
     - assets/illustrations/mascot/
+    - assets/illustrations/companions/canonical/
     - assets/illustrations/tactile/hahoe_scholar.png
     - assets/illustrations/tactile/dokkaebi.png
     - assets/illustrations/personas/v3/
@@ -180,6 +183,16 @@ flutter:
     # activities/{activityId}.webp. 폴백 = ActivityIconFallback(원형 아이콘).
     - assets/illustrations/activities/
     - assets/illustrations/tactile/
+    # C scenes, local label restoration, dancheong preview and independent objects.
+    - assets/illustrations/concept_c/
+    - assets/illustrations/concept_c/einleitung/
+    - assets/illustrations/tactile/scholar/
+    - assets/illustrations/tactile/dokkaebi/
+    - assets/illustrations/tactile/dokkaebi_topics/
+    - assets/illustrations/dokkaebi_intro/
+    - assets/illustrations/reward_chest/
+    - assets/video/practice/
+    - assets/video/introductions/
     # Sori Deck 2.0 액션 아이콘 (§R-3 커스텀 드롭 전에는 Material 폴백)
     - assets/illustrations/deck/
     # 듣기 카드 일러스트 — 규약: listening/{Key}.webp (Key = docs/LISTENING_CARD_ART_SPEC.md).
@@ -208,11 +221,25 @@ flutter:
     - assets/video/loops/
     - assets/video/character/
     - assets/video/home_hero/
+    - assets/video/rewards/
     - assets/video/gye/
 
   # ── Noto Sans KR 단일 가변 서체, OFL ──
   # 한글·영어·독일어 글리프를 모두 포함한다. test/font_bundle_guard_test.dart 검사.
+  shaders:
+    - shaders/dokkaebi_flame_frame.frag
+
   fonts:
+    - family: Paperlogy
+      fonts:
+        - asset: assets/fonts/Paperlogy/Paperlogy-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Paperlogy/Paperlogy-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Paperlogy/Paperlogy-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Paperlogy/Paperlogy-Bold.ttf
+          weight: 700
     - family: NotoSansKR
       fonts:
         - asset: assets/fonts/NotoSansKR/NotoSansKR-Variable.ttf

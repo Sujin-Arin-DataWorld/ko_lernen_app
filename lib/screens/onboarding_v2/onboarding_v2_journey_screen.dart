@@ -100,7 +100,10 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
           _replace(IntroGateScreen(firstRunCoordinator: _coordinator));
           return;
         case FirstRunEntry.appShell:
-          _replace(AppShell(firstRunCoordinator: _coordinator));
+          _replace(
+            AppShell(firstRunCoordinator: _coordinator),
+            preserveHigherRoutes: true,
+          );
           return;
         case FirstRunEntry.story:
         case FirstRunEntry.setup:
@@ -127,11 +130,18 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
     }
   }
 
-  void _replace(Widget screen) {
+  void _replace(Widget screen, {bool preserveHigherRoutes = false}) {
     _recordStoryExit(OnboardingStoryExit.dropped);
-    Navigator.of(
-      context,
-    ).pushReplacement(SoriTransitions.firstRun(context, (_) => screen));
+    final ownRoute = ModalRoute.of(context);
+    final destination = SoriTransitions.firstRun(context, (_) => screen);
+    if (preserveHigherRoutes && ownRoute != null && !ownRoute.isCurrent) {
+      // A completed learner's initial deep link sits above this root. Replace
+      // the root itself so resolving first-run state cannot discard that link.
+      // Consent and unfinished onboarding keep the existing redirect behavior.
+      Navigator.of(context).replace(oldRoute: ownRoute, newRoute: destination);
+      return;
+    }
+    Navigator.of(context).pushReplacement(destination);
   }
 
   void _applyState(

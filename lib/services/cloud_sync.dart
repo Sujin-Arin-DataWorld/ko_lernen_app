@@ -1,5 +1,8 @@
 import '../models/practice_history.dart';
+import '../models/foundation_progress.dart';
+import 'foundation_progress_service.dart';
 import 'practice_history_store.dart';
+import 'decoration_reward_service.dart';
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -61,6 +64,8 @@ class CloudSync {
     'gram_plan_json',
     'content_learning_json',
     'hanok_practice_json',
+    'decoration_reward_receipt_json',
+    'foundation_progress_json',
     'yeopjeon_wallet_json',
   };
   static Future<CloudWriteResult> Function()? _backupWithResultForTesting;
@@ -140,6 +145,16 @@ class CloudSync {
     if (practiceJson.isNotEmpty) {
       PracticeHistory.decode(practiceJson);
       payload['hanok_practice_json'] = practiceJson;
+    }
+    final rewardReceiptJson =
+        await Storage.readDecorationRewardReceiptRawJsonStrict();
+    if (rewardReceiptJson.isNotEmpty) {
+      DecorationRewardReceiptHistory.decode(rewardReceiptJson);
+      payload['decoration_reward_receipt_json'] = rewardReceiptJson;
+    }
+    final foundationJson = await FoundationProgressService.captureBackupJson();
+    if (foundationJson != null) {
+      payload['foundation_progress_json'] = foundationJson;
     }
     final walletJson = await YeopjeonService.captureBackupJson();
     if (walletJson != null) {
@@ -384,6 +399,27 @@ class CloudSync {
     ilduWorldStateMerger,
   }) async {
     final rawWallet = data['yeopjeon_wallet_json'];
+    if (data.containsKey('foundation_progress_json')) {
+      final raw = data['foundation_progress_json'];
+      if (raw is! String || raw.isEmpty) {
+        throw const FormatException('Invalid foundation backup.');
+      }
+      FoundationProgress.decode(FoundationProgressStorage.readRawJson()).merge(
+        FoundationProgress.decode(raw),
+      );
+    }
+    if (data.containsKey('decoration_reward_receipt_json')) {
+      final raw = data['decoration_reward_receipt_json'];
+      if (raw is! String || raw.isEmpty) {
+        throw const FormatException('Invalid decoration reward receipt backup.');
+      }
+      DecorationRewardReceiptHistory.mergeJson(
+        await Storage.readDecorationRewardReceiptRawJsonStrict(
+          assertCurrentRead: beforeWrite,
+        ),
+        raw,
+      );
+    }
     if (data.containsKey('hanok_practice_json')) {
       final raw = data['hanok_practice_json'];
       if (raw is! String || raw.isEmpty) {
@@ -665,6 +701,26 @@ class CloudSync {
       }
     }
     final grammarPlanJson = _rawJsonObject(data['gram_plan_json']);
+    if (data.containsKey('foundation_progress_json')) {
+      final raw = data['foundation_progress_json'] as String;
+      await _guardedWrite(
+        beforeWrite,
+        () => FoundationProgressService.mergeCloudJson(
+          raw,
+          beforeWrite: beforeWrite ?? () {},
+        ),
+      );
+    }
+    if (data.containsKey('decoration_reward_receipt_json')) {
+      final raw = data['decoration_reward_receipt_json'] as String;
+      await _guardedWrite(
+        beforeWrite,
+        () => DecorationRewardService.mergeReceiptPresentation(
+          raw,
+          beforeWrite: beforeWrite,
+        ),
+      );
+    }
     if (data.containsKey('content_learning_json')) {
       final raw = data['content_learning_json'];
       if (raw is! String || raw.isEmpty) {

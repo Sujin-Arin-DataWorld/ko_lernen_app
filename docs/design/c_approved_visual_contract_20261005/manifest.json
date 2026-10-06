@@ -1,0 +1,972 @@
+{
+  "schemaVersion": 1,
+  "contractId": "c-approved-visual-20261005-v1",
+  "date": "2026-10-05",
+  "root": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004",
+  "head": "a1d798bda6a36ff4dd95faa16e14484ad7b1a2f5",
+  "authority": "latest human-approved 8 attachments",
+  "screensCovered": 12,
+  "references": [
+    {
+      "id": "main-five-tabs",
+      "title": "메인 5탭",
+      "path": "reference/main-five-tabs.png",
+      "sourcePath": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-7b328b4c-5932-4e20-aeec-b7805b2d42b6.png",
+      "width": 1846,
+      "height": 777,
+      "sha256": "03ad9d47495e1620bbf62a57ba32ebdd64fed14ecf998fd25c02c0f0013ad4e1",
+      "generatedOriginal": null,
+      "existingIntroSourceId": null,
+      "approval": "human latest attachments, 2026-10-05",
+      "includesBakedGermanText": true,
+      "imageBytesModified": false
+    },
+    {
+      "id": "intro-01",
+      "title": "01 · 시작 수준과 관심",
+      "path": "reference/intro-01.png",
+      "sourcePath": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-2f8aceea-8234-4370-9587-21cd579dcc50.png",
+      "width": 853,
+      "height": 1844,
+      "sha256": "c03ae18d08556d3e6a62cf0cfb39a2764d1db35793021049a19c8b55c59e9857",
+      "generatedOriginal": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-85dc2f8e-dc09-481b-8869-b317c3a15c6d.png",
+      "existingIntroSourceId": "01-level-a2-selected",
+      "approval": "human latest attachments, 2026-10-05",
+      "includesBakedGermanText": true,
+      "imageBytesModified": false
+    },
+    {
+      "id": "intro-02",
+      "title": "02 · 학습 경로",
+      "path": "reference/intro-02.png",
+      "sourcePath": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-aa544a3d-342b-4bd5-a41a-bbca41ce7de9.png",
+      "width": 853,
+      "height": 1844,
+      "sha256": "a6606255345712510086b482b52c2492e82ae9af26317310fb6f9d98f28f30e0",
+      "generatedOriginal": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-ff5c2bf7-201c-4241-b124-c4db14a9b51d.png",
+      "existingIntroSourceId": "02-learning-path",
+      "approval": "human latest attachments, 2026-10-05",
+      "includesBakedGermanText": true,
+      "imageBytesModified": false
+    },
+    {
+      "id": "intro-03",
+      "title": "03 · 첫 소리",
+      "path": "reference/intro-03.png",
+      "sourcePath": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-c4429bf7-ca78-4207-b739-8f4e8d83cd30.png",
+      "width": 853,
+      "height": 1844,
+      "sha256": "dabe8e033784f6239960dd6d216a1cd40c074e8aeaf876dd0d9c28f446af056f",
+      "generatedOriginal": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-c0e3273a-305d-47d5-80e7-01a684228c82.png",
+      "existingIntroSourceId": "03-learning-preview",
+      "approval": "human latest attachments, 2026-10-05",
+      "includesBakedGermanText": true,
+      "imageBytesModified": false
+    },
+    {
+      "id": "intro-04",
+      "title": "04 · 게임과 보상",
+      "path": "reference/intro-04.png",
+      "sourcePath": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-750135b4-017d-422f-a114-c55c685a4921.png",
+      "width": 853,
+      "height": 1844,
+      "sha256": "50dc62b261ee4b85c8000711d8a9d0c9f1a57f9a87e9a98034f18a26f183462a",
+      "generatedOriginal": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-a5a60663-3d20-4c97-8fac-5c325c41c3e2.png",
+      "existingIntroSourceId": "04-games-reward",
+      "approval": "human latest attachments, 2026-10-05",
+      "includesBakedGermanText": true,
+      "imageBytesModified": false
+    },
+    {
+      "id": "intro-05",
+      "title": "05 · 책과 탈선비",
+      "path": "reference/intro-05.png",
+      "sourcePath": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-5fd2ef08-38cf-41c6-9622-efabcd03f75e.png",
+      "width": 853,
+      "height": 1844,
+      "sha256": "285599737eb0a7bf309748c71987eac6e4c4ad0089ee02cb79872c6cf388f783",
+      "generatedOriginal": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-36c12d9d-2523-484f-a86b-db8ec5944d62.png",
+      "existingIntroSourceId": "05-book-learning",
+      "approval": "human latest attachments, 2026-10-05",
+      "includesBakedGermanText": true,
+      "imageBytesModified": false
+    },
+    {
+      "id": "intro-06",
+      "title": "06 · 한옥과 문화",
+      "path": "reference/intro-06.png",
+      "sourcePath": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-f707728f-f0fe-43f9-9ccd-23348763dc36.png",
+      "width": 853,
+      "height": 1844,
+      "sha256": "d7ac0e8deb8039e6d59017e7b0c2c15a82d3b3d5cb523f145479735b8df5de61",
+      "generatedOriginal": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-8e6b93b8-c9be-4dc9-ab59-37506ef67961.png",
+      "existingIntroSourceId": "06-hanok-culture",
+      "approval": "human latest attachments, 2026-10-05",
+      "includesBakedGermanText": true,
+      "imageBytesModified": false
+    },
+    {
+      "id": "intro-07",
+      "title": "07 · 동행 선택",
+      "path": "reference/intro-07.png",
+      "sourcePath": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-07b14be1-ba3e-4318-9c9e-ede8f6071578.png",
+      "width": 853,
+      "height": 1844,
+      "sha256": "6aa6eef64dbdaa72e5d833aa6f077e56fe008c6e266b581611996b578fa989ab",
+      "generatedOriginal": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-72a8a393-22cf-41d7-93a7-81d090a0f62f.png",
+      "existingIntroSourceId": "07-taego-selected",
+      "approval": "human latest attachments, 2026-10-05",
+      "includesBakedGermanText": true,
+      "imageBytesModified": false
+    }
+  ],
+  "runtimeRegions": [
+    {
+      "id": "01-alltag-reise",
+      "path": "assets/illustrations/concept_c/einleitung/01-alltag-reise.png",
+      "sourceId": "01-startniveau",
+      "sourceRect": [
+        85,
+        991,
+        333,
+        181
+      ],
+      "width": 333,
+      "height": 181,
+      "bakedUiText": false,
+      "sha256": "a5fd3c4153a53fe7f952bd60b0478c60ec5d1f1e6d5c4485a7790cf03cdf692f",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "01-menschen-kultur",
+      "path": "assets/illustrations/concept_c/einleitung/01-menschen-kultur.png",
+      "sourceId": "01-startniveau",
+      "sourceRect": [
+        438,
+        991,
+        336,
+        181
+      ],
+      "width": 336,
+      "height": 181,
+      "bakedUiText": false,
+      "sha256": "cf3f2d86bc4820e0af2fb6b585fb3b96b7b064a05e4149f35210cbc63848a51f",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "01-studium-beruf",
+      "path": "assets/illustrations/concept_c/einleitung/01-studium-beruf.png",
+      "sourceId": "01-startniveau",
+      "sourceRect": [
+        85,
+        1237,
+        333,
+        165
+      ],
+      "width": 333,
+      "height": 165,
+      "bakedUiText": false,
+      "sha256": "8da369a4b75a660aa3e360be09a3b993c959d83d2577598a49833b3ba6998715",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "01-k-content",
+      "path": "assets/illustrations/concept_c/einleitung/01-k-content.png",
+      "sourceId": "01-startniveau",
+      "sourceRect": [
+        438,
+        1237,
+        336,
+        166
+      ],
+      "width": 336,
+      "height": 166,
+      "bakedUiText": false,
+      "sha256": "52eb65a2df6b0902adafaf42d318ffebed2a282449a93efcbc1827933230e6e5",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "01-taego-header",
+      "path": "assets/illustrations/concept_c/einleitung/01-taego-header.png",
+      "sourceId": "01-startniveau",
+      "sourceRect": [
+        53,
+        275,
+        747,
+        350
+      ],
+      "width": 747,
+      "height": 350,
+      "bakedUiText": true,
+      "sha256": "87b226b7bd4a428f23c13a4969c2ac0966de7fe69892f426337d7d5e29b5390e",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "01-startniveau-field",
+      "path": "assets/illustrations/concept_c/einleitung/01-startniveau-field.png",
+      "sourceId": "01-startniveau",
+      "sourceRect": [
+        77,
+        715,
+        704,
+        150
+      ],
+      "width": 704,
+      "height": 150,
+      "bakedUiText": true,
+      "sha256": "b13c033ef4d3f8c1651815557c44d935a5e487e453ed5d625a9cbc83194ff88c",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "01-a2-field",
+      "path": "assets/illustrations/concept_c/einleitung/01-a2-field.png",
+      "sourceId": "01-level-a2-selected",
+      "sourceRect": [
+        77,
+        715,
+        704,
+        150
+      ],
+      "width": 704,
+      "height": 150,
+      "bakedUiText": true,
+      "sha256": "1d9d55f48125994e505f29a2d6479afbda39d6b33604687eec4aee8f04df6bf8",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "01-interest-cards-reference",
+      "path": "assets/illustrations/concept_c/einleitung/01-interest-cards-reference.png",
+      "sourceId": "01-startniveau",
+      "sourceRect": [
+        77,
+        984,
+        704,
+        479
+      ],
+      "width": 704,
+      "height": 479,
+      "bakedUiText": true,
+      "sha256": "7e35980347af37cc702d3a13e64097e60a79a5bba2875c30cfe6d8045cbe6dd8",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "02-joy-book-full-scene",
+      "path": "assets/illustrations/concept_c/einleitung/02-joy-book-full-scene.png",
+      "sourceId": "02-learning-path",
+      "sourceRect": [
+        53,
+        275,
+        747,
+        980
+      ],
+      "width": 747,
+      "height": 980,
+      "bakedUiText": true,
+      "sha256": "2a50fead44376d47ee0cf2780475a7893871b872680108d26977e7eca23430f4",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "02-book-table-scene",
+      "path": "assets/illustrations/concept_c/einleitung/02-book-table-scene.png",
+      "sourceId": "02-learning-path",
+      "sourceRect": [
+        53,
+        674,
+        444,
+        372
+      ],
+      "width": 444,
+      "height": 372,
+      "bakedUiText": false,
+      "sha256": "84bd971a65363ccdae6518f77a6d2da4a538dcc0da79d33b97fe3e273bc67111",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "02-learning-path-medallions",
+      "path": "assets/illustrations/concept_c/einleitung/02-learning-path-medallions.png",
+      "sourceId": "02-learning-path",
+      "sourceRect": [
+        82,
+        1040,
+        691,
+        202
+      ],
+      "width": 691,
+      "height": 202,
+      "bakedUiText": true,
+      "sha256": "447b3ee9e83074602670d11c45308701cde3265388929dc2a91e5b4c23c71726",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "03-sound-full-scene",
+      "path": "assets/illustrations/concept_c/einleitung/03-sound-full-scene.png",
+      "sourceId": "03-learning-preview",
+      "sourceRect": [
+        53,
+        275,
+        747,
+        1068
+      ],
+      "width": 747,
+      "height": 1068,
+      "bakedUiText": true,
+      "sha256": "0318aa7aa15e4f33f79595043b64e999410adb71121339155014f377cad53cc7",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "03-hangul-table-scene",
+      "path": "assets/illustrations/concept_c/einleitung/03-hangul-table-scene.png",
+      "sourceId": "03-learning-preview",
+      "sourceRect": [
+        53,
+        540,
+        747,
+        635
+      ],
+      "width": 747,
+      "height": 635,
+      "bakedUiText": false,
+      "sha256": "619cfb0423dbae08502e5ea9bd6dc54532f8edbcaf494b6e93fa219bdd9dc5d7",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "03-tile-g",
+      "path": "assets/illustrations/concept_c/einleitung/03-tile-g.png",
+      "sourceId": "03-learning-preview",
+      "sourceRect": [
+        91,
+        777,
+        153,
+        173
+      ],
+      "width": 153,
+      "height": 173,
+      "bakedUiText": false,
+      "sha256": "0f4ca3be85a275784e88cca0662574a8f648d932853cfa6122a957a7f403c1ec",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "03-tile-a",
+      "path": "assets/illustrations/concept_c/einleitung/03-tile-a.png",
+      "sourceId": "03-learning-preview",
+      "sourceRect": [
+        283,
+        771,
+        148,
+        178
+      ],
+      "width": 148,
+      "height": 178,
+      "bakedUiText": false,
+      "sha256": "c262ef71b272b14396535471b5396f7768fbed4edca9f2a7de8de3fb4e5b36cb",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "03-tile-ga",
+      "path": "assets/illustrations/concept_c/einleitung/03-tile-ga.png",
+      "sourceId": "03-learning-preview",
+      "sourceRect": [
+        497,
+        677,
+        272,
+        306
+      ],
+      "width": 272,
+      "height": 306,
+      "bakedUiText": false,
+      "sha256": "a1d38f3f610fa8f6a65c262e379f84d7e5193a8ec997df839987f5ca0b14ff3c",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "03-speaker-context",
+      "path": "assets/illustrations/concept_c/einleitung/03-speaker-context.png",
+      "sourceId": "03-learning-preview",
+      "sourceRect": [
+        111,
+        1096,
+        269,
+        244
+      ],
+      "width": 269,
+      "height": 244,
+      "bakedUiText": false,
+      "sha256": "5289e94d7ac873f24886bb6a91aaff12da2785b43258757db24a497fffe241a7",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "03-listen-button-reference",
+      "path": "assets/illustrations/concept_c/einleitung/03-listen-button-reference.png",
+      "sourceId": "03-learning-preview",
+      "sourceRect": [
+        382,
+        1178,
+        371,
+        134
+      ],
+      "width": 371,
+      "height": 134,
+      "bakedUiText": true,
+      "sha256": "71f42493636f80f1a865fd48bd97f3be8c01ed2015276290c146ffaa6c31b595",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "04-dokkaebi-games-full-scene",
+      "path": "assets/illustrations/concept_c/einleitung/04-dokkaebi-games-full-scene.png",
+      "sourceId": "04-games-reward",
+      "sourceRect": [
+        53,
+        275,
+        747,
+        930
+      ],
+      "width": 747,
+      "height": 930,
+      "bakedUiText": true,
+      "sha256": "98bdfc45f897454d1727eb52047575fec38150d2717f2d174a7db13acf35cb2a",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "04-treasure-chest-context",
+      "path": "assets/illustrations/concept_c/einleitung/04-treasure-chest-context.png",
+      "sourceId": "04-games-reward",
+      "sourceRect": [
+        479,
+        834,
+        321,
+        269
+      ],
+      "width": 321,
+      "height": 269,
+      "bakedUiText": false,
+      "sha256": "7ebd87716b336873d79a01e0eff8aa92501d4b3f9026f73e051d73dfe1163fd6",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "04-yeopjeon-original-detail",
+      "path": "assets/illustrations/concept_c/einleitung/04-yeopjeon-original-detail.png",
+      "sourceId": "04-games-reward",
+      "sourceRect": [
+        393,
+        997,
+        178,
+        178
+      ],
+      "width": 178,
+      "height": 178,
+      "bakedUiText": false,
+      "sha256": "5eb7a0a1ba14eb6f5732e2bafea48cd5d4fc637207f2c4335c0cb8f5e902b745",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "04-word-chain-knot-context",
+      "path": "assets/illustrations/concept_c/einleitung/04-word-chain-knot-context.png",
+      "sourceId": "04-games-reward",
+      "sourceRect": [
+        86,
+        934,
+        309,
+        244
+      ],
+      "width": 309,
+      "height": 244,
+      "bakedUiText": false,
+      "sha256": "5bd4f99bfafa0bc4e83826bad35a5eb90fa7e53a15cdb43bc7006c0947bc1b3f",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "05-talsunbi-book-full-scene",
+      "path": "assets/illustrations/concept_c/einleitung/05-talsunbi-book-full-scene.png",
+      "sourceId": "05-book-learning",
+      "sourceRect": [
+        53,
+        275,
+        747,
+        1017
+      ],
+      "width": 747,
+      "height": 1017,
+      "bakedUiText": true,
+      "sha256": "1530951c071c120846f95d758032eb2193c87878e18d100f56191ff6e1a4610d",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "05-example-card-reference",
+      "path": "assets/illustrations/concept_c/einleitung/05-example-card-reference.png",
+      "sourceId": "05-book-learning",
+      "sourceRect": [
+        174,
+        540,
+        310,
+        305
+      ],
+      "width": 310,
+      "height": 305,
+      "bakedUiText": true,
+      "sha256": "e8125bbfdfa1d9303136ff89e0332156d9761c160df2ccf2197f0d50e3891f25",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "05-open-book-scene",
+      "path": "assets/illustrations/concept_c/einleitung/05-open-book-scene.png",
+      "sourceId": "05-book-learning",
+      "sourceRect": [
+        53,
+        836,
+        747,
+        269
+      ],
+      "width": 747,
+      "height": 269,
+      "bakedUiText": false,
+      "sha256": "721ebff509468bdc8d1a0c4e68b461f01d72913fc045403fe0854bc40e0ae743",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "05-photo-understand-remember",
+      "path": "assets/illustrations/concept_c/einleitung/05-photo-understand-remember.png",
+      "sourceId": "05-book-learning",
+      "sourceRect": [
+        83,
+        1071,
+        692,
+        211
+      ],
+      "width": 692,
+      "height": 211,
+      "bakedUiText": true,
+      "sha256": "e3a5a3b04ee27091ac4c7ee809514beaaa5ca5e58842653effd9773712e7f555",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "06-hanok-culture-full-scene",
+      "path": "assets/illustrations/concept_c/einleitung/06-hanok-culture-full-scene.png",
+      "sourceId": "06-hanok-culture",
+      "sourceRect": [
+        53,
+        275,
+        747,
+        983
+      ],
+      "width": 747,
+      "height": 983,
+      "bakedUiText": true,
+      "sha256": "f5a43eb3f4e4a6098e5a4d05e00e7243d0bea0bf846a43db6ee969c55846b0e5",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "06-stempelbuch-crane-table-scene",
+      "path": "assets/illustrations/concept_c/einleitung/06-stempelbuch-crane-table-scene.png",
+      "sourceId": "06-hanok-culture",
+      "sourceRect": [
+        183,
+        634,
+        617,
+        482
+      ],
+      "width": 617,
+      "height": 482,
+      "bakedUiText": false,
+      "sha256": "020ada7f0fa74ed0039c916ad7d41fad5ba7859b753582d0c628dc6e9ee3d020",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "06-stempelbuch-original-detail",
+      "path": "assets/illustrations/concept_c/einleitung/06-stempelbuch-original-detail.png",
+      "sourceId": "06-hanok-culture",
+      "sourceRect": [
+        185,
+        836,
+        459,
+        282
+      ],
+      "width": 459,
+      "height": 282,
+      "bakedUiText": false,
+      "sha256": "d7a097485514245c3fe7e55ff5c55706ce8da43b1e5eee25396381e6e894e61a",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "06-yeopjeon-original-detail",
+      "path": "assets/illustrations/concept_c/einleitung/06-yeopjeon-original-detail.png",
+      "sourceId": "06-hanok-culture",
+      "sourceRect": [
+        53,
+        916,
+        180,
+        190
+      ],
+      "width": 180,
+      "height": 190,
+      "bakedUiText": false,
+      "sha256": "a9c8b385445ad01311b917552aeb3ab9b9b520a401edd5455360282f8504a5ed",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "06-build-collect-design",
+      "path": "assets/illustrations/concept_c/einleitung/06-build-collect-design.png",
+      "sourceId": "06-hanok-culture",
+      "sourceRect": [
+        76,
+        1117,
+        708,
+        142
+      ],
+      "width": 708,
+      "height": 142,
+      "bakedUiText": true,
+      "sha256": "c99a9550ff7c95f400c8687ecf192a7bfb1f9a0e303730a66536706eb9ef9c24",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "07-taego-unselected",
+      "path": "assets/illustrations/concept_c/einleitung/07-taego-unselected.png",
+      "sourceId": "07-joy-selected",
+      "sourceRect": [
+        62,
+        486,
+        374,
+        546
+      ],
+      "width": 374,
+      "height": 546,
+      "bakedUiText": false,
+      "sha256": "dc0a3c8fd1791c8bce2ea5cc32c07a9b355ca9d5f22e997ea8e0a785db20c88a",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "07-taego-selected",
+      "path": "assets/illustrations/concept_c/einleitung/07-taego-selected.png",
+      "sourceId": "07-taego-selected",
+      "sourceRect": [
+        62,
+        486,
+        374,
+        546
+      ],
+      "width": 374,
+      "height": 546,
+      "bakedUiText": false,
+      "sha256": "08b1ef6a95640804a223b6224dd7148bb8e962696c8aebcbfc80eeb615dc9ad3",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "07-joy-unselected",
+      "path": "assets/illustrations/concept_c/einleitung/07-joy-unselected.png",
+      "sourceId": "07-taego-selected",
+      "sourceRect": [
+        438,
+        486,
+        359,
+        546
+      ],
+      "width": 359,
+      "height": 546,
+      "bakedUiText": false,
+      "sha256": "ce8d1bc9492baec295a19054af34c86e9453f9be6e628ce7d8bba3d40a8f265e",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "07-joy-selected",
+      "path": "assets/illustrations/concept_c/einleitung/07-joy-selected.png",
+      "sourceId": "07-joy-selected",
+      "sourceRect": [
+        438,
+        486,
+        359,
+        546
+      ],
+      "width": 359,
+      "height": 546,
+      "bakedUiText": false,
+      "sha256": "8a89f024fd412dc285feaf95a5f56bfbd6670aca9b8e345c74a22fea98cd68d6",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "07-gye-reading-scene",
+      "path": "assets/illustrations/concept_c/einleitung/07-gye-reading-scene.png",
+      "sourceId": "07-taego-selected",
+      "sourceRect": [
+        73,
+        1178,
+        400,
+        287
+      ],
+      "width": 400,
+      "height": 287,
+      "bakedUiText": false,
+      "sha256": "e5b1ad99b5c599f37eedc476272ded7636a4604a5018f92bb44682e1846db839",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "07-gye-panel-reference",
+      "path": "assets/illustrations/concept_c/einleitung/07-gye-panel-reference.png",
+      "sourceId": "07-taego-selected",
+      "sourceRect": [
+        64,
+        1170,
+        723,
+        309
+      ],
+      "width": 723,
+      "height": 309,
+      "bakedUiText": true,
+      "sha256": "373bd28f58772aa2c873a74ee31caa4c50b532b62471a0234b5093e36a8c4135",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "07-taego-check-context",
+      "path": "assets/illustrations/concept_c/einleitung/07-taego-check-context.png",
+      "sourceId": "07-taego-selected",
+      "sourceRect": [
+        82,
+        928,
+        95,
+        98
+      ],
+      "width": 95,
+      "height": 98,
+      "bakedUiText": false,
+      "sha256": "281203e2ba17eae572b2cbf68a2dc83927070f8322b07c66fccc7e677325d780",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "07-joy-check-context",
+      "path": "assets/illustrations/concept_c/einleitung/07-joy-check-context.png",
+      "sourceId": "07-joy-selected",
+      "sourceRect": [
+        684,
+        924,
+        103,
+        99
+      ],
+      "width": 103,
+      "height": 99,
+      "bakedUiText": false,
+      "sha256": "a7737cb78d0243b3a5c1c21e40b6dc51ddc5515d04e6fa5fd6b50f316fa5caeb",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "07-flower-branch-context",
+      "path": "assets/illustrations/concept_c/einleitung/07-flower-branch-context.png",
+      "sourceId": "07-taego-selected",
+      "sourceRect": [
+        609,
+        275,
+        191,
+        303
+      ],
+      "width": 191,
+      "height": 303,
+      "bakedUiText": false,
+      "sha256": "b0761c050c2a690ab97a9ea8cf0ff29cf3678720254e999b02b97ba2d372eb06",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "common-cloud-logo-context",
+      "path": "assets/illustrations/concept_c/einleitung/common-cloud-logo-context.png",
+      "sourceId": "01-startniveau",
+      "sourceRect": [
+        90,
+        149,
+        82,
+        74
+      ],
+      "width": 82,
+      "height": 74,
+      "bakedUiText": false,
+      "sha256": "c3bfb9cbc6a4f6a6bebafc530e392f35a730a993b27ddd8d27c0c9da78cccc68",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "common-jade-material-sample",
+      "path": "assets/illustrations/concept_c/einleitung/common-jade-material-sample.png",
+      "sourceId": "01-startniveau",
+      "sourceRect": [
+        330,
+        281,
+        182,
+        38
+      ],
+      "width": 182,
+      "height": 38,
+      "bakedUiText": false,
+      "sha256": "69ecc010a5af7744cdd8babec86a6786509cfb904c934a7b8e8160f378c7985e",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "common-hanji-material-sample",
+      "path": "assets/illustrations/concept_c/einleitung/common-hanji-material-sample.png",
+      "sourceId": "01-startniveau",
+      "sourceRect": [
+        58,
+        1545,
+        737,
+        48
+      ],
+      "width": 737,
+      "height": 48,
+      "bakedUiText": false,
+      "sha256": "d994241f592a258dae3fde5efd7a19b0e293540016a7215a0eee3b790bf7b562",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "common-gold-button-material-sample",
+      "path": "assets/illustrations/concept_c/einleitung/common-gold-button-material-sample.png",
+      "sourceId": "05-book-learning",
+      "sourceRect": [
+        110,
+        1512,
+        190,
+        62
+      ],
+      "width": 190,
+      "height": 62,
+      "bakedUiText": false,
+      "sha256": "04cc286d6ecf909d45992cc918f460224896a55923832033e421cc9797e71803",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "common-weiter-button-reference",
+      "path": "assets/illustrations/concept_c/einleitung/common-weiter-button-reference.png",
+      "sourceId": "01-startniveau",
+      "sourceRect": [
+        78,
+        1628,
+        699,
+        104
+      ],
+      "width": 699,
+      "height": 104,
+      "bakedUiText": true,
+      "sha256": "dc5b6956aa98598a71a2a87fa93aca1f03a21ee640a45a0a7b4dc5e326656de5",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    },
+    {
+      "id": "common-brand-progress-reference",
+      "path": "assets/illustrations/concept_c/einleitung/common-brand-progress-reference.png",
+      "sourceId": "01-startniveau",
+      "sourceRect": [
+        82,
+        149,
+        687,
+        120
+      ],
+      "width": 687,
+      "height": 120,
+      "bakedUiText": true,
+      "sha256": "f036efb5476e40a92f864d4e2adf18a254d677d27745575e85f00a96395a73f9",
+      "matchesExistingManifest": true,
+      "originalPreservation": "original source pixels; existing crop, no new image editing"
+    }
+  ],
+  "sourceSnapshot": [
+    {
+      "path": "assets/illustrations/concept_c/einleitung/source-manifest.json",
+      "sha256": "f44dbb66dcb9d0c8e88cb8be37587565a8ef796fc0aa9bee4cc583b4f3131ef8"
+    },
+    {
+      "path": "lib/screens/gye_tab_screen.dart",
+      "sha256": "b7cde9e730c981926e51836114ad56d18b1dff3a5c135236704aa9a0a1a6c720"
+    },
+    {
+      "path": "lib/screens/onboarding_v2/c_onboarding.dart",
+      "sha256": "d1ab0841f335c35090a0c9cecf0f577e5fd70156ec69cb01d219cdfd9ad0608d"
+    },
+    {
+      "path": "lib/screens/sori_stage/c_stage_chrome.dart",
+      "sha256": "ca55cceaeac94ce561ed06725be2c64fbdc9d824235cf41782796c7ea5f92123"
+    },
+    {
+      "path": "lib/screens/sori_stage/sori_stage_catalog_screen.dart",
+      "sha256": "326dd4051542d3900701c4f516852803d4c324100640c4d5d8ded201cbc64567"
+    },
+    {
+      "path": "lib/screens/sori_stage/sori_stage_gye_screen.dart",
+      "sha256": "7e77113b9aa4ef362f704d79e51e742989b56b7e234d33dc86aa7a06bbfdf422"
+    },
+    {
+      "path": "lib/screens/sori_stage/sori_stage_hanok_screen.dart",
+      "sha256": "73ba1b6058efb3b84d31cc785a167301b76e45192d44e9c82ae9dd77227dd94b"
+    },
+    {
+      "path": "lib/screens/sori_stage/sori_stage_today_screen.dart",
+      "sha256": "ebd5b26b130ccd49427738a51bb89d332cf004dfa2e1b5b600c3da178389425b"
+    },
+    {
+      "path": "lib/widgets/sori/adaptive_navigation.dart",
+      "sha256": "458141a0047b60041577a27095d7e316d3a600b575c441f456994a74d3731c22"
+    },
+    {
+      "path": "lib/widgets/sori/c_gallery/c_materials.dart",
+      "sha256": "6667f31d06dbb5d500f0a1d13ed5aaa03c3ad7fbc39dbfb76da3f436bc6a23e3"
+    },
+    {
+      "path": "lib/widgets/sori/c_gallery/c_objects.dart",
+      "sha256": "e392ad09908a1c6cf23c23d7a6d4ee2b00849139af3df7fd04e76060ebdeb5d4"
+    },
+    {
+      "path": "lib/widgets/sori/c_gallery/c_palette.dart",
+      "sha256": "2800db8aabe0515f91606037224d375bbdcd98815a57bcfb680c514a6cff598b"
+    }
+  ],
+  "historicalMainBoard": {
+    "path": "assets/illustrations/concept_c/reference_objects.png",
+    "sha256": "28c9640156a8e8757e4817cd2a5a9afd748406cdcfd9b23ccafde4bd70cd63cb",
+    "role": "retained art atlas, not latest main spacing/layout authority"
+  },
+  "verification": {
+    "referenceCount": 8,
+    "unchangedGeneratedOriginals": 7,
+    "regionCount": 46,
+    "regionHashesMatch": true,
+    "newImageGenerationCalls": 0,
+    "externalDesignConnectorCalls": 0,
+    "flutterSharedFilesEdited": false,
+    "deviceQa": "not performed"
+  }
+}

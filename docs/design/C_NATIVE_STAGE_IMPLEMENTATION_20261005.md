@@ -1,0 +1,49 @@
+# C approved design: native Flutter bindings
+
+The visual authority is the approved C board and the unchanged 46-region Einleitung package. The old v3 style is not a design source. This document describes the actual app widgets; `tool/concept_c_preview.dart` remains an isolated visual prototype.
+
+## Native surfaces
+
+| Surface | Actual implementation | Preserved behavior |
+|---|---|---|
+| Seven-step Einleitung | `lib/screens/onboarding_v2/c_onboarding.dart`, existing setup/story/companion delegates | Journey IDs, beginner/A1–C2 intent, purpose and companion IDs, resume/back, final settings commit and retry. Preview activities do not grant XP, money or construction. |
+| Five-tab shell | `lib/screens/sori_stage/sori_stage_shell.dart` | Existing routes, focus, reward-return handling, lazy tab work. Account generation remounts every tab and fences old responses. |
+| Heute | `lib/screens/sori_stage/sori_stage_today_screen.dart` | Actual recommended learning, saved review, pending treasure or resumable receipt, confirmed wallet, Hanok progress, guide/goals/drafts. The representative companion uses the real canonical portrait. |
+| Lernen / Spiele | `lib/screens/sori_stage/sori_stage_catalog_screen.dart` | All 13 learning and 8 game entries, real Start/Details/history/progress, current course focus, learning-library access. Browse-level selection changes free-practice selection only. |
+| Hanok | `lib/screens/sori_stage/sori_stage_hanok_screen.dart` | Construction, wallet, Dancheong Studio, stamp book, draft resume and protected construction-history art. Approved complete Hanok scene is presentation art; it does not replace ownership history. |
+| Gye | `lib/screens/sori_stage/sori_stage_gye_screen.dart`, embedded `lib/screens/gye_tab_screen.dart` | Real membership count and weekly progress; join/create/open and existing authorization gates. No invented group count. Lantern states preserve the same frame and wood. |
+
+## Visual and interaction contract
+
+`c_stage_chrome.dart` draws the jade background through the system-bar area while respecting native SafeArea. It does not paint a simulated clock, battery or Wi-Fi. Titles, wallet values and controls are real Flutter text and actions. The five navigation images have no visible labels; their names and selected state remain accessible. The real shell uses image-only navigation on tablets too.
+
+`CPaperPanel`, `CMaterialAction` and `CImageTap` provide hanji material, shallow card edges, brass/jade button texture, four-dp button depth, focus, press and tap semantics. The main content is arranged on one paper board with natural-height sections. Small screens and enlarged type scroll rather than reducing readable text. Direct entry, detail, retry and final-setting actions remain executable.
+
+The Spiele board uses the approved Dokkaebi scene, three cards followed by two cards, and a matching DIY entry. German labels are Blitz-Paare, Satzbau and Wortkette; activity IDs remain unchanged. Vorschau is absent on the actual games root. Hanok uses the approved complete scene and option-three Dancheong art. The browse picker exposes native selected semantics and explains its free-practice scope.
+
+The actual catalogue detail sheets use the same approved artwork, localized description and reward expectation with a native C Start action. Progress locks and the original guarded start callback still control access. The main Spiele CTA is `Spiel ansehen` / `See the game`.
+
+Rendered review also covered the content below the first fold. Today/Hanok wallets, Today's optional guide, configured daily goals, saved Dancheong drafts and quest rows now opt into C materials. Their public defaults remain compatible with other callers. The wallet keeps its existing saved-balance, confirmed-build and cost rules. Guide dispatch/dismissal, midnight read-only expiry, draft identity and culture-story content stay with their existing owners. A German shortcut switches to a full row when its longest word does not fit beside the thumbnail. Today's Hanok summary measures every localized label with the actual font and text scaler; when a word does not fit beside the scene, the labels move below it to keep whole words at 200%. Readable text is not shrunk.
+
+## Local verification at source freeze
+
+- `C:/dev/hangulsori/_codex_artifacts/c-implementation-20261005/validation/c-surfaces-final-tests.log`: **236 passed**, serial execution across 22 UI-impact files after the final C batch. Covers actual fonts, responsive catalogue details, learning/game entry and locks, Shell account transitions, Hanok history/shortcuts, truthful Gye state, confirmed wallet/build behavior and duplicate taps, guide dispatch, midnight goals, culture stories, 48dp actions and enlarged type. The six added Hanok-summary cases inspect actual word-selection glyph boxes at DE/EN 390dp 100/200% and 320dp 200%, and preserve the `/hanok` route and unchanged XP/rewards. Do not add earlier overlapping runs to this count.
+- `build/c-five-tabs-final-test.log`: **90 passed** at the preceding source milestone; superseded for final UI-impact evidence by the 236-test run.
+- `C:/dev/hangulsori/_codex_artifacts/c-implementation-20261005/validation/c-einleitung-frozen-179-tests.log`: **93 passed**, independently rerun serially. The filename retains a historical count; the actual final runner count is 93. Covers registered original artwork, seven-step navigation, stable selections, TTS cancellation, preview side effects, DE/EN and small/large layouts. The earlier owner-reported 179 is not used as the final verified count.
+- `C:/dev/hangulsori/_codex_artifacts/c-implementation-20261005/validation/c-content-shell-render-evidence.log`: **10 passed**. The real parent Shell exports 390 × 844 DE/EN PNGs for all five tabs, verifies mounted artwork, fonts, navigation selection, 48dp controls and unchanged learning/wallet state. Only local consent/onboarding/tutorial fixture flags are supplied; balances, XP, focus and group state are not invented. Signed-out Gye uses an explicit signed-out seam and is not a Firebase membership proof.
+- `C:/dev/hangulsori/_codex_artifacts/c-implementation-20261005/validation/full-analyze-frozen.log`: final analysis of `lib`, `test` and `tool` exited successfully with **zero errors and zero warnings**. Two existing informational `avoid_print` findings remain at `test/persona_stock_diagnostic_test.dart:24` and `:29`. Earlier analysis logs are intermediate evidence.
+- `C:/dev/hangulsori/_codex_artifacts/c-implementation-20261005/validation/real-route-web-build-final-c-surfaces.log`: final `tool/c_content_flow_preview.dart` web build succeeded in **156.1 seconds**, including the last Hanok word-width correction. C-owned Flutter commands remain stopped; all shared-worktree validation ran serially under the integrating owner.
+
+The production-route review target is `http://127.0.0.1:8261/`, served from `build/c_content_flow_web`. The separate Einleitung component board is `http://127.0.0.1:8253/c-einleitung.html`. These local origins preserve independent preview data. Cloud bootstrap, store deployment and physical Android/iPhone profiling are outside these local results.
+
+## Rendered review
+
+`http://127.0.0.1:8253/c-live.html` embeds the actual production-route Flutter web build and the approved board for comparison. The old `c-native.html` prototype links to this actual-app review target.
+
+The 390 × 844 review verified all five tabs, natural vertical scroll, the complete Hanok thumbnail/hero, an actual beginner recommendation while browsing A2 free practice, the browse picker, real C game-detail opening and the executable Silben-Rätsel start, and the truthful Gye empty state. It found the previous-style detail sheet, wallet/guide/quest surfaces and words split inside German/English labels; those were fixed in the final source batches. Final parent-Shell renders were captured with the header explicitly scrolled into view. The final web build and interactive capture must use that same source.
+
+Final parent-Shell captures: `C:/dev/hangulsori/_codex_artifacts/c-implementation-20261005/visual-shell/c-content-shell-{today|learn|games|hanok|gye}-{de|en}-390x844.png`; each has a paired provenance JSON. Earlier interactive comparison captures remain in `C:/dev/hangulsori/_codex_artifacts/einleitung-reward-abc-20261004/assets` and are not final-batch evidence. These are local account states; a ready preview page is not evidence of Firebase bootstrap, Android/iOS installation or store release.
+
+The rebuilt 8261 app was also checked interactively: all five tabs, `Spiel ansehen` → C detail → actual `/wordle` start → return without completing learning, Hanok shortcuts, Today below the fold, and culture-story close. `assets/c-live-game-details-final-390.png`, `assets/c-live-game-start-final-390.png`, `assets/c-live-hanok-scroll-final-390.png`, `assets/c-live-heute-scroll-final-390.png` and `assets/c-live-culture-final-390.png` preserve those views. After the last correction, `assets/c-live-heute-hanok-en-200-final.png` confirms that `construction` stays whole in the real English 200% view. These paths are under the external comparison-artifact directory above. The native five-tab PNG gallery is `http://127.0.0.1:8253/c-rendered.html`; `c-live.html` is the executable review page. Inner gameplay retains its approved practice presentation and is not described as a whole-screen pixel copy of the five-tab board.
+
+The unchanged artwork hashes and zero changed-pixel crop proof do not establish zero pixel difference for an entire responsive app screen. Some approved flattened artwork includes German print; native localized, scalable controls supply the actionable meaning. No missing transparent source layer was recreated. No new image-generation call was made for this native integration.

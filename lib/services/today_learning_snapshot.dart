@@ -40,7 +40,7 @@ class TodayLearningDestination {
 /// Pure route contract for the existing recommendation engine.
 TodayLearningDestination? todayLearningDestinationFor(MissionPick? pick) =>
     switch (pick) {
-      HangulIntroPick() => const TodayLearningDestination(route: '/hangul'),
+      HangulIntroPick() => const TodayLearningDestination(route: '/foundation'),
       CoursePick() => const TodayLearningDestination(route: '/course/mission'),
       PackPick(:final pack) => TodayLearningDestination(
         route: '/vocab/pack',
@@ -143,6 +143,11 @@ typedef TodayScenarioSourceValue = ({
   LearnerLevel userLevel,
 });
 typedef TodayReviewSourceValue = ({int dueCount, int hardCount});
+typedef _TodayReviewInput = ({
+  int dueCount,
+  int hardCount,
+  int scheduledReviewCount,
+});
 
 /// Injectable, read-only production readers used by tests and UX previews.
 ///
@@ -270,14 +275,6 @@ class TodayLearningSnapshotLoader {
   }) async {
     final userLevel = _recommendationLevel;
     final completedScenarios = Storage.completedScenarios.toSet();
-    final sourceReaders =
-        readers ??
-        const TodayLearningSourceReaders(
-          course: _loadCourseInput,
-          nowNode: _loadNowNode,
-          scenario: _loadScenarioInput,
-          review: _loadReviewInput,
-        );
     final networkFuture = _readNetworkStatus(
       networkStatusReader ?? TodayLearningConnectivity.currentStatus,
     );
@@ -285,20 +282,31 @@ class TodayLearningSnapshotLoader {
     // Start every read before awaiting so a slow source does not serialize the
     // remaining local reads.
     final courseFuture = _capture<TodayCourseSourceValue>(
-      sourceReaders.course,
+      readers?.course ?? _loadCourseInput,
       (units: const <CourseUnit>[], snapshot: null),
     );
     final nowNodeFuture = _capture<TodayNowNodeSourceValue>(
-      sourceReaders.nowNode,
+      readers?.nowNode ?? _loadNowNode,
       null,
     );
     final scenarioFuture = _capture<TodayScenarioSourceValue>(
-      sourceReaders.scenario,
+      readers?.scenario ?? _loadScenarioInput,
       (current: null, completed: completedScenarios, userLevel: userLevel),
     );
-    final reviewFuture = _capture<TodayReviewSourceValue>(
-      sourceReaders.review,
-      (dueCount: 0, hardCount: 0),
+    final reviewFuture = _capture<_TodayReviewInput>(
+      readers == null
+          ? _loadReviewInput
+          : () async {
+              final value = await readers.review();
+              // Injected readers retain their established conservative contract:
+              // an offered review prevents overriding it with foundation.
+              return (
+                dueCount: value.dueCount,
+                hardCount: value.hardCount,
+                scheduledReviewCount: value.dueCount,
+              );
+            },
+      (dueCount: 0, hardCount: 0, scheduledReviewCount: 0),
     );
 
     final course = await courseFuture;
@@ -337,7 +345,7 @@ class TodayLearningSnapshotLoader {
 
     final startWithHangul =
         unavailableReason == null &&
-        review.value.dueCount == 0 &&
+        review.value.scheduledReviewCount == 0 &&
         review.value.hardCount == 0 &&
         (nowNode.value?.progress.progressFraction ?? 0) == 0 &&
         await OnboardingLearningStart.shouldOfferHangul(
@@ -438,7 +446,7 @@ class TodayLearningSnapshotLoader {
     return (current: current, completed: completed, userLevel: userLevel);
   }
 
-  static Future<TodayReviewSourceValue> _loadReviewInput() async {
+  static Future<_TodayReviewInput> _loadReviewInput() async {
     final all = await ReviewDeckService.allReviewable();
     final koreans = all.map((entry) => entry.korean);
     final today = ReviewDeckService.todaySelectionForLevel(
@@ -448,6 +456,10 @@ class TodayLearningSnapshotLoader {
     return (
       dueCount: today.words.length,
       hardCount: Storage.hardIds(koreans).length,
+      // Newly assigned daily cards are available practice, not prior learning.
+      // Keep the shared daily deck count intact while offering the introduction
+      // until actual scheduled reviews or explicit A1 continuation take over.
+      scheduledReviewCount: today.reviewCount,
     );
   }
 }

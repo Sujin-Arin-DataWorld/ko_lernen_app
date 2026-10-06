@@ -1,10 +1,10 @@
-import '../services/haptic_service.dart';
 import 'package:flutter/material.dart';
-
 import '../data/chaekgado_shelf.dart';
 import '../l10n/generated/app_localizations.dart';
+import '../models/companion_art.dart';
 import '../models/scenario.dart';
 import '../motion/transitions.dart';
+import '../services/haptic_service.dart';
 import '../services/scenario_loader.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
@@ -15,10 +15,10 @@ import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/illustrated_card.dart';
 import '../widgets/sori/illustrated_card_grid.dart';
 import '../widgets/sori/level_filter_bar.dart';
+import '../widgets/sori/media_phrase_link.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
-import '../widgets/sori/media_phrase_link.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 import 'listening_shelf_screen.dart';
@@ -300,7 +300,7 @@ class _ListeningScreenState extends State<ListeningScreen>
           child: Padding(
             padding: padding,
             child: SoriEmptyState(
-              asset: 'assets/illustrations/error/lost_magpie.png',
+              asset: CompanionArt.joyGuide,
               icon: Icons.signal_wifi_statusbar_null_rounded,
               title: t.listeningTitle,
               body: _loadError,
@@ -319,7 +319,7 @@ class _ListeningScreenState extends State<ListeningScreen>
           child: Padding(
             padding: padding,
             child: SoriEmptyState(
-              asset: 'assets/illustrations/mascot/magpie_encourage.png',
+              asset: CompanionArt.joyGuide,
               icon: Icons.headphones_outlined,
               title: t.listeningEmptyTitle,
               body: t.listeningEmptyBody,

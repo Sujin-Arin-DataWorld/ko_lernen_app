@@ -15,6 +15,8 @@ import 'activity_illustration.dart';
 import 'toast.dart';
 import 'pressable.dart';
 import 'sheet.dart';
+import 'c_gallery/c_materials.dart';
+import 'c_gallery/c_objects.dart';
 
 /// Saved money and construction ownership, with no optimistic spending.
 class YeopjeonWalletCard extends StatefulWidget {
@@ -24,11 +26,13 @@ class YeopjeonWalletCard extends StatefulWidget {
     this.onBuilt,
     this.loader,
     this.builder,
+    this.conceptC = false,
   });
   final bool compact;
   final VoidCallback? onBuilt;
   final Future<YeopjeonWallet> Function()? loader;
   final Future<YeopjeonTransactionResult> Function(YeopjeonBuilding)? builder;
+  final bool conceptC;
 
   @override
   State<YeopjeonWalletCard> createState() => _YeopjeonWalletCardState();
@@ -112,16 +116,36 @@ class _YeopjeonWalletCardState extends State<YeopjeonWalletCard> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final type = SoriTextTheme.of(context);
+    TextStyle style(TextStyle value) =>
+        widget.conceptC ? cMaterialText(value) : value;
     return FutureBuilder<YeopjeonWallet>(
       future: _future,
       builder: (context, snapshot) {
         if (snapshot.hasError) {
+          if (widget.conceptC) {
+            return CPaperPanel(
+              child: CMaterialAction(
+                label: t.yeopjeonSaveFailed,
+                onTap: _retryLoad,
+                gold: false,
+              ),
+            );
+          }
           return SoriButton.outlined(
             label: t.yeopjeonSaveFailed,
             onTap: _retryLoad,
           );
         }
         if (!snapshot.hasData) {
+          if (widget.conceptC) {
+            return Semantics(
+              label: t.yeopjeonTitle,
+              child: const SizedBox(
+                height: 48,
+                child: Center(child: CObjectArt(CObject.coin, size: 32)),
+              ),
+            );
+          }
           return const SizedBox(
             height: 48,
             child: Center(
@@ -130,18 +154,14 @@ class _YeopjeonWalletCardState extends State<YeopjeonWalletCard> {
           );
         }
         final wallet = snapshot.requireData;
-        return SoriCard(
-          key: const ValueKey('yeopjeon-wallet'),
-          variant: widget.compact
-              ? SoriCardVariant.compact
-              : SoriCardVariant.hanji,
-          accent: SoriColors.tiger,
-          tinted: true,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Row(
-                children: [
+        final content = Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Row(
+              children: [
+                if (widget.conceptC)
+                  const CObjectArt(CObject.coin, size: 56)
+                else
                   Image.asset(
                     SoriArtwork.yeopjeon,
                     width: 72,
@@ -150,131 +170,149 @@ class _YeopjeonWalletCardState extends State<YeopjeonWalletCard> {
                     errorBuilder: (_, __, ___) =>
                         const Icon(Icons.toll_rounded, size: 40),
                   ),
-                  const SizedBox(width: Spacing.md),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(t.yeopjeonTitle, style: type.label),
-                        Semantics(
-                          liveRegion: true,
-                          child: Text(
-                            t.yeopjeonBalance(wallet.balance),
-                            key: const ValueKey('yeopjeon-balance'),
-                            style: type.h2,
-                          ),
+                const SizedBox(width: Spacing.md),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(t.yeopjeonTitle, style: style(type.label)),
+                      Semantics(
+                        liveRegion: true,
+                        child: Text(
+                          t.yeopjeonBalance(wallet.balance),
+                          key: const ValueKey('yeopjeon-balance'),
+                          style: style(type.h2),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-              const SizedBox(height: Spacing.sm),
-              Text(t.yeopjeonIntro, style: type.bodySmall),
-              if (widget.compact && wallet.nextConstructionGoal > 0) ...[
-                const SizedBox(height: Spacing.sm),
-                Text(
-                  t.yeopjeonConstructionGoal(
-                    YeopjeonWallet.nextConstructionCost,
-                  ),
-                  style: type.label,
                 ),
-              ] else if (!widget.compact) ...[
-                for (final building in YeopjeonBuilding.values) ...[
-                  const SizedBox(height: Spacing.lg),
-                  Text(
-                    building == YeopjeonBuilding.sarangchae
-                        ? t.yeopjeonSarangchae
-                        : t.yeopjeonB2,
-                    style: type.h3,
-                  ),
-                  if (wallet.ownedStage(building) > 0)
-                    SizedBox(
-                      height: 160,
-                      child: building == YeopjeonBuilding.sarangchae
-                          ? FutureBuilder<SarangchaeConstruction>(
-                              future: _sarangchae ??=
-                                  SarangchaeConstruction.load(),
-                              builder: (context, art) => art.hasData
-                                  ? HanokAssetImage(
-                                      art.requireData
-                                          .stage(wallet.sarangchaeOwnedStage)
-                                          .assetPath,
-                                      fit: BoxFit.contain,
-                                      cacheHeight: 320,
-                                      semanticLabel: t.yeopjeonProgress(
-                                        wallet.sarangchaeOwnedStage,
-                                        wallet.sarangchaeEligibleStage,
-                                      ),
-                                    )
-                                  : const SizedBox.shrink(),
-                            )
-                          : FutureBuilder<IlDuConstructionArtCatalog>(
-                              future: _art ??=
-                                  IlDuConstructionArtCatalog.load(),
-                              builder: (context, art) {
-                                if (!art.hasData) {
-                                  return const SizedBox.shrink();
-                                }
-                                final reveals = art.requireData
-                                    .b2RevealsBetween(
-                                      before: 0,
-                                      after: wallet.b2OwnedStage,
-                                    );
-                                return Row(
-                                  children: [
-                                    for (final reveal in reveals.reversed.take(
-                                      1,
-                                    ))
-                                      Expanded(
-                                        child: AnimatedSwitcher(
-                                          duration: SoriMotion.respect(
-                                            context,
-                                            const Duration(milliseconds: 250),
-                                          ),
-                                          child: HanokAssetImage(
+              ],
+            ),
+            const SizedBox(height: Spacing.sm),
+            Text(t.yeopjeonIntro, style: style(type.bodySmall)),
+            if (widget.compact && wallet.nextConstructionGoal > 0) ...[
+              const SizedBox(height: Spacing.sm),
+              Text(
+                t.yeopjeonConstructionGoal(YeopjeonWallet.nextConstructionCost),
+                style: style(type.label),
+              ),
+            ] else if (!widget.compact) ...[
+              for (final building in YeopjeonBuilding.values) ...[
+                const SizedBox(height: Spacing.lg),
+                Text(
+                  building == YeopjeonBuilding.sarangchae
+                      ? t.yeopjeonSarangchae
+                      : t.yeopjeonB2,
+                  style: style(type.h3),
+                ),
+                if (wallet.ownedStage(building) > 0)
+                  SizedBox(
+                    height: 160,
+                    child: building == YeopjeonBuilding.sarangchae
+                        ? FutureBuilder<SarangchaeConstruction>(
+                            future: _sarangchae ??=
+                                SarangchaeConstruction.load(),
+                            builder: (context, art) => art.hasData
+                                ? HanokAssetImage(
+                                    art.requireData
+                                        .stage(wallet.sarangchaeOwnedStage)
+                                        .assetPath,
+                                    fit: BoxFit.contain,
+                                    cacheHeight: 320,
+                                    semanticLabel: t.yeopjeonProgress(
+                                      wallet.sarangchaeOwnedStage,
+                                      wallet.sarangchaeEligibleStage,
+                                    ),
+                                  )
+                                : const SizedBox.shrink(),
+                          )
+                        : FutureBuilder<IlDuConstructionArtCatalog>(
+                            future: _art ??= IlDuConstructionArtCatalog.load(),
+                            builder: (context, art) {
+                              if (!art.hasData) {
+                                return const SizedBox.shrink();
+                              }
+                              final reveals = art.requireData.b2RevealsBetween(
+                                before: 0,
+                                after: wallet.b2OwnedStage,
+                              );
+                              return Row(
+                                children: [
+                                  for (final reveal in reveals.reversed.take(1))
+                                    Expanded(
+                                      child: AnimatedSwitcher(
+                                        duration: SoriMotion.respect(
+                                          context,
+                                          const Duration(milliseconds: 250),
+                                        ),
+                                        child: HanokAssetImage(
+                                          reveal.afterStage.asset,
+                                          key: ValueKey(
                                             reveal.afterStage.asset,
-                                            key: ValueKey(
-                                              reveal.afterStage.asset,
-                                            ),
-                                            fit: BoxFit.contain,
-                                            cacheHeight: 320,
-                                            semanticLabel: ilduArtText(
-                                              reveal.series.name,
-                                              Localizations.localeOf(
-                                                context,
-                                              ).languageCode,
-                                            ),
+                                          ),
+                                          fit: BoxFit.contain,
+                                          cacheHeight: 320,
+                                          semanticLabel: ilduArtText(
+                                            reveal.series.name,
+                                            Localizations.localeOf(
+                                              context,
+                                            ).languageCode,
                                           ),
                                         ),
                                       ),
-                                  ],
-                                );
-                              },
-                            ),
-                    ),
-                  Text(
-                    t.yeopjeonProgress(
-                      wallet.ownedStage(building),
-                      wallet.eligibleStage(building),
-                    ),
-                    style: type.bodySmall,
+                                    ),
+                                ],
+                              );
+                            },
+                          ),
                   ),
-                  const SizedBox(height: Spacing.sm),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(12),
-                    child: LinearProgressIndicator(
-                      minHeight: 10,
-                      value: wallet.eligibleStage(building) == 0
-                          ? 0
-                          : wallet.ownedStage(building) /
-                                wallet.eligibleStage(building),
-                      color: SoriColors.primary,
-                    ),
+                Text(
+                  t.yeopjeonProgress(
+                    wallet.ownedStage(building),
+                    wallet.eligibleStage(building),
                   ),
-                  const SizedBox(height: Spacing.sm),
-                  if (wallet.ownedStage(building) <
-                      wallet.eligibleStage(building))
+                  style: style(type.bodySmall),
+                ),
+                const SizedBox(height: Spacing.sm),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: LinearProgressIndicator(
+                    minHeight: 10,
+                    value: wallet.eligibleStage(building) == 0
+                        ? 0
+                        : wallet.ownedStage(building) /
+                              wallet.eligibleStage(building),
+                    color: widget.conceptC ? CPalette.jade : SoriColors.primary,
+                    backgroundColor: widget.conceptC ? CPalette.fineEdge : null,
+                  ),
+                ),
+                const SizedBox(height: Spacing.sm),
+                if (wallet.ownedStage(building) <
+                    wallet.eligibleStage(building))
+                  if (widget.conceptC)
+                    CMaterialAction(
+                      key: ValueKey('yeopjeon-build-${building.name}'),
+                      label: t.yeopjeonBuild(
+                        YeopjeonWallet.nextConstructionCost,
+                      ),
+                      onTap:
+                          _busy ||
+                              wallet.balance <
+                                  YeopjeonWallet.nextConstructionCost
+                          ? null
+                          : () => _build(building),
+                      child: _busy
+                          ? const SizedBox.square(
+                              dimension: 22,
+                              child: CircularProgressIndicator(
+                                strokeWidth: 2,
+                                color: CPalette.ink,
+                              ),
+                            )
+                          : null,
+                    )
+                  else
                     SoriButton.filled(
                       key: ValueKey('yeopjeon-build-${building.name}'),
                       label: t.yeopjeonBuild(
@@ -289,39 +327,55 @@ class _YeopjeonWalletCardState extends State<YeopjeonWalletCard> {
                           ? null
                           : () => _build(building),
                     )
-                  else
-                    Text(
-                      wallet.ownedStage(building) ==
-                              (building == YeopjeonBuilding.sarangchae
-                                  ? SarangchaeConstruction.stageCount
-                                  : b2ConstructionStageCount)
-                          ? t.yeopjeonConstructionComplete
-                          : t.yeopjeonNeedLearning,
-                      style: type.bodySmall,
-                    ),
-                ],
-                if (_failed) ...[
-                  const SizedBox(height: Spacing.sm),
-                  Text(t.yeopjeonSaveFailed, style: type.bodySmall),
-                ],
-                if (wallet.nextConstructionGoal > wallet.balance) ...[
-                  const SizedBox(height: Spacing.sm),
+                else
                   Text(
-                    t.yeopjeonNeedCoins(
-                      wallet.nextConstructionGoal - wallet.balance,
-                    ),
-                    style: type.bodySmall,
+                    wallet.ownedStage(building) ==
+                            (building == YeopjeonBuilding.sarangchae
+                                ? SarangchaeConstruction.stageCount
+                                : b2ConstructionStageCount)
+                        ? t.yeopjeonConstructionComplete
+                        : t.yeopjeonNeedLearning,
+                    style: style(type.bodySmall),
                   ),
-                ],
-                ExpansionTile(
-                  tilePadding: EdgeInsets.zero,
-                  title: Text(t.yeopjeonTitle, style: type.label),
-                  children: [Text(t.yeopjeonRules, style: type.bodySmall)],
+              ],
+              if (_failed) ...[
+                const SizedBox(height: Spacing.sm),
+                Text(t.yeopjeonSaveFailed, style: style(type.bodySmall)),
+              ],
+              if (wallet.nextConstructionGoal > wallet.balance) ...[
+                const SizedBox(height: Spacing.sm),
+                Text(
+                  t.yeopjeonNeedCoins(
+                    wallet.nextConstructionGoal - wallet.balance,
+                  ),
+                  style: style(type.bodySmall),
                 ),
               ],
+              ExpansionTile(
+                tilePadding: EdgeInsets.zero,
+                title: Text(t.yeopjeonTitle, style: style(type.label)),
+                trailing: widget.conceptC
+                    ? const CArrow(dark: true, down: true)
+                    : null,
+                children: [Text(t.yeopjeonRules, style: style(type.bodySmall))],
+              ),
             ],
-          ),
+          ],
         );
+        return widget.conceptC
+            ? CPaperPanel(
+                key: const ValueKey('yeopjeon-wallet'),
+                child: content,
+              )
+            : SoriCard(
+                key: const ValueKey('yeopjeon-wallet'),
+                variant: widget.compact
+                    ? SoriCardVariant.compact
+                    : SoriCardVariant.hanji,
+                accent: SoriColors.tiger,
+                tinted: true,
+                child: content,
+              );
       },
     );
   }
