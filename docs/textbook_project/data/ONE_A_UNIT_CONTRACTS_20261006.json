@@ -1,0 +1,1009 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "CANONICAL_PUBLISHING_DRAFT",
+  "book": "1A",
+  "level": "A1",
+  "governingSources": [
+    "docs/CONTENT_LEVEL_BIBLE.md",
+    "docs/textbook_project/HANGUL_ZERO_ONBOARDING_20261006.md",
+    "docs/textbook_project/A1_LEARNER_ERROR_MATRIX_EN_DE_20261006.md",
+    "docs/textbook_project/ONE_A_NATIVE_USAGE_READINESS_20261006.md",
+    "docs/textbook_project/data/TEXTBOOK_SOURCE_POOL_ALLOCATION_RESOLVED_1A_6B.csv"
+  ],
+  "globalRules": {
+    "productiveRegister": "해요체 중심",
+    "romanization": "Hangul Zero 이후 본문 line-by-line romanization 금지",
+    "dialogueRule": "relationship/context first, natural Korean before grammar mining",
+    "grammarRule": "dialogue occurrence != productive grammar target",
+    "localizationRule": "EN/DE authored independently from Korean intent + native evidence",
+    "audioRule": "displaySurface != spokenSurface != performanceCue; TTS remains Jin-owned",
+    "assessmentRule": "recognition alone cannot pass; each unit ends with retrieval/interaction task",
+    "recyclingRule": "new language must recur in later units with delayed retrieval"
+  },
+  "units": [
+    {
+      "unitId": "a1_01_greetings_hangul",
+      "order": 1,
+      "titleKo": "첫 인사와 다시 묻기",
+      "titleEn": "First greetings and asking again",
+      "titleDe": "Erste Begrüßung und noch einmal fragen",
+      "canDo": [
+        "처음 만난 사람에게 짧게 인사하고 네/아니요로 반응할 수 있다.",
+        "못 들었을 때 정중하게 한 번 더 말해 달라고 할 수 있다."
+      ],
+      "communicativeProblem": "처음 한국에 도착하거나 처음 만난 상대의 말을 다 못 알아들어도 대화를 끊지 않고 인사와 repair를 이어 간다.",
+      "relationship": {
+        "primary": "traveler ↔ public-service official / new acquaintance",
+        "registerKo": "polite",
+        "deAddressDefault": "Sie in service; contextual elsewhere",
+        "enAddressDefault": "neutral polite"
+      },
+      "authoritativeScenarioIds": [
+        "airport_arrival"
+      ],
+      "supplementarySourceIds": [
+        "listening.a1.airport_arrival"
+      ],
+      "nativeUsageTopics": [
+        "personal_identification",
+        "social_etiquette_customs",
+        "language_learning_communication_repair"
+      ],
+      "targetFunctions": [
+        "greet",
+        "short_answer",
+        "repeat_request",
+        "thank"
+      ],
+      "productiveGrammar": [
+        {
+          "form": "이에요/예요",
+          "function": "basic copula identification",
+          "appAnchor": "grammar_a1_copula_polite"
+        },
+        {
+          "form": "-아/어 주세요",
+          "function": "polite request",
+          "mode": "chunk-first"
+        }
+      ],
+      "recognitionOnly": [
+        {
+          "form": "-(으)시-",
+          "reason": "subject honorification appears in authentic service speech; do not teach as generic extra-politeness marker"
+        },
+        {
+          "form": "합니다/합니다체 인사",
+          "reason": "recognize fixed service formulas before broader productive formal register"
+        }
+      ],
+      "coreChunks": [
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요",
+        "감사합니다"
+      ],
+      "pronunciation": [
+        "안녕하세요 rhythm",
+        "네? vs 네. intonation",
+        "말씀해 주세요 phrase rhythm"
+      ],
+      "pragmatics": [
+        "service politeness",
+        "repair is normal, not failure",
+        "short response is acceptable"
+      ],
+      "culture": [
+        "Korean politeness is carried heavily by sentence endings; it is not equivalent to English sir/ma'am or German Sie alone."
+      ],
+      "enLearnerRisks": [
+        "EN-A1-SPEECHLEVEL",
+        "EN-A1-HONORIFIC-SI"
+      ],
+      "deLearnerRisks": [
+        "DE-A1-DU-SIE",
+        "DE-A1-HONORIFIC-SUBJECT"
+      ],
+      "inputTasks": [
+        "hear greeting + identify relationship",
+        "distinguish statement vs question intonation",
+        "listen for repeat request"
+      ],
+      "outputTasks": [
+        "greet a new person",
+        "ask for one repetition without English/German fallback"
+      ],
+      "readingTasks": [
+        "decode 4–6 Hangul Zero carryover words in signs/cards"
+      ],
+      "writingTasks": [
+        "write own name in Hangul where feasible"
+      ],
+      "interactionTask": "30-second first-contact role-play with one intentional missed utterance.",
+      "assessment": {
+        "mustProduce": [
+          "안녕하세요",
+          "다시 말씀해 주세요"
+        ],
+        "mustRecognize": [
+          "네?",
+          "감사합니다"
+        ],
+        "success": "maintains interaction after one comprehension breakdown"
+      },
+      "recycleInto": [
+        "a1_02_self_intro_identity",
+        "a1_08_clarify_repair"
+      ],
+      "productionCeiling": "short single-clause A1 turns; no explanation of full honorific system"
+    },
+    {
+      "unitId": "a1_02_self_intro_identity",
+      "order": 2,
+      "titleKo": "이름과 출신 말하기",
+      "titleEn": "Name and where you're from",
+      "titleDe": "Name und Herkunft",
+      "canDo": [
+        "이름과 출신을 말하고 상대의 이름·출신을 간단히 물을 수 있다.",
+        "한 번 말한 주어를 매 문장 반복하지 않고 짧은 자기소개 대화를 이어 갈 수 있다."
+      ],
+      "communicativeProblem": "처음 만난 사람과 자기소개를 독백처럼 외우는 대신 짧게 말하고 되묻는다.",
+      "relationship": {
+        "primary": "new peers / classmates",
+        "registerKo": "polite",
+        "deAddressDefault": "contextual du/Sie",
+        "enAddressDefault": "first-name neutral"
+      },
+      "authoritativeScenarioIds": [
+        "introduce_yourself"
+      ],
+      "supplementarySourceIds": [
+        "listening.a1.introduce_yourself"
+      ],
+      "nativeUsageTopics": [
+        "personal_identification"
+      ],
+      "targetFunctions": [
+        "self_intro",
+        "ask_name",
+        "ask_origin",
+        "return_question",
+        "find_common_ground"
+      ],
+      "productiveGrammar": [
+        {
+          "form": "은/는",
+          "function": "set personal topic",
+          "appAnchor": "grammar_a1_topic_particle"
+        },
+        {
+          "form": "이에요/예요",
+          "function": "identify self",
+          "appAnchor": "grammar_a1_copula_polite"
+        },
+        {
+          "form": "에서 오다",
+          "function": "origin/source",
+          "mode": "lexical-frame"
+        }
+      ],
+      "recognitionOnly": [
+        {
+          "form": "-(으)셨어요",
+          "reason": "authentic polite question form may appear; productive honorific morphology is not analyzed exhaustively here"
+        }
+      ],
+      "coreChunks": [
+        "저는 ___이에요/예요",
+        "어디에서 오셨어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요"
+      ],
+      "pronunciation": [
+        "이에요/예요 linking",
+        "country/name syllable blocks",
+        "왔어요 pronunciation awareness"
+      ],
+      "pragmatics": [
+        "one disclosure + one follow-up beats question barrage",
+        "job/age/residence are optional follow-ups, not mandatory identity fields"
+      ],
+      "culture": [
+        "Korean first-meeting questions can reflect relationship positioning; avoid presenting age/job as universally required."
+      ],
+      "enLearnerRisks": [
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-WORDORDER"
+      ],
+      "deLearnerRisks": [
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-WORDORDER"
+      ],
+      "inputTasks": [
+        "identify name/origin in two short introductions",
+        "notice omitted subject after topic is established"
+      ],
+      "outputTasks": [
+        "give two-turn self-introduction",
+        "ask one natural follow-up then return question"
+      ],
+      "readingTasks": [
+        "read Korean names/country names in Hangul"
+      ],
+      "writingTasks": [
+        "write 2-line profile card without full-sentence overloading"
+      ],
+      "interactionTask": "speed-meeting: 45 seconds, introduce self and discover one shared point.",
+      "assessment": {
+        "mustProduce": [
+          "저는 ___이에요/예요",
+          "___에서 왔어요"
+        ],
+        "mustRecognize": [
+          "어디에서 오셨어요?"
+        ],
+        "success": "exchanges identity information without memorized paragraph"
+      },
+      "recycleFrom": [
+        "a1_01_greetings_hangul"
+      ],
+      "recycleInto": [
+        "a1_03_topic_subject_particles",
+        "a1_07_contact_address"
+      ],
+      "productionCeiling": "one idea per sentence; no résumé-style extended self-introduction"
+    },
+    {
+      "unitId": "a1_03_topic_subject_particles",
+      "order": 3,
+      "titleKo": "가게에서 물건 찾기",
+      "titleEn": "Finding something in a shop",
+      "titleDe": "Im Laden etwas finden",
+      "canDo": [
+        "가게에서 원하는 물건이 어디 있는지 묻고 위치를 이해할 수 있다.",
+        "은/는과 이/가를 짧은 실제 문맥 안에서 구별해 사용할 수 있다."
+      ],
+      "communicativeProblem": "마트에서 물건을 찾으며 topic/focus를 실제 질문-답 구조로 경험한다.",
+      "relationship": {
+        "primary": "customer ↔ store staff",
+        "registerKo": "polite",
+        "deAddressDefault": "Sie",
+        "enAddressDefault": "neutral service"
+      },
+      "authoritativeScenarioIds": [
+        "mart_grocery"
+      ],
+      "supplementarySourceIds": [
+        "listening.a1.mart_grocery"
+      ],
+      "nativeUsageTopics": [
+        "shopping_consumption",
+        "house_home"
+      ],
+      "targetFunctions": [
+        "ask_location",
+        "identify_object",
+        "correct_misidentification"
+      ],
+      "productiveGrammar": [
+        {
+          "form": "은/는",
+          "function": "established topic / contrast",
+          "appAnchor": "grammar_a1_topic_particle"
+        },
+        {
+          "form": "이/가",
+          "function": "subject/focus in identification/existence",
+          "appAnchor": "grammar_a1_subject_particle"
+        },
+        {
+          "form": "에 있다",
+          "function": "location/existence",
+          "appAnchor": "grammar_a1_direction_time_particle"
+        }
+      ],
+      "recognitionOnly": [],
+      "coreChunks": [
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "이거 ___예요?",
+        "아니요, 그건 ___예요",
+        "그럼 이거예요?"
+      ],
+      "pronunciation": [
+        "은/는 and 이/가 attachment",
+        "있어요 linking",
+        "이거/그거 deictic rhythm"
+      ],
+      "pragmatics": [
+        "저기요 as attention-getter in service context",
+        "repairing wrong identification without over-apology"
+      ],
+      "culture": [
+        "store-staff attention strategies vary; 저기요 is useful but tone matters."
+      ],
+      "enLearnerRisks": [
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-E-ESEO"
+      ],
+      "deLearnerRisks": [
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-E-ESEO-EURO"
+      ],
+      "inputTasks": [
+        "choose correct object/location from shop dialogue",
+        "notice topic vs focused/new item"
+      ],
+      "outputTasks": [
+        "ask for two items in simulated store",
+        "correct one wrong item"
+      ],
+      "readingTasks": [
+        "read simple shelf labels"
+      ],
+      "writingTasks": [
+        "complete short location notes with particles"
+      ],
+      "interactionTask": "information-gap store map: partner knows where items are.",
+      "assessment": {
+        "mustProduce": [
+          "___는 어디에 있어요?",
+          "___에 있어요"
+        ],
+        "mustRecognize": [
+          "은/는 vs 이/가 in mini-context"
+        ],
+        "success": "uses particles in context, not through isolated translation"
+      },
+      "recycleFrom": [
+        "a1_02_self_intro_identity"
+      ],
+      "recycleInto": [
+        "a1_04_order_request_object",
+        "a1_06_transport_directions"
+      ],
+      "productionCeiling": "avoid abstract topic-vs-subject theory; context first"
+    },
+    {
+      "unitId": "a1_04_order_request_object",
+      "order": 4,
+      "titleKo": "음식과 수량 주문하기",
+      "titleEn": "Ordering food and quantities",
+      "titleDe": "Essen und Mengen bestellen",
+      "canDo": [
+        "식당·카페에서 음식이나 음료를 수량과 함께 주문할 수 있다.",
+        "맵기·포장 같은 한 가지 조건을 짧게 요청할 수 있다."
+      ],
+      "communicativeProblem": "메뉴를 보고 원하는 것을 자연스럽고 공손하게 주문한다.",
+      "relationship": {
+        "primary": "customer ↔ restaurant/cafe staff",
+        "registerKo": "polite service",
+        "deAddressDefault": "Sie",
+        "enAddressDefault": "service-neutral"
+      },
+      "authoritativeScenarioIds": [
+        "bunshik_tteokbokki"
+      ],
+      "supplementarySourceIds": [
+        "a1_w10_eat",
+        "listening.a1.bunshik_tteokbokki",
+        "listening.a1.a1_w10_eat"
+      ],
+      "nativeUsageTopics": [
+        "food_drink",
+        "shopping_consumption"
+      ],
+      "targetFunctions": [
+        "order",
+        "ask_spiciness",
+        "modify_order",
+        "dine_in_takeout"
+      ],
+      "productiveGrammar": [
+        {
+          "form": "을/를",
+          "function": "object marking",
+          "appAnchor": "grammar_a1_object_particle"
+        },
+        {
+          "form": "N 주세요",
+          "function": "service request",
+          "appAnchor": "grammar_a1_service_request"
+        },
+        {
+          "form": "안 + adjective/verb",
+          "function": "simple negation/selection",
+          "appAnchor": "grammar_a1_short_negation"
+        }
+      ],
+      "recognitionOnly": [
+        {
+          "form": "-(으)시겠어요?",
+          "reason": "staff-side service question for comprehension"
+        },
+        {
+          "form": "-ㄹ게요",
+          "reason": "staff response; learner need not produce as target yet"
+        }
+      ],
+      "coreChunks": [
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요"
+      ],
+      "pronunciation": [
+        "주세요 phrase rhythm",
+        "한 잔/두 잔 counter rhythm",
+        "맵다→매워요"
+      ],
+      "pragmatics": [
+        "주세요 is compact but polite in service context",
+        "actual ordering often omits obvious subject/object information"
+      ],
+      "culture": [
+        "menu/counter language; optional recognition of common shorthand such as 아아 only as dated/contextual usage, not required production"
+      ],
+      "enLearnerRisks": [
+        "EN-A1-COUNTERS",
+        "EN-A1-WORDORDER"
+      ],
+      "deLearnerRisks": [
+        "DE-A1-COUNTERS",
+        "DE-A1-WORDORDER"
+      ],
+      "localizationNotes": {
+        "en": "Do not default to 'Give me...'. Teach Can I get/have...? and I'll have... as native service equivalents.",
+        "de": "Do not force one 주세요 equivalent. Ich hätte gern..., Einmal ..., bitte, and Ich nehme... differ in tone."
+      },
+      "inputTasks": [
+        "listen and identify item/quantity/spiciness",
+        "read a compact menu"
+      ],
+      "outputTasks": [
+        "order 2 items",
+        "make one modification/request"
+      ],
+      "readingTasks": [
+        "menu scan for item/price",
+        "distinguish 매운/안 매운"
+      ],
+      "writingTasks": [
+        "write short order note, no full paragraph"
+      ],
+      "interactionTask": "customer/staff role-play with sold-out or spicy-option variation.",
+      "assessment": {
+        "mustProduce": [
+          "N 하나/한 잔 주세요",
+          "안 ___ 걸로 주세요"
+        ],
+        "mustRecognize": [
+          "staff 주문하시겠어요?"
+        ],
+        "success": "orders and adjusts one condition without translation prompt"
+      },
+      "recycleFrom": [
+        "a1_03_topic_subject_particles"
+      ],
+      "recycleInto": [
+        "a1_05_numbers_time",
+        "1B payment/delivery"
+      ],
+      "productionCeiling": "counter chunks limited to high-frequency items; no exhaustive counter taxonomy"
+    },
+    {
+      "unitId": "a1_05_numbers_time",
+      "order": 5,
+      "titleKo": "시간 확인하기",
+      "titleEn": "Checking time and plans",
+      "titleDe": "Uhrzeit und Verabredung bestätigen",
+      "canDo": [
+        "약속 시간을 묻고 시각을 확인·정정할 수 있다.",
+        "기본 고유어 수와 시 단위를 실제 일정에서 사용할 수 있다."
+      ],
+      "communicativeProblem": "숫자를 외우는 대신 약속 시간·가격·전화번호처럼 실제 정보 확인에 쓴다.",
+      "relationship": {
+        "primary": "new friends / service situations",
+        "registerKo": "polite",
+        "deAddressDefault": "contextual",
+        "enAddressDefault": "neutral"
+      },
+      "authoritativeScenarioIds": [
+        "meeting_time"
+      ],
+      "supplementarySourceIds": [
+        "a1_w10_numbers",
+        "listening.a1.meeting_time",
+        "listening.a1.a1_w10_numbers"
+      ],
+      "nativeUsageTopics": [
+        "communication_phone_digital"
+      ],
+      "targetFunctions": [
+        "ask_time",
+        "confirm_time",
+        "correct_number",
+        "repeat_number"
+      ],
+      "productiveGrammar": [
+        {
+          "form": "N시에",
+          "function": "time point",
+          "appAnchor": "grammar_a1_direction_time_particle"
+        },
+        {
+          "form": "아니에요",
+          "function": "correction/negation",
+          "appAnchor": "grammar_a1_copula_negation"
+        }
+      ],
+      "recognitionOnly": [],
+      "coreChunks": [
+        "몇 시에 만나요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요",
+        "몇 번이에요?"
+      ],
+      "pronunciation": [
+        "native Korean hour numbers",
+        "Sino-Korean phone/price digit awareness",
+        "십삼 vs 삼 discrimination"
+      ],
+      "pragmatics": [
+        "repeat-back is normal when numbers matter",
+        "number confirmation uses intonation and short echo forms"
+      ],
+      "culture": [
+        "Korean uses multiple numeral systems by task; teach the needed system with the task rather than a giant chart first."
+      ],
+      "enLearnerRisks": [
+        "EN-A1-COUNTERS"
+      ],
+      "deLearnerRisks": [
+        "DE-A1-COUNTERS"
+      ],
+      "inputTasks": [
+        "distinguish 6 vs 7 and 3 vs 13",
+        "listen for time/place pair"
+      ],
+      "outputTasks": [
+        "set a meeting time",
+        "correct one intentionally wrong time"
+      ],
+      "readingTasks": [
+        "read simple appointment card / price / phone digits"
+      ],
+      "writingTasks": [
+        "write time and number from audio"
+      ],
+      "interactionTask": "schedule grid information gap.",
+      "assessment": {
+        "mustProduce": [
+          "몇 시에 ___?",
+          "N시에 ___"
+        ],
+        "mustRecognize": [
+          "echo correction"
+        ],
+        "success": "confirms a time accurately after one misunderstanding"
+      },
+      "recycleFrom": [
+        "a1_04_order_request_object"
+      ],
+      "recycleInto": [
+        "a1_06_transport_directions",
+        "a1_07_contact_address"
+      ],
+      "productionCeiling": "time + one location; no complex scheduling clauses"
+    },
+    {
+      "unitId": "a1_06_transport_directions",
+      "order": 6,
+      "titleKo": "교통에서 내릴 곳 말하기",
+      "titleEn": "Getting around and saying where to stop",
+      "titleDe": "Unterwegs: umsteigen, aussteigen, anhalten",
+      "canDo": [
+        "교통수단에서 목적지·내릴 곳·출구를 짧게 묻고 확인할 수 있다.",
+        "에/에서/(으)로의 기본 공간 기능을 번역표가 아니라 장면으로 구별하기 시작한다."
+      ],
+      "communicativeProblem": "길·출구·내릴 곳을 확인하고 틀린 방향이면 바로 repair한다.",
+      "relationship": {
+        "primary": "traveler ↔ driver/staff/stranger",
+        "registerKo": "polite",
+        "deAddressDefault": "Sie to staff/stranger",
+        "enAddressDefault": "neutral polite"
+      },
+      "authoritativeScenarioIds": [
+        "taxi_kakao"
+      ],
+      "supplementarySourceIds": [
+        "a1_w10_taxi_stay",
+        "a1_w10_wayfinding",
+        "listening.a1.taxi_kakao"
+      ],
+      "nativeUsageTopics": [
+        "transport_wayfinding"
+      ],
+      "targetFunctions": [
+        "ask_route",
+        "confirm_destination",
+        "ask_exit",
+        "request_stop"
+      ],
+      "productiveGrammar": [
+        {
+          "form": "에",
+          "function": "destination/location"
+        },
+        {
+          "form": "에서",
+          "function": "action/source contrast, limited use"
+        },
+        {
+          "form": "(으)로",
+          "function": "direction/means, chunk-first"
+        },
+        {
+          "form": "-아/어 주세요",
+          "function": "request stop/direction",
+          "appAnchor": "grammar_a1_polite_request"
+        }
+      ],
+      "recognitionOnly": [
+        {
+          "form": "맞으시죠?",
+          "reason": "driver service-side confirmation; learner understands without productive analysis"
+        }
+      ],
+      "coreChunks": [
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "어디서 갈아타요?",
+        "이 버스 ___ 가요?",
+        "저기 앞에 세워 주세요"
+      ],
+      "pronunciation": [
+        "출구 numbers",
+        "갈아타요 linking",
+        "세워 주세요 rhythm"
+      ],
+      "pragmatics": [
+        "short route questions are natural",
+        "app/UI wording differs from human speech"
+      ],
+      "culture": [
+        "local transit shorthand is city-specific; teach Korean core plus optional city capsules."
+      ],
+      "enLearnerRisks": [
+        "EN-A1-E-ESEO",
+        "EN-A1-PARTICLES-OMIT-REPLACE"
+      ],
+      "deLearnerRisks": [
+        "DE-A1-E-ESEO-EURO",
+        "DE-A1-PARTICLE-CASE"
+      ],
+      "localizationNotes": {
+        "en": "몇 호선 → which line/train, not literal 'what number line'.",
+        "de": "환승/갈아타다 → usually umsteigen; Anschluss is a narrower connection concept."
+      },
+      "inputTasks": [
+        "follow 2-step route",
+        "identify correct exit/stop"
+      ],
+      "outputTasks": [
+        "ask one route question",
+        "request a stop"
+      ],
+      "readingTasks": [
+        "station exit/sign recognition"
+      ],
+      "writingTasks": [
+        "note route as 2 short steps"
+      ],
+      "interactionTask": "map task: learner must ask, receive, confirm, and repair one wrong route.",
+      "assessment": {
+        "mustProduce": [
+          "몇 번 출구예요?",
+          "여기 세워 주세요"
+        ],
+        "mustRecognize": [
+          "갈아타요",
+          "반대 방향"
+        ],
+        "success": "reaches correct stop after one route correction"
+      },
+      "recycleFrom": [
+        "a1_03_topic_subject_particles",
+        "a1_05_numbers_time"
+      ],
+      "recycleInto": [
+        "a1_08_clarify_repair",
+        "1B travel"
+      ],
+      "productionCeiling": "one- or two-step routes only; no dense transit instructions"
+    },
+    {
+      "unitId": "a1_07_contact_address",
+      "order": 7,
+      "titleKo": "자연스럽게 연락 방법 정하기",
+      "titleEn": "Exchanging contact details naturally",
+      "titleDe": "Kontakt austauschen und sich verabreden",
+      "canDo": [
+        "상대에게 부담을 덜 주는 방식으로 연락 방법을 제안하고 연락처·채널을 확인할 수 있다.",
+        "늦거나 일정이 바뀔 때 짧은 메시지를 보낼 수 있다."
+      ],
+      "communicativeProblem": "연락처 교환을 필수 절차로 가정하지 않고, 채널을 제안하거나 자신의 연락처를 먼저 제공하는 선택지를 배운다.",
+      "relationship": {
+        "primary": "new classmates / new friends",
+        "registerKo": "polite-friendly",
+        "deAddressDefault": "contextual du/Sie",
+        "enAddressDefault": "friendly"
+      },
+      "authoritativeScenarioIds": [
+        "kakao_contact_after_class"
+      ],
+      "supplementarySourceIds": [
+        "a1_w10_phone",
+        "a1_message_contact_after_class_2026",
+        "listening.a1.kakao_contact_after_class"
+      ],
+      "nativeUsageTopics": [
+        "communication_phone_digital",
+        "personal_identification"
+      ],
+      "targetFunctions": [
+        "suggest_contact_channel",
+        "offer_contact",
+        "confirm_contact",
+        "delay_notice"
+      ],
+      "productiveGrammar": [
+        {
+          "form": "(으)로",
+          "function": "channel/means, e.g. 카카오톡으로"
+        },
+        {
+          "form": "있어요",
+          "function": "presence/contact resource"
+        },
+        {
+          "form": "-아/어 주세요",
+          "function": "simple instruction/request"
+        }
+      ],
+      "recognitionOnly": [
+        {
+          "form": "-(으)ㄹ까요?",
+          "reason": "high-value proposal chunk; production can begin as formula but full grammar analysis belongs later"
+        },
+        {
+          "form": "-ㄹ게요",
+          "reason": "promise/intent chunk in messaging; recognition/formula only in early A1"
+        }
+      ],
+      "coreChunks": [
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?",
+        "제가 카톡 보낼게요",
+        "연락처 알려 주실래요?",
+        "도착하면 연락할게요",
+        "10분 정도 늦을 것 같아요"
+      ],
+      "pronunciation": [
+        "카카오톡 contraction/rhythm",
+        "QR code mixed-script handling",
+        "연락할게요 linking"
+      ],
+      "pragmatics": [
+        "contact exchange is a boundary act",
+        "offer-your-own-contact can be lower-pressure than demanding theirs",
+        "late message includes apology + approximate delay + next step"
+      ],
+      "culture": [
+        "KakaoTalk is culturally salient but should not become the only model of Korean digital communication."
+      ],
+      "enLearnerRisks": [
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-SPEECHLEVEL"
+      ],
+      "deLearnerRisks": [
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-DU-SIE"
+      ],
+      "localizationNotes": {
+        "en": "연락할게요 is usually I'll text/call you, not formal 'I will contact you'.",
+        "de": "Casual 연락하다 often maps to sich melden / schreiben / Bescheid geben, not kontaktieren."
+      },
+      "inputTasks": [
+        "identify channel/contact choice from chat screenshot",
+        "notice polite vs pushy request"
+      ],
+      "outputTasks": [
+        "offer one contact method",
+        "send one delay/status message"
+      ],
+      "readingTasks": [
+        "read short chat bubble with time/contact info"
+      ],
+      "writingTasks": [
+        "write 2-message micro exchange"
+      ],
+      "interactionTask": "new-classmate contact exchange with option to decline/share own contact instead.",
+      "assessment": {
+        "mustProduce": [
+          "카카오톡으로 연락할까요? or equivalent safe chunk",
+          "도착하면 연락할게요"
+        ],
+        "mustRecognize": [
+          "contact boundary alternative"
+        ],
+        "success": "arranges contact without assuming consent"
+      },
+      "recycleFrom": [
+        "a1_02_self_intro_identity",
+        "a1_05_numbers_time"
+      ],
+      "recycleInto": [
+        "1B plans/messages"
+      ],
+      "productionCeiling": "short chat messages; no complex explanation of why plans changed"
+    },
+    {
+      "unitId": "a1_08_clarify_repair",
+      "order": 8,
+      "titleKo": "못 들었을 때 다시 묻기",
+      "titleEn": "Repairing a conversation when you miss something",
+      "titleDe": "Nachfragen, wenn man etwas nicht versteht",
+      "canDo": [
+        "못 들었는지, 뜻을 모르는지, 이해를 확인하려는지 구분해 적절한 repair를 사용할 수 있다.",
+        "숫자·이름·출구 같은 중요한 정보를 되묻고 확인할 수 있다."
+      ],
+      "communicativeProblem": "모르는 척 넘어가지 않고 짧은 repair 전략으로 실제 대화를 유지한다.",
+      "relationship": {
+        "primary": "learner/traveler ↔ staff/teacher/new acquaintance",
+        "registerKo": "polite productive default; casual recognition",
+        "deAddressDefault": "Sie to staff, du among peers",
+        "enAddressDefault": "neutral polite"
+      },
+      "authoritativeScenarioIds": [
+        "clarify_repeat"
+      ],
+      "supplementarySourceIds": [
+        "bakery_queue",
+        "a1_w10_repeat",
+        "listening.a1.clarify_repeat",
+        "listening.a1.a1_w10_repeat"
+      ],
+      "nativeUsageTopics": [
+        "language_learning_communication_repair",
+        "social_etiquette_customs"
+      ],
+      "targetFunctions": [
+        "repeat_request",
+        "slow_request",
+        "meaning_request",
+        "confirmation",
+        "number_repair"
+      ],
+      "productiveGrammar": [
+        {
+          "form": "-아/어 주세요",
+          "function": "repeat/slow request"
+        },
+        {
+          "form": "무슨 N",
+          "function": "meaning question, chunk-first"
+        },
+        {
+          "form": "아니에요",
+          "function": "correct information"
+        }
+      ],
+      "recognitionOnly": [
+        {
+          "form": "-는데요",
+          "source": "bakery_queue",
+          "reason": "natural interpersonal softening but above productive target for this unit"
+        },
+        {
+          "form": "계신지",
+          "source": "bakery_queue",
+          "reason": "honorific embedded form; recognition/context only"
+        },
+        {
+          "form": "몰랐어요",
+          "source": "bakery_queue",
+          "reason": "past explanation; not target grammar here"
+        },
+        {
+          "form": "-ㄹ게요",
+          "source": "bakery_queue",
+          "reason": "promise/next action; recognition only"
+        },
+        {
+          "form": "뭐라고요?",
+          "reason": "intonation-sensitive and can sound surprised/challenging; recognition first"
+        }
+      ],
+      "coreChunks": [
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?",
+        "제가 잘 이해한 게 맞아요?",
+        "13번이요?"
+      ],
+      "pronunciation": [
+        "3 vs 13",
+        "question echo intonation",
+        "말씀해 주세요 / 천천히 phrase rhythm"
+      ],
+      "pragmatics": [
+        "hearing problem ≠ meaning problem ≠ confirmation",
+        "short repair forms are intonation-sensitive",
+        "repair is a learner autonomy strategy"
+      ],
+      "culture": [
+        "politeness in repair depends on relationship and tone; no single direct translation is safe in every setting."
+      ],
+      "enLearnerRisks": [
+        "EN-A1-SPEECHLEVEL"
+      ],
+      "deLearnerRisks": [
+        "DE-A1-DU-SIE"
+      ],
+      "localizationNotes": {
+        "en": "Teach Sorry?/I didn't catch that/Could you say that again as distinct tone/register options; 'Say it again' is not the beginner default.",
+        "de": "Teach Wie bitte?/Noch mal, bitte/Könnten Sie das wiederholen? by relationship; Was?/Hä? recognition only."
+      },
+      "inputTasks": [
+        "classify hearing vs meaning vs confirmation",
+        "hear 3 vs 13 and repair"
+      ],
+      "outputTasks": [
+        "perform all three repair functions",
+        "confirm one name/number"
+      ],
+      "readingTasks": [
+        "read short learner-staff exchange and choose repair type"
+      ],
+      "writingTasks": [
+        "write one polite chat repair message"
+      ],
+      "interactionTask": "information-gap conversation where partner intentionally mumbles/uses unknown word/gives ambiguous number once each.",
+      "assessment": {
+        "mustProduce": [
+          "다시 말씀해 주세요",
+          "무슨 뜻이에요?",
+          "13번이요? 같은 짧은 echo confirmation"
+        ],
+        "mustRecognize": [
+          "뭐라고요? tone risk",
+          "casual 뭐라고 했어?"
+        ],
+        "success": "uses correct repair type without switching language"
+      },
+      "recycleFrom": [
+        "a1_01_greetings_hangul",
+        "a1_05_numbers_time",
+        "a1_06_transport_directions"
+      ],
+      "recycleInto": [
+        "1B all interaction tasks"
+      ],
+      "productionCeiling": "repair strategies only; advanced bakery-queue grammar stays recognition/context"
+    }
+  ]
+}
