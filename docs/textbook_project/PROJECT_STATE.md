@@ -456,3 +456,27 @@ Validator:
 Next phase:
 Phase 3 = real human evidence.
 Human review Unit04 -> EN/DE adult pilot -> 24h/7d retrieval -> template revision -> propagate to all 1A -> then 1B.
+
+## Unit 04 human-review packet frozen — 2026-10-06
+
+Snapshot source commit:
+- 3df150a08001...
+
+Reviewed file count:
+- 13
+
+Packet:
+- production/human_review_packets/unit04/REVIEW_PACKET.md
+- production/human_review_packets/unit04/REVIEW_DECISIONS.json
+- production/human_review_packets/unit04/MANIFEST.json
+
+Manifest protection:
+- SHA-256 per reviewed file
+- file size check
+- source commit ancestry check
+- validator fails if any reviewed file changes after the frozen source commit
+
+Validator:
+- tools/textbook_project/validate_unit04_human_review_packet.py
+
+Human decisions remain OPEN.
