@@ -1,0 +1,3 @@
+participantCode,cohortId,l1,unitId,taskId,attemptStage,timestamp,responseMode,targetIds,result,errorType,transferRiskRef,selfCorrected,promptLevel,comprehensionBreakdown,completionSeconds,confidence1to5,teacherNote,recordingRef
+EN01,1A_EN_PILOT_01,en,a1_04_order_request_object,u04_exit_interaction,baseline,2026-10-06T18:00:00+02:00,speaking,"N 하나 주세요|N 한 잔 주세요",partial,counters,EN-A1-COUNTERS,false,1,false,18,3,"Used item + 주세요 but omitted counter.",
+DE01,1A_DE_PILOT_01,de,a1_04_order_request_object,u04_exit_interaction,immediate_post,2026-10-06T18:00:00+02:00,interaction,"N 하나 주세요|안 매운 걸로 주세요",correct,none,,true,0,false,22,4,"Completed order and condition independently.",

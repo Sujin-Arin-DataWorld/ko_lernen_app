@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "events": [
+    {
+      "participantCode": "EN01",
+      "cohortId": "1A_EN_PILOT_01",
+      "l1": "en",
+      "unitId": "a1_04_order_request_object",
+      "taskId": "u04_exit_interaction",
+      "attemptStage": "baseline",
+      "timestamp": "2026-10-06T18:00:00+02:00",
+      "responseMode": "speaking",
+      "targetIds": [
+        "N 하나 주세요",
+        "N 한 잔 주세요"
+      ],
+      "result": "partial",
+      "errorType": "form",
+      "transferRiskRef": "EN-A1-COUNTERS",
+      "selfCorrected": false,
+      "promptLevel": 1,
+      "comprehensionBreakdown": false,
+      "completionSeconds": 18,
+      "confidence1to5": 3,
+      "teacherNote": "Used item + 주세요 but omitted the counting chunk.",
+      "recordingRef": null
+    },
+    {
+      "participantCode": "DE01",
+      "cohortId": "1A_DE_PILOT_01",
+      "l1": "de",
+      "unitId": "a1_04_order_request_object",
+      "taskId": "u04_exit_interaction",
+      "attemptStage": "immediate_post",
+      "timestamp": "2026-10-06T18:00:00+02:00",
+      "responseMode": "interaction",
+      "targetIds": [
+        "N 하나 주세요",
+        "안 매운 걸로 주세요"
+      ],
+      "result": "correct",
+      "errorType": "none",
+      "transferRiskRef": null,
+      "selfCorrected": true,
+      "promptLevel": 0,
+      "comprehensionBreakdown": false,
+      "completionSeconds": 22,
+      "confidence1to5": 4,
+      "teacherNote": "Completed order and condition independently.",
+      "recordingRef": null
+    }
+  ]
+}

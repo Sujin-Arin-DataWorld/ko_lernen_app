@@ -1,0 +1,186 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hangulsori://textbook/schemas/ANSWER_KEY_ENTRY",
+  "title": "Textbook answer key entry",
+  "type": "object",
+  "required": [
+    "itemId",
+    "unitId",
+    "edition",
+    "taskType",
+    "answerType",
+    "scoring",
+    "reviewStatus"
+  ],
+  "properties": {
+    "itemId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "unitId": {
+      "type": "string",
+      "pattern": "^a1_0[1-8]_"
+    },
+    "edition": {
+      "type": "string",
+      "enum": [
+        "shared",
+        "en",
+        "de"
+      ]
+    },
+    "taskType": {
+      "type": "string",
+      "enum": [
+        "meaning",
+        "form",
+        "listening",
+        "reading",
+        "writing",
+        "speaking",
+        "interaction",
+        "retrieval",
+        "transfer_diagnostic"
+      ]
+    },
+    "answerType": {
+      "type": "string",
+      "enum": [
+        "exact",
+        "multiple_accepted",
+        "rubric",
+        "sample_only",
+        "open"
+      ]
+    },
+    "exactAnswers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "acceptedVariants": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "unacceptableButPlausible": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "response",
+          "reason"
+        ],
+        "properties": {
+          "response": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "rationale": {
+      "type": "string"
+    },
+    "feedbackEn": {
+      "type": "string"
+    },
+    "feedbackDe": {
+      "type": "string"
+    },
+    "scoring": {
+      "type": "object",
+      "required": [
+        "maxPoints"
+      ],
+      "properties": {
+        "maxPoints": {
+          "type": "number",
+          "minimum": 0
+        },
+        "partialCredit": {
+          "type": "boolean"
+        },
+        "rubricDimensions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "sourceRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "transferRiskRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reviewStatus": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "model_reviewed",
+        "human_reviewed",
+        "pilot_validated"
+      ]
+    },
+    "reviewNote": {
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "answerType": {
+            "const": "exact"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "exactAnswers"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "answerType": {
+            "const": "multiple_accepted"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "acceptedVariants"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "answerType": {
+            "const": "rubric"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "rationale"
+        ]
+      }
+    }
+  ],
+  "additionalProperties": false
+}
