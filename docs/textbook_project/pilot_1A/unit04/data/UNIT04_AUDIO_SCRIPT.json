@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a1_04_order_request_object",
+  "status": "SCRIPT_ONLY_NO_TTS_GENERATION",
+  "ttsOwner": "Jin",
+  "rules": {
+    "displayAndSpokenSeparate": true,
+    "romanization": false,
+    "chatMarkersReadLiterally": false
+  },
+  "tracks": [
+    {
+      "trackId": "u04_dialogue_core",
+      "type": "dialogue",
+      "setting": "분식집",
+      "relationship": "customer ↔ server",
+      "lines": [
+        {
+          "speaker": "server",
+          "displaySurfaceKo": "주문하시겠어요?",
+          "spokenSurfaceKo": "주문하시겠어요?",
+          "performanceCue": [
+            "warm service tone"
+          ],
+          "en": "Are you ready to order?",
+          "de": "Möchten Sie bestellen?"
+        },
+        {
+          "speaker": "learner",
+          "displaySurfaceKo": "떡볶이 하나 주세요.",
+          "spokenSurfaceKo": "떡볶이 하나 주세요.",
+          "performanceCue": [
+            "clear polite request"
+          ],
+          "en": "I'll have one tteokbokki, please.",
+          "de": "Einmal Tteokbokki, bitte."
+        },
+        {
+          "speaker": "learner",
+          "displaySurfaceKo": "많이 매워요?",
+          "spokenSurfaceKo": "많이 매워요?",
+          "performanceCue": [
+            "genuine question"
+          ],
+          "en": "Is it very spicy?",
+          "de": "Ist es sehr scharf?"
+        },
+        {
+          "speaker": "server",
+          "displaySurfaceKo": "조금 매워요. 안 매운 것도 있어요.",
+          "spokenSurfaceKo": "조금 매워요. 안 매운 것도 있어요.",
+          "performanceCue": [
+            "matter-of-fact"
+          ],
+          "en": "A little. We also have a mild version.",
+          "de": "Ein bisschen. Es gibt auch eine milde Variante."
+        },
+        {
+          "speaker": "learner",
+          "displaySurfaceKo": "그럼 안 매운 걸로 주세요.",
+          "spokenSurfaceKo": "그럼 안 매운 걸로 주세요.",
+          "performanceCue": [
+            "deciding"
+          ],
+          "en": "Then I'll have the mild one, please.",
+          "de": "Dann bitte die milde Variante."
+        },
+        {
+          "speaker": "server",
+          "displaySurfaceKo": "네, 안 매운 걸로 드릴게요.",
+          "spokenSurfaceKo": "네, 안 매운 걸로 드릴게요.",
+          "performanceCue": [
+            "confirmation"
+          ],
+          "en": "Sure, I'll make it mild.",
+          "de": "Gern, dann die milde Variante."
+        }
+      ]
+    },
+    {
+      "trackId": "u04_dialogue_cafe_variation",
+      "type": "dialogue",
+      "setting": "카페",
+      "relationship": "customer ↔ clerk",
+      "learnerProductionFocus": [
+        "아메리카노 한 잔 주세요.",
+        "아이스로 주세요.",
+        "포장해 주세요."
+      ],
+      "lines": [
+        {
+          "speaker": "clerk",
+          "displaySurfaceKo": "뭐 드릴까요?",
+          "spokenSurfaceKo": "뭐 드릴까요?",
+          "performanceCue": [
+            "neutral service tone"
+          ],
+          "en": "What can I get you?",
+          "de": "Was darf's sein?"
+        },
+        {
+          "speaker": "learner",
+          "displaySurfaceKo": "아메리카노 한 잔 주세요.",
+          "spokenSurfaceKo": "아메리카노 한 잔 주세요.",
+          "performanceCue": [
+            "polite"
+          ],
+          "en": "Can I get an Americano, please?",
+          "de": "Ich hätte gern einen Americano."
+        },
+        {
+          "speaker": "clerk",
+          "displaySurfaceKo": "따뜻한 걸로 드릴까요, 아이스로 드릴까요?",
+          "spokenSurfaceKo": "따뜻한 걸로 드릴까요, 아이스로 드릴까요?",
+          "performanceCue": [
+            "choice question"
+          ],
+          "en": "Would you like it hot or iced?",
+          "de": "Möchten Sie ihn heiß oder mit Eis?"
+        },
+        {
+          "speaker": "learner",
+          "displaySurfaceKo": "아이스로 주세요.",
+          "spokenSurfaceKo": "아이스로 주세요.",
+          "performanceCue": [
+            "short answer"
+          ],
+          "en": "Iced, please.",
+          "de": "Mit Eis, bitte."
+        },
+        {
+          "speaker": "clerk",
+          "displaySurfaceKo": "여기서 드시고 가세요, 아니면 포장이세요?",
+          "spokenSurfaceKo": "여기서 드시고 가세요, 아니면 포장이세요?",
+          "performanceCue": [
+            "service choice"
+          ],
+          "en": "For here or to go?",
+          "de": "Hier oder zum Mitnehmen?"
+        },
+        {
+          "speaker": "learner",
+          "displaySurfaceKo": "포장해 주세요.",
+          "spokenSurfaceKo": "포장해 주세요.",
+          "performanceCue": [
+            "polite"
+          ],
+          "en": "To go, please.",
+          "de": "Zum Mitnehmen, bitte."
+        }
+      ]
+    },
+    {
+      "trackId": "u04_pronunciation",
+      "type": "pronunciation",
+      "items": [
+        {
+          "ko": "주세요",
+          "focus": "phrase rhythm, no pause inside"
+        },
+        {
+          "ko": "한 잔 주세요",
+          "focus": "counter phrase rhythm"
+        },
+        {
+          "ko": "떡볶이 하나 주세요",
+          "focus": "batchim and phrase grouping"
+        },
+        {
+          "ko": "많이 매워요?",
+          "focus": "question intonation"
+        },
+        {
+          "ko": "안 매운 걸로 주세요",
+          "focus": "매운 and 걸로 linking"
+        }
+      ]
+    },
+    {
+      "trackId": "u04_assessment_prompt",
+      "type": "assessment",
+      "instructionsKo": "메뉴에서 하나를 고르고 수량과 한 가지 조건을 말해 주문하세요.",
+      "instructionsEn": "Choose one item from the menu and order it with a quantity and one condition.",
+      "instructionsDe": "Wähle einen Menüpunkt und bestelle ihn mit einer Menge und einer Bedingung.",
+      "scoringFocus": [
+        "polite request",
+        "quantity",
+        "intelligibility",
+        "condition/modification",
+        "interaction continuation"
+      ]
+    }
+  ]
+}

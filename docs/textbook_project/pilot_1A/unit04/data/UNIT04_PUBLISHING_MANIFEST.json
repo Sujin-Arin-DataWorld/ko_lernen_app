@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "PILOT_VERTICAL_SLICE_DRAFT",
+  "unitId": "a1_04_order_request_object",
+  "book": "1A",
+  "titleKo": "음식과 수량 주문하기",
+  "authority": {
+    "unitContract": "docs/textbook_project/data/ONE_A_UNIT_CONTRACTS_20261006.json",
+    "canonicalScenario": "bunshik_tteokbokki",
+    "supplementaryScenario": "a1_w10_eat",
+    "nativeUsageEvidence": [
+      "food_drink",
+      "shopping_consumption"
+    ],
+    "learnerRiskRefs": [
+      "EN-A1-COUNTERS",
+      "EN-A1-WORDORDER",
+      "DE-A1-COUNTERS",
+      "DE-A1-WORDORDER"
+    ]
+  },
+  "publishingSurfaces": [
+    "student_master",
+    "workbook",
+    "teacher_guide",
+    "audio_script",
+    "unit_data"
+  ],
+  "productiveTargets": {
+    "functions": [
+      "order item",
+      "order quantity",
+      "ask if spicy",
+      "request milder option",
+      "request takeaway"
+    ],
+    "forms": [
+      "N 하나 주세요",
+      "N 한 잔 주세요",
+      "을/를 in full descriptive clauses",
+      "안 + adjective/verb"
+    ],
+    "coreChunks": [
+      "떡볶이 하나 주세요.",
+      "아메리카노 한 잔 주세요.",
+      "많이 매워요?",
+      "안 매운 걸로 주세요.",
+      "포장해 주세요."
+    ],
+    "counters": [
+      "하나",
+      "한 잔"
+    ]
+  },
+  "recognitionOnly": [
+    "주문하시겠어요?",
+    "뭐 드릴까요?",
+    "따뜻한 걸로 드릴까요, 아이스로 드릴까요?",
+    "여기서 드시고 가세요, 아니면 포장이세요?",
+    "더 필요한 거 있으세요?",
+    "안 매운 걸로 드릴게요."
+  ],
+  "selectedPracticeSources": [
+    {
+      "id": "cloze_a1_0037",
+      "purpose": "을/를 object marking",
+      "action": "adapt_to_unit_page"
+    },
+    {
+      "id": "cloze_a1_0039",
+      "purpose": "을/를 object marking",
+      "action": "adapt_to_unit_page"
+    },
+    {
+      "id": "cloze_a1_0509",
+      "purpose": "availability question",
+      "action": "adapt_to_unit_page"
+    },
+    {
+      "id": "satz_a1_0021",
+      "purpose": "taste statement",
+      "action": "adapt_to_unit_page"
+    },
+    {
+      "id": "satz_a1_0481",
+      "purpose": "tteokbokki lexical recycling",
+      "action": "workbook_only"
+    },
+    {
+      "id": "satz_a1_0604",
+      "purpose": "menu/service vocabulary",
+      "action": "workbook_only"
+    }
+  ],
+  "excludedPracticeExamples": [
+    {
+      "id": "satz_a1_0271",
+      "reason": "proposal/dinner plan drifts from service-ordering core"
+    },
+    {
+      "id": "satz_a1_0273",
+      "reason": "past tense breakfast recount belongs to recycling, not Unit04 core"
+    },
+    {
+      "id": "cloze_a1_0721",
+      "reason": "못 먹어요 useful later; avoid overloading this pilot"
+    }
+  ],
+  "localizationPrinciples": {
+    "en": [
+      "주세요 is not translated with one fixed formula.",
+      "Default learner-safe service options: Can I get/have...? / I'll have... please.",
+      "Avoid teaching Give me... as the primary equivalent."
+    ],
+    "de": [
+      "주세요 is not one fixed German phrase.",
+      "Default learner-safe options: Ich hätte gern... / Einmal ..., bitte / Ich nehme...",
+      "Do not make ich bekomme/ich kriege the single default."
+    ]
+  },
+  "surfacePolicy": {
+    "displayVsSpokenSeparated": true,
+    "romanization": false,
+    "ttsOwner": "Jin",
+    "audioGenerated": false
+  },
+  "qaGates": [
+    "A1 production ceiling",
+    "native-use evidence present",
+    "EN/DE trap notes present",
+    "recognition-only staff language separated",
+    "assessment includes free production",
+    "audio script has display/spoken surfaces",
+    "practice source selection explicit"
+  ]
+}
