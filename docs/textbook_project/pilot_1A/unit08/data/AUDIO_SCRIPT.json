@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a1_08_clarify_repair",
+  "status": "SCRIPT_ONLY_NO_TTS_GENERATION",
+  "ttsOwner": "Jin",
+  "tracks": [
+    {
+      "trackId": "u08_core_dialogue",
+      "type": "dialogue",
+      "relationshipContext": "여행자와 역 직원",
+      "lines": [
+        {
+          "speaker": "user",
+          "displaySurfaceKo": "시청은 몇 번 출구예요?",
+          "spokenSurfaceKo": "시청은 몇 번 출구예요?",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Which exit is for City Hall?",
+          "de": "Welcher Ausgang führt zum Rathaus?"
+        },
+        {
+          "speaker": "clerk",
+          "displaySurfaceKo": "13번 출구예요.",
+          "spokenSurfaceKo": "13번 출구예요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Exit 13.",
+          "de": "Ausgang 13."
+        },
+        {
+          "speaker": "user",
+          "displaySurfaceKo": "3번 출구요?",
+          "spokenSurfaceKo": "3번 출구요?",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Exit 3?",
+          "de": "Ausgang 3?"
+        },
+        {
+          "speaker": "clerk",
+          "displaySurfaceKo": "아니요, 13번이요.",
+          "spokenSurfaceKo": "아니요, 13번이요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "No, exit 13.",
+          "de": "Nein, Ausgang 13."
+        },
+        {
+          "speaker": "user",
+          "displaySurfaceKo": "다시 말씀해 주세요.",
+          "spokenSurfaceKo": "다시 말씀해 주세요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Could you say that again?",
+          "de": "Bitte sagen Sie das noch einmal."
+        },
+        {
+          "speaker": "clerk",
+          "displaySurfaceKo": "십삼 번 출구예요.",
+          "spokenSurfaceKo": "십삼 번 출구예요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Exit thirteen.",
+          "de": "Ausgang dreizehn."
+        }
+      ]
+    }
+  ]
+}

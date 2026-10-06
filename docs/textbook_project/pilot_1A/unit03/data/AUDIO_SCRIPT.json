@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a1_03_topic_subject_particles",
+  "status": "SCRIPT_ONLY_NO_TTS_GENERATION",
+  "ttsOwner": "Jin",
+  "tracks": [
+    {
+      "trackId": "u03_core_dialogue",
+      "type": "dialogue",
+      "relationshipContext": "손님과 마트 직원",
+      "lines": [
+        {
+          "speaker": "user",
+          "displaySurfaceKo": "저기요. 두부는 어디에 있어요?",
+          "spokenSurfaceKo": "저기요. 두부는 어디에 있어요?",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Excuse me, where is the tofu?",
+          "de": "Entschuldigung, wo finde ich Tofu?"
+        },
+        {
+          "speaker": "clerk",
+          "displaySurfaceKo": "저쪽 냉장고 옆에 있어요.",
+          "spokenSurfaceKo": "저쪽 냉장고 옆에 있어요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Over there, next to the refrigerated section.",
+          "de": "Dort drüben, neben dem Kühlregal."
+        },
+        {
+          "speaker": "user",
+          "displaySurfaceKo": "이거 두부예요?",
+          "spokenSurfaceKo": "이거 두부예요?",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Is this tofu?",
+          "de": "Ist das Tofu?"
+        },
+        {
+          "speaker": "clerk",
+          "displaySurfaceKo": "아니요, 그건 치즈예요.",
+          "spokenSurfaceKo": "아니요, 그건 치즈예요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "No, that's cheese.",
+          "de": "Nein, das ist Käse."
+        },
+        {
+          "speaker": "user",
+          "displaySurfaceKo": "그럼 이거예요?",
+          "spokenSurfaceKo": "그럼 이거예요?",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Then is it this one?",
+          "de": "Dann ist es das hier?"
+        },
+        {
+          "speaker": "clerk",
+          "displaySurfaceKo": "네, 그게 두부예요.",
+          "spokenSurfaceKo": "네, 그게 두부예요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Yes, that's tofu.",
+          "de": "Ja, das ist Tofu."
+        }
+      ]
+    }
+  ]
+}

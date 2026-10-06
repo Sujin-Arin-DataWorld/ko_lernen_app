@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a1_05_numbers_time",
+  "status": "SCRIPT_ONLY_NO_TTS_GENERATION",
+  "ttsOwner": "Jin",
+  "tracks": [
+    {
+      "trackId": "u05_core_dialogue",
+      "type": "dialogue",
+      "relationshipContext": "아직 존댓말을 쓰는 크리스티안과 수진",
+      "lines": [
+        {
+          "speaker": "user",
+          "displaySurfaceKo": "오늘 몇 시에 만나요?",
+          "spokenSurfaceKo": "오늘 몇 시에 만나요?",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "What time are we meeting today?",
+          "de": "Um wie viel Uhr treffen wir uns heute?"
+        },
+        {
+          "speaker": "sujin",
+          "displaySurfaceKo": "일곱 시에 만나요.",
+          "spokenSurfaceKo": "일곱 시에 만나요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "At seven.",
+          "de": "Um sieben Uhr."
+        },
+        {
+          "speaker": "user",
+          "displaySurfaceKo": "여섯 시 아니에요?",
+          "spokenSurfaceKo": "여섯 시 아니에요?",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Isn't it at six?",
+          "de": "Nicht um sechs?"
+        },
+        {
+          "speaker": "sujin",
+          "displaySurfaceKo": "아니요, 일곱 시예요.",
+          "spokenSurfaceKo": "아니요, 일곱 시예요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "No, at seven.",
+          "de": "Nein, um sieben."
+        },
+        {
+          "speaker": "user",
+          "displaySurfaceKo": "아, 일곱 시요.",
+          "spokenSurfaceKo": "아, 일곱 시요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Oh, seven.",
+          "de": "Ah, sieben Uhr."
+        },
+        {
+          "speaker": "sujin",
+          "displaySurfaceKo": "네. 카페 앞에서 봐요.",
+          "spokenSurfaceKo": "네. 카페 앞에서 봐요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Right. See you in front of the café.",
+          "de": "Genau. Bis dann vor dem Café."
+        }
+      ]
+    }
+  ]
+}

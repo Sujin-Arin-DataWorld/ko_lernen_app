@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "DRAFT_MATERIALIZED_NO_UNIT_EDITORIAL_PASS",
+  "unitId": "a1_07_contact_address",
+  "order": 7,
+  "titleKo": "자연스럽게 연락 방법 정하기",
+  "unitContract": "docs/textbook_project/data/ONE_A_UNIT_CONTRACTS_20261006.json",
+  "authoritativeScenarioId": "kakao_contact_after_class",
+  "supplementarySourceIds": [
+    "a1_w10_phone",
+    "a1_message_contact_after_class_2026",
+    "listening.a1.kakao_contact_after_class"
+  ],
+  "nativeUsageTopics": [
+    "communication_phone_digital",
+    "personal_identification"
+  ],
+  "enLearnerRisks": [
+    "EN-A1-SUBJECT-OMISSION",
+    "EN-A1-SPEECHLEVEL"
+  ],
+  "deLearnerRisks": [
+    "DE-A1-SUBJECT-OMISSION",
+    "DE-A1-DU-SIE"
+  ],
+  "productiveGrammar": [
+    {
+      "form": "(으)로",
+      "function": "channel/means, e.g. 카카오톡으로"
+    },
+    {
+      "form": "있어요",
+      "function": "presence/contact resource"
+    },
+    {
+      "form": "-아/어 주세요",
+      "function": "simple instruction/request"
+    }
+  ],
+  "recognitionOnly": [
+    {
+      "form": "-(으)ㄹ까요?",
+      "reason": "high-value proposal chunk; production can begin as formula but full grammar analysis belongs later"
+    },
+    {
+      "form": "-ㄹ게요",
+      "reason": "promise/intent chunk in messaging; recognition/formula only in early A1"
+    }
+  ],
+  "surfacePolicy": {
+    "displayVsSpokenSeparated": true,
+    "romanization": false,
+    "ttsOwner": "Jin",
+    "audioGenerated": false
+  },
+  "editorialRequirements": [
+    "unit-specific Korean editorial pass",
+    "EN pedagogy pass",
+    "DE pedagogy pass",
+    "practice-bank selection",
+    "adult learner pilot"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a1_02_self_intro_identity",
+  "status": "SCRIPT_ONLY_NO_TTS_GENERATION",
+  "ttsOwner": "Jin",
+  "tracks": [
+    {
+      "trackId": "u02_core_dialogue",
+      "type": "dialogue",
+      "relationshipContext": "처음 만난 크리스티안과 수진",
+      "lines": [
+        {
+          "speaker": "sujin",
+          "displaySurfaceKo": "안녕하세요. 저는 수진이에요.",
+          "spokenSurfaceKo": "안녕하세요. 저는 수진이에요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Hi. I'm Sujin.",
+          "de": "Hallo. Ich bin Sujin."
+        },
+        {
+          "speaker": "user",
+          "displaySurfaceKo": "안녕하세요. 저는 크리스티안이에요.",
+          "spokenSurfaceKo": "안녕하세요. 저는 크리스티안이에요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Hi. I'm Christian.",
+          "de": "Hallo. Ich bin Christian."
+        },
+        {
+          "speaker": "sujin",
+          "displaySurfaceKo": "어디에서 오셨어요?",
+          "spokenSurfaceKo": "어디에서 오셨어요?",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Where are you from?",
+          "de": "Woher kommen Sie?"
+        },
+        {
+          "speaker": "user",
+          "displaySurfaceKo": "독일에서 왔어요.",
+          "spokenSurfaceKo": "독일에서 왔어요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "I'm from Germany.",
+          "de": "Ich komme aus Deutschland."
+        },
+        {
+          "speaker": "user",
+          "displaySurfaceKo": "죄송해요. 이름을 다시 말해 주세요.",
+          "spokenSurfaceKo": "죄송해요. 이름을 다시 말해 주세요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Sorry, could you say your name again, please?",
+          "de": "Entschuldigung, können Sie Ihren Namen bitte noch einmal sagen?"
+        },
+        {
+          "speaker": "sujin",
+          "displaySurfaceKo": "네, 수진이에요. 수진.",
+          "spokenSurfaceKo": "네, 수진이에요. 수진.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Yes, Sujin. Su-jin.",
+          "de": "Ja, Sujin. Su-jin."
+        }
+      ]
+    }
+  ]
+}

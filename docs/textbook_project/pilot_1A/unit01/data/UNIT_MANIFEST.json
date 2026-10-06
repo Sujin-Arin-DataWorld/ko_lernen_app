@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "DRAFT_MATERIALIZED_NO_UNIT_EDITORIAL_PASS",
+  "unitId": "a1_01_greetings_hangul",
+  "order": 1,
+  "titleKo": "첫 인사와 다시 묻기",
+  "unitContract": "docs/textbook_project/data/ONE_A_UNIT_CONTRACTS_20261006.json",
+  "authoritativeScenarioId": "airport_arrival",
+  "supplementarySourceIds": [
+    "listening.a1.airport_arrival"
+  ],
+  "nativeUsageTopics": [
+    "personal_identification",
+    "social_etiquette_customs",
+    "language_learning_communication_repair"
+  ],
+  "enLearnerRisks": [
+    "EN-A1-SPEECHLEVEL",
+    "EN-A1-HONORIFIC-SI"
+  ],
+  "deLearnerRisks": [
+    "DE-A1-DU-SIE",
+    "DE-A1-HONORIFIC-SUBJECT"
+  ],
+  "productiveGrammar": [
+    {
+      "form": "이에요/예요",
+      "function": "basic copula identification",
+      "appAnchor": "grammar_a1_copula_polite"
+    },
+    {
+      "form": "-아/어 주세요",
+      "function": "polite request",
+      "mode": "chunk-first"
+    }
+  ],
+  "recognitionOnly": [
+    {
+      "form": "-(으)시-",
+      "reason": "subject honorification appears in authentic service speech; do not teach as generic extra-politeness marker"
+    },
+    {
+      "form": "합니다/합니다체 인사",
+      "reason": "recognize fixed service formulas before broader productive formal register"
+    }
+  ],
+  "surfacePolicy": {
+    "displayVsSpokenSeparated": true,
+    "romanization": false,
+    "ttsOwner": "Jin",
+    "audioGenerated": false
+  },
+  "editorialRequirements": [
+    "unit-specific Korean editorial pass",
+    "EN pedagogy pass",
+    "DE pedagogy pass",
+    "practice-bank selection",
+    "adult learner pilot"
+  ]
+}

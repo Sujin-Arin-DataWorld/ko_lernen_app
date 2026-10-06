@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "DRAFT_MATERIALIZED_NO_UNIT_EDITORIAL_PASS",
+  "unitId": "a1_05_numbers_time",
+  "order": 5,
+  "titleKo": "시간 확인하기",
+  "unitContract": "docs/textbook_project/data/ONE_A_UNIT_CONTRACTS_20261006.json",
+  "authoritativeScenarioId": "meeting_time",
+  "supplementarySourceIds": [
+    "a1_w10_numbers",
+    "listening.a1.meeting_time",
+    "listening.a1.a1_w10_numbers"
+  ],
+  "nativeUsageTopics": [
+    "communication_phone_digital"
+  ],
+  "enLearnerRisks": [
+    "EN-A1-COUNTERS"
+  ],
+  "deLearnerRisks": [
+    "DE-A1-COUNTERS"
+  ],
+  "productiveGrammar": [
+    {
+      "form": "N시에",
+      "function": "time point",
+      "appAnchor": "grammar_a1_direction_time_particle"
+    },
+    {
+      "form": "아니에요",
+      "function": "correction/negation",
+      "appAnchor": "grammar_a1_copula_negation"
+    }
+  ],
+  "recognitionOnly": [],
+  "surfacePolicy": {
+    "displayVsSpokenSeparated": true,
+    "romanization": false,
+    "ttsOwner": "Jin",
+    "audioGenerated": false
+  },
+  "editorialRequirements": [
+    "unit-specific Korean editorial pass",
+    "EN pedagogy pass",
+    "DE pedagogy pass",
+    "practice-bank selection",
+    "adult learner pilot"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a1_06_transport_directions",
+  "status": "SCRIPT_ONLY_NO_TTS_GENERATION",
+  "ttsOwner": "Jin",
+  "tracks": [
+    {
+      "trackId": "u06_core_dialogue",
+      "type": "dialogue",
+      "relationshipContext": "승객과 택시 기사",
+      "lines": [
+        {
+          "speaker": "driver",
+          "displaySurfaceKo": "이 근처 맞으시죠?",
+          "spokenSurfaceKo": "이 근처 맞으시죠?",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "It's around here, right?",
+          "de": "Hier in der Nähe, richtig?"
+        },
+        {
+          "speaker": "user",
+          "displaySurfaceKo": "네. 여기 세워 주세요.",
+          "spokenSurfaceKo": "네. 여기 세워 주세요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Yes. Please stop here.",
+          "de": "Ja. Bitte halten Sie hier."
+        },
+        {
+          "speaker": "driver",
+          "displaySurfaceKo": "정문 앞은 차가 많아요.",
+          "spokenSurfaceKo": "정문 앞은 차가 많아요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "There's a lot of traffic by the main entrance.",
+          "de": "Vor dem Haupteingang ist viel Verkehr."
+        },
+        {
+          "speaker": "user",
+          "displaySurfaceKo": "그럼 저기 앞에 세워 주세요.",
+          "spokenSurfaceKo": "그럼 저기 앞에 세워 주세요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Then please stop up there.",
+          "de": "Dann halten Sie bitte dort vorne."
+        },
+        {
+          "speaker": "driver",
+          "displaySurfaceKo": "네, 알겠습니다.",
+          "spokenSurfaceKo": "네, 알겠습니다.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Sure.",
+          "de": "Ja, in Ordnung."
+        },
+        {
+          "speaker": "user",
+          "displaySurfaceKo": "감사합니다.",
+          "spokenSurfaceKo": "감사합니다.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Thank you.",
+          "de": "Danke."
+        }
+      ]
+    }
+  ]
+}
