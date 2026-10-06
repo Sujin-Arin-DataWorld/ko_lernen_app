@@ -102,3 +102,19 @@ Next:
 2. resolve RELEVEL 12;
 3. rewrite 128 in priority order;
 4. then run second-pass editorial review on KEEP exercise-bank candidates before publication.
+
+## Editorial repair closeout
+
+Second-pass resolution is complete.
+
+Final resolved counts over 5,961 source rows:
+- KEEP 5,914
+- REWRITE 37 (37/37 replacement materialized)
+- RELEVEL 2
+- REJECT 8 (8/8 replacement concepts prepared)
+
+Confirmed level moves:
+- smalltalk.c1.theme_park_date.return -> B2
+- smalltalk.c2.partner_family.decisions -> C1
+
+The urgent repair queue is closed. Next executable phase is 1A–6B allocation with explicit core/recycling/optional roles.

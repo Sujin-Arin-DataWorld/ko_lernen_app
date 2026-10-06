@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "TEXTBOOK_LISTENING_OVERRIDE",
+  "lessons": [
+    {
+      "sourceId": "listening.a1.a1_message_contact_after_class_2026",
+      "scenarioId": "a1_message_contact_after_class_2026",
+      "level": "A1",
+      "title": {
+        "ko": "수업 뒤 연락처를 확인하기",
+        "de": "Nach dem Kurs Kontaktdaten klären",
+        "en": "Confirming contact details after class"
+      },
+      "intro": {
+        "ko": "수업 뒤 새로 만난 사람과 연락 방법을 정하고 번호를 주고받아요.",
+        "de": "Nach dem Kurs vereinbart ihr, wie ihr in Kontakt bleibt, und tauscht eine Nummer aus.",
+        "en": "After class, you agree on how to stay in touch and exchange a number."
+      },
+      "questions": [
+        {
+          "id": "listening.a1.a1_message_contact_after_class_2026.situation",
+          "type": "choice",
+          "skill": "situation",
+          "prompt": {
+            "ko": "대화 전체에 맞는 상황은 무엇인가요?",
+            "de": "Welche Situation passt zum gesamten Gespräch?",
+            "en": "Which situation matches the whole conversation?"
+          },
+          "options": [
+            {
+              "ko": "수업 뒤 연락 방법을 정하고 연락처를 주고받아요.",
+              "de": "Nach dem Kurs legt ihr fest, wie ihr in Kontakt bleibt, und tauscht Kontaktdaten aus.",
+              "en": "After class, you agree how to stay in touch and exchange contact details."
+            },
+            {
+              "ko": "카페에서 잃어버린 물건을 찾아요.",
+              "de": "Du suchst in einem Café nach einem verlorenen Gegenstand.",
+              "en": "You look for a lost item in a cafe."
+            },
+            {
+              "ko": "수업을 그만두고 환불을 요청해요.",
+              "de": "Du beendest den Kurs und bittest um eine Rückerstattung.",
+              "en": "You leave the class and ask for a refund."
+            }
+          ],
+          "correctIndex": 0,
+          "evidenceKo": "좋아요. 카카오톡으로 연락해요? / 네. 제 번호 여기 있어요."
+        },
+        {
+          "id": "listening.a1.a1_message_contact_after_class_2026.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "prompt": {
+            "ko": "“제 번호 여기 있어요.”의 뜻을 고르세요.",
+            "de": "Was bedeutet „제 번호 여기 있어요.“?",
+            "en": "What does “제 번호 여기 있어요.” mean?"
+          },
+          "options": [
+            {
+              "ko": "여기 제 전화번호가 있어요.",
+              "de": "Hier ist meine Nummer.",
+              "en": "Here's my number."
+            },
+            {
+              "ko": "제 사진을 보여 주세요.",
+              "de": "Zeig mir bitte mein Foto.",
+              "en": "Please show me my photo."
+            },
+            {
+              "ko": "다음 주 수업은 없어요.",
+              "de": "Nächste Woche gibt es keinen Kurs.",
+              "en": "There is no class next week."
+            }
+          ],
+          "correctIndex": 0,
+          "audioKo": "제 번호 여기 있어요."
+        },
+        {
+          "id": "listening.a1.a1_message_contact_after_class_2026.sentence",
+          "type": "order",
+          "skill": "sentence",
+          "prompt": {
+            "ko": "들은 문장을 같은 순서로 놓으세요.",
+            "de": "Ordne die Wörter wie in der Aufnahme.",
+            "en": "Put the words in the same order as the recording."
+          },
+          "targetKo": "저장했어요. 지금 메시지 보낼게요.",
+          "audioKo": "저장했어요. 지금 메시지 보낼게요."
+        },
+        {
+          "id": "listening.a1.a1_message_contact_after_class_2026.response",
+          "type": "choice",
+          "skill": "response",
+          "prompt": {
+            "ko": "상대가 “좋아요. 카카오톡으로 연락해요?”라고 물었어요. 연락처를 알려 주는 응답을 고르세요.",
+            "de": "Die andere Person fragt: „Gern. Wollen wir über KakaoTalk schreiben?“ Wähle eine Antwort, mit der du deine Kontaktdaten gibst.",
+            "en": "The other person asks, “Sure. Shall we message on KakaoTalk?” Choose a response that gives your contact details."
+          },
+          "options": [
+            {
+              "ko": "네. 제 번호 여기 있어요.",
+              "de": "Ja. Hier ist meine Nummer.",
+              "en": "Yes. Here's my number."
+            },
+            {
+              "ko": "아니요. 오늘 비가 와요.",
+              "de": "Nein. Heute regnet es.",
+              "en": "No. It's raining today."
+            },
+            {
+              "ko": "숙제는 집에 있어요.",
+              "de": "Die Hausaufgaben sind zu Hause.",
+              "en": "The homework is at home."
+            }
+          ],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "sourceId": "listening.c2.c2_public_redress_briefing_2026",
+      "scenarioId": "c2_public_redress_briefing_2026",
+      "level": "C2",
+      "title": {
+        "ko": "자동 결과 재검토 안내를 공개 브리핑하기",
+        "de": "Hinweise zur Überprüfung automatisierter Ergebnisse öffentlich erläutern",
+        "en": "Briefing guidance on reviewing automated results"
+      },
+      "intro": {
+        "ko": "공개 설명회에서 개별 통지서로 확인할 수 있는 내용과 담당 기관에 추가로 확인해야 하는 내용을 구분해 설명해요.",
+        "de": "Bei einer öffentlichen Erläuterung unterscheidest du zwischen Informationen im jeweiligen Bescheid und Punkten, die zusätzlich bei der zuständigen Stelle geklärt werden müssen.",
+        "en": "At a public briefing, you distinguish what can be confirmed from an individual notice from what still needs to be checked with the responsible institution."
+      },
+      "questions": [
+        {
+          "id": "listening.c2.c2_public_redress_briefing_2026.situation",
+          "type": "choice",
+          "skill": "situation",
+          "prompt": {
+            "ko": "대화의 핵심 원칙으로 가장 알맞은 것은 무엇인가요?",
+            "de": "Welcher Grundsatz trifft den Kern des Gesprächs am besten?",
+            "en": "Which principle best captures the core of the conversation?"
+          },
+          "options": [
+            {
+              "ko": "재검토 절차를 하나의 보편 규칙으로 단정하지 않고 개별 통지서와 현재 안내를 확인한다.",
+              "de": "Das Überprüfungsverfahren wird nicht als allgemeingültige Regel dargestellt; der jeweilige Bescheid und die aktuellen Hinweise werden geprüft.",
+              "en": "The review process is not presented as one universal rule; the individual notice and current guidance are checked."
+            },
+            {
+              "ko": "모든 자동 결정에는 같은 서면 이의 절차와 같은 기한이 적용된다고 본다.",
+              "de": "Für alle automatisierten Entscheidungen gilt dasselbe schriftliche Einspruchsverfahren mit derselben Frist.",
+              "en": "All automated decisions are assumed to use the same written appeal process and deadline."
+            },
+            {
+              "ko": "추가 자료는 어떤 경우에도 재검토에 영향을 줄 수 없다고 본다.",
+              "de": "Zusätzliche Unterlagen können eine Überprüfung niemals beeinflussen.",
+              "en": "Additional materials are assumed never to affect a review."
+            }
+          ],
+          "correctIndex": 0,
+          "evidenceKo": "실제 절차와 기한은 개별 통지서와 현재 안내를 기준으로 확인해 주세요."
+        },
+        {
+          "id": "listening.c2.c2_public_redress_briefing_2026.meaning",
+          "type": "choice",
+          "skill": "meaning",
+          "prompt": {
+            "ko": "“여기서 답을 확정할 수 없는 부분은 … 확인한 뒤 별도로 답변드리겠습니다.”의 의미를 고르세요.",
+            "de": "Was bedeutet die Aussage, dass nicht abschließend beantwortbare Punkte später nach Prüfung beantwortet werden?",
+            "en": "What does it mean to say that points that cannot be answered definitively here will be answered after checking?"
+          },
+          "options": [
+            {
+              "ko": "확인되지 않은 절차를 즉석에서 단정하지 않고 근거를 확인한 뒤 답한다.",
+              "de": "Ungeklärte Verfahren werden nicht spontan behauptet; die Grundlage wird geprüft, bevor geantwortet wird.",
+              "en": "Unverified procedures are not asserted on the spot; the basis is checked before answering."
+            },
+            {
+              "ko": "질문에 답하지 않고 기록도 남기지 않는다.",
+              "de": "Die Frage wird weder beantwortet noch dokumentiert.",
+              "en": "The question is neither answered nor recorded."
+            },
+            {
+              "ko": "모든 질문에 같은 답변을 사용한다.",
+              "de": "Für alle Fragen wird dieselbe Antwort verwendet.",
+              "en": "The same answer is used for every question."
+            }
+          ],
+          "correctIndex": 0,
+          "audioKo": "여기서 답을 확정할 수 없는 부분은 관련 규정과 개별 통지서를 확인한 뒤 별도로 답변드리겠습니다."
+        },
+        {
+          "id": "listening.c2.c2_public_redress_briefing_2026.sentence",
+          "type": "order",
+          "skill": "sentence",
+          "prompt": {
+            "ko": "들은 문장을 같은 순서로 놓으세요.",
+            "de": "Ordne die Aussage wie in der Aufnahme.",
+            "en": "Put the spoken sentence in the same order as the recording."
+          },
+          "targetKo": "오늘은 통지서에서 바로 확인할 수 있는 내용과, 담당 부서에 별도로 확인해야 하는 내용을 나눠서 설명하겠습니다.",
+          "audioKo": "오늘은 통지서에서 바로 확인할 수 있는 내용과, 담당 부서에 별도로 확인해야 하는 내용을 나눠서 설명하겠습니다."
+        },
+        {
+          "id": "listening.c2.c2_public_redress_briefing_2026.response",
+          "type": "choice",
+          "skill": "response",
+          "prompt": {
+            "ko": "주민이 “추가 자료를 내면 무엇이 달라지는지 알고 싶다”고 했어요. 가장 적절한 답변을 고르세요.",
+            "de": "Eine Person möchte wissen, was sich durch zusätzliche Unterlagen ändern kann. Wähle die angemessenste Antwort.",
+            "en": "A resident wants to know what could change if additional materials are submitted. Choose the most appropriate response."
+          },
+          "options": [
+            {
+              "ko": "추가 자료 제출이 가능한지와 어떤 절차가 적용되는지는 개별 통지서와 담당 안내에서 확인해야 합니다.",
+              "de": "Ob zusätzliche Unterlagen eingereicht werden können und welches Verfahren gilt, muss im jeweiligen Bescheid und bei der zuständigen Stelle geprüft werden.",
+              "en": "Whether additional materials can be submitted and what process applies should be checked in the individual notice and with the responsible office."
+            },
+            {
+              "ko": "추가 자료를 내면 모든 결정이 자동으로 바뀝니다.",
+              "de": "Mit zusätzlichen Unterlagen wird jede Entscheidung automatisch geändert.",
+              "en": "Submitting additional materials automatically changes every decision."
+            },
+            {
+              "ko": "추가 자료는 어떤 경우에도 검토하지 않습니다.",
+              "de": "Zusätzliche Unterlagen werden in keinem Fall geprüft.",
+              "en": "Additional materials are never reviewed."
+            }
+          ],
+          "correctIndex": 0
+        }
+      ]
+    }
+  ]
+}

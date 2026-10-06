@@ -148,3 +148,26 @@ Outputs:
 
 Regression:
 - `tools/textbook_project/test_textbook_reuse_audit.py`
+
+## Second-pass editorial resolution — 2026-10-06
+
+The immediate REJECT / RELEVEL / REWRITE repair sequence is now closed for the textbook track.
+
+Resolved second-pass state:
+- KEEP **5,914**
+- REWRITE **37** — all 37 have materialized textbook overrides
+- RELEVEL **2** — both final target levels decided
+- REJECT **8** — originals remain retired, all 8 have replacement concepts ready
+
+First-pass false positives closed: **101**.
+
+Materialized rewrite lanes:
+- lexical: 31
+- smalltalk: 2
+- scenario: 2
+- listening: 2
+
+See:
+- `TEXTBOOK_REUSE_AUDIT_SECOND_PASS.md`
+- `EDITORIAL_REPAIR_CLOSEOUT_20261006.md`
+- `data/TEXTBOOK_OVERRIDE_MANIFEST_20261006.json`

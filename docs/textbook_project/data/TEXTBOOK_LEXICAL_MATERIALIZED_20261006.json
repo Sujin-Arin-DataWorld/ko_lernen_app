@@ -1,0 +1,522 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "MATERIALIZED_TEXTBOOK_REWRITE",
+  "count": 31,
+  "clozeCount": 13,
+  "sentenceBuildingCount": 18,
+  "items": [
+    {
+      "sourceId": "cloze_a1_0194",
+      "surface": "cloze",
+      "level": "A2",
+      "replacesLexeme": "사진 전송",
+      "replacementTarget": "사진을 보내다",
+      "pedagogyRole": "productive_collocation",
+      "replacement": {
+        "sentenceKo": "단체 채팅방에 ＿＿＿ 전에 같이 찍힌 사람에게 먼저 물어봤어요.",
+        "answer": "사진을 보내기",
+        "fullKo": "단체 채팅방에 사진을 보내기 전에 같이 찍힌 사람에게 먼저 물어봤어요.",
+        "de": "Bevor ich das Foto in den Gruppenchat geschickt habe, habe ich die abgebildeten Personen zuerst gefragt.",
+        "en": "Before sending the photo to the group chat, I asked the people in it first.",
+        "distractors": [
+          "사진을 지우기",
+          "사진을 고르기",
+          "사진을 인쇄하기"
+        ]
+      }
+    },
+    {
+      "sourceId": "cloze_b1_0175",
+      "surface": "cloze",
+      "level": "B1",
+      "replacesLexeme": "선물 분배",
+      "replacementTarget": "선물을 나누다",
+      "pedagogyRole": "productive_collocation",
+      "replacement": {
+        "sentenceKo": "양가에 가져갈 ＿＿＿ 미리 정했어요.",
+        "answer": "선물을 어떻게 나눌지",
+        "fullKo": "양가에 가져갈 선물을 어떻게 나눌지 미리 정했어요.",
+        "de": "Wir haben vorher festgelegt, wie wir die Geschenke auf beide Familien verteilen.",
+        "en": "We decided in advance how to divide the gifts between the two families.",
+        "distractors": [
+          "선물을 어디서 살지",
+          "선물을 언제 포장할지",
+          "선물을 누가 고를지"
+        ]
+      }
+    },
+    {
+      "sourceId": "cloze_b2_0178",
+      "surface": "cloze",
+      "level": "B2",
+      "replacesLexeme": "시어머니 말씀",
+      "replacementTarget": "말씀의 뜻을 확인하다",
+      "pedagogyRole": "pragmatic_strategy",
+      "replacement": {
+        "sentenceKo": "시어머니 말씀의 뜻을 제가 제대로 이해했는지 배우자에게 먼저 ＿＿＿.",
+        "answer": "확인했어요",
+        "fullKo": "시어머니 말씀의 뜻을 제가 제대로 이해했는지 배우자에게 먼저 확인했어요.",
+        "de": "Ich fragte zuerst bei meinem Partner nach, ob ich die Worte meiner Schwiegermutter richtig verstanden hatte.",
+        "en": "I first checked with my partner whether I had understood my mother-in-law's remark correctly.",
+        "distractors": [
+          "전했어요",
+          "감췄어요",
+          "정했어요"
+        ]
+      }
+    },
+    {
+      "sourceId": "cloze_b2_0179",
+      "surface": "cloze",
+      "level": "B2",
+      "replacesLexeme": "장인어른 건강",
+      "replacementTarget": "건강을 여쭙다",
+      "pedagogyRole": "honorific_pragmatics",
+      "replacement": {
+        "sentenceKo": "장인어른께 ＿＿＿ 먼저 여쭤봤어요.",
+        "answer": "건강은 어떠신지",
+        "fullKo": "장인어른께 건강은 어떠신지 먼저 여쭤봤어요.",
+        "de": "Ich habe meinen Schwiegervater zuerst höflich gefragt, wie es ihm gesundheitlich geht.",
+        "en": "I first asked my father-in-law how his health was.",
+        "distractors": [
+          "몇 시에 오시는지",
+          "어디에 사시는지",
+          "무슨 일을 하시는지"
+        ]
+      }
+    },
+    {
+      "sourceId": "cloze_b2_0201",
+      "surface": "cloze",
+      "level": "B2",
+      "replacesLexeme": "호칭 질문",
+      "replacementTarget": "호칭을 묻다",
+      "pedagogyRole": "pragmatic_strategy",
+      "replacement": {
+        "sentenceKo": "처음 만났을 때 어떻게 부르면 되는지 먼저 ＿＿＿.",
+        "answer": "호칭을 물어봤어요",
+        "fullKo": "처음 만났을 때 어떻게 부르면 되는지 먼저 호칭을 물어봤어요.",
+        "de": "Beim ersten Treffen habe ich zuerst gefragt, wie ich die Person ansprechen soll.",
+        "en": "When we first met, I first asked how I should address them.",
+        "distractors": [
+          "날짜를 정했어요",
+          "사진을 골랐어요",
+          "주소를 적었어요"
+        ]
+      }
+    },
+    {
+      "sourceId": "cloze_c1_0056",
+      "surface": "cloze",
+      "level": "C1",
+      "replacesLexeme": "역할 언어",
+      "replacementTarget": "역할을 규정하는 표현",
+      "pedagogyRole": "discourse_analysis",
+      "replacement": {
+        "sentenceKo": "‘며느리니까 해야 한다’처럼 ＿＿＿ 개인의 선택을 의무처럼 보이게 만들 수 있다.",
+        "answer": "역할을 규정하는 표현은",
+        "fullKo": "‘며느리니까 해야 한다’처럼 역할을 규정하는 표현은 개인의 선택을 의무처럼 보이게 만들 수 있다.",
+        "de": "Formulierungen, die eine Rolle festschreiben, können persönliche Entscheidungen wie Pflichten erscheinen lassen.",
+        "en": "Expressions that define someone by a role, such as 'you should do it because you're the daughter-in-law,' can make personal choices sound like obligations.",
+        "distractors": [
+          "일정을 알려 주는 표현은",
+          "감정을 묻는 표현은",
+          "장소를 설명하는 표현은"
+        ]
+      }
+    },
+    {
+      "sourceId": "cloze_c1_0065",
+      "surface": "cloze",
+      "level": "C1",
+      "replacesLexeme": "보이지 않는 일",
+      "replacementTarget": "보이지 않는 노동",
+      "pedagogyRole": "social_science_lexicon",
+      "replacement": {
+        "sentenceKo": "가족 행사를 준비할 때는 일정 조율과 연락처럼 ＿＿＿ 함께 나눠야 한다.",
+        "answer": "보이지 않는 노동도",
+        "fullKo": "가족 행사를 준비할 때는 일정 조율과 연락처럼 보이지 않는 노동도 함께 나눠야 한다.",
+        "de": "Bei der Vorbereitung eines Familienfests sollte auch unsichtbare Arbeit wie Terminabsprachen und Kontaktpflege geteilt werden.",
+        "en": "When preparing a family event, invisible labor such as coordinating schedules and contacting people should also be shared.",
+        "distractors": [
+          "개인 취미도",
+          "교통비도",
+          "식사 메뉴도"
+        ]
+      }
+    },
+    {
+      "sourceId": "cloze_c2_0068",
+      "surface": "cloze",
+      "level": "C2",
+      "replacesLexeme": "호칭의 정치",
+      "replacementTarget": "호칭과 권력 관계",
+      "pedagogyRole": "discourse_analysis",
+      "replacement": {
+        "sentenceKo": "이 논문은 가족 호칭이 친밀감뿐 아니라 ＿＿＿ 드러낼 수 있다고 분석한다.",
+        "answer": "권력 관계도",
+        "fullKo": "이 논문은 가족 호칭이 친밀감뿐 아니라 권력 관계도 드러낼 수 있다고 분석한다.",
+        "de": "Die Studie untersucht, wie familiäre Anredeformen nicht nur Nähe, sondern auch Machtverhältnisse sichtbar machen können.",
+        "en": "The paper analyzes how family forms of address can reveal not only intimacy but also power relations.",
+        "distractors": [
+          "계절 변화도",
+          "식사 취향도",
+          "지역 날씨도"
+        ]
+      }
+    },
+    {
+      "sourceId": "cloze_a1_0212",
+      "surface": "cloze",
+      "level": "A2",
+      "replacesLexeme": "일회용 밴드",
+      "replacementTarget": "반창고",
+      "pedagogyRole": "everyday_lexicon",
+      "replacement": {
+        "sentenceKo": "작은 ＿＿＿ 하나 주세요.",
+        "answer": "반창고",
+        "fullKo": "작은 반창고 하나 주세요.",
+        "de": "Ein kleines Pflaster, bitte.",
+        "en": "One small adhesive bandage, please.",
+        "distractors": [
+          "붕대",
+          "휴지",
+          "수건"
+        ]
+      }
+    },
+    {
+      "sourceId": "cloze_c1_0087",
+      "surface": "cloze",
+      "level": "C1",
+      "replacesLexeme": "선택 보고",
+      "replacementTarget": "선택적 보고",
+      "pedagogyRole": "research_lexicon",
+      "replacement": {
+        "sentenceKo": "유리한 결과만 보여 주는 ＿＿＿ 피하려면 분석한 지표를 모두 공개해야 한다.",
+        "answer": "선택적 보고를",
+        "fullKo": "유리한 결과만 보여 주는 선택적 보고를 피하려면 분석한 지표를 모두 공개해야 한다.",
+        "de": "Um selektive Berichterstattung zu vermeiden, bei der nur günstige Ergebnisse gezeigt werden, sollten alle analysierten Kennzahlen offengelegt werden.",
+        "en": "To avoid selective reporting that shows only favorable results, all analyzed indicators should be disclosed.",
+        "distractors": [
+          "자료 수집을",
+          "표본 구성을",
+          "결과 해석을"
+        ]
+      }
+    },
+    {
+      "sourceId": "cloze_c2_0107",
+      "surface": "cloze",
+      "level": "C2",
+      "replacesLexeme": "기념 문장",
+      "replacementTarget": "기념 문구",
+      "pedagogyRole": "academic_lexicon",
+      "replacement": {
+        "sentenceKo": "역사적 사건을 다루는 ＿＿＿ 사실과 현재의 해석을 구분해야 한다.",
+        "answer": "기념 문구를 쓸 때는",
+        "fullKo": "역사적 사건을 다루는 기념 문구를 쓸 때는 사실과 현재의 해석을 구분해야 한다.",
+        "de": "Bei einem Gedenktext zu einem historischen Ereignis sollten Fakten von heutigen Deutungen getrennt werden.",
+        "en": "When drafting commemorative wording about a historical event, facts should be distinguished from present-day interpretation.",
+        "distractors": [
+          "광고 문구를 쓸 때는",
+          "일정표를 만들 때는",
+          "메뉴판을 읽을 때는"
+        ]
+      }
+    },
+    {
+      "sourceId": "cloze_c2_0126",
+      "surface": "cloze",
+      "level": "C2",
+      "replacesLexeme": "자동 결정",
+      "replacementTarget": "자동화된 결정",
+      "pedagogyRole": "technical_legal_term",
+      "replacement": {
+        "sentenceKo": "＿＿＿ 이의를 제기하려면 어떤 자료와 기준이 사용됐는지 확인할 수 있어야 한다.",
+        "answer": "자동화된 결정에",
+        "fullKo": "자동화된 결정에 이의를 제기하려면 어떤 자료와 기준이 사용됐는지 확인할 수 있어야 한다.",
+        "de": "Um eine automatisierte Entscheidung anzufechten, muss nachvollziehbar sein, welche Daten und Kriterien verwendet wurden.",
+        "en": "To challenge an automated decision, people need to be able to see what data and criteria were used.",
+        "distractors": [
+          "개인적인 취향에",
+          "날씨 변화에",
+          "여행 일정에"
+        ]
+      }
+    },
+    {
+      "sourceId": "cloze_c2_0243",
+      "surface": "cloze",
+      "level": "C2",
+      "replacesLexeme": "문지기 담론",
+      "replacementTarget": "배타적 팬 담론",
+      "pedagogyRole": "academic_lexicon",
+      "replacement": {
+        "sentenceKo": "누가 진짜 팬인지 계속 가르는 ＿＿＿ 참여의 문턱을 높일 수 있다.",
+        "answer": "배타적 팬 담론은",
+        "fullKo": "누가 진짜 팬인지 계속 가르는 배타적 팬 담론은 참여의 문턱을 높일 수 있다.",
+        "de": "Ein ausschließender Fandiskurs, der ständig festlegt, wer als echter Fan gilt, kann die Teilhabe erschweren.",
+        "en": "Exclusionary fan discourse that constantly polices who counts as a real fan can raise barriers to participation.",
+        "distractors": [
+          "공연 후기 글은",
+          "팬 번역 활동은",
+          "공식 일정 안내는"
+        ]
+      }
+    },
+    {
+      "sourceId": "satz_c1_0032",
+      "surface": "sentence_building",
+      "level": "C1",
+      "replacesLexeme": "잘못된 안심을 주다",
+      "replacementTarget": "근거 없는 안도감을 주다",
+      "pedagogyRole": "risk_communication",
+      "replacement": {
+        "targetKo": "자료가 부족한데도 안전하다고 단정하면 사람들에게 근거 없는 안도감을 줄 수 있다.",
+        "promptDe": "Wenn man trotz unzureichender Daten Sicherheit behauptet, kann das ein unbegründetes Gefühl der Beruhigung vermitteln.",
+        "promptEn": "Declaring something safe despite insufficient data can give people a false sense of reassurance.",
+        "vocabKo": "근거 없는 안도감을 주다"
+      }
+    },
+    {
+      "sourceId": "satz_a1_0158",
+      "surface": "sentence_building",
+      "level": "A2",
+      "replacesLexeme": "사진 전송",
+      "replacementTarget": "사진을 보내다",
+      "pedagogyRole": "productive_collocation",
+      "replacement": {
+        "targetKo": "단체 채팅방에 사진을 보내기 전에 같이 찍힌 사람에게 먼저 물어봤어요.",
+        "promptDe": "Bevor ich das Foto in den Gruppenchat geschickt habe, habe ich die abgebildeten Personen zuerst gefragt.",
+        "promptEn": "Before sending the photo to the group chat, I asked the people in it first.",
+        "vocabKo": "사진을 보내다"
+      }
+    },
+    {
+      "sourceId": "satz_b1_0171",
+      "surface": "sentence_building",
+      "level": "B1",
+      "replacesLexeme": "선물 분배",
+      "replacementTarget": "선물을 나누다",
+      "pedagogyRole": "productive_collocation",
+      "replacement": {
+        "targetKo": "양가에 가져갈 선물을 어떻게 나눌지 미리 정했어요.",
+        "promptDe": "Wir haben vorher festgelegt, wie wir die Geschenke auf beide Familien verteilen.",
+        "promptEn": "We decided in advance how to divide the gifts between the two families.",
+        "vocabKo": "선물을 나누다"
+      }
+    },
+    {
+      "sourceId": "satz_b2_0159",
+      "surface": "sentence_building",
+      "level": "B2",
+      "replacesLexeme": "사위 사랑",
+      "replacementTarget": "사위를 챙기다",
+      "pedagogyRole": "culture_pragmatics",
+      "replacement": {
+        "targetKo": "장모님이 사위를 잘 챙겨 주는 장면은 가족마다 다르게 받아들일 수 있다.",
+        "promptDe": "Dass eine Schwiegermutter ihren Schwiegersohn besonders umsorgt, kann je nach Familie unterschiedlich wahrgenommen werden.",
+        "promptEn": "A mother-in-law taking special care of her son-in-law can be interpreted differently from family to family.",
+        "vocabKo": "사위를 챙기다"
+      }
+    },
+    {
+      "sourceId": "satz_b2_0164",
+      "surface": "sentence_building",
+      "level": "B2",
+      "replacesLexeme": "시어머니 말씀",
+      "replacementTarget": "말씀의 뜻을 확인하다",
+      "pedagogyRole": "pragmatic_strategy",
+      "replacement": {
+        "targetKo": "시어머니 말씀의 뜻을 제가 제대로 이해했는지 배우자에게 먼저 확인했어요.",
+        "promptDe": "Ich habe zuerst bei meinem Partner nachgefragt, ob ich die Worte meiner Schwiegermutter richtig verstanden hatte.",
+        "promptEn": "I first checked with my partner whether I had understood my mother-in-law's remark correctly.",
+        "vocabKo": "말씀의 뜻을 확인하다"
+      }
+    },
+    {
+      "sourceId": "satz_b2_0165",
+      "surface": "sentence_building",
+      "level": "B2",
+      "replacesLexeme": "장인어른 건강",
+      "replacementTarget": "건강을 여쭙다",
+      "pedagogyRole": "honorific_pragmatics",
+      "replacement": {
+        "targetKo": "장인어른께 건강은 어떠신지 먼저 여쭤봤어요.",
+        "promptDe": "Ich habe meinen Schwiegervater zuerst höflich gefragt, wie es ihm gesundheitlich geht.",
+        "promptEn": "I first asked my father-in-law how his health was.",
+        "vocabKo": "건강을 여쭙다"
+      }
+    },
+    {
+      "sourceId": "satz_b2_0187",
+      "surface": "sentence_building",
+      "level": "B2",
+      "replacesLexeme": "호칭 질문",
+      "replacementTarget": "호칭을 묻다",
+      "pedagogyRole": "pragmatic_strategy",
+      "replacement": {
+        "targetKo": "처음 만났을 때 어떻게 부르면 되는지 먼저 호칭을 물어봤어요.",
+        "promptDe": "Beim ersten Treffen habe ich gefragt, wie ich die Person ansprechen soll.",
+        "promptEn": "When we first met, I asked how I should address them.",
+        "vocabKo": "호칭을 묻다"
+      }
+    },
+    {
+      "sourceId": "satz_c1_0056",
+      "surface": "sentence_building",
+      "level": "C1",
+      "replacesLexeme": "손님으로 두다",
+      "replacementTarget": "손님처럼 대하다",
+      "pedagogyRole": "pragmatic_collocation",
+      "replacement": {
+        "targetKo": "가족이 된 뒤에도 계속 손님처럼 대하면 중요한 결정에서 의견을 내기 어려울 수 있다.",
+        "promptDe": "Wenn jemand auch nach der Aufnahme in die Familie weiter wie ein Gast behandelt wird, kann es schwer sein, bei wichtigen Entscheidungen mitzureden.",
+        "promptEn": "If someone continues to be treated like a guest after joining the family, it can be difficult for them to have a say in important decisions.",
+        "vocabKo": "손님처럼 대하다"
+      }
+    },
+    {
+      "sourceId": "satz_c1_0058",
+      "surface": "sentence_building",
+      "level": "C1",
+      "replacesLexeme": "역할 언어",
+      "replacementTarget": "역할을 규정하는 표현",
+      "pedagogyRole": "discourse_analysis",
+      "replacement": {
+        "targetKo": "'며느리니까 해야 한다'처럼 역할을 규정하는 표현은 개인의 선택을 의무처럼 보이게 만들 수 있다.",
+        "promptDe": "Formulierungen, die eine Rolle festschreiben, können persönliche Entscheidungen wie Pflichten erscheinen lassen.",
+        "promptEn": "Expressions that define someone by a role, such as 'you should do it because you're the daughter-in-law,' can make personal choices sound like obligations.",
+        "vocabKo": "역할을 규정하는 표현"
+      }
+    },
+    {
+      "sourceId": "satz_c1_0066",
+      "surface": "sentence_building",
+      "level": "C1",
+      "replacesLexeme": "자리를 재협상하다",
+      "replacementTarget": "역할을 다시 조정하다",
+      "pedagogyRole": "relationship_pragmatics",
+      "replacement": {
+        "targetKo": "가족 안에서 맡아 온 역할을 다시 조정하자 오래 미뤄 둔 갈등도 드러났다.",
+        "promptDe": "Als wir die bisherigen Rollen in der Familie neu ordneten, traten auch lange aufgeschobene Konflikte zutage.",
+        "promptEn": "When we readjusted the roles we had taken on in the family, long-postponed conflicts also surfaced.",
+        "vocabKo": "역할을 다시 조정하다"
+      }
+    },
+    {
+      "sourceId": "satz_c1_0067",
+      "surface": "sentence_building",
+      "level": "C1",
+      "replacesLexeme": "보이지 않는 일",
+      "replacementTarget": "보이지 않는 노동",
+      "pedagogyRole": "social_science_lexicon",
+      "replacement": {
+        "targetKo": "가족 행사를 준비할 때는 일정 조율과 연락처럼 보이지 않는 노동도 함께 나눠야 한다.",
+        "promptDe": "Bei der Vorbereitung eines Familienfests sollte auch unsichtbare Arbeit wie Terminabsprachen und Kontaktpflege geteilt werden.",
+        "promptEn": "When preparing a family event, invisible labor such as coordinating schedules and contacting people should also be shared.",
+        "vocabKo": "보이지 않는 노동"
+      }
+    },
+    {
+      "sourceId": "satz_c2_0070",
+      "surface": "sentence_building",
+      "level": "C2",
+      "replacesLexeme": "호칭의 정치",
+      "replacementTarget": "호칭과 권력 관계",
+      "pedagogyRole": "discourse_analysis",
+      "replacement": {
+        "targetKo": "이 논문은 가족 호칭이 친밀감뿐 아니라 권력 관계도 드러낼 수 있다고 분석한다.",
+        "promptDe": "Die Studie untersucht, wie familiäre Anredeformen nicht nur Nähe, sondern auch Machtverhältnisse sichtbar machen können.",
+        "promptEn": "The paper analyzes how family forms of address can reveal not only intimacy but also power relations.",
+        "vocabKo": "호칭과 권력 관계"
+      }
+    },
+    {
+      "sourceId": "satz_c2_0077",
+      "surface": "sentence_building",
+      "level": "C2",
+      "replacesLexeme": "기억을 재배치하다",
+      "replacementTarget": "기억을 재구성하다",
+      "pedagogyRole": "academic_collocation",
+      "replacement": {
+        "targetKo": "전시의 사진 배열이 바뀌면 관람객이 사건을 기억하는 방식도 새롭게 재구성될 수 있다.",
+        "promptDe": "Eine veränderte Bildfolge in einer Ausstellung kann auch beeinflussen, wie Besucher das Ereignis in ihrer Erinnerung rekonstruieren.",
+        "promptEn": "Changing the order of photographs in an exhibition can reshape how visitors reconstruct the event in memory.",
+        "vocabKo": "기억을 재구성하다"
+      }
+    },
+    {
+      "sourceId": "satz_a1_0176",
+      "surface": "sentence_building",
+      "level": "A2",
+      "replacesLexeme": "일회용 밴드",
+      "replacementTarget": "반창고",
+      "pedagogyRole": "everyday_lexicon",
+      "replacement": {
+        "targetKo": "작은 반창고 하나 주세요.",
+        "promptDe": "Ein kleines Pflaster, bitte.",
+        "promptEn": "One small adhesive bandage, please.",
+        "vocabKo": "반창고"
+      }
+    },
+    {
+      "sourceId": "satz_c1_0089",
+      "surface": "sentence_building",
+      "level": "C1",
+      "replacesLexeme": "선택 보고",
+      "replacementTarget": "선택적 보고",
+      "pedagogyRole": "research_lexicon",
+      "replacement": {
+        "targetKo": "유리한 결과만 보여 주는 선택적 보고를 피하려면 분석한 지표를 모두 공개해야 한다.",
+        "promptDe": "Um selektive Berichterstattung zu vermeiden, bei der nur günstige Ergebnisse gezeigt werden, sollten alle analysierten Kennzahlen offengelegt werden.",
+        "promptEn": "To avoid selective reporting that shows only favorable results, all analyzed indicators should be disclosed.",
+        "vocabKo": "선택적 보고"
+      }
+    },
+    {
+      "sourceId": "satz_c2_0109",
+      "surface": "sentence_building",
+      "level": "C2",
+      "replacesLexeme": "기념 문장",
+      "replacementTarget": "기념 문구",
+      "pedagogyRole": "academic_lexicon",
+      "replacement": {
+        "targetKo": "역사적 사건을 다루는 기념 문구를 쓸 때는 사실과 현재의 해석을 구분해야 한다.",
+        "promptDe": "Bei einem Gedenktext zu einem historischen Ereignis sollten Fakten von heutigen Deutungen getrennt werden.",
+        "promptEn": "When drafting commemorative wording about a historical event, facts should be distinguished from present-day interpretation.",
+        "vocabKo": "기념 문구"
+      }
+    },
+    {
+      "sourceId": "satz_c2_0128",
+      "surface": "sentence_building",
+      "level": "C2",
+      "replacesLexeme": "자동 결정",
+      "replacementTarget": "자동화된 결정",
+      "pedagogyRole": "technical_legal_term",
+      "replacement": {
+        "targetKo": "자동화된 결정에 이의를 제기하려면 어떤 자료와 기준이 사용됐는지 확인할 수 있어야 한다.",
+        "promptDe": "Um eine automatisierte Entscheidung anzufechten, muss nachvollziehbar sein, welche Daten und Kriterien verwendet wurden.",
+        "promptEn": "To challenge an automated decision, people need to be able to see what data and criteria were used.",
+        "vocabKo": "자동화된 결정"
+      }
+    },
+    {
+      "sourceId": "satz_c2_0245",
+      "surface": "sentence_building",
+      "level": "C2",
+      "replacesLexeme": "문지기 담론",
+      "replacementTarget": "배타적 팬 담론",
+      "pedagogyRole": "academic_lexicon",
+      "replacement": {
+        "targetKo": "누가 진짜 팬인지 끊임없이 가르는 배타적 팬 담론은 참여의 문턱을 높일 수 있다.",
+        "promptDe": "Ein ausschließender Fandiskurs, der ständig festlegt, wer als echter Fan gilt, kann die Teilhabe erschweren.",
+        "promptEn": "Exclusionary fan discourse that constantly polices who counts as a real fan can raise barriers to participation.",
+        "vocabKo": "배타적 팬 담론"
+      }
+    }
+  ]
+}
