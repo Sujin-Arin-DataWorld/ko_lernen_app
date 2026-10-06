@@ -7175,6 +7175,564 @@
         }
       ],
       "xpReward": 110
+    },
+    {
+      "id": "a2_jun_minho_class_phone_rule",
+      "level": "a2",
+      "emoji": "📵",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "title": {
+        "ko": "수업 중 휴대폰 예외 설명하기",
+        "de": "Ausnahmen bei der Handynutzung im Unterricht erklären",
+        "en": "Explaining classroom phone exceptions"
+      },
+      "intro": {
+        "ko": "준이 민호에게 학교의 휴대폰 규칙과 수업별 예외를 설명해요.",
+        "de": "Jun erklärt Minho die Handyregeln der Schule und die Ausnahmen im Unterricht.",
+        "en": "Jun explains the school phone rules and the exceptions that apply in class."
+      },
+      "courseUnitId": "a2_06_study_work",
+      "playerCharacterId": "jun",
+      "participantIds": [
+        "jun",
+        "minho"
+      ],
+      "relationshipContext": "부자 관계. 준은 집에서 편하게 반말하고 민호도 설명을 먼저 듣는다.",
+      "intent": "준이 새 학기 수업 중 휴대전화 규칙과 수업별 예외를 아빠에게 설명한다.",
+      "shelf": "a2_work",
+      "backdrop": "home",
+      "vocab": [
+        {
+          "korean": "학기"
+        },
+        {
+          "korean": "수업 중"
+        },
+        {
+          "korean": "휴대폰"
+        },
+        {
+          "korean": "필요하다"
+        },
+        {
+          "korean": "영어 시간"
+        },
+        {
+          "korean": "쉬는 시간"
+        },
+        {
+          "korean": "규칙"
+        },
+        {
+          "korean": "반"
+        }
+      ],
+      "conceptIds": [
+        "concept_a2_work_study"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_prohibition"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)면 안 되다",
+          "de": "Grammatik im Kontext: V-(으)면 안 되다",
+          "en": "Grammar in context: V-(으)면 안 되다"
+        },
+        "explanation": {
+          "ko": "이 장면에서 V-(으)면 안 되다 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Nicht dürfen / Verboten sein: etwas ist nicht erlaubt",
+          "en": "Must not / not allowed: something is not permitted"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "아빠, 이번 학기부터 수업 중에는 휴대폰을 쓰면 안 돼.",
+          "de": "Papa, ab diesem Halbjahr dürfen wir im Unterricht keine Handys benutzen.",
+          "en": "Dad, starting this semester we're not allowed to use our phones during class."
+        },
+        {
+          "speaker": "minho",
+          "ko": "아예 못 써?",
+          "de": "Gar nicht?",
+          "en": "Not at all?"
+        },
+        {
+          "speaker": "user",
+          "ko": "아니. 필요한 수업에서는 선생님이 허락해. 그때는 써도 돼. 오늘 영어 시간에도 썼어.",
+          "de": "Doch. Wenn wir sie für den Unterricht brauchen, erlaubt die Lehrkraft es. Dann dürfen wir sie benutzen. Heute im Englischunterricht auch.",
+          "en": "No. In classes where we need them, the teacher allows it. Then we can use them. We used ours in English today too."
+        },
+        {
+          "speaker": "minho",
+          "ko": "그럼 수업마다 조금 다를 수 있겠네.",
+          "de": "Dann kann es je nach Unterricht ein bisschen anders sein.",
+          "en": "So it can be a little different from class to class."
+        },
+        {
+          "speaker": "user",
+          "ko": "응. 쉬는 시간 규칙도 반마다 조금 다르대.",
+          "de": "Ja. In den Pausen sind die Regeln wohl auch je nach Klasse etwas anders.",
+          "en": "Yeah. I heard the rules for break time are a bit different by homeroom too."
+        },
+        {
+          "speaker": "minho",
+          "ko": "알겠어. 학교 규칙이랑 집 규칙은 따로 생각해 보자.",
+          "de": "Verstanden. Dann betrachten wir die Schulregeln und unsere Regeln zu Hause getrennt.",
+          "en": "Got it. Let's treat the school rules and our rules at home separately."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a2_jun_minho_class_phone_rule_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a2_work_study"
+          ],
+          "data": {
+            "audioKo": "아예 못 써?",
+            "options": [
+              {
+                "de": "Gar nicht?",
+                "en": "Not at all?"
+              },
+              {
+                "de": "Papa, ab diesem Halbjahr dürfen wir im Unterricht keine Handys benutzen.",
+                "en": "Dad, starting this semester we're not allowed to use our phones during class."
+              },
+              {
+                "de": "Doch. Wenn wir sie für den Unterricht brauchen, erlaubt die Lehrkraft es. Dann dürfen wir sie benutzen. Heute im Englischunterricht auch.",
+                "en": "No. In classes where we need them, the teacher allows it. Then we can use them. We used ours in English today too."
+              },
+              {
+                "de": "Dann kann es je nach Unterricht ein bisschen anders sein.",
+                "en": "So it can be a little different from class to class."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_jun_minho_class_phone_rule_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a2_work_study"
+          ],
+          "data": {
+            "promptDe": "Ja. In den Pausen sind die Regeln wohl auch je nach Klasse etwas anders.",
+            "promptEn": "Yeah. I heard the rules for break time are a bit different by homeroom too.",
+            "options": [
+              {
+                "ko": "응. 쉬는 시간 규칙도 반마다 조금 다르대."
+              },
+              {
+                "ko": "아빠, 이번 학기부터 수업 중에는 휴대폰을 쓰면 안 돼."
+              },
+              {
+                "ko": "아니. 필요한 수업에서는 선생님이 허락해. 그때는 써도 돼. 오늘 영어 시간에도 썼어."
+              },
+              {
+                "ko": "알겠어. 학교 규칙이랑 집 규칙은 따로 생각해 보자."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_jun_minho_class_phone_rule_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a2_work_study"
+          ],
+          "data": {
+            "targetKo": "알겠어. 학교 규칙이랑 집 규칙은 따로 생각해 보자.",
+            "audioKo": "알겠어. 학교 규칙이랑 집 규칙은 따로 생각해 보자.",
+            "promptDe": "Verstanden. Dann betrachten wir die Schulregeln und unsere Regeln zu Hause getrennt.",
+            "promptEn": "Got it. Let's treat the school rules and our rules at home separately.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "a2_dongsun_christian_suspicious_delivery_text",
+      "level": "a2",
+      "emoji": "📦",
+      "register": "polite",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "수상한 택배 문자 확인하기",
+        "de": "Eine verdächtige Paket-SMS prüfen",
+        "en": "Checking a suspicious delivery text"
+      },
+      "intro": {
+        "ko": "동선과 크리스티안이 수상한 택배 문자를 링크 대신 공식 앱에서 확인해요.",
+        "de": "Dongsun und Christian prüfen eine verdächtige Paket-SMS direkt in der offiziellen App statt über den Link.",
+        "en": "Dongsun and Christian verify a suspicious delivery text in the official app instead of using the link."
+      },
+      "courseUnitId": "a2_05_delivery_services",
+      "playerCharacterId": "christian",
+      "participantIds": [
+        "christian",
+        "dongsun"
+      ],
+      "relationshipContext": "동선은 딸의 연인인 크리스티안을 친근하게 대하지만 존댓말을 쓴다. 크리스티안도 공손한 해요체로 답한다.",
+      "intent": "동선이 받은 급한 택배 문자를 링크 대신 공식 앱에서 확인하도록 돕는다.",
+      "shelf": "a2_delivery",
+      "backdrop": "home",
+      "vocab": [
+        {
+          "korean": "택배"
+        },
+        {
+          "korean": "주소"
+        },
+        {
+          "korean": "링크"
+        },
+        {
+          "korean": "주문하다"
+        },
+        {
+          "korean": "앱"
+        },
+        {
+          "korean": "직접"
+        },
+        {
+          "korean": "확인하다"
+        },
+        {
+          "korean": "급하다"
+        }
+      ],
+      "conceptIds": [
+        "concept_a2_services"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a1_polite_prohibition"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-지 마세요",
+          "de": "Grammatik im Kontext: V-지 마세요",
+          "en": "Grammar in context: V-지 마세요"
+        },
+        "explanation": {
+          "ko": "이 장면에서 V-지 마세요 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Bitte etwas nicht tun: höfliche Aufforderung zu unterlassen",
+          "en": "Please don't do something: a polite request to refrain"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "dongsun",
+          "ko": "크리스티안, 이것 좀 봐줄래요? 택배 주소가 틀렸다고 문자가 왔네요. 빨리 이 링크로 다시 확인하라고 써 있어요.",
+          "de": "Christian, kannst du dir das mal ansehen? Ich habe eine Nachricht bekommen, dass die Lieferadresse falsch sei. Ich soll das ganz schnell über diesen Link bestätigen.",
+          "en": "Christian, could you take a look at this? I got a text saying the delivery address is wrong. It says I need to check it again through this link right away."
+        },
+        {
+          "speaker": "user",
+          "ko": "잠깐만요. 바로 누르지 마세요. 주문한 택배가 있어요?",
+          "de": "Moment. Klick noch nicht drauf. Erwartest du ein Paket?",
+          "en": "Hang on. Don't tap it yet. Are you expecting a package?"
+        },
+        {
+          "speaker": "dongsun",
+          "ko": "있기는 있는데 오늘 오는 건 아니에요.",
+          "de": "Ja, schon, aber es sollte heute nicht kommen.",
+          "en": "I am, but it's not supposed to arrive today."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 링크 말고 택배 앱에서 직접 확인해 봐요.",
+          "de": "Dann schauen wir lieber direkt in der Paket-App nach, statt den Link zu benutzen.",
+          "en": "Then let's check it directly in the delivery app instead of using the link."
+        },
+        {
+          "speaker": "dongsun",
+          "ko": "아이고, 급하다고 써 있어서 놀랐어요.",
+          "de": "Ach herrje, da stand 'dringend', deshalb habe ich mich erschrocken.",
+          "en": "Oh my, it said it was urgent, so it startled me."
+        },
+        {
+          "speaker": "user",
+          "ko": "급해 보여도 먼저 확인하는 게 좋을 것 같아요.",
+          "de": "Auch wenn es dringend aussieht, würde ich es erst einmal überprüfen.",
+          "en": "Even if it looks urgent, I think it's better to verify it first."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a2_dongsun_christian_suspicious_delivery_text_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a2_services"
+          ],
+          "data": {
+            "audioKo": "잠깐만요. 바로 누르지 마세요. 주문한 택배가 있어요?",
+            "options": [
+              {
+                "de": "Moment. Klick noch nicht drauf. Erwartest du ein Paket?",
+                "en": "Hang on. Don't tap it yet. Are you expecting a package?"
+              },
+              {
+                "de": "Christian, kannst du dir das mal ansehen? Ich habe eine Nachricht bekommen, dass die Lieferadresse falsch sei. Ich soll das ganz schnell über diesen Link bestätigen.",
+                "en": "Christian, could you take a look at this? I got a text saying the delivery address is wrong. It says I need to check it again through this link right away."
+              },
+              {
+                "de": "Ja, schon, aber es sollte heute nicht kommen.",
+                "en": "I am, but it's not supposed to arrive today."
+              },
+              {
+                "de": "Dann schauen wir lieber direkt in der Paket-App nach, statt den Link zu benutzen.",
+                "en": "Then let's check it directly in the delivery app instead of using the link."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_dongsun_christian_suspicious_delivery_text_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a2_services"
+          ],
+          "data": {
+            "promptDe": "Ach herrje, da stand 'dringend', deshalb habe ich mich erschrocken.",
+            "promptEn": "Oh my, it said it was urgent, so it startled me.",
+            "options": [
+              {
+                "ko": "아이고, 급하다고 써 있어서 놀랐어요."
+              },
+              {
+                "ko": "크리스티안, 이것 좀 봐줄래요? 택배 주소가 틀렸다고 문자가 왔네요. 빨리 이 링크로 다시 확인하라고 써 있어요."
+              },
+              {
+                "ko": "있기는 있는데 오늘 오는 건 아니에요."
+              },
+              {
+                "ko": "급해 보여도 먼저 확인하는 게 좋을 것 같아요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_dongsun_christian_suspicious_delivery_text_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a2_services"
+          ],
+          "data": {
+            "targetKo": "급해 보여도 먼저 확인하는 게 좋을 것 같아요.",
+            "audioKo": "급해 보여도 먼저 확인하는 게 좋을 것 같아요.",
+            "promptDe": "Auch wenn es dringend aussieht, würde ich es erst einmal überprüfen.",
+            "promptEn": "Even if it looks urgent, I think it's better to verify it first.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
+    },
+    {
+      "id": "a2_lena_hyuna_heatwave_plan",
+      "level": "a2",
+      "emoji": "☀️",
+      "register": "casual",
+      "speechStyle": "casual",
+      "title": {
+        "ko": "폭염에 맞춰 약속 시간 바꾸기",
+        "de": "Pläne an die Hitze anpassen",
+        "en": "Changing plans for a heatwave"
+      },
+      "intro": {
+        "ko": "레나와 현아가 폭염을 피해 산책 시간과 실내 대안을 함께 정해요.",
+        "de": "Lena und Hyuna verlegen ihren Spaziergang wegen der Hitze und planen eine Alternative drinnen.",
+        "en": "Lena and Hyuna change their walking time for the heatwave and plan an indoor alternative."
+      },
+      "courseUnitId": "a2_02_plans_proposals",
+      "playerCharacterId": "lena",
+      "participantIds": [
+        "lena",
+        "hyuna"
+      ],
+      "relationshipContext": "같은 셰어하우스 이웃. 더운 날 주말 일정을 친근한 해요체로 바꾼다.",
+      "intent": "한낮 야외 일정을 피하고 아침·실내 중심으로 주말 계획을 바꾼다.",
+      "shelf": "a2_plan",
+      "backdrop": "cafe",
+      "vocab": [
+        {
+          "korean": "한강"
+        },
+        {
+          "korean": "오후"
+        },
+        {
+          "korean": "아침"
+        },
+        {
+          "korean": "물"
+        },
+        {
+          "korean": "카페"
+        },
+        {
+          "korean": "전시"
+        },
+        {
+          "korean": "시간"
+        },
+        {
+          "korean": "한낮"
+        }
+      ],
+      "conceptIds": [
+        "concept_proposal_casual"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_polite_proposal"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ까요?",
+          "de": "Grammatik im Kontext: V-(으)ㄹ까요?",
+          "en": "Grammar in context: V-(으)ㄹ까요?"
+        },
+        "explanation": {
+          "ko": "이 장면에서 V-(으)ㄹ까요? 표현이 실제 대화에서 어떤 기능을 하는지 확인해요.",
+          "de": "Sollen wir? / Wie wäre es? / Ich frage mich ob... Vorschlag oder Unsicherheit",
+          "en": "Shall we? / How about? / I wonder if... a suggestion or uncertainty"
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "현아 씨, 내일 오후에 한강 갈까요?",
+          "de": "Hyuna, wollen wir morgen Nachmittag an den Han-Fluss?",
+          "en": "Hyuna, want to go to the Han River tomorrow afternoon?"
+        },
+        {
+          "speaker": "hyuna",
+          "ko": "내일도 많이 더워요. 오후 말고 아침에 가는 게 어때요?",
+          "de": "Morgen wird es wieder sehr heiß. Wie wäre es stattdessen morgens?",
+          "en": "It's going to be really hot again tomorrow. How about going in the morning instead?"
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아요. 그럼 아침에 걷고 점심부터는 실내로 도망가요.",
+          "de": "Gut. Dann gehen wir morgens spazieren und flüchten ab Mittag nach drinnen.",
+          "en": "Sure. Then we'll walk in the morning and escape indoors after lunch."
+        },
+        {
+          "speaker": "hyuna",
+          "ko": "좋아요 ㅋㅋ. 물도 챙기고 오래 걷지는 말아요.",
+          "de": "Klingt gut, haha. Nehmen wir Wasser mit und laufen nicht zu lange.",
+          "en": "Sounds good haha. Let's bring water and not walk for too long."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 카페랑 전시도 찾아볼게요. 더우면 바로 들어가고요.",
+          "de": "Dann suche ich auch ein Café und eine Ausstellung raus. Wenn's zu heiß wird, gehen wir direkt rein.",
+          "en": "Then I'll look up a café and an exhibition too. If it gets too hot, we can go straight inside."
+        },
+        {
+          "speaker": "hyuna",
+          "ko": "좋아요. 이런 날은 장소보다 시간을 바꾸는 게 제일 편해요.",
+          "de": "Perfekt. An solchen Tagen ist es am einfachsten, die Uhrzeit statt den Ort zu ändern.",
+          "en": "Perfect. On days like this, changing the time is easier than changing the place."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a2_lena_hyuna_heatwave_plan_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "audioKo": "내일도 많이 더워요. 오후 말고 아침에 가는 게 어때요?",
+            "options": [
+              {
+                "de": "Morgen wird es wieder sehr heiß. Wie wäre es stattdessen morgens?",
+                "en": "It's going to be really hot again tomorrow. How about going in the morning instead?"
+              },
+              {
+                "de": "Hyuna, wollen wir morgen Nachmittag an den Han-Fluss?",
+                "en": "Hyuna, want to go to the Han River tomorrow afternoon?"
+              },
+              {
+                "de": "Gut. Dann gehen wir morgens spazieren und flüchten ab Mittag nach drinnen.",
+                "en": "Sure. Then we'll walk in the morning and escape indoors after lunch."
+              },
+              {
+                "de": "Klingt gut, haha. Nehmen wir Wasser mit und laufen nicht zu lange.",
+                "en": "Sounds good haha. Let's bring water and not walk for too long."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_lena_hyuna_heatwave_plan_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "promptDe": "Dann suche ich auch ein Café und eine Ausstellung raus. Wenn's zu heiß wird, gehen wir direkt rein.",
+            "promptEn": "Then I'll look up a café and an exhibition too. If it gets too hot, we can go straight inside.",
+            "options": [
+              {
+                "ko": "그럼 카페랑 전시도 찾아볼게요. 더우면 바로 들어가고요."
+              },
+              {
+                "ko": "현아 씨, 내일 오후에 한강 갈까요?"
+              },
+              {
+                "ko": "좋아요. 그럼 아침에 걷고 점심부터는 실내로 도망가요."
+              },
+              {
+                "ko": "좋아요. 이런 날은 장소보다 시간을 바꾸는 게 제일 편해요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_lena_hyuna_heatwave_plan_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "targetKo": "좋아요. 이런 날은 장소보다 시간을 바꾸는 게 제일 편해요.",
+            "audioKo": "좋아요. 이런 날은 장소보다 시간을 바꾸는 게 제일 편해요.",
+            "promptDe": "Perfekt. An solchen Tagen ist es am einfachsten, die Uhrzeit statt den Ort zu ändern.",
+            "promptEn": "Perfect. On days like this, changing the time is easier than changing the place.",
+            "distractors": [
+              "아마 다음에",
+              "그냥 아무거나",
+              "확인 없이"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
     }
   ]
 }

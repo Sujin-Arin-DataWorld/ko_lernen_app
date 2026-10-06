@@ -4685,6 +4685,213 @@
         "concept_b2_precise_requests"
       ],
       "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_maya_daniel_ai_campaign_cut",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_daniel_sujin_ai_asset_handoff",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_sujin_christian_asset_provenance_check",
+      "courseUnitId": "b1_06_life_capstone",
+      "conceptIds": [
+        "concept_b1_life"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_jun_minho_class_phone_rule",
+      "courseUnitId": "a2_06_study_work",
+      "conceptIds": [
+        "concept_a2_work_study"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_jun_andrea_phone_house_rules",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_jun_christian_phone_study_habit",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_dongsun_christian_suspicious_delivery_text",
+      "courseUnitId": "a2_05_delivery_services",
+      "conceptIds": [
+        "concept_a2_services"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_christian_sujin_suspicious_text_followup",
+      "courseUnitId": "b1_06_life_capstone",
+      "conceptIds": [
+        "concept_b1_life"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_sujin_byeongcheol_family_verification_rule",
+      "courseUnitId": "b1_06_life_capstone",
+      "conceptIds": [
+        "concept_b1_life"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_andrea_minho_friday_schedule",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_sujin_minho_shorter_hours_tradeoff",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_hyuna_andrea_work_family_choices",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_andrea_minho_family_calendar",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_dongsun_sujin_repair_price",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_dongsun_maya_price_notice",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_lena_hyuna_crowded_weekend",
+      "courseUnitId": "b1_01_experience_reasons",
+      "conceptIds": [
+        "concept_b1_reasons_experience"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_hyuna_daniel_resident_flow_filming",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_lena_maya_beyond_music",
+      "courseUnitId": "b1_01_experience_reasons",
+      "conceptIds": [
+        "concept_b1_reasons_experience"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_maya_daniel_tradition_reinterpretation",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_hyuna_daniel_gyeongju_after_apec",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_hyuna_sujin_gyeongju_fieldnotes",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_lena_hyuna_heatwave_plan",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_casual"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_byeongcheol_sujin_heat_electricity",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "role": "assess"
     }
   ],
   "grammarRuleMap": {

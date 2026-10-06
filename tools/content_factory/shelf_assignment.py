@@ -574,6 +574,48 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
 }
 
+# Living Korea batch 39 (2026-10-06): 23 user-reviewed scenes promoted only
+# after KO->EN/DE direct localization, corpus/native-usage QA and explicit Jin
+# approval. Keep these assignments in the canonical shelf map so promotion,
+# migration and shelf completeness checks all resolve the same placement.
+_LIVING_KOREA_BATCH39_ASSIGNMENT: dict[str, tuple[str, ...]] = {
+    "a2_delivery": ("a2_dongsun_christian_suspicious_delivery_text",),
+    "a2_plan": ("a2_lena_hyuna_heatwave_plan",),
+    "a2_work": ("a2_jun_minho_class_phone_rule",),
+    "b1_fandom": ("b1_lena_maya_beyond_music",),
+    "b1_friends": (
+        "b1_jun_christian_phone_study_habit",
+        "b1_lena_hyuna_crowded_weekend",
+    ),
+    "b1_partner": (
+        "b1_sujin_christian_asset_provenance_check",
+        "b1_jun_andrea_phone_house_rules",
+        "b1_christian_sujin_suspicious_text_followup",
+        "b1_sujin_byeongcheol_family_verification_rule",
+        "b1_andrea_minho_friday_schedule",
+        "b1_andrea_minho_family_calendar",
+    ),
+    "b1_repair": ("b1_dongsun_sujin_repair_price",),
+    "b1_team": (
+        "b1_maya_daniel_ai_campaign_cut",
+        "b1_dongsun_maya_price_notice",
+    ),
+    "b2_evidence": (
+        "b2_maya_daniel_tradition_reinterpretation",
+        "b2_hyuna_daniel_gyeongju_after_apec",
+        "b2_hyuna_sujin_gyeongju_fieldnotes",
+    ),
+    "b2_meeting": (
+        "b2_daniel_sujin_ai_asset_handoff",
+        "b2_sujin_minho_shorter_hours_tradeoff",
+    ),
+    "b2_partner": ("b2_byeongcheol_sujin_heat_electricity",),
+    "b2_public": ("b2_hyuna_andrea_work_family_choices",),
+    "b2_travel": ("b2_hyuna_daniel_resident_flow_filming",),
+}
+for _shelf, _ids in _LIVING_KOREA_BATCH39_ASSIGNMENT.items():
+    ASSIGNMENT[_shelf] = (*ASSIGNMENT[_shelf], *_ids)
+
 SHELF_BY_ID: dict[str, str] = {
     scenario_id: shelf
     for shelf, ids in ASSIGNMENT.items()

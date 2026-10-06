@@ -131,6 +131,68 @@ def _read_json(path: Path) -> dict[str, Any]:
     return value
 
 
+
+
+def _stage_validator_dependencies(root: Path, stage: Path) -> None:
+    """Mirror canonical governance inputs required by ContentValidator.
+
+    Scenario staging historically copied only assets/data plus the audit
+    manifest. The 2026-10-06 authoring/localization gates deliberately validate
+    canonical contracts, the native-usage registry, taxonomy and coverage
+    ledger too. Copy those read-only governance inputs into the temporary stage
+    so preview/apply validates the same policy as the real checkout.
+    """
+
+    required = (
+        "tools/content_factory/canonical_scenarios/dialogue_authoring_contract_20261006.json",
+        "tools/content_factory/canonical_scenarios/dialogue_localization_contract_20261006.json",
+        "tools/content_factory/canonical_scenarios/trilingual_native_usage_registry_20261006.json",
+        "tools/content_factory/cefr_matrix/taxonomy.json",
+        "tools/content_factory/review/trilingual_content_topic_coverage_20261006.json",
+    )
+    # Legacy transaction fixtures and grandfathered batches intentionally use
+    # minimal temporary repos. Real batch 39+ promotion is already fail-closed
+    # in _validate_native_usage_promotion_gate before staging, so a missing
+    # governance bundle here means this is a legacy/test root and staging must
+    # preserve the pre-governance transaction behavior.
+    if any(not (root / relative).is_file() for relative in required):
+        return
+
+    for relative in required:
+        source = root / relative
+        target = stage / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, target)
+
+    # The dialogue-authoring validator intentionally requires evidence that at
+    # least one governed scene-first artifact exists. Copy only governed JSON
+    # drafts, not the entire research tree.
+    source_drafts = root / "tools" / "content_factory" / "drafts"
+    target_drafts = stage / "tools" / "content_factory" / "drafts"
+    governed = 0
+    if source_drafts.is_dir():
+        for source in source_drafts.glob("*.json"):
+            try:
+                payload = json.loads(source.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError):
+                continue
+            if not isinstance(payload, dict):
+                continue
+            purpose = str(payload.get("purpose", ""))
+            if (
+                payload.get("status") == "review_only_scene_first"
+                or purpose.startswith(
+                    "Pre-script authoring contract for persona-led culture scenes"
+                )
+            ):
+                target_drafts.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(source, target_drafts / source.name)
+                governed += 1
+    if governed == 0:
+        raise ScenarioIntegrationError(
+            "no governed persona dialogue authoring artifact available for staged validation"
+        )
+
 def _validate_native_usage_promotion_gate(
     root: Path,
     manifest_path: Path,
@@ -838,6 +900,7 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
             root / "tools" / "content_factory" / "content_audit_manifest.json",
             stage_manifest_path,
         )
+        _stage_validator_dependencies(root, stage)
         data = stage / "assets" / "data"
         already_merged = False
         for kind, records in records_by_kind.items():
