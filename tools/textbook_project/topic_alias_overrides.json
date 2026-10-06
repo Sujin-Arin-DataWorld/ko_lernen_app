@@ -1,0 +1,265 @@
+{
+  "schemaVersion": 1,
+  "status": "CURATED_FOR_TEXTBOOK_MAPPING",
+  "effectiveDate": "2026-10-06",
+  "note": "Bridge aliases for app vocab topic labels that intentionally span more than one canonical taxonomy topic. Primary is used for inventory indexing; secondary topics preserve cross-domain meaning. This does not change canonical taxonomy.json.",
+  "overrides": {
+    "Geographie": {
+      "primaryTopic": "personal_identification",
+      "secondaryTopics": [
+        "travel_accommodation"
+      ],
+      "rationale": "Countries/origin vocabulary is mainly used for identity at lower levels; travel is secondary."
+    },
+    "Wohnen & Vertrag": {
+      "primaryTopic": "house_home",
+      "secondaryTopics": [
+        "money_finance_contracts"
+      ],
+      "rationale": "Housing is the communicative domain; contract language is secondary."
+    },
+    "Fanarbeit & Belastung": {
+      "primaryTopic": "media_entertainment_culture_pop",
+      "secondaryTopics": [
+        "work_career"
+      ],
+      "rationale": "Fandom/media labor with workload as secondary."
+    },
+    "Formelle Beschwerde & Abhilfe": {
+      "primaryTopic": "services_public_admin",
+      "secondaryTopics": [
+        "shopping_consumption",
+        "money_finance_contracts"
+      ],
+      "rationale": "Complaint/remedy language crosses public and consumer service contexts."
+    },
+    "Zugangskosten": {
+      "primaryTopic": "money_finance_contracts",
+      "secondaryTopics": [
+        "services_public_admin"
+      ],
+      "rationale": "Fees/costs are financially anchored."
+    },
+    "Framinganalyse": {
+      "primaryTopic": "media_entertainment_culture_pop",
+      "secondaryTopics": [
+        "society_current_affairs"
+      ],
+      "rationale": "Media framing literacy with current-affairs overlap."
+    },
+    "Bürgerversammlung": {
+      "primaryTopic": "politics_law_institutions",
+      "secondaryTopics": [
+        "society_current_affairs"
+      ],
+      "rationale": "Civic participation in institutional local governance."
+    },
+    "Risikosprache": {
+      "primaryTopic": "professional_specialised_fields",
+      "secondaryTopics": [
+        "health_body",
+        "services_public_admin"
+      ],
+      "rationale": "Risk communication is a cross-domain professional register."
+    },
+    "Ortliche Abwägung": {
+      "primaryTopic": "politics_law_institutions",
+      "secondaryTopics": [
+        "society_current_affairs"
+      ],
+      "rationale": "Local public-policy tradeoff language."
+    },
+    "Betriebslast": {
+      "primaryTopic": "work_career",
+      "secondaryTopics": [
+        "economy_business_labour"
+      ],
+      "rationale": "Operational workload is primarily workplace language."
+    },
+    "Autoritätssprache": {
+      "primaryTopic": "society_current_affairs",
+      "secondaryTopics": [
+        "ethics_philosophy_abstract"
+      ],
+      "rationale": "Language, authority and social power are discourse/society topics."
+    },
+    "Widerrufsrecht": {
+      "primaryTopic": "money_finance_contracts",
+      "secondaryTopics": [
+        "shopping_consumption",
+        "politics_law_institutions"
+      ],
+      "rationale": "Contract cancellation rights with consumer/legal overlap."
+    },
+    "Medien & Evidenz": {
+      "primaryTopic": "media_entertainment_culture_pop",
+      "secondaryTopics": [
+        "science_research_evidence"
+      ],
+      "rationale": "Media literacy anchored in evidence evaluation."
+    },
+    "Automatisierung & Rechtsweg": {
+      "primaryTopic": "technology_digital_ai",
+      "secondaryTopics": [
+        "politics_law_institutions"
+      ],
+      "rationale": "Automation with legal remedy as secondary."
+    },
+    "Diskurs, Macht & Verantwortung": {
+      "primaryTopic": "ethics_philosophy_abstract",
+      "secondaryTopics": [
+        "society_current_affairs"
+      ],
+      "rationale": "Abstract discourse about power and responsibility."
+    },
+    "Handytarif": {
+      "primaryTopic": "communication_phone_digital",
+      "secondaryTopics": [
+        "money_finance_contracts"
+      ],
+      "rationale": "Phone/mobile service is primary; contract/payment secondary."
+    },
+    "Bankschalter": {
+      "primaryTopic": "money_finance_contracts",
+      "secondaryTopics": [
+        "services_public_admin"
+      ],
+      "rationale": "Banking service interactions."
+    },
+    "Dienstmail": {
+      "primaryTopic": "work_career",
+      "secondaryTopics": [
+        "communication_phone_digital"
+      ],
+      "rationale": "Professional email is workplace communication."
+    },
+    "Farben": {
+      "primaryTopic": "shopping_consumption",
+      "secondaryTopics": [
+        "feelings_character"
+      ],
+      "rationale": "Colors are most often operationalized in clothing/shopping at beginner level."
+    },
+    "Formelle Vereinbarungen": {
+      "primaryTopic": "money_finance_contracts",
+      "secondaryTopics": [
+        "work_career"
+      ],
+      "rationale": "Formal agreements are contract-centered with workplace overlap."
+    },
+    "Fundsachen": {
+      "primaryTopic": "travel_accommodation",
+      "secondaryTopics": [
+        "services_public_admin"
+      ],
+      "rationale": "Lost-property language is usually encountered during travel/mobility."
+    },
+    "Technikethik & Verantwortung": {
+      "primaryTopic": "technology_digital_ai",
+      "secondaryTopics": [
+        "ethics_philosophy_abstract"
+      ],
+      "rationale": "Technology ethics with explicit moral-analysis overlap."
+    },
+    "Wochenendzusage": {
+      "primaryTopic": "free_time_hobbies_sport",
+      "secondaryTopics": [
+        "daily_life_routines"
+      ],
+      "rationale": "Weekend social planning is leisure first, scheduling second."
+    },
+    "Sprache, Deutung & Macht": {
+      "primaryTopic": "ethics_philosophy_abstract",
+      "secondaryTopics": [
+        "society_current_affairs"
+      ],
+      "rationale": "Interpretation/power is advanced abstract discourse."
+    },
+    "Risiko & öffentliche Information": {
+      "primaryTopic": "professional_specialised_fields",
+      "secondaryTopics": [
+        "services_public_admin"
+      ],
+      "rationale": "Public risk communication requires specialised register."
+    },
+    "Begrüßung": {
+      "primaryTopic": "personal_identification",
+      "secondaryTopics": [
+        "social_etiquette_customs"
+      ],
+      "rationale": "Greeting is core first-contact identity/socialization."
+    },
+    "주거비와 사회 통합": {
+      "primaryTopic": "house_home",
+      "secondaryTopics": [
+        "society_current_affairs",
+        "intercultural_globalisation_migration"
+      ],
+      "rationale": "Housing-cost discourse with social-integration overlap."
+    },
+    "Sprache & Gesellschaft": {
+      "primaryTopic": "society_current_affairs",
+      "secondaryTopics": [
+        "language_learning_communication_repair"
+      ],
+      "rationale": "Language as a social phenomenon."
+    },
+    "Digitale Aufmerksamkeit": {
+      "primaryTopic": "technology_digital_ai",
+      "secondaryTopics": [
+        "media_entertainment_culture_pop"
+      ],
+      "rationale": "Digital attention/algorithmic environment."
+    },
+    "Fitnesskurs": {
+      "primaryTopic": "free_time_hobbies_sport",
+      "secondaryTopics": [
+        "health_body"
+      ],
+      "rationale": "Exercise class is leisure/sport with health overlap."
+    },
+    "Reise & Verkehr": {
+      "primaryTopic": "transport_wayfinding",
+      "secondaryTopics": [
+        "travel_accommodation"
+      ],
+      "rationale": "Mobility/transport is primary; broader travel secondary."
+    },
+    "Sicherheit & Regeln": {
+      "primaryTopic": "services_public_admin",
+      "secondaryTopics": [
+        "professional_specialised_fields"
+      ],
+      "rationale": "Safety/rules often appear as service/public instructions."
+    },
+    "Modernes Leben": {
+      "primaryTopic": "daily_life_routines",
+      "secondaryTopics": [
+        "technology_digital_ai"
+      ],
+      "rationale": "Broad contemporary daily-life vocabulary."
+    },
+    "Sprache und Wandel": {
+      "primaryTopic": "society_current_affairs",
+      "secondaryTopics": [
+        "language_learning_communication_repair"
+      ],
+      "rationale": "Language change as a social/current-affairs theme."
+    },
+    "AI 투명성과 문화 노동": {
+      "primaryTopic": "technology_digital_ai",
+      "secondaryTopics": [
+        "economy_business_labour",
+        "media_entertainment_culture_pop"
+      ],
+      "rationale": "AI transparency is primary; creative labor/platform economy secondary."
+    },
+    "인구 담론과 제도 책임": {
+      "primaryTopic": "society_current_affairs",
+      "secondaryTopics": [
+        "politics_law_institutions"
+      ],
+      "rationale": "Demographic discourse with institutional responsibility."
+    }
+  }
+}

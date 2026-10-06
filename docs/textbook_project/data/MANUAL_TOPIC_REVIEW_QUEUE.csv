@@ -1,0 +1,194 @@
+﻿reviewKind,rootId,level,currentTopic,titleKo,titleEn,titleDe,linkedSurfaces,unmappedReason,manualPrimaryTopicId,manualSecondaryTopicIds,reviewNote,reviewStatus
+cloze,cloze_a1_0223,A1,Wochenendzusage,,,,cloze,"ambiguous top=daily_life_routines:160, second=160",,,,PENDING
+cloze,cloze_a1_0224,A1,Wochenendzusage,,,,cloze,"ambiguous top=daily_life_routines:160, second=160",,,,PENDING
+cloze,cloze_a1_0225,A1,Wochenendzusage,,,,cloze,"ambiguous top=daily_life_routines:160, second=160",,,,PENDING
+cloze,cloze_a1_0229,A1,Wochenendzusage,,,,cloze,"ambiguous top=daily_life_routines:160, second=160",,,,PENDING
+cloze,cloze_a1_0230,A1,Wochenendzusage,,,,cloze,"ambiguous top=daily_life_routines:160, second=160",,,,PENDING
+cloze,cloze_a1_0231,A1,Wochenendzusage,,,,cloze,"ambiguous top=daily_life_routines:160, second=160",,,,PENDING
+cloze,cloze_a1_0753,A1,Begrüßung,,,,cloze,"ambiguous top=personal_identification:160, second=160",,,,PENDING
+cloze,cloze_a2_0182,B1,Handytarif,,,,cloze,"ambiguous top=money_finance_contracts:160, second=160",,,,PENDING
+cloze,cloze_a2_0184,B1,Bankschalter,,,,cloze,"ambiguous top=services_public_admin:170, second=170",,,,PENDING
+cloze,cloze_a2_0245,B1,Fundsachen,,,,cloze,"ambiguous top=services_public_admin:160, second=160",,,,PENDING
+cloze,cloze_a2_0248,B1,Fundsachen,,,,cloze,"ambiguous top=services_public_admin:160, second=160",,,,PENDING
+cloze,cloze_a2_0249,B1,Fundsachen,,,,cloze,"ambiguous top=services_public_admin:160, second=160",,,,PENDING
+cloze,cloze_b1_0059,B1,Wohnen & Vertrag,,,,cloze,"ambiguous top=money_finance_contracts:160, second=160",,,,PENDING
+cloze,cloze_b1_0060,B1,Wohnen & Vertrag,,,,cloze,"ambiguous top=money_finance_contracts:160, second=160",,,,PENDING
+cloze,cloze_b1_0061,B1,Wohnen & Vertrag,,,,cloze,"ambiguous top=money_finance_contracts:160, second=160",,,,PENDING
+cloze,cloze_b1_0081,B1,Wohnen & Vertrag,,,,cloze,"ambiguous top=money_finance_contracts:160, second=160",,,,PENDING
+cloze,cloze_b1_0082,B1,Wohnen & Vertrag,,,,cloze,"ambiguous top=money_finance_contracts:160, second=160",,,,PENDING
+cloze,cloze_b1_0083,B1,Wohnen & Vertrag,,,,cloze,"ambiguous top=money_finance_contracts:160, second=160",,,,PENDING
+cloze,cloze_b1_0184,B1,Dienstmail,,,,cloze,"ambiguous top=work_career:160, second=160",,,,PENDING
+cloze,cloze_b2_0059,B2,Formelle Vereinbarungen,,,,cloze,"ambiguous top=work_career:160, second=160",,,,PENDING
+cloze,cloze_b2_0060,B2,Formelle Vereinbarungen,,,,cloze,"ambiguous top=work_career:160, second=160",,,,PENDING
+cloze,cloze_b2_0061,B2,Formelle Vereinbarungen,,,,cloze,"ambiguous top=work_career:160, second=160",,,,PENDING
+cloze,cloze_b2_0062,B2,Formelle Vereinbarungen,,,,cloze,"ambiguous top=work_career:160, second=160",,,,PENDING
+cloze,cloze_b2_0068,B2,Formelle Vereinbarungen,,,,cloze,"ambiguous top=work_career:160, second=160",,,,PENDING
+cloze,cloze_b2_0069,B2,Formelle Vereinbarungen,,,,cloze,"ambiguous top=work_career:160, second=160",,,,PENDING
+cloze,cloze_b2_0073,B2,Formelle Beschwerde & Abhilfe,,,,cloze,"ambiguous top=services_public_admin:160, second=160",,,,PENDING
+cloze,cloze_b2_0075,B2,Formelle Beschwerde & Abhilfe,,,,cloze,"ambiguous top=services_public_admin:160, second=160",,,,PENDING
+cloze,cloze_b2_0076,B2,Formelle Beschwerde & Abhilfe,,,,cloze,"ambiguous top=services_public_admin:160, second=160",,,,PENDING
+cloze,cloze_b2_0081,B2,Formelle Beschwerde & Abhilfe,,,,cloze,"ambiguous top=services_public_admin:160, second=160",,,,PENDING
+cloze,cloze_b2_0106,B2,Sprache & Gesellschaft,,,,cloze,"ambiguous top=society_current_affairs:160, second=160",,,,PENDING
+cloze,cloze_b2_0107,B2,Sprache & Gesellschaft,,,,cloze,"ambiguous top=society_current_affairs:160, second=160",,,,PENDING
+cloze,cloze_b2_0108,B2,Sprache & Gesellschaft,,,,cloze,"ambiguous top=society_current_affairs:160, second=160",,,,PENDING
+cloze,cloze_b2_0109,B2,Sprache & Gesellschaft,,,,cloze,"ambiguous top=society_current_affairs:160, second=160",,,,PENDING
+cloze,cloze_b2_0110,B2,Sprache & Gesellschaft,,,,cloze,"ambiguous top=society_current_affairs:160, second=160",,,,PENDING
+cloze,cloze_b2_0111,B2,Sprache & Gesellschaft,,,,cloze,"ambiguous top=society_current_affairs:160, second=160",,,,PENDING
+cloze,cloze_b2_0112,B2,Sprache & Gesellschaft,,,,cloze,"ambiguous top=society_current_affairs:160, second=160",,,,PENDING
+cloze,cloze_b2_0113,B2,Sprache & Gesellschaft,,,,cloze,"ambiguous top=society_current_affairs:160, second=160",,,,PENDING
+cloze,cloze_b2_0114,B2,Sprache & Gesellschaft,,,,cloze,"ambiguous top=society_current_affairs:160, second=160",,,,PENDING
+cloze,cloze_b2_0115,B2,Sprache & Gesellschaft,,,,cloze,"ambiguous top=society_current_affairs:160, second=160",,,,PENDING
+cloze,cloze_b2_0116,B2,Sprache & Gesellschaft,,,,cloze,"ambiguous top=society_current_affairs:160, second=160",,,,PENDING
+cloze,cloze_b2_0117,B2,Sprache & Gesellschaft,,,,cloze,"ambiguous top=society_current_affairs:160, second=160",,,,PENDING
+cloze,cloze_b2_0167,B2,Formelle Beschwerde & Abhilfe,,,,cloze,"ambiguous top=services_public_admin:160, second=160",,,,PENDING
+cloze,cloze_b2_0168,B2,Formelle Beschwerde & Abhilfe,,,,cloze,"ambiguous top=services_public_admin:160, second=160",,,,PENDING
+cloze,cloze_b2_0169,B2,Formelle Beschwerde & Abhilfe,,,,cloze,"ambiguous top=services_public_admin:160, second=160",,,,PENDING
+cloze,cloze_b2_0362,B2,Formelle Vereinbarungen,,,,cloze,"ambiguous top=work_career:160, second=160",,,,PENDING
+cloze,cloze_b2_0364,B2,Formelle Vereinbarungen,,,,cloze,"ambiguous top=work_career:160, second=160",,,,PENDING
+cloze,cloze_c1_0025,C1,Risiko & öffentliche Information,,,,cloze,"ambiguous top=society_current_affairs:160, second=160",,,,PENDING
+cloze,cloze_c1_0026,C1,Risiko & öffentliche Information,,,,cloze,"ambiguous top=society_current_affairs:160, second=160",,,,PENDING
+cloze,cloze_c1_0027,C1,Risiko & öffentliche Information,,,,cloze,"ambiguous top=society_current_affairs:160, second=160",,,,PENDING
+cloze,cloze_c1_0028,C1,Risiko & öffentliche Information,,,,cloze,"ambiguous top=society_current_affairs:160, second=160",,,,PENDING
+cloze,cloze_c1_0029,C1,Risiko & öffentliche Information,,,,cloze,"ambiguous top=society_current_affairs:160, second=160",,,,PENDING
+cloze,cloze_c1_0030,C1,Risiko & öffentliche Information,,,,cloze,"ambiguous top=society_current_affairs:160, second=160",,,,PENDING
+cloze,cloze_c1_0031,C1,Risiko & öffentliche Information,,,,cloze,"ambiguous top=society_current_affairs:160, second=160",,,,PENDING
+cloze,cloze_c1_0032,C1,Risiko & öffentliche Information,,,,cloze,"ambiguous top=society_current_affairs:160, second=160",,,,PENDING
+cloze,cloze_c1_0033,C1,Risiko & öffentliche Information,,,,cloze,"ambiguous top=society_current_affairs:160, second=160",,,,PENDING
+cloze,cloze_c1_0034,C1,Risiko & öffentliche Information,,,,cloze,"ambiguous top=society_current_affairs:160, second=160",,,,PENDING
+cloze,cloze_c1_0035,C1,Risiko & öffentliche Information,,,,cloze,"ambiguous top=society_current_affairs:160, second=160",,,,PENDING
+cloze,cloze_c1_0036,C1,Risiko & öffentliche Information,,,,cloze,"ambiguous top=society_current_affairs:160, second=160",,,,PENDING
+cloze,cloze_c2_0025,C2,"Sprache, Deutung & Macht",,,,cloze,"ambiguous top=ethics_philosophy_abstract:160, second=160",,,,PENDING
+cloze,cloze_c2_0026,C2,"Sprache, Deutung & Macht",,,,cloze,"ambiguous top=ethics_philosophy_abstract:160, second=160",,,,PENDING
+cloze,cloze_c2_0027,C2,"Sprache, Deutung & Macht",,,,cloze,"ambiguous top=ethics_philosophy_abstract:160, second=160",,,,PENDING
+cloze,cloze_c2_0028,C2,"Sprache, Deutung & Macht",,,,cloze,"ambiguous top=ethics_philosophy_abstract:160, second=160",,,,PENDING
+cloze,cloze_c2_0029,C2,"Sprache, Deutung & Macht",,,,cloze,"ambiguous top=ethics_philosophy_abstract:160, second=160",,,,PENDING
+cloze,cloze_c2_0030,C2,"Sprache, Deutung & Macht",,,,cloze,"ambiguous top=ethics_philosophy_abstract:160, second=160",,,,PENDING
+cloze,cloze_c2_0031,C2,"Sprache, Deutung & Macht",,,,cloze,"ambiguous top=ethics_philosophy_abstract:160, second=160",,,,PENDING
+cloze,cloze_c2_0032,C2,"Sprache, Deutung & Macht",,,,cloze,"ambiguous top=ethics_philosophy_abstract:160, second=160",,,,PENDING
+cloze,cloze_c2_0033,C2,"Sprache, Deutung & Macht",,,,cloze,"ambiguous top=ethics_philosophy_abstract:160, second=160",,,,PENDING
+cloze,cloze_c2_0034,C2,"Sprache, Deutung & Macht",,,,cloze,"ambiguous top=ethics_philosophy_abstract:160, second=160",,,,PENDING
+cloze,cloze_c2_0035,C2,"Sprache, Deutung & Macht",,,,cloze,"ambiguous top=ethics_philosophy_abstract:160, second=160",,,,PENDING
+cloze,cloze_c2_0036,C2,"Sprache, Deutung & Macht",,,,cloze,"ambiguous top=ethics_philosophy_abstract:160, second=160",,,,PENDING
+cloze,cloze_c2_0049,C2,Technikethik & Verantwortung,,,,cloze,"ambiguous top=technology_digital_ai:170, second=170",,,,PENDING
+cloze,cloze_c2_0050,C2,Technikethik & Verantwortung,,,,cloze,"ambiguous top=technology_digital_ai:170, second=170",,,,PENDING
+cloze,cloze_c2_0051,C2,Technikethik & Verantwortung,,,,cloze,"ambiguous top=technology_digital_ai:170, second=170",,,,PENDING
+cloze,cloze_c2_0052,C2,Technikethik & Verantwortung,,,,cloze,"ambiguous top=technology_digital_ai:170, second=170",,,,PENDING
+cloze,cloze_c2_0221,C2,Framinganalyse,,,,cloze,"ambiguous top=media_entertainment_culture_pop:160, second=160",,,,PENDING
+cloze,cloze_c2_0222,C2,Framinganalyse,,,,cloze,"ambiguous top=media_entertainment_culture_pop:160, second=160",,,,PENDING
+cloze,cloze_c2_0223,C2,Framinganalyse,,,,cloze,"ambiguous top=media_entertainment_culture_pop:160, second=160",,,,PENDING
+cloze,cloze_c2_0224,C2,Technikethik & Verantwortung,,,,cloze,"ambiguous top=technology_digital_ai:170, second=170",,,,PENDING
+cloze,cloze_c2_0225,C2,Technikethik & Verantwortung,,,,cloze,"ambiguous top=technology_digital_ai:170, second=170",,,,PENDING
+cloze,cloze_c2_0226,C2,Technikethik & Verantwortung,,,,cloze,"ambiguous top=technology_digital_ai:170, second=170",,,,PENDING
+cloze,cloze_c2_0227,C2,"Sprache, Deutung & Macht",,,,cloze,"ambiguous top=ethics_philosophy_abstract:160, second=160",,,,PENDING
+cloze,cloze_c2_0228,C2,"Sprache, Deutung & Macht",,,,cloze,"ambiguous top=ethics_philosophy_abstract:160, second=160",,,,PENDING
+cloze,cloze_c2_0229,C2,"Sprache, Deutung & Macht",,,,cloze,"ambiguous top=ethics_philosophy_abstract:160, second=160",,,,PENDING
+scenario_family,a1_theme_park_date_choices,A1,a1_dating,뭐부터 탈까?,What should we ride first?,Womit fahren wir zuerst?,listening_lesson|live_scenario,"ambiguous top=family_relationships:30, second=20",,,,PENDING
+scenario_family,a1_w10_fandom,A1,a1_fandom,굿즈 가게에서 좋아하는 가수 이야기하기,Talking about a favorite singer at the goods shop,Im Fan-Shop über den Lieblingssänger reden,listening_lesson|live_scenario,"ambiguous top=shopping_consumption:50, second=50",,,,PENDING
+scenario_family,a1_w10_wayfinding,A1,a1_wayfinding,지나가는 사람에게 은행 가는 길 묻기,Asking a passerby for directions to the bank,Einen Passanten nach dem Weg zur Bank fragen,listening_lesson|live_scenario,"ambiguous top=transport_wayfinding:30, second=30",,,,PENDING
+scenario_family,a2_byeongcheol_walk_break,A2,a2_move,산책 중 잠깐 쉬기,Taking a break on a walk,Eine Pause beim Spaziergang,listening_lesson|live_scenario,"ambiguous top=technology_digital_ai:30, second=10",,,,PENDING
+scenario_family,a2_jun_game_time_change,A2,a2_plan,게임 시간을 바꾸기,Changing the time to play,Die Spielzeit verschieben,listening_lesson|live_scenario,"ambiguous top=numbers_time_dates:30, second=10",,,,PENDING
+scenario_family,a2_minho_weekend_cooking_plan,A2,a2_plan,주말 요리 계획,Cooking together at the weekend,Am Wochenende zusammen kochen,listening_lesson|live_scenario,"ambiguous top=house_home:30, second=20",,,,PENDING
+scenario_family,a2_theme_park_date_break,A2,a2_dating,잠깐 쉬었다 갈까?,Should we take a quick break?,Machen wir kurz Pause?,listening_lesson|live_scenario,"ambiguous top=numbers_time_dates:20, second=10",,,,PENDING
+scenario_family,a2_w10_apt,A2,a2_apt,분리수거 하는 날,Recycling day,Der Tag zum Mülltrennen,listening_lesson|live_scenario,"ambiguous top=environment_sustainability:30, second=20",,,,PENDING
+scenario_family,a2_w10_booking,A2,a2_booking,식당 예약 전화하기,Calling to book a restaurant table,Einen Tisch im Restaurant reservieren,listening_lesson|live_scenario,"ambiguous top=family_relationships:30, second=30",,,,PENDING
+scenario_family,a2_w10_friends,A2,a2_friends,저녁 먹고 노래방 갈까?,Shall we go to karaoke after dinner?,Sollen wir nach dem Essen ins Karaoke gehen?,listening_lesson|live_scenario,"ambiguous top=free_time_hobbies_sport:20, second=10",,,,PENDING
+scenario_family,accessible_festival_route,B2,b2_public,축제 동선을 휠체어도 이용할 수 있게 바꾸기,Keeping a festival route accessible for wheelchairs,Eine Festivalroute für Rollstühle freihalten,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=technology_digital_ai:30, second=30",,,,PENDING
+scenario_family,after_hours_messages,C1,c1_briefing,퇴근 후 연락의 경계를 팀에서 정하기,Setting expectations for after-hours messages,Erwartungen bei Nachrichten nach Feierabend klären,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=work_career:50, second=50",,,,PENDING
+scenario_family,ai_image_disclosure,B2,b2_evidence,AI로 만든 이미지를 광고에 쓸 때,Disclosing an AI image in an ad draft,Ein KI-Bild in einem Werbeentwurf kennzeichnen,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=technology_digital_ai:30, second=10",,,,PENDING
+scenario_family,ai_summary_wrong_fact,B1,b1_team,AI 요약에 틀린 내용이 섞였을 때,Finding a wrong fact in an AI summary,Einen Fehler in einer KI-Zusammenfassung finden,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=numbers_time_dates:30, second=30",,,,PENDING
+scenario_family,airport_arrival,A1,a1_transit,공항에서 첫 인사,Your first question at the airport,Die erste Frage am Flughafen,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=personal_identification:30, second=30",,,,PENDING
+scenario_family,anonymous_survey_trust,C1,c1_briefing,익명 직원 설문이 정말 익명인지 묻기,Protecting anonymity in a small-team survey,Anonymität in einem kleinen Team absichern,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=work_career:30, second=30",,,,PENDING
+scenario_family,b1_dongsun_norigae_shop_post,B1,b1_team,노리개 사진을 올리기 전에 확인하기,Checking details before posting a norigae,Vor einem Norigae-Post Details abstimmen,listening_lesson|live_scenario,"ambiguous top=shopping_consumption:30, second=30",,,,PENDING
+scenario_family,b1_theme_park_date_thrill,B1,b1_dating,두 번이나 돌았어,It flipped twice,Zweimal über Kopf,listening_lesson|live_scenario,"ambiguous top=family_relationships:10, second=10",,,,PENDING
+scenario_family,b1_w10_fandom,B1,b1_fandom,티켓팅에 실패했을 때,When the ticketing fails,Wenn das Ticketing schiefgeht,listening_lesson|live_scenario,"ambiguous top=technology_digital_ai:30, second=20",,,,PENDING
+scenario_family,b1_w10_form,B1,b1_form,주소 변경에 필요한 서류와 마감일,Documents and deadline for an address change,Unterlagen und Frist für eine Adressänderung,listening_lesson|live_scenario,"ambiguous top=services_public_admin:30, second=30",,,,PENDING
+scenario_family,b1_w10_incident,B1,b1_incident,가벼운 접촉 사고 뒤에,After a minor accident,Nach einem kleinen Unfall,listening_lesson|live_scenario,"ambiguous top=transport_wayfinding:20, second=0",,,,PENDING
+scenario_family,b1_w10_insurance,B1,b1_insurance,실손보험 청구가 되는지 확인하기,Checking whether supplementary insurance covers it,"Prüfen, ob die Zusatzversicherung zahlt",listening_lesson|live_scenario,"ambiguous top=health_body:30, second=30",,,,PENDING
+scenario_family,b1_w10_partner,B1,b1_partner,혼자만의 시간이 필요할 때,When you need some time alone,Wenn man Zeit für sich braucht,listening_lesson|live_scenario,"ambiguous top=numbers_time_dates:30, second=20",,,,PENDING
+scenario_family,b1_w10_repair,B1,b1_repair,세탁기가 안 돌아갈 때,When the washing machine stops working,Wenn die Waschmaschine nicht mehr läuft,listening_lesson|live_scenario,"ambiguous top=house_home:30, second=30",,,,PENDING
+scenario_family,b2_daniel_hyuna_hanji_filming_scope,B2,b2_evidence,한지 작업실 촬영 범위 정하기,Setting filming boundaries at a hanji workshop,Den Drehumfang in einer Hanji-Werkstatt festlegen,listening_lesson|live_scenario,"ambiguous top=shopping_consumption:10, second=10",,,,PENDING
+scenario_family,b2_meeting_hold_for_evidence_2026,B2,b2_meeting,근거가 더 필요하다고 설명하기,Explaining why more evidence is needed,"Erklären, warum weitere Belege nötig sind",listening_lesson|live_scenario,"ambiguous top=technology_digital_ai:40, second=40",,,,PENDING
+scenario_family,b2_theme_park_date_safety,B2,b2_dating,타기 전에 꼭 확인해,Check everything before the ride,Vor der Fahrt: alles prüfen,listening_lesson|live_scenario,"ambiguous top=family_relationships:10, second=10",,,,PENDING
+scenario_family,b2_w10_negotiate,B2,b2_negotiate,"촬영 조건, 다시 협상하기",Renegotiating the shoot terms,Drehbedingungen neu verhandeln,listening_lesson|live_scenario,"ambiguous top=media_entertainment_culture_pop:20, second=0",,,,PENDING
+scenario_family,b2_w10_notice,B2,b2_notice,"과태료 이의신청, 절차 다시 확인하기",Clarifying the procedure after a rejected fine appeal,Das Verfahren nach einem abgelehnten Bußgeld-Einspruch klären,listening_lesson|live_scenario,"ambiguous top=services_public_admin:40, second=40",,,,PENDING
+scenario_family,b2_w10_partner,B2,b2_partner,미리 알려 주는 게 좋겠어,It would be better to let us know in advance,"Es wäre besser, vorher Bescheid zu geben",listening_lesson|live_scenario,"ambiguous top=family_relationships:30, second=20",,,,PENDING
+scenario_family,bakery_payment_bag,A1,a1_counter,빵집에서 봉투 묻고 답하기,Saying no to a bag at the bakery,In der Bäckerei auf eine Tüte verzichten,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=house_home:20, second=20",,,,PENDING
+scenario_family,birthday_expectation_gap,B1,b1_feel,생일을 크게 챙길 줄 몰랐을 때,Different birthday expectations,Unterschiedliche Erwartungen an einen Geburtstag,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=social_etiquette_customs:20, second=10",,,,PENDING
+scenario_family,brand_private_account_boundary,B2,b2_evidence,회사 계정과 개인 계정의 경계를 정하기,Personal opinions on a company account,Persönliche Meinung auf einem Firmenaccount,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=work_career:20, second=20",,,,PENDING
+scenario_family,break_glass_apology,A1,a1_body,실수로 잔을 깨뜨렸을 때,Breaking a glass,Ein Glas zerbrechen,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=health_body:20, second=0",,,,PENDING
+scenario_family,c1_maya_hyuna_daniel_talchum_shortform,C1,c1_attribution,탈춤 숏폼에서 원형과 재해석 구분하기,Separating tradition from reinterpretation in a talchum short video,Originalform und Neuinterpretation in einem Talchum-Kurzvideo trennen,listening_lesson|live_scenario,"ambiguous top=media_entertainment_culture_pop:30, second=20",,,,PENDING
+scenario_family,c1_theme_park_date_next_time,C1,c1_dating,다음에 다시 올 이유,A reason to come back,"Ein Grund, wiederzukommen",listening_lesson|live_scenario,"ambiguous top=family_relationships:30, second=20",,,,PENDING
+scenario_family,c1_w10_access,C1,c1_access,계약서 폴더 접근 권한을 요청할 때,Requesting access to the contracts folder,Wenn man Zugriff auf den Vertragsordner beantragt,listening_lesson|live_scenario,"ambiguous top=work_career:30, second=30",,,,PENDING
+scenario_family,c1_w10_conflict_interest,C1,c1_conflict_interest,심사에서 이해관계를 미리 밝히기,Disclosing a conflict of interest before a review,Einen Interessenkonflikt vor der Begutachtung offenlegen,listening_lesson|live_scenario,"ambiguous top=politics_law_institutions:20, second=20",,,,PENDING
+scenario_family,c1_w10_facework,C1,c1_facework,실수를 지적하되 체면은 지켜 주기,Pointing out a mistake without making someone lose face,"Einen Fehler ansprechen, ohne das Gesicht zu verletzen",listening_lesson|live_scenario,"ambiguous top=feelings_character:20, second=10",,,,PENDING
+scenario_family,c1_w10_friends,C1,c1_friends,"오래된 친구 사이, 달라진 형편 이야기하기",Talking with an old friend about how differently things have turned out,Mit einer alten Freundin über die unterschiedliche Lebenslage sprechen,listening_lesson|live_scenario,"ambiguous top=family_relationships:30, second=10",,,,PENDING
+scenario_family,c2_w10_aesthetic,C2,c2_aesthetic,작품의 의미는 누가 정하는가,Who decides what a work means?,Wer bestimmt die Bedeutung eines Werks?,listening_lesson|live_scenario,"ambiguous top=ethics_philosophy_abstract:30, second=20",,,,PENDING
+scenario_family,c2_w10_fandom,C2,c2_fandom,"2차 창작, 어디까지 내 것이라 할 수 있을까",Fan works: how far does ownership really go?,Fanwerke: wie weit reicht das eigene Urheberrecht?,listening_lesson|live_scenario,"ambiguous top=technology_digital_ai:20, second=10",,,,PENDING
+scenario_family,c2_w10_friends,C2,c2_friends,"우정으로 시작한 사업, 이제는 정리할 때",A business that started from friendship: time to sort it out,Ein aus Freundschaft gestartetes Geschäft: Zeit für eine Klärung,listening_lesson|live_scenario,"ambiguous top=technology_digital_ai:30, second=30",,,,PENDING
+scenario_family,c2_w10_mandate,C2,c2_mandate,"위임장에 적힌 범위, 어디까지 대신할 수 있나",How far a power of attorney actually reaches,Wie weit reicht eine Vollmacht wirklich,listening_lesson|live_scenario,"ambiguous top=services_public_admin:30, second=30",,,,PENDING
+scenario_family,c2_w10_record,C2,c2_record,"화재로 사라진 등기부, 소유권을 어떻게 증명할까",Proving ownership when the land register has a gap,Wie man Eigentum aus einer Lücke im Grundbuch beweist,listening_lesson|live_scenario,"ambiguous top=services_public_admin:20, second=20",,,,PENDING
+scenario_family,cancelled_trip_hurt_feelings,B1,b1_feel,여행 약속을 혼자 바꿔 서운할 때,Changing a trip time without asking,Eine Reisezeit allein ändern,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=numbers_time_dates:30, second=30",,,,PENDING
+scenario_family,central_local_disaster_responsibility,C2,c2_discourse,재난 대응 실패의 중앙·지방 책임을 나누기,Separating central and local responsibility in a disaster response,Zentrale und lokale Verantwortung bei einer Katastrophe auseinanderhalten,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=ethics_philosophy_abstract:30, second=20",,,,PENDING
+scenario_family,climate_model_local_decision,C2,c2_ethics,기후 모델의 불확실성을 지역 결정에 쓰기,Making local decisions across uncertain climate models,Mit unterschiedlichen Klimamodellen lokal entscheiden,live_scenario,"ambiguous top=technology_digital_ai:60, second=60",,,,PENDING
+scenario_family,community_festival_shift,B1,b1_neighbor,동네 축제 봉사 시간을 바꿔야 할 때,Changing a volunteer shift at a neighborhood festival,Eine Schicht beim Nachbarschaftsfest tauschen,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=neighbourhood_environment:30, second=30",,,,PENDING
+scenario_family,delivery_dinner_spicy,A2,a2_eat,배달 음식이 너무 매울 때,When the delivery food is too spicy,Wenn das Lieferessen zu scharf ist,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=food_drink:30, second=10",,,,PENDING
+scenario_family,delivery_rider_safety_tradeoff,C1,c1_policy,빠른 배달과 라이더 안전을 함께 논의하기,Connecting fast delivery with rider safety,Schnelle Lieferung und Fahrersicherheit zusammendenken,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=technology_digital_ai:30, second=20",,,,PENDING
+scenario_family,emergency_price_controls,C2,c2_discourse,재난 시 생필품 가격 제한의 역효과를 논의하기,Pairing emergency price caps with supply safeguards,Preisobergrenzen im Notfall mit Versorgungssicherheit verbinden,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=money_finance_contracts:30, second=30",,,,PENDING
+scenario_family,favorite_drama_chat,A2,a2_plan,한국 생활과 좋아하는 드라마 이야기하기,Talking about life in Korea and TV shows,Über das Leben in Korea und Serien sprechen,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=media_entertainment_culture_pop:30, second=20",,,,PENDING
+scenario_family,favorite_korean_music,A1,a1_greet,좋아하는 한국 음악 묻기,Talking about Korean music,Über koreanische Musik sprechen,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=media_entertainment_culture_pop:30, second=30",,,,PENDING
+scenario_family,feedback_specific_example,B2,b2_meeting,모호한 업무 피드백을 구체화하기,Turning vague feedback into a concrete action,Vages Feedback in eine konkrete Aufgabe übersetzen,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=work_career:30, second=10",,,,PENDING
+scenario_family,forgot_presentation_cable,A2,a2_work,발표 케이블을 안 가져왔을 때,Forgetting the presentation cable,Das Präsentationskabel vergessen,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=work_career:30, second=10",,,,PENDING
+scenario_family,freelance_scope_change,B2,b2_meeting,수정 요청이 계약 범위를 넘었을 때,Negotiating an extra filming request,Eine zusätzliche Drehanfrage verhandeln,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=work_career:30, second=20",,,,PENDING
+scenario_family,fremdschaemen_live,B2,b2_evidence,친구의 과한 라이브 방송을 보며 민망할 때,Feeling embarrassed by a friend's over-the-top livestream,Sich bei einem übertriebenen Livestream fremdschämen,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=family_relationships:30, second=30",,,,PENDING
+scenario_family,friend_cancelled_plan,A2,a2_plan,갑자기 약속을 취소했을 때,When a friend cancels at the last minute,Wenn eine Freundin kurzfristig absagt,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=family_relationships:10, second=10",,,,PENDING
+scenario_family,group_chat_photo_permission,A2,a2_work,단체 사진을 올리기 전에 묻기,Asking before posting a group photo,Vor dem Posten eines Gruppenfotos fragen,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=media_entertainment_culture_pop:20, second=10",,,,PENDING
+scenario_family,korea_stay_smalltalk,A1,a1_greet,한국 생활이 어떤지 묻기,Talking about life in Korea,Über das Leben in Korea sprechen,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=intercultural_globalisation_migration:20, second=0",,,,PENDING
+scenario_family,ktx_sold_out_alternative,B1,b1_delay,KTX가 매진됐을 때 다른 방법 찾기,Choosing an alternative when the KTX is sold out,Eine Alternative zum ausverkauften KTX wählen,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=numbers_time_dates:20, second=20",,,,PENDING
+scenario_family,library_card_problem,A2,a2_delivery,도서관 카드가 인식되지 않을 때,When your library card doesn't work,Wenn der Bibliotheksausweis nicht funktioniert,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=education_study:20, second=20",,,,PENDING
+scenario_family,library_quiet_zone_conflict,B2,b2_public,도서관 통화 구역을 두고 갈등할 때,A misunderstanding in the library call zone,Ein Missverständnis in der Telefonzone der Bibliothek,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=work_career:30, second=30",,,,PENDING
+scenario_family,mart_grocery,A1,a1_counter,마트에서 두부 찾기,Finding tofu at the supermarket,Tofu im Supermarkt finden,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=shopping_consumption:30, second=10",,,,PENDING
+scenario_family,medical_uncertainty_consent,C2,c2_ethics,불확실한 치료 효과를 동의 과정에서 설명하기,Explaining uncertain treatment effects during consent,Unsichere Behandlungseffekte in einer Einwilligung erklären,listening_lesson|live_scenario,"ambiguous top=health_body:40, second=40",,,,PENDING
+scenario_family,meeting_opening_context,B2,b2_meeting,처음 참석한 회의에서 목적 확인하기,Clarifying the goal at the start of a meeting,Zu Beginn eines Meetings das Ziel klären,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=work_career:30, second=20",,,,PENDING
+scenario_family,museum_label_multiple_views,C1,c1_attribution,박물관 설명문에 누구의 관점을 담을지,Including multiple perspectives in a museum label,Mehrere Perspektiven in einem Museumstext,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=technology_digital_ai:30, second=30",,,,PENDING
+scenario_family,nightlife_noise_balance,C1,c1_mediation,야간 상권과 주민 수면권을 함께 다루기,Balancing nightlife with residents' sleep,Nachtwirtschaft und Schlaf der Anwohner ausbalancieren,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=neighbourhood_environment:40, second=40",,,,PENDING
+scenario_family,noisy_neighbor_evening,B1,b1_refund,늦은 밤 이웃집 음악이 클 때,Loud music from a neighbor's apartment,Laute Musik aus der Nachbarwohnung,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=neighbourhood_environment:30, second=30",,,,PENDING
+scenario_family,package_wrong_door,A2,a2_delivery,택배가 옆집 앞에 놓였을 때,A package at the wrong door,Ein Paket vor der falschen Tür,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=shopping_consumption:30, second=10",,,,PENDING
+scenario_family,park_pet_manners,B1,b1_neighbor,공원에서 목줄이 긴 강아지를 만났을 때,A long dog leash across a running path,Eine lange Hundeleine auf dem Laufweg,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=neighbourhood_environment:10, second=10",,,,PENDING
+scenario_family,passive_voice_accountability,C2,c2_representation,보도자료의 수동태가 책임 주체를 지울 때,Restoring accountability in a passive press release,Verantwortung in einer passiven Pressemitteilung sichtbar machen,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=media_entertainment_culture_pop:30, second=30",,,,PENDING
+scenario_family,plans_with_friend,A2,a2_plan,주말에 전시 보러 가기,Planning an exhibition visit,Einen Ausstellungsbesuch planen,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=free_time_hobbies_sport:30, second=20",,,,PENDING
+scenario_family,platform_moderation_appeal,C1,c1_policy,커뮤니티 글이 자동으로 숨겨졌을 때,Appealing an automatically hidden warning post,Eine automatisch verborgene Warnung erneut prüfen,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=technology_digital_ai:30, second=20",,,,PENDING
+scenario_family,recycling_policy_pilot,B2,b2_public,아파트 음식물 쓰레기 방식을 바꾸기,Piloting a new food-waste system,Ein neues Biomüllsystem zunächst testen,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=environment_sustainability:30, second=30",,,,PENDING
+scenario_family,reel_caption_misunderstanding,B1,b1_delay,릴스 자막이 가게를 비꼰 것처럼 보였을 때,When a reel caption sounds mocking,Wenn eine Reel-Bildunterschrift spöttisch wirkt,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=shopping_consumption:30, second=20",,,,PENDING
+scenario_family,running_injury_training_plan,B1,b1_delay,달리다 무릎이 아픈데 대회를 앞뒀을 때,Adjusting training because of knee pain,Das Training wegen Knieschmerzen anpassen,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=technology_digital_ai:30, second=20",,,,PENDING
+scenario_family,samgyeopsal_first_time,A2,a2_eat,삼겹살집에서 굽는 순서 묻기,Grilling samgyeopsal for the first time,Zum ersten Mal Samgyeopsal grillen,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=house_home:20, second=20",,,,PENDING
+scenario_family,shared_cup_recycling,B1,b1_neighbor,공용 주방 일회용 컵을 줄이기,Reducing disposable cups in internal meetings,Bei internen Meetings weniger Einwegbecher nutzen,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=neighbourhood_environment:30, second=30",,,,PENDING
+scenario_family,shared_document_old_version,B1,b1_team,공유 문서의 예전 버전을 고쳤을 때,Editing an old version of a shared document,Die alte Version eines Dokuments bearbeiten,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=work_career:20, second=10",,,,PENDING
+scenario_family,speech_level_after_friendship,B1,b1_feel,친해진 뒤 말을 놓을지 묻기,Switching to casual speech after becoming friends,Nach einiger Zeit zum Banmal wechseln,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=language_learning_communication_repair:20, second=10",,,,PENDING
+scenario_family,subway_step_apology,A1,a1_body,지하철에서 발을 밟았을 때,Stepping on someone's foot on the subway,Jemandem in der U-Bahn auf den Fuß treten,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=transport_wayfinding:30, second=20",,,,PENDING
+scenario_family,taxi_slow_down,A2,a2_move,택시가 무서울 만큼 빠를 때,Asking a taxi driver to slow down,"Den Taxifahrer bitten, langsamer zu fahren",canonical_scenario|listening_lesson|live_scenario,"ambiguous top=transport_wayfinding:30, second=30",,,,PENDING
+scenario_family,train_delay_connection,B2,b2_contract,기차 지연으로 환승이 어려울 때,Handling a connection during a train delay,Bei Zugverspätung einen Anschluss klären,canonical_scenario|listening_lesson|live_scenario,"ambiguous top=transport_wayfinding:30, second=30",,,,PENDING
+scenario_family,welfare_fraud_presumption,C2,c2_discourse,부정 수급 방지 담론이 신청자를 의심하게 만들 때,Writing fraud warnings without presuming every applicant is guilty,"Betrugsprävention formulieren, ohne alle Antragsteller zu verdächtigen",canonical_scenario|listening_lesson|live_scenario,"ambiguous top=ethics_philosophy_abstract:30, second=20",,,,PENDING
+smalltalk_lesson,smalltalk.a1.emergency.help,A1,emergency,도움 요청과 분실,Help and lost belongings,Hilfe und verlorene Sachen,smalltalk_lesson,"ambiguous top=health_body:160, second=160",,,,PENDING
+smalltalk_lesson,smalltalk.a1.partner_family.photos,A1,partner_family,호칭과 사진,Names and photos,Anreden und Fotos,smalltalk_lesson,"ambiguous top=family_relationships:180, second=180",,,,PENDING
+smalltalk_lesson,smalltalk.a1.theme_park_date.break,A1,theme_park_date,앉아서 간식 먹기,Sitting down for a snack,Sitzen und etwas essen,smalltalk_lesson,"ambiguous top=free_time_hobbies_sport:160, second=160",,,,PENDING
+smalltalk_lesson,smalltalk.a1.theme_park_date.memory,A1,theme_park_date,사진과 하루의 소감,Photos and the day's memories,Fotos und Tagesrückblick,smalltalk_lesson,"ambiguous top=free_time_hobbies_sport:160, second=160",,,,PENDING
+smalltalk_lesson,smalltalk.a1.theme_park_date.rides,A1,theme_park_date,놀이기구 고르기,Choosing a ride,Eine Attraktion auswählen,smalltalk_lesson,"ambiguous top=free_time_hobbies_sport:160, second=160",,,,PENDING
+smalltalk_lesson,smalltalk.a2.emergency.report,A2,emergency,분실과 도난 신고,Reporting loss and theft,Verlust und Diebstahl melden,smalltalk_lesson,"ambiguous top=health_body:160, second=160",,,,PENDING
+smalltalk_lesson,smalltalk.a2.partner_family.speech,A2,partner_family,분위기와 말투,Atmosphere and speech style,Atmosphäre und Anrede,smalltalk_lesson,"ambiguous top=family_relationships:180, second=180",,,,PENDING
+smalltalk_lesson,smalltalk.a2.theme_park_date.photos,A2,theme_park_date,캐릭터와 사진,Mascots and photos,Maskottchen und Fotos,smalltalk_lesson,"ambiguous top=free_time_hobbies_sport:160, second=160",,,,PENDING
+smalltalk_lesson,smalltalk.a2.theme_park_date.snack,A2,theme_park_date,서서 기다린 뒤 쉬기,Resting after a long wait,Nach dem Warten ausruhen,smalltalk_lesson,"ambiguous top=free_time_hobbies_sport:160, second=160",,,,PENDING
+smalltalk_lesson,smalltalk.a2.theme_park_date.waterqueue,A2,theme_park_date,물놀이와 줄 기다리기,Water rides and queues,Wasserbahn und Warteschlangen,smalltalk_lesson,"ambiguous top=free_time_hobbies_sport:160, second=160",,,,PENDING
+smalltalk_lesson,smalltalk.b1.emergency.preparedness,B1,emergency,신고와 비상 연락처,Reporting and emergency contacts,Meldung und Notfallkontakte,smalltalk_lesson,"ambiguous top=health_body:160, second=160",,,,PENDING
+smalltalk_lesson,smalltalk.b1.job_hunting.requirements,B1,job_hunting,지원 분야와 자격,Application fields and requirements,Bewerbungsfelder und Voraussetzungen,smalltalk_lesson,"ambiguous top=economy_business_labour:170, second=170",,,,PENDING
+smalltalk_lesson,smalltalk.b1.theme_park_date.afterride,B1,theme_park_date,타고 난 뒤 소감,After the ride,Nach der Fahrt,smalltalk_lesson,"ambiguous top=free_time_hobbies_sport:160, second=160",,,,PENDING
+smalltalk_lesson,smalltalk.b1.theme_park_date.thrill,B1,theme_park_date,놀이기구의 스릴,The thrill of a ride,Der Nervenkitzel einer Fahrt,smalltalk_lesson,"ambiguous top=free_time_hobbies_sport:160, second=160",,,,PENDING
+smalltalk_lesson,smalltalk.b2.emergency.information,B2,emergency,도움받을 곳과 정확한 정보,Finding help and giving accurate details,Zuständige Hilfe und genaue Angaben,smalltalk_lesson,"ambiguous top=health_body:160, second=160",,,,PENDING
+smalltalk_lesson,smalltalk.b2.theme_park_date.afterwards,B2,theme_park_date,스트레스 해소와 사진 선택,Stress relief and choosing photos,Stressabbau und Fotoauswahl,smalltalk_lesson,"ambiguous top=free_time_hobbies_sport:160, second=160",,,,PENDING
+smalltalk_lesson,smalltalk.b2.theme_park_date.belongings,B2,theme_park_date,분실물과 소지품,Lost property and belongings,Fundsachen und persönliche Dinge,smalltalk_lesson,"ambiguous top=free_time_hobbies_sport:160, second=160",,,,PENDING
+smalltalk_lesson,smalltalk.b2.theme_park_date.preferences,B2,theme_park_date,무서움과 서로의 취향,Fear and different preferences,Angst und unterschiedliche Vorlieben,smalltalk_lesson,"ambiguous top=free_time_hobbies_sport:160, second=160",,,,PENDING
+smalltalk_lesson,smalltalk.c1.emergency.warnings,C1,emergency,대피 안내와 경보의 위험,Evacuation guidance and warning risks,Evakuierung und Warnrisiken,smalltalk_lesson,"ambiguous top=health_body:160, second=160",,,,PENDING
+smalltalk_lesson,smalltalk.c1.theme_park_date.return,C1,theme_park_date,아쉬움에서 다음 약속으로,Turning disappointment into another plan,Aus Enttäuschung wird ein neuer Plan,smalltalk_lesson,"ambiguous top=free_time_hobbies_sport:160, second=160",,,,PENDING
+smalltalk_lesson,smalltalk.c1.theme_park_date.uncertainty,C1,theme_park_date,농담과 엇갈리는 예상,Jokes and competing expectations,Scherze und widersprüchliche Erwartungen,smalltalk_lesson,"ambiguous top=free_time_hobbies_sport:160, second=160",,,,PENDING
+smalltalk_lesson,smalltalk.c2.emergency.power,C2,emergency,비상 권한의 종료와 책임,Ending emergency powers and assigning responsibility,Ende von Notstandsbefugnissen und Verantwortung,smalltalk_lesson,"ambiguous top=health_body:160, second=160",,,,PENDING
+smalltalk_lesson,smalltalk.c2.theme_park_date.anticipation,C2,theme_park_date,공포 뒤 해방감과 기대,Release after fear and anticipation,Erleichterung nach Angst und Vorfreude,smalltalk_lesson,"ambiguous top=free_time_hobbies_sport:160, second=160",,,,PENDING
+smalltalk_lesson,smalltalk.c2.theme_park_date.sharedmemory,C2,theme_park_date,완벽하지 않아도 함께한 하루,A shared day despite imperfections,Ein gemeinsamer Tag trotz kleiner Pannen,smalltalk_lesson,"ambiguous top=free_time_hobbies_sport:160, second=160",,,,PENDING
