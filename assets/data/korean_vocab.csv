@@ -108,7 +108,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 주다,juda,geben,A1,Verb,친구에게 선물을 줘요.,Ich gebe einem Freund ein Geschenk.,Alltag,a1_daily_3,3,false,to give,Verb,I give a friend a present.,vocab_a1_0107
 받다,batda,bekommen / empfangen,A1,Verb,선물을 받았어요.,Ich habe ein Geschenk bekommen.,Alltag,a1_daily_3,4,false,to receive / to get,Verb,I received a gift.,vocab_a1_0108
 앉다,anda,sitzen,A1,Verb,의자에 앉아요.,Ich sitze auf dem Stuhl.,Alltag,a1_daily_3,5,false,to sit,Verb,I sit on the chair.,vocab_a1_0109
-서다,seoda,stehen,A1,Verb,여기 잠깐 서 있어요.,Bleiben Sie hier bitte kurz stehen.,Alltag,a1_daily_3,6,false,to stand,Verb,Please stay here a moment.,vocab_a1_0110
+서다,seoda,stehen,A1,Verb,여기 잠깐 서 있어요.,Bleiben Sie hier bitte kurz stehen.,Alltag,a1_daily_3,6,false,to stand,Verb,Please stand here for a moment.,vocab_a1_0110
 열다,yeolda,öffnen,A1,Verb,문을 열어요.,Ich öffne die Tür.,Alltag,a1_daily_3,7,false,to open,Verb,I open the door.,vocab_a1_0111
 닫다,datda,schließen,A1,Verb,창문을 닫아요.,Ich schließe das Fenster.,Alltag,a1_daily_3,8,true,to close,Verb,I close the window.,vocab_a1_0112
 입다,ipda,anziehen / tragen (Kleidung),A1,Verb,옷을 입어요.,Ich ziehe mich an.,Alltag,a1_daily_3,9,true,to wear / to put on (clothes),Verb,I get dressed.,vocab_a1_0113
@@ -658,7 +658,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 슬픔,seulpeum,Trauer,B1,Nomen,슬픔은 시간이 지나면 나아져요.,Trauer wird mit der Zeit leichter.,Charakter & Gefühle,b1_character_feelings_1,4,false,sadness,Noun,Sadness gets better with time.,vocab_b1_0203
 외로움,oeroum,Einsamkeit,B1,Nomen,혼자 살면 가끔 외로움을 느껴요.,Beim Alleinleben fühlt man manchmal Einsamkeit.,Charakter & Gefühle,b1_character_feelings_1,5,false,loneliness,Noun,Living alone you sometimes feel loneliness.,vocab_b1_0204
 고민,gomin,Sorge,B1,Nomen,요즘 고민이 하나 있어요.,Zurzeit habe ich eine Sorge.,Charakter & Gefühle,b1_character_feelings_1,6,false,worry,Noun,I have one worry these days.,vocab_b1_0205
-부럽다,bureopda,beneiden,B1,Adjektiv,여행 사진을 보니까 정말 부러워요.,Beim Anblick deiner Reisefotos beneide ich dich wirklich.,Charakter & Gefühle,b1_character_feelings_1,7,false,to envy,Adjective,Seeing your travel photos I really envy you.,vocab_b1_0206
+부럽다,bureopda,beneiden,B1,Adjektiv,여행 사진을 보니까 정말 부러워요.,"Wenn ich deine Reisefotos sehe, bin ich wirklich neidisch.",Charakter & Gefühle,b1_character_feelings_1,7,false,to envy,Adjective,Your travel photos make me really envious.,vocab_b1_0206
 궁금하다,gunggeumhada,neugierig sein,B1,Adjektiv,결과가 정말 궁금해요.,Ich bin sehr gespannt auf das Ergebnis.,Charakter & Gefühle,b1_character_feelings_1,8,false,to be curious,Adjective,I am very curious about the result.,vocab_b1_0207
 섭섭하다,seopseophada,enttäuscht sein,B1,Adjektiv,연락이 없어서 조금 섭섭했어요.,Ohne deine Nachricht war ich etwas enttäuscht.,Charakter & Gefühle,b1_character_feelings_1,9,false,to feel hurt,Adjective,I felt a bit hurt because you did not call.,vocab_b1_0208
 심각하다,simgakhada,ernst,B1,Adjektiv,문제가 생각보다 심각해요.,Das Problem ist ernster als gedacht.,Charakter & Gefühle,b1_character_feelings_1,10,true,serious,Adjective,The problem is more serious than expected.,vocab_b1_0209
@@ -769,7 +769,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 닮다,damda,ähneln,B2,Verb,저는 아버지를 닮았어요.,Ich ähnele meinem Vater.,Menschen & Beziehungen,b2_relationships_people_1,7,false,to resemble,Verb,I resemble my father.,vocab_b2_0151
 몸매,mommae,Figur,B2,Nomen,운동으로 몸매를 관리해요.,Mit Sport halte ich meine Figur.,Menschen & Beziehungen,b2_relationships_people_1,8,false,figure,Noun,I keep my figure through exercise.,vocab_b2_0152
 실수하다,silsuhada,einen Fehler machen,B2,Verb,발표에서 실수했어요.,Bei der Präsentation habe ich einen Fehler gemacht.,Menschen & Beziehungen,b2_relationships_people_1,9,false,to make a mistake,Verb,I made a mistake in the presentation.,vocab_b2_0153
-서투르다,seotureuda,ungeschickt,B2,Adjektiv,아직 한국어가 서툴러요.,Mein Koreanisch ist noch holprig.,Menschen & Beziehungen,b2_relationships_people_1,10,true,clumsy,Adjective,My Korean is still clumsy.,vocab_b2_0154
+서투르다,seotureuda,unge?bt; unsicher,B2,Adjektiv,아직 한국어가 서툴러요.,Ich bin im Koreanischen noch nicht so sicher.,Menschen & Beziehungen,b2_relationships_people_1,10,true,unskilled; awkward,Adjective,I'm still not very good at Korean.,vocab_b2_0154
 울리다,ullida,zum Weinen bringen,B2,Verb,동생을 울리지 마!,Bring deinen jüngeren Bruder oder deine jüngere Schwester nicht zum Weinen!,Menschen & Beziehungen,b2_relationships_people_1,11,true,to make someone cry,Verb,Don't make your younger sibling cry!,vocab_b2_0155
 잘생기다,jalsaenggida,gut aussehend,B2,Adjektiv,그 배우는 정말 잘생겼어요.,Dieser Schauspieler sieht wirklich gut aus.,Menschen & Beziehungen,b2_relationships_people_1,12,true,handsome,Adjective,That actor is really handsome.,vocab_b2_0156
 위험,wiheom,Gefahr,B2,Nomen,공사장은 위험이 많아요.,Auf der Baustelle gibt es viele Gefahren.,Sicherheit & Regeln,b2_safety_rules_1,1,false,danger,Noun,Construction sites have many dangers.,vocab_b2_0157
@@ -805,7 +805,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 모이다,moida,sich versammeln,B2,Verb,주말에 가족이 다 모여요.,Am Wochenende kommt die ganze Familie zusammen.,Handeln & Verändern,b2_thinking_verbs_1,7,false,to gather,Verb,The whole family gathers on weekends.,vocab_b2_0187
 담그다,damgeuda,einlegen,B2,Verb,가을에 김치를 담가요.,Im Herbst legen wir Kimchi ein.,Handeln & Verändern,b2_thinking_verbs_1,8,false,to pickle,Verb,We make kimchi in autumn.,vocab_b2_0188
 섞이다,seokkida,sich vermischen,B2,Verb,물과 기름은 잘 안 섞여요.,Wasser und Öl vermischen sich nicht gut.,Handeln & Verändern,b2_thinking_verbs_1,9,false,to be mixed,Verb,Water and oil do not mix well.,vocab_b2_0189
-정하다,jeonghada,festlegen,B2,Verb,약속 시간을 정합시다.,Legen wir die Uhrzeit fest.,Handeln & Verändern,b2_thinking_verbs_1,10,true,to decide,Verb,Let us set the meeting time.,vocab_b2_0190
+정하다,jeonghada,festlegen; bestimmen,B2,Verb,약속 시간을 정합시다.,"Legen wir fest, wann wir uns treffen.",Handeln & Verändern,b2_thinking_verbs_1,10,true,to decide; to set,Verb,Let's decide on a time to meet.,vocab_b2_0190
 변하다,byeonhada,sich verändern,B2,Verb,십 년 사이에 도시가 많이 변했어요.,In zehn Jahren hat sich die Stadt stark verändert.,Handeln & Verändern,b2_thinking_verbs_1,11,true,to change,Verb,The city changed a lot in ten years.,vocab_b2_0191
 나누다,nanuda,teilen,B2,Verb,빵을 반으로 나눴어요.,Ich habe das Brot halbiert.,Handeln & Verändern,b2_thinking_verbs_1,12,true,to share,Verb,I divided the bread in half.,vocab_b2_0192
 말씀,malsseum,Worte (ehrerbietig),A1,Nomen,선생님 말씀 잘 들었어요.,Ich habe Ihre Worte aufmerksam gehört.,Ehrensprache,a1_greetings_2,13,false,words (honorific),Noun,I listened carefully to your words.,vocab_b2_0193

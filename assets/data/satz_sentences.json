@@ -17878,7 +17878,7 @@
       "level": "a1",
       "targetKo": "여기 잠깐 서 있어요.",
       "promptDe": "Bleiben Sie hier bitte kurz stehen.",
-      "promptEn": "Please stay here a moment.",
+      "promptEn": "Please stand here for a moment.",
       "distractors": [
         "안녕하세요",
         "안녕"
@@ -21813,8 +21813,8 @@
       "id": "satz_b1_0417",
       "level": "b1",
       "targetKo": "여행 사진을 보니까 정말 부러워요.",
-      "promptDe": "Beim Anblick deiner Reisefotos beneide ich dich wirklich.",
-      "promptEn": "Seeing your travel photos I really envy you.",
+      "promptDe": "Wenn ich deine Reisefotos sehe, bin ich wirklich neidisch.",
+      "promptEn": "Your travel photos make me really envious.",
       "distractors": [
         "경험",
         "문화"
@@ -23061,8 +23061,8 @@
       "id": "satz_b2_0443",
       "level": "b2",
       "targetKo": "아직 한국어가 서툴러요.",
-      "promptDe": "Mein Koreanisch ist noch holprig.",
-      "promptEn": "My Korean is still clumsy.",
+      "promptDe": "Ich bin im Koreanischen noch nicht so sicher.",
+      "promptEn": "I'm still not very good at Korean.",
       "distractors": [
         "갈등",
         "관점"
@@ -23469,8 +23469,8 @@
       "id": "satz_b2_0477",
       "level": "b2",
       "targetKo": "약속 시간을 정합시다.",
-      "promptDe": "Legen wir die Uhrzeit fest.",
-      "promptEn": "Let us set the meeting time.",
+      "promptDe": "Legen wir fest, wann wir uns treffen.",
+      "promptEn": "Let's decide on a time to meet.",
       "distractors": [
         "갈등",
         "관점"
