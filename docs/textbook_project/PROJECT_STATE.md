@@ -333,3 +333,66 @@ Human approval remains open:
 
 Next phase:
 Phase 2C — page budget, exercise density, answer-key schema, pilot logging, print/app cross-links.
+
+## Phase 2C production architecture checkpoint — 2026-10-06
+
+Production architecture now locked as an editorial target:
+
+Student book:
+- 144 pages
+- Hangul Zero 12 pages
+- 8 units x 14 pages
+- pair reviews + final review + appendix
+
+Workbook:
+- 96 pages
+- 8 units x 10 pages
+- pair reviews
+- compact answer key
+
+Exercise-density rules:
+- student closed-format max ~40%
+- student productive min ~35%
+- interaction/retrieval min ~25%
+- workbook 24–32 micro-items/unit
+- free production + delayed retrieval + L1 diagnostic required
+
+Structured schemas added:
+- schemas/ANSWER_KEY_ENTRY.schema.json
+- schemas/LEARNER_PILOT_EVENT.schema.json
+- schemas/PRINT_APP_CROSSLINK.schema.json
+
+Unit 04 answer-key seed:
+- 6 model-reviewed entries
+
+Learner pilot framework:
+- baseline
+- guided
+- immediate post
+- delayed 24h
+- delayed 7d
+- transfer
+- pseudonymous participant codes
+- error type + transfer risk + self-correction + prompt level + delayed retention
+
+Print/app crosslinks:
+- 29 verified content-ID links
+- all 8 units have core dialogue + listening + recycling link
+- print remains offline-complete
+- app route/deeplink intentionally not invented; Flutter resolver pending
+
+Human review checklist added for:
+- Korean educator
+- EN pedagogy
+- DE pedagogy
+- audio/spoken surface
+- visual/print
+- assessment
+- rights/provenance
+- pilot readiness
+
+Production validator:
+PASS student_pages=144 workbook_pages=96 answer_entries=6 pilot_examples=2 crosslinks=29 units=8
+
+Next:
+Phase 2D — assign stable task IDs, full answer-key coverage, pair-review contracts, pilot task registry, then human Unit04 review + small EN/DE adult pilot.

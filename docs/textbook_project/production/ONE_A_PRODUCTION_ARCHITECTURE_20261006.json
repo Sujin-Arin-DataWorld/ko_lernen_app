@@ -1,0 +1,223 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "EDITORIAL_PRODUCTION_TARGET",
+  "book": "Korean 1A",
+  "principle": "Page count is an editorial density budget, not a final printer specification.",
+  "studentBook": {
+    "targetPages": 144,
+    "signaturePlanningMultiple": 16,
+    "breakdown": [
+      {
+        "section": "frontMatter",
+        "pages": 4
+      },
+      {
+        "section": "HangulZero",
+        "pages": 12
+      },
+      {
+        "section": "units",
+        "pages": 112,
+        "formula": "8 units x 14 pages"
+      },
+      {
+        "section": "pairReviews",
+        "pages": 8,
+        "formula": "4 reviews x 2 pages"
+      },
+      {
+        "section": "finalReview",
+        "pages": 4
+      },
+      {
+        "section": "appendixIndex",
+        "pages": 4
+      }
+    ],
+    "unitBudget": {
+      "pagesPerUnit": 14,
+      "spreads": [
+        {
+          "spread": 1,
+          "pages": "1-2",
+          "purpose": "scene + can-do + first meaning task"
+        },
+        {
+          "spread": 2,
+          "pages": "3-4",
+          "purpose": "core chunks + noticing + minimal form"
+        },
+        {
+          "spread": 3,
+          "pages": "5-6",
+          "purpose": "productive grammar + formulaic production + controlled contrast"
+        },
+        {
+          "spread": 4,
+          "pages": "7-8",
+          "purpose": "pronunciation + Living Korean + EN/DE transfer note"
+        },
+        {
+          "spread": 5,
+          "pages": "9-10",
+          "purpose": "listening + reading"
+        },
+        {
+          "spread": 6,
+          "pages": "11-12",
+          "purpose": "guided speaking + short writing"
+        },
+        {
+          "spread": 7,
+          "pages": "13-14",
+          "purpose": "interaction task + exit retrieval + recycling pointer"
+        }
+      ]
+    }
+  },
+  "workbook": {
+    "targetPages": 96,
+    "signaturePlanningMultiple": 16,
+    "breakdown": [
+      {
+        "section": "frontMatter",
+        "pages": 4
+      },
+      {
+        "section": "units",
+        "pages": 80,
+        "formula": "8 units x 10 pages"
+      },
+      {
+        "section": "pairReviews",
+        "pages": 8,
+        "formula": "4 reviews x 2 pages"
+      },
+      {
+        "section": "compactAnswerKey",
+        "pages": 4
+      }
+    ],
+    "unitBudget": {
+      "pagesPerUnit": 10,
+      "targetActivityBlocks": 9,
+      "targetMicroItemsRange": [
+        24,
+        32
+      ],
+      "requiredBlocks": [
+        "meaning/function",
+        "form noticing",
+        "controlled reconstruction",
+        "listening",
+        "reading",
+        "short writing",
+        "L1 transfer diagnostic",
+        "free production",
+        "delayed retrieval"
+      ]
+    }
+  },
+  "exerciseDensity": {
+    "studentBook": {
+      "targetActivityBlocksPerUnit": 10,
+      "minimumOpenProductionBlocks": 3,
+      "minimumInteractionBlocks": 1,
+      "minimumDelayedRetrievalBlocks": 1,
+      "maximumClosedFormatShare": 0.4,
+      "minimumProductiveShare": 0.35,
+      "minimumInteractionRetrievalShare": 0.25
+    },
+    "workbook": {
+      "targetActivityBlocksPerUnit": 9,
+      "targetMicroItemsRange": [
+        24,
+        32
+      ],
+      "maximumPureTranslationItemsPerUnit": 2,
+      "minimumFreeProductionBlocks": 1,
+      "minimumDelayedRetrievalBlocks": 1,
+      "requiredL1DiagnosticBlocks": 1
+    }
+  },
+  "reviewArchitecture": {
+    "pairReviews": [
+      {
+        "afterUnits": [
+          1,
+          2
+        ],
+        "focus": [
+          "greetings",
+          "identity",
+          "repair",
+          "topic recycling"
+        ]
+      },
+      {
+        "afterUnits": [
+          3,
+          4
+        ],
+        "focus": [
+          "particles",
+          "shopping",
+          "ordering",
+          "service pragmatics"
+        ]
+      },
+      {
+        "afterUnits": [
+          5,
+          6
+        ],
+        "focus": [
+          "time",
+          "numbers",
+          "transport",
+          "spatial repair"
+        ]
+      },
+      {
+        "afterUnits": [
+          7,
+          8
+        ],
+        "focus": [
+          "messaging",
+          "boundaries",
+          "repair",
+          "integrated interaction"
+        ]
+      }
+    ],
+    "finalReviewFocus": [
+      "multi-scene interaction",
+      "listen-and-repair",
+      "short reading",
+      "short message writing",
+      "cross-unit retrieval without unit labels"
+    ]
+  },
+  "editions": {
+    "en": {
+      "student": "STUDENT_EN",
+      "workbook": "WORKBOOK_EN",
+      "teacher": "shared teacher guide with EN lane"
+    },
+    "de": {
+      "student": "STUDENT_DE",
+      "workbook": "WORKBOOK_DE",
+      "teacher": "shared teacher guide with DE lane"
+    }
+  },
+  "nonNegotiables": [
+    "No line-by-line romanization after Hangul Zero.",
+    "Authentic input may exceed productive grammar ceiling if labeled recognition/formulaic appropriately.",
+    "At least one communicative interaction and one delayed retrieval task per unit.",
+    "EN and DE explanations are independently localized.",
+    "TTS generation is outside the content pipeline and remains Jin-owned.",
+    "Human approval gates remain separate from model editorial pass."
+  ]
+}

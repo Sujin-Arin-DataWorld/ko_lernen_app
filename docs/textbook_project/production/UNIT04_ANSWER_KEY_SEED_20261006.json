@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "unitId": "a1_04_order_request_object",
+  "entries": [
+    {
+      "itemId": "u04_wb_en_A01",
+      "unitId": "a1_04_order_request_object",
+      "edition": "en",
+      "taskType": "form",
+      "answerType": "exact",
+      "exactAnswers": [
+        "고기를"
+      ],
+      "acceptedVariants": [],
+      "unacceptableButPlausible": [
+        {
+          "response": "고기가",
+          "reason": "The exercise targets object marking with 먹어요."
+        }
+      ],
+      "rationale": "고기 ends in a vowel, so the object marker is 를.",
+      "feedbackEn": "Use 를 after a noun ending in a vowel.",
+      "feedbackDe": "Nach einem Vokal steht hier die Objektpartikel 를.",
+      "scoring": {
+        "maxPoints": 1,
+        "partialCredit": false,
+        "rubricDimensions": []
+      },
+      "sourceRefs": [
+        "cloze_a1_0037"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "DE-A1-PARTICLE-CASE"
+      ],
+      "reviewStatus": "model_reviewed",
+      "reviewNote": "Pilot answer-key seed."
+    },
+    {
+      "itemId": "u04_wb_en_A02",
+      "unitId": "a1_04_order_request_object",
+      "edition": "en",
+      "taskType": "form",
+      "answerType": "exact",
+      "exactAnswers": [
+        "채소를"
+      ],
+      "acceptedVariants": [],
+      "unacceptableButPlausible": [
+        {
+          "response": "채소가",
+          "reason": "The exercise targets the object of 먹어요."
+        }
+      ],
+      "rationale": "채소 ends in a vowel, so use 를.",
+      "feedbackEn": "Mark the object with 를.",
+      "feedbackDe": "Das Objekt wird hier mit 를 markiert.",
+      "scoring": {
+        "maxPoints": 1,
+        "partialCredit": false,
+        "rubricDimensions": []
+      },
+      "sourceRefs": [
+        "cloze_a1_0039"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "DE-A1-PARTICLE-CASE"
+      ],
+      "reviewStatus": "model_reviewed",
+      "reviewNote": "Pilot answer-key seed."
+    },
+    {
+      "itemId": "u04_wb_E01",
+      "unitId": "a1_04_order_request_object",
+      "edition": "shared",
+      "taskType": "meaning",
+      "answerType": "exact",
+      "exactAnswers": [
+        "A"
+      ],
+      "acceptedVariants": [],
+      "unacceptableButPlausible": [],
+      "rationale": "뭐 드릴까요? is staff-side service language asking what the customer would like.",
+      "feedbackEn": "This is a service offer/question, not a route or time question.",
+      "feedbackDe": "Das ist eine Servicefrage nach der Bestellung, keine Weg- oder Zeitfrage.",
+      "scoring": {
+        "maxPoints": 1,
+        "partialCredit": false,
+        "rubricDimensions": []
+      },
+      "sourceRefs": [
+        "a1_w10_eat"
+      ],
+      "transferRiskRefs": [],
+      "reviewStatus": "model_reviewed",
+      "reviewNote": "Recognition-only staff language."
+    },
+    {
+      "itemId": "u04_wb_transfer_en_01",
+      "unitId": "a1_04_order_request_object",
+      "edition": "en",
+      "taskType": "transfer_diagnostic",
+      "answerType": "multiple_accepted",
+      "exactAnswers": [],
+      "acceptedVariants": [
+        "Can I get an Americano, please?",
+        "Can I have an Americano, please?",
+        "I'll have an Americano, please."
+      ],
+      "unacceptableButPlausible": [
+        {
+          "response": "Give me an Americano.",
+          "reason": "Grammatical, but too command-like to teach as the default service equivalent of 주세요."
+        }
+      ],
+      "rationale": "The Korean request maps to several natural English service formulas; there is no single word-for-word equivalent.",
+      "feedbackEn": "Choose a natural service formula rather than translating 주세요 word for word.",
+      "feedbackDe": "",
+      "scoring": {
+        "maxPoints": 2,
+        "partialCredit": true,
+        "rubricDimensions": [
+          "natural service formula",
+          "meaning preserved"
+        ]
+      },
+      "sourceRefs": [
+        "bunshik_tteokbokki",
+        "research/TIER1_NATIVE_USAGE_BATCH01_20261006.json"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS"
+      ],
+      "reviewStatus": "model_reviewed",
+      "reviewNote": "EN localization diagnostic."
+    },
+    {
+      "itemId": "u04_wb_transfer_de_01",
+      "unitId": "a1_04_order_request_object",
+      "edition": "de",
+      "taskType": "transfer_diagnostic",
+      "answerType": "multiple_accepted",
+      "exactAnswers": [],
+      "acceptedVariants": [
+        "Ich hätte gern einen Americano.",
+        "Einmal einen Americano, bitte.",
+        "Ich nehme einen Americano."
+      ],
+      "unacceptableButPlausible": [
+        {
+          "response": "Gib mir einen Americano.",
+          "reason": "Too command-like as a default learner service formula."
+        }
+      ],
+      "rationale": "주세요 has several natural German service equivalents depending on stance and setting.",
+      "feedbackEn": "",
+      "feedbackDe": "Nicht Wort für Wort übersetzen; eine natürliche Serviceformel wählen.",
+      "scoring": {
+        "maxPoints": 2,
+        "partialCredit": true,
+        "rubricDimensions": [
+          "natürliche Serviceformel",
+          "Bedeutung erhalten"
+        ]
+      },
+      "sourceRefs": [
+        "bunshik_tteokbokki",
+        "research/TIER1_NATIVE_USAGE_BATCH01_20261006.json"
+      ],
+      "transferRiskRefs": [
+        "DE-A1-COUNTERS"
+      ],
+      "reviewStatus": "model_reviewed",
+      "reviewNote": "DE localization diagnostic."
+    },
+    {
+      "itemId": "u04_exit_interaction",
+      "unitId": "a1_04_order_request_object",
+      "edition": "shared",
+      "taskType": "interaction",
+      "answerType": "rubric",
+      "exactAnswers": [],
+      "acceptedVariants": [],
+      "unacceptableButPlausible": [],
+      "rationale": "A successful answer communicates an item, quantity, polite request, one condition/question, and continues after a short staff response.",
+      "feedbackEn": "Focus on completing the interaction, not on reproducing one model sentence exactly.",
+      "feedbackDe": "Entscheidend ist die gelungene Interaktion, nicht ein einziger auswendig gelernter Mustersatz.",
+      "scoring": {
+        "maxPoints": 10,
+        "partialCredit": true,
+        "rubricDimensions": [
+          "item communicated",
+          "quantity",
+          "polite request",
+          "condition/question",
+          "interaction continuation"
+        ]
+      },
+      "sourceRefs": [
+        "bunshik_tteokbokki",
+        "pilot_1A/unit04/TEACHER_GUIDE.md"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "DE-A1-COUNTERS"
+      ],
+      "reviewStatus": "model_reviewed",
+      "reviewNote": "Requires human/pilot validation before publication."
+    }
+  ]
+}

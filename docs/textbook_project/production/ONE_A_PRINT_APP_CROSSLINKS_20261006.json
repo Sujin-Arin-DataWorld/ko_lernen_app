@@ -1,0 +1,481 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "book": "1A",
+  "status": "CONTENT_IDS_VERIFIED_APP_ROUTE_PENDING",
+  "policy": {
+    "printMustRemainUsableOffline": true,
+    "qrOrDeepLinkNeverRequiredForCoreCanDo": true,
+    "appRoutesAreNotInventedHere": true,
+    "resolver": "App must resolve stable content IDs to current routes."
+  },
+  "links": [
+    {
+      "crosslinkId": "a1_01_greetings_hangul.core_dialogue",
+      "unitId": "a1_01_greetings_hangul",
+      "printAnchor": "scene/core_dialogue",
+      "linkRole": "core_dialogue",
+      "appContentIds": [
+        "airport_arrival"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Print dialogue remains complete without app access.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_01_greetings_hangul.listening",
+      "unitId": "a1_01_greetings_hangul",
+      "printAnchor": "listening/core",
+      "linkRole": "listening",
+      "appContentIds": [
+        "listening.a1.airport_arrival"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Printed transcript/task remains usable; audio requires app or separately distributed audio.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_01_greetings_hangul.practice",
+      "unitId": "a1_01_greetings_hangul",
+      "printAnchor": "practice/recycle",
+      "linkRole": "recycling",
+      "appContentIds": [
+        "cloze_a1_0004",
+        "cloze_a1_0006",
+        "satz_a1_0002",
+        "satz_a1_0040"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Print workbook provides a smaller curated practice set.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_02_self_intro_identity.core_dialogue",
+      "unitId": "a1_02_self_intro_identity",
+      "printAnchor": "scene/core_dialogue",
+      "linkRole": "core_dialogue",
+      "appContentIds": [
+        "introduce_yourself"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Print dialogue remains complete without app access.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_02_self_intro_identity.listening",
+      "unitId": "a1_02_self_intro_identity",
+      "printAnchor": "listening/core",
+      "linkRole": "listening",
+      "appContentIds": [
+        "listening.a1.introduce_yourself"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Printed transcript/task remains usable; audio requires app or separately distributed audio.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_02_self_intro_identity.practice",
+      "unitId": "a1_02_self_intro_identity",
+      "printAnchor": "practice/recycle",
+      "linkRole": "recycling",
+      "appContentIds": [
+        "cloze_a1_0003",
+        "cloze_a1_0005",
+        "satz_a1_0001",
+        "satz_a1_0008"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Print workbook provides a smaller curated practice set.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_03_topic_subject_particles.core_dialogue",
+      "unitId": "a1_03_topic_subject_particles",
+      "printAnchor": "scene/core_dialogue",
+      "linkRole": "core_dialogue",
+      "appContentIds": [
+        "mart_grocery"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Print dialogue remains complete without app access.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_03_topic_subject_particles.listening",
+      "unitId": "a1_03_topic_subject_particles",
+      "printAnchor": "listening/core",
+      "linkRole": "listening",
+      "appContentIds": [
+        "listening.a1.mart_grocery"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Printed transcript/task remains usable; audio requires app or separately distributed audio.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_03_topic_subject_particles.practice",
+      "unitId": "a1_03_topic_subject_particles",
+      "printAnchor": "practice/recycle",
+      "linkRole": "recycling",
+      "appContentIds": [
+        "cloze_a1_0326",
+        "cloze_a1_0329",
+        "satz_a1_0011",
+        "satz_a1_0270"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Print workbook provides a smaller curated practice set.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_04_order_request_object.core_dialogue",
+      "unitId": "a1_04_order_request_object",
+      "printAnchor": "scene/core_dialogue",
+      "linkRole": "core_dialogue",
+      "appContentIds": [
+        "bunshik_tteokbokki"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Print dialogue remains complete without app access.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_04_order_request_object.listening",
+      "unitId": "a1_04_order_request_object",
+      "printAnchor": "listening/core",
+      "linkRole": "listening",
+      "appContentIds": [
+        "listening.a1.bunshik_tteokbokki",
+        "listening.a1.a1_w10_eat"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Printed transcript/task remains usable; audio requires app or separately distributed audio.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_04_order_request_object.practice",
+      "unitId": "a1_04_order_request_object",
+      "printAnchor": "practice/recycle",
+      "linkRole": "recycling",
+      "appContentIds": [
+        "cloze_a1_0012",
+        "cloze_a1_0037",
+        "satz_a1_0021",
+        "satz_a1_0271"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Print workbook provides a smaller curated practice set.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_04_order_request_object.extension",
+      "unitId": "a1_04_order_request_object",
+      "printAnchor": "extension/extra_scene",
+      "linkRole": "extension",
+      "appContentIds": [
+        "a1_w10_eat"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Extension is optional; core print progression does not depend on it.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_05_numbers_time.core_dialogue",
+      "unitId": "a1_05_numbers_time",
+      "printAnchor": "scene/core_dialogue",
+      "linkRole": "core_dialogue",
+      "appContentIds": [
+        "meeting_time"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Print dialogue remains complete without app access.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_05_numbers_time.listening",
+      "unitId": "a1_05_numbers_time",
+      "printAnchor": "listening/core",
+      "linkRole": "listening",
+      "appContentIds": [
+        "listening.a1.meeting_time",
+        "listening.a1.a1_w10_numbers"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Printed transcript/task remains usable; audio requires app or separately distributed audio.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_05_numbers_time.practice",
+      "unitId": "a1_05_numbers_time",
+      "printAnchor": "practice/recycle",
+      "linkRole": "recycling",
+      "appContentIds": [
+        "cloze_a1_0015",
+        "cloze_a1_0016",
+        "satz_a1_0005",
+        "satz_a1_0006"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Print workbook provides a smaller curated practice set.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_05_numbers_time.extension",
+      "unitId": "a1_05_numbers_time",
+      "printAnchor": "extension/extra_scene",
+      "linkRole": "extension",
+      "appContentIds": [
+        "a1_w10_numbers"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Extension is optional; core print progression does not depend on it.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_06_transport_directions.core_dialogue",
+      "unitId": "a1_06_transport_directions",
+      "printAnchor": "scene/core_dialogue",
+      "linkRole": "core_dialogue",
+      "appContentIds": [
+        "taxi_kakao"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Print dialogue remains complete without app access.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_06_transport_directions.listening",
+      "unitId": "a1_06_transport_directions",
+      "printAnchor": "listening/core",
+      "linkRole": "listening",
+      "appContentIds": [
+        "listening.a1.taxi_kakao",
+        "listening.a1.a1_w10_taxi_stay"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Printed transcript/task remains usable; audio requires app or separately distributed audio.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_06_transport_directions.practice",
+      "unitId": "a1_06_transport_directions",
+      "printAnchor": "practice/recycle",
+      "linkRole": "recycling",
+      "appContentIds": [
+        "cloze_a1_0014",
+        "cloze_a1_0379",
+        "satz_a1_0360",
+        "satz_a1_0361"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Print workbook provides a smaller curated practice set.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_06_transport_directions.extension",
+      "unitId": "a1_06_transport_directions",
+      "printAnchor": "extension/extra_scene",
+      "linkRole": "extension",
+      "appContentIds": [
+        "a1_w10_taxi_stay",
+        "a1_w10_wayfinding"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Extension is optional; core print progression does not depend on it.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_07_contact_address.core_dialogue",
+      "unitId": "a1_07_contact_address",
+      "printAnchor": "scene/core_dialogue",
+      "linkRole": "core_dialogue",
+      "appContentIds": [
+        "kakao_contact_after_class"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Print dialogue remains complete without app access.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_07_contact_address.listening",
+      "unitId": "a1_07_contact_address",
+      "printAnchor": "listening/core",
+      "linkRole": "listening",
+      "appContentIds": [
+        "listening.a1.kakao_contact_after_class",
+        "listening.a1.a1_w10_phone"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Printed transcript/task remains usable; audio requires app or separately distributed audio.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_07_contact_address.practice",
+      "unitId": "a1_07_contact_address",
+      "printAnchor": "practice/recycle",
+      "linkRole": "recycling",
+      "appContentIds": [
+        "cloze_a1_0583",
+        "cloze_a1_0584",
+        "satz_a1_0564",
+        "satz_a1_0565"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Print workbook provides a smaller curated practice set.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_07_contact_address.extension",
+      "unitId": "a1_07_contact_address",
+      "printAnchor": "extension/extra_scene",
+      "linkRole": "extension",
+      "appContentIds": [
+        "a1_w10_phone",
+        "a1_message_contact_after_class_2026"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Extension is optional; core print progression does not depend on it.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_08_clarify_repair.core_dialogue",
+      "unitId": "a1_08_clarify_repair",
+      "printAnchor": "scene/core_dialogue",
+      "linkRole": "core_dialogue",
+      "appContentIds": [
+        "clarify_repeat"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Print dialogue remains complete without app access.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_08_clarify_repair.listening",
+      "unitId": "a1_08_clarify_repair",
+      "printAnchor": "listening/core",
+      "linkRole": "listening",
+      "appContentIds": [
+        "listening.a1.bakery_queue",
+        "listening.a1.clarify_repeat"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Printed transcript/task remains usable; audio requires app or separately distributed audio.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_08_clarify_repair.practice",
+      "unitId": "a1_08_clarify_repair",
+      "printAnchor": "practice/recycle",
+      "linkRole": "recycling",
+      "appContentIds": [
+        "cloze_a1_0306",
+        "cloze_a1_0309",
+        "satz_b1_0403",
+        "satz_b2_0414"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Print workbook provides a smaller curated practice set.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    },
+    {
+      "crosslinkId": "a1_08_clarify_repair.extension",
+      "unitId": "a1_08_clarify_repair",
+      "printAnchor": "extension/extra_scene",
+      "linkRole": "extension",
+      "appContentIds": [
+        "bakery_queue",
+        "a1_w10_repeat"
+      ],
+      "resolverMode": "CONTENT_ID_LOOKUP",
+      "deeplinkKey": null,
+      "offlineFallback": "Extension is optional; core print progression does not depend on it.",
+      "contentVersion": "2026-10-06-phase2c",
+      "lastVerified": "2026-10-06",
+      "status": "verified_content_ids"
+    }
+  ]
+}
