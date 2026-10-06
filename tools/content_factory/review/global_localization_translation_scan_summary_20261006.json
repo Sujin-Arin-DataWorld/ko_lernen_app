@@ -4,12 +4,42 @@
   "status": "HEURISTIC_TRIAGE_NOT_NATIVE_SIGNOFF",
   "humanNativeSignoff": false,
   "levels": {
-    "A1": {"rows": 735, "flaggedRows": 101, "hits": 119, "unexplained": 0},
-    "A2": {"rows": 519, "flaggedRows": 96, "hits": 115, "unexplained": 0},
-    "B1": {"rows": 650, "flaggedRows": 81, "hits": 101, "rawUnexplained": 101},
-    "B2": {"rows": 560, "flaggedRows": 82, "hits": 97, "rawUnexplained": 97},
-    "C1": {"rows": 240, "flaggedRows": 29, "hits": 29, "rawUnexplained": 29},
-    "C2": {"rows": 264, "flaggedRows": 29, "hits": 29, "rawUnexplained": 29}
+    "A1": {
+      "rows": 735,
+      "flaggedRows": 101,
+      "hits": 119,
+      "unexplained": 0
+    },
+    "A2": {
+      "rows": 519,
+      "flaggedRows": 96,
+      "hits": 115,
+      "unexplained": 0
+    },
+    "B1": {
+      "rows": 650,
+      "flaggedRows": 81,
+      "hits": 101,
+      "rawUnexplained": 101
+    },
+    "B2": {
+      "rows": 560,
+      "flaggedRows": 82,
+      "hits": 97,
+      "rawUnexplained": 97
+    },
+    "C1": {
+      "rows": 240,
+      "flaggedRows": 29,
+      "hits": 29,
+      "rawUnexplained": 29
+    },
+    "C2": {
+      "rows": 264,
+      "flaggedRows": 29,
+      "hits": 29,
+      "rawUnexplained": 29
+    }
   },
   "postTriage": {
     "R3_headwordMissing": {
@@ -40,11 +70,22 @@
     "R4_lengthRatio": {
       "hitsB1C2": 108,
       "uniqueRows": 82,
-      "status": "pending_semantic_native_qa",
-      "reason": "Length-ratio heuristic is only a triage queue; each row must be read against Korean before correction."
+      "status": "model_assisted_direct_ko_review_complete",
+      "reason": "All 82 length-ratio rows were read directly against Korean; 9 received concrete corrections and 73 were accepted. This is model-assisted QA, not human-native sign-off.",
+      "reviewedRows": 82,
+      "correctedInDirectReview": 9,
+      "acceptedCurrentSurface": 73,
+      "openDebt": 0,
+      "reviewLedger": "tools/content_factory/review/global_localization_r4_direct_ko_review_20261006.json"
     },
     "highConfidenceLeakOrRegisterRules": {
-      "rules": ["R2_de_calque_fronting", "R5_du_sie_mixed", "R6_em_en_dash", "R8_question_mismatch", "R9_numeral_label"],
+      "rules": [
+        "R2_de_calque_fronting",
+        "R5_du_sie_mixed",
+        "R6_em_en_dash",
+        "R8_question_mismatch",
+        "R9_numeral_label"
+      ],
       "hitsB1C2": 0
     }
   },

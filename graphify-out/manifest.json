@@ -8196,9 +8196,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791313291.6210396,
-    "seen": 1791313831.040193,
-    "ast_hash": "a1f48ed893fb8a04c36992fc5d070d8d",
+    "mtime": 1791319428.919108,
+    "seen": 1791319818.2969277,
+    "ast_hash": "f7e9ea8b3a88fb9a24141c346de4194a",
     "semantic_hash": ""
   },
   "BETA_INSTALL_GUIDE.md": {
@@ -22548,15 +22548,15 @@
     "semantic_hash": ""
   },
   "tools/content_factory/build_global_localization_coverage.py": {
-    "mtime": 1791313368.5920935,
-    "seen": 1791313830.7490861,
-    "ast_hash": "4fd3568c05d44b96ebdf519bee0304e0",
+    "mtime": 1791318204.602443,
+    "seen": 1791319817.9856033,
+    "ast_hash": "a5c62d75c397daa12ae53dbd099cff96",
     "semantic_hash": ""
   },
   "tools/content_factory/build_global_localization_owner_audit.py": {
-    "mtime": 1791310978.4820652,
-    "seen": 1791312114.0925345,
-    "ast_hash": "386cebd817cb73fbdfc2c0c935a1025d",
+    "mtime": 1791319358.6676593,
+    "seen": 1791319817.985611,
+    "ast_hash": "3ac27aebf77d2ca4f1be4a4e364f7519",
     "semantic_hash": ""
   },
   "tools/content_factory/build_living_korea_localization.py": {
@@ -22596,8 +22596,8 @@
     "semantic_hash": ""
   },
   "tools/content_factory/review/global_localization_derived_reconciliation_20261006.json": {
-    "mtime": 1791311561.7805545,
-    "seen": 1791312114.4138255,
+    "mtime": 1791319443.9735396,
+    "seen": 1791319818.197841,
     "ast_hash": "2cf586e49ca36ea02864d7a0fccdf80b",
     "semantic_hash": ""
   },
@@ -22608,15 +22608,15 @@
     "semantic_hash": ""
   },
   "tools/content_factory/test_global_localization_coverage.py": {
-    "mtime": 1791313316.489942,
-    "seen": 1791313830.9864516,
-    "ast_hash": "db545c45e5f0b14dcd534f31df76a4ac",
+    "mtime": 1791316349.9850104,
+    "seen": 1791319818.229646,
+    "ast_hash": "3c345dbfecc91c3730f93ba03c579701",
     "semantic_hash": ""
   },
   "tools/content_factory/test_global_localization_owner_audit.py": {
-    "mtime": 1791313305.7393124,
-    "seen": 1791313830.9864552,
-    "ast_hash": "cd41d5842330bae9d5ad5fa58737467f",
+    "mtime": 1791319358.6686594,
+    "seen": 1791319818.2296581,
+    "ast_hash": "fb6e01ef7cf0c0b2c4468f983a26a928",
     "semantic_hash": ""
   },
   "tools/content_factory/test_living_korea_localization.py": {
@@ -22632,9 +22632,105 @@
     "semantic_hash": ""
   },
   "docs/plans/2026-10-06-global-localization-canonicalization.md": {
-    "mtime": 1791313269.0392747,
-    "seen": 1791313831.134219,
-    "ast_hash": "e386e5f6b1a4c81984872acf71f4f9ad",
+    "mtime": 1791319412.4009235,
+    "seen": 1791319818.4101799,
+    "ast_hash": "ea5fb41a575df8307c39b109cf5436f3",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/build_global_localization_g4_audit.py": {
+    "mtime": 1791316718.941486,
+    "seen": 1791319817.9856076,
+    "ast_hash": "a72b0742dd2d9df9292195de87c935a7",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/global_localization_derived_topic_resolutions_20261006.json": {
+    "mtime": 1791318174.9189048,
+    "seen": 1791319818.197847,
+    "ast_hash": "a982f0e5db6f498c4cd17a8a7b130c76",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/global_localization_editorial_topic_resolutions_20261006.json": {
+    "mtime": 1791317886.9055512,
+    "seen": 1791319818.1978502,
+    "ast_hash": "e66ec9985acae26b802fe23cc21ea091",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/global_localization_example_anchor_resolutions_20261006.json": {
+    "mtime": 1791315975.9490147,
+    "seen": 1791319818.1978526,
+    "ast_hash": "558daeea56fc9617c3121ea0e02fda4b",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/global_localization_g4_korean_surface_resolutions_20261006.json": {
+    "mtime": 1791316678.71346,
+    "seen": 1791319818.1978564,
+    "ast_hash": "5451b0beaf806de0cdb87df0f7b6425f",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/global_localization_owner_corrections_20261006.json": {
+    "mtime": 1791319329.7370331,
+    "seen": 1791319818.1978595,
+    "ast_hash": "303f47f16b1301696cabd7b790d3554c",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/global_localization_r4_direct_ko_review_20261006.json": {
+    "mtime": 1791319329.7350328,
+    "seen": 1791319818.1978643,
+    "ast_hash": "0299fc9b7493a6e8dcc6b24a7aa7fd02",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/global_localization_scenario_topic_resolutions_20261006.json": {
+    "mtime": 1791317778.8609366,
+    "seen": 1791319818.1978672,
+    "ast_hash": "c201876189342ec308b80107241da020",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/global_localization_translation_scan_summary_20261006.json": {
+    "mtime": 1791319397.1271937,
+    "seen": 1791319818.19787,
+    "ast_hash": "7b0e095f5f4bb6abbd02a9d9a9a17a17",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/test_global_localization_g4_audit.py": {
+    "mtime": 1791318920.1507082,
+    "seen": 1791319818.229651,
+    "ast_hash": "593047eb1cb06ef29e8e0cba9884a6a3",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/global_localization_translation_scan_a1_20261006.md": {
+    "mtime": 1791317368.6035712,
+    "seen": 1791319818.4692445,
+    "ast_hash": "3b730a2b9d9a1c430cb74a155a378c7a",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/global_localization_translation_scan_a2_20261006.md": {
+    "mtime": 1791317368.9293578,
+    "seen": 1791319818.4692476,
+    "ast_hash": "b6302339e4bb17799a1fab797b55be01",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/global_localization_translation_scan_b1_20261006.md": {
+    "mtime": 1791317369.3069549,
+    "seen": 1791319818.4692512,
+    "ast_hash": "1c9c430d399f5115c0930649135d5bc5",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/global_localization_translation_scan_b2_20261006.md": {
+    "mtime": 1791317369.6644714,
+    "seen": 1791319818.4692538,
+    "ast_hash": "7cf78e3669c64fa4bde6b4d55791f0f8",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/global_localization_translation_scan_c1_20261006.md": {
+    "mtime": 1791317369.9797673,
+    "seen": 1791319818.469256,
+    "ast_hash": "22f6bc359c77dbdb9693e82852e0b585",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/global_localization_translation_scan_c2_20261006.md": {
+    "mtime": 1791317370.308043,
+    "seen": 1791319818.469258,
+    "ast_hash": "0c086b6280ed0be8c1cd3ff3d82f0243",
     "semantic_hash": ""
   }
 }

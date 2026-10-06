@@ -18,6 +18,7 @@ COVERAGE = ROOT / "tools/content_factory/review/global_localization_coverage_202
 VOCAB = ROOT / "assets/data/korean_vocab.csv"
 OUTPUT = ROOT / "tools/content_factory/review/global_localization_owner_audit_20261006.json"
 ANCHOR_RESOLUTIONS = ROOT / "tools/content_factory/review/global_localization_example_anchor_resolutions_20261006.json"
+DIRECT_KO_REVIEW = ROOT / "tools/content_factory/review/global_localization_r4_direct_ko_review_20261006.json"
 
 OWNER_TYPES = {
     "vocab_lexeme",
@@ -120,6 +121,13 @@ def anchor_resolution_index() -> dict[str, dict[str, str]]:
     return index
 
 
+def direct_ko_review_index() -> dict[str, dict[str, Any]]:
+    if not DIRECT_KO_REVIEW.exists():
+        return {}
+    payload = load_json(DIRECT_KO_REVIEW)
+    return {str(row["itemId"]): row for row in payload.get("records", [])}
+
+
 def qa_findings_for(
     record: dict[str, Any],
     vocab: dict[str, dict[str, str]],
@@ -189,6 +197,7 @@ def main() -> None:
     coverage = load_json(COVERAGE)
     vocab = vocab_index()
     anchor_resolutions = anchor_resolution_index()
+    direct_reviews = direct_ko_review_index()
     records: list[dict[str, Any]] = []
     issue_counts: Counter[str] = Counter()
     review_flag_counts: Counter[str] = Counter()
@@ -212,6 +221,8 @@ def main() -> None:
             mapped += 1
         else:
             manual_topic += 1
+        base_item_id = str(source.get("itemId") or "").split("#", 1)[0]
+        direct_review = direct_reviews.get(base_item_id)
         records.append(
             {
                 "surfaceType": source["surfaceType"],
@@ -229,6 +240,12 @@ def main() -> None:
                 "resolvedAuditNotes": resolutions,
                 "structuralQaStatus": "needs_correction" if issues else "structural_pass",
                 "corpusQaStatus": "pending_native_usage_qa",
+                "modelDirectKoReviewStatus": (
+                    "reviewed" if direct_review else "not_reviewed"
+                ),
+                "modelDirectKoReviewDecision": (
+                    direct_review.get("decision") if direct_review else None
+                ),
                 "humanNativeReviewStatus": "not_reviewed",
                 "promotionStatus": source.get("promotionStatus"),
                 "spokenSurfaceStatus": "review_if_chat_or_tts_surface",
@@ -246,6 +263,10 @@ def main() -> None:
         "reviewFlagCounts": dict(sorted(review_flag_counts.items())),
         "resolvedAuditNoteCounts": dict(sorted(resolution_counts.items())),
         "manualReviewFlaggedCount": sum(bool(r["reviewFlags"]) for r in records),
+        "modelDirectKoReviewedOwnerSurfaceCount": sum(
+            r["modelDirectKoReviewStatus"] == "reviewed" for r in records
+        ),
+        "modelDirectKoReviewedVocabRowCount": len(direct_reviews),
         "humanNativeReviewedCount": 0,
         "policy": (
             "This ledger is structural/corpus-QA preparation only. "

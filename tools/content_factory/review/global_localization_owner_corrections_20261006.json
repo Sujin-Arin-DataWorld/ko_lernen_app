@@ -24,9 +24,18 @@
     "vocab_b2_0599",
     "vocab_b1_0485",
     "vocab_b1_0452",
-    "vocab_b1_0448"
+    "vocab_b1_0448",
+    "vocab_a2_0374",
+    "vocab_a2_0432",
+    "vocab_b1_0117",
+    "vocab_b1_0270",
+    "vocab_b1_0297",
+    "vocab_b1_0404",
+    "vocab_b2_0061",
+    "vocab_b2_0177",
+    "vocab_b2_0525"
   ],
-  "correctionCount": 20,
+  "correctionCount": 29,
   "categories": [
     "semantic_precision",
     "native_collocation",
@@ -39,5 +48,7 @@
     "resolvedOwnerCount": 4641,
     "unresolvedOwnerCount": 609,
     "postReconcileDriftCount": 0
-  }
+  },
+  "latestPass": "R4_DIRECT_KO_REVIEW",
+  "latestPassCorrectionCount": 9
 }

@@ -2705,8 +2705,8 @@
       "id": "satz_b1_0072",
       "level": "b1",
       "targetKo": "팀장님이 부재중이셔서 메일로 보고드렸어요.",
-      "promptDe": "Da die Teamleitung abwesend war, habe ich per E-Mail Bericht erstattet.",
-      "promptEn": "Since the team leader was unavailable, I sent a report by email.",
+      "promptDe": "Da die Teamleitung nicht da war, habe ich per E-Mail berichtet.",
+      "promptEn": "Since the team lead was away, I reported it by email.",
       "distractors": [
         "마감일을",
         "참석 여부를"
@@ -8049,7 +8049,7 @@
       "id": "satz_b1_0105",
       "level": "b1",
       "targetKo": "긴 이야기는 요약해서 전하니 핵심만 남았어요.",
-      "promptDe": "Die lange Geschichte fasste ich beim Weitergeben zusammen, sodass nur das Wesentliche blieb.",
+      "promptDe": "Ich habe die lange Geschichte beim Weitererzählen zusammengefasst, sodass nur das Wesentliche übrig blieb.",
       "promptEn": "I summarized the long story as I passed it on, so only the key points remained.",
       "distractors": [
         "뉘앙스가",
@@ -10029,8 +10029,8 @@
       "id": "satz_b2_0250",
       "level": "b2",
       "targetKo": "관계부터 말하니 악수 타이밍이 맞았어요.",
-      "promptDe": "Als ich zuerst erklärte, wie wir miteinander verbunden sind, ergab sich der passende Moment für den Handschlag.",
-      "promptEn": "Once I explained how we were connected, the timing for a handshake felt right.",
+      "promptDe": "Als ich zuerst erklärte, wie wir zueinander standen, ergab sich der passende Moment für den Handschlag.",
+      "promptEn": "Once I explained our relationship, the timing for a handshake felt right.",
       "distractors": [
         "냈어요",
         "넘겼어요"
@@ -11889,8 +11889,8 @@
       "id": "satz_a2_0144",
       "level": "b1",
       "targetKo": "고객센터에 오전에 전화했어요.",
-      "promptDe": "Ich habe das Kundencenter am Vormittag angerufen.",
-      "promptEn": "I called the customer center in the morning.",
+      "promptDe": "Ich habe am Vormittag beim Kundenservice angerufen.",
+      "promptEn": "I called customer service in the morning.",
       "distractors": [
         "요금제",
         "데이터량"
@@ -12586,7 +12586,7 @@
       "level": "b1",
       "targetKo": "첫날에 근로계약을 읽고 서명해요.",
       "promptDe": "Am ersten Tag lese ich den Arbeitsvertrag und unterschreibe.",
-      "promptEn": "On the first day I read and sign the work contract.",
+      "promptEn": "On my first day, I read and sign the employment contract.",
       "distractors": [
         "시급",
         "근무표"
@@ -13366,7 +13366,7 @@
       "level": "b2",
       "targetKo": "민원실에서 번호표를 뽑고 기다려요.",
       "promptDe": "Im Bürgerbüro ziehe ich eine Nummer und warte.",
-      "promptEn": "I take a number at the civil affairs desk and wait.",
+      "promptEn": "I take a number at the public service desk and wait.",
       "distractors": [
         "구비 서류",
         "접수증"
@@ -20830,7 +20830,7 @@
       "level": "b1",
       "targetKo": "시청 앞에서 만나요.",
       "promptDe": "Treffen wir uns vor dem Rathaus.",
-      "promptEn": "Let us meet in front of city hall.",
+      "promptEn": "Let's meet in front of city hall.",
       "distractors": [
         "경험",
         "문화"
@@ -23313,8 +23313,8 @@
       "id": "satz_b2_0464",
       "level": "b2",
       "targetKo": "광복절에 국기를 달아요.",
-      "promptDe": "Am Befreiungstag hängen wir die Nationalflagge auf.",
-      "promptEn": "We fly the national flag on Liberation Day.",
+      "promptDe": "Am Gwangbokjeol (dem koreanischen Befreiungstag) hängen wir die Nationalflagge auf.",
+      "promptEn": "On Gwangbokjeol (Liberation Day), we fly the national flag.",
       "distractors": [
         "갈등",
         "관점"

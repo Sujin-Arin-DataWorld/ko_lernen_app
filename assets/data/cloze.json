@@ -4819,8 +4819,8 @@
       "sentenceKo": "팀장님이 ＿＿＿ 메일로 보고드렸어요.",
       "answer": "부재중이셔서",
       "fullKo": "팀장님이 부재중이셔서 메일로 보고드렸어요.",
-      "de": "Da die Teamleitung abwesend war, habe ich per E-Mail Bericht erstattet.",
-      "en": "Since the team leader was unavailable, I sent a report by email.",
+      "de": "Da die Teamleitung nicht da war, habe ich per E-Mail berichtet.",
+      "en": "Since the team lead was away, I reported it by email.",
       "distractors": [
         "회의실",
         "마감일",
@@ -11308,7 +11308,7 @@
       "sentenceKo": "긴 이야기는 ＿＿＿ 핵심만 남았어요.",
       "answer": "요약해서 전하니",
       "fullKo": "긴 이야기는 요약해서 전하니 핵심만 남았어요.",
-      "de": "Die lange Geschichte fasste ich beim Weitergeben zusammen, sodass nur das Wesentliche blieb.",
+      "de": "Ich habe die lange Geschichte beim Weitererzählen zusammengefasst, sodass nur das Wesentliche übrig blieb.",
       "en": "I summarized the long story as I passed it on, so only the key points remained.",
       "distractors": [
         "끼어드니",
@@ -13783,8 +13783,8 @@
       "sentenceKo": "＿＿＿ 악수 타이밍이 맞았어요.",
       "answer": "관계부터 말하니",
       "fullKo": "관계부터 말하니 악수 타이밍이 맞았어요.",
-      "de": "Als ich zuerst erklärte, wie wir miteinander verbunden sind, ergab sich der passende Moment für den Handschlag.",
-      "en": "Once I explained how we were connected, the timing for a handshake felt right.",
+      "de": "Als ich zuerst erklärte, wie wir zueinander standen, ergab sich der passende Moment für den Handschlag.",
+      "en": "Once I explained our relationship, the timing for a handshake felt right.",
       "distractors": [
         "예를 갖추니",
         "용돈 드리니",
@@ -16108,8 +16108,8 @@
       "sentenceKo": "＿＿＿에 오전에 전화했어요.",
       "answer": "고객센터",
       "fullKo": "고객센터에 오전에 전화했어요.",
-      "de": "Ich habe das Kundencenter am Vormittag angerufen.",
-      "en": "I called the customer center in the morning.",
+      "de": "Ich habe am Vormittag beim Kundenservice angerufen.",
+      "en": "I called customer service in the morning.",
       "distractors": [
         "요금제",
         "데이터량",
@@ -16979,7 +16979,7 @@
       "answer": "근로계약",
       "fullKo": "첫날에 근로계약을 읽고 서명해요.",
       "de": "Am ersten Tag lese ich den Arbeitsvertrag und unterschreibe.",
-      "en": "On the first day I read and sign the work contract.",
+      "en": "On my first day, I read and sign the employment contract.",
       "distractors": [
         "시급",
         "야간수당",
@@ -17954,7 +17954,7 @@
       "answer": "민원실",
       "fullKo": "민원실에서 번호표를 뽑고 기다려요.",
       "de": "Im Bürgerbüro ziehe ich eine Nummer und warte.",
-      "en": "I take a number at the civil affairs desk and wait.",
+      "en": "I take a number at the public service desk and wait.",
       "distractors": [
         "구비 서류",
         "접수증",

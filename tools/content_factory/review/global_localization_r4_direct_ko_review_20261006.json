@@ -1,0 +1,835 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "MODEL_ASSISTED_DIRECT_FROM_KO_R4_REVIEW_COMPLETE",
+  "humanNativeSignoff": false,
+  "policy": "All 82 length-ratio triage rows were read directly against Korean. A heuristic flag alone is never a correction reason. This closes the model-assisted semantic/native-fluency triage queue but does not claim independent human-native sign-off.",
+  "summary": {
+    "reviewedRowCount": 82,
+    "correctedInThisPassCount": 9,
+    "acceptedCurrentSurfaceCount": 73,
+    "remainingR4ReviewDebt": 0
+  },
+  "records": [
+    {
+      "itemId": "vocab_a1_0230",
+      "headword": "사양하다",
+      "level": "B1",
+      "exampleKorean": "처음에는 사양하다가 결국 받으셨어요.",
+      "exampleEnglish": "They declined at first and then accepted after all.",
+      "exampleGerman": "Zuerst lehnten sie höflich ab und nahmen es dann doch an.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_a1_0288",
+      "headword": "형부",
+      "level": "B1",
+      "exampleKorean": "형부가 맥주를 권해서 반만 받았어요.",
+      "exampleEnglish": "My older sister's husband offered beer, and I took only half.",
+      "exampleGerman": "Der Mann meiner älteren Schwester bot Bier an, ich nahm nur die Hälfte.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_a1_0352",
+      "headword": "택배함",
+      "level": "B1",
+      "exampleKorean": "택배함에 비밀번호를 넣어요.",
+      "exampleEnglish": "I enter the password on the parcel locker.",
+      "exampleGerman": "Ich gebe das Passwort in den Paketkasten ein.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_a2_0109",
+      "headword": "교차로",
+      "level": "B1",
+      "exampleKorean": "다음 교차로에서 내려주세요.",
+      "exampleEnglish": "Please drop me off at the next intersection.",
+      "exampleGerman": "Lassen Sie mich bitte an der nächsten Kreuzung raus.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_a2_0314",
+      "headword": "단톡방",
+      "level": "B1",
+      "exampleKorean": "단톡방에 입장하자마자 이모티콘이 쏟아졌어요.",
+      "exampleEnglish": "As soon as I joined the family group chat, stickers poured in.",
+      "exampleGerman": "Kaum war ich im Familienchat, regnete es Sticker.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_a2_0332",
+      "headword": "냉동실",
+      "level": "B1",
+      "exampleKorean": "냉동실에 넣으라고 스티커까지 붙여 주셨어요.",
+      "exampleEnglish": "They even stuck a note on it saying to put it in the freezer.",
+      "exampleGerman": "Sie klebten sogar einen Zettel drauf: ab ins Gefrierfach.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_a2_0374",
+      "headword": "고객센터",
+      "level": "B1",
+      "exampleKorean": "고객센터에 오전에 전화했어요.",
+      "exampleEnglish": "I called customer service in the morning.",
+      "exampleGerman": "Ich habe am Vormittag beim Kundenservice angerufen.",
+      "decision": "corrected_in_direct_ko_review",
+      "note": "Replace literal customer center/Kundencenter with idiomatic customer service/Kundenservice."
+    },
+    {
+      "itemId": "vocab_a2_0383",
+      "headword": "통장정리",
+      "level": "B1",
+      "exampleKorean": "창구에서 통장정리를 부탁했어요.",
+      "exampleEnglish": "I asked for my bankbook to be updated at the counter.",
+      "exampleGerman": "Am Schalter habe ich darum gebeten, mein Sparbuch zu aktualisieren.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_a2_0432",
+      "headword": "근로계약",
+      "level": "B1",
+      "exampleKorean": "첫날에 근로계약을 읽고 서명해요.",
+      "exampleEnglish": "On my first day, I read and sign the employment contract.",
+      "exampleGerman": "Am ersten Tag lese ich den Arbeitsvertrag und unterschreibe.",
+      "decision": "corrected_in_direct_ko_review",
+      "note": "Use employment contract rather than literal work contract in learner-facing English."
+    },
+    {
+      "itemId": "vocab_a2_0466",
+      "headword": "납부일",
+      "level": "B1",
+      "exampleKorean": "월세 납부일은 매달 말이에요.",
+      "exampleEnglish": "The rent payment is due at the end of each month.",
+      "exampleGerman": "Der Zahlungstermin für die Miete ist jeweils am Monatsende.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0032",
+      "headword": "포기하다",
+      "level": "B1",
+      "exampleKorean": "여기까지 왔는데 포기하지 마세요.",
+      "exampleEnglish": "You've come this far; don't give up now.",
+      "exampleGerman": "Sie sind schon so weit gekommen. Geben Sie jetzt nicht auf.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0047",
+      "headword": "단순하다",
+      "level": "B1",
+      "exampleKorean": "생각보다 답은 단순하더라고요.",
+      "exampleEnglish": "The answer turned out to be simpler than I expected.",
+      "exampleGerman": "Die Antwort war einfacher als gedacht.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0050",
+      "headword": "결국",
+      "level": "B1",
+      "exampleKorean": "결국 오늘도 야근이네요.",
+      "exampleEnglish": "Looks like I'm working overtime again today after all.",
+      "exampleGerman": "Am Ende mache ich heute also doch wieder Überstunden.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0069",
+      "headword": "보고하다",
+      "level": "B1",
+      "exampleKorean": "결과가 나오면 바로 보고드릴게요.",
+      "exampleEnglish": "I'll report to you as soon as the results come in.",
+      "exampleGerman": "Sobald die Ergebnisse da sind, berichte ich Ihnen sofort.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0073",
+      "headword": "회의록",
+      "level": "B1",
+      "exampleKorean": "회의록 정리해서 공유해 드릴게요.",
+      "exampleEnglish": "I'll write up the meeting minutes and share them with you.",
+      "exampleGerman": "Ich fasse das Protokoll zusammen und teile es mit Ihnen.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0081",
+      "headword": "휴식",
+      "level": "B1",
+      "exampleKorean": "잠깐이라도 휴식이 필요해요.",
+      "exampleEnglish": "I need a break, even just a short one.",
+      "exampleGerman": "Ich brauche eine Pause, auch wenn sie nur kurz ist.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0109",
+      "headword": "무대",
+      "level": "B1",
+      "exampleKorean": "가수가 무대에 올라갔어요.",
+      "exampleEnglish": "The singer went on stage.",
+      "exampleGerman": "Die Sängerin oder der Sänger ist auf die Bühne gegangen.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0117",
+      "headword": "시청",
+      "level": "B1",
+      "exampleKorean": "시청 앞에서 만나요.",
+      "exampleEnglish": "Let's meet in front of city hall.",
+      "exampleGerman": "Treffen wir uns vor dem Rathaus.",
+      "decision": "corrected_in_direct_ko_review",
+      "note": "Use conversational Let's meet rather than formal Let us meet."
+    },
+    {
+      "itemId": "vocab_b1_0120",
+      "headword": "동물원",
+      "level": "B1",
+      "exampleKorean": "아이들과 동물원에 갔어요.",
+      "exampleEnglish": "I went to the zoo with the kids.",
+      "exampleGerman": "Ich war mit den Kindern im Zoo.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0121",
+      "headword": "놀이공원",
+      "level": "B1",
+      "exampleKorean": "주말에 놀이공원에 가요.",
+      "exampleEnglish": "We go to the amusement park on weekends.",
+      "exampleGerman": "Am Wochenende gehen wir in den Freizeitpark.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0126",
+      "headword": "우체국",
+      "level": "B1",
+      "exampleKorean": "우체국에서 소포를 보냈어요.",
+      "exampleEnglish": "I mailed a package at the post office.",
+      "exampleGerman": "Ich habe bei der Post ein Paket verschickt.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0136",
+      "headword": "입장료",
+      "level": "B1",
+      "exampleKorean": "입장료가 얼마예요?",
+      "exampleEnglish": "How much is the admission fee?",
+      "exampleGerman": "Wie hoch ist die Eintrittsgebühr?",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0139",
+      "headword": "신용카드",
+      "level": "B1",
+      "exampleKorean": "신용카드로 계산할게요.",
+      "exampleEnglish": "I will pay by credit card.",
+      "exampleGerman": "Ich zahle mit Kreditkarte.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0142",
+      "headword": "교통카드",
+      "level": "B1",
+      "exampleKorean": "교통카드 어디에서 충전해요?",
+      "exampleEnglish": "Where can I top up the transit card?",
+      "exampleGerman": "Wo kann ich die Verkehrskarte aufladen?",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0163",
+      "headword": "다치다",
+      "level": "B1",
+      "exampleKorean": "운동하다가 다리를 다쳤어요.",
+      "exampleEnglish": "I hurt my leg while exercising.",
+      "exampleGerman": "Beim Sport habe ich mir das Bein verletzt.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0166",
+      "headword": "취직하다",
+      "level": "B1",
+      "exampleKorean": "형이 은행에 취직했어요.",
+      "exampleEnglish": "My brother got a job at a bank.",
+      "exampleGerman": "Mein Bruder hat eine Stelle bei einer Bank gefunden.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0175",
+      "headword": "지각하다",
+      "level": "B1",
+      "exampleKorean": "오늘 회사에 지각했어요.",
+      "exampleEnglish": "I was late for work today.",
+      "exampleGerman": "Heute bin ich zu spät zur Arbeit gekommen.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0177",
+      "headword": "초대하다",
+      "level": "B1",
+      "exampleKorean": "친구를 집에 초대했어요.",
+      "exampleEnglish": "I invited a friend to my home.",
+      "exampleGerman": "Ich habe jemanden aus meinem Freundeskreis nach Hause eingeladen.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0178",
+      "headword": "집들이",
+      "level": "B1",
+      "exampleKorean": "토요일에 집들이를 해요.",
+      "exampleEnglish": "We are having a housewarming party on Saturday.",
+      "exampleGerman": "Am Samstag machen wir eine Einweihungsfeier.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0179",
+      "headword": "돌잔치",
+      "level": "B1",
+      "exampleKorean": "조카 돌잔치에 갔어요.",
+      "exampleEnglish": "I went to my niece's first birthday party.",
+      "exampleGerman": "Ich war auf dem ersten Geburtstagsfest meiner Nichte.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0180",
+      "headword": "송별회",
+      "level": "B1",
+      "exampleKorean": "부장님 송별회가 금요일이에요.",
+      "exampleEnglish": "The department head’s farewell party is on Friday.",
+      "exampleGerman": "Die Abschiedsfeier für die Abteilungsleitung ist am Freitag.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0181",
+      "headword": "결혼식",
+      "level": "B1",
+      "exampleKorean": "주말에 결혼식에 가요.",
+      "exampleEnglish": "I am going to a wedding this weekend.",
+      "exampleGerman": "Am Wochenende gehe ich zu einer Hochzeit.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0183",
+      "headword": "신혼여행",
+      "level": "B1",
+      "exampleKorean": "신혼여행은 제주도로 가요.",
+      "exampleEnglish": "We are going to Jeju for our honeymoon.",
+      "exampleGerman": "Die Flitterwochen verbringen wir auf Jeju.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0197",
+      "headword": "소개하다",
+      "level": "B1",
+      "exampleKorean": "친구를 소개해 줄게요.",
+      "exampleEnglish": "I will introduce a friend to you.",
+      "exampleGerman": "Ich stelle dir jemanden aus meinem Freundeskreis vor.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0215",
+      "headword": "줍다",
+      "level": "B1",
+      "exampleKorean": "길에서 지갑을 주웠어요.",
+      "exampleEnglish": "I picked up a wallet on the street.",
+      "exampleGerman": "Ich habe auf der Straße einen Geldbeutel aufgehoben.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0220",
+      "headword": "헤어지다",
+      "level": "B1",
+      "exampleKorean": "남자친구와 헤어졌어요.",
+      "exampleEnglish": "I broke up with my boyfriend.",
+      "exampleGerman": "Ich habe mich von meinem Freund getrennt.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0225",
+      "headword": "날씬하다",
+      "level": "B1",
+      "exampleKorean": "운동해서 날씬해졌어요.",
+      "exampleEnglish": "I got slimmer from exercising.",
+      "exampleGerman": "Durch Sport bin ich schlank geworden.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0245",
+      "headword": "노인",
+      "level": "B1",
+      "exampleKorean": "지하철에서 노인에게 자리를 양보했어요.",
+      "exampleEnglish": "I gave my seat to an elderly person on the subway.",
+      "exampleGerman": "In der U-Bahn habe ich einem älteren Menschen den Platz überlassen.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0247",
+      "headword": "옛날",
+      "level": "B1",
+      "exampleKorean": "옛날에는 여기가 시장이었어요.",
+      "exampleEnglish": "This used to be a market in the old days.",
+      "exampleGerman": "Früher war hier ein Markt.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0270",
+      "headword": "부재중",
+      "level": "B1",
+      "exampleKorean": "팀장님이 부재중이셔서 메일로 보고드렸어요.",
+      "exampleEnglish": "Since the team lead was away, I reported it by email.",
+      "exampleGerman": "Da die Teamleitung nicht da war, habe ich per E-Mail berichtet.",
+      "decision": "corrected_in_direct_ko_review",
+      "note": "Use natural reporting phrasing while preserving team lead absence and email channel."
+    },
+    {
+      "itemId": "vocab_b1_0297",
+      "headword": "요약해서 전하다",
+      "level": "B1",
+      "exampleKorean": "긴 이야기는 요약해서 전하니 핵심만 남았어요.",
+      "exampleEnglish": "I summarized the long story as I passed it on, so only the key points remained.",
+      "exampleGerman": "Ich habe die lange Geschichte beim Weitererzählen zusammengefasst, sodass nur das Wesentliche übrig blieb.",
+      "decision": "corrected_in_direct_ko_review",
+      "note": "Smooth German collocation for summarizing while retelling/passing on a story."
+    },
+    {
+      "itemId": "vocab_b1_0320",
+      "headword": "방 배정",
+      "level": "B1",
+      "exampleKorean": "방 배정이 따로라서 안도하면서도 서운했어요.",
+      "exampleEnglish": "Separate rooms were a relief and a little disappointing at the same time.",
+      "exampleGerman": "Getrennte Zimmer waren eine Erleichterung und zugleich ein bisschen enttäuschend.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0345",
+      "headword": "읽씹",
+      "level": "B1",
+      "exampleKorean": "읽씹이 길어질까 봐 짧게라도 답했어요.",
+      "exampleEnglish": "I sent at least a quick reply because I didn't want to leave it on read for too long.",
+      "exampleGerman": "Ich antwortete wenigstens kurz, weil ich die Nachricht nicht zu lange auf „gelesen“ stehen lassen wollte.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0377",
+      "headword": "내부망",
+      "level": "B1",
+      "exampleKorean": "양식은 내부망에서만 내려받아요.",
+      "exampleEnglish": "I download the form only from the intranet.",
+      "exampleGerman": "Das Formular lade ich nur aus dem Intranet herunter.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0427",
+      "headword": "봉사 확인서",
+      "level": "B1",
+      "exampleKorean": "학기말에 봉사 확인서를 받아요.",
+      "exampleEnglish": "I receive my volunteer service certificate at the end of the term.",
+      "exampleGerman": "Am Semesterende bekomme ich die Bescheinigung über meine ehrenamtliche Tätigkeit.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0429",
+      "headword": "알림장",
+      "level": "B1",
+      "exampleKorean": "알림장에 준비물을 적어 보내요.",
+      "exampleEnglish": "I write the things to bring in the school communication notebook and send it home.",
+      "exampleGerman": "Ins Mitteilungsheft schreibe ich, was mitzubringen ist.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0454",
+      "headword": "수수료 면제",
+      "level": "B1",
+      "exampleKorean": "천재지변이면 수수료 면제가 가능하대요.",
+      "exampleEnglish": "They said a fee waiver is possible in the event of a natural disaster.",
+      "exampleGerman": "Bei höherer Gewalt sei ein Gebührenerlass möglich.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0470",
+      "headword": "관련 경력",
+      "level": "B1",
+      "exampleKorean": "관련 경력을 자기소개서에 구체적으로 썼어요.",
+      "exampleEnglish": "I described my relevant experience in detail in the personal statement for my job application.",
+      "exampleGerman": "In meinem Bewerbungstext habe ich meine einschlägige Berufserfahrung konkret beschrieben.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0485",
+      "headword": "위로하다",
+      "level": "B1",
+      "exampleKorean": "슬퍼하는 친구를 위로했어요.",
+      "exampleEnglish": "I comforted a friend who was sad.",
+      "exampleGerman": "Ich habe eine traurige Person aus meinem Freundeskreis getröstet.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b1_0404",
+      "headword": "민원실",
+      "level": "B2",
+      "exampleKorean": "민원실에서 번호표를 뽑고 기다려요.",
+      "exampleEnglish": "I take a number at the public service desk and wait.",
+      "exampleGerman": "Im Bürgerbüro ziehe ich eine Nummer und warte.",
+      "decision": "corrected_in_direct_ko_review",
+      "note": "Replace unnatural civil affairs desk with public service desk for ???."
+    },
+    {
+      "itemId": "vocab_b2_0056",
+      "headword": "끈기",
+      "level": "B2",
+      "exampleKorean": "끈기가 결국 실력이 되더라고요.",
+      "exampleEnglish": "I've found that perseverance eventually turns into skill.",
+      "exampleGerman": "Ausdauer wird am Ende zu echtem Können, das habe ich gemerkt.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0061",
+      "headword": "학위",
+      "level": "B2",
+      "exampleKorean": "석사 학위까지 마치셨더라고요.",
+      "exampleEnglish": "I learned that they had even completed a master's degree.",
+      "exampleGerman": "Wie ich erfahren habe, hat die Person sogar einen Masterabschluss erworben.",
+      "decision": "corrected_in_direct_ko_review",
+      "note": "Use idiomatic German einen Masterabschluss erworben."
+    },
+    {
+      "itemId": "vocab_b2_0072",
+      "headword": "합리적이다",
+      "level": "B2",
+      "exampleKorean": "합리적인 가격이라 결정했어요.",
+      "exampleEnglish": "The price was reasonable, so I went for it.",
+      "exampleGerman": "Der Preis war vernünftig, deshalb habe ich mich dafür entschieden.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0093",
+      "headword": "외출하다",
+      "level": "B2",
+      "exampleKorean": "잠깐 외출했어요.",
+      "exampleEnglish": "I went out for a while.",
+      "exampleGerman": "Ich war kurz außer Haus.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0099",
+      "headword": "양보하다",
+      "level": "B2",
+      "exampleKorean": "버스에서 자리를 양보했어요.",
+      "exampleEnglish": "I gave my seat to someone on the bus.",
+      "exampleGerman": "Im Bus habe ich meinen Platz überlassen.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0105",
+      "headword": "사회생활",
+      "level": "B2",
+      "exampleKorean": "사회생활에서는 예의가 중요해요.",
+      "exampleEnglish": "Manners matter when dealing with others.",
+      "exampleGerman": "Im Umgang mit anderen Menschen ist Höflichkeit wichtig.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0127",
+      "headword": "모음",
+      "level": "B2",
+      "exampleKorean": "모음부터 배웠어요.",
+      "exampleEnglish": "I learned the vowels first.",
+      "exampleGerman": "Ich habe zuerst die Vokale gelernt.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0135",
+      "headword": "조절하다",
+      "level": "B2",
+      "exampleKorean": "에어컨 온도를 조절했어요.",
+      "exampleEnglish": "I adjusted the temperature setting on the air conditioner.",
+      "exampleGerman": "Ich habe die Temperatur an der Klimaanlage eingestellt.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0137",
+      "headword": "가습기",
+      "level": "B2",
+      "exampleKorean": "방에 가습기를 켰어요.",
+      "exampleEnglish": "I turned on the humidifier in the room.",
+      "exampleGerman": "Ich habe den Luftbefeuchter im Zimmer angemacht.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0140",
+      "headword": "봉투",
+      "level": "B2",
+      "exampleKorean": "편지를 봉투에 넣었어요.",
+      "exampleEnglish": "I put the letter in the envelope.",
+      "exampleGerman": "Ich habe den Brief in den Umschlag gesteckt.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0142",
+      "headword": "담다",
+      "level": "B2",
+      "exampleKorean": "과일을 바구니에 담았어요.",
+      "exampleEnglish": "I put the fruit in the basket.",
+      "exampleGerman": "Ich habe das Obst in den Korb getan.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0144",
+      "headword": "말리다",
+      "level": "B2",
+      "exampleKorean": "머리를 말리고 나갈게요.",
+      "exampleEnglish": "I will dry my hair and then leave.",
+      "exampleGerman": "Ich trockne mir die Haare und gehe dann los.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0147",
+      "headword": "애인",
+      "level": "B2",
+      "exampleKorean": "애인과 영화를 봤어요.",
+      "exampleEnglish": "I watched a movie with my partner.",
+      "exampleGerman": "Ich habe mit meiner Partnerin oder meinem Partner einen Film gesehen.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0153",
+      "headword": "실수하다",
+      "level": "B2",
+      "exampleKorean": "발표에서 실수했어요.",
+      "exampleEnglish": "I made a mistake in the presentation.",
+      "exampleGerman": "Bei der Präsentation habe ich einen Fehler gemacht.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0154",
+      "headword": "서투르다",
+      "level": "B2",
+      "exampleKorean": "아직 한국어가 서툴러요.",
+      "exampleEnglish": "I'm still not very good at Korean.",
+      "exampleGerman": "Ich bin im Koreanischen noch nicht so sicher.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0155",
+      "headword": "울리다",
+      "level": "B2",
+      "exampleKorean": "동생을 울리지 마!",
+      "exampleEnglish": "Don't make your younger sibling cry!",
+      "exampleGerman": "Bring deinen jüngeren Bruder oder deine jüngere Schwester nicht zum Weinen!",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0171",
+      "headword": "음력",
+      "level": "B2",
+      "exampleKorean": "설날은 음력 1월 1일이에요.",
+      "exampleEnglish": "Seollal falls on the first day of the first lunar month.",
+      "exampleGerman": "Seollal fällt auf den ersten Tag des ersten Monats im Mondkalender.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0176",
+      "headword": "촛불",
+      "level": "B2",
+      "exampleKorean": "케이크에 촛불을 켰어요.",
+      "exampleEnglish": "We lit the candles on the cake.",
+      "exampleGerman": "Wir haben die Kerzen auf der Torte angezündet.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0177",
+      "headword": "국기",
+      "level": "B2",
+      "exampleKorean": "광복절에 국기를 달아요.",
+      "exampleEnglish": "On Gwangbokjeol (Liberation Day), we fly the national flag.",
+      "exampleGerman": "Am Gwangbokjeol (dem koreanischen Befreiungstag) hängen wir die Nationalflagge auf.",
+      "decision": "corrected_in_direct_ko_review",
+      "note": "Name Gwangbokjeol explicitly so Liberation Day is not culturally ambiguous."
+    },
+    {
+      "itemId": "vocab_b2_0179",
+      "headword": "공휴일",
+      "level": "B2",
+      "exampleKorean": "내일은 공휴일이라서 쉬어요.",
+      "exampleEnglish": "Tomorrow is a public holiday so we have the day off.",
+      "exampleGerman": "Morgen ist Feiertag und wir haben frei.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0307",
+      "headword": "기분을 솔직히 말하다",
+      "level": "B2",
+      "exampleKorean": "괜찮은 척하기보다 서운했던 이유를 차분히 말했어요.",
+      "exampleEnglish": "Instead of pretending I was fine, I calmly explained why I felt hurt.",
+      "exampleGerman": "Statt so zu tun, als sei alles in Ordnung, erklärte ich ruhig, warum ich verletzt war.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0434",
+      "headword": "사위 사랑",
+      "level": "B2",
+      "exampleKorean": "장모님이 너무 잘 챙겨주셔서 오히려 조금 부담스러웠어요.",
+      "exampleEnglish": "My mother-in-law took such good care of me that it started to feel like a bit too much.",
+      "exampleGerman": "Meine Schwiegermutter hat sich so gut um mich gekümmert, dass es mir fast schon unangenehm war.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0442",
+      "headword": "한쪽에만",
+      "level": "B2",
+      "exampleKorean": "한쪽에만 가면 다음 명절이 더 무거워져요.",
+      "exampleEnglish": "If we visit only one side of the family this holiday, planning the next one gets harder.",
+      "exampleGerman": "Wenn wir an einem Feiertag nur eine Seite der Familie besuchen, wird die Planung fürs nächste Fest noch schwieriger.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0443",
+      "headword": "상견례",
+      "level": "B2",
+      "exampleKorean": "상견례 장소를 식당으로 정하니 집이 덜 부담됐어요.",
+      "exampleEnglish": "Choosing a restaurant for the families’ first meeting took the pressure off hosting at home.",
+      "exampleGerman": "Als wir das erste Treffen beider Familien in ein Restaurant verlegten, mussten wir zu Hause nicht Gastgeber sein.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0450",
+      "headword": "예단",
+      "level": "B2",
+      "exampleKorean": "예단은 형식이 아니라 성의라고 설명했어요.",
+      "exampleEnglish": "I explained that the wedding gift was a gesture of thoughtfulness, not just a formality.",
+      "exampleGerman": "Ich erklärte, dass es bei der Hochzeitsgabe nicht um eine Formalität, sondern um die damit ausgedrückte Wertschätzung ging.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0463",
+      "headword": "호칭을 잘못 부르다",
+      "level": "B2",
+      "exampleKorean": "아주버님을 무심코 '형'이라고 불렀다가 분위기가 어색해졌어요.",
+      "exampleEnglish": "I accidentally called my husband's older brother hyung, and the mood turned a bit awkward.",
+      "exampleGerman": "Ich habe meinen Schwager aus Versehen Hyung genannt, und die Stimmung wurde für einen Moment unangenehm.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0464",
+      "headword": "호칭 메모",
+      "level": "B2",
+      "exampleKorean": "호칭 메모를 주머니에 넣고 화장실에서 봤어요.",
+      "exampleEnglish": "I slipped my notes on family address terms into my pocket and checked them in the restroom.",
+      "exampleGerman": "Ich steckte meinen Spickzettel mit den Verwandtschaftsbezeichnungen ein und sah ihn mir auf der Toilette an.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0466",
+      "headword": "호칭을 미루다",
+      "level": "B2",
+      "exampleKorean": "호칭을 미루고 성함만 쓰니 갈등이 없었어요.",
+      "exampleEnglish": "I put off choosing a form of address and used only the name, which helped me avoid conflict.",
+      "exampleGerman": "Ich verschob die Anrede und benutzte zunächst nur den Namen; so vermied ich einen Konflikt.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0520",
+      "headword": "단체 인사",
+      "level": "B2",
+      "exampleKorean": "단체 인사는 큰 소리보다 고개가 중요했어요.",
+      "exampleEnglish": "When greeting the group, the bow mattered more than how loudly I spoke.",
+      "exampleGerman": "Beim Gruß an die Gruppe kam es mehr auf die Verbeugung als auf die Lautstärke an.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0521",
+      "headword": "자리 양보",
+      "level": "B2",
+      "exampleKorean": "자리 양보를 하자 삼촌이 괜찮다고 손짓하셨어요.",
+      "exampleEnglish": "When I offered my uncle my seat, he waved me off and said he was fine.",
+      "exampleGerman": "Als ich meinem Onkel meinen Platz anbot, winkte er ab und sagte, es sei schon in Ordnung.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    },
+    {
+      "itemId": "vocab_b2_0525",
+      "headword": "관계부터 말하다",
+      "level": "B2",
+      "exampleKorean": "관계부터 말하니 악수 타이밍이 맞았어요.",
+      "exampleEnglish": "Once I explained our relationship, the timing for a handshake felt right.",
+      "exampleGerman": "Als ich zuerst erklärte, wie wir zueinander standen, ergab sich der passende Moment für den Handschlag.",
+      "decision": "corrected_in_direct_ko_review",
+      "note": "Render ?? as relationship rather than vague connected wording."
+    },
+    {
+      "itemId": "vocab_b2_0570",
+      "headword": "표결 방식",
+      "level": "B2",
+      "exampleKorean": "표결 방식이 거수인지 비밀투표인지 확인해요.",
+      "exampleEnglish": "I check whether the vote will be by a show of hands or secret ballot.",
+      "exampleGerman": "Ich prüfe, ob per Handzeichen oder geheim abgestimmt wird.",
+      "decision": "accepted_current_surface_after_direct_ko_review",
+      "note": "Length-ratio flag reviewed against Korean; no concrete semantic, grammatical, collocational, register, or learner-facing terminology defect found."
+    }
+  ]
+}

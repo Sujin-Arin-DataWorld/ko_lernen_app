@@ -31,6 +31,7 @@ class GlobalLocalizationOwnerAuditTest(unittest.TestCase):
         for row in self.payload["records"]:
             self.assertIn(row["structuralQaStatus"], {"structural_pass", "needs_correction"})
             self.assertEqual(row["corpusQaStatus"], "pending_native_usage_qa")
+            self.assertIn(row["modelDirectKoReviewStatus"], {"reviewed", "not_reviewed"})
             self.assertEqual(row["humanNativeReviewStatus"], "not_reviewed")
             self.assertIn("spokenSurfaceStatus", row)
 
@@ -53,6 +54,11 @@ class GlobalLocalizationOwnerAuditTest(unittest.TestCase):
         self.assertEqual(explicit["example_anchor:explicit_inflected_surface"], 29)
         self.assertEqual(explicit["example_anchor:explicit_multiword_realization"], 25)
         self.assertEqual(explicit["example_anchor:explicit_semantic_concept_example"], 9)
+
+    def test_length_ratio_direct_ko_queue_is_fully_reviewed(self) -> None:
+        summary = self.payload["summary"]
+        self.assertEqual(summary["modelDirectKoReviewedVocabRowCount"], 82)
+        self.assertEqual(summary["modelDirectKoReviewedOwnerSurfaceCount"], 164)
 
     def test_no_human_native_review_is_claimed(self) -> None:
         self.assertEqual(self.payload["summary"]["humanNativeReviewedCount"], 0)
