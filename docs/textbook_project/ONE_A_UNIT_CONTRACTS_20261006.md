@@ -158,7 +158,8 @@ one idea per sentence; no résumé-style extended self-introduction
 **Assessment**
 - Must produce: ___는 어디에 있어요?
 - Must produce: ___에 있어요
-- Must recognize: 은/는 vs 이/가 in mini-context
+- Must recognize: 은/는
+- Must recognize: 이/가
 - Success: uses particles in context, not through isolated translation
 
 **Production ceiling**
@@ -206,7 +207,7 @@ avoid abstract topic-vs-subject theory; context first
 **Assessment**
 - Must produce: N 하나/한 잔 주세요
 - Must produce: 안 ___ 걸로 주세요
-- Must recognize: staff 주문하시겠어요?
+- Must recognize: 주문하시겠어요?
 - Success: orders and adjusts one condition without translation prompt
 
 **Production ceiling**
@@ -247,7 +248,8 @@ counter chunks limited to high-frequency items; no exhaustive counter taxonomy
 **Assessment**
 - Must produce: 몇 시에 ___?
 - Must produce: N시에 ___
-- Must recognize: echo correction
+- Must recognize: 여섯 시 아니에요?
+- Must recognize: 아니요, 일곱 시예요.
 - Success: confirms a time accurately after one misunderstanding
 
 **Production ceiling**
@@ -344,9 +346,10 @@ one- or two-step routes only; no dense transit instructions
 - DE-A1-DU-SIE
 
 **Assessment**
-- Must produce: 카카오톡으로 연락할까요? or equivalent safe chunk
+- Must produce: 카카오톡으로 연락할까요?
 - Must produce: 도착하면 연락할게요
-- Must recognize: contact boundary alternative
+- Must recognize: 카톡 하세요?
+- Must recognize: 연락처 알려 주실래요?
 - Success: arranges contact without assuming consent
 
 **Production ceiling**
@@ -398,9 +401,9 @@ short chat messages; no complex explanation of why plans changed
 **Assessment**
 - Must produce: 다시 말씀해 주세요
 - Must produce: 무슨 뜻이에요?
-- Must produce: 13번이요? 같은 짧은 echo confirmation
-- Must recognize: 뭐라고요? tone risk
-- Must recognize: casual 뭐라고 했어?
+- Must produce: 13번이요?
+- Must recognize: 뭐라고요?
+- Must recognize: 뭐라고 했어?
 - Success: uses correct repair type without switching language
 
 **Production ceiling**

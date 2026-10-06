@@ -360,7 +360,8 @@
           "___에 있어요"
         ],
         "mustRecognize": [
-          "은/는 vs 이/가 in mini-context"
+          "은/는",
+          "이/가"
         ],
         "success": "uses particles in context, not through isolated translation"
       },
@@ -488,7 +489,7 @@
           "안 ___ 걸로 주세요"
         ],
         "mustRecognize": [
-          "staff 주문하시겠어요?"
+          "주문하시겠어요?"
         ],
         "success": "orders and adjusts one condition without translation prompt"
       },
@@ -594,7 +595,8 @@
           "N시에 ___"
         ],
         "mustRecognize": [
-          "echo correction"
+          "여섯 시 아니에요?",
+          "아니요, 일곱 시예요."
         ],
         "success": "confirms a time accurately after one misunderstanding"
       },
@@ -842,11 +844,12 @@
       "interactionTask": "new-classmate contact exchange with option to decline/share own contact instead.",
       "assessment": {
         "mustProduce": [
-          "카카오톡으로 연락할까요? or equivalent safe chunk",
+          "카카오톡으로 연락할까요?",
           "도착하면 연락할게요"
         ],
         "mustRecognize": [
-          "contact boundary alternative"
+          "카톡 하세요?",
+          "연락처 알려 주실래요?"
         ],
         "success": "arranges contact without assuming consent"
       },
@@ -987,11 +990,11 @@
         "mustProduce": [
           "다시 말씀해 주세요",
           "무슨 뜻이에요?",
-          "13번이요? 같은 짧은 echo confirmation"
+          "13번이요?"
         ],
         "mustRecognize": [
-          "뭐라고요? tone risk",
-          "casual 뭐라고 했어?"
+          "뭐라고요?",
+          "뭐라고 했어?"
         ],
         "success": "uses correct repair type without switching language"
       },

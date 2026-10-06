@@ -10,7 +10,11 @@ CONTRACTS=ROOT/"docs"/"textbook_project"/"data"/"ONE_A_UNIT_CONTRACTS_20261006.j
 
 REQUIRED=[
     BASE/"STUDENT_MASTER.md",
+    BASE/"STUDENT_EN.md",
+    BASE/"STUDENT_DE.md",
     BASE/"WORKBOOK.md",
+    BASE/"WORKBOOK_EN.md",
+    BASE/"WORKBOOK_DE.md",
     BASE/"TEACHER_GUIDE.md",
     BASE/"PUBLISHING_QA.md",
     MANIFEST,
@@ -43,11 +47,18 @@ def main():
     assert "안 매운 걸로 드릴게요." in recognition
 
     text=(BASE/"STUDENT_MASTER.md").read_text(encoding="utf-8-sig")
+    en=(BASE/"STUDENT_EN.md").read_text(encoding="utf-8-sig")
+    de=(BASE/"STUDENT_DE.md").read_text(encoding="utf-8-sig")
     assert "Give me" in text
     assert "Ich hätte gern" in text
     assert "Living Korean" in text
     assert "romanization" not in text.lower()
     assert "떡볶이 하나 주세요." in text
+    assert "Can I get an Americano" in en
+    assert "Give me" in en
+    assert "Ich hätte gern einen Americano" in de
+    assert "ich bekomme" in de.lower()
+    assert "떡볶이 하나 주세요." in en and "떡볶이 하나 주세요." in de
 
     audio_lines=[
         line

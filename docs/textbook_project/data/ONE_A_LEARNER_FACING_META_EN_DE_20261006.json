@@ -1,0 +1,461 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "purpose": "Learner-facing localization for materialized Korean 1A student editions. Korean target chunks remain Korean; all explanatory meta is EN or DE.",
+  "units": {
+    "a1_01_greetings_hangul": {
+      "en": {
+        "canDo": [
+          "Greet someone briefly and respond with yes/no in a first-contact situation.",
+          "Ask politely for one repetition when you did not catch something."
+        ],
+        "problem": "Keep a first interaction going even when you do not understand everything.",
+        "pragmatics": [
+          "Politeness in service encounters is carried strongly by Korean sentence endings.",
+          "Asking for repetition is a normal interaction strategy, not a failure.",
+          "A short response can be completely appropriate."
+        ],
+        "culture": [
+          "Korean politeness is not equivalent to simply adding sir/ma'am or using a more formal English word."
+        ],
+        "input": [
+          "Identify the relationship in a greeting.",
+          "Distinguish statement and question intonation.",
+          "Listen for a repetition request."
+        ],
+        "output": [
+          "Greet a new person.",
+          "Ask for one repetition without switching to English/German."
+        ],
+        "reading": [
+          "Decode 4–6 Hangul Zero carryover words in simple signs/cards."
+        ],
+        "writing": [
+          "Write your own name in Hangul where feasible."
+        ],
+        "interaction": "Do a 30-second first-contact role-play with one intentionally missed utterance.",
+        "success": "Keep the interaction going after one comprehension breakdown.",
+        "ceiling": "Short single-clause A1 turns; do not teach the full honorific system here."
+      },
+      "de": {
+        "canDo": [
+          "Eine Person beim ersten Kontakt kurz begrüßen und mit ja/nein reagieren.",
+          "Höflich um eine Wiederholung bitten, wenn du etwas nicht verstanden hast."
+        ],
+        "problem": "Ein erstes Gespräch weiterführen, auch wenn du noch nicht alles verstehst.",
+        "pragmatics": [
+          "Höflichkeit wird im Koreanischen stark durch Satzendungen getragen.",
+          "Nachfragen ist eine normale Gesprächsstrategie und kein Scheitern.",
+          "Kurze Antworten können völlig angemessen sein."
+        ],
+        "culture": [
+          "Koreanische Höflichkeit entspricht nicht einfach deutschem Sie oder besonders formellen Wörtern."
+        ],
+        "input": [
+          "Die Beziehung in einer Begrüßung erkennen.",
+          "Aussage- und Frageintonation unterscheiden.",
+          "Eine Bitte um Wiederholung erkennen."
+        ],
+        "output": [
+          "Eine neue Person begrüßen.",
+          "Einmal höflich um Wiederholung bitten, ohne auf Deutsch/Englisch auszuweichen."
+        ],
+        "reading": [
+          "4–6 Wörter aus Hangul Zero auf einfachen Schildern/Karten lesen."
+        ],
+        "writing": [
+          "Den eigenen Namen soweit sinnvoll auf Hangul schreiben."
+        ],
+        "interaction": "30 Sekunden Erstkontakt spielen; eine Äußerung wird absichtlich nicht verstanden.",
+        "success": "Das Gespräch nach einem Verständnisproblem weiterführen.",
+        "ceiling": "Kurze A1-Einzelsätze; das gesamte Höflichkeitssystem wird hier noch nicht erklärt."
+      }
+    },
+    "a1_02_self_intro_identity": {
+      "en": {
+        "canDo": [
+          "Say your name and where you are from, and ask the other person simple identity questions.",
+          "Continue a short introduction without repeating an explicit subject in every Korean sentence."
+        ],
+        "problem": "Build a real short exchange instead of reciting a memorized self-introduction paragraph.",
+        "pragmatics": [
+          "One self-disclosure plus one follow-up often feels more natural than a rapid series of questions.",
+          "Identity questions such as job, age, and residence are optional and context-sensitive."
+        ],
+        "culture": [
+          "First meetings can involve relationship-positioning questions, but they should not be taught as a mandatory checklist."
+        ],
+        "input": [
+          "Identify name and origin in two short introductions.",
+          "Notice when Korean drops a subject after the topic is clear."
+        ],
+        "output": [
+          "Give a two-turn self-introduction.",
+          "Ask one natural follow-up and return the question."
+        ],
+        "reading": [
+          "Read Korean personal names and country names in Hangul."
+        ],
+        "writing": [
+          "Write a two-line profile card."
+        ],
+        "interaction": "Do a 45-second speed-meeting and discover one point in common.",
+        "success": "Exchange basic identity information without reciting a memorized paragraph.",
+        "ceiling": "One idea per sentence; no résumé-style extended self-introduction."
+      },
+      "de": {
+        "canDo": [
+          "Name und Herkunft nennen und einfache Fragen zur Person stellen.",
+          "Ein kurzes Vorstellungsgespräch führen, ohne in jedem koreanischen Satz das Subjekt zu wiederholen."
+        ],
+        "problem": "Eine echte kurze Begegnung führen statt einen auswendig gelernten Vorstellungstext aufzusagen.",
+        "pragmatics": [
+          "Eine eigene Information plus eine Rückfrage wirkt oft natürlicher als viele Fragen hintereinander.",
+          "Beruf, Alter und Wohnort sind kontextabhängige Zusatzfragen, keine Pflichtliste."
+        ],
+        "culture": [
+          "Fragen beim ersten Treffen können Beziehungen einordnen, dürfen aber nicht als universeller Fragebogen vermittelt werden."
+        ],
+        "input": [
+          "Name und Herkunft in zwei kurzen Vorstellungen erkennen.",
+          "Bemerken, wann Koreanisch ein bereits klares Subjekt auslässt."
+        ],
+        "output": [
+          "Eine kurze Vorstellung in zwei Gesprächszügen geben.",
+          "Eine natürliche Rückfrage stellen und die Frage zurückgeben."
+        ],
+        "reading": [
+          "Koreanische Namen und Ländernamen in Hangul lesen."
+        ],
+        "writing": [
+          "Eine zweizeilige Profilkarte schreiben."
+        ],
+        "interaction": "45 Sekunden Speed-Meeting und eine Gemeinsamkeit finden.",
+        "success": "Grundlegende Informationen austauschen, ohne einen langen Text auswendig aufzusagen.",
+        "ceiling": "Eine Information pro Satz; keine ausführliche Bewerbungs-Selbstpräsentation."
+      }
+    },
+    "a1_03_topic_subject_particles": {
+      "en": {
+        "canDo": [
+          "Ask where an item is in a shop and understand a simple location answer.",
+          "Begin to distinguish 은/는 and 이/가 through real question-answer contexts."
+        ],
+        "problem": "Use particles to find and identify objects instead of memorizing abstract particle definitions.",
+        "pragmatics": [
+          "저기요 can be useful for getting staff attention; tone matters.",
+          "Correcting a wrong item can be brief and neutral."
+        ],
+        "culture": [
+          "Service attention strategies vary; avoid teaching one form as the only correct way."
+        ],
+        "input": [
+          "Choose the correct item/location from a shop dialogue.",
+          "Notice established topic vs newly focused item."
+        ],
+        "output": [
+          "Ask for two items in a simulated store.",
+          "Correct one wrong identification."
+        ],
+        "reading": [
+          "Read simple shelf labels."
+        ],
+        "writing": [
+          "Complete short location notes with particles."
+        ],
+        "interaction": "Use an information-gap store map: your partner knows where the items are.",
+        "success": "Use particles in a meaningful context rather than by translation alone.",
+        "ceiling": "Keep topic/subject theory minimal; context comes first."
+      },
+      "de": {
+        "canDo": [
+          "Im Laden nach einem Gegenstand fragen und eine einfache Ortsangabe verstehen.",
+          "은/는 und 이/가 zunächst über echte Frage-Antwort-Kontexte unterscheiden."
+        ],
+        "problem": "Partikeln beim Finden und Identifizieren von Dingen benutzen statt abstrakte Definitionen auswendig zu lernen.",
+        "pragmatics": [
+          "저기요 kann helfen, Personal anzusprechen; die Intonation ist wichtig.",
+          "Eine falsche Zuordnung kann kurz und neutral korrigiert werden."
+        ],
+        "culture": [
+          "Wie man Personal anspricht, variiert; keine einzige Form wird als universell dargestellt."
+        ],
+        "input": [
+          "Im Ladendialog den richtigen Gegenstand/Ort erkennen.",
+          "Bekanntes Thema und neu fokussierte Information unterscheiden."
+        ],
+        "output": [
+          "In einem simulierten Laden nach zwei Dingen fragen.",
+          "Eine falsche Zuordnung korrigieren."
+        ],
+        "reading": [
+          "Einfache Regalbeschriftungen lesen."
+        ],
+        "writing": [
+          "Kurze Ortsangaben mit Partikeln ergänzen."
+        ],
+        "interaction": "Informationslücke mit Ladenplan: dein Partner kennt die Positionen.",
+        "success": "Partikeln im Kontext benutzen statt über direkte deutsche Kasusübersetzungen.",
+        "ceiling": "Keine ausführliche Thema-vs.-Subjekt-Theorie; der Kontext steht zuerst."
+      }
+    },
+    "a1_05_numbers_time": {
+      "en": {
+        "canDo": [
+          "Ask for a meeting time and confirm or correct the time.",
+          "Use basic native-Korean hour numbers in a real scheduling task."
+        ],
+        "problem": "Use numbers to confirm real information instead of memorizing a number list in isolation.",
+        "pragmatics": [
+          "Repeating a number back is normal when accuracy matters.",
+          "Short echo questions are useful for confirmation."
+        ],
+        "culture": [
+          "Korean uses more than one number system; learn each system with the task that needs it."
+        ],
+        "input": [
+          "Distinguish 6 vs 7 and 3 vs 13.",
+          "Listen for a time/place pair."
+        ],
+        "output": [
+          "Set a meeting time.",
+          "Correct one intentionally wrong time."
+        ],
+        "reading": [
+          "Read a simple appointment card, price, or phone digits."
+        ],
+        "writing": [
+          "Write a time/number from audio."
+        ],
+        "interaction": "Complete a schedule-grid information-gap task.",
+        "success": "Confirm a time accurately after one misunderstanding.",
+        "ceiling": "Time plus one location; no complex scheduling clauses."
+      },
+      "de": {
+        "canDo": [
+          "Nach einer Uhrzeit fragen und eine Verabredung bestätigen oder korrigieren.",
+          "Grundlegende koreanische Stundenangaben in einer echten Terminaufgabe benutzen."
+        ],
+        "problem": "Zahlen zum Bestätigen echter Informationen verwenden statt nur Zahlenlisten auswendig zu lernen.",
+        "pragmatics": [
+          "Wichtige Zahlen zu wiederholen ist völlig normal.",
+          "Kurze Echo-Fragen eignen sich gut zur Bestätigung."
+        ],
+        "culture": [
+          "Koreanisch nutzt mehrere Zahlensysteme; lerne sie jeweils zusammen mit der konkreten Aufgabe."
+        ],
+        "input": [
+          "6/7 und 3/13 unterscheiden.",
+          "Zeit und Ort aus einem kurzen Dialog heraushören."
+        ],
+        "output": [
+          "Eine Uhrzeit vereinbaren.",
+          "Eine absichtlich falsche Uhrzeit korrigieren."
+        ],
+        "reading": [
+          "Eine einfache Terminkarte, Preise oder Telefonnummern lesen."
+        ],
+        "writing": [
+          "Eine gehörte Uhrzeit/Zahl notieren."
+        ],
+        "interaction": "Informationslücke mit einem Terminkalender lösen.",
+        "success": "Nach einem Missverständnis die richtige Uhrzeit bestätigen.",
+        "ceiling": "Uhrzeit plus ein Ort; keine komplexen Terminbegründungen."
+      }
+    },
+    "a1_06_transport_directions": {
+      "en": {
+        "canDo": [
+          "Ask and confirm a destination, stop, or exit in transport situations.",
+          "Begin to distinguish basic spatial uses of 에/에서/(으)로 through scenes rather than translation tables."
+        ],
+        "problem": "Ask for a route or stop, then repair the conversation if the direction is wrong.",
+        "pragmatics": [
+          "Short route questions are natural.",
+          "App/UI wording and human speech are not the same register."
+        ],
+        "culture": [
+          "Transit shorthand can be city-specific; keep it in local culture capsules."
+        ],
+        "input": [
+          "Follow a two-step route.",
+          "Identify the correct exit/stop."
+        ],
+        "output": [
+          "Ask one route question.",
+          "Request a stop."
+        ],
+        "reading": [
+          "Recognize simple station/exit signs."
+        ],
+        "writing": [
+          "Write a route as two short steps."
+        ],
+        "interaction": "Ask, receive, confirm, and repair one wrong route on a map.",
+        "success": "Reach the correct stop after one route correction.",
+        "ceiling": "One- or two-step routes only; no dense transit instructions."
+      },
+      "de": {
+        "canDo": [
+          "Im Verkehr nach Ziel, Haltestelle oder Ausgang fragen und die Information bestätigen.",
+          "Grundfunktionen von 에/에서/(으)로 über Situationen statt über eine deutsche Präpositionstabelle unterscheiden."
+        ],
+        "problem": "Nach Weg/Haltestelle fragen und ein Gespräch reparieren, wenn die Richtung falsch ist.",
+        "pragmatics": [
+          "Kurze Wegfragen sind natürlich.",
+          "App-/UI-Sprache und gesprochene Sprache unterscheiden sich."
+        ],
+        "culture": [
+          "Lokale Verkehrsabkürzungen gehören in stadtspezifische Kulturhinweise."
+        ],
+        "input": [
+          "Einer Route mit zwei Schritten folgen.",
+          "Den richtigen Ausgang/die richtige Haltestelle erkennen."
+        ],
+        "output": [
+          "Eine Wegfrage stellen.",
+          "Um das Anhalten bitten."
+        ],
+        "reading": [
+          "Einfache Bahnhof-/Ausgangsschilder erkennen."
+        ],
+        "writing": [
+          "Eine Route in zwei kurzen Schritten notieren."
+        ],
+        "interaction": "Auf einer Karte fragen, verstehen, bestätigen und eine falsche Wegangabe korrigieren.",
+        "success": "Nach einer Korrektur am richtigen Ziel ankommen.",
+        "ceiling": "Nur ein- oder zweistufige Routen; keine dichten Verkehrsanweisungen."
+      }
+    },
+    "a1_07_contact_address": {
+      "en": {
+        "canDo": [
+          "Suggest a low-pressure way to stay in touch and confirm a contact channel.",
+          "Send a short message when you are late or plans change."
+        ],
+        "problem": "Treat contact exchange as a social choice, not an automatic requirement.",
+        "pragmatics": [
+          "Offering your own contact can be lower-pressure than demanding someone else's.",
+          "A delay message works well with apology + approximate delay + next step."
+        ],
+        "culture": [
+          "KakaoTalk is culturally salient, but it is not the only model of Korean digital communication."
+        ],
+        "input": [
+          "Identify the chosen contact channel in a short chat.",
+          "Notice a low-pressure vs pushy contact request."
+        ],
+        "output": [
+          "Offer one contact method.",
+          "Send one short delay/status message."
+        ],
+        "reading": [
+          "Read a short chat bubble with time/contact information."
+        ],
+        "writing": [
+          "Write a two-message micro exchange."
+        ],
+        "interaction": "Exchange contact options with a new classmate, including an option to decline or share your own contact first.",
+        "success": "Arrange contact without assuming consent.",
+        "ceiling": "Short chat messages only; no complex explanations for plan changes."
+      },
+      "de": {
+        "canDo": [
+          "Eine unverbindliche Kontaktmöglichkeit vorschlagen und einen Kanal bestätigen.",
+          "Bei Verspätung oder Planänderung eine kurze Nachricht schreiben."
+        ],
+        "problem": "Kontaktaustausch als soziale Entscheidung behandeln, nicht als automatische Pflicht.",
+        "pragmatics": [
+          "Die eigene Nummer anzubieten kann weniger drängend sein, als die Nummer der anderen Person zu verlangen.",
+          "Eine Verspätungsnachricht funktioniert gut mit Entschuldigung + ungefährer Dauer + nächstem Schritt."
+        ],
+        "culture": [
+          "KakaoTalk ist kulturell wichtig, aber nicht das einzige Modell koreanischer digitaler Kommunikation."
+        ],
+        "input": [
+          "In einem kurzen Chat den gewählten Kontaktkanal erkennen.",
+          "Eine unverbindliche von einer drängenden Kontaktfrage unterscheiden."
+        ],
+        "output": [
+          "Eine Kontaktmöglichkeit anbieten.",
+          "Eine kurze Verspätungs-/Statusnachricht schreiben."
+        ],
+        "reading": [
+          "Kurze Chatnachrichten mit Zeit-/Kontaktinformation lesen."
+        ],
+        "writing": [
+          "Einen Mini-Chat mit zwei Nachrichten schreiben."
+        ],
+        "interaction": "Mit einer neuen Person einen Kontaktweg vereinbaren; Ablehnen oder zuerst die eigene Nummer anbieten ist möglich.",
+        "success": "Kontakt vereinbaren, ohne Einverständnis vorauszusetzen.",
+        "ceiling": "Kurze Chatnachrichten; keine komplexen Begründungen für Planänderungen."
+      }
+    },
+    "a1_08_clarify_repair": {
+      "en": {
+        "canDo": [
+          "Choose a repair strategy depending on whether you did not hear, did not know the meaning, or want confirmation.",
+          "Check important information such as numbers, names, and exits."
+        ],
+        "problem": "Use short repair strategies to keep the conversation going instead of pretending to understand.",
+        "pragmatics": [
+          "Not hearing, not understanding a word, and confirming meaning are different repair problems.",
+          "Very short repair forms are strongly intonation-sensitive.",
+          "Repair is a learner-autonomy strategy."
+        ],
+        "culture": [
+          "Politeness in repair depends on relationship and tone; no single English translation is safe in every situation."
+        ],
+        "input": [
+          "Classify hearing vs meaning vs confirmation.",
+          "Hear 3 vs 13 and repair the misunderstanding."
+        ],
+        "output": [
+          "Perform all three repair functions.",
+          "Confirm one name or number."
+        ],
+        "reading": [
+          "Read a short learner-staff exchange and choose the repair type."
+        ],
+        "writing": [
+          "Write one polite chat repair message."
+        ],
+        "interaction": "Your partner intentionally mumbles once, uses one unknown word, and gives one ambiguous number. Repair each problem.",
+        "success": "Use the right repair type without switching languages.",
+        "ceiling": "Repair strategies only; advanced grammar from supplementary scenes stays recognition-only."
+      },
+      "de": {
+        "canDo": [
+          "Je nach Problem unterschiedlich nachfragen: nicht gehört, Bedeutung unbekannt oder Verständnis bestätigen.",
+          "Wichtige Informationen wie Zahlen, Namen und Ausgänge gezielt bestätigen."
+        ],
+        "problem": "Mit kurzen Reparaturstrategien im Gespräch bleiben statt nur so zu tun, als hätte man verstanden.",
+        "pragmatics": [
+          "Nicht gehört, Wortbedeutung unbekannt und Verständnis bestätigen sind unterschiedliche Probleme.",
+          "Sehr kurze Nachfragen sind stark von der Intonation abhängig.",
+          "Nachfragen ist eine wichtige Lernstrategie."
+        ],
+        "culture": [
+          "Höflichkeit beim Nachfragen hängt von Beziehung und Ton ab; keine deutsche Form deckt alle Kontexte ab."
+        ],
+        "input": [
+          "Nicht-hören, Bedeutungsfrage und Bestätigung unterscheiden.",
+          "3 und 13 hören und das Missverständnis reparieren."
+        ],
+        "output": [
+          "Alle drei Reparaturfunktionen benutzen.",
+          "Einen Namen oder eine Zahl bestätigen."
+        ],
+        "reading": [
+          "In einem kurzen Dialog die passende Reparaturstrategie bestimmen."
+        ],
+        "writing": [
+          "Eine kurze höfliche Nachfrage im Chat schreiben."
+        ],
+        "interaction": "Der Partner nuschelt einmal, benutzt ein unbekanntes Wort und nennt eine mehrdeutige Zahl. Jedes Problem soll repariert werden.",
+        "success": "Die passende Reparaturstrategie verwenden, ohne die Sprache zu wechseln.",
+        "ceiling": "Nur Reparaturstrategien; fortgeschrittene Formen aus Zusatzszenen bleiben reine Erkennung."
+      }
+    }
+  }
+}
