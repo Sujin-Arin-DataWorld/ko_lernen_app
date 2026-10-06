@@ -7890,9 +7890,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/validate_content.py": {
-    "mtime": 1791226181.622764,
-    "seen": 1791226956.0969234,
-    "ast_hash": "59bcaab245785ec44eadf5f05d43e1c0",
+    "mtime": 1791242388.5112927,
+    "seen": 1791267058.1686254,
+    "ast_hash": "50cfd1743ac2cf6a9c2ff8c98f726831",
     "semantic_hash": ""
   },
   "tools/content_factory/validate_promoted_batch.py": {
@@ -8196,9 +8196,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791237410.140814,
-    "seen": 1791237686.773569,
-    "ast_hash": "994a1b932ef270bbbc6d46b4dcc32cb3",
+    "mtime": 1791242467.569055,
+    "seen": 1791267058.1926649,
+    "ast_hash": "92eb8bb406fbbd976b0431a17b084137",
     "semantic_hash": ""
   },
   "BETA_INSTALL_GUIDE.md": {
@@ -14586,9 +14586,9 @@
     "semantic_hash": ""
   },
   "tool/cefr_lexicon.py": {
-    "mtime": 1791237028.5757318,
-    "seen": 1791237686.54088,
-    "ast_hash": "ae0feb38ae42f8287cffc10fb88d5649",
+    "mtime": 1791238434.9345124,
+    "seen": 1791267057.9316654,
+    "ast_hash": "a2becd8d910f711e6df2c3a9c8fc9458",
     "semantic_hash": ""
   },
   "tool/content_level_summary.json": {
@@ -14622,9 +14622,9 @@
     "semantic_hash": ""
   },
   "tool/test_cefr_lexicon.py": {
-    "mtime": 1791237179.7400835,
-    "seen": 1791237686.5668564,
-    "ast_hash": "5ce74a88816aee1db1e063a685b5fe5f",
+    "mtime": 1791238444.1466894,
+    "seen": 1791267057.961648,
+    "ast_hash": "2afef177c04db60cb86a513b1b44dfee",
     "semantic_hash": ""
   },
   "tool/test_ingest_nikl_grade_lists.py": {
@@ -22044,9 +22044,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/drafts/persona_culture_authoring_brief_20261005.json": {
-    "mtime": 1791226180.9533799,
-    "seen": 1791226956.0961275,
-    "ast_hash": "626d38d3e4d80f551ee03d47ba5635ee",
+    "mtime": 1791238702.0601363,
+    "seen": 1791267058.0720868,
+    "ast_hash": "4721d83ea0ee865e4f81399349554256",
     "semantic_hash": ""
   },
   "tools/content_factory/drafts/persona_culture_links_20261005.json": {
@@ -22074,21 +22074,21 @@
     "semantic_hash": ""
   },
   "tools/content_factory/review/persona_culture_authoring_pipeline_20261005.json": {
-    "mtime": 1791227405.834763,
-    "seen": 1791227718.739862,
-    "ast_hash": "10b558cd9f762263edf1aaf9da35e29c",
+    "mtime": 1791239033.615455,
+    "seen": 1791267058.1394007,
+    "ast_hash": "f460921d2bdac8b9b4487f275e8f3d9e",
     "semantic_hash": ""
   },
   "tools/content_factory/review/persona_culture_vocab_leveling_20261005.json": {
-    "mtime": 1791227251.803463,
-    "seen": 1791227718.7400587,
+    "mtime": 1791239031.9932525,
+    "seen": 1791267058.139633,
     "ast_hash": "0321d018c301d6e16ddcf38d7cbd4b85",
     "semantic_hash": ""
   },
   "tools/content_factory/run_persona_culture_authoring.py": {
-    "mtime": 1791226181.533658,
-    "seen": 1791226956.096721,
-    "ast_hash": "9cc0a4fb4cadfc7ed540da2d22524f72",
+    "mtime": 1791239017.7609367,
+    "seen": 1791267058.1427207,
+    "ast_hash": "0895e86a021870e362c2f037550dae2c",
     "semantic_hash": ""
   },
   "tools/content_factory/test_batch_38_persona_culture_draft.py": {
@@ -22128,8 +22128,8 @@
     "semantic_hash": ""
   },
   "tools/content_factory/review/batch_38_persona_culture_review_packet.md": {
-    "mtime": 1791227251.8099842,
-    "seen": 1791227718.8942099,
+    "mtime": 1791239032.0119581,
+    "seen": 1791267058.2779346,
     "ast_hash": "fcefdba2ddba25ee4f948a10b8ab6e69",
     "semantic_hash": ""
   },
@@ -22314,15 +22314,15 @@
     "semantic_hash": ""
   },
   "docs/plans/2026-10-05-living-korea-2025-2026.md": {
-    "mtime": 1791237383.0411315,
-    "seen": 1791237686.8288007,
-    "ast_hash": "9fdd8cf0ee33bec12f9ddc422786183c",
+    "mtime": 1791239113.0586936,
+    "seen": 1791267058.245756,
+    "ast_hash": "493e5dc16a0a651f91f6db3ef63ad2a7",
     "semantic_hash": ""
   },
   "tools/content_factory/drafts/living_korea_scene_first_drafts_20261005.json": {
-    "mtime": 1791234099.813256,
-    "seen": 1791235892.1597786,
-    "ast_hash": "83e12e4c636e5abc5dddb9651009d859",
+    "mtime": 1791238696.0154724,
+    "seen": 1791267058.071563,
+    "ast_hash": "a7a333c1b725a0d501e6a0b32cd4e224",
     "semantic_hash": ""
   },
   "tools/content_factory/review/living_korea_language_mining_20261005.json": {
@@ -22398,45 +22398,45 @@
     "semantic_hash": ""
   },
   "tools/content_factory/drafts/living_korea_second_wave_culture_cards_20261005.json": {
-    "mtime": 1791235223.4713485,
-    "seen": 1791235892.159782,
-    "ast_hash": "784f9fe50214ad560b18f1866d480faa",
+    "mtime": 1791238332.2161002,
+    "seen": 1791267058.0715673,
+    "ast_hash": "0fdfcf89188044affdd37e9eeab381a7",
     "semantic_hash": ""
   },
   "tools/content_factory/drafts/living_korea_second_wave_scene_first_drafts_20261005.json": {
-    "mtime": 1791236870.5585637,
-    "seen": 1791237686.662714,
-    "ast_hash": "c5a664379c6227a0566e459344051654",
+    "mtime": 1791238698.9304104,
+    "seen": 1791267058.07157,
+    "ast_hash": "02608c7f39855cc5f314db51d5c030b6",
     "semantic_hash": ""
   },
   "tools/content_factory/review/living_korea_program_manifest_20261005.json": {
-    "mtime": 1791237381.069012,
-    "seen": 1791237686.7226593,
-    "ast_hash": "206a8397196e9a3e065a178086e6e809",
+    "mtime": 1791242470.8743305,
+    "seen": 1791267058.1388912,
+    "ast_hash": "305a16bc3dcf63a5388eea773ebdca22",
     "semantic_hash": ""
   },
   "tools/content_factory/review/living_korea_second_wave_cross_persona_arcs_20261005.json": {
-    "mtime": 1791235307.8472638,
-    "seen": 1791235892.2343059,
-    "ast_hash": "8f75d96f4a5644c8c9c7d1668380859d",
+    "mtime": 1791238334.4943092,
+    "seen": 1791267058.1388948,
+    "ast_hash": "4f165755c6f0c3a9b063b49c5e959b43",
     "semantic_hash": ""
   },
   "tools/content_factory/review/living_korea_second_wave_language_mining_20261005.json": {
-    "mtime": 1791236964.5777647,
-    "seen": 1791237686.7229576,
-    "ast_hash": "9bf5be2718143f04c9fefa9d058e5e96",
+    "mtime": 1791238588.3223836,
+    "seen": 1791267058.1388974,
+    "ast_hash": "72d0217bdf05b1b623cbc353f7bd9853",
     "semantic_hash": ""
   },
   "tools/content_factory/review/living_korea_second_wave_lcp_audit_20261005.json": {
-    "mtime": 1791237154.9553473,
-    "seen": 1791237686.722961,
-    "ast_hash": "0e6b6acd23348f320018791e9c09733b",
+    "mtime": 1791238467.5494914,
+    "seen": 1791267058.1389,
+    "ast_hash": "f745030d1209eed66ed12286f91d6cc1",
     "semantic_hash": ""
   },
   "tools/content_factory/test_living_korea_program_manifest.py": {
-    "mtime": 1791237239.9601712,
-    "seen": 1791237686.7425866,
-    "ast_hash": "8647acc872e838d5bdab572f7e9500e8",
+    "mtime": 1791242495.9454887,
+    "seen": 1791267058.159284,
+    "ast_hash": "6dea9d53efc66d6fb567bc33a918276b",
     "semantic_hash": ""
   },
   "tools/content_factory/test_living_korea_second_wave_cross_persona_arcs.py": {
@@ -22464,9 +22464,45 @@
     "semantic_hash": ""
   },
   "tools/content_factory/test_living_korea_second_wave_scene_first_drafts.py": {
-    "mtime": 1791237206.011786,
-    "seen": 1791237686.7434337,
-    "ast_hash": "6d0ae2d29a1e30c7daf51e6290b2fa53",
+    "mtime": 1791238353.0015652,
+    "seen": 1791267058.1604466,
+    "ast_hash": "fa98d204e0452652670242781f9d232c",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/canonical_scenarios/dialogue_authoring_contract_20261006.json": {
+    "mtime": 1791242178.4414473,
+    "seen": 1791267058.0008335,
+    "ast_hash": "f716c5192a8cc15a11edd7771e858a59",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/canonical_scenarios/trilingual_native_usage_registry_20261006.json": {
+    "mtime": 1791242259.700858,
+    "seen": 1791267058.0018082,
+    "ast_hash": "c18937d52a07b3104e59206a2aa67ffd",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/test_dialogue_authoring_contract.py": {
+    "mtime": 1791242201.6387353,
+    "seen": 1791267058.1554835,
+    "ast_hash": "99c8f95d55382ee0e55f43511647556d",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/test_trilingual_native_usage_registry.py": {
+    "mtime": 1791242305.88719,
+    "seen": 1791267058.1661398,
+    "ast_hash": "436d46b452c67d366fe035e835faeba9",
+    "semantic_hash": ""
+  },
+  "docs/plans/2026-10-06-trilingual-native-usage-corpus.md": {
+    "mtime": 1791242291.1250327,
+    "seen": 1791267058.246033,
+    "ast_hash": "c6619c97efcdfb9560b604fc298a7760",
+    "semantic_hash": ""
+  },
+  "docs/review/2026-10-06-living-korea-dialogue-tts-checkpoint.md": {
+    "mtime": 1791242224.746683,
+    "seen": 1791267058.2479646,
+    "ast_hash": "89f3f7e077b47a4d0adab8e74b2de300",
     "semantic_hash": ""
   }
 }
