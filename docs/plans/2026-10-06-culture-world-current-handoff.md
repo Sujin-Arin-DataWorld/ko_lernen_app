@@ -1,7 +1,7 @@
 # Culture world current handoff — 2026-10-06
 
 > Branch: `session/culture-links-20261005-2026-10-05`
-> Current HEAD when this handoff was written: `cdef77bfa`
+> Current canonical promotion commit when this handoff was updated: `af9aa295b`
 > Read this file first for current culture-world status. Historical detail remains in the linked plans.
 
 ## Current verdict
@@ -13,21 +13,23 @@ Post-rollout quality work is also complete:
 - Stage B — durable cross-device culture discovery: **complete**
 - Stage C — app-wide Level Canonicalization Program: **complete**
 
-The culture system is no longer a prototype/review-only architecture. Batch 38 was explicitly approved and canonically promoted.
+The culture system is no longer a prototype/review-only architecture. Batch 38 and Batch 39 were both explicitly reviewed, approved, and canonically promoted.
 
 ## Live/canonical state
 
-- live scenarios: **191**
-- live scenario quests: **594**
+- live scenarios: **196**
+- live scenario quests: **609**
 - Batch 38 persona-culture scenarios: **5/5 promoted**
-- Batch 38 listening lessons: **5**
-- Batch 38 listening questions: **20**
-- live Batch 38 scenario-culture links: **5**
+- Batch 39 persona-culture scenarios: **5/5 promoted**
+- persona-culture listening added across Batch 38+39: **10 lessons / 40 listening questions**
+- live scenario-culture links: **10**
 - CulturalGlossary: **33 reviewed entries**
-- live culture-story arcs: **3**
+- live culture-story arcs: **5**
   - `found_around_nammun`
   - `made_by_hand_in_korea`
   - `memory_to_record`
+  - `culture_in_everyday_use`
+  - `performance_first_encounter`
 - culture discovery stays **derived read-only**
 - no culture-owned mastery, XP, Yeopjeon, Bojagi, Hanok progression, or reward ledger exists
 - cross-device discovery durability reuses `completedScenarios` + `scenario_corpus_generation`
@@ -147,42 +149,56 @@ Preferred next batch:
 
 Do **not** reopen the completed 9-phase architecture unless a concrete defect is found.
 
-## Batch 39 expansion — drafted, not live
+## Batch 39 expansion — promoted/live
 
-After the 9/9 + quality-program closure, the next content-expansion batch was started through the existing authoring pipeline.
+Batch 39 was fully reviewed in chat and then canonically promoted.
 
-Commit:
+Draft commit:
 - `91ab4eda8 feat(culture): draft batch 39 persona scenes`
 
-Status:
-- `review_only_draft`
-- **live scenario corpus remains 191**
-- promotion preview only: **191 → 196 scenarios**, **594 → 609 scenario quests**
-- 5 draft scenarios
-- 5 listening lessons / 20 listening questions
-- 5 scenario-culture links
-- 2 review-only derived story arcs
+Promotion commit:
+- `af9aa295b feat(culture): promote batch 39 canonically`
+
+Final status:
+- manifest: `merged`
+- review ledger: **5/5 approved**
+- live corpus: **196 scenarios / 609 scenario quests**
+- 5 Batch 39 listening lessons / 20 listening questions
+- 5 additional scenario-culture links
+- 2 additional live derived story arcs
 - key vocab: **30 total / 6 culture anchors / 24 at-or-below target / 0 above-target / 0 unmapped**
-- focused authoring/integration regressions: **36 passed**
-- TTS: not generated
+- Python/content regression bundle: **51/51 passed**
+- Flutter culture/story/scenario regression bundle: **37/37 passed**
+- `validate_content.py`: **passed**
+- TTS: not generated; Jin remains the owner of TTS work
 
-Scenes:
+Promoted scenes:
 - `a2_andrea_minho_bojagi_housewarming` — Andrea × Minho — `bojagi`
-- `b1_minho_christian_hanok_cafe_meeting` — Christian × Minho — `hanok`, `madang`
+  - natural housewarming-gift reaction; bojagi is wrapping, not a forced exposition object
+- `b1_minho_christian_hanok_cafe_meeting` — Christian × Minho + existing `server` support role — `hanok`, `madang`
+  - learner directly asks: `혹시 여기 콘센트 쓸 수 있는 자리 있을까요?`
 - `a2_lena_maya_buchae_gift_choice` — Lena × Maya — `buchae`
+  - practical gift choice and personal preference
 - `b2_maya_daniel_pansori_promo_clip` — Maya × Daniel — `pansori`
+  - final copy is a fun post-performance reaction: voice power, gosu, chueimsae, audience participation, plot, and another-performance plan
 - `b2_hyuna_daniel_nongak_festival_filming` — Daniel × Hyuna — `nongak`
+  - final copy is relationship-driven: Daniel knows nongak, wants to learn janggu, Hyuna uses `-대요` for regional variation, and they plan another outing
 
-Review-only arcs:
+New live derived arcs:
 - `culture_in_everyday_use`
-- `performance_in_context`
+- `performance_first_encounter`
 
-Purpose:
-- activate Minho, currently the least-used recurring persona;
-- reuse existing glossary entries before adding more terms;
-- keep culture inside real tasks rather than exposition.
+Editorial lesson from Batch 39:
+- **natural Korean comes first; CEFR auditing follows**
+- do not distort a normal learner sentence merely to lower a lexical estimate
+- a natural but non-key word such as `콘센트` may remain in dialogue without becoming an explicit key-vocab target
+- culture scenes should start from experience/task/curiosity, not exposition
+- performance culture works especially well as: `see/watch -> react -> ask -> brief explanation -> next action`
 
-Do **not** promote Batch 39 merely because the structural pipeline passes. The review ledger remains `draft` until learner-facing copy is reviewed/approved.
+Authoring-pipeline follow-up:
+- review briefs may declare existing generic `supportRoleIds` such as `server` in addition to recurring `personaIds`
+- support roles must already exist in the live scenario corpus and do not create persona relationships
+- Windows promotion has a staged/validated fsync fallback when an editor watcher blocks `os.replace` with WinError 5; exact originals remain available for rollback and final content validation still runs
 
 ## Required reading for the next session
 
