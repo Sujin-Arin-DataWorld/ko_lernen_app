@@ -43,7 +43,7 @@
           "note": {
             "ko": "장면 핵심 표현",
             "de": "Eine erneute Prüfung jeder Absage wäre zeitlich und finanziell kaum tragbar.",
-            "en": "Rechecking every rejection would be difficult to sustain in cost and time."
+            "en": "Re-reviewing every rejection would be too costly and time-consuming."
           }
         },
         {
@@ -109,7 +109,7 @@
           "speaker": "user",
           "ko": "모든 탈락 사례를 다시 심사하면 채용 일정과 비용을 감당하기 어렵습니다.",
           "de": "Eine erneute Prüfung jeder Absage wäre zeitlich und finanziell kaum tragbar.",
-          "en": "Rechecking every rejection would be difficult to sustain in cost and time."
+          "en": "Re-reviewing every rejection would be too costly and time-consuming."
         },
         {
           "speaker": "sujin",
@@ -155,7 +155,7 @@
               },
               {
                 "de": "Eine erneute Prüfung jeder Absage wäre zeitlich und finanziell kaum tragbar.",
-                "en": "Rechecking every rejection would be difficult to sustain in cost and time."
+                "en": "Re-reviewing every rejection would be too costly and time-consuming."
               },
               {
                 "de": "Daraus folgt jedoch nicht, dass es überhaupt keinen Weg geben darf, einen möglichen Fehler anzufechten.",
@@ -174,7 +174,7 @@
           "type": "uebersetzen",
           "data": {
             "promptDe": "Eine erneute Prüfung jeder Absage wäre zeitlich und finanziell kaum tragbar.",
-            "promptEn": "Rechecking every rejection would be difficult to sustain in cost and time.",
+            "promptEn": "Re-reviewing every rejection would be too costly and time-consuming.",
             "options": [
               {
                 "ko": "모든 탈락 사례를 다시 심사하면 채용 일정과 비용을 감당하기 어렵습니다."
@@ -286,7 +286,7 @@
           "korean": "어떤 자료가 달랐는지 알 수 있다면 저도 바로 고칠 수 있었어요.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Wenn ich gewusst hätte, welche Daten abweichen, hätte ich sie sofort berichtigen können.",
+            "de": "Wenn ich gewusst hätte, welche Daten nicht übereinstimmten, hätte ich sie sofort berichtigen können.",
             "en": "If I'd known which data differed, I could have corrected it immediately."
           }
         }
@@ -344,7 +344,7 @@
         {
           "speaker": "resident",
           "ko": "어떤 자료가 달랐는지 알 수 있다면 저도 바로 고칠 수 있었어요.",
-          "de": "Wenn ich gewusst hätte, welche Daten abweichen, hätte ich sie sofort berichtigen können.",
+          "de": "Wenn ich gewusst hätte, welche Daten nicht übereinstimmten, hätte ich sie sofort berichtigen können.",
           "en": "If I'd known which data differed, I could have corrected it immediately."
         },
         {
@@ -1490,7 +1490,7 @@
           "korean": "재난 중 생수 가격이 급등하지 않도록 즉시 상한을 두어야 합니다.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Wir brauchen sofort eine Preisobergrenze, damit Wasser in der Katastrophe nicht unbezahlbar wird.",
+            "de": "Wir brauchen sofort eine Preisobergrenze, damit die Wasserpreise während der Katastrophe nicht in die Höhe schießen.",
             "en": "We need an immediate cap to prevent water prices from soaring during the emergency."
           }
         },
@@ -1530,7 +1530,7 @@
           "korean": "단기 상한에 구매 수량 제한과 추가 운송비 지원을 묶고 종료 조건도 정해야 합니다.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Wir sollten eine befristete Obergrenze mit Mengenbegrenzung und Unterstützung zusätzlicher Transportkosten verbinden und ein Ende definieren.",
+            "de": "Wir sollten eine befristete Obergrenze mit Mengenbegrenzungen und Zuschüssen zu zusätzlichen Transportkosten verbinden und klare Endbedingungen festlegen.",
             "en": "We should pair a temporary cap with purchase limits and transport-cost support, and define when it ends."
           }
         }
@@ -1558,7 +1558,7 @@
         {
           "speaker": "official",
           "ko": "재난 중 생수 가격이 급등하지 않도록 즉시 상한을 두어야 합니다.",
-          "de": "Wir brauchen sofort eine Preisobergrenze, damit Wasser in der Katastrophe nicht unbezahlbar wird.",
+          "de": "Wir brauchen sofort eine Preisobergrenze, damit die Wasserpreise während der Katastrophe nicht in die Höhe schießen.",
           "en": "We need an immediate cap to prevent water prices from soaring during the emergency."
         },
         {
@@ -1588,7 +1588,7 @@
         {
           "speaker": "user",
           "ko": "단기 상한에 구매 수량 제한과 추가 운송비 지원을 묶고 종료 조건도 정해야 합니다.",
-          "de": "Wir sollten eine befristete Obergrenze mit Mengenbegrenzung und Unterstützung zusätzlicher Transportkosten verbinden und ein Ende definieren.",
+          "de": "Wir sollten eine befristete Obergrenze mit Mengenbegrenzungen und Zuschüssen zu zusätzlichen Transportkosten verbinden und klare Endbedingungen festlegen.",
           "en": "We should pair a temporary cap with purchase limits and transport-cost support, and define when it ends."
         }
       ],
@@ -1600,7 +1600,7 @@
             "audioKo": "재난 중 생수 가격이 급등하지 않도록 즉시 상한을 두어야 합니다.",
             "options": [
               {
-                "de": "Wir brauchen sofort eine Preisobergrenze, damit Wasser in der Katastrophe nicht unbezahlbar wird.",
+                "de": "Wir brauchen sofort eine Preisobergrenze, damit die Wasserpreise während der Katastrophe nicht in die Höhe schießen.",
                 "en": "We need an immediate cap to prevent water prices from soaring during the emergency."
               },
               {
@@ -1651,7 +1651,7 @@
           "data": {
             "targetKo": "단기 상한에 구매 수량 제한과 추가 운송비 지원을 묶고 종료 조건도 정해야 합니다.",
             "audioKo": "단기 상한에 구매 수량 제한과 추가 운송비 지원을 묶고 종료 조건도 정해야 합니다.",
-            "promptDe": "Wir sollten eine befristete Obergrenze mit Mengenbegrenzung und Unterstützung zusätzlicher Transportkosten verbinden und ein Ende definieren.",
+            "promptDe": "Wir sollten eine befristete Obergrenze mit Mengenbegrenzungen und Zuschüssen zu zusätzlichen Transportkosten verbinden und klare Endbedingungen festlegen.",
             "promptEn": "We should pair a temporary cap with purchase limits and transport-cost support, and define when it ends.",
             "distractors": [
               "재난 중 생수 가격이 급등하지 않도록 즉시 상한을 두어야 합니다.",
@@ -2538,7 +2538,7 @@
           "korean": "불확실성을 너무 강조하면 참여를 막는 방향으로 기울지 않을까요?",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Könnte eine starke Betonung der Unsicherheit Menschen nicht unnötig von der Teilnahme abhalten?",
+            "de": "Könnte eine zu starke Betonung der Unsicherheit Menschen nicht von einer Teilnahme abhalten?",
             "en": "Could emphasizing uncertainty too much push people away from participating?"
           }
         },
@@ -2562,7 +2562,7 @@
           "korean": "상대위험, 예상되는 실제 범위, 알려진 부작용, 아직 모르는 점과 중단할 선택권을 나눠서 보여 주죠.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Wir zeigen relatives Risiko, erwartete absolute Größen, bekannte Nebenwirkungen, offene Fragen und das Recht auf Abbruch getrennt.",
+            "de": "Wir sollten relatives Risiko, erwartete absolute Größen, bekannte Nebenwirkungen, offene Fragen und die Möglichkeit, die Teilnahme abzubrechen, getrennt darstellen.",
             "en": "Let's separate relative risk, expected absolute ranges, known side effects, what remains unknown, and the option to withdraw."
           }
         }
@@ -2602,7 +2602,7 @@
         {
           "speaker": "researcher",
           "ko": "불확실성을 너무 강조하면 참여를 막는 방향으로 기울지 않을까요?",
-          "de": "Könnte eine starke Betonung der Unsicherheit Menschen nicht unnötig von der Teilnahme abhalten?",
+          "de": "Könnte eine zu starke Betonung der Unsicherheit Menschen nicht von einer Teilnahme abhalten?",
           "en": "Could emphasizing uncertainty too much push people away from participating?"
         },
         {
@@ -2620,7 +2620,7 @@
         {
           "speaker": "user",
           "ko": "상대위험, 예상되는 실제 범위, 알려진 부작용, 아직 모르는 점과 중단할 선택권을 나눠서 보여 주죠.",
-          "de": "Wir zeigen relatives Risiko, erwartete absolute Größen, bekannte Nebenwirkungen, offene Fragen und das Recht auf Abbruch getrennt.",
+          "de": "Wir sollten relatives Risiko, erwartete absolute Größen, bekannte Nebenwirkungen, offene Fragen und die Möglichkeit, die Teilnahme abzubrechen, getrennt darstellen.",
           "en": "Let's separate relative risk, expected absolute ranges, known side effects, what remains unknown, and the option to withdraw."
         }
       ],
@@ -2640,7 +2640,7 @@
                 "en": "The possibility of benefit and the extent of what remains unknown need equal weight."
               },
               {
-                "de": "Könnte eine starke Betonung der Unsicherheit Menschen nicht unnötig von der Teilnahme abhalten?",
+                "de": "Könnte eine zu starke Betonung der Unsicherheit Menschen nicht von einer Teilnahme abhalten?",
                 "en": "Could emphasizing uncertainty too much push people away from participating?"
               },
               {
@@ -2683,7 +2683,7 @@
           "data": {
             "targetKo": "상대위험, 예상되는 실제 범위, 알려진 부작용, 아직 모르는 점과 중단할 선택권을 나눠서 보여 주죠.",
             "audioKo": "상대위험, 예상되는 실제 범위, 알려진 부작용, 아직 모르는 점과 중단할 선택권을 나눠서 보여 주죠.",
-            "promptDe": "Wir zeigen relatives Risiko, erwartete absolute Größen, bekannte Nebenwirkungen, offene Fragen und das Recht auf Abbruch getrennt.",
+            "promptDe": "Wir sollten relatives Risiko, erwartete absolute Größen, bekannte Nebenwirkungen, offene Fragen und die Möglichkeit, die Teilnahme abzubrechen, getrennt darstellen.",
             "promptEn": "Let's separate relative risk, expected absolute ranges, known side effects, what remains unknown, and the option to withdraw.",
             "distractors": [
               "초기 연구에서 위험이 절반으로 줄었다고 설명하면 핵심이 잘 전달될 겁니다.",

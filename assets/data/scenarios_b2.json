@@ -4750,14 +4750,14 @@
         {
           "speaker": "user",
           "ko": "그럼 결과 안내문을 다시 확인하고, 사진을 포함해 어떤 절차가 가능한지 문의해 보겠습니다.",
-          "de": "Dann prüfe ich die Mitteilung noch einmal und frage mit den Fotos nach, welche Schritte möglich sind.",
-          "en": "Then I'll review the decision notice again and ask, with the photos, which steps may be available."
+          "de": "Dann prüfe ich die Mitteilung noch einmal und frage unter Beifügung der Fotos nach, welche Möglichkeiten ich habe.",
+          "en": "Then I'll review the decision notice again and ask what options are available, including the photos with my inquiry."
         },
         {
           "speaker": "official",
           "ko": "네. 결과 안내문에 적힌 방법과 기한을 확인하시고, 사진을 포함해 문의해 보세요.",
-          "de": "Ja. Prüfen Sie die in der Mitteilung genannten Wege und Fristen und fragen Sie unter Beifügung der Fotos nach.",
-          "en": "Yes. Check the methods and deadlines listed in the decision notice, and ask with the photos attached."
+          "de": "Ja. Prüfen Sie den in der Mitteilung genannten Weg und die Frist und fügen Sie die Fotos Ihrer Anfrage bei.",
+          "en": "Yes. Check the method and deadline stated in the decision notice, and include the photos when you contact the office."
         },
         {
           "speaker": "user",
@@ -4790,8 +4790,8 @@
               },
               {
                 "ko": "네. 결과 안내문에 적힌 방법과 기한을 확인하시고, 사진을 포함해 문의해 보세요.",
-                "de": "Ja. Prüfen Sie die in der Mitteilung genannten Wege und Fristen und fragen Sie unter Beifügung der Fotos nach.",
-                "en": "Yes. Check the methods and deadlines listed in the decision notice, and ask with the photos attached."
+                "de": "Ja. Prüfen Sie den in der Mitteilung genannten Weg und die Frist und fügen Sie die Fotos Ihrer Anfrage bei.",
+                "en": "Yes. Check the method and deadline stated in the decision notice, and include the photos when you contact the office."
               }
             ],
             "correctIndex": 0
@@ -5198,13 +5198,13 @@
         {
           "speaker": "pharmacist",
           "ko": "졸릴 수 있는 약이 있습니다. 다만 복용 시간을 바꾸거나 다른 약으로 바꾸기 전에는 처방 내용과 현재 상태를 먼저 확인해야 해요.",
-          "de": "Ein Medikament kann müde machen. Bevor Sie die Einnahmezeit ändern oder auf ein anderes Medikament wechseln, müssen wir aber zuerst die Verordnung und Ihre aktuelle Situation prüfen.",
+          "de": "Ein Medikament kann müde machen. Bevor Sie die Einnahmezeit ändern oder zu einem anderen Medikament wechseln, müssen wir aber zuerst die Verordnung und Ihre aktuelle Situation prüfen.",
           "en": "One of the medicines can cause drowsiness. Before changing the timing or switching medicines, we need to check the prescription and your current situation first."
         },
         {
           "speaker": "user",
           "ko": "그럼 낮에 복용해도 덜 졸린 방법이 있는지 처방의와 확인해 주실 수 있을까요?",
-          "de": "Könnten Sie dann mit der verschreibenden Praxis klären, ob es für tagsüber eine weniger müde machende Möglichkeit gibt?",
+          "de": "Könnten Sie mit der verschreibenden Praxis klären, ob es für tagsüber eine Alternative gibt, die weniger müde macht?",
           "en": "Could you check with the prescribing clinician whether there is a less drowsy option for daytime?"
         },
         {
@@ -5216,8 +5216,8 @@
         {
           "speaker": "user",
           "ko": "확인된 방법을 들은 뒤에 결정하고 싶습니다.",
-          "de": "Ich möchte entscheiden, nachdem ich die geklärte Möglichkeit gehört habe.",
-          "en": "I would like to decide after I hear the confirmed option."
+          "de": "Ich möchte entscheiden, nachdem ich erfahren habe, welche Möglichkeiten tatsächlich infrage kommen.",
+          "en": "I'd like to decide after I hear what options are actually available."
         },
         {
           "speaker": "pharmacist",
@@ -5251,7 +5251,7 @@
               },
               {
                 "ko": "졸릴 수 있는 약이 있습니다. 다만 복용 시간을 바꾸거나 다른 약으로 바꾸기 전에는 처방 내용과 현재 상태를 먼저 확인해야 해요.",
-                "de": "Ein Medikament kann müde machen. Bevor Sie die Einnahmezeit ändern oder auf ein anderes Medikament wechseln, müssen wir aber zuerst die Verordnung und Ihre aktuelle Situation prüfen.",
+                "de": "Ein Medikament kann müde machen. Bevor Sie die Einnahmezeit ändern oder zu einem anderen Medikament wechseln, müssen wir aber zuerst die Verordnung und Ihre aktuelle Situation prüfen.",
                 "en": "One of the medicines can cause drowsiness. Before changing the timing or switching medicines, we need to check the prescription and your current situation first."
               },
               {
@@ -5900,19 +5900,19 @@
         {
           "speaker": "user",
           "ko": "체류 기간을 연장하려고 하는데, 제 경우에 신청 시기와 필요한 서류를 확인하고 싶습니다.",
-          "de": "Ich möchte meinen Aufenthalt verlängern und möchte wissen, welcher Antragstermin und welche Unterlagen in meinem Fall gelten.",
-          "en": "I would like to extend my stay and want to know which timing and documents apply in my case."
+          "de": "Ich möchte meinen Aufenthalt verlängern und wissen, wann ich den Antrag stellen sollte und welche Unterlagen ich dafür brauche.",
+          "en": "I'd like to extend my stay and find out when I should apply and which documents I need."
         },
         {
           "speaker": "official",
           "ko": "신청 시기와 필요한 서류는 체류 자격과 현재 상황에 따라 달라질 수 있어요. 여권과 현재 체류 정보를 먼저 확인해 볼게요.",
           "de": "Antragszeitpunkt und Unterlagen können je nach Aufenthaltsstatus und aktueller Situation unterschiedlich sein. Wir sehen uns zuerst Ihren Pass und Ihre aktuellen Aufenthaltsdaten an.",
-          "en": "The timing and documents can vary by residence status and current situation. Let's first check your passport and current stay information."
+          "en": "The timing and documents can vary by residence status and current situation. Let's first check your passport and current residence-status details."
         },
         {
           "speaker": "user",
           "ko": "만료일이 가까우면 어떤 점을 먼저 확인해야 할까요?",
-          "de": "Was sollte ich zuerst prüfen, wenn das Ablaufdatum nahe ist?",
+          "de": "Was sollte ich zuerst prüfen, wenn das Ablaufdatum kurz bevorsteht?",
           "en": "What should I check first if the expiration date is close?"
         },
         {
@@ -5924,13 +5924,13 @@
         {
           "speaker": "user",
           "ko": "그럼 제 경우에 필요한 서류와 신청 방법을 확인해 주세요.",
-          "de": "Dann prüfen Sie bitte, welche Unterlagen und welcher Antragsweg in meinem Fall nötig sind.",
-          "en": "Then please check which documents and application method are needed in my case."
+          "de": "Dann prüfen Sie bitte, welche Unterlagen ich brauche und wie ich den Antrag in meinem Fall stellen soll.",
+          "en": "Then please check which documents I need and how I should apply in my case."
         },
         {
           "speaker": "official",
           "ko": "확인한 뒤 필요한 서류와 다음 절차를 안내해 드리겠습니다.",
-          "de": "Nachdem wir das geprüft haben, erkläre ich Ihnen die nötigen Unterlagen und die nächsten Schritte.",
+          "de": "Nachdem wir das geprüft haben, teile ich Ihnen mit, welche Unterlagen Sie brauchen und wie es weitergeht.",
           "en": "Once we've checked, I'll explain which documents you need and what happens next."
         },
         {
@@ -5960,11 +5960,11 @@
               {
                 "ko": "신청 시기와 필요한 서류는 체류 자격과 현재 상황에 따라 달라질 수 있어요. 여권과 현재 체류 정보를 먼저 확인해 볼게요.",
                 "de": "Antragszeitpunkt und Unterlagen können je nach Aufenthaltsstatus und aktueller Situation unterschiedlich sein. Wir sehen uns zuerst Ihren Pass und Ihre aktuellen Aufenthaltsdaten an.",
-                "en": "The timing and documents can vary by residence status and current situation. Let's first check your passport and current stay information."
+                "en": "The timing and documents can vary by residence status and current situation. Let's first check your passport and current residence-status details."
               },
               {
                 "ko": "확인한 뒤 필요한 서류와 다음 절차를 안내해 드리겠습니다.",
-                "de": "Nachdem wir das geprüft haben, erkläre ich Ihnen die nötigen Unterlagen und die nächsten Schritte.",
+                "de": "Nachdem wir das geprüft haben, teile ich Ihnen mit, welche Unterlagen Sie brauchen und wie es weitergeht.",
                 "en": "Once we've checked, I'll explain which documents you need and what happens next."
               }
             ],
@@ -6996,8 +6996,8 @@
         {
           "speaker": "user",
           "ko": "그럼 파일명과 설명 문구도 같은 기준으로 맞춰서 전달할게요.",
-          "de": "Dann passe ich auch die Dateinamen und Beschreibungstexte an dieselbe Regel an, bevor ich alles übergebe.",
-          "en": "Then I'll use the same rule for the filenames and description text before I hand everything over."
+          "de": "Dann richte ich auch die Dateinamen und Beschreibungen nach denselben Kriterien aus, bevor ich alles übergebe.",
+          "en": "Then I'll apply the same convention to the filenames and descriptions before I hand everything over."
         },
         {
           "speaker": "sujin",
@@ -7043,8 +7043,8 @@
             "concept_b2_precise_requests"
           ],
           "data": {
-            "promptDe": "Dann passe ich auch die Dateinamen und Beschreibungstexte an dieselbe Regel an, bevor ich alles übergebe.",
-            "promptEn": "Then I'll use the same rule for the filenames and description text before I hand everything over.",
+            "promptDe": "Dann richte ich auch die Dateinamen und Beschreibungen nach denselben Kriterien aus, bevor ich alles übergebe.",
+            "promptEn": "Then I'll apply the same convention to the filenames and descriptions before I hand everything over.",
             "options": [
               {
                 "ko": "그럼 파일명과 설명 문구도 같은 기준으로 맞춰서 전달할게요."

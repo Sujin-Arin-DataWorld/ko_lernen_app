@@ -6588,9 +6588,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/build_can_do_segments.py": {
-    "mtime": 1791226180.4577537,
-    "seen": 1791226956.0954666,
-    "ast_hash": "e4f04b7fcda5efd192d6ac8984edb8ae",
+    "mtime": 1791321813.503638,
+    "seen": 1791322310.7110033,
+    "ast_hash": "3701ecb9f0c90a13fa6be8e01fc05f17",
     "semantic_hash": ""
   },
   "tools/content_factory/build_cloze.py": {
@@ -8196,9 +8196,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791319428.919108,
-    "seen": 1791319818.2969277,
-    "ast_hash": "f7e9ea8b3a88fb9a24141c346de4194a",
+    "mtime": 1791321738.269559,
+    "seen": 1791322310.9496627,
+    "ast_hash": "3541f2d2c2ec8b78bde183616a45ed43",
     "semantic_hash": ""
   },
   "BETA_INSTALL_GUIDE.md": {
@@ -20808,9 +20808,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/smalltalk_editorial_revisions.py": {
-    "mtime": 1791226181.547991,
-    "seen": 1791226956.0967479,
-    "ast_hash": "b2938ec306643ea99364f812977c7711",
+    "mtime": 1791321938.6256227,
+    "seen": 1791322310.898994,
+    "ast_hash": "a016dfe050388e6505fb87ddcce4a87c",
     "semantic_hash": ""
   },
   "tools/content_factory/test_kkeunmari_editorial_revisions.py": {
@@ -22596,8 +22596,8 @@
     "semantic_hash": ""
   },
   "tools/content_factory/review/global_localization_derived_reconciliation_20261006.json": {
-    "mtime": 1791319443.9735396,
-    "seen": 1791319818.197841,
+    "mtime": 1791321960.8913968,
+    "seen": 1791322310.884675,
     "ast_hash": "2cf586e49ca36ea02864d7a0fccdf80b",
     "semantic_hash": ""
   },
@@ -22632,9 +22632,9 @@
     "semantic_hash": ""
   },
   "docs/plans/2026-10-06-global-localization-canonicalization.md": {
-    "mtime": 1791319412.4009235,
-    "seen": 1791319818.4101799,
-    "ast_hash": "ea5fb41a575df8307c39b109cf5436f3",
+    "mtime": 1791321738.2675579,
+    "seen": 1791322311.0170903,
+    "ast_hash": "c1f638062fe259f8745357ac3db9203f",
     "semantic_hash": ""
   },
   "tools/content_factory/build_global_localization_g4_audit.py": {
@@ -22731,6 +22731,54 @@
     "mtime": 1791317370.308043,
     "seen": 1791319818.469258,
     "ast_hash": "0c086b6280ed0be8c1cd3ff3d82f0243",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/build_global_localization_qa_units.py": {
+    "mtime": 1791320806.5299528,
+    "seen": 1791322310.7120333,
+    "ast_hash": "5e01b1ae8457277ef6d43325749d23b4",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/global_localization_qa_decisions_20261006.json": {
+    "mtime": 1791321499.589456,
+    "seen": 1791322310.8859694,
+    "ast_hash": "f3dac6462c8ca9bc41a99c7ac4997346",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/smalltalk_editorial_successors_20261006_global_localization.json": {
+    "mtime": 1791321656.187126,
+    "seen": 1791322310.8941348,
+    "ast_hash": "2c371eb4c5b75177dfca4c3760d7a4b7",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/test_global_localization_qa_units.py": {
+    "mtime": 1791321016.412447,
+    "seen": 1791322310.911274,
+    "ast_hash": "719dc0b6dc2ec94e81a4d61b169e66be",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/global_localization_health_body_review_packet_20261006.md": {
+    "mtime": 1791321032.338782,
+    "seen": 1791322311.063833,
+    "ast_hash": "fdf82ff5cddd235412d6ef06a5d690f2",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/global_localization_money_review_packet_20261006.md": {
+    "mtime": 1791321226.1396902,
+    "seen": 1791322311.0638363,
+    "ast_hash": "3f9344a75f6e906fc3c94fd7d36eacf1",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/global_localization_services_review_packet_20261006.md": {
+    "mtime": 1791321302.5171335,
+    "seen": 1791322311.06384,
+    "ast_hash": "127f8a2f2f5dc02e284ecd3a1e38039d",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/global_localization_technology_review_packet_20261006.md": {
+    "mtime": 1791321406.233137,
+    "seen": 1791322311.0638425,
+    "ast_hash": "bfb7de24ac308d8476121f512d9b322e",
     "semantic_hash": ""
   }
 }

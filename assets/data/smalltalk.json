@@ -3878,7 +3878,7 @@
       "followUp": {
         "turnKind": "reaction",
         "ko": "잘 다녀오세요.",
-        "de": "Ich hoffe, der Arztbesuch geht gut.",
+        "de": "Alles Gute für den Arzttermin.",
         "en": "I hope your doctor’s visit goes well."
       }
     },
@@ -4981,8 +4981,8 @@
         {
           "turnKind": "question",
           "ko": "여기 좀 봐 주실 수 있어요?",
-          "de": "Können Sie bitte hierherschauen?",
-          "en": "Could you look this way, please?"
+          "de": "Können Sie sich das bitte kurz ansehen?",
+          "en": "Could you take a look at this, please?"
         }
       ],
       "followUp": {
@@ -5089,8 +5089,8 @@
       "followUp": {
         "turnKind": "reaction",
         "ko": "경찰서에 신고하세요.",
-        "de": "Melden Sie es bei der Polizeiwache.",
-        "en": "Report it to the police station."
+        "de": "Melden Sie es bei der Polizei.",
+        "en": "Report it to the police."
       }
     },
     {
@@ -7860,7 +7860,7 @@
         "turnKind": "reaction",
         "ko": "그 기록이 있어야 책임 소재와 오류의 시작점을 나눠 볼 수 있겠네요.",
         "de": "Nur mit diesen Spuren lassen sich Verantwortung und Fehlerursprung unterscheiden.",
-        "en": "Only with those records can we distinguish accountability from the point where an error began."
+        "en": "With those records, we can distinguish who is responsible from where the error originated."
       }
     },
     {
@@ -9518,7 +9518,7 @@
       "followUp": {
         "ko": "좋아요. 함께 준비해요.",
         "de": "Gern, dann bereiten wir alles zusammen vor.",
-        "en": "Great, let us prepare everything together.",
+        "en": "Great, let's prepare everything together.",
         "turnKind": "reaction"
       }
     },
@@ -10118,7 +10118,7 @@
       "followUp": {
         "ko": "네, 서로 불편한 표현은 미리 이야기해요.",
         "de": "Ja, sprechen wir vorher darüber, welche Formulierungen uns unangenehm sind.",
-        "en": "Yes, let us discuss beforehand which expressions make us uncomfortable.",
+        "en": "Yes, let's discuss beforehand which expressions make us uncomfortable.",
         "turnKind": "reaction"
       }
     },
@@ -10238,7 +10238,7 @@
       "followUp": {
         "ko": "좋아요. 각자 맡을 수 있는 일부터 이야기해 봐요.",
         "de": "Gern. Sprechen wir zuerst darüber, welche Aufgaben jeder übernehmen kann.",
-        "en": "Great. Let us start by discussing what each person can take on.",
+        "en": "Great. Let's start by discussing what each person can take on.",
         "turnKind": "reaction"
       }
     },
@@ -10432,7 +10432,7 @@
       "reply": {
         "ko": "좋아요. 열 시에 입구에서 만나요.",
         "de": "Gern. Treffen wir uns um zehn am Eingang.",
-        "en": "Sure. Let us meet at the entrance at ten.",
+        "en": "Sure. Let's meet at the entrance at ten.",
         "turnKind": "response"
       },
       "relationshipContext": "peer",
@@ -10491,7 +10491,7 @@
       "reply": {
         "ko": "먼저 표의 숫자를 확인하고 문장은 내일 봐요.",
         "de": "Prüfen wir zuerst die Zahlen in der Tabelle und lesen die Sätze morgen.",
-        "en": "Let us check the figures in the table first and review the sentences tomorrow.",
+        "en": "Let's check the figures in the table first and review the sentences tomorrow.",
         "turnKind": "response"
       },
       "relationshipContext": "peer",
@@ -10668,7 +10668,7 @@
       "reply": {
         "ko": "실제로 결정하는 주체를 밝히고, 그 결정의 근거를 한 줄 덧붙입시다.",
         "de": "Benennen wir, wer tatsächlich entscheidet, und ergänzen wir einen Satz zur Begründung der Entscheidung.",
-        "en": "Let us identify who actually makes the decision and add a sentence explaining its basis.",
+        "en": "Let's identify who actually makes the decision and add a sentence explaining its basis.",
         "turnKind": "response"
       },
       "relationshipContext": "peer",
@@ -11449,7 +11449,7 @@
         {
           "turnKind": "question",
           "ko": "사람의 재검토가 결과를 바꾼 경우도 집계했어요?",
-          "de": "Wurde gezählt, wann menschliche Prüfung das Ergebnis änderte?",
+          "de": "Wurde erfasst, wie oft eine menschliche Prüfung das Ergebnis verändert hat?",
           "en": "Did they count cases where human review changed the outcome?"
         }
       ],
@@ -11485,8 +11485,8 @@
       "followUp": {
         "turnKind": "reaction",
         "ko": "절차가 화면에만 있고 작동하지 않는지도 봐야겠네요.",
-        "de": "Wir sollten prüfen, ob das Verfahren nur auf dem Bildschirm existiert.",
-        "en": "We should check whether the process exists only on screen."
+        "de": "Wir sollten auch prüfen, ob das Verfahren nur auf dem Bildschirm existiert, ohne tatsächlich zu funktionieren.",
+        "en": "We should also check whether the process only exists on screen without actually working."
       },
       "id": "smalltalk_c1_0036",
       "level": "c1"
@@ -11764,7 +11764,7 @@
       "reply": {
         "ko": "당사자가 무엇을 선택했고 어떻게 판단했는지를 문장에 다시 담아 봅시다.",
         "de": "Halten wir im Satz wieder fest, was die Betroffenen selbst gewählt und wie sie entschieden haben.",
-        "en": "Let us put back into the sentence what the people concerned chose and how they made their decisions.",
+        "en": "Let's put back into the sentence what the people concerned chose and how they made their decisions.",
         "turnKind": "response"
       },
       "safeAlternativeQuestions": [
@@ -13675,7 +13675,7 @@
       ],
       "followUp": {
         "ko": "그럼 동의 내용과 철회에 따른 실제 영향을 함께 확인해야겠네요.",
-        "de": "Dann sollten wir Inhalt der Einwilligung und tatsächliche Widerrufsfolgen gemeinsam prüfen.",
+        "de": "Dann sollten wir den Inhalt der Einwilligung und die tatsächlichen Folgen eines Widerrufs gemeinsam prüfen.",
         "en": "Then we should examine the scope of consent and the actual effects of withdrawal together.",
         "turnKind": "reaction"
       }
@@ -13850,7 +13850,7 @@
       ],
       "followUp": {
         "ko": "그럼 오류를 설명하는 역할과 피해를 시정하는 책임을 함께 명시해야겠네요.",
-        "de": "Dann sollten wir Erklärungsaufgabe und Verantwortung für die Schadensbehebung gemeinsam festlegen.",
+        "de": "Dann sollten wir sowohl festlegen, wer Fehler erklärt, als auch, wer für die Behebung von Schäden verantwortlich ist.",
         "en": "Then we should specify both the role of explaining the error and the responsibility for remedying harm.",
         "turnKind": "reaction"
       }
@@ -14187,7 +14187,7 @@
       "reply": {
         "ko": "네, 새 날짜를 계약서에 함께 적어요.",
         "de": "Ja, wir tragen das neue Datum gemeinsam in den Vertrag ein.",
-        "en": "Yes, let us add the new date to the contract."
+        "en": "Yes, let's add the new date to the contract."
       },
       "relationshipContext": "service",
       "safeAlternativeQuestions": [
@@ -14201,7 +14201,7 @@
       "followUp": {
         "ko": "네, 새 날짜를 함께 확인해요.",
         "de": "Gut, prüfen wir das neue Datum gemeinsam.",
-        "en": "Okay, let us confirm the new date together.",
+        "en": "Okay, let's confirm the new date together.",
         "turnKind": "reaction"
       }
     },

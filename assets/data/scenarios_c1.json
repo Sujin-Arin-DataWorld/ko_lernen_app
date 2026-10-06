@@ -1917,7 +1917,7 @@
           "korean": "그 가능성은 있지만 연령이나 접근성 문제에 따라 어려움이 달라질 수 있습니다.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Das ist möglich, doch die Schwierigkeit kann je nach Alter und Barrieren unterschiedlich sein.",
+            "de": "Das ist möglich, doch die Hürden können je nach Alter und Barrierefreiheit unterschiedlich ausfallen.",
             "en": "That's possible, but difficulty can vary by age and accessibility barriers."
           }
         },
@@ -1979,7 +1979,7 @@
         {
           "speaker": "user",
           "ko": "그 가능성은 있지만 연령이나 접근성 문제에 따라 어려움이 달라질 수 있습니다.",
-          "de": "Das ist möglich, doch die Schwierigkeit kann je nach Alter und Barrieren unterschiedlich sein.",
+          "de": "Das ist möglich, doch die Hürden können je nach Alter und Barrierefreiheit unterschiedlich ausfallen.",
           "en": "That's possible, but difficulty can vary by age and accessibility barriers."
         },
         {
@@ -2015,7 +2015,7 @@
                 "en": "The increase in help requests could be a temporary adjustment issue."
               },
               {
-                "de": "Das ist möglich, doch die Schwierigkeit kann je nach Alter und Barrieren unterschiedlich sein.",
+                "de": "Das ist möglich, doch die Hürden können je nach Alter und Barrierefreiheit unterschiedlich ausfallen.",
                 "en": "That's possible, but difficulty can vary by age and accessibility barriers."
               }
             ],
@@ -3553,7 +3553,7 @@
           "korean": "사용한 도구의 학습 데이터와 상업 이용 조건을 팀에서 확인했나요?",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Hat das Team Trainingsdaten und kommerzielle Nutzungsbedingungen des Werkzeugs geprüft?",
+            "de": "Hat das Team die Trainingsdaten des verwendeten Tools und die Bedingungen für die kommerzielle Nutzung geprüft?",
             "en": "Has the team checked the tool's training data and commercial-use terms?"
           }
         },
@@ -3561,7 +3561,7 @@
           "korean": "아직 확인하지 못했습니다. 지금 정보만으로 사용 가능하다고 단정하기는 어렵습니다.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Noch nicht. Mit den derzeitigen Informationen können wir die Nutzung nicht als unbedenklich einstufen.",
+            "de": "Noch nicht. Mit den derzeitigen Informationen können wir nicht sicher sagen, dass wir es verwenden dürfen.",
             "en": "Not yet. With the information we have, it's hard to conclude that we can use it."
           }
         },
@@ -3578,7 +3578,7 @@
           "note": {
             "ko": "장면 핵심 표현",
             "de": "Wir nehmen das Bild vorerst heraus und ersetzen es durch eigenes Material mit geklärten Rechten.",
-            "en": "We'll remove it for now and replace it with our own footage with verified rights."
+            "en": "We'll remove it for now and replace it with a photo we took ourselves and have the rights to use."
           }
         }
       ],
@@ -3617,13 +3617,13 @@
         {
           "speaker": "daniel",
           "ko": "사용한 도구의 학습 데이터와 상업 이용 조건을 팀에서 확인했나요?",
-          "de": "Hat das Team Trainingsdaten und kommerzielle Nutzungsbedingungen des Werkzeugs geprüft?",
+          "de": "Hat das Team die Trainingsdaten des verwendeten Tools und die Bedingungen für die kommerzielle Nutzung geprüft?",
           "en": "Has the team checked the tool's training data and commercial-use terms?"
         },
         {
           "speaker": "user",
           "ko": "아직 확인하지 못했습니다. 지금 정보만으로 사용 가능하다고 단정하기는 어렵습니다.",
-          "de": "Noch nicht. Mit den derzeitigen Informationen können wir die Nutzung nicht als unbedenklich einstufen.",
+          "de": "Noch nicht. Mit den derzeitigen Informationen können wir nicht sicher sagen, dass wir es verwenden dürfen.",
           "en": "Not yet. With the information we have, it's hard to conclude that we can use it."
         },
         {
@@ -3636,7 +3636,7 @@
           "speaker": "user",
           "ko": "해당 이미지는 잠시 빼고 권리가 확인된 자체 촬영본으로 교체하겠습니다.",
           "de": "Wir nehmen das Bild vorerst heraus und ersetzen es durch eigenes Material mit geklärten Rechten.",
-          "en": "We'll remove it for now and replace it with our own footage with verified rights."
+          "en": "We'll remove it for now and replace it with a photo we took ourselves and have the rights to use."
         }
       ],
       "quests": [
@@ -3655,11 +3655,11 @@
                 "en": "There are concerns that it looks very similar to a particular artist's recent work."
               },
               {
-                "de": "Hat das Team Trainingsdaten und kommerzielle Nutzungsbedingungen des Werkzeugs geprüft?",
+                "de": "Hat das Team die Trainingsdaten des verwendeten Tools und die Bedingungen für die kommerzielle Nutzung geprüft?",
                 "en": "Has the team checked the tool's training data and commercial-use terms?"
               },
               {
-                "de": "Noch nicht. Mit den derzeitigen Informationen können wir die Nutzung nicht als unbedenklich einstufen.",
+                "de": "Noch nicht. Mit den derzeitigen Informationen können wir nicht sicher sagen, dass wir es verwenden dürfen.",
                 "en": "Not yet. With the information we have, it's hard to conclude that we can use it."
               }
             ],
@@ -3699,7 +3699,7 @@
             "targetKo": "해당 이미지는 잠시 빼고 권리가 확인된 자체 촬영본으로 교체하겠습니다.",
             "audioKo": "해당 이미지는 잠시 빼고 권리가 확인된 자체 촬영본으로 교체하겠습니다.",
             "promptDe": "Wir nehmen das Bild vorerst heraus und ersetzen es durch eigenes Material mit geklärten Rechten.",
-            "promptEn": "We'll remove it for now and replace it with our own footage with verified rights.",
+            "promptEn": "We'll remove it for now and replace it with a photo we took ourselves and have the rights to use.",
             "distractors": [
               "시안 반응이 좋아서 이 이미지를 최종 캠페인에도 쓰고 싶습니다.",
               "특정 작가의 최근 작품과 너무 비슷하다는 의견이 있습니다.",

@@ -2944,7 +2944,7 @@
           "note": {
             "ko": "장면 핵심 표현",
             "de": "Okay. Das Knie ist jetzt wichtiger als die Zeit.",
-            "en": "Okay. I need to put my knee before my time."
+            "en": "Okay. I need to take care of my knee before worrying about my time."
           }
         }
       ],
@@ -3002,7 +3002,7 @@
           "speaker": "user",
           "ko": "알겠어. 기록보다 무릎부터 봐야겠어.",
           "de": "Okay. Das Knie ist jetzt wichtiger als die Zeit.",
-          "en": "Okay. I need to put my knee before my time."
+          "en": "Okay. I need to take care of my knee before worrying about my time."
         }
       ],
       "quests": [
@@ -3065,7 +3065,7 @@
             "targetKo": "알겠어. 기록보다 무릎부터 봐야겠어.",
             "audioKo": "알겠어. 기록보다 무릎부터 봐야겠어.",
             "promptDe": "Okay. Das Knie ist jetzt wichtiger als die Zeit.",
-            "promptEn": "Okay. I need to put my knee before my time.",
+            "promptEn": "Okay. I need to take care of my knee before worrying about my time.",
             "distractors": [
               "다니엘, 아까부터 계속 절뚝거리는데 괜찮아?",
               "무릎이 좀 아파. 대회가 얼마 안 남아서 쉬기가 불안해.",
@@ -3741,7 +3741,7 @@
           "note": {
             "ko": "장면 핵심 표현",
             "de": "Kundenservice. Was kann ich für Sie prüfen?",
-            "en": "Customer support. What can I check for you?"
+            "en": "Customer support. What can I look into for you?"
           }
         },
         {
@@ -3809,7 +3809,7 @@
           "speaker": "clerk",
           "ko": "고객센터입니다. 무엇을 확인해 드릴까요?",
           "de": "Kundenservice. Was kann ich für Sie prüfen?",
-          "en": "Customer support. What can I check for you?"
+          "en": "Customer support. What can I look into for you?"
         },
         {
           "speaker": "user",
@@ -3851,7 +3851,7 @@
             "options": [
               {
                 "de": "Kundenservice. Was kann ich für Sie prüfen?",
-                "en": "Customer support. What can I check for you?"
+                "en": "Customer support. What can I look into for you?"
               },
               {
                 "de": "Letzte Woche wurde mir die Kündigung auf dem Bildschirm als abgeschlossen angezeigt. Trotzdem wurde der Monatsbeitrag abgebucht.",
@@ -4917,7 +4917,7 @@
         {
           "speaker": "clerk",
           "ko": "번거롭게 해 드려서 죄송해요.",
-          "de": "Es tut mir leid, dass es so umständlich war.",
+          "de": "Entschuldigen Sie bitte die Umstände.",
           "en": "I'm sorry for the trouble."
         }
       ],
@@ -5132,14 +5132,14 @@
         {
           "speaker": "official",
           "ko": "추가로 필요한 서류와 제출 방법을 확인해서 안내해 드릴게요.",
-          "de": "Ich prüfe die weiteren Unterlagen und die Einreichungsmethode und erkläre sie Ihnen dann.",
-          "en": "I'll check what else is needed and how to submit it, then explain it to you."
+          "de": "Ich prüfe, welche weiteren Unterlagen Sie brauchen und wie Sie sie einreichen können, und gebe Ihnen dann Bescheid.",
+          "en": "I'll check what additional documents you need and how to submit them, then let you know."
         },
         {
           "speaker": "user",
           "ko": "언제까지 제출하면 될까요?",
           "de": "Bis wann kann ich es einreichen?",
-          "en": "By when can I submit it?"
+          "en": "What's the deadline for submitting it?"
         },
         {
           "speaker": "official",
@@ -5162,8 +5162,8 @@
             "audioKo": "추가로 필요한 서류와 제출 방법을 확인해서 안내해 드릴게요.",
             "options": [
               {
-                "de": "Ich prüfe die weiteren Unterlagen und die Einreichungsmethode und erkläre sie Ihnen dann.",
-                "en": "I'll check what else is needed and how to submit it, then explain it to you."
+                "de": "Ich prüfe, welche weiteren Unterlagen Sie brauchen und wie Sie sie einreichen können, und gebe Ihnen dann Bescheid.",
+                "en": "I'll check what additional documents you need and how to submit them, then let you know."
               },
               {
                 "de": "Sie müssen heute alle Dokumente abgeben.",
@@ -5585,7 +5585,7 @@
         {
           "speaker": "user",
           "ko": "지난주에 병원에서 검사를 받았는데, 그 검사도 보험으로 보장돼요? 확인하고 싶어서요.",
-          "de": "Ich hatte letzte Woche eine Untersuchung im Krankenhaus. Ist diese Untersuchung auch versichert? Das möchte ich gern klären.",
+          "de": "Ich hatte letzte Woche eine Untersuchung im Krankenhaus. Wird diese Untersuchung auch von meiner Versicherung übernommen? Das möchte ich gern klären.",
           "en": "I had a test at the hospital last week. Is that test covered by my insurance too? I'd like to check."
         },
         {
@@ -5603,8 +5603,8 @@
         {
           "speaker": "clerk",
           "ko": "필요한 서류와 제출 방법을 확인해서 안내해 드릴게요.",
-          "de": "Ich prüfe die erforderlichen Unterlagen und die Einreichungsmethode und erkläre sie Ihnen dann.",
-          "en": "I'll check the required documents and how to submit them, then explain it to you."
+          "de": "Ich prüfe, welche Unterlagen Sie brauchen und wie Sie sie einreichen können, und gebe Ihnen dann Bescheid.",
+          "en": "I'll check which documents you need and how to submit them, then let you know."
         },
         {
           "speaker": "user",
@@ -5650,7 +5650,7 @@
           "id": "quest_b1_w10_insurance_translate",
           "type": "uebersetzen",
           "data": {
-            "promptDe": "Ich hatte letzte Woche eine Untersuchung im Krankenhaus. Ist diese Untersuchung auch versichert? Das möchte ich gern klären.",
+            "promptDe": "Ich hatte letzte Woche eine Untersuchung im Krankenhaus. Wird diese Untersuchung auch von meiner Versicherung übernommen? Das möchte ich gern klären.",
             "promptEn": "I had a test at the hospital last week. Is that test covered by my insurance too? I'd like to check.",
             "options": [
               {
@@ -8226,8 +8226,8 @@
         {
           "speaker": "user",
           "ko": "응. 엄마한테 연락 와서 내가 누르지 말라고 했어.",
-          "de": "Nein. Sie hat mich angerufen, und ich hab ihr gesagt, sie soll nicht draufklicken.",
-          "en": "No. She called me, and I told her not to."
+          "de": "Ja. Mama hat sich bei mir gemeldet, und ich hab ihr gesagt, sie soll nicht draufklicken.",
+          "en": "Yeah. Mom got in touch with me, and I told her not to click it."
         },
         {
           "speaker": "byeongcheol",
@@ -8267,8 +8267,8 @@
                 "en": "Dad, Mom got a weird delivery text. It looks like a phishing scam."
               },
               {
-                "de": "Nein. Sie hat mich angerufen, und ich hab ihr gesagt, sie soll nicht draufklicken.",
-                "en": "No. She called me, and I told her not to."
+                "de": "Ja. Mama hat sich bei mir gemeldet, und ich hab ihr gesagt, sie soll nicht draufklicken.",
+                "en": "Yeah. Mom got in touch with me, and I told her not to click it."
               },
               {
                 "de": "Gut. Ab jetzt gilt: Wenn irgendein Link kommt, klicken wir nicht sofort drauf, sondern prüfen erst.",

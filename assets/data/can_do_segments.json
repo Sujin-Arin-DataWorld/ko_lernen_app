@@ -1992,7 +1992,7 @@
     {
       "id": "cluster_a2_plans_with_friend_v1",
       "level": "a2",
-      "revision": 11,
+      "revision": 12,
       "sourceSeedIds": [
         "seed_scenario_plans_with_friend_v1",
         "seed_grammar_grammar_a2_gentle_question_v1",
@@ -2037,7 +2037,8 @@
         "seed_grammar_grammar_b1_decision_v1",
         "seed_grammar_grammar_a2_tentative_intention_v1",
         "seed_scenario_a2_jun_game_time_change_v1",
-        "seed_scenario_a2_minho_weekend_cooking_plan_v1"
+        "seed_scenario_a2_minho_weekend_cooking_plan_v1",
+        "seed_scenario_a2_lena_hyuna_heatwave_plan_v1"
       ],
       "contentReferences": [
         {
@@ -2215,6 +2216,10 @@
         {
           "kind": "scenario",
           "id": "a2_minho_weekend_cooking_plan"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_lena_hyuna_heatwave_plan"
         }
       ]
     },
@@ -2781,7 +2786,7 @@
     {
       "id": "cluster_a2_cafe_starbucks_basic_v1",
       "level": "a2",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
         "seed_vocab_pack_a2_food_1_v1",
         "seed_vocab_pack_a2_food_2_v1",
@@ -2810,7 +2815,8 @@
         "seed_scenario_a2_w10_buy_v1",
         "seed_scenario_a2_w10_apt_v1",
         "seed_scenario_convenience_parcel_pickup_v1",
-        "seed_scenario_package_wrong_door_v1"
+        "seed_scenario_package_wrong_door_v1",
+        "seed_scenario_a2_dongsun_christian_suspicious_delivery_text_v1"
       ],
       "contentReferences": [
         {
@@ -2924,6 +2930,10 @@
         {
           "kind": "scenario",
           "id": "package_wrong_door"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_dongsun_christian_suspicious_delivery_text"
         }
       ]
     },
@@ -2994,7 +3004,7 @@
     {
       "id": "cluster_a2_cafe_study_v1",
       "level": "a2",
-      "revision": 17,
+      "revision": 18,
       "sourceSeedIds": [
         "seed_vocab_pack_a2_education_v1",
         "seed_vocab_pack_a2_people_jobs_1_v1",
@@ -3026,7 +3036,8 @@
         "seed_scenario_email_attachment_twice_v1",
         "seed_scenario_forgot_presentation_cable_v1",
         "seed_grammar_grammar_a2_written_directive_v1",
-        "seed_scenario_a2_jun_hwaseong_school_slide_v1"
+        "seed_scenario_a2_jun_hwaseong_school_slide_v1",
+        "seed_scenario_a2_jun_minho_class_phone_rule_v1"
       ],
       "contentReferences": [
         {
@@ -3152,6 +3163,10 @@
         {
           "kind": "scenario",
           "id": "a2_jun_hwaseong_school_slide"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_jun_minho_class_phone_rule"
         }
       ]
     },
@@ -3537,7 +3552,7 @@
     {
       "id": "cluster_b1_plans_with_reasons_v1",
       "level": "b1",
-      "revision": 17,
+      "revision": 18,
       "sourceSeedIds": [
         "seed_vocab_pack_b1_city_places_1_v1",
         "seed_vocab_pack_b1_daily_1_v1",
@@ -3601,7 +3616,9 @@
         "seed_scenario_ktx_sold_out_alternative_v1",
         "seed_scenario_running_injury_training_plan_v1",
         "seed_grammar_grammar_b2_contrast_v1",
-        "seed_grammar_grammar_b1_proportional_mankeum_v1"
+        "seed_grammar_grammar_b1_proportional_mankeum_v1",
+        "seed_scenario_b1_lena_hyuna_crowded_weekend_v1",
+        "seed_scenario_b1_lena_maya_beyond_music_v1"
       ],
       "contentReferences": [
         {
@@ -3855,6 +3872,14 @@
         {
           "kind": "grammar",
           "id": "grammar_b1_proportional_mankeum"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_lena_hyuna_crowded_weekend"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_lena_maya_beyond_music"
         }
       ]
     },
@@ -4092,7 +4117,7 @@
     {
       "id": "cluster_b1_team_role_coordination_v1",
       "level": "b1",
-      "revision": 20,
+      "revision": 21,
       "sourceSeedIds": [
         "seed_vocab_pack_b1_work_v1",
         "seed_vocab_pack_b1_work_career_1_v1",
@@ -4140,7 +4165,10 @@
         "seed_cloze_cloze_b1_0079_v1",
         "seed_scenario_b1_team_briefing_revised_schedule_2026_v1",
         "seed_scenario_b1_dongsun_norigae_shop_post_v1",
-        "seed_cloze_cloze_a2_0054_v1"
+        "seed_cloze_cloze_a2_0054_v1",
+        "seed_scenario_b1_dongsun_maya_price_notice_v1",
+        "seed_scenario_b1_dongsun_sujin_repair_price_v1",
+        "seed_scenario_b1_maya_daniel_ai_campaign_cut_v1"
       ],
       "contentReferences": [
         {
@@ -4330,6 +4358,18 @@
         {
           "kind": "cloze",
           "id": "cloze_a2_0054"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_dongsun_maya_price_notice"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_dongsun_sujin_repair_price"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_maya_daniel_ai_campaign_cut"
         }
       ]
     },
@@ -4418,7 +4458,7 @@
     {
       "id": "cluster_b1_intimate_feelings_v1",
       "level": "b1",
-      "revision": 13,
+      "revision": 14,
       "sourceSeedIds": [
         "seed_vocab_pack_b1_character_feelings_1_v1",
         "seed_vocab_pack_b1_emotions_relations_1_v1",
@@ -4477,7 +4517,11 @@
         "seed_scenario_date_or_friendly_coffee_v1",
         "seed_scenario_b1_w10_friends_v1",
         "seed_scenario_b1_w10_partner_v1",
-        "seed_scenario_cancelled_trip_hurt_feelings_v1"
+        "seed_scenario_cancelled_trip_hurt_feelings_v1",
+        "seed_scenario_b1_andrea_minho_family_calendar_v1",
+        "seed_scenario_b1_andrea_minho_friday_schedule_v1",
+        "seed_scenario_b1_jun_andrea_phone_house_rules_v1",
+        "seed_scenario_b1_jun_christian_phone_study_habit_v1"
       ],
       "contentReferences": [
         {
@@ -4711,6 +4755,22 @@
         {
           "kind": "scenario",
           "id": "cancelled_trip_hurt_feelings"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_andrea_minho_family_calendar"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_andrea_minho_friday_schedule"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_jun_andrea_phone_house_rules"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_jun_christian_phone_study_habit"
         }
       ]
     },
@@ -5090,7 +5150,7 @@
     {
       "id": "cluster_b1_life_course_narrative_v1",
       "level": "b1",
-      "revision": 9,
+      "revision": 10,
       "sourceSeedIds": [
         "seed_vocab_pack_b1_time_life_1_v1",
         "seed_vocab_pack_b1_descriptions_adj_1_v1",
@@ -5106,7 +5166,10 @@
         "seed_scenario_b1_w10_form_v1",
         "seed_scenario_shared_cup_recycling_v1",
         "seed_cloze_cloze_a2_0256_v1",
-        "seed_cloze_cloze_a2_0259_v1"
+        "seed_cloze_cloze_a2_0259_v1",
+        "seed_scenario_b1_christian_sujin_suspicious_text_followup_v1",
+        "seed_scenario_b1_sujin_byeongcheol_family_verification_rule_v1",
+        "seed_scenario_b1_sujin_christian_asset_provenance_check_v1"
       ],
       "contentReferences": [
         {
@@ -5168,6 +5231,18 @@
         {
           "kind": "cloze",
           "id": "cloze_a2_0259"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_christian_sujin_suspicious_text_followup"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_sujin_byeongcheol_family_verification_rule"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_sujin_christian_asset_provenance_check"
         }
       ]
     },
@@ -5252,7 +5327,7 @@
     {
       "id": "cluster_b2_decision_criteria_v1",
       "level": "b2",
-      "revision": 15,
+      "revision": 16,
       "sourceSeedIds": [
         "seed_vocab_pack_b2_decisions_perspectives_1_v1",
         "seed_vocab_pack_b2_education_v1",
@@ -5363,7 +5438,12 @@
         "seed_cloze_cloze_b2_0116_v1",
         "seed_cloze_cloze_b2_0124_v1",
         "seed_scenario_b2_meeting_hold_for_evidence_2026_v1",
-        "seed_grammar_grammar_b1_more_more_v1"
+        "seed_grammar_grammar_b1_more_more_v1",
+        "seed_scenario_b2_hyuna_andrea_work_family_choices_v1",
+        "seed_scenario_b2_hyuna_daniel_gyeongju_after_apec_v1",
+        "seed_scenario_b2_hyuna_sujin_gyeongju_fieldnotes_v1",
+        "seed_scenario_b2_maya_daniel_tradition_reinterpretation_v1",
+        "seed_scenario_b2_sujin_minho_shorter_hours_tradeoff_v1"
       ],
       "contentReferences": [
         {
@@ -5805,6 +5885,26 @@
         {
           "kind": "grammar",
           "id": "grammar_b1_more_more"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_hyuna_andrea_work_family_choices"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_hyuna_daniel_gyeongju_after_apec"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_hyuna_sujin_gyeongju_fieldnotes"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_maya_daniel_tradition_reinterpretation"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_sujin_minho_shorter_hours_tradeoff"
         }
       ]
     },
@@ -5985,7 +6085,7 @@
     {
       "id": "cluster_b2_contract_scope_v1",
       "level": "b2",
-      "revision": 12,
+      "revision": 13,
       "sourceSeedIds": [
         "seed_vocab_pack_b2_formal_agreement_1_v1",
         "seed_vocab_pack_b2_language_grammar_1_v1",
@@ -6022,7 +6122,9 @@
         "seed_scenario_neighborhood_filming_notice_v1",
         "seed_grammar_grammar_b1_as_soon_as_v1",
         "seed_cloze_cloze_b2_0065_v1",
-        "seed_scenario_b2_daniel_hyuna_hanji_filming_scope_v1"
+        "seed_scenario_b2_daniel_hyuna_hanji_filming_scope_v1",
+        "seed_scenario_b2_daniel_sujin_ai_asset_handoff_v1",
+        "seed_scenario_b2_hyuna_daniel_resident_flow_filming_v1"
       ],
       "contentReferences": [
         {
@@ -6168,6 +6270,14 @@
         {
           "kind": "scenario",
           "id": "b2_daniel_hyuna_hanji_filming_scope"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_daniel_sujin_ai_asset_handoff"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_hyuna_daniel_resident_flow_filming"
         }
       ]
     },
@@ -6820,7 +6930,7 @@
     {
       "id": "cluster_b2_formal_soft_reformulation_v1",
       "level": "b2",
-      "revision": 10,
+      "revision": 11,
       "sourceSeedIds": [
         "seed_grammar_grammar_b2_only_course_v1",
         "seed_vocab_pack_b2_misc_v1",
@@ -6878,7 +6988,8 @@
         "seed_scenario_recycling_policy_pilot_v1",
         "seed_cloze_cloze_b2_0102_v1",
         "seed_cloze_cloze_b2_0104_v1",
-        "seed_cloze_cloze_b2_0188_v1"
+        "seed_cloze_cloze_b2_0188_v1",
+        "seed_scenario_b2_byeongcheol_sujin_heat_electricity_v1"
       ],
       "contentReferences": [
         {
@@ -7108,6 +7219,10 @@
         {
           "kind": "cloze",
           "id": "cloze_b2_0188"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_byeongcheol_sujin_heat_electricity"
         }
       ]
     },
