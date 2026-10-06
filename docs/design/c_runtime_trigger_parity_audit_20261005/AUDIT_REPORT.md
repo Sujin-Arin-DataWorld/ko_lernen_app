@@ -9,12 +9,12 @@
 런타임 trigger 층은 통과했다. 다만 이것은 모든 화면의 픽셀 100% 일치나 실기기 최종 승인까지 끝났다는 뜻이 아니다.
 
 - source audit: `source_integrity_passed_with_declared_gaps` / checks 14,948 / hard errors 0 / declared gaps 556.
-- C WIP HEAD `44727c1921`, origin/main `44727c1921`, ahead/behind `0	0`.
+- C WIP HEAD `711be6a3dd`, origin/main `44727c1921`, ahead/behind `1	0`.
 - Sori catalog exact parity: `True` (21 entries = 13 Learn + 8 Games).
 - free-learning content counts match live source: `True`; ledger 8,514 rows / structural invalid 0.
 - free-learning app entrypoint present: `True`.
 - real Chrome ledger audit: `PASS` / tested 8,514 / failed 0 / zero-text 0.
-- native C: free=True, course path+mission=True, Hangul=True, settings hub=True, settings details=True, profile=True, Silben=False.
+- native C: free=True, course path+mission=True, Hangul=True, settings hub=True, settings details=True, profile=True, Silben=True.
 - Silben golden evidence: `True`.
 - Settings/Profile original action anchors: current 70/71, origin/main 70/71; moved P12 verified `True`.
 
@@ -28,18 +28,18 @@
 | Foundation starter | 4 steps / 12 tasks (WIP only) | 8 screens | reviewed | C components imported | WIP route/task coverage | **YELLOW** |
 | Whole Hangul | 34 letters + cards/writing | 8 inner screens | reviewed | C shell + existing live internals | all existing Hangul behaviors retained; exact inner pixel parity pending | **YELLOW** |
 | Free learning universal | 7 designed modules / 8,514 ledger rows | data-bound C mockup | 8,514/8,514 real-Chrome PASS | native C landing wired | all ledger URLs render in Chrome; native deep screens reuse production routes | **YELLOW** |
-| Vocabulary packs | 2,968 words / 254 packs | free-learning | all IDs browser-rendered | C landing ? live existing flow | 2,968 word + 254 pack URLs pass | **YELLOW** |
-| Review / SRS / My Words | 2,968 base words + user data / My Words routes | review-card subset + native C landing | base-word review UI works; direct review ledger remains separate | C landing ? live SRS/My Words | user/custom runtime parity still requires account-state tests | **ORANGE** |
-| Grammar | 264 records + 43 pattern notes | free-learning | 264 IDs + extras render | C landing ? live grammar | browser ID coverage PASS | **YELLOW** |
-| Pronunciation | 84 phrases | free-learning | 84 IDs render | C landing ? live pronunciation | browser ID coverage PASS | **YELLOW** |
-| Listening | 186 lessons / 744 questions | free-learning | 930 lesson/question URLs render | C landing ? live listening | browser ID coverage PASS | **YELLOW** |
-| Scenarios | 186 scenarios / 579 quests | free-learning | scenario/child URLs render | C landing ? live scenarios | browser ID coverage PASS | **YELLOW** |
-| Word relations | 114 clusters | free-learning | cluster/child URLs render | C landing ? live word web | browser ID coverage PASS | **YELLOW** |
-| Small Talk / TalSunbi | 209 lessons / 590 phrases | separate tactile/TalSunbi work | not in universal per-ID ledger | C landing ? live tactile flow | root route preserved; per-ID C parity pending | **ORANGE** |
+| Vocabulary packs | 2,968 words / 254 packs | free-learning | all IDs browser-rendered | C landing -> live existing flow | 2,968 word + 254 pack URLs pass | **YELLOW** |
+| Review / SRS / My Words | 2,968 base words + user data / My Words routes | review-card subset + native C landing | base-word review UI works; direct review ledger remains separate | C landing -> live SRS/My Words | user/custom runtime parity still requires account-state tests | **ORANGE** |
+| Grammar | 264 records + 43 pattern notes | free-learning | 264 IDs + extras render | C landing -> live grammar | browser ID coverage PASS | **YELLOW** |
+| Pronunciation | 84 phrases | free-learning | 84 IDs render | C landing -> live pronunciation | browser ID coverage PASS | **YELLOW** |
+| Listening | 186 lessons / 744 questions | free-learning | 930 lesson/question URLs render | C landing -> live listening | browser ID coverage PASS | **YELLOW** |
+| Scenarios | 186 scenarios / 579 quests | free-learning | scenario/child URLs render | C landing -> live scenarios | browser ID coverage PASS | **YELLOW** |
+| Word relations | 114 clusters | free-learning | cluster/child URLs render | C landing -> live word web | browser ID coverage PASS | **YELLOW** |
+| Small Talk / TalSunbi | 209 lessons / 590 phrases | separate tactile/TalSunbi work | not in universal per-ID ledger | C landing -> live tactile flow | root route preserved; per-ID C parity pending | **ORANGE** |
 | Book capture / notebook | 8 registered routes | Einleitung sample + C landing | no full C deep-flow mockup | C landing invokes production capture chooser | live route/choice preserved | **ORANGE** |
-| Daily calligraphy | 34 Hangul records | C landing only | no dedicated inner C mockup | C landing ? live calligraphy | root route preserved | **ORANGE** |
+| Daily calligraphy | 34 Hangul records | C landing only | no dedicated inner C mockup | C landing -> live calligraphy | root route preserved | **ORANGE** |
 | Games root + interiors | 8 entries; cloze 2365 / Satz 2885 + other pools | C root approved; Silben dedicated | no all-game per-content ledger | 8 roots preserved | 8/8 root routes; internal pixel parity incomplete | **ORANGE** |
-| Silben + Dokkaebi | 120 puzzles / 415 word occurrences | 12-plan -> 14 reviewed scene kinds | approved state images + 390 golden | tactile legacy shell | /wordle preserved; core behavior tests pass; golden present | **ORANGE** |
+| Silben + Dokkaebi | 120 puzzles / 415 word occurrences | 12-plan -> 14 reviewed scene kinds | approved state images + 390 golden | C jade/paper/oak shell + Dokkaebi help/motion | /wordle preserved; core behavior tests pass; golden present | **YELLOW** |
 | Settings + Profile | 71 existing anchors + 1 proposed iOS action | 16 PNG screens | approved gallery | C hub=True, C details=True, profile overview=True | typed section routing + legacy callbacks preserved; device pixel sign-off pending | **YELLOW** |
 | Hanok / Gye / Rewards | stateful live services | approved C root + reward assets | representative states | C WIP integrated/reported tests | route/state contracts; backend/device proof pending | **YELLOW** |
 | Productive authoring drafts | 118 definitions / 8 projects / 32 snippets / 16 bundles | not runtime | must stay excluded | runtimeContentApproved=false | correctly blocked | **OUT_OF_RUNTIME** |

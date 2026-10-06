@@ -1,13 +1,13 @@
 {
   "schemaVersion": 2,
-  "generatedAtUtc": "2026-10-06T18:35:46.934619+00:00",
+  "generatedAtUtc": "2026-10-06T18:55:02.990247+00:00",
   "status": "RUNTIME_TRIGGER_PASS_PIXEL_PARITY_PENDING",
   "repo": {
-    "head": "44727c1921b4b7f40748ac0d210d0ca62a094028",
+    "head": "711be6a3ddd9902d8d0e0b63b10ec5efd4452568",
     "originMain": "44727c1921b4b7f40748ac0d210d0ca62a094028",
-    "aheadBehind": "0\t0",
+    "aheadBehind": "1\t0",
     "behindCommits": [],
-    "dirtyEntries": 460
+    "dirtyEntries": 9
   },
   "sourceAudit": {
     "status": "source_integrity_passed_with_declared_gaps",
@@ -48,7 +48,7 @@
     "settingsHubNative": true,
     "settingsDetailsNative": true,
     "profileOverviewNative": true,
-    "silbenNativeC": false,
+    "silbenNativeC": true,
     "silbenGoldenEvidence": true
   },
   "catalog": {
@@ -749,7 +749,7 @@
       "live": "2,968 words / 254 packs",
       "design": "free-learning",
       "mockup": "all IDs browser-rendered",
-      "native": "C landing ? live existing flow",
+      "native": "C landing -> live existing flow",
       "trigger": "2,968 word + 254 pack URLs pass",
       "verdict": "YELLOW"
     },
@@ -758,7 +758,7 @@
       "live": "2,968 base words + user data / My Words routes",
       "design": "review-card subset + native C landing",
       "mockup": "base-word review UI works; direct review ledger remains separate",
-      "native": "C landing ? live SRS/My Words",
+      "native": "C landing -> live SRS/My Words",
       "trigger": "user/custom runtime parity still requires account-state tests",
       "verdict": "ORANGE"
     },
@@ -767,7 +767,7 @@
       "live": "264 records + 43 pattern notes",
       "design": "free-learning",
       "mockup": "264 IDs + extras render",
-      "native": "C landing ? live grammar",
+      "native": "C landing -> live grammar",
       "trigger": "browser ID coverage PASS",
       "verdict": "YELLOW"
     },
@@ -776,7 +776,7 @@
       "live": "84 phrases",
       "design": "free-learning",
       "mockup": "84 IDs render",
-      "native": "C landing ? live pronunciation",
+      "native": "C landing -> live pronunciation",
       "trigger": "browser ID coverage PASS",
       "verdict": "YELLOW"
     },
@@ -785,7 +785,7 @@
       "live": "186 lessons / 744 questions",
       "design": "free-learning",
       "mockup": "930 lesson/question URLs render",
-      "native": "C landing ? live listening",
+      "native": "C landing -> live listening",
       "trigger": "browser ID coverage PASS",
       "verdict": "YELLOW"
     },
@@ -794,7 +794,7 @@
       "live": "186 scenarios / 579 quests",
       "design": "free-learning",
       "mockup": "scenario/child URLs render",
-      "native": "C landing ? live scenarios",
+      "native": "C landing -> live scenarios",
       "trigger": "browser ID coverage PASS",
       "verdict": "YELLOW"
     },
@@ -803,7 +803,7 @@
       "live": "114 clusters",
       "design": "free-learning",
       "mockup": "cluster/child URLs render",
-      "native": "C landing ? live word web",
+      "native": "C landing -> live word web",
       "trigger": "browser ID coverage PASS",
       "verdict": "YELLOW"
     },
@@ -812,7 +812,7 @@
       "live": "209 lessons / 590 phrases",
       "design": "separate tactile/TalSunbi work",
       "mockup": "not in universal per-ID ledger",
-      "native": "C landing ? live tactile flow",
+      "native": "C landing -> live tactile flow",
       "trigger": "root route preserved; per-ID C parity pending",
       "verdict": "ORANGE"
     },
@@ -830,7 +830,7 @@
       "live": "34 Hangul records",
       "design": "C landing only",
       "mockup": "no dedicated inner C mockup",
-      "native": "C landing ? live calligraphy",
+      "native": "C landing -> live calligraphy",
       "trigger": "root route preserved",
       "verdict": "ORANGE"
     },
@@ -848,9 +848,9 @@
       "live": "120 puzzles / 415 word occurrences",
       "design": "12-plan -> 14 reviewed scene kinds",
       "mockup": "approved state images + 390 golden",
-      "native": "tactile legacy shell",
+      "native": "C jade/paper/oak shell + Dokkaebi help/motion",
       "trigger": "/wordle preserved; core behavior tests pass; golden present",
-      "verdict": "ORANGE"
+      "verdict": "YELLOW"
     },
     {
       "scope": "Settings + Profile",
