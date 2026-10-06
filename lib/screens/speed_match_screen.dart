@@ -1,31 +1,30 @@
-import '../services/haptic_service.dart';
-import '../widgets/sori/game_result_recovery.dart';
-import '../widgets/sori/study_evidence_recovery.dart';
 import 'dart:async';
 import 'dart:math';
-
 import 'package:flutter/material.dart';
-
 import '../l10n/generated/app_localizations.dart';
+import '../models/companion_art.dart';
 import '../models/feedback_completion.dart';
 import '../models/vocab.dart';
 import '../services/analytics_service.dart';
 import '../services/data_loader.dart';
-import '../services/vocab_deck_source.dart';
+import '../services/haptic_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
+import '../services/vocab_deck_source.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/chrome_row.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/game_layout.dart';
+import '../widgets/sori/game_result_recovery.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/mascot.dart';
-import '../widgets/sori/sori_icon.dart';
 import '../widgets/sori/responsive.dart';
-import '../widgets/sori/game_layout.dart';
+import '../widgets/sori/sori_icon.dart';
+import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
@@ -587,7 +586,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
         title: t.speedMatchTitle,
         child: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/magpie_encourage.png',
+            asset: CompanionArt.joyGuide,
             icon: Icons.bolt_rounded,
             title: t.speedMatchTitle,
             body: t.speedMatchEmptyBody,

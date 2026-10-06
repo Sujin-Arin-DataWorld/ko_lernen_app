@@ -30,8 +30,12 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/learning_focus.dart';
+import 'package:ko_lernen_app/widgets/sori/c_gallery/c_materials.dart';
+import 'package:ko_lernen_app/widgets/sori/placed_decoration.dart'
+    show decorName;
 
 import 'support/catalog_test_support.dart' as catalog;
+import 'support/c_fonts.dart';
 import 'support/real_fonts.dart';
 import 'support/sori_stage_pump.dart';
 
@@ -68,18 +72,41 @@ void main() {
           ),
         );
         await _settleHanok(tester);
+        final artContext = tester.element(find.byType(BojagiScreen));
+        const itemAsset =
+            'assets/illustrations/decorations/decoration_sagunja_guk.png';
+        await tester.runAsync(() async {
+          await Future.wait([
+            for (final asset in [kBojagiClosed, kBojagiOpen, itemAsset])
+              precacheImage(AssetImage(asset), artContext),
+            CImageCache.load(itemAsset),
+          ]);
+        });
         await tester.tap(find.byKey(const Key('bojagi_knot')));
         await _settleHanok(tester);
-        final candidate = find.byKey(
-          const ValueKey('bojagi-candidate-decoration_sagunja_guk'),
-        );
-        await tester.ensureVisible(candidate);
-        await tester.tap(candidate);
-        await _settleHanok(tester);
-        await tester.pump(const Duration(milliseconds: 1200));
+        // The committed single receipt replaces the retired candidate picker.
+        // Capturing it is display-only: no second claim or extra XP.
+        final receipt =
+            (await DecorationRewardService.loadSingleOffer()).receipt!;
+        expect(receipt.decorationSlug, 'decoration_sagunja_guk');
+        final savedXp = Storage.xp;
+        await tester.pump(const Duration(seconds: 4));
         await _awaitImageDecode(tester);
+        // The native claim may mount the presentation after the first pump;
+        // advance its own clock only after its images have decoded.
+        await tester.pump(const Duration(seconds: 4));
+        final t = lookupAppL10n(Locale(language));
+        expect(
+          find.text(decorName(t, receipt.decorationSlug)).hitTestable(),
+          findsOneWidget,
+        );
+        expect(
+          find.text(t.rewardChestPlaceSarangbang).hitTestable(),
+          findsOneWidget,
+        );
         expect(Storage.pendingBoxes, ['q_kite']);
         expect(Storage.ownedDecor, contains('decoration_sagunja_guk'));
+        expect(Storage.xp, savedXp);
         expect(tester.takeException(), isNull);
         await expectLater(
           find.byType(Scaffold),
@@ -150,6 +177,7 @@ void main() {
   late SarangchaeConstruction construction;
 
   setUpAll(() => loadSoriRealFonts(materialIcons: true));
+  setUpAll(loadCFonts);
   setUpAll(() async {
     _bookCardFocus = await catalog.loadFirstCatalogFocus();
     // Wallet art uses the real bundle; warm it outside widget fake async.

@@ -6,6 +6,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 
 import 'sheet.dart';
 import 'tokens.dart';
+import 'c_gallery/c_materials.dart';
 
 typedef CulturalGlossaryWidgetBuilder =
     Widget Function(BuildContext context, CulturalGlossary? glossary);
@@ -187,10 +188,12 @@ class CulturalTermEntryContent extends StatelessWidget {
     super.key,
     required this.entry,
     this.includeTitle = true,
+    this.conceptC = false,
   });
 
   final CulturalGlossaryEntry entry;
   final bool includeTitle;
+  final bool conceptC;
 
   @override
   Widget build(BuildContext context) {
@@ -199,6 +202,7 @@ class CulturalTermEntryContent extends StatelessWidget {
     final languageCode = Localizations.localeOf(context).languageCode;
     final copy = entry.localized(languageCode);
     final textTheme = Theme.of(context).textTheme;
+    final cType = SoriTextTheme.of(context);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -212,17 +216,21 @@ class CulturalTermEntryContent extends StatelessWidget {
             children: [
               Text(
                 entry.korean,
-                style: textTheme.headlineSmall?.copyWith(
-                  color: surfaces.text,
-                  fontWeight: FontWeight.w700,
-                ),
+                style: conceptC
+                    ? cMaterialText(cType.h2)
+                    : textTheme.headlineSmall?.copyWith(
+                        color: surfaces.text,
+                        fontWeight: FontWeight.w700,
+                      ),
               ),
               Text(
                 entry.romanization,
-                style: textTheme.titleMedium?.copyWith(
-                  color: surfaces.textMuted,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: conceptC
+                    ? cMaterialText(cType.bodySmall)
+                    : textTheme.titleMedium?.copyWith(
+                        color: surfaces.textMuted,
+                        fontWeight: FontWeight.w600,
+                      ),
               ),
             ],
           ),
@@ -230,34 +238,46 @@ class CulturalTermEntryContent extends StatelessWidget {
         ],
         Text(
           t.culturalMeaningLabel,
-          style: textTheme.labelLarge?.copyWith(
-            color: SoriColors.primaryOnLight,
-            fontWeight: FontWeight.w700,
-          ),
+          style: conceptC
+              ? cMaterialText(
+                  cType.label,
+                ).copyWith(color: CPalette.jade, fontWeight: FontWeight.w700)
+              : textTheme.labelLarge?.copyWith(
+                  color: SoriColors.primaryOnLight,
+                  fontWeight: FontWeight.w700,
+                ),
         ),
         const SizedBox(height: Spacing.sm),
         Text(
           copy.meaning,
-          style: textTheme.bodyLarge?.copyWith(
-            color: surfaces.text,
-            height: 1.5,
-          ),
+          style: conceptC
+              ? cMaterialText(cType.body)
+              : textTheme.bodyLarge?.copyWith(
+                  color: surfaces.text,
+                  height: 1.5,
+                ),
         ),
         const SizedBox(height: Spacing.lg),
         Text(
           t.culturalStoryLabel,
-          style: textTheme.labelLarge?.copyWith(
-            color: SoriColors.accent,
-            fontWeight: FontWeight.w700,
-          ),
+          style: conceptC
+              ? cMaterialText(
+                  cType.label,
+                ).copyWith(color: CPalette.jade, fontWeight: FontWeight.w700)
+              : textTheme.labelLarge?.copyWith(
+                  color: SoriColors.accent,
+                  fontWeight: FontWeight.w700,
+                ),
         ),
         const SizedBox(height: Spacing.sm),
         Text(
           copy.story,
-          style: textTheme.bodyLarge?.copyWith(
-            color: surfaces.text,
-            height: 1.5,
-          ),
+          style: conceptC
+              ? cMaterialText(cType.body)
+              : textTheme.bodyLarge?.copyWith(
+                  color: surfaces.text,
+                  height: 1.5,
+                ),
         ),
       ],
     );
@@ -266,52 +286,71 @@ class CulturalTermEntryContent extends StatelessWidget {
 
 Future<void> showCulturalTermSheet(
   BuildContext context,
-  CulturalGlossaryEntry entry,
-) {
+  CulturalGlossaryEntry entry, {
+  bool conceptC = false,
+}) {
   final t = AppL10n.of(context);
   return showSoriSheet<void>(
     context: context,
     maxTextScaleFactor: 2,
-    builder: (sheetContext) => Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Align(
-          alignment: AlignmentDirectional.centerEnd,
-          child: Semantics(
-            button: true,
-            label: t.culturalClose,
-            onTap: () => Navigator.of(sheetContext).pop(),
-            excludeSemantics: true,
-            child: SizedBox.square(
-              dimension: 48,
-              child: IconButton(
-                key: const Key('cultural_help_close'),
-                tooltip: t.culturalClose,
-                onPressed: () => Navigator.of(sheetContext).pop(),
-                icon: const Icon(Icons.close_rounded),
-              ),
+    builder: (sheetContext) => conceptC
+        ? CPaperPanel(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                CulturalTermEntryContent(entry: entry, conceptC: true),
+                const SizedBox(height: 18),
+                CMaterialAction(
+                  key: const Key('cultural_help_close'),
+                  label: t.culturalClose,
+                  gold: false,
+                  onTap: () => Navigator.of(sheetContext).pop(),
+                ),
+              ],
             ),
+          )
+        : Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Align(
+                alignment: AlignmentDirectional.centerEnd,
+                child: Semantics(
+                  button: true,
+                  label: t.culturalClose,
+                  onTap: () => Navigator.of(sheetContext).pop(),
+                  excludeSemantics: true,
+                  child: SizedBox.square(
+                    dimension: 48,
+                    child: IconButton(
+                      key: const Key('cultural_help_close'),
+                      tooltip: t.culturalClose,
+                      onPressed: () => Navigator.of(sheetContext).pop(),
+                      icon: const Icon(Icons.close_rounded),
+                    ),
+                  ),
+                ),
+              ),
+              CulturalTermEntryContent(entry: entry),
+              const SizedBox(height: Spacing.lg),
+            ],
           ),
-        ),
-        CulturalTermEntryContent(entry: entry),
-        const SizedBox(height: Spacing.lg),
-      ],
-    ),
   );
 }
 
 Future<void> showCulturalTermSheetForId(
   BuildContext context,
-  String termId,
-) async {
+  String termId, {
+  bool conceptC = false,
+}) async {
   final glossary = await CulturalGlossaryRepository.load();
   if (!context.mounted) {
     return;
   }
   final entry = glossary?.entry(termId);
   if (entry != null) {
-    await showCulturalTermSheet(context, entry);
+    await showCulturalTermSheet(context, entry, conceptC: conceptC);
   }
 }
 

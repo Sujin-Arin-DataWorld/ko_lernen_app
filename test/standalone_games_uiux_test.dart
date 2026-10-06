@@ -903,11 +903,12 @@ void main() {
       locale: const Locale('de'),
       textScale: 1.3,
     );
-    // The initial clue is meaning only. The new sentence belongs to requested help.
     final clue = find.bySemanticsLabel('Ghana');
     await _pumpUntil(tester, clue);
     _expectButton(tester, clue);
+    // Examples belong to the first explicit help stage, after the initial clue.
     expect(find.text('Ich fahre nach Ghana.'), findsNothing);
+    expect(find.text('◯◯에 가요.'), findsNothing);
     _expectButton(tester, find.bySemanticsLabel(de.filterLevel), minHeight: 48);
     final silbenLevelButton = find.byIcon(Icons.tune_rounded);
     await tester.ensureVisible(silbenLevelButton);

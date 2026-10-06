@@ -34,6 +34,7 @@ Future<T?> showSoriSheet<T>({
   double maxTextScaleFactor = 1.3,
   bool isDismissible = true,
   bool enableDrag = true,
+  EdgeInsetsGeometry? contentPadding,
 }) {
   return showModalBottomSheet<T>(
     context: context,
@@ -47,6 +48,7 @@ Future<T?> showSoriSheet<T>({
       scrollable: scrollable,
       maxHeightFactor: maxHeightFactor,
       maxTextScaleFactor: maxTextScaleFactor,
+      contentPadding: contentPadding,
       child: Builder(builder: builder),
     ),
   );
@@ -59,6 +61,7 @@ class SoriSheetShell extends StatelessWidget {
   final bool scrollable;
   final double maxHeightFactor;
   final double maxTextScaleFactor;
+  final EdgeInsetsGeometry? contentPadding;
 
   const SoriSheetShell({
     super.key,
@@ -67,6 +70,7 @@ class SoriSheetShell extends StatelessWidget {
     this.scrollable = true,
     this.maxHeightFactor = 0.88,
     this.maxTextScaleFactor = 1.3,
+    this.contentPadding,
   });
 
   @override
@@ -90,13 +94,15 @@ class SoriSheetShell extends StatelessWidget {
             top: Radius.circular(SoriRadius.xl),
           ),
         ),
-        padding: EdgeInsets.fromLTRB(
-          Spacing.xl,
-          Spacing.sm + 4,
-          Spacing.xl,
-          // 키보드가 올라오면 그 위로, 아니면 시스템 네비바 위로.
-          Spacing.lg + media.viewInsets.bottom,
-        ),
+        padding:
+            contentPadding ??
+            EdgeInsets.fromLTRB(
+              Spacing.xl,
+              Spacing.sm + 4,
+              Spacing.xl,
+              // 키보드가 올라오면 그 위로, 아니면 시스템 네비바 위로.
+              Spacing.lg + media.viewInsets.bottom,
+            ),
         child: SafeArea(
           top: false,
           child: Column(

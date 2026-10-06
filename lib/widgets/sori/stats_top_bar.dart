@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../../models/home_navigation_art.dart';
+import 'avatar.dart';
 import 'pressable.dart';
+import 'settings_button.dart';
 import 'tokens.dart';
 
 /// **SoriStatsTopBar** — 워드마크 + 스트릭/레벨 칩 + 설정 진입.
@@ -94,15 +97,12 @@ class SoriStatsTopBar extends StatelessWidget {
               ),
             );
             final streakChip = _HeaderChip(
-              icon: Icons.local_fire_department_rounded,
-              color: SoriColors.warning,
+              artworkAsset: HomeNavigationArt.today,
               label: '$streak',
               semanticLabel: '$streak ${t.statsDays}',
               onTap: onStreakTap,
             );
             final levelChip = _HeaderChip(
-              icon: Icons.stars_rounded,
-              color: SoriColors.primary,
               label: 'Lv $level',
               semanticLabel: 'Lv $level · $xp XP',
               onTap: onStatsTap,
@@ -114,15 +114,12 @@ class SoriStatsTopBar extends StatelessWidget {
                 : profileLabel;
             final profileButton = onProfileTap == null
                 ? null
-                : _RoundIconButton(
-                    icon: Icons.person_outline_rounded,
+                : SoriAvatar(
                     semanticLabel: effectiveProfileLabel,
                     onTap: onProfileTap!,
                   );
-            final settingsButton = _RoundIconButton(
-              icon: Icons.settings_outlined,
-              semanticLabel: t.settingsTitle,
-              onTap: () => Navigator.pushNamed(context, '/settings'),
+            const settingsButton = SoriSettingsButton(
+              artworkAsset: HomeNavigationArt.settings,
             );
 
             if (stacked) {
@@ -175,15 +172,13 @@ class SoriStatsTopBar extends StatelessWidget {
 /// 헤더 스탯 칩 — 표면 v2(라이트 무테두리 + low 그림자 / 다크 테두리),
 /// 시각 32dp + 상하 패딩으로 48dp 터치 타깃 확보.
 class _HeaderChip extends StatelessWidget {
-  final IconData icon;
-  final Color color;
+  final String? artworkAsset;
   final String label;
   final String semanticLabel;
   final VoidCallback onTap;
 
   const _HeaderChip({
-    required this.icon,
-    required this.color,
+    this.artworkAsset,
     required this.label,
     required this.semanticLabel,
     required this.onTap,
@@ -203,6 +198,7 @@ class _HeaderChip extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: Spacing.sm),
           child: Container(
             height: 32,
+            constraints: const BoxConstraints(minWidth: 48),
             padding: const EdgeInsets.symmetric(horizontal: 10),
             decoration: BoxDecoration(
               color: isLight ? SoriColors.lightSurfaceRaised : s.surface,
@@ -215,8 +211,18 @@ class _HeaderChip extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(icon, size: 14, color: color),
-                const SizedBox(width: 4),
+                if (artworkAsset != null) ...[
+                  Image.asset(
+                    artworkAsset!,
+                    width: 24,
+                    height: 24,
+                    fit: BoxFit.contain,
+                    excludeFromSemantics: true,
+                    cacheWidth: (24 * MediaQuery.devicePixelRatioOf(context))
+                        .ceil(),
+                  ),
+                  const SizedBox(width: 4),
+                ],
                 Text(
                   label,
                   style: SoriTextTheme.of(context).label.copyWith(
@@ -225,52 +231,6 @@ class _HeaderChip extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _RoundIconButton extends StatelessWidget {
-  final IconData icon;
-  final VoidCallback onTap;
-  final String semanticLabel;
-  const _RoundIconButton({
-    required this.icon,
-    required this.onTap,
-    required this.semanticLabel,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final s = SoriSurfaces.of(context);
-    // 눌리는 영역은 48dp(Material 최소 권고), 보이는 원판은 40dp.
-    // 이전엔 36dp 원판이 곧 터치 타깃이라 손가락으로 놓치기 쉬웠다.
-    return Tooltip(
-      message: semanticLabel,
-      excludeFromSemantics: true,
-      child: Semantics(
-        button: true,
-        label: semanticLabel,
-        child: SoriPressable(
-          onTap: onTap,
-          haptic: SoriHaptic.selection,
-          child: SizedBox(
-            width: 48,
-            height: 48,
-            child: Center(
-              child: Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  color: s.surface.withValues(alpha: 0.62),
-                  shape: BoxShape.circle,
-                  border: Border.all(color: SoriColors.lightBorderStrong),
-                ),
-                child: Icon(icon, size: 20, color: s.textMuted),
-              ),
             ),
           ),
         ),

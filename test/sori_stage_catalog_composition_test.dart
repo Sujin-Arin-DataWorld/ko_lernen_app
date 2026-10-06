@@ -15,17 +15,17 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_catalog_screen.dart';
 import 'package:ko_lernen_app/widgets/sori/catalog_card.dart';
-import 'package:ko_lernen_app/widgets/sori/adaptive_navigation.dart';
-import 'package:ko_lernen_app/widgets/sori/activity_illustration.dart';
 import 'package:ko_lernen_app/widgets/sori/sheet.dart';
-import 'package:ko_lernen_app/widgets/sori/pressable.dart';
+import 'package:ko_lernen_app/widgets/sori/c_gallery/c_materials.dart';
 import 'support/catalog_test_support.dart';
 import 'support/real_fonts.dart';
+import 'support/c_fonts.dart';
 
 void main() {
   late LearningFocus focus;
   setUpAll(() async {
     await loadSoriRealFonts(materialIcons: true);
+    await loadCFonts();
     focus = await loadFirstCatalogFocus();
     expect(focus.ready, isTrue);
   });
@@ -90,7 +90,7 @@ void main() {
         await Scrollable.ensureVisible(tester.element(start), alignment: .5);
         await tester.pump();
         expect(start.hitTestable(), findsOneWidget, reason: entry.id);
-        expect(tester.widget<SoriPressable>(start).onTap, isNotNull);
+        expect(tester.widget<CImageTap>(start).onTap, isNotNull);
       }
       expect(opened, ['/path']);
       expect(tester.takeException(), isNull);
@@ -118,17 +118,26 @@ void main() {
         );
         await tester.pumpAndSettle();
         final navTop = tester.getTopLeft(find.byType(NavigationBar)).dy;
-        final ids = tab == SoriStageTab.learn
-            ? ['listening', 'scenarios', 'vocab_packs', 'grammar']
-            : ['daily_game', 'chosung', 'syllable_cross', 'cloze'];
-        for (final id in ids) {
-          final rect = tester.getRect(
-            find.byKey(ValueKey('catalog-quick-$id')),
-          );
+        final keys = tab == SoriStageTab.learn
+            ? [
+                'c-learn-category-words',
+                'c-learn-category-listen',
+                'c-learn-category-hangul',
+                'c-learn-category-review',
+              ]
+            : [
+                'catalog-card-chosung',
+                'catalog-card-cloze',
+                'catalog-card-speed_match',
+                'catalog-card-sentence_arcade',
+                'catalog-card-kkeunmari',
+              ];
+        for (final key in keys) {
+          final rect = tester.getRect(find.byKey(ValueKey(key)));
           expect(
             rect.bottom,
             lessThanOrEqualTo(navTop),
-            reason: '$id bottom=${rect.bottom} nav=$navTop',
+            reason: '$key bottom=${rect.bottom} nav=$navTop',
           );
         }
         if (tab == SoriStageTab.learn) {
@@ -200,16 +209,17 @@ void main() {
       expect(Storage.recentCatalogActivityId(SoriStageTab.learn), isNull);
       final art = find.descendant(
         of: find.byType(SoriSheetShell),
-        matching: find.byType(Image),
+        matching: find.byType(CReferenceArt),
       );
-      final image = tester.widget<Image>(art);
-      expect(
-        (image.image as AssetImage).assetName,
-        activityIllustrationAsset('vocab_packs'),
-      );
+      final image = tester.widget<CReferenceArt>(art);
+      expect(image.part, CReferencePart.words);
       expect(image.fit, BoxFit.contain);
-      expect(tester.getSize(art).aspectRatio, closeTo(4 / 3, .001));
+      expect(tester.getSize(art).aspectRatio, closeTo(2, .001));
       Navigator.of(tester.element(find.byType(SoriSheetShell))).pop();
+      await tester.pumpAndSettle();
+      await tester.ensureVisible(
+        find.byKey(const ValueKey('catalog-start-vocab_packs')),
+      );
       await tester.pumpAndSettle();
       await tester.longPress(
         find.byKey(const ValueKey('catalog-start-vocab_packs')),
@@ -280,17 +290,9 @@ void main() {
           final b = tester.getRect(
             find.byKey(const ValueKey('catalog-card-grammar')),
           );
-          if (scale >= 1.5 ||
-              size.width -
-                      (size.width >= 600
-                          ? SoriAdaptiveNavigation.railWidthForWidth(size.width)
-                          : 0) -
-                      40 <
-                  600) {
-            expect(b.top, greaterThan(a.bottom));
-          } else {
-            expect(b.top, closeTo(a.top, .1));
-          }
+          // C keeps a single 600dp paper surface; the ordinary catalog below
+          // its compact illustrated overview stacks without fixed heights.
+          expect(b.top, greaterThan(a.bottom));
           for (final section in SoriLearnSection.values) {
             final chip = find.byKey(ValueKey('learn-category-${section.name}'));
             await Scrollable.ensureVisible(tester.element(chip), alignment: .5);
@@ -335,6 +337,52 @@ void main() {
       );
     }
   }
+
+  testWidgets(
+    'C level picker changes browse level without moving the actual course',
+    (tester) async {
+      await viewport(tester, const Size(320, 640));
+      await Storage.setBrowseLevelCode('a1');
+      final controller = LearningFocusController()..value = focus;
+      addTearDown(controller.dispose);
+      final courseBefore = Storage.courseMasterySnapshotRawJson;
+      final xpBefore = Storage.xp;
+      await tester.pumpWidget(catalogTestApp(controller: controller, scale: 2));
+      await tester.pumpAndSettle();
+      final filter = find.byKey(const ValueKey('c-learn-level-filter'));
+      await tester.tap(filter);
+      await tester.pumpAndSettle();
+      final t = AppL10n.of(tester.element(find.byType(SoriStageCatalogScreen)));
+      expect(find.text(t.lernenFree), findsWidgets);
+      expect(find.text(t.settingsBrowseLevelDescription), findsOneWidget);
+      expect(
+        tester
+            .widget<CMaterialAction>(
+              find.byKey(const ValueKey('c-browse-level-a1')),
+            )
+            .selected,
+        isTrue,
+      );
+      expect(
+        tester
+            .widget<CMaterialAction>(
+              find.byKey(const ValueKey('c-browse-level-b2')),
+            )
+            .selected,
+        isFalse,
+      );
+      final level = find.byKey(const ValueKey('c-browse-level-b2'));
+      await tester.ensureVisible(level);
+      await tester.pumpAndSettle();
+      await tester.tap(level);
+      await tester.pumpAndSettle();
+      expect(Storage.browseLevelCode, 'b2');
+      expect(Storage.courseMasterySnapshotRawJson, courseBefore);
+      expect(controller.value, same(focus));
+      expect(Storage.xp, xpBefore);
+      expect(tester.takeException(), isNull);
+    },
+  );
 
   testWidgets(
     'unknown and zero stay neutral; real counts and game bests have their actual meaning',
@@ -501,14 +549,26 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
+      await tester.ensureVisible(
+        find.byKey(const ValueKey('catalog-quick-vocab_packs')),
+      );
+      await tester.pumpAndSettle();
       await tester.tap(find.byKey(const ValueKey('catalog-quick-vocab_packs')));
       await tester.pump();
       cloudWriteSessionController.acquire('new-account');
+      await tester.pumpAndSettle();
+      await tester.ensureVisible(
+        find.byKey(const ValueKey('catalog-quick-grammar')),
+      );
       await tester.pumpAndSettle();
       await tester.tap(find.byKey(const ValueKey('catalog-quick-grammar')));
       await tester.pump();
       first.complete();
       await tester.pump();
+      await tester.ensureVisible(
+        find.byKey(const ValueKey('catalog-quick-vocab_packs')),
+      );
+      await tester.pumpAndSettle();
       await tester.tap(find.byKey(const ValueKey('catalog-quick-vocab_packs')));
       expect(opened, ['vocab_packs', 'grammar']);
       second.complete();

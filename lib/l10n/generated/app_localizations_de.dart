@@ -9,6 +9,47 @@ class AppL10nDe extends AppL10n {
   AppL10nDe([String locale = 'de']) : super(locale);
 
   @override
+  String rewardConfirmedBalance(int amount) {
+    return 'Guthaben: $amount Yeopjeon';
+  }
+
+  @override
+  String get onboardingCtaPath => 'Lernweg ansehen';
+
+  @override
+  String get onboardingCtaTry => 'Kurz ausprobieren';
+
+  @override
+  String get onboardingCtaGames => 'Spiele entdecken';
+
+  @override
+  String get onboardingCtaBook => 'Buchbeispiel ansehen';
+
+  @override
+  String get onboardingCtaHanok => 'Hanok entdecken';
+
+  @override
+  String get onboardingCtaCompanion => 'Lernbegleiter wählen';
+
+  @override
+  String get yeopjeonConfirmationPending =>
+      'Deine Lektion ist gespeichert. Deine Yeopjeon werden noch geprüft.';
+
+  @override
+  String get yeopjeonCheckAgain => 'Yeopjeon erneut prüfen';
+
+  @override
+  String get rewardConstructionDetails => 'Neue Bauphase ansehen';
+
+  @override
+  String get rewardDetailsUnavailable =>
+      'Deine Belohnung ist gespeichert. Diese Ansicht lässt sich gerade nicht öffnen. Versuche es erneut.';
+
+  @override
+  String get rewardArtworkUnavailable =>
+      'Das Gebäudebild konnte nicht geladen werden.';
+
+  @override
   String get settingsHaptics => 'Vibrationsfeedback';
 
   @override
@@ -24,6 +65,19 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get yeopjeonTitle => 'Meine Yeopjeon';
+
+  @override
+  String get rewardYeopjeonReceived => 'Yeopjeon erhalten';
+
+  @override
+  String get rewardViewWallet => 'Guthaben ansehen';
+
+  @override
+  String get rewardViewProgress => 'Lernfortschritt ansehen';
+
+  @override
+  String get rewardXpDetails =>
+      'Diese XP stammen aus deinem abgeschlossenen Lernen. Sie zählen zu deinem Lernfortschritt.';
 
   @override
   String yeopjeonBalance(int count) {
@@ -7616,7 +7670,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get bojagiAllOwnedBody =>
-      'Alle drei Stücke aus diesem Bündel hast du schon.';
+      'Alle verfügbaren Fundstücke gehören dir bereits.';
 
   @override
   String get bojagiProblemTitle => 'Das Bündel lässt sich gerade nicht öffnen';
@@ -8518,14 +8572,13 @@ class AppL10nDe extends AppL10n {
   String get hanokStageTermJongga => 'Jongga · 종가';
 
   @override
-  String get soriStageBojagiTitle => 'Ein Bojagi wartet';
+  String get soriStageBojagiTitle => 'Deine Schatztruhe wartet';
 
   @override
-  String get soriStageBojagiBody =>
-      'Wähle eines von drei Stücken für dein Zimmer.';
+  String get soriStageBojagiBody => 'Entdecke dein Fundstück für dein Hanok.';
 
   @override
-  String get soriStageOpenBojagi => 'Bojagi öffnen';
+  String get soriStageOpenBojagi => 'Schatztruhe öffnen';
 
   @override
   String get soriStageHanokNow => 'Dein Hanok';
@@ -8556,7 +8609,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get soriStageHanokUpdating =>
-      'Hanok-Vorschau · die neue Ansicht entsteht.';
+      'Schließe Lernaktivitäten ab und baue mit Yeopjeon neue Bauabschnitte.';
 
   @override
   String sarangchaeConstructionProgress(int earned, int total) {
@@ -8610,7 +8663,8 @@ class AppL10nDe extends AppL10n {
       'Mission abschließen → Laterne → gemeinsame Hanok';
 
   @override
-  String get soriStageGyeUpdating => 'Der gemeinsame Hof wird gerade erneuert.';
+  String get soriStageGyeUpdating =>
+      'Lerne gemeinsam: Tritt einer Lerngruppe bei und arbeite am Wochenziel.';
 
   @override
   String get pronunciationTitle => 'Aussprache-Studio';
@@ -8780,10 +8834,10 @@ class AppL10nDe extends AppL10n {
       'Sprachbewertung ist aus. Anhören und Nachsprechen bleiben verfügbar.';
 
   @override
-  String get soriStageReceiptEyebrow => 'GERADE VERÄNDERT';
+  String get soriStageReceiptEyebrow => 'GESCHAFFT';
 
   @override
-  String get soriStageReceiptTitle => 'Dein Lernen hat den Weg weitergebracht.';
+  String get soriStageReceiptTitle => 'Dein Lernerfolg';
 
   @override
   String get soriStageReceiptSemantics => 'Erhaltene Belohnungen';
@@ -8825,8 +8879,8 @@ class AppL10nDe extends AppL10n {
       'syllable_cross': 'Silben-Rätsel',
       'cloze': 'Lückentext',
       'speed_match': 'Blitz-Paare',
-      'sentence_arcade': 'Satz-Arcade',
-      'kkeunmari': 'Kkeunmari',
+      'sentence_arcade': 'Satzbau',
+      'kkeunmari': 'Wortkette',
       'custom_practice': 'Eigene Wörter üben',
       'other': 'Lernaktivität',
     });
@@ -10569,6 +10623,9 @@ class AppL10nDe extends AppL10n {
   String get catalogHowItWorks => 'So funktioniert’s';
 
   @override
+  String get catalogViewGame => 'Spiel ansehen';
+
+  @override
   String get catalogStartSession => 'Runde starten';
 
   @override
@@ -11365,13 +11422,14 @@ class AppL10nDe extends AppL10n {
   String get practiceEffect => 'So kann es ankommen';
 
   @override
-  String get practiceGrammarCorrect => 'Grammatisch korrekt.';
+  String get practiceGrammarCorrect =>
+      'Grammatisch korrekt. Die Wirkung hängt von der Situation und dem Ton ab.';
 
   @override
   String get practiceAssemble => 'Setze deine nächste Antwort zusammen';
 
   @override
-  String get practiceShowEffect => 'Wirkung der Antwort ansehen';
+  String get practiceShowEffect => 'Erklärung als Hilfe ansehen';
 
   @override
   String get practiceReset => 'Wörter zurücklegen';
@@ -11436,17 +11494,20 @@ class AppL10nDe extends AppL10n {
   String get practiceChooseAgain => 'Absicht erneut wählen';
 
   @override
-  String get practiceHintMeaning => 'Satzhinweis ansehen';
+  String get practiceHintTitle => 'Ein Hinweis vom Dokkaebi';
+
+  @override
+  String get practiceHintMeaning => 'Bedeutung und Richtung ansehen';
 
   @override
   String get practiceHintCrossing => 'Kreuzungsfelder ansehen';
 
   @override
-  String get practiceHintReveal => 'Silbe zeigen · direkte Hilfe';
+  String get practiceHintReveal => 'Eine Silbe anzeigen · deutliche Hilfe';
 
   @override
   String get practiceHintPlace =>
-      'Lege die passende Silbe selbst ins markierte Feld.';
+      'Die Silbe ist sichtbar. Lege den passenden Stein selbst auf das ausgewählte Feld.';
 
   @override
   String get practiceHintNoCrossing => 'Dieses Wort hat kein Kreuzungsfeld.';
@@ -11799,7 +11860,7 @@ class AppL10nDe extends AppL10n {
   String get cultureHaechiName => 'Haechi';
 
   @override
-  String get cultureHahoeMaskName => 'Hahoe-Maske';
+  String get cultureHahoeMaskName => 'Maskierter Gelehrter';
 
   @override
   String get cultureDokkaebiName => 'Dokkaebi';
@@ -11847,6 +11908,68 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get settingsGroupHelp => 'Hilfe & App-Infos';
+
+  @override
+  String get onboardingCStartLevel => 'Dein Startniveau';
+
+  @override
+  String get onboardingCChange => 'Ändern';
+
+  @override
+  String get onboardingCLevelRange => 'Ganz neu oder A1–C2.';
+
+  @override
+  String get onboardingCInterest => 'Was ist dir wichtig?';
+
+  @override
+  String get onboardingCLater => 'Du kannst das später ändern.';
+
+  @override
+  String get onboardingCPathSummary => 'Ein klarer Lernweg.';
+
+  @override
+  String get onboardingCPathBody =>
+      'Von den ersten Lauten bis zum echten Gespräch.';
+
+  @override
+  String get onboardingCSoundSummary => 'Zwei Zeichen. Ein Klang.';
+
+  @override
+  String get onboardingCSoundBody => 'Hören, verbinden, ausprobieren.';
+
+  @override
+  String get onboardingCGamesSummary => '8 Spiele. Viele Aha-Momente.';
+
+  @override
+  String get onboardingCGamesBody =>
+      'Übe mit deinen gespeicherten Wörtern. Entdecke Belohnungen für deine Fortschritte.';
+
+  @override
+  String get onboardingCBookSummary => 'Aus deinen Büchern lernen.';
+
+  @override
+  String get onboardingCBookBody =>
+      'Entdecke Wörter und ihren Kontext. TalSunbi hilft dir, sie zu verstehen.';
+
+  @override
+  String get onboardingCHanokSummary => 'Mit Yeopjeon wächst dein Hanok.';
+
+  @override
+  String get onboardingCHanokBody =>
+      'Stempelbuch & Dancheong-Atelier. Deine Werke für die Sarangbang.';
+
+  @override
+  String get onboardingCGyeTitle => 'Auch gemeinsam: Gye';
+
+  @override
+  String get onboardingCGyeBody =>
+      'Finde später deine Lerngruppe. Du kannst alleine starten.';
+
+  @override
+  String get onboardingCTaegoRole => 'Dein ruhiger Begleiter';
+
+  @override
+  String get onboardingCJoyRole => 'Deine neugierige Begleiterin';
 
   @override
   String get practiceReplayGesture => 'Fächergeste wiederholen';
@@ -11934,4 +12057,190 @@ class AppL10nDe extends AppL10n {
   String practiceHintWordPath(int count, int row, int column) {
     return '$count Silben · Start: Zeile $row, Spalte $column';
   }
+
+  @override
+  String get foundationTitle => 'Hangul von Anfang an';
+
+  @override
+  String get foundationIntro =>
+      'Höre erste Laute, lies Silben und schreibe selbst. Du kannst jederzeit hierher zurückkehren.';
+
+  @override
+  String get foundationEvidenceNote =>
+      'Hier wird deine Übung gespeichert. Das ist kein Einstufungstest und schließt keine A1-Lektion ab.';
+
+  @override
+  String foundationProgress(int done, int total) {
+    return '$done von $total Übungen';
+  }
+
+  @override
+  String get foundationSoundsTitle => 'Laute kennenlernen';
+
+  @override
+  String get foundationSoundsBody => 'Höre ㄱ, ㄴ, ㅏ und ㅣ und sprich sie nach.';
+
+  @override
+  String get foundationSyllablesTitle => 'Silben lesen';
+
+  @override
+  String get foundationSyllablesBody =>
+      'Lies 가, 나 und 한. Setze ihre Bestandteile zusammen.';
+
+  @override
+  String get foundationTraceTitle => 'Buchstaben schreiben';
+
+  @override
+  String get foundationTraceBody =>
+      'Zeichne ㄱ und ㅏ in der richtigen Strichfolge nach.';
+
+  @override
+  String get foundationWordsTitle => 'Erste Wörter und Begrüßung';
+
+  @override
+  String get foundationWordsBody =>
+      'Höre 가방, 나무 und 안녕하세요. Sprich sie nach und lies ihre Bedeutung.';
+
+  @override
+  String get foundationNotStarted => 'Bereit';
+
+  @override
+  String get foundationOpened => 'Geöffnet';
+
+  @override
+  String get foundationPracticed => 'Geübt';
+
+  @override
+  String get foundationPracticeAction => 'Üben';
+
+  @override
+  String get foundationRevisitAction => 'Noch einmal üben';
+
+  @override
+  String get foundationContinueA1 => 'Mit dem A1-Kurs weitermachen';
+
+  @override
+  String get foundationCompletedBody =>
+      'Deine ersten Übungen sind gespeichert. Im A1-Kurs lernst du Schritt für Schritt weiter.';
+
+  @override
+  String get foundationFullHangul => 'Alle Hangul-Karten öffnen';
+
+  @override
+  String get foundationLoadError =>
+      'Deine Übungen konnten nicht geladen werden. Versuche es noch einmal.';
+
+  @override
+  String get foundationSaveError =>
+      'Die Übung wurde noch nicht bestätigt. Versuche das Speichern noch einmal.';
+
+  @override
+  String get foundationSavePractice => 'Übung speichern';
+
+  @override
+  String get foundationListen => 'Anhören';
+
+  @override
+  String get foundationAudioUnavailable =>
+      'Die Stimme ist gerade nicht verfügbar. Versuche es noch einmal.';
+
+  @override
+  String get foundationSelectParts => 'Welche Buchstaben bilden diese Silbe?';
+
+  @override
+  String get foundationRepeatConfirmation =>
+      'Ich habe zugehört und laut nachgesprochen.';
+
+  @override
+  String get foundationReadConfirmation => 'Ich habe die Silbe laut gelesen.';
+
+  @override
+  String get foundationWordConfirmation =>
+      'Ich habe das Wort oder die Begrüßung laut gesagt.';
+
+  @override
+  String get foundationTraceConfirmation =>
+      'Ich habe den Buchstaben nachgezeichnet.';
+
+  @override
+  String get foundationPracticeSaved => 'Diese Übungen sind gespeichert.';
+
+  @override
+  String get foundationSaved => 'Gespeichert';
+
+  @override
+  String get foundationTryPartsAgain =>
+      'Das passt noch nicht. Wähle die Bestandteile dieser Silbe.';
+
+  @override
+  String get foundationPartsCorrect => 'Das passt. Lies die Silbe jetzt laut.';
+
+  @override
+  String get onboardingCPathArt =>
+      'Joy vor einem aufgeschlagenen Buch. Drei Stationen: Entdecken, Üben und Behalten.';
+
+  @override
+  String get onboardingCSoundArt =>
+      'Die Buchstaben ㄱ und ㅏ ergeben die Silbe 가. Ein Lautsprecher steht daneben.';
+
+  @override
+  String get onboardingCGamesArt =>
+      'Der Dokkaebi mit Silbenplättchen, einem Knoten, einer Schatztruhe und einer Münze.';
+
+  @override
+  String get onboardingCBookArt =>
+      'Der Maskengelehrte mit einem Buch, koreanischen Wörtern und ihren Bedeutungen.';
+
+  @override
+  String get onboardingCHanokArt =>
+      'Ein Hanok mit Bäumen, einem Stempelbuch, einem Kranichbild und einer Münze.';
+
+  @override
+  String get rewardChestNewDecoration => 'Neue Dekoration';
+
+  @override
+  String get rewardChestLearningXp => 'Deine Lern-XP';
+
+  @override
+  String get rewardChestCulturalStory => 'Die Geschichte dahinter';
+
+  @override
+  String get rewardChestPlaceSarangbang => 'Im Sarangbang platzieren';
+
+  @override
+  String get rewardChestReplay => 'Noch einmal ansehen';
+
+  @override
+  String get rewardChestOpen => 'Truhe öffnen';
+
+  @override
+  String get rewardChestTitle => 'Deine Perlmutt-Truhe';
+
+  @override
+  String get lernenFoundation => 'Hangul-Einstieg';
+
+  @override
+  String get lernenCourse => 'Gesamtkurs';
+
+  @override
+  String get lernenFree => 'Freies Lernen';
+
+  @override
+  String get lernenPathsBody =>
+      'Wähle deinen Einstieg. Deine gespeicherten Übungen bleiben in allen Bereichen erhalten.';
+
+  @override
+  String get lernenCourseBody =>
+      'Folge deinem Lernpfad und setze die aktuelle Mission fort.';
+
+  @override
+  String get lernenFreeBody =>
+      'Wähle Wörter, Hören, Schreiben oder eine andere Übung aus der Sammlung.';
+
+  @override
+  String get lernenFreeOpen => 'Übungen ansehen';
+
+  @override
+  String get foundationOpenError =>
+      'Der nächste Schritt konnte nicht geöffnet werden. Versuche es noch einmal.';
 }

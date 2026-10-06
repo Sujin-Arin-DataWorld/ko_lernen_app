@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:video_player/video_player.dart';
 import 'package:video_player_platform_interface/video_player_platform_interface.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/practice_history_store.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/practice_guide.dart';
 import 'package:ko_lernen_app/widgets/practice_dokkaebi_help.dart';
@@ -19,6 +20,8 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/widgets/sori/route_observer.dart';
 import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 import 'package:ko_lernen_app/widgets/sori/video_lease.dart';
+import 'package:ko_lernen_app/widgets/sori/dokkaebi_intro.dart';
+import 'package:ko_lernen_app/widgets/sori/dokkaebi_flame_frame.dart';
 
 class _DelayedArtworkBundle extends CachingAssetBundle {
   final helping = Completer<ByteData>();
@@ -39,6 +42,9 @@ class _VideoPlatform extends VideoPlayerPlatform {
   Duration position = Duration.zero;
   @override
   Future<void> init() async {}
+
+  @override
+  Future<void> setMixWithOthers(bool mixWithOthers) async {}
   @override
   Future<int?> createWithOptions(VideoCreationOptions options) async {
     creates++;
@@ -203,6 +209,7 @@ void main() {
       );
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 20));
+      await flushNativeFutures(tester);
       final fire = find.byKey(const ValueKey('dokkaebi-fire-0'));
       final transform = find
           .ancestor(of: fire, matching: find.byType(Transform))
@@ -221,9 +228,11 @@ void main() {
       expect(impacts, 0);
       platform.position = const Duration(milliseconds: 1299);
       await tester.pump(const Duration(milliseconds: 50));
+      await flushNativeFutures(tester);
       expect(impacts, 0);
       platform.position = const Duration(milliseconds: 1300);
       await tester.pump(const Duration(milliseconds: 50));
+      await flushNativeFutures(tester);
       expect(impacts, 1);
       await tester.pump(const Duration(milliseconds: 500));
       expect(impacts, 1);
@@ -368,7 +377,7 @@ void main() {
   );
 
   testWidgets(
-    'introduction shows the approved invitation pose and plays only on request',
+    'introduction opens the approved frame and preserves voluntary culture reading',
     (tester) async {
       await tester.pumpWidget(
         MaterialApp(
@@ -377,6 +386,10 @@ void main() {
           localizationsDelegates: AppL10n.localizationsDelegates,
           supportedLocales: AppL10n.supportedLocales,
           navigatorObservers: [soriRouteObserver],
+          builder: (context, child) => MediaQuery(
+            data: MediaQuery.of(context).copyWith(disableAnimations: true),
+            child: child!,
+          ),
           home: Scaffold(
             body: Builder(
               builder: (context) => TextButton(
@@ -389,8 +402,11 @@ void main() {
       );
       await tester.tap(find.text('Meet'));
       await tester.pump();
-      await tester.pump(const Duration(milliseconds: 400));
+      await tester.pump(const Duration(milliseconds: 800));
       expect(platform.plays, 0);
+      expect(find.byType(DokkaebiIntro), findsOneWidget);
+      final frame = find.byType(DokkaebiFlameFrame);
+      expect(tester.getSize(frame), const Size(342, 513));
       expect(
         find.byWidgetPredicate(
           (w) =>
@@ -398,50 +414,37 @@ void main() {
               w.image is ResizeImage &&
               ((w.image as ResizeImage).imageProvider as AssetImage)
                       .assetName ==
-                  'assets/illustrations/tactile/dokkaebi/dokkaebi_inviting.png',
+                  DokkaebiIntro.finalAsset,
         ),
         findsOneWidget,
       );
-      await tester.ensureVisible(
-        find.byKey(const ValueKey('dokkaebi-gesture')),
-      );
-      await tester.pump();
-      await tester.tap(find.byKey(const ValueKey('dokkaebi-gesture')));
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 400));
-      await flushNativeFutures(tester);
-      for (var i = 0; i < 8; i++) {
-        await tester.pump(const Duration(milliseconds: 50));
+      final t = AppL10n.of(tester.element(find.byType(DokkaebiIntro)));
+      for (final body in [
+        t.practiceDokkaebiTalesBody,
+        t.practiceDokkaebiHomeBody,
+        t.practiceDokkaebiRoofBody,
+        t.practiceDokkaebiLearningBody,
+      ]) {
+        final paragraph = find.text(body);
+        expect(paragraph, findsOneWidget);
+        await Scrollable.ensureVisible(
+          tester.element(paragraph),
+          alignment: .5,
+        );
+        await tester.pump();
+        expect(paragraph.hitTestable(), findsOneWidget);
       }
-      expect(platform.plays, 1);
-      expect(platform.assets.last, PracticeDokkaebiClip.strike.videoAsset);
-      expect(platform.volumesAtPlay, [0]);
       expect(Storage.xp, 0);
-      platform.events.add(VideoEvent(eventType: VideoEventType.completed));
+      expect(PracticeHistoryStore.load().items, isEmpty);
+      expect(platform.assets, isEmpty);
+      await tester.tap(find.byTooltip(t.btnClose));
       await tester.pump();
+      await tester.pump(const Duration(milliseconds: 800));
       await flushNativeFutures(tester);
-      await tester.ensureVisible(
-        find.byKey(const ValueKey('dokkaebi-gesture')),
-      );
-      await tester.pump();
-      await tester.tap(find.byKey(const ValueKey('dokkaebi-gesture')));
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 400));
-      await flushNativeFutures(tester);
-      for (var i = 0; i < 8; i++) {
-        await tester.pump(const Duration(milliseconds: 50));
-      }
-      expect(platform.plays, 2);
-      expect(platform.assets.last, PracticeDokkaebiClip.swing.videoAsset);
-      expect(platform.volumesAtPlay, [0, 0]);
-      expect(Storage.xp, 0);
-      await tester.ensureVisible(find.text('Back to the puzzle'));
-      await tester.pump();
-      await tester.tap(find.text('Back to the puzzle'));
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 400));
-      await flushNativeFutures(tester);
-      expect(platform.disposes, 2);
+      expect(find.byType(DokkaebiIntro), findsNothing);
+      expect(find.text('Meet'), findsOneWidget);
+      expect(platform.disposes, 0);
+      expect(tester.takeException(), isNull);
     },
   );
 

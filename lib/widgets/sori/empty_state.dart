@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'button.dart';
 import 'motion.dart';
 import 'tokens.dart';
@@ -14,7 +13,7 @@ import 'tokens.dart';
 ///
 /// ```dart
 /// SoriEmptyState(
-///   asset: 'assets/illustrations/mascot/tiger_front.png',
+///   asset: CompanionArt.taego,
 ///   icon: Icons.bed_outlined,
 ///   title: '곧 만나요',
 ///   body: 'B2 시나리오 5개를 준비 중이에요.',

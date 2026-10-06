@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
-import '../widgets/sori/tokens.dart';
+import '../l10n/generated/app_localizations.dart';
+import '../models/companion_art.dart';
+import '../services/storage_service.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
-import '../widgets/sori/mascot.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/section_header.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
-import '../services/storage_service.dart';
-import '../l10n/generated/app_localizations.dart';
 
 class StatsScreen extends StatefulWidget {
   const StatsScreen({super.key, this.now});
@@ -101,7 +100,7 @@ class _StatsScreenState extends State<StatsScreen>
           child: Padding(
             padding: padding,
             child: SoriEmptyState(
-              asset: 'assets/illustrations/mascot/magpie_encourage.png',
+              asset: CompanionArt.joyGuide,
               icon: Icons.auto_stories_outlined,
               title: t.statsFirstEntryTitle,
               body: t.statsFirstEntryBody,
@@ -126,22 +125,25 @@ class _StatsScreenState extends State<StatsScreen>
       builder: (context, padding) => ListView(
         padding: padding,
         children: [
-          // ── 친구들 hero — 호랑이+갓 쓴 까치 듀오 컷 (투명 PNG, 크게) ──
-          // 구 한옥 배너(achievements.png) + 별도 마스코트 2개 스택을
-          // 단일 듀오 컷 하나로 통합(2026-08-05 Jin: "이미지 둘 다 지우고
-          // 이걸로 크게"). 투명 배경이라 한지 크림 위에 그대로 얹힌다.
-          Center(
-            child: Image.asset(
-              'assets/illustrations/mascot/magpie_tiger_together.png',
-              width: (MediaQuery.sizeOf(context).width - 32).clamp(
-                240.0,
-                420.0,
+          Row(
+            children: [
+              Expanded(
+                child: Image.asset(
+                  CompanionArt.taego,
+                  height: 180,
+                  fit: BoxFit.contain,
+                  excludeFromSemantics: true,
+                ),
               ),
-              fit: BoxFit.contain,
-              filterQuality: FilterQuality.high,
-              errorBuilder: (_, __, ___) =>
-                  const Mascot.tiger(size: 156, animate: false),
-            ),
+              Expanded(
+                child: Image.asset(
+                  CompanionArt.joy,
+                  height: 180,
+                  fit: BoxFit.contain,
+                  excludeFromSemantics: true,
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: 12),
 

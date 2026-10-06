@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "generatedFrom": "content-ledger.json",
+  "counts": {
+    "course_units": 48,
+    "learning_phases": 30,
+    "phase_tasks": 902,
+    "phase_objectives": 1668,
+    "smalltalk_native_lessons": 209,
+    "smalltalk_phrases": 590,
+    "smalltalk_categories": 24,
+    "smalltalk_context_cases": 10,
+    "listening_native_lessons": 186,
+    "scenarios": 186,
+    "vocabulary_records": 2968,
+    "grammar_records": 264,
+    "cloze_items": 2365,
+    "sentence_items": 2885,
+    "vocabulary_packs": 254,
+    "can_do_segments": 86,
+    "canonical_content_clusters": 86,
+    "canonical_source_seeds": 2448,
+    "learn_entries": 13,
+    "game_entries": 8,
+    "production_tabs": 5,
+    "foundation_steps": 4,
+    "foundation_tasks": 12
+  },
+  "validation": {
+    "status": "source_integrity_passed_with_declared_gaps",
+    "checks": 14948,
+    "hardErrors": 0,
+    "declaredGaps": 556
+  }
+}

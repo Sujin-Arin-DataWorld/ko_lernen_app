@@ -1,0 +1,1961 @@
+{
+  "contractId": "c-approved-visual-20261005-v1",
+  "measurementUnit": "original PNG pixels",
+  "rasterBoundsTolerancePx": 3,
+  "normalizationRule": "390 / content viewport width; exclude phone bezel; preserve aspect ratio",
+  "tokens": [
+    {
+      "name": "main.gutter",
+      "value": 12,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/screens/sori_stage/sori_stage_catalog_screen.dart",
+      "line": 798,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "card.padding",
+      "value": 12,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/widgets/sori/c_gallery/c_materials.dart",
+      "line": 389,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "card.radius",
+      "value": 14,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/widgets/sori/c_gallery/c_materials.dart",
+      "line": 390,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "board.radius",
+      "value": 18,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/screens/sori_stage/sori_stage_today_screen.dart",
+      "line": 571,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "learn.card.gap",
+      "value": 10,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/screens/sori_stage/sori_stage_catalog_screen.dart",
+      "line": 575,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "learn.card.padding",
+      "value": 8,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/screens/sori_stage/sori_stage_catalog_screen.dart",
+      "line": 588,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "learn.card.artHeight",
+      "value": 76,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/screens/sori_stage/sori_stage_catalog_screen.dart",
+      "line": 592,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "game.card.gap",
+      "value": 8,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/screens/sori_stage/sori_stage_catalog_screen.dart",
+      "line": 684,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "game.card.padding",
+      "value": 6,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/screens/sori_stage/sori_stage_catalog_screen.dart",
+      "line": 649,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "game.card.artHeight",
+      "value": 70,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/screens/sori_stage/sori_stage_catalog_screen.dart",
+      "line": 653,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "tile.radius",
+      "value": 10,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/screens/sori_stage/sori_stage_catalog_screen.dart",
+      "line": 648,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "tile.artToLabel",
+      "value": 4,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/screens/sori_stage/sori_stage_catalog_screen.dart",
+      "line": 657,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "game.heroToTitle",
+      "value": 8,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/screens/sori_stage/sori_stage_catalog_screen.dart",
+      "line": 702,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "game.titleToCta",
+      "value": 10,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/screens/sori_stage/sori_stage_catalog_screen.dart",
+      "line": 708,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "game.ctaToCards",
+      "value": 12,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/screens/sori_stage/sori_stage_catalog_screen.dart",
+      "line": 714,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "game.rowGap",
+      "value": 10,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/screens/sori_stage/sori_stage_catalog_screen.dart",
+      "line": 720,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "cta.minHeight",
+      "value": 54,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/widgets/sori/c_gallery/c_materials.dart",
+      "line": 516,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "cta.compactMinHeight",
+      "value": 48,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/widgets/sori/c_gallery/c_materials.dart",
+      "line": 516,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "cta.radius",
+      "value": 9,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/widgets/sori/c_gallery/c_materials.dart",
+      "line": 519,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "cta.paddingX",
+      "value": 12,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/widgets/sori/c_gallery/c_materials.dart",
+      "line": 565,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "cta.paddingY",
+      "value": 10,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/widgets/sori/c_gallery/c_materials.dart",
+      "line": 566,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "cta.depth",
+      "value": 4,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/widgets/sori/c_gallery/c_materials.dart",
+      "line": 502,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "cta.border",
+      "value": 1.3,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/widgets/sori/c_gallery/c_materials.dart",
+      "line": 525,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "cta.labelSize",
+      "value": 21,
+      "unit": "sp",
+      "origin": "current-source-exact",
+      "source": "lib/widgets/sori/c_gallery/c_materials.dart",
+      "line": 483,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "cta.compactLabelSize",
+      "value": 16,
+      "unit": "sp",
+      "origin": "current-source-exact",
+      "source": "lib/widgets/sori/c_gallery/c_materials.dart",
+      "line": 483,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "cta.arrowWidth",
+      "value": 18,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/widgets/sori/c_gallery/c_materials.dart",
+      "line": 579,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "cta.arrowHeight",
+      "value": 24,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/widgets/sori/c_gallery/c_materials.dart",
+      "line": 580,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "navigation.height",
+      "value": 64,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/widgets/sori/adaptive_navigation.dart",
+      "line": 88,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "intro.bodyGutter",
+      "value": 14,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/screens/onboarding_v2/c_onboarding.dart",
+      "line": 104,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "intro.interestGap",
+      "value": 9,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/screens/onboarding_v2/c_onboarding.dart",
+      "line": 397,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "intro.companionGap",
+      "value": 9,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/screens/onboarding_v2/c_onboarding.dart",
+      "line": 790,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "intro.companionToGye",
+      "value": 14,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/screens/onboarding_v2/c_onboarding.dart",
+      "line": 799,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    },
+    {
+      "name": "touch.min",
+      "value": 48,
+      "unit": "dp",
+      "origin": "current-source-exact",
+      "source": "lib/widgets/sori/c_gallery/c_materials.dart",
+      "line": 515,
+      "approvalMeaning": "verified implementation metric; image comparison remains required"
+    }
+  ],
+  "screens": [
+    {
+      "id": "today",
+      "reference": "main-five-tabs",
+      "title": "Heute",
+      "viewport": [
+        1,
+        10,
+        350,
+        756
+      ],
+      "boxes": [
+        {
+          "label": "미션 보드",
+          "rect": [
+            13,
+            163,
+            327,
+            544
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "한글 그림 가시 영역",
+          "rect": [
+            78,
+            254,
+            202,
+            139
+          ],
+          "kind": "image",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "학습 CTA",
+          "rect": [
+            25,
+            407,
+            303,
+            50
+          ],
+          "kind": "cta",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "한옥 카드",
+          "rect": [
+            25,
+            509,
+            303,
+            119
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "앱 안내 카드",
+          "rect": [
+            25,
+            637,
+            303,
+            70
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "5탭 내비게이션",
+          "rect": [
+            1,
+            707,
+            350,
+            59
+          ],
+          "kind": "nav",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        }
+      ],
+      "gaps": [
+        {
+          "label": "한옥 → 안내 카드",
+          "start": [
+            320,
+            628
+          ],
+          "end": [
+            320,
+            637
+          ],
+          "px": 9,
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        }
+      ],
+      "normalization": {
+        "comparisonWidth": 390,
+        "factor": 1.1142857142857143,
+        "meaning": "proportional raster comparison only; not recovered device dp"
+      }
+    },
+    {
+      "id": "learn",
+      "reference": "main-five-tabs",
+      "title": "Lernen",
+      "viewport": [
+        375,
+        10,
+        350,
+        756
+      ],
+      "boxes": [
+        {
+          "label": "학습 보드",
+          "rect": [
+            387,
+            111,
+            327,
+            596
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "열린 책 가시 영역",
+          "rect": [
+            436,
+            213,
+            231,
+            111
+          ],
+          "kind": "image",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "학습 CTA",
+          "rect": [
+            399,
+            339,
+            304,
+            50
+          ],
+          "kind": "cta",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "Wörter",
+          "rect": [
+            399,
+            398,
+            147,
+            109
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "Hören",
+          "rect": [
+            555,
+            398,
+            147,
+            109
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "Hangul",
+          "rect": [
+            399,
+            514,
+            147,
+            109
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "Wiederholen",
+          "rect": [
+            555,
+            514,
+            147,
+            109
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "코스 CTA",
+          "rect": [
+            399,
+            633,
+            304,
+            50
+          ],
+          "kind": "cta",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "5탭 내비게이션",
+          "rect": [
+            375,
+            707,
+            350,
+            59
+          ],
+          "kind": "nav",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        }
+      ],
+      "gaps": [
+        {
+          "label": "CTA → 카드",
+          "start": [
+            709,
+            389
+          ],
+          "end": [
+            709,
+            398
+          ],
+          "px": 9,
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "카드 열 간격",
+          "start": [
+            546,
+            450
+          ],
+          "end": [
+            555,
+            450
+          ],
+          "px": 9,
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "카드 행 간격",
+          "start": [
+            709,
+            507
+          ],
+          "end": [
+            709,
+            514
+          ],
+          "px": 7,
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "카드 → 코스 CTA",
+          "start": [
+            709,
+            623
+          ],
+          "end": [
+            709,
+            633
+          ],
+          "px": 10,
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        }
+      ],
+      "normalization": {
+        "comparisonWidth": 390,
+        "factor": 1.1142857142857143,
+        "meaning": "proportional raster comparison only; not recovered device dp"
+      }
+    },
+    {
+      "id": "games",
+      "reference": "main-five-tabs",
+      "title": "Spiele",
+      "viewport": [
+        748,
+        10,
+        350,
+        756
+      ],
+      "boxes": [
+        {
+          "label": "게임 보드",
+          "rect": [
+            760,
+            108,
+            327,
+            599
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "도깨비 이미지",
+          "rect": [
+            772,
+            121,
+            302,
+            197
+          ],
+          "kind": "image",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "게임 CTA",
+          "rect": [
+            772,
+            361,
+            302,
+            50
+          ],
+          "kind": "cta",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "초성",
+          "rect": [
+            772,
+            420,
+            95,
+            97
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "빈칸",
+          "rect": [
+            875,
+            420,
+            95,
+            97
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "짝 맞추기",
+          "rect": [
+            978,
+            420,
+            96,
+            97
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "문장 조립",
+          "rect": [
+            772,
+            525,
+            147,
+            97
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "끝말잇기",
+          "rect": [
+            927,
+            525,
+            147,
+            97
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "DIY 단어",
+          "rect": [
+            772,
+            631,
+            302,
+            76
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "5탭 내비게이션",
+          "rect": [
+            748,
+            707,
+            350,
+            59
+          ],
+          "kind": "nav",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        }
+      ],
+      "gaps": [
+        {
+          "label": "CTA → 카드",
+          "start": [
+            1080,
+            411
+          ],
+          "end": [
+            1080,
+            420
+          ],
+          "px": 9,
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "3열 간격",
+          "start": [
+            867,
+            464
+          ],
+          "end": [
+            875,
+            464
+          ],
+          "px": 8,
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "첫 행 → 둘째 행",
+          "start": [
+            1080,
+            517
+          ],
+          "end": [
+            1080,
+            525
+          ],
+          "px": 8,
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "둘째 행 → DIY",
+          "start": [
+            1080,
+            622
+          ],
+          "end": [
+            1080,
+            631
+          ],
+          "px": 9,
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        }
+      ],
+      "normalization": {
+        "comparisonWidth": 390,
+        "factor": 1.1142857142857143,
+        "meaning": "proportional raster comparison only; not recovered device dp"
+      }
+    },
+    {
+      "id": "hanok",
+      "reference": "main-five-tabs",
+      "title": "Hanok",
+      "viewport": [
+        1122,
+        10,
+        350,
+        756
+      ],
+      "boxes": [
+        {
+          "label": "한옥 보드",
+          "rect": [
+            1134,
+            108,
+            327,
+            599
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "한옥 이미지",
+          "rect": [
+            1146,
+            120,
+            302,
+            250
+          ],
+          "kind": "image",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "건축 CTA",
+          "rect": [
+            1146,
+            476,
+            302,
+            50
+          ],
+          "kind": "cta",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "단청 카드",
+          "rect": [
+            1146,
+            536,
+            302,
+            108
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "아틀리에 CTA",
+          "rect": [
+            1248,
+            582,
+            190,
+            44
+          ],
+          "kind": "cta",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "단청 이미지",
+          "rect": [
+            1157,
+            548,
+            82,
+            82
+          ],
+          "kind": "image",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "작업 카드",
+          "rect": [
+            1146,
+            654,
+            302,
+            53
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "5탭 내비게이션",
+          "rect": [
+            1122,
+            707,
+            350,
+            59
+          ],
+          "kind": "nav",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        }
+      ],
+      "gaps": [
+        {
+          "label": "CTA → 단청 카드",
+          "start": [
+            1454,
+            526
+          ],
+          "end": [
+            1454,
+            536
+          ],
+          "px": 10,
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "단청 → 작업 카드",
+          "start": [
+            1454,
+            644
+          ],
+          "end": [
+            1454,
+            654
+          ],
+          "px": 10,
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        }
+      ],
+      "normalization": {
+        "comparisonWidth": 390,
+        "factor": 1.1142857142857143,
+        "meaning": "proportional raster comparison only; not recovered device dp"
+      }
+    },
+    {
+      "id": "gye",
+      "reference": "main-five-tabs",
+      "title": "Gye",
+      "viewport": [
+        1495,
+        10,
+        350,
+        756
+      ],
+      "boxes": [
+        {
+          "label": "그룹 보드",
+          "rect": [
+            1507,
+            133,
+            327,
+            543
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "함께 읽기 이미지",
+          "rect": [
+            1520,
+            134,
+            302,
+            229
+          ],
+          "kind": "image",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "코드 참여 CTA",
+          "rect": [
+            1520,
+            478,
+            302,
+            44
+          ],
+          "kind": "cta",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "그룹 생성 CTA",
+          "rect": [
+            1520,
+            530,
+            302,
+            44
+          ],
+          "kind": "cta",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "혼자 계속하기",
+          "rect": [
+            1520,
+            582,
+            302,
+            40
+          ],
+          "kind": "action",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "더 알아보기",
+          "rect": [
+            1520,
+            625,
+            302,
+            39
+          ],
+          "kind": "action",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "5탭 내비게이션",
+          "rect": [
+            1495,
+            707,
+            350,
+            59
+          ],
+          "kind": "nav",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        }
+      ],
+      "gaps": [
+        {
+          "label": "참여 → 생성 CTA",
+          "start": [
+            1828,
+            522
+          ],
+          "end": [
+            1828,
+            530
+          ],
+          "px": 8,
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        }
+      ],
+      "normalization": {
+        "comparisonWidth": 390,
+        "factor": 1.1142857142857143,
+        "meaning": "proportional raster comparison only; not recovered device dp"
+      }
+    },
+    {
+      "id": "intro-01",
+      "reference": "intro-01",
+      "title": "Einleitung 01/07",
+      "viewport": [
+        53,
+        53,
+        747,
+        1733
+      ],
+      "boxes": [
+        {
+          "label": "앱 내용 비교 영역 (기기 프레임 제외)",
+          "rect": [
+            53,
+            53,
+            747,
+            1733
+          ],
+          "kind": "viewport",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "브랜드 / 단계",
+          "rect": [
+            92,
+            151,
+            670,
+            67
+          ],
+          "kind": "header",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "진행 점",
+          "rect": [
+            184,
+            228,
+            429,
+            37
+          ],
+          "kind": "nav",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "장면 / 주요 구성",
+          "rect": [
+            53,
+            275,
+            747,
+            350
+          ],
+          "kind": "image",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "주 CTA",
+          "rect": [
+            82,
+            1634,
+            688,
+            91
+          ],
+          "kind": "cta",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "A2 수준 선택",
+          "rect": [
+            81,
+            723,
+            694,
+            134
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "관심 1",
+          "rect": [
+            81,
+            990,
+            337,
+            234
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "관심 2",
+          "rect": [
+            437,
+            990,
+            337,
+            234
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "관심 3",
+          "rect": [
+            81,
+            1236,
+            337,
+            220
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "관심 4",
+          "rect": [
+            437,
+            1236,
+            337,
+            220
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        }
+      ],
+      "gaps": [
+        {
+          "label": "관심 카드 열 간격",
+          "start": [
+            418,
+            1080
+          ],
+          "end": [
+            437,
+            1080
+          ],
+          "px": 19,
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "관심 카드 행 간격",
+          "start": [
+            783,
+            1224
+          ],
+          "end": [
+            783,
+            1236
+          ],
+          "px": 12,
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        }
+      ],
+      "normalization": {
+        "comparisonWidth": 390,
+        "factor": 0.5220883534136547,
+        "meaning": "proportional raster comparison only; not recovered device dp"
+      }
+    },
+    {
+      "id": "intro-02",
+      "reference": "intro-02",
+      "title": "Einleitung 02/07",
+      "viewport": [
+        53,
+        53,
+        747,
+        1733
+      ],
+      "boxes": [
+        {
+          "label": "앱 내용 비교 영역 (기기 프레임 제외)",
+          "rect": [
+            53,
+            53,
+            747,
+            1733
+          ],
+          "kind": "viewport",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "브랜드 / 단계",
+          "rect": [
+            92,
+            151,
+            670,
+            67
+          ],
+          "kind": "header",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "진행 점",
+          "rect": [
+            184,
+            228,
+            429,
+            37
+          ],
+          "kind": "nav",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "장면 / 주요 구성",
+          "rect": [
+            53,
+            275,
+            747,
+            980
+          ],
+          "kind": "image",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "주 CTA",
+          "rect": [
+            82,
+            1506,
+            688,
+            106
+          ],
+          "kind": "cta",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "뒤로 글자 가시 영역",
+          "rect": [
+            241,
+            1638,
+            372,
+            38
+          ],
+          "kind": "action",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        }
+      ],
+      "gaps": [
+        {
+          "label": "CTA → 뒤로 글자",
+          "start": [
+            788,
+            1612
+          ],
+          "end": [
+            788,
+            1638
+          ],
+          "px": 26,
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        }
+      ],
+      "normalization": {
+        "comparisonWidth": 390,
+        "factor": 0.5220883534136547,
+        "meaning": "proportional raster comparison only; not recovered device dp"
+      }
+    },
+    {
+      "id": "intro-03",
+      "reference": "intro-03",
+      "title": "Einleitung 03/07",
+      "viewport": [
+        53,
+        53,
+        747,
+        1733
+      ],
+      "boxes": [
+        {
+          "label": "앱 내용 비교 영역 (기기 프레임 제외)",
+          "rect": [
+            53,
+            53,
+            747,
+            1733
+          ],
+          "kind": "viewport",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "브랜드 / 단계",
+          "rect": [
+            92,
+            151,
+            670,
+            67
+          ],
+          "kind": "header",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "진행 점",
+          "rect": [
+            184,
+            228,
+            429,
+            37
+          ],
+          "kind": "nav",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "장면 / 주요 구성",
+          "rect": [
+            53,
+            275,
+            747,
+            1068
+          ],
+          "kind": "image",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "주 CTA",
+          "rect": [
+            82,
+            1500,
+            688,
+            108
+          ],
+          "kind": "cta",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "뒤로 글자 가시 영역",
+          "rect": [
+            241,
+            1636,
+            372,
+            42
+          ],
+          "kind": "action",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        }
+      ],
+      "gaps": [
+        {
+          "label": "CTA → 뒤로 글자",
+          "start": [
+            788,
+            1608
+          ],
+          "end": [
+            788,
+            1636
+          ],
+          "px": 28,
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        }
+      ],
+      "normalization": {
+        "comparisonWidth": 390,
+        "factor": 0.5220883534136547,
+        "meaning": "proportional raster comparison only; not recovered device dp"
+      }
+    },
+    {
+      "id": "intro-04",
+      "reference": "intro-04",
+      "title": "Einleitung 04/07",
+      "viewport": [
+        53,
+        53,
+        747,
+        1733
+      ],
+      "boxes": [
+        {
+          "label": "앱 내용 비교 영역 (기기 프레임 제외)",
+          "rect": [
+            53,
+            53,
+            747,
+            1733
+          ],
+          "kind": "viewport",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "브랜드 / 단계",
+          "rect": [
+            92,
+            151,
+            670,
+            67
+          ],
+          "kind": "header",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "진행 점",
+          "rect": [
+            184,
+            228,
+            429,
+            37
+          ],
+          "kind": "nav",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "장면 / 주요 구성",
+          "rect": [
+            53,
+            275,
+            747,
+            930
+          ],
+          "kind": "image",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "주 CTA",
+          "rect": [
+            82,
+            1472,
+            688,
+            110
+          ],
+          "kind": "cta",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "뒤로 글자 가시 영역",
+          "rect": [
+            241,
+            1611,
+            372,
+            42
+          ],
+          "kind": "action",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        }
+      ],
+      "gaps": [
+        {
+          "label": "CTA → 뒤로 글자",
+          "start": [
+            788,
+            1582
+          ],
+          "end": [
+            788,
+            1611
+          ],
+          "px": 29,
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        }
+      ],
+      "normalization": {
+        "comparisonWidth": 390,
+        "factor": 0.5220883534136547,
+        "meaning": "proportional raster comparison only; not recovered device dp"
+      }
+    },
+    {
+      "id": "intro-05",
+      "reference": "intro-05",
+      "title": "Einleitung 05/07",
+      "viewport": [
+        53,
+        53,
+        747,
+        1733
+      ],
+      "boxes": [
+        {
+          "label": "앱 내용 비교 영역 (기기 프레임 제외)",
+          "rect": [
+            53,
+            53,
+            747,
+            1733
+          ],
+          "kind": "viewport",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "브랜드 / 단계",
+          "rect": [
+            92,
+            151,
+            670,
+            67
+          ],
+          "kind": "header",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "진행 점",
+          "rect": [
+            184,
+            228,
+            429,
+            37
+          ],
+          "kind": "nav",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "장면 / 주요 구성",
+          "rect": [
+            53,
+            275,
+            747,
+            1017
+          ],
+          "kind": "image",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "주 CTA",
+          "rect": [
+            82,
+            1492,
+            688,
+            108
+          ],
+          "kind": "cta",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "뒤로 글자 가시 영역",
+          "rect": [
+            241,
+            1625,
+            372,
+            43
+          ],
+          "kind": "action",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        }
+      ],
+      "gaps": [
+        {
+          "label": "CTA → 뒤로 글자",
+          "start": [
+            788,
+            1600
+          ],
+          "end": [
+            788,
+            1625
+          ],
+          "px": 25,
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        }
+      ],
+      "normalization": {
+        "comparisonWidth": 390,
+        "factor": 0.5220883534136547,
+        "meaning": "proportional raster comparison only; not recovered device dp"
+      }
+    },
+    {
+      "id": "intro-06",
+      "reference": "intro-06",
+      "title": "Einleitung 06/07",
+      "viewport": [
+        53,
+        53,
+        747,
+        1733
+      ],
+      "boxes": [
+        {
+          "label": "앱 내용 비교 영역 (기기 프레임 제외)",
+          "rect": [
+            53,
+            53,
+            747,
+            1733
+          ],
+          "kind": "viewport",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "브랜드 / 단계",
+          "rect": [
+            92,
+            151,
+            670,
+            67
+          ],
+          "kind": "header",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "진행 점",
+          "rect": [
+            184,
+            228,
+            429,
+            37
+          ],
+          "kind": "nav",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "장면 / 주요 구성",
+          "rect": [
+            53,
+            275,
+            747,
+            983
+          ],
+          "kind": "image",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "주 CTA",
+          "rect": [
+            78,
+            1468,
+            700,
+            104
+          ],
+          "kind": "cta",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "뒤로 글자 가시 영역",
+          "rect": [
+            241,
+            1595,
+            372,
+            44
+          ],
+          "kind": "action",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        }
+      ],
+      "gaps": [
+        {
+          "label": "CTA → 뒤로 글자",
+          "start": [
+            788,
+            1572
+          ],
+          "end": [
+            788,
+            1595
+          ],
+          "px": 23,
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        }
+      ],
+      "normalization": {
+        "comparisonWidth": 390,
+        "factor": 0.5220883534136547,
+        "meaning": "proportional raster comparison only; not recovered device dp"
+      }
+    },
+    {
+      "id": "intro-07",
+      "reference": "intro-07",
+      "title": "Einleitung 07/07",
+      "viewport": [
+        53,
+        53,
+        747,
+        1733
+      ],
+      "boxes": [
+        {
+          "label": "앱 내용 비교 영역 (기기 프레임 제외)",
+          "rect": [
+            53,
+            53,
+            747,
+            1733
+          ],
+          "kind": "viewport",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "브랜드 / 단계",
+          "rect": [
+            92,
+            151,
+            670,
+            67
+          ],
+          "kind": "header",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "진행 점",
+          "rect": [
+            184,
+            228,
+            429,
+            37
+          ],
+          "kind": "nav",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "장면 / 주요 구성",
+          "rect": [
+            65,
+            300,
+            735,
+            1148
+          ],
+          "kind": "image",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "주 CTA",
+          "rect": [
+            78,
+            1488,
+            700,
+            104
+          ],
+          "kind": "cta",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "뒤로 글자 가시 영역",
+          "rect": [
+            241,
+            1610,
+            372,
+            42
+          ],
+          "kind": "action",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "Taego 선택 이미지",
+          "rect": [
+            65,
+            489,
+            368,
+            539
+          ],
+          "kind": "image",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "Joy 이미지",
+          "rect": [
+            444,
+            498,
+            352,
+            529
+          ],
+          "kind": "image",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "Taego 카드",
+          "rect": [
+            65,
+            489,
+            368,
+            673
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "Joy 카드",
+          "rect": [
+            444,
+            498,
+            352,
+            664
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "Gye 소개 카드",
+          "rect": [
+            74,
+            1178,
+            710,
+            291
+          ],
+          "kind": "card",
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        }
+      ],
+      "gaps": [
+        {
+          "label": "동행 카드 열 간격",
+          "start": [
+            433,
+            730
+          ],
+          "end": [
+            444,
+            730
+          ],
+          "px": 11,
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "동행 → Gye",
+          "start": [
+            790,
+            1162
+          ],
+          "end": [
+            790,
+            1178
+          ],
+          "px": 16,
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "Gye → CTA",
+          "start": [
+            791,
+            1469
+          ],
+          "end": [
+            791,
+            1488
+          ],
+          "px": 19,
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        },
+        {
+          "label": "CTA → 뒤로 글자",
+          "start": [
+            788,
+            1592
+          ],
+          "end": [
+            788,
+            1610
+          ],
+          "px": 18,
+          "origin": "raster-measurement",
+          "tolerancePx": 3
+        }
+      ],
+      "normalization": {
+        "comparisonWidth": 390,
+        "factor": 0.5220883534136547,
+        "meaning": "proportional raster comparison only; not recovered device dp"
+      }
+    }
+  ]
+}

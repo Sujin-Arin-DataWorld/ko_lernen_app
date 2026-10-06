@@ -1,0 +1,152 @@
+{
+  "schema_version": 2,
+  "status": "historical evidence only; no additions to current runtime catalog",
+  "encoding": "original_record_utf8 re-encodes to the exact preserved UTF-8 Git blob byte span",
+  "records": [
+    {
+      "id": "lost_phone",
+      "historical_uid": "git:37afe400dc1b8bde735d4cbbe36c2622beaf10a7:assets/data/scenarios_a2.json#/scenarios/13",
+      "source_id": "git:37afe400dc1b8bde735d4cbbe36c2622beaf10a7:assets/data/scenarios_a2.json",
+      "last_observed_source_commit": "37afe400dc1b8bde735d4cbbe36c2622beaf10a7",
+      "corpus_promotion_commit": "ca00acad2ff0d1470dc241bfdfb8d15685a7d1a0",
+      "current_exact_id_present": false,
+      "historical_level": "a2",
+      "removal_verified_in_promotion": true,
+      "promotion_source_id": "git:ca00acad2ff0d1470dc241bfdfb8d15685a7d1a0:assets/data/scenarios_a2.json",
+      "historical_courseUnitId": "a2_07_travel_repair",
+      "historical_revision": null,
+      "original_record_utf8": "{\n      \"id\": \"lost_phone\",\n      \"level\": \"a2\",\n      \"emoji\": \"📱\",\n      \"register\": \"polite\",\n      \"courseUnitId\": \"a2_07_travel_repair\",\n      \"speechStyle\": \"polite\",\n      \"relationshipContext\": \"customer_and_support_staff\",\n      \"intent\": \"report_loss\",\n      \"conceptIds\": [\n        \"concept_a2_travel_repair\",\n        \"concept_a1_clarification\"\n      ],\n      \"surfaceFormIds\": [],\n      \"sidekick\": \"minsu\",\n      \"xpReward\": 150,\n      \"title\": {\n        \"ko\": \"휴대폰을 잃어버렸을 때\",\n        \"de\": \"Wenn du dein Handy verloren hast\",\n        \"en\": \"When you've lost your phone\"\n      },\n      \"intro\": {\n        \"ko\": \"\",\n        \"de\": \"Mist: dein Handy ist weg. Du gehst zum Fundbüro der U-Bahn. Wo zuletzt gesehen? Melden und nachfragen.\",\n        \"en\": \"Ugh: your phone is gone. You go to the subway lost & found. Where last seen? Report it and ask.\"\n      },\n      \"vocab\": [\n        {\n          \"korean\": \"휴대폰\",\n          \"note\": {\n            \"ko\": \"\",\n            \"de\": \"Handy (auch 핸드폰).\",\n            \"en\": \"cell phone (also 핸드폰).\"\n          }\n        },\n        {\n          \"korean\": \"잃어버리다\",\n          \"note\": {\n            \"ko\": \"\",\n            \"de\": \"verlieren.\",\n            \"en\": \"to lose.\"\n          }\n        },\n        {\n          \"korean\": \"분실물\",\n          \"note\": {\n            \"ko\": \"\",\n            \"de\": \"Fundsache / verlorenes Objekt (분실물 센터 = Fundbüro).\",\n            \"en\": \"lost item (분실물 센터 = lost & found).\"\n          }\n        },\n        {\n          \"korean\": \"찾다\",\n          \"note\": {\n            \"ko\": \"\",\n            \"de\": \"finden / suchen.\",\n            \"en\": \"to find / look for.\"\n          }\n        },\n        {\n          \"korean\": \"신고하다\",\n          \"note\": {\n            \"ko\": \"\",\n            \"de\": \"melden / Anzeige machen.\",\n            \"en\": \"to report.\"\n          }\n        },\n        {\n          \"korean\": \"혹시\",\n          \"note\": {\n            \"ko\": \"\",\n            \"de\": \"vielleicht / zufällig (höfliche Nachfrage).\",\n            \"en\": \"by any chance (polite asking).\"\n          }\n        }\n      ],\n      \"grammarIds\": [\n        \"grammar_a2_change\"\n      ],\n      \"grammarBlock\": {\n        \"title\": {\n          \"ko\": \"-아/어 버리다\",\n          \"de\": \"-아/어 버리다: (versehentlich/leider) ganz …\",\n          \"en\": \"-아/어 버리다: (regretfully) completely …\"\n        },\n        \"explanation\": {\n          \"ko\": \"\",\n          \"de\": \"Abgeschlossene Handlung, oft mit Bedauern: Verb-Stamm + -아/어 버리다. 잃다 → 잃어버리다 = '(leider ganz) verlieren'. 잊다 → 잊어버리다 = 'vergessen'.\",\n          \"en\": \"Completed action, often with regret: verb stem + -아/어 버리다. 잃다 → 잃어버리다 = 'to lose (for good)'. 잊다 → 잊어버리다 = 'to forget'.\"\n        }\n      },\n      \"dialog\": [\n        {\n          \"speaker\": \"user\",\n          \"ko\": \"저기요, 휴대폰을 잃어버렸어요.\",\n          \"de\": \"Entschuldigung, ich habe mein Handy verloren.\",\n          \"en\": \"Excuse me, I lost my phone.\"\n        },\n        {\n          \"speaker\": \"minsu\",\n          \"ko\": \"어디에서 잃어버리셨어요?\",\n          \"de\": \"Wo haben Sie es verloren?\",\n          \"en\": \"Where did you lose it?\"\n        },\n        {\n          \"speaker\": \"user\",\n          \"ko\": \"지하철에 두고 내린 것 같아요.\",\n          \"de\": \"Ich glaube, ich hab es in der U-Bahn liegen lassen.\",\n          \"en\": \"I think I left it on the subway.\"\n        },\n        {\n          \"speaker\": \"minsu\",\n          \"ko\": \"분실물 센터에 접수해 드릴게요. 확인해 볼게요.\",\n          \"de\": \"Ich nehme das fürs Fundbüro auf. Ich schaue mal nach.\",\n          \"en\": \"I'll file it with the lost & found. Let me check.\"\n        },\n        {\n          \"speaker\": \"user\",\n          \"ko\": \"혹시 검은색 휴대폰 들어왔어요?\",\n          \"de\": \"Ist zufällig ein schwarzes Handy abgegeben worden?\",\n          \"en\": \"Has a black phone been turned in, by any chance?\"\n        },\n        {\n          \"speaker\": \"minsu\",\n          \"ko\": \"잠시만요, 확인해 볼게요.\",\n          \"de\": \"Einen Moment, ich schaue nach.\",\n          \"en\": \"One moment, I'll check.\"\n        }\n      ],\n      \"quests\": [\n        {\n          \"type\": \"hoerverstehen\",\n          \"data\": {\n            \"audioKo\": \"어디에서 잃어버리셨어요?\",\n            \"options\": [\n              {\n                \"de\": \"Wo haben Sie es verloren?\",\n                \"en\": \"Where did you lose it?\"\n              },\n              {\n                \"de\": \"Welche Farbe hat es?\",\n                \"en\": \"What color is it?\"\n              },\n              {\n                \"de\": \"Wann war das?\",\n                \"en\": \"When was that?\"\n              },\n              {\n                \"de\": \"Haben Sie es gemeldet?\",\n                \"en\": \"Did you report it?\"\n              }\n            ],\n            \"correctIndex\": 0\n          }\n        },\n        {\n          \"type\": \"uebersetzen\",\n          \"data\": {\n            \"promptDe\": \"Ich habe mein Handy verloren.\",\n            \"promptEn\": \"I lost my phone.\",\n            \"options\": [\n              {\n                \"ko\": \"휴대폰을 잃어버렸어요.\"\n              },\n              {\n                \"ko\": \"휴대폰이 없어요.\"\n              },\n              {\n                \"ko\": \"휴대폰을 샀어요.\"\n              },\n              {\n                \"ko\": \"휴대폰이 비싸요.\"\n              }\n            ],\n            \"correctIndex\": 0\n          }\n        },\n        {\n          \"type\": \"particlePop\",\n          \"data\": {\n            \"prefix\": \"휴대폰\",\n            \"suffix\": \" 잃어버렸어요.\",\n            \"options\": [\n              \"을\",\n              \"를\",\n              \"이\",\n              \"가\",\n              \"로\",\n              \"에\"\n            ],\n            \"correctIndex\": 0,\n            \"explanationDe\": \"휴대폰 endet auf Konsonant (ㄴ) → Objektpartikel 을.\",\n            \"explanationEn\": \"휴대폰 ends in a consonant (ㄴ) → object particle 을.\"\n          }\n        }\n      ],\n      \"culturalNote\": {\n        \"title\": {\n          \"ko\": \"분실물 찾기\",\n          \"de\": \"Fundsachen in Korea\",\n          \"en\": \"Lost & found in Korea\"\n        },\n        \"body\": {\n          \"ko\": \"\",\n          \"de\": \"Korea hat eine hohe Fundquote: U-Bahn-Fundbüros (유실물센터) und die App 'LOST112' sammeln Funde. Ein liegen gelassenes Handy taucht erstaunlich oft wieder auf.\",\n          \"en\": \"Korea has a high recovery rate: subway lost & found offices (유실물센터) and the 'LOST112' app track items. A left-behind phone resurfaces surprisingly often.\"\n        }\n      },\n      \"shelf\": \"a2_move\",\n      \"backdrop\": \"directions\"\n    }",
+      "original_record_bytes": 6796,
+      "original_record_sha256": "0458b38ac04edfc0b4c19fb37084f16488c79ee0715689cd515716c134b6f09b",
+      "original_blob_byte_start": 111911,
+      "original_blob_byte_end_exclusive": 118707,
+      "parsed_record_sha256": "36577ed296846f544098a8ef4806166a6f9767acf35aebb15a51d8c5cec6c4c0",
+      "current_same_unit_variants": [
+        {
+          "id": "jeju_bus_missed",
+          "level": "a2",
+          "courseUnitId": "a2_07_travel_repair",
+          "record_sha256": "c6aa276f7efbed0cc8da10fc68680c9e3468ac112e4cf52e76ab0c2c1306becb",
+          "status": "current_same_unit_variant; not a declared identity replacement"
+        },
+        {
+          "id": "taxi_slow_down",
+          "level": "a2",
+          "courseUnitId": "a2_07_travel_repair",
+          "record_sha256": "f4859fdc2dbd4a471d39f866414dd06bb4bd35fce251a6b429ea7e29fcd08d57",
+          "status": "current_same_unit_variant; not a declared identity replacement"
+        },
+        {
+          "id": "train_seat_swap",
+          "level": "a2",
+          "courseUnitId": "a2_07_travel_repair",
+          "record_sha256": "e6d0186408c860830dc96308d6c0b7966dc79e4b74d8716227edd9576d33cc75",
+          "status": "current_same_unit_variant; not a declared identity replacement"
+        },
+        {
+          "id": "a2_byeongcheol_walk_break",
+          "level": "a2",
+          "courseUnitId": "a2_07_travel_repair",
+          "record_sha256": "8df0afd19152076e6ac3fcad8e52e13f2d876a42508522494c93e625b8ece114",
+          "status": "current_same_unit_variant; not a declared identity replacement"
+        }
+      ],
+      "current_analogous_variant": null,
+      "current_runtime_ID_literal_evidence": [],
+      "resolution_status": "historical_source_preserved; current canonical reference unresolved; no declared replacement/alias",
+      "action": "Course/authority owner must review restoration, explicit lineage migration, or an archived authority. Preserve old saved IDs/revisions; never infer current lesson coverage, remap B1 evidence to A2, or grant assessment from a thematic match."
+    },
+    {
+      "id": "bank_account",
+      "historical_uid": "git:37afe400dc1b8bde735d4cbbe36c2622beaf10a7:assets/data/scenarios_b1.json#/scenarios/6",
+      "source_id": "git:37afe400dc1b8bde735d4cbbe36c2622beaf10a7:assets/data/scenarios_b1.json",
+      "last_observed_source_commit": "37afe400dc1b8bde735d4cbbe36c2622beaf10a7",
+      "corpus_promotion_commit": "ca00acad2ff0d1470dc241bfdfb8d15685a7d1a0",
+      "current_exact_id_present": false,
+      "historical_level": "b1",
+      "removal_verified_in_promotion": true,
+      "promotion_source_id": "git:ca00acad2ff0d1470dc241bfdfb8d15685a7d1a0:assets/data/scenarios_b1.json",
+      "historical_courseUnitId": "b1_03_work_softening",
+      "historical_revision": null,
+      "original_record_utf8": "{\n      \"id\": \"bank_account\",\n      \"level\": \"b1\",\n      \"emoji\": \"🏦\",\n      \"register\": \"polite\",\n      \"courseUnitId\": \"b1_03_work_softening\",\n      \"speechStyle\": \"polite\",\n      \"relationshipContext\": \"customer_and_bank_staff\",\n      \"intent\": \"open_account\",\n      \"conceptIds\": [\n        \"concept_b1_softening\",\n        \"concept_b1_complaint_resolution\"\n      ],\n      \"surfaceFormIds\": [],\n      \"sidekick\": \"minsu\",\n      \"xpReward\": 170,\n      \"title\": {\n        \"ko\": \"은행 계좌 만들기\",\n        \"de\": \"Ein Bankkonto eröffnen\",\n        \"en\": \"Opening a bank account\"\n      },\n      \"intro\": {\n        \"ko\": \"\",\n        \"de\": \"Du wohnst jetzt in Korea und brauchst ein Konto. Reisepass dabei, Nummer gezogen. Was sagt der Bankangestellte?\",\n        \"en\": \"You live in Korea now and need an account. Passport in hand, queue ticket taken. What does the teller say?\"\n      },\n      \"vocab\": [\n        {\n          \"korean\": \"통장\",\n          \"note\": {\n            \"ko\": \"\",\n            \"de\": \"Sparbuch/Konto.\",\n            \"en\": \"bankbook/account.\"\n          }\n        },\n        {\n          \"korean\": \"신분증\",\n          \"note\": {\n            \"ko\": \"\",\n            \"de\": \"Ausweis (für Ausländer: Reisepass/ARC).\",\n            \"en\": \"ID (for foreigners: passport/ARC).\"\n          }\n        },\n        {\n          \"korean\": \"체크카드\",\n          \"note\": {\n            \"ko\": \"\",\n            \"de\": \"Debitkarte.\",\n            \"en\": \"debit card.\"\n          }\n        },\n        {\n          \"korean\": \"비밀번호\",\n          \"note\": {\n            \"ko\": \"\",\n            \"de\": \"PIN/Passwort.\",\n            \"en\": \"PIN/password.\"\n          }\n        },\n        {\n          \"korean\": \"서류\",\n          \"note\": {\n            \"ko\": \"\",\n            \"de\": \"Dokument/Unterlagen.\",\n            \"en\": \"document/paperwork.\"\n          }\n        },\n        {\n          \"korean\": \"신청서\",\n          \"note\": {\n            \"ko\": \"\",\n            \"de\": \"Antragsformular.\",\n            \"en\": \"application form.\"\n          }\n        }\n      ],\n      \"grammarIds\": [\n        \"grammar_b1_intention\"\n      ],\n      \"grammarBlock\": {\n        \"title\": {\n          \"ko\": \"-(으)려고 하다\",\n          \"de\": \"-(으)려고 하다: vorhaben zu …\",\n          \"en\": \"-(으)려고 하다: intend to …\"\n        },\n        \"explanation\": {\n          \"ko\": \"\",\n          \"de\": \"Absicht ausdrücken: Verb-Stamm + -(으)려고 해요. 만들다 → 통장을 만들려고 해요 = 'Ich möchte ein Konto eröffnen.'\",\n          \"en\": \"Express intention: verb stem + -(으)려고 해요. 만들다 → 통장을 만들려고 해요 = 'I intend to open an account.'\"\n        }\n      },\n      \"dialog\": [\n        {\n          \"speaker\": \"user\",\n          \"ko\": \"통장을 만들려고 해요.\",\n          \"de\": \"Ich möchte ein Konto eröffnen.\",\n          \"en\": \"I'd like to open an account.\"\n        },\n        {\n          \"speaker\": \"minsu\",\n          \"ko\": \"신분증 가지고 오셨어요?\",\n          \"de\": \"Haben Sie einen Ausweis dabei?\",\n          \"en\": \"Did you bring an ID?\"\n        },\n        {\n          \"speaker\": \"user\",\n          \"ko\": \"네, 여권 여기 있어요.\",\n          \"de\": \"Ja, hier ist mein Reisepass.\",\n          \"en\": \"Yes, here's my passport.\"\n        },\n        {\n          \"speaker\": \"minsu\",\n          \"ko\": \"이 신청서를 작성해 주세요.\",\n          \"de\": \"Bitte füllen Sie dieses Formular aus.\",\n          \"en\": \"Please fill out this form.\"\n        },\n        {\n          \"speaker\": \"user\",\n          \"ko\": \"체크카드도 만들 수 있어요?\",\n          \"de\": \"Kann ich auch eine Debitkarte bekommen?\",\n          \"en\": \"Can I get a debit card too?\"\n        },\n        {\n          \"speaker\": \"minsu\",\n          \"ko\": \"네, 비밀번호를 정해 주세요.\",\n          \"de\": \"Ja, bitte legen Sie eine PIN fest.\",\n          \"en\": \"Yes, please set a PIN.\"\n        }\n      ],\n      \"quests\": [\n        {\n          \"type\": \"hoerverstehen\",\n          \"data\": {\n            \"audioKo\": \"신분증 가지고 오셨어요?\",\n            \"options\": [\n              {\n                \"de\": \"Haben Sie einen Ausweis dabei?\",\n                \"en\": \"Did you bring an ID?\"\n              },\n              {\n                \"de\": \"Möchten Sie eine Karte?\",\n                \"en\": \"Would you like a card?\"\n              },\n              {\n                \"de\": \"Wie viel möchten Sie einzahlen?\",\n                \"en\": \"How much would you like to deposit?\"\n              },\n              {\n                \"de\": \"Füllen Sie das Formular aus.\",\n                \"en\": \"Fill out the form.\"\n              }\n            ],\n            \"correctIndex\": 0\n          }\n        },\n        {\n          \"type\": \"uebersetzen\",\n          \"data\": {\n            \"promptDe\": \"Ich möchte ein Konto eröffnen.\",\n            \"promptEn\": \"I'd like to open an account.\",\n            \"options\": [\n              {\n                \"ko\": \"통장을 만들려고 해요.\"\n              },\n              {\n                \"ko\": \"통장이 없어요.\"\n              },\n              {\n                \"ko\": \"통장이 어디예요?\"\n              },\n              {\n                \"ko\": \"통장을 닫고 싶어요.\"\n              }\n            ],\n            \"correctIndex\": 0\n          }\n        },\n        {\n          \"type\": \"particlePop\",\n          \"data\": {\n            \"prefix\": \"통장\",\n            \"suffix\": \" 만들려고 해요.\",\n            \"options\": [\n              \"을\",\n              \"를\",\n              \"이\",\n              \"가\",\n              \"로\",\n              \"에\"\n            ],\n            \"correctIndex\": 0,\n            \"explanationDe\": \"통장 endet auf Konsonant (ㅇ) → Objektpartikel 을.\",\n            \"explanationEn\": \"통장 ends in a consonant (ㅇ) → object particle 을.\"\n          }\n        }\n      ],\n      \"culturalNote\": {\n        \"title\": {\n          \"ko\": \"은행 계좌 개설\",\n          \"de\": \"Ein Bankkonto eröffnen\",\n          \"en\": \"Opening a bank account\"\n        },\n        \"body\": {\n          \"ko\": \"\",\n          \"de\": \"Ausländer brauchen meist Reisepass + ARC (외국인등록증). Überweisungen laufen per App; Online-Banking verlangt oft zusätzliche Verifizierung. Bei Andrang: Nummer ziehen.\",\n          \"en\": \"Foreigners usually need a passport + ARC. Transfers happen via app; online banking often needs extra verification. When busy: pull a number.\"\n        }\n      },\n      \"shelf\": \"b1_bill\",\n      \"backdrop\": \"bank\"\n    }",
+      "original_record_bytes": 6495,
+      "original_record_sha256": "cdd3c94f99d78d086554a2098102f3e98fe920a4a21f13aefe5d522c430642d3",
+      "original_blob_byte_start": 58012,
+      "original_blob_byte_end_exclusive": 64507,
+      "parsed_record_sha256": "a94ca9fc52f6298f8bf99158c91bc62c507aecc1fedcf7d85add79752fcc0f5f",
+      "current_same_unit_variants": [
+        {
+          "id": "shared_document_old_version",
+          "level": "b1",
+          "courseUnitId": "b1_03_work_softening",
+          "record_sha256": "a148bc7f3248e154da2f568da94c013400567a023365bf3dcf31c158d79fbba6",
+          "status": "current_same_unit_variant; not a declared identity replacement"
+        },
+        {
+          "id": "community_festival_shift",
+          "level": "b1",
+          "courseUnitId": "b1_03_work_softening",
+          "record_sha256": "00d98413c63dd95fd59c5b7f3ab71052042c57ce6f27b677157386a0cc6e1e8b",
+          "status": "current_same_unit_variant; not a declared identity replacement"
+        },
+        {
+          "id": "company_instagram_wrong_account",
+          "level": "b1",
+          "courseUnitId": "b1_03_work_softening",
+          "record_sha256": "f6c5db76dd2db2b36c5419a69196c7a8da217df6e8130f3c7c6cafa3e3754ca6",
+          "status": "current_same_unit_variant; not a declared identity replacement"
+        },
+        {
+          "id": "work_message_too_direct",
+          "level": "b1",
+          "courseUnitId": "b1_03_work_softening",
+          "record_sha256": "3d1014e1f57feaf4934409b2f5e0aff70f43f18c0dfe3c78ef33bf2e5ba0abc4",
+          "status": "current_same_unit_variant; not a declared identity replacement"
+        },
+        {
+          "id": "b1_team_briefing_revised_schedule_2026",
+          "level": "b1",
+          "courseUnitId": "b1_03_work_softening",
+          "record_sha256": "2ade62c88667ff61c073c242e27e7c1a1f61ee51b1748bad2c55db8ea18fcddc",
+          "status": "current_same_unit_variant; not a declared identity replacement"
+        }
+      ],
+      "current_analogous_variant": {
+        "id": "a2_w10_money",
+        "level": "a2",
+        "courseUnitId": "a2_08_home_money",
+        "record_sha256": "823b50b998f5f7e0898c1d8a4bb280dc1358522b20f76195486b75c12e0987d9",
+        "status": "same banking theme at A2; different level/unit; no alias or replacement authority"
+      },
+      "current_runtime_ID_literal_evidence": [],
+      "resolution_status": "historical_source_preserved; current canonical reference unresolved; no declared replacement/alias",
+      "action": "Course/authority owner must review restoration, explicit lineage migration, or an archived authority. Preserve old saved IDs/revisions; never infer current lesson coverage, remap B1 evidence to A2, or grant assessment from a thematic match."
+    }
+  ],
+  "context_revision_records": [
+    {
+      "id": "invite_friend",
+      "revision": 1,
+      "source_id": "git:a1d798bda6a36ff4dd95faa16e14484ad7b1a2f5:assets/data/smalltalk_context_cases.json",
+      "historical_uid": "git:a1d798bda6a36ff4dd95faa16e14484ad7b1a2f5:assets/data/smalltalk_context_cases.json#/cases/0",
+      "source_commit": "a1d798bda6a36ff4dd95faa16e14484ad7b1a2f5",
+      "original_record_utf8": "{\n      \"id\": \"invite_friend\",\n      \"revision\": 1,\n      \"level\": \"a1\",\n      \"topic\": \"invite\",\n      \"title\": {\n        \"ko\": \"친구와 저녁 약속\",\n        \"de\": \"Mit Freunden verabreden\",\n        \"en\": \"Making dinner plans\"\n      },\n      \"sourcePhraseIds\": [],\n      \"base\": {\n        \"characterId\": \"christian\",\n        \"context\": {\n          \"ko\": \"크리스티안은 친한 친구예요. 둘이 편하게 메시지를 주고받고 있어요.\",\n          \"de\": \"Christian ist ein guter Freund. Ihr schreibt euch privat und ungezwungen.\",\n          \"en\": \"Christian is a close friend. You are messaging each other casually.\"\n        },\n        \"prompt\": {\n          \"ko\": \"오늘 저녁에 시간 있어?\",\n          \"de\": \"Hast du heute Abend Zeit?\",\n          \"en\": \"Are you free this evening?\"\n        }\n      },\n      \"transfer\": {\n        \"characterId\": \"maya\",\n        \"context\": {\n          \"ko\": \"마야도 친한 친구예요. 수업 뒤 둘이 이야기해요. 오늘은 시간이 있지만, 먼저 용건을 알아보세요.\",\n          \"de\": \"Maya ist ebenfalls eine gute Freundin. Ihr redet nach dem Unterricht. Du hast Zeit, möchtest aber zuerst wissen, worum es geht.\",\n          \"en\": \"Maya is also a close friend. You are talking after class. You are free, but want to find out what she has in mind first.\"\n        },\n        \"prompt\": {\n          \"ko\": \"오늘 저녁에 시간 있어?\",\n          \"de\": \"Hast du heute Abend Zeit?\",\n          \"en\": \"Are you free this evening?\"\n        },\n        \"requiredIntentId\": \"ask\",\n        \"acceptedExpressionIds\": [\n          \"casual\"\n        ]\n      },\n      \"intents\": [\n        {\n          \"id\": \"accept\",\n          \"label\": {\n            \"ko\": \"만날 수 있다고 말하기\",\n            \"de\": \"Sagen, dass du Zeit hast\",\n            \"en\": \"Say you are available\"\n          },\n          \"expressions\": [\n            {\n              \"id\": \"casual\",\n              \"text\": {\n                \"ko\": \"응, 있어. 왜?\",\n                \"de\": \"Ja. Wieso?\",\n                \"en\": \"Yeah, I am. Why?\"\n              },\n              \"effect\": {\n                \"ko\": \"편하게 답하고 용건을 물어요. 친한 사이에서는 짧아도 무례한 답이 아니에요.\",\n                \"de\": \"Du sagst ungezwungen, dass du Zeit hast, und fragst nach dem Anlass. Unter guten Freunden ist die kurze Antwort nicht unhöflich.\",\n                \"en\": \"You answer casually and ask what it is about. A short reply can be friendly between close friends.\"\n              },\n              \"grammarValid\": true,\n              \"partnerReply\": {\n                \"ko\": \"같이 저녁 먹을래?\",\n                \"de\": \"Wollen wir zusammen essen?\",\n                \"en\": \"Want to get dinner together?\"\n              },\n              \"followUp\": {\n                \"ko\": \"좋아. 몇 시에 만날까?\",\n                \"de\": \"Gerne. Wann treffen wir uns?\",\n                \"en\": \"Sure. What time shall we meet?\"\n              }\n            },\n            {\n              \"id\": \"playful\",\n              \"text\": {\n                \"ko\": \"네, 시간이 있습니다.\",\n                \"de\": \"Ja, ich stehe zur Verfügung.\",\n                \"en\": \"Yes, I am available.\"\n              },\n              \"effect\": {\n                \"ko\": \"문법은 맞아요. 평소 반말을 쓰는 친구에게 갑자기 격식을 차리면 장난처럼 들릴 수 있어요. 억양에 따라 거리감도 생길 수 있어요.\",\n                \"de\": \"Grammatisch stimmt der Satz. Wenn ihr sonst locker redet, kann die plötzliche Förmlichkeit scherzhaft wirken. Je nach Ton kann sie auch Distanz schaffen.\",\n                \"en\": \"The grammar is correct. Sudden formality with a friend you usually speak casually to can sound playful. Depending on your tone, it may also create distance.\"\n              },\n              \"grammarValid\": true,\n              \"partnerReply\": {\n                \"ko\": \"같이 저녁 먹을래?\",\n                \"de\": \"Wollen wir zusammen essen?\",\n                \"en\": \"Want to get dinner together?\"\n              },\n              \"followUp\": {\n                \"ko\": \"좋아. 몇 시에 만날까?\",\n                \"de\": \"Gerne. Wann treffen wir uns?\",\n                \"en\": \"Sure. What time shall we meet?\"\n              }\n            }\n          ]\n        },\n        {\n          \"id\": \"ask\",\n          \"label\": {\n            \"ko\": \"먼저 용건 알아보기\",\n            \"de\": \"Erst nachfragen\",\n            \"en\": \"Ask what it is about first\"\n          },\n          \"expressions\": [\n            {\n              \"id\": \"what\",\n              \"text\": {\n                \"ko\": \"무슨 일인데?\",\n                \"de\": \"Worum geht’s denn?\",\n                \"en\": \"What is it about?\"\n              },\n              \"effect\": {\n                \"ko\": \"약속하기 전에 용건을 물어요. 말끝을 세게 하면 따지는 느낌도 날 수 있어요.\",\n                \"de\": \"Du fragst nach, bevor du zusagst. Mit scharfem Ton kann die Frage vorwurfsvoll wirken.\",\n                \"en\": \"You ask before committing. A sharp tone could make it sound confrontational.\"\n              },\n              \"grammarValid\": true,\n              \"partnerReply\": {\n                \"ko\": \"같이 저녁 먹으려고.\",\n                \"de\": \"Ich wollte mit dir essen gehen.\",\n                \"en\": \"I was thinking of getting dinner together.\"\n              },\n              \"followUp\": {\n                \"ko\": \"좋아. 같이 먹자.\",\n                \"de\": \"Gerne, lass uns zusammen essen.\",\n                \"en\": \"Sure. Let’s eat together.\"\n              }\n            },\n            {\n              \"id\": \"plan\",\n              \"text\": {\n                \"ko\": \"뭐 하려고?\",\n                \"de\": \"Was hast du vor?\",\n                \"en\": \"What are you planning?\"\n              },\n              \"effect\": {\n                \"ko\": \"상대의 계획에 관심을 보여요. 아직 만남을 확정하는 말은 아니에요.\",\n                \"de\": \"Du zeigst Interesse am Plan. Eine feste Zusage ist das noch nicht.\",\n                \"en\": \"You show interest in the plan. You have not agreed to meet yet.\"\n              },\n              \"grammarValid\": true,\n              \"partnerReply\": {\n                \"ko\": \"같이 저녁 먹으려고.\",\n                \"de\": \"Ich wollte mit dir essen gehen.\",\n                \"en\": \"I was thinking of getting dinner together.\"\n              },\n              \"followUp\": {\n                \"ko\": \"좋아. 같이 먹자.\",\n                \"de\": \"Gerne, lass uns zusammen essen.\",\n                \"en\": \"Sure. Let’s eat together.\"\n              }\n            }\n          ]\n        }\n      ]\n    }",
+      "original_record_bytes": 6699,
+      "original_record_sha256": "4b586ba848a89f8bf2d2a849b4acaf15ed1da1c2bbd959ea57dbab7e3d3f5f64",
+      "original_blob_byte_start": 111,
+      "original_blob_byte_end_exclusive": 6810,
+      "parsed_record_sha256": "adc2a32735ee73e5374aa097f0637c83c774f2f009b3ec2d9458e41cd53eeeef",
+      "status": "historical_revision_not_current"
+    }
+  ],
+  "legacy_reward_test_backup": {
+    "source_id": "handoff:legacy-bojagi-candidate-tests",
+    "backup_path": "C:/dev/hangulsori/_codex_artifacts/c-implementation-20261005/bojagi-screen-tests-before.dart",
+    "backup_sha256": "ee99235c4763d6e58217b2cfdca6e22f4c7420658c6e647d53284d9601ddf8f1",
+    "backup_bytes": 19760,
+    "current_test_source_id": "test/bojagi_screen_test.dart",
+    "current_test_sha256": "e327963d57676a97c0c25ca10b90ffb00c86a8317572e5845510348b6f884d40",
+    "status": "Previous candidate-selection UI tests retained in the owner's exact-byte backup. The approved current UI uses one item; preserved history is not a requirement to restore three-choice UI.",
+    "automation_status": "test source receipt only; test execution not inferred"
+  }
+}

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
 import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
+import '../models/companion_art.dart';
 import '../models/custom_pack.dart';
 import '../motion/transitions.dart';
 import '../services/custom_pack_corpus_resolver.dart';
@@ -18,12 +18,12 @@ import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 import 'chosung_quiz_screen.dart';
-import 'kkeunmari_screen.dart';
 import 'cloze_game_screen.dart';
 import 'custom_pack_matching_screen.dart';
 import 'custom_pack_play_screen.dart';
 import 'custom_pack_quiz_screen.dart';
 import 'custom_pack_typing_screen.dart';
+import 'kkeunmari_screen.dart';
 import 'pronunciation_studio_screen.dart';
 import 'satz_arcade_screen.dart';
 import 'scenarios_list_screen.dart';
@@ -152,7 +152,7 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
           padding: resolvedPadding,
           child: Center(
             child: SoriEmptyState(
-              asset: 'assets/illustrations/mascot/tiger_front.png',
+              asset: CompanionArt.taego,
               icon: Icons.help_outline,
               title: t.customPackNotFoundTitle,
               body: t.customPackNotFoundBody,

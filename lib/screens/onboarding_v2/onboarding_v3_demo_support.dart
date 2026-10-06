@@ -9,6 +9,8 @@ import '../../l10n/generated/app_localizations.dart';
 import '../../models/learner_level.dart';
 import '../../widgets/app_loading.dart';
 import '../../widgets/sori/speakable.dart';
+import '../../widgets/sori/c_gallery/c_materials.dart';
+import '../../widgets/sori/pressable.dart';
 import '../../widgets/sori/tokens.dart';
 
 /// A bounded copy of the approved Sites examples, never learner state.
@@ -125,63 +127,68 @@ class DemoChoice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
     return Semantics(
+      button: true,
       selected: selected,
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(minHeight: 48, minWidth: 48),
-        child: OutlinedButton(
-          onPressed: onTap,
-          style: OutlinedButton.styleFrom(
-            minimumSize: const Size(48, 48),
-            padding: EdgeInsets.symmetric(
-              horizontal: dense ? 2 : 6,
-              vertical: dense ? 2 : 6,
+      enabled: onTap != null,
+      label: label,
+      child: SoriPressable(
+        onTap: onTap,
+        haptic: null,
+        pressScale: .99,
+        surfaceDepth: 3,
+        surfaceRadius: 9,
+        surfaceEdgeColor: selected ? CPalette.deepJade : CPalette.oakEdge,
+        child: Container(
+          constraints: const BoxConstraints(minHeight: 48, minWidth: 48),
+          decoration: BoxDecoration(
+            color: selected ? CPalette.jade : CPalette.paper,
+            borderRadius: BorderRadius.circular(9),
+            border: Border.all(
+              color: selected ? CPalette.brass : const Color(0xffcdbb9a),
             ),
-            backgroundColor: selected ? SoriColors.primaryDark : colors.surface,
-            foregroundColor: selected
-                ? SoriColors.contentCtaOn
-                : colors.onSurface,
-            side: BorderSide(
-              color: selected ? colors.primary : colors.outlineVariant,
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(SoriRadius.sm),
-            ),
+            boxShadow: const [
+              BoxShadow(
+                color: Color(0x220e251d),
+                offset: Offset(0, 2),
+                blurRadius: 2,
+              ),
+            ],
           ),
-          child: icon == null
-              ? Text(
-                  label,
-                  textAlign: TextAlign.center,
-                  locale: korean ? const Locale('ko') : null,
-                  style:
-                      (korean
-                              ? SoriTextTheme.of(context).koDisplay
-                              : SoriTextTheme.of(context).label)
-                          .copyWith(
-                            fontSize: korean
-                                ? (dense ? 17 : 21)
-                                : fontSize ?? 13,
-                            height: 1.15,
-                            color: selected
-                                ? SoriColors.contentCtaOn
-                                : colors.onSurface,
-                          ),
-                )
-              : Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(icon, size: 18),
-                    const SizedBox(width: 4),
-                    Flexible(
-                      child: Text(
-                        label,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(fontSize: 13, height: 1.15),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Positioned.fill(
+                  child: CTexture(
+                    selected ? CMaterial.jade : CMaterial.paper,
+                    opacity: .65,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: dense ? 2 : 6,
+                    vertical: 6,
+                  ),
+                  child: ExcludeSemantics(
+                    child: Text(
+                      label,
+                      textAlign: TextAlign.center,
+                      locale: korean ? const Locale('ko') : null,
+                      style: TextStyle(
+                        fontFamily: korean ? 'NotoSansKR' : 'Paperlogy',
+                        fontSize: korean ? (dense ? 17 : 21) : fontSize ?? 13,
+                        height: 1.15,
+                        fontWeight: FontWeight.w600,
+                        color: selected ? CPalette.paper : CPalette.ink,
                       ),
                     ),
-                  ],
+                  ),
                 ),
+              ],
+            ),
+          ),
         ),
       ),
     );

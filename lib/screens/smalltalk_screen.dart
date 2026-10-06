@@ -1,19 +1,21 @@
-import '../services/learning_journey.dart';
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
-
 import '../features/study_library/study_library_models.dart';
 import '../l10n/generated/app_localizations.dart';
-import '../models/course_practice_context.dart';
+import '../models/companion_art.dart';
 import '../models/course_mission_step_plan.dart';
+import '../models/course_practice_context.dart';
 import '../models/curriculum.dart';
 import '../models/smalltalk.dart';
 import '../services/analytics_service.dart';
 import '../services/course_activity_reporter.dart';
 import '../services/course_checkpoint_questions.dart';
 import '../services/curriculum_catalog.dart';
+import '../services/custom_pack_service.dart';
+import '../services/learning_journey.dart';
+import '../services/liked_content_service.dart';
+import '../services/local_data_lifetime.dart';
 import '../services/personalized_lesson_service.dart';
 import '../services/smalltalk_loader.dart';
 import '../services/storage_service.dart';
@@ -21,19 +23,16 @@ import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
-import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/confirmed_choice_action.dart';
-import '../services/custom_pack_service.dart';
-import '../services/liked_content_service.dart';
-import '../services/local_data_lifetime.dart';
+import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/ko_wrap.dart';
 import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
-import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/speakable.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
@@ -431,7 +430,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
           ? AppError(message: t.courseMissionLoadError, onRetry: _retryLoad)
           : _visibleCategories.isEmpty
           ? SoriEmptyState(
-              asset: 'assets/illustrations/mascot/magpie_encourage.png',
+              asset: CompanionArt.joyGuide,
               icon: Icons.chat_bubble_outline_rounded,
               title: t.smalltalkTitle,
               body: SmalltalkLoader.lastError ?? t.smalltalkEmpty,
@@ -1134,7 +1133,6 @@ class _PhraseCardState extends State<_PhraseCard> {
                               ),
                               child: SoriButton.outlined(
                                 label: option.labelFor(lang),
-                                textRole: SoriButtonTextRole.learning,
                                 fullWidth: true,
                                 accent:
                                     _submittedRelationshipContext != null &&

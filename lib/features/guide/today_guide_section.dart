@@ -14,9 +14,14 @@ import 'today_guide_checklist_card.dart';
 /// Self-contained optional Today surface. Closing it changes presentation
 /// only; the permanent `/guide` hub and per-topic completion remain intact.
 class TodayGuideChecklistSection extends StatefulWidget {
-  const TodayGuideChecklistSection({super.key, this.progressService});
+  const TodayGuideChecklistSection({
+    super.key,
+    this.progressService,
+    this.conceptC = false,
+  });
 
   final GuideProgressService? progressService;
+  final bool conceptC;
 
   @override
   State<TodayGuideChecklistSection> createState() =>
@@ -167,6 +172,7 @@ class _TodayGuideChecklistSectionState
         .length;
     final t = AppL10n.of(context);
     return TodayGuideChecklistCard(
+      conceptC: widget.conceptC,
       copy: todayGuideChecklistCopy(
         t,
         completed: completed,

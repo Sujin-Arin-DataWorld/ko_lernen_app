@@ -6,6 +6,8 @@ import '../../widgets/sori/button.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/pressable.dart';
 import '../../widgets/sori/tokens.dart';
+import '../../widgets/sori/c_gallery/c_materials.dart';
+import '../../widgets/sori/c_gallery/c_objects.dart';
 import 'guide_presentation.dart';
 
 class TodayGuideChecklistCard extends StatefulWidget {
@@ -17,6 +19,7 @@ class TodayGuideChecklistCard extends StatefulWidget {
     required this.onDismiss,
     required this.onDestinationRequested,
     this.onNonLiveTopicRequested,
+    this.conceptC = false,
   });
 
   final TodayGuideChecklistCopy copy;
@@ -25,6 +28,7 @@ class TodayGuideChecklistCard extends StatefulWidget {
   final VoidCallback onDismiss;
   final GuideTopicCallback onDestinationRequested;
   final GuideTopicCallback? onNonLiveTopicRequested;
+  final bool conceptC;
 
   @override
   State<TodayGuideChecklistCard> createState() =>
@@ -43,6 +47,62 @@ class _TodayGuideChecklistCardState extends State<TodayGuideChecklistCard> {
     final t = AppL10n.of(context);
     final textTheme = SoriTextTheme.of(context);
     final surfaces = SoriSurfaces.of(context);
+    if (widget.conceptC) {
+      return CPaperPanel(
+        key: const ValueKey('today-guide-checklist-card'),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Semantics(
+              header: true,
+              child: Text(copy.title, style: cMaterialText(textTheme.h3)),
+            ),
+            const SizedBox(height: 10),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                CMaterialAction(
+                  key: const ValueKey('today-guide-expand'),
+                  label: _expanded ? t.todayGuideCollapse : t.todayGuideExpand,
+                  compact: true,
+                  gold: false,
+                  onTap: () => setState(() => _expanded = !_expanded),
+                ),
+                CMaterialAction(
+                  key: const ValueKey('today-guide-dismiss'),
+                  label: copy.dismissLabel,
+                  compact: true,
+                  onTap: widget.onDismiss,
+                ),
+              ],
+            ),
+            if (_expanded) ...[
+              const SizedBox(height: 12),
+              Text(copy.progressLabel, style: cMaterialText(textTheme.label)),
+            ],
+            for (final topic in visible)
+              _ChecklistTopicRow(
+                conceptC: true,
+                topic: topic,
+                completedLabel: copy.completedLabel,
+                onActivate: guideTopicActivation(
+                  topic: topic.spec,
+                  onLiveTopicRequested: widget.onDestinationRequested,
+                  onNonLiveTopicRequested: widget.onNonLiveTopicRequested,
+                ),
+              ),
+            if (_expanded)
+              CMaterialAction(
+                key: const ValueKey('today-guide-open-hub'),
+                label: copy.openGuideLabel,
+                gold: false,
+                onTap: widget.onOpenGuide,
+              ),
+          ],
+        ),
+      );
+    }
     return SoriCard(
       key: const ValueKey('today-guide-checklist-card'),
       variant: SoriCardVariant.compact,
@@ -121,11 +181,13 @@ class _ChecklistTopicRow extends StatelessWidget {
     required this.topic,
     required this.completedLabel,
     required this.onActivate,
+    this.conceptC = false,
   });
 
   final GuideTopicViewModel topic;
   final String completedLabel;
   final GuideTopicCallback? onActivate;
+  final bool conceptC;
 
   @override
   Widget build(BuildContext context) {
@@ -137,38 +199,51 @@ class _ChecklistTopicRow extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: Spacing.sm),
         child: Row(
           children: [
-            Icon(
-              topic.isCompleted
-                  ? Icons.check_circle_rounded
-                  : _checklistIcon(topic.spec.availability),
-              color: topic.isCompleted
-                  ? SoriColors.success
-                  : _checklistColor(topic.spec.availability, surfaces),
-              size: 24,
-            ),
+            if (conceptC)
+              CWaxSeal(active: topic.isCompleted, size: 28)
+            else
+              Icon(
+                topic.isCompleted
+                    ? Icons.check_circle_rounded
+                    : _checklistIcon(topic.spec.availability),
+                color: topic.isCompleted
+                    ? SoriColors.success
+                    : _checklistColor(topic.spec.availability, surfaces),
+                size: 24,
+              ),
             const SizedBox(width: Spacing.md),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(topic.title, style: textTheme.body),
+                  Text(
+                    topic.title,
+                    style: conceptC
+                        ? cMaterialText(textTheme.body)
+                        : textTheme.body,
+                  ),
                   const SizedBox(height: Spacing.xs),
                   Text(
                     topic.isCompleted
                         ? completedLabel
                         : topic.availabilityLabel,
-                    style: textTheme.caption,
+                    style: conceptC
+                        ? cMaterialText(textTheme.caption)
+                        : textTheme.caption,
                   ),
                 ],
               ),
             ),
             if (onActivate != null) ...[
               const SizedBox(width: Spacing.sm),
-              Icon(
-                Icons.arrow_forward_ios_rounded,
-                size: 18,
-                color: surfaces.textMuted,
-              ),
+              if (conceptC)
+                const CArrow(dark: true)
+              else
+                Icon(
+                  Icons.arrow_forward_ios_rounded,
+                  size: 18,
+                  color: surfaces.textMuted,
+                ),
             ],
           ],
         ),

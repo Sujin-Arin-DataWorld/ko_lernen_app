@@ -8,7 +8,6 @@ import 'practice_dokkaebi_clip.dart';
 import 'practice_dokkaebi_introduction.dart';
 import 'practice_motion.dart';
 import 'sori/pressable.dart';
-import 'sori/sheet.dart';
 import 'sori/tokens.dart';
 
 class PracticeDokkaebiHelp extends StatelessWidget {
@@ -223,13 +222,12 @@ class _DokkaebiStageState extends State<_DokkaebiStage>
 }
 
 /// Explicitly opened introduction: it never requests a hint or writes a result.
-Future<void> showPracticeDokkaebiIntroduction(BuildContext context) {
-  return showSoriSheet<void>(
-    context: context,
-    scrollable: false,
-    maxTextScaleFactor: 2,
-    builder: (context) =>
-        const PracticeDokkaebiIntroduction(paddedBySheet: true),
+Future<void> showPracticeDokkaebiIntroduction(BuildContext context) async {
+  await Navigator.of(context).push<void>(
+    MaterialPageRoute<void>(
+      settings: const RouteSettings(name: '/games/dokkaebi-introduction'),
+      builder: (_) => const PracticeDokkaebiIntroduction(),
+    ),
   );
 }
 
@@ -241,79 +239,32 @@ class PracticeDokkaebiFireAction extends StatelessWidget {
       const PracticeViewportGate(child: _FireAction());
 }
 
-class _FireAction extends StatefulWidget {
+class _FireAction extends StatelessWidget {
   const _FireAction();
-  @override
-  State<_FireAction> createState() => _FireActionState();
-}
-
-class _FireActionState extends State<_FireAction>
-    with SingleTickerProviderStateMixin {
-  late final _orbit = AnimationController(
-    vsync: this,
-    duration: const Duration(seconds: 6),
-  );
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    if (TickerMode.valuesOf(context).enabled) {
-      if (!_orbit.isAnimating) _orbit.repeat();
-    } else {
-      _orbit.stop();
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
     final label = AppL10n.of(context).practiceDokkaebiMeet;
-    void open() => showPracticeDokkaebiIntroduction(context);
-    return Tooltip(
-      // The action already owns its label. Exclude the visible popup text too,
-      // otherwise Flutter web appends it to the button name through aria-owns.
-      richMessage: TextSpan(
-        children: [WidgetSpan(child: ExcludeSemantics(child: Text(label)))],
-      ),
-      excludeFromSemantics: true,
-      ignorePointer: true,
-      child: Semantics(
-        label: label,
-        button: true,
-        onTap: open,
+    return Semantics(
+      label: label,
+      button: true,
+      child: SoriPressable(
+        key: const ValueKey('dokkaebi-introduction'),
+        onTap: () => showPracticeDokkaebiIntroduction(context),
         child: ExcludeSemantics(
-          child: SoriPressable(
-            key: const ValueKey('dokkaebi-introduction'),
-            pressScale: 1,
-            onTap: open,
-            child: SizedBox.square(
-              dimension: 48,
-              child: Center(
-                child: AnimatedBuilder(
-                  animation: _orbit,
-                  child: Image.asset(
-                    'assets/illustrations/decorations/decoration_dokkaebi_fire.png',
-                    width: 28,
-                    height: 28,
-                    cacheWidth: 128,
-                    excludeFromSemantics: true,
-                  ),
-                  builder: (context, child) => Transform.translate(
-                    offset: TickerMode.valuesOf(context).enabled
-                        ? Offset(0, math.sin(_orbit.value * math.pi * 2) * 2)
-                        : Offset.zero,
-                    child: child,
-                  ),
-                ),
+          child: SizedBox.square(
+            dimension: 48,
+            child: Center(
+              child: Image.asset(
+                'assets/illustrations/decorations/decoration_dokkaebi_fire.png',
+                width: 28,
+                height: 28,
+                fit: BoxFit.contain,
               ),
             ),
           ),
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _orbit.dispose();
-    super.dispose();
   }
 }

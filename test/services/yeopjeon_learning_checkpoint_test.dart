@@ -9,6 +9,8 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/yeopjeon_learning_checkpoint.dart';
 import 'package:ko_lernen_app/services/yeopjeon_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
+import '../support/reward_preferences_platform.dart';
 
 final class _HeldRead implements PreferenceStringStore {
   _HeldRead(this.raw);
@@ -90,6 +92,62 @@ void main() {
       final retried = await checkpoint.settle();
       expect(retried.encode(), paid.encode());
       expect(await YeopjeonService.captureBackupJson(), paid.encode());
+    },
+  );
+  test(
+    'unconfirmed course payout retains pending sources until a durable retry succeeds',
+    () async {
+      final original = SharedPreferencesStorePlatform.instance;
+      addTearDown(() {
+        SharedPreferencesStorePlatform.instance = original;
+        SharedPreferences.resetStatic();
+      });
+      final catalog = await CurriculumCatalog.load();
+      final units = catalog.courseUnits.where((u) => u.level == 'a1').toList()
+        ..sort((a, b) => a.order.compareTo(b.order));
+      final before = CourseMasterySnapshot(
+        curriculumGeneration: catalog.scenarioCorpusGeneration,
+        placementLevel: 'a1',
+        currentCourseUnitId: units.first.id,
+      );
+      final native = RewardPreferencesPlatform();
+      native.values[Storage.yeopjeonWalletPreferenceKey] =
+          YeopjeonWallet.grandfather(sarangchaeStage: 0, b2Stage: 0).encode();
+      native.values[Storage.courseMasterySnapshotPreferenceKey] = jsonEncode(
+        before.toJson(),
+      );
+      SharedPreferencesStorePlatform.instance = native;
+      SharedPreferences.resetStatic();
+      await Storage.init();
+      final checkpoint = await YeopjeonLearningCheckpoint.capture();
+      await Storage.setCourseMasterySnapshotRawJson(
+        jsonEncode(
+          CourseMasterySnapshot(
+            curriculumGeneration: catalog.scenarioCorpusGeneration,
+            placementLevel: 'a1',
+            currentCourseUnitId: units[1].id,
+            completedUnitIds: [units.first.id],
+          ).toJson(),
+        ),
+      );
+      native.rejectKey = Storage.yeopjeonWalletPreferenceKey;
+      await expectLater(
+        checkpoint.settle(),
+        throwsA(isA<PreferenceWriteException>()),
+      );
+      expect(
+        checkpoint.pendingReward?.sourceIds,
+        contains('unit:${units.first.id}'),
+      );
+      expect(checkpoint.rewardMoments, isEmpty);
+      expect(Storage.courseMasterySnapshotRawJson, contains(units.first.id));
+      native.rejectKey = null;
+      final result = await YeopjeonService.recoverConfirmedLearningRewards();
+      expect(result.amount, greaterThanOrEqualTo(20));
+      await checkpoint.settle();
+      expect(checkpoint.pendingReward, isNull);
+      final wallet = await YeopjeonService.loadCurrent();
+      expect(wallet.completedSourceIds, contains('unit:${units.first.id}'));
     },
   );
 }

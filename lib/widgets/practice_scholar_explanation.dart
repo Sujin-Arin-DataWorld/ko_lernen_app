@@ -104,7 +104,9 @@ class _PracticeScholarExplanationState
           header: true,
           child: Text(
             t.practiceEffect,
-            style: SoriTextTheme.of(context).menuItem,
+            style: SoriTextTheme.of(
+              context,
+            ).h3.copyWith(fontFamily: 'Paperlogy'),
           ),
         ),
       ],

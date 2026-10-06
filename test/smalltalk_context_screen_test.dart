@@ -1,3 +1,5 @@
+import 'dart:ui' as ui;
+
 import 'package:ko_lernen_app/widgets/practice_dokkaebi_art.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -12,6 +14,7 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/practice_motion.dart';
+import 'package:ko_lernen_app/widgets/smalltalk_practice_entry.dart';
 import 'support/real_fonts.dart';
 import 'support/sori_speech_stubs.dart';
 import 'support/sori_stage_pump.dart';
@@ -24,6 +27,82 @@ void main() {
     await Storage.init();
     stubSoriSpeech();
   });
+  for (final language in ['de', 'en']) {
+    testWidgets(
+      '$language practice entry and case announce once and retain typed navigation',
+      (tester) async {
+        final semantics = tester.ensureSemantics();
+        final cases = await tester.runAsync(SmalltalkContextCatalog.load);
+        RouteSettings? opened;
+        await tester.pumpWidget(
+          MaterialApp(
+            locale: Locale(language),
+            theme: AppTheme.light,
+            localizationsDelegates: AppL10n.localizationsDelegates,
+            supportedLocales: AppL10n.supportedLocales,
+            home: const Scaffold(body: SmalltalkPracticeEntry(level: 'A1')),
+            onGenerateRoute: (settings) {
+              opened = settings;
+              return MaterialPageRoute<void>(
+                settings: settings,
+                builder: (_) => SmalltalkContextScreen(
+                  request: settings.arguments! as SmalltalkContextRequest,
+                  loadCases: () async => cases!,
+                ),
+              );
+            },
+          ),
+        );
+        final entry = find.byKey(const ValueKey('smalltalk-context-entry'));
+        final t = AppL10n.of(tester.element(entry));
+        final entryNode = tester.getSemantics(entry);
+        final entryData = entryNode.getSemanticsData();
+        expect(entryData.label, t.practiceToneTitle);
+        expect(entryData.flagsCollection.isButton, isTrue);
+        expect(entryData.hasAction(ui.SemanticsAction.tap), isTrue);
+        entryNode.owner!.performAction(entryNode.id, ui.SemanticsAction.tap);
+        await pumpSoriStage(tester);
+        final chosen = cases!.firstWhere((c) => c.id == 'invite_friend');
+        final card = find.byKey(ValueKey('context-case-${chosen.id}'));
+        await pumpUntilFound(tester, card);
+        expect(opened!.name, '/smalltalk/context');
+        final request = opened!.arguments! as SmalltalkContextRequest;
+        expect(request.level, 'a1');
+        expect(request.caseId, isNull);
+        expect(request.transfer, isFalse);
+        expect(
+          tester
+              .widget<SmalltalkContextScreen>(
+                find.byType(SmalltalkContextScreen),
+              )
+              .request,
+          same(request),
+        );
+        await tester.ensureVisible(card);
+        await pumpSoriStage(tester);
+        final caseData = tester.getSemantics(card).getSemanticsData();
+        expect(
+          caseData.label.replaceAll(RegExp(r'\s+'), ' ').trim(),
+          '${chosen.level.toUpperCase()} ${chosen.title.pick(language)}',
+        );
+        expect(caseData.flagsCollection.isButton, isTrue);
+        expect(caseData.hasAction(ui.SemanticsAction.tap), isTrue);
+        semantics.dispose();
+        expect(PracticeHistoryStore.load().items, isEmpty);
+        await tester.tap(card);
+        await pumpUntilFound(
+          tester,
+          find.byKey(const ValueKey('context-intent-accept')),
+        );
+        final viewed = PracticeHistoryStore.load().items.single;
+        expect(viewed.source.key, chosen.source.key);
+        expect(viewed.assisted, isNull);
+        expect(viewed.independent, isNull);
+        expect(Storage.xp, 0);
+        expect(tester.takeException(), isNull);
+      },
+    );
+  }
   testWidgets(
     'token flight is decorative, cancellable and does not save a performance',
     (tester) async {

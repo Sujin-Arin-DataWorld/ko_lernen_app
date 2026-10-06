@@ -4,31 +4,34 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
-import 'package:ko_lernen_app/features/content_learning/content_learning_hub.dart';
 import 'package:ko_lernen_app/features/content_learning/content_learning_catalog.dart';
+import 'package:ko_lernen_app/features/content_learning/content_learning_hub.dart';
 import 'package:ko_lernen_app/features/content_learning/content_learning_models.dart';
 import 'package:ko_lernen_app/features/content_learning/content_learning_service.dart';
 import 'package:ko_lernen_app/features/content_learning/content_learning_widgets.dart';
 import 'package:ko_lernen_app/features/content_learning/content_lesson_screen.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/companion_art.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/models/smalltalk.dart';
 import 'package:ko_lernen_app/services/audio_policy.dart';
-import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/curriculum_catalog.dart';
-import 'package:ko_lernen_app/services/smalltalk_loader.dart';
 import 'package:ko_lernen_app/services/local_data_lifetime.dart';
+import 'package:ko_lernen_app/services/smalltalk_loader.dart';
+import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_loading.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 import 'package:ko_lernen_app/widgets/sori/motion.dart';
-import 'package:ko_lernen_app/widgets/sori/progress_meter.dart';
 import 'package:ko_lernen_app/widgets/sori/persona_portrait.dart';
+import 'package:ko_lernen_app/widgets/sori/progress_meter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
 import 'support/real_fonts.dart';
+import 'support/c_fonts.dart';
+import 'package:ko_lernen_app/widgets/sori/c_gallery/c_materials.dart';
 import 'support/reward_preferences_platform.dart';
 import 'support/sori_speech_stubs.dart';
 
@@ -154,6 +157,7 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   setUpAll(() async {
     await loadSoriRealFonts(materialIcons: true);
+    await loadCFonts();
     await SmalltalkLoader.load();
     // Production boot loads these before routes are opened. Keep asset I/O
     // outside widget fakeAsync; pumpAndSettle only waits for scheduled frames.
@@ -208,42 +212,50 @@ void main() {
     expect(ContentLearningService.activeDaily(), isEmpty);
     expect(tester.takeException(), isNull);
   });
-  testWidgets('open today card clears yesterday at midnight without writing', (
-    tester,
-  ) async {
-    var now = DateTime(2026, 9, 22, 23, 59, 59);
-    ContentLearningService.clock = () => now;
-    addTearDown(() => ContentLearningService.clock = DateTime.now);
-    await ContentLearningService.setGoal(_lesson.kind, 'a1', 1);
-    await ContentLearningService.startLesson(_lesson, [_lesson]);
-    final before = Storage.contentLearningRawJson;
-    await _pump(tester, const ContentDailyGoals());
-    expect(find.byType(ListTile), findsOneWidget);
-    now = DateTime(2026, 9, 23, 0, 0, 1);
-    await tester.pump(const Duration(seconds: 2));
-    expect(find.byType(ListTile), findsNothing);
-    expect(Storage.contentLearningRawJson, before);
-  });
-  testWidgets('corrupt progress shows retry instead of fresh progress', (
-    tester,
-  ) async {
-    Storage.resetForTesting();
-    SharedPreferences.setMockInitialValues({
-      Storage.contentLearningPreferenceKey: '{broken',
-    });
-    await Storage.init();
-    await _pump(tester, const ContentDailyGoals());
-    await tester.pumpAndSettle();
-    expect(find.byType(ContentLearningFailure), findsOneWidget);
-    expect(tester.takeException(), isNull);
-    await _pump(
-      tester,
-      const ContentGoalEditor(kind: LearningContentKind.smalltalk, level: 'a1'),
+  for (final conceptC in [false, true]) {
+    testWidgets(
+      'C=$conceptC open today card clears yesterday at midnight without writing',
+      (tester) async {
+        var now = DateTime(2026, 9, 22, 23, 59, 59);
+        ContentLearningService.clock = () => now;
+        addTearDown(() => ContentLearningService.clock = DateTime.now);
+        await ContentLearningService.setGoal(_lesson.kind, 'a1', 1);
+        await ContentLearningService.startLesson(_lesson, [_lesson]);
+        final before = Storage.contentLearningRawJson;
+        await _pump(tester, ContentDailyGoals(conceptC: conceptC));
+        final goalEntry = find.byType(conceptC ? CImageTap : ListTile);
+        expect(goalEntry, findsOneWidget);
+        now = DateTime(2026, 9, 23, 0, 0, 1);
+        await tester.pump(const Duration(seconds: 2));
+        expect(goalEntry, findsNothing);
+        expect(Storage.contentLearningRawJson, before);
+      },
     );
-    await tester.pumpAndSettle();
-    expect(find.byType(ContentLearningFailure), findsOneWidget);
-    expect(tester.takeException(), isNull);
-  });
+    testWidgets(
+      'C=$conceptC corrupt progress shows retry instead of fresh progress',
+      (tester) async {
+        Storage.resetForTesting();
+        SharedPreferences.setMockInitialValues({
+          Storage.contentLearningPreferenceKey: '{broken',
+        });
+        await Storage.init();
+        await _pump(tester, ContentDailyGoals(conceptC: conceptC));
+        await tester.pumpAndSettle();
+        expect(find.byType(ContentLearningFailure), findsOneWidget);
+        expect(tester.takeException(), isNull);
+        await _pump(
+          tester,
+          const ContentGoalEditor(
+            kind: LearningContentKind.smalltalk,
+            level: 'a1',
+          ),
+        );
+        await tester.pumpAndSettle();
+        expect(find.byType(ContentLearningFailure), findsOneWidget);
+        expect(tester.takeException(), isNull);
+      },
+    );
+  }
   for (final committed in [false, true]) {
     testWidgets(
       'unknown native write can retry on screen committed=$committed',
@@ -511,7 +523,12 @@ void main() {
       size: const Size(390, 844),
     );
     await tester.pumpAndSettle();
-    expect(find.byType(Mascot), findsOneWidget);
+    expect(
+      find.byKey(
+        const ValueKey('canonical-character-${CompanionArt.taegoSeated}'),
+      ),
+      findsOneWidget,
+    );
     expect(find.text('그렇군요.'), findsOneWidget);
     expect(find.text('요즘 어떻게 지내세요?'), findsNothing);
     await _tap(tester, find.text('Usage and alternatives'));
@@ -561,7 +578,10 @@ void main() {
     expect(stage, findsOneWidget);
     expect(tester.getRect(stage).top, lessThan(280));
     expect(find.byType(SoriProgressMeter), findsOneWidget);
-    expect(find.byType(Mascot), findsOneWidget);
+    expect(
+      find.byKey(const ValueKey('canonical-character-${CompanionArt.taego}')),
+      findsOneWidget,
+    );
     expect(find.text('Your turn'), findsOneWidget);
   });
   testWidgets('autoplay ignores a late completion after pause', (tester) async {
@@ -1134,12 +1154,39 @@ String _evidenceSize(Size size) => size.height == 1366
 
 void _expectBalancedAction(WidgetTester tester, String key, Size size) {
   final action = tester.getRect(find.byKey(ValueKey(key)));
-  expect(
-    action.center.dy,
-    greaterThan(size.height * .55),
-    reason:
-        'The primary action should follow the learning content in the lower viewport.',
-  );
+  // Material depth/font changes may move a short panel within its viewport.
+  // The actual contract is readable content followed by an unobstructed CTA.
+  final actionFinder = find.byKey(ValueKey(key));
+  final labels = find
+      .byType(Text)
+      .evaluate()
+      .where(
+        (element) => !find
+            .descendant(
+              of: actionFinder,
+              matching: find.byWidget(element.widget),
+            )
+            .evaluate()
+            .contains(element),
+      );
+  final preceding = labels
+      .map(
+        (element) => tester.getRect(
+          find.byElementPredicate((candidate) => identical(candidate, element)),
+        ),
+      )
+      .where(
+        (rect) => rect.top >= 80 && rect.top < action.top && rect.width > 0,
+      );
+  expect(preceding, isNotEmpty);
+  for (final rect in preceding) {
+    expect(
+      rect.bottom,
+      lessThanOrEqualTo(action.top),
+      reason:
+          'The primary action must not overlap its preceding learning text.',
+    );
+  }
   expect(action.bottom, lessThanOrEqualTo(size.height - 8));
   for (final scroll in tester.stateList<ScrollableState>(
     find.byType(Scrollable),

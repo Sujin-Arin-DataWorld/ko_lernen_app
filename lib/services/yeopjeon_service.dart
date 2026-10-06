@@ -3,6 +3,7 @@ import '../features/content_learning/content_learning_models.dart';
 import '../features/content_learning/content_learning_service.dart';
 import '../features/content_learning/content_learning_state.dart';
 import '../models/hanok_competence.dart';
+import '../models/yeopjeon_reward_moment.dart';
 import '../models/yeopjeon_wallet.dart';
 import 'course_mastery_service.dart';
 import 'curriculum_catalog.dart';
@@ -34,6 +35,7 @@ final class YeopjeonTransactionResult {
     required this.status,
     required this.amount,
     this.wallet,
+    this.confirmedClaimIds = const [],
   });
 
   final YeopjeonTransactionStatus status;
@@ -41,6 +43,35 @@ final class YeopjeonTransactionResult {
   /// Positive for a grant, negative for a confirmed purchase, otherwise zero.
   final int amount;
   final YeopjeonWallet? wallet;
+
+  /// Only claim IDs committed by this successful transaction.
+  final List<String> confirmedClaimIds;
+
+  YeopjeonRewardMoment? rewardMoment({
+    required YeopjeonRewardSource source,
+    DateTime? observedAt,
+  }) {
+    final confirmedWallet = wallet;
+    if (status != YeopjeonTransactionStatus.granted ||
+        amount <= 0 ||
+        confirmedWallet == null) {
+      return null;
+    }
+    final claims = <String, int>{
+      for (final id in confirmedClaimIds)
+        if ((confirmedWallet.claims[id] ?? 0) > 0)
+          id: confirmedWallet.claims[id]!,
+    };
+    if (claims.values.fold<int>(0, (sum, value) => sum + value) != amount) {
+      return null;
+    }
+    return YeopjeonRewardMoment(
+      claims: claims,
+      balance: confirmedWallet.balance,
+      source: source,
+      day: YeopjeonRewardMoment.dayKey(observedAt ?? DateTime.now()),
+    );
+  }
 
   bool get confirmed =>
       wallet != null &&
@@ -344,6 +375,7 @@ abstract final class YeopjeonService {
         status: YeopjeonTransactionStatus.granted,
         amount: 10,
         wallet: candidate,
+        confirmedClaimIds: List.unmodifiable([key]),
       );
     });
   });
@@ -463,6 +495,9 @@ abstract final class YeopjeonService {
             : YeopjeonTransactionStatus.noReward,
         amount: total,
         wallet: candidate,
+        confirmedClaimIds: List.unmodifiable(
+          claims.keys.where((key) => !wallet.claims.containsKey(key)),
+        ),
       );
     });
   });
@@ -631,6 +666,9 @@ abstract final class YeopjeonService {
           : YeopjeonTransactionStatus.noReward,
       amount: amount,
       wallet: candidate,
+      confirmedClaimIds: List.unmodifiable(
+        amount > 0 ? [amount == 20 ? first : second] : <String>[],
+      ),
     );
   }
 

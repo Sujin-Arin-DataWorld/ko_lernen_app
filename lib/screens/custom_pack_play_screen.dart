@@ -1,40 +1,40 @@
-import '../services/haptic_service.dart';
-import '../widgets/sori/study_evidence_recovery.dart';
 import 'dart:async';
-import '../services/learning_journey.dart';
 import 'package:flutter/material.dart';
-
 import '../data/hanja_lexicon.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
+import '../models/companion_art.dart';
 import '../models/custom_pack.dart';
 import '../models/feedback_completion.dart';
 import '../services/custom_pack_service.dart';
 import '../services/data_loader.dart';
-import '../services/saved_word_localization.dart';
+import '../services/haptic_service.dart';
 import '../services/korean_romanization.dart';
+import '../services/learning_journey.dart';
+import '../services/liked_content_service.dart';
+import '../services/saved_word_localization.dart';
 import '../services/storage_service.dart';
-import '../widgets/flip_card.dart';
 import '../widgets/flashcard_romanization_action.dart';
+import '../widgets/flip_card.dart';
 import '../widgets/managed_media_image.dart';
 import '../widgets/sori/button.dart';
-import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
-import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/confirmed_choice_action.dart';
-import '../widgets/sori/deck_coach.dart';
-import '../widgets/sori/content_share_recovery.dart';
-import '../services/liked_content_service.dart';
+import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/content_feedback_card.dart';
+import '../widgets/sori/content_share_recovery.dart';
+import '../widgets/sori/deck_coach.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/mascot.dart';
+import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/scroll_if_needed.dart';
-import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/speakable.dart';
+import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
@@ -357,7 +357,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
         title: t.customPackPlayTitle,
         child: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_front.png',
+            asset: CompanionArt.taego,
             icon: Icons.help_outline,
             title: t.customPackNotFoundTitle,
             body: t.customPackNotFoundBody,
@@ -373,7 +373,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
         title: t.customPackPlayTitle,
         child: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/magpie_encourage.png',
+            asset: CompanionArt.joyGuide,
             icon: Icons.style_outlined,
             title: t.customPackEmptyTitle,
             body: t.customPackEmptyBody,

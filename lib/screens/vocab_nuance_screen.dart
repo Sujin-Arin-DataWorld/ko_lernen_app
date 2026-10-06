@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
 import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
+import '../models/companion_art.dart';
 import '../services/custom_pack_service.dart';
 import '../services/sound_service.dart';
 import '../services/vocab_nuance_service.dart';
@@ -104,7 +104,7 @@ class _VocabNuanceScreenState extends State<VocabNuanceScreen> {
         title: t.vocabNotebookNuanceTitle,
         child: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_front.png',
+            asset: CompanionArt.taego,
             icon: Icons.help_outline,
             title: t.customPackNotFoundTitle,
             body: t.customPackNotFoundBody,
@@ -117,7 +117,7 @@ class _VocabNuanceScreenState extends State<VocabNuanceScreen> {
         title: t.vocabNotebookNuanceTitle,
         child: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_front.png',
+            asset: CompanionArt.taego,
             icon: Icons.compare_arrows_rounded,
             title: t.vocabNotebookNuanceEmptyTitle,
             body: t.vocabNotebookNuanceEmptyBody,

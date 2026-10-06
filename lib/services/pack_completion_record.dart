@@ -79,6 +79,16 @@ final class PackCompletionRecord {
     'kl_reward_claim_v1',
     'kl_course_mastery_v1',
   };
+  static const decorationReceiptKey = 'kl_decoration_reward_receipt_v1';
+
+  /// Native writes that must drain before reset/snapshot admission. This set
+  /// can grow without changing the exact persisted v1 completion-state schema.
+  static const nativeWriteKeys = <String>{
+    ...stateKeys,
+    decorationReceiptKey,
+    'kl_owned_decor',
+    'kl_decor_earned_at',
+  };
   static const writeOrder = <String>[
     packKey,
     ...courseKeys,

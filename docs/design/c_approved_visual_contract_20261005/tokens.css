@@ -1,0 +1,36 @@
+/* C approved geometry. dp becomes CSS px at 100%; sp uses rem for text scaling. */
+:root {
+  --c-main-gutter: 12px;
+  --c-card-padding: 12px;
+  --c-card-radius: 14px;
+  --c-board-radius: 18px;
+  --c-learn-card-gap: 10px;
+  --c-learn-card-padding: 8px;
+  --c-learn-card-artHeight: 76px;
+  --c-game-card-gap: 8px;
+  --c-game-card-padding: 6px;
+  --c-game-card-artHeight: 70px;
+  --c-tile-radius: 10px;
+  --c-tile-artToLabel: 4px;
+  --c-game-heroToTitle: 8px;
+  --c-game-titleToCta: 10px;
+  --c-game-ctaToCards: 12px;
+  --c-game-rowGap: 10px;
+  --c-cta-minHeight: 54px;
+  --c-cta-compactMinHeight: 48px;
+  --c-cta-radius: 9px;
+  --c-cta-paddingX: 12px;
+  --c-cta-paddingY: 10px;
+  --c-cta-depth: 4px;
+  --c-cta-border: 1.3px;
+  --c-cta-labelSize: 1.3125rem;
+  --c-cta-compactLabelSize: 1rem;
+  --c-cta-arrowWidth: 18px;
+  --c-cta-arrowHeight: 24px;
+  --c-navigation-height: 64px;
+  --c-intro-bodyGutter: 14px;
+  --c-intro-interestGap: 9px;
+  --c-intro-companionGap: 9px;
+  --c-intro-companionToGye: 14px;
+  --c-touch-min: 48px;
+}

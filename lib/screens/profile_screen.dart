@@ -1,35 +1,34 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
-
-import '../widgets/sori/section_header.dart';
-import '../widgets/sori/tokens.dart';
-import '../widgets/sori/mascot_preference.dart';
-import '../widgets/sori/card.dart';
-import '../widgets/sori/dialog.dart';
-import '../widgets/sori/button.dart';
-import '../widgets/sori/mascot.dart';
-import '../widgets/sori/character_clip.dart';
-import '../widgets/sori/screen_coach.dart';
-import '../widgets/sori/spotlight_coach.dart';
-import '../widgets/sori/standard_page.dart';
-import '../widgets/sori/settings_button.dart';
-import '../widgets/sori/toast.dart';
-import '../widgets/sori/window_class.dart';
-import '../services/auth_service.dart';
+import 'package:flutter/material.dart';
+import '../data/learner_motivation.dart';
+import '../l10n/generated/app_localizations.dart';
+import '../models/companion_art.dart';
+import '../models/gye.dart';
+import '../models/scenario.dart';
 import '../services/account/account_transition_coordinator.dart';
 import '../services/account/account_ui_operations.dart';
 import '../services/account/cloud_backup_deletion.dart';
 import '../services/account/cloud_write_session.dart';
-import '../services/storage_service.dart';
+import '../services/auth_service.dart';
 import '../services/course_progress_service.dart';
 import '../services/gye_service.dart';
 import '../services/learning_data_export_service.dart';
-import '../data/learner_motivation.dart';
-import '../models/gye.dart';
-import '../models/scenario.dart';
-import '../widgets/sori/motivation_sheet.dart';
+import '../services/storage_service.dart';
 import '../widgets/sori/account_operation_ui.dart';
-import '../l10n/generated/app_localizations.dart';
+import '../widgets/sori/button.dart';
+import '../widgets/sori/card.dart';
+import '../widgets/sori/dialog.dart';
+import '../widgets/sori/mascot.dart';
+import '../widgets/sori/mascot_preference.dart';
+import '../widgets/sori/motivation_sheet.dart';
+import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/section_header.dart';
+import '../widgets/sori/settings_button.dart';
+import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/toast.dart';
+import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 import 'settings_screen.dart';
 
 typedef ProfilePlacementInitializer =
@@ -764,9 +763,7 @@ class _Avatar extends StatefulWidget {
   final double size;
   final CompanionPreference? preference;
 
-  /// 아바타 **바로 뒤에 실제로 칠해지는 색**. 클립의 흰 매트를 multiply 로
-  /// 지우면 결과가 정확히 이 값이 되므로, 여기에 부모가 그리는 색이 아닌 다른
-  /// 값을 주면 그 차이가 사각형으로 보인다. null 이면 스캐폴드 색으로 폴백한다.
+  /// Retained for callers that also use this fill around the transparent portrait.
   final Color? backdrop;
 
   @override
@@ -826,43 +823,18 @@ class _AvatarState extends State<_Avatar> {
         ),
       );
     }
-    if (kind == MascotKind.magpie) {
-      // Joy faces the learner using the existing approved still artwork.
-      return Mascot.magpie(
-        key: const ValueKey('profile_avatar_magpie'),
-        emotion: MascotEmotion.neutral,
-        size: widget.size,
-      );
-    }
     return SizedBox.square(
+      key: ValueKey('profile_avatar_${kind.name}'),
       dimension: widget.size,
-      child: Center(
-        child: CharacterClipPlayer(
-          key: ValueKey('profile_avatar_${kind.name}'),
-          asset: CharacterClips.tigerSitting2,
-          size: widget.size,
-          // 둘 다 루프 가능한 클립이라 loop:true. 원샷 클립을 쓰면 재생이
-          // 끝나는 순간 lease 가 반납돼 아바타가 비므로 금지(아래 ⚠️ 참고).
-          loop: true,
-          // 뒤에 칠해지는 **그 색 그대로**여야 한다. 아바타는 스캐폴드 위가
-          // 아니라 tinted 히어로 카드 안에 있으므로 부모가 카드의 실제 채움색을
-          // [_Avatar.backdrop] 으로 넘긴다. 예전엔 여기서 스캐폴드 색을 읽어
-          // teal 카드(#EDF3ED) 위에 크림(#FAF6EC) 사각형이 떴다.
-          // 폴백으로만 스캐폴드 색을 쓴다 — `s.bg` 는 SoriSurfaces 가 brightness
-          // 만 보고 팔레트 변종을 못 봐서 부적합.
-          blendColor:
-              widget.backdrop ?? Theme.of(context).scaffoldBackgroundColor,
-          // Jin 2026-08-06: 프로필 정적 폴백 끔 → 투명(배경 비침).
-          // ⚠️ 단 reduce-motion 에서는 켠다. 영상 lease 는 `!reduceMotion` 을
-          //    요구해서(video_lease.dart) 접근성 설정 사용자는 영상을 못 받는데,
-          //    폴백까지 끄면 아바타 자리가 통째로 빈칸이 된다.
-          // ⚠️ 폴백을 끈 상태에서는 **원샷 클립 금지** — 재생이 끝나면 플레이어가
-          //    lease 를 반납하고 투명 폴백으로 떨어져 아바타 자리가 통째로
-          //    빈칸이 된다. 프로필 클립은 반드시 루프 가능한 것만 쓴다.
-          staticFallback: CharacterClipPlayer.videoUnavailable(context),
-          fallbackKind: kind,
-          fallbackEmotion: MascotEmotion.smile,
-        ),
+      child: Image.asset(
+        CompanionArt.portrait(kind.name),
+        fit: BoxFit.contain,
+        cacheWidth: (widget.size * MediaQuery.devicePixelRatioOf(context))
+            .ceil(),
+        semanticLabel: kind == MascotKind.magpie
+            ? AppL10n.of(context).characterRomanMagpie
+            : AppL10n.of(context).characterRomanTiger,
+        errorBuilder: (_, _, _) => const Icon(Icons.person_outline_rounded),
       ),
     );
   }

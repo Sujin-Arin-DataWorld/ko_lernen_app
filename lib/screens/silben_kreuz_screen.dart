@@ -10,6 +10,7 @@ import '../widgets/practice_layout.dart';
 import '../widgets/practice_impact_frame.dart';
 import '../services/haptic_service.dart';
 import '../widgets/sori/game_reward.dart';
+import '../widgets/sori/home_action.dart' show showLeaveConfirmSheet;
 import '../services/learning_journey.dart';
 import '../models/sori_stage_progression.dart';
 import 'dart:async';
@@ -28,20 +29,21 @@ import '../services/storage_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/c_gallery/c_detail_page.dart';
+import '../widgets/sori/c_gallery/c_materials.dart';
+import '../widgets/sori/c_gallery/c_objects.dart';
+import 'sori_stage/c_stage_chrome.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
-import '../widgets/sori/chrome_row.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/game_result_recovery.dart';
 import '../widgets/sori/level_filter_bar.dart';
-import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/speakable.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
-import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/window_class.dart';
 
 /// **Silben-Kreuz** — 음절 크로스워드. Wordle식 6줄 보드를 대체한다
@@ -281,19 +283,6 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       return;
     }
     _openLevel(next);
-  }
-
-  Widget _levelChrome(AppL10n t) {
-    final total = (_byLevel[_level] ?? const []).length;
-    return SoriChromeRow(
-      onFilterTap: () => _showLevelFilter(t),
-      filterSemanticLabel: t.filterLevel,
-      meta: Text(
-        '$_level · ${_solvedCount(_level)}/$total',
-        style: SoriTextTheme.of(context).meta,
-      ),
-      trailing: const TtsSpeedAction(),
-    );
   }
 
   void _openPuzzle() {
@@ -747,20 +736,20 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
             ),
             const SizedBox(height: Spacing.md),
           ],
-          PracticeRaisedAction(
-            child: SoriButton.outlined(
-              key: const ValueKey('dokkaebi-hint'),
-              label: level == 0
-                  ? t.practiceHintMeaning
-                  : level == 1
-                  ? t.practiceHintCrossing
-                  : t.practiceHintReveal,
-              fullWidth: true,
-              onTap:
-                  _finishing || _selected == null || _locked.contains(_selected)
-                  ? null
-                  : () => _requestHint(presentation),
-            ),
+          CMaterialAction(
+            key: const ValueKey('dokkaebi-hint'),
+            label: level == 0
+                ? Localizations.localeOf(context).languageCode == 'de'
+                      ? 'Hinweis ansehen'
+                      : 'View hint'
+                : level == 1
+                ? t.practiceHintCrossing
+                : t.practiceHintReveal,
+            gold: false,
+            onTap:
+                _finishing || _selected == null || _locked.contains(_selected)
+                ? null
+                : () => _requestHint(presentation),
           ),
         ],
       ),
@@ -805,80 +794,116 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
           );
           // The clip stays intact. Its contact point meets the card ledge;
           // its full opaque video rectangle never covers an interactive cell.
-          final stage = PracticeDokkaebiStage(
-            key: ValueKey('dokkaebi-board-$presentation-$occurrence'),
-            size: stageSize,
-            requestId: gesture,
-            play: !_solved && _hintPlay && _hintWordKey == occurrence,
-            helping: word != null && _helpState.levelFor(word) > 0,
-            onRequested: () {
-              if (mounted && gesture == _hintGesture && _hintPlay) {
-                setState(() => _hintPlay = false);
-              }
-            },
-            onImpact: () {
-              if (mounted &&
-                  !_solved &&
-                  !_finishing &&
-                  _practiceSession.isCurrent &&
-                  presentation == _presentation &&
-                  word == _activeWord &&
-                  gesture == _hintGesture) {
-                setState(() => _hintPulse = gesture);
-              }
-            },
-          );
+          final stage = gesture == 0 && !_hintPlay
+              ? SizedBox(
+                  key: const ValueKey('dokkaebi-motion-stage'),
+                  width: stageSize,
+                  height: stageHeight,
+                  child: PracticeDokkaebiCanvas(
+                    child: PracticeDokkaebiArt(
+                      pose: word != null && _helpState.levelFor(word) > 0
+                          ? PracticeDokkaebiPose.helping
+                          : PracticeDokkaebiPose.ready,
+                    ),
+                  ),
+                )
+              : PracticeDokkaebiStage(
+                  key: ValueKey('dokkaebi-board-$presentation-$occurrence'),
+                  size: stageSize,
+                  requestId: gesture,
+                  play: !_solved && _hintPlay && _hintWordKey == occurrence,
+                  helping: word != null && _helpState.levelFor(word) > 0,
+                  onRequested: () {
+                    if (mounted && gesture == _hintGesture && _hintPlay) {
+                      setState(() => _hintPlay = false);
+                    }
+                  },
+                  onImpact: () {
+                    if (mounted &&
+                        !_solved &&
+                        !_finishing &&
+                        _practiceSession.isCurrent &&
+                        presentation == _presentation &&
+                        word == _activeWord &&
+                        gesture == _hintGesture) {
+                      setState(() => _hintPulse = gesture);
+                    }
+                  },
+                );
           return Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               PracticeImpactFrame(
                 key: const ValueKey('dokkaebi-arena-fire'),
                 pulse: _hintPulse,
-                child: SoriCard(
-                  padding: EdgeInsets.zero,
-                  child: SizedBox(
-                    height: arenaHeight,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: CPalette.oakEdge,
+                    borderRadius: BorderRadius.circular(14),
+                    border: Border.all(color: CPalette.brass, width: 1.2),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Color(0x66051914),
+                        offset: Offset(0, 4),
+                        blurRadius: 5,
+                      ),
+                    ],
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(13),
                     child: Stack(
                       children: [
-                        Positioned(
-                          left: panelLeft,
-                          right: 0,
-                          top: panelTop,
-                          child: SoriCard(
-                            padding: EdgeInsets.fromLTRB(
-                              sideBySide ? stageSize - panelLeft + 8 : 16,
-                              16,
-                              sideBySide ? 8 : 16,
-                              16,
-                            ),
-                            child: KeyedSubtree(
-                              key: _gridKey,
-                              child: _grid(p, s),
-                            ),
-                          ),
+                        const Positioned.fill(
+                          child: CTexture(CMaterial.oak, opacity: .82),
                         ),
-                        Positioned(
-                          left: 0,
-                          top: stageTop,
-                          child: IgnorePointer(child: stage),
-                        ),
-                        Positioned(
-                          left: panelLeft + 16,
-                          right: 16,
-                          top: contactY,
-                          child: IgnorePointer(
-                            child: SizedBox(
-                              key: const ValueKey('dokkaebi-board-ledge'),
-                              height: 3,
-                              child: DecoratedBox(
-                                decoration: BoxDecoration(
-                                  color: s.border,
-                                  borderRadius: BorderRadius.circular(
-                                    SoriRadius.sm,
+                        SizedBox(
+                          height: arenaHeight,
+                          child: Stack(
+                            children: [
+                              Positioned(
+                                left: panelLeft,
+                                right: 0,
+                                top: panelTop,
+                                child: CPaperPanel(
+                                  radius: 10,
+                                  raised: false,
+                                  padding: EdgeInsets.fromLTRB(
+                                    sideBySide ? stageSize - panelLeft + 8 : 16,
+                                    16,
+                                    sideBySide ? 8 : 16,
+                                    16,
+                                  ),
+                                  child: KeyedSubtree(
+                                    key: _gridKey,
+                                    child: _grid(p, s),
                                   ),
                                 ),
                               ),
-                            ),
+                              Positioned(
+                                left: 0,
+                                top: stageTop,
+                                child: IgnorePointer(child: stage),
+                              ),
+                              Positioned(
+                                left: panelLeft + 16,
+                                right: 16,
+                                top: contactY,
+                                child: IgnorePointer(
+                                  child: SizedBox(
+                                    key: const ValueKey('dokkaebi-board-ledge'),
+                                    height: 3,
+                                    child: DecoratedBox(
+                                      decoration: BoxDecoration(
+                                        color: s.border,
+                                        borderRadius: BorderRadius.circular(
+                                          SoriRadius.sm,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
@@ -886,10 +911,6 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                   ),
                 ),
               ),
-              if (!_solved) ...[
-                const SizedBox(height: Spacing.lg),
-                _helpPanel(t),
-              ],
             ],
           );
         },
@@ -954,6 +975,146 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     return null;
   }
 
+  Widget _cBackAction(AppL10n t) {
+    final german = Localizations.localeOf(context).languageCode == 'de';
+    final label = german ? 'Zurück' : 'Back';
+    return CImageTap(
+      label: label,
+      onTap: () => unawaited(_leaveC()),
+      child: Container(
+        constraints: const BoxConstraints(minWidth: 92, minHeight: 48),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+        decoration: BoxDecoration(
+          color: CPalette.deepJade,
+          borderRadius: BorderRadius.circular(24),
+          border: Border.all(color: CPalette.brass, width: 1.4),
+          boxShadow: const [
+            BoxShadow(
+              color: Color(0x66513020),
+              offset: Offset(0, 3),
+              blurRadius: 0,
+            ),
+          ],
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              '‹',
+              style: cStageBody.copyWith(
+                color: CPalette.paper,
+                fontSize: 28,
+                height: .8,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            const SizedBox(width: 6),
+            Text(
+              label,
+              style: cStageBody.copyWith(
+                color: CPalette.paper,
+                fontSize: 15,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _cLevelAction(AppL10n t) => CImageTap(
+    label: '${t.filterLevel}: $_level',
+    onTap: widget.review == null ? () => _showLevelFilter(t) : null,
+    child: Container(
+      constraints: const BoxConstraints(minWidth: 82, minHeight: 48),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+      decoration: BoxDecoration(
+        color: CPalette.paper,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: CPalette.brass, width: 1.3),
+        boxShadow: const [
+          BoxShadow(color: Color(0x6682522f), offset: Offset(0, 3)),
+        ],
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            _level,
+            style: cStageBody.copyWith(
+              fontSize: 18,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          const SizedBox(width: 7),
+          const Icon(Icons.keyboard_arrow_down_rounded, color: CPalette.ink),
+        ],
+      ),
+    ),
+  );
+
+  Future<void> _leaveC() async {
+    final escape = SoriHomeEscape(
+      confirmWhen: !_solved && (_locked.isNotEmpty || _wrongTick > 0),
+    );
+    if (escape.confirmWhen && !await showLeaveConfirmSheet(context, escape)) {
+      return;
+    }
+    retireGameResult();
+    if (mounted) Navigator.of(context).maybePop();
+  }
+
+  Widget _cPuzzleContent(SilbenPuzzle p, SoriSurfaces s, AppL10n t) {
+    final german = Localizations.localeOf(context).languageCode == 'de';
+    return CPaperPanel(
+      radius: 18,
+      padding: const EdgeInsets.fromLTRB(12, 12, 12, 18),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          if (!_solved) ...[
+            Text(
+              german
+                  ? 'Feld wählen · Silbe antippen'
+                  : 'Choose a field · tap a syllable',
+              style: cStageCardTitle.copyWith(fontSize: 18),
+            ),
+            const SizedBox(height: 10),
+            KeyedSubtree(key: _cluesKey, child: _clues(p, s)),
+            const SizedBox(height: 14),
+          ],
+          _puzzleBoard(p, s, t),
+          const SizedBox(height: 14),
+          if (!_solved) ...[
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    german ? 'Deine Silben' : 'Your syllables',
+                    style: cStageCardTitle.copyWith(fontSize: 18),
+                  ),
+                ),
+                Text(
+                  '${_spoken.length} / ${p.words.length} ${german ? 'Wörter' : 'words'}',
+                  style: cStageBody.copyWith(fontSize: 13),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            KeyedSubtree(key: _poolKey, child: _tilePool(p, s)),
+            const SizedBox(height: 14),
+            _helpPanel(t),
+          ] else ...[
+            PracticeMotionSurface(enter: true, child: _solvedCard(t)),
+            const SizedBox(height: 14),
+            KeyedSubtree(key: _cluesKey, child: _clues(p, s)),
+          ],
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -1010,61 +1171,34 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     }
 
     final p = _puzzle;
-    return SoriStudyFrame(
-      onLeave: retireGameResult,
-      title: t.screenWordleTitle,
-      homeEscape: SoriHomeEscape(
-        confirmWhen: !_solved && (_locked.isNotEmpty || _wrongTick > 0),
-      ),
-      adaptTitleAtNormalScale: true,
-      actions: const [PracticeDokkaebiFireAction()],
-      padding: EdgeInsets.zero,
-      child: p == null
-          ? SoriEmptyState(
-              icon: Icons.grid_off_rounded,
-              title: t.screenWordleTitle,
-              body: t.silbenEmptyBody,
-            )
-          // W10 T-V3(2026-09-05, Jin D-4): 판+풀+힌트가 560dp 안팎이라
-          // 태블릿 세로 화면에서 위쪽에 뭉쳤다. `_grid()` 안에 격자 셀
-          // 크기를 재는 `LayoutBuilder` 가 있어 `SoriAdaptiveStudyBody`
-          // (fillViewport)의 IntrinsicHeight 측정과 함께 못 쓴다
-          // ("LayoutBuilder does not support returning intrinsic
-          // dimensions") — `SoriMinHeightScroll(intrinsic: false)` 로
-          // IntrinsicHeight 없이 채운다(W10 PR-D, 손레시피 공용화).
-          : SoriMinHeightScroll(
-              minHeight: 0,
-              fillViewport: true,
-              intrinsic: false,
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    _levelChrome(t),
-                    const SizedBox(height: Spacing.md),
-                    // 섹션 간격 md→lg: 격자·타일풀·힌트가 "다닥다닥"
-                    // 붙어 무엇을 하는 화면인지 안 읽혔다(2026-08-12
-                    // Jin 실기기).
-                    if (!_solved) ...[
-                      KeyedSubtree(key: _cluesKey, child: _clues(p, s)),
-                      const SizedBox(height: Spacing.lg),
-                    ],
-                    _puzzleBoard(p, s, t),
-                    const SizedBox(height: Spacing.lg),
-                    if (!_solved) ...[
-                      KeyedSubtree(key: _poolKey, child: _tilePool(p, s)),
-                    ],
-                    if (_solved)
-                      PracticeMotionSurface(enter: true, child: _solvedCard(t)),
-                    const SizedBox(height: Spacing.xl),
-                    if (_solved)
-                      KeyedSubtree(key: _cluesKey, child: _clues(p, s)),
-                  ],
+    final escape = SoriHomeEscape(
+      confirmWhen: !_solved && (_locked.isNotEmpty || _wrongTick > 0),
+    );
+    return PopScope(
+      canPop: !escape.confirmWhen,
+      onPopInvokedWithResult: (didPop, _) async {
+        if (didPop || !escape.confirmWhen) return;
+        if (!await showLeaveConfirmSheet(context, escape)) return;
+        retireGameResult();
+        if (context.mounted) Navigator.of(context).pop();
+      },
+      child: CDetailPage(
+        title: t.screenWordleTitle,
+        leading: _cBackAction(t),
+        trailing: const PracticeDokkaebiFireAction(),
+        titleTrailing: _cLevelAction(t),
+        maxWidth: 620,
+        contentPadding: const EdgeInsets.fromLTRB(12, 0, 12, 28),
+        child: p == null
+            ? CPaperPanel(
+                child: SoriEmptyState(
+                  icon: Icons.grid_off_rounded,
+                  title: t.screenWordleTitle,
+                  body: t.silbenEmptyBody,
                 ),
-              ),
-            ),
+              )
+            : _cPuzzleContent(p, s, t),
+      ),
     );
   }
 
@@ -1262,89 +1396,96 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
 
   Widget _tilePool(SilbenPuzzle p, SoriSurfaces s) {
     final presentation = _presentation;
-    return Wrap(
-      alignment: WrapAlignment.center,
-      // 8→12: 음절 타일이 다닥다닥 붙어 낱개 선택지로 안 보였다.
-      spacing: 12,
-      runSpacing: 12,
-      children: [
-        for (var i = 0; i < p.pool.length; i++)
-          AnimatedOpacity(
-            duration: SoriMotion.respect(context, SoriMotion.fast),
-            opacity: _tileUsed[i] ? 0.18 : 1,
-            child: Semantics(
-              button: true,
-              enabled: !_tileUsed[i],
-              label: p.pool[i],
-              onTap: _tileUsed[i] ? null : () => _onTileTap(i, presentation),
-              excludeSemantics: true,
-              child: PracticeMotionSurface(
-                interactive: false,
-                child: SoriPressable(
-                  pressScale: .99,
-                  surfaceDepth: _tileUsed[i] ? 0 : 3,
-                  surfaceRadius: SoriRadius.sm,
-                  surfaceEdgeColor: s.border,
-                  tactileTilt: true,
-                  haptic: null,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final tile = ((constraints.maxWidth - 36) / 4).clamp(54.0, 72.0);
+        return Wrap(
+          alignment: WrapAlignment.center,
+          spacing: 12,
+          runSpacing: 12,
+          children: [
+            for (var i = 0; i < p.pool.length; i++)
+              AnimatedOpacity(
+                duration: SoriMotion.respect(context, SoriMotion.fast),
+                opacity: _tileUsed[i] ? 0.18 : 1,
+                child: Semantics(
+                  button: true,
+                  enabled: !_tileUsed[i],
+                  label: p.pool[i],
                   onTap: _tileUsed[i]
                       ? null
                       : () => _onTileTap(i, presentation),
-                  child: Container(
-                    width: 48,
-                    height: 48,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: s.surface,
-                      borderRadius: BorderRadius.circular(SoriRadius.sm),
-                      border: Border.all(color: s.border),
-                    ),
-                    child: Text(
-                      p.pool[i],
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                        color: s.text,
+                  excludeSemantics: true,
+                  child: SoriPressable(
+                    pressScale: .985,
+                    surfaceDepth: _tileUsed[i] ? 0 : 3,
+                    surfaceRadius: 12,
+                    surfaceEdgeColor: CPalette.fineEdge,
+                    haptic: null,
+                    onTap: _tileUsed[i]
+                        ? null
+                        : () => _onTileTap(i, presentation),
+                    child: Container(
+                      width: tile,
+                      height: tile,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: CPalette.paper,
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: CPalette.fineEdge),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Color(0x44b49063),
+                            offset: Offset(0, 3),
+                            blurRadius: 0,
+                          ),
+                        ],
+                      ),
+                      child: Text(
+                        p.pool[i],
+                        style: const TextStyle(
+                          fontFamily: 'NotoSansKR',
+                          fontFamilyFallback: ['Paperlogy'],
+                          fontSize: 28,
+                          height: 1,
+                          fontWeight: FontWeight.w700,
+                          color: CPalette.jade,
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ),
-      ],
+          ],
+        );
+      },
     );
   }
 
   Widget _clues(SilbenPuzzle p, SoriSurfaces s) {
-    final words =
-        [for (var i = 0; i < p.words.length; i++) (index: i, word: p.words[i])]
-          ..sort(
-            (a, b) => a.word.row != b.word.row
-                ? a.word.row - b.word.row
-                : a.word.col - b.word.col,
-          );
+    final words = [
+      for (var i = 0; i < p.words.length; i++) (index: i, word: p.words[i]),
+    ];
     if (!_solved) {
-      return LayoutBuilder(
+      return Column(
         key: const ValueKey('silben-compact-clues'),
-        builder: (context, constraints) => Wrap(
-          spacing: Spacing.sm,
-          runSpacing: Spacing.sm,
-          children: [
-            if (_lastCompletedWord case final completed?)
-              SoriSpeechIndicator(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          if (_lastCompletedWord case final completed?) ...[
+            Align(
+              alignment: Alignment.centerLeft,
+              child: SoriSpeechIndicator(
                 key: const Key('silben-clue-speak'),
                 text: _speechFor(completed),
               ),
-            for (final entry in words)
-              ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: constraints.maxWidth),
-                child: IntrinsicWidth(
-                  child: _clueRow(entry.word, entry.index, s),
-                ),
-              ),
+            ),
+            const SizedBox(height: 6),
           ],
-        ),
+          for (var i = 0; i < words.length; i++) ...[
+            if (i > 0) const SizedBox(height: 8),
+            _clueRow(words[i].word, words[i].index, s),
+          ],
+        ],
       );
     }
     final card = SoriCard(
@@ -1384,11 +1525,15 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     final active = _activeWord == w;
     final meaning = w.meaningFor(_hintLanguage);
     final localizedExample = w.exampleFor(_hintLanguage);
+    final t = AppL10n.of(context);
+    final direction = w.isHorizontal
+        ? t.silbenDirectionHorizontal
+        : t.silbenDirectionVertical;
     final label = done && _solved
         ? '${w.answer} · $meaning. $localizedExample ${w.exampleKo}'
         : done
         ? '${w.answer} · $meaning'
-        : meaning;
+        : '$meaning. $direction';
     void onTap() => _onClueTap(w, presentation);
     return Semantics(
       key: ValueKey('silben-clue-$declaredIndex'),
@@ -1402,75 +1547,83 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
         interactive: false,
         child: SoriPressable(
           pressScale: .99,
-          surfaceDepth: done ? 0 : 3,
-          surfaceRadius: SoriRadius.md,
-          surfaceEdgeColor: s.border,
-          tactileTilt: true,
+          surfaceDepth: done ? 0 : 2,
+          surfaceRadius: 13,
+          surfaceEdgeColor: active ? CPalette.brass : CPalette.fineEdge,
           haptic: null,
           onTap: done ? null : onTap,
           child: AnimatedContainer(
             key: ValueKey('silben-clue-surface-$declaredIndex'),
             duration: SoriMotion.respect(context, SoriMotion.fast),
-            constraints: const BoxConstraints(minHeight: 48),
-            padding: const EdgeInsets.symmetric(
-              horizontal: Spacing.sm,
-              vertical: Spacing.sm,
-            ),
+            constraints: const BoxConstraints(minHeight: 56),
+            padding: const EdgeInsets.fromLTRB(8, 5, 12, 5),
             decoration: BoxDecoration(
               color: active
-                  ? SoriColors.info.withValues(alpha: .10)
-                  : SoriCard.resolvedBackground(context),
-              borderRadius: BorderRadius.circular(SoriRadius.md),
+                  ? CPalette.paper.withValues(alpha: .96)
+                  : CPalette.paper,
+              borderRadius: BorderRadius.circular(13),
               border: Border.all(
-                color: active ? SoriColors.info : s.border,
-                width: active ? 1.5 : 1,
+                color: active ? CPalette.brass : CPalette.fineEdge,
+                width: active ? 1.6 : 1,
               ),
-              boxShadow: [
-                BoxShadow(color: s.border, offset: const Offset(0, Spacing.xs)),
+              boxShadow: const [
+                BoxShadow(
+                  color: Color(0x44b49063),
+                  offset: Offset(0, 3),
+                  blurRadius: 0,
+                ),
               ],
             ),
             child: Row(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Icon(
-                  done
-                      ? Icons.check_circle_outline_rounded
-                      : w.isHorizontal
-                      ? Icons.arrow_forward_rounded
-                      : Icons.arrow_downward_rounded,
-                  size: 18,
-                  color: done
-                      ? SoriColors.success
-                      : active
-                      ? SoriColors.info
-                      : SoriColors.accent,
-                ),
-                const SizedBox(width: Spacing.sm),
-                Flexible(
+                CWaxSeal(number: declaredIndex + 1, size: 43),
+                const SizedBox(width: 10),
+                Expanded(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         done ? '${w.answer} · $meaning' : meaning,
-                        style: SoriTextTheme.of(context).label.copyWith(
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: cStageBody.copyWith(
+                          fontSize: 16,
                           fontWeight: FontWeight.w700,
-                          color: done ? SoriColors.success : s.text,
+                          color: done ? SoriColors.success : CPalette.ink,
                         ),
                       ),
                       if (done && _solved) ...[
-                        const SizedBox(height: Spacing.xs),
+                        const SizedBox(height: 3),
                         Text(
                           localizedExample,
-                          style: SoriTextTheme.of(context).caption,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: cStageBody.copyWith(
+                            fontSize: 12.5,
+                            color: CPalette.mutedInk,
+                          ),
                         ),
                         Text(
                           w.exampleKo,
-                          style: SoriTextTheme.of(context).caption,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: cStageBody.copyWith(
+                            fontFamilyFallback: const ['NotoSansKR'],
+                            fontSize: 12.5,
+                            color: CPalette.mutedInk,
+                          ),
                         ),
                       ],
                     ],
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Text(
+                  direction,
+                  style: cStageBody.copyWith(
+                    fontSize: 12.5,
+                    color: CPalette.mutedInk,
                   ),
                 ),
               ],

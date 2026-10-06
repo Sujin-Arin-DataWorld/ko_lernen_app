@@ -14,13 +14,13 @@ class SmalltalkPracticeEntry extends StatelessWidget {
       padding: const EdgeInsets.all(Spacing.md),
       child: SoriCard(
         key: const ValueKey('smalltalk-context-entry'),
-        semanticLabel: AppL10n.of(context).practiceToneTitle,
         child: Row(
           children: [
             Image.asset(
-              'assets/illustrations/tactile/hahoe_scholar.png',
-              width: 32,
-              height: 48,
+              'assets/illustrations/tactile/scholar/scholar_inviting.png',
+              width: 48,
+              height: 72,
+              fit: BoxFit.contain,
               excludeFromSemantics: true,
             ),
             const SizedBox(width: Spacing.sm),

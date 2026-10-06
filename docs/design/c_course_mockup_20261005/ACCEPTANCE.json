@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "kind": "C_course_mockup_acceptance",
+  "sourceHead": "a1d798bda6a36ff4dd95faa16e14484ad7b1a2f5",
+  "implementationScope": "Standalone HTML/CSS/JS prototype only; Flutter source was not edited for this mockup.",
+  "designStatus": {
+    "fourCoreScenes": "ready_for_review",
+    "newScreenApproval": "pending_user_review",
+    "flutterIntegration": "followup",
+    "deviceValidation": "not_performed"
+  },
+  "contentPreserved": {
+    "courseUnits": 48,
+    "learningPhases": 30,
+    "taskIdsAndVersions": 902,
+    "explicitCourseReferences": 224,
+    "originalFileHashes": 26,
+    "hashMismatches": []
+  },
+  "interactiveCoverage": {
+    "vocabulary": "25 original words in their 12-word and 13-word packs",
+    "scenario": "airport_arrival, all three original quests",
+    "phases": "Related phase goal and original task-title list; task execution remains followup"
+  },
+  "browserChecks": {
+    "passedLayoutsAndStates": 33,
+    "evidence": "C:\\dev\\hangulsori\\_codex_artifacts\\c-course-mockup-20261005\\approved-geometry-course-checks.json",
+    "normal": "390 x 844, DE/EN, 100%",
+    "largeText": "320 x 844, DE/EN, 200%",
+    "landscape": "700 x 390, DE/EN, 100%",
+    "exceptionStates": "DE, 320px, 200%; loading/error/first visit/locked/correct/wrong/help/saving/save failure",
+    "horizontalClipping": 0,
+    "enabledTargetsBelow48px": 0
+  },
+  "verifiedInteractions": [
+    "mission begins at quest 1 of 3",
+    "audio unavailable uses marked transcript help",
+    "first wrong answer stays wrong",
+    "hint does not place sentence pieces",
+    "result 0 of 3 unaided and 2 assisted stays identical after reload",
+    "word pack 2 resumes at 1 of 13 with meaning visible after pause and reload",
+    "save failure retries to saved state",
+    "modal Escape closes and returns focus",
+    "task ID search resolves KP01:production:12"
+  ],
+  "accountBoundary": {
+    "realProgressWrites": false,
+    "XPOrRewardWrites": false,
+    "unitUnlockChanges": false,
+    "storage": "Mockup-only namespaced sessionStorage"
+  },
+  "costBoundary": {
+    "externalDesignConnectorsUsed": false,
+    "generatedNewImagesOrVideo": false
+  },
+  "run": {
+    "url": "http://127.0.0.1:8263/docs/design/c_course_mockup_20261005/index.html?v=7",
+    "server": "python -m http.server 8263 --bind 127.0.0.1 --directory C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004",
+    "export": "python -X utf8 C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\docs\\design\\c_course_mockup_20261005\\build_content.py"
+  },
+  "approvedVisualContract": {
+    "id": "c-approved-visual-20261005-v1",
+    "document": "../c_approved_visual_contract_20261005/APPROVED_C_DESIGN.md",
+    "sourcePreservation": "8 approval PNGs and 46 unchanged existing regions",
+    "spacing": "C semantic tokens imported directly",
+    "scope": "HTML style only; Flutter source integration remains owned by C design"
+  }
+}

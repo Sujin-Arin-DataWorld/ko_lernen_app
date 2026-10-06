@@ -1,9 +1,9 @@
-import 'yeopjeon_wallet.dart';
 import 'package:flutter/foundation.dart';
-
+import '../services/today_learning_snapshot.dart';
 import 'hanok_competence.dart';
 import 'quest.dart';
-import '../services/today_learning_snapshot.dart';
+import 'yeopjeon_reward_moment.dart';
+import 'yeopjeon_wallet.dart';
 
 enum SoriStageTab { today, learn, games, hanok, gye }
 
@@ -125,17 +125,22 @@ class RewardReceipt {
     this.sarangchaeStageAfter = 0,
     this.b2ConstructionStageBefore = 0,
     this.b2ConstructionStageAfter = 0,
+    this.yeopjeonReward,
+    this.pendingYeopjeon,
   });
 
   final String activityId;
   final String receiptId;
   final List<RewardReceiptItem> items;
+  final YeopjeonRewardMoment? yeopjeonReward;
+  final YeopjeonPendingReward? pendingYeopjeon;
   final int sarangchaeStageBefore;
   final int sarangchaeStageAfter;
   final int b2ConstructionStageBefore;
   final int b2ConstructionStageAfter;
 
-  bool get isEmpty => items.isEmpty && !hasB2ConstructionUpgrade;
+  bool get isEmpty =>
+      items.isEmpty && !hasB2ConstructionUpgrade && pendingYeopjeon == null;
   bool get hasSarangchaeUpgrade => sarangchaeStageAfter > sarangchaeStageBefore;
   bool get hasB2ConstructionUpgrade =>
       b2ConstructionStageAfter > b2ConstructionStageBefore;
@@ -223,6 +228,7 @@ class SoriStageProgressionSnapshot {
     this.gyeLanternCount = 0,
     this.wallet,
     this.walletUnavailable = false,
+    this.hasPendingDecorationReceipt = false,
   }) : quests = List.unmodifiable(quests),
        activityProgress = Map.unmodifiable(activityProgress),
        gameBests = Map.unmodifiable(gameBests);
@@ -242,6 +248,10 @@ class SoriStageProgressionSnapshot {
       (walletUnavailable ? 0 : hanokCompetence.b2ConstructionStage);
   final List<QuestProgress> quests;
   final int pendingBojagiCount;
+
+  /// An already claimed item still awaiting its presentation's final CTA.
+  /// Kept separate from unopened boxes: resuming it never awards another item.
+  final bool hasPendingDecorationReceipt;
   final int stampCount;
   final Set<String>? stampIds;
   final int xp;

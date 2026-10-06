@@ -3,20 +3,20 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:video_player/video_player.dart';
-
 import '../features/onboarding_v2/first_run_coordinator.dart';
 import '../features/onboarding_v2/first_run_runtime.dart';
+import '../l10n/generated/app_localizations.dart';
+import '../models/companion_art.dart';
+import '../motion/transitions.dart';
 import '../services/analytics_service.dart';
 import '../services/audio_policy.dart';
 import '../services/storage_service.dart';
-import '../widgets/sori/hanok_tokens.dart';
 import '../widgets/sori/hanok/gate_art.dart';
+import '../widgets/sori/hanok_tokens.dart';
 import '../widgets/sori/tiger_video.dart' show TigerStageVideo;
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/video_lease.dart';
-import '../motion/transitions.dart';
 import 'app_shell.dart';
-import '../l10n/generated/app_localizations.dart';
 
 const _courtyardAsset = 'assets/illustrations/hanok/gate_final.png';
 
@@ -469,9 +469,7 @@ class _IntroGateScreenState extends State<IntroGateScreen>
       child: Transform.rotate(
         angle: -0.25 + flap * 0.28,
         child: Image.asset(
-          flap > 0.5
-              ? 'assets/illustrations/mascot/magpie_wingup.png'
-              : 'assets/illustrations/mascot/magpie_wingdown.png',
+          CompanionArt.joyCelebrate,
           fit: BoxFit.contain,
           filterQuality: FilterQuality.medium,
           errorBuilder: (_, __, ___) =>

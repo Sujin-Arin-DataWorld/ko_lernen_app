@@ -1,9 +1,8 @@
 import 'dart:async';
-
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
-
+import '../../models/companion_art.dart';
 import '../../services/audio_policy.dart';
 import '../../services/haptic_service.dart';
 import '../../services/storage_service.dart';
@@ -374,6 +373,8 @@ class CharacterClipPlayer extends StatefulWidget {
 }
 
 class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
+  String? get _canonicalArt =>
+      CompanionArt.forRetiredClip(widget.asset, size: widget.size);
   VideoPlayerController? _video;
   VideoLeaseRequest<VideoPlayerController>? _lease;
   late final VideoLeaseEligibilityBinding _eligibility;
@@ -405,6 +406,9 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
             onRelease: _releaseAfterCompletion,
             onCompleted: () => widget.onCompleted?.call(),
           );
+    if (_canonicalArt != null) {
+      return;
+    }
     _lease = soriVideoLease.register(
       asset: widget.asset,
       eligible: false,
@@ -432,7 +436,7 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
     // (fallbackCompleteAfter)이 먼저 화면을 넘겨 소리가 통째로 사라진다
     // (2026-08-02 실기기: 까치 첫 인사 무음). reduce-motion 이어도 재생 —
     // "애니메이션 줄이기"는 움직임에 대한 설정이지 소리에 대한 설정이 아니다.
-    if (_eligibility.isVisible(context)) {
+    if (_canonicalArt == null && _eligibility.isVisible(context)) {
       _playSfxOnce();
     }
     if (CharacterClipPlayer.videoUnavailable(context)) {
@@ -449,6 +453,16 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
 
   void _syncEligibility() {
     if (!mounted) {
+      return;
+    }
+    if (_canonicalArt != null) {
+      if (_eligibility.isVisible(context)) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted && _eligibility.isVisible(context)) {
+            unawaited(_completion?.naturalCompletion());
+          }
+        });
+      }
       return;
     }
     // 영상 경로가 **범주적으로 불가**하면(기기 미지원·reduce-motion·다크)
@@ -611,6 +625,29 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
 
   @override
   Widget build(BuildContext context) {
+    final canonical = _canonicalArt;
+    if (canonical != null) {
+      return SizedBox.square(
+        dimension: widget.size,
+        child: Image.asset(
+          canonical,
+          key: ValueKey('canonical-character-$canonical'),
+          fit: BoxFit.contain,
+          cacheWidth: (widget.size * MediaQuery.devicePixelRatioOf(context))
+              .ceil(),
+          excludeFromSemantics: true,
+          errorBuilder: (_, __, ___) => Mascot(
+            kind:
+                widget.fallbackKind ??
+                (widget.asset.contains('magpie_')
+                    ? MascotKind.magpie
+                    : MascotKind.tiger),
+            size: widget.size,
+            emotion: widget.fallbackEmotion,
+          ),
+        ),
+      );
+    }
     final video = _video;
     // 렌더 단계 잠금 — 테마가 라이트→다크로 바뀌는 프레임에 이미 승인된
     // 텍스처가 한 프레임 남아 크림 사각형이 번쩍이는 걸 막는다. 동시에 이

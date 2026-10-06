@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import 'pressable.dart';
 import 'tokens.dart';
 
+export 'tokens.dart' show SoriTextRole;
+
 enum SoriButtonVariant { filled, outlined, ghost }
 
 enum SoriButtonSize { lg, md, sm }
-
-/// A lesson answer is content, even when it is tappable.
-enum SoriButtonTextRole { action, learning }
 
 /// **SoriButton** — 통통튀는 모션 포함 버튼.
 ///
@@ -52,7 +51,13 @@ class SoriButton extends StatelessWidget {
 
   /// Result and purchase actions emit feedback after confirmation.
   final bool feedbackOnTap;
-  final SoriButtonTextRole textRole;
+
+  /// Reward actions can expose a lit upper face over the shared 4dp edge.
+  final bool sculpted;
+
+  /// Null preserves existing callers; explicit UI/learning roles select the
+  /// C interface face or the Korean learning face during migration.
+  final SoriTextRole? textRole;
 
   const SoriButton({
     super.key,
@@ -70,7 +75,8 @@ class SoriButton extends StatelessWidget {
     this.maxLines,
     this.loading = false,
     this.feedbackOnTap = true,
-    this.textRole = SoriButtonTextRole.action,
+    this.sculpted = false,
+    this.textRole,
   }) : assert(maxLines == null || maxLines > 0);
 
   const SoriButton.filled({
@@ -88,7 +94,8 @@ class SoriButton extends StatelessWidget {
     this.maxLines,
     this.loading = false,
     this.feedbackOnTap = true,
-    this.textRole = SoriButtonTextRole.action,
+    this.sculpted = false,
+    this.textRole,
   }) : variant = SoriButtonVariant.filled,
        assert(maxLines == null || maxLines > 0);
 
@@ -107,7 +114,8 @@ class SoriButton extends StatelessWidget {
     this.maxLines,
     this.loading = false,
     this.feedbackOnTap = true,
-    this.textRole = SoriButtonTextRole.action,
+    this.sculpted = false,
+    this.textRole,
   }) : variant = SoriButtonVariant.outlined,
        assert(maxLines == null || maxLines > 0);
 
@@ -126,7 +134,8 @@ class SoriButton extends StatelessWidget {
     this.maxLines,
     this.loading = false,
     this.feedbackOnTap = true,
-    this.textRole = SoriButtonTextRole.action,
+    this.sculpted = false,
+    this.textRole,
   }) : variant = SoriButtonVariant.ghost,
        assert(maxLines == null || maxLines > 0);
 
@@ -195,7 +204,7 @@ class SoriButton extends StatelessWidget {
         fillEdge == null ? null : Border.all(color: fillEdge, width: 1.5),
       ),
       SoriButtonVariant.outlined => (
-        isLight ? SoriColors.lightSurfaceRaised : s.surface,
+        Colors.transparent,
         disabled ? s.textDim : fgAccent,
         Border.all(
           color: disabled ? s.border : fgAccent.withValues(alpha: 0.7),
@@ -269,14 +278,14 @@ class SoriButton extends StatelessWidget {
                       maxLines: maxLines,
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontFamily: textRole == SoriButtonTextRole.learning
-                            ? SoriFonts.sans
-                            : SoriFonts.interface,
+                        fontFamily: switch (textRole) {
+                          SoriTextRole.ui => 'Paperlogy',
+                          SoriTextRole.learning => SoriFonts.learningKorean,
+                          null => SoriFonts.sans,
+                        },
                         fontFamilyFallback: SoriFonts.fallback,
                         color: fg,
-                        fontWeight:
-                            textRole == SoriButtonTextRole.action ||
-                                variant == SoriButtonVariant.filled
+                        fontWeight: variant == SoriButtonVariant.filled
                             ? FontWeight.w600
                             : FontWeight.w500,
                         fontSize: visualFontSize,
@@ -313,18 +322,29 @@ class SoriButton extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         color: bg,
-        gradient: variant == SoriButtonVariant.ghost || disabled
-            ? null
-            : LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
+        gradient: sculpted && variant == SoriButtonVariant.filled && !disabled
+            ? LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
                 colors: [
-                  Color.alphaBlend(Colors.white.withValues(alpha: .1), bg),
+                  Color.lerp(bg, Colors.white, .08)!,
                   bg,
+                  Color.lerp(bg, Colors.black, .08)!,
                 ],
-              ),
+                stops: const [0, .48, 1],
+              )
+            : null,
         border: border,
         borderRadius: BorderRadius.circular(_radius * comfortScale),
+        boxShadow: sculpted && !disabled
+            ? [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: isLight ? .15 : .30),
+                  blurRadius: 12,
+                  offset: const Offset(0, 6),
+                ),
+              ]
+            : null,
       ),
       alignment: Alignment.center,
       child: content,
@@ -345,22 +365,15 @@ class SoriButton extends StatelessWidget {
 
     return Semantics(
       button: true,
-      enabled: !loading,
+      enabled: true,
       label: semanticLabel ?? label,
       child: SoriPressable(
         onTap: loading ? null : onTap,
         haptic: feedbackOnTap ? SoriHaptic.selection : null,
         pressScale: .99,
-        surfaceDepth: switch (variant) {
-          SoriButtonVariant.filled => 4,
-          SoriButtonVariant.outlined => 3,
-          SoriButtonVariant.ghost => 0,
-        },
-        tactileTilt: variant != SoriButtonVariant.ghost,
+        surfaceDepth: variant == SoriButtonVariant.filled ? 4 : 0,
         surfaceRadius: _radius * comfortScale,
-        surfaceEdgeColor: variant == SoriButtonVariant.filled
-            ? Color.lerp(bg, SoriColors.lightText, .45)
-            : Color.lerp(s.border, fgAccent, .35),
+        surfaceEdgeColor: Color.lerp(bg, SoriColors.lightText, .45),
         child: wrapped,
       ),
     );

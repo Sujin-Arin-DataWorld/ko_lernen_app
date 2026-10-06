@@ -1,17 +1,12 @@
 import 'dart:async';
-
-import '../widgets/sori/game_result_recovery.dart';
-import '../widgets/sori/study_evidence_recovery.dart';
 import 'package:flutter/material.dart';
-
 import '../data/cloze_topic_groups.dart';
 import '../l10n/cloze_topic_group_localizations.dart';
 import '../l10n/generated/app_localizations.dart';
-import '../widgets/app_error.dart';
-import '../widgets/app_loading.dart';
-import '../models/feedback_completion.dart';
+import '../models/companion_art.dart';
 import '../models/course_practice_context.dart';
 import '../models/curriculum.dart';
+import '../models/feedback_completion.dart';
 import '../models/vocab.dart';
 import '../services/analytics_service.dart';
 import '../services/cloze_loader.dart';
@@ -20,11 +15,14 @@ import '../services/curriculum_catalog.dart';
 import '../services/data_loader.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
+import '../widgets/app_error.dart';
+import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/chrome_row.dart';
 import '../widgets/sori/cloze_prompt.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/game_result_recovery.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/mascot.dart';
@@ -32,6 +30,7 @@ import '../widgets/sori/pressable.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/speakable.dart';
+import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
@@ -574,7 +573,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen>
             Expanded(
               child: Center(
                 child: SoriEmptyState(
-                  asset: 'assets/illustrations/mascot/magpie_encourage.png',
+                  asset: CompanionArt.joyGuide,
                   icon: Icons.menu_book_outlined,
                   title: selectedGroup == null
                       ? t.clozeTitle

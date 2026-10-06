@@ -7,6 +7,7 @@ import '../../services/analytics_service.dart';
 import 'cultural_help.dart';
 import 'pressable.dart';
 import 'tokens.dart';
+import 'c_gallery/c_materials.dart';
 
 /// A dotted-underline inline term that opens the cultural glossary sheet
 /// for [termId] when tapped — the lightweight counterpart to
@@ -23,6 +24,7 @@ class SoriTerm extends StatelessWidget {
     required this.text,
     this.style,
     this.surface = 'unknown',
+    this.conceptC = false,
   });
 
   /// [CulturalGlossary] entry id opened on tap.
@@ -35,6 +37,7 @@ class SoriTerm extends StatelessWidget {
 
   /// Analytics tag for which screen/list this term appeared in.
   final String surface;
+  final bool conceptC;
 
   void _open(BuildContext context) {
     unawaited(
@@ -43,17 +46,19 @@ class SoriTerm extends StatelessWidget {
         parameters: {'term_id': termId, 'surface': surface},
       ),
     );
-    unawaited(showCulturalTermSheetForId(context, termId));
+    unawaited(showCulturalTermSheetForId(context, termId, conceptC: conceptC));
   }
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final baseStyle = style ?? DefaultTextStyle.of(context).style;
+    final original = style ?? DefaultTextStyle.of(context).style;
+    final baseStyle = conceptC ? cMaterialText(original) : original;
     final resolvedStyle = baseStyle.copyWith(
       decoration: TextDecoration.underline,
       decorationStyle: TextDecorationStyle.dotted,
-      decorationColor: SoriColors.primary.withValues(alpha: 0.6),
+      decorationColor: (conceptC ? CPalette.jade : SoriColors.primary)
+          .withValues(alpha: 0.6),
       decorationThickness: 1.5,
     );
     return Semantics(
@@ -64,7 +69,7 @@ class SoriTerm extends StatelessWidget {
       child: SoriPressable(
         onTap: () => _open(context),
         child: ConstrainedBox(
-          constraints: const BoxConstraints(minHeight: 44),
+          constraints: BoxConstraints(minHeight: conceptC ? 48 : 44),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 2),
             child: Align(
@@ -89,6 +94,7 @@ class SoriTerm extends StatelessWidget {
     required String text,
     TextStyle? style,
     String surface = 'unknown',
+    bool conceptC = false,
   }) {
     return WidgetSpan(
       alignment: PlaceholderAlignment.baseline,
@@ -98,6 +104,7 @@ class SoriTerm extends StatelessWidget {
         text: text,
         style: style,
         surface: surface,
+        conceptC: conceptC,
       ),
     );
   }

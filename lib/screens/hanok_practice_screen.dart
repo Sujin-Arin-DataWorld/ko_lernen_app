@@ -133,7 +133,9 @@ class _HanokPracticeScreenState extends State<HanokPracticeScreen> {
                             ? (contextCase?.title.pick(lang) ??
                                   t.practiceUnavailable)
                             : t.practiceSilbenLabel,
-                        style: SoriTextTheme.of(context).menuItem,
+                        style: SoriTextTheme.of(
+                          context,
+                        ).h3.copyWith(fontFamily: 'Paperlogy'),
                       ),
                       Text(
                         source.level.toUpperCase(),

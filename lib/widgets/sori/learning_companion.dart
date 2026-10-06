@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-
-import 'character_clip.dart';
+import '../../l10n/generated/app_localizations.dart';
+import '../../models/companion_art.dart';
 import 'mascot.dart';
 import 'tokens.dart';
 import 'window_class.dart';
 
 /// Compact greeting whose lower edge is the next learning card's surface.
 /// Place immediately before that card, including loading and failure states.
-class SoriLearningCompanion extends StatefulWidget {
+class SoriLearningCompanion extends StatelessWidget {
   const SoriLearningCompanion({
     super.key,
     required this.greeting,
@@ -21,40 +21,22 @@ class SoriLearningCompanion extends StatefulWidget {
   final MascotKind? kind;
   final bool forceStatic;
 
-  // The sitting2 source is 640 square. Every one of its 121 frames has the
-  // last body pixel at y=552. Only empty lower matte is outside this viewport.
+  // The entire canonical image stays inside the viewport in every state.
   static const double clipSize = 144;
-  static const double sittingViewport = 125;
-
-  @override
-  State<SoriLearningCompanion> createState() => _SoriLearningCompanionState();
-}
-
-class _SoriLearningCompanionState extends State<SoriLearningCompanion> {
-  bool _failed = false;
-
-  @override
-  void didUpdateWidget(covariant SoriLearningCompanion oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (oldWidget.kind != widget.kind) {
-      _failed = false;
-    }
-  }
+  static const double sittingViewport = clipSize;
 
   @override
   Widget build(BuildContext context) {
     final text = SoriTextTheme.of(context);
-    final surfaces = SoriSurfaces.of(context);
     const clipSize = SoriLearningCompanion.clipSize;
-    const sittingViewport = SoriLearningCompanion.sittingViewport;
-    final character = widget.kind;
+    final character = kind;
     final greetingText = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(widget.greeting, style: text.bodySmall),
+        Text(greeting, style: text.bodySmall),
         const SizedBox(height: Spacing.xs),
-        Text(widget.title, style: text.h1),
+        Text(title, style: text.h1),
       ],
     );
     if (character == null) {
@@ -65,50 +47,25 @@ class _SoriLearningCompanionState extends State<SoriLearningCompanion> {
       );
     }
 
-    final isTiger = character == MascotKind.tiger;
-    final viewportHeight = isTiger ? sittingViewport : clipSize;
-    final useStatic =
-        widget.forceStatic ||
-        _failed ||
-        CharacterClipPlayer.videoUnavailable(context);
-    final clip = useStatic
-        ? Align(
-            alignment: Alignment.bottomCenter,
-            child: Mascot(kind: character, size: 84),
-          )
-        : ClipRect(
-            child: OverflowBox(
-              alignment: Alignment.topCenter,
-              minHeight: clipSize,
-              maxHeight: clipSize,
-              child: CharacterClipPlayer(
-                key: ValueKey('learning-companion-${character.name}'),
-                asset: isTiger
-                    ? HomeHeroClips.tigerSitting2
-                    : HomeHeroClips.magpieWalkingFront,
-                size: clipSize,
-                loop: true,
-                applyMultiplyFilter: false,
-                staticFallback: CharacterClipPlayer.videoUnavailable(context),
-                fallbackKind: character,
-                onFailure: (_) {
-                  WidgetsBinding.instance.addPostFrameCallback((_) {
-                    if (mounted && widget.kind == character) {
-                      setState(() => _failed = true);
-                    }
-                  });
-                },
-              ),
-            ),
-          );
+    const viewportHeight = clipSize;
+    final clip = Image.asset(
+      character == MascotKind.magpie
+          ? CompanionArt.joyGuide
+          : CompanionArt.taegoSeated,
+      fit: BoxFit.contain,
+      cacheWidth: (clipSize * MediaQuery.devicePixelRatioOf(context)).ceil(),
+      semanticLabel: character == MascotKind.magpie
+          ? AppL10n.of(context).characterRomanMagpie
+          : AppL10n.of(context).characterRomanTiger,
+      errorBuilder: (_, _, _) => Mascot(kind: character, size: clipSize),
+    );
     return LayoutBuilder(
       builder: (context, constraints) {
         final largeText = MediaQuery.textScalerOf(context).scale(16) > 24;
         final stacked =
             constraints.maxWidth < SoriAdaptiveWidth.learningCompanionRow ||
             largeText;
-        // Paint the external texture first and the text last. This also keeps
-        // the greeting outside the texture layer on Android compositors.
+        // Keep the inward-facing companion beside the readable greeting.
         return Stack(
           alignment: Alignment.bottomRight,
           children: [
@@ -118,33 +75,7 @@ class _SoriLearningCompanionState extends State<SoriLearningCompanion> {
                 key: const ValueKey('learning-companion-ground'),
                 width: clipSize,
                 height: viewportHeight,
-                child: Stack(
-                  children: [
-                    Positioned.fill(child: RepaintBoundary(child: clip)),
-                    Positioned(
-                      left: 12,
-                      right: 12,
-                      bottom: 0,
-                      child: IgnorePointer(
-                        child: Container(
-                          height: 3,
-                          decoration: BoxDecoration(
-                            color: surfaces.text.withValues(alpha: 0.10),
-                            borderRadius: BorderRadius.circular(
-                              SoriRadius.pill,
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: surfaces.text.withValues(alpha: 0.08),
-                                blurRadius: 3,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                child: RepaintBoundary(child: clip),
               ),
             ),
             Padding(

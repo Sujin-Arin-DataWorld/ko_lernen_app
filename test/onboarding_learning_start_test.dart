@@ -10,10 +10,12 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/models/course_mission_brief.dart';
 import 'package:ko_lernen_app/models/curriculum.dart';
+import 'package:ko_lernen_app/models/foundation_progress.dart';
 import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/learner_level.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
-import 'package:ko_lernen_app/screens/hangul_screen.dart';
+import 'package:ko_lernen_app/screens/foundation_learning_screen.dart';
+import 'package:ko_lernen_app/services/foundation_progress_service.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_shell.dart';
 import 'package:ko_lernen_app/services/course_mission_navigation.dart';
 import 'package:ko_lernen_app/services/course_progress_service.dart';
@@ -135,13 +137,100 @@ void main() {
         expect(focus.today.pick, isA<HangulIntroPick>());
         expect(
           focus.destination,
-          const TodayLearningDestination(route: '/hangul'),
+          const TodayLearningDestination(route: '/foundation'),
         );
         expect(focus.activityId, 'hangul');
         expect(focus.brief, isNull);
         expect(focus.ready, isTrue);
       }
       expect({for (final key in prefs.getKeys()) key: prefs.get(key)}, before);
+    },
+  );
+
+  test(
+    'production Today loader keeps completed foundation until explicit A1 choice',
+    () async {
+      final catalog = await CurriculumCatalog.load();
+      final placement = await CourseProgressService.shared
+          .initializeForPlacement(LearnerLevel.a1.code);
+      final courseBefore = Storage.courseMasterySnapshotRawJson;
+      expect(placement.placementLevel, LearnerLevel.a1.code);
+      expect(placement.completedUnitIds, isEmpty);
+      expect(placement.evidence, isEmpty);
+      expect(placement.phaseTaskEvidence, isEmpty);
+      expect(
+        catalog.courseUnits.map((unit) => unit.id),
+        contains(placement.currentCourseUnitId),
+      );
+
+      final initial = await TodayLearningSnapshotLoader.load();
+      expect(initial.isUnavailable, isFalse);
+      // Fresh cards in the daily deck are distinct from actual reviewed cards.
+      expect(Storage.srsReviewedIds, isEmpty);
+      expect(initial.hardCount, 0);
+      expect(initial.pick, isA<HangulIntroPick>());
+      expect(
+        initial.destination,
+        const TodayLearningDestination(route: '/foundation'),
+      );
+
+      final lease = FoundationLearningLease.capture();
+      final service = FoundationProgressService.shared;
+      for (final step in FoundationStep.values) {
+        await service.markStepOpened(step, lease: lease);
+        for (final task in step.tasks) {
+          // Simulate each accepted action through the real durable practice
+          // API. The production loader decides the recommendation itself.
+          final evidence = switch (step) {
+            FoundationStep.sounds => FoundationPracticeEvidence.listen(
+              task,
+              playbackSucceeded: true,
+              spokenConfirmation: true,
+            ),
+            FoundationStep.syllables => FoundationPracticeEvidence.read(
+              task,
+              correctComposition: true,
+              spokenConfirmation: true,
+            ),
+            FoundationStep.tracing => FoundationPracticeEvidence.trace(
+              task,
+              matchedStrokes: true,
+              confirmed: true,
+            ),
+            FoundationStep.firstWords => FoundationPracticeEvidence.word(
+              task,
+              playbackSucceeded: true,
+              spokenConfirmation: true,
+            ),
+          };
+          await service.savePractice(evidence, lease: lease);
+        }
+      }
+      final practiced = await service.load(lease: lease);
+      expect(practiced.practicedCount, 12);
+      expect(practiced.isComplete, isTrue);
+      expect(practiced.continuedToA1, isFalse);
+      final completedPractice = await TodayLearningSnapshotLoader.load();
+      expect(completedPractice.isUnavailable, isFalse);
+      expect(completedPractice.pick, isA<HangulIntroPick>());
+      expect(completedPractice.destination, initial.destination);
+      expect(Storage.courseMasterySnapshotRawJson, courseBefore);
+
+      await service.chooseContinueA1(lease: lease);
+      final continued = await TodayLearningSnapshotLoader.load();
+      expect(continued.isUnavailable, isFalse);
+      expect(continued.pick, isA<CoursePick>());
+      expect(
+        (continued.pick! as CoursePick).unit.id,
+        placement.currentCourseUnitId,
+      );
+      expect(
+        continued.destination,
+        const TodayLearningDestination(route: '/course/mission'),
+      );
+      expect(Storage.courseMasterySnapshotRawJson, courseBefore);
+      expect(Storage.xp, 0);
+      expect((await service.load()).practicedCount, 12);
     },
   );
 
@@ -174,35 +263,57 @@ void main() {
     'course',
     'review',
   ]) {
-    test('prior $history learning suppresses the introductory offer', () async {
-      switch (history) {
-        case 'hangul':
-          await Storage.recordCatalogActivity('hangul');
-        case 'grammar':
-          await Storage.recordCatalogActivity('grammar');
-        case 'game':
-          await Storage.recordCatalogActivity('chosung');
-        case 'coach':
-          await Storage.setTutSeen('hangul');
-        case 'xp':
-          await Storage.setXp(3);
-        case 'words':
-          await _seed(
-            _completed(),
-            values: {
-              'kl_vok_seen_ids': ['word'],
-            },
-          );
-      }
-      final today = await _today(
-        course: history == 'course'
-            ? _placement.copyWith(completedUnitIds: ['a1_prior'])
-            : _placement,
-        due: history == 'review' ? 1 : 0,
-      );
-      expect(today.pick, isA<CoursePick>());
-    });
+    test(
+      'prior $history activity cannot manufacture foundation completion',
+      () async {
+        switch (history) {
+          case 'hangul':
+            await Storage.recordCatalogActivity('hangul');
+          case 'grammar':
+            await Storage.recordCatalogActivity('grammar');
+          case 'game':
+            await Storage.recordCatalogActivity('chosung');
+          case 'coach':
+            await Storage.setTutSeen('hangul');
+          case 'xp':
+            await Storage.setXp(3);
+          case 'words':
+            await _seed(
+              _completed(),
+              values: {
+                'kl_vok_seen_ids': ['word'],
+              },
+            );
+        }
+        final today = await _today(
+          course: history == 'course'
+              ? _placement.copyWith(completedUnitIds: ['a1_prior'])
+              : _placement,
+          due: history == 'review' ? 1 : 0,
+        );
+        if (history == 'course' || history == 'review') {
+          expect(today.pick, isA<CoursePick>());
+        } else {
+          expect(today.pick, isA<HangulIntroPick>());
+        }
+      },
+    );
   }
+
+  test(
+    'explicit account-scoped A1 choice resumes course without assessment',
+    () async {
+      await FoundationProgressService.shared.chooseContinueA1(
+        lease: FoundationLearningLease.capture(),
+      );
+      expect((await _focus()).today.pick, isA<CoursePick>());
+      Storage.resetForTesting();
+      await Storage.init();
+      expect((await _focus()).today.pick, isA<CoursePick>());
+      expect((await FoundationProgressService.shared.load()).practicedCount, 0);
+      expect(Storage.xp, 0);
+    },
+  );
 
   test(
     'unknown onboarding and unavailable data keep the existing fallback',
@@ -225,7 +336,7 @@ void main() {
 
   for (final locale in ['de', 'en']) {
     testWidgets(
-      '$locale first CTA opens real Hangul; Back and restart restore course',
+      '$locale first CTA opens actual foundation; Back and restart retain its recommendation',
       (tester) async {
         tester.view.physicalSize = const Size(720, 1152);
         tester.view.devicePixelRatio = 1;
@@ -262,11 +373,8 @@ void main() {
               opened.add(settings.name);
               return MaterialPageRoute<void>(
                 settings: settings,
-                builder: (_) => settings.name == '/hangul'
-                    ? HangulScreen(
-                        textPrefetcher: (_) async {},
-                        speechPlayer: (_) async => true,
-                      )
+                builder: (_) => settings.name == '/foundation'
+                    ? FoundationLearningScreen(speechPlayer: (_) async => true)
                     : const Scaffold(body: Text('course activity')),
               );
             },
@@ -280,7 +388,7 @@ void main() {
         expect(
           find.descendant(
             of: focusCard,
-            matching: find.text(t.screenHangulTitle),
+            matching: find.text(t.foundationTitle),
           ),
           findsOneWidget,
         );
@@ -291,34 +399,34 @@ void main() {
         await tester.ensureVisible(start);
         await tester.tap(start);
         await pumpSoriStage(tester, frames: 3);
-        expect(opened, ['/hangul']);
-        expect(find.byType(HangulScreen), findsOneWidget);
+        expect(opened, ['/foundation']);
+        expect(find.byType(FoundationLearningScreen), findsOneWidget);
         expect(Storage.recentCatalogActivityId(SoriStageTab.learn), 'hangul');
         expect(Storage.xp, 0);
         nav.currentState!.popUntil((route) => route.isFirst);
         await pumpSoriStage(tester, frames: 4);
-        expect(find.byType(HangulScreen), findsNothing);
+        expect(find.byType(FoundationLearningScreen), findsNothing);
         expect(
           find.descendant(
             of: focusCard,
-            matching: find.text(locale == 'de' ? 'Begrüßung' : 'Greetings'),
+            matching: find.text(t.foundationTitle),
           ),
           findsOneWidget,
         );
-        expect((await _focus()).destination?.route, '/grammar');
+        expect((await _focus()).destination?.route, '/foundation');
         final state = await SharedPreferencesOnboardingJourneyRepository()
             .load();
         expect(
           state?.beginnerDraft,
           isTrue,
           reason:
-              'The learner preference is retained; activity history consumes the offer.',
+              'Route visits retain the preference and never complete foundation practice.',
         );
         await tester.pumpWidget(const SizedBox.shrink());
         await tester.pump();
         Storage.resetForTesting();
         await Storage.init();
-        expect((await _focus()).today.pick, isA<CoursePick>());
+        expect((await _focus()).today.pick, isA<HangulIntroPick>());
         expect(Storage.xp, 0);
         expect(tester.takeException(), isNull);
       },

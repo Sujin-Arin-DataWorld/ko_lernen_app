@@ -1,29 +1,29 @@
-import '../services/haptic_service.dart';
 import 'dart:async';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
-
-import '../models/vocab.dart';
+import '../l10n/generated/app_localizations.dart';
+import '../models/companion_art.dart';
 import '../models/feedback_completion.dart';
-import '../services/data_loader.dart';
-import '../services/review_deck_service.dart';
+import '../models/vocab.dart';
 import '../services/culture_notes_service.dart';
-import '../widgets/sori/culture_note_card.dart';
+import '../services/data_loader.dart';
+import '../services/haptic_service.dart';
+import '../services/liked_content_service.dart';
+import '../services/review_deck_service.dart';
 import '../services/storage_service.dart';
-import '../widgets/flip_card.dart';
-import '../widgets/app_loading.dart';
 import '../widgets/app_error.dart';
-import '../widgets/sori/tokens.dart';
+import '../widgets/app_loading.dart';
+import '../widgets/flip_card.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/chrome_row.dart';
-import '../widgets/sori/content_feedback_card.dart';
-import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/confirmed_choice_action.dart';
-import '../widgets/sori/deck_coach.dart';
+import '../widgets/sori/content_feed.dart';
+import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/content_share_recovery.dart';
-import '../services/liked_content_service.dart';
+import '../widgets/sori/culture_note_card.dart';
+import '../widgets/sori/deck_coach.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/pressable.dart';
@@ -31,14 +31,14 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/scroll_if_needed.dart';
 import '../widgets/sori/sheet.dart';
-import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/speakable.dart';
+import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
-import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/study_evidence_recovery.dart';
+import '../widgets/sori/study_frame.dart';
+import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/window_class.dart';
-import '../l10n/generated/app_localizations.dart';
 
 class LegacyVocabScreen extends StatefulWidget {
   final Future<List<Vocab>> Function()? vocabLoader;
@@ -614,7 +614,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
           appBarTitle: t.screenVocabTitle,
           maxWidth: SoriMaxWidth.focus,
           builder: (context, padding) => SoriEmptyState(
-            asset: 'assets/illustrations/mascot/magpie_wave.png',
+            asset: CompanionArt.joyGuide,
             icon: Icons.star_outline_rounded,
             title: t.vocabEmptyFavorites,
             ctaLabel: t.vocabModeAll,
@@ -631,7 +631,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
             _levelChrome(t, presentation),
             Expanded(
               child: SoriEmptyState(
-                asset: 'assets/illustrations/mascot/magpie_wave.png',
+                asset: CompanionArt.joyGuide,
                 icon: Icons.tune_rounded,
                 title: t.emptyVocab,
                 ctaLabel: t.filterOpenBtn,
@@ -880,7 +880,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SoriEmptyState(
-              asset: 'assets/illustrations/mascot/magpie_celebrate.png',
+              asset: CompanionArt.joyCelebrate,
               icon: Icons.celebration_outlined,
               title: t.vocabDueEmptyTitle,
               body: t.vocabDueEmptyBody,

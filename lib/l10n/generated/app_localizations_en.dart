@@ -9,6 +9,47 @@ class AppL10nEn extends AppL10n {
   AppL10nEn([String locale = 'en']) : super(locale);
 
   @override
+  String rewardConfirmedBalance(int amount) {
+    return 'Wallet balance: $amount yeopjeon';
+  }
+
+  @override
+  String get onboardingCtaPath => 'See my learning path';
+
+  @override
+  String get onboardingCtaTry => 'Try a short lesson';
+
+  @override
+  String get onboardingCtaGames => 'Explore the games';
+
+  @override
+  String get onboardingCtaBook => 'See a book example';
+
+  @override
+  String get onboardingCtaHanok => 'Discover the Hanok';
+
+  @override
+  String get onboardingCtaCompanion => 'Choose a companion';
+
+  @override
+  String get yeopjeonConfirmationPending =>
+      'Your lesson is saved. Your yeopjeon are still being checked.';
+
+  @override
+  String get yeopjeonCheckAgain => 'Check yeopjeon again';
+
+  @override
+  String get rewardConstructionDetails => 'View the new construction';
+
+  @override
+  String get rewardDetailsUnavailable =>
+      'Your reward is saved. This view could not be opened. Try again.';
+
+  @override
+  String get rewardArtworkUnavailable =>
+      'The building image could not be loaded.';
+
+  @override
   String get settingsHaptics => 'Touch feedback';
 
   @override
@@ -24,6 +65,19 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get yeopjeonTitle => 'My yeopjeon';
+
+  @override
+  String get rewardYeopjeonReceived => 'Yeopjeon received';
+
+  @override
+  String get rewardViewWallet => 'View wallet';
+
+  @override
+  String get rewardViewProgress => 'View learning progress';
+
+  @override
+  String get rewardXpDetails =>
+      'These XP come from your completed learning. They count toward your learning progress.';
 
   @override
   String yeopjeonBalance(int count) {
@@ -7575,8 +7629,7 @@ class AppL10nEn extends AppL10n {
   String get bojagiAllOwnedTitle => 'Nothing new inside';
 
   @override
-  String get bojagiAllOwnedBody =>
-      'You already own all three pieces from this bundle.';
+  String get bojagiAllOwnedBody => 'You already own every available treasure.';
 
   @override
   String get bojagiProblemTitle => 'This bundle will not open right now';
@@ -8478,13 +8531,13 @@ class AppL10nEn extends AppL10n {
   String get hanokStageTermJongga => 'Jongga · 종가';
 
   @override
-  String get soriStageBojagiTitle => 'A Bojagi is waiting';
+  String get soriStageBojagiTitle => 'Your treasure chest is waiting';
 
   @override
-  String get soriStageBojagiBody => 'Choose one of three pieces for your room.';
+  String get soriStageBojagiBody => 'Discover a treasure for your Hanok.';
 
   @override
-  String get soriStageOpenBojagi => 'Open Bojagi';
+  String get soriStageOpenBojagi => 'Open treasure chest';
 
   @override
   String get soriStageHanokNow => 'Your Hanok now';
@@ -8515,7 +8568,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get soriStageHanokUpdating =>
-      'Hanok preview · the new view is in progress.';
+      'Complete learning activities and use yeopjeon to add building stages.';
 
   @override
   String sarangchaeConstructionProgress(int earned, int total) {
@@ -8569,7 +8622,8 @@ class AppL10nEn extends AppL10n {
       'Mission complete → lantern → shared Hanok progress';
 
   @override
-  String get soriStageGyeUpdating => 'The shared courtyard is being rebuilt.';
+  String get soriStageGyeUpdating =>
+      'Learn together: join a group and work toward its weekly goal.';
 
   @override
   String get pronunciationTitle => 'Pronunciation studio';
@@ -8734,11 +8788,10 @@ class AppL10nEn extends AppL10n {
       'Voice assessment is off. Listen-and-repeat practice remains available.';
 
   @override
-  String get soriStageReceiptEyebrow => 'JUST CHANGED';
+  String get soriStageReceiptEyebrow => 'COMPLETED';
 
   @override
-  String get soriStageReceiptTitle =>
-      'Your learning moved the journey forward.';
+  String get soriStageReceiptTitle => 'Your progress';
 
   @override
   String get soriStageReceiptSemantics => 'Earned rewards';
@@ -10518,6 +10571,9 @@ class AppL10nEn extends AppL10n {
   String get catalogHowItWorks => 'How it works';
 
   @override
+  String get catalogViewGame => 'See the game';
+
+  @override
   String get catalogStartSession => 'Start session';
 
   @override
@@ -11312,13 +11368,14 @@ class AppL10nEn extends AppL10n {
   String get practiceEffect => 'How it may come across';
 
   @override
-  String get practiceGrammarCorrect => 'Grammatically correct.';
+  String get practiceGrammarCorrect =>
+      'The grammar is correct. The effect depends on the context and tone.';
 
   @override
   String get practiceAssemble => 'Build your next reply';
 
   @override
-  String get practiceShowEffect => 'See how your answer comes across';
+  String get practiceShowEffect => 'View the explanation for help';
 
   @override
   String get practiceReset => 'Put the words back';
@@ -11383,17 +11440,20 @@ class AppL10nEn extends AppL10n {
   String get practiceChooseAgain => 'Choose your intention again';
 
   @override
-  String get practiceHintMeaning => 'See a sentence clue';
+  String get practiceHintTitle => 'A hint from Dokkaebi';
+
+  @override
+  String get practiceHintMeaning => 'View meaning and direction';
 
   @override
   String get practiceHintCrossing => 'View crossing cells';
 
   @override
-  String get practiceHintReveal => 'Reveal a syllable · direct help';
+  String get practiceHintReveal => 'Reveal one syllable · direct help';
 
   @override
   String get practiceHintPlace =>
-      'Place the matching syllable in the marked cell yourself.';
+      'The syllable is shown. Place the matching tile on the selected cell yourself.';
 
   @override
   String get practiceHintNoCrossing => 'This word has no crossing cell.';
@@ -11744,7 +11804,7 @@ class AppL10nEn extends AppL10n {
   String get cultureHaechiName => 'Haechi';
 
   @override
-  String get cultureHahoeMaskName => 'Hahoe mask';
+  String get cultureHahoeMaskName => 'Masked scholar';
 
   @override
   String get cultureDokkaebiName => 'Dokkaebi';
@@ -11791,6 +11851,68 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get settingsGroupHelp => 'Help & app information';
+
+  @override
+  String get onboardingCStartLevel => 'Your starting level';
+
+  @override
+  String get onboardingCChange => 'Change';
+
+  @override
+  String get onboardingCLevelRange => 'Brand new or A1–C2.';
+
+  @override
+  String get onboardingCInterest => 'What matters to you?';
+
+  @override
+  String get onboardingCLater => 'You can change this later.';
+
+  @override
+  String get onboardingCPathSummary => 'A clear learning path.';
+
+  @override
+  String get onboardingCPathBody =>
+      'From your first sounds to a real conversation.';
+
+  @override
+  String get onboardingCSoundSummary => 'Two letters. One sound.';
+
+  @override
+  String get onboardingCSoundBody => 'Listen, connect, and try.';
+
+  @override
+  String get onboardingCGamesSummary => '8 games. Plenty of discoveries.';
+
+  @override
+  String get onboardingCGamesBody =>
+      'Practise with your saved words. Discover rewards for your progress.';
+
+  @override
+  String get onboardingCBookSummary => 'Learn from your books.';
+
+  @override
+  String get onboardingCBookBody =>
+      'Discover words in context. TalSunbi helps you understand them.';
+
+  @override
+  String get onboardingCHanokSummary => 'Your Hanok grows with Yeopjeon.';
+
+  @override
+  String get onboardingCHanokBody =>
+      'Stamp book & Dancheong Studio. Your artwork for the Sarangbang.';
+
+  @override
+  String get onboardingCGyeTitle => 'Learn together: Gye';
+
+  @override
+  String get onboardingCGyeBody =>
+      'Find your learning group later. You can start on your own.';
+
+  @override
+  String get onboardingCTaegoRole => 'Your calm companion';
+
+  @override
+  String get onboardingCJoyRole => 'Your curious companion';
 
   @override
   String get practiceReplayGesture => 'Replay the fan gesture';
@@ -11877,4 +11999,190 @@ class AppL10nEn extends AppL10n {
   String practiceHintWordPath(int count, int row, int column) {
     return '$count syllables · Start: row $row, column $column';
   }
+
+  @override
+  String get foundationTitle => 'Hangul from the start';
+
+  @override
+  String get foundationIntro =>
+      'Hear your first sounds, read syllables and try writing. You can return here anytime.';
+
+  @override
+  String get foundationEvidenceNote =>
+      'This records your practice. It is not a placement test and does not complete an A1 lesson.';
+
+  @override
+  String foundationProgress(int done, int total) {
+    return '$done of $total practice tasks';
+  }
+
+  @override
+  String get foundationSoundsTitle => 'Meet the sounds';
+
+  @override
+  String get foundationSoundsBody =>
+      'Listen to ㄱ, ㄴ, ㅏ and ㅣ, then repeat them aloud.';
+
+  @override
+  String get foundationSyllablesTitle => 'Read syllables';
+
+  @override
+  String get foundationSyllablesBody =>
+      'Read 가, 나 and 한. Put their letters together.';
+
+  @override
+  String get foundationTraceTitle => 'Write the letters';
+
+  @override
+  String get foundationTraceBody =>
+      'Trace ㄱ and ㅏ in the correct stroke order.';
+
+  @override
+  String get foundationWordsTitle => 'First words and a greeting';
+
+  @override
+  String get foundationWordsBody =>
+      'Listen to 가방, 나무 and 안녕하세요. Repeat them and read their meaning.';
+
+  @override
+  String get foundationNotStarted => 'Ready';
+
+  @override
+  String get foundationOpened => 'Opened';
+
+  @override
+  String get foundationPracticed => 'Practiced';
+
+  @override
+  String get foundationPracticeAction => 'Practice';
+
+  @override
+  String get foundationRevisitAction => 'Practice again';
+
+  @override
+  String get foundationContinueA1 => 'Continue with the A1 course';
+
+  @override
+  String get foundationCompletedBody =>
+      'Your first practice tasks are saved. Keep learning step by step in the A1 course.';
+
+  @override
+  String get foundationFullHangul => 'Open all Hangul cards';
+
+  @override
+  String get foundationLoadError =>
+      'Your practice could not be loaded. Try again.';
+
+  @override
+  String get foundationSaveError =>
+      'This practice has not been confirmed yet. Try saving again.';
+
+  @override
+  String get foundationSavePractice => 'Save practice';
+
+  @override
+  String get foundationListen => 'Listen';
+
+  @override
+  String get foundationAudioUnavailable =>
+      'The voice is unavailable right now. Try again.';
+
+  @override
+  String get foundationSelectParts => 'Which letters make this syllable?';
+
+  @override
+  String get foundationRepeatConfirmation =>
+      'I listened and repeated it aloud.';
+
+  @override
+  String get foundationReadConfirmation => 'I read the syllable aloud.';
+
+  @override
+  String get foundationWordConfirmation => 'I said the word or greeting aloud.';
+
+  @override
+  String get foundationTraceConfirmation => 'I traced the letter.';
+
+  @override
+  String get foundationPracticeSaved => 'These practice tasks are saved.';
+
+  @override
+  String get foundationSaved => 'Saved';
+
+  @override
+  String get foundationTryPartsAgain =>
+      'Those letters do not match yet. Choose the parts of this syllable.';
+
+  @override
+  String get foundationPartsCorrect =>
+      'Those letters match. Now read the syllable aloud.';
+
+  @override
+  String get onboardingCPathArt =>
+      'Joy beside an open book. Three stages: discover, practise and remember.';
+
+  @override
+  String get onboardingCSoundArt =>
+      'The letters ㄱ and ㅏ combine into the syllable 가, with a speaker beside them.';
+
+  @override
+  String get onboardingCGamesArt =>
+      'The Dokkaebi with syllable tiles, a knot, a treasure chest and a coin.';
+
+  @override
+  String get onboardingCBookArt =>
+      'The masked scholar with a book, Korean words and their meanings.';
+
+  @override
+  String get onboardingCHanokArt =>
+      'A Hanok with trees, a stamp book, crane artwork and a coin.';
+
+  @override
+  String get rewardChestNewDecoration => 'New decoration';
+
+  @override
+  String get rewardChestLearningXp => 'Your learning XP';
+
+  @override
+  String get rewardChestCulturalStory => 'The story behind it';
+
+  @override
+  String get rewardChestPlaceSarangbang => 'Place in Sarangbang';
+
+  @override
+  String get rewardChestReplay => 'Watch again';
+
+  @override
+  String get rewardChestOpen => 'Open chest';
+
+  @override
+  String get rewardChestTitle => 'Your mother-of-pearl chest';
+
+  @override
+  String get lernenFoundation => 'Start with Hangul';
+
+  @override
+  String get lernenCourse => 'Complete course';
+
+  @override
+  String get lernenFree => 'Free learning';
+
+  @override
+  String get lernenPathsBody =>
+      'Choose where to start. Your saved practice stays available across all areas.';
+
+  @override
+  String get lernenCourseBody =>
+      'Follow your learning path and continue your current mission.';
+
+  @override
+  String get lernenFreeBody =>
+      'Choose vocabulary, listening, writing or another activity from the library.';
+
+  @override
+  String get lernenFreeOpen => 'Browse practice';
+
+  @override
+  String get foundationOpenError =>
+      'The next step could not be opened. Try again.';
 }

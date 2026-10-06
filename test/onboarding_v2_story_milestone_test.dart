@@ -7,8 +7,15 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'support/real_fonts.dart';
+import 'support/c_fonts.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(() async {
+    await loadSoriRealFonts();
+    await loadCFonts();
+  });
   test('lossless onboarding WebP keeps the approved RGBA pixels', () {
     // Digests were taken from the approved PNGs before their lossless conversion.
     // They include transparent pixels, not just the visible non-alpha area.
@@ -103,9 +110,17 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
+      final preview = find.byKey(const ValueKey('c-onboarding-preview-6'));
+      await tester.ensureVisible(preview);
+      await tester.pumpAndSettle();
+      await tester.tap(preview);
+      await tester.pumpAndSettle();
       await tester.tap(find.byKey(const ValueKey('onboarding-v3-place-1')));
       await tester.pumpAndSettle();
-      expect(find.text('누마루'), findsOneWidget);
+      expect(
+        find.text(lookupAppL10n(const Locale('de')).onboardingJourneyVeranda),
+        findsWidgets,
+      );
       final window = tester
           .widgetList<ClipPath>(find.byType(ClipPath))
           .where((c) => c.clipper != null)
@@ -118,7 +133,9 @@ void main() {
         isTrue,
         reason: 'The view uses a rounded rectangle, not an ellipse.',
       );
-      await tester.tap(find.text('So wächst er'));
+      await tester.tap(
+        find.byKey(const ValueKey('onboarding-v3-hanok-growth')),
+      );
       await tester.pumpAndSettle();
       for (var i = 0; i < 2; i++) {
         await tester.tap(find.byKey(ValueKey('onboarding-v3-growth-$i')));

@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:math' as math;
 import 'dart:ui' as ui;
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import '../../models/companion_art.dart';
 
 enum OnboardingCharacterMotion { idle, select, confirm }
 
@@ -56,15 +56,8 @@ class OnboardingCharacterMedia extends StatefulWidget {
     String characterId,
   ) {
     return switch (characterId) {
-      'tiger' => (
-        poster: 'assets/illustrations/onboarding/companions/taego_idle.png',
-        animation:
-            'assets/illustrations/onboarding/companions/taego_choose.webp',
-      ),
-      'magpie' => (
-        poster: 'assets/illustrations/onboarding/companions/joy_idle.png',
-        animation: 'assets/illustrations/onboarding/companions/joy_choose.webp',
-      ),
+      'tiger' => (poster: CompanionArt.taego, animation: CompanionArt.taego),
+      'magpie' => (poster: CompanionArt.joy, animation: CompanionArt.joy),
       _ => throw ArgumentError.value(
         characterId,
         'characterId',
@@ -97,8 +90,7 @@ class _OnboardingCharacterMediaState extends State<OnboardingCharacterMedia>
 
   bool get _eligible =>
       widget.active &&
-      (widget.motion != OnboardingCharacterMotion.idle ||
-          widget.animationAsset != null) &&
+      widget.animationAsset != null &&
       !_reduceMotion &&
       (_tickerMode?.value.enabled ?? true) &&
       _lifecycleState == AppLifecycleState.resumed;

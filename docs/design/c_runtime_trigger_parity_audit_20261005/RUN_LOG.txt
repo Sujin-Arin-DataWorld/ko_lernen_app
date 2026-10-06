@@ -1,0 +1,10 @@
+{
+  "status": "RUNTIME_TRIGGER_PASS_PIXEL_PARITY_PENDING",
+  "catalogExactParity": true,
+  "freeLearningRows": 8514,
+  "freeLearningInvalidRows": 0,
+  "freeLearningAppEntrypointPresent": true,
+  "freeLearningCountsMatchLive": true,
+  "report": "docs/design/c_runtime_trigger_parity_audit_20261005/AUDIT_REPORT.md",
+  "matrix": "docs/design/c_runtime_trigger_parity_audit_20261005/TRIGGER_PARITY_MATRIX.json"
+}

@@ -1,30 +1,30 @@
 import 'package:flutter/material.dart';
-import '../features/scenarios/scenario_quest_stock.dart';
+import '../data/chaekgado_shelf.dart';
 import '../features/personas/persona_people_screen.dart';
-
 import '../features/scenarios/scenario_browse_query.dart';
+import '../features/scenarios/scenario_quest_stock.dart';
+import '../l10n/generated/app_localizations.dart';
+import '../models/companion_art.dart';
 import '../models/guide_contract.dart';
 import '../models/scenario.dart';
-import '../data/chaekgado_shelf.dart';
-import '../widgets/sori/chip.dart';
-import '../widgets/sori/button.dart';
 import '../motion/transitions.dart';
 import '../services/scenario_loader.dart';
 import '../services/scene_asset_resolver.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/badge.dart';
+import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/media_phrase_link.dart';
 import '../widgets/sori/persona_card_motion.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
-import '../widgets/sori/media_phrase_link.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
-import '../l10n/generated/app_localizations.dart';
 import 'scenario_player_screen.dart';
 
 /// Scenario hub: visible level choices, topic picker, then one topic at a time.
@@ -195,7 +195,7 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
         maxWidth: SoriMaxWidth.hub,
         children: [
           SoriEmptyState(
-            asset: 'assets/illustrations/error/lost_magpie.png',
+            asset: CompanionArt.joyGuide,
             icon: Icons.signal_wifi_statusbar_null_rounded,
             title: t.scenariosLoadFailedTitle,
             body: ScenarioLoader.lastError,
@@ -217,7 +217,7 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
         maxWidth: SoriMaxWidth.hub,
         children: [
           SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_front.png',
+            asset: CompanionArt.taego,
             icon: Icons.bedtime_outlined,
             title: t.scenariosEmptyTitle,
             body: t.scenariosEmptyBody,

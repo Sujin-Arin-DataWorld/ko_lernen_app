@@ -7,6 +7,8 @@ import 'localized_copy.dart';
 import 'pressable.dart';
 import 'tokens.dart';
 import 'window_class.dart';
+import 'c_gallery/c_materials.dart';
+import 'c_gallery/c_objects.dart';
 
 /// Image-first shortcut. Full descriptions and details remain in the catalog.
 class SoriCatalogShortcut extends StatelessWidget {
@@ -14,14 +16,45 @@ class SoriCatalogShortcut extends StatelessWidget {
     super.key,
     required this.entry,
     required this.onTap,
+    this.conceptC = false,
   });
   final ActivityCatalogEntry entry;
   final VoidCallback onTap;
+  final bool conceptC;
 
   @override
   Widget build(BuildContext context) {
     final title = localCopy(context, entry.title);
     final type = SoriTextTheme.of(context);
+    if (conceptC) {
+      return CImageTap(
+        label: AppL10n.of(context).soriStageOpenActivity(title),
+        onTap: onTap,
+        child: CPaperPanel(
+          radius: 10,
+          child: Column(
+            children: [
+              SizedBox(
+                height: 76,
+                width: double.infinity,
+                child: cCatalogArt(entry),
+              ),
+              const SizedBox(height: 6),
+              Text(
+                title,
+                style: const TextStyle(
+                  fontFamily: 'Paperlogy',
+                  fontSize: 16,
+                  height: 1.25,
+                  fontWeight: FontWeight.w600,
+                  color: CPalette.ink,
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
     return Semantics(
       button: true,
       label: AppL10n.of(context).soriStageOpenActivity(title),
@@ -98,6 +131,7 @@ class SoriCatalogCard extends StatelessWidget {
     this.featured = false,
     this.status,
     this.recent = false,
+    this.conceptC = false,
   });
   final ActivityCatalogEntry entry;
   final VoidCallback onStart;
@@ -105,6 +139,7 @@ class SoriCatalogCard extends StatelessWidget {
   final bool featured;
   final String? status;
   final bool recent;
+  final bool conceptC;
 
   @override
   Widget build(BuildContext context) {
@@ -112,6 +147,81 @@ class SoriCatalogCard extends StatelessWidget {
     final type = SoriTextTheme.of(context);
     final s = SoriSurfaces.of(context);
     final title = localCopy(context, entry.title);
+    if (conceptC) {
+      const body = TextStyle(
+        fontFamily: 'Paperlogy',
+        fontFamilyFallback: ['NotoSansKR'],
+        fontSize: 15,
+        height: 1.3,
+        color: CPalette.ink,
+      );
+      return CPaperPanel(
+        radius: 12,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            CImageTap(
+              key: ValueKey('catalog-start-${entry.id}'),
+              label:
+                  '${t.soriStageOpenActivity(title)}. ${localCopy(context, entry.description)}. ${t.soriStageMinutes(entry.minutes)}',
+              onTap: onStart,
+              onLongPress: onDetails,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  SizedBox(height: 88, child: cCatalogArt(entry)),
+                  const SizedBox(height: 8),
+                  Text(
+                    title,
+                    style: body.copyWith(
+                      fontSize: featured ? 24 : 18,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  Text(localCopy(context, entry.description), style: body),
+                  const SizedBox(height: 4),
+                  Text(
+                    t.soriStageMinutes(entry.minutes),
+                    style: body.copyWith(fontSize: 13),
+                  ),
+                ],
+              ),
+            ),
+            if (recent || status != null) ...[
+              const SizedBox(height: 6),
+              Text(
+                [
+                  if (recent) t.catalogRecentlyOpened,
+                  if (status != null) status!,
+                ].join(' · '),
+                style: body.copyWith(fontSize: 13),
+              ),
+            ],
+            if (featured) ...[
+              const SizedBox(height: 10),
+              CMaterialAction(
+                label: t.catalogStartSession,
+                onTap: onStart,
+                gold: entry.tab != SoriStageTab.games,
+              ),
+            ],
+            TextButton(
+              key: ValueKey('catalog-details-${entry.id}'),
+              onPressed: onDetails,
+              child: Semantics(
+                label: t.soriStageActivityDetails(title),
+                excludeSemantics: true,
+                child: Text(
+                  featured ? t.catalogHowItWorks : t.catalogDetails,
+                  style: body,
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
     final games = entry.tab == SoriStageTab.games;
     final color = featured
         ? (games
@@ -280,3 +390,21 @@ class SoriCatalogCard extends StatelessWidget {
     );
   }
 }
+
+Widget cCatalogArt(ActivityCatalogEntry entry) => switch (entry.id) {
+  'daily_game' ||
+  'chosung' => const CGameReferenceArt(CGameReferencePart.firstSounds),
+  'cloze' => const CGameReferenceArt(CGameReferencePart.cloze),
+  'speed_match' => const CGameReferenceArt(CGameReferencePart.pairs),
+  'sentence_arcade' => const CGameReferenceArt(CGameReferencePart.sentence),
+  'kkeunmari' => const CGameReferenceArt(CGameReferencePart.wordChain),
+  'syllable_cross' => const CGameReferenceArt(CGameReferencePart.hero),
+  'custom_practice' => const CGameReferenceArt(CGameReferencePart.yourWords),
+  _ => switch (entry.learnSection) {
+    SoriLearnSection.words => const CReferenceArt(CReferencePart.words),
+    SoriLearnSection.listen => const CReferenceArt(CReferencePart.listening),
+    SoriLearnSection.hangul => const CReferenceArt(CReferencePart.hangul),
+    SoriLearnSection.review => const CReferenceArt(CReferencePart.review),
+    _ => const CObjectArt(CObject.book),
+  },
+};

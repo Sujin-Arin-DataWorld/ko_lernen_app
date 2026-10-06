@@ -425,6 +425,7 @@ flutter run -d <android-id>   # 안드로이드
 
 > 미완료 게이트만 적는다. 끝난 항목은 지우며, 이력은 `git log` / PR / `.claude/handoffs/`다.
 
+- [ ] **C? runtime/trigger parity (2026-10-06 ??)**: ??? `docs/design/c_runtime_trigger_parity_audit_20261005/AUDIT_REPORT.md`? `TRIGGER_PARITY_MATRIX.json`. ?? **runtime trigger = PASS / pixel parity = PENDING**. Free Learning HTML mockup `app.mjs`? ???? ?? Chrome?? ledger 8,514/8,514 URL ??, ?? 0/? ?? 0. Sori catalog 21/21 ID?route parity? ??. Native C? `/free-learning`, Course path+mission, Whole Hangul shell, Settings hub+typed C detail, Profile overview, Silben jade/paper/oak shell?? ????. Silben ?? ??? 390?844 golden? ??. ?? ?? ???? Einleitung ?? ??, Course learn/result ?? ??, Whole Hangul 8??, Review/SRS ??? ??, Small Talk/Book/Calligraphy/??? Games ?? pixel parity, Android/iOS ????200% text?????? ?? ????. ???: `python -X utf8 tool/verify_c_free_learning_urls.py` ? `python -X utf8 tool/audit_c_runtime_trigger_parity.py`.
 - [ ] **UI 실기기 게이트 (Jin)**: 덱 4방향 손맛·시스템 엣지·히어로 잘림, 승인 대기 중인
   아이콘/리소 자산을 실제 기기에서 검수한다. 승인 전에는 대규모 UI 재설계나 자산 덮어쓰기를
   하지 않는다.

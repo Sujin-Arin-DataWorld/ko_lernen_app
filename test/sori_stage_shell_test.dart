@@ -22,6 +22,13 @@ import 'package:ko_lernen_app/services/learning_journey.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/models/hanok_competence.dart';
+import 'package:ko_lernen_app/models/gye.dart';
+import 'package:ko_lernen_app/models/sarangchae_construction.dart';
+import 'package:ko_lernen_app/models/yeopjeon_wallet.dart';
+import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
+import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/app_error.dart';
+import 'package:ko_lernen_app/widgets/sori/c_gallery/c_objects.dart';
 import 'package:ko_lernen_app/widgets/sori/learning_focus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -30,8 +37,15 @@ import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_shell.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'support/c_fonts.dart';
+import 'support/real_fonts.dart';
 
 void main() {
+  setUpAll(() async {
+    await loadSoriRealFonts(materialIcons: true);
+    await loadCFonts();
+    await SarangchaeConstruction.load();
+  });
   setUp(() async {
     LearningJourneyObserver.shared.cancel();
     CourseProgressService.shared.resetForTesting();
@@ -666,7 +680,7 @@ void main() {
         expectedArgs.courseContext.contentKind,
       );
       expect(controller.value!.destination, isNot(oldDestination));
-      await tester.tap(find.text('Learn').last);
+      await tester.tap(find.byTooltip('Learn').first);
       await pumpUntilFound(
         tester,
         find.byKey(const ValueKey('learning-focus-start')),
@@ -727,7 +741,7 @@ void main() {
 
     await tester.pumpWidget(_app(const AppShell()));
     await tester.pump();
-    await tester.tap(find.text('Games').last);
+    await tester.tap(find.byType(NavigationDestination).at(2));
     await tester.pump();
     expect(
       tester.widget<NavigationBar>(find.byType(NavigationBar)).selectedIndex,
@@ -766,6 +780,209 @@ void main() {
       reason: 'Typed guide intents must be consumed exactly once by the shell.',
     );
   });
+
+  for (final activeTab in [
+    SoriStageTab.today,
+    SoriStageTab.hanok,
+    SoriStageTab.gye,
+  ]) {
+    testWidgets(
+      '${activeTab.name} account switch hides prior account through pending and failed reads',
+      (tester) async {
+        tester.view.physicalSize = const Size(390, 844);
+        tester.view.devicePixelRatio = 1;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+        await tester.runAsync(() async {
+          await loadSoriRealFonts();
+          await loadCFonts();
+          await SarangchaeConstruction.load();
+        });
+        cloudWriteSessionController.acquire('stage-account-a');
+        await Storage.setXp(901);
+        final replay = ValueNotifier(0);
+        final requested = ValueNotifier(-1);
+        addTearDown(() async {
+          await tester.pumpWidget(const SizedBox());
+          cloudWriteSessionController.clear();
+          replay.dispose();
+          requested.dispose();
+        });
+        final pendingStage = Completer<SoriStageProgressionSnapshot>();
+        final pendingGroups = Completer<List<GyeMeta>>();
+        final lateA = Completer<SoriStageProgressionSnapshot>();
+        var nextAStage = Future.value(
+          _accountSnapshot(balance: 80, boxes: 7, xp: 901),
+        );
+        var nextStage = pendingStage.future;
+        var nextGroups = pendingGroups.future;
+        final reads = <String>[];
+        Future<SoriStageProgressionSnapshot> loadStage() {
+          final uid = cloudWriteSessionController.current!.uid;
+          reads.add(uid);
+          return uid == 'stage-account-a' ? nextAStage : nextStage;
+        }
+
+        Future<List<GyeMeta>> loadGroups() {
+          final uid = cloudWriteSessionController.current!.uid;
+          return uid == 'stage-account-a'
+              ? Future.value([_accountGroup('Account A courtyard', 7)])
+              : nextGroups;
+        }
+
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: AppTheme.light,
+            locale: const Locale('en'),
+            localizationsDelegates: AppL10n.localizationsDelegates,
+            supportedLocales: AppL10n.supportedLocales,
+            builder: (context, child) => MediaQuery(
+              data: MediaQuery.of(context).copyWith(disableAnimations: true),
+              child: child!,
+            ),
+            home: SoriStageShell(
+              replayHomeTour: replay,
+              requestedTab: requested,
+              loadTodaySnapshot: loadStage,
+              loadProgressionSnapshot: loadStage,
+              loadGyeMetas: loadGroups,
+              loadLearningFocus: () async =>
+                  const LearningFocus(today: TodayLearningSnapshot(pick: null)),
+            ),
+          ),
+        );
+        Future<void> select(SoriStageTab tab) async {
+          requested.value = tab.index;
+          await pumpSoriStage(tester);
+        }
+
+        await pumpSoriStage(tester);
+        for (final tab in SoriStageTab.values) {
+          await select(tab);
+        }
+        expect(find.text('80', skipOffstage: false), findsNWidgets(4));
+        expect(
+          find.text('Account A courtyard', skipOffstage: false),
+          findsOneWidget,
+        );
+        expect(
+          tester
+              .widgetList<CLantern>(find.byType(CLantern))
+              .where((w) => w.lit),
+          hasLength(3),
+        );
+        await select(activeTab);
+        if (activeTab == SoriStageTab.today) {
+          nextAStage = lateA.future;
+          await tester
+              .widget<RefreshIndicator>(find.byType(RefreshIndicator))
+              .onRefresh();
+          await pumpSoriStage(tester);
+        }
+        await Storage.setXp(902);
+        cloudWriteSessionController.acquire('stage-account-b');
+        await pumpSoriStage(tester);
+        void priorAccountIsHidden() {
+          expect(find.text('80', skipOffstage: false), findsNothing);
+          expect(
+            find.text('Account A courtyard', skipOffstage: false),
+            findsNothing,
+          );
+          final t = AppL10n.of(tester.element(find.byType(SoriStageShell)));
+          expect(
+            find.text('${t.soriStageBojagiTitle} · 7', skipOffstage: false),
+            findsNothing,
+          );
+          expect(
+            find
+                .byKey(
+                  const ValueKey('hanok-shortcut-count-bojagi'),
+                  skipOffstage: false,
+                )
+                .evaluate()
+                .map((e) => (e.widget as Text).data),
+            isNot(contains('7')),
+          );
+        }
+
+        priorAccountIsHidden();
+        for (final tab in SoriStageTab.values) {
+          await select(tab);
+          priorAccountIsHidden();
+        }
+        pendingStage.completeError(StateError('account B stage read failed'));
+        pendingGroups.completeError(StateError('account B group read failed'));
+        await pumpSoriStage(tester);
+        priorAccountIsHidden();
+        expect(find.byType(AppError), findsOneWidget);
+        expect(
+          find.byKey(const ValueKey('gye-empty-start')),
+          findsNothing,
+          reason:
+              'A failed B membership query must not become an unjoined state.',
+        );
+        for (final tab in SoriStageTab.values) {
+          await select(tab);
+          priorAccountIsHidden();
+        }
+        expect(
+          reads.where((uid) => uid == 'stage-account-b').length,
+          greaterThanOrEqualTo(4),
+        );
+        nextStage = Future.value(
+          _accountSnapshot(balance: 40, boxes: 2, xp: 902),
+        );
+        nextGroups = Future.value([_accountGroup('Account B courtyard', 2)]);
+        final retry = find.byType(AppError);
+        tester.widget<AppError>(retry).onRetry!();
+        await pumpSoriStage(tester);
+        expect(find.text('Account B courtyard'), findsOneWidget);
+        expect(
+          tester
+              .widgetList<CLantern>(find.byType(CLantern))
+              .where((w) => w.lit),
+          hasLength(1),
+        );
+        final t = AppL10n.of(tester.element(find.byType(SoriStageShell)));
+        expect(find.text(t.gyeMembersN(2)), findsOneWidget);
+        for (final tab in SoriStageTab.values) {
+          await select(tab);
+          priorAccountIsHidden();
+          if (tab != SoriStageTab.gye) {
+            expect(
+              find.descendant(
+                of: find.byKey(const ValueKey('yeopjeon-header-balance')),
+                matching: find.text('40'),
+              ),
+              findsOneWidget,
+              reason: tab.name,
+            );
+          }
+        }
+        await select(SoriStageTab.today);
+        final reward = find.byKey(const ValueKey('pending-bojagi-title'));
+        await tester.ensureVisible(reward);
+        await pumpSoriStage(tester);
+        expect(find.text('${t.soriStageBojagiTitle} · 2'), findsOneWidget);
+        lateA.complete(_accountSnapshot(balance: 80, boxes: 7, xp: 901));
+        await pumpSoriStage(tester);
+        priorAccountIsHidden();
+        expect(
+          find.text('${t.soriStageBojagiTitle} · 2'),
+          findsOneWidget,
+          reason:
+              'An old A query completing last must not replace the B display.',
+        );
+        expect(
+          Storage.xp,
+          902,
+          reason: 'Refreshing presentation must not pay XP for either account.',
+        );
+        expect(Storage.pendingBoxes, isEmpty);
+        expect(tester.takeException(), isNull);
+      },
+    );
+  }
 }
 
 Widget _app(Widget home) => MaterialApp(
@@ -789,3 +1006,43 @@ SoriStageProgressionSnapshot _snapshot(TodayLearningSnapshot today) =>
       streakDays: 0,
       todayReward: null,
     );
+
+SoriStageProgressionSnapshot _accountSnapshot({
+  required int balance,
+  required int boxes,
+  required int xp,
+}) => SoriStageProgressionSnapshot(
+  today: const TodayLearningSnapshot(pick: null),
+  hanokCompetence: const HanokCompetenceProjection.empty(),
+  quests: const [],
+  pendingBojagiCount: boxes,
+  stampCount: 0,
+  xp: xp,
+  streakDays: 0,
+  todayReward: null,
+  wallet: YeopjeonWallet(
+    balance: balance,
+    sarangchaeEligibleStage: balance ~/ 40,
+    sarangchaeOwnedStage: 0,
+    b2EligibleStage: 0,
+    b2OwnedStage: 0,
+    grandfatheredSarangchaeStage: 0,
+    grandfatheredB2Stage: 0,
+    claims: {
+      for (var stage = 1; stage <= balance ~/ 40; stage++)
+        'milestone:s:$stage': 40,
+    },
+    completedSourceIds: const {},
+    reviewedSourceIds: const {},
+  ),
+);
+
+GyeMeta _accountGroup(String name, int members) => GyeMeta(
+  id: name,
+  name: name,
+  code: 'ABC234',
+  ownerId: 'test-owner',
+  memberCount: members,
+  weeklyGoalPacks: 3,
+  weeklyGoalProgress: members == 7 ? 3 : 1,
+);

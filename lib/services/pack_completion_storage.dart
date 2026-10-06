@@ -99,7 +99,7 @@ abstract final class PackCompletionStorage {
   }
 
   static void assertWritableKey(String key) {
-    if (writesClosed && PackCompletionRecord.stateKeys.contains(key)) {
+    if (writesClosed && PackCompletionRecord.nativeWriteKeys.contains(key)) {
       throw const PackCompletionPendingException();
     }
   }
@@ -108,7 +108,7 @@ abstract final class PackCompletionStorage {
   // Freeze new native entries only once those owners have finished, then drain
   // every already issued affected adapter before capturing the exact plan.
   static Future<T> trackWrite<T>(String key, Future<T> Function() work) {
-    if (!PackCompletionRecord.stateKeys.contains(key) ||
+    if (!PackCompletionRecord.nativeWriteKeys.contains(key) ||
         Zone.current[_writeZoneKey] == true) {
       return work();
     }

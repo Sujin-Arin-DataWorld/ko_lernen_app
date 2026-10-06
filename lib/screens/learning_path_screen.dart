@@ -23,14 +23,15 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/hanok_tokens.dart';
 import '../widgets/sori/level_chip.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/c_gallery/c_materials.dart';
+import '../widgets/sori/c_gallery/c_objects.dart';
 import '../widgets/sori/course_progress_evidence_note.dart';
+import 'sori_stage/c_stage_chrome.dart';
 import '../widgets/sori/path_trail.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
-import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
-import '../widgets/sori/window_class.dart';
 
 /// 경로가 렌더할 단일 CEFR 레벨을 정한다. 학습자의 온보딩 선택
 /// ([Storage.userLevelCode], 소문자 'a1'..'c2')이 진실의 출처이며, 온보딩 전
@@ -498,177 +499,262 @@ class _LearningPathScreenState extends State<LearningPathScreen>
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    return SoriStandardFrame(
-      appBarTitle: t.pathTitle,
-      maxWidth: SoriMaxWidth.hub,
-      padding: const EdgeInsets.fromLTRB(16, 8, 16, 48),
-      actions: [
+    final locale = Localizations.localeOf(context).languageCode;
+    final trailing = Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
         const CulturalHelpButton(termId: 'madang'),
-        // §6.2-①: 현재 노드로 점프 (자동 스크롤과 병행).
         IconButton(
           key: const ValueKey('path-jump-to-now'),
           tooltip: t.pathJumpToNow,
-          icon: const Icon(Icons.my_location_rounded),
+          icon: const Icon(Icons.my_location_rounded, color: CPalette.paper),
           onPressed: _hasLegacyTarget ? _jumpToLegacyTarget : null,
         ),
-        const SizedBox(width: Spacing.xs),
       ],
-      builder: (context, resolvedPadding) {
-        if (_loading) {
-          return const AppLoading();
+    );
+
+    if (_loading) {
+      return Scaffold(
+        backgroundColor: CPalette.jade,
+        body: CStageBackground(
+          child: SafeArea(
+            bottom: false,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: CStageHeader(title: t.pathTitle, trailing: trailing),
+                ),
+                const Expanded(child: Center(child: AppLoading())),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
+
+    CourseUnit? currentCourseUnit;
+    if (_courseSnapshot?.currentCourseUnitId case final currentId?) {
+      for (final unit in _courseUnits) {
+        if (unit.id == currentId) {
+          currentCourseUnit = unit;
+          break;
         }
-        // 접힌(기본) 상태 = 코스 미션 경로(있으면) + 토글 버튼뿐이다. 이
-        // 서브트리에는 내부 LayoutBuilder가 없어 fillViewport의
-        // IntrinsicHeight 측정과 안전하게 함께 쓸 수 있다.
-        final collapsedChildren = <Widget>[
-          SoriButton.outlined(
-            key: const ValueKey('path-learning-phases'),
-            label: t.coursePreviewTitle,
-            trailingIcon: Icons.grid_view_rounded,
-            fullWidth: true,
-            onTap: () async {
+      }
+    }
+
+    final collapsedChildren = <Widget>[
+      if (currentCourseUnit != null) ...[
+        CPaperPanel(
+          key: const ValueKey('c-course-next-mission'),
+          radius: 16,
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                '${_courseLevel.toUpperCase()} · ${t.pathStatusCurrent}',
+                style: cStageBody.copyWith(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w700,
+                  letterSpacing: 1.2,
+                  color: CPalette.mutedInk,
+                ),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                currentCourseUnit.title.pick(locale),
+                style: cStageCardTitle,
+              ),
+              const SizedBox(height: 6),
+              Text(
+                currentCourseUnit.canDo.pick(locale),
+                style: cStageBody.copyWith(color: CPalette.mutedInk),
+              ),
+              const SizedBox(height: 28),
+              const SizedBox(
+                height: 58,
+                child: CSceneArt(CScene.book, height: 58),
+              ),
+              const SizedBox(height: 18),
+              CMaterialAction(
+                key: const ValueKey('path-current-mission'),
+                label: t.pathOpenCurrentMission,
+                onTap: () async {
+                  await Navigator.pushNamed(
+                    context,
+                    '/course/mission',
+                    arguments: currentCourseUnit!.id,
+                  );
+                  if (mounted) await _load();
+                },
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 16),
+      ],
+      CMaterialAction(
+        key: const ValueKey('path-learning-phases'),
+        label: t.coursePreviewTitle,
+        onTap: () async {
+          await Navigator.pushNamed(
+            context,
+            '/course/phases',
+            arguments: _courseLevel,
+          );
+          if (mounted) await _load();
+        },
+      ),
+      const SizedBox(height: 16),
+      if (_courseLoading && _courseUnits.isEmpty) ...[
+        _PathSectionLoading(
+          key: const ValueKey('path-course-loading'),
+          label: t.pathCourseMissionsTitle,
+        ),
+        const SizedBox(height: 18),
+      ] else if (_courseLoadFailed) ...[
+        _PathSectionError(
+          key: const ValueKey('path-course-load-error'),
+          title: t.pathCourseMissionsTitle,
+          body: t.courseMissionLoadError,
+          retryLabel: t.btnRetry,
+          onRetry: _retryCourse,
+        ),
+        const SizedBox(height: 18),
+      ],
+      if (_courseUnits.isNotEmpty && _courseSnapshot != null) ...[
+        CPaperPanel(
+          key: const ValueKey('c-course-path-panel'),
+          radius: 16,
+          padding: const EdgeInsets.all(16),
+          child: _CourseMissionPath(
+            courseUnits: _courseUnits,
+            snapshot: _courseSnapshot!,
+            lang: locale,
+            filterLevel:
+                (LearnerLevel.fromCode(_courseLevel) ?? LearnerLevel.a1).code,
+            currentNodeKey: _currentCourseNodeKey,
+            onTapUnit: (unit) async {
               await Navigator.pushNamed(
                 context,
-                '/course/phases',
-                arguments: _courseLevel,
+                '/course/mission',
+                arguments: unit.id,
               );
-              if (mounted) {
-                await _load();
-              }
+              if (mounted) await _load();
             },
           ),
-          const SizedBox(height: Spacing.lg),
-          if (_courseLoading && _courseUnits.isEmpty) ...[
-            _PathSectionLoading(
-              key: const ValueKey('path-course-loading'),
-              label: t.pathCourseMissionsTitle,
-            ),
-            const SizedBox(height: Spacing.xl),
-          ] else if (_courseLoadFailed) ...[
-            _PathSectionError(
-              key: const ValueKey('path-course-load-error'),
-              title: t.pathCourseMissionsTitle,
-              body: t.courseMissionLoadError,
-              retryLabel: t.btnRetry,
-              onRetry: _retryCourse,
-            ),
-            const SizedBox(height: Spacing.xl),
-          ],
-          if (_courseUnits.isNotEmpty && _courseSnapshot != null) ...[
-            _CourseMissionPath(
-              courseUnits: _courseUnits,
-              snapshot: _courseSnapshot!,
-              lang: Localizations.localeOf(context).languageCode,
-              filterLevel:
-                  (LearnerLevel.fromCode(_courseLevel) ?? LearnerLevel.a1).code,
-              currentNodeKey: _currentCourseNodeKey,
-              onTapUnit: (unit) async {
-                await Navigator.pushNamed(
-                  context,
-                  '/course/mission',
-                  arguments: unit.id,
-                );
-                if (mounted) await _load();
-              },
-            ),
-            const SizedBox(height: Spacing.xl),
-          ],
-          if (_legacyLoading && _groups.isEmpty)
-            _PathSectionLoading(
-              key: const ValueKey('path-legacy-loading'),
-              label: t.pathShowMorePractice,
-            )
-          else if (_legacyLoadFailure != null)
-            _PathSectionError(
-              key: const ValueKey('path-legacy-load-error'),
-              title: t.pathShowMorePractice,
-              body: t.loadErrorTryAgain,
-              retryLabel: t.btnRetry,
-              onRetry: _retryLegacy,
-            )
-          else
-            SoriButton.outlined(
-              key: const ValueKey('path-legacy-practice-toggle'),
-              label: _showLegacyPractice
-                  ? t.pathHideMorePractice
-                  : t.pathShowMorePractice,
-              trailingIcon: _showLegacyPractice
-                  ? Icons.expand_less_rounded
-                  : Icons.expand_more_rounded,
-              fullWidth: true,
-              onTap: () =>
-                  setState(() => _showLegacyPractice = !_showLegacyPractice),
-            ),
-        ];
+        ),
+        const SizedBox(height: 18),
+      ],
+      if (_legacyLoading && _groups.isEmpty)
+        _PathSectionLoading(
+          key: const ValueKey('path-legacy-loading'),
+          label: t.pathShowMorePractice,
+        )
+      else if (_legacyLoadFailure != null)
+        _PathSectionError(
+          key: const ValueKey('path-legacy-load-error'),
+          title: t.pathShowMorePractice,
+          body: t.loadErrorTryAgain,
+          retryLabel: t.btnRetry,
+          onRetry: _retryLegacy,
+        )
+      else
+        CMaterialAction(
+          key: const ValueKey('path-legacy-practice-toggle'),
+          gold: false,
+          label: _showLegacyPractice
+              ? t.pathHideMorePractice
+              : t.pathShowMorePractice,
+          onTap: () =>
+              setState(() => _showLegacyPractice = !_showLegacyPractice),
+        ),
+    ];
 
-        return RefreshIndicator(
-          onRefresh: _refresh,
-          // W10 T-V3(2026-09-05, Jin D-4): 접힌 기본 상태는 카드 몇 개 +
-          // 버튼 하나뿐이라 긴 뷰포트에서 위쪽에 뭉쳤다 — 그때만
-          // ConstrainedBox(minHeight)+IntrinsicHeight 로 감싸 중앙 정렬한다.
-          // 펼친 상태는 `SoriPathTrail` 내부의 `LayoutBuilder` 가
-          // IntrinsicHeight 측정과 함께 쓸 수 없어(2026-09-05 실측,
-          // "LayoutBuilder does not support returning intrinsic dimensions")
-          // 자연 높이 그대로 둔다.
-          //
-          // 바깥 `SingleChildScrollView`는 두 상태 모두에서 **같은 위젯**으로
-          // 유지한다(자식만 바뀐다) — `ListView`(Sliver 기반)로 매번 새로 만들면
-          // ①뷰포트 밖 자식이 지연 생성돼 스크롤 없이 `find`로 안 잡히고,
-          // ②토글 직후 스크롤 위치가 초기화돼 방금 누른 토글 버튼 자체가
-          // 화면 밖으로 밀려난다(2026-09-05 실측 회귀). `SingleChildScrollView`
-          // +`Column`은 항상 자식을 전부 즉시 빌드하고, 위젯 타입이 안 바뀌니
-          // 스크롤 위치도 자연히 이어진다.
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              final content =
-                  _showLegacyPractice &&
-                      _legacyLoadFailure == null &&
-                      !(_legacyLoading && _groups.isEmpty)
-                  ? Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        ...collapsedChildren,
-                        KeyedSubtree(
-                          key: const ValueKey('path-legacy-practice-content'),
-                          child: Column(
-                            children: [
-                              const SizedBox(height: Spacing.lg),
-                              _HanokHeader(
-                                stage: _stage,
-                                cleared: _clearedTotal,
-                                total: _packTotal,
+    return Scaffold(
+      backgroundColor: CPalette.jade,
+      body: CStageBackground(
+        child: SafeArea(
+          bottom: false,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12, 0, 12, 4),
+                child: CStageHeader(
+                  title: t.pathTitle,
+                  trailing: trailing,
+                  artwork: const CObjectArt(CObject.book),
+                ),
+              ),
+              Expanded(
+                child: RefreshIndicator(
+                  onRefresh: _refresh,
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      final content =
+                          _showLegacyPractice &&
+                              _legacyLoadFailure == null &&
+                              !(_legacyLoading && _groups.isEmpty)
+                          ? Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                ...collapsedChildren,
+                                KeyedSubtree(
+                                  key: const ValueKey(
+                                    'path-legacy-practice-content',
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      const SizedBox(height: 16),
+                                      _HanokHeader(
+                                        stage: _stage,
+                                        cleared: _clearedTotal,
+                                        total: _packTotal,
+                                      ),
+                                      const SizedBox(height: 20),
+                                      for (final g in _groups)
+                                        if (g.level == _selectedLevel)
+                                          ..._levelSection(t, g),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            )
+                          : ConstrainedBox(
+                              constraints: BoxConstraints(
+                                minHeight: constraints.maxHeight.isFinite
+                                    ? constraints.maxHeight
+                                    : 0,
                               ),
-                              const SizedBox(height: Spacing.xl),
-                              // 선택한 레벨만 렌더 — 전체 A1~C2 나열 대신.
-                              for (final g in _groups)
-                                if (g.level == _selectedLevel)
-                                  ..._levelSection(t, g),
-                            ],
-                          ),
+                              child: IntrinsicHeight(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: collapsedChildren,
+                                ),
+                              ),
+                            );
+                      return SingleChildScrollView(
+                        primary: true,
+                        physics: const AlwaysScrollableScrollPhysics(),
+                        padding: EdgeInsets.fromLTRB(
+                          12,
+                          8,
+                          12,
+                          24 + MediaQuery.paddingOf(context).bottom,
                         ),
-                      ],
-                    )
-                  : ConstrainedBox(
-                      constraints: BoxConstraints(
-                        minHeight: constraints.maxHeight.isFinite
-                            ? constraints.maxHeight
-                            : 0,
-                      ),
-                      child: IntrinsicHeight(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: collapsedChildren,
-                        ),
-                      ),
-                    );
-              return SingleChildScrollView(
-                child: Padding(padding: resolvedPadding, child: content),
-              );
-            },
+                        child: content,
+                      );
+                    },
+                  ),
+                ),
+              ),
+            ],
           ),
-        );
-      },
+        ),
+      ),
     );
   }
 
@@ -851,79 +937,45 @@ class _CourseMissionPath extends StatelessWidget {
     for (final units in grouped.values) {
       units.sort((left, right) => left.order.compareTo(right.order));
     }
-    final ordered = grouped.values.expand((units) => units).toList();
-    CourseUnit? current;
-    for (final unit in ordered) {
-      if (unit.id == snapshot.currentCourseUnitId) {
-        current = unit;
-        break;
-      }
-    }
-    CourseUnit? latestCompleted;
-    for (final unit in ordered) {
-      if (snapshot.completedUnitIds.contains(unit.id)) {
-        latestCompleted = unit;
-      }
-    }
-    final currentIndex = current == null ? -1 : ordered.indexOf(current);
-    CourseUnit? next;
-    for (var i = currentIndex + 1; i < ordered.length; i++) {
-      final candidate = ordered[i];
-      if (!snapshot.completedUnitIds.contains(candidate.id) &&
-          !snapshot.bypassedPrerequisiteUnitIds.contains(candidate.id) &&
-          candidate.id != current?.id) {
-        next = candidate;
-        break;
-      }
-    }
-    final visible = <CourseUnit>[];
-    for (final unit in [latestCompleted, current, next]) {
-      if (unit != null &&
-          !visible.any((candidate) => candidate.id == unit.id)) {
-        visible.add(unit);
-      }
-    }
+    final visible = grouped.values.expand((units) => units).toList();
+    final levelLabel =
+        (LearnerLevel.fromCode(filterLevel) ?? LearnerLevel.a1).display;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          t.pathStoryEyebrow(
-            (LearnerLevel.fromCode(filterLevel) ?? LearnerLevel.a1).display,
-          ),
-          style: SoriTextTheme.of(context).label,
-        ),
-        const SizedBox(height: Spacing.xs),
-        Text(t.pathStoryTitle, style: SoriTextTheme.of(context).h1),
-        const SizedBox(height: Spacing.xs),
-        Text(t.pathStoryBody, style: SoriTextTheme.of(context).bodySmall),
-        const SizedBox(height: Spacing.lg),
-        for (final unit in visible)
-          Padding(
-            padding: const EdgeInsets.only(bottom: Spacing.sm),
-            child: KeyedSubtree(
-              key: unit.id == snapshot.currentCourseUnitId
-                  ? currentNodeKey
-                  : null,
-              child: _CourseMissionNode(
-                key: ValueKey('path-course-row-${unit.id}'),
-                unit: unit,
-                status: _statusFor(unit),
-                lang: lang,
-                onTap: () => onTapUnit(unit),
+        Row(
+          children: [
+            Expanded(
+              child: Text(
+                '$levelLabel · ${t.pathStoryTitle}',
+                style: cStageCardTitle.copyWith(fontSize: 18),
               ),
             ),
+            Text(
+              '${visible.length}',
+              style: cStageBody.copyWith(color: CPalette.mutedInk),
+            ),
+          ],
+        ),
+        const SizedBox(height: 10),
+        for (var i = 0; i < visible.length; i++) ...[
+          KeyedSubtree(
+            key: visible[i].id == snapshot.currentCourseUnitId
+                ? currentNodeKey
+                : null,
+            child: _CourseMissionNode(
+              key: ValueKey('path-course-row-${visible[i].id}'),
+              unit: visible[i],
+              status: _statusFor(visible[i]),
+              lang: lang,
+              onTap: () => onTapUnit(visible[i]),
+            ),
           ),
-        const SizedBox(height: Spacing.xs),
-        const CourseProgressEvidenceNote(),
-        if (current case final currentUnit?) ...[
-          const SizedBox(height: Spacing.md),
-          SoriButton.filled(
-            key: const ValueKey('path-current-mission'),
-            label: t.pathOpenCurrentMission,
-            fullWidth: true,
-            onTap: () => onTapUnit(currentUnit),
-          ),
+          if (i != visible.length - 1)
+            Divider(height: 1, color: CPalette.fineEdge.withValues(alpha: .7)),
         ],
+        const SizedBox(height: 10),
+        const CourseProgressEvidenceNote(),
       ],
     );
   }
@@ -964,23 +1016,23 @@ class _CourseMissionNode extends StatelessWidget {
     final canDo = _conciseCanDo(unit.canDo.pick(lang), lang);
     final (icon, color, statusText) = switch (status) {
       _MissionPathStatus.current => (
-        Icons.play_circle_outline_rounded,
-        SoriColors.primary,
+        Icons.play_arrow_rounded,
+        CPalette.brass,
         t.pathStatusCurrent,
       ),
       _MissionPathStatus.completed => (
-        Icons.check_circle_outline_rounded,
-        SoriColors.success,
+        Icons.check_rounded,
+        CPalette.deepJade,
         t.pathStatusCompleted,
       ),
       _MissionPathStatus.bypassed => (
         Icons.fast_forward_rounded,
-        SoriColors.info,
+        CPalette.mutedInk,
         t.pathStatusBypassed,
       ),
       _MissionPathStatus.preview => (
-        Icons.visibility_outlined,
-        SoriColors.warning,
+        Icons.lock_outline_rounded,
+        CPalette.mutedInk,
         t.pathStatusNext,
       ),
     };
@@ -1006,34 +1058,36 @@ class _CourseMissionNode extends StatelessWidget {
         ],
       ],
     );
-    return SoriCard(
-      variant: SoriCardVariant.compact,
-      accent: color,
-      onTap: onTap,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _MissionStatusBadge(
-            order: unit.order,
-            status: status,
-            icon: icon,
-            color: color,
-            semanticLabel: statusText,
-          ),
-          const SizedBox(width: Spacing.md),
-          Expanded(child: details),
-          if (!stackStatus) ...[
-            const SizedBox(width: Spacing.sm),
-            ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 96),
-              child: Text(
-                statusText,
-                textAlign: TextAlign.end,
-                style: SoriTextTheme.of(context).caption.copyWith(color: color),
+    return Semantics(
+      button: true,
+      label: '${unit.title.pick(lang)} · $statusText',
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(10),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 2),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _MissionStatusBadge(
+                order: unit.order,
+                status: status,
+                icon: icon,
+                color: color,
+                semanticLabel: statusText,
               ),
-            ),
-          ],
-        ],
+              const SizedBox(width: 12),
+              Expanded(child: details),
+              const SizedBox(width: 8),
+              Padding(
+                padding: const EdgeInsets.only(top: 8),
+                child: status == _MissionPathStatus.preview
+                    ? Icon(Icons.lock_outline_rounded, size: 18, color: color)
+                    : const CArrow(dark: true, size: 14),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

@@ -7,6 +7,7 @@ import '../models/hanok_competence.dart';
 import '../models/pack_progress.dart';
 import '../models/sori_stage_progression.dart';
 import 'decoration_reward_service.dart';
+import 'catalog_history_lease.dart';
 import 'course_progress_service.dart';
 import 'diagnostics_service.dart';
 import 'gye_service.dart';
@@ -26,6 +27,19 @@ abstract final class SoriStageProgressionService {
     TodaySnapshotReader? loadToday,
     HanokCompetenceProjectionReader? loadHanokCompetence,
   }) async {
+    final lease = CatalogHistoryLease.capture();
+    void assertCurrentRead() {
+      if (!lease.isCurrent) {
+        throw StateError('The stage account changed while reading progress.');
+      }
+    }
+
+    final receiptFuture = _readObserved('decoration_receipt', () async {
+      final raw = await Storage.readDecorationRewardReceiptRawJsonStrict(
+        assertCurrentRead: assertCurrentRead,
+      );
+      return DecorationRewardReceiptHistory.decode(raw).pending != null;
+    });
     final todayFuture = _readObserved(
       'today',
       loadToday ?? TodayLearningSnapshotLoader.load,
@@ -45,6 +59,7 @@ abstract final class SoriStageProgressionService {
       hanokFuture,
       questsFuture,
       gyeLanternFuture,
+      receiptFuture,
     ]) {
       unawaited(future.then<void>((_) {}, onError: (_) {}));
     }
@@ -52,6 +67,7 @@ abstract final class SoriStageProgressionService {
     final hanok = await hanokFuture;
     final quests = await questsFuture;
     final gyeLanternCount = await gyeLanternFuture;
+    final hasPendingDecorationReceipt = await receiptFuture;
     final activity = activityForRoute(today.destination?.route);
     final activityProgress = await _readObserved(
       'activities',
@@ -69,6 +85,7 @@ abstract final class SoriStageProgressionService {
       walletUnavailable = true;
       // Money is independently unavailable; never invent a zero balance.
     }
+    assertCurrentRead();
     return SoriStageProgressionSnapshot(
       wallet: wallet,
       walletUnavailable: walletUnavailable,
@@ -76,6 +93,7 @@ abstract final class SoriStageProgressionService {
       hanokCompetence: hanok,
       quests: quests,
       pendingBojagiCount: DecorationRewardService.openableBoxCount(),
+      hasPendingDecorationReceipt: hasPendingDecorationReceipt,
       stampCount: Storage.earnedStamps.length,
       stampIds: Storage.earnedStamps.toSet(),
       xp: Storage.xp,

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/widgets.dart';
 import '../models/sori_stage_progression.dart';
+import '../models/yeopjeon_reward_moment.dart';
 
 /// Ephemeral evidence, captured by existing activity finish transactions only.
 /// It never writes learning progress or grants rewards.
@@ -12,6 +13,19 @@ class LearningAttempt {
   bool saveFailed = false;
   bool? passed;
   final Map<String, int> _shown = {};
+  final List<YeopjeonRewardMoment> _rewardMoments = [];
+  YeopjeonPendingReward? _pendingReward;
+  void pendingReward(YeopjeonPendingReward? pending) {
+    if (completed && !saveFailed) {
+      _pendingReward = pending;
+    }
+  }
+
+  void confirmedReward(YeopjeonRewardMoment moment) {
+    if (completed && !saveFailed) {
+      _rewardMoments.add(moment);
+    }
+  }
 
   void complete({bool? passed}) {
     completed = true;
@@ -60,6 +74,12 @@ class LearningJourney {
   Future<void> get returned => _returned.future;
   bool get hadCompletedAttempt => attempts.any((a) => a.completed);
   bool get hadSaveFailure => attempts.any((a) => a.saveFailed);
+  List<YeopjeonRewardMoment> get rewardMoments =>
+      List.unmodifiable(attempts.expand((attempt) => attempt._rewardMoments));
+  List<YeopjeonPendingReward> get pendingRewards => List.unmodifiable([
+    for (final attempt in attempts)
+      if (attempt._pendingReward case final pending?) pending,
+  ]);
   bool get abandoned => !hadCompletedAttempt && !hadSaveFailure;
   LearningJourneyResult get result => LearningJourneyResult(
     completedAttempts: attempts.where((a) => a.completed).length,
@@ -121,10 +141,28 @@ class LearningJourney {
     final remainingStages = items
         .where((item) => item.kind == SoriRewardKind.hanokProgress)
         .fold<int>(0, (sum, item) => sum + (item.amount ?? 0));
+    final pending = receipt.pendingYeopjeon;
     return RewardReceipt(
       activityId: receipt.activityId,
       receiptId: receipt.receiptId,
       items: items,
+      pendingYeopjeon: pending == null
+          ? null
+          : YeopjeonPendingReward(
+              sourceIds: pending.sourceIds,
+              baselineClaimIds: {
+                ...pending.baselineClaimIds,
+                for (final entry in amounts.entries)
+                  if (entry.key.startsWith('yeopjeon:') && entry.value > 0)
+                    entry.key.substring('yeopjeon:'.length),
+              },
+              hasClaimBaseline: pending.hasClaimBaseline,
+            ),
+      yeopjeonReward: receipt.yeopjeonReward?.retaining({
+        for (final item in items)
+          if (item.kind == SoriRewardKind.yeopjeon && item.identity != null)
+            item.identity!,
+      }),
       // Keep the actual stage bounds while advancing past stages already
       // presented natively. An XP-only remainder must not replay the upgrade.
       sarangchaeStageBefore: receipt.hasSarangchaeUpgrade

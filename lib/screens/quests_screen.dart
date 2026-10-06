@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-
 import '../data/quest_catalog.dart';
 import '../l10n/generated/app_localizations.dart';
+import '../models/companion_art.dart';
 import '../models/content_feedback.dart';
 import '../models/feedback_completion.dart';
 import '../models/quest.dart';
-import '../services/quest_tracker.dart';
 import '../services/quest_action_resolver.dart';
+import '../services/quest_tracker.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
@@ -14,15 +14,15 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/content_feedback_card.dart';
-import '../widgets/sori/dialog.dart';
 import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/decoration_layer.dart' show kAvailableDecorations;
-import '../widgets/sori/reward_thumb.dart';
+import '../widgets/sori/dialog.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/placed_decoration.dart' show decorName, decorTerm;
 import '../widgets/sori/progress.dart';
+import '../widgets/sori/reward_thumb.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/section_header.dart';
 import '../widgets/sori/sori_term.dart';
@@ -244,7 +244,7 @@ class _QuestsScreenState extends State<QuestsScreen>
                     completed.isEmpty &&
                     seasonalLocked.isEmpty)
                   SoriEmptyState(
-                    asset: 'assets/illustrations/mascot/magpie_encourage.png',
+                    asset: CompanionArt.joyGuide,
                     icon: Icons.local_florist_outlined,
                     title: t.questsEmptyTitle,
                     body: t.questsEmptyBody,

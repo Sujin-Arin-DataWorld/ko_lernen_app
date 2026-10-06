@@ -1,11 +1,9 @@
-import '../widgets/sori/game_result_recovery.dart';
-import '../widgets/sori/study_evidence_recovery.dart';
 import 'package:flutter/material.dart';
-
 import '../l10n/generated/app_localizations.dart';
+import '../models/companion_art.dart';
 import '../models/course_practice_context.dart';
-import '../models/feedback_completion.dart';
 import '../models/curriculum.dart';
+import '../models/feedback_completion.dart';
 import '../services/analytics_service.dart';
 import '../services/course_activity_reporter.dart';
 import '../services/curriculum_catalog.dart';
@@ -14,10 +12,12 @@ import '../services/storage_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chrome_row.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/game_result_recovery.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import 'quest_engines/quest_models.dart';
@@ -341,7 +341,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen>
             Expanded(
               child: Center(
                 child: SoriEmptyState(
-                  asset: 'assets/illustrations/mascot/magpie_encourage.png',
+                  asset: CompanionArt.joyGuide,
                   icon: Icons.reorder_rounded,
                   title: t.satzArcadeTitle,
                   body: t.clozeEmptyBody,

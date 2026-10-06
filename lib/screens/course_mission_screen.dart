@@ -14,11 +14,12 @@ import '../services/scenario_loader.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/course_mission_brief.dart';
+import '../widgets/sori/c_gallery/c_materials.dart';
+import '../widgets/sori/c_gallery/c_objects.dart';
 import '../widgets/sori/sheet.dart';
-import '../widgets/sori/standard_page.dart';
+import 'sori_stage/c_stage_chrome.dart';
 import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
-import '../widgets/sori/window_class.dart';
 
 /// The course-first entry point. Legacy libraries remain available, but every
 /// action here is selected from the active mission's graph links.
@@ -167,18 +168,13 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
       return _buildBriefFrame(t, preview, widget.previewOpenLink!);
     }
     if (_loading) {
-      return SoriStandardFrame(
-        appBarTitle: t.courseMissionTitle,
-        maxWidth: SoriMaxWidth.prose,
-        builder: (context, resolvedPadding) => const AppLoading(),
-      );
+      return _cFrame(t, const Center(child: AppLoading()), scrollable: false);
     }
     if (_error != null || _unit == null) {
-      return SoriStandardFrame(
-        appBarTitle: t.courseMissionTitleShort,
-        maxWidth: SoriMaxWidth.prose,
-        builder: (context, resolvedPadding) =>
-            AppError(message: t.courseMissionLoadError, onRetry: _load),
+      return _cFrame(
+        t,
+        AppError(message: t.courseMissionLoadError, onRetry: _load),
+        scrollable: false,
       );
     }
 
@@ -192,26 +188,64 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
       isCurrent: _isCurrent,
       snapshot: _snapshot ?? const CourseMasterySnapshot.empty(),
     );
-    return SoriStandardFrame(
-      appBarTitle: t.courseMissionTitle,
-      maxWidth: SoriMaxWidth.prose,
-      padding: const EdgeInsets.fromLTRB(
-        Spacing.lg,
-        Spacing.md,
-        Spacing.lg,
-        Spacing.xxxl,
+    return _cFrame(
+      t,
+      CourseMissionBriefView(
+        brief: brief,
+        openLink: _openLink,
+        onExplain: () => _showWhy(unit),
       ),
-      builder: (context, resolvedPadding) => RefreshIndicator(
-        onRefresh: _load,
-        child: ListView(
-          padding: resolvedPadding,
-          children: [
-            CourseMissionBriefView(
-              brief: brief,
-              openLink: _openLink,
-              onExplain: () => _showWhy(unit),
-            ),
-          ],
+      onRefresh: _load,
+    );
+  }
+
+  Widget _cFrame(
+    AppL10n t,
+    Widget child, {
+    Future<void> Function()? onRefresh,
+    bool scrollable = true,
+  }) {
+    final body = Padding(
+      padding: EdgeInsets.fromLTRB(
+        12,
+        0,
+        12,
+        24 + MediaQuery.paddingOf(context).bottom,
+      ),
+      child: CPaperPanel(
+        key: const ValueKey('c-course-mission-panel'),
+        radius: 16,
+        padding: const EdgeInsets.all(16),
+        child: child,
+      ),
+    );
+    Widget content = scrollable
+        ? ListView(
+            physics: const AlwaysScrollableScrollPhysics(),
+            padding: EdgeInsets.zero,
+            children: [body],
+          )
+        : Center(child: body);
+    if (onRefresh != null) {
+      content = RefreshIndicator(onRefresh: onRefresh, child: content);
+    }
+    return Scaffold(
+      backgroundColor: CPalette.jade,
+      body: CStageBackground(
+        child: SafeArea(
+          bottom: false,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12, 0, 12, 4),
+                child: CStageHeader(
+                  title: t.courseMissionTitle,
+                  artwork: const CObjectArt(CObject.book),
+                ),
+              ),
+              Expanded(child: content),
+            ],
+          ),
         ),
       ),
     );
@@ -222,24 +256,12 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
     CourseMissionBrief brief,
     CourseMissionBriefOpener openLink,
   ) {
-    return SoriStandardFrame(
-      appBarTitle: t.courseMissionTitle,
-      maxWidth: SoriMaxWidth.prose,
-      padding: const EdgeInsets.fromLTRB(
-        Spacing.lg,
-        Spacing.md,
-        Spacing.lg,
-        Spacing.xxxl,
-      ),
-      builder: (context, resolvedPadding) => ListView(
-        padding: resolvedPadding,
-        children: [
-          CourseMissionBriefView(
-            brief: brief,
-            openLink: openLink,
-            onExplain: () => _showWhy(brief.unit),
-          ),
-        ],
+    return _cFrame(
+      t,
+      CourseMissionBriefView(
+        brief: brief,
+        openLink: openLink,
+        onExplain: () => _showWhy(brief.unit),
       ),
     );
   }

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
 import '../../l10n/generated/app_localizations.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/card.dart';
-import '../../widgets/sori/sheet.dart';
 import '../../widgets/sori/responsive.dart';
+import '../../widgets/sori/sheet.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/window_class.dart';
 
@@ -391,7 +390,12 @@ class _JourneyViewport extends StatelessWidget {
                       ),
                     ),
                   );
-            return Padding(
+            final minimumCanvasHeight = largeText
+                ? 1040.0
+                : constraints.maxHeight < 400
+                ? 680.0
+                : constraints.maxHeight;
+            final content = Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: horizontal,
                 vertical: gap,
@@ -433,6 +437,13 @@ class _JourneyViewport extends StatelessWidget {
                 ),
               ),
             );
+            if (minimumCanvasHeight > constraints.maxHeight) {
+              return SingleChildScrollView(
+                controller: bodyScrollController,
+                child: SizedBox(height: minimumCanvasHeight, child: content),
+              );
+            }
+            return content;
           },
         ),
       ),

@@ -1,0 +1,3169 @@
+{
+  "version": "1.0",
+  "date": "2026-10-05",
+  "status": "verified unchanged pixels",
+  "sourcePriority": "approved mockup PNG",
+  "priorRegeneratedAssets": "excluded",
+  "method": "System.Drawing integer-rectangle clone; original RGB pixels and background retained",
+  "records": [
+    {
+      "id": "01-startniveau",
+      "type": "approved-flattened-source",
+      "page": "01",
+      "path": "sources/01-startniveau.png",
+      "sourcePath": "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\mockups\\01-startniveau.png",
+      "sourceSha256": "0cd2c1a4474fb5c1a9e3a036e208f5413c034f5710522a9b01fde063b089d8c1",
+      "sha256": "0cd2c1a4474fb5c1a9e3a036e208f5413c034f5710522a9b01fde063b089d8c1",
+      "width": 853,
+      "height": 1844,
+      "includesPhoneFrame": true,
+      "copyStillMatchesSource": true
+    },
+    {
+      "id": "01-startniveau-reassembly",
+      "type": "exact-reassembly-proof",
+      "sourceId": "01-startniveau",
+      "path": "proof/01-startniveau-reassembled.png",
+      "bands": [
+        {
+          "path": "assembly/01-startniveau-band-00.png",
+          "x": 0,
+          "y": 0,
+          "width": 853,
+          "height": 275
+        },
+        {
+          "path": "assembly/01-startniveau-band-01.png",
+          "x": 0,
+          "y": 275,
+          "width": 853,
+          "height": 350
+        },
+        {
+          "path": "assembly/01-startniveau-band-02.png",
+          "x": 0,
+          "y": 625,
+          "width": 853,
+          "height": 365
+        },
+        {
+          "path": "assembly/01-startniveau-band-03.png",
+          "x": 0,
+          "y": 990,
+          "width": 853,
+          "height": 470
+        },
+        {
+          "path": "assembly/01-startniveau-band-04.png",
+          "x": 0,
+          "y": 1460,
+          "width": 853,
+          "height": 170
+        },
+        {
+          "path": "assembly/01-startniveau-band-05.png",
+          "x": 0,
+          "y": 1630,
+          "width": 853,
+          "height": 105
+        },
+        {
+          "path": "assembly/01-startniveau-band-06.png",
+          "x": 0,
+          "y": 1735,
+          "width": 853,
+          "height": 109
+        }
+      ],
+      "pixelVerification": {
+        "id": "01-startniveau-reassembly",
+        "kind": "exact-reassembly-proof",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "8c82bf04719eddc79f8d9d49c35a0e00289303f447cb6a1e6879fd716cccc792",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "01-level-a2-selected",
+      "type": "approved-flattened-source",
+      "page": "01",
+      "path": "sources/01-level-a2-selected.png",
+      "sourcePath": "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\mockups\\01-level-a2-selected.png",
+      "sourceSha256": "c03ae18d08556d3e6a62cf0cfb39a2764d1db35793021049a19c8b55c59e9857",
+      "sha256": "c03ae18d08556d3e6a62cf0cfb39a2764d1db35793021049a19c8b55c59e9857",
+      "width": 853,
+      "height": 1844,
+      "includesPhoneFrame": true,
+      "copyStillMatchesSource": true
+    },
+    {
+      "id": "01-level-a2-selected-reassembly",
+      "type": "exact-reassembly-proof",
+      "sourceId": "01-level-a2-selected",
+      "path": "proof/01-level-a2-selected-reassembled.png",
+      "bands": [
+        {
+          "path": "assembly/01-level-a2-selected-band-00.png",
+          "x": 0,
+          "y": 0,
+          "width": 853,
+          "height": 275
+        },
+        {
+          "path": "assembly/01-level-a2-selected-band-01.png",
+          "x": 0,
+          "y": 275,
+          "width": 853,
+          "height": 350
+        },
+        {
+          "path": "assembly/01-level-a2-selected-band-02.png",
+          "x": 0,
+          "y": 625,
+          "width": 853,
+          "height": 365
+        },
+        {
+          "path": "assembly/01-level-a2-selected-band-03.png",
+          "x": 0,
+          "y": 990,
+          "width": 853,
+          "height": 470
+        },
+        {
+          "path": "assembly/01-level-a2-selected-band-04.png",
+          "x": 0,
+          "y": 1460,
+          "width": 853,
+          "height": 170
+        },
+        {
+          "path": "assembly/01-level-a2-selected-band-05.png",
+          "x": 0,
+          "y": 1630,
+          "width": 853,
+          "height": 105
+        },
+        {
+          "path": "assembly/01-level-a2-selected-band-06.png",
+          "x": 0,
+          "y": 1735,
+          "width": 853,
+          "height": 109
+        }
+      ],
+      "pixelVerification": {
+        "id": "01-level-a2-selected-reassembly",
+        "kind": "exact-reassembly-proof",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "80b1027d086a1c849609c8c393577b8f98d769b8a1e3963c67502a0f978b54f7",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "01-level-picker",
+      "type": "approved-flattened-source",
+      "page": "01",
+      "path": "sources/01-level-picker.png",
+      "sourcePath": "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\mockups\\01-level-picker.png",
+      "sourceSha256": "baf9badf9571781fd1e2942db7035cc5cb3fd29e61bab5148def88d501a3a782",
+      "sha256": "baf9badf9571781fd1e2942db7035cc5cb3fd29e61bab5148def88d501a3a782",
+      "width": 853,
+      "height": 1844,
+      "includesPhoneFrame": true,
+      "copyStillMatchesSource": true
+    },
+    {
+      "id": "01-level-picker-reassembly",
+      "type": "exact-reassembly-proof",
+      "sourceId": "01-level-picker",
+      "path": "proof/01-level-picker-reassembled.png",
+      "bands": [
+        {
+          "path": "assembly/01-level-picker-band-00.png",
+          "x": 0,
+          "y": 0,
+          "width": 853,
+          "height": 275
+        },
+        {
+          "path": "assembly/01-level-picker-band-01.png",
+          "x": 0,
+          "y": 275,
+          "width": 853,
+          "height": 350
+        },
+        {
+          "path": "assembly/01-level-picker-band-02.png",
+          "x": 0,
+          "y": 625,
+          "width": 853,
+          "height": 365
+        },
+        {
+          "path": "assembly/01-level-picker-band-03.png",
+          "x": 0,
+          "y": 990,
+          "width": 853,
+          "height": 470
+        },
+        {
+          "path": "assembly/01-level-picker-band-04.png",
+          "x": 0,
+          "y": 1460,
+          "width": 853,
+          "height": 170
+        },
+        {
+          "path": "assembly/01-level-picker-band-05.png",
+          "x": 0,
+          "y": 1630,
+          "width": 853,
+          "height": 105
+        },
+        {
+          "path": "assembly/01-level-picker-band-06.png",
+          "x": 0,
+          "y": 1735,
+          "width": 853,
+          "height": 109
+        }
+      ],
+      "pixelVerification": {
+        "id": "01-level-picker-reassembly",
+        "kind": "exact-reassembly-proof",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "4ddf0b58f261a6ed64097ed10c184c3bb164254c223c9121c760ff16a992edcb",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "02-learning-path",
+      "type": "approved-flattened-source",
+      "page": "02",
+      "path": "sources/02-learning-path.png",
+      "sourcePath": "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\iphone16-large\\c-einleitung-02-sori-seal-weiter.png",
+      "sourceSha256": "a6606255345712510086b482b52c2492e82ae9af26317310fb6f9d98f28f30e0",
+      "sha256": "a6606255345712510086b482b52c2492e82ae9af26317310fb6f9d98f28f30e0",
+      "width": 853,
+      "height": 1844,
+      "includesPhoneFrame": true,
+      "copyStillMatchesSource": true
+    },
+    {
+      "id": "02-learning-path-reassembly",
+      "type": "exact-reassembly-proof",
+      "sourceId": "02-learning-path",
+      "path": "proof/02-learning-path-reassembled.png",
+      "bands": [
+        {
+          "path": "assembly/02-learning-path-band-00.png",
+          "x": 0,
+          "y": 0,
+          "width": 853,
+          "height": 275
+        },
+        {
+          "path": "assembly/02-learning-path-band-01.png",
+          "x": 0,
+          "y": 275,
+          "width": 853,
+          "height": 980
+        },
+        {
+          "path": "assembly/02-learning-path-band-02.png",
+          "x": 0,
+          "y": 1255,
+          "width": 853,
+          "height": 245
+        },
+        {
+          "path": "assembly/02-learning-path-band-03.png",
+          "x": 0,
+          "y": 1500,
+          "width": 853,
+          "height": 120
+        },
+        {
+          "path": "assembly/02-learning-path-band-04.png",
+          "x": 0,
+          "y": 1620,
+          "width": 853,
+          "height": 224
+        }
+      ],
+      "pixelVerification": {
+        "id": "02-learning-path-reassembly",
+        "kind": "exact-reassembly-proof",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "90a5e2c4596406b51bbf43b838f2a2c9425152f70700e382cac2bdb2a41a150a",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "03-learning-preview",
+      "type": "approved-flattened-source",
+      "page": "03",
+      "path": "sources/03-learning-preview.png",
+      "sourcePath": "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\iphone16-large\\c-einleitung-03.png",
+      "sourceSha256": "dabe8e033784f6239960dd6d216a1cd40c074e8aeaf876dd0d9c28f446af056f",
+      "sha256": "dabe8e033784f6239960dd6d216a1cd40c074e8aeaf876dd0d9c28f446af056f",
+      "width": 853,
+      "height": 1844,
+      "includesPhoneFrame": true,
+      "copyStillMatchesSource": true
+    },
+    {
+      "id": "03-learning-preview-reassembly",
+      "type": "exact-reassembly-proof",
+      "sourceId": "03-learning-preview",
+      "path": "proof/03-learning-preview-reassembled.png",
+      "bands": [
+        {
+          "path": "assembly/03-learning-preview-band-00.png",
+          "x": 0,
+          "y": 0,
+          "width": 853,
+          "height": 275
+        },
+        {
+          "path": "assembly/03-learning-preview-band-01.png",
+          "x": 0,
+          "y": 275,
+          "width": 853,
+          "height": 900
+        },
+        {
+          "path": "assembly/03-learning-preview-band-02.png",
+          "x": 0,
+          "y": 1175,
+          "width": 853,
+          "height": 170
+        },
+        {
+          "path": "assembly/03-learning-preview-band-03.png",
+          "x": 0,
+          "y": 1345,
+          "width": 853,
+          "height": 150
+        },
+        {
+          "path": "assembly/03-learning-preview-band-04.png",
+          "x": 0,
+          "y": 1495,
+          "width": 853,
+          "height": 120
+        },
+        {
+          "path": "assembly/03-learning-preview-band-05.png",
+          "x": 0,
+          "y": 1615,
+          "width": 853,
+          "height": 229
+        }
+      ],
+      "pixelVerification": {
+        "id": "03-learning-preview-reassembly",
+        "kind": "exact-reassembly-proof",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "398de7f65175b81a4cf94665f025318d14492ef3a48fe38c383e7cbc869ce5d0",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "04-games-reward",
+      "type": "approved-flattened-source",
+      "page": "04",
+      "path": "sources/04-games-reward.png",
+      "sourcePath": "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\iphone16-large\\c-einleitung-04.png",
+      "sourceSha256": "50dc62b261ee4b85c8000711d8a9d0c9f1a57f9a87e9a98034f18a26f183462a",
+      "sha256": "50dc62b261ee4b85c8000711d8a9d0c9f1a57f9a87e9a98034f18a26f183462a",
+      "width": 853,
+      "height": 1844,
+      "includesPhoneFrame": true,
+      "copyStillMatchesSource": true
+    },
+    {
+      "id": "04-games-reward-reassembly",
+      "type": "exact-reassembly-proof",
+      "sourceId": "04-games-reward",
+      "path": "proof/04-games-reward-reassembled.png",
+      "bands": [
+        {
+          "path": "assembly/04-games-reward-band-00.png",
+          "x": 0,
+          "y": 0,
+          "width": 853,
+          "height": 275
+        },
+        {
+          "path": "assembly/04-games-reward-band-01.png",
+          "x": 0,
+          "y": 275,
+          "width": 853,
+          "height": 930
+        },
+        {
+          "path": "assembly/04-games-reward-band-02.png",
+          "x": 0,
+          "y": 1205,
+          "width": 853,
+          "height": 265
+        },
+        {
+          "path": "assembly/04-games-reward-band-03.png",
+          "x": 0,
+          "y": 1470,
+          "width": 853,
+          "height": 120
+        },
+        {
+          "path": "assembly/04-games-reward-band-04.png",
+          "x": 0,
+          "y": 1590,
+          "width": 853,
+          "height": 254
+        }
+      ],
+      "pixelVerification": {
+        "id": "04-games-reward-reassembly",
+        "kind": "exact-reassembly-proof",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "f86fccbaba18f596a25a687295cfdce4e10ca0c00d5289990e1aef510551cab0",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "05-book-learning",
+      "type": "approved-flattened-source",
+      "page": "05",
+      "path": "sources/05-book-learning.png",
+      "sourcePath": "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\iphone16-large\\c-einleitung-05.png",
+      "sourceSha256": "285599737eb0a7bf309748c71987eac6e4c4ad0089ee02cb79872c6cf388f783",
+      "sha256": "285599737eb0a7bf309748c71987eac6e4c4ad0089ee02cb79872c6cf388f783",
+      "width": 853,
+      "height": 1844,
+      "includesPhoneFrame": true,
+      "copyStillMatchesSource": true
+    },
+    {
+      "id": "05-book-learning-reassembly",
+      "type": "exact-reassembly-proof",
+      "sourceId": "05-book-learning",
+      "path": "proof/05-book-learning-reassembled.png",
+      "bands": [
+        {
+          "path": "assembly/05-book-learning-band-00.png",
+          "x": 0,
+          "y": 0,
+          "width": 853,
+          "height": 275
+        },
+        {
+          "path": "assembly/05-book-learning-band-01.png",
+          "x": 0,
+          "y": 275,
+          "width": 853,
+          "height": 1017
+        },
+        {
+          "path": "assembly/05-book-learning-band-02.png",
+          "x": 0,
+          "y": 1292,
+          "width": 853,
+          "height": 188
+        },
+        {
+          "path": "assembly/05-book-learning-band-03.png",
+          "x": 0,
+          "y": 1480,
+          "width": 853,
+          "height": 125
+        },
+        {
+          "path": "assembly/05-book-learning-band-04.png",
+          "x": 0,
+          "y": 1605,
+          "width": 853,
+          "height": 239
+        }
+      ],
+      "pixelVerification": {
+        "id": "05-book-learning-reassembly",
+        "kind": "exact-reassembly-proof",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "54c382396ba8fc0e21c97b9161c831b16f9edb236b7ae7f70a7b786a05ea4072",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "06-hanok-culture",
+      "type": "approved-flattened-source",
+      "page": "06",
+      "path": "sources/06-hanok-culture.png",
+      "sourcePath": "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\iphone16-large\\c-einleitung-06.png",
+      "sourceSha256": "d7ac0e8deb8039e6d59017e7b0c2c15a82d3b3d5cb523f145479735b8df5de61",
+      "sha256": "d7ac0e8deb8039e6d59017e7b0c2c15a82d3b3d5cb523f145479735b8df5de61",
+      "width": 853,
+      "height": 1844,
+      "includesPhoneFrame": true,
+      "copyStillMatchesSource": true
+    },
+    {
+      "id": "06-hanok-culture-reassembly",
+      "type": "exact-reassembly-proof",
+      "sourceId": "06-hanok-culture",
+      "path": "proof/06-hanok-culture-reassembled.png",
+      "bands": [
+        {
+          "path": "assembly/06-hanok-culture-band-00.png",
+          "x": 0,
+          "y": 0,
+          "width": 853,
+          "height": 275
+        },
+        {
+          "path": "assembly/06-hanok-culture-band-01.png",
+          "x": 0,
+          "y": 275,
+          "width": 853,
+          "height": 983
+        },
+        {
+          "path": "assembly/06-hanok-culture-band-02.png",
+          "x": 0,
+          "y": 1258,
+          "width": 853,
+          "height": 207
+        },
+        {
+          "path": "assembly/06-hanok-culture-band-03.png",
+          "x": 0,
+          "y": 1465,
+          "width": 853,
+          "height": 115
+        },
+        {
+          "path": "assembly/06-hanok-culture-band-04.png",
+          "x": 0,
+          "y": 1580,
+          "width": 853,
+          "height": 264
+        }
+      ],
+      "pixelVerification": {
+        "id": "06-hanok-culture-reassembly",
+        "kind": "exact-reassembly-proof",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "e85b1548a9d285e37fe2f6f7ee97f766d5db33f946f5ab25fde08d2ff4b97971",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "07-taego-selected",
+      "type": "approved-flattened-source",
+      "page": "07",
+      "path": "sources/07-taego-selected.png",
+      "sourcePath": "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\mockups\\07-taego-selected.png",
+      "sourceSha256": "6aa6eef64dbdaa72e5d833aa6f077e56fe008c6e266b581611996b578fa989ab",
+      "sha256": "6aa6eef64dbdaa72e5d833aa6f077e56fe008c6e266b581611996b578fa989ab",
+      "width": 853,
+      "height": 1844,
+      "includesPhoneFrame": true,
+      "copyStillMatchesSource": true
+    },
+    {
+      "id": "07-taego-selected-reassembly",
+      "type": "exact-reassembly-proof",
+      "sourceId": "07-taego-selected",
+      "path": "proof/07-taego-selected-reassembled.png",
+      "bands": [
+        {
+          "path": "assembly/07-taego-selected-band-00.png",
+          "x": 0,
+          "y": 0,
+          "width": 853,
+          "height": 275
+        },
+        {
+          "path": "assembly/07-taego-selected-band-01.png",
+          "x": 0,
+          "y": 275,
+          "width": 853,
+          "height": 211
+        },
+        {
+          "path": "assembly/07-taego-selected-band-02.png",
+          "x": 0,
+          "y": 486,
+          "width": 853,
+          "height": 679
+        },
+        {
+          "path": "assembly/07-taego-selected-band-03.png",
+          "x": 0,
+          "y": 1165,
+          "width": 853,
+          "height": 310
+        },
+        {
+          "path": "assembly/07-taego-selected-band-04.png",
+          "x": 0,
+          "y": 1475,
+          "width": 853,
+          "height": 125
+        },
+        {
+          "path": "assembly/07-taego-selected-band-05.png",
+          "x": 0,
+          "y": 1600,
+          "width": 853,
+          "height": 244
+        }
+      ],
+      "pixelVerification": {
+        "id": "07-taego-selected-reassembly",
+        "kind": "exact-reassembly-proof",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "9ce76868270f1cbe312ede3576d83b1b2bbd3cbe10ddb1af873ca780dc66b7f4",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "07-joy-selected",
+      "type": "approved-flattened-source",
+      "page": "07",
+      "path": "sources/07-joy-selected.png",
+      "sourcePath": "C:\\dev\\hangulsori\\_codex_artifacts\\c-einstieg-concept-20261005-01a10981\\asset-pack-20261005\\mockups\\07-joy-selected.png",
+      "sourceSha256": "cc69dbe998a37195bf6d0e0566f0845c7e3828af5929ae7ba5d69cc7211859ba",
+      "sha256": "cc69dbe998a37195bf6d0e0566f0845c7e3828af5929ae7ba5d69cc7211859ba",
+      "width": 853,
+      "height": 1844,
+      "includesPhoneFrame": true,
+      "copyStillMatchesSource": true
+    },
+    {
+      "id": "07-joy-selected-reassembly",
+      "type": "exact-reassembly-proof",
+      "sourceId": "07-joy-selected",
+      "path": "proof/07-joy-selected-reassembled.png",
+      "bands": [
+        {
+          "path": "assembly/07-joy-selected-band-00.png",
+          "x": 0,
+          "y": 0,
+          "width": 853,
+          "height": 275
+        },
+        {
+          "path": "assembly/07-joy-selected-band-01.png",
+          "x": 0,
+          "y": 275,
+          "width": 853,
+          "height": 211
+        },
+        {
+          "path": "assembly/07-joy-selected-band-02.png",
+          "x": 0,
+          "y": 486,
+          "width": 853,
+          "height": 679
+        },
+        {
+          "path": "assembly/07-joy-selected-band-03.png",
+          "x": 0,
+          "y": 1165,
+          "width": 853,
+          "height": 310
+        },
+        {
+          "path": "assembly/07-joy-selected-band-04.png",
+          "x": 0,
+          "y": 1475,
+          "width": 853,
+          "height": 125
+        },
+        {
+          "path": "assembly/07-joy-selected-band-05.png",
+          "x": 0,
+          "y": 1600,
+          "width": 853,
+          "height": 244
+        }
+      ],
+      "pixelVerification": {
+        "id": "07-joy-selected-reassembly",
+        "kind": "exact-reassembly-proof",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "13c999937eb44cfa36f0676e16459271339328ffb55c6b1e4fc5dc72565b7cb6",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "01-alltag-reise",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "01-startniveau",
+      "sourcePage": "01",
+      "path": "assets/01-alltag-reise.png",
+      "sourceRect": [
+        85,
+        991,
+        333,
+        181
+      ],
+      "role": "Alltag & Reise: 원래 꽃잔, 바로 뒤 잎, 받침과 테이블",
+      "bakedUiText": false,
+      "usage": "scene",
+      "width": 333,
+      "height": 181,
+      "aspectRatio": 1.839779005524862,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "01-alltag-reise",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "a5fd3c4153a53fe7f952bd60b0478c60ec5d1f1e6d5c4485a7790cf03cdf692f",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "01-menschen-kultur",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "01-startniveau",
+      "sourcePage": "01",
+      "path": "assets/01-menschen-kultur.png",
+      "sourceRect": [
+        438,
+        991,
+        336,
+        181
+      ],
+      "role": "Menschen & Kultur: 한복 커플과 바로 뒤 꽃",
+      "bakedUiText": false,
+      "usage": "scene",
+      "width": 336,
+      "height": 181,
+      "aspectRatio": 1.856353591160221,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "01-menschen-kultur",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "cf3f2d86bc4820e0af2fb6b585fb3b96b7b064a05e4149f35210cbc63848a51f",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "01-studium-beruf",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "01-startniveau",
+      "sourcePage": "01",
+      "path": "assets/01-studium-beruf.png",
+      "sourceRect": [
+        85,
+        1237,
+        333,
+        165
+      ],
+      "role": "Studium & Beruf: 원래 책 묶음과 나무 테이블",
+      "bakedUiText": false,
+      "usage": "scene",
+      "width": 333,
+      "height": 165,
+      "aspectRatio": 2.018181818181818,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "01-studium-beruf",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "8da369a4b75a660aa3e360be09a3b993c959d83d2577598a49833b3ba6998715",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "01-k-content",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "01-startniveau",
+      "sourcePage": "01",
+      "path": "assets/01-k-content.png",
+      "sourceRect": [
+        438,
+        1237,
+        336,
+        166
+      ],
+      "role": "K-Content: 원래 K-pop 듀오와 바로 뒤 잎",
+      "bakedUiText": false,
+      "usage": "scene",
+      "width": 336,
+      "height": 166,
+      "aspectRatio": 2.0240963855421685,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "01-k-content",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "52eb65a2df6b0902adafaf42d318ffebed2a282449a93efcbc1827933230e6e5",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "01-taego-header",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "01-startniveau",
+      "sourcePage": "01",
+      "path": "assets/01-taego-header.png",
+      "sourceRect": [
+        53,
+        275,
+        747,
+        350
+      ],
+      "role": "Taego, 바로 뒤 식물, C 상단 제목이 함께 있는 장면",
+      "bakedUiText": true,
+      "usage": "static-heading-scene",
+      "width": 747,
+      "height": 350,
+      "aspectRatio": 2.1342857142857143,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "01-taego-header",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "87b226b7bd4a428f23c13a4969c2ac0966de7fe69892f426337d7d5e29b5390e",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "01-startniveau-field",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "01-startniveau",
+      "sourcePage": "01",
+      "path": "assets/01-startniveau-field.png",
+      "sourceRect": [
+        77,
+        715,
+        704,
+        150
+      ],
+      "role": "Ganz neu 수준 선택 필드 원형",
+      "bakedUiText": true,
+      "usage": "ui-reference",
+      "width": 704,
+      "height": 150,
+      "aspectRatio": 4.693333333333333,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "01-startniveau-field",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "b13c033ef4d3f8c1651815557c44d935a5e487e453ed5d625a9cbc83194ff88c",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "01-a2-field",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "01-level-a2-selected",
+      "sourcePage": "01",
+      "path": "assets/01-a2-field.png",
+      "sourceRect": [
+        77,
+        715,
+        704,
+        150
+      ],
+      "role": "A2 수준 선택 필드 원형",
+      "bakedUiText": true,
+      "usage": "ui-reference",
+      "width": 704,
+      "height": 150,
+      "aspectRatio": 4.693333333333333,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "01-a2-field",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "1d9d55f48125994e505f29a2d6479afbda39d6b33604687eec4aee8f04df6bf8",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "01-interest-cards-reference",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "01-startniveau",
+      "sourcePage": "01",
+      "path": "assets/01-interest-cards-reference.png",
+      "sourceRect": [
+        77,
+        984,
+        704,
+        479
+      ],
+      "role": "네 관심사 전체 배치와 라벨",
+      "bakedUiText": true,
+      "usage": "ui-reference",
+      "width": 704,
+      "height": 479,
+      "aspectRatio": 1.4697286012526096,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "01-interest-cards-reference",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "7e35980347af37cc702d3a13e64097e60a79a5bba2875c30cfe6d8045cbe6dd8",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "02-joy-book-full-scene",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "02-learning-path",
+      "sourcePage": "02",
+      "path": "assets/02-joy-book-full-scene.png",
+      "sourceRect": [
+        53,
+        275,
+        747,
+        980
+      ],
+      "role": "Joy, 꽃, 열린 책, 목재, 1·2·3 표식을 함께 보존",
+      "bakedUiText": true,
+      "usage": "static-heading-scene",
+      "width": 747,
+      "height": 980,
+      "aspectRatio": 0.7622448979591837,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "02-joy-book-full-scene",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "2a50fead44376d47ee0cf2780475a7893871b872680108d26977e7eca23430f4",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "02-book-table-scene",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "02-learning-path",
+      "sourcePage": "02",
+      "path": "assets/02-book-table-scene.png",
+      "sourceRect": [
+        53,
+        674,
+        444,
+        372
+      ],
+      "role": "원래 한글·소리 책과 도장, 겹쳐 있는 책과 나무 받침",
+      "bakedUiText": false,
+      "usage": "scene",
+      "width": 444,
+      "height": 372,
+      "aspectRatio": 1.1935483870967742,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "02-book-table-scene",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "84bd971a65363ccdae6518f77a6d2da4a538dcc0da79d33b97fe3e273bc67111",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "02-learning-path-medallions",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "02-learning-path",
+      "sourcePage": "02",
+      "path": "assets/02-learning-path-medallions.png",
+      "sourceRect": [
+        82,
+        1040,
+        691,
+        202
+      ],
+      "role": "원래 1·2·3 입체 표식과 연결끈·목재",
+      "bakedUiText": true,
+      "usage": "static-learning-illustration",
+      "width": 691,
+      "height": 202,
+      "aspectRatio": 3.4207920792079207,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "02-learning-path-medallions",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "447b3ee9e83074602670d11c45308701cde3265388929dc2a91e5b4c23c71726",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "03-sound-full-scene",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "03-learning-preview",
+      "sourcePage": "03",
+      "path": "assets/03-sound-full-scene.png",
+      "sourceRect": [
+        53,
+        275,
+        747,
+        1068
+      ],
+      "role": "타일, 꽃, 화병, 목재, 소리 장치 전체",
+      "bakedUiText": true,
+      "usage": "static-heading-scene",
+      "width": 747,
+      "height": 1068,
+      "aspectRatio": 0.699438202247191,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "03-sound-full-scene",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "0318aa7aa15e4f33f79595043b64e999410adb71121339155014f377cad53cc7",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "03-hangul-table-scene",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "03-learning-preview",
+      "sourcePage": "03",
+      "path": "assets/03-hangul-table-scene.png",
+      "sourceRect": [
+        53,
+        540,
+        747,
+        635
+      ],
+      "role": "ㄱ + ㅏ = 가, 글자 설명, 원래 꽃과 목재",
+      "bakedUiText": false,
+      "usage": "educational-scene",
+      "width": 747,
+      "height": 635,
+      "aspectRatio": 1.1763779527559055,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "03-hangul-table-scene",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "619cfb0423dbae08502e5ea9bd6dc54532f8edbcaf494b6e93fa219bdd9dc5d7",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "03-tile-g",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "03-learning-preview",
+      "sourcePage": "03",
+      "path": "assets/03-tile-g.png",
+      "sourceRect": [
+        91,
+        777,
+        153,
+        173
+      ],
+      "role": "ㄱ 타일과 원래 목재 접촉 그림자",
+      "bakedUiText": false,
+      "usage": "opaque-interactive-fragment",
+      "width": 153,
+      "height": 173,
+      "aspectRatio": 0.884393063583815,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "03-tile-g",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "0f4ca3be85a275784e88cca0662574a8f648d932853cfa6122a957a7f403c1ec",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "03-tile-a",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "03-learning-preview",
+      "sourcePage": "03",
+      "path": "assets/03-tile-a.png",
+      "sourceRect": [
+        283,
+        771,
+        148,
+        178
+      ],
+      "role": "ㅏ 타일과 원래 목재 접촉 그림자",
+      "bakedUiText": false,
+      "usage": "opaque-interactive-fragment",
+      "width": 148,
+      "height": 178,
+      "aspectRatio": 0.8314606741573034,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "03-tile-a",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "c262ef71b272b14396535471b5396f7768fbed4edca9f2a7de8de3fb4e5b36cb",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "03-tile-ga",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "03-learning-preview",
+      "sourcePage": "03",
+      "path": "assets/03-tile-ga.png",
+      "sourceRect": [
+        497,
+        677,
+        272,
+        306
+      ],
+      "role": "가 타일과 원래 목재 접촉 그림자",
+      "bakedUiText": false,
+      "usage": "opaque-interactive-fragment",
+      "width": 272,
+      "height": 306,
+      "aspectRatio": 0.8888888888888888,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "03-tile-ga",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "a1d38f3f610fa8f6a65c262e379f84d7e5193a8ec997df839987f5ca0b14ff3c",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "03-speaker-context",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "03-learning-preview",
+      "sourcePage": "03",
+      "path": "assets/03-speaker-context.png",
+      "sourceRect": [
+        111,
+        1096,
+        269,
+        244
+      ],
+      "role": "원래 꽃무늬 소리 장치, 꽃과 접촉 그림자",
+      "bakedUiText": false,
+      "usage": "opaque-interactive-fragment",
+      "width": 269,
+      "height": 244,
+      "aspectRatio": 1.1024590163934427,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "03-speaker-context",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "5289e94d7ac873f24886bb6a91aaff12da2785b43258757db24a497fffe241a7",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "03-listen-button-reference",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "03-learning-preview",
+      "sourcePage": "03",
+      "path": "assets/03-listen-button-reference.png",
+      "sourceRect": [
+        382,
+        1178,
+        371,
+        134
+      ],
+      "role": "원래 Anhören CTA",
+      "bakedUiText": true,
+      "usage": "ui-reference",
+      "width": 371,
+      "height": 134,
+      "aspectRatio": 2.7686567164179103,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "03-listen-button-reference",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "71f42493636f80f1a865fd48bd97f3be8c01ed2015276290c146ffaa6c31b595",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "04-dokkaebi-games-full-scene",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "04-games-reward",
+      "sourcePage": "04",
+      "path": "assets/04-dokkaebi-games-full-scene.png",
+      "sourceRect": [
+        53,
+        275,
+        747,
+        930
+      ],
+      "role": "도깨비·바로 뒤 꽃·타일·자개 상자·매듭·엽전 한 장면",
+      "bakedUiText": true,
+      "usage": "static-heading-scene",
+      "width": 747,
+      "height": 930,
+      "aspectRatio": 0.8032258064516129,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "04-dokkaebi-games-full-scene",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "98bdfc45f897454d1727eb52047575fec38150d2717f2d174a7db13acf35cb2a",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "04-treasure-chest-context",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "04-games-reward",
+      "sourcePage": "04",
+      "path": "assets/04-treasure-chest-context.png",
+      "sourceRect": [
+        479,
+        834,
+        321,
+        269
+      ],
+      "role": "원래 자개 상자와 도깨비 손·목재",
+      "bakedUiText": false,
+      "usage": "scene",
+      "width": 321,
+      "height": 269,
+      "aspectRatio": 1.1933085501858736,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "04-treasure-chest-context",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "7ebd87716b336873d79a01e0eff8aa92501d4b3f9026f73e051d73dfe1163fd6",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "04-yeopjeon-original-detail",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "04-games-reward",
+      "sourcePage": "04",
+      "path": "assets/04-yeopjeon-original-detail.png",
+      "sourceRect": [
+        393,
+        997,
+        178,
+        178
+      ],
+      "role": "목업에 실제 등장한 엽전 문양 그대로",
+      "bakedUiText": false,
+      "usage": "opaque-detail-fragment",
+      "width": 178,
+      "height": 178,
+      "aspectRatio": 1.0,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "04-yeopjeon-original-detail",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "5eb7a0a1ba14eb6f5732e2bafea48cd5d4fc637207f2c4335c0cb8f5e902b745",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "04-word-chain-knot-context",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "04-games-reward",
+      "sourcePage": "04",
+      "path": "assets/04-word-chain-knot-context.png",
+      "sourceRect": [
+        86,
+        934,
+        309,
+        244
+      ],
+      "role": "원래 매듭·붉은 술과 나무",
+      "bakedUiText": false,
+      "usage": "scene",
+      "width": 309,
+      "height": 244,
+      "aspectRatio": 1.2663934426229508,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "04-word-chain-knot-context",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "5bd4f99bfafa0bc4e83826bad35a5eb90fa7e53a15cdb43bc7006c0947bc1b3f",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "05-talsunbi-book-full-scene",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "05-book-learning",
+      "sourcePage": "05",
+      "path": "assets/05-talsunbi-book-full-scene.png",
+      "sourceRect": [
+        53,
+        275,
+        747,
+        1017
+      ],
+      "role": "탈선비·바로 뒤 꽃·예시 카드·책·학습 표식 전체",
+      "bakedUiText": true,
+      "usage": "static-heading-scene",
+      "width": 747,
+      "height": 1017,
+      "aspectRatio": 0.7345132743362832,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "05-talsunbi-book-full-scene",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "1530951c071c120846f95d758032eb2193c87878e18d100f56191ff6e1a4610d",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "05-example-card-reference",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "05-book-learning",
+      "sourcePage": "05",
+      "path": "assets/05-example-card-reference.png",
+      "sourceRect": [
+        174,
+        540,
+        310,
+        305
+      ],
+      "role": "손에 든 원래 예시 카드와 문구",
+      "bakedUiText": true,
+      "usage": "ui-reference",
+      "width": 310,
+      "height": 305,
+      "aspectRatio": 1.0163934426229508,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "05-example-card-reference",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "e8125bbfdfa1d9303136ff89e0332156d9761c160df2ccf2197f0d50e3891f25",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "05-open-book-scene",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "05-book-learning",
+      "sourcePage": "05",
+      "path": "assets/05-open-book-scene.png",
+      "sourceRect": [
+        53,
+        836,
+        747,
+        269
+      ],
+      "role": "원래 열린 책과 단청 문양, 주변 기물",
+      "bakedUiText": false,
+      "usage": "educational-scene",
+      "width": 747,
+      "height": 269,
+      "aspectRatio": 2.7769516728624537,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "05-open-book-scene",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "721ebff509468bdc8d1a0c4e68b461f01d72913fc045403fe0854bc40e0ae743",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "05-photo-understand-remember",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "05-book-learning",
+      "sourcePage": "05",
+      "path": "assets/05-photo-understand-remember.png",
+      "sourceRect": [
+        83,
+        1071,
+        692,
+        211
+      ],
+      "role": "원래 Foto·Verstehen·Merken 입체 표식·목재",
+      "bakedUiText": true,
+      "usage": "static-learning-illustration",
+      "width": 692,
+      "height": 211,
+      "aspectRatio": 3.279620853080569,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "05-photo-understand-remember",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "e3a5a3b04ee27091ac4c7ee809514beaaa5ca5e58842653effd9773712e7f555",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "06-hanok-culture-full-scene",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "06-hanok-culture",
+      "sourcePage": "06",
+      "path": "assets/06-hanok-culture-full-scene.png",
+      "sourceRect": [
+        53,
+        275,
+        747,
+        983
+      ],
+      "role": "한옥·나무·단청 책·학 그림·붓·엽전 전체",
+      "bakedUiText": true,
+      "usage": "static-heading-scene",
+      "width": 747,
+      "height": 983,
+      "aspectRatio": 0.7599186164801628,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "06-hanok-culture-full-scene",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "f5a43eb3f4e4a6098e5a4d05e00e7243d0bea0bf846a43db6ee969c55846b0e5",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "06-stempelbuch-crane-table-scene",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "06-hanok-culture",
+      "sourcePage": "06",
+      "path": "assets/06-stempelbuch-crane-table-scene.png",
+      "sourceRect": [
+        183,
+        634,
+        617,
+        482
+      ],
+      "role": "원래 단청 책·학 그림 액자·붓과 목재",
+      "bakedUiText": false,
+      "usage": "scene",
+      "width": 617,
+      "height": 482,
+      "aspectRatio": 1.2800829875518671,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "06-stempelbuch-crane-table-scene",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "020ada7f0fa74ed0039c916ad7d41fad5ba7859b753582d0c628dc6e9ee3d020",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "06-stempelbuch-original-detail",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "06-hanok-culture",
+      "sourcePage": "06",
+      "path": "assets/06-stempelbuch-original-detail.png",
+      "sourceRect": [
+        185,
+        836,
+        459,
+        282
+      ],
+      "role": "목업의 실제 단청 책 표지와 겹친 붓",
+      "bakedUiText": false,
+      "usage": "opaque-detail-fragment",
+      "width": 459,
+      "height": 282,
+      "aspectRatio": 1.627659574468085,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "06-stempelbuch-original-detail",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "d7a097485514245c3fe7e55ff5c55706ce8da43b1e5eee25396381e6e894e61a",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "06-yeopjeon-original-detail",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "06-hanok-culture",
+      "sourcePage": "06",
+      "path": "assets/06-yeopjeon-original-detail.png",
+      "sourceRect": [
+        53,
+        916,
+        180,
+        190
+      ],
+      "role": "06에 그려진 엽전 문양 그대로",
+      "bakedUiText": false,
+      "usage": "opaque-detail-fragment",
+      "width": 180,
+      "height": 190,
+      "aspectRatio": 0.9473684210526315,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "06-yeopjeon-original-detail",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "a9c8b385445ad01311b917552aeb3ab9b9b520a401edd5455360282f8504a5ed",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "06-build-collect-design",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "06-hanok-culture",
+      "sourcePage": "06",
+      "path": "assets/06-build-collect-design.png",
+      "sourceRect": [
+        76,
+        1117,
+        708,
+        142
+      ],
+      "role": "원래 Bauen·Sammeln·Gestalten 목재 표식",
+      "bakedUiText": true,
+      "usage": "static-learning-illustration",
+      "width": 708,
+      "height": 142,
+      "aspectRatio": 4.985915492957746,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "06-build-collect-design",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "c99a9550ff7c95f400c8687ecf192a7bfb1f9a0e303730a66536706eb9ef9c24",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "07-taego-unselected",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "07-joy-selected",
+      "sourcePage": "07",
+      "path": "assets/07-taego-unselected.png",
+      "sourceRect": [
+        62,
+        486,
+        374,
+        546
+      ],
+      "role": "Taego 무선택 카드: 캐릭터·바로 뒤 꽃·바닥·테두리 그대로",
+      "bakedUiText": false,
+      "usage": "scene",
+      "width": 374,
+      "height": 546,
+      "aspectRatio": 0.684981684981685,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "07-taego-unselected",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "dc0a3c8fd1791c8bce2ea5cc32c07a9b355ca9d5f22e997ea8e0a785db20c88a",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "07-taego-selected",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "07-taego-selected",
+      "sourcePage": "07",
+      "path": "assets/07-taego-selected.png",
+      "sourceRect": [
+        62,
+        486,
+        374,
+        546
+      ],
+      "role": "Taego 선택 카드: 원래 황동 체크까지 보존",
+      "bakedUiText": false,
+      "usage": "selected-state-scene",
+      "width": 374,
+      "height": 546,
+      "aspectRatio": 0.684981684981685,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "07-taego-selected",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "08b1ef6a95640804a223b6224dd7148bb8e962696c8aebcbfc80eeb615dc9ad3",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "07-joy-unselected",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "07-taego-selected",
+      "sourcePage": "07",
+      "path": "assets/07-joy-unselected.png",
+      "sourceRect": [
+        438,
+        486,
+        359,
+        546
+      ],
+      "role": "Joy 무선택 카드: 캐릭터·바로 뒤 꽃·바닥·테두리 그대로",
+      "bakedUiText": false,
+      "usage": "scene",
+      "width": 359,
+      "height": 546,
+      "aspectRatio": 0.6575091575091575,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "07-joy-unselected",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "ce8d1bc9492baec295a19054af34c86e9453f9be6e628ce7d8bba3d40a8f265e",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "07-joy-selected",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "07-joy-selected",
+      "sourcePage": "07",
+      "path": "assets/07-joy-selected.png",
+      "sourceRect": [
+        438,
+        486,
+        359,
+        546
+      ],
+      "role": "Joy 선택 카드: 원래 황동 체크까지 보존",
+      "bakedUiText": false,
+      "usage": "selected-state-scene",
+      "width": 359,
+      "height": 546,
+      "aspectRatio": 0.6575091575091575,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "07-joy-selected",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "8a89f024fd412dc285feaf95a5f56bfbd6670aca9b8e345c74a22fea98cd68d6",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "07-gye-reading-scene",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "07-taego-selected",
+      "sourcePage": "07",
+      "path": "assets/07-gye-reading-scene.png",
+      "sourceRect": [
+        73,
+        1178,
+        400,
+        287
+      ],
+      "role": "07 목업의 실제 Gye 실내 커플 장면",
+      "bakedUiText": false,
+      "usage": "scene",
+      "width": 400,
+      "height": 287,
+      "aspectRatio": 1.3937282229965158,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "07-gye-reading-scene",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "e5b1ad99b5c599f37eedc476272ded7636a4604a5018f92bb44682e1846db839",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "07-gye-panel-reference",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "07-taego-selected",
+      "sourcePage": "07",
+      "path": "assets/07-gye-panel-reference.png",
+      "sourceRect": [
+        64,
+        1170,
+        723,
+        309
+      ],
+      "role": "Gye 그림과 문구를 묶은 원래 한지 패널",
+      "bakedUiText": true,
+      "usage": "ui-reference",
+      "width": 723,
+      "height": 309,
+      "aspectRatio": 2.3398058252427183,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "07-gye-panel-reference",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "373bd28f58772aa2c873a74ee31caa4c50b532b62471a0234b5093e36a8c4135",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "07-taego-check-context",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "07-taego-selected",
+      "sourcePage": "07",
+      "path": "assets/07-taego-check-context.png",
+      "sourceRect": [
+        82,
+        928,
+        95,
+        98
+      ],
+      "role": "원래 Taego 황동 체크·주변 배경",
+      "bakedUiText": false,
+      "usage": "opaque-state-fragment",
+      "width": 95,
+      "height": 98,
+      "aspectRatio": 0.9693877551020408,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "07-taego-check-context",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "281203e2ba17eae572b2cbf68a2dc83927070f8322b07c66fccc7e677325d780",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "07-joy-check-context",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "07-joy-selected",
+      "sourcePage": "07",
+      "path": "assets/07-joy-check-context.png",
+      "sourceRect": [
+        684,
+        924,
+        103,
+        99
+      ],
+      "role": "원래 Joy 황동 체크·주변 배경",
+      "bakedUiText": false,
+      "usage": "opaque-state-fragment",
+      "width": 103,
+      "height": 99,
+      "aspectRatio": 1.0404040404040404,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "07-joy-check-context",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "a7737cb78d0243b3a5c1c21e40b6dc51ddc5515d04e6fa5fd6b50f316fa5caeb",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "07-flower-branch-context",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "07-taego-selected",
+      "sourcePage": "07",
+      "path": "assets/07-flower-branch-context.png",
+      "sourceRect": [
+        609,
+        275,
+        191,
+        303
+      ],
+      "role": "원래 동료 페이지 상단 오른쪽 꽃",
+      "bakedUiText": false,
+      "usage": "scene",
+      "width": 191,
+      "height": 303,
+      "aspectRatio": 0.6303630363036303,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "07-flower-branch-context",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "b0761c050c2a690ab97a9ea8cf0ff29cf3678720254e999b02b97ba2d372eb06",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "common-cloud-logo-context",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "01-startniveau",
+      "sourcePage": "01",
+      "path": "assets/common-cloud-logo-context.png",
+      "sourceRect": [
+        90,
+        149,
+        82,
+        74
+      ],
+      "role": "원래 구름 로고와 녹청 배경",
+      "bakedUiText": false,
+      "usage": "opaque-brand-fragment",
+      "width": 82,
+      "height": 74,
+      "aspectRatio": 1.1081081081081081,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "common-cloud-logo-context",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "c3bfb9cbc6a4f6a6bebafc530e392f35a730a993b27ddd8d27c0c9da78cccc68",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "common-jade-material-sample",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "01-startniveau",
+      "sourcePage": "01",
+      "path": "assets/common-jade-material-sample.png",
+      "sourceRect": [
+        330,
+        281,
+        182,
+        38
+      ],
+      "role": "원본 녹청 질감 표본: 재배치·반복 승인 아님",
+      "bakedUiText": false,
+      "usage": "material-reference",
+      "width": 182,
+      "height": 38,
+      "aspectRatio": 4.7894736842105265,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "common-jade-material-sample",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "69ecc010a5af7744cdd8babec86a6786509cfb904c934a7b8e8160f378c7985e",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "common-hanji-material-sample",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "01-startniveau",
+      "sourcePage": "01",
+      "path": "assets/common-hanji-material-sample.png",
+      "sourceRect": [
+        58,
+        1545,
+        737,
+        48
+      ],
+      "role": "원본 한지와 하단 구름 질감 표본",
+      "bakedUiText": false,
+      "usage": "material-reference",
+      "width": 737,
+      "height": 48,
+      "aspectRatio": 15.354166666666666,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "common-hanji-material-sample",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "d994241f592a258dae3fde5efd7a19b0e293540016a7215a0eee3b790bf7b562",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "common-gold-button-material-sample",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "05-book-learning",
+      "sourcePage": "05",
+      "path": "assets/common-gold-button-material-sample.png",
+      "sourceRect": [
+        110,
+        1512,
+        190,
+        62
+      ],
+      "role": "원본 황금 CTA의 무문자 질감 표본",
+      "bakedUiText": false,
+      "usage": "material-reference",
+      "width": 190,
+      "height": 62,
+      "aspectRatio": 3.064516129032258,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "common-gold-button-material-sample",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "04cc286d6ecf909d45992cc918f460224896a55923832033e421cc9797e71803",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "common-weiter-button-reference",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "01-startniveau",
+      "sourcePage": "01",
+      "path": "assets/common-weiter-button-reference.png",
+      "sourceRect": [
+        78,
+        1628,
+        699,
+        104
+      ],
+      "role": "원래 Weiter CTA 전체",
+      "bakedUiText": true,
+      "usage": "ui-reference",
+      "width": 699,
+      "height": 104,
+      "aspectRatio": 6.721153846153846,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "common-weiter-button-reference",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "dc5b6956aa98598a71a2a87fa93aca1f03a21ee640a45a0a7b4dc5e326656de5",
+      "alphaMin": 255,
+      "alphaMax": 255
+    },
+    {
+      "id": "common-brand-progress-reference",
+      "type": "unchanged-source-pixel-crop",
+      "sourceId": "01-startniveau",
+      "sourcePage": "01",
+      "path": "assets/common-brand-progress-reference.png",
+      "sourceRect": [
+        82,
+        149,
+        687,
+        120
+      ],
+      "role": "원래 구름·Einleitung·01/07·진행 표식",
+      "bakedUiText": true,
+      "usage": "ui-reference",
+      "width": 687,
+      "height": 120,
+      "aspectRatio": 5.725,
+      "transparency": "none; source background retained",
+      "imageTransform": "integer rectangle only; no rescale, repaint, color correction, or new details",
+      "pixelVerification": {
+        "id": "common-brand-progress-reference",
+        "kind": "unchanged-source-pixel-crop",
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "passed": true
+      },
+      "sha256": "f036efb5476e40a92f864d4e2adf18a254d677d27745575e85f00a96395a73f9",
+      "alphaMin": 255,
+      "alphaMax": 255
+    }
+  ],
+  "verification": {
+    "status": "passed",
+    "sourceCopies": 10,
+    "sourcePixelCrops": 46,
+    "fullScreenReassemblies": 10,
+    "allChangedPixels": 0,
+    "scope": "Decoded original image pixels; no claim of recovered hidden layers or native app integration."
+  },
+  "files": [
+    {
+      "path": "assembly/01-level-a2-selected-band-00.png",
+      "width": 853,
+      "height": 275,
+      "mode": "RGBA",
+      "sha256": "6ed406ab03af3cdea3afb2a51959cdc9c4965d77a07faaa745702aec1f69665a",
+      "bytes": 458767
+    },
+    {
+      "path": "assembly/01-level-a2-selected-band-01.png",
+      "width": 853,
+      "height": 350,
+      "mode": "RGBA",
+      "sha256": "374c8b196278a14eacb38086f43eb85385b8161df25001906399e6d410bcd3f3",
+      "bytes": 788410
+    },
+    {
+      "path": "assembly/01-level-a2-selected-band-02.png",
+      "width": 853,
+      "height": 365,
+      "mode": "RGBA",
+      "sha256": "bd42a457d89d4d6561a9b6c57758a97289e34f68ed6e4e21cfbde316c2c23fce",
+      "bytes": 580590
+    },
+    {
+      "path": "assembly/01-level-a2-selected-band-03.png",
+      "width": 853,
+      "height": 470,
+      "mode": "RGBA",
+      "sha256": "c4713686856c0018646198130b1559c6910f03bc1b320c53c7f50843ea1cba07",
+      "bytes": 977506
+    },
+    {
+      "path": "assembly/01-level-a2-selected-band-04.png",
+      "width": 853,
+      "height": 170,
+      "mode": "RGBA",
+      "sha256": "31ef764113abfa4740bc1b59be33d96c3811b53920cb00f6c5cc46ac5c0d1b76",
+      "bytes": 233033
+    },
+    {
+      "path": "assembly/01-level-a2-selected-band-05.png",
+      "width": 853,
+      "height": 105,
+      "mode": "RGBA",
+      "sha256": "c4a433a3b231217e71bbc89d9ff07a21e1e59f4fbe6eb8f19b58c1718a787410",
+      "bytes": 198521
+    },
+    {
+      "path": "assembly/01-level-a2-selected-band-06.png",
+      "width": 853,
+      "height": 109,
+      "mode": "RGBA",
+      "sha256": "04ef786c75a4761b03afe409a5b17925ba6ebbe188fb168d05289e46f005d1fb",
+      "bytes": 225426
+    },
+    {
+      "path": "assembly/01-level-picker-band-00.png",
+      "width": 853,
+      "height": 275,
+      "mode": "RGBA",
+      "sha256": "fed884f27d6cd5fdab7586a3e3a7fb64de20d85b0681288bb23208b297ff3ec2",
+      "bytes": 415636
+    },
+    {
+      "path": "assembly/01-level-picker-band-01.png",
+      "width": 853,
+      "height": 350,
+      "mode": "RGBA",
+      "sha256": "3ad56debd1a1d770c94065bb0cbd06abcaf90d6be71e49d6fafc88b91ffd15ac",
+      "bytes": 692149
+    },
+    {
+      "path": "assembly/01-level-picker-band-02.png",
+      "width": 853,
+      "height": 365,
+      "mode": "RGBA",
+      "sha256": "3afd16cc4ab9cc0dd2f02cd8eb13943f3c65c8df285cafba6fcefd21bbd5eeb0",
+      "bytes": 546743
+    },
+    {
+      "path": "assembly/01-level-picker-band-03.png",
+      "width": 853,
+      "height": 470,
+      "mode": "RGBA",
+      "sha256": "44b589dc39f7351ffe7b333aaa25097ac3e4d4abb7cc567ec956660e01ee2848",
+      "bytes": 742671
+    },
+    {
+      "path": "assembly/01-level-picker-band-04.png",
+      "width": 853,
+      "height": 170,
+      "mode": "RGBA",
+      "sha256": "d6e23abec9430bdc3cd8ad628ecc146a43366d130c4cb6e41b5e7982b80b6201",
+      "bytes": 280847
+    },
+    {
+      "path": "assembly/01-level-picker-band-05.png",
+      "width": 853,
+      "height": 105,
+      "mode": "RGBA",
+      "sha256": "12524d7653fbfe03b0640eb3b61e46be2f4a811ca064ff08e11b82441ed40342",
+      "bytes": 220637
+    },
+    {
+      "path": "assembly/01-level-picker-band-06.png",
+      "width": 853,
+      "height": 109,
+      "mode": "RGBA",
+      "sha256": "d0ca1b53edad1e71215769fcbd046cb36daeb0fa97ed535b0be8498fb49ccabc",
+      "bytes": 231327
+    },
+    {
+      "path": "assembly/01-startniveau-band-00.png",
+      "width": 853,
+      "height": 275,
+      "mode": "RGBA",
+      "sha256": "a27fecbe199e4fe9b29fcb817bf4892a0778a5635e77a0f2fbb095e2f95801f7",
+      "bytes": 467672
+    },
+    {
+      "path": "assembly/01-startniveau-band-01.png",
+      "width": 853,
+      "height": 350,
+      "mode": "RGBA",
+      "sha256": "6033923c54ad8a243afb1c3dee84cadbbd25944065893e693a635f18c092d549",
+      "bytes": 796991
+    },
+    {
+      "path": "assembly/01-startniveau-band-02.png",
+      "width": 853,
+      "height": 365,
+      "mode": "RGBA",
+      "sha256": "e6778eaabb01ffa89c44e2752eb231f65c5ed4a32a4a4f68afc9ccb8778414f8",
+      "bytes": 601832
+    },
+    {
+      "path": "assembly/01-startniveau-band-03.png",
+      "width": 853,
+      "height": 470,
+      "mode": "RGBA",
+      "sha256": "626482b7e23e62f0df74162db9173be7ac29b598e964a5f281dc8441d9459a2d",
+      "bytes": 996519
+    },
+    {
+      "path": "assembly/01-startniveau-band-04.png",
+      "width": 853,
+      "height": 170,
+      "mode": "RGBA",
+      "sha256": "67b4f07866072b9ee14cccb79262363773f005c8c76f798586227b04cc5538da",
+      "bytes": 245873
+    },
+    {
+      "path": "assembly/01-startniveau-band-05.png",
+      "width": 853,
+      "height": 105,
+      "mode": "RGBA",
+      "sha256": "26b743f30b7e7bfd15c1428c51f1a5b96595286533e9b65f179077e02472cbf1",
+      "bytes": 206690
+    },
+    {
+      "path": "assembly/01-startniveau-band-06.png",
+      "width": 853,
+      "height": 109,
+      "mode": "RGBA",
+      "sha256": "83cb9854d09b85cac3f3b713d6edacd80464d74241275378c1d62bd93e14bc7d",
+      "bytes": 226165
+    },
+    {
+      "path": "assembly/02-learning-path-band-00.png",
+      "width": 853,
+      "height": 275,
+      "mode": "RGBA",
+      "sha256": "6a332897b59761171e400166096355d7476b52e318c7487e0f0c801c2748775e",
+      "bytes": 438087
+    },
+    {
+      "path": "assembly/02-learning-path-band-01.png",
+      "width": 853,
+      "height": 980,
+      "mode": "RGBA",
+      "sha256": "8a9b2316f314ba03ff42540b7e964bcf6a4b195e24c7c7c1bd0b9581ca1b8b12",
+      "bytes": 2130167
+    },
+    {
+      "path": "assembly/02-learning-path-band-02.png",
+      "width": 853,
+      "height": 245,
+      "mode": "RGBA",
+      "sha256": "c5b7c8d9de1746069ac99f6e53e30741ad69d7f2d7b45e02afd6c4a92ae68a93",
+      "bytes": 379298
+    },
+    {
+      "path": "assembly/02-learning-path-band-03.png",
+      "width": 853,
+      "height": 120,
+      "mode": "RGBA",
+      "sha256": "3604d387b2635d46d54ae4afb8dfd284a4a66668447cdf9e4a03e0cab24220ab",
+      "bytes": 225442
+    },
+    {
+      "path": "assembly/02-learning-path-band-04.png",
+      "width": 853,
+      "height": 224,
+      "mode": "RGBA",
+      "sha256": "72bdcf8fd4dc5cbfad9b82cc9326b1a40ecf126020f836c6e9537adf105e0e17",
+      "bytes": 399874
+    },
+    {
+      "path": "assembly/03-learning-preview-band-00.png",
+      "width": 853,
+      "height": 275,
+      "mode": "RGBA",
+      "sha256": "c31a2cb32aff08bb990f9d97577045d1dd23a239bc64858d2556e39f00c012bc",
+      "bytes": 431658
+    },
+    {
+      "path": "assembly/03-learning-preview-band-01.png",
+      "width": 853,
+      "height": 900,
+      "mode": "RGBA",
+      "sha256": "c0b8955e9219a79e5330bcb177fe2c33a808801a7a8c7ab9fbd04077579342a5",
+      "bytes": 1897609
+    },
+    {
+      "path": "assembly/03-learning-preview-band-02.png",
+      "width": 853,
+      "height": 170,
+      "mode": "RGBA",
+      "sha256": "f8209b5940a51239fe29093360f80af33f6a9f85126ef1a11265ae7a73763050",
+      "bytes": 343892
+    },
+    {
+      "path": "assembly/03-learning-preview-band-03.png",
+      "width": 853,
+      "height": 150,
+      "mode": "RGBA",
+      "sha256": "01dc3bda27b0895a4d9a10645e365c322de80df8387937b11e812c2ba81c45c9",
+      "bytes": 230915
+    },
+    {
+      "path": "assembly/03-learning-preview-band-04.png",
+      "width": 853,
+      "height": 120,
+      "mode": "RGBA",
+      "sha256": "125fd1865b365af2feb064ded282361d783e074cfd94c069d3e657e2cba87c66",
+      "bytes": 224218
+    },
+    {
+      "path": "assembly/03-learning-preview-band-05.png",
+      "width": 853,
+      "height": 229,
+      "mode": "RGBA",
+      "sha256": "14f7866a52567f27f59910949d13cfd014a4bcebec608d33e392a261cd14bcc0",
+      "bytes": 409268
+    },
+    {
+      "path": "assembly/04-games-reward-band-00.png",
+      "width": 853,
+      "height": 275,
+      "mode": "RGBA",
+      "sha256": "bb22b1c42397459011eddc7d8526e6563dba6bb621279f00eba80bdffd467200",
+      "bytes": 431293
+    },
+    {
+      "path": "assembly/04-games-reward-band-01.png",
+      "width": 853,
+      "height": 930,
+      "mode": "RGBA",
+      "sha256": "80a34345ac358f4a62a942fb9a0b87e1dc57bfb2c7f5f7844f39c28ac39102a1",
+      "bytes": 2162858
+    },
+    {
+      "path": "assembly/04-games-reward-band-02.png",
+      "width": 853,
+      "height": 265,
+      "mode": "RGBA",
+      "sha256": "a922680be3f26ed0453a86b52b37e6710ae6f60d6414a2b2d73ccc4a94e53637",
+      "bytes": 391046
+    },
+    {
+      "path": "assembly/04-games-reward-band-03.png",
+      "width": 853,
+      "height": 120,
+      "mode": "RGBA",
+      "sha256": "e81c19c1565bebd91dc2d8f623567a75cfe740d80834f2a5c085b0c1356f81b2",
+      "bytes": 218931
+    },
+    {
+      "path": "assembly/04-games-reward-band-04.png",
+      "width": 853,
+      "height": 254,
+      "mode": "RGBA",
+      "sha256": "af51a0e89922bb96853fb030444862534f74a3534f146e5b67e2b42ce0ea2ac2",
+      "bytes": 449810
+    },
+    {
+      "path": "assembly/05-book-learning-band-00.png",
+      "width": 853,
+      "height": 275,
+      "mode": "RGBA",
+      "sha256": "802ccba37da07eba304fb9d1af26ea11127913d6a187ac346fb9f03cb734cfdb",
+      "bytes": 427858
+    },
+    {
+      "path": "assembly/05-book-learning-band-01.png",
+      "width": 853,
+      "height": 1017,
+      "mode": "RGBA",
+      "sha256": "f5534ad8ae0e4b3e8bc501f4d4396fcf6d67857015a6d7f16620fcc59fafccdd",
+      "bytes": 2316730
+    },
+    {
+      "path": "assembly/05-book-learning-band-02.png",
+      "width": 853,
+      "height": 188,
+      "mode": "RGBA",
+      "sha256": "d071ebdfaf2ad78210abdf42c0586a6b19964ad929f20fc92e370ffdf95daa04",
+      "bytes": 303036
+    },
+    {
+      "path": "assembly/05-book-learning-band-03.png",
+      "width": 853,
+      "height": 125,
+      "mode": "RGBA",
+      "sha256": "ed33c4eadd4973f732ae6e14f9d3b29920bc7393580a30b38d71a6d1445775a6",
+      "bytes": 239179
+    },
+    {
+      "path": "assembly/05-book-learning-band-04.png",
+      "width": 853,
+      "height": 239,
+      "mode": "RGBA",
+      "sha256": "86596caf98489739319c211f63e44f504c5df986a6d69dee678a8d166c975096",
+      "bytes": 456488
+    },
+    {
+      "path": "assembly/06-hanok-culture-band-00.png",
+      "width": 853,
+      "height": 275,
+      "mode": "RGBA",
+      "sha256": "468b74689b1fac356019f1d05a17c98076dffd35ce9b2c22320f0bdd1e8b5688",
+      "bytes": 426354
+    },
+    {
+      "path": "assembly/06-hanok-culture-band-01.png",
+      "width": 853,
+      "height": 983,
+      "mode": "RGBA",
+      "sha256": "237d24d3ea355af77d554b5b72cf01257d189f7e06cd1c35bdaaddb55ac74a0b",
+      "bytes": 2345938
+    },
+    {
+      "path": "assembly/06-hanok-culture-band-02.png",
+      "width": 853,
+      "height": 207,
+      "mode": "RGBA",
+      "sha256": "d0b17d752810ee215a77c9e8e2cbe342c91915c8942313c8ec5667f2cc90796c",
+      "bytes": 339938
+    },
+    {
+      "path": "assembly/06-hanok-culture-band-03.png",
+      "width": 853,
+      "height": 115,
+      "mode": "RGBA",
+      "sha256": "de9164f2cbb50b17b4f7b33cfc3549310c1e12f9795476ed3aea4d9c25348dcf",
+      "bytes": 220988
+    },
+    {
+      "path": "assembly/06-hanok-culture-band-04.png",
+      "width": 853,
+      "height": 264,
+      "mode": "RGBA",
+      "sha256": "ab303319903eba97fd15c4664e6ab314014ed4ec6ebb1e29b6e4c9d1170d4760",
+      "bytes": 499935
+    },
+    {
+      "path": "assembly/07-joy-selected-band-00.png",
+      "width": 853,
+      "height": 275,
+      "mode": "RGBA",
+      "sha256": "a6b6e923d7bea42c78f2ad794fd69216f6ec5514020818391639ea3d0dc14473",
+      "bytes": 447509
+    },
+    {
+      "path": "assembly/07-joy-selected-band-01.png",
+      "width": 853,
+      "height": 211,
+      "mode": "RGBA",
+      "sha256": "d1f43b6aff177c67104e244db0376a1a5b5970210b5015bfd1b2b51e424bb171",
+      "bytes": 394555
+    },
+    {
+      "path": "assembly/07-joy-selected-band-02.png",
+      "width": 853,
+      "height": 679,
+      "mode": "RGBA",
+      "sha256": "654fd8d455ece4249633b3482989c560775754d766fb87dc0afb1bae7f449bd2",
+      "bytes": 1549407
+    },
+    {
+      "path": "assembly/07-joy-selected-band-03.png",
+      "width": 853,
+      "height": 310,
+      "mode": "RGBA",
+      "sha256": "b118feb2f8885b5cd26658f302e346a91277724b0de4885dd330edc84dd7a973",
+      "bytes": 647121
+    },
+    {
+      "path": "assembly/07-joy-selected-band-04.png",
+      "width": 853,
+      "height": 125,
+      "mode": "RGBA",
+      "sha256": "ff600b2e4ad73af90420c28215472c15290d2b328846a33efa67b0752d4d80f3",
+      "bytes": 235187
+    },
+    {
+      "path": "assembly/07-joy-selected-band-05.png",
+      "width": 853,
+      "height": 244,
+      "mode": "RGBA",
+      "sha256": "eaf7f3f59e24e2b8f29c41f05c84acd21ae77f8b5559ae88119faba608e45b86",
+      "bytes": 470201
+    },
+    {
+      "path": "assembly/07-taego-selected-band-00.png",
+      "width": 853,
+      "height": 275,
+      "mode": "RGBA",
+      "sha256": "b583dd7b4bb5208027d3fc268d8dbb75eb65b38142c62a958c7096464c526aab",
+      "bytes": 429548
+    },
+    {
+      "path": "assembly/07-taego-selected-band-01.png",
+      "width": 853,
+      "height": 211,
+      "mode": "RGBA",
+      "sha256": "e34ac6b31d0fb12e9981f60230af0346eaaf2c8064a35e0b379a6af56e24fe81",
+      "bytes": 379905
+    },
+    {
+      "path": "assembly/07-taego-selected-band-02.png",
+      "width": 853,
+      "height": 679,
+      "mode": "RGBA",
+      "sha256": "a6af444c4741c5058423acbbde576d964788fcaf68067d3526a9badc446f0886",
+      "bytes": 1508170
+    },
+    {
+      "path": "assembly/07-taego-selected-band-03.png",
+      "width": 853,
+      "height": 310,
+      "mode": "RGBA",
+      "sha256": "8b2912cb16bcd24f10ffcea7728c7e8e0d04b9d9fce5962e3168c4feca00a93d",
+      "bytes": 631914
+    },
+    {
+      "path": "assembly/07-taego-selected-band-04.png",
+      "width": 853,
+      "height": 125,
+      "mode": "RGBA",
+      "sha256": "99cccadd0336e3c3033c4a6c5720e68dbec94f4211ddd122e7eb3e0da71ab707",
+      "bytes": 225132
+    },
+    {
+      "path": "assembly/07-taego-selected-band-05.png",
+      "width": 853,
+      "height": 244,
+      "mode": "RGBA",
+      "sha256": "c8e1996a04e87de6ff4b4cd460d5982b06a6dd911f391e7aaaadda934153d055",
+      "bytes": 452442
+    },
+    {
+      "path": "assets/01-a2-field.png",
+      "width": 704,
+      "height": 150,
+      "mode": "RGBA",
+      "sha256": "1d9d55f48125994e505f29a2d6479afbda39d6b33604687eec4aee8f04df6bf8",
+      "bytes": 230051
+    },
+    {
+      "path": "assets/01-alltag-reise.png",
+      "width": 333,
+      "height": 181,
+      "mode": "RGBA",
+      "sha256": "a5fd3c4153a53fe7f952bd60b0478c60ec5d1f1e6d5c4485a7790cf03cdf692f",
+      "bytes": 162515
+    },
+    {
+      "path": "assets/01-interest-cards-reference.png",
+      "width": 704,
+      "height": 479,
+      "mode": "RGBA",
+      "sha256": "7e35980347af37cc702d3a13e64097e60a79a5bba2875c30cfe6d8045cbe6dd8",
+      "bytes": 837997
+    },
+    {
+      "path": "assets/01-k-content.png",
+      "width": 336,
+      "height": 166,
+      "mode": "RGBA",
+      "sha256": "52eb65a2df6b0902adafaf42d318ffebed2a282449a93efcbc1827933230e6e5",
+      "bytes": 158370
+    },
+    {
+      "path": "assets/01-menschen-kultur.png",
+      "width": 336,
+      "height": 181,
+      "mode": "RGBA",
+      "sha256": "cf3f2d86bc4820e0af2fb6b585fb3b96b7b064a05e4149f35210cbc63848a51f",
+      "bytes": 168775
+    },
+    {
+      "path": "assets/01-startniveau-field.png",
+      "width": 704,
+      "height": 150,
+      "mode": "RGBA",
+      "sha256": "b13c033ef4d3f8c1651815557c44d935a5e487e453ed5d625a9cbc83194ff88c",
+      "bytes": 242774
+    },
+    {
+      "path": "assets/01-studium-beruf.png",
+      "width": 333,
+      "height": 165,
+      "mode": "RGBA",
+      "sha256": "8da369a4b75a660aa3e360be09a3b993c959d83d2577598a49833b3ba6998715",
+      "bytes": 151920
+    },
+    {
+      "path": "assets/01-taego-header.png",
+      "width": 747,
+      "height": 350,
+      "mode": "RGBA",
+      "sha256": "87b226b7bd4a428f23c13a4969c2ac0966de7fe69892f426337d7d5e29b5390e",
+      "bytes": 692041
+    },
+    {
+      "path": "assets/02-book-table-scene.png",
+      "width": 444,
+      "height": 372,
+      "mode": "RGBA",
+      "sha256": "84bd971a65363ccdae6518f77a6d2da4a538dcc0da79d33b97fe3e273bc67111",
+      "bytes": 443643
+    },
+    {
+      "path": "assets/02-joy-book-full-scene.png",
+      "width": 747,
+      "height": 980,
+      "mode": "RGBA",
+      "sha256": "2a50fead44376d47ee0cf2780475a7893871b872680108d26977e7eca23430f4",
+      "bytes": 1856256
+    },
+    {
+      "path": "assets/02-learning-path-medallions.png",
+      "width": 691,
+      "height": 202,
+      "mode": "RGBA",
+      "sha256": "447b3ee9e83074602670d11c45308701cde3265388929dc2a91e5b4c23c71726",
+      "bytes": 375436
+    },
+    {
+      "path": "assets/03-hangul-table-scene.png",
+      "width": 747,
+      "height": 635,
+      "mode": "RGBA",
+      "sha256": "619cfb0423dbae08502e5ea9bd6dc54532f8edbcaf494b6e93fa219bdd9dc5d7",
+      "bytes": 1249464
+    },
+    {
+      "path": "assets/03-listen-button-reference.png",
+      "width": 371,
+      "height": 134,
+      "mode": "RGBA",
+      "sha256": "71f42493636f80f1a865fd48bd97f3be8c01ed2015276290c146ffaa6c31b595",
+      "bytes": 113406
+    },
+    {
+      "path": "assets/03-sound-full-scene.png",
+      "width": 747,
+      "height": 1068,
+      "mode": "RGBA",
+      "sha256": "0318aa7aa15e4f33f79595043b64e999410adb71121339155014f377cad53cc7",
+      "bytes": 1951323
+    },
+    {
+      "path": "assets/03-speaker-context.png",
+      "width": 269,
+      "height": 244,
+      "mode": "RGBA",
+      "sha256": "5289e94d7ac873f24886bb6a91aaff12da2785b43258757db24a497fffe241a7",
+      "bytes": 180171
+    },
+    {
+      "path": "assets/03-tile-a.png",
+      "width": 148,
+      "height": 178,
+      "mode": "RGBA",
+      "sha256": "c262ef71b272b14396535471b5396f7768fbed4edca9f2a7de8de3fb4e5b36cb",
+      "bytes": 68423
+    },
+    {
+      "path": "assets/03-tile-g.png",
+      "width": 153,
+      "height": 173,
+      "mode": "RGBA",
+      "sha256": "0f4ca3be85a275784e88cca0662574a8f648d932853cfa6122a957a7f403c1ec",
+      "bytes": 67093
+    },
+    {
+      "path": "assets/03-tile-ga.png",
+      "width": 272,
+      "height": 306,
+      "mode": "RGBA",
+      "sha256": "a1d38f3f610fa8f6a65c262e379f84d7e5193a8ec997df839987f5ca0b14ff3c",
+      "bytes": 198048
+    },
+    {
+      "path": "assets/04-dokkaebi-games-full-scene.png",
+      "width": 747,
+      "height": 930,
+      "mode": "RGBA",
+      "sha256": "98bdfc45f897454d1727eb52047575fec38150d2717f2d174a7db13acf35cb2a",
+      "bytes": 1918305
+    },
+    {
+      "path": "assets/04-treasure-chest-context.png",
+      "width": 321,
+      "height": 269,
+      "mode": "RGBA",
+      "sha256": "7ebd87716b336873d79a01e0eff8aa92501d4b3f9026f73e051d73dfe1163fd6",
+      "bytes": 251414
+    },
+    {
+      "path": "assets/04-word-chain-knot-context.png",
+      "width": 309,
+      "height": 244,
+      "mode": "RGBA",
+      "sha256": "5bd4f99bfafa0bc4e83826bad35a5eb90fa7e53a15cdb43bc7006c0947bc1b3f",
+      "bytes": 221412
+    },
+    {
+      "path": "assets/04-yeopjeon-original-detail.png",
+      "width": 178,
+      "height": 178,
+      "mode": "RGBA",
+      "sha256": "5eb7a0a1ba14eb6f5732e2bafea48cd5d4fc637207f2c4335c0cb8f5e902b745",
+      "bytes": 94467
+    },
+    {
+      "path": "assets/05-example-card-reference.png",
+      "width": 310,
+      "height": 305,
+      "mode": "RGBA",
+      "sha256": "e8125bbfdfa1d9303136ff89e0332156d9761c160df2ccf2197f0d50e3891f25",
+      "bytes": 220342
+    },
+    {
+      "path": "assets/05-open-book-scene.png",
+      "width": 747,
+      "height": 269,
+      "mode": "RGBA",
+      "sha256": "721ebff509468bdc8d1a0c4e68b461f01d72913fc045403fe0854bc40e0ae743",
+      "bytes": 581188
+    },
+    {
+      "path": "assets/05-photo-understand-remember.png",
+      "width": 692,
+      "height": 211,
+      "mode": "RGBA",
+      "sha256": "e3a5a3b04ee27091ac4c7ee809514beaaa5ca5e58842653effd9773712e7f555",
+      "bytes": 406045
+    },
+    {
+      "path": "assets/05-talsunbi-book-full-scene.png",
+      "width": 747,
+      "height": 1017,
+      "mode": "RGBA",
+      "sha256": "1530951c071c120846f95d758032eb2193c87878e18d100f56191ff6e1a4610d",
+      "bytes": 2047402
+    },
+    {
+      "path": "assets/06-build-collect-design.png",
+      "width": 708,
+      "height": 142,
+      "mode": "RGBA",
+      "sha256": "c99a9550ff7c95f400c8687ecf192a7bfb1f9a0e303730a66536706eb9ef9c24",
+      "bytes": 249075
+    },
+    {
+      "path": "assets/06-hanok-culture-full-scene.png",
+      "width": 747,
+      "height": 983,
+      "mode": "RGBA",
+      "sha256": "f5a43eb3f4e4a6098e5a4d05e00e7243d0bea0bf846a43db6ee969c55846b0e5",
+      "bytes": 2087339
+    },
+    {
+      "path": "assets/06-stempelbuch-crane-table-scene.png",
+      "width": 617,
+      "height": 482,
+      "mode": "RGBA",
+      "sha256": "020ada7f0fa74ed0039c916ad7d41fad5ba7859b753582d0c628dc6e9ee3d020",
+      "bytes": 924499
+    },
+    {
+      "path": "assets/06-stempelbuch-original-detail.png",
+      "width": 459,
+      "height": 282,
+      "mode": "RGBA",
+      "sha256": "d7a097485514245c3fe7e55ff5c55706ce8da43b1e5eee25396381e6e894e61a",
+      "bytes": 401768
+    },
+    {
+      "path": "assets/06-yeopjeon-original-detail.png",
+      "width": 180,
+      "height": 190,
+      "mode": "RGBA",
+      "sha256": "a9c8b385445ad01311b917552aeb3ab9b9b520a401edd5455360282f8504a5ed",
+      "bytes": 104331
+    },
+    {
+      "path": "assets/07-flower-branch-context.png",
+      "width": 191,
+      "height": 303,
+      "mode": "RGBA",
+      "sha256": "b0761c050c2a690ab97a9ea8cf0ff29cf3678720254e999b02b97ba2d372eb06",
+      "bytes": 164334
+    },
+    {
+      "path": "assets/07-gye-panel-reference.png",
+      "width": 723,
+      "height": 309,
+      "mode": "RGBA",
+      "sha256": "373bd28f58772aa2c873a74ee31caa4c50b532b62471a0234b5093e36a8c4135",
+      "bytes": 539031
+    },
+    {
+      "path": "assets/07-gye-reading-scene.png",
+      "width": 400,
+      "height": 287,
+      "mode": "RGBA",
+      "sha256": "e5b1ad99b5c599f37eedc476272ded7636a4604a5018f92bb44682e1846db839",
+      "bytes": 351193
+    },
+    {
+      "path": "assets/07-joy-check-context.png",
+      "width": 103,
+      "height": 99,
+      "mode": "RGBA",
+      "sha256": "a7737cb78d0243b3a5c1c21e40b6dc51ddc5515d04e6fa5fd6b50f316fa5caeb",
+      "bytes": 31174
+    },
+    {
+      "path": "assets/07-joy-selected.png",
+      "width": 359,
+      "height": 546,
+      "mode": "RGBA",
+      "sha256": "8a89f024fd412dc285feaf95a5f56bfbd6670aca9b8e345c74a22fea98cd68d6",
+      "bytes": 555221
+    },
+    {
+      "path": "assets/07-joy-unselected.png",
+      "width": 359,
+      "height": 546,
+      "mode": "RGBA",
+      "sha256": "ce8d1bc9492baec295a19054af34c86e9453f9be6e628ce7d8bba3d40a8f265e",
+      "bytes": 524125
+    },
+    {
+      "path": "assets/07-taego-check-context.png",
+      "width": 95,
+      "height": 98,
+      "mode": "RGBA",
+      "sha256": "281203e2ba17eae572b2cbf68a2dc83927070f8322b07c66fccc7e677325d780",
+      "bytes": 29523
+    },
+    {
+      "path": "assets/07-taego-selected.png",
+      "width": 374,
+      "height": 546,
+      "mode": "RGBA",
+      "sha256": "08b1ef6a95640804a223b6224dd7148bb8e962696c8aebcbfc80eeb615dc9ad3",
+      "bytes": 591744
+    },
+    {
+      "path": "assets/07-taego-unselected.png",
+      "width": 374,
+      "height": 546,
+      "mode": "RGBA",
+      "sha256": "dc0a3c8fd1791c8bce2ea5cc32c07a9b355ca9d5f22e997ea8e0a785db20c88a",
+      "bytes": 592945
+    },
+    {
+      "path": "assets/common-brand-progress-reference.png",
+      "width": 687,
+      "height": 120,
+      "mode": "RGBA",
+      "sha256": "f036efb5476e40a92f864d4e2adf18a254d677d27745575e85f00a96395a73f9",
+      "bytes": 156036
+    },
+    {
+      "path": "assets/common-cloud-logo-context.png",
+      "width": 82,
+      "height": 74,
+      "mode": "RGBA",
+      "sha256": "c3bfb9cbc6a4f6a6bebafc530e392f35a730a993b27ddd8d27c0c9da78cccc68",
+      "bytes": 14374
+    },
+    {
+      "path": "assets/common-gold-button-material-sample.png",
+      "width": 190,
+      "height": 62,
+      "mode": "RGBA",
+      "sha256": "04cc286d6ecf909d45992cc918f460224896a55923832033e421cc9797e71803",
+      "bytes": 24541
+    },
+    {
+      "path": "assets/common-hanji-material-sample.png",
+      "width": 737,
+      "height": 48,
+      "mode": "RGBA",
+      "sha256": "d994241f592a258dae3fde5efd7a19b0e293540016a7215a0eee3b790bf7b562",
+      "bytes": 44998
+    },
+    {
+      "path": "assets/common-jade-material-sample.png",
+      "width": 182,
+      "height": 38,
+      "mode": "RGBA",
+      "sha256": "69ecc010a5af7744cdd8babec86a6786509cfb904c934a7b8e8160f378c7985e",
+      "bytes": 9816
+    },
+    {
+      "path": "assets/common-weiter-button-reference.png",
+      "width": 699,
+      "height": 104,
+      "mode": "RGBA",
+      "sha256": "dc5b6956aa98598a71a2a87fa93aca1f03a21ee640a45a0a7b4dc5e326656de5",
+      "bytes": 157796
+    },
+    {
+      "path": "proof/01-level-a2-selected-reassembled.png",
+      "width": 853,
+      "height": 1844,
+      "mode": "RGBA",
+      "sha256": "80b1027d086a1c849609c8c393577b8f98d769b8a1e3963c67502a0f978b54f7",
+      "bytes": 3458843
+    },
+    {
+      "path": "proof/01-level-picker-reassembled.png",
+      "width": 853,
+      "height": 1844,
+      "mode": "RGBA",
+      "sha256": "4ddf0b58f261a6ed64097ed10c184c3bb164254c223c9121c760ff16a992edcb",
+      "bytes": 3124158
+    },
+    {
+      "path": "proof/01-startniveau-reassembled.png",
+      "width": 853,
+      "height": 1844,
+      "mode": "RGBA",
+      "sha256": "8c82bf04719eddc79f8d9d49c35a0e00289303f447cb6a1e6879fd716cccc792",
+      "bytes": 3540888
+    },
+    {
+      "path": "proof/02-learning-path-reassembled.png",
+      "width": 853,
+      "height": 1844,
+      "mode": "RGBA",
+      "sha256": "90a5e2c4596406b51bbf43b838f2a2c9425152f70700e382cac2bdb2a41a150a",
+      "bytes": 3570713
+    },
+    {
+      "path": "proof/03-learning-preview-reassembled.png",
+      "width": 853,
+      "height": 1844,
+      "mode": "RGBA",
+      "sha256": "398de7f65175b81a4cf94665f025318d14492ef3a48fe38c383e7cbc869ce5d0",
+      "bytes": 3536020
+    },
+    {
+      "path": "proof/04-games-reward-reassembled.png",
+      "width": 853,
+      "height": 1844,
+      "mode": "RGBA",
+      "sha256": "f86fccbaba18f596a25a687295cfdce4e10ca0c00d5289990e1aef510551cab0",
+      "bytes": 3653963
+    },
+    {
+      "path": "proof/05-book-learning-reassembled.png",
+      "width": 853,
+      "height": 1844,
+      "mode": "RGBA",
+      "sha256": "54c382396ba8fc0e21c97b9161c831b16f9edb236b7ae7f70a7b786a05ea4072",
+      "bytes": 3742916
+    },
+    {
+      "path": "proof/06-hanok-culture-reassembled.png",
+      "width": 853,
+      "height": 1844,
+      "mode": "RGBA",
+      "sha256": "e85b1548a9d285e37fe2f6f7ee97f766d5db33f946f5ab25fde08d2ff4b97971",
+      "bytes": 3832261
+    },
+    {
+      "path": "proof/07-joy-selected-reassembled.png",
+      "width": 853,
+      "height": 1844,
+      "mode": "RGBA",
+      "sha256": "13c999937eb44cfa36f0676e16459271339328ffb55c6b1e4fc5dc72565b7cb6",
+      "bytes": 3742152
+    },
+    {
+      "path": "proof/07-taego-selected-reassembled.png",
+      "width": 853,
+      "height": 1844,
+      "mode": "RGBA",
+      "sha256": "9ce76868270f1cbe312ede3576d83b1b2bbd3cbe10ddb1af873ca780dc66b7f4",
+      "bytes": 3625167
+    },
+    {
+      "path": "sources/01-level-a2-selected.png",
+      "width": 853,
+      "height": 1844,
+      "mode": "RGB",
+      "sha256": "c03ae18d08556d3e6a62cf0cfb39a2764d1db35793021049a19c8b55c59e9857",
+      "bytes": 2053572
+    },
+    {
+      "path": "sources/01-level-picker.png",
+      "width": 853,
+      "height": 1844,
+      "mode": "RGB",
+      "sha256": "baf9badf9571781fd1e2942db7035cc5cb3fd29e61bab5148def88d501a3a782",
+      "bytes": 1970616
+    },
+    {
+      "path": "sources/01-startniveau.png",
+      "width": 853,
+      "height": 1844,
+      "mode": "RGB",
+      "sha256": "0cd2c1a4474fb5c1a9e3a036e208f5413c034f5710522a9b01fde063b089d8c1",
+      "bytes": 2149737
+    },
+    {
+      "path": "sources/02-learning-path.png",
+      "width": 853,
+      "height": 1844,
+      "mode": "RGB",
+      "sha256": "a6606255345712510086b482b52c2492e82ae9af26317310fb6f9d98f28f30e0",
+      "bytes": 2141946
+    },
+    {
+      "path": "sources/03-learning-preview.png",
+      "width": 853,
+      "height": 1844,
+      "mode": "RGB",
+      "sha256": "dabe8e033784f6239960dd6d216a1cd40c074e8aeaf876dd0d9c28f446af056f",
+      "bytes": 2111519
+    },
+    {
+      "path": "sources/04-games-reward.png",
+      "width": 853,
+      "height": 1844,
+      "mode": "RGB",
+      "sha256": "50dc62b261ee4b85c8000711d8a9d0c9f1a57f9a87e9a98034f18a26f183462a",
+      "bytes": 2261796
+    },
+    {
+      "path": "sources/05-book-learning.png",
+      "width": 853,
+      "height": 1844,
+      "mode": "RGB",
+      "sha256": "285599737eb0a7bf309748c71987eac6e4c4ad0089ee02cb79872c6cf388f783",
+      "bytes": 2388753
+    },
+    {
+      "path": "sources/06-hanok-culture.png",
+      "width": 853,
+      "height": 1844,
+      "mode": "RGB",
+      "sha256": "d7ac0e8deb8039e6d59017e7b0c2c15a82d3b3d5cb523f145479735b8df5de61",
+      "bytes": 2501587
+    },
+    {
+      "path": "sources/07-joy-selected.png",
+      "width": 853,
+      "height": 1844,
+      "mode": "RGB",
+      "sha256": "cc69dbe998a37195bf6d0e0566f0845c7e3828af5929ae7ba5d69cc7211859ba",
+      "bytes": 2246106
+    },
+    {
+      "path": "sources/07-taego-selected.png",
+      "width": 853,
+      "height": 1844,
+      "mode": "RGB",
+      "sha256": "6aa6eef64dbdaa72e5d833aa6f077e56fe008c6e266b581611996b578fa989ab",
+      "bytes": 2182608
+    }
+  ]
+}

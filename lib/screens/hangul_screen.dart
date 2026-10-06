@@ -9,7 +9,10 @@ import '../models/feedback_completion.dart';
 import '../models/guide_contract.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/c_gallery/c_materials.dart';
+import '../widgets/sori/c_gallery/c_objects.dart';
 import '../widgets/sori/chip.dart';
+import 'sori_stage/c_stage_chrome.dart';
 import '../widgets/sori/chrome_row.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/content_feedback_card.dart';
@@ -246,45 +249,108 @@ class _HangulScreenState extends State<HangulScreen>
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    return SoriStudyFrame(
-      title: t.screenHangulTitle,
-      actions: const [TtsSpeedAction()],
-      padding: EdgeInsets.zero,
-      bottom: TabBar(
-        key: _tabBarKey,
-        controller: _tabs,
-        indicatorColor: SoriColors.primary,
-        labelColor: SoriColors.primary,
-        unselectedLabelColor: SoriSurfaces.of(context).textMuted,
-        tabs: [
-          Tab(
-            icon: const Icon(Icons.grid_view_rounded),
-            text: t.hangulTabOverview,
+    final largeText = MediaQuery.textScalerOf(context).scale(16) > 22;
+    return Scaffold(
+      backgroundColor: CPalette.jade,
+      body: CStageBackground(
+        child: SafeArea(
+          bottom: false,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12, 0, 12, 4),
+                child: CStageHeader(
+                  title: t.screenHangulTitle,
+                  trailing: const TtsSpeedAction(),
+                  artwork: largeText
+                      ? null
+                      : const CObjectArt(CObject.cloud, size: 54),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: Container(
+                  key: _tabBarKey,
+                  decoration: BoxDecoration(
+                    color: CPalette.paper,
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: CPalette.brass),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Color(0x660d241c),
+                        offset: Offset(0, 2),
+                        blurRadius: 3,
+                      ),
+                    ],
+                  ),
+                  clipBehavior: Clip.antiAlias,
+                  child: TabBar(
+                    controller: _tabs,
+                    indicator: BoxDecoration(
+                      color: CPalette.deepJade,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: CPalette.brass),
+                    ),
+                    indicatorSize: TabBarIndicatorSize.tab,
+                    dividerHeight: 0,
+                    labelColor: CPalette.paper,
+                    unselectedLabelColor: CPalette.ink,
+                    labelStyle: const TextStyle(
+                      fontFamily: 'Paperlogy',
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                    ),
+                    unselectedLabelStyle: const TextStyle(
+                      fontFamily: 'Paperlogy',
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    tabs: [
+                      Tab(text: t.hangulTabOverview),
+                      Tab(text: t.hangulTabCards),
+                      Tab(text: t.hangulTabWrite),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(
+                    12,
+                    0,
+                    12,
+                    12 + MediaQuery.paddingOf(context).bottom,
+                  ),
+                  child: CPaperPanel(
+                    key: const ValueKey('c-hangul-content-panel'),
+                    radius: 14,
+                    padding: EdgeInsets.zero,
+                    child: TabBarView(
+                      controller: _tabs,
+                      physics: _tabIndex == 0
+                          ? null
+                          : const NeverScrollableScrollPhysics(),
+                      children: [
+                        _OverviewTab(
+                          speak: _speakJamo,
+                          speakSyllable: _speakSyllable,
+                        ),
+                        _CardsTab(
+                          onFinish: _finishCards,
+                          random: widget.cardsRandom ?? math.Random(),
+                          speak: _speakJamo,
+                          prefetch: _prefetch,
+                        ),
+                        _WriteTab(onFinish: _finishWriting, speak: _speakJamo),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
-          Tab(icon: const Icon(Icons.style_outlined), text: t.hangulTabCards),
-          Tab(icon: const Icon(Icons.gesture), text: t.hangulTabWrite),
-        ],
-      ),
-      child: TabBarView(
-        controller: _tabs,
-        // 탭 넘김 스와이프는 **개요 탭에서만** 켠다.
-        //
-        // 카드 탭과 쓰기 탭은 둘 다 가로 드래그를 스스로 쓴다 — 카드는
-        // 카드 탭은 세로 피드(이전/다음 글자), 쓰기는 손가락 그리기와 좌우 이동.
-        // TabBarView 의 가로 드래그 인식기는 제스처 아레나에서 카드의
-        // Pan 인식기를 이겨버리기 때문에, 켜두면 카드를 미는 대신 탭이
-        // 넘어간다(2026-08-18 실측). 탭 전환은 상단 TabBar 로 한다.
-        physics: _tabIndex == 0 ? null : const NeverScrollableScrollPhysics(),
-        children: [
-          _OverviewTab(speak: _speakJamo, speakSyllable: _speakSyllable),
-          _CardsTab(
-            onFinish: _finishCards,
-            random: widget.cardsRandom ?? math.Random(),
-            speak: _speakJamo,
-            prefetch: _prefetch,
-          ),
-          _WriteTab(onFinish: _finishWriting, speak: _speakJamo),
-        ],
+        ),
       ),
     );
   }

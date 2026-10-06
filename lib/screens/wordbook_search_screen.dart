@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
 import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
+import '../models/companion_art.dart';
 import '../services/custom_pack_service.dart';
 import '../services/data_loader.dart';
 import '../services/saved_word_localization.dart';
@@ -160,7 +160,7 @@ class _WordbookSearchBodyState extends State<WordbookSearchBody> {
         ? Padding(
             padding: pagePadding,
             child: SoriEmptyState(
-              asset: 'assets/illustrations/mascot/magpie_wave.png',
+              asset: CompanionArt.joyGuide,
               icon: Icons.bookmark_border_rounded,
               title: t.wbSearchTitle,
               body: t.wbSearchNoWords,

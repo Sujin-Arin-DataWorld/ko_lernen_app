@@ -1,8 +1,7 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
-
 import '../l10n/generated/app_localizations.dart';
+import '../models/companion_art.dart';
 import '../models/grammar.dart';
 import '../models/learner_level.dart';
 import '../services/data_loader.dart';
@@ -288,7 +287,7 @@ class _GrammarChoiceQuizScreenState extends State<GrammarChoiceQuizScreen> {
 
   Widget _buildLoadFailure(AppL10n t) => Center(
     child: SoriEmptyState(
-      asset: 'assets/illustrations/mascot/tiger_front.png',
+      asset: CompanionArt.taego,
       icon: Icons.error_outline_rounded,
       title: t.grammarChoiceUnavailableTitle,
       body: _loadError,
@@ -308,7 +307,7 @@ class _GrammarChoiceQuizScreenState extends State<GrammarChoiceQuizScreen> {
 
   Widget _buildEmpty(AppL10n t) => Center(
     child: SoriEmptyState(
-      asset: 'assets/illustrations/mascot/magpie_encourage.png',
+      asset: CompanionArt.joyGuide,
       icon: Icons.fact_check_outlined,
       title: t.grammarChoiceUnavailableTitle,
       body: t.grammarChoiceUnavailableBody,

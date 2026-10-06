@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../../models/companion_art.dart';
 import '../../models/sori_stage_progression.dart';
 import 'tokens.dart';
 
@@ -32,7 +32,7 @@ abstract final class SoriArtwork {
   static const grammar = '$root/grammar.png';
   static const yeopjeon = '$root/yeopjeon.png';
   static const haechi = '$root/haechi.png';
-  static const hahoeMask = '$root/hahoe_mask.png';
+  static const hahoeMask = CompanionArt.scholar;
   static const dokkaebi = '$root/dokkaebi.png';
 
   static String? person(String id) => switch (id) {

@@ -17,11 +17,15 @@ import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'support/real_fonts.dart';
+import 'support/c_fonts.dart';
 import 'support/sori_speech_stubs.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  setUpAll(() => loadSoriRealFonts(materialIcons: true));
+  setUpAll(() async {
+    await loadSoriRealFonts(materialIcons: true);
+    await loadCFonts();
+  });
   setUp(
     () =>
         SharedPreferences.setMockInitialValues({'kl_xp': 42, 'kl_level': 'b1'}),
@@ -431,6 +435,11 @@ void main() {
           LearnerLevel level, {
           bool beginner = false,
         }) async {
+          final close = find.byKey(const ValueKey('c-onboarding-sheet-close'));
+          if (close.evaluate().isNotEmpty) {
+            await tester.tap(close);
+            await tester.pumpAndSettle();
+          }
           await tester.pumpWidget(
             MaterialApp(
               locale: Locale(lang),
@@ -463,6 +472,14 @@ void main() {
             isNull,
             reason: '$lang page $index $level',
           );
+          final preview = find.byKey(
+            ValueKey('c-onboarding-preview-${index + 2}'),
+          );
+          await tester.ensureVisible(preview);
+          await tester.pumpAndSettle();
+          await tester.tap(preview);
+          await tester.pumpAndSettle();
+          expect(tester.takeException(), isNull);
         }
 
         Future<void> tap(String key) async {

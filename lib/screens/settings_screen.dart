@@ -12,6 +12,10 @@ import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/c_gallery/c_detail_page.dart';
+import '../widgets/sori/c_gallery/c_materials.dart';
+import '../widgets/sori/c_gallery/c_objects.dart';
+import 'sori_stage/c_stage_chrome.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
@@ -274,10 +278,15 @@ enum SettingsInitialFocus {
   courseStart,
   browseLevel,
   companion,
+  language,
   voiceSpeed,
+  notifications,
+  downloads,
+  privacy,
   guide,
   account,
   accountDeletion,
+  soundDetails,
 }
 
 abstract interface class NotificationSettingsOperations {
@@ -347,6 +356,7 @@ class SettingsScreen extends StatefulWidget {
     this.appStoreOpener,
     this.initialFocus,
     this.notificationOperations,
+    this.conceptC = false,
   });
 
   final AuthAccountSnapshot? account;
@@ -361,6 +371,7 @@ class SettingsScreen extends StatefulWidget {
   final Future<void> Function(String url)? appStoreOpener;
   final SettingsInitialFocus? initialFocus;
   final NotificationSettingsOperations? notificationOperations;
+  final bool conceptC;
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -375,7 +386,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
   final GlobalKey _courseStartKey = GlobalKey();
   final GlobalKey _browseLevelKey = GlobalKey();
   final GlobalKey _companionKey = GlobalKey();
+  final GlobalKey _languageKey = GlobalKey();
   final GlobalKey _voiceSpeedKey = GlobalKey();
+  final GlobalKey _notificationKey = GlobalKey();
+  final GlobalKey _downloadsKey = GlobalKey();
+  final GlobalKey _privacyKey = GlobalKey();
   final GlobalKey _guideKey = GlobalKey();
   final GlobalKey _accountSectionKey = GlobalKey();
   final GlobalKey _accountDeletionKey = GlobalKey();
@@ -455,8 +470,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
     SettingsInitialFocus.companion => _companionFocusNode,
     SettingsInitialFocus.voiceSpeed => _voiceSpeedFocusNode,
     SettingsInitialFocus.guide => _guideFocusNode,
+    SettingsInitialFocus.language ||
+    SettingsInitialFocus.notifications ||
+    SettingsInitialFocus.downloads ||
+    SettingsInitialFocus.privacy ||
     SettingsInitialFocus.account ||
-    SettingsInitialFocus.accountDeletion => null,
+    SettingsInitialFocus.accountDeletion ||
+    SettingsInitialFocus.soundDetails => null,
   };
 
   Future<void> _seekInitialFocus([int attempt = 0]) async {
@@ -466,10 +486,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
       SettingsInitialFocus.courseStart => _courseStartKey,
       SettingsInitialFocus.browseLevel => _browseLevelKey,
       SettingsInitialFocus.companion => _companionKey,
+      SettingsInitialFocus.language => _languageKey,
       SettingsInitialFocus.voiceSpeed => _voiceSpeedKey,
+      SettingsInitialFocus.notifications => _notificationKey,
+      SettingsInitialFocus.downloads => _downloadsKey,
+      SettingsInitialFocus.privacy => _privacyKey,
       SettingsInitialFocus.guide => _guideKey,
       SettingsInitialFocus.account => _accountSectionKey,
       SettingsInitialFocus.accountDeletion => _accountDeletionKey,
+      SettingsInitialFocus.soundDetails => _voiceSpeedKey,
     };
     final targetContext = key.currentContext;
     if (targetContext != null) {
@@ -778,9 +803,587 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return t.authProviderGoogle;
   }
 
+  String _cSettingsTitle(BuildContext context, SettingsInitialFocus focus) {
+    final t = AppL10n.of(context);
+    final en = Localizations.localeOf(context).languageCode == 'en';
+    return switch (focus) {
+      SettingsInitialFocus.courseStart ||
+      SettingsInitialFocus.browseLevel ||
+      SettingsInitialFocus.language =>
+        en ? 'Language & learning' : 'Sprache & Lernen',
+      SettingsInitialFocus.companion => t.characterSelectionTitle,
+      SettingsInitialFocus.voiceSpeed =>
+        en ? 'Sound & motion' : 'Ton & Bewegung',
+      SettingsInitialFocus.soundDetails =>
+        en ? 'More sounds' : 'Weitere Klänge',
+      SettingsInitialFocus.notifications => t.settingsNotifSection,
+      SettingsInitialFocus.downloads => t.hanokDownloadsSettingsSection,
+      SettingsInitialFocus.privacy => t.settingsPrivacySection,
+      SettingsInitialFocus.guide => en ? 'Help & app info' : 'Hilfe & App-Info',
+      SettingsInitialFocus.account || SettingsInitialFocus.accountDeletion =>
+        en ? 'Account & backup' : 'Konto & Sicherung',
+    };
+  }
+
+  Widget _cSettingsDetail(BuildContext context, SettingsInitialFocus focus) {
+    return CDetailPage(
+      title: _cSettingsTitle(context, focus),
+      controller: _scrollController,
+      child: switch (focus) {
+        SettingsInitialFocus.courseStart ||
+        SettingsInitialFocus.browseLevel ||
+        SettingsInitialFocus.language => _cLanguageLearning(context),
+        SettingsInitialFocus.companion => _cCompanion(context),
+        SettingsInitialFocus.voiceSpeed => _cSoundMotion(context),
+        SettingsInitialFocus.soundDetails => _cSoundDetails(context),
+        SettingsInitialFocus.notifications => _cReminders(context),
+        SettingsInitialFocus.account ||
+        SettingsInitialFocus.accountDeletion => _cAccountBackup(context),
+        SettingsInitialFocus.privacy => _cPrivacyData(context),
+        SettingsInitialFocus.downloads => _cDownloads(context),
+        SettingsInitialFocus.guide => _cHelpInfo(context),
+      },
+    );
+  }
+
+  Widget _cLanguageLearning(BuildContext context) {
+    final t = AppL10n.of(context);
+    final currentLocale = localeNotifier.value;
+    return CDetailPanel(
+      children: [
+        CDetailSectionLabel(t.settingsLanguage, top: 2),
+        RadioGroup<String>(
+          groupValue: currentLocale == null
+              ? 'system'
+              : currentLocale.languageCode,
+          onChanged: (value) => setState(() {
+            switch (value) {
+              case 'de':
+                setLocale(const Locale('de'));
+              case 'en':
+                setLocale(const Locale('en'));
+              default:
+                setLocale(null);
+            }
+          }),
+          child: Column(
+            children: [
+              _RadioTile<String>(
+                title: t.settingsLanguageSystem,
+                value: 'system',
+              ),
+              _RadioTile<String>(title: t.settingsLanguageDe, value: 'de'),
+              _RadioTile<String>(title: t.settingsLanguageEn, value: 'en'),
+            ],
+          ),
+        ),
+        CDetailSectionLabel(t.settingsLearningLevelsSection),
+        CDetailRow(
+          key: _courseStartKey,
+          title: t.settingsCourseStartTitle,
+          subtitle:
+              '${_courseStartLevelDisplay(t)}\n${t.settingsCourseStartDescription}',
+          leading: const CObjectArt(CObject.book, size: 38),
+          onTap: _showCourseStartDialog,
+        ),
+        CDetailRow(
+          key: _browseLevelKey,
+          title: t.settingsBrowseLevelTitle,
+          subtitle:
+              '${_browseLevelDisplay(t)}\n${t.settingsBrowseLevelDescription}',
+          leading: const Icon(Icons.explore_outlined, color: CPalette.jade),
+          onTap: _showBrowseLevelDialog,
+        ),
+        CDetailRow(
+          title: t.settingsRecheckLevelTitle,
+          subtitle: t.settingsRecheckLevelDescription,
+          leading: const Icon(Icons.fact_check_outlined, color: CPalette.jade),
+          onTap: _openPlacementDiagnostic,
+        ),
+        const SizedBox(height: 10),
+        CMaterialAction(
+          label: t.coursePreviewTitle,
+          gold: false,
+          onTap: () => Navigator.of(
+            context,
+          ).pushNamed('/course/phases', arguments: Storage.userLevelCode),
+        ),
+        CDetailSectionLabel(t.settingsInterestsTitle),
+        CDetailRow(
+          title: t.settingsInterestsTitle,
+          subtitle: t.settingsInterestsSubtitle,
+          leading: const Icon(Icons.category_outlined, color: CPalette.jade),
+          onTap: _showInterestPicker,
+        ),
+        CDetailRow(
+          title: t.contentLearningGoals,
+          subtitle: '${t.smalltalkTitle} · ${t.listeningTitle}',
+          leading: const Icon(Icons.flag_outlined, color: CPalette.jade),
+          divider: false,
+          onTap: () => Navigator.of(context).pushNamed('/content/goals'),
+        ),
+      ],
+    );
+  }
+
+  Widget _cCompanion(BuildContext context) {
+    final t = AppL10n.of(context);
+    return CDetailPanel(
+      children: [
+        CDetailSectionLabel(t.characterSelectionTitle, top: 2),
+        ListenableBuilder(
+          listenable: Listenable.merge([
+            MascotPreference.kind,
+            MascotPreference.preference,
+          ]),
+          builder: (context, _) {
+            final kind = MascotPreference.chosenKind;
+            return CDetailRow(
+              key: _companionKey,
+              title: kind == MascotKind.magpie
+                  ? t.characterRomanMagpie
+                  : t.characterNameTiger,
+              subtitle: kind == MascotKind.magpie
+                  ? t.characterTraitMagpie
+                  : t.characterTraitTiger,
+              leading: Mascot(kind: kind, size: 44),
+              onTap: () => _showMascotDialog(kind),
+            );
+          },
+        ),
+        ValueListenableBuilder<CompanionPreference>(
+          valueListenable: MascotPreference.preference,
+          builder: (context, preference, _) => SwitchListTile(
+            contentPadding: const EdgeInsets.symmetric(horizontal: 4),
+            secondary: const Icon(
+              Icons.visibility_outlined,
+              color: CPalette.jade,
+            ),
+            title: Text(
+              t.settingsCompanionVisibleTitle,
+              style: cStageBody.copyWith(fontWeight: FontWeight.w600),
+            ),
+            subtitle: Text(
+              t.settingsCompanionVisibleDescription,
+              style: cStageBody.copyWith(
+                fontSize: 13,
+                color: CPalette.mutedInk,
+              ),
+            ),
+            value: preference != CompanionPreference.none,
+            onChanged: (visible) async {
+              await MascotPreference.setVisible(visible);
+              if (mounted) setState(() {});
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _cSoundMotion(BuildContext context) {
+    final t = AppL10n.of(context);
+    final policy = AudioPolicy.instance;
+    return ListenableBuilder(
+      listenable: Listenable.merge([policy, HapticService.preferencesChanged]),
+      builder: (context, _) => CDetailPanel(
+        children: [
+          SwitchListTile(
+            contentPadding: const EdgeInsets.symmetric(horizontal: 4),
+            secondary: const Icon(
+              Icons.volume_up_outlined,
+              color: CPalette.jade,
+            ),
+            title: Text(t.settingsSoundMaster, style: cStageBody),
+            subtitle: Text(
+              t.settingsSoundMasterDesc,
+              style: cStageBody.copyWith(
+                fontSize: 13,
+                color: CPalette.mutedInk,
+              ),
+            ),
+            value: policy.masterOn,
+            onChanged: (value) {
+              HapticService.selectionClick();
+              policy.setMasterOn(value);
+            },
+          ),
+          if (policy.masterOn)
+            _SoundVolumeSlider(
+              semanticLabel: t.settingsSoundMasterVolume,
+              value: policy.masterVolume,
+              onChanged: policy.setMasterVolume,
+            ),
+          CDetailSectionLabel(t.settingsTtsRate),
+          Focus(
+            key: _voiceSpeedKey,
+            focusNode: _voiceSpeedFocusNode,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(4, 2, 4, 10),
+              child: TtsSpeedControl(
+                mode: TtsSpeedControlMode.row,
+                onChanged: (_) => TtsService.speak('안녕하세요'),
+              ),
+            ),
+          ),
+          CDetailRow(
+            title: Localizations.localeOf(context).languageCode == 'en'
+                ? 'More sounds'
+                : 'Weitere Klänge',
+            subtitle:
+                '${t.settingsSoundGame} · ${t.settingsSoundCompanion} · ${t.settingsSoundAmbience}',
+            leading: const Icon(Icons.tune_rounded, color: CPalette.jade),
+            onTap: () => Navigator.of(context).pushNamed(
+              '/settings/detail',
+              arguments: SettingsInitialFocus.soundDetails,
+            ),
+          ),
+          SwitchListTile(
+            key: const ValueKey('settings-haptics'),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 4),
+            secondary: const Icon(Icons.vibration, color: CPalette.jade),
+            title: Text(t.settingsHaptics, style: cStageBody),
+            subtitle: Text(
+              t.settingsHapticsDesc,
+              style: cStageBody.copyWith(
+                fontSize: 13,
+                color: CPalette.mutedInk,
+              ),
+            ),
+            value: Storage.hapticsEnabled,
+            onChanged: HapticService.setEnabled,
+          ),
+          SwitchListTile(
+            key: const ValueKey('settings-reduced-motion'),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 4),
+            secondary: const Icon(
+              Icons.motion_photos_off_outlined,
+              color: CPalette.jade,
+            ),
+            title: Text(t.settingsReducedMotion, style: cStageBody),
+            subtitle: Text(
+              t.settingsReducedMotionDesc,
+              style: cStageBody.copyWith(
+                fontSize: 13,
+                color: CPalette.mutedInk,
+              ),
+            ),
+            value: Storage.reducedMotion,
+            onChanged: HapticService.setReducedMotion,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _cSoundDetails(BuildContext context) =>
+      const CDetailPanel(children: [_SoundSettings()]);
+
+  Widget _cReminders(BuildContext context) {
+    final t = AppL10n.of(context);
+    return CDetailPanel(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: Center(
+            child: Icon(
+              Icons.notifications_active_outlined,
+              size: 70,
+              color: CPalette.brass,
+            ),
+          ),
+        ),
+        SwitchListTile(
+          key: _notificationKey,
+          contentPadding: const EdgeInsets.symmetric(horizontal: 4),
+          title: Text(
+            t.settingsNotifTitle,
+            style: cStageCardTitle.copyWith(fontSize: 19),
+          ),
+          subtitle: Text(
+            t.settingsNotifSubtitle,
+            style: cStageBody.copyWith(fontSize: 14, color: CPalette.mutedInk),
+          ),
+          value: Storage.notificationsEnabled,
+          onChanged: _onToggleNotif,
+        ),
+        if (Storage.notificationsEnabled)
+          CDetailRow(
+            title: t.settingsNotifTime,
+            subtitle: _notifTimeLabel(),
+            leading: const Icon(Icons.schedule_outlined, color: CPalette.jade),
+            divider: false,
+            onTap: _pickNotifTime,
+          ),
+      ],
+    );
+  }
+
+  Widget _cAccountBackup(BuildContext context) {
+    final t = AppL10n.of(context);
+    final account = widget.account ?? AuthService.accountSnapshot;
+    final providers = account.providers;
+    return CDetailPanel(
+      children: [
+        AccountPendingOperationPanel(
+          operations: _accountOperations,
+          retryLocalDeletion: _onDeleteAccount,
+          cloudDeletionState: _cloudDataDeletionJournalState,
+          resumeCloudDeletion: _onDeleteCloudData,
+          onCompleted: () async {
+            if (mounted) setState(() {});
+          },
+        ),
+        if (providers.isDurable)
+          CDetailRow(
+            title: t.settingsCloudSignedIn(
+              account.displayName ?? _providerLabel(t, providers),
+            ),
+            subtitle: t.settingsCloudSignedInDesc,
+            leading: const Icon(
+              Icons.cloud_done_outlined,
+              color: CPalette.jade,
+            ),
+          )
+        else
+          CDetailRow(
+            title: t.settingsCloudSignInPrompt,
+            subtitle: t.settingsCloudSignInDesc,
+            leading: const Icon(Icons.cloud_outlined, color: CPalette.jade),
+            onTap: _onGoogleTap,
+          ),
+        if (!providers.isAppleLinked && _accountOperations.appleSignInAvailable)
+          CDetailRow(
+            title: t.authAppleSignIn,
+            subtitle: providers.isDurable
+                ? t.accountAdditionalProviderTitle
+                : t.settingsCloudSignInDesc,
+            leading: const Icon(Icons.apple, color: CPalette.ink),
+            onTap: _onAppleTap,
+          ),
+        if (providers.isDurable) ...[
+          CDetailRow(
+            title: t.settingsCloudBackupNow,
+            subtitle: _lastBackupAt == null
+                ? t.settingsCloudLastBackupNever
+                : t.settingsCloudLastBackup(_formatBackupTime(_lastBackupAt!)),
+            leading: const Icon(
+              Icons.cloud_upload_outlined,
+              color: CPalette.jade,
+            ),
+            onTap: _onBackupTap,
+          ),
+          CDetailRow(
+            title: t.settingsCloudRestore,
+            leading: const Icon(
+              Icons.cloud_download_outlined,
+              color: CPalette.jade,
+            ),
+            onTap: _onRestoreTap,
+          ),
+          CDetailRow(
+            title: t.profileSignOut,
+            leading: const Icon(Icons.logout_rounded, color: CPalette.mutedInk),
+            onTap: _onSignOutTap,
+          ),
+          CDetailRow(
+            title: t.settingsCloudDeleteData,
+            subtitle: t.settingsCloudDeleteDataDesc,
+            leading: const Icon(
+              Icons.cloud_off_outlined,
+              color: Color(0xff873b2c),
+            ),
+            destructive: true,
+            onTap: _confirmCloudDelete,
+          ),
+        ],
+        CDetailRow(
+          key: _accountDeletionKey,
+          title: t.settingsAccountDelete,
+          subtitle: t.settingsAccountDeleteDesc,
+          leading: const Icon(
+            Icons.person_remove_outlined,
+            color: Color(0xff873b2c),
+          ),
+          destructive: true,
+          divider: false,
+          onTap: _confirmAccountDelete,
+        ),
+      ],
+    );
+  }
+
+  Widget _cPrivacyData(BuildContext context) {
+    final t = AppL10n.of(context);
+    return CDetailPanel(
+      children: [
+        PrivacyChoiceControl(
+          purpose: PrivacyPurpose.analytics,
+          title: t.settingsAnalyticsTitle,
+          description: t.settingsAnalyticsDesc,
+          icon: Icons.insights_outlined,
+        ),
+        PrivacyChoiceControl(
+          purpose: PrivacyPurpose.crash,
+          title: t.settingsCrashTitle,
+          description: t.settingsCrashDesc,
+          icon: Icons.bug_report_outlined,
+        ),
+        PrivacyChoiceControl(
+          purpose: PrivacyPurpose.pronunciation,
+          title: t.settingsPronunciationConsentTitle,
+          description: t.settingsPronunciationConsentDesc,
+          icon: Icons.mic_none_rounded,
+        ),
+        CDetailSectionLabel(
+          Localizations.localeOf(context).languageCode == 'en'
+              ? 'Manage data'
+              : 'Daten verwalten',
+        ),
+        CDetailRow(
+          title: t.settingsPrivacyTitle,
+          subtitle: t.settingsPrivacySubtitle,
+          leading: const Icon(Icons.privacy_tip_outlined, color: CPalette.jade),
+          onTap: _openPrivacyPolicy,
+        ),
+        CDetailRow(
+          title: t.settingsReset,
+          leading: const Icon(Icons.delete_outline, color: Color(0xff873b2c)),
+          destructive: true,
+          onTap: _confirmReset,
+        ),
+        CDetailRow(
+          title: t.settingsAccountDelete,
+          subtitle: t.settingsAccountDeleteDesc,
+          leading: const Icon(
+            Icons.person_remove_outlined,
+            color: Color(0xff873b2c),
+          ),
+          destructive: true,
+          divider: false,
+          onTap: _confirmAccountDelete,
+        ),
+      ],
+    );
+  }
+
+  Widget _cDownloads(BuildContext context) {
+    final t = AppL10n.of(context);
+    return CDetailPanel(
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(4, 8, 4, 10),
+          child: Text(
+            t.hanokDownloadsSettingsSubtitle,
+            style: cStageBody.copyWith(color: CPalette.mutedInk),
+          ),
+        ),
+        CDetailRow(
+          key: const ValueKey('settings-hanok-downloads'),
+          title: t.hanokDownloadsSettingsTitle,
+          subtitle: t.hanokDownloadsSettingsSubtitle,
+          leading: const CObjectArt(CObject.stampbook, size: 40),
+          divider: false,
+          onTap: () => Navigator.of(context).push<void>(
+            SoriTransitions.page<void>((_) => const HanokDownloadsScreen()),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _cHelpInfo(BuildContext context) {
+    final t = AppL10n.of(context);
+    return CDetailPanel(
+      children: [
+        CDetailRow(
+          title: 'Hangul Sori',
+          subtitle: t.settingsVersion(_appVersion),
+          leading: const CObjectArt(CObject.cloud, size: 38),
+        ),
+        if (!kIsWeb && defaultTargetPlatform == TargetPlatform.android)
+          CDetailRow(
+            title: t.settingsUpdateTitle,
+            subtitle: _updateMessage ?? t.settingsUpdateSubtitle,
+            leading: const Icon(
+              Icons.system_update_outlined,
+              color: CPalette.jade,
+            ),
+            onTap: _updateChecking ? null : _checkForUpdate,
+          ),
+        CDetailRow(
+          key: _guideKey,
+          title: t.settingsGuideTitle,
+          subtitle: t.settingsGuideDescription,
+          leading: const Icon(Icons.map_outlined, color: CPalette.jade),
+          onTap: () => Navigator.of(context).pushNamed('/guide'),
+        ),
+        CDetailRow(
+          title: t.settingsTutorialResetTitle,
+          subtitle: t.settingsTutorialResetSubtitle,
+          leading: const Icon(Icons.replay_rounded, color: CPalette.jade),
+          onTap: _resetTutorials,
+        ),
+        CDetailRow(
+          title: t.settingsResetCulturalHints,
+          subtitle: t.settingsResetCulturalHintsSubtitle,
+          leading: const Icon(
+            Icons.auto_stories_outlined,
+            color: CPalette.jade,
+          ),
+          onTap: _resetCulturalHints,
+        ),
+        CDetailSectionLabel(t.settingsAbout),
+        CDetailRow(
+          title: t.settingsOriginStoryTitle,
+          subtitle: t.settingsOriginStorySubtitle,
+          onTap: _showOriginStory,
+        ),
+        CDetailRow(
+          title: t.settingsPrivacyTitle,
+          subtitle: t.settingsPrivacySubtitle,
+          onTap: _openPrivacyPolicy,
+        ),
+        CDetailRow(
+          title: t.settingsTermsTitle,
+          onTap: () => openExternalUrl(context, _termsUrl),
+        ),
+        CDetailRow(
+          title: t.settingsImpressumTitle,
+          onTap: () => openExternalUrl(context, _impressumUrl),
+        ),
+        CDetailRow(
+          title: t.settingsLicensesTitle,
+          subtitle: t.settingsLicensesSubtitle,
+          onTap: () => showLicensePage(
+            context: context,
+            applicationName: 'Hangul Sori',
+            applicationVersion: _appVersion,
+            applicationLegalese: '© 2026 Hangul Sori',
+          ),
+        ),
+        CDetailRow(
+          title: t.settingsDataSourcesTitle,
+          subtitle: t.settingsDataSourcesSubtitle,
+          onTap: _showDataSources,
+        ),
+        CDetailRow(
+          title: t.aiVoiceNoticeTitle,
+          subtitle: t.aiVoiceNoticeBody,
+          divider: false,
+          onTap: _showAiVoiceNotice,
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final cFocus = widget.initialFocus;
+    if (widget.conceptC && cFocus != null) {
+      return _cSettingsDetail(context, cFocus);
+    }
     final currentLocale = localeNotifier.value;
     final account = widget.account ?? AuthService.accountSnapshot;
     final providers = account.providers;
@@ -1086,7 +1689,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           label: t.settingsGroupControls,
         ),
         // ── Sprache ──
-        _Section(label: t.settingsLanguage),
+        _Section(key: _languageKey, label: t.settingsLanguage),
         RadioGroup<String>(
           groupValue: currentLocale == null
               ? 'system'
@@ -1150,7 +1753,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         const _SoundSettings(),
 
         // ── Erinnerung (M3) ──
-        _Section(label: t.settingsNotifSection),
+        _Section(key: _notificationKey, label: t.settingsNotifSection),
         SwitchListTile(
           secondary: const Icon(
             Icons.notifications_active_outlined,
@@ -1186,7 +1789,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           icon: Icons.inventory_2_outlined,
           label: t.settingsGroupPrivacy,
         ),
-        _Section(label: t.hanokDownloadsSettingsSection),
+        _Section(key: _downloadsKey, label: t.hanokDownloadsSettingsSection),
         ListTile(
           key: const ValueKey('settings-hanok-downloads'),
           leading: const Icon(
@@ -1206,7 +1809,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
         // ── Datenschutz: Analytics/Crashlytics Opt-in (TTDSG §25,
         //    DSGVO Art. 7 Abs. 3 — jederzeit widerrufbar) ──
-        _Section(label: t.settingsPrivacySection),
+        _Section(key: _privacyKey, label: t.settingsPrivacySection),
         PrivacyChoiceControl(
           purpose: PrivacyPurpose.analytics,
           title: t.settingsAnalyticsTitle,
@@ -2309,7 +2912,7 @@ class _SettingsGroupHeader extends StatelessWidget {
 
 class _Section extends StatelessWidget {
   final String label;
-  const _Section({required this.label});
+  const _Section({super.key, required this.label});
 
   @override
   Widget build(BuildContext context) {

@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import '../models/companion_art.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../motion/transitions.dart';
@@ -11,7 +12,6 @@ import '../services/storage_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/consent_invite_sheet.dart';
-import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/motion.dart';
@@ -495,15 +495,26 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                       SoriEntrance(
                         child: ConstrainedBox(
                           constraints: const BoxConstraints(maxWidth: 400),
-                          child: const HanokHeader(
-                            asset:
-                                'assets/illustrations/hanok/taego-joy-duo.png',
-                            loopAsset: 'assets/video/loops/taego-joy-duo.mp4',
-                            aspectRatio: 16 / 9,
-                            radius: 16,
-                            animate: false,
-                            fit: BoxFit.contain,
-                            fallbackIcon: Icons.pets,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Image.asset(
+                                  CompanionArt.taego,
+                                  height: 144,
+                                  fit: BoxFit.contain,
+                                  excludeFromSemantics: true,
+                                ),
+                              ),
+                              const SizedBox(width: Spacing.md),
+                              Expanded(
+                                child: Image.asset(
+                                  CompanionArt.joy,
+                                  height: 144,
+                                  fit: BoxFit.contain,
+                                  excludeFromSemantics: true,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),

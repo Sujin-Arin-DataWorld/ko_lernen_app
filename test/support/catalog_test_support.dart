@@ -93,6 +93,7 @@ Widget catalogTestApp({
         );
       }
       final nav = SoriAdaptiveNavigation(
+        imageOnly: true,
         selectedIndex: tab.index,
         onDestinationSelected: (_) {},
         items: [
@@ -135,7 +136,10 @@ Widget catalogTestApp({
             children: [
               if (rail)
                 SizedBox(
-                  width: SoriAdaptiveNavigation.railWidthForWidth(width),
+                  width: SoriAdaptiveNavigation.railWidthForWidth(
+                    width,
+                    imageOnly: true,
+                  ),
                   child: nav,
                 ),
               Expanded(child: catalog),

@@ -1,3 +1,5 @@
+import 'dart:ui' show Tristate;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
@@ -9,11 +11,15 @@ import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'support/real_fonts.dart';
+import 'support/c_fonts.dart';
 import 'support/sori_speech_stubs.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  setUpAll(() => loadSoriRealFonts(materialIcons: true));
+  setUpAll(() async {
+    await loadSoriRealFonts(materialIcons: true);
+    await loadCFonts();
+  });
   setUp(
     () =>
         SharedPreferences.setMockInitialValues({'kl_xp': 43, 'kl_level': 'b1'}),
@@ -24,6 +30,7 @@ void main() {
       testWidgets(
         '$lang book and hanok at 320x640 and text $scale preserve artwork and all states',
         (tester) async {
+          final semantics = tester.ensureSemantics();
           final speech = stubSoriSpeech();
           tester.view.physicalSize = const Size(320, 640);
           tester.view.devicePixelRatio = 1;
@@ -43,19 +50,27 @@ void main() {
                 final rect = render.localToGlobal(Offset.zero) & render.size;
                 expect(rect.left, greaterThanOrEqualTo(-0.5), reason: state);
                 expect(rect.right, lessThanOrEqualTo(320.5), reason: state);
-                expect(rect.bottom, lessThanOrEqualTo(640.5), reason: state);
               }
             }
-            for (final element in find.byType(Scrollable).evaluate()) {
-              expect(
-                (element.widget as Scrollable).axisDirection,
-                isNot(AxisDirection.down),
-                reason: state,
-              );
-            }
+            final footer = find.byKey(
+              const ValueKey('c-onboarding-sheet-close'),
+            );
+            final action = footer.evaluate().isNotEmpty
+                ? footer
+                : find.byKey(const ValueKey('onboarding-v2-story-next'));
+            final actionRect = tester.getRect(action);
+            expect(actionRect.bottom, lessThanOrEqualTo(606.5), reason: state);
+            expect(actionRect.height, greaterThanOrEqualTo(48), reason: state);
           }
 
           Future<void> page(int index, LearnerLevel level) async {
+            final close = find.byKey(
+              const ValueKey('c-onboarding-sheet-close'),
+            );
+            if (close.evaluate().isNotEmpty) {
+              await tester.tap(close);
+              await tester.pumpAndSettle();
+            }
             await tester.pumpWidget(
               MaterialApp(
                 locale: Locale(lang),
@@ -83,10 +98,20 @@ void main() {
             );
             await tester.pumpAndSettle();
             fits('page $index $level');
+            final preview = find.byKey(
+              ValueKey('c-onboarding-preview-${index + 2}'),
+            );
+            await tester.ensureVisible(preview);
+            await tester.pumpAndSettle();
+            await tester.tap(preview);
+            await tester.pumpAndSettle();
+            fits('preview $index $level');
           }
 
           Future<void> tap(String key) async {
             final finder = find.byKey(ValueKey(key));
+            await tester.ensureVisible(finder);
+            await tester.pumpAndSettle();
             expect(tester.getSize(finder).height, greaterThanOrEqualTo(48));
             await tester.tap(finder);
             await tester.pumpAndSettle();
@@ -110,11 +135,14 @@ void main() {
             expect(speech.spoken, isNotEmpty);
             await tap('onboarding-v3-book-action');
             expect(
-              find.descendant(
-                of: find.byKey(const ValueKey('onboarding-v3-book-action')),
-                matching: find.byIcon(Icons.check),
-              ),
-              findsOneWidget,
+              tester
+                  .getSemantics(
+                    find.byKey(const ValueKey('onboarding-v3-book-action')),
+                  )
+                  .getSemanticsData()
+                  .flagsCollection
+                  .isSelected,
+              Tristate.isTrue,
             );
             await tap('onboarding-v3-book-action');
             await tap('onboarding-v3-book-replay');
@@ -127,7 +155,7 @@ void main() {
           for (var place = 0; place < 3; place++) {
             await tap('onboarding-v3-place-$place');
             if (place == 1) {
-              expect(find.text(t.onboardingJourneyVeranda), findsOneWidget);
+              expect(find.text(t.onboardingJourneyVeranda), findsWidgets);
             }
           }
           await tap('onboarding-v3-hanok-growth');
@@ -150,11 +178,12 @@ void main() {
             }
           }
           await tap('onboarding-v3-hanok-places');
-          expect(find.text(t.onboardingJourneyRoom), findsOneWidget);
+          expect(find.text(t.onboardingJourneyRoom), findsWidgets);
           await tester.pumpWidget(const SizedBox.shrink());
           expect({
             for (final key in prefs.getKeys()) key: prefs.get(key),
           }, before);
+          semantics.dispose();
         },
       );
     }

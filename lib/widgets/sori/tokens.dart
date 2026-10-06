@@ -48,9 +48,6 @@ class Spacing {
 /// 480은 폰엔 시각 변화 0, 넓은 화면만 가운데 정렬된다.
 /// 적용은 [soriClampPadding] / [SoriContentClamp] (responsive.dart) 참조.
 class SoriBreakpoints {
-  /// Three culture topic actions stack below their readable component width.
-  static const double cultureTopicsStack = 280;
-
   /// Mission chrome stacks its label and progress before either phrase wraps
   /// into an unreadably narrow side-by-side column.
   static const double missionHeaderStack = 280;
@@ -587,9 +584,11 @@ class SoriMotion {
 /// 한글에서 처음으로 성립한다. `test/font_bundle_guard_test.dart` 가 번들 폰트의
 /// 한글·독일어 글리프를 검사해 재발을 막는다.
 ///
-/// Noto Sans KR keeps learning copy consistent across Korean/German/English.
-/// 2026-10-04: Paperlogy adds distinctive interface lettering, explicitly
-/// separated from words, examples and tappable lesson answers.
+/// **2026-09-30**: Noto Sans KR 한 파일이 한글·영어·독일어 문자를 모두
+/// 포함하므로 세 언어를 같은 서체로 그린다.
+/// Language role for controls that contain Korean learning text.
+enum SoriTextRole { ui, learning }
+
 class SoriFonts {
   SoriFonts._();
   static const String sans = 'NotoSansKR';
@@ -599,7 +598,8 @@ class SoriFonts {
   static const String culture = korean;
 
   /// Distinctive interface lettering; learning copy always uses [sans].
-  /// All bundled faces cover Korean, German and English without OS fallback.
+  /// Restored from origin/main because the copied C WIP still references this
+  /// role from theme/app-bar/chip components.
   static const String interface = 'Paperlogy';
   static const List<String> fallback = [];
 }
@@ -823,7 +823,6 @@ class SoriTextTheme {
   /// 앱바 타이틀 크롬 전용 토큰 (2026-09-03, §A4). 화면 헤드라인은 [h2]가
   /// 맡고, 내비게이션 크롬은 Plex Sans / Noto Sans KR의 600을 쓴다.
   TextStyle get chromeTitle => _base(
-    fontFamily: SoriFonts.interface,
     fontSize: SoriTypeSpecs.chromeTitle.size,
     weight: SoriTypeSpecs.chromeTitle.weight,
     letterSpacing: SoriTypeSpecs.chromeTitle.letterSpacing,

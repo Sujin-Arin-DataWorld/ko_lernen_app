@@ -1,12 +1,14 @@
-import 'yeopjeon_learning_checkpoint.dart';
-import 'storage_service.dart';
-import 'diagnostics_service.dart';
 import 'dart:async';
-
 import '../models/quest.dart';
 import '../models/sori_stage_progression.dart';
+import '../models/yeopjeon_reward_moment.dart';
+import '../models/yeopjeon_wallet.dart';
+import 'local_data_lifetime.dart';
+import 'diagnostics_service.dart';
 import 'sori_stage_progression_service.dart';
+import 'storage_service.dart';
 import 'today_learning_snapshot.dart';
+import 'yeopjeon_learning_checkpoint.dart';
 
 /// Compares two read-only progression snapshots after an activity returns.
 ///
@@ -17,8 +19,8 @@ abstract final class SoriStageRewardReceiptService {
   /// Opens learning even when progress measurement is unavailable.
   ///
   /// This fail-open boundary keeps a diagnostic/reward surface from becoming
-  /// an entitlement gate. A receipt is returned only after both snapshots can
-  /// be read and a concrete positive delta exists.
+  /// an entitlement gate. Aggregate deltas need both snapshots; independently
+  /// confirmed ledger results and pending verification survive optional read failures.
   static Future<RewardReceipt?> capture({
     required String activityId,
     required Future<SoriStageProgressionSnapshot> Function() loadSnapshot,
@@ -27,7 +29,10 @@ abstract final class SoriStageRewardReceiptService {
     SoriStageLocalBeforeFields Function()? captureLocalBefore,
     Future<SoriStageNetworkBeforeFields> Function()? loadNetworkBefore,
     Future<YeopjeonLearningCheckpoint> Function()? captureCheckpoint,
+    List<YeopjeonRewardMoment> Function()? confirmedRewardMoments,
+    List<YeopjeonPendingReward> Function()? pendingRewardMoments,
   }) async {
+    final lifetime = LocalDataLifetime.capture();
     final captureLocal =
         captureLocalBefore ??
         SoriStageProgressionService.captureLocalBeforeFields;
@@ -56,8 +61,8 @@ abstract final class SoriStageRewardReceiptService {
               },
             );
     Set<String>? stampIds;
-    SoriStageLocalBeforeFields local;
-    Future<SoriStageNetworkBeforeFields> networkFuture;
+    SoriStageLocalBeforeFields? local;
+    Future<SoriStageNetworkBeforeFields>? networkFuture;
     try {
       // §검수#7: 로컬 필드는 openActivity() 호출 바로 앞, 같은 동기 실행
       // 구간 안에서 읽는다 — 사이에 await 이 없어 다른 코드가 끼어들 여지가
@@ -78,18 +83,22 @@ abstract final class SoriStageRewardReceiptService {
       // 이어진다(동작 불변).
       unawaited(networkFuture.then<void>((_) {}, onError: (_) {}));
     } catch (_) {
-      await openActivity();
-      return null;
+      // Optional aggregate fields cannot suppress a separately confirmed coin.
+      local = null;
     }
 
     await openActivity();
-
+    YeopjeonLearningCheckpoint? checkpoint;
+    YeopjeonWallet? settledWallet;
+    List<YeopjeonRewardMoment> moments = const [];
+    List<YeopjeonPendingReward> pendingMoments = const [];
+    YeopjeonPendingReward? pending;
     try {
-      final checkpoint = await checkpointFuture;
+      lifetime.assertCurrent();
+      checkpoint = await checkpointFuture;
       try {
-        await checkpoint?.settle().timeout(measurementTimeout);
+        settledWallet = await checkpoint?.settle().timeout(measurementTimeout);
       } catch (error, stack) {
-        // A failed money write cannot hide confirmed XP/stamp rewards.
         unawaited(
           DiagnosticsService.reportSwallowed(
             'yeopjeon.settle',
@@ -98,30 +107,207 @@ abstract final class SoriStageRewardReceiptService {
           ),
         );
       }
+      lifetime.assertCurrent();
+      moments = [...?checkpoint?.rewardMoments];
+      pendingMoments = [if (checkpoint?.pendingReward case final value?) value];
+      try {
+        moments = [...?confirmedRewardMoments?.call(), ...moments];
+      } catch (_) {
+        /* Independently confirmed checkpoint results remain available. */
+      }
+      try {
+        pendingMoments = [...pendingMoments, ...?pendingRewardMoments?.call()];
+      } catch (_) {
+        /* Independently captured pending sources remain available. */
+      }
+      moments = [
+        ...moments,
+        ..._pendingReadbackMoments(pendingMoments, settledWallet),
+      ];
+      pending = _mergePending(pendingMoments, settledWallet);
       final network = await networkFuture;
+      final confirmedLocal = local;
+      if (network == null || confirmedLocal == null) {
+        return _confirmedMoneyReceipt(
+          activityId,
+          moments,
+          checkpoint,
+          settledWallet,
+          pending,
+        );
+      }
       final before = SoriStageProgressionSnapshot(
         wallet: checkpoint?.wallet,
         today: const TodayLearningSnapshot(pick: null),
         hanokCompetence: network.hanokCompetence,
         quests: network.quests,
-        pendingBojagiCount: local.pendingBojagiCount,
-        stampCount: local.stamps,
+        pendingBojagiCount: confirmedLocal.pendingBojagiCount,
+        stampCount: confirmedLocal.stamps,
         stampIds: stampIds,
-        xp: local.xp,
-        streakDays: local.streakDays,
+        xp: confirmedLocal.xp,
+        streakDays: confirmedLocal.streakDays,
         todayReward: null,
-        gameBests: local.gameBests,
+        gameBests: confirmedLocal.gameBests,
         gyeLanternCount: network.gyeLanternCount,
       );
-      final receipt = compare(
+      final after = await loadSnapshot().timeout(measurementTimeout);
+      lifetime.assertCurrent();
+      moments = [
+        ...moments,
+        ..._pendingReadbackMoments(pendingMoments, after.wallet),
+      ];
+      pending = _mergePending(pendingMoments, after.wallet ?? settledWallet);
+      var receipt = compare(
         activityId: activityId,
         before: before,
-        after: await loadSnapshot().timeout(measurementTimeout),
+        after: after,
+        confirmedRewardMoments: moments,
+        pendingYeopjeon: pending,
       );
+      // An unavailable money baseline has no authority to infer deltas. Actual
+      // native transaction results still have their independent confirmation.
+      if ((checkpoint == null || after.wallet == null) && moments.isNotEmpty) {
+        final money = _confirmedMoneyReceipt(
+          activityId,
+          moments,
+          null,
+          settledWallet,
+          pending,
+        )!;
+        receipt = RewardReceipt(
+          activityId: receipt.activityId,
+          receiptId: receipt.receiptId,
+          items: List.unmodifiable([...receipt.items, ...money.items]),
+          yeopjeonReward: money.yeopjeonReward,
+          pendingYeopjeon: receipt.pendingYeopjeon,
+          sarangchaeStageBefore: receipt.sarangchaeStageBefore,
+          sarangchaeStageAfter: receipt.sarangchaeStageAfter,
+          b2ConstructionStageBefore: receipt.b2ConstructionStageBefore,
+          b2ConstructionStageAfter: receipt.b2ConstructionStageAfter,
+        );
+      }
       return receipt.isEmpty ? null : receipt;
     } catch (_) {
+      if (!lifetime.isCurrent) {
+        return null;
+      }
+      return _confirmedMoneyReceipt(
+        activityId,
+        moments,
+        checkpoint,
+        settledWallet,
+        pending,
+      );
+    }
+  }
+
+  static RewardReceipt? _confirmedMoneyReceipt(
+    String activityId,
+    List<YeopjeonRewardMoment> moments,
+    YeopjeonLearningCheckpoint? checkpoint,
+    YeopjeonWallet? settledWallet,
+    YeopjeonPendingReward? pending,
+  ) {
+    final claims = <String, int>{
+      for (final moment in moments)
+        for (final entry in moment.claims.entries)
+          if (entry.value > 0 &&
+              !(checkpoint?.wallet.claims.containsKey(entry.key) ?? false))
+            entry.key: entry.value,
+    };
+    if (claims.isEmpty && pending == null) {
       return null;
     }
+    final first = moments
+        .where(
+          (m) => m.playMintVideo && claims.containsKey('daily:${m.day}:first'),
+        )
+        .firstOrNull;
+    final moment = claims.isEmpty
+        ? null
+        : YeopjeonRewardMoment(
+            claims: claims,
+            balance: settledWallet?.balance ?? moments.last.balance,
+            source: first?.source ?? YeopjeonRewardSource.recovery,
+            day: first?.day ?? moments.last.day,
+          );
+    return RewardReceipt(
+      activityId: activityId,
+      receiptId:
+          'money:$activityId:${claims.keys.join('|')}:'
+          '${pending?.sourceIds.join('|') ?? ''}',
+      pendingYeopjeon: pending,
+      yeopjeonReward: moment,
+      items: List.unmodifiable([
+        for (final entry in claims.entries)
+          RewardReceiptItem(
+            kind: SoriRewardKind.yeopjeon,
+            identity: entry.key,
+            amount: entry.value,
+            label: const SoriLocalizedCopy(
+              de: 'Yeopjeon',
+              en: 'Yeopjeon',
+              key: SoriCopyKey.rewardYeopjeon,
+            ),
+          ),
+      ]),
+    );
+  }
+
+  static YeopjeonPendingReward? _mergePending(
+    List<YeopjeonPendingReward> pending,
+    YeopjeonWallet? verifiedWallet,
+  ) {
+    final sources = {for (final value in pending) ...value.sourceIds}
+      ..removeAll(verifiedWallet?.completedSourceIds ?? const {});
+    if (sources.isEmpty) {
+      return null;
+    }
+    Set<String>? baseline;
+    for (final value in pending) {
+      if (value.hasClaimBaseline) {
+        baseline = baseline == null
+            ? value.baselineClaimIds.toSet()
+            : baseline.intersection(value.baselineClaimIds);
+      }
+    }
+    return YeopjeonPendingReward(
+      sourceIds: sources,
+      baselineClaimIds: baseline ?? const {},
+      hasClaimBaseline: baseline != null,
+    );
+  }
+
+  static List<YeopjeonRewardMoment> _pendingReadbackMoments(
+    List<YeopjeonPendingReward> pending,
+    YeopjeonWallet? verifiedWallet,
+  ) {
+    if (verifiedWallet == null) {
+      return const [];
+    }
+    final claims = <String, int>{};
+    for (final value in pending) {
+      if (!value.hasClaimBaseline ||
+          !value.sourceIds.any(verifiedWallet.completedSourceIds.contains)) {
+        continue;
+      }
+      for (final entry in verifiedWallet.claims.entries) {
+        if (entry.value > 0 && !value.baselineClaimIds.contains(entry.key)) {
+          claims[entry.key] = entry.value;
+        }
+      }
+    }
+    if (claims.isEmpty) {
+      return const [];
+    }
+    return [
+      YeopjeonRewardMoment(
+        claims: claims,
+        balance: verifiedWallet.balance,
+        source: YeopjeonRewardSource.recovery,
+        day: YeopjeonRewardMoment.dayKey(DateTime.now()),
+      ),
+    ];
   }
 
   static RewardReceipt compare({
@@ -129,6 +315,8 @@ abstract final class SoriStageRewardReceiptService {
     required SoriStageProgressionSnapshot before,
     required SoriStageProgressionSnapshot after,
     String? receiptId,
+    List<YeopjeonRewardMoment> confirmedRewardMoments = const [],
+    YeopjeonPendingReward? pendingYeopjeon,
   }) {
     final items = <RewardReceiptItem>[];
     final beforeWallet = before.wallet;
@@ -245,10 +433,33 @@ abstract final class SoriStageRewardReceiptService {
       ),
     );
     final stableId = receiptId ?? _stableReceiptId(activityId, before, after);
+    final claims = <String, int>{
+      for (final item in items)
+        if (item.kind == SoriRewardKind.yeopjeon && item.identity != null)
+          item.identity!: item.amount!,
+    };
+    final firstMoment = confirmedRewardMoments
+        .where(
+          (moment) =>
+              moment.playMintVideo &&
+              claims.containsKey('daily:${moment.day}:first'),
+        )
+        .firstOrNull;
     return RewardReceipt(
       activityId: activityId,
       receiptId: stableId,
       items: List.unmodifiable(items),
+      pendingYeopjeon: pendingYeopjeon,
+      yeopjeonReward: claims.isEmpty || afterWallet == null
+          ? null
+          : YeopjeonRewardMoment(
+              claims: claims,
+              balance: afterWallet.balance,
+              source: firstMoment?.source ?? YeopjeonRewardSource.recovery,
+              day:
+                  firstMoment?.day ??
+                  YeopjeonRewardMoment.dayKey(DateTime.now()),
+            ),
       sarangchaeStageBefore: before.ownedSarangchaeStage,
       sarangchaeStageAfter: after.ownedSarangchaeStage,
       b2ConstructionStageBefore: before.ownedB2Stage,

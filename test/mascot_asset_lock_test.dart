@@ -1,70 +1,56 @@
+import 'dart:convert';
 import 'dart:io';
-
+import 'package:crypto/crypto.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:image/image.dart' as image;
+import 'package:ko_lernen_app/models/companion_art.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 
-/// 마스코트·히어로 정지 그림 **잠금** (Jin 2026-08-25).
-///
-/// Jin 이 두 번 갈아엎은 자산이라 못 박는다:
-/// ① 호랑이 마스코트는 `tiger_front.png` — 옛 `tiger_sitting2.png` 는 누운 자세라
-///    정지 상태에서 축 처져 보였다. **영상** `tiger_sitting2.mp4` 는 그대로 쓴다
-///    (움직일 땐 문제없다) — 그래서 이 잠금은 `.png` 만 막고 `.mp4` 는 건드리지
-///    않는다.
-/// ② 온보딩 히어로 포스터는 정본 페어 아트 `magpie_tiger_together.png` —
-///    옛 `hanok/welcome-hero.png` 는 폐기했다.
-///
-/// 자산을 바꾸려면 이 테스트를 **먼저** 고쳐야 한다. 그게 잠금의 목적이다.
-///
-/// 2026-09-04 PR3-T2: 이 상수의 원래 소유자였던 `OnboardingLevelScreen`
-/// (`OnboardingLevelScreen.kHeroPoster`)이 죽은 사슬이라 `assets_unused/`
-/// 로 격리됐다. 상수 자체는 사라졌지만 이 png는 `stats_screen.dart`·
-/// `mascot.dart` 주석이 계속 정본으로 지목하므로 잠금은 문자열 리터럴로
-/// 재구성해 유지한다.
 void main() {
-  const tigerAsset = 'assets/illustrations/mascot/tiger_front.png';
-  const heroPoster = 'assets/illustrations/mascot/magpie_tiger_together.png';
-
-  // 코드가 되살리면 안 되는 옛 그림들. 경로 전체가 문자열 리터럴로 등장하는
-  // 경우만 잡는다 — 주석에서 이력을 설명하는 건 허용해야 한다.
-  const retired = <String>[
-    'assets/illustrations/mascot/tiger_sitting2.png',
-    'assets/illustrations/hanok/welcome-hero.png',
-  ];
-
-  test('tiger mascot pose is locked to tiger_front (Jin 2026-08-25)', () {
-    expect(Mascot.kTigerAsset, tigerAsset);
-    expect(File(tigerAsset).existsSync(), isTrue, reason: '$tigerAsset 없음');
-  });
-
-  test('onboarding hero poster is locked to the canonical pair art', () {
-    expect(File(heroPoster).existsSync(), isTrue, reason: '$heroPoster 없음');
-  });
-
-  test('retired mascot art is gone from disk and from code', () {
-    for (final path in retired) {
+  test('October 4 canon preserves approved source bytes and alpha', () {
+    final manifest =
+        jsonDecode(
+              File(
+                'docs/assets/CANONICAL_COMPANIONS_20261004.json',
+              ).readAsStringSync(),
+            )
+            as Map<String, dynamic>;
+    for (final entry in manifest['files'] as List) {
+      final bytes = File(entry['asset'] as String).readAsBytesSync();
       expect(
-        File(path).existsSync(),
-        isFalse,
-        reason: '$path 는 폐기됐다 — 번들에 다시 넣지 말 것',
+        sha256.convert(bytes).toString(),
+        entry['sha256'],
+        reason: entry['asset'] as String,
       );
+      if (entry['asset'].endsWith('.png') && entry['role'] != 'poster') {
+        final decoded = image.decodePng(bytes)!;
+        expect(decoded.numChannels, 4);
+        expect(decoded.any((pixel) => pixel.a == 0), isTrue);
+      }
     }
-
+    expect(Mascot.kTigerAsset, CompanionArt.taego);
+  });
+  test('retired PNG family is never called by runtime code', () {
     final offenders = <String>[];
-    for (final entity in Directory('lib').listSync(recursive: true)) {
-      if (entity is! File || !entity.path.endsWith('.dart')) continue;
-      // 주석은 이력 설명용으로 옛 이름을 언급해도 된다 — 코드만 본다.
-      final code = entity
+    for (final file in Directory(
+      'lib',
+    ).listSync(recursive: true).whereType<File>()) {
+      if (!file.path.endsWith('.dart')) {
+        continue;
+      }
+      final code = file
           .readAsLinesSync()
           .where((line) => !line.trimLeft().startsWith('//'))
           .join('\n');
-      for (final path in retired) {
-        if (code.contains(path)) offenders.add('${entity.path} → $path');
+      if (code.contains('assets/illustrations/mascot/tiger_') ||
+          code.contains('assets/illustrations/mascot/magpie_') ||
+          code.contains('assets/illustrations/error/lost_magpie.png') ||
+          code.contains('assets/illustrations/onboarding/tiger_crystal.png') ||
+          code.contains('assets/illustrations/onboarding/companions/') ||
+          code.contains('assets/illustrations/hanok/taego-joy-duo.png')) {
+        offenders.add(file.path);
       }
     }
-    expect(
-      offenders,
-      isEmpty,
-      reason: '폐기된 그림을 코드가 다시 부릅니다:\n${offenders.join('\n')}',
-    );
+    expect(offenders, isEmpty);
   });
 }

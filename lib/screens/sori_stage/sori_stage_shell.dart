@@ -1,29 +1,30 @@
-import '../../services/storage_service.dart';
-import '../../models/course_mastery.dart';
-import '../../services/catalog_history_lease.dart';
-import '../../widgets/sori/toast.dart';
 import 'dart:async';
-import '../../services/learning_focus.dart';
-import '../../services/learning_journey.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import '../../l10n/generated/app_localizations.dart';
+import '../../models/course_mastery.dart';
+import '../../models/gye.dart';
+import '../../models/home_navigation_art.dart';
+import '../../models/sori_stage_progression.dart';
+import '../../services/account/cloud_write_session.dart';
+import '../../services/catalog_history_lease.dart';
 import '../../services/course_attempt_companion.dart';
 import '../../services/course_progress_service.dart';
-import '../../services/account/cloud_write_session.dart';
-import '../../services/today_learning_snapshot.dart';
+import '../../services/learning_focus.dart';
+import '../../services/learning_journey.dart';
 import '../../services/sori_stage_progression_service.dart';
 import '../../services/sori_stage_reward_receipt_service.dart';
-import '../../widgets/sori/learning_focus.dart';
-import 'sori_stage_reward_receipt_sheet.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart';
-
-import '../../l10n/generated/app_localizations.dart';
-import '../../models/sori_stage_progression.dart';
+import '../../services/storage_service.dart';
+import '../../services/today_learning_snapshot.dart';
 import '../../widgets/sori/adaptive_navigation.dart';
-import '../../widgets/sori/tab_reselect.dart';
+import '../../widgets/sori/learning_focus.dart';
 import '../../widgets/sori/route_observer.dart';
+import '../../widgets/sori/tab_reselect.dart';
+import '../../widgets/sori/toast.dart';
 import 'sori_stage_catalog_screen.dart';
 import 'sori_stage_gye_screen.dart';
 import 'sori_stage_hanok_screen.dart';
+import 'sori_stage_reward_receipt_sheet.dart';
 import 'sori_stage_today_screen.dart';
 
 class SoriStageShell extends StatefulWidget {
@@ -32,6 +33,8 @@ class SoriStageShell extends StatefulWidget {
     required this.replayHomeTour,
     this.requestedTab,
     this.loadTodaySnapshot,
+    this.loadProgressionSnapshot,
+    this.loadGyeMetas,
     this.loadLearningFocus,
     this.loadReceiptNetworkBefore,
     this.loadCompanionBefore,
@@ -44,6 +47,12 @@ class SoriStageShell extends StatefulWidget {
   /// [SoriStageTodayScreen.loadSnapshot]. Production leaves this null (the
   /// tab loads via its own default `compute()`-backed loader).
   final Future<SoriStageProgressionSnapshot> Function()? loadTodaySnapshot;
+
+  /// Optional aggregate loader for the other learning and Hanok tabs.
+  /// Production keeps each tab's ordinary loader.
+  final Future<SoriStageProgressionSnapshot> Function()?
+  loadProgressionSnapshot;
+  final Future<List<GyeMeta>> Function()? loadGyeMetas;
 
   /// Test seam for one already-assembled focus. Production uses the same
   /// [LearningFocus.load] path as Today and Learn.
@@ -64,6 +73,7 @@ class _SoriStageShellState extends State<SoriStageShell> with RouteAware {
   int _index = 0;
   late final LearningFocusController _focus;
   int _refreshGeneration = 0;
+  int _accountGeneration = 0;
   ModalRoute<dynamic>? _route;
 
   @override
@@ -97,8 +107,17 @@ class _SoriStageShellState extends State<SoriStageShell> with RouteAware {
   }
 
   void _accountChanged() {
+    if (!mounted) {
+      return;
+    }
     LearningJourneyObserver.forContext(context)?.cancel();
     _focus.lastJourneyResult = null;
+    // A new account must not inherit a tab's completed FutureBuilder snapshot,
+    // cached group list, selected construction history, or pending async read.
+    setState(() {
+      _accountGeneration++;
+      _refreshGeneration++;
+    });
     unawaited(_focus.refresh(force: true));
   }
 
@@ -145,6 +164,8 @@ class _SoriStageShellState extends State<SoriStageShell> with RouteAware {
       }
       final receipt = await SoriStageRewardReceiptService.capture(
         activityId: activityId ?? 'today',
+        confirmedRewardMoments: () => journey?.rewardMoments ?? const [],
+        pendingRewardMoments: () => journey?.pendingRewards ?? const [],
         loadNetworkBefore: widget.loadReceiptNetworkBefore,
         loadSnapshot: () => SoriStageProgressionService.load().timeout(
           const Duration(seconds: 5),
@@ -323,34 +344,41 @@ class _SoriStageShellState extends State<SoriStageShell> with RouteAware {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final width = MediaQuery.sizeOf(context).width;
+    final textScale = MediaQuery.textScalerOf(context).scale(14) / 14;
     final usesRail = SoriAdaptiveNavigation.usesRailForWidth(width);
     final navigation = SoriAdaptiveNavigation(
+      imageOnly: true,
       selectedIndex: _index,
       onDestinationSelected: _select,
       items: [
         SoriAdaptiveNavigationItem(
           icon: Icons.today_outlined,
           selectedIcon: Icons.today_rounded,
+          artworkAsset: HomeNavigationArt.today,
           label: t.soriStageNavToday,
         ),
         SoriAdaptiveNavigationItem(
           icon: Icons.school_outlined,
           selectedIcon: Icons.school_rounded,
+          artworkAsset: HomeNavigationArt.learn,
           label: t.soriStageNavLearn,
         ),
         SoriAdaptiveNavigationItem(
           icon: Icons.sports_esports_outlined,
           selectedIcon: Icons.sports_esports_rounded,
+          artworkAsset: HomeNavigationArt.games,
           label: t.soriStageNavGames,
         ),
         SoriAdaptiveNavigationItem(
           icon: Icons.home_work_outlined,
           selectedIcon: Icons.home_work_rounded,
+          artworkAsset: HomeNavigationArt.hanok,
           label: t.soriStageNavHanok,
         ),
         SoriAdaptiveNavigationItem(
           icon: Icons.groups_2_outlined,
           selectedIcon: Icons.groups_2_rounded,
+          artworkAsset: HomeNavigationArt.gye,
           label: t.soriStageNavGye,
         ),
       ],
@@ -366,20 +394,24 @@ class _SoriStageShellState extends State<SoriStageShell> with RouteAware {
         tab: SoriStageTab.learn,
         active: _index == 1,
         refreshGeneration: _refreshGeneration,
+        loadSnapshot: widget.loadProgressionSnapshot,
       ),
       SoriStageCatalogScreen(
         tab: SoriStageTab.games,
         active: _index == 2,
         refreshGeneration: _refreshGeneration,
+        loadSnapshot: widget.loadProgressionSnapshot,
       ),
       SoriStageHanokScreen(
         active: _index == 3,
         refreshGeneration: _refreshGeneration,
+        loadSnapshot: widget.loadProgressionSnapshot,
       ),
       SoriStageGyeScreen(
         onContinueSolo: () => _select(0),
         active: _index == 4,
         refreshGeneration: _refreshGeneration,
+        loadGyeMetas: widget.loadGyeMetas,
       ),
     ];
 
@@ -392,7 +424,11 @@ class _SoriStageShellState extends State<SoriStageShell> with RouteAware {
             if (usesRail)
               SafeArea(
                 child: SizedBox(
-                  width: SoriAdaptiveNavigation.railWidthForWidth(width),
+                  width: SoriAdaptiveNavigation.railWidthForWidth(
+                    width,
+                    textScale: textScale,
+                    imageOnly: true,
+                  ),
                   child: navigation,
                 ),
               ),
@@ -405,7 +441,12 @@ class _SoriStageShellState extends State<SoriStageShell> with RouteAware {
                       controller: _scrollControllers[index],
                       child: TickerMode(
                         enabled: _index == index,
-                        child: screens[index],
+                        child: KeyedSubtree(
+                          key: ValueKey(
+                            'c-account-$_accountGeneration-tab-$index',
+                          ),
+                          child: screens[index],
+                        ),
                       ),
                     ),
                 ],

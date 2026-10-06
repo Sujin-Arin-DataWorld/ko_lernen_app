@@ -1,10 +1,9 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
+import '../models/companion_art.dart';
 import '../models/vocab.dart';
 import '../services/bookshelf_service.dart';
 import '../services/custom_pack_service.dart';
@@ -138,7 +137,7 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
         maxWidth: SoriMaxWidth.prose,
         children: [
           SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_front.png',
+            asset: CompanionArt.taego,
             icon: Icons.help_outline,
             title: t.bookshelfPageNotFoundTitle,
             body: t.bookshelfPageNotFoundBody,

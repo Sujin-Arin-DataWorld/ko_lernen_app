@@ -12,6 +12,9 @@ import '../../data/sori_activity_catalog.dart';
 import '../../features/guide/today_guide_section.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/feedback_completion.dart';
+import '../../models/home_navigation_art.dart';
+import '../../models/companion_art.dart';
+import '../../models/sarangchae_construction.dart';
 import '../../models/quest.dart';
 import '../../models/sori_stage_progression.dart';
 import '../../services/decoration_reward_service.dart';
@@ -22,31 +25,28 @@ import '../../services/today_learning_snapshot.dart';
 import '../../services/today_learning_navigation.dart';
 import '../../widgets/app_loading.dart';
 import '../../widgets/sori/activity_illustration.dart';
-import '../../widgets/sori/button.dart';
-import '../../widgets/sori/card.dart';
+import '../../widgets/sori/catalog_card.dart';
 import '../../widgets/sori/character_clip.dart';
 import '../../widgets/sori/cultural_help.dart';
-import '../../widgets/sori/hanok_stage_names.dart';
-import '../../widgets/sori/hanok_v3_preview.dart';
 import '../../widgets/sori/home_hero.dart';
 import '../../widgets/sori/learning_companion.dart';
 import '../../widgets/sori/mascot_preference.dart';
 import '../../widgets/sori/milestone_celebration.dart';
 import '../../widgets/sori/motion.dart';
-import '../../widgets/sori/placed_decoration.dart' show decorName, decorTerm;
-import '../../widgets/sori/progress_meter.dart';
+import '../../widgets/sori/placed_decoration.dart'
+    show decorName, decorTerm, kAvailableDecorations;
 import '../../widgets/sori/responsive.dart';
-import '../../widgets/sori/reward_icon.dart';
 import '../../widgets/sori/reward_thumb.dart';
-import '../../widgets/sori/section_header.dart';
 import '../../widgets/sori/sori_term.dart';
 import '../../widgets/sori/spotlight_coach.dart';
-import '../../widgets/sori/stats_top_bar.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/week_sheet.dart';
 import '../../widgets/sori/window_class.dart';
 import 'sori_stage_common.dart';
 import 'sori_stage_reward_receipt_sheet.dart';
+import 'c_stage_chrome.dart';
+import '../../widgets/sori/c_gallery/c_materials.dart';
+import '../../widgets/sori/c_gallery/c_objects.dart';
 
 /// Today: compact greeting and companion grounded to the shared learning goal.
 /// [SoriStatsTopBar] keeps profile and statistics access above that next step.
@@ -249,7 +249,6 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
           targetKey: _missionTourKey,
           title: t.coachHomeMissionTitle,
           body: t.coachHomeMissionBody,
-          icon: Icons.play_circle_outline,
           cutoutPadding: const EdgeInsets.all(6),
           cutoutRadius: SoriRadius.xl,
         ),
@@ -369,20 +368,55 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
 
   /// The greeting belongs to the learning card; this is only the app toolbar.
   Widget _header(BuildContext context, AppL10n t) {
-    final topBar = SoriStatsTopBar(
-      streak: Storage.streakDays,
-      level: Storage.xpLevel,
-      xp: Storage.xp,
-      onStreakTap: () {
-        // ignore: discarded_futures
-        _showWeekSheet();
-      },
-      onStatsTap: () => Navigator.pushNamed(context, '/stats'),
-      onProfileTap: () => Navigator.pushNamed(context, '/profile'),
-      profileTooltip: t.soriStageProfileTooltip,
+    return CPaperPanel(
+      child: Wrap(
+        spacing: 12,
+        runSpacing: 10,
+        children: [
+          CImageTap(
+            label: '${Storage.streakDays} ${t.statsDays}',
+            onTap: _showWeekSheet,
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Image.asset(
+                    HomeNavigationArt.today,
+                    width: 32,
+                    height: 32,
+                    excludeFromSemantics: true,
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    '${Storage.streakDays} ${t.statsDays}',
+                    style: cStageBody,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          CImageTap(
+            label: '${t.navStats}. Lv ${Storage.xpLevel} · ${Storage.xp} XP',
+            onTap: () => Navigator.pushNamed(context, '/stats'),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const CWaxSeal(size: 32),
+                  const SizedBox(width: 8),
+                  Text(
+                    'Lv ${Storage.xpLevel} · ${Storage.xp} XP',
+                    style: cStageBody,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
-
-    return topBar;
   }
 
   Widget _companion(BuildContext context, AppL10n t) {
@@ -407,61 +441,56 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
-    final bool isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-      body: Stack(
-        children: [
-          // 배경 계약: 클래스 doc-comment 참조. 라이트 = 매트 평면 단색.
-          Positioned.fill(
-            child: ColoredBox(
-              key: const ValueKey('sori-today-bg'),
-              color: isDark ? s.bg : HomeHeroClips.matte,
-            ),
-          ),
-          SafeArea(
-            child: FutureBuilder<SoriStageProgressionSnapshot>(
-              future: _future,
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return _TodayContent(
-                    snapshot: snapshot.requireData,
-                    onRefresh: _reload,
-                    missionTourKey: _missionTourKey,
-                    header: _header(context, t),
-                    companion: _companion(context, t),
+      body: CStageBackground(
+        child: Stack(
+          children: [
+            SafeArea(
+              child: FutureBuilder<SoriStageProgressionSnapshot>(
+                future: _future,
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.done &&
+                      snapshot.hasData &&
+                      !snapshot.hasError) {
+                    return _TodayContent(
+                      snapshot: snapshot.requireData,
+                      onRefresh: _reload,
+                      missionTourKey: _missionTourKey,
+                      header: _header(context, t),
+                      companion: _companion(context, t),
+                    );
+                  }
+                  // 로딩/오류에도 헤더(톱바+히어로)는 즉시 보인다 — 홈과 같은
+                  // "캐릭터가 먼저 맞이하는" 진입이자, 셸 테스트의 Profile 툴팁
+                  // 계약(스냅샷 로드와 무관)이기도 하다. ListView 인 이유:
+                  // 낮은 높이(가로 폰·분할 화면 360dp)에서 헤더+스피너가 화면을
+                  // 넘칠 수 있어 스크롤로 받는다.
+                  final bool waiting =
+                      snapshot.connectionState == ConnectionState.waiting;
+                  return SoriContentClamp(
+                    maxWidth: SoriMaxWidth.hub,
+                    base: const EdgeInsets.fromLTRB(12, 4, 12, 24),
+                    builder: (context, padding) => ListView(
+                      padding: padding,
+                      children: [
+                        CStageHeader(title: t.soriStageNavToday),
+                        if (LearningFocusScope.maybeOf(context) != null)
+                          const CPaperPanel(
+                            child: SoriLearningFocus(conceptC: true),
+                          ),
+                        const SizedBox(height: 12),
+                        if (waiting)
+                          const AppLoading()
+                        else
+                          _TodayError(onRetry: _reload),
+                      ],
+                    ),
                   );
-                }
-                // 로딩/오류에도 헤더(톱바+히어로)는 즉시 보인다 — 홈과 같은
-                // "캐릭터가 먼저 맞이하는" 진입이자, 셸 테스트의 Profile 툴팁
-                // 계약(스냅샷 로드와 무관)이기도 하다. ListView 인 이유:
-                // 낮은 높이(가로 폰·분할 화면 360dp)에서 헤더+스피너가 화면을
-                // 넘칠 수 있어 스크롤로 받는다.
-                final bool waiting =
-                    snapshot.connectionState == ConnectionState.waiting;
-                return SoriContentClamp(
-                  maxWidth: SoriMaxWidth.hub,
-                  base: Spacing.page,
-                  builder: (context, padding) => ListView(
-                    padding: padding,
-                    children: [
-                      _header(context, t),
-                      if (LearningFocusScope.maybeOf(context) != null)
-                        SoriLearningFocus(introduction: _companion(context, t))
-                      else
-                        _companion(context, t),
-                      const SizedBox(height: Spacing.xl),
-                      if (waiting)
-                        const AppLoading()
-                      else
-                        _TodayError(onRetry: _reload),
-                    ],
-                  ),
-                );
-              },
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -510,91 +539,123 @@ class _TodayContent extends StatelessWidget {
 
     return SoriContentClamp(
       maxWidth: SoriMaxWidth.hub,
-      base: Spacing.page,
+      base: const EdgeInsets.fromLTRB(12, 4, 12, 24),
       builder: (context, padding) => RefreshIndicator(
         onRefresh: () async => onRefresh(),
         child: ListView(
           physics: const AlwaysScrollableScrollPhysics(),
           padding: padding,
           children: [
-            header,
-            if (!todayUnavailable &&
-                !snapshot.walletUnavailable &&
-                snapshot.wallet != null)
-              Align(
-                alignment: Alignment.centerRight,
-                child: YeopjeonWalletBadge(
-                  wallet: snapshot.wallet!,
-                  onReturned: onRefresh,
-                ),
-              ),
-            stagger(
-              LearningFocusScope.maybeOf(context) != null
-                  ? SoriLearningFocus(
-                      key: missionTourKey,
-                      introduction: companion,
-                    )
-                  : Column(
-                      children: [
-                        companion,
-                        _TodayMissionStage(
-                          key: missionTourKey,
-                          snapshot: snapshot,
-                          onActivityReturned: onRefresh,
+            ValueListenableBuilder<CompanionPreference>(
+              valueListenable: MascotPreference.preference,
+              builder: (_, preference, _) {
+                final kind = MascotPreference.mascotKindFor(preference);
+                return CStageHeader(
+                  title: t.soriStageNavToday,
+                  balance: !todayUnavailable && !snapshot.walletUnavailable
+                      ? snapshot.wallet?.balance
+                      : null,
+                  onWalletReturned: onRefresh,
+                  artwork: kind == null
+                      ? null
+                      : Image.asset(
+                          CompanionArt.portrait(kind.name),
+                          fit: BoxFit.contain,
+                          excludeFromSemantics: true,
                         ),
-                      ],
-                    ),
+                );
+              },
             ),
-            const SizedBox(height: Spacing.lg),
-            const TodayGuideChecklistSection(),
-            const ContentDailyGoals(),
-            // A partial Today snapshot must not look like a complete daily
-            // dashboard. In particular, neither reward collection nor
-            // unrelated activity CTAs may accompany its safe retry path.
-            if (!todayUnavailable) ...[
-              if (snapshot.pendingBojagiCount > 0) ...[
-                const SizedBox(height: Spacing.lg),
-                stagger(_PendingBojagi(count: snapshot.pendingBojagiCount)),
-              ],
-              const SizedBox(height: Spacing.xl),
-              DancheongDraftResume(
-                store: DancheongStore(),
-                onOpen: (arguments) => Navigator.of(
-                  context,
-                ).pushNamed('/dancheong-studio/edit', arguments: arguments),
+            CPaperPanel(
+              key: const ValueKey('c-today-board'),
+              radius: 18,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  stagger(
+                    LearningFocusScope.maybeOf(context) != null
+                        ? SoriLearningFocus(key: missionTourKey, conceptC: true)
+                        : Column(
+                            children: [
+                              _TodayMissionStage(
+                                key: missionTourKey,
+                                snapshot: snapshot,
+                                onActivityReturned: onRefresh,
+                              ),
+                            ],
+                          ),
+                  ),
+                  // A partial Today snapshot must not look like a complete daily
+                  // dashboard. In particular, neither reward collection nor
+                  // unrelated activity CTAs may accompany its safe retry path.
+                  if (!todayUnavailable) ...[
+                    if (snapshot.pendingBojagiCount > 0 ||
+                        snapshot.hasPendingDecorationReceipt) ...[
+                      const SizedBox(height: Spacing.lg),
+                      stagger(
+                        _PendingBojagi(
+                          count: snapshot.pendingBojagiCount,
+                          resuming: snapshot.hasPendingDecorationReceipt,
+                        ),
+                      ),
+                    ],
+                    const SizedBox(height: 12),
+                    stagger(_HanokProgress(snapshot: snapshot)),
+                    const SizedBox(height: 12),
+                    const TodayGuideChecklistSection(conceptC: true),
+                    const ContentDailyGoals(conceptC: true),
+                    DancheongDraftResume(
+                      conceptC: true,
+                      store: DancheongStore(),
+                      onOpen: (arguments) => Navigator.of(context).pushNamed(
+                        '/dancheong-studio/edit',
+                        arguments: arguments,
+                      ),
+                    ),
+                    const SizedBox(height: Spacing.md),
+                    YeopjeonWalletCard(
+                      key: ObjectKey(snapshot),
+                      compact: true,
+                      conceptC: true,
+                    ),
+                    if (nearlyComplete.isNotEmpty) ...[
+                      const SizedBox(height: Spacing.xl),
+                      stagger(
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            // Extra learning stays on the same C paper board.
+                            Text(
+                              t.soriStageClosestQuests,
+                              style: cStageCardTitle,
+                            ),
+                            const SizedBox(height: 8),
+                            for (final quest in nearlyComplete)
+                              _QuestProgressRow(progress: quest),
+                          ],
+                        ),
+                      ),
+                    ],
+                    if (upNext.isNotEmpty) ...[
+                      const SizedBox(height: Spacing.xl),
+                      stagger(
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(t.soriStageNextQuests, style: cStageCardTitle),
+                            const SizedBox(height: 8),
+                            for (final quest in upNext)
+                              _QuestProgressRow(progress: quest),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ],
+                  const SizedBox(height: 12),
+                  header,
+                ],
               ),
-              stagger(_HanokProgress(snapshot: snapshot)),
-              const SizedBox(height: Spacing.md),
-              YeopjeonWalletCard(key: ObjectKey(snapshot), compact: true),
-              if (nearlyComplete.isNotEmpty) ...[
-                const SizedBox(height: Spacing.xl),
-                stagger(
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // §D: 섹션 제목은 SoriSectionHeader(골드 hairline)
-                      // 규격 — 자체 하단 여백(Spacing.sm)을 갖는다.
-                      SoriSectionHeader(t.soriStageClosestQuests),
-                      for (final quest in nearlyComplete)
-                        _QuestProgressRow(progress: quest),
-                    ],
-                  ),
-                ),
-              ],
-              if (upNext.isNotEmpty) ...[
-                const SizedBox(height: Spacing.xl),
-                stagger(
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SoriSectionHeader(t.soriStageNextQuests),
-                      for (final quest in upNext)
-                        _QuestProgressRow(progress: quest),
-                    ],
-                  ),
-                ),
-              ],
-            ],
+            ),
           ],
         ),
       ),
@@ -625,7 +686,6 @@ class _TodayMissionStage extends StatelessWidget {
     }
 
     final t = AppL10n.of(context);
-    final tt = SoriTextTheme.of(context);
     final destination = snapshot.today.destination;
     final contract = snapshot.todayReward;
     // §P3-1: 활동 entry 는 기존 activityForRoute 로 얻는다 (신규 조회 함수
@@ -639,13 +699,8 @@ class _TodayMissionStage extends StatelessWidget {
         : (entry == null
               ? t.soriStageMissionAction
               : localCopy(context, entry.title));
-    return Container(
-      // §P3-1: padding 0 — 상단 21:9 일러스트가 카드 모서리까지 간다.
-      clipBehavior: Clip.antiAlias,
-      decoration: BoxDecoration(
-        color: SoriActivityColors.hanokStage,
-        borderRadius: BorderRadius.circular(SoriRadius.xl),
-      ),
+    return CPaperPanel(
+      padding: EdgeInsets.zero,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -659,29 +714,25 @@ class _TodayMissionStage extends StatelessWidget {
               ),
               child: AspectRatio(
                 aspectRatio: 21 / 9,
-                child: Image.asset(
-                  activityIllustrationAsset(entry.id),
-                  fit: BoxFit.contain,
-                  errorBuilder: (_, _, _) => const SizedBox.shrink(),
-                ),
+                child: cCatalogArt(entry),
               ),
             ),
           Padding(
-            padding: const EdgeInsets.all(Spacing.xl),
+            padding: const EdgeInsets.all(12),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
                   t.soriStageTodayMissionEyebrow,
                   // eyebrow 토큰 — 짙은 한옥 스테이지 위라 석간주 대신 골드.
-                  style: tt.eyebrow.copyWith(color: SoriColors.gold),
+                  style: cStageBody.copyWith(fontSize: 13),
                 ),
                 const SizedBox(height: Spacing.sm),
                 Text(
                   title,
                   // §D: 카드 내부 헤드라인은 h1 상한 — hero(38)는 페이지
                   // 헤더 전용.
-                  style: tt.h1.copyWith(color: Colors.white),
+                  style: cStageCardTitle.copyWith(fontSize: 25),
                 ),
                 if (contract != null && contract.items.isNotEmpty) ...[
                   const SizedBox(height: Spacing.lg),
@@ -689,9 +740,7 @@ class _TodayMissionStage extends StatelessWidget {
                   // 낮은 위계 — meta(13.5) + white@0.8.
                   Text(
                     '${t.soriStagePossibleReward}:',
-                    style: tt.meta.copyWith(
-                      color: Colors.white.withValues(alpha: 0.8),
-                    ),
+                    style: cStageBody.copyWith(fontSize: 14),
                   ),
                   const SizedBox(height: Spacing.sm),
                   // §W-D D5.1: 세로 3열(아이콘 위·라벨 아래) — items 는 kind 가
@@ -704,16 +753,27 @@ class _TodayMissionStage extends StatelessWidget {
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Icon(
-                                soriRewardIcon(item.kind),
-                                size: 20,
-                                color: SoriColors.gold,
-                              ),
-                              const SizedBox(height: Spacing.xs),
+                              if (_possibleRewardArtwork(item.kind)
+                                  case final asset?) ...[
+                                Image.asset(
+                                  asset,
+                                  width: 36,
+                                  height: 36,
+                                  fit: BoxFit.contain,
+                                  excludeFromSemantics: true,
+                                  cacheWidth:
+                                      (36 *
+                                              MediaQuery.devicePixelRatioOf(
+                                                context,
+                                              ))
+                                          .ceil(),
+                                ),
+                                const SizedBox(height: Spacing.xs),
+                              ],
                               Text(
                                 localCopy(context, item.label),
                                 textAlign: TextAlign.center,
-                                style: tt.label.copyWith(color: Colors.white),
+                                style: cStageBody.copyWith(fontSize: 14),
                               ),
                             ],
                           ),
@@ -722,11 +782,7 @@ class _TodayMissionStage extends StatelessWidget {
                   ),
                 ],
                 const SizedBox(height: Spacing.xl),
-                SoriButton(
-                  illustrationAsset: SoriArtwork.action(entry?.id ?? 'course'),
-                  trailingIcon: Icons.arrow_forward_rounded,
-                  accent: SoriActivityColors.actionGold,
-                  fullWidth: true,
+                CMaterialAction(
                   // 제목이 이미 무엇인지 말한다 — CTA 는 "Starten" 한 단어.
                   // 미션이 없을 때는 기존 안내형 라벨 유지.
                   label: destination == null || entry == null
@@ -789,7 +845,6 @@ class _TodayUnavailableMissionStage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final tt = SoriTextTheme.of(context);
     final hasSavedReview = today.dueCount > 0;
     final copy = _TodayUnavailableCopy.from(
       t,
@@ -797,51 +852,27 @@ class _TodayUnavailableMissionStage extends StatelessWidget {
       hasSavedReview: hasSavedReview,
     );
 
-    return Container(
-      padding: const EdgeInsets.all(Spacing.xl),
-      decoration: BoxDecoration(
-        color: SoriActivityColors.hanokStage,
-        borderRadius: BorderRadius.circular(SoriRadius.xl),
-      ),
+    return CPaperPanel(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Row(
-            children: [
-              Icon(copy.icon, color: SoriColors.gold),
-              const SizedBox(width: Spacing.sm),
-              Expanded(
-                child: Text(
-                  copy.eyebrow,
-                  style: tt.eyebrow.copyWith(color: SoriColors.gold),
-                ),
-              ),
-            ],
-          ),
+          Text(copy.eyebrow, style: cStageBody.copyWith(fontSize: 13)),
           const SizedBox(height: Spacing.md),
-          Text(copy.title, style: tt.h1.copyWith(color: Colors.white)),
+          Text(copy.title, style: cStageCardTitle),
           const SizedBox(height: Spacing.sm),
-          Text(
-            copy.body,
-            style: tt.body.copyWith(color: SoriActivityColors.onHanokStage),
-          ),
+          Text(copy.body, style: cStageBody),
           if (hasSavedReview) ...[
             const SizedBox(height: Spacing.xl),
             Text(
               t.homeUnavailableSafeTitle,
-              style: tt.label.copyWith(color: SoriColors.gold),
+              style: cStageBody.copyWith(fontWeight: FontWeight.w600),
             ),
             const SizedBox(height: Spacing.xs),
-            Text(
-              t.homeUnavailableSafeBody,
-              style: tt.bodySmall.copyWith(
-                color: SoriActivityColors.onHanokStage,
-              ),
-            ),
+            Text(t.homeUnavailableSafeBody, style: cStageBody),
           ],
           const SizedBox(height: Spacing.xl),
           if (hasSavedReview) ...[
-            SoriButton(
+            CMaterialAction(
               key: const ValueKey('sori-today-saved-review'),
               label: t.homeUnavailableCta,
               onTap: () => Navigator.of(context).pushNamed('/review'),
@@ -850,13 +881,11 @@ class _TodayUnavailableMissionStage extends StatelessWidget {
             TextButton(
               key: const ValueKey('sori-today-unavailable-retry'),
               onPressed: onRetry,
-              style: TextButton.styleFrom(
-                foregroundColor: SoriActivityColors.onHanokStage,
-              ),
+              style: TextButton.styleFrom(foregroundColor: CPalette.ink),
               child: Text(copy.retryLabel),
             ),
           ] else
-            SoriButton(
+            CMaterialAction(
               key: const ValueKey('sori-today-unavailable-retry'),
               label: copy.retryLabel,
               onTap: onRetry,
@@ -869,14 +898,12 @@ class _TodayUnavailableMissionStage extends StatelessWidget {
 
 class _TodayUnavailableCopy {
   const _TodayUnavailableCopy({
-    required this.icon,
     required this.eyebrow,
     required this.title,
     required this.body,
     required this.retryLabel,
   });
 
-  final IconData icon;
   final String eyebrow;
   final String title;
   final String body;
@@ -889,7 +916,6 @@ class _TodayUnavailableCopy {
   }) {
     return switch (reason ?? TodayLearningUnavailableReason.localData) {
       TodayLearningUnavailableReason.offline => _TodayUnavailableCopy(
-        icon: Icons.cloud_off_outlined,
         eyebrow: t.homeUnavailableEyebrow,
         title: t.homeUnavailableTitle,
         body: hasSavedReview
@@ -898,7 +924,6 @@ class _TodayUnavailableCopy {
         retryLabel: t.homeUnavailableRetry,
       ),
       TodayLearningUnavailableReason.remoteService => _TodayUnavailableCopy(
-        icon: Icons.cloud_sync_outlined,
         eyebrow: t.homeRemoteUnavailableEyebrow,
         title: t.homeRemoteUnavailableTitle,
         body: hasSavedReview
@@ -907,7 +932,6 @@ class _TodayUnavailableCopy {
         retryLabel: t.homeUnavailableRetryGeneric,
       ),
       TodayLearningUnavailableReason.localData => _TodayUnavailableCopy(
-        icon: Icons.refresh_rounded,
         eyebrow: t.homeLocalUnavailableEyebrow,
         title: t.homeLocalUnavailableTitle,
         body: hasSavedReview
@@ -919,102 +943,65 @@ class _TodayUnavailableCopy {
   }
 }
 
+String? _possibleRewardArtwork(SoriRewardKind kind) => switch (kind) {
+  SoriRewardKind.yeopjeon => SoriArtwork.yeopjeon,
+  SoriRewardKind.xp => HomeNavigationArt.learn,
+  SoriRewardKind.questProgress => HomeNavigationArt.today,
+  SoriRewardKind.hanokProgress => HomeNavigationArt.hanok,
+  SoriRewardKind.bojagi => HomeNavigationArt.treasureChest,
+  _ => null,
+};
+
 class _PendingBojagi extends StatelessWidget {
-  const _PendingBojagi({required this.count});
+  const _PendingBojagi({required this.count, this.resuming = false});
   final int count;
+  final bool resuming;
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final tt = SoriTextTheme.of(context);
-    final semanticsLabel = [
-      t.soriStageBojagiTitle,
-      '$count',
-      t.soriStageBojagiBody,
-      t.soriStageOpenBojagi,
-    ].join('. ');
-    void openBojagi() => Navigator.of(context).pushNamed('/bojagi');
-    return Semantics(
-      button: true,
-      label: semanticsLabel,
-      onTap: openBojagi,
-      child: ExcludeSemantics(
-        child: InkWell(
-          onTap: openBojagi,
-          borderRadius: BorderRadius.circular(SoriRadius.md),
-          child: Container(
-            constraints: const BoxConstraints(minHeight: 88),
-            padding: const EdgeInsets.all(Spacing.lg),
-            decoration: BoxDecoration(
-              color: SoriColors.gold.withValues(alpha: .18),
-              border: Border.all(color: SoriColors.gold),
-              borderRadius: BorderRadius.circular(SoriRadius.md),
-            ),
-            child: LayoutBuilder(
-              builder: (context, constraints) {
-                final textScale = MediaQuery.textScalerOf(context).scale(1);
-                final stacked =
-                    constraints.maxWidth < SoriAdaptiveWidth.footerActionRow ||
-                    textScale >= 1.6;
-                final details = Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '${t.soriStageBojagiTitle} · $count',
-                      key: const ValueKey('pending-bojagi-title'),
-                      style: tt.h3,
-                    ),
-                    Text(
-                      t.soriStageBojagiBody,
-                      key: const ValueKey('pending-bojagi-body'),
-                      style: tt.bodySmall,
-                    ),
-                  ],
-                );
-                final action = Text(
-                  t.soriStageOpenBojagi,
+    void open() => Navigator.of(context).pushNamed('/bojagi');
+    return CPaperPanel(
+      radius: 12,
+      child: Row(
+        children: [
+          Image.asset(
+            HomeNavigationArt.treasureChest,
+            key: const ValueKey('pending-treasure-chest-art'),
+            width: 100,
+            height: 100,
+            fit: BoxFit.contain,
+            excludeFromSemantics: true,
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  resuming
+                      ? t.rewardChestTitle
+                      : '${t.soriStageBojagiTitle} · $count',
+                  key: const ValueKey('pending-bojagi-title'),
+                  style: cStageCardTitle.copyWith(fontSize: 18),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  resuming ? t.rewardChestNewDecoration : t.soriStageBojagiBody,
+                  key: const ValueKey('pending-bojagi-body'),
+                  style: cStageBody.copyWith(fontSize: 14),
+                ),
+                const SizedBox(height: 8),
+                CMaterialAction(
                   key: const ValueKey('pending-bojagi-action'),
-                  style: tt.label,
-                );
-                const icon = Icon(
-                  Icons.redeem_rounded,
-                  size: 36,
-                  color: SoriColors.goldOnLight,
-                );
-
-                if (stacked) {
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          icon,
-                          const SizedBox(width: Spacing.md),
-                          Expanded(child: details),
-                        ],
-                      ),
-                      const SizedBox(height: Spacing.md),
-                      Align(
-                        alignment: AlignmentDirectional.centerEnd,
-                        child: action,
-                      ),
-                    ],
-                  );
-                }
-
-                return Row(
-                  children: [
-                    icon,
-                    const SizedBox(width: Spacing.md),
-                    Expanded(child: details),
-                    const SizedBox(width: Spacing.md),
-                    action,
-                  ],
-                );
-              },
+                  label: resuming ? t.rewardChestReplay : t.soriStageOpenBojagi,
+                  compact: true,
+                  gold: false,
+                  onTap: open,
+                ),
+              ],
             ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -1023,62 +1010,99 @@ class _PendingBojagi extends StatelessWidget {
 class _HanokProgress extends StatelessWidget {
   const _HanokProgress({required this.snapshot});
   final SoriStageProgressionSnapshot snapshot;
-
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final text = SoriTextTheme.of(context);
-    return SoriCard(
+    final progress = snapshot.walletUnavailable
+        ? t.soriStageHanokProgressUnavailable
+        : t.sarangchaeConstructionProgress(
+            snapshot.ownedSarangchaeStage,
+            SarangchaeConstruction.stageCount,
+          );
+    final titleStyle = cStageCardTitle.copyWith(fontSize: 20);
+    final progressStyle = cStageBody.copyWith(fontSize: 14);
+    final actionStyle = cStageBody.copyWith(fontWeight: FontWeight.w600);
+    return CImageTap(
       key: const ValueKey('today-hanok-summary'),
-      variant: SoriCardVariant.compact,
+      label: '${t.soriStageOpenHanok}. $progress',
       onTap: () => Navigator.of(context).pushNamed('/hanok'),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            width: 88,
-            height: 158,
-            child: HanokV3Preview(
-              message: t.soriStageHanokUpdating,
-              showOverlay: false,
-            ),
-          ),
-          const SizedBox(width: Spacing.md),
-          Expanded(
-            child: Column(
+      child: CPaperPanel(
+        radius: 12,
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            const thumbnailWidth = 128.0;
+            const gap = 10.0;
+            const arrowSize = 18.0;
+            final labelWidth =
+                constraints.maxWidth - thumbnailWidth - gap - arrowSize;
+            // Keep complete localized words when enlarged type no longer fits
+            // beside the picture. The image, copy and route stay unchanged.
+            final labelsFit =
+                [
+                  (t.soriStageNavHanok, titleStyle),
+                  (progress, progressStyle),
+                  (t.soriStageOpenHanok, actionStyle),
+                ].every((label) {
+                  for (final word in label.$1.split(RegExp(r'\s+'))) {
+                    final measure = TextPainter(
+                      text: TextSpan(text: word, style: label.$2),
+                      textDirection: Directionality.of(context),
+                      textScaler: MediaQuery.textScalerOf(context),
+                      locale: Localizations.localeOf(context),
+                    )..layout();
+                    final fits = measure.width <= labelWidth;
+                    measure.dispose();
+                    if (!fits) return false;
+                  }
+                  return true;
+                });
+            final labels = Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(t.soriStageHanokNow, style: text.cardTitle),
-                const SizedBox(height: Spacing.sm),
+                Text(t.soriStageNavHanok, style: titleStyle),
+                const SizedBox(height: 6),
                 Text(
-                  snapshot.hanokCompetence.totalUnitCount == 0
-                      ? t.soriStageHanokNoUnits
-                      : t.soriStageConfirmedUnits(
-                          snapshot.hanokCompetence.completedUnitCount,
-                          snapshot.hanokCompetence.totalUnitCount,
-                        ),
-                  style: text.bodySmall,
+                  progress,
+                  key: const ValueKey('today-hanok-progress-text'),
+                  style: progressStyle,
                 ),
-                const SizedBox(height: Spacing.sm),
-                Text(t.soriStageHanokUpdating, style: text.caption),
-                if (hanokStageGlossaryTermId(snapshot.hanokCompetence.stage)
-                    case final termId?)
-                  SoriTerm(
-                    termId: termId,
-                    text: hanokStageTerm(t, snapshot.hanokCompetence.stage),
-                    style: text.caption,
-                    surface: 'today_hanok_progress',
-                  ),
-                const SizedBox(height: Spacing.sm),
-                Text(
-                  t.soriStageOpenHanok,
-                  style: text.label.copyWith(color: SoriColors.primary),
-                ),
+                const SizedBox(height: 8),
+                Text(t.soriStageOpenHanok, style: actionStyle),
               ],
-            ),
-          ),
-          const Icon(Icons.chevron_right_rounded, size: 20),
-        ],
+            );
+            const thumbnail = SizedBox(
+              width: thumbnailWidth,
+              child: CHanokScene(),
+            );
+            if (!labelsFit) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child: thumbnail,
+                  ),
+                  const SizedBox(height: gap),
+                  Row(
+                    children: [
+                      Expanded(child: labels),
+                      const CArrow(dark: true, size: arrowSize),
+                    ],
+                  ),
+                ],
+              );
+            }
+            return Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                thumbnail,
+                const SizedBox(width: gap),
+                Expanded(child: labels),
+                const CArrow(dark: true, size: arrowSize),
+              ],
+            );
+          },
+        ),
       ),
     );
   }
@@ -1103,9 +1127,10 @@ Widget _questCulturalTerm(BuildContext context, String decorationSlug) {
       return Padding(
         padding: const EdgeInsets.only(top: 2),
         child: SoriTerm(
+          conceptC: true,
           termId: termId,
           text: term,
-          style: SoriTextTheme.of(context).meta,
+          style: cStageBody.copyWith(fontSize: 13),
           surface: 'today_quest_row',
         ),
       );
@@ -1117,20 +1142,30 @@ class _QuestProgressRow extends StatelessWidget {
   const _QuestProgressRow({required this.progress});
   final QuestProgress progress;
 
-  /// §W-D D4: 56dp 한지 원형 매트(`s.surfaceAlt` 원) + 보상 썸네일.
-  Widget _thumbMat(SoriSurfaces s, String slug, bool earned) {
+  Widget _thumbMat(String slug, bool earned) {
     const size = 56.0;
     return Container(
       width: size,
       height: size,
       alignment: Alignment.center,
-      decoration: BoxDecoration(color: s.surfaceAlt, shape: BoxShape.circle),
-      child: SoriRewardThumb(
-        slug: slug,
-        earned: earned,
-        size: size,
-        semantic: '',
+      decoration: const BoxDecoration(
+        color: CPalette.paper,
+        shape: BoxShape.circle,
       ),
+      child: kAvailableDecorations.contains(slug)
+          ? SoriRewardThumb(
+              slug: slug,
+              earned: earned,
+              size: size,
+              semantic: '',
+            )
+          : Image.asset(
+              HomeNavigationArt.treasureChest,
+              width: size,
+              height: size,
+              fit: BoxFit.contain,
+              excludeFromSemantics: true,
+            ),
     );
   }
 
@@ -1140,37 +1175,48 @@ class _QuestProgressRow extends StatelessWidget {
       (quest) => quest.id == progress.questId,
     );
     final language = Localizations.localeOf(context).languageCode;
-    final tt = SoriTextTheme.of(context);
-    final s = SoriSurfaces.of(context);
-    // §P3-3b: 맨 ListTile → SoriCard(compact) 규율 + 보상 썸네일(퀘스트가
-    // 언락하는 마당 장식 — quests 화면과 같은 SoriRewardThumb 공용 위젯).
     return Padding(
       padding: const EdgeInsets.only(bottom: Spacing.sm),
-      child: SoriCard(
-        variant: SoriCardVariant.compact,
+      child: CImageTap(
+        label:
+            '${language == 'de' ? definition.name.de : definition.name.en}. ${progress.current} / ${progress.target}',
         onTap: () => Navigator.of(context).pushNamed('/quests'),
-        child: Row(
-          children: [
-            _thumbMat(s, definition.decorationSlug, progress.completed),
-            const SizedBox(width: Spacing.md),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    language == 'de' ? definition.name.de : definition.name.en,
-                    style: tt.cardTitle,
-                  ),
-                  _questCulturalTerm(context, definition.decorationSlug),
-                  const SizedBox(height: Spacing.xs),
-                  SoriProgressMeter.bar(
-                    value: progress.fraction,
-                    label: '${progress.current} / ${progress.target}',
-                  ),
-                ],
+        child: CPaperPanel(
+          child: Row(
+            children: [
+              _thumbMat(definition.decorationSlug, progress.completed),
+              const SizedBox(width: Spacing.md),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      language == 'de'
+                          ? definition.name.de
+                          : definition.name.en,
+                      style: cStageBody.copyWith(fontWeight: FontWeight.w600),
+                    ),
+                    _questCulturalTerm(context, definition.decorationSlug),
+                    const SizedBox(height: Spacing.xs),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: LinearProgressIndicator(
+                        value: progress.fraction,
+                        color: CPalette.jade,
+                        backgroundColor: CPalette.fineEdge,
+                        minHeight: 8,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      '${progress.current} / ${progress.target}',
+                      style: cStageBody.copyWith(fontSize: 13),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -1183,29 +1229,35 @@ class _TodayError extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final text = SoriTextTheme.of(context);
     return Center(
       child: SingleChildScrollView(
         padding: const EdgeInsets.all(Spacing.xl),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Icon(Icons.refresh_rounded, size: 48),
+            Image.asset(
+              HomeNavigationArt.learn,
+              width: 88,
+              height: 88,
+              fit: BoxFit.contain,
+              excludeFromSemantics: true,
+            ),
             const SizedBox(height: Spacing.md),
             Text(
               t.homeLocalUnavailableTitle,
-              style: text.h3,
+              style: cStageCardTitle,
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: Spacing.sm),
             Text(
               t.homeLocalUnavailableDescriptionNoReview,
-              style: text.body,
+              style: cStageBody,
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: Spacing.lg),
-            SoriButton.outlined(
+            CMaterialAction(
               label: t.homeUnavailableRetryGeneric,
+              gold: false,
               onTap: onRetry,
             ),
           ],

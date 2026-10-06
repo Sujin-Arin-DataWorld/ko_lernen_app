@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import '../../models/companion_art.dart';
 import 'package:flutter/semantics.dart'
     show AttributedString, LocaleStringAttribute;
-
-import '../../widgets/sori/pressable.dart';
-import '../../widgets/sori/character_clip.dart';
-import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/hanok_v3_preview.dart';
+import '../../widgets/sori/motion.dart';
+import '../../widgets/sori/pressable.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/window_class.dart';
 import 'onboarding_character_media.dart';
@@ -27,8 +26,7 @@ class OnboardingStoryStage extends StatelessWidget {
     final asset = switch (page.visualKind) {
       OnboardingStoryVisualKind.personalCurriculum =>
         'assets/illustrations/hanok/gate_final.png',
-      OnboardingStoryVisualKind.learn =>
-        'assets/illustrations/hanok/study_scholar.png',
+      OnboardingStoryVisualKind.learn => CompanionArt.scholar,
       OnboardingStoryVisualKind.saveAndReview =>
         'assets/illustrations/activities/srs.webp',
       OnboardingStoryVisualKind.gamesAndRewards =>
@@ -90,28 +88,34 @@ class OnboardingCompanionStage extends StatefulWidget {
     double width,
   ) {
     final sideBySide =
-        width >= SoriAdaptiveWidth.companionChoicesRow &&
-        MediaQuery.textScalerOf(context).scale(16) <= 24;
+        width >= 340 && MediaQuery.textScalerOf(context).scale(16) <= 24;
+    final cardWidth =
+        (sideBySide ? (width - Spacing.md) / 2 : width) - Spacing.sm * 2 - 4;
     final minimumCardHeight = companions.fold<double>(0, (height, item) {
-      final labelHeight = _companionLabelHeight(
-        context,
-        item,
-        (sideBySide ? (width - Spacing.md) / 2 : width) -
-            Spacing.sm * 3 -
-            4 -
-            48,
-        compact: true,
-      );
+      double measure(String value) {
+        final painter = TextPainter(
+          text: TextSpan(
+            text: value,
+            style: SoriTextTheme.of(context).bodySmall,
+          ),
+          textDirection: Directionality.of(context),
+          textScaler: MediaQuery.textScalerOf(context),
+        )..layout(maxWidth: cardWidth);
+        final result = painter.height;
+        painter.dispose();
+        return result;
+      }
+
       final requiredHeight =
-          (labelHeight > 48 ? labelHeight : 48) + Spacing.sm * 2 + 4;
+          144 +
+          _companionLabelHeight(context, item, cardWidth, compact: false) +
+          measure(item.rhythm) +
+          measure(item.body) +
+          Spacing.sm * 6 +
+          4;
       return height > requiredHeight ? height : requiredHeight;
     });
-    // The stage only switches to a row at 300dp. Reserve that height in the
-    // outer scroll calculation as well, so short landscape windows never
-    // compress two cards into an unscrollable space.
-    return sideBySide
-        ? (minimumCardHeight > 300 ? minimumCardHeight : 300)
-        : minimumCardHeight * 2 + Spacing.md;
+    return sideBySide ? minimumCardHeight : minimumCardHeight * 2 + Spacing.md;
   }
 
   const OnboardingCompanionStage({
@@ -149,7 +153,7 @@ class _OnboardingCompanionStageState extends State<OnboardingCompanionStage> {
         selected: companion.id == widget.selectedCompanionId,
         replayToken: _replay,
         mediaEnabled: widget.mediaEnabled,
-        showDescription: widget.showDescription && constraints.maxHeight >= 260,
+        showDescription: widget.showDescription,
         onTap: () {
           setState(() => _replay++);
           widget.onCompanionChanged(companion.id);
@@ -159,15 +163,29 @@ class _OnboardingCompanionStageState extends State<OnboardingCompanionStage> {
     return LayoutBuilder(
       builder: (context, constraints) {
         final sideBySide =
-            constraints.maxWidth >= SoriAdaptiveWidth.companionChoicesRow &&
-            constraints.maxHeight >= 300 &&
+            constraints.maxWidth >= 340 &&
             MediaQuery.textScalerOf(context).scale(16) <= 24;
         if (sideBySide) {
           return Center(
             child: SizedBox(
               height: constraints.maxHeight.clamp(
-                300.0,
-                SoriAdaptiveHeight.companionChoice,
+                OnboardingCompanionStage.minimumHeight(
+                  context,
+                  ordered,
+                  constraints.maxWidth,
+                ),
+                constraints.maxHeight >
+                        OnboardingCompanionStage.minimumHeight(
+                          context,
+                          ordered,
+                          constraints.maxWidth,
+                        )
+                    ? constraints.maxHeight
+                    : OnboardingCompanionStage.minimumHeight(
+                        context,
+                        ordered,
+                        constraints.maxWidth,
+                      ),
               ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -278,6 +296,10 @@ class _CompanionStageChoice extends StatelessWidget {
         child: SoriPressable(
           key: ValueKey('onboarding-v2-companion-${companion.id}'),
           onTap: onTap,
+          pressScale: .99,
+          surfaceDepth: 4,
+          surfaceEdgeColor: surfaces.border,
+          surfaceRadius: SoriRadius.md,
           child: AnimatedContainer(
             duration: SoriMotion.respect(
               context,
@@ -330,28 +352,19 @@ class _CompanionStageChoice extends StatelessWidget {
                   fit: StackFit.expand,
                   children: [
                     LayoutBuilder(
-                      builder: (context, artConstraints) =>
-                          selected && mediaEnabled
-                          ? Center(
-                              child: CharacterClipPlayer(
-                                key: ValueKey('${companion.id}-$replayToken'),
-                                asset: isJoy
-                                    ? CharacterClips.magpieChoose
-                                    : CharacterClips.tigerChoose,
-                                size: artConstraints.biggest.shortestSide,
-                                blendColor: surfaces.surfaceAlt,
-                                fallbackKind: isJoy
-                                    ? MascotKind.magpie
-                                    : MascotKind.tiger,
-                              ),
-                            )
-                          : OnboardingCharacterMedia(
-                              characterId: isJoy ? 'magpie' : 'tiger',
-                              size: artConstraints.biggest.shortestSide,
-                              active: false,
-                              motion: OnboardingCharacterMotion.idle,
-                              replayToken: replayToken,
-                            ),
+                      builder: (context, artConstraints) => Center(
+                        child: SoriEntrance(
+                          key: ValueKey(companion.id),
+                          duration: const Duration(milliseconds: 250),
+                          startScale: .99,
+                          slideY: 4,
+                          child: OnboardingCharacterMedia(
+                            characterId: isJoy ? 'magpie' : 'tiger',
+                            size: artConstraints.biggest.shortestSide,
+                            active: false,
+                          ),
+                        ),
+                      ),
                     ),
                     Positioned(
                       top: 0,
@@ -394,14 +407,12 @@ class _CompanionStageChoice extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: text.bodySmall,
                       ),
-                      if (constraints.maxHeight >= 520) ...[
-                        const SizedBox(height: Spacing.sm),
-                        Text(
-                          companion.body,
-                          textAlign: TextAlign.center,
-                          style: text.bodySmall,
-                        ),
-                      ],
+                      const SizedBox(height: Spacing.sm),
+                      Text(
+                        companion.body,
+                        textAlign: TextAlign.center,
+                        style: text.bodySmall,
+                      ),
                     ],
                     const SizedBox(height: Spacing.sm),
                   ],

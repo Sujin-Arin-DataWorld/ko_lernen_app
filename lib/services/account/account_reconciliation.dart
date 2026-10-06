@@ -1,4 +1,6 @@
 import '../../models/practice_history.dart';
+import '../../models/decoration_reward_receipt.dart';
+import '../../models/foundation_progress.dart';
 import 'dart:async';
 import 'dart:convert';
 
@@ -82,6 +84,28 @@ class AccountReconciliationSnapshot {
     Map<String, int?> packRevisions = const {},
     int? packMembershipRevision,
   }) {
+    if (document.containsKey('foundation_progress_json')) {
+      try {
+        final raw = document['foundation_progress_json'];
+        if (raw is! String || raw.isEmpty) {
+          return const CloudReadResult.invalid();
+        }
+        FoundationProgress.decode(raw);
+      } on Object {
+        return const CloudReadResult.invalid();
+      }
+    }
+    if (document.containsKey('decoration_reward_receipt_json')) {
+      try {
+        final raw = document['decoration_reward_receipt_json'];
+        if (raw is! String || raw.isEmpty) {
+          return const CloudReadResult.invalid();
+        }
+        DecorationRewardReceiptHistory.decode(raw);
+      } on Object {
+        return const CloudReadResult.invalid();
+      }
+    }
     if (document.containsKey('hanok_practice_json')) {
       try {
         final raw = document['hanok_practice_json'];
@@ -527,6 +551,35 @@ class AccountReconciliationMerger {
   ) {
     final canonicalLocal = _canonicalFieldValue(local);
     final canonicalRemote = _canonicalFieldValue(remote);
+    if (path == 'foundation_progress_json' &&
+        local is String && remote is String) {
+      try {
+        return FoundationProgress.decode(local).merge(
+          FoundationProgress.decode(remote),
+        ).encode();
+      } on Object {
+        conflicts.add(const AccountReconciliationConflict(
+          kind: AccountReconciliationConflictKind.documentField,
+          id: 'foundation_progress_json',
+        ));
+        return canonicalLocal;
+      }
+    }
+    if (path == 'decoration_reward_receipt_json' &&
+        local is String &&
+        remote is String) {
+      try {
+        return DecorationRewardReceiptHistory.mergeJson(local, remote);
+      } on Object {
+        conflicts.add(
+          const AccountReconciliationConflict(
+            kind: AccountReconciliationConflictKind.documentField,
+            id: 'decoration_reward_receipt_json',
+          ),
+        );
+        return canonicalLocal;
+      }
+    }
     if (path == 'hanok_practice_json' && local is String && remote is String) {
       try {
         return PracticeHistory.mergeJson(local, remote);

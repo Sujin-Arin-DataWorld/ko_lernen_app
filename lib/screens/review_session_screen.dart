@@ -1,38 +1,37 @@
-import '../services/haptic_service.dart';
-import '../widgets/sori/game_reward.dart';
-import '../services/learning_journey.dart';
-import '../models/sori_stage_progression.dart';
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
-
 import '../l10n/generated/app_localizations.dart';
+import '../models/companion_art.dart';
 import '../models/feedback_completion.dart';
 import '../models/smalltalk.dart';
+import '../models/sori_stage_progression.dart';
 import '../models/vocab.dart';
+import '../services/culture_notes_service.dart';
+import '../services/haptic_service.dart';
+import '../services/learning_journey.dart';
+import '../services/liked_content_service.dart';
+import '../services/local_data_lifetime.dart';
 import '../services/review_deck_service.dart';
 import '../services/review_session_queue.dart';
-import '../services/tts_service.dart';
-import '../services/culture_notes_service.dart';
-import '../widgets/sori/culture_note_card.dart';
-import '../widgets/sori/mascot_preference.dart';
 import '../services/storage_service.dart';
-import '../services/local_data_lifetime.dart';
+import '../services/tts_service.dart';
+import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/character_clip.dart';
-import '../widgets/sori/content_feedback_card.dart';
-import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/confirmed_choice_action.dart';
+import '../widgets/sori/content_feed.dart';
+import '../widgets/sori/content_feedback_card.dart';
+import '../widgets/sori/content_share_recovery.dart';
+import '../widgets/sori/culture_note_card.dart';
 import '../widgets/sori/deck_coach.dart';
 import '../widgets/sori/empty_state.dart';
-import '../widgets/sori/content_share_recovery.dart';
-import '../services/liked_content_service.dart';
-import '../widgets/app_error.dart';
+import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/mascot.dart';
+import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
@@ -591,7 +590,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   }
 
   Widget _buildEmpty(AppL10n t) => SoriEmptyState(
-    asset: 'assets/illustrations/mascot/magpie_celebrate.png',
+    asset: CompanionArt.joyCelebrate,
     icon: Icons.celebration_rounded,
     title: t.reviewEmptyTitle,
     body: t.reviewEmptyBody,

@@ -1,9 +1,8 @@
 import 'dart:async';
-
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
-
+import '../../models/companion_art.dart';
 import '../../services/audio_policy.dart';
 import 'mascot.dart';
 import 'mascot_preference.dart';
@@ -185,6 +184,13 @@ class _TigerStageVideoState extends State<TigerStageVideo> {
     }
     final pacePhase = _showPace;
     _builtFor = kind;
+    if (CompanionArt.forRetiredClip(
+          TigerStageVideo.greetFor(kind),
+          size: widget.height,
+        ) !=
+        null) {
+      return;
+    }
     _lease = soriVideoLease.register(
       asset: pacePhase
           ? TigerStageVideo.paceFor(kind)
@@ -458,6 +464,13 @@ class _TigerGreetClipState extends State<TigerGreetClip> {
   void _registerLease() {
     final kind = _kind;
     if (kind == null || _lease != null) {
+      return;
+    }
+    if (CompanionArt.forRetiredClip(
+          TigerStageVideo.greetFor(kind),
+          size: widget.size,
+        ) !=
+        null) {
       return;
     }
     _lease = soriVideoLease.register(
