@@ -23,7 +23,7 @@ The culture system is no longer a prototype/review-only architecture. Batch 38 a
 - Batch 39 persona-culture scenarios: **5/5 promoted**
 - persona-culture listening added across Batch 38+39: **10 lessons / 40 listening questions**
 - live scenario-culture links: **10**
-- CulturalGlossary: **33 reviewed entries**
+- CulturalGlossary: **36 reviewed entries** (`sunbae_hubae`, `jondaetmal_banmal`, `hoesik` added for social-language culture)
 - live culture-story arcs: **5**
   - `found_around_nammun`
   - `made_by_hand_in_korea`
@@ -200,50 +200,47 @@ Authoring-pipeline follow-up:
 - support roles must already exist in the live scenario corpus and do not create persona relationships
 - Windows promotion has a staged/validated fsync fallback when an editor watcher blocks `os.replace` with WinError 5; exact originals remain available for rollback and final content validation still runs
 
-## Batch 40 expansion — drafted, not live
+## Batch 40 expansion — review-only draft
 
-Batch 40 continues the Batch 39 rule: natural lived situation first, then key-vocab extraction and CEFR audit.
+Batch 40 extends the same authoring pipeline into social-language culture and everyday use.
 
-Draft commit:
-- `c7687c6f1 feat(culture): draft batch 40 social culture scenes`
-
-Prerequisite commits:
+Commits:
 - `f17ecdaa9 feat(culture): add social language glossary terms`
 - `6d88c5ee4 feat(content): allow support-role culture scenes`
+- `c7687c6f1 feat(culture): draft batch 40 social culture scenes`
+- `3abf70984 refactor(culture): naturalize batch 40 dialogues`
 
-Status:
+Current status:
 - manifest: `review_only_draft`
 - **live corpus remains 196 scenarios / 609 scenario quests**
-- promotion preview only: **196 -> 201 scenarios / 609 -> 624 scenario quests**
+- promotion preview only: **196 → 201 scenarios / 609 → 624 scenario quests**
 - 5 draft scenarios
 - 5 listening lessons / 20 listening questions
-- 5 scenario-culture links
-- 2 review-only derived story arcs
-- key vocab: **30 total / above-target 0 / unmapped 0**
+- 5 draft scenario-culture links
+- 2 review-only story arcs: `relationship_language_in_daily_life`, `patterns_repairs_and_spaces`
+- key vocab: **30 total / 4 culture anchors / 26 at-or-below target / 0 above-target / 0 unmapped**
 - focused authoring/integration regressions: **38 passed**
-- TTS: not generated
+- Flutter CulturalGlossary regressions: **10 passed**
+- website CulturalGlossary sync tests: **2 passed**
+- `validate_content.py`: **passed**
+- no live promotion and no TTS generation
 
 Draft scenes:
 - `b1_jun_coding_club_speech_switch` — Jun + existing `student` support role — `sunbae_hubae`, `jondaetmal_banmal`
 - `b1_minho_coworker_hoesik_leave_early` — Minho + existing `coworker` support role — `hoesik`
-- `a2_dongsun_christian_maehwa_gift` — Christian x Dongsun — `maehwa`
+- `a2_dongsun_christian_maehwa_gift` — Christian × Dongsun — `maehwa`
 - `b1_dongsun_customer_maedeup_repair` — Dongsun + existing `customer` support role — `maedeup`
-- `b1_byeongcheol_hyuna_daecheong_rest` — Hyuna x Byeongcheol — `daecheong`
+- `b1_byeongcheol_hyuna_daecheong_rest` — Hyuna × Byeongcheol — `daecheong`
 
-Review-only arcs:
-- `relationship_language_in_daily_life`
-- `patterns_repairs_and_spaces`
+Editorial refinements after Batch 39:
+- Jun's club senior does **not** present “senior → banmal” as a rule; both sides negotiate what feels comfortable.
+- Minho's hoesik scene stays team-specific instead of explaining “Korean workplace culture” in the dialogue.
+- Dongsun/Christian uses natural shop Korean and Dongsun's actual mother/shop-owner voice.
+- Maedeup repair explicitly keeps Dongsun inside her real repair scope.
+- Daecheong is understood through sitting, airflow, and a visible sign rather than a history lecture.
+- direct National Institute of Korean Language dictionary sources are used for `sunbae_hubae` and `hoesik`.
 
-Batch 40 authoring notes:
-- support-role scenes may contain one recurring persona plus one existing generic support role
-- support roles do not become recurring personas and create no relationship canon
-- social-language culture is negotiated in-scene; `sunbae`, age, or position do not automatically authorize banmal
-- hoesik is treated as organization-specific scheduling/participation context, not an alcohol or mandatory-attendance stereotype
-- Dongsun remains a jewellery/repair shop owner, not a traditional-craft master
-- Byeongcheol observes structure/airflow from practical experience and does not invent architectural history
-- key vocab is extracted from the actual dialogue; intro-only vocabulary is not promoted as learner key vocab
-
-Do **not** promote Batch 40 merely because structural/CEFR checks pass. Learner-facing dialogue still needs Jin review.
+Do **not** promote Batch 40 merely because structural/CEFR checks pass. Learner-facing copy still requires Jin review.
 
 ## Required reading for the next session
 

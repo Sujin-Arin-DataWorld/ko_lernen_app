@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "docs/data/cultural_glossary.json": {
-    "mtime": 1791156606.9446497,
-    "seen": 1791162436.0356007,
-    "ast_hash": "a8fd77da1746a800698eab2ce21beedb",
+    "mtime": 1791319990.7504096,
+    "seen": 1791320232.797402,
+    "ast_hash": "90f697b276e79f053b4361cbfbda5be2",
     "semantic_hash": ""
   },
   "docs/store/b2_scenarios_draft.json": {
@@ -678,9 +678,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/public/data/cultural_glossary.json": {
-    "mtime": 1791156607.087765,
-    "seen": 1791162436.0365074,
-    "ast_hash": "a8fd77da1746a800698eab2ce21beedb",
+    "mtime": 1791319990.7524083,
+    "seen": 1791320232.8673906,
+    "ast_hash": "90f697b276e79f053b4361cbfbda5be2",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/scripts/clean-build.mjs": {
@@ -732,9 +732,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/tests/cultural-glossary.test.mjs": {
-    "mtime": 1791156682.381342,
-    "seen": 1791162436.0365674,
-    "ast_hash": "7af89227cb2e6a8894535e0393021ecf",
+    "mtime": 1791317205.1177707,
+    "seen": 1791320232.8729088,
+    "ast_hash": "1ace2500e2e14184e213377ffba8bf00",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/tests/deployment-contract.test.mjs": {
@@ -3918,9 +3918,9 @@
     "semantic_hash": ""
   },
   "test/cultural_glossary_catalog_test.dart": {
-    "mtime": 1791167457.2040334,
-    "seen": 1791167894.6627007,
-    "ast_hash": "a248c20a1ca588ff26780fb43c749893",
+    "mtime": 1791317187.7750125,
+    "seen": 1791320233.1605463,
+    "ast_hash": "9164ffe4f4cc2b54714a7a8905f1d905",
     "semantic_hash": ""
   },
   "test/cultural_help_widget_test.dart": {
@@ -8196,9 +8196,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791316225.887321,
-    "seen": 1791316569.307051,
-    "ast_hash": "ea84989bf9dfb80df2bdd25e60182f89",
+    "mtime": 1791319804.6745439,
+    "seen": 1791320233.7779403,
+    "ast_hash": "c38b5c0d0c3f308397f45d2185fab01d",
     "semantic_hash": ""
   },
   "BETA_INSTALL_GUIDE.md": {
@@ -22068,9 +22068,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/extract_scenario_key_vocab.py": {
-    "mtime": 1791161777.4863145,
-    "seen": 1791162436.0436347,
-    "ast_hash": "f24e98cc6cec60b5dd24e25dffd7f97e",
+    "mtime": 1791319565.5105002,
+    "seen": 1791320233.6152132,
+    "ast_hash": "e1930f7f6e95fd03452632d5153e38db",
     "semantic_hash": ""
   },
   "tools/content_factory/review/persona_culture_authoring_pipeline_20261005.json": {
@@ -22086,9 +22086,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/run_persona_culture_authoring.py": {
-    "mtime": 1791313045.9854555,
-    "seen": 1791316569.221572,
-    "ast_hash": "4d54e777c4779f9a32d002d89b228032",
+    "mtime": 1791319051.892107,
+    "seen": 1791320233.7086568,
+    "ast_hash": "3d2b35853e07a00d516b5b4b295d1b18",
     "semantic_hash": ""
   },
   "tools/content_factory/test_batch_38_persona_culture_draft.py": {
@@ -22104,9 +22104,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/test_persona_culture_authoring_pipeline.py": {
-    "mtime": 1791173305.2666488,
-    "seen": 1791194754.3534727,
-    "ast_hash": "2a022d5f6bbd5124b3351f3f52323c92",
+    "mtime": 1791319077.2939792,
+    "seen": 1791320233.731765,
+    "ast_hash": "1b54d4af5ed32ba0ed411122240da790",
     "semantic_hash": ""
   },
   "docs/plans/2026-10-05-culture-world-progress.md": {
@@ -22302,9 +22302,9 @@
     "semantic_hash": ""
   },
   "docs/plans/2026-10-06-culture-world-current-handoff.md": {
-    "mtime": 1791316204.3725634,
-    "seen": 1791316569.4246244,
-    "ast_hash": "b84030cce21b737c24d835bae2b353c9",
+    "mtime": 1791320383.3041296,
+    "seen": 1791320696.046169,
+    "ast_hash": "cff242185d61b03ffedcdcd95c13d004",
     "semantic_hash": ""
   },
   "tools/content_factory/drafts/batch_39_persona_culture_manifest.json": {
@@ -22344,15 +22344,15 @@
     "semantic_hash": ""
   },
   "tools/content_factory/review/persona_culture_authoring_pipeline_20261006.json": {
-    "mtime": 1791315842.9097252,
-    "seen": 1791316569.2136023,
+    "mtime": 1791319721.2831304,
+    "seen": 1791320233.7036417,
     "ast_hash": "112298254cbb9b5af1a9e5bbabe99755",
     "semantic_hash": ""
   },
   "tools/content_factory/review/persona_culture_vocab_leveling_20261006.json": {
-    "mtime": 1791315841.909518,
-    "seen": 1791316569.2140322,
-    "ast_hash": "c4c2d1e86d528b3d2df11d1231630388",
+    "mtime": 1791319720.4939964,
+    "seen": 1791320233.704312,
+    "ast_hash": "65d0a2b9a21807337198dbce75877033",
     "semantic_hash": ""
   },
   "tools/content_factory/test_batch_39_persona_culture_draft.py": {
@@ -22368,9 +22368,75 @@
     "semantic_hash": ""
   },
   "tools/content_factory/review/batch_39_persona_culture_review_packet.md": {
-    "mtime": 1791315841.9201672,
-    "seen": 1791316569.4868402,
+    "mtime": 1791319720.5028229,
+    "seen": 1791320233.9175196,
     "ast_hash": "9271278bf8bc0b77a146bfae913579fe",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/drafts/batch_40_persona_culture_manifest.json": {
+    "mtime": 1791319414.809349,
+    "seen": 1791320233.5865417,
+    "ast_hash": "ac46c23c23c8fb3f2cf1aeae2fe09b2a",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/drafts/persona_culture_authoring_brief_20261006_batch40.json": {
+    "mtime": 1791319990.7318332,
+    "seen": 1791320233.6077025,
+    "ast_hash": "f072a601dc0d662f2623593906f72fff",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/drafts/persona_culture_links_20261006_batch40.json": {
+    "mtime": 1791319414.805507,
+    "seen": 1791320233.6085372,
+    "ast_hash": "a8390fe65967b35286a75847d41dd9ee",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/drafts/persona_culture_listening_20261006_batch40.json": {
+    "mtime": 1791320054.6113248,
+    "seen": 1791320233.6092212,
+    "ast_hash": "fefc4618d4a80794f3310ee2be25cfe1",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/drafts/persona_culture_scenarios_20261006_batch40.json": {
+    "mtime": 1791319990.721349,
+    "seen": 1791320233.609899,
+    "ast_hash": "85c7631cab28d2846ca09423843b13d5",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/drafts/persona_culture_story_arcs_20261006_batch40.json": {
+    "mtime": 1791319414.8067567,
+    "seen": 1791320233.6105583,
+    "ast_hash": "7812d017bdc655b382d9aa475081bebd",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/persona_culture_authoring_pipeline_20261006_batch40.json": {
+    "mtime": 1791320319.390106,
+    "seen": 1791320695.887033,
+    "ast_hash": "c22ac36620ece6f11df2e2e6e4d3b19c",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/persona_culture_vocab_leveling_20261006_batch40.json": {
+    "mtime": 1791320318.305335,
+    "seen": 1791320695.888082,
+    "ast_hash": "eca1260c88a1d5c952a37925621df76c",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/test_batch_40_persona_culture_draft.py": {
+    "mtime": 1791319661.8912835,
+    "seen": 1791320233.7215264,
+    "ast_hash": "f1581eb1c392d826aa1c968600650695",
+    "semantic_hash": ""
+  },
+  "docs/plans/2026-10-06-persona-culture-batch40-design.md": {
+    "mtime": 1791319212.201527,
+    "seen": 1791320233.8686924,
+    "ast_hash": "706a8c141e36c0491c61bfa1e0a4a3d5",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/batch_40_persona_culture_review_packet.md": {
+    "mtime": 1791320318.3262453,
+    "seen": 1791320696.0968258,
+    "ast_hash": "09411c0e51583ee08089cc5fcaca0186",
     "semantic_hash": ""
   }
 }
