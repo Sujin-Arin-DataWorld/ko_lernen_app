@@ -64,23 +64,23 @@
           "sourceIds": [
             "b1_jun_coding_club_speech_switch"
           ],
-          "audioKo": "응. 처음엔 존댓말 써도 되고, 더 친해지면 반말해도 괜찮아. 우리 동아리는 보통 그래.",
-          "evidenceKo": "응. 처음엔 존댓말 써도 되고, 더 친해지면 반말해도 괜찮아. 우리 동아리는 보통 그래.",
+          "audioKo": "응, 나는 괜찮아. 근데 바로 반말하기 어색하면 그냥 지금처럼 해도 돼. 우리 동아리는 다들 편한 쪽으로 맞추는 편이야.",
+          "evidenceKo": "응, 나는 괜찮아. 근데 바로 반말하기 어색하면 그냥 지금처럼 해도 돼. 우리 동아리는 다들 편한 쪽으로 맞추는 편이야.",
           "prompt": {
             "ko": "들은 말의 뜻은 무엇인가요?",
             "de": "Was bedeutet die gehörte Aussage?",
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "“응. 처음엔 존댓말 써도 되고, 더 친해지면 반말해도 괜찮아. 우리 동아리는 보통 그래.”라는 말이 근거예요. 같은 뜻의 대사를 골라요.",
-            "de": "Ein Beleg ist „응. 처음엔 존댓말 써도 되고, 더 친해지면 반말해도 괜찮아. 우리 동아리는 보통 그래.“. Wähle die Aussage mit derselben Bedeutung.",
-            "en": "One supporting line is “응. 처음엔 존댓말 써도 되고, 더 친해지면 반말해도 괜찮아. 우리 동아리는 보통 그래.”. Choose the line with the same meaning."
+            "ko": "“응, 나는 괜찮아. 근데 바로 반말하기 어색하면 그냥 지금처럼 해도 돼. 우리 동아리는 다들 편한 쪽으로 맞추는 편이야.”라는 말이 근거예요. 같은 뜻의 대사를 골라요.",
+            "de": "Ein Beleg ist „응, 나는 괜찮아. 근데 바로 반말하기 어색하면 그냥 지금처럼 해도 돼. 우리 동아리는 다들 편한 쪽으로 맞추는 편이야.“. Wähle die Aussage mit derselben Bedeutung.",
+            "en": "One supporting line is “응, 나는 괜찮아. 근데 바로 반말하기 어색하면 그냥 지금처럼 해도 돼. 우리 동아리는 다들 편한 쪽으로 맞추는 편이야.”. Choose the line with the same meaning."
           },
           "options": [
             {
-              "ko": "응. 처음엔 존댓말 써도 되고, 더 친해지면 반말해도 괜찮아. 우리 동아리는 보통 그래.",
-              "de": "Klar. Am Anfang kannst du Jondaetmal benutzen, und wenn wir uns besser kennen, ist Banmal auch okay. In unserem Club machen wir das meistens so.",
-              "en": "Sure. You can use jondaetmal at first, and once we know each other better, banmal is fine too. That's usually how we do it in our club."
+              "ko": "응, 나는 괜찮아. 근데 바로 반말하기 어색하면 그냥 지금처럼 해도 돼. 우리 동아리는 다들 편한 쪽으로 맞추는 편이야.",
+              "de": "Ja, für mich ist das okay. Aber wenn Banmal sofort komisch wirkt, kannst du auch einfach so weiterreden wie jetzt. In unserem Club passen wir uns meistens so an, wie es für beide angenehm ist.",
+              "en": "Yeah, I'm fine with it. But if switching to banmal right away feels awkward, you can just keep speaking the way you are now. In our club, we usually adjust to what feels comfortable for both people."
             },
             {
               "ko": "준아, 이번에 들어온 1학년 맞지? 나는 2학년 민재야.",
@@ -102,18 +102,18 @@
           "sourceIds": [
             "b1_jun_coding_club_speech_switch"
           ],
-          "audioKo": "알겠어요. 그럼 일단 민재 선배라고 부를게요.",
-          "evidenceKo": "알겠어요. 그럼 일단 민재 선배라고 부를게요.",
-          "targetKo": "알겠어요. 그럼 일단 민재 선배라고 부를게요.",
+          "audioKo": "그럼 일단 민재 선배라고 부르고, 말은 지금처럼 할게요.",
+          "evidenceKo": "그럼 일단 민재 선배라고 부르고, 말은 지금처럼 할게요.",
+          "targetKo": "그럼 일단 민재 선배라고 부르고, 말은 지금처럼 할게요.",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
             "de": "Ordne die Wörter genau wie in der Aufnahme.",
             "en": "Put the words in the same order as the recording."
           },
           "explanation": {
-            "ko": "“알겠어요. 그럼 일단 민재 선배라고 부를게요.”라는 말이 근거예요. 들은 어순을 그대로 만들어요.",
-            "de": "Ein Beleg ist „알겠어요. 그럼 일단 민재 선배라고 부를게요.“. Bilde genau die gehörte Wortfolge.",
-            "en": "One supporting line is “알겠어요. 그럼 일단 민재 선배라고 부를게요.”. Recreate the exact word order you heard."
+            "ko": "“그럼 일단 민재 선배라고 부르고, 말은 지금처럼 할게요.”라는 말이 근거예요. 들은 어순을 그대로 만들어요.",
+            "de": "Ein Beleg ist „그럼 일단 민재 선배라고 부르고, 말은 지금처럼 할게요.“. Bilde genau die gehörte Wortfolge.",
+            "en": "One supporting line is “그럼 일단 민재 선배라고 부르고, 말은 지금처럼 할게요.”. Recreate the exact word order you heard."
           }
         },
         {
@@ -219,23 +219,23 @@
           "sourceIds": [
             "b1_minho_coworker_hoesik_leave_early"
           ],
-          "audioKo": "괜찮아요. 회식이라고 끝까지 있어야 하는 건 아니에요. 팀마다 분위기도 다르고요.",
-          "evidenceKo": "괜찮아요. 회식이라고 끝까지 있어야 하는 건 아니에요. 팀마다 분위기도 다르고요.",
+          "audioKo": "괜찮아요. 우리 팀은 먼저 간다고 뭐라고 안 해요. 시간 되면 편하게 가세요.",
+          "evidenceKo": "괜찮아요. 우리 팀은 먼저 간다고 뭐라고 안 해요. 시간 되면 편하게 가세요.",
           "prompt": {
             "ko": "들은 말의 뜻은 무엇인가요?",
             "de": "Was bedeutet die gehörte Aussage?",
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "“괜찮아요. 회식이라고 끝까지 있어야 하는 건 아니에요. 팀마다 분위기도 다르고요.”라는 말이 근거예요. 같은 뜻의 대사를 골라요.",
-            "de": "Ein Beleg ist „괜찮아요. 회식이라고 끝까지 있어야 하는 건 아니에요. 팀마다 분위기도 다르고요.“. Wähle die Aussage mit derselben Bedeutung.",
-            "en": "One supporting line is “괜찮아요. 회식이라고 끝까지 있어야 하는 건 아니에요. 팀마다 분위기도 다르고요.”. Choose the line with the same meaning."
+            "ko": "“괜찮아요. 우리 팀은 먼저 간다고 뭐라고 안 해요. 시간 되면 편하게 가세요.”라는 말이 근거예요. 같은 뜻의 대사를 골라요.",
+            "de": "Ein Beleg ist „괜찮아요. 우리 팀은 먼저 간다고 뭐라고 안 해요. 시간 되면 편하게 가세요.“. Wähle die Aussage mit derselben Bedeutung.",
+            "en": "One supporting line is “괜찮아요. 우리 팀은 먼저 간다고 뭐라고 안 해요. 시간 되면 편하게 가세요.”. Choose the line with the same meaning."
           },
           "options": [
             {
-              "ko": "괜찮아요. 회식이라고 끝까지 있어야 하는 건 아니에요. 팀마다 분위기도 다르고요.",
-              "de": "Natürlich. Nur weil es ein Hoesik ist, muss man nicht bis zum Ende bleiben. Jedes Team ist da auch anders.",
-              "en": "Of course. Just because it's a hoesik doesn't mean you have to stay until the end. Every team is different too."
+              "ko": "괜찮아요. 우리 팀은 먼저 간다고 뭐라고 안 해요. 시간 되면 편하게 가세요.",
+              "de": "Das ist völlig in Ordnung. In unserem Team sagt niemand etwas, wenn jemand früher geht. Gehen Sie einfach, wenn es Zeit ist.",
+              "en": "That's completely fine. No one on our team will give you a hard time for leaving early. Just head out when you need to."
             },
             {
               "ko": "팀장님, 오늘 회식 있잖아요. 제가 집에 일이 있어서 8시 전에 먼저 가야 할 것 같아요.",
@@ -279,22 +279,22 @@
             "b1_minho_coworker_hoesik_leave_early"
           ],
           "audioKo": "괜찮을까요? 다 같이 있는 자리라 좀 신경 쓰여서요.",
-          "evidenceKo": "괜찮아요. 회식이라고 끝까지 있어야 하는 건 아니에요. 팀마다 분위기도 다르고요.",
+          "evidenceKo": "괜찮아요. 우리 팀은 먼저 간다고 뭐라고 안 해요. 시간 되면 편하게 가세요.",
           "prompt": {
             "ko": "상대의 말에 가장 자연스럽게 이어지는 응답은 무엇인가요?",
             "de": "Welche Antwort passt am natürlichsten zur Aussage?",
             "en": "Which response follows most naturally?"
           },
           "explanation": {
-            "ko": "“괜찮아요. 회식이라고 끝까지 있어야 하는 건 아니에요. 팀마다 분위기도 다르고요.”라는 응답이 이 대화의 goal에 가장 잘 맞아요.",
-            "de": "„괜찮아요. 회식이라고 끝까지 있어야 하는 건 아니에요. 팀마다 분위기도 다르고요.“ passt am besten zum Ziel dieser Situation.",
-            "en": "“괜찮아요. 회식이라고 끝까지 있어야 하는 건 아니에요. 팀마다 분위기도 다르고요.” best fits the goal of this conversation."
+            "ko": "“괜찮아요. 우리 팀은 먼저 간다고 뭐라고 안 해요. 시간 되면 편하게 가세요.”라는 응답이 이 대화의 goal에 가장 잘 맞아요.",
+            "de": "„괜찮아요. 우리 팀은 먼저 간다고 뭐라고 안 해요. 시간 되면 편하게 가세요.“ passt am besten zum Ziel dieser Situation.",
+            "en": "“괜찮아요. 우리 팀은 먼저 간다고 뭐라고 안 해요. 시간 되면 편하게 가세요.” best fits the goal of this conversation."
           },
           "options": [
             {
-              "ko": "괜찮아요. 회식이라고 끝까지 있어야 하는 건 아니에요. 팀마다 분위기도 다르고요.",
-              "de": "Natürlich. Nur weil es ein Hoesik ist, muss man nicht bis zum Ende bleiben. Jedes Team ist da auch anders.",
-              "en": "Of course. Just because it's a hoesik doesn't mean you have to stay until the end. Every team is different too."
+              "ko": "괜찮아요. 우리 팀은 먼저 간다고 뭐라고 안 해요. 시간 되면 편하게 가세요.",
+              "de": "Das ist völlig in Ordnung. In unserem Team sagt niemand etwas, wenn jemand früher geht. Gehen Sie einfach, wenn es Zeit ist.",
+              "en": "That's completely fine. No one on our team will give you a hard time for leaving early. Just head out when you need to."
             },
             {
               "ko": "팀장님, 오늘 회식 있잖아요. 제가 집에 일이 있어서 8시 전에 먼저 가야 할 것 같아요.",
@@ -337,16 +337,16 @@
           "sourceIds": [
             "a2_dongsun_christian_maehwa_gift"
           ],
-          "evidenceKo": "사장님, 수진이 생일 선물 보는데 너무 비싼 건 말고 작은 거 있을까요?",
+          "evidenceKo": "사장님, 수진이 생일 선물 좀 보려고 하는데요. 너무 비싸지 않은 걸로 작은 거 있을까요?",
           "prompt": {
             "ko": "대화 전체에 맞는 상황은 무엇인가요?",
             "de": "Welche Situation passt zum gesamten Gespräch?",
             "en": "Which situation matches the whole conversation?"
           },
           "explanation": {
-            "ko": "“사장님, 수진이 생일 선물 보는데 너무 비싼 건 말고 작은 거 있을까요?”라는 말이 근거예요. 대화 전체의 목적과 관계를 함께 확인해요.",
-            "de": "Ein Beleg ist „사장님, 수진이 생일 선물 보는데 너무 비싼 건 말고 작은 거 있을까요?“. Prüfe Ziel und Beziehung im gesamten Gespräch.",
-            "en": "One supporting line is “사장님, 수진이 생일 선물 보는데 너무 비싼 건 말고 작은 거 있을까요?”. Check the goal and relationship across the whole conversation."
+            "ko": "“사장님, 수진이 생일 선물 좀 보려고 하는데요. 너무 비싸지 않은 걸로 작은 거 있을까요?”라는 말이 근거예요. 대화 전체의 목적과 관계를 함께 확인해요.",
+            "de": "Ein Beleg ist „사장님, 수진이 생일 선물 좀 보려고 하는데요. 너무 비싸지 않은 걸로 작은 거 있을까요?“. Prüfe Ziel und Beziehung im gesamten Gespräch.",
+            "en": "One supporting line is “사장님, 수진이 생일 선물 좀 보려고 하는데요. 너무 비싸지 않은 걸로 작은 거 있을까요?”. Check the goal and relationship across the whole conversation."
           },
           "options": [
             {
@@ -393,9 +393,9 @@
               "en": "Is this flower a plum blossom? I'd like something that's not too flashy."
             },
             {
-              "ko": "사장님, 수진이 생일 선물 보는데 너무 비싼 건 말고 작은 거 있을까요?",
+              "ko": "사장님, 수진이 생일 선물 좀 보려고 하는데요. 너무 비싸지 않은 걸로 작은 거 있을까요?",
               "de": "Ich suche ein kleines Geburtstagsgeschenk für Sujin. Haben Sie etwas, das nicht zu teuer ist?",
-              "en": "I'm looking for a small birthday gift for Sujin. Do you have something that's not too expensive?"
+              "en": "I'm looking for a small birthday gift for Sujin. Do you have something small that isn't too expensive?"
             },
             {
               "ko": "그럼 이 귀걸이는 어때요? 매화 문양이 작게 들어가 있어요.",
@@ -452,9 +452,9 @@
               "en": "Is this flower a plum blossom? I'd like something that's not too flashy."
             },
             {
-              "ko": "사장님, 수진이 생일 선물 보는데 너무 비싼 건 말고 작은 거 있을까요?",
+              "ko": "사장님, 수진이 생일 선물 좀 보려고 하는데요. 너무 비싸지 않은 걸로 작은 거 있을까요?",
               "de": "Ich suche ein kleines Geburtstagsgeschenk für Sujin. Haben Sie etwas, das nicht zu teuer ist?",
-              "en": "I'm looking for a small birthday gift for Sujin. Do you have something that's not too expensive?"
+              "en": "I'm looking for a small birthday gift for Sujin. Do you have something small that isn't too expensive?"
             },
             {
               "ko": "수진이는 화려한 건 잘 안 하는데 이런 작은 건 좋아해요. 제가 엄마니까 이건 좀 알죠.",
@@ -529,23 +529,23 @@
           "sourceIds": [
             "b1_dongsun_customer_maedeup_repair"
           ],
-          "audioKo": "아니요. 지금은 이 부분만 손보면 될 것 같아요. 그런데 끈이 많이 낡아서 또 풀리면 매듭 전문 공방에 맡기는 게 좋아요.",
-          "evidenceKo": "아니요. 지금은 이 부분만 손보면 될 것 같아요. 그런데 끈이 많이 낡아서 또 풀리면 매듭 전문 공방에 맡기는 게 좋아요.",
+          "audioKo": "아니요. 지금은 이 부분만 손보면 될 것 같아요. 그런데 끈이 많이 낡아서 또 풀리면 이런 매듭을 전문으로 하는 공방에 맡기는 게 좋아요.",
+          "evidenceKo": "아니요. 지금은 이 부분만 손보면 될 것 같아요. 그런데 끈이 많이 낡아서 또 풀리면 이런 매듭을 전문으로 하는 공방에 맡기는 게 좋아요.",
           "prompt": {
             "ko": "들은 말의 뜻은 무엇인가요?",
             "de": "Was bedeutet die gehörte Aussage?",
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "“아니요. 지금은 이 부분만 손보면 될 것 같아요. 그런데 끈이 많이 낡아서 또 풀리면 매듭 전문 공방에 맡기는 게 좋아요.”라는 말이 근거예요. 같은 뜻의 대사를 골라요.",
-            "de": "Ein Beleg ist „아니요. 지금은 이 부분만 손보면 될 것 같아요. 그런데 끈이 많이 낡아서 또 풀리면 매듭 전문 공방에 맡기는 게 좋아요.“. Wähle die Aussage mit derselben Bedeutung.",
-            "en": "One supporting line is “아니요. 지금은 이 부분만 손보면 될 것 같아요. 그런데 끈이 많이 낡아서 또 풀리면 매듭 전문 공방에 맡기는 게 좋아요.”. Choose the line with the same meaning."
+            "ko": "“아니요. 지금은 이 부분만 손보면 될 것 같아요. 그런데 끈이 많이 낡아서 또 풀리면 이런 매듭을 전문으로 하는 공방에 맡기는 게 좋아요.”라는 말이 근거예요. 같은 뜻의 대사를 골라요.",
+            "de": "Ein Beleg ist „아니요. 지금은 이 부분만 손보면 될 것 같아요. 그런데 끈이 많이 낡아서 또 풀리면 이런 매듭을 전문으로 하는 공방에 맡기는 게 좋아요.“. Wähle die Aussage mit derselben Bedeutung.",
+            "en": "One supporting line is “아니요. 지금은 이 부분만 손보면 될 것 같아요. 그런데 끈이 많이 낡아서 또 풀리면 이런 매듭을 전문으로 하는 공방에 맡기는 게 좋아요.”. Choose the line with the same meaning."
           },
           "options": [
             {
-              "ko": "아니요. 지금은 이 부분만 손보면 될 것 같아요. 그런데 끈이 많이 낡아서 또 풀리면 매듭 전문 공방에 맡기는 게 좋아요.",
-              "de": "Nein. Im Moment reicht es wahrscheinlich, nur diesen Teil zu reparieren. Wenn sich die alte Kordel aber wieder löst, wäre eine auf Zierknoten spezialisierte Werkstatt besser.",
-              "en": "No. For now, I think fixing just this part should be enough. But if the old cord comes loose again, it would be better to take it to a workshop specializing in decorative knots."
+              "ko": "아니요. 지금은 이 부분만 손보면 될 것 같아요. 그런데 끈이 많이 낡아서 또 풀리면 이런 매듭을 전문으로 하는 공방에 맡기는 게 좋아요.",
+              "de": "Nein. Im Moment reicht es wahrscheinlich, nur diesen Teil zu reparieren. Wenn sich die alte Kordel aber wieder löst, wäre eine Werkstatt besser, die auf solche Zierknoten spezialisiert ist.",
+              "en": "No. For now, I think fixing just this part should be enough. But if the old cord comes loose again, it would be better to take it to a workshop that specializes in this kind of knot."
             },
             {
               "ko": "사장님, 이 장식 매듭이 자꾸 풀리는데 한번 봐주실 수 있을까요?",
@@ -589,22 +589,22 @@
             "b1_dongsun_customer_maedeup_repair"
           ],
           "audioKo": "전체를 새로 해야 하나요?",
-          "evidenceKo": "아니요. 지금은 이 부분만 손보면 될 것 같아요. 그런데 끈이 많이 낡아서 또 풀리면 매듭 전문 공방에 맡기는 게 좋아요.",
+          "evidenceKo": "아니요. 지금은 이 부분만 손보면 될 것 같아요. 그런데 끈이 많이 낡아서 또 풀리면 이런 매듭을 전문으로 하는 공방에 맡기는 게 좋아요.",
           "prompt": {
             "ko": "상대의 말에 가장 자연스럽게 이어지는 응답은 무엇인가요?",
             "de": "Welche Antwort passt am natürlichsten zur Aussage?",
             "en": "Which response follows most naturally?"
           },
           "explanation": {
-            "ko": "“아니요. 지금은 이 부분만 손보면 될 것 같아요. 그런데 끈이 많이 낡아서 또 풀리면 매듭 전문 공방에 맡기는 게 좋아요.”라는 응답이 이 대화의 goal에 가장 잘 맞아요.",
-            "de": "„아니요. 지금은 이 부분만 손보면 될 것 같아요. 그런데 끈이 많이 낡아서 또 풀리면 매듭 전문 공방에 맡기는 게 좋아요.“ passt am besten zum Ziel dieser Situation.",
-            "en": "“아니요. 지금은 이 부분만 손보면 될 것 같아요. 그런데 끈이 많이 낡아서 또 풀리면 매듭 전문 공방에 맡기는 게 좋아요.” best fits the goal of this conversation."
+            "ko": "“아니요. 지금은 이 부분만 손보면 될 것 같아요. 그런데 끈이 많이 낡아서 또 풀리면 이런 매듭을 전문으로 하는 공방에 맡기는 게 좋아요.”라는 응답이 이 대화의 goal에 가장 잘 맞아요.",
+            "de": "„아니요. 지금은 이 부분만 손보면 될 것 같아요. 그런데 끈이 많이 낡아서 또 풀리면 이런 매듭을 전문으로 하는 공방에 맡기는 게 좋아요.“ passt am besten zum Ziel dieser Situation.",
+            "en": "“아니요. 지금은 이 부분만 손보면 될 것 같아요. 그런데 끈이 많이 낡아서 또 풀리면 이런 매듭을 전문으로 하는 공방에 맡기는 게 좋아요.” best fits the goal of this conversation."
           },
           "options": [
             {
-              "ko": "아니요. 지금은 이 부분만 손보면 될 것 같아요. 그런데 끈이 많이 낡아서 또 풀리면 매듭 전문 공방에 맡기는 게 좋아요.",
-              "de": "Nein. Im Moment reicht es wahrscheinlich, nur diesen Teil zu reparieren. Wenn sich die alte Kordel aber wieder löst, wäre eine auf Zierknoten spezialisierte Werkstatt besser.",
-              "en": "No. For now, I think fixing just this part should be enough. But if the old cord comes loose again, it would be better to take it to a workshop specializing in decorative knots."
+              "ko": "아니요. 지금은 이 부분만 손보면 될 것 같아요. 그런데 끈이 많이 낡아서 또 풀리면 이런 매듭을 전문으로 하는 공방에 맡기는 게 좋아요.",
+              "de": "Nein. Im Moment reicht es wahrscheinlich, nur diesen Teil zu reparieren. Wenn sich die alte Kordel aber wieder löst, wäre eine Werkstatt besser, die auf solche Zierknoten spezialisiert ist.",
+              "en": "No. For now, I think fixing just this part should be enough. But if the old cord comes loose again, it would be better to take it to a workshop that specializes in this kind of knot."
             },
             {
               "ko": "사장님, 이 장식 매듭이 자꾸 풀리는데 한번 봐주실 수 있을까요?",
@@ -647,16 +647,16 @@
           "sourceIds": [
             "b1_byeongcheol_hyuna_daecheong_rest"
           ],
-          "evidenceKo": "여기 안내판에 ‘대청’이라고 적혀 있네요. 잠깐 앉아도 된대요.",
+          "evidenceKo": "여기 안내판에 ‘대청’이라고 적혀 있네요. 잠깐 앉아도 된다고 쓰여 있어요.",
           "prompt": {
             "ko": "대화 전체에 맞는 상황은 무엇인가요?",
             "de": "Welche Situation passt zum gesamten Gespräch?",
             "en": "Which situation matches the whole conversation?"
           },
           "explanation": {
-            "ko": "“여기 안내판에 ‘대청’이라고 적혀 있네요. 잠깐 앉아도 된대요.”라는 말이 근거예요. 대화 전체의 목적과 관계를 함께 확인해요.",
-            "de": "Ein Beleg ist „여기 안내판에 ‘대청’이라고 적혀 있네요. 잠깐 앉아도 된대요.“. Prüfe Ziel und Beziehung im gesamten Gespräch.",
-            "en": "One supporting line is “여기 안내판에 ‘대청’이라고 적혀 있네요. 잠깐 앉아도 된대요.”. Check the goal and relationship across the whole conversation."
+            "ko": "“여기 안내판에 ‘대청’이라고 적혀 있네요. 잠깐 앉아도 된다고 쓰여 있어요.”라는 말이 근거예요. 대화 전체의 목적과 관계를 함께 확인해요.",
+            "de": "Ein Beleg ist „여기 안내판에 ‘대청’이라고 적혀 있네요. 잠깐 앉아도 된다고 쓰여 있어요.“. Prüfe Ziel und Beziehung im gesamten Gespräch.",
+            "en": "One supporting line is “여기 안내판에 ‘대청’이라고 적혀 있네요. 잠깐 앉아도 된다고 쓰여 있어요.”. Check the goal and relationship across the whole conversation."
           },
           "options": [
             {
@@ -703,12 +703,12 @@
               "en": "Haha, occupational habit, I guess. I don't know the historical reason exactly, but you can immediately feel that the air moves through well."
             },
             {
-              "ko": "여기 안내판에 ‘대청’이라고 적혀 있네요. 잠깐 앉아도 된대요.",
-              "de": "Auf dem Schild hier steht „Daecheong“. Man darf sich wohl kurz hinsetzen.",
-              "en": "The sign here says 'daecheong.' It says we're allowed to sit here for a bit."
+              "ko": "여기 안내판에 ‘대청’이라고 적혀 있네요. 잠깐 앉아도 된다고 쓰여 있어요.",
+              "de": "Auf dem Schild hier steht „Daecheong“. Es steht auch da, dass man sich kurz hinsetzen darf.",
+              "en": "The sign here says 'daecheong.' It also says we're allowed to sit here for a bit."
             },
             {
-              "ko": "잘됐네요. 아까부터 좀 더웠는데 여기 앉으니까 바람이 잘 들어옵니다.",
+              "ko": "잘됐네요. 아까부터 좀 더웠는데 여기 앉으니까 바람이 잘 들어오네요.",
               "de": "Das passt gut. Mir war schon eine Weile warm, aber hier kommt schön Luft herein.",
               "en": "Perfect. I've been a little warm, but there's a nice breeze coming through here."
             }
@@ -762,12 +762,12 @@
               "en": "I actually find that more interesting. Shall we rest for a bit and then read the sign too?"
             },
             {
-              "ko": "여기 안내판에 ‘대청’이라고 적혀 있네요. 잠깐 앉아도 된대요.",
-              "de": "Auf dem Schild hier steht „Daecheong“. Man darf sich wohl kurz hinsetzen.",
-              "en": "The sign here says 'daecheong.' It says we're allowed to sit here for a bit."
+              "ko": "여기 안내판에 ‘대청’이라고 적혀 있네요. 잠깐 앉아도 된다고 쓰여 있어요.",
+              "de": "Auf dem Schild hier steht „Daecheong“. Es steht auch da, dass man sich kurz hinsetzen darf.",
+              "en": "The sign here says 'daecheong.' It also says we're allowed to sit here for a bit."
             },
             {
-              "ko": "잘됐네요. 아까부터 좀 더웠는데 여기 앉으니까 바람이 잘 들어옵니다.",
+              "ko": "잘됐네요. 아까부터 좀 더웠는데 여기 앉으니까 바람이 잘 들어오네요.",
               "de": "Das passt gut. Mir war schon eine Weile warm, aber hier kommt schön Luft herein.",
               "en": "Perfect. I've been a little warm, but there's a nice breeze coming through here."
             }

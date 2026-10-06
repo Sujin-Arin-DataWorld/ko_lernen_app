@@ -933,12 +933,12 @@
       "decorationSlugs": [],
       "sources": [
         {
-          "title": "국립국어원 온라인가나다 존칭 여부",
-          "url": "https://korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=98&pageIndex=1&qna_seq=331085"
+          "title": "한국어기초사전 선배",
+          "url": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=66306"
         },
         {
-          "title": "한국어기초사전 대선배",
-          "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=49426"
+          "title": "한국어기초사전 후배",
+          "url": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=73247"
         }
       ]
     },
@@ -994,7 +994,7 @@
       "sources": [
         {
           "title": "한국어기초사전 회식",
-          "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=88144&blockCount=10&currentPage=1&exaType=&mainSearchWord=%EB%81%9D&nation=eng&nationCode=6&proverbType=&searchType=E&sort=W&viewType=A&wordMatchFlag=N"
+          "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=88144"
         }
       ]
     }

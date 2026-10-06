@@ -59,7 +59,7 @@
         {
           "korean": "존댓말",
           "kind": "term",
-          "attestedInDialog": true,
+          "attestedInDialog": false,
           "cultureTermId": null,
           "lexical": {
             "cefr": "A1",
@@ -84,6 +84,7 @@
           ],
           "classification": "at_or_below_target",
           "flags": [
+            "not_attested_in_dialog",
             "lexicon_live_level_mismatch"
           ],
           "recommendedAction": "keep"
@@ -177,7 +178,7 @@
         {
           "korean": "친해지다",
           "kind": "term",
-          "attestedInDialog": true,
+          "attestedInDialog": false,
           "cultureTermId": null,
           "lexical": {
             "cefr": "A1",
@@ -202,6 +203,7 @@
           ],
           "classification": "at_or_below_target",
           "flags": [
+            "not_attested_in_dialog",
             "lexicon_live_level_mismatch"
           ],
           "recommendedAction": "keep"
@@ -368,7 +370,7 @@
         {
           "korean": "분위기",
           "kind": "term",
-          "attestedInDialog": true,
+          "attestedInDialog": false,
           "cultureTermId": null,
           "lexical": {
             "cefr": "A2",
@@ -386,7 +388,9 @@
           },
           "liveVocabMatches": [],
           "classification": "at_or_below_target",
-          "flags": [],
+          "flags": [
+            "not_attested_in_dialog"
+          ],
           "recommendedAction": "keep"
         }
       ],
