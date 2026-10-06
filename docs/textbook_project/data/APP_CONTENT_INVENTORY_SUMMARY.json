@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "tools/textbook_project/build_content_inventory.py",
+  "totalTracked": 5961,
+  "expectedTotal": 5961,
+  "countChecks": {
+    "live_scenario": {
+      "expected": 191,
+      "actual": 191,
+      "pass": true
+    },
+    "canonical_scenario": {
+      "expected": 120,
+      "actual": 120,
+      "pass": true
+    },
+    "smalltalk_lesson": {
+      "expected": 209,
+      "actual": 209,
+      "pass": true
+    },
+    "listening_lesson": {
+      "expected": 191,
+      "actual": 191,
+      "pass": true
+    },
+    "cloze": {
+      "expected": 2365,
+      "actual": 2365,
+      "pass": true
+    },
+    "sentence_building": {
+      "expected": 2885,
+      "actual": 2885,
+      "pass": true
+    }
+  },
+  "surfaceCounts": {
+    "live_scenario": 191,
+    "canonical_scenario": 120,
+    "smalltalk_lesson": 209,
+    "listening_lesson": 191,
+    "cloze": 2365,
+    "sentence_building": 2885
+  },
+  "levelCounts": {
+    "A1": 1415,
+    "A2": 964,
+    "B1": 1189,
+    "B2": 1103,
+    "C1": 620,
+    "C2": 670
+  },
+  "mappedCount": 5634,
+  "unmappedCount": 327,
+  "unmappedBySurface": {
+    "live_scenario": 86,
+    "canonical_scenario": 49,
+    "smalltalk_lesson": 24,
+    "listening_lesson": 85,
+    "cloze": 83
+  },
+  "topicCounts": {
+    "arts_literature_history": 89,
+    "communication_phone_digital": 115,
+    "daily_life_routines": 356,
+    "economy_business_labour": 6,
+    "education_study": 216,
+    "environment_sustainability": 56,
+    "ethics_philosophy_abstract": 188,
+    "family_relationships": 1019,
+    "feelings_character": 185,
+    "food_drink": 165,
+    "free_time_hobbies_sport": 173,
+    "health_body": 105,
+    "house_home": 241,
+    "intercultural_globalisation_migration": 3,
+    "language_learning_communication_repair": 64,
+    "media_entertainment_culture_pop": 177,
+    "money_finance_contracts": 155,
+    "neighbourhood_environment": 98,
+    "numbers_time_dates": 203,
+    "personal_identification": 144,
+    "politics_law_institutions": 234,
+    "professional_specialised_fields": 38,
+    "science_research_evidence": 102,
+    "services_public_admin": 136,
+    "shopping_consumption": 168,
+    "social_etiquette_customs": 135,
+    "society_current_affairs": 234,
+    "technology_digital_ai": 215,
+    "transport_wayfinding": 98,
+    "travel_accommodation": 66,
+    "weather_nature_climate": 106,
+    "work_career": 344
+  },
+  "canonicalTopicCount": 32,
+  "policy": {
+    "researchCoverageDoesNotImplyApproval": true,
+    "unmappedItemsRequireManualReview": true,
+    "publicationDecisionDefault": "PENDING_AUDIT"
+  }
+}
