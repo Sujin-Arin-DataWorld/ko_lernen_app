@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "status": "review_only",
+  "arcs": [
+    {
+      "arcId": "relationship_language_in_daily_life",
+      "title": {
+        "ko": "관계 속에서 말투 고르기",
+        "de": "Sprechweise in Beziehungen wählen",
+        "en": "Choosing speech style in relationships"
+      },
+      "summary": {
+        "ko": "학교 동아리와 직장 회식처럼 실제 관계 상황에서 호칭·말투·참여 범위를 직접 확인하고 조율하는 이야기 묶음입니다.",
+        "de": "Ein Kulturpfad, der in echten Beziehungen wie Schulclub und Teamessen Anrede, Sprechweise und Teilnahmegrenzen direkt aushandelt.",
+        "en": "A culture path that directly negotiates forms of address, speech style, and participation boundaries in real situations such as a school club and team dinner."
+      },
+      "progressMode": "derived_read_only",
+      "steps": [
+        {
+          "scenarioId": "b1_jun_coding_club_speech_switch",
+          "personaIds": [
+            "jun"
+          ],
+          "termIds": [
+            "sunbae_hubae",
+            "jondaetmal_banmal"
+          ]
+        },
+        {
+          "scenarioId": "b1_minho_coworker_hoesik_leave_early",
+          "personaIds": [
+            "minho"
+          ],
+          "termIds": [
+            "hoesik"
+          ]
+        }
+      ]
+    },
+    {
+      "arcId": "patterns_repairs_and_spaces",
+      "title": {
+        "ko": "문양·수선·공간을 생활에서 만나기",
+        "de": "Muster, Reparatur und Raum im Alltag erleben",
+        "en": "Encountering motifs, repair, and space in everyday life"
+      },
+      "summary": {
+        "ko": "매화 문양을 고르고, 매듭 장식을 수선하고, 대청에 실제로 앉아 보는 생활 과업을 통해 문화 요소를 만나는 이야기 묶음입니다.",
+        "de": "Ein Kulturpfad, der Kultur durch alltägliche Aufgaben erlebt: ein Pflaumenblütenmotiv auswählen, einen Zierknoten reparieren und tatsächlich in einem Daecheong sitzen.",
+        "en": "A culture path that encounters culture through everyday tasks: choosing a plum-blossom motif, repairing a decorative knot, and actually sitting in a daecheong."
+      },
+      "progressMode": "derived_read_only",
+      "steps": [
+        {
+          "scenarioId": "a2_dongsun_christian_maehwa_gift",
+          "personaIds": [
+            "christian",
+            "dongsun"
+          ],
+          "termIds": [
+            "maehwa"
+          ]
+        },
+        {
+          "scenarioId": "b1_dongsun_customer_maedeup_repair",
+          "personaIds": [
+            "dongsun"
+          ],
+          "termIds": [
+            "maedeup"
+          ]
+        },
+        {
+          "scenarioId": "b1_byeongcheol_hyuna_daecheong_rest",
+          "personaIds": [
+            "hyuna",
+            "byeongcheol"
+          ],
+          "termIds": [
+            "daecheong"
+          ]
+        }
+      ]
+    }
+  ]
+}
