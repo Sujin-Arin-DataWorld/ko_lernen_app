@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "MICRO_SPLIT_V1",
+  "parents": [
+    {
+      "parentUnitId": "b1_04_relationships",
+      "book": "3B",
+      "microUnits": [
+        {
+          "microUnitId": "b1_04a_relationship_register",
+          "book": "3B",
+          "title": {
+            "ko": "관계의 거리와 말투",
+            "en": "Relationship distance & speech style",
+            "de": "Beziehungsnähe & Sprechstil"
+          },
+          "canDo": {
+            "ko": "친밀도와 관계 변화에 맞춰 말투를 조절하고 오해를 풀 수 있어요.",
+            "en": "I can adjust speech style to relationship distance and repair misunderstandings.",
+            "de": "Ich kann meinen Sprechstil an Nähe und Beziehung anpassen und Missverständnisse klären."
+          },
+          "assignedSourceCount": 214,
+          "roleCounts": {
+            "CORE": 13,
+            "RECYCLE": 193,
+            "OPTIONAL": 8
+          }
+        },
+        {
+          "microUnitId": "b1_04b_family_customs",
+          "book": "3B",
+          "title": {
+            "ko": "가족·호칭·선물과 명절",
+            "en": "Family, address terms, gifts & holidays",
+            "de": "Familie, Anrede, Geschenke & Feiertage"
+          },
+          "canDo": {
+            "ko": "가족 호칭과 방문·선물·명절 관습을 상황에 맞게 묻고 조율할 수 있어요.",
+            "en": "I can ask about and navigate family address terms, visits, gifts, and holiday customs.",
+            "de": "Ich kann Familienanreden, Besuche, Geschenke und Feiertagsbräuche erfragen und abstimmen."
+          },
+          "assignedSourceCount": 155,
+          "roleCounts": {
+            "OPTIONAL": 13,
+            "RECYCLE": 142
+          }
+        },
+        {
+          "microUnitId": "b1_04c_boundaries_private_life",
+          "book": "3B",
+          "title": {
+            "ko": "사생활·경계·민감한 질문",
+            "en": "Privacy, boundaries & sensitive questions",
+            "de": "Privatsphäre, Grenzen & sensible Fragen"
+          },
+          "canDo": {
+            "ko": "결혼·직장·종교·사생활처럼 민감한 질문에 경계를 세우고 부드럽게 화제를 조정할 수 있어요.",
+            "en": "I can set boundaries around sensitive questions and redirect a conversation tactfully.",
+            "de": "Ich kann bei sensiblen Fragen Grenzen setzen und das Gespräch taktvoll umlenken."
+          },
+          "assignedSourceCount": 67,
+          "roleCounts": {
+            "CORE": 2,
+            "RECYCLE": 65
+          }
+        }
+      ],
+      "manualReviewCount": 0
+    },
+    {
+      "parentUnitId": "b2_06_advanced_capstone",
+      "book": "4B",
+      "microUnits": [
+        {
+          "microUnitId": "b2_06a_society_environment",
+          "book": "4B",
+          "title": {
+            "ko": "사회·환경·공동체 판단",
+            "en": "Society, environment & community judgment",
+            "de": "Gesellschaft, Umwelt & gemeinschaftliche Entscheidungen"
+          },
+          "canDo": {
+            "ko": "공동체 문제에서 여러 이해관계를 비교하고 실행 가능한 절충안을 제안할 수 있어요.",
+            "en": "I can compare competing interests in community issues and propose workable compromises.",
+            "de": "Ich kann bei Gemeinschaftsfragen unterschiedliche Interessen abwägen und umsetzbare Kompromisse vorschlagen."
+          },
+          "assignedSourceCount": 143,
+          "roleCounts": {
+            "CORE": 9,
+            "RECYCLE": 134
+          }
+        },
+        {
+          "microUnitId": "b2_06b_media_culture_language",
+          "book": "4B",
+          "title": {
+            "ko": "미디어·문화·언어 해석",
+            "en": "Interpreting media, culture & language",
+            "de": "Medien, Kultur & Sprache interpretieren"
+          },
+          "canDo": {
+            "ko": "미디어와 문화 표현의 어감·맥락·관점을 비교해 해석할 수 있어요.",
+            "en": "I can interpret tone, context, and perspective in media and cultural language.",
+            "de": "Ich kann Ton, Kontext und Perspektive in Medien- und Kultursprache vergleichen und deuten."
+          },
+          "assignedSourceCount": 101,
+          "roleCounts": {
+            "CORE": 6,
+            "RECYCLE": 66,
+            "OPTIONAL": 29
+          }
+        },
+        {
+          "microUnitId": "b2_06c_ethics_responsibility",
+          "book": "4B",
+          "title": {
+            "ko": "윤리·관점·책임 조정",
+            "en": "Ethics, perspective & responsibility",
+            "de": "Ethik, Perspektive & Verantwortung"
+          },
+          "canDo": {
+            "ko": "가치 충돌에서 관점과 책임 범위를 구분하고 조건부 입장을 제시할 수 있어요.",
+            "en": "I can distinguish perspectives and responsibility in value conflicts and state a qualified position.",
+            "de": "Ich kann bei Wertekonflikten Perspektiven und Verantwortung unterscheiden und eine abgestufte Position formulieren."
+          },
+          "assignedSourceCount": 49,
+          "roleCounts": {
+            "CORE": 4,
+            "RECYCLE": 45
+          }
+        }
+      ],
+      "manualReviewCount": 0
+    }
+  ],
+  "manualMicroReviewCount": 0
+}
