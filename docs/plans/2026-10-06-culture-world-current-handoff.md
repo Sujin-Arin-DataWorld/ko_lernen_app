@@ -147,6 +147,43 @@ Preferred next batch:
 
 Do **not** reopen the completed 9-phase architecture unless a concrete defect is found.
 
+## Batch 39 expansion — drafted, not live
+
+After the 9/9 + quality-program closure, the next content-expansion batch was started through the existing authoring pipeline.
+
+Commit:
+- `91ab4eda8 feat(culture): draft batch 39 persona scenes`
+
+Status:
+- `review_only_draft`
+- **live scenario corpus remains 191**
+- promotion preview only: **191 → 196 scenarios**, **594 → 609 scenario quests**
+- 5 draft scenarios
+- 5 listening lessons / 20 listening questions
+- 5 scenario-culture links
+- 2 review-only derived story arcs
+- key vocab: **30 total / 6 culture anchors / 24 at-or-below target / 0 above-target / 0 unmapped**
+- focused authoring/integration regressions: **36 passed**
+- TTS: not generated
+
+Scenes:
+- `a2_andrea_minho_bojagi_housewarming` — Andrea × Minho — `bojagi`
+- `b1_minho_christian_hanok_cafe_meeting` — Christian × Minho — `hanok`, `madang`
+- `a2_lena_maya_buchae_gift_choice` — Lena × Maya — `buchae`
+- `b2_maya_daniel_pansori_promo_clip` — Maya × Daniel — `pansori`
+- `b2_hyuna_daniel_nongak_festival_filming` — Daniel × Hyuna — `nongak`
+
+Review-only arcs:
+- `culture_in_everyday_use`
+- `performance_in_context`
+
+Purpose:
+- activate Minho, currently the least-used recurring persona;
+- reuse existing glossary entries before adding more terms;
+- keep culture inside real tasks rather than exposition.
+
+Do **not** promote Batch 39 merely because the structural pipeline passes. The review ledger remains `draft` until learner-facing copy is reviewed/approved.
+
 ## Required reading for the next session
 
 1. `AGENTS.md`

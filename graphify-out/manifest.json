@@ -22302,9 +22302,75 @@
     "semantic_hash": ""
   },
   "docs/plans/2026-10-06-culture-world-current-handoff.md": {
-    "mtime": 1791306316.3540342,
-    "seen": 1791306768.5872536,
-    "ast_hash": "efa5ac181e79597f07c2db80087070eb",
+    "mtime": 1791308011.9795513,
+    "seen": 1791308693.329756,
+    "ast_hash": "dddbe6210ac3f1a8d532db78a5405f6f",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/drafts/batch_39_persona_culture_manifest.json": {
+    "mtime": 1791307601.786321,
+    "seen": 1791308692.7490473,
+    "ast_hash": "20b0299e808f41feb4ba23200fcfead3",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/drafts/persona_culture_authoring_brief_20261006.json": {
+    "mtime": 1791307830.1137526,
+    "seen": 1791308692.8160138,
+    "ast_hash": "9442fc508609b9d7a4c28adc21a1c8db",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/drafts/persona_culture_links_20261006.json": {
+    "mtime": 1791307528.9242072,
+    "seen": 1791308692.8171558,
+    "ast_hash": "67cb78a76e494f0cd9ca98aeefdd47cf",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/drafts/persona_culture_listening_20261006.json": {
+    "mtime": 1791307880.213622,
+    "seen": 1791308692.8179228,
+    "ast_hash": "5728ee1c8d6681f70aeadda5cbc3706c",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/drafts/persona_culture_scenarios_20261006.json": {
+    "mtime": 1791307830.1109626,
+    "seen": 1791308692.8210995,
+    "ast_hash": "aa0bccd28c9321859ad2fcadbe523254",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/drafts/persona_culture_story_arcs_20261006.json": {
+    "mtime": 1791307594.1824877,
+    "seen": 1791308692.821971,
+    "ast_hash": "6819bed0e42ec8db2d2198eeebeb316d",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/persona_culture_authoring_pipeline_20261006.json": {
+    "mtime": 1791307882.127226,
+    "seen": 1791308693.0740201,
+    "ast_hash": "1743ca7f4ecf4e11c3d4aa415fccb917",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/persona_culture_vocab_leveling_20261006.json": {
+    "mtime": 1791307880.9565368,
+    "seen": 1791308693.0758018,
+    "ast_hash": "355e197acc670bf91646e0cf126427a7",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/test_batch_39_persona_culture_draft.py": {
+    "mtime": 1791307920.6580372,
+    "seen": 1791308693.109969,
+    "ast_hash": "5459603bbfee9b1d564813b7673f8f67",
+    "semantic_hash": ""
+  },
+  "docs/plans/2026-10-06-persona-culture-batch39-design.md": {
+    "mtime": 1791307047.3082075,
+    "seen": 1791308693.3297625,
+    "ast_hash": "bb882e1bc74d2e9b8c2b7f9f7e19c88f",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/batch_39_persona_culture_review_packet.md": {
+    "mtime": 1791307880.9661067,
+    "seen": 1791308693.4287882,
+    "ast_hash": "67bdf2439cf57237e797d438dad7f79f",
     "semantic_hash": ""
   }
 }
