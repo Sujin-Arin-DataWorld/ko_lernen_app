@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "DRAFT_MATERIALIZED_NO_UNIT_EDITORIAL_PASS",
+  "unitId": "a1_08_clarify_repair",
+  "order": 8,
+  "titleKo": "못 들었을 때 다시 묻기",
+  "unitContract": "docs/textbook_project/data/ONE_A_UNIT_CONTRACTS_20261006.json",
+  "authoritativeScenarioId": "clarify_repeat",
+  "supplementarySourceIds": [
+    "bakery_queue",
+    "a1_w10_repeat",
+    "listening.a1.clarify_repeat",
+    "listening.a1.a1_w10_repeat"
+  ],
+  "nativeUsageTopics": [
+    "language_learning_communication_repair",
+    "social_etiquette_customs"
+  ],
+  "enLearnerRisks": [
+    "EN-A1-SPEECHLEVEL"
+  ],
+  "deLearnerRisks": [
+    "DE-A1-DU-SIE"
+  ],
+  "productiveGrammar": [
+    {
+      "form": "-아/어 주세요",
+      "function": "repeat/slow request"
+    },
+    {
+      "form": "무슨 N",
+      "function": "meaning question, chunk-first"
+    },
+    {
+      "form": "아니에요",
+      "function": "correct information"
+    }
+  ],
+  "recognitionOnly": [
+    {
+      "form": "-는데요",
+      "source": "bakery_queue",
+      "reason": "natural interpersonal softening but above productive target for this unit"
+    },
+    {
+      "form": "계신지",
+      "source": "bakery_queue",
+      "reason": "honorific embedded form; recognition/context only"
+    },
+    {
+      "form": "몰랐어요",
+      "source": "bakery_queue",
+      "reason": "past explanation; not target grammar here"
+    },
+    {
+      "form": "-ㄹ게요",
+      "source": "bakery_queue",
+      "reason": "promise/next action; recognition only"
+    },
+    {
+      "form": "뭐라고요?",
+      "reason": "intonation-sensitive and can sound surprised/challenging; recognition first"
+    }
+  ],
+  "surfacePolicy": {
+    "displayVsSpokenSeparated": true,
+    "romanization": false,
+    "ttsOwner": "Jin",
+    "audioGenerated": false
+  },
+  "editorialRequirements": [
+    "unit-specific Korean editorial pass",
+    "EN pedagogy pass",
+    "DE pedagogy pass",
+    "practice-bank selection",
+    "adult learner pilot"
+  ]
+}

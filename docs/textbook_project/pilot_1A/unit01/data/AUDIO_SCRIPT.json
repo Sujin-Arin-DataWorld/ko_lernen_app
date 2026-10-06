@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a1_01_greetings_hangul",
+  "status": "SCRIPT_ONLY_NO_TTS_GENERATION",
+  "ttsOwner": "Jin",
+  "tracks": [
+    {
+      "trackId": "u01_core_dialogue",
+      "type": "dialogue",
+      "relationshipContext": "처음 만난 입국 담당자와 여행자",
+      "lines": [
+        {
+          "speaker": "official",
+          "displaySurfaceKo": "안녕하세요. 여권 주세요.",
+          "spokenSurfaceKo": "안녕하세요. 여권 주세요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Hello. Your passport, please.",
+          "de": "Guten Tag. Ihren Reisepass, bitte."
+        },
+        {
+          "speaker": "user",
+          "displaySurfaceKo": "네, 여기 있어요.",
+          "spokenSurfaceKo": "네, 여기 있어요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Yes, here you are.",
+          "de": "Ja, hier bitte."
+        },
+        {
+          "speaker": "official",
+          "displaySurfaceKo": "한국은 처음이세요?",
+          "spokenSurfaceKo": "한국은 처음이세요?",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Is this your first time in Korea?",
+          "de": "Sind Sie zum ersten Mal in Korea?"
+        },
+        {
+          "speaker": "user",
+          "displaySurfaceKo": "죄송해요. 다시 말씀해 주세요.",
+          "spokenSurfaceKo": "죄송해요. 다시 말씀해 주세요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Sorry. Could you say that again?",
+          "de": "Entschuldigung. Bitte sagen Sie das noch einmal."
+        },
+        {
+          "speaker": "official",
+          "displaySurfaceKo": "한국이 처음이에요?",
+          "spokenSurfaceKo": "한국이 처음이에요?",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Is this your first time in Korea?",
+          "de": "Ist es Ihr erstes Mal in Korea?"
+        },
+        {
+          "speaker": "user",
+          "displaySurfaceKo": "네, 한국이 처음이에요.",
+          "spokenSurfaceKo": "네, 한국이 처음이에요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Yes, this is my first time in Korea.",
+          "de": "Ja, ich bin zum ersten Mal in Korea."
+        }
+      ]
+    }
+  ]
+}

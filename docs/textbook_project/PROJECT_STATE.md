@@ -254,3 +254,44 @@ PASS unit04 files=6 dialogue_lines=12 selected_practice=6
 3. Materialize the remaining seven 1A units from their locked contracts.
 4. Add print-layout/page-budget schema and teacher answer-key schema.
 5. Start learner pilot instrumentation before mass-authoring 1B.
+
+## 1A full materialization checkpoint — 2026-10-06
+
+All 8 Korean 1A units now exist as learner-facing packages.
+
+Reference vertical slice:
+- Unit 04: PILOT_VERTICAL_SLICE_DRAFT
+
+Materialized/no dedicated unit editorial pass yet:
+- Unit 01
+- Unit 02
+- Unit 03
+- Unit 05
+- Unit 06
+- Unit 07
+- Unit 08
+
+Package language surfaces:
+- STUDENT_EN x 8
+- STUDENT_DE x 8
+- WORKBOOK_EN x 8
+- WORKBOOK_DE x 8
+- teacher guide x 8
+- audio-script surface x 8
+
+Validation:
+PASS 1A_packages=8 localized_student_editions=16 localized_workbooks=16 dialogue_lines=55
+
+Localization correction completed:
+- no Korean editorial Can-do/problem prose in EN/DE student pages
+- German learner-risk explanations rendered in German
+- raw internal speaker IDs removed from learner-facing dialogue labels
+- assessment target strings cleaned of editor shorthand
+- display/spoken audio surfaces remain separated
+- TTS generation remains Jin-owned and disabled here
+
+Detailed report:
+docs/textbook_project/ONE_A_MATERIALIZATION_REPORT_20261006.md
+
+Next phase:
+unit-specific editorial passes for 01/02/08/03/06/07/05, then page-budget + pilot instrumentation.

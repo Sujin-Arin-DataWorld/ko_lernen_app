@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "DRAFT_MATERIALIZED_NO_UNIT_EDITORIAL_PASS",
+  "unitId": "a1_06_transport_directions",
+  "order": 6,
+  "titleKo": "교통에서 내릴 곳 말하기",
+  "unitContract": "docs/textbook_project/data/ONE_A_UNIT_CONTRACTS_20261006.json",
+  "authoritativeScenarioId": "taxi_kakao",
+  "supplementarySourceIds": [
+    "a1_w10_taxi_stay",
+    "a1_w10_wayfinding",
+    "listening.a1.taxi_kakao"
+  ],
+  "nativeUsageTopics": [
+    "transport_wayfinding"
+  ],
+  "enLearnerRisks": [
+    "EN-A1-E-ESEO",
+    "EN-A1-PARTICLES-OMIT-REPLACE"
+  ],
+  "deLearnerRisks": [
+    "DE-A1-E-ESEO-EURO",
+    "DE-A1-PARTICLE-CASE"
+  ],
+  "productiveGrammar": [
+    {
+      "form": "에",
+      "function": "destination/location"
+    },
+    {
+      "form": "에서",
+      "function": "action/source contrast, limited use"
+    },
+    {
+      "form": "(으)로",
+      "function": "direction/means, chunk-first"
+    },
+    {
+      "form": "-아/어 주세요",
+      "function": "request stop/direction",
+      "appAnchor": "grammar_a1_polite_request"
+    }
+  ],
+  "recognitionOnly": [
+    {
+      "form": "맞으시죠?",
+      "reason": "driver service-side confirmation; learner understands without productive analysis"
+    }
+  ],
+  "surfacePolicy": {
+    "displayVsSpokenSeparated": true,
+    "romanization": false,
+    "ttsOwner": "Jin",
+    "audioGenerated": false
+  },
+  "editorialRequirements": [
+    "unit-specific Korean editorial pass",
+    "EN pedagogy pass",
+    "DE pedagogy pass",
+    "practice-bank selection",
+    "adult learner pilot"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "DRAFT_MATERIALIZED_NO_UNIT_EDITORIAL_PASS",
+  "unitId": "a1_03_topic_subject_particles",
+  "order": 3,
+  "titleKo": "가게에서 물건 찾기",
+  "unitContract": "docs/textbook_project/data/ONE_A_UNIT_CONTRACTS_20261006.json",
+  "authoritativeScenarioId": "mart_grocery",
+  "supplementarySourceIds": [
+    "listening.a1.mart_grocery"
+  ],
+  "nativeUsageTopics": [
+    "shopping_consumption",
+    "house_home"
+  ],
+  "enLearnerRisks": [
+    "EN-A1-PARTICLES-OMIT-REPLACE",
+    "EN-A1-TOPIC-SUBJECT",
+    "EN-A1-E-ESEO"
+  ],
+  "deLearnerRisks": [
+    "DE-A1-PARTICLE-CASE",
+    "DE-A1-TOPIC-FOCUS",
+    "DE-A1-E-ESEO-EURO"
+  ],
+  "productiveGrammar": [
+    {
+      "form": "은/는",
+      "function": "established topic / contrast",
+      "appAnchor": "grammar_a1_topic_particle"
+    },
+    {
+      "form": "이/가",
+      "function": "subject/focus in identification/existence",
+      "appAnchor": "grammar_a1_subject_particle"
+    },
+    {
+      "form": "에 있다",
+      "function": "location/existence",
+      "appAnchor": "grammar_a1_direction_time_particle"
+    }
+  ],
+  "recognitionOnly": [],
+  "surfacePolicy": {
+    "displayVsSpokenSeparated": true,
+    "romanization": false,
+    "ttsOwner": "Jin",
+    "audioGenerated": false
+  },
+  "editorialRequirements": [
+    "unit-specific Korean editorial pass",
+    "EN pedagogy pass",
+    "DE pedagogy pass",
+    "practice-bank selection",
+    "adult learner pilot"
+  ]
+}
