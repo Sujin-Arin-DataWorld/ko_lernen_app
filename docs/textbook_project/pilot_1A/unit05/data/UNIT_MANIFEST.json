@@ -1,7 +1,8 @@
 {
   "schemaVersion": 1,
   "date": "2026-10-06",
-  "status": "DRAFT_MATERIALIZED_NO_UNIT_EDITORIAL_PASS",
+  "status": "MODEL_EDITORIAL_PASS_COMPLETE_HUMAN_REVIEW_OPEN",
+  "modelEditorialPassDate": "2026-10-06",
   "unitId": "a1_05_numbers_time",
   "order": 5,
   "titleKo": "시간 확인하기",
@@ -13,6 +14,7 @@
     "listening.a1.a1_w10_numbers"
   ],
   "nativeUsageTopics": [
+    "numbers_time_dates",
     "communication_phone_digital"
   ],
   "enLearnerRisks": [
@@ -33,6 +35,15 @@
       "appAnchor": "grammar_a1_copula_negation"
     }
   ],
+  "formulaicProduction": [
+    {
+      "form": "N시 어때요?",
+      "examples": [
+        "오후 한 시 어때요?"
+      ],
+      "reason": "high-value time-proposal chunk; broader 어때요? uses expand later"
+    }
+  ],
   "recognitionOnly": [],
   "surfacePolicy": {
     "displayVsSpokenSeparated": true,
@@ -41,10 +52,10 @@
     "audioGenerated": false
   },
   "editorialRequirements": [
-    "unit-specific Korean editorial pass",
-    "EN pedagogy pass",
-    "DE pedagogy pass",
-    "practice-bank selection",
+    "human Korean educator review",
+    "native EN pedagogy review",
+    "native DE pedagogy review",
+    "unit-specific practice-bank selection",
     "adult learner pilot"
   ]
 }

@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "MODEL_EDITORIAL_PASS_COMPLETE_HUMAN_REVIEW_OPEN",
+  "scope": [
+    "a1_01_greetings_hangul",
+    "a1_02_self_intro_identity",
+    "a1_03_topic_subject_particles",
+    "a1_05_numbers_time",
+    "a1_06_transport_directions",
+    "a1_07_contact_address",
+    "a1_08_clarify_repair"
+  ],
+  "qualityBoundary": {
+    "modelEditorialPassComplete": true,
+    "humanKoreanEducatorApproval": false,
+    "nativeEnglishPedagogyApproval": false,
+    "nativeGermanPedagogyApproval": false,
+    "adultLearnerPilotComplete": false,
+    "ttsGenerated": false
+  },
+  "decisions": [
+    {
+      "unitId": "a1_01_greetings_hangul",
+      "decisions": [
+        "Hangul Zero is an explicit prerequisite rather than duplicating alphabet instruction inside Unit 01.",
+        "이에요/예요 remains authentic input in the airport scene but active copula instruction begins in Unit 02.",
+        "감사합니다 is learner-usable as a fixed formulaic chunk; this does not imply productive control of 합니다체.",
+        "The unit stays focused on greeting + one repair request + thanks, reducing first-unit grammar load."
+      ],
+      "openHumanChecks": [
+        "service-scene naturalness",
+        "page density after Hangul Zero",
+        "audio intonation for 네?/네."
+      ]
+    },
+    {
+      "unitId": "a1_02_self_intro_identity",
+      "decisions": [
+        "Learner production uses the simpler frame 어디에서 왔어요? while authentic source input may retain 어디에서 오셨어요?.",
+        "Origin is taught as the lexical frame N에서 왔어요 rather than an abstract full paradigm.",
+        "Self-introduction remains a short exchange with return questions, not a memorized biography."
+      ],
+      "openHumanChecks": [
+        "natural EN/DE explanation of subject omission",
+        "whether one optional job/hobby follow-up should appear on page"
+      ]
+    },
+    {
+      "unitId": "a1_03_topic_subject_particles",
+      "decisions": [
+        "저기요 is promoted to a core service-attention chunk because it is central to the actual shop scene.",
+        "이/가 now appears in learner production through ___가 여기 있어요, aligning the unit title with its assessment.",
+        "Particle instruction stays context-first and explicitly avoids particle=English subject or particle=German case mappings."
+      ],
+      "openHumanChecks": [
+        "best mini-context pair for 은/는 vs 이/가",
+        "visual store-map design"
+      ]
+    },
+    {
+      "unitId": "a1_05_numbers_time",
+      "decisions": [
+        "A dedicated KO/EN/DE numbers_time_dates native-usage pass was added; Unit 05 no longer relies indirectly on messaging evidence.",
+        "Real scheduling is modeled as ask → propose → confirm/correct rather than as isolated number recitation.",
+        "오후 한 시 어때요? is formulaic production; broader 어때요? grammar is deferred.",
+        "Delay-message language such as 10분 정도 늦을 것 같아요 recycles in Unit 07 instead of overloading Unit 05."
+      ],
+      "openHumanChecks": [
+        "visual treatment of native vs Sino-Korean numbers",
+        "whether minutes beyond round times belong in 1A print or workbook only"
+      ]
+    },
+    {
+      "unitId": "a1_06_transport_directions",
+      "decisions": [
+        "Productive grammar was reduced from 에/에서/(으)로 all at once to 에 + polite request.",
+        "어디서 갈아타요? is kept as a high-value formulaic chunk; full 에서 contrast is recycled later.",
+        "(으)로 is not forced here simply because it belongs to the broader spatial system; Unit 07 provides a more natural means/channel use.",
+        "이 버스 ___에 가요? explicitly shows 에 in beginner production."
+      ],
+      "openHumanChecks": [
+        "local Seoul transit vocabulary capsule",
+        "map/exit visual design",
+        "audio clarity for 출구 numbers"
+      ]
+    },
+    {
+      "unitId": "a1_07_contact_address",
+      "decisions": [
+        "A third pedagogy layer was introduced: formulaicProduction = learner can use the chunk now while full grammar analysis is deferred.",
+        "Formulaic production includes -세요?, -(으)ㄹ까요?, -ㄹ게요 and -(으)ㄹ 것 같아요 in tightly bounded messaging chunks.",
+        "-(으)실래요? remains recognition-only at this stage.",
+        "Contact exchange is treated as a consent/boundary action, not an obligatory social step."
+      ],
+      "openHumanChecks": [
+        "current KakaoTalk terminology/screens",
+        "whether QR-code interaction remains evergreen enough for print",
+        "DE du/Sie wording by setting"
+      ]
+    },
+    {
+      "unitId": "a1_08_clarify_repair",
+      "decisions": [
+        "The productive repair set is limited to high-value forms: 다시 말씀해 주세요, 한 번만 더..., 천천히..., 잘 못 들었어요, 무슨 뜻이에요?, and short echo confirmation.",
+        "제가 잘 이해한 게 맞아요? moved to recognition/optional extension because its structure is dense for A1.",
+        "Authentic bakery-scene forms -는데요, 계신지, 몰랐어요 and -ㄹ게요 remain input-only.",
+        "The unit explicitly separates not hearing, not knowing meaning, and confirming information."
+      ],
+      "openHumanChecks": [
+        "intonation contrast for 뭐라고요?",
+        "whether casual 뭐라고 했어? should remain recognition in student page or teacher note only"
+      ]
+    }
+  ]
+}

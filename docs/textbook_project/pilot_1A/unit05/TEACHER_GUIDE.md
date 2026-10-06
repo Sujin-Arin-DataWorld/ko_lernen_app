@@ -24,6 +24,12 @@ Status: DRAFT_MATERIALIZED
 - N시에: time point
 - 아니에요: correction/negation
 
+## Formulaic production
+
+- N시 어때요?: 오후 한 시 어때요? — high-value time-proposal chunk; broader 어때요? uses expand later
+
+These are learner-usable chunks whose full grammar analysis is intentionally deferred.
+
 ## Recognition/context only
 
 - none

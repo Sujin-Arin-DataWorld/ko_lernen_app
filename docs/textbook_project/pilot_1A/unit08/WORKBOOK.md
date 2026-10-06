@@ -12,7 +12,6 @@ Read the core chunks and match each one to its communicative job.
 - 천천히 말씀해 주세요
 - 잘 못 들었어요
 - 무슨 뜻이에요?
-- 제가 잘 이해한 게 맞아요?
 - 13번이요?
 
 Functions:
@@ -46,6 +45,7 @@ The following may appear in authentic input but are not all active targets yet:
 - 몰랐어요
 - -ㄹ게요
 - 뭐라고요?
+- 제가 잘 이해한 게 맞아요?
 
 For each, write only:
 1. who might say it;

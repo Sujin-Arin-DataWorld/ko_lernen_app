@@ -38,8 +38,9 @@ Use only a change that makes sense in this scene.
 
 These forms may appear in authentic input:
 
+- 이에요/예요
 - -(으)시-
-- 합니다/합니다체 인사
+- 합니다체 어미 전반
 
 For each form, write:
 1. who says it;
@@ -69,10 +70,11 @@ Close the student pages.
 Produce:
 - 안녕하세요
 - 다시 말씀해 주세요
+- 감사합니다
 
 Recognize:
 - 네?
-- 감사합니다
+- 한국은 처음이세요?
 
 ## H. Self-check
 

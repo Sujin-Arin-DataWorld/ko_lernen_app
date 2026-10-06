@@ -46,7 +46,7 @@ Do not translate every word. Identify:
 ## 2. What you should be able to say
 
 - **저는 ___이에요/예요**
-- **어디에서 오셨어요?**
+- **어디에서 왔어요?**
 - **___에서 왔어요**
 - **이름을 다시 말해 주세요**
 - **저도 그래요/저도 좋아해요**
@@ -57,9 +57,11 @@ These are the productive chunks for this unit.
 
 - **은/는** — set personal topic
 - **이에요/예요** — identify self
-- **에서 오다** — origin/source
+- **N에서 왔어요** — origin/source
 
 The goal is not to memorize labels. Use the forms to solve the scene.
+
+
 
 ## 3. Understand first — do not overlearn yet
 

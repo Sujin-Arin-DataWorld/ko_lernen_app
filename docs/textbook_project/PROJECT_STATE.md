@@ -295,3 +295,41 @@ docs/textbook_project/ONE_A_MATERIALIZATION_REPORT_20261006.md
 
 Next phase:
 unit-specific editorial passes for 01/02/08/03/06/07/05, then page-budget + pilot instrumentation.
+
+## 1A model editorial pass + time evidence closeout — 2026-10-06
+
+Native-usage Batch 04 added:
+- numbers_time_dates
+- KO / EN / DE independent scheduling language
+- ask → propose → confirm/correct → delay/status interaction model
+- dedicated Unit 05 evidence gap is now closed
+
+Native topic coverage referenced by 1A contracts: 12 topics.
+
+Seven previously materialized units now have a model editorial pass:
+- 01 / 02 / 03 / 05 / 06 / 07 / 08
+
+Unit 04 remains the reference vertical slice.
+
+Major progression decisions:
+- Unit 01: Hangul Zero prerequisite; copula active work deferred to Unit 02; 감사합니다 formulaic.
+- Unit 02: N에서 왔어요 lexical frame; simpler productive 어디에서 왔어요?
+- Unit 03: 저기요 core; 이/가 appears in active production.
+- Unit 05: dedicated numbers/time corpus; N시 어때요? formulaic proposal.
+- Unit 06: reduce active spatial grammar to 에; 어디서 갈아타요? formulaic; (으)로 distributed later.
+- Unit 07: explicit productive grammar / formulaic production / recognition-only three-layer model.
+- Unit 08: dense confirmation phrase moved to optional recognition; repair core simplified.
+
+Model editorial audit:
+- docs/textbook_project/ONE_A_MODEL_EDITORIAL_AUDIT_20261006.md
+- docs/textbook_project/data/ONE_A_MODEL_EDITORIAL_AUDIT_20261006.json
+
+Human approval remains open:
+- Korean educator
+- EN pedagogy
+- DE pedagogy
+- adult learner pilot
+- final layout/audio
+
+Next phase:
+Phase 2C — page budget, exercise density, answer-key schema, pilot logging, print/app cross-links.

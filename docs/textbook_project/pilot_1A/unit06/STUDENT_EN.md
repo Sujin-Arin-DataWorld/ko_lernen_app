@@ -48,7 +48,7 @@ Do not translate every word. Identify:
 - **여기 세워 주세요**
 - **몇 번 출구예요?**
 - **어디서 갈아타요?**
-- **이 버스 ___ 가요?**
+- **이 버스 ___에 가요?**
 - **저기 앞에 세워 주세요**
 
 These are the productive chunks for this unit.
@@ -56,11 +56,16 @@ These are the productive chunks for this unit.
 ### Productive grammar
 
 - **에** — destination/location
-- **에서** — action/source contrast, limited use
-- **(으)로** — direction/means, chunk-first
 - **-아/어 주세요** — request stop/direction
 
 The goal is not to memorize labels. Use the forms to solve the scene.
+
+### Useful formulaic production
+
+- **어디서 갈아타요?** — use now as a fixed chunk: 어디서 갈아타요?
+
+Use these chunks now; study the full grammar later.
+
 
 ## 3. Understand first — do not overlearn yet
 

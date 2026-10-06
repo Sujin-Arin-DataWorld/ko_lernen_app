@@ -23,7 +23,13 @@ Status: DRAFT_MATERIALIZED
 
 - 은/는: set personal topic
 - 이에요/예요: identify self
-- 에서 오다: origin/source
+- N에서 왔어요: origin/source
+
+## Formulaic production
+
+- none
+
+These are learner-usable chunks whose full grammar analysis is intentionally deferred.
 
 ## Recognition/context only
 

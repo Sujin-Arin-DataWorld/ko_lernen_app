@@ -10,7 +10,6 @@ Match the Korean chunks to what they do in the situation.
 - 천천히 말씀해 주세요
 - 잘 못 들었어요
 - 무슨 뜻이에요?
-- 제가 잘 이해한 게 맞아요?
 - 13번이요?
 
 Do not translate word by word first. Identify the communicative job.
@@ -44,6 +43,7 @@ These forms may appear in authentic input:
 - 몰랐어요
 - -ㄹ게요
 - 뭐라고요?
+- 제가 잘 이해한 게 맞아요?
 
 For each form, write:
 1. who says it;

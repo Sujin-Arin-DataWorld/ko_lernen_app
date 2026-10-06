@@ -25,6 +25,12 @@ Status: DRAFT_MATERIALIZED
 - 무슨 N: meaning question, chunk-first
 - 아니에요: correct information
 
+## Formulaic production
+
+- none
+
+These are learner-usable chunks whose full grammar analysis is intentionally deferred.
+
 ## Recognition/context only
 
 - -는데요: natural interpersonal softening but above productive target for this unit
@@ -32,6 +38,7 @@ Status: DRAFT_MATERIALIZED
 - 몰랐어요: past explanation; not target grammar here
 - -ㄹ게요: promise/next action; recognition only
 - 뭐라고요?: intonation-sensitive and can sound surprised/challenging; recognition first
+- 제가 잘 이해한 게 맞아요?: useful confirmation phrase but structurally dense for 1A; recognition/optional extension only
 
 ## Teaching order
 

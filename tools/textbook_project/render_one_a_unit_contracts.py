@@ -31,6 +31,11 @@ def main():
         lines += [f"- {x}" for x in u["canDo"]]
         lines += ["","**Productive language**"]
         lines += [f"- {x['form']} — {x['function']}" for x in u["productiveGrammar"]]
+        if u.get("formulaicProduction"):
+            lines += ["","**Formulaic production — use now, analyze later**"]
+            for x in u["formulaicProduction"]:
+                examples=" / ".join(x.get("examples",[]))
+                lines.append(f"- {x['form']} — {examples} — {x['reason']}")
         lines += ["","**Core chunks**"]
         lines += [f"- {x}" for x in u["coreChunks"]]
         if u.get("recognitionOnly"):

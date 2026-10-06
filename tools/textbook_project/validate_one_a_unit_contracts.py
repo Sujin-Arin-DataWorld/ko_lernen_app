@@ -11,6 +11,7 @@ BATCHES = [
     ROOT / "docs" / "textbook_project" / "research" / "TIER1_NATIVE_USAGE_BATCH01_20261006.json",
     ROOT / "docs" / "textbook_project" / "research" / "TIER1_NATIVE_USAGE_BATCH02_20261006.json",
     ROOT / "docs" / "textbook_project" / "research" / "TIER1_NATIVE_USAGE_BATCH03_1A_READINESS_20261006.json",
+    ROOT / "docs" / "textbook_project" / "research" / "TIER1_NATIVE_USAGE_BATCH04_NUMBERS_TIME_20261006.json",
 ]
 
 EXPECTED_UNITS = [
@@ -76,6 +77,21 @@ def main():
 
         a = u["assessment"]
         assert a.get("mustProduce") and a.get("mustRecognize") and a.get("success")
+
+        formulaic = u.get("formulaicProduction", [])
+        f_forms = {x["form"] for x in formulaic}
+        r_forms = {x["form"] for x in u.get("recognitionOnly", [])}
+        assert not (f_forms & r_forms), (uid, "formulaic/recognition overlap", f_forms & r_forms)
+        for x in formulaic:
+            assert x.get("examples"), (uid, "formulaic examples missing", x["form"])
+            for example in x["examples"]:
+                assert example in u["coreChunks"], (uid, "formulaic example not in core", example)
+
+    contact = next(x for x in units if x["unitId"]=="a1_07_contact_address")
+    assert {"-세요?","-(으)ㄹ까요?","-ㄹ게요","-(으)ㄹ 것 같아요"} == {
+        x["form"] for x in contact.get("formulaicProduction", [])
+    }
+    assert {x["form"] for x in contact["recognitionOnly"]} == {"-(으)실래요?"}
 
     repair = units[-1]
     rec_forms = {x["form"] for x in repair["recognitionOnly"]}

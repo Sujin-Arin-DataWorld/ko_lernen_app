@@ -56,15 +56,22 @@ Diese Chunks gehören zur aktiven Produktion dieser Einheit.
 
 ### Produktive Grammatik
 
-- **이에요/예요** — aktive Form dieser Einheit
 - **-아/어 주세요** — aktive Form dieser Einheit
 
 Die Bezeichnungen sind nicht das Lernziel. Benutze die Formen, um die Situation zu lösen.
 
+### Nützliche feste Chunks für die aktive Produktion
+
+- **감사합니다** — jetzt als festen Chunk benutzen: 감사합니다
+
+Diese Chunks darfst du jetzt benutzen; die vollständige Grammatik kommt später.
+
+
 ## 3. Zuerst verstehen — noch nicht überlernen
 
+- **이에요/예요** — zunächst im Kontext erkennen
 - **-(으)시-** — zunächst im Kontext erkennen
-- **합니다/합니다체 인사** — zunächst im Kontext erkennen
+- **합니다체 어미 전반** — zunächst im Kontext erkennen
 
 Authentischer Input kann Formen enthalten, die noch über deinem aktiven Produktionsziel liegen. Verstehen ist hier genug.
 
@@ -131,11 +138,12 @@ Das solltest du produzieren können:
 
 - 안녕하세요
 - 다시 말씀해 주세요
+- 감사합니다
 
 Das solltest du erkennen können:
 
 - 네?
-- 감사합니다
+- 한국은 처음이세요?
 
 **Erfolg:** Das Gespräch nach einem Verständnisproblem weiterführen.
 

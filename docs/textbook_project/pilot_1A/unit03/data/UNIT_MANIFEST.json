@@ -1,7 +1,8 @@
 {
   "schemaVersion": 1,
   "date": "2026-10-06",
-  "status": "DRAFT_MATERIALIZED_NO_UNIT_EDITORIAL_PASS",
+  "status": "MODEL_EDITORIAL_PASS_COMPLETE_HUMAN_REVIEW_OPEN",
+  "modelEditorialPassDate": "2026-10-06",
   "unitId": "a1_03_topic_subject_particles",
   "order": 3,
   "titleKo": "가게에서 물건 찾기",
@@ -41,6 +42,7 @@
       "appAnchor": "grammar_a1_direction_time_particle"
     }
   ],
+  "formulaicProduction": [],
   "recognitionOnly": [],
   "surfacePolicy": {
     "displayVsSpokenSeparated": true,
@@ -49,10 +51,10 @@
     "audioGenerated": false
   },
   "editorialRequirements": [
-    "unit-specific Korean editorial pass",
-    "EN pedagogy pass",
-    "DE pedagogy pass",
-    "practice-bank selection",
+    "human Korean educator review",
+    "native EN pedagogy review",
+    "native DE pedagogy review",
+    "unit-specific practice-bank selection",
     "adult learner pilot"
   ]
 }

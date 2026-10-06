@@ -8,7 +8,7 @@ Match the Korean chunks to what they do in the situation.
 - 여기 세워 주세요
 - 몇 번 출구예요?
 - 어디서 갈아타요?
-- 이 버스 ___ 가요?
+- 이 버스 ___에 가요?
 - 저기 앞에 세워 주세요
 
 Do not translate word by word first. Identify the communicative job.

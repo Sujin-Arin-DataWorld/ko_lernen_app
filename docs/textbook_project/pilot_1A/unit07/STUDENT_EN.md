@@ -52,7 +52,6 @@ Do not translate every word. Identify:
 - **카톡 하세요?**
 - **카카오톡으로 연락할까요?**
 - **제가 카톡 보낼게요**
-- **연락처 알려 주실래요?**
 - **도착하면 연락할게요**
 - **10분 정도 늦을 것 같아요**
 
@@ -62,14 +61,22 @@ These are the productive chunks for this unit.
 
 - **(으)로** — channel/means, e.g. 카카오톡으로
 - **있어요** — presence/contact resource
-- **-아/어 주세요** — simple instruction/request
 
 The goal is not to memorize labels. Use the forms to solve the scene.
 
+### Useful formulaic production
+
+- **-세요?** — use now as a fixed chunk: 카톡 하세요?
+- **-(으)ㄹ까요?** — use now as a fixed chunk: 카카오톡으로 연락할까요?
+- **-ㄹ게요** — use now as a fixed chunk: 제가 카톡 보낼게요 / 도착하면 연락할게요
+- **-(으)ㄹ 것 같아요** — use now as a fixed chunk: 10분 정도 늦을 것 같아요
+
+Use these chunks now; study the full grammar later.
+
+
 ## 3. Understand first — do not overlearn yet
 
-- **-(으)ㄹ까요?** — high-value proposal chunk; production can begin as formula but full grammar analysis belongs later
-- **-ㄹ게요** — promise/intent chunk in messaging; recognition/formula only in early A1
+- **-(으)실래요?** — polite invitation/request form may be heard in contact exchange; not required learner production in 1A
 
 Authentic input can contain grammar above your current production target. Understanding it does not mean you must produce it now.
 

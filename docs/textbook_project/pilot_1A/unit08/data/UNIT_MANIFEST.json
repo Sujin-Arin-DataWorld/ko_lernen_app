@@ -1,7 +1,8 @@
 {
   "schemaVersion": 1,
   "date": "2026-10-06",
-  "status": "DRAFT_MATERIALIZED_NO_UNIT_EDITORIAL_PASS",
+  "status": "MODEL_EDITORIAL_PASS_COMPLETE_HUMAN_REVIEW_OPEN",
+  "modelEditorialPassDate": "2026-10-06",
   "unitId": "a1_08_clarify_repair",
   "order": 8,
   "titleKo": "못 들었을 때 다시 묻기",
@@ -37,6 +38,7 @@
       "function": "correct information"
     }
   ],
+  "formulaicProduction": [],
   "recognitionOnly": [
     {
       "form": "-는데요",
@@ -61,6 +63,10 @@
     {
       "form": "뭐라고요?",
       "reason": "intonation-sensitive and can sound surprised/challenging; recognition first"
+    },
+    {
+      "form": "제가 잘 이해한 게 맞아요?",
+      "reason": "useful confirmation phrase but structurally dense for 1A; recognition/optional extension only"
     }
   ],
   "surfacePolicy": {
@@ -70,10 +76,10 @@
     "audioGenerated": false
   },
   "editorialRequirements": [
-    "unit-specific Korean editorial pass",
-    "EN pedagogy pass",
-    "DE pedagogy pass",
-    "practice-bank selection",
+    "human Korean educator review",
+    "native EN pedagogy review",
+    "native DE pedagogy review",
+    "unit-specific practice-bank selection",
     "adult learner pilot"
   ]
 }

@@ -56,15 +56,22 @@ These are the productive chunks for this unit.
 
 ### Productive grammar
 
-- **이에요/예요** — basic copula identification
 - **-아/어 주세요** — polite request
 
 The goal is not to memorize labels. Use the forms to solve the scene.
 
+### Useful formulaic production
+
+- **감사합니다** — use now as a fixed chunk: 감사합니다
+
+Use these chunks now; study the full grammar later.
+
+
 ## 3. Understand first — do not overlearn yet
 
+- **이에요/예요** — appears naturally in the airport response; active copula work begins in Unit 02
 - **-(으)시-** — subject honorification appears in authentic service speech; do not teach as generic extra-politeness marker
-- **합니다/합니다체 인사** — recognize fixed service formulas before broader productive formal register
+- **합니다체 어미 전반** — full formal-style morphology is deferred; fixed greetings may still be used as chunks
 
 Authentic input can contain grammar above your current production target. Understanding it does not mean you must produce it now.
 
@@ -131,11 +138,12 @@ You must be able to produce:
 
 - 안녕하세요
 - 다시 말씀해 주세요
+- 감사합니다
 
 You must be able to recognize:
 
 - 네?
-- 감사합니다
+- 한국은 처음이세요?
 
 **Success:** Keep the interaction going after one comprehension breakdown.
 

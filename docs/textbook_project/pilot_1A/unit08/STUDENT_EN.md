@@ -50,7 +50,6 @@ Do not translate every word. Identify:
 - **천천히 말씀해 주세요**
 - **잘 못 들었어요**
 - **무슨 뜻이에요?**
-- **제가 잘 이해한 게 맞아요?**
 - **13번이요?**
 
 These are the productive chunks for this unit.
@@ -63,6 +62,8 @@ These are the productive chunks for this unit.
 
 The goal is not to memorize labels. Use the forms to solve the scene.
 
+
+
 ## 3. Understand first — do not overlearn yet
 
 - **-는데요** — natural interpersonal softening but above productive target for this unit
@@ -70,6 +71,7 @@ The goal is not to memorize labels. Use the forms to solve the scene.
 - **몰랐어요** — past explanation; not target grammar here
 - **-ㄹ게요** — promise/next action; recognition only
 - **뭐라고요?** — intonation-sensitive and can sound surprised/challenging; recognition first
+- **제가 잘 이해한 게 맞아요?** — useful confirmation phrase but structurally dense for 1A; recognition/optional extension only
 
 Authentic input can contain grammar above your current production target. Understanding it does not mean you must produce it now.
 

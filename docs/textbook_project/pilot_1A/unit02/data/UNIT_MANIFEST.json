@@ -1,7 +1,8 @@
 {
   "schemaVersion": 1,
   "date": "2026-10-06",
-  "status": "DRAFT_MATERIALIZED_NO_UNIT_EDITORIAL_PASS",
+  "status": "MODEL_EDITORIAL_PASS_COMPLETE_HUMAN_REVIEW_OPEN",
+  "modelEditorialPassDate": "2026-10-06",
   "unitId": "a1_02_self_intro_identity",
   "order": 2,
   "titleKo": "이름과 출신 말하기",
@@ -36,11 +37,12 @@
       "appAnchor": "grammar_a1_copula_polite"
     },
     {
-      "form": "에서 오다",
+      "form": "N에서 왔어요",
       "function": "origin/source",
       "mode": "lexical-frame"
     }
   ],
+  "formulaicProduction": [],
   "recognitionOnly": [
     {
       "form": "-(으)셨어요",
@@ -54,10 +56,10 @@
     "audioGenerated": false
   },
   "editorialRequirements": [
-    "unit-specific Korean editorial pass",
-    "EN pedagogy pass",
-    "DE pedagogy pass",
-    "practice-bank selection",
+    "human Korean educator review",
+    "native EN pedagogy review",
+    "native DE pedagogy review",
+    "unit-specific practice-bank selection",
     "adult learner pilot"
   ]
 }

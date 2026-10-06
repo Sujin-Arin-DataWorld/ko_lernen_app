@@ -23,7 +23,7 @@ This remains the deepest reference package and includes:
 - MODEL_EDITORIAL_AUDIT_20261006.md
 - audio script + publishing manifest
 
-### Materialized draft units
+### Model-editorial-pass units
 
 - Unit 01 — 첫 인사와 다시 묻기
 - Unit 02 — 이름과 출신 말하기
@@ -44,7 +44,11 @@ Each has:
 - data/AUDIO_SCRIPT.json
 
 Status for these seven:
-`DRAFT_MATERIALIZED_NO_UNIT_EDITORIAL_PASS`
+`MODEL_EDITORIAL_PASS_COMPLETE_HUMAN_REVIEW_OPEN`
+
+Model/editorial decisions are documented in:
+- `ONE_A_MODEL_EDITORIAL_AUDIT_20261006.md`
+- `data/ONE_A_MODEL_EDITORIAL_AUDIT_20261006.json`
 
 ## Localization architecture
 
@@ -99,32 +103,28 @@ Validator:
 
 Materialized does **not** mean publication-ready.
 
-Unit 04 has a model/editorial pass.
+All eight units now have a model/editorial pass.
 
-Units 01/02/03/05/06/07/08 still require:
-1. unit-specific Korean editorial review;
-2. EN pedagogy review;
-3. DE pedagogy review;
-4. practice-bank selection beyond the generic workbook scaffold;
+This does **not** replace:
+1. human Korean educator review;
+2. native EN pedagogy review;
+3. native DE pedagogy review;
+4. unit-specific practice-bank selection;
 5. adult learner pilot;
 6. page design and final audio review.
 
+Unit 04 remains the deepest vertical-slice reference.
+
 ## Next recommended phase
 
-### Phase 2B — editorialize the seven materialized units
+### Phase 2C — production architecture + pilot instrumentation
 
-Priority order:
-1. Unit 01 — because it establishes first-contact register and repair norms.
-2. Unit 02 — because topic/subject and identity explanation sets the grammatical voice of the book.
-3. Unit 08 — because repair strategy is a core learner-autonomy feature.
-4. Unit 03 — because 은/는 vs 이/가 and location particles are high-transfer-risk.
-5. Unit 06 — because EN/DE spatial transfer risks are strong.
-6. Unit 07 — because contact exchange and boundaries require pragmatic care.
-7. Unit 05 — because number-system design depends on page/visual treatment.
-
-After those editorial passes, lock:
-- page budget;
-- exercise density;
+Lock:
+- page budget per unit;
+- exercise density per skill;
 - answer-key schema;
 - learner-pilot logging;
-- print/app cross-links.
+- print/app cross-links;
+- human-review checklist.
+
+After those system constraints are fixed, refine all eight 1A units without allowing page count, exercise count or review evidence to drift.

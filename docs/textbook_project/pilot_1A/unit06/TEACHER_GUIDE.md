@@ -22,9 +22,13 @@ Status: DRAFT_MATERIALIZED
 ## Productive language
 
 - 에: destination/location
-- 에서: action/source contrast, limited use
-- (으)로: direction/means, chunk-first
 - -아/어 주세요: request stop/direction
+
+## Formulaic production
+
+- 어디서 갈아타요?: 어디서 갈아타요? — high-value transfer question; full 에서 contrast is recycled later
+
+These are learner-usable chunks whose full grammar analysis is intentionally deferred.
 
 ## Recognition/context only
 

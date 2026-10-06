@@ -8,7 +8,6 @@ Match the Korean chunks to what they do in the situation.
 - 카톡 하세요?
 - 카카오톡으로 연락할까요?
 - 제가 카톡 보낼게요
-- 연락처 알려 주실래요?
 - 도착하면 연락할게요
 - 10분 정도 늦을 것 같아요
 
@@ -38,8 +37,7 @@ Use only a change that makes sense in this scene.
 
 These forms may appear in authentic input:
 
-- -(으)ㄹ까요?
-- -ㄹ게요
+- -(으)실래요?
 
 For each form, write:
 1. who says it;

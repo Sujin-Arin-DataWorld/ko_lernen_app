@@ -1,6 +1,6 @@
 # Korean 1A Native-Usage Readiness — 2026-10-06
 
-The first three native-usage evidence batches now cover the major communicative domains used by 1A.
+Four native-usage evidence batches now cover the major communicative domains used by 1A, including a dedicated numbers/time scheduling pass.
 
 | 1A macro unit | Main evidence topics | Status |
 |---|---|---|
@@ -8,7 +8,7 @@ The first three native-usage evidence batches now cover the major communicative 
 | a1_02_self_intro_identity | personal_identification | READY_FOR_UNIT_CONTRACT |
 | a1_03_topic_subject_particles | shopping_consumption, house_home | READY_FOR_UNIT_CONTRACT |
 | a1_04_order_request_object | food_drink | READY_FOR_UNIT_CONTRACT |
-| a1_05_numbers_time | communication_phone_digital + existing Level Bible | READY_FOR_UNIT_CONTRACT |
+| a1_05_numbers_time | numbers_time_dates, communication_phone_digital | READY_FOR_UNIT_CONTRACT |
 | a1_06_transport_directions | transport_wayfinding | READY_FOR_UNIT_CONTRACT |
 | a1_07_contact_address | communication_phone_digital, personal_identification | READY_FOR_UNIT_CONTRACT |
 | a1_08_clarify_repair | language_learning_communication_repair | READY_FOR_UNIT_CONTRACT |
@@ -26,11 +26,15 @@ It does **not** mean:
 - learner-error explanations are complete;
 - audio has been generated.
 
-## Next gate
+## Current gate
 
-Before writing the final 1A student pages:
-- build English-L1 and German-L1 error/transfer notes;
-- lock Hangul Zero;
-- produce per-unit contracts with can-do, relationship, grammar, vocabulary, pronunciation, pragmatics, culture, input/output tasks, assessment and recycling.
+The native-usage prerequisite is now complete for all eight 1A unit contracts.
 
-The native-usage research is now sufficient to start that work without inventing dialogue style from scratch.
+Already completed:
+- English-L1 / German-L1 transfer matrix;
+- Hangul Zero;
+- eight 1A unit contracts;
+- localized EN/DE materialization;
+- Unit 04 reference vertical slice.
+
+Remaining quality work is unit-specific editorial review, print/page design, and adult learner pilot evidence rather than missing native-usage coverage.

@@ -45,8 +45,10 @@ Do not translate every word. Identify:
 
 ## 2. What you should be able to say
 
+- **저기요**
 - **___는 어디에 있어요?**
 - **___에 있어요**
+- **___가 여기 있어요**
 - **이거 ___예요?**
 - **아니요, 그건 ___예요**
 - **그럼 이거예요?**
@@ -60,6 +62,8 @@ These are the productive chunks for this unit.
 - **에 있다** — location/existence
 
 The goal is not to memorize labels. Use the forms to solve the scene.
+
+
 
 ## 3. Understand first — do not overlearn yet
 
@@ -134,6 +138,7 @@ You must be able to produce:
 
 - ___는 어디에 있어요?
 - ___에 있어요
+- ___가 여기 있어요
 
 You must be able to recognize:
 
