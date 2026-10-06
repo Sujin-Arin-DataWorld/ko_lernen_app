@@ -30,6 +30,10 @@ import sys
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
+DIALOGUE_AUTHORING_CONTRACT = (
+    "tools/content_factory/canonical_scenarios/"
+    "dialogue_authoring_contract_20261006.json"
+)
 SCRIPT_DIR = Path(__file__).resolve().parent
 TOOL_DIR = ROOT / "tool"
 for path in (SCRIPT_DIR, TOOL_DIR):
@@ -316,6 +320,32 @@ def _validate_authoring_brief(
         raise PersonaCulturePipelineError(
             "authoring brief must use schemaVersion 1 and status review_only"
         )
+    if brief.get("dialogueAuthoringContract") != DIALOGUE_AUTHORING_CONTRACT:
+        raise PersonaCulturePipelineError(
+            "authoring brief must reference the canonical dialogue authoring contract"
+        )
+    contract_path = _under_root(
+        DIALOGUE_AUTHORING_CONTRACT,
+        "dialogueAuthoringContract",
+    )
+    contract = _read_json(contract_path, "dialogue authoring contract")
+    if contract.get("status") != "CANONICAL":
+        raise PersonaCulturePipelineError(
+            "dialogue authoring contract must have status CANONICAL"
+        )
+    principles = contract.get("principles")
+    if not isinstance(principles, dict):
+        raise PersonaCulturePipelineError(
+            "dialogue authoring contract principles must be an object"
+        )
+    if not principles.get("relationshipBeforeTopic"):
+        raise PersonaCulturePipelineError(
+            "dialogue authoring contract must enforce relationshipBeforeTopic"
+        )
+    if not principles.get("languageMiningAfterDialogue"):
+        raise PersonaCulturePipelineError(
+            "dialogue authoring contract must enforce languageMiningAfterDialogue"
+        )
     rows = brief.get("scenes")
     if not isinstance(rows, list) or any(not isinstance(item, dict) for item in rows):
         raise PersonaCulturePipelineError("authoring brief scenes must be an array of objects")
@@ -446,6 +476,7 @@ def _validate_authoring_brief(
     return {
         "path": _repo_path(brief_path),
         "sceneCount": len(rows),
+        "dialogueAuthoringContract": DIALOGUE_AUTHORING_CONTRACT,
         "relationChecks": relation_checks,
     }
 
@@ -666,6 +697,8 @@ def run_pipeline(
     report = {
         "schemaVersion": 1,
         "status": report_status,
+        "dialogueAuthoringContract": DIALOGUE_AUTHORING_CONTRACT,
+        "dialogueAuthoringContractRequiredForFuturePersonaDialogue": True,
         "manifest": _repo_path(manifest_path),
         "batch": manifest.get("batch"),
         "scenarioCount": amount,

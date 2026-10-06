@@ -765,11 +765,13 @@ class TestVocabUnknownRatio(unittest.TestCase):
 class TestSentenceUnknownRatio(unittest.TestCase):
     """Ratchet sentence unknown-token ratio over every cloze fullKo.
 
-    The original R3 acceptance ceiling was 12%; C7-4's fused-past repair
-    lowers the live ratio to ~1.92%, which is now the ratchet baseline.
+    The original R3 acceptance ceiling was 12%; C7-4 lowered the live ratio
+    to ~1.92%, Living Korea first-wave repairs lowered it below 1.89%, and
+    second-wave conversational repairs lower it again to ~1.86%. The ratchet
+    is now 1.87%.
     """
 
-    CAP_UNKNOWN_RATIO = 0.0193
+    CAP_UNKNOWN_RATIO = 0.0187
 
     @classmethod
     def setUpClass(cls):
@@ -1801,6 +1803,111 @@ class TestT25LevelExceptionsGoldenCases(unittest.TestCase):
         profile = self.lex.sentence_profile("한국에서 산 지 오래됐어요.", self.gi)
         self.assertTrue(profile.tokens)
         self.assertNotIn("한지", [word.matched for word in profile.tokens])
+
+
+class TestLivingKoreaD4SurfaceMorphology(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.lex = cl.CefrLexicon.load()
+        cls.gi = cl.GrammarIndex.load()
+
+    CASES = [
+        ("어떨까요?", "어떻다"),
+        ("누르래요.", "누르다"),
+        ("마세요.", "말다"),
+        ("다르대.", "다르다"),
+        ("왔대.", "오다"),
+        ("눌렀냐?", "누르다"),
+        ("할게.", "하다"),
+        ("보내", "보내다"),
+        ("보내서", "보내다"),
+        ("빼가는", "빼다"),
+        ("있다던데.", "있다"),
+        ("조심해야겠어.", "조심하다"),
+        ("들어가서", "들어가다"),
+        ("써서", "쓰다"),
+        ("알려줘야겠다.", "알려주다"),
+        ("왔다는데", "오다"),
+        ("눌렀대지?", "누르다"),
+        ("정해야겠네요.", "정하다"),
+        ("순서겠네요.", "순서"),
+        ("봐야겠죠.", "보다"),
+        ("드나드는", "드나들다"),
+        ("볼까요?", "보다"),
+        ("봐야겠지요.", "보다"),
+        ("합시다.", "하다"),
+        ("나거나", "나다"),
+        ("할지", "하다"),
+        ("거야?", "것"),
+        ("없애야겠네.", "없애다"),
+        ("겁니다.", "것"),
+        ("만들어야겠네요.", "만들다"),
+        ("맡을게.", "맡다"),
+        ("불러서", "부르다"),
+        ("드는", "들다"),
+        ("올리자니", "올리다"),
+        ("나겠다", "나다"),
+        ("올려야겠네", "올리다"),
+        ("무서우면", "무섭다"),
+        ("쓰려다가", "쓰다"),
+        ("거니까요.", "것"),
+        ("통제죠.", "통제"),
+        ("입는구나", "입다"),
+        ("만드는", "만들다"),
+        ("어떠세요?", "어떻다"),
+        ("않을게.", "않다"),
+        ("있을게.", "있다"),
+        ("하잖아.", "하다"),
+        ("재밌겠다.", "재밌다"),
+        ("있거든.", "있다"),
+        ("그렇긴", "그렇다"),
+    ]
+
+    def test_living_korea_normal_surfaces_resolve_to_dictionary_forms(self):
+        for surface, expected in self.CASES:
+            with self.subTest(surface=surface):
+                token = cl._normalize_token(surface)
+                wg = self.lex._resolve_eojeol(token)
+                self.assertEqual(wg.matched, expected)
+                self.assertIsNotNone(wg.grade)
+
+    def test_living_korea_surface_repairs_remove_unknowns_in_context(self):
+        sentences = [
+            "자세한 설명은 정보 화면에 두면 어떨까요?",
+            "이 링크를 누르래요.",
+            "바로 누르지 마세요.",
+            "쉬는 시간 규칙도 조금 다르대.",
+            "엄마한테 문자가 왔대.",
+            "링크는 눌렀냐?",
+            "판단은 내가 할게.",
+            "돈 보내 달라는 연락도 확인하고.",
+            "택배 문자로 링크 보내서 개인정보 빼가는 피싱도 있다던데.",
+            "정말 조심해야겠어.",
+            "앱 들어가서 확인했어.",
+            "이메일이라도 써서 알려줘야겠다.",
+            "엄마한테 문자가 왔다는데.",
+            "링크 안 눌렀대지?",
+        ]
+        for sentence in sentences:
+            with self.subTest(sentence=sentence):
+                profile = self.lex.sentence_profile(sentence, self.gi)
+                repaired_surfaces = {
+                    cl._normalize_token(surface)
+                    for surface, _ in self.CASES
+                }
+                self.assertFalse(
+                    repaired_surfaces.intersection(profile.unknown),
+                    msg=(sentence, profile.unknown),
+                )
+
+    def test_person_name_vocative_and_chat_laughter_are_not_vocab_unknowns(self):
+        profile = self.lex.sentence_profile(
+            "수진아, 고마워. 사랑해 ㅎㅎ",
+            self.gi,
+        )
+        self.assertNotIn("수진아,", profile.unknown)
+        self.assertNotIn("ㅎㅎ", profile.unknown)
+        self.assertIn("수진", profile.proper_nouns)
 
 
 class TestC7ReviewedUnknownOwners(unittest.TestCase):

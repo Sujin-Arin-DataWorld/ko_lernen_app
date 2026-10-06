@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "status": "CANONICAL",
+  "effectiveDate": "2026-10-06",
+  "scope": "All new or materially revised KO->EN/DE persona dialogue, scenarios, listening dialogue, quest copy, culture cards, and future live promotions.",
+  "dependencies": {
+    "koreanDialogueContract": "tools/content_factory/canonical_scenarios/dialogue_authoring_contract_20261006.json",
+    "nativeUsageRegistry": "tools/content_factory/canonical_scenarios/trilingual_native_usage_registry_20261006.json",
+    "contentTopicCoverageLedger": "tools/content_factory/review/trilingual_content_topic_coverage_20261006.json",
+    "nativeUsageProgressReport": "tools/content_factory/review/trilingual_native_usage_progress_20261006.json",
+    "existingLocalizationResearch": "docs/LOCALIZATION_DEEP_DIVE_2026-06-09.md"
+  },
+  "principles": {
+    "koreanIsSemanticPragmaticSourceOfTruth": true,
+    "englishAuthoredDirectlyFromKorean": true,
+    "germanAuthoredDirectlyFromKorean": true,
+    "englishAndGermanMustNotBeTranslationChains": true,
+    "topicNativeUsageProfileRequired": true,
+    "relationshipAndPersonaFidelityRequired": true,
+    "pedagogicalAlignmentRequired": true,
+    "displayAndSpokenSurfacesSeparate": true,
+    "researchCoverageDoesNotImplyContentApproval": true
+  },
+  "localizationSpineRequiredFields": [
+    "semanticCore",
+    "speechAct",
+    "relationship",
+    "authority",
+    "tone",
+    "humanBeat",
+    "mustPreserve",
+    "mayAdapt",
+    "mustNotBecome",
+    "registerLane"
+  ],
+  "surfacePolicies": {
+    "characterDialogue": {
+      "freedom": "high",
+      "rule": "Preserve semantic/pragmatic spine and character relationship while allowing native word order, idiom, discourse markers, humor form, contractions and modal particles."
+    },
+    "spokenDialogue": {
+      "freedom": "high_with_spoken_gate",
+      "rule": "Create a spoken surface when display text contains chat-only markers or orthography. Never synthesize ㅋㅋ/ㅎㅎ/lol/chat abbreviations mechanically."
+    },
+    "questMeaningAndOptions": {
+      "freedom": "low",
+      "rule": "Preserve pedagogical contrast and Korean meaning closely enough that answer correctness and distractor logic do not change."
+    },
+    "grammarExplanation": {
+      "freedom": "medium_low",
+      "rule": "Prefer clear pedagogical language; accuracy of the Korean grammar function outranks stylistic creativity."
+    },
+    "cultureCard": {
+      "freedom": "medium",
+      "rule": "Use natural editorial language while preserving sourced facts, uncertainty, scope and culture-term boundaries."
+    },
+    "officialFactOrSafetyNote": {
+      "freedom": "low",
+      "rule": "Terminology and factual claims require authoritative-source alignment; community corpus supports wording only."
+    }
+  },
+  "languagePolicies": {
+    "en": {
+      "target": "natural contemporary English",
+      "relationshipEncoding": "Use directness, hedging, names, contractions, rhythm and stance rather than inventing honorific morphology.",
+      "defaultConversationalRule": "Prefer ordinary contractions and spoken collocations when the scene is casual.",
+      "avoid": [
+        "Korean sentence-structure leakage",
+        "literal honorific translation",
+        "bureaucratic wording in family/friend dialogue",
+        "voice phishing as a universal casual label for unrelated scam channels"
+      ]
+    },
+    "de": {
+      "target": "natural contemporary German",
+      "relationshipEncoding": "Choose du/Sie from relationship and setting, never mechanically from Korean speech level.",
+      "defaultConversationalRule": "Use natural particles/collocations such as ja, doch, mal, eben, halt only where they serve the actual pragmatic function.",
+      "avoid": [
+        "automatic 해요체 -> Sie mapping",
+        "Fachdeutsch in ordinary private dialogue",
+        "word-for-word Korean discourse-marker substitution",
+        "regional labels treated as universal German"
+      ]
+    }
+  },
+  "nativeUsageGate": {
+    "requiredProfileStatus": "deep_pass_complete",
+    "requiredLanguages": ["ko", "en", "de"],
+    "requireCategoryShiftRisks": true,
+    "requirePedagogicalAlignmentNotes": true,
+    "requireTranslationeseWarningsPerLanguage": true,
+    "requireResearchDatePerLanguage": true,
+    "requireAuthoritativeTermCheckWhenTopicRequiresIt": true
+  },
+  "qualityDimensions": [
+    "semantic accuracy",
+    "native fluency",
+    "terminology",
+    "locale conventions",
+    "relationship fidelity",
+    "persona fidelity",
+    "pragmatic equivalence",
+    "human-beat/humor equivalence",
+    "pedagogical alignment",
+    "register fidelity",
+    "display-vs-spoken suitability"
+  ],
+  "promotionPolicy": {
+    "legacyGrandfathering": "Existing promotion batches 1-38 are not retroactively blocked by this contract.",
+    "futureScenarioBatchFloor": 39,
+    "requiredManifestFields": [
+      "localizationContract",
+      "nativeUsageTopicIds"
+    ],
+    "localizationContractValue": "tools/content_factory/canonical_scenarios/dialogue_localization_contract_20261006.json",
+    "rule": "Any scenario batch 39+ promoted through integrate_scenario_batch.py must declare the canonical localization contract and every canonical native-usage topic it depends on. Every declared topic must satisfy the deep-pass gate before live promotion."
+  },
+  "ttsBoundary": {
+    "ttsOwner": "Jin",
+    "contentFactoryGeneratesTts": false,
+    "rule": "Localization may prepare spoken-surface text/notes but must not synthesize or overwrite TTS."
+  }
+}

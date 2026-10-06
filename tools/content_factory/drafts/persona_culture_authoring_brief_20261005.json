@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "status": "review_only",
   "purpose": "Pre-script authoring contract for persona-led culture scenes. This file declares who is present, why the scene exists, which cultural terms belong to it, and which persona boundaries must remain intact.",
+  "dialogueAuthoringContract": "tools/content_factory/canonical_scenarios/dialogue_authoring_contract_20261006.json",
   "scenes": [
     {
       "scenarioId": "b1_dongsun_norigae_shop_post",

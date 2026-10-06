@@ -706,6 +706,71 @@ _STEM_HOMOGRAPH_OVERRIDE_MAP: Mapping[str, str] = {
     "비싸": "비싸다",
 }
 
+# D-4 Living Korea morphology audit: exact, learner-facing colloquial/polite
+# surfaces that are normal Korean but are unsafe to recover through a broad
+# generic ending rule. Keeping these as exact surface -> dictionary-form
+# repairs avoids widening ENDINGS in ways that would collide with nouns or
+# unrelated stems elsewhere in the corpus.
+_SURFACE_LEMMA_OVERRIDE_MAP: Mapping[str, str] = {
+    "어떨까요": "어떻다",
+    "누르래요": "누르다",
+    "마세요": "말다",
+    "다르대": "다르다",
+    "왔대": "오다",
+    "눌렀냐": "누르다",
+    "할게": "하다",
+    "보내": "보내다",
+    # Living Korea first-wave conversational surfaces retained after Jin's
+    # dialogue review. Exact repairs are intentionally narrow so colloquial
+    # forms do not require broad, collision-prone ending rules.
+    "보내서": "보내다",
+    "빼가는": "빼다",
+    "있다던데": "있다",
+    "조심해야겠어": "조심하다",
+    "들어가서": "들어가다",
+    "써서": "쓰다",
+    "알려줘야겠다": "알려주다",
+    "왔다는데": "오다",
+    "눌렀대지": "누르다",
+    # Living Korea second-wave surfaces found in natural work/family,
+    # fieldwork, and safety dialogue. Exact repairs remain intentionally
+    # narrow to avoid broad ending collisions.
+    "정해야겠네요": "정하다",
+    "순서겠네요": "순서",
+    "봐야겠죠": "보다",
+    "드나드는": "드나들다",
+    "볼까요": "보다",
+    "봐야겠지요": "보다",
+    "합시다": "하다",
+    "나거나": "나다",
+    # Living Korea second-wave conversational QA after humor/pass review.
+    "할지": "하다",
+    "거야": "것",
+    "없애야겠네": "없애다",
+    "겁니다": "것",
+    "만들어야겠네요": "만들다",
+    "맡을게": "맡다",
+    "불러서": "부르다",
+    "드는": "들다",
+    "올리자니": "올리다",
+    "나겠다": "나다",
+    "올려야겠네": "올리다",
+    "무서우면": "무섭다",
+    "쓰려다가": "쓰다",
+    "거니까요": "것",
+    "통제죠": "통제",
+    "입는구나": "입다",
+    "만드는": "만들다",
+    "어떠세요": "어떻다",
+    "않을게": "않다",
+    "있을게": "있다",
+    # User-reviewed second-wave Gyeongju/electrical dialogue.
+    "하잖아": "하다",
+    "재밌겠다": "재밌다",
+    "있거든": "있다",
+    "그렇긴": "그렇다",
+}
+
 
 def _irregular_repair(stem: str) -> Optional[str]:
     """Try every hand-curated irregular-conjugation table against `stem`
@@ -2407,6 +2472,15 @@ class CefrLexicon:
             return None
         if token in self._proper_nouns:
             return token
+        # Living Korea D-4 follow-up: ordinary Korean vocatives attach
+        # -아/-야 directly to a person's name (수진아, 준아, ...). Treat
+        # that surface as the same deliberately-ungraded proper noun before
+        # generic morphology, but only when the stripped root is already in
+        # the curated proper-noun set.
+        if len(token) > 1 and token[-1] in {"아", "야"}:
+            vocative_root = token[:-1]
+            if vocative_root in self._proper_nouns:
+                return vocative_root
         root = _strip_one_particle(token)
         if root != token and root in self._proper_nouns:
             return root
@@ -2606,6 +2680,17 @@ class CefrLexicon:
         if pronoun_contraction is not None:
             wg = self.word_grade(pronoun_contraction)
             return WordGrade(wg.grade, wg.cefr, wg.source, token, wg.confidence_override)
+        surface_override = _SURFACE_LEMMA_OVERRIDE_MAP.get(token)
+        if surface_override is not None:
+            wg = self.word_grade(surface_override)
+            if wg.grade is not None:
+                return WordGrade(
+                    wg.grade,
+                    wg.cefr,
+                    wg.source,
+                    surface_override,
+                    wg.confidence_override,
+                )
         exact = self._exact_headword_lookup(token)
         if exact.grade is not None:
             return WordGrade(exact.grade, exact.cefr, exact.source, token, exact.confidence_override)
@@ -2651,6 +2736,11 @@ class CefrLexicon:
         for index, raw in enumerate(eojeols):
             token = _normalize_token(raw)
             if not token:
+                continue
+            # Pure Korean chat-laughter markers are paralinguistic, not
+            # vocabulary burden. Keep them in learner-facing dialogue while
+            # excluding them from CEFR unknown-token accounting.
+            if all(char in {"ㅋ", "ㅎ"} for char in token):
                 continue
             resolved = self._resolve_eojeol(token)
             # In V-고 싶다 the immediately preceding -고 form is verbal,

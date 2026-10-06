@@ -32,6 +32,89 @@ import scenario_store
 
 
 class ScenarioBatchTransactionTest(unittest.TestCase):
+    def _native_usage_gate_root(self, directory: str) -> Path:
+        repository = SCRIPT_DIR.parents[1]
+        root = Path(directory) / "repo"
+        for relative in (
+            Path("tools/content_factory/canonical_scenarios/dialogue_localization_contract_20261006.json"),
+            Path("tools/content_factory/canonical_scenarios/trilingual_native_usage_registry_20261006.json"),
+        ):
+            target = root / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(repository / relative, target)
+        return root
+
+    def test_future_promotion_requires_localization_contract_and_topic_ids(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = self._native_usage_gate_root(directory)
+            manifest_path = root / "tools/content_factory/drafts/batch_39_manifest.json"
+            with self.assertRaisesRegex(
+                ScenarioIntegrationError,
+                "must reference",
+            ):
+                integration._validate_native_usage_promotion_gate(
+                    root,
+                    manifest_path,
+                    {},
+                    39,
+                )
+            with self.assertRaisesRegex(
+                ScenarioIntegrationError,
+                "nativeUsageTopicIds",
+            ):
+                integration._validate_native_usage_promotion_gate(
+                    root,
+                    manifest_path,
+                    {
+                        "localizationContract": integration.LOCALIZATION_CONTRACT,
+                    },
+                    39,
+                )
+
+    def test_future_promotion_accepts_declared_deep_pass_topic(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = self._native_usage_gate_root(directory)
+            manifest_path = root / "tools/content_factory/drafts/batch_39_manifest.json"
+            integration._validate_native_usage_promotion_gate(
+                root,
+                manifest_path,
+                {
+                    "localizationContract": integration.LOCALIZATION_CONTRACT,
+                    "nativeUsageTopicIds": ["family_relationships"],
+                },
+                39,
+            )
+
+    def test_future_promotion_rejects_topic_when_one_language_loses_deep_pass(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = self._native_usage_gate_root(directory)
+            registry_path = root / integration.NATIVE_USAGE_REGISTRY
+            registry = json.loads(registry_path.read_text(encoding="utf-8"))
+            target = next(
+                row
+                for row in registry["topics"]
+                if row["topicId"] == "family_relationships"
+            )
+            target["de"]["nativeUsageProfileStatus"] = "pending_broad_pass"
+            registry_path.write_text(
+                json.dumps(registry, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
+            manifest_path = root / "tools/content_factory/drafts/batch_39_manifest.json"
+            with self.assertRaisesRegex(
+                ScenarioIntegrationError,
+                "expected deep_pass_complete",
+            ):
+                integration._validate_native_usage_promotion_gate(
+                    root,
+                    manifest_path,
+                    {
+                        "localizationContract": integration.LOCALIZATION_CONTRACT,
+                        "nativeUsageTopicIds": ["family_relationships"],
+                    },
+                    39,
+                )
+
     def test_merged_batch36_replay_rejects_frozen_copy_without_overwriting_runtime(self) -> None:
         repository = SCRIPT_DIR.parents[1]
         relative_manifest = Path("tools/content_factory/drafts/batch_36_priority_surfaces_manifest.json")
