@@ -115,3 +115,36 @@ Next:
 6. then pilot one complete 1A unit family with print + audio-script + app reuse.
 
 A pilot passes only if a learner can understand, notice, retrieve, produce, interact and transfer the target language naturally.
+
+## First-pass textbook reuse audit — 2026-10-06
+
+All **5,961** tracked app/canonical items have now received a first-pass textbook reuse decision:
+
+- **KEEP: 5,813**
+- **REWRITE: 128**
+- **RELEVEL: 12**
+- **REJECT: 8**
+
+Interpretation:
+- KEEP = preserve in the textbook source pool; this is **not** a publication-ready claim.
+- REWRITE = retain the learning intent but rewrite the surface realization/localization/pragmatics/exercise.
+- RELEVEL = retain the content but reconsider its instructional placement.
+- REJECT = do not reuse this exact learning target; replace/retire it.
+
+Important corrections made during the audit:
+- historical NIKL/relevel-candidate conflicts do **not** override the current Level Bible or current vocab placement;
+- easier vocabulary appearing at a higher level is treated as normal spiral recycling, not a relevel error;
+- 11 old Jin naturalness flags from 2026-08-26 were checked against current live cloze data and found already repaired, so they do not downgrade current content;
+- REJECT is narrowly limited to eight derived exercises built around four explicitly identified invented poetic target phrases: 말의 자리, 전통의 선택, 망각의 예절, 말의 위계.
+
+Outputs:
+- `data/TEXTBOOK_REUSE_AUDIT_FIRST_PASS.csv`
+- `data/TEXTBOOK_REUSE_AUDIT_FIRST_PASS_SUMMARY.json`
+- `data/TEXTBOOK_REUSE_KEEP_QUEUE.csv`
+- `data/TEXTBOOK_REUSE_REWRITE_QUEUE.csv`
+- `data/TEXTBOOK_REUSE_RELEVEL_QUEUE.csv`
+- `data/TEXTBOOK_REUSE_REJECT_QUEUE.csv`
+- `TEXTBOOK_REUSE_AUDIT_FIRST_PASS.md`
+
+Regression:
+- `tools/textbook_project/test_textbook_reuse_audit.py`
