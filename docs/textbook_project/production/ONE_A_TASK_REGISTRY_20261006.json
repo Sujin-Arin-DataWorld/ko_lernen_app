@@ -1,0 +1,7072 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "book": "1A",
+  "status": "MODEL_REVIEWED_STABLE_TASK_IDS",
+  "idPolicy": {
+    "stableAcrossLayoutChanges": true,
+    "pageSlotIsMetadataNotIdentity": true,
+    "pattern": "1A.Uxx.SB/WB.Txx or 1A.Rxx.RV.Txx"
+  },
+  "taskCount": 190,
+  "unitTaskCount": 160,
+  "reviewTaskCount": 30,
+  "tasks": [
+    {
+      "taskId": "1A.U01.SB.T01",
+      "unitId": "a1_01_greetings_hangul",
+      "surface": "student_book",
+      "taskType": "meaning",
+      "taskKey": "scene_meaning",
+      "plannedPageSlot": "U01:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "감사합니다",
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요"
+      ],
+      "sourceRefs": [
+        "airport_arrival",
+        "listening.a1.airport_arrival"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "EN-A1-HONORIFIC-SI",
+        "DE-A1-DU-SIE",
+        "DE-A1-HONORIFIC-SUBJECT"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "baseline",
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U01.SB.T02",
+      "unitId": "a1_01_greetings_hangul",
+      "surface": "student_book",
+      "taskType": "meaning",
+      "taskKey": "core_chunk_noticing",
+      "plannedPageSlot": "U01:p3-4",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "sample_only",
+      "targetRefs": [
+        "-아/어 주세요",
+        "감사합니다",
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요"
+      ],
+      "sourceRefs": [
+        "airport_arrival",
+        "listening.a1.airport_arrival"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "EN-A1-HONORIFIC-SI",
+        "DE-A1-DU-SIE",
+        "DE-A1-HONORIFIC-SUBJECT"
+      ],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U01.SB.T03",
+      "unitId": "a1_01_greetings_hangul",
+      "surface": "student_book",
+      "taskType": "form",
+      "taskKey": "minimal_form_controlled",
+      "plannedPageSlot": "U01:p5-6",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "-아/어 주세요",
+        "감사합니다",
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요"
+      ],
+      "sourceRefs": [
+        "airport_arrival",
+        "listening.a1.airport_arrival"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "EN-A1-HONORIFIC-SI",
+        "DE-A1-DU-SIE",
+        "DE-A1-HONORIFIC-SUBJECT"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U01.SB.T04",
+      "unitId": "a1_01_greetings_hangul",
+      "surface": "student_book",
+      "taskType": "transfer_diagnostic",
+      "taskKey": "native_use_contrast",
+      "plannedPageSlot": "U01:p7-8",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "감사합니다",
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요"
+      ],
+      "sourceRefs": [
+        "airport_arrival",
+        "listening.a1.airport_arrival"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "EN-A1-HONORIFIC-SI",
+        "DE-A1-DU-SIE",
+        "DE-A1-HONORIFIC-SUBJECT"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U01.SB.T05",
+      "unitId": "a1_01_greetings_hangul",
+      "surface": "student_book",
+      "taskType": "pronunciation",
+      "taskKey": "pronunciation_focus",
+      "plannedPageSlot": "U01:p7-8",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "감사합니다",
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요"
+      ],
+      "sourceRefs": [
+        "airport_arrival",
+        "listening.a1.airport_arrival"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "EN-A1-HONORIFIC-SI",
+        "DE-A1-DU-SIE",
+        "DE-A1-HONORIFIC-SUBJECT"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U01.SB.T06",
+      "unitId": "a1_01_greetings_hangul",
+      "surface": "student_book",
+      "taskType": "listening",
+      "taskKey": "listening_core",
+      "plannedPageSlot": "U01:p9",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "감사합니다",
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요"
+      ],
+      "sourceRefs": [
+        "airport_arrival",
+        "listening.a1.airport_arrival"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "EN-A1-HONORIFIC-SI",
+        "DE-A1-DU-SIE",
+        "DE-A1-HONORIFIC-SUBJECT"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "baseline",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U01.SB.T07",
+      "unitId": "a1_01_greetings_hangul",
+      "surface": "student_book",
+      "taskType": "reading",
+      "taskKey": "reading_core",
+      "plannedPageSlot": "U01:p10",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "감사합니다",
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요"
+      ],
+      "sourceRefs": [
+        "airport_arrival",
+        "listening.a1.airport_arrival"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "EN-A1-HONORIFIC-SI",
+        "DE-A1-DU-SIE",
+        "DE-A1-HONORIFIC-SUBJECT"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U01.SB.T08",
+      "unitId": "a1_01_greetings_hangul",
+      "surface": "student_book",
+      "taskType": "speaking",
+      "taskKey": "guided_output",
+      "plannedPageSlot": "U01:p11",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "감사합니다",
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요"
+      ],
+      "sourceRefs": [
+        "airport_arrival",
+        "listening.a1.airport_arrival"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "EN-A1-HONORIFIC-SI",
+        "DE-A1-DU-SIE",
+        "DE-A1-HONORIFIC-SUBJECT"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U01.SB.T09",
+      "unitId": "a1_01_greetings_hangul",
+      "surface": "student_book",
+      "taskType": "writing",
+      "taskKey": "short_writing",
+      "plannedPageSlot": "U01:p12",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "감사합니다",
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요"
+      ],
+      "sourceRefs": [
+        "airport_arrival",
+        "listening.a1.airport_arrival"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "EN-A1-HONORIFIC-SI",
+        "DE-A1-DU-SIE",
+        "DE-A1-HONORIFIC-SUBJECT"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U01.SB.T10",
+      "unitId": "a1_01_greetings_hangul",
+      "surface": "student_book",
+      "taskType": "interaction",
+      "taskKey": "interaction_mission",
+      "plannedPageSlot": "U01:p13",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "감사합니다",
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요"
+      ],
+      "sourceRefs": [
+        "airport_arrival",
+        "listening.a1.airport_arrival"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "EN-A1-HONORIFIC-SI",
+        "DE-A1-DU-SIE",
+        "DE-A1-HONORIFIC-SUBJECT"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post",
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U01.SB.T11",
+      "unitId": "a1_01_greetings_hangul",
+      "surface": "student_book",
+      "taskType": "retrieval",
+      "taskKey": "exit_retrieval",
+      "plannedPageSlot": "U01:p14",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "감사합니다",
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요"
+      ],
+      "sourceRefs": [
+        "airport_arrival",
+        "listening.a1.airport_arrival"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "EN-A1-HONORIFIC-SI",
+        "DE-A1-DU-SIE",
+        "DE-A1-HONORIFIC-SUBJECT"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post",
+        "delayed_24h",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U01.WB.T01",
+      "unitId": "a1_01_greetings_hangul",
+      "surface": "workbook",
+      "taskType": "meaning",
+      "taskKey": "meaning_function",
+      "plannedPageSlot": "U01-WB:p1",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "sample_only",
+      "targetRefs": [
+        "-아/어 주세요",
+        "감사합니다",
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요"
+      ],
+      "sourceRefs": [
+        "airport_arrival",
+        "listening.a1.airport_arrival"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "EN-A1-HONORIFIC-SI",
+        "DE-A1-DU-SIE",
+        "DE-A1-HONORIFIC-SUBJECT"
+      ],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U01.WB.T02",
+      "unitId": "a1_01_greetings_hangul",
+      "surface": "workbook",
+      "taskType": "form",
+      "taskKey": "rebuild_chunk",
+      "plannedPageSlot": "U01-WB:p2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "-아/어 주세요",
+        "감사합니다",
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요"
+      ],
+      "sourceRefs": [
+        "airport_arrival",
+        "listening.a1.airport_arrival"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "EN-A1-HONORIFIC-SI",
+        "DE-A1-DU-SIE",
+        "DE-A1-HONORIFIC-SUBJECT"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U01.WB.T03",
+      "unitId": "a1_01_greetings_hangul",
+      "surface": "workbook",
+      "taskType": "form",
+      "taskKey": "controlled_variation",
+      "plannedPageSlot": "U01-WB:p3",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "-아/어 주세요",
+        "감사합니다",
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요"
+      ],
+      "sourceRefs": [
+        "airport_arrival",
+        "listening.a1.airport_arrival"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "EN-A1-HONORIFIC-SI",
+        "DE-A1-DU-SIE",
+        "DE-A1-HONORIFIC-SUBJECT"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U01.WB.T04",
+      "unitId": "a1_01_greetings_hangul",
+      "surface": "workbook",
+      "taskType": "meaning",
+      "taskKey": "recognition_only_check",
+      "plannedPageSlot": "U01-WB:p4",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "sample_only",
+      "targetRefs": [
+        "-아/어 주세요",
+        "감사합니다",
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요"
+      ],
+      "sourceRefs": [
+        "airport_arrival",
+        "listening.a1.airport_arrival"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "EN-A1-HONORIFIC-SI",
+        "DE-A1-DU-SIE",
+        "DE-A1-HONORIFIC-SUBJECT"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U01.WB.T05",
+      "unitId": "a1_01_greetings_hangul",
+      "surface": "workbook",
+      "taskType": "listening",
+      "taskKey": "listening_grid",
+      "plannedPageSlot": "U01-WB:p5",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "감사합니다",
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요"
+      ],
+      "sourceRefs": [
+        "airport_arrival",
+        "listening.a1.airport_arrival"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "EN-A1-HONORIFIC-SI",
+        "DE-A1-DU-SIE",
+        "DE-A1-HONORIFIC-SUBJECT"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U01.WB.T06",
+      "unitId": "a1_01_greetings_hangul",
+      "surface": "workbook",
+      "taskType": "transfer_diagnostic",
+      "taskKey": "l1_transfer_diagnostic",
+      "plannedPageSlot": "U01-WB:p6",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "감사합니다",
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요"
+      ],
+      "sourceRefs": [
+        "airport_arrival",
+        "listening.a1.airport_arrival"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "EN-A1-HONORIFIC-SI",
+        "DE-A1-DU-SIE",
+        "DE-A1-HONORIFIC-SUBJECT"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post",
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U01.WB.T07",
+      "unitId": "a1_01_greetings_hangul",
+      "surface": "workbook",
+      "taskType": "interaction",
+      "taskKey": "interaction_free",
+      "plannedPageSlot": "U01-WB:p7-8",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "감사합니다",
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요"
+      ],
+      "sourceRefs": [
+        "airport_arrival",
+        "listening.a1.airport_arrival"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "EN-A1-HONORIFIC-SI",
+        "DE-A1-DU-SIE",
+        "DE-A1-HONORIFIC-SUBJECT"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U01.WB.T08",
+      "unitId": "a1_01_greetings_hangul",
+      "surface": "workbook",
+      "taskType": "retrieval",
+      "taskKey": "delayed_retrieval",
+      "plannedPageSlot": "U01-WB:p9",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "감사합니다",
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요"
+      ],
+      "sourceRefs": [
+        "airport_arrival",
+        "listening.a1.airport_arrival"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "EN-A1-HONORIFIC-SI",
+        "DE-A1-DU-SIE",
+        "DE-A1-HONORIFIC-SUBJECT"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "delayed_24h",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U01.WB.T09",
+      "unitId": "a1_01_greetings_hangul",
+      "surface": "workbook",
+      "taskType": "self_check",
+      "taskKey": "self_check",
+      "plannedPageSlot": "U01-WB:p10",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "self_check",
+      "targetRefs": [
+        "-아/어 주세요",
+        "감사합니다",
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요"
+      ],
+      "sourceRefs": [
+        "airport_arrival",
+        "listening.a1.airport_arrival"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "EN-A1-HONORIFIC-SI",
+        "DE-A1-DU-SIE",
+        "DE-A1-HONORIFIC-SUBJECT"
+      ],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U02.SB.T01",
+      "unitId": "a1_02_self_intro_identity",
+      "surface": "student_book",
+      "taskType": "meaning",
+      "taskKey": "scene_meaning",
+      "plannedPageSlot": "U02:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요",
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요"
+      ],
+      "sourceRefs": [
+        "introduce_yourself",
+        "listening.a1.introduce_yourself"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-WORDORDER",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "baseline",
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U02.SB.T02",
+      "unitId": "a1_02_self_intro_identity",
+      "surface": "student_book",
+      "taskType": "meaning",
+      "taskKey": "core_chunk_noticing",
+      "plannedPageSlot": "U02:p3-4",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "sample_only",
+      "targetRefs": [
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요",
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요"
+      ],
+      "sourceRefs": [
+        "introduce_yourself",
+        "listening.a1.introduce_yourself"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-WORDORDER",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U02.SB.T03",
+      "unitId": "a1_02_self_intro_identity",
+      "surface": "student_book",
+      "taskType": "form",
+      "taskKey": "minimal_form_controlled",
+      "plannedPageSlot": "U02:p5-6",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요",
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요"
+      ],
+      "sourceRefs": [
+        "introduce_yourself",
+        "listening.a1.introduce_yourself"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-WORDORDER",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U02.SB.T04",
+      "unitId": "a1_02_self_intro_identity",
+      "surface": "student_book",
+      "taskType": "transfer_diagnostic",
+      "taskKey": "native_use_contrast",
+      "plannedPageSlot": "U02:p7-8",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요",
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요"
+      ],
+      "sourceRefs": [
+        "introduce_yourself",
+        "listening.a1.introduce_yourself"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-WORDORDER",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U02.SB.T05",
+      "unitId": "a1_02_self_intro_identity",
+      "surface": "student_book",
+      "taskType": "pronunciation",
+      "taskKey": "pronunciation_focus",
+      "plannedPageSlot": "U02:p7-8",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요",
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요"
+      ],
+      "sourceRefs": [
+        "introduce_yourself",
+        "listening.a1.introduce_yourself"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-WORDORDER",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U02.SB.T06",
+      "unitId": "a1_02_self_intro_identity",
+      "surface": "student_book",
+      "taskType": "listening",
+      "taskKey": "listening_core",
+      "plannedPageSlot": "U02:p9",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요",
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요"
+      ],
+      "sourceRefs": [
+        "introduce_yourself",
+        "listening.a1.introduce_yourself"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-WORDORDER",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "baseline",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U02.SB.T07",
+      "unitId": "a1_02_self_intro_identity",
+      "surface": "student_book",
+      "taskType": "reading",
+      "taskKey": "reading_core",
+      "plannedPageSlot": "U02:p10",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요",
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요"
+      ],
+      "sourceRefs": [
+        "introduce_yourself",
+        "listening.a1.introduce_yourself"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-WORDORDER",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U02.SB.T08",
+      "unitId": "a1_02_self_intro_identity",
+      "surface": "student_book",
+      "taskType": "speaking",
+      "taskKey": "guided_output",
+      "plannedPageSlot": "U02:p11",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요",
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요"
+      ],
+      "sourceRefs": [
+        "introduce_yourself",
+        "listening.a1.introduce_yourself"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-WORDORDER",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U02.SB.T09",
+      "unitId": "a1_02_self_intro_identity",
+      "surface": "student_book",
+      "taskType": "writing",
+      "taskKey": "short_writing",
+      "plannedPageSlot": "U02:p12",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요",
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요"
+      ],
+      "sourceRefs": [
+        "introduce_yourself",
+        "listening.a1.introduce_yourself"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-WORDORDER",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U02.SB.T10",
+      "unitId": "a1_02_self_intro_identity",
+      "surface": "student_book",
+      "taskType": "interaction",
+      "taskKey": "interaction_mission",
+      "plannedPageSlot": "U02:p13",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요",
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요"
+      ],
+      "sourceRefs": [
+        "introduce_yourself",
+        "listening.a1.introduce_yourself"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-WORDORDER",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post",
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U02.SB.T11",
+      "unitId": "a1_02_self_intro_identity",
+      "surface": "student_book",
+      "taskType": "retrieval",
+      "taskKey": "exit_retrieval",
+      "plannedPageSlot": "U02:p14",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요",
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요"
+      ],
+      "sourceRefs": [
+        "introduce_yourself",
+        "listening.a1.introduce_yourself"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-WORDORDER",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post",
+        "delayed_24h",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U02.WB.T01",
+      "unitId": "a1_02_self_intro_identity",
+      "surface": "workbook",
+      "taskType": "meaning",
+      "taskKey": "meaning_function",
+      "plannedPageSlot": "U02-WB:p1",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "sample_only",
+      "targetRefs": [
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요",
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요"
+      ],
+      "sourceRefs": [
+        "introduce_yourself",
+        "listening.a1.introduce_yourself"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-WORDORDER",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U02.WB.T02",
+      "unitId": "a1_02_self_intro_identity",
+      "surface": "workbook",
+      "taskType": "form",
+      "taskKey": "rebuild_chunk",
+      "plannedPageSlot": "U02-WB:p2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요",
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요"
+      ],
+      "sourceRefs": [
+        "introduce_yourself",
+        "listening.a1.introduce_yourself"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-WORDORDER",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U02.WB.T03",
+      "unitId": "a1_02_self_intro_identity",
+      "surface": "workbook",
+      "taskType": "form",
+      "taskKey": "controlled_variation",
+      "plannedPageSlot": "U02-WB:p3",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요",
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요"
+      ],
+      "sourceRefs": [
+        "introduce_yourself",
+        "listening.a1.introduce_yourself"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-WORDORDER",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U02.WB.T04",
+      "unitId": "a1_02_self_intro_identity",
+      "surface": "workbook",
+      "taskType": "meaning",
+      "taskKey": "recognition_only_check",
+      "plannedPageSlot": "U02-WB:p4",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "sample_only",
+      "targetRefs": [
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요",
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요"
+      ],
+      "sourceRefs": [
+        "introduce_yourself",
+        "listening.a1.introduce_yourself"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-WORDORDER",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U02.WB.T05",
+      "unitId": "a1_02_self_intro_identity",
+      "surface": "workbook",
+      "taskType": "listening",
+      "taskKey": "listening_grid",
+      "plannedPageSlot": "U02-WB:p5",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요",
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요"
+      ],
+      "sourceRefs": [
+        "introduce_yourself",
+        "listening.a1.introduce_yourself"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-WORDORDER",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U02.WB.T06",
+      "unitId": "a1_02_self_intro_identity",
+      "surface": "workbook",
+      "taskType": "transfer_diagnostic",
+      "taskKey": "l1_transfer_diagnostic",
+      "plannedPageSlot": "U02-WB:p6",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요",
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요"
+      ],
+      "sourceRefs": [
+        "introduce_yourself",
+        "listening.a1.introduce_yourself"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-WORDORDER",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post",
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U02.WB.T07",
+      "unitId": "a1_02_self_intro_identity",
+      "surface": "workbook",
+      "taskType": "interaction",
+      "taskKey": "interaction_free",
+      "plannedPageSlot": "U02-WB:p7-8",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요",
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요"
+      ],
+      "sourceRefs": [
+        "introduce_yourself",
+        "listening.a1.introduce_yourself"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-WORDORDER",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U02.WB.T08",
+      "unitId": "a1_02_self_intro_identity",
+      "surface": "workbook",
+      "taskType": "retrieval",
+      "taskKey": "delayed_retrieval",
+      "plannedPageSlot": "U02-WB:p9",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요",
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요"
+      ],
+      "sourceRefs": [
+        "introduce_yourself",
+        "listening.a1.introduce_yourself"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-WORDORDER",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "delayed_24h",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U02.WB.T09",
+      "unitId": "a1_02_self_intro_identity",
+      "surface": "workbook",
+      "taskType": "self_check",
+      "taskKey": "self_check",
+      "plannedPageSlot": "U02-WB:p10",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "self_check",
+      "targetRefs": [
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요",
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요"
+      ],
+      "sourceRefs": [
+        "introduce_yourself",
+        "listening.a1.introduce_yourself"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-WORDORDER",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U03.SB.T01",
+      "unitId": "a1_03_topic_subject_particles",
+      "surface": "student_book",
+      "taskType": "meaning",
+      "taskKey": "scene_meaning",
+      "plannedPageSlot": "U03:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이/가",
+        "에 있다",
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?"
+      ],
+      "sourceRefs": [
+        "mart_grocery",
+        "listening.a1.mart_grocery"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-E-ESEO",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-E-ESEO-EURO"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "baseline",
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U03.SB.T02",
+      "unitId": "a1_03_topic_subject_particles",
+      "surface": "student_book",
+      "taskType": "meaning",
+      "taskKey": "core_chunk_noticing",
+      "plannedPageSlot": "U03:p3-4",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "sample_only",
+      "targetRefs": [
+        "은/는",
+        "이/가",
+        "에 있다",
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?"
+      ],
+      "sourceRefs": [
+        "mart_grocery",
+        "listening.a1.mart_grocery"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-E-ESEO",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-E-ESEO-EURO"
+      ],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U03.SB.T03",
+      "unitId": "a1_03_topic_subject_particles",
+      "surface": "student_book",
+      "taskType": "form",
+      "taskKey": "minimal_form_controlled",
+      "plannedPageSlot": "U03:p5-6",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "은/는",
+        "이/가",
+        "에 있다",
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?"
+      ],
+      "sourceRefs": [
+        "mart_grocery",
+        "listening.a1.mart_grocery"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-E-ESEO",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-E-ESEO-EURO"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U03.SB.T04",
+      "unitId": "a1_03_topic_subject_particles",
+      "surface": "student_book",
+      "taskType": "transfer_diagnostic",
+      "taskKey": "native_use_contrast",
+      "plannedPageSlot": "U03:p7-8",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이/가",
+        "에 있다",
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?"
+      ],
+      "sourceRefs": [
+        "mart_grocery",
+        "listening.a1.mart_grocery"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-E-ESEO",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-E-ESEO-EURO"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U03.SB.T05",
+      "unitId": "a1_03_topic_subject_particles",
+      "surface": "student_book",
+      "taskType": "pronunciation",
+      "taskKey": "pronunciation_focus",
+      "plannedPageSlot": "U03:p7-8",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이/가",
+        "에 있다",
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?"
+      ],
+      "sourceRefs": [
+        "mart_grocery",
+        "listening.a1.mart_grocery"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-E-ESEO",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-E-ESEO-EURO"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U03.SB.T06",
+      "unitId": "a1_03_topic_subject_particles",
+      "surface": "student_book",
+      "taskType": "listening",
+      "taskKey": "listening_core",
+      "plannedPageSlot": "U03:p9",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이/가",
+        "에 있다",
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?"
+      ],
+      "sourceRefs": [
+        "mart_grocery",
+        "listening.a1.mart_grocery"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-E-ESEO",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-E-ESEO-EURO"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "baseline",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U03.SB.T07",
+      "unitId": "a1_03_topic_subject_particles",
+      "surface": "student_book",
+      "taskType": "reading",
+      "taskKey": "reading_core",
+      "plannedPageSlot": "U03:p10",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이/가",
+        "에 있다",
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?"
+      ],
+      "sourceRefs": [
+        "mart_grocery",
+        "listening.a1.mart_grocery"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-E-ESEO",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-E-ESEO-EURO"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U03.SB.T08",
+      "unitId": "a1_03_topic_subject_particles",
+      "surface": "student_book",
+      "taskType": "speaking",
+      "taskKey": "guided_output",
+      "plannedPageSlot": "U03:p11",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이/가",
+        "에 있다",
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?"
+      ],
+      "sourceRefs": [
+        "mart_grocery",
+        "listening.a1.mart_grocery"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-E-ESEO",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-E-ESEO-EURO"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U03.SB.T09",
+      "unitId": "a1_03_topic_subject_particles",
+      "surface": "student_book",
+      "taskType": "writing",
+      "taskKey": "short_writing",
+      "plannedPageSlot": "U03:p12",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이/가",
+        "에 있다",
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?"
+      ],
+      "sourceRefs": [
+        "mart_grocery",
+        "listening.a1.mart_grocery"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-E-ESEO",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-E-ESEO-EURO"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U03.SB.T10",
+      "unitId": "a1_03_topic_subject_particles",
+      "surface": "student_book",
+      "taskType": "interaction",
+      "taskKey": "interaction_mission",
+      "plannedPageSlot": "U03:p13",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이/가",
+        "에 있다",
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?"
+      ],
+      "sourceRefs": [
+        "mart_grocery",
+        "listening.a1.mart_grocery"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-E-ESEO",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-E-ESEO-EURO"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post",
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U03.SB.T11",
+      "unitId": "a1_03_topic_subject_particles",
+      "surface": "student_book",
+      "taskType": "retrieval",
+      "taskKey": "exit_retrieval",
+      "plannedPageSlot": "U03:p14",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이/가",
+        "에 있다",
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?"
+      ],
+      "sourceRefs": [
+        "mart_grocery",
+        "listening.a1.mart_grocery"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-E-ESEO",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-E-ESEO-EURO"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post",
+        "delayed_24h",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U03.WB.T01",
+      "unitId": "a1_03_topic_subject_particles",
+      "surface": "workbook",
+      "taskType": "meaning",
+      "taskKey": "meaning_function",
+      "plannedPageSlot": "U03-WB:p1",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "sample_only",
+      "targetRefs": [
+        "은/는",
+        "이/가",
+        "에 있다",
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?"
+      ],
+      "sourceRefs": [
+        "mart_grocery",
+        "listening.a1.mart_grocery"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-E-ESEO",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-E-ESEO-EURO"
+      ],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U03.WB.T02",
+      "unitId": "a1_03_topic_subject_particles",
+      "surface": "workbook",
+      "taskType": "form",
+      "taskKey": "rebuild_chunk",
+      "plannedPageSlot": "U03-WB:p2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "은/는",
+        "이/가",
+        "에 있다",
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?"
+      ],
+      "sourceRefs": [
+        "mart_grocery",
+        "listening.a1.mart_grocery"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-E-ESEO",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-E-ESEO-EURO"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U03.WB.T03",
+      "unitId": "a1_03_topic_subject_particles",
+      "surface": "workbook",
+      "taskType": "form",
+      "taskKey": "controlled_variation",
+      "plannedPageSlot": "U03-WB:p3",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "은/는",
+        "이/가",
+        "에 있다",
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?"
+      ],
+      "sourceRefs": [
+        "mart_grocery",
+        "listening.a1.mart_grocery"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-E-ESEO",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-E-ESEO-EURO"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U03.WB.T04",
+      "unitId": "a1_03_topic_subject_particles",
+      "surface": "workbook",
+      "taskType": "meaning",
+      "taskKey": "recognition_only_check",
+      "plannedPageSlot": "U03-WB:p4",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "sample_only",
+      "targetRefs": [
+        "은/는",
+        "이/가",
+        "에 있다",
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?"
+      ],
+      "sourceRefs": [
+        "mart_grocery",
+        "listening.a1.mart_grocery"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-E-ESEO",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-E-ESEO-EURO"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U03.WB.T05",
+      "unitId": "a1_03_topic_subject_particles",
+      "surface": "workbook",
+      "taskType": "listening",
+      "taskKey": "listening_grid",
+      "plannedPageSlot": "U03-WB:p5",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이/가",
+        "에 있다",
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?"
+      ],
+      "sourceRefs": [
+        "mart_grocery",
+        "listening.a1.mart_grocery"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-E-ESEO",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-E-ESEO-EURO"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U03.WB.T06",
+      "unitId": "a1_03_topic_subject_particles",
+      "surface": "workbook",
+      "taskType": "transfer_diagnostic",
+      "taskKey": "l1_transfer_diagnostic",
+      "plannedPageSlot": "U03-WB:p6",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이/가",
+        "에 있다",
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?"
+      ],
+      "sourceRefs": [
+        "mart_grocery",
+        "listening.a1.mart_grocery"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-E-ESEO",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-E-ESEO-EURO"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post",
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U03.WB.T07",
+      "unitId": "a1_03_topic_subject_particles",
+      "surface": "workbook",
+      "taskType": "interaction",
+      "taskKey": "interaction_free",
+      "plannedPageSlot": "U03-WB:p7-8",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이/가",
+        "에 있다",
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?"
+      ],
+      "sourceRefs": [
+        "mart_grocery",
+        "listening.a1.mart_grocery"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-E-ESEO",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-E-ESEO-EURO"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U03.WB.T08",
+      "unitId": "a1_03_topic_subject_particles",
+      "surface": "workbook",
+      "taskType": "retrieval",
+      "taskKey": "delayed_retrieval",
+      "plannedPageSlot": "U03-WB:p9",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "은/는",
+        "이/가",
+        "에 있다",
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?"
+      ],
+      "sourceRefs": [
+        "mart_grocery",
+        "listening.a1.mart_grocery"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-E-ESEO",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-E-ESEO-EURO"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "delayed_24h",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U03.WB.T09",
+      "unitId": "a1_03_topic_subject_particles",
+      "surface": "workbook",
+      "taskType": "self_check",
+      "taskKey": "self_check",
+      "plannedPageSlot": "U03-WB:p10",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "self_check",
+      "targetRefs": [
+        "은/는",
+        "이/가",
+        "에 있다",
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?"
+      ],
+      "sourceRefs": [
+        "mart_grocery",
+        "listening.a1.mart_grocery"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "EN-A1-TOPIC-SUBJECT",
+        "EN-A1-E-ESEO",
+        "DE-A1-PARTICLE-CASE",
+        "DE-A1-TOPIC-FOCUS",
+        "DE-A1-E-ESEO-EURO"
+      ],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U04.SB.T01",
+      "unitId": "a1_04_order_request_object",
+      "surface": "student_book",
+      "taskType": "meaning",
+      "taskKey": "scene_meaning",
+      "plannedPageSlot": "U04:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb",
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요"
+      ],
+      "sourceRefs": [
+        "bunshik_tteokbokki",
+        "a1_w10_eat",
+        "listening.a1.bunshik_tteokbokki",
+        "listening.a1.a1_w10_eat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "EN-A1-WORDORDER",
+        "DE-A1-COUNTERS",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "baseline",
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U04.SB.T02",
+      "unitId": "a1_04_order_request_object",
+      "surface": "student_book",
+      "taskType": "meaning",
+      "taskKey": "core_chunk_noticing",
+      "plannedPageSlot": "U04:p3-4",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "sample_only",
+      "targetRefs": [
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb",
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요"
+      ],
+      "sourceRefs": [
+        "bunshik_tteokbokki",
+        "a1_w10_eat",
+        "listening.a1.bunshik_tteokbokki",
+        "listening.a1.a1_w10_eat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "EN-A1-WORDORDER",
+        "DE-A1-COUNTERS",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U04.SB.T03",
+      "unitId": "a1_04_order_request_object",
+      "surface": "student_book",
+      "taskType": "form",
+      "taskKey": "minimal_form_controlled",
+      "plannedPageSlot": "U04:p5-6",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb",
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요"
+      ],
+      "sourceRefs": [
+        "bunshik_tteokbokki",
+        "a1_w10_eat",
+        "listening.a1.bunshik_tteokbokki",
+        "listening.a1.a1_w10_eat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "EN-A1-WORDORDER",
+        "DE-A1-COUNTERS",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U04.SB.T04",
+      "unitId": "a1_04_order_request_object",
+      "surface": "student_book",
+      "taskType": "transfer_diagnostic",
+      "taskKey": "native_use_contrast",
+      "plannedPageSlot": "U04:p7-8",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb",
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요"
+      ],
+      "sourceRefs": [
+        "bunshik_tteokbokki",
+        "a1_w10_eat",
+        "listening.a1.bunshik_tteokbokki",
+        "listening.a1.a1_w10_eat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "EN-A1-WORDORDER",
+        "DE-A1-COUNTERS",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U04.SB.T05",
+      "unitId": "a1_04_order_request_object",
+      "surface": "student_book",
+      "taskType": "pronunciation",
+      "taskKey": "pronunciation_focus",
+      "plannedPageSlot": "U04:p7-8",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb",
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요"
+      ],
+      "sourceRefs": [
+        "bunshik_tteokbokki",
+        "a1_w10_eat",
+        "listening.a1.bunshik_tteokbokki",
+        "listening.a1.a1_w10_eat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "EN-A1-WORDORDER",
+        "DE-A1-COUNTERS",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U04.SB.T06",
+      "unitId": "a1_04_order_request_object",
+      "surface": "student_book",
+      "taskType": "listening",
+      "taskKey": "listening_core",
+      "plannedPageSlot": "U04:p9",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb",
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요"
+      ],
+      "sourceRefs": [
+        "bunshik_tteokbokki",
+        "a1_w10_eat",
+        "listening.a1.bunshik_tteokbokki",
+        "listening.a1.a1_w10_eat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "EN-A1-WORDORDER",
+        "DE-A1-COUNTERS",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "baseline",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U04.SB.T07",
+      "unitId": "a1_04_order_request_object",
+      "surface": "student_book",
+      "taskType": "reading",
+      "taskKey": "reading_core",
+      "plannedPageSlot": "U04:p10",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb",
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요"
+      ],
+      "sourceRefs": [
+        "bunshik_tteokbokki",
+        "a1_w10_eat",
+        "listening.a1.bunshik_tteokbokki",
+        "listening.a1.a1_w10_eat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "EN-A1-WORDORDER",
+        "DE-A1-COUNTERS",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U04.SB.T08",
+      "unitId": "a1_04_order_request_object",
+      "surface": "student_book",
+      "taskType": "speaking",
+      "taskKey": "guided_output",
+      "plannedPageSlot": "U04:p11",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb",
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요"
+      ],
+      "sourceRefs": [
+        "bunshik_tteokbokki",
+        "a1_w10_eat",
+        "listening.a1.bunshik_tteokbokki",
+        "listening.a1.a1_w10_eat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "EN-A1-WORDORDER",
+        "DE-A1-COUNTERS",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U04.SB.T09",
+      "unitId": "a1_04_order_request_object",
+      "surface": "student_book",
+      "taskType": "writing",
+      "taskKey": "short_writing",
+      "plannedPageSlot": "U04:p12",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb",
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요"
+      ],
+      "sourceRefs": [
+        "bunshik_tteokbokki",
+        "a1_w10_eat",
+        "listening.a1.bunshik_tteokbokki",
+        "listening.a1.a1_w10_eat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "EN-A1-WORDORDER",
+        "DE-A1-COUNTERS",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U04.SB.T10",
+      "unitId": "a1_04_order_request_object",
+      "surface": "student_book",
+      "taskType": "interaction",
+      "taskKey": "interaction_mission",
+      "plannedPageSlot": "U04:p13",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb",
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요"
+      ],
+      "sourceRefs": [
+        "bunshik_tteokbokki",
+        "a1_w10_eat",
+        "listening.a1.bunshik_tteokbokki",
+        "listening.a1.a1_w10_eat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "EN-A1-WORDORDER",
+        "DE-A1-COUNTERS",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post",
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U04.SB.T11",
+      "unitId": "a1_04_order_request_object",
+      "surface": "student_book",
+      "taskType": "retrieval",
+      "taskKey": "exit_retrieval",
+      "plannedPageSlot": "U04:p14",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb",
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요"
+      ],
+      "sourceRefs": [
+        "bunshik_tteokbokki",
+        "a1_w10_eat",
+        "listening.a1.bunshik_tteokbokki",
+        "listening.a1.a1_w10_eat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "EN-A1-WORDORDER",
+        "DE-A1-COUNTERS",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post",
+        "delayed_24h",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U04.WB.T01",
+      "unitId": "a1_04_order_request_object",
+      "surface": "workbook",
+      "taskType": "meaning",
+      "taskKey": "meaning_function",
+      "plannedPageSlot": "U04-WB:p1",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "sample_only",
+      "targetRefs": [
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb",
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요"
+      ],
+      "sourceRefs": [
+        "bunshik_tteokbokki",
+        "a1_w10_eat",
+        "listening.a1.bunshik_tteokbokki",
+        "listening.a1.a1_w10_eat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "EN-A1-WORDORDER",
+        "DE-A1-COUNTERS",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U04.WB.T02",
+      "unitId": "a1_04_order_request_object",
+      "surface": "workbook",
+      "taskType": "form",
+      "taskKey": "rebuild_chunk",
+      "plannedPageSlot": "U04-WB:p2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb",
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요"
+      ],
+      "sourceRefs": [
+        "bunshik_tteokbokki",
+        "a1_w10_eat",
+        "listening.a1.bunshik_tteokbokki",
+        "listening.a1.a1_w10_eat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "EN-A1-WORDORDER",
+        "DE-A1-COUNTERS",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U04.WB.T03",
+      "unitId": "a1_04_order_request_object",
+      "surface": "workbook",
+      "taskType": "form",
+      "taskKey": "controlled_variation",
+      "plannedPageSlot": "U04-WB:p3",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb",
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요"
+      ],
+      "sourceRefs": [
+        "bunshik_tteokbokki",
+        "a1_w10_eat",
+        "listening.a1.bunshik_tteokbokki",
+        "listening.a1.a1_w10_eat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "EN-A1-WORDORDER",
+        "DE-A1-COUNTERS",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U04.WB.T04",
+      "unitId": "a1_04_order_request_object",
+      "surface": "workbook",
+      "taskType": "meaning",
+      "taskKey": "recognition_only_check",
+      "plannedPageSlot": "U04-WB:p4",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "sample_only",
+      "targetRefs": [
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb",
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요"
+      ],
+      "sourceRefs": [
+        "bunshik_tteokbokki",
+        "a1_w10_eat",
+        "listening.a1.bunshik_tteokbokki",
+        "listening.a1.a1_w10_eat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "EN-A1-WORDORDER",
+        "DE-A1-COUNTERS",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U04.WB.T05",
+      "unitId": "a1_04_order_request_object",
+      "surface": "workbook",
+      "taskType": "listening",
+      "taskKey": "listening_grid",
+      "plannedPageSlot": "U04-WB:p5",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb",
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요"
+      ],
+      "sourceRefs": [
+        "bunshik_tteokbokki",
+        "a1_w10_eat",
+        "listening.a1.bunshik_tteokbokki",
+        "listening.a1.a1_w10_eat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "EN-A1-WORDORDER",
+        "DE-A1-COUNTERS",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U04.WB.T06",
+      "unitId": "a1_04_order_request_object",
+      "surface": "workbook",
+      "taskType": "transfer_diagnostic",
+      "taskKey": "l1_transfer_diagnostic",
+      "plannedPageSlot": "U04-WB:p6",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb",
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요"
+      ],
+      "sourceRefs": [
+        "bunshik_tteokbokki",
+        "a1_w10_eat",
+        "listening.a1.bunshik_tteokbokki",
+        "listening.a1.a1_w10_eat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "EN-A1-WORDORDER",
+        "DE-A1-COUNTERS",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post",
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U04.WB.T07",
+      "unitId": "a1_04_order_request_object",
+      "surface": "workbook",
+      "taskType": "interaction",
+      "taskKey": "interaction_free",
+      "plannedPageSlot": "U04-WB:p7-8",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb",
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요"
+      ],
+      "sourceRefs": [
+        "bunshik_tteokbokki",
+        "a1_w10_eat",
+        "listening.a1.bunshik_tteokbokki",
+        "listening.a1.a1_w10_eat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "EN-A1-WORDORDER",
+        "DE-A1-COUNTERS",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U04.WB.T08",
+      "unitId": "a1_04_order_request_object",
+      "surface": "workbook",
+      "taskType": "retrieval",
+      "taskKey": "delayed_retrieval",
+      "plannedPageSlot": "U04-WB:p9",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb",
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요"
+      ],
+      "sourceRefs": [
+        "bunshik_tteokbokki",
+        "a1_w10_eat",
+        "listening.a1.bunshik_tteokbokki",
+        "listening.a1.a1_w10_eat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "EN-A1-WORDORDER",
+        "DE-A1-COUNTERS",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "delayed_24h",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U04.WB.T09",
+      "unitId": "a1_04_order_request_object",
+      "surface": "workbook",
+      "taskType": "self_check",
+      "taskKey": "self_check",
+      "plannedPageSlot": "U04-WB:p10",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "self_check",
+      "targetRefs": [
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb",
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요"
+      ],
+      "sourceRefs": [
+        "bunshik_tteokbokki",
+        "a1_w10_eat",
+        "listening.a1.bunshik_tteokbokki",
+        "listening.a1.a1_w10_eat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "EN-A1-WORDORDER",
+        "DE-A1-COUNTERS",
+        "DE-A1-WORDORDER"
+      ],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U05.SB.T01",
+      "unitId": "a1_05_numbers_time",
+      "surface": "student_book",
+      "taskType": "meaning",
+      "taskKey": "scene_meaning",
+      "plannedPageSlot": "U05:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "N시에",
+        "아니에요",
+        "N시 어때요?",
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요"
+      ],
+      "sourceRefs": [
+        "meeting_time",
+        "a1_w10_numbers",
+        "listening.a1.meeting_time",
+        "listening.a1.a1_w10_numbers"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "DE-A1-COUNTERS"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "baseline",
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U05.SB.T02",
+      "unitId": "a1_05_numbers_time",
+      "surface": "student_book",
+      "taskType": "meaning",
+      "taskKey": "core_chunk_noticing",
+      "plannedPageSlot": "U05:p3-4",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "sample_only",
+      "targetRefs": [
+        "N시에",
+        "아니에요",
+        "N시 어때요?",
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요"
+      ],
+      "sourceRefs": [
+        "meeting_time",
+        "a1_w10_numbers",
+        "listening.a1.meeting_time",
+        "listening.a1.a1_w10_numbers"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "DE-A1-COUNTERS"
+      ],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U05.SB.T03",
+      "unitId": "a1_05_numbers_time",
+      "surface": "student_book",
+      "taskType": "form",
+      "taskKey": "minimal_form_controlled",
+      "plannedPageSlot": "U05:p5-6",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "N시에",
+        "아니에요",
+        "N시 어때요?",
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요"
+      ],
+      "sourceRefs": [
+        "meeting_time",
+        "a1_w10_numbers",
+        "listening.a1.meeting_time",
+        "listening.a1.a1_w10_numbers"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "DE-A1-COUNTERS"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U05.SB.T04",
+      "unitId": "a1_05_numbers_time",
+      "surface": "student_book",
+      "taskType": "transfer_diagnostic",
+      "taskKey": "native_use_contrast",
+      "plannedPageSlot": "U05:p7-8",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "N시에",
+        "아니에요",
+        "N시 어때요?",
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요"
+      ],
+      "sourceRefs": [
+        "meeting_time",
+        "a1_w10_numbers",
+        "listening.a1.meeting_time",
+        "listening.a1.a1_w10_numbers"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "DE-A1-COUNTERS"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U05.SB.T05",
+      "unitId": "a1_05_numbers_time",
+      "surface": "student_book",
+      "taskType": "pronunciation",
+      "taskKey": "pronunciation_focus",
+      "plannedPageSlot": "U05:p7-8",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "N시에",
+        "아니에요",
+        "N시 어때요?",
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요"
+      ],
+      "sourceRefs": [
+        "meeting_time",
+        "a1_w10_numbers",
+        "listening.a1.meeting_time",
+        "listening.a1.a1_w10_numbers"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "DE-A1-COUNTERS"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U05.SB.T06",
+      "unitId": "a1_05_numbers_time",
+      "surface": "student_book",
+      "taskType": "listening",
+      "taskKey": "listening_core",
+      "plannedPageSlot": "U05:p9",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "N시에",
+        "아니에요",
+        "N시 어때요?",
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요"
+      ],
+      "sourceRefs": [
+        "meeting_time",
+        "a1_w10_numbers",
+        "listening.a1.meeting_time",
+        "listening.a1.a1_w10_numbers"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "DE-A1-COUNTERS"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "baseline",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U05.SB.T07",
+      "unitId": "a1_05_numbers_time",
+      "surface": "student_book",
+      "taskType": "reading",
+      "taskKey": "reading_core",
+      "plannedPageSlot": "U05:p10",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "N시에",
+        "아니에요",
+        "N시 어때요?",
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요"
+      ],
+      "sourceRefs": [
+        "meeting_time",
+        "a1_w10_numbers",
+        "listening.a1.meeting_time",
+        "listening.a1.a1_w10_numbers"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "DE-A1-COUNTERS"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U05.SB.T08",
+      "unitId": "a1_05_numbers_time",
+      "surface": "student_book",
+      "taskType": "speaking",
+      "taskKey": "guided_output",
+      "plannedPageSlot": "U05:p11",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "N시에",
+        "아니에요",
+        "N시 어때요?",
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요"
+      ],
+      "sourceRefs": [
+        "meeting_time",
+        "a1_w10_numbers",
+        "listening.a1.meeting_time",
+        "listening.a1.a1_w10_numbers"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "DE-A1-COUNTERS"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U05.SB.T09",
+      "unitId": "a1_05_numbers_time",
+      "surface": "student_book",
+      "taskType": "writing",
+      "taskKey": "short_writing",
+      "plannedPageSlot": "U05:p12",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "N시에",
+        "아니에요",
+        "N시 어때요?",
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요"
+      ],
+      "sourceRefs": [
+        "meeting_time",
+        "a1_w10_numbers",
+        "listening.a1.meeting_time",
+        "listening.a1.a1_w10_numbers"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "DE-A1-COUNTERS"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U05.SB.T10",
+      "unitId": "a1_05_numbers_time",
+      "surface": "student_book",
+      "taskType": "interaction",
+      "taskKey": "interaction_mission",
+      "plannedPageSlot": "U05:p13",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "N시에",
+        "아니에요",
+        "N시 어때요?",
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요"
+      ],
+      "sourceRefs": [
+        "meeting_time",
+        "a1_w10_numbers",
+        "listening.a1.meeting_time",
+        "listening.a1.a1_w10_numbers"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "DE-A1-COUNTERS"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post",
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U05.SB.T11",
+      "unitId": "a1_05_numbers_time",
+      "surface": "student_book",
+      "taskType": "retrieval",
+      "taskKey": "exit_retrieval",
+      "plannedPageSlot": "U05:p14",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "N시에",
+        "아니에요",
+        "N시 어때요?",
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요"
+      ],
+      "sourceRefs": [
+        "meeting_time",
+        "a1_w10_numbers",
+        "listening.a1.meeting_time",
+        "listening.a1.a1_w10_numbers"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "DE-A1-COUNTERS"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post",
+        "delayed_24h",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U05.WB.T01",
+      "unitId": "a1_05_numbers_time",
+      "surface": "workbook",
+      "taskType": "meaning",
+      "taskKey": "meaning_function",
+      "plannedPageSlot": "U05-WB:p1",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "sample_only",
+      "targetRefs": [
+        "N시에",
+        "아니에요",
+        "N시 어때요?",
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요"
+      ],
+      "sourceRefs": [
+        "meeting_time",
+        "a1_w10_numbers",
+        "listening.a1.meeting_time",
+        "listening.a1.a1_w10_numbers"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "DE-A1-COUNTERS"
+      ],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U05.WB.T02",
+      "unitId": "a1_05_numbers_time",
+      "surface": "workbook",
+      "taskType": "form",
+      "taskKey": "rebuild_chunk",
+      "plannedPageSlot": "U05-WB:p2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "N시에",
+        "아니에요",
+        "N시 어때요?",
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요"
+      ],
+      "sourceRefs": [
+        "meeting_time",
+        "a1_w10_numbers",
+        "listening.a1.meeting_time",
+        "listening.a1.a1_w10_numbers"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "DE-A1-COUNTERS"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U05.WB.T03",
+      "unitId": "a1_05_numbers_time",
+      "surface": "workbook",
+      "taskType": "form",
+      "taskKey": "controlled_variation",
+      "plannedPageSlot": "U05-WB:p3",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "N시에",
+        "아니에요",
+        "N시 어때요?",
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요"
+      ],
+      "sourceRefs": [
+        "meeting_time",
+        "a1_w10_numbers",
+        "listening.a1.meeting_time",
+        "listening.a1.a1_w10_numbers"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "DE-A1-COUNTERS"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U05.WB.T04",
+      "unitId": "a1_05_numbers_time",
+      "surface": "workbook",
+      "taskType": "meaning",
+      "taskKey": "recognition_only_check",
+      "plannedPageSlot": "U05-WB:p4",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "sample_only",
+      "targetRefs": [
+        "N시에",
+        "아니에요",
+        "N시 어때요?",
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요"
+      ],
+      "sourceRefs": [
+        "meeting_time",
+        "a1_w10_numbers",
+        "listening.a1.meeting_time",
+        "listening.a1.a1_w10_numbers"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "DE-A1-COUNTERS"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U05.WB.T05",
+      "unitId": "a1_05_numbers_time",
+      "surface": "workbook",
+      "taskType": "listening",
+      "taskKey": "listening_grid",
+      "plannedPageSlot": "U05-WB:p5",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "N시에",
+        "아니에요",
+        "N시 어때요?",
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요"
+      ],
+      "sourceRefs": [
+        "meeting_time",
+        "a1_w10_numbers",
+        "listening.a1.meeting_time",
+        "listening.a1.a1_w10_numbers"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "DE-A1-COUNTERS"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U05.WB.T06",
+      "unitId": "a1_05_numbers_time",
+      "surface": "workbook",
+      "taskType": "transfer_diagnostic",
+      "taskKey": "l1_transfer_diagnostic",
+      "plannedPageSlot": "U05-WB:p6",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "N시에",
+        "아니에요",
+        "N시 어때요?",
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요"
+      ],
+      "sourceRefs": [
+        "meeting_time",
+        "a1_w10_numbers",
+        "listening.a1.meeting_time",
+        "listening.a1.a1_w10_numbers"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "DE-A1-COUNTERS"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post",
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U05.WB.T07",
+      "unitId": "a1_05_numbers_time",
+      "surface": "workbook",
+      "taskType": "interaction",
+      "taskKey": "interaction_free",
+      "plannedPageSlot": "U05-WB:p7-8",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "N시에",
+        "아니에요",
+        "N시 어때요?",
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요"
+      ],
+      "sourceRefs": [
+        "meeting_time",
+        "a1_w10_numbers",
+        "listening.a1.meeting_time",
+        "listening.a1.a1_w10_numbers"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "DE-A1-COUNTERS"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U05.WB.T08",
+      "unitId": "a1_05_numbers_time",
+      "surface": "workbook",
+      "taskType": "retrieval",
+      "taskKey": "delayed_retrieval",
+      "plannedPageSlot": "U05-WB:p9",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "N시에",
+        "아니에요",
+        "N시 어때요?",
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요"
+      ],
+      "sourceRefs": [
+        "meeting_time",
+        "a1_w10_numbers",
+        "listening.a1.meeting_time",
+        "listening.a1.a1_w10_numbers"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "DE-A1-COUNTERS"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "delayed_24h",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U05.WB.T09",
+      "unitId": "a1_05_numbers_time",
+      "surface": "workbook",
+      "taskType": "self_check",
+      "taskKey": "self_check",
+      "plannedPageSlot": "U05-WB:p10",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "self_check",
+      "targetRefs": [
+        "N시에",
+        "아니에요",
+        "N시 어때요?",
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요"
+      ],
+      "sourceRefs": [
+        "meeting_time",
+        "a1_w10_numbers",
+        "listening.a1.meeting_time",
+        "listening.a1.a1_w10_numbers"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-COUNTERS",
+        "DE-A1-COUNTERS"
+      ],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U06.SB.T01",
+      "unitId": "a1_06_transport_directions",
+      "surface": "student_book",
+      "taskType": "meaning",
+      "taskKey": "scene_meaning",
+      "plannedPageSlot": "U06:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "에",
+        "-아/어 주세요",
+        "어디서 갈아타요?",
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요"
+      ],
+      "sourceRefs": [
+        "taxi_kakao",
+        "a1_w10_taxi_stay",
+        "a1_w10_wayfinding",
+        "listening.a1.taxi_kakao"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-E-ESEO",
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "DE-A1-E-ESEO-EURO",
+        "DE-A1-PARTICLE-CASE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "baseline",
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U06.SB.T02",
+      "unitId": "a1_06_transport_directions",
+      "surface": "student_book",
+      "taskType": "meaning",
+      "taskKey": "core_chunk_noticing",
+      "plannedPageSlot": "U06:p3-4",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "sample_only",
+      "targetRefs": [
+        "에",
+        "-아/어 주세요",
+        "어디서 갈아타요?",
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요"
+      ],
+      "sourceRefs": [
+        "taxi_kakao",
+        "a1_w10_taxi_stay",
+        "a1_w10_wayfinding",
+        "listening.a1.taxi_kakao"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-E-ESEO",
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "DE-A1-E-ESEO-EURO",
+        "DE-A1-PARTICLE-CASE"
+      ],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U06.SB.T03",
+      "unitId": "a1_06_transport_directions",
+      "surface": "student_book",
+      "taskType": "form",
+      "taskKey": "minimal_form_controlled",
+      "plannedPageSlot": "U06:p5-6",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "에",
+        "-아/어 주세요",
+        "어디서 갈아타요?",
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요"
+      ],
+      "sourceRefs": [
+        "taxi_kakao",
+        "a1_w10_taxi_stay",
+        "a1_w10_wayfinding",
+        "listening.a1.taxi_kakao"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-E-ESEO",
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "DE-A1-E-ESEO-EURO",
+        "DE-A1-PARTICLE-CASE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U06.SB.T04",
+      "unitId": "a1_06_transport_directions",
+      "surface": "student_book",
+      "taskType": "transfer_diagnostic",
+      "taskKey": "native_use_contrast",
+      "plannedPageSlot": "U06:p7-8",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "에",
+        "-아/어 주세요",
+        "어디서 갈아타요?",
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요"
+      ],
+      "sourceRefs": [
+        "taxi_kakao",
+        "a1_w10_taxi_stay",
+        "a1_w10_wayfinding",
+        "listening.a1.taxi_kakao"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-E-ESEO",
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "DE-A1-E-ESEO-EURO",
+        "DE-A1-PARTICLE-CASE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U06.SB.T05",
+      "unitId": "a1_06_transport_directions",
+      "surface": "student_book",
+      "taskType": "pronunciation",
+      "taskKey": "pronunciation_focus",
+      "plannedPageSlot": "U06:p7-8",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "에",
+        "-아/어 주세요",
+        "어디서 갈아타요?",
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요"
+      ],
+      "sourceRefs": [
+        "taxi_kakao",
+        "a1_w10_taxi_stay",
+        "a1_w10_wayfinding",
+        "listening.a1.taxi_kakao"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-E-ESEO",
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "DE-A1-E-ESEO-EURO",
+        "DE-A1-PARTICLE-CASE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U06.SB.T06",
+      "unitId": "a1_06_transport_directions",
+      "surface": "student_book",
+      "taskType": "listening",
+      "taskKey": "listening_core",
+      "plannedPageSlot": "U06:p9",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "에",
+        "-아/어 주세요",
+        "어디서 갈아타요?",
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요"
+      ],
+      "sourceRefs": [
+        "taxi_kakao",
+        "a1_w10_taxi_stay",
+        "a1_w10_wayfinding",
+        "listening.a1.taxi_kakao"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-E-ESEO",
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "DE-A1-E-ESEO-EURO",
+        "DE-A1-PARTICLE-CASE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "baseline",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U06.SB.T07",
+      "unitId": "a1_06_transport_directions",
+      "surface": "student_book",
+      "taskType": "reading",
+      "taskKey": "reading_core",
+      "plannedPageSlot": "U06:p10",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "에",
+        "-아/어 주세요",
+        "어디서 갈아타요?",
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요"
+      ],
+      "sourceRefs": [
+        "taxi_kakao",
+        "a1_w10_taxi_stay",
+        "a1_w10_wayfinding",
+        "listening.a1.taxi_kakao"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-E-ESEO",
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "DE-A1-E-ESEO-EURO",
+        "DE-A1-PARTICLE-CASE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U06.SB.T08",
+      "unitId": "a1_06_transport_directions",
+      "surface": "student_book",
+      "taskType": "speaking",
+      "taskKey": "guided_output",
+      "plannedPageSlot": "U06:p11",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "에",
+        "-아/어 주세요",
+        "어디서 갈아타요?",
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요"
+      ],
+      "sourceRefs": [
+        "taxi_kakao",
+        "a1_w10_taxi_stay",
+        "a1_w10_wayfinding",
+        "listening.a1.taxi_kakao"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-E-ESEO",
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "DE-A1-E-ESEO-EURO",
+        "DE-A1-PARTICLE-CASE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U06.SB.T09",
+      "unitId": "a1_06_transport_directions",
+      "surface": "student_book",
+      "taskType": "writing",
+      "taskKey": "short_writing",
+      "plannedPageSlot": "U06:p12",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "에",
+        "-아/어 주세요",
+        "어디서 갈아타요?",
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요"
+      ],
+      "sourceRefs": [
+        "taxi_kakao",
+        "a1_w10_taxi_stay",
+        "a1_w10_wayfinding",
+        "listening.a1.taxi_kakao"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-E-ESEO",
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "DE-A1-E-ESEO-EURO",
+        "DE-A1-PARTICLE-CASE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U06.SB.T10",
+      "unitId": "a1_06_transport_directions",
+      "surface": "student_book",
+      "taskType": "interaction",
+      "taskKey": "interaction_mission",
+      "plannedPageSlot": "U06:p13",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "에",
+        "-아/어 주세요",
+        "어디서 갈아타요?",
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요"
+      ],
+      "sourceRefs": [
+        "taxi_kakao",
+        "a1_w10_taxi_stay",
+        "a1_w10_wayfinding",
+        "listening.a1.taxi_kakao"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-E-ESEO",
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "DE-A1-E-ESEO-EURO",
+        "DE-A1-PARTICLE-CASE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post",
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U06.SB.T11",
+      "unitId": "a1_06_transport_directions",
+      "surface": "student_book",
+      "taskType": "retrieval",
+      "taskKey": "exit_retrieval",
+      "plannedPageSlot": "U06:p14",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "에",
+        "-아/어 주세요",
+        "어디서 갈아타요?",
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요"
+      ],
+      "sourceRefs": [
+        "taxi_kakao",
+        "a1_w10_taxi_stay",
+        "a1_w10_wayfinding",
+        "listening.a1.taxi_kakao"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-E-ESEO",
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "DE-A1-E-ESEO-EURO",
+        "DE-A1-PARTICLE-CASE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post",
+        "delayed_24h",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U06.WB.T01",
+      "unitId": "a1_06_transport_directions",
+      "surface": "workbook",
+      "taskType": "meaning",
+      "taskKey": "meaning_function",
+      "plannedPageSlot": "U06-WB:p1",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "sample_only",
+      "targetRefs": [
+        "에",
+        "-아/어 주세요",
+        "어디서 갈아타요?",
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요"
+      ],
+      "sourceRefs": [
+        "taxi_kakao",
+        "a1_w10_taxi_stay",
+        "a1_w10_wayfinding",
+        "listening.a1.taxi_kakao"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-E-ESEO",
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "DE-A1-E-ESEO-EURO",
+        "DE-A1-PARTICLE-CASE"
+      ],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U06.WB.T02",
+      "unitId": "a1_06_transport_directions",
+      "surface": "workbook",
+      "taskType": "form",
+      "taskKey": "rebuild_chunk",
+      "plannedPageSlot": "U06-WB:p2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "에",
+        "-아/어 주세요",
+        "어디서 갈아타요?",
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요"
+      ],
+      "sourceRefs": [
+        "taxi_kakao",
+        "a1_w10_taxi_stay",
+        "a1_w10_wayfinding",
+        "listening.a1.taxi_kakao"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-E-ESEO",
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "DE-A1-E-ESEO-EURO",
+        "DE-A1-PARTICLE-CASE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U06.WB.T03",
+      "unitId": "a1_06_transport_directions",
+      "surface": "workbook",
+      "taskType": "form",
+      "taskKey": "controlled_variation",
+      "plannedPageSlot": "U06-WB:p3",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "에",
+        "-아/어 주세요",
+        "어디서 갈아타요?",
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요"
+      ],
+      "sourceRefs": [
+        "taxi_kakao",
+        "a1_w10_taxi_stay",
+        "a1_w10_wayfinding",
+        "listening.a1.taxi_kakao"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-E-ESEO",
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "DE-A1-E-ESEO-EURO",
+        "DE-A1-PARTICLE-CASE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U06.WB.T04",
+      "unitId": "a1_06_transport_directions",
+      "surface": "workbook",
+      "taskType": "meaning",
+      "taskKey": "recognition_only_check",
+      "plannedPageSlot": "U06-WB:p4",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "sample_only",
+      "targetRefs": [
+        "에",
+        "-아/어 주세요",
+        "어디서 갈아타요?",
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요"
+      ],
+      "sourceRefs": [
+        "taxi_kakao",
+        "a1_w10_taxi_stay",
+        "a1_w10_wayfinding",
+        "listening.a1.taxi_kakao"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-E-ESEO",
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "DE-A1-E-ESEO-EURO",
+        "DE-A1-PARTICLE-CASE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U06.WB.T05",
+      "unitId": "a1_06_transport_directions",
+      "surface": "workbook",
+      "taskType": "listening",
+      "taskKey": "listening_grid",
+      "plannedPageSlot": "U06-WB:p5",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "에",
+        "-아/어 주세요",
+        "어디서 갈아타요?",
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요"
+      ],
+      "sourceRefs": [
+        "taxi_kakao",
+        "a1_w10_taxi_stay",
+        "a1_w10_wayfinding",
+        "listening.a1.taxi_kakao"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-E-ESEO",
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "DE-A1-E-ESEO-EURO",
+        "DE-A1-PARTICLE-CASE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U06.WB.T06",
+      "unitId": "a1_06_transport_directions",
+      "surface": "workbook",
+      "taskType": "transfer_diagnostic",
+      "taskKey": "l1_transfer_diagnostic",
+      "plannedPageSlot": "U06-WB:p6",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "에",
+        "-아/어 주세요",
+        "어디서 갈아타요?",
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요"
+      ],
+      "sourceRefs": [
+        "taxi_kakao",
+        "a1_w10_taxi_stay",
+        "a1_w10_wayfinding",
+        "listening.a1.taxi_kakao"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-E-ESEO",
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "DE-A1-E-ESEO-EURO",
+        "DE-A1-PARTICLE-CASE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post",
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U06.WB.T07",
+      "unitId": "a1_06_transport_directions",
+      "surface": "workbook",
+      "taskType": "interaction",
+      "taskKey": "interaction_free",
+      "plannedPageSlot": "U06-WB:p7-8",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "에",
+        "-아/어 주세요",
+        "어디서 갈아타요?",
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요"
+      ],
+      "sourceRefs": [
+        "taxi_kakao",
+        "a1_w10_taxi_stay",
+        "a1_w10_wayfinding",
+        "listening.a1.taxi_kakao"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-E-ESEO",
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "DE-A1-E-ESEO-EURO",
+        "DE-A1-PARTICLE-CASE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U06.WB.T08",
+      "unitId": "a1_06_transport_directions",
+      "surface": "workbook",
+      "taskType": "retrieval",
+      "taskKey": "delayed_retrieval",
+      "plannedPageSlot": "U06-WB:p9",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "에",
+        "-아/어 주세요",
+        "어디서 갈아타요?",
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요"
+      ],
+      "sourceRefs": [
+        "taxi_kakao",
+        "a1_w10_taxi_stay",
+        "a1_w10_wayfinding",
+        "listening.a1.taxi_kakao"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-E-ESEO",
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "DE-A1-E-ESEO-EURO",
+        "DE-A1-PARTICLE-CASE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "delayed_24h",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U06.WB.T09",
+      "unitId": "a1_06_transport_directions",
+      "surface": "workbook",
+      "taskType": "self_check",
+      "taskKey": "self_check",
+      "plannedPageSlot": "U06-WB:p10",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "self_check",
+      "targetRefs": [
+        "에",
+        "-아/어 주세요",
+        "어디서 갈아타요?",
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요"
+      ],
+      "sourceRefs": [
+        "taxi_kakao",
+        "a1_w10_taxi_stay",
+        "a1_w10_wayfinding",
+        "listening.a1.taxi_kakao"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-E-ESEO",
+        "EN-A1-PARTICLES-OMIT-REPLACE",
+        "DE-A1-E-ESEO-EURO",
+        "DE-A1-PARTICLE-CASE"
+      ],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U07.SB.T01",
+      "unitId": "a1_07_contact_address",
+      "surface": "student_book",
+      "taskType": "meaning",
+      "taskKey": "scene_meaning",
+      "plannedPageSlot": "U07:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "(으)로",
+        "있어요",
+        "-세요?",
+        "-(으)ㄹ까요?",
+        "-ㄹ게요",
+        "-(으)ㄹ 것 같아요",
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?"
+      ],
+      "sourceRefs": [
+        "kakao_contact_after_class",
+        "a1_w10_phone",
+        "a1_message_contact_after_class_2026",
+        "listening.a1.kakao_contact_after_class"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "baseline",
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U07.SB.T02",
+      "unitId": "a1_07_contact_address",
+      "surface": "student_book",
+      "taskType": "meaning",
+      "taskKey": "core_chunk_noticing",
+      "plannedPageSlot": "U07:p3-4",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "sample_only",
+      "targetRefs": [
+        "(으)로",
+        "있어요",
+        "-세요?",
+        "-(으)ㄹ까요?",
+        "-ㄹ게요",
+        "-(으)ㄹ 것 같아요",
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?"
+      ],
+      "sourceRefs": [
+        "kakao_contact_after_class",
+        "a1_w10_phone",
+        "a1_message_contact_after_class_2026",
+        "listening.a1.kakao_contact_after_class"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U07.SB.T03",
+      "unitId": "a1_07_contact_address",
+      "surface": "student_book",
+      "taskType": "form",
+      "taskKey": "minimal_form_controlled",
+      "plannedPageSlot": "U07:p5-6",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "(으)로",
+        "있어요",
+        "-세요?",
+        "-(으)ㄹ까요?",
+        "-ㄹ게요",
+        "-(으)ㄹ 것 같아요",
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?"
+      ],
+      "sourceRefs": [
+        "kakao_contact_after_class",
+        "a1_w10_phone",
+        "a1_message_contact_after_class_2026",
+        "listening.a1.kakao_contact_after_class"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U07.SB.T04",
+      "unitId": "a1_07_contact_address",
+      "surface": "student_book",
+      "taskType": "transfer_diagnostic",
+      "taskKey": "native_use_contrast",
+      "plannedPageSlot": "U07:p7-8",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "(으)로",
+        "있어요",
+        "-세요?",
+        "-(으)ㄹ까요?",
+        "-ㄹ게요",
+        "-(으)ㄹ 것 같아요",
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?"
+      ],
+      "sourceRefs": [
+        "kakao_contact_after_class",
+        "a1_w10_phone",
+        "a1_message_contact_after_class_2026",
+        "listening.a1.kakao_contact_after_class"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U07.SB.T05",
+      "unitId": "a1_07_contact_address",
+      "surface": "student_book",
+      "taskType": "pronunciation",
+      "taskKey": "pronunciation_focus",
+      "plannedPageSlot": "U07:p7-8",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "(으)로",
+        "있어요",
+        "-세요?",
+        "-(으)ㄹ까요?",
+        "-ㄹ게요",
+        "-(으)ㄹ 것 같아요",
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?"
+      ],
+      "sourceRefs": [
+        "kakao_contact_after_class",
+        "a1_w10_phone",
+        "a1_message_contact_after_class_2026",
+        "listening.a1.kakao_contact_after_class"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U07.SB.T06",
+      "unitId": "a1_07_contact_address",
+      "surface": "student_book",
+      "taskType": "listening",
+      "taskKey": "listening_core",
+      "plannedPageSlot": "U07:p9",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "(으)로",
+        "있어요",
+        "-세요?",
+        "-(으)ㄹ까요?",
+        "-ㄹ게요",
+        "-(으)ㄹ 것 같아요",
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?"
+      ],
+      "sourceRefs": [
+        "kakao_contact_after_class",
+        "a1_w10_phone",
+        "a1_message_contact_after_class_2026",
+        "listening.a1.kakao_contact_after_class"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "baseline",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U07.SB.T07",
+      "unitId": "a1_07_contact_address",
+      "surface": "student_book",
+      "taskType": "reading",
+      "taskKey": "reading_core",
+      "plannedPageSlot": "U07:p10",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "(으)로",
+        "있어요",
+        "-세요?",
+        "-(으)ㄹ까요?",
+        "-ㄹ게요",
+        "-(으)ㄹ 것 같아요",
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?"
+      ],
+      "sourceRefs": [
+        "kakao_contact_after_class",
+        "a1_w10_phone",
+        "a1_message_contact_after_class_2026",
+        "listening.a1.kakao_contact_after_class"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U07.SB.T08",
+      "unitId": "a1_07_contact_address",
+      "surface": "student_book",
+      "taskType": "speaking",
+      "taskKey": "guided_output",
+      "plannedPageSlot": "U07:p11",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "(으)로",
+        "있어요",
+        "-세요?",
+        "-(으)ㄹ까요?",
+        "-ㄹ게요",
+        "-(으)ㄹ 것 같아요",
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?"
+      ],
+      "sourceRefs": [
+        "kakao_contact_after_class",
+        "a1_w10_phone",
+        "a1_message_contact_after_class_2026",
+        "listening.a1.kakao_contact_after_class"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U07.SB.T09",
+      "unitId": "a1_07_contact_address",
+      "surface": "student_book",
+      "taskType": "writing",
+      "taskKey": "short_writing",
+      "plannedPageSlot": "U07:p12",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "(으)로",
+        "있어요",
+        "-세요?",
+        "-(으)ㄹ까요?",
+        "-ㄹ게요",
+        "-(으)ㄹ 것 같아요",
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?"
+      ],
+      "sourceRefs": [
+        "kakao_contact_after_class",
+        "a1_w10_phone",
+        "a1_message_contact_after_class_2026",
+        "listening.a1.kakao_contact_after_class"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U07.SB.T10",
+      "unitId": "a1_07_contact_address",
+      "surface": "student_book",
+      "taskType": "interaction",
+      "taskKey": "interaction_mission",
+      "plannedPageSlot": "U07:p13",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "(으)로",
+        "있어요",
+        "-세요?",
+        "-(으)ㄹ까요?",
+        "-ㄹ게요",
+        "-(으)ㄹ 것 같아요",
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?"
+      ],
+      "sourceRefs": [
+        "kakao_contact_after_class",
+        "a1_w10_phone",
+        "a1_message_contact_after_class_2026",
+        "listening.a1.kakao_contact_after_class"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post",
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U07.SB.T11",
+      "unitId": "a1_07_contact_address",
+      "surface": "student_book",
+      "taskType": "retrieval",
+      "taskKey": "exit_retrieval",
+      "plannedPageSlot": "U07:p14",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "(으)로",
+        "있어요",
+        "-세요?",
+        "-(으)ㄹ까요?",
+        "-ㄹ게요",
+        "-(으)ㄹ 것 같아요",
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?"
+      ],
+      "sourceRefs": [
+        "kakao_contact_after_class",
+        "a1_w10_phone",
+        "a1_message_contact_after_class_2026",
+        "listening.a1.kakao_contact_after_class"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post",
+        "delayed_24h",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U07.WB.T01",
+      "unitId": "a1_07_contact_address",
+      "surface": "workbook",
+      "taskType": "meaning",
+      "taskKey": "meaning_function",
+      "plannedPageSlot": "U07-WB:p1",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "sample_only",
+      "targetRefs": [
+        "(으)로",
+        "있어요",
+        "-세요?",
+        "-(으)ㄹ까요?",
+        "-ㄹ게요",
+        "-(으)ㄹ 것 같아요",
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?"
+      ],
+      "sourceRefs": [
+        "kakao_contact_after_class",
+        "a1_w10_phone",
+        "a1_message_contact_after_class_2026",
+        "listening.a1.kakao_contact_after_class"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U07.WB.T02",
+      "unitId": "a1_07_contact_address",
+      "surface": "workbook",
+      "taskType": "form",
+      "taskKey": "rebuild_chunk",
+      "plannedPageSlot": "U07-WB:p2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "(으)로",
+        "있어요",
+        "-세요?",
+        "-(으)ㄹ까요?",
+        "-ㄹ게요",
+        "-(으)ㄹ 것 같아요",
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?"
+      ],
+      "sourceRefs": [
+        "kakao_contact_after_class",
+        "a1_w10_phone",
+        "a1_message_contact_after_class_2026",
+        "listening.a1.kakao_contact_after_class"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U07.WB.T03",
+      "unitId": "a1_07_contact_address",
+      "surface": "workbook",
+      "taskType": "form",
+      "taskKey": "controlled_variation",
+      "plannedPageSlot": "U07-WB:p3",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "(으)로",
+        "있어요",
+        "-세요?",
+        "-(으)ㄹ까요?",
+        "-ㄹ게요",
+        "-(으)ㄹ 것 같아요",
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?"
+      ],
+      "sourceRefs": [
+        "kakao_contact_after_class",
+        "a1_w10_phone",
+        "a1_message_contact_after_class_2026",
+        "listening.a1.kakao_contact_after_class"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U07.WB.T04",
+      "unitId": "a1_07_contact_address",
+      "surface": "workbook",
+      "taskType": "meaning",
+      "taskKey": "recognition_only_check",
+      "plannedPageSlot": "U07-WB:p4",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "sample_only",
+      "targetRefs": [
+        "(으)로",
+        "있어요",
+        "-세요?",
+        "-(으)ㄹ까요?",
+        "-ㄹ게요",
+        "-(으)ㄹ 것 같아요",
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?"
+      ],
+      "sourceRefs": [
+        "kakao_contact_after_class",
+        "a1_w10_phone",
+        "a1_message_contact_after_class_2026",
+        "listening.a1.kakao_contact_after_class"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U07.WB.T05",
+      "unitId": "a1_07_contact_address",
+      "surface": "workbook",
+      "taskType": "listening",
+      "taskKey": "listening_grid",
+      "plannedPageSlot": "U07-WB:p5",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "(으)로",
+        "있어요",
+        "-세요?",
+        "-(으)ㄹ까요?",
+        "-ㄹ게요",
+        "-(으)ㄹ 것 같아요",
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?"
+      ],
+      "sourceRefs": [
+        "kakao_contact_after_class",
+        "a1_w10_phone",
+        "a1_message_contact_after_class_2026",
+        "listening.a1.kakao_contact_after_class"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U07.WB.T06",
+      "unitId": "a1_07_contact_address",
+      "surface": "workbook",
+      "taskType": "transfer_diagnostic",
+      "taskKey": "l1_transfer_diagnostic",
+      "plannedPageSlot": "U07-WB:p6",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "(으)로",
+        "있어요",
+        "-세요?",
+        "-(으)ㄹ까요?",
+        "-ㄹ게요",
+        "-(으)ㄹ 것 같아요",
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?"
+      ],
+      "sourceRefs": [
+        "kakao_contact_after_class",
+        "a1_w10_phone",
+        "a1_message_contact_after_class_2026",
+        "listening.a1.kakao_contact_after_class"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post",
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U07.WB.T07",
+      "unitId": "a1_07_contact_address",
+      "surface": "workbook",
+      "taskType": "interaction",
+      "taskKey": "interaction_free",
+      "plannedPageSlot": "U07-WB:p7-8",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "(으)로",
+        "있어요",
+        "-세요?",
+        "-(으)ㄹ까요?",
+        "-ㄹ게요",
+        "-(으)ㄹ 것 같아요",
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?"
+      ],
+      "sourceRefs": [
+        "kakao_contact_after_class",
+        "a1_w10_phone",
+        "a1_message_contact_after_class_2026",
+        "listening.a1.kakao_contact_after_class"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U07.WB.T08",
+      "unitId": "a1_07_contact_address",
+      "surface": "workbook",
+      "taskType": "retrieval",
+      "taskKey": "delayed_retrieval",
+      "plannedPageSlot": "U07-WB:p9",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "(으)로",
+        "있어요",
+        "-세요?",
+        "-(으)ㄹ까요?",
+        "-ㄹ게요",
+        "-(으)ㄹ 것 같아요",
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?"
+      ],
+      "sourceRefs": [
+        "kakao_contact_after_class",
+        "a1_w10_phone",
+        "a1_message_contact_after_class_2026",
+        "listening.a1.kakao_contact_after_class"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "delayed_24h",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U07.WB.T09",
+      "unitId": "a1_07_contact_address",
+      "surface": "workbook",
+      "taskType": "self_check",
+      "taskKey": "self_check",
+      "plannedPageSlot": "U07-WB:p10",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "self_check",
+      "targetRefs": [
+        "(으)로",
+        "있어요",
+        "-세요?",
+        "-(으)ㄹ까요?",
+        "-ㄹ게요",
+        "-(으)ㄹ 것 같아요",
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?"
+      ],
+      "sourceRefs": [
+        "kakao_contact_after_class",
+        "a1_w10_phone",
+        "a1_message_contact_after_class_2026",
+        "listening.a1.kakao_contact_after_class"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SUBJECT-OMISSION",
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-SUBJECT-OMISSION",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U08.SB.T01",
+      "unitId": "a1_08_clarify_repair",
+      "surface": "student_book",
+      "taskType": "meaning",
+      "taskKey": "scene_meaning",
+      "plannedPageSlot": "U08:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "무슨 N",
+        "아니에요",
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?"
+      ],
+      "sourceRefs": [
+        "clarify_repeat",
+        "bakery_queue",
+        "a1_w10_repeat",
+        "listening.a1.clarify_repeat",
+        "listening.a1.a1_w10_repeat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "baseline",
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U08.SB.T02",
+      "unitId": "a1_08_clarify_repair",
+      "surface": "student_book",
+      "taskType": "meaning",
+      "taskKey": "core_chunk_noticing",
+      "plannedPageSlot": "U08:p3-4",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "sample_only",
+      "targetRefs": [
+        "-아/어 주세요",
+        "무슨 N",
+        "아니에요",
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?"
+      ],
+      "sourceRefs": [
+        "clarify_repeat",
+        "bakery_queue",
+        "a1_w10_repeat",
+        "listening.a1.clarify_repeat",
+        "listening.a1.a1_w10_repeat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U08.SB.T03",
+      "unitId": "a1_08_clarify_repair",
+      "surface": "student_book",
+      "taskType": "form",
+      "taskKey": "minimal_form_controlled",
+      "plannedPageSlot": "U08:p5-6",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "-아/어 주세요",
+        "무슨 N",
+        "아니에요",
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?"
+      ],
+      "sourceRefs": [
+        "clarify_repeat",
+        "bakery_queue",
+        "a1_w10_repeat",
+        "listening.a1.clarify_repeat",
+        "listening.a1.a1_w10_repeat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U08.SB.T04",
+      "unitId": "a1_08_clarify_repair",
+      "surface": "student_book",
+      "taskType": "transfer_diagnostic",
+      "taskKey": "native_use_contrast",
+      "plannedPageSlot": "U08:p7-8",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "무슨 N",
+        "아니에요",
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?"
+      ],
+      "sourceRefs": [
+        "clarify_repeat",
+        "bakery_queue",
+        "a1_w10_repeat",
+        "listening.a1.clarify_repeat",
+        "listening.a1.a1_w10_repeat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U08.SB.T05",
+      "unitId": "a1_08_clarify_repair",
+      "surface": "student_book",
+      "taskType": "pronunciation",
+      "taskKey": "pronunciation_focus",
+      "plannedPageSlot": "U08:p7-8",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "무슨 N",
+        "아니에요",
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?"
+      ],
+      "sourceRefs": [
+        "clarify_repeat",
+        "bakery_queue",
+        "a1_w10_repeat",
+        "listening.a1.clarify_repeat",
+        "listening.a1.a1_w10_repeat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U08.SB.T06",
+      "unitId": "a1_08_clarify_repair",
+      "surface": "student_book",
+      "taskType": "listening",
+      "taskKey": "listening_core",
+      "plannedPageSlot": "U08:p9",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "무슨 N",
+        "아니에요",
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?"
+      ],
+      "sourceRefs": [
+        "clarify_repeat",
+        "bakery_queue",
+        "a1_w10_repeat",
+        "listening.a1.clarify_repeat",
+        "listening.a1.a1_w10_repeat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "baseline",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U08.SB.T07",
+      "unitId": "a1_08_clarify_repair",
+      "surface": "student_book",
+      "taskType": "reading",
+      "taskKey": "reading_core",
+      "plannedPageSlot": "U08:p10",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "무슨 N",
+        "아니에요",
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?"
+      ],
+      "sourceRefs": [
+        "clarify_repeat",
+        "bakery_queue",
+        "a1_w10_repeat",
+        "listening.a1.clarify_repeat",
+        "listening.a1.a1_w10_repeat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U08.SB.T08",
+      "unitId": "a1_08_clarify_repair",
+      "surface": "student_book",
+      "taskType": "speaking",
+      "taskKey": "guided_output",
+      "plannedPageSlot": "U08:p11",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "무슨 N",
+        "아니에요",
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?"
+      ],
+      "sourceRefs": [
+        "clarify_repeat",
+        "bakery_queue",
+        "a1_w10_repeat",
+        "listening.a1.clarify_repeat",
+        "listening.a1.a1_w10_repeat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U08.SB.T09",
+      "unitId": "a1_08_clarify_repair",
+      "surface": "student_book",
+      "taskType": "writing",
+      "taskKey": "short_writing",
+      "plannedPageSlot": "U08:p12",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "무슨 N",
+        "아니에요",
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?"
+      ],
+      "sourceRefs": [
+        "clarify_repeat",
+        "bakery_queue",
+        "a1_w10_repeat",
+        "listening.a1.clarify_repeat",
+        "listening.a1.a1_w10_repeat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U08.SB.T10",
+      "unitId": "a1_08_clarify_repair",
+      "surface": "student_book",
+      "taskType": "interaction",
+      "taskKey": "interaction_mission",
+      "plannedPageSlot": "U08:p13",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "무슨 N",
+        "아니에요",
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?"
+      ],
+      "sourceRefs": [
+        "clarify_repeat",
+        "bakery_queue",
+        "a1_w10_repeat",
+        "listening.a1.clarify_repeat",
+        "listening.a1.a1_w10_repeat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post",
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U08.SB.T11",
+      "unitId": "a1_08_clarify_repair",
+      "surface": "student_book",
+      "taskType": "retrieval",
+      "taskKey": "exit_retrieval",
+      "plannedPageSlot": "U08:p14",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "무슨 N",
+        "아니에요",
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?"
+      ],
+      "sourceRefs": [
+        "clarify_repeat",
+        "bakery_queue",
+        "a1_w10_repeat",
+        "listening.a1.clarify_repeat",
+        "listening.a1.a1_w10_repeat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post",
+        "delayed_24h",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U08.WB.T01",
+      "unitId": "a1_08_clarify_repair",
+      "surface": "workbook",
+      "taskType": "meaning",
+      "taskKey": "meaning_function",
+      "plannedPageSlot": "U08-WB:p1",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "sample_only",
+      "targetRefs": [
+        "-아/어 주세요",
+        "무슨 N",
+        "아니에요",
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?"
+      ],
+      "sourceRefs": [
+        "clarify_repeat",
+        "bakery_queue",
+        "a1_w10_repeat",
+        "listening.a1.clarify_repeat",
+        "listening.a1.a1_w10_repeat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U08.WB.T02",
+      "unitId": "a1_08_clarify_repair",
+      "surface": "workbook",
+      "taskType": "form",
+      "taskKey": "rebuild_chunk",
+      "plannedPageSlot": "U08-WB:p2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "-아/어 주세요",
+        "무슨 N",
+        "아니에요",
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?"
+      ],
+      "sourceRefs": [
+        "clarify_repeat",
+        "bakery_queue",
+        "a1_w10_repeat",
+        "listening.a1.clarify_repeat",
+        "listening.a1.a1_w10_repeat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U08.WB.T03",
+      "unitId": "a1_08_clarify_repair",
+      "surface": "workbook",
+      "taskType": "form",
+      "taskKey": "controlled_variation",
+      "plannedPageSlot": "U08-WB:p3",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "-아/어 주세요",
+        "무슨 N",
+        "아니에요",
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?"
+      ],
+      "sourceRefs": [
+        "clarify_repeat",
+        "bakery_queue",
+        "a1_w10_repeat",
+        "listening.a1.clarify_repeat",
+        "listening.a1.a1_w10_repeat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided",
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U08.WB.T04",
+      "unitId": "a1_08_clarify_repair",
+      "surface": "workbook",
+      "taskType": "meaning",
+      "taskKey": "recognition_only_check",
+      "plannedPageSlot": "U08-WB:p4",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "sample_only",
+      "targetRefs": [
+        "-아/어 주세요",
+        "무슨 N",
+        "아니에요",
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?"
+      ],
+      "sourceRefs": [
+        "clarify_repeat",
+        "bakery_queue",
+        "a1_w10_repeat",
+        "listening.a1.clarify_repeat",
+        "listening.a1.a1_w10_repeat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "guided"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U08.WB.T05",
+      "unitId": "a1_08_clarify_repair",
+      "surface": "workbook",
+      "taskType": "listening",
+      "taskKey": "listening_grid",
+      "plannedPageSlot": "U08-WB:p5",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "무슨 N",
+        "아니에요",
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?"
+      ],
+      "sourceRefs": [
+        "clarify_repeat",
+        "bakery_queue",
+        "a1_w10_repeat",
+        "listening.a1.clarify_repeat",
+        "listening.a1.a1_w10_repeat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U08.WB.T06",
+      "unitId": "a1_08_clarify_repair",
+      "surface": "workbook",
+      "taskType": "transfer_diagnostic",
+      "taskKey": "l1_transfer_diagnostic",
+      "plannedPageSlot": "U08-WB:p6",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "무슨 N",
+        "아니에요",
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?"
+      ],
+      "sourceRefs": [
+        "clarify_repeat",
+        "bakery_queue",
+        "a1_w10_repeat",
+        "listening.a1.clarify_repeat",
+        "listening.a1.a1_w10_repeat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "immediate_post",
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U08.WB.T07",
+      "unitId": "a1_08_clarify_repair",
+      "surface": "workbook",
+      "taskType": "interaction",
+      "taskKey": "interaction_free",
+      "plannedPageSlot": "U08-WB:p7-8",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "무슨 N",
+        "아니에요",
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?"
+      ],
+      "sourceRefs": [
+        "clarify_repeat",
+        "bakery_queue",
+        "a1_w10_repeat",
+        "listening.a1.clarify_repeat",
+        "listening.a1.a1_w10_repeat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U08.WB.T08",
+      "unitId": "a1_08_clarify_repair",
+      "surface": "workbook",
+      "taskType": "retrieval",
+      "taskKey": "delayed_retrieval",
+      "plannedPageSlot": "U08-WB:p9",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "-아/어 주세요",
+        "무슨 N",
+        "아니에요",
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?"
+      ],
+      "sourceRefs": [
+        "clarify_repeat",
+        "bakery_queue",
+        "a1_w10_repeat",
+        "listening.a1.clarify_repeat",
+        "listening.a1.a1_w10_repeat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": true,
+      "pilotStages": [
+        "delayed_24h",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.U08.WB.T09",
+      "unitId": "a1_08_clarify_repair",
+      "surface": "workbook",
+      "taskType": "self_check",
+      "taskKey": "self_check",
+      "plannedPageSlot": "U08-WB:p10",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "self_check",
+      "targetRefs": [
+        "-아/어 주세요",
+        "무슨 N",
+        "아니에요",
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?"
+      ],
+      "sourceRefs": [
+        "clarify_repeat",
+        "bakery_queue",
+        "a1_w10_repeat",
+        "listening.a1.clarify_repeat",
+        "listening.a1.a1_w10_repeat"
+      ],
+      "transferRiskRefs": [
+        "EN-A1-SPEECHLEVEL",
+        "DE-A1-DU-SIE"
+      ],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.R12.RV.T01",
+      "unitId": "a1_review_r12",
+      "surface": "review",
+      "taskType": "meaning",
+      "taskKey": "t01",
+      "plannedPageSlot": "R12:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "closed",
+      "targetRefs": [
+        "다시 말씀해 주세요"
+      ],
+      "sourceRefs": [
+        "airport_arrival"
+      ],
+      "transferRiskRefs": [],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.R12.RV.T02",
+      "unitId": "a1_review_r12",
+      "surface": "review",
+      "taskType": "form",
+      "taskKey": "t02",
+      "plannedPageSlot": "R12:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "closed",
+      "targetRefs": [
+        "은/는"
+      ],
+      "sourceRefs": [
+        "introduce_yourself"
+      ],
+      "transferRiskRefs": [],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.R12.RV.T03",
+      "unitId": "a1_review_r12",
+      "surface": "review",
+      "taskType": "meaning",
+      "taskKey": "t03",
+      "plannedPageSlot": "R12:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "closed",
+      "targetRefs": [
+        "N에서 왔어요"
+      ],
+      "sourceRefs": [
+        "introduce_yourself"
+      ],
+      "transferRiskRefs": [],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.R12.RV.T04",
+      "unitId": "a1_review_r12",
+      "surface": "review",
+      "taskType": "listening",
+      "taskKey": "t04",
+      "plannedPageSlot": "R12:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "closed",
+      "targetRefs": [
+        "네?"
+      ],
+      "sourceRefs": [
+        "airport_arrival"
+      ],
+      "transferRiskRefs": [],
+      "pilotEligible": true,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.R12.RV.T05",
+      "unitId": "a1_review_r12",
+      "surface": "review",
+      "taskType": "speaking",
+      "taskKey": "t05",
+      "plannedPageSlot": "R12:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "안녕하세요",
+        "저는 ___이에요/예요",
+        "N에서 왔어요"
+      ],
+      "sourceRefs": [
+        "airport_arrival",
+        "introduce_yourself"
+      ],
+      "transferRiskRefs": [],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.R12.RV.T06",
+      "unitId": "a1_review_r12",
+      "surface": "review",
+      "taskType": "retrieval",
+      "taskKey": "t06",
+      "plannedPageSlot": "R12:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "다시 말씀해 주세요",
+        "저는 ___이에요/예요"
+      ],
+      "sourceRefs": [
+        "airport_arrival",
+        "introduce_yourself"
+      ],
+      "transferRiskRefs": [],
+      "pilotEligible": true,
+      "pilotStages": [
+        "delayed_24h",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.R34.RV.T01",
+      "unitId": "a1_review_r34",
+      "surface": "review",
+      "taskType": "form",
+      "taskKey": "t01",
+      "plannedPageSlot": "R34:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "closed",
+      "targetRefs": [
+        "에 있다"
+      ],
+      "sourceRefs": [
+        "mart_grocery"
+      ],
+      "transferRiskRefs": [],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.R34.RV.T02",
+      "unitId": "a1_review_r34",
+      "surface": "review",
+      "taskType": "form",
+      "taskKey": "t02",
+      "plannedPageSlot": "R34:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "closed",
+      "targetRefs": [
+        "을/를"
+      ],
+      "sourceRefs": [
+        "cloze_a1_0037"
+      ],
+      "transferRiskRefs": [],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.R34.RV.T03",
+      "unitId": "a1_review_r34",
+      "surface": "review",
+      "taskType": "meaning",
+      "taskKey": "t03",
+      "plannedPageSlot": "R34:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "closed",
+      "targetRefs": [
+        "N 하나 주세요"
+      ],
+      "sourceRefs": [
+        "bunshik_tteokbokki"
+      ],
+      "transferRiskRefs": [],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.R34.RV.T04",
+      "unitId": "a1_review_r34",
+      "surface": "review",
+      "taskType": "meaning",
+      "taskKey": "t04",
+      "plannedPageSlot": "R34:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "closed",
+      "targetRefs": [
+        "안 매운 걸로 주세요"
+      ],
+      "sourceRefs": [
+        "bunshik_tteokbokki"
+      ],
+      "transferRiskRefs": [],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.R34.RV.T05",
+      "unitId": "a1_review_r34",
+      "surface": "review",
+      "taskType": "interaction",
+      "taskKey": "t05",
+      "plannedPageSlot": "R34:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "저기요",
+        "___는 어디에 있어요?",
+        "N 하나 주세요"
+      ],
+      "sourceRefs": [
+        "mart_grocery",
+        "bunshik_tteokbokki"
+      ],
+      "transferRiskRefs": [],
+      "pilotEligible": true,
+      "pilotStages": [
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.R34.RV.T06",
+      "unitId": "a1_review_r34",
+      "surface": "review",
+      "taskType": "transfer_diagnostic",
+      "taskKey": "t06",
+      "plannedPageSlot": "R34:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "multiple_accepted",
+      "targetRefs": [
+        "아메리카노 한 잔 주세요"
+      ],
+      "sourceRefs": [
+        "bunshik_tteokbokki"
+      ],
+      "transferRiskRefs": [],
+      "pilotEligible": true,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.R56.RV.T01",
+      "unitId": "a1_review_r56",
+      "surface": "review",
+      "taskType": "form",
+      "taskKey": "t01",
+      "plannedPageSlot": "R56:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "closed",
+      "targetRefs": [
+        "N시에"
+      ],
+      "sourceRefs": [
+        "meeting_time"
+      ],
+      "transferRiskRefs": [],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.R56.RV.T02",
+      "unitId": "a1_review_r56",
+      "surface": "review",
+      "taskType": "meaning",
+      "taskKey": "t02",
+      "plannedPageSlot": "R56:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "closed",
+      "targetRefs": [
+        "N시 어때요?"
+      ],
+      "sourceRefs": [
+        "meeting_time"
+      ],
+      "transferRiskRefs": [],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.R56.RV.T03",
+      "unitId": "a1_review_r56",
+      "surface": "review",
+      "taskType": "meaning",
+      "taskKey": "t03",
+      "plannedPageSlot": "R56:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "closed",
+      "targetRefs": [
+        "에"
+      ],
+      "sourceRefs": [
+        "taxi_kakao"
+      ],
+      "transferRiskRefs": [],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.R56.RV.T04",
+      "unitId": "a1_review_r56",
+      "surface": "review",
+      "taskType": "meaning",
+      "taskKey": "t04",
+      "plannedPageSlot": "R56:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "closed",
+      "targetRefs": [
+        "어디서 갈아타요?"
+      ],
+      "sourceRefs": [
+        "a1_w10_wayfinding"
+      ],
+      "transferRiskRefs": [],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.R56.RV.T05",
+      "unitId": "a1_review_r56",
+      "surface": "review",
+      "taskType": "interaction",
+      "taskKey": "t05",
+      "plannedPageSlot": "R56:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "몇 번 출구예요?",
+        "어디서 갈아타요?"
+      ],
+      "sourceRefs": [
+        "meeting_time",
+        "taxi_kakao"
+      ],
+      "transferRiskRefs": [],
+      "pilotEligible": true,
+      "pilotStages": [
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.R56.RV.T06",
+      "unitId": "a1_review_r56",
+      "surface": "review",
+      "taskType": "retrieval",
+      "taskKey": "t06",
+      "plannedPageSlot": "R56:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요",
+        "몇 번 출구예요?"
+      ],
+      "sourceRefs": [
+        "meeting_time",
+        "taxi_kakao"
+      ],
+      "transferRiskRefs": [],
+      "pilotEligible": true,
+      "pilotStages": [
+        "delayed_24h",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.R78.RV.T01",
+      "unitId": "a1_review_r78",
+      "surface": "review",
+      "taskType": "meaning",
+      "taskKey": "t01",
+      "plannedPageSlot": "R78:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "closed",
+      "targetRefs": [
+        "-(으)ㄹ까요?"
+      ],
+      "sourceRefs": [
+        "kakao_contact_after_class"
+      ],
+      "transferRiskRefs": [],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.R78.RV.T02",
+      "unitId": "a1_review_r78",
+      "surface": "review",
+      "taskType": "meaning",
+      "taskKey": "t02",
+      "plannedPageSlot": "R78:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "closed",
+      "targetRefs": [
+        "-(으)ㄹ 것 같아요"
+      ],
+      "sourceRefs": [
+        "a1_message_contact_after_class_2026"
+      ],
+      "transferRiskRefs": [],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.R78.RV.T03",
+      "unitId": "a1_review_r78",
+      "surface": "review",
+      "taskType": "meaning",
+      "taskKey": "t03",
+      "plannedPageSlot": "R78:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "closed",
+      "targetRefs": [
+        "repeat_request"
+      ],
+      "sourceRefs": [
+        "clarify_repeat"
+      ],
+      "transferRiskRefs": [],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.R78.RV.T04",
+      "unitId": "a1_review_r78",
+      "surface": "review",
+      "taskType": "meaning",
+      "taskKey": "t04",
+      "plannedPageSlot": "R78:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "closed",
+      "targetRefs": [
+        "meaning_request"
+      ],
+      "sourceRefs": [
+        "clarify_repeat"
+      ],
+      "transferRiskRefs": [],
+      "pilotEligible": false,
+      "pilotStages": [],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.R78.RV.T05",
+      "unitId": "a1_review_r78",
+      "surface": "review",
+      "taskType": "interaction",
+      "taskKey": "t05",
+      "plannedPageSlot": "R78:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "카카오톡으로 연락할까요?",
+        "다시 말씀해 주세요",
+        "13번이요?"
+      ],
+      "sourceRefs": [
+        "kakao_contact_after_class",
+        "clarify_repeat"
+      ],
+      "transferRiskRefs": [],
+      "pilotEligible": true,
+      "pilotStages": [
+        "transfer"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.R78.RV.T06",
+      "unitId": "a1_review_r78",
+      "surface": "review",
+      "taskType": "retrieval",
+      "taskKey": "t06",
+      "plannedPageSlot": "R78:p1-2",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "10분 정도 늦을 것 같아요",
+        "다시 말씀해 주세요"
+      ],
+      "sourceRefs": [
+        "a1_message_contact_after_class_2026",
+        "clarify_repeat"
+      ],
+      "transferRiskRefs": [],
+      "pilotEligible": true,
+      "pilotStages": [
+        "delayed_24h",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.FINAL.RV.T01",
+      "unitId": "a1_review_final",
+      "surface": "review",
+      "taskType": "interaction",
+      "taskKey": "t01",
+      "plannedPageSlot": "FINAL:p1-4",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "Units01",
+        "Units02",
+        "Unit07"
+      ],
+      "sourceRefs": [],
+      "transferRiskRefs": [],
+      "pilotEligible": true,
+      "pilotStages": [
+        "transfer",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.FINAL.RV.T02",
+      "unitId": "a1_review_final",
+      "surface": "review",
+      "taskType": "interaction",
+      "taskKey": "t02",
+      "plannedPageSlot": "FINAL:p1-4",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "Unit03",
+        "Unit04"
+      ],
+      "sourceRefs": [],
+      "transferRiskRefs": [],
+      "pilotEligible": true,
+      "pilotStages": [
+        "transfer",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.FINAL.RV.T03",
+      "unitId": "a1_review_final",
+      "surface": "review",
+      "taskType": "interaction",
+      "taskKey": "t03",
+      "plannedPageSlot": "FINAL:p1-4",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "Unit05",
+        "Unit06"
+      ],
+      "sourceRefs": [],
+      "transferRiskRefs": [],
+      "pilotEligible": true,
+      "pilotStages": [
+        "transfer",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.FINAL.RV.T04",
+      "unitId": "a1_review_final",
+      "surface": "review",
+      "taskType": "retrieval",
+      "taskKey": "t04",
+      "plannedPageSlot": "FINAL:p1-4",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "Unit08"
+      ],
+      "sourceRefs": [],
+      "transferRiskRefs": [],
+      "pilotEligible": true,
+      "pilotStages": [
+        "transfer",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.FINAL.RV.T05",
+      "unitId": "a1_review_final",
+      "surface": "review",
+      "taskType": "writing",
+      "taskKey": "t05",
+      "plannedPageSlot": "FINAL:p1-4",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "Unit07",
+        "Unit05"
+      ],
+      "sourceRefs": [],
+      "transferRiskRefs": [],
+      "pilotEligible": true,
+      "pilotStages": [
+        "transfer",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    },
+    {
+      "taskId": "1A.FINAL.RV.T06",
+      "unitId": "a1_review_final",
+      "surface": "review",
+      "taskType": "reading",
+      "taskKey": "t06",
+      "plannedPageSlot": "FINAL:p1-4",
+      "editionScope": [
+        "en",
+        "de"
+      ],
+      "answerPolicy": "rubric",
+      "targetRefs": [
+        "Units03-08"
+      ],
+      "sourceRefs": [],
+      "transferRiskRefs": [],
+      "pilotEligible": true,
+      "pilotStages": [
+        "transfer",
+        "delayed_7d"
+      ],
+      "status": "model_reviewed"
+    }
+  ]
+}

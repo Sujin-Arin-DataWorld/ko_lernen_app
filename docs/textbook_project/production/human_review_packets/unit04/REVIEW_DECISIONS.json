@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a1_04_order_request_object",
+  "packetDate": "2026-10-06",
+  "status": "OPEN",
+  "decisions": {
+    "koreanEducator": {
+      "reviewer": "",
+      "date": "",
+      "decision": "",
+      "notes": []
+    },
+    "englishPedagogy": {
+      "reviewer": "",
+      "date": "",
+      "decision": "",
+      "notes": []
+    },
+    "germanPedagogy": {
+      "reviewer": "",
+      "date": "",
+      "decision": "",
+      "notes": []
+    },
+    "audioSpoken": {
+      "reviewer": "Jin",
+      "date": "",
+      "decision": "",
+      "notes": []
+    },
+    "learnerPilot": {
+      "cohortIds": [],
+      "decision": "",
+      "notes": []
+    }
+  },
+  "allowedDecisions": [
+    "APPROVE",
+    "APPROVE_WITH_EDITS",
+    "HOLD"
+  ]
+}

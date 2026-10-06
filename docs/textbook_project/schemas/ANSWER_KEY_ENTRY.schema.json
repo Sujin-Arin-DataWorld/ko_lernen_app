@@ -19,7 +19,7 @@
     },
     "unitId": {
       "type": "string",
-      "pattern": "^a1_0[1-8]_"
+      "pattern": "^(a1_0[1-8]_.+|a1_review_(r12|r34|r56|r78|final))$"
     },
     "edition": {
       "type": "string",
@@ -40,7 +40,9 @@
         "speaking",
         "interaction",
         "retrieval",
-        "transfer_diagnostic"
+        "transfer_diagnostic",
+        "pronunciation",
+        "self_check"
       ]
     },
     "answerType": {
