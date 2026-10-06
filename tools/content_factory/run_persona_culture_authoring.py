@@ -381,12 +381,12 @@ def _validate_authoring_brief(
         persona_ids = row.get("personaIds")
         if (
             not isinstance(persona_ids, list)
-            or len(persona_ids) < 2
+            or not persona_ids
             or any(not isinstance(item, str) or not item.strip() for item in persona_ids)
             or len(set(persona_ids)) != len(persona_ids)
         ):
             raise PersonaCulturePipelineError(
-                f"{scenario_id}: personaIds must contain unique recurring character IDs"
+                f"{scenario_id}: personaIds must contain at least one unique recurring character ID"
             )
         persona_ids = [item.strip() for item in persona_ids]
         unknown_personas = sorted(set(persona_ids) - profiles.keys())
@@ -414,6 +414,10 @@ def _validate_authoring_brief(
             )
         participants = scene.get("participantIds")
         expected_participants = [*persona_ids, *support_role_ids]
+        if len(expected_participants) < 2:
+            raise PersonaCulturePipelineError(
+                f"{scenario_id}: authoring scene needs at least two participants"
+            )
         if participants != expected_participants:
             raise PersonaCulturePipelineError(
                 f"{scenario_id}: participantIds must equal personaIds + supportRoleIds"
