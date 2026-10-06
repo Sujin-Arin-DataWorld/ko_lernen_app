@@ -35,8 +35,8 @@ class Batch39PersonaCultureDraftTest(unittest.TestCase):
             (ROOT / cls.manifest["vocabLevelingReview"]).read_text(encoding="utf-8")
         )
 
-    def test_batch39_stays_review_only_with_expected_scenes(self) -> None:
-        self.assertEqual(self.manifest["status"], "review_only_draft")
+    def test_batch39_approved_bundle_has_expected_scenes(self) -> None:
+        self.assertEqual(self.manifest["status"], "merged")
         self.assertFalse(self.manifest["provenance"]["humanLanguageQaClaim"])
         expected = [
             "a2_andrea_minho_bojagi_housewarming",
@@ -51,7 +51,7 @@ class Batch39PersonaCultureDraftTest(unittest.TestCase):
         with review_path.open(encoding="utf-8-sig", newline="") as handle:
             rows = list(csv.DictReader(handle))
         self.assertEqual([row["id"] for row in rows], expected)
-        self.assertTrue(all(row["상태"] == "draft" for row in rows))
+        self.assertTrue(all(row["상태"] == "approved" for row in rows))
 
     def test_existing_glossary_terms_are_reused_exactly(self) -> None:
         linked = {
@@ -95,9 +95,9 @@ class Batch39PersonaCultureDraftTest(unittest.TestCase):
             manifest_path=self.manifest_path,
             write_derived=False,
         )
-        self.assertEqual(report["status"], "REVIEW_ONLY_PIPELINE_PASS")
+        self.assertEqual(report["status"], "MERGED_AUDIT_PASS")
         self.assertFalse(report["liveWritePerformed"])
-        self.assertFalse(report["humanApprovalClaimed"])
+        self.assertTrue(report["humanApprovalClaimed"])
 
 
 if __name__ == "__main__":

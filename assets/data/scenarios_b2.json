@@ -6896,6 +6896,402 @@
         }
       ],
       "xpReward": 130
+    },
+    {
+      "id": "b2_maya_daniel_pansori_promo_clip",
+      "level": "b2",
+      "emoji": "🎙️",
+      "register": "business",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "판소리 공연 보고 이야기하기",
+        "de": "Nach einer Pansori-Aufführung darüber sprechen",
+        "en": "Talking after a pansori performance"
+      },
+      "intro": {
+        "ko": "마야와 다니엘이 판소리 공연을 보고 나온 뒤 인상 깊었던 장면을 이야기해요. 처음 보는 사람에게 낯설었던 추임새와 고수의 역할, 이야기 흐름을 자연스럽게 짚어봐요.",
+        "de": "Maya und Daniel sprechen nach einer Pansori-Aufführung über besonders eindrucksvolle Momente. Dabei kommen natürlich die Chueimsae-Rufe, die Rolle des Gosu und der Erzählfluss zur Sprache.",
+        "en": "Maya and Daniel talk after a pansori performance about what stood out to them. Their conversation naturally touches on chueimsae calls, the gosu's role, and the flow of the story."
+      },
+      "courseUnitId": "b2_02_professional_opinion",
+      "playerCharacterId": "maya",
+      "participantIds": [
+        "maya",
+        "daniel"
+      ],
+      "relationshipContext": "문화 홍보 영상을 함께 만드는 프로젝트 동료, 업무 해요체로 의견을 조율한다",
+      "intent": "판소리 공연을 본 뒤 예상과 실제가 달랐던 점, 인상적인 소리와 관객 참여를 구체적으로 말한다",
+      "shelf": "b2_evidence",
+      "backdrop": "office",
+      "vocab": [
+        {
+          "korean": "판소리"
+        },
+        {
+          "korean": "공연"
+        },
+        {
+          "korean": "목소리"
+        },
+        {
+          "korean": "북"
+        },
+        {
+          "korean": "줄거리"
+        },
+        {
+          "korean": "느끼다"
+        }
+      ],
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_b1_as_kept_doing"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-다 보니",
+          "de": "Eine Veränderung beim weiteren Erleben ausdrücken",
+          "en": "Expressing a change that happens through experience"
+        },
+        "explanation": {
+          "ko": "“처음에는 좀 놀랐는데 듣다 보니 더 재밌더라고요”처럼 계속 경험하면서 느낌이나 판단이 달라졌을 때 써요.",
+          "de": "Mit -다 보니 beschreibst du, wie sich beim weiteren Erleben ein Eindruck oder eine Einschätzung verändert.",
+          "en": "Use -다 보니 to describe how your impression or judgment changes as you keep experiencing something."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "daniel",
+          "ko": "와… 생각보다 훨씬 강렬하네요. 무대에는 두 분밖에 없는데 꽉 찬 느낌이었어요.",
+          "de": "Wow … das war viel intensiver, als ich erwartet hatte. Obwohl nur zwei Personen auf der Bühne waren, wirkte sie völlig ausgefüllt.",
+          "en": "Wow… that was much more intense than I expected. There were only two people on stage, but it still felt completely full."
+        },
+        {
+          "speaker": "user",
+          "ko": "그렇죠? 저도 처음 봤을 때 소리꾼 목소리가 이렇게 힘이 센 줄 몰랐어요.",
+          "de": "Stimmt, oder? Als ich Pansori zum ersten Mal gesehen habe, wusste ich auch nicht, dass die Stimme des Sängers so kraftvoll sein kann.",
+          "en": "Right? The first time I saw pansori, I had no idea the singer's voice could be that powerful."
+        },
+        {
+          "speaker": "daniel",
+          "ko": "저는 옆에서 북 치시는 분도 진짜 인상적이었어요. 그냥 박자만 맞추는 줄 알았는데 중간중간 ‘좋다!’ 하면서 계속 반응하시던데요?",
+          "de": "Ich fand auch den Mann an der Trommel sehr beeindruckend. Ich dachte, er hält nur den Rhythmus, aber zwischendurch reagierte er immer wieder mit „Jota!“.",
+          "en": "I was really impressed by the person playing the drum too. I thought he was just keeping the beat, but he kept responding with 'Jota!' in between."
+        },
+        {
+          "speaker": "user",
+          "ko": "맞아요. 그분을 고수라고 해요. 북도 치고 추임새도 넣으면서 소리꾼이랑 계속 호흡해요. 관객도 ‘얼씨구’, ‘좋다’ 같은 추임새를 넣을 수 있고요.",
+          "de": "Genau. Diese Person nennt man Gosu. Der Gosu spielt die Trommel, ruft Chueimsae und reagiert ständig auf den Sänger. Auch das Publikum kann Rufe wie „Eolssigu!“ oder „Jota!“ einwerfen.",
+          "en": "Right. That person is called the gosu. The gosu plays the drum, adds chueimsae calls, and keeps responding to the singer. The audience can also join in with calls like 'Eolssigu!' or 'Jota!'"
+        },
+        {
+          "speaker": "daniel",
+          "ko": "아, 그래서 옆에서 갑자기 ‘얼씨구!’ 하는 사람이 있었구나. 처음에는 좀 놀랐는데 듣다 보니 그게 더 재밌더라고요.",
+          "de": "Ah, deshalb hat neben mir plötzlich jemand „Eolssigu!“ gerufen. Erst hat mich das überrascht, aber je länger ich zuhörte, desto mehr Spaß hat mir genau das gemacht.",
+          "en": "Ah, so that's why someone next to me suddenly shouted 'Eolssigu!' I was a little surprised at first, but the more I listened, the more fun that became."
+        },
+        {
+          "speaker": "user",
+          "ko": "맞아요. 가만히 듣기만 하는 공연이랑 느낌이 좀 다르죠.",
+          "de": "Genau. Es fühlt sich anders an als eine Aufführung, bei der man einfach still zuhört.",
+          "en": "Exactly. It feels different from a performance where you just sit quietly and listen."
+        },
+        {
+          "speaker": "daniel",
+          "ko": "그리고 한 사람이 노래하다가 갑자기 말하듯이 이야기하고, 또 다른 인물처럼 연기하는 것도 신기했어요.",
+          "de": "Und ich fand spannend, wie eine Person erst singt, dann plötzlich fast spricht und sogar wie eine andere Figur spielt.",
+          "en": "And I found it fascinating how one person would sing, then suddenly speak almost conversationally, and even act like another character."
+        },
+        {
+          "speaker": "user",
+          "ko": "그게 판소리 보는 재미 중 하나예요. 저는 줄거리를 조금 알고 보면 훨씬 따라가기 쉽더라고요.",
+          "de": "Das ist einer der Reize von Pansori. Ich finde, wenn man die Handlung vorher ein wenig kennt, kann man viel leichter folgen.",
+          "en": "That's one of the fun parts of pansori. I find it much easier to follow when I know a little of the plot beforehand."
+        },
+        {
+          "speaker": "daniel",
+          "ko": "오늘은 내용을 다 알아들은 건 아닌데, 웃긴 장면인지 슬픈 장면인지는 목소리만 들어도 어느 정도 느껴졌어요.",
+          "de": "Heute habe ich zwar nicht alles verstanden, aber allein an der Stimme konnte ich ungefähr spüren, ob eine Szene lustig oder traurig war.",
+          "en": "I didn't understand everything today, but just from the voice I could still tell to some extent whether a scene was funny or sad."
+        },
+        {
+          "speaker": "user",
+          "ko": "맞아요. 다음에는 줄거리 먼저 조금 보고 다른 공연도 보러 갈래요?",
+          "de": "Genau. Wollen wir uns nächstes Mal vorher kurz die Handlung ansehen und noch eine andere Aufführung besuchen?",
+          "en": "Exactly. Next time, do you want to look over the plot first and go see another performance?"
+        },
+        {
+          "speaker": "daniel",
+          "ko": "좋아요. 다음에는 저도 타이밍 봐서 ‘얼씨구!’ 한번 해볼게요.",
+          "de": "Gern. Beim nächsten Mal versuche ich auch, im richtigen Moment einmal „Eolssigu!“ zu rufen.",
+          "en": "Sounds good. Next time I'll try shouting 'Eolssigu!' at the right moment too."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_maya_daniel_pansori_promo_clip_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "audioKo": "아, 그래서 옆에서 갑자기 ‘얼씨구!’ 하는 사람이 있었구나. 처음에는 좀 놀랐는데 듣다 보니 그게 더 재밌더라고요.",
+            "options": [
+              {
+                "de": "Ah, deshalb hat neben mir plötzlich jemand „Eolssigu!“ gerufen. Erst hat mich das überrascht, aber je länger ich zuhörte, desto mehr Spaß hat mir genau das gemacht.",
+                "en": "Ah, so that's why someone next to me suddenly shouted 'Eolssigu!' I was a little surprised at first, but the more I listened, the more fun that became."
+              },
+              {
+                "de": "Wow … das war viel intensiver, als ich erwartet hatte. Obwohl nur zwei Personen auf der Bühne waren, wirkte sie völlig ausgefüllt.",
+                "en": "Wow… that was much more intense than I expected. There were only two people on stage, but it still felt completely full."
+              },
+              {
+                "de": "Und ich fand spannend, wie eine Person erst singt, dann plötzlich fast spricht und sogar wie eine andere Figur spielt.",
+                "en": "And I found it fascinating how one person would sing, then suddenly speak almost conversationally, and even act like another character."
+              },
+              {
+                "de": "Gern. Beim nächsten Mal versuche ich auch, im richtigen Moment einmal „Eolssigu!“ zu rufen.",
+                "en": "Sounds good. Next time I'll try shouting 'Eolssigu!' at the right moment too."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_maya_daniel_pansori_promo_clip_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "promptDe": "Heute habe ich zwar nicht alles verstanden, aber allein an der Stimme konnte ich ungefähr spüren, ob eine Szene lustig oder traurig war.",
+            "promptEn": "I didn't understand everything today, but just from the voice I could still tell to some extent whether a scene was funny or sad.",
+            "options": [
+              {
+                "ko": "오늘은 내용을 다 알아들은 건 아닌데, 웃긴 장면인지 슬픈 장면인지는 목소리만 들어도 어느 정도 느껴졌어요."
+              },
+              {
+                "ko": "오늘은 판소리 내용을 전부 이해했어요."
+              },
+              {
+                "ko": "오늘은 목소리로 감정을 느끼기 어려웠어요."
+              },
+              {
+                "ko": "오늘은 슬픈 장면만 이해했어요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_maya_daniel_pansori_promo_clip_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "targetKo": "좋아요. 다음에는 저도 타이밍 봐서 ‘얼씨구!’ 한번 해볼게요.",
+            "audioKo": "좋아요. 다음에는 저도 타이밍 봐서 ‘얼씨구!’ 한번 해볼게요.",
+            "promptDe": "Gern. Beim nächsten Mal versuche ich auch, im richtigen Moment einmal „Eolssigu!“ zu rufen.",
+            "promptEn": "Sounds good. Next time I'll try shouting 'Eolssigu!' at the right moment too.",
+            "distractors": [
+              "공연 없이",
+              "가만히만",
+              "다음 달에"
+            ]
+          }
+        }
+      ],
+      "xpReward": 130
+    },
+    {
+      "id": "b2_hyuna_daniel_nongak_festival_filming",
+      "level": "b2",
+      "emoji": "🥁",
+      "register": "business",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "농악 공연 보고 다음 약속 잡기",
+        "de": "Nach einer Nongak-Aufführung das nächste Treffen planen",
+        "en": "Planning the next outing after a nongak performance"
+      },
+      "intro": {
+        "ko": "현아와 다니엘이 농악 공연을 본 뒤 이야기를 나눠요. 다니엘은 장구를 배워 보고 싶다고 말하고, 둘은 다음 공연도 같이 보러 가기로 해요.",
+        "de": "Hyuna und Daniel sprechen nach einer Nongak-Aufführung. Daniel sagt, dass er gern Janggu lernen würde, und beide verabreden sich für eine weitere Aufführung.",
+        "en": "Hyuna and Daniel talk after watching a nongak performance. Daniel says he'd like to learn the janggu, and they make plans to see another performance together."
+      },
+      "courseUnitId": "b2_02_professional_opinion",
+      "playerCharacterId": "daniel",
+      "participantIds": [
+        "daniel",
+        "hyuna"
+      ],
+      "relationshipContext": "지역 촬영 방식과 연구 맥락을 자주 의논하는 지인, 현장에서 업무 해요체로 조율한다",
+      "intent": "농악 공연을 본 뒤 관심사를 나누고, 전해 들은 지역 차이를 말하며 다음 공연 약속을 정한다",
+      "shelf": "b2_evidence",
+      "backdrop": "directions",
+      "vocab": [
+        {
+          "korean": "농악"
+        },
+        {
+          "korean": "장구"
+        },
+        {
+          "korean": "공연"
+        },
+        {
+          "korean": "지역"
+        },
+        {
+          "korean": "배우다"
+        },
+        {
+          "korean": "찾아보다"
+        }
+      ],
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_b2_quoted_contractions"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "-대요",
+          "de": "Gehörte Information kurz wiedergeben",
+          "en": "Reporting something you heard"
+        },
+        "explanation": {
+          "ko": "“지역마다 장단이나 공연 방식이 좀 다르대요”처럼 다른 사람에게서 들은 내용을 자연스럽게 전할 때 써요.",
+          "de": "Mit -대요 gibst du in gesprochener Sprache kurz etwas wieder, das du von anderen gehört hast.",
+          "en": "Use -대요 in conversation to briefly report something you heard from someone else."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "아까 본 게 농악이죠? 저는 음악만 하는 줄 알았는데 사람들이 계속 움직이고 춤도 추더라고요.",
+          "de": "Das eben war Nongak, oder? Ich dachte, es gehe nur um Musik, aber die Leute haben sich ständig bewegt und auch getanzt.",
+          "en": "That was nongak just now, right? I thought it was only music, but people kept moving around and dancing too."
+        },
+        {
+          "speaker": "hyuna",
+          "ko": "어? 농악도 알아요? 와, 다니엘 진짜 한국 사람 다 됐네요.",
+          "de": "Oh, Sie kennen sogar Nongak? Wow, Daniel, Sie sind ja schon fast ein richtiger Koreaner.",
+          "en": "Oh, you even know nongak? Wow, Daniel, you're practically Korean now."
+        },
+        {
+          "speaker": "user",
+          "ko": "하하, 제가 한국에 산 지가 몇 년인데요. 전 장구를 한번 배워 보고 싶어요.",
+          "de": "Haha, ich lebe schließlich schon seit ein paar Jahren in Korea. Ich würde gern einmal Janggu lernen.",
+          "en": "Haha, I've been living in Korea for a few years now. I'd really like to try learning the janggu."
+        },
+        {
+          "speaker": "hyuna",
+          "ko": "아, 정말요? 한번 배워 봐요! 농악은 지역마다 장단이나 공연 방식이 좀 다르대요.",
+          "de": "Ach, wirklich? Probieren Sie es doch mal! Ich habe gehört, dass Rhythmen und Aufführungsweise beim Nongak je nach Region etwas unterschiedlich sind.",
+          "en": "Oh, really? You should try it! I heard that nongak rhythms and performance styles vary a bit by region."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 다음에 또 다른 데서 공연 있으면 같이 보러 갈래요?",
+          "de": "Wollen wir dann gemeinsam hingehen, wenn es demnächst anderswo wieder eine Aufführung gibt?",
+          "en": "Then if there's another performance somewhere else, do you want to go see it together?"
+        },
+        {
+          "speaker": "hyuna",
+          "ko": "완전 좋아요. 제 친구 중에 국악 하는 친구 있는데, 그 친구한테도 같이 가자고 해볼까요?",
+          "de": "Sehr gern. Ich habe eine Freundin, die Gugak macht. Sollen wir sie auch fragen, ob sie mitkommen möchte?",
+          "en": "I'd love that. I have a friend who does traditional Korean music. Should we ask her to come with us too?"
+        },
+        {
+          "speaker": "user",
+          "ko": "좋죠. 그러면 제가 공연 있는지 인터넷에서 한번 찾아볼게요!",
+          "de": "Gern. Dann schaue ich im Internet nach, ob es eine Aufführung gibt!",
+          "en": "Sounds good. Then I'll look online and see if there's another performance!"
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_hyuna_daniel_nongak_festival_filming_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "audioKo": "아, 정말요? 한번 배워 봐요! 농악은 지역마다 장단이나 공연 방식이 좀 다르대요.",
+            "options": [
+              {
+                "de": "Ach, wirklich? Probieren Sie es doch mal! Ich habe gehört, dass Rhythmen und Aufführungsweise beim Nongak je nach Region etwas unterschiedlich sind.",
+                "en": "Oh, really? You should try it! I heard that nongak rhythms and performance styles vary a bit by region."
+              },
+              {
+                "de": "Das eben war Nongak, oder? Ich dachte, es gehe nur um Musik, aber die Leute haben sich ständig bewegt und auch getanzt.",
+                "en": "That was nongak just now, right? I thought it was only music, but people kept moving around and dancing too."
+              },
+              {
+                "de": "Wollen wir dann gemeinsam hingehen, wenn es demnächst anderswo wieder eine Aufführung gibt?",
+                "en": "Then if there's another performance somewhere else, do you want to go see it together?"
+              },
+              {
+                "de": "Gern. Dann schaue ich im Internet nach, ob es eine Aufführung gibt!",
+                "en": "Sounds good. Then I'll look online and see if there's another performance!"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_hyuna_daniel_nongak_festival_filming_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "promptDe": "Haha, ich lebe schließlich schon seit ein paar Jahren in Korea. Ich würde gern einmal Janggu lernen.",
+            "promptEn": "Haha, I've been living in Korea for a few years now. I'd really like to try learning the janggu.",
+            "options": [
+              {
+                "ko": "하하, 제가 한국에 산 지가 몇 년인데요. 전 장구를 한번 배워 보고 싶어요."
+              },
+              {
+                "ko": "저는 농악을 배워 보고 싶어요."
+              },
+              {
+                "ko": "저는 한국에 온 지 얼마 안 됐어요."
+              },
+              {
+                "ko": "저는 장구보다 춤만 보고 싶어요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_hyuna_daniel_nongak_festival_filming_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "targetKo": "좋죠. 그러면 제가 공연 있는지 인터넷에서 한번 찾아볼게요!",
+            "audioKo": "좋죠. 그러면 제가 공연 있는지 인터넷에서 한번 찾아볼게요!",
+            "promptDe": "Gern. Dann schaue ich im Internet nach, ob es eine Aufführung gibt!",
+            "promptEn": "Sounds good. Then I'll look online and see if there's another performance!",
+            "distractors": [
+              "다음 달에",
+              "공연 없이",
+              "인터넷 대신"
+            ]
+          }
+        }
+      ],
+      "xpReward": 130
     }
   ]
 }

@@ -108,6 +108,26 @@ def _profile_map() -> dict[str, dict[str, Any]]:
     return result
 
 
+def _known_support_role_ids(recurring_ids: set[str]) -> set[str]:
+    support: set[str] = set()
+    data_dir = ROOT / "assets" / "data"
+    for path in sorted(data_dir.glob("scenarios_*.json")):
+        payload = _read_json(path, f"scenario shard {path.name}")
+        scenes = payload.get("scenarios")
+        if not isinstance(scenes, list):
+            continue
+        for scene in scenes:
+            if not isinstance(scene, dict):
+                continue
+            participants = scene.get("participantIds")
+            if not isinstance(participants, list):
+                continue
+            for participant in participants:
+                if isinstance(participant, str) and participant and participant not in recurring_ids:
+                    support.add(participant)
+    return support
+
+
 def _glossary_ids() -> set[str]:
     payload = _read_json(ROOT / "docs/data/cultural_glossary.json", "cultural glossary")
     entries = payload.get("entries")
@@ -337,6 +357,7 @@ def _validate_authoring_brief(
         )
 
     profiles = _profile_map()
+    support_roles = _known_support_role_ids(set(profiles))
     glossary_ids = _glossary_ids()
     scene_by_id = {str(scene["id"]): scene for scene in scenarios}
 
@@ -373,10 +394,29 @@ def _validate_authoring_brief(
             raise PersonaCulturePipelineError(
                 f"{scenario_id}: unknown recurring personas {unknown_personas}"
             )
-        participants = scene.get("participantIds")
-        if participants != persona_ids:
+        support_role_ids = row.get("supportRoleIds", [])
+        if (
+            not isinstance(support_role_ids, list)
+            or any(
+                not isinstance(item, str) or not item.strip()
+                for item in support_role_ids
+            )
+            or len(set(support_role_ids)) != len(support_role_ids)
+        ):
             raise PersonaCulturePipelineError(
-                f"{scenario_id}: brief personaIds must exactly match participantIds/order"
+                f"{scenario_id}: supportRoleIds must be a unique string list"
+            )
+        support_role_ids = [item.strip() for item in support_role_ids]
+        unknown_support = sorted(set(support_role_ids) - support_roles)
+        if unknown_support:
+            raise PersonaCulturePipelineError(
+                f"{scenario_id}: unknown support roles {unknown_support}"
+            )
+        participants = scene.get("participantIds")
+        expected_participants = [*persona_ids, *support_role_ids]
+        if participants != expected_participants:
+            raise PersonaCulturePipelineError(
+                f"{scenario_id}: participantIds must equal personaIds + supportRoleIds"
             )
         if player not in persona_ids:
             raise PersonaCulturePipelineError(

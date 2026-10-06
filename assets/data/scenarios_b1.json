@@ -7208,6 +7208,199 @@
         }
       ],
       "xpReward": 120
+    },
+    {
+      "id": "b1_minho_christian_hanok_cafe_meeting",
+      "level": "b1",
+      "emoji": "🏠",
+      "register": "polite",
+      "speechStyle": "polite",
+      "title": {
+        "ko": "한옥 카페에서 멘토링 자리 정하기",
+        "de": "Einen Platz für ein Mentoring-Treffen im Hanok-Café wählen",
+        "en": "Choosing a mentoring spot in a hanok café"
+      },
+      "intro": {
+        "ko": "민호와 크리스티안이 멘토링하러 한옥 카페에 왔어요. 크리스티안은 노트북을 쓰려고 직원에게 콘센트 있는 자리를 물어봐요.",
+        "de": "Minho und Christian sind für ihr Mentoring in einem Hanok-Café. Christian fragt die Servicekraft nach einem Platz mit Steckdose für seinen Laptop.",
+        "en": "Minho and Christian have come to a hanok café for mentoring. Christian asks the server for a seat with a power outlet for his laptop."
+      },
+      "courseUnitId": "b1_03_work_softening",
+      "playerCharacterId": "christian",
+      "participantIds": [
+        "christian",
+        "minho",
+        "server"
+      ],
+      "relationshipContext": "민호와 크리스티안은 해요체로 이야기하고, 카페 직원에게는 공손한 존댓말을 쓴다",
+      "intent": "한옥 카페에서 노트북을 쓸 자리를 직원에게 묻고 안내받는다",
+      "shelf": "b1_team",
+      "backdrop": "cafe",
+      "vocab": [
+        {
+          "korean": "한옥"
+        },
+        {
+          "korean": "마당"
+        },
+        {
+          "korean": "자리"
+        },
+        {
+          "korean": "노트북"
+        },
+        {
+          "korean": "창가"
+        },
+        {
+          "korean": "안내하다"
+        }
+      ],
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_permission"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-아/어도 되다",
+          "de": "Höflich um Erlaubnis fragen",
+          "en": "Asking permission politely"
+        },
+        "explanation": {
+          "ko": "“저쪽 자리 써도 될까요?”처럼 서비스 상황에서 무엇을 해도 되는지 공손하게 물을 때 써요.",
+          "de": "Mit -아/어도 되다 fragst du in einer Servicesituation höflich, ob etwas erlaubt ist.",
+          "en": "Use -아/어도 되다 to politely ask whether something is allowed in a service situation."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minho",
+          "ko": "여기가 제가 말한 한옥 카페예요. 마당 쪽에도 자리가 있네요.",
+          "de": "Das ist das Hanok-Café, von dem ich erzählt habe. Am Madang gibt es auch Plätze.",
+          "en": "This is the hanok café I told you about. There are seats by the madang too."
+        },
+        {
+          "speaker": "user",
+          "ko": "분위기 좋네요. 그런데 오늘은 노트북을 써야 해서 안쪽이 더 좋을 것 같아요.",
+          "de": "Die Atmosphäre ist schön. Aber heute brauche ich meinen Laptop, daher wäre ein Platz drinnen wohl besser.",
+          "en": "The atmosphere is nice. But I need to use my laptop today, so an indoor seat would probably be better."
+        },
+        {
+          "speaker": "minho",
+          "ko": "그럼 직원분께 콘센트 있는 자리 있는지 한번 물어보세요.",
+          "de": "Dann fragen Sie die Servicekraft doch einmal, ob es einen Platz mit Steckdose gibt.",
+          "en": "Then ask the server whether there is a seat with a power outlet."
+        },
+        {
+          "speaker": "user",
+          "ko": "혹시 여기 콘센트 쓸 수 있는 자리 있을까요?",
+          "de": "Entschuldigung, gibt es hier einen Platz, an dem ich eine Steckdose benutzen kann?",
+          "en": "Excuse me, is there a seat here where I can use a power outlet?"
+        },
+        {
+          "speaker": "server",
+          "ko": "네. 안쪽 창가 자리에 콘센트가 있어요.",
+          "de": "Ja. Am Fenster weiter drinnen gibt es einen Platz mit Steckdose.",
+          "en": "Yes. There's a seat by the inside window with a power outlet."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 저쪽 자리 써도 될까요?",
+          "de": "Darf ich dann den Platz dort benutzen?",
+          "en": "Then would it be okay if I use that seat?"
+        },
+        {
+          "speaker": "server",
+          "ko": "네, 괜찮습니다.",
+          "de": "Ja, natürlich.",
+          "en": "Yes, that's fine."
+        },
+        {
+          "speaker": "minho",
+          "ko": "좋아요. 자리 잡고 시작하죠.",
+          "de": "Gut. Dann setzen wir uns und legen los.",
+          "en": "Great. Let's get settled and start."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_minho_christian_hanok_cafe_meeting_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "audioKo": "그럼 저쪽 자리 써도 될까요?",
+            "options": [
+              {
+                "de": "Darf ich dann den Platz dort benutzen?",
+                "en": "Then would it be okay if I use that seat?"
+              },
+              {
+                "de": "Das ist das Hanok-Café, von dem ich erzählt habe. Am Madang gibt es auch Plätze.",
+                "en": "This is the hanok café I told you about. There are seats by the madang too."
+              },
+              {
+                "de": "Ja. Am Fenster weiter drinnen gibt es einen Platz mit Steckdose.",
+                "en": "Yes. There's a seat by the inside window with a power outlet."
+              },
+              {
+                "de": "Gut. Dann setzen wir uns und legen los.",
+                "en": "Great. Let's get settled and start."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_minho_christian_hanok_cafe_meeting_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "promptDe": "Entschuldigung, gibt es hier einen Platz, an dem ich eine Steckdose benutzen kann?",
+            "promptEn": "Excuse me, is there a seat here where I can use a power outlet?",
+            "options": [
+              {
+                "ko": "혹시 여기 콘센트 쓸 수 있는 자리 있을까요?"
+              },
+              {
+                "ko": "혹시 여기 마당만 쓸 수 있을까요?"
+              },
+              {
+                "ko": "혹시 여기 노트북을 빌릴 수 있을까요?"
+              },
+              {
+                "ko": "혹시 오늘 카페가 문을 닫을까요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_minho_christian_hanok_cafe_meeting_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "targetKo": "좋아요. 자리 잡고 시작하죠.",
+            "audioKo": "좋아요. 자리 잡고 시작하죠.",
+            "promptDe": "Gut. Dann setzen wir uns und legen los.",
+            "promptEn": "Great. Let's get settled and start.",
+            "distractors": [
+              "마당에서만",
+              "콘센트 없이",
+              "다음 주에"
+            ]
+          }
+        }
+      ],
+      "xpReward": 120
     }
   ]
 }

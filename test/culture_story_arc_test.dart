@@ -62,21 +62,25 @@ void main() {
     );
   });
 
-  test('live arc catalog contains three derived culture paths', () {
+  test('live arc catalog contains five derived culture paths', () {
     final raw = File(CultureStoryArcRepository.assetPath).readAsStringSync();
     final catalog = CultureStoryArcCatalog.fromJsonString(raw);
 
-    expect(catalog.arcs, hasLength(3));
+    expect(catalog.arcs, hasLength(5));
     final byId = {for (final arc in catalog.arcs) arc.arcId: arc};
 
     expect(byId.keys, {
       'found_around_nammun',
       'made_by_hand_in_korea',
       'memory_to_record',
+      'culture_in_everyday_use',
+      'performance_first_encounter',
     });
     expect(byId['found_around_nammun']!.steps, hasLength(4));
     expect(byId['made_by_hand_in_korea']!.steps, hasLength(2));
     expect(byId['memory_to_record']!.steps, hasLength(3));
+    expect(byId['culture_in_everyday_use']!.steps, hasLength(3));
+    expect(byId['performance_first_encounter']!.steps, hasLength(2));
     expect(
       byId['made_by_hand_in_korea']!.steps.map((step) => step.scenarioId),
       contains('b2_daniel_hyuna_hanji_filming_scope'),

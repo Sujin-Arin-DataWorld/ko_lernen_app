@@ -50,7 +50,7 @@ class ShelfAssignmentTest(unittest.TestCase):
     def test_assignment_covers_the_live_corpus_exactly(self) -> None:
         live = _live_levels()
         scenarios = scenario_store.load_scenarios(DATA)
-        self.assertEqual(len(live), 191)
+        self.assertEqual(len(live), 196)
         for item in scenarios:
             shelf = str(item.get("shelf") or "")
             self.assertIn(shelf, ALL_SHELVES, item["id"])
@@ -60,7 +60,7 @@ class ShelfAssignmentTest(unittest.TestCase):
         self.assertTrue(set(ASSIGNMENT).issubset(ALL_SHELVES))
         # The appendix remains an immutable migration map for the retired
         # legacy corpus; current canonical scenarios carry their own shelf.
-        self.assertEqual(len(SHELF_BY_ID), 484)
+        self.assertEqual(len(SHELF_BY_ID), 489)
 
     def test_batch38_culture_scenes_have_canonical_shelves(self) -> None:
         self.assertEqual(SHELF_BY_ID["a2_jun_hwaseong_school_slide"], "a2_friends")

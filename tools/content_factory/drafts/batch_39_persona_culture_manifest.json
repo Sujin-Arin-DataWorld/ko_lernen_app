@@ -1,17 +1,25 @@
 {
   "version": 1,
   "batch": "39",
-  "status": "review_only_draft",
+  "status": "merged",
   "provenance": {
     "date": "2026-10-06",
     "rights": "original",
-    "scope": "Five existing-relationship persona culture scenes reusing live CulturalGlossary entries; Minho activation + unused glossary coverage.",
+    "scope": "Five relationship-grounded culture scenes approved after full learner-facing dialogue review; culture grows from natural lived situations and performance reactions rather than exposition.",
     "requiresJinReview": true,
     "jinReviewRequired": true,
     "modelLanguageQa": "MODEL_QA_PASS",
     "humanLanguageQaClaim": false,
     "triadReview": "Korean is canonical. German and English are localized for the same task, relation, agency, modality, and information scope.",
-    "registerDecision": "Andrea/Minho and Lena/Maya use casual Korean; Minho/Christian uses polite mentoring Korean; B2 production scenes use professional haeyo/business register."
+    "registerDecision": "Andrea/Minho and Lena/Maya use casual Korean; Minho/Christian uses polite mentoring Korean; B2 production scenes use professional haeyo/business register.",
+    "approval": {
+      "authority": "jin",
+      "approvedAt": "2026-10-06",
+      "method": "explicit_user_approval_in_chat",
+      "scope": "Full Batch 39 canonical/live promotion after complete dialogue-naturalness review, including the fun pansori and relationship-driven nongak revisions",
+      "nativeSpeakerQaClaim": false
+    },
+    "mergedAt": "2026-10-06"
   },
   "artifacts": [
     {
@@ -68,9 +76,9 @@
     {
       "contentKind": "scenario",
       "contentId": "b2_hyuna_daniel_nongak_festival_filming",
-      "courseUnitId": "b2_03_precise_requests",
+      "courseUnitId": "b2_02_professional_opinion",
       "conceptIds": [
-        "concept_b2_precise_requests"
+        "concept_b2_opinion"
       ],
       "role": "assess"
     }

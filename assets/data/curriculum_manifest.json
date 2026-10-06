@@ -4685,6 +4685,51 @@
         "concept_b2_precise_requests"
       ],
       "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_andrea_minho_bojagi_housewarming",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_casual"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_minho_christian_hanok_cafe_meeting",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_lena_maya_buchae_gift_choice",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_casual"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_maya_daniel_pansori_promo_clip",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_hyuna_daniel_nongak_festival_filming",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "assess"
     }
   ],
   "grammarRuleMap": {

@@ -7175,6 +7175,378 @@
         }
       ],
       "xpReward": 110
+    },
+    {
+      "id": "a2_andrea_minho_bojagi_housewarming",
+      "level": "a2",
+      "emoji": "🎁",
+      "register": "casual",
+      "speechStyle": "casual",
+      "title": {
+        "ko": "보자기로 집들이 선물 포장하기",
+        "de": "Ein Einzugsgeschenk mit Bojagi verpacken",
+        "en": "Wrapping a housewarming gift with bojagi"
+      },
+      "intro": {
+        "ko": "안드레아와 민호가 친구 집들이 선물을 보자기로 포장해요. 포장을 마친 뒤 선물이 어떻게 보이는지와 매듭을 어떻게 할지 이야기해요.",
+        "de": "Andrea und Minho verpacken ein Einzugsgeschenk für Freunde in Bojagi. Danach sprechen sie darüber, wie das Geschenk wirkt und wie fest sie den Knoten binden wollen.",
+        "en": "Andrea and Minho wrap a housewarming gift in bojagi. Afterward, they talk about how the gift looks and how tightly to tie the knot."
+      },
+      "courseUnitId": "a2_02_plans_proposals",
+      "playerCharacterId": "andrea",
+      "participantIds": [
+        "andrea",
+        "minho"
+      ],
+      "relationshipContext": "부부, 집에서 편하게 반말로 상의한다",
+      "intent": "보자기로 포장한 선물의 느낌을 말하고 쉽게 열 수 있도록 매듭을 조정한다",
+      "shelf": "a2_plan",
+      "backdrop": "home",
+      "vocab": [
+        {
+          "korean": "보자기"
+        },
+        {
+          "korean": "집들이"
+        },
+        {
+          "korean": "선물"
+        },
+        {
+          "korean": "포장하다"
+        },
+        {
+          "korean": "열다"
+        },
+        {
+          "korean": "색"
+        }
+      ],
+      "conceptIds": [
+        "concept_proposal_casual"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_conditional"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)면",
+          "de": "Mit einer Bedingung etwas vorschlagen",
+          "en": "Making a suggestion with a condition"
+        },
+        "explanation": {
+          "ko": "“매듭을 너무 세게 묶으면 열기 힘들 수 있어”처럼 조건과 그 결과를 말할 때 써요.",
+          "de": "Mit -(으)면 kannst du eine Bedingung und ihre mögliche Folge ausdrücken.",
+          "en": "Use -(으)면 to express a condition and its possible result."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minho",
+          "ko": "와, 집들이 선물을 보자기에 싸니까 훨씬 고급스러워 보이네.",
+          "de": "Wow, in Bojagi eingepackt wirkt das Einzugsgeschenk gleich viel edler.",
+          "en": "Wow, wrapping the housewarming gift in bojagi makes it look much more elegant."
+        },
+        {
+          "speaker": "user",
+          "ko": "그치? 종이로 포장했을 때랑 느낌이 좀 다르지?",
+          "de": "Stimmt, oder? Es wirkt schon anders als mit Geschenkpapier.",
+          "en": "Right? It feels a bit different from wrapping it in paper."
+        },
+        {
+          "speaker": "minho",
+          "ko": "응. 이 색도 선물이랑 잘 어울려.",
+          "de": "Ja. Die Farbe passt auch gut zum Geschenk.",
+          "en": "Yeah. This color goes well with the gift too."
+        },
+        {
+          "speaker": "user",
+          "ko": "매듭을 너무 세게 묶으면 열기 힘들 수 있으니까 조금만 느슨하게 하자.",
+          "de": "Wenn wir den Knoten zu fest binden, könnte er schwer aufgehen. Machen wir ihn lieber etwas lockerer.",
+          "en": "If we tie the knot too tightly, it may be hard to open. Let's leave it a little looser."
+        },
+        {
+          "speaker": "minho",
+          "ko": "좋아. 이 정도면 예쁘고 열기도 쉽겠다.",
+          "de": "Gut. So sieht es schön aus und lässt sich trotzdem leicht öffnen.",
+          "en": "Good. This looks nice and should still be easy to open."
+        },
+        {
+          "speaker": "user",
+          "ko": "카드만 넣으면 끝이네.",
+          "de": "Dann fehlt nur noch die Karte.",
+          "en": "Then all that's left is the card."
+        },
+        {
+          "speaker": "minho",
+          "ko": "응. 그냥 이대로 가져가자.",
+          "de": "Ja. Nehmen wir es einfach so mit.",
+          "en": "Yeah. Let's take it just like this."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a2_andrea_minho_bojagi_housewarming_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "audioKo": "와, 집들이 선물을 보자기에 싸니까 훨씬 고급스러워 보이네.",
+            "options": [
+              {
+                "de": "Wow, in Bojagi eingepackt wirkt das Einzugsgeschenk gleich viel edler.",
+                "en": "Wow, wrapping the housewarming gift in bojagi makes it look much more elegant."
+              },
+              {
+                "de": "Ja. Die Farbe passt auch gut zum Geschenk.",
+                "en": "Yeah. This color goes well with the gift too."
+              },
+              {
+                "de": "Gut. So sieht es schön aus und lässt sich trotzdem leicht öffnen.",
+                "en": "Good. This looks nice and should still be easy to open."
+              },
+              {
+                "de": "Ja. Nehmen wir es einfach so mit.",
+                "en": "Yeah. Let's take it just like this."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_andrea_minho_bojagi_housewarming_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "promptDe": "Wenn wir den Knoten zu fest binden, könnte er schwer aufgehen. Machen wir ihn lieber etwas lockerer.",
+            "promptEn": "If we tie the knot too tightly, it may be hard to open. Let's leave it a little looser.",
+            "options": [
+              {
+                "ko": "매듭을 너무 세게 묶으면 열기 힘들 수 있으니까 조금만 느슨하게 하자."
+              },
+              {
+                "ko": "매듭을 더 세게 묶자."
+              },
+              {
+                "ko": "보자기는 빼고 종이로 다시 포장하자."
+              },
+              {
+                "ko": "카드는 다음에 쓰자."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_andrea_minho_bojagi_housewarming_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "targetKo": "좋아. 이 정도면 예쁘고 열기도 쉽겠다.",
+            "audioKo": "좋아. 이 정도면 예쁘고 열기도 쉽겠다.",
+            "promptDe": "Gut. So sieht es schön aus und lässt sich trotzdem leicht öffnen.",
+            "promptEn": "Good. This looks nice and should still be easy to open.",
+            "distractors": [
+              "집들이는",
+              "종이로만",
+              "다음 주에"
+            ]
+          }
+        }
+      ],
+      "xpReward": 110
+    },
+    {
+      "id": "a2_lena_maya_buchae_gift_choice",
+      "level": "a2",
+      "emoji": "🪭",
+      "register": "casual",
+      "speechStyle": "casual",
+      "title": {
+        "ko": "선물용 부채 고르기",
+        "de": "Einen Fächer als Geschenk auswählen",
+        "en": "Choosing a fan as a gift"
+      },
+      "intro": {
+        "ko": "레나가 셰어하우스 친구에게 줄 작은 선물을 고르려고 해요. 마야와 함께 실제로 쓸 수 있는 부채의 색과 글씨를 정해요.",
+        "de": "Lena sucht ein kleines Geschenk für eine Mitbewohnerin. Mit Maya wählt sie Farbe und Beschriftung eines Fächers, der auch wirklich benutzt werden kann.",
+        "en": "Lena is choosing a small gift for a housemate. With Maya, she picks the color and lettering of a fan that can actually be used."
+      },
+      "courseUnitId": "a2_02_plans_proposals",
+      "playerCharacterId": "lena",
+      "participantIds": [
+        "lena",
+        "maya"
+      ],
+      "relationshipContext": "음악과 공연 취향을 나누는 친구, 편하게 반말로 쇼핑 의견을 나눈다",
+      "intent": "선물 받을 사람의 취향과 실제 사용을 생각해 부채의 색과 장식을 정한다",
+      "shelf": "a2_buy",
+      "backdrop": "market",
+      "vocab": [
+        {
+          "korean": "부채"
+        },
+        {
+          "korean": "선물"
+        },
+        {
+          "korean": "색"
+        },
+        {
+          "korean": "가볍다"
+        },
+        {
+          "korean": "이름"
+        },
+        {
+          "korean": "고르다"
+        }
+      ],
+      "conceptIds": [
+        "concept_proposal_casual"
+      ],
+      "surfaceFormIds": [],
+      "grammarIds": [
+        "grammar_a2_preference_question"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ래요",
+          "de": "Eine Auswahl oder Absicht ausdrücken",
+          "en": "Expressing a choice or intention"
+        },
+        "explanation": {
+          "ko": "“나는 이걸로 할래”처럼 가까운 사이에서 내가 고른 것을 자연스럽게 말할 때 쓸 수 있어요.",
+          "de": "Mit -(으)ㄹ래요 kannst du in einer vertrauten Beziehung deine Wahl oder Absicht ausdrücken.",
+          "en": "Use -(으)ㄹ래요 to express your choice or intention in a familiar relationship."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "현아한테 작은 선물을 주고 싶은데, 이 부채 어때?",
+          "de": "Ich möchte Hyuna eine Kleinigkeit schenken. Wie findest du diesen Fächer?",
+          "en": "I want to give Hyuna a small gift. What do you think of this fan?"
+        },
+        {
+          "speaker": "maya",
+          "ko": "예쁘다. 근데 장식이 너무 많으면 실제로 쓰기 불편하지 않을까?",
+          "de": "Schön. Aber wenn zu viel Deko dran ist, ist er vielleicht unpraktisch.",
+          "en": "It's pretty. But if it has too much decoration, it might be inconvenient to use."
+        },
+        {
+          "speaker": "user",
+          "ko": "맞아. 가볍고 접기 쉬운 걸로 고르고 싶어.",
+          "de": "Stimmt. Ich möchte einen leichten nehmen, der sich gut zusammenfalten lässt.",
+          "en": "Right. I want to choose one that's light and easy to fold."
+        },
+        {
+          "speaker": "maya",
+          "ko": "그럼 이 파란색은 어때? 현아가 이런 색 좋아하잖아.",
+          "de": "Wie wäre es dann mit dem blauen? Hyuna mag doch solche Farben.",
+          "en": "Then how about this blue one? Hyuna likes colors like this."
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아. 나는 이걸로 할래. 이름도 넣을까?",
+          "de": "Gut. Dann nehme ich diesen. Soll ich auch ihren Namen draufschreiben lassen?",
+          "en": "Great. I'll go with this one. Should I add her name too?"
+        },
+        {
+          "speaker": "maya",
+          "ko": "괜찮다. 이름만 작게 넣으면 예쁠 것 같아.",
+          "de": "Klingt gut. Ich glaube, nur der Name in klein würde schön aussehen.",
+          "en": "That sounds good. I think just her name in small lettering would look nice."
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아. 그럼 그렇게 할게.",
+          "de": "Gut. Dann mache ich es so.",
+          "en": "Great. I'll do that."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a2_lena_maya_buchae_gift_choice_01",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "audioKo": "좋아. 나는 이걸로 할래. 이름도 넣을까?",
+            "options": [
+              {
+                "de": "Gut. Dann nehme ich diesen. Soll ich auch ihren Namen draufschreiben lassen?",
+                "en": "Great. I'll go with this one. Should I add her name too?"
+              },
+              {
+                "de": "Ich möchte Hyuna eine Kleinigkeit schenken. Wie findest du diesen Fächer?",
+                "en": "I want to give Hyuna a small gift. What do you think of this fan?"
+              },
+              {
+                "de": "Wie wäre es dann mit dem blauen? Hyuna mag doch solche Farben.",
+                "en": "Then how about this blue one? Hyuna likes colors like this."
+              },
+              {
+                "de": "Gut. Dann mache ich es so.",
+                "en": "Great. I'll do that."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_lena_maya_buchae_gift_choice_02",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "promptDe": "Stimmt. Ich möchte einen leichten nehmen, der sich gut zusammenfalten lässt.",
+            "promptEn": "Right. I want to choose one that's light and easy to fold.",
+            "options": [
+              {
+                "ko": "맞아. 가볍고 접기 쉬운 걸로 고르고 싶어."
+              },
+              {
+                "ko": "장식이 많은 걸로 고르고 싶어."
+              },
+              {
+                "ko": "무거운 부채가 더 좋아."
+              },
+              {
+                "ko": "선물은 안 줄래."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_lena_maya_buchae_gift_choice_03",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_proposal_casual"
+          ],
+          "data": {
+            "targetKo": "좋아. 그럼 그렇게 할게.",
+            "audioKo": "좋아. 그럼 그렇게 할게.",
+            "promptDe": "Gut. Dann mache ich es so.",
+            "promptEn": "Great. I'll do that.",
+            "distractors": [
+              "다음 달에",
+              "장식은 많이",
+              "선물 대신"
+            ]
+          }
+        }
+      ],
+      "xpReward": 110
     }
   ]
 }

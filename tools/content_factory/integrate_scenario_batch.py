@@ -306,13 +306,14 @@ def _replace_with_retry(source: Path, target: Path) -> None:
 
 
 def _fsync_overwrite(path: Path, data: bytes) -> None:
-    """Overwrite one metadata file when Windows permanently blocks rename.
+    """Overwrite staged bytes when Windows permanently blocks rename.
 
-    The caller must already have staged and validated the bytes. This is used
-    only for the batch manifest: learner-facing assets continue to require an
-    atomic rename. Some Windows editors/watchers open JSON without
-    FILE_SHARE_DELETE, which permits normal writes but makes os.replace fail
-    with WinError 5 for as long as the watcher stays open.
+    The caller must already have staged and validated the complete transaction
+    and must opt in explicitly. Some Windows editors/watchers open JSON without
+    FILE_SHARE_DELETE, which permits ordinary writes but makes os.replace fail
+    with WinError 5 for as long as the watcher stays open. The transaction
+    keeps exact original bytes and uses the same fsynced fallback for rollback
+    before reporting failure.
     """
 
     with path.open("wb") as handle:
@@ -890,7 +891,7 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
                 _atomic_write(
                     path,
                     content,
-                    allow_in_place_fallback=path == manifest_path,
+                    allow_in_place_fallback=os.name == "nt",
                 )
             final_issues = ContentValidator(root).validate()
             if final_issues:
@@ -903,7 +904,7 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
                     _atomic_restore(
                         path,
                         data,
-                        allow_in_place_fallback=path == manifest_path,
+                        allow_in_place_fallback=os.name == "nt",
                     )
                 except OSError as rollback_error:
                     rollback_errors.append(f"{path}: {rollback_error}")

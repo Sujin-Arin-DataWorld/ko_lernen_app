@@ -18,10 +18,10 @@ class BatchLivePromotionAuditTest(unittest.TestCase):
 
         self.assertTrue(result["ok"], result["errors"])
         self.assertEqual(result["version"], 4)
-        # Batch 38 adds five canonical persona-culture scenarios on top of
-        # the previous live ledger; pending/retired history is unchanged.
-        self.assertEqual(result["trackedIds"], 7765)
-        self.assertEqual(result["liveIds"], 7394)
+        # Batch 38 and Batch 39 each add five canonical persona-culture
+        # scenarios; pending/retired history is unchanged.
+        self.assertEqual(result["trackedIds"], 7770)
+        self.assertEqual(result["liveIds"], 7399)
         self.assertEqual(result["pendingIds"], 576)
         self.assertEqual(result["retiredScenarioIds"], 371)
         self.assertEqual(

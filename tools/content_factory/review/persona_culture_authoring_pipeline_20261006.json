@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "REVIEW_ONLY_PIPELINE_PASS",
+  "status": "MERGED_AUDIT_PASS",
   "manifest": "tools/content_factory/drafts/batch_39_persona_culture_manifest.json",
   "batch": "39",
   "scenarioCount": 5,
@@ -53,7 +53,7 @@
     "stepCount": 5,
     "arcIds": [
       "culture_in_everyday_use",
-      "performance_in_context"
+      "performance_first_encounter"
     ],
     "liveWritePerformed": false
   },
@@ -84,7 +84,7 @@
       "atOrBelowTarget": 24,
       "aboveTarget": 0,
       "unmappedCandidate": 0,
-      "phraseCandidate": 4
+      "phraseCandidate": 0
     }
   },
   "cultureLinkCount": 5,
@@ -105,5 +105,5 @@
     "wordRelation": 114
   },
   "liveWritePerformed": false,
-  "humanApprovalClaimed": false
+  "humanApprovalClaimed": true
 }

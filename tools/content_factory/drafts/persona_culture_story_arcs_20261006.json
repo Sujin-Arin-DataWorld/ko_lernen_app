@@ -18,44 +18,70 @@
       "steps": [
         {
           "scenarioId": "a2_andrea_minho_bojagi_housewarming",
-          "personaIds": ["andrea", "minho"],
-          "termIds": ["bojagi"]
+          "personaIds": [
+            "andrea",
+            "minho"
+          ],
+          "termIds": [
+            "bojagi"
+          ]
         },
         {
           "scenarioId": "b1_minho_christian_hanok_cafe_meeting",
-          "personaIds": ["christian", "minho"],
-          "termIds": ["hanok", "madang"]
+          "personaIds": [
+            "christian",
+            "minho"
+          ],
+          "termIds": [
+            "hanok",
+            "madang"
+          ]
         },
         {
           "scenarioId": "a2_lena_maya_buchae_gift_choice",
-          "personaIds": ["lena", "maya"],
-          "termIds": ["buchae"]
+          "personaIds": [
+            "lena",
+            "maya"
+          ],
+          "termIds": [
+            "buchae"
+          ]
         }
       ]
     },
     {
-      "arcId": "performance_in_context",
+      "arcId": "performance_first_encounter",
       "title": {
-        "ko": "공연을 맥락과 함께 기록하기",
-        "de": "Aufführungen im Kontext dokumentieren",
-        "en": "Documenting performance in context"
+        "ko": "공연을 보고 이해하기",
+        "de": "Aufführungen ansehen und verstehen",
+        "en": "Watching and understanding performance"
       },
       "summary": {
-        "ko": "판소리와 농악을 짧은 영상이나 현장 기록으로 다룰 때 발췌 범위, 촬영 동선, 관객 공개 범위를 실제 제작 과업 속에서 조율하는 이야기 묶음입니다.",
-        "de": "Ein Kulturpfad über Pansori und Nongak, der bei realen Produktionsaufgaben Ausschnitt, Kameraposition und Sichtbarkeit des Publikums verantwortungsvoll abstimmt.",
-        "en": "A culture path about pansori and nongak that handles excerpt scope, filming position, and audience visibility through real production tasks."
+        "ko": "판소리와 농악을 직접 본 뒤 생긴 실제 감상과 궁금증에서 출발해, 소리·이야기·관객 참여·다음 문화 경험으로 자연스럽게 이어지는 이야기 묶음입니다.",
+        "de": "Ein Kulturpfad, der bei echten Eindrücken und Fragen nach Pansori- und Nongak-Aufführungen beginnt und natürlich zu Klang, Erzählung, Publikumsbeteiligung und weiteren Kulturerlebnissen führt.",
+        "en": "A culture path that starts from genuine reactions and questions after seeing pansori and nongak, then naturally leads into sound, story, audience participation, and future cultural experiences."
       },
       "progressMode": "derived_read_only",
       "steps": [
         {
           "scenarioId": "b2_maya_daniel_pansori_promo_clip",
-          "personaIds": ["maya", "daniel"],
-          "termIds": ["pansori"]
+          "personaIds": [
+            "maya",
+            "daniel"
+          ],
+          "termIds": [
+            "pansori"
+          ]
         },
         {
           "scenarioId": "b2_hyuna_daniel_nongak_festival_filming",
-          "personaIds": ["daniel", "hyuna"],
-          "termIds": ["nongak"]
+          "personaIds": [
+            "daniel",
+            "hyuna"
+          ],
+          "termIds": [
+            "nongak"
+          ]
         }
       ]
     }
