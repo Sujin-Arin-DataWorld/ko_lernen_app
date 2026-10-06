@@ -40,6 +40,20 @@ class GlobalLocalizationOwnerAuditTest(unittest.TestCase):
         self.assertEqual(summary["manualTopicReviewCount"], 0)
         self.assertTrue(all(row["canonicalTopicId"] for row in self.payload["records"]))
 
+    def test_anchor_review_debt_is_explicitly_resolved(self) -> None:
+        summary = self.payload["summary"]
+        self.assertEqual(summary["manualReviewFlaggedCount"], 0)
+        self.assertEqual(summary["reviewFlagCounts"], {})
+        explicit = {
+            key: value
+            for key, value in summary["resolvedAuditNoteCounts"].items()
+            if key.startswith("example_anchor:explicit_")
+        }
+        self.assertEqual(sum(explicit.values()), 63)
+        self.assertEqual(explicit["example_anchor:explicit_inflected_surface"], 29)
+        self.assertEqual(explicit["example_anchor:explicit_multiword_realization"], 25)
+        self.assertEqual(explicit["example_anchor:explicit_semantic_concept_example"], 9)
+
     def test_no_human_native_review_is_claimed(self) -> None:
         self.assertEqual(self.payload["summary"]["humanNativeReviewedCount"], 0)
 

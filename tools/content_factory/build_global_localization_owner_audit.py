@@ -17,6 +17,7 @@ from cefr_lexicon import _lemma_candidates
 COVERAGE = ROOT / "tools/content_factory/review/global_localization_coverage_20261006.json"
 VOCAB = ROOT / "assets/data/korean_vocab.csv"
 OUTPUT = ROOT / "tools/content_factory/review/global_localization_owner_audit_20261006.json"
+ANCHOR_RESOLUTIONS = ROOT / "tools/content_factory/review/global_localization_example_anchor_resolutions_20261006.json"
 
 OWNER_TYPES = {
     "vocab_lexeme",
@@ -107,7 +108,23 @@ def vocab_index() -> dict[str, dict[str, str]]:
         return {row["id"]: row for row in csv.DictReader(handle)}
 
 
-def qa_findings_for(record: dict[str, Any], vocab: dict[str, dict[str, str]]) -> tuple[list[str], list[str], list[str]]:
+def anchor_resolution_index() -> dict[str, dict[str, str]]:
+    payload = load_json(ANCHOR_RESOLUTIONS)
+    index: dict[str, dict[str, str]] = {}
+    for resolution_type, group in payload.get("resolutionTypes", {}).items():
+        note = str(group.get("note") or "")
+        for item_id in group.get("itemIds", []):
+            if item_id in index:
+                raise ValueError(f"duplicate example-anchor resolution: {item_id}")
+            index[item_id] = {"type": resolution_type, "note": note}
+    return index
+
+
+def qa_findings_for(
+    record: dict[str, Any],
+    vocab: dict[str, dict[str, str]],
+    anchor_resolutions: dict[str, dict[str, str]],
+) -> tuple[list[str], list[str], list[str]]:
     issues: list[str] = []
     review_flags: list[str] = []
     resolutions: list[str] = []
@@ -158,13 +175,20 @@ def qa_findings_for(record: dict[str, Any], vocab: dict[str, dict[str, str]]) ->
                     if anchor_resolution not in {"exact_surface", "dictionary_stem_surface"}:
                         resolutions.append(f"example_anchor:{anchor_resolution}")
                 else:
-                    review_flags.append("example_target_not_surface_anchored")
+                    explicit_resolution = anchor_resolutions.get(str(record.get("itemId") or ""))
+                    if explicit_resolution:
+                        resolutions.append(
+                            f"example_anchor:explicit_{explicit_resolution['type']}"
+                        )
+                    else:
+                        review_flags.append("example_target_not_surface_anchored")
     return issues, review_flags, resolutions
 
 
 def main() -> None:
     coverage = load_json(COVERAGE)
     vocab = vocab_index()
+    anchor_resolutions = anchor_resolution_index()
     records: list[dict[str, Any]] = []
     issue_counts: Counter[str] = Counter()
     review_flag_counts: Counter[str] = Counter()
@@ -176,7 +200,9 @@ def main() -> None:
     for source in coverage["records"]:
         if source.get("surfaceType") not in OWNER_TYPES:
             continue
-        issues, review_flags, resolutions = qa_findings_for(source, vocab)
+        issues, review_flags, resolutions = qa_findings_for(
+            source, vocab, anchor_resolutions
+        )
         issue_counts.update(issues)
         review_flag_counts.update(review_flags)
         resolution_counts.update(resolutions)

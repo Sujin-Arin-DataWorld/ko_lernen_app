@@ -17,18 +17,19 @@
     "topicMappedCount": 7706,
     "manualTopicReviewCount": 0,
     "issueCounts": {},
-    "reviewFlagCounts": {
-      "example_target_not_surface_anchored": 63
-    },
+    "reviewFlagCounts": {},
     "resolvedAuditNoteCounts": {
       "example_anchor:canonical_morphology_lemma": 316,
+      "example_anchor:explicit_inflected_surface": 29,
+      "example_anchor:explicit_multiword_realization": 25,
+      "example_anchor:explicit_semantic_concept_example": 9,
       "example_anchor:hada_base_surface": 18,
       "example_anchor:ida_base_surface": 6,
       "example_anchor:multiword_morphology_surface": 124,
       "intentional_korean_metalanguage_de": 11,
       "intentional_korean_metalanguage_en": 10
     },
-    "manualReviewFlaggedCount": 63,
+    "manualReviewFlaggedCount": 0,
     "humanNativeReviewedCount": 0,
     "policy": "This ledger is structural/corpus-QA preparation only. It must not be described as human-native sign-off."
   },
@@ -4469,10 +4470,10 @@
       "canonicalTopicId": "daily_life_routines",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -7069,10 +7070,10 @@
       "canonicalTopicId": "daily_life_routines",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -7983,10 +7984,10 @@
       "canonicalTopicId": "feelings_character",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -8441,10 +8442,10 @@
       "canonicalTopicId": "feelings_character",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -8483,10 +8484,10 @@
       "canonicalTopicId": "feelings_character",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -15899,10 +15900,10 @@
       "canonicalTopicId": "food_drink",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -16757,10 +16758,10 @@
       "canonicalTopicId": "feelings_character",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -19319,10 +19320,10 @@
       "canonicalTopicId": "feelings_character",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -19565,10 +19566,10 @@
       "canonicalTopicId": "feelings_character",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -26741,10 +26742,10 @@
       "canonicalTopicId": "feelings_character",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -27117,10 +27118,10 @@
       "canonicalTopicId": "daily_life_routines",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -27579,10 +27580,10 @@
       "canonicalTopicId": "feelings_character",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -27955,10 +27956,10 @@
       "canonicalTopicId": "feelings_character",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -31267,10 +31268,10 @@
       "canonicalTopicId": "family_relationships",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -32737,10 +32738,10 @@
       "canonicalTopicId": "society_current_affairs",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -33147,10 +33148,10 @@
       "canonicalTopicId": "social_etiquette_customs",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -33189,10 +33190,10 @@
       "canonicalTopicId": "social_etiquette_customs",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -33231,10 +33232,10 @@
       "canonicalTopicId": "social_etiquette_customs",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -33273,10 +33274,10 @@
       "canonicalTopicId": "social_etiquette_customs",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -37297,10 +37298,10 @@
       "canonicalTopicId": "daily_life_routines",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -42338,10 +42339,10 @@
       "canonicalTopicId": "work_career",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -43088,10 +43089,10 @@
       "canonicalTopicId": "technology_digital_ai",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_semantic_concept_example"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -43130,10 +43131,10 @@
       "canonicalTopicId": "technology_digital_ai",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -44290,10 +44291,10 @@
       "canonicalTopicId": "science_research_evidence",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -44744,10 +44745,10 @@
       "canonicalTopicId": "politics_law_institutions",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_semantic_concept_example"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -44870,10 +44871,10 @@
       "canonicalTopicId": "arts_literature_history",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_semantic_concept_example"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -45122,10 +45123,10 @@
       "canonicalTopicId": "arts_literature_history",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -45206,10 +45207,10 @@
       "canonicalTopicId": "arts_literature_history",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -45372,10 +45373,10 @@
       "canonicalTopicId": "neighbourhood_environment",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -46040,10 +46041,10 @@
       "canonicalTopicId": "feelings_character",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -46082,10 +46083,10 @@
       "canonicalTopicId": "feelings_character",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_semantic_concept_example"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -46164,10 +46165,10 @@
       "canonicalTopicId": "feelings_character",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -46246,10 +46247,10 @@
       "canonicalTopicId": "feelings_character",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -46370,10 +46371,10 @@
       "canonicalTopicId": "society_current_affairs",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -46454,10 +46455,10 @@
       "canonicalTopicId": "work_career",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_semantic_concept_example"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -46906,10 +46907,10 @@
       "canonicalTopicId": "environment_sustainability",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -46988,10 +46989,10 @@
       "canonicalTopicId": "environment_sustainability",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -47030,10 +47031,10 @@
       "canonicalTopicId": "environment_sustainability",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -47072,10 +47073,10 @@
       "canonicalTopicId": "environment_sustainability",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -47322,10 +47323,10 @@
       "canonicalTopicId": "ethics_philosophy_abstract",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -47570,10 +47571,10 @@
       "canonicalTopicId": "politics_law_institutions",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -47778,10 +47779,10 @@
       "canonicalTopicId": "language_learning_communication_repair",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -50490,10 +50491,10 @@
       "canonicalTopicId": "family_relationships",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -51534,10 +51535,10 @@
       "canonicalTopicId": "family_relationships",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_semantic_concept_example"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -52458,10 +52459,10 @@
       "canonicalTopicId": "family_relationships",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -53668,10 +53669,10 @@
       "canonicalTopicId": "family_relationships",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -53790,10 +53791,10 @@
       "canonicalTopicId": "family_relationships",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_semantic_concept_example"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -54992,10 +54993,10 @@
       "canonicalTopicId": "family_relationships",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -58282,10 +58283,10 @@
       "canonicalTopicId": "family_relationships",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_semantic_concept_example"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -60008,10 +60009,10 @@
       "canonicalTopicId": "family_relationships",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_semantic_concept_example"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -60290,10 +60291,10 @@
       "canonicalTopicId": "family_relationships",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -60532,10 +60533,10 @@
       "canonicalTopicId": "family_relationships",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -60854,10 +60855,10 @@
       "canonicalTopicId": "family_relationships",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -61016,10 +61017,10 @@
       "canonicalTopicId": "family_relationships",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -61178,10 +61179,10 @@
       "canonicalTopicId": "family_relationships",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -61620,10 +61621,10 @@
       "canonicalTopicId": "family_relationships",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -61742,10 +61743,10 @@
       "canonicalTopicId": "family_relationships",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -94626,10 +94627,10 @@
       "canonicalTopicId": "daily_life_routines",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -95074,10 +95075,10 @@
       "canonicalTopicId": "neighbourhood_environment",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_multiword_realization"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -98000,10 +98001,10 @@
       "canonicalTopicId": "personal_identification",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -99294,10 +99295,10 @@
       "canonicalTopicId": "food_drink",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -99660,10 +99661,10 @@
       "canonicalTopicId": "feelings_character",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
@@ -111348,10 +111349,10 @@
       "canonicalTopicId": "free_time_hobbies_sport",
       "nativeUsageCoverageStatus": "topic_profile_deep_pass_complete",
       "structuralIssues": [],
-      "reviewFlags": [
-        "example_target_not_surface_anchored"
+      "reviewFlags": [],
+      "resolvedAuditNotes": [
+        "example_anchor:explicit_inflected_surface"
       ],
-      "resolvedAuditNotes": [],
       "structuralQaStatus": "structural_pass",
       "corpusQaStatus": "pending_native_usage_qa",
       "humanNativeReviewStatus": "not_reviewed",
