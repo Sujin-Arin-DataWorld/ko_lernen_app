@@ -29,6 +29,8 @@
     "personaCanon": "tools/content_factory/canonical_scenarios/character_profiles.json",
     "topicRegistry": "tools/content_factory/canonical_scenarios/contemporary_korea_topics_20251005_20261005.json",
     "dialogueAuthoringContract": "tools/content_factory/canonical_scenarios/dialogue_authoring_contract_20261006.json",
+    "dialogueLocalizationContract": "tools/content_factory/canonical_scenarios/dialogue_localization_contract_20261006.json",
+    "nativeUsageRegistry": "tools/content_factory/canonical_scenarios/trilingual_native_usage_registry_20261006.json",
     "plan": "docs/plans/2026-10-05-living-korea-2025-2026.md"
   },
   "counts": {
@@ -91,12 +93,12 @@
     "displayAndSpokenTtsSurfaceSeparated": true
   },
   "validation": {
-    "combinedRelevantTestsPassed": 277,
+    "combinedRelevantTestsPassed": 324,
     "contentValidationPassed": true,
     "nonGraphifyDiffCheckPassed": true
   },
   "next": {
-    "required": "Build the 32-topic KO/EN/DE native-usage corpus to localization-ready depth, then author DE/EN independently from the frozen Korean copy and make an explicit live-promotion decision.",
+    "required": "Author DE/EN independently from the frozen Korean copy using the completed 32-topic native-usage corpus and canonical localization contract, run locale/pragmatic/pedagogical QA, then make an explicit live-promotion decision.",
     "optional": "After DE/EN localization and release QA, derive scenario/listening/culture-link integration artifacts without changing TTS ownership."
   },
   "dependency": {

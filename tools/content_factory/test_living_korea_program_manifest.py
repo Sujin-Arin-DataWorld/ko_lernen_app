@@ -203,8 +203,17 @@ class LivingKoreaProgramManifestTest(unittest.TestCase):
         dependency = self.manifest["dependency"]
         self.assertEqual(dependency["basePullRequest"], 449)
         self.assertEqual(dependency["featurePullRequest"], 450)
-        self.assertIn("32-topic KO/EN/DE native-usage corpus", self.manifest["next"]["required"])
+        self.assertIn("completed 32-topic native-usage corpus", self.manifest["next"]["required"])
+        self.assertIn("canonical localization contract", self.manifest["next"]["required"])
         self.assertIn("live-promotion", self.manifest["next"]["required"])
+        self.assertIn(
+            "dialogueLocalizationContract",
+            self.manifest["canonicalSources"],
+        )
+        self.assertIn(
+            "nativeUsageRegistry",
+            self.manifest["canonicalSources"],
+        )
 
 
 if __name__ == "__main__":

@@ -2,6 +2,8 @@
 
 Date: 2026-10-06
 
+Status: **COMPLETE — active maintenance/freshness mode**
+
 ## Scope
 
 This research program covers **all Hangul Sori content regardless of approval
@@ -171,39 +173,38 @@ Status: **complete**
 - all content approval states included
 - 32 canonical taxonomy topics established as SSoT
 
-### R-1 Broad corpus pass
-Status: **broad-pass complete — deep-pass pending**
+### R-1 Broad + deep corpus pass
+Status: **complete**
 
 For all 32 topics:
-- native Korean community search
-- native English community search
-- native German community search
-- record recurring patterns, not isolated clever phrases
+- native Korean community research
+- native English community research
+- native German community research
+- recurring patterns normalized rather than storing isolated clever phrases
+- written/chat versus spoken/TTS surface notes retained separately
 
 Current progress (2026-10-06):
-- **Broad pass complete across the full 32-topic taxonomy**
+- **32/32 canonical topics deep-pass complete**
 - **96/96 language profiles (32 topics × KO/EN/DE) broad-pass complete**
-- Tier 1: **13/13 topics**
-- Tier 2: **12/12 topics**
-- Tier 3: **7/7 topics**
-- deep-pass: **39/96 profiles, 13/32 topics**
-- **Tier 1 deep-pass complete: 13/13 topics, 39/39 language profiles**
-- Tier 2/3 deep-pass remains pending
-
-Tier-1 completed topics:
-`family_relationships`, `house_home`, `food_drink`,
-`shopping_consumption`, `transport_wayfinding`, `health_body`,
-`work_career`, `services_public_admin`,
-`communication_phone_digital`, `social_etiquette_customs`,
-`language_learning_communication_repair`,
-`money_finance_contracts`, `technology_digital_ai`.
+- **96/96 language profiles deep-pass complete**
+- Tier 1: **13/13 deep-pass complete**
+- Tier 2: **12/12 deep-pass complete**
+- Tier 3: **7/7 deep-pass complete**
+- every deep profile has at least 4 independent source contexts
+- every deep profile has at least 15 normalized usage patterns
+- required register-lane, translationese, research-date and high-risk
+  authoritative-term gates are satisfied
 
 Each completion is computed from evidence rather than handwritten status:
 `tools/content_factory/audit_trilingual_native_usage_progress.py` checks
 source-context count, phrase-pattern count, register lanes, translationese
-warnings, research date and (for deep pass) authoritative terminology checks.
+warnings, research date and (for high-risk profiles) authoritative terminology
+checks. The generated report is
+`tools/content_factory/review/trilingual_native_usage_progress_20261006.json`.
 
 ### R-2 Topic phrase-bank normalization
+Status: **complete for all 96 language profiles**
+
 For each language/topic classify candidates as:
 - everyday core
 - colloquial
@@ -214,7 +215,15 @@ For each language/topic classify candidates as:
 - risky/slang/dated
 - translationese avoid
 
-### R-3 Cross-language category-shift audit
+### R-3 Cross-language category-shift + pedagogical alignment audit
+Status: **complete for all 32 topics**
+
+Every topic now has:
+- non-empty `categoryShiftRisks`
+- non-empty `pedagogicalAlignmentNotes`
+- language-specific translationese warnings
+- display/spoken/TTS notes in each KO/EN/DE profile
+
 Examples:
 - `보이스피싱` does not map to the same casual umbrella label in English
 - Korean honorific speech does not map mechanically to German `Sie`
@@ -272,19 +281,40 @@ For uncertain content retain:
 - manual-review status instead of a guessed topic
 
 ### R-5 Localization contract integration
-Localization cannot begin at scale until:
-- topic profile exists
-- Korean copy is frozen when relevant
-- localization spine is frozen
-- DE/EN independent authoring lanes are defined
+Status: **complete**
 
-### R-6 Regression gates
-Future validators should reject:
-- localization produced through DE↔EN translation chains
-- missing topic native-usage profile for promoted content
-- literal category labels marked as translationese risks
-- stale research where dated slang/current-community language is used without
-  review
+Canonical contract:
+`tools/content_factory/canonical_scenarios/dialogue_localization_contract_20261006.json`
+
+The contract now requires:
+- Korean as semantic/pragmatic source of truth
+- EN authored directly from Korean
+- DE authored directly from Korean
+- no EN↔DE translation chain
+- canonical topic/subtopic native-usage profile as an input
+- relationship/persona and pedagogical alignment
+- separate display and spoken/TTS surfaces
+- per-content localization spine fields before localized copy is promoted
+
+The corpus program owns the contract/schema and native-usage dependency. The
+actual per-scene localization spine is generated when that approved Korean
+content enters localization; it is not fabricated globally in advance.
+
+### R-6 Regression + promotion gates
+Status: **complete for future promotions**
+
+Validators now reject:
+- localization contract drift from KO-direct independent EN/DE authoring
+- any of the 32 topics losing KO/EN/DE `deep_pass_complete`
+- empty cross-language category-shift or pedagogical-alignment notes
+- missing research date / translationese warning
+- missing authoritative terminology check on high-risk topics
+- future scenario promotion batch **39+** without
+  `localizationContract + nativeUsageTopicIds`
+- batch 39+ promotion when any declared native-usage topic fails its deep-pass
+  gate
+
+Legacy batches 1–38 are grandfathered and are not retroactively blocked.
 
 
 ## Operational protocol for completing all 32 topics
@@ -506,15 +536,29 @@ A topic is **deep-pass complete** only when:
 10. Research completion does not alter learner-content approval status.
 
 ### K. Definition of done for the whole 32-topic program
+Status: **COMPLETE — 2026-10-06**
 
-The program is complete only when:
-- **32/32** canonical topics are deep-pass complete
-- KO/EN/DE profiles are independently evidenced for every topic
-- all tracked content is mapped or has an explicit `unmappedReason`
-- localization can request a topic/subtopic profile without searching ad hoc
-- the localization contract consumes these profiles
-- CI can detect missing native-usage coverage for content promoted to live
-- research freshness/recheck dates are tracked
+Completion evidence:
+- **32/32** canonical topics deep-pass complete
+- **96/96** KO/EN/DE language profiles deep-pass complete
+- independently evidenced native usage in every language/topic
+- every profile meets source/pattern/register/translationese/research-date gates
+- every high-risk profile carries an authoritative-term check
+- **32/32** topics have category-shift and pedagogical-alignment notes
+- display/spoken/TTS notes exist across all 96 profiles
+- content coverage ledger tracks **8,960** item rows with zero silent unmapped
+  rows: **7,997 mapped + 963 explicit manual-review unmapped**
+- **197** legacy/batch draft files remain explicitly file-level unmapped rather
+  than being falsely auto-classified
+- Living Korea **23/23** scenes are mapped
+- localization contract consumes the registry
+- future scenario promotion batch **39+** fails closed without the contract,
+  native topic ids, and deep-pass coverage
+- progress and content-topic ledgers are generator/auditor checked in CI
+- research dates and per-pattern freshness classes are stored
 
-Until then, localization may pilot selected approved content, but large-scale
-DE/EN promotion should not assume the corpus is complete.
+This completes the **native-usage research infrastructure and 32-topic corpus**.
+It does not mean every existing learner-facing DE/EN translation is
+automatically approved. Existing/live/unreviewed content approval remains a
+separate axis; localized copy still requires per-content localization spine,
+native-language QA and explicit promotion review.

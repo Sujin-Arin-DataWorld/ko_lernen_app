@@ -51,14 +51,10 @@ class TrilingualNativeUsageProgressTest(unittest.TestCase):
         summary = self.report["summary"]
         self.assertEqual(summary["topicCount"], 32)
         self.assertEqual(summary["profileCount"], 96)
-        self.assertLessEqual(
-            summary["deepPassCompleteProfileCount"],
-            summary["broadPassCompleteProfileCount"],
-        )
-        self.assertLessEqual(
-            summary["allLanguagesDeepPassCompleteTopicCount"],
-            summary["allLanguagesBroadPassCompleteTopicCount"],
-        )
+        self.assertEqual(summary["broadPassCompleteProfileCount"], 96)
+        self.assertEqual(summary["deepPassCompleteProfileCount"], 96)
+        self.assertEqual(summary["allLanguagesBroadPassCompleteTopicCount"], 32)
+        self.assertEqual(summary["allLanguagesDeepPassCompleteTopicCount"], 32)
 
     def test_broad_complete_profiles_meet_hard_minimums(self) -> None:
         minimum = self.report["hardMinimumPerTopicLanguage"]

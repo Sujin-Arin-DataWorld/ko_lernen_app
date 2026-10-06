@@ -248,6 +248,7 @@ class ContentValidator:
         self.validate_curriculum_graph()
         self.validate_audit_manifest(vocab, grammar, scenarios)
         self.validate_dialogue_authoring_contract()
+        self.validate_dialogue_localization_contract()
         self.validate_trilingual_content_topic_coverage()
         self.validate_ledger_entries()
         return self.issues
@@ -362,6 +363,122 @@ class ContentValidator:
                 source,
                 "no governed persona dialogue authoring artifacts were found",
             )
+
+    def validate_dialogue_localization_contract(self) -> None:
+        """Require future localization to consume the 32-topic deep-pass corpus."""
+
+        relative = (
+            "tools/content_factory/canonical_scenarios/"
+            "dialogue_localization_contract_20261006.json"
+        )
+        path = self.root / relative
+        source = path.name
+        if not path.is_file():
+            self.issue(source, f"missing canonical localization contract at {relative}")
+            return
+        try:
+            contract = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            self.issue(source, f"cannot parse localization contract: {exc}")
+            return
+
+        if contract.get("status") != "CANONICAL":
+            self.issue(source, "localization contract status must be CANONICAL")
+        principles = contract.get("principles")
+        if not isinstance(principles, dict):
+            self.issue(source, "localization contract principles must be an object")
+            return
+        required_principles = (
+            "koreanIsSemanticPragmaticSourceOfTruth",
+            "englishAuthoredDirectlyFromKorean",
+            "germanAuthoredDirectlyFromKorean",
+            "englishAndGermanMustNotBeTranslationChains",
+            "topicNativeUsageProfileRequired",
+            "pedagogicalAlignmentRequired",
+            "displayAndSpokenSurfacesSeparate",
+        )
+        for key in required_principles:
+            if not principles.get(key):
+                self.issue(source, f"localization contract must enforce {key}")
+
+        dependencies = contract.get("dependencies")
+        if not isinstance(dependencies, dict):
+            self.issue(source, "localization contract dependencies must be an object")
+            return
+        expected_registry = (
+            "tools/content_factory/canonical_scenarios/"
+            "trilingual_native_usage_registry_20261006.json"
+        )
+        if dependencies.get("nativeUsageRegistry") != expected_registry:
+            self.issue(source, "localization contract must reference canonical native-usage registry")
+
+        gate = contract.get("nativeUsageGate")
+        if not isinstance(gate, dict):
+            self.issue(source, "localization contract nativeUsageGate must be an object")
+            return
+        if gate.get("requiredProfileStatus") != "deep_pass_complete":
+            self.issue(source, "localization native-usage gate must require deep_pass_complete")
+        if gate.get("requiredLanguages") != ["ko", "en", "de"]:
+            self.issue(source, "localization native-usage gate must require KO/EN/DE")
+
+        registry_path = self.root / expected_registry
+        if not registry_path.is_file():
+            self.issue(source, "canonical native-usage registry is missing")
+            return
+        try:
+            registry = json.loads(registry_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            self.issue(source, f"cannot parse native-usage registry: {exc}")
+            return
+
+        topics = registry.get("topics")
+        if not isinstance(topics, list) or len(topics) != 32:
+            self.issue(source, "native-usage registry must expose exactly 32 topics")
+            return
+        for topic in topics:
+            if not isinstance(topic, dict):
+                self.issue(source, "native-usage topic must be an object")
+                continue
+            topic_id = str(topic.get("topicId") or "<missing-topic>")
+            cross = topic.get("crossLanguage")
+            if not isinstance(cross, dict):
+                self.issue(source, f"{topic_id}: crossLanguage must be an object")
+            else:
+                if not cross.get("categoryShiftRisks"):
+                    self.issue(source, f"{topic_id}: categoryShiftRisks must be non-empty")
+                if not cross.get("pedagogicalAlignmentNotes"):
+                    self.issue(source, f"{topic_id}: pedagogicalAlignmentNotes must be non-empty")
+            for lang in ("ko", "en", "de"):
+                profile = topic.get(lang)
+                if not isinstance(profile, dict):
+                    self.issue(source, f"{topic_id}/{lang}: profile missing")
+                    continue
+                if profile.get("nativeUsageProfileStatus") != "deep_pass_complete":
+                    self.issue(source, f"{topic_id}/{lang}: deep-pass incomplete")
+                if not profile.get("researchDate"):
+                    self.issue(source, f"{topic_id}/{lang}: researchDate missing")
+                if not profile.get("avoidTranslationese"):
+                    self.issue(source, f"{topic_id}/{lang}: translationese warning missing")
+                if (
+                    topic.get("requiresAuthoritativeTermCheckForDeepPass")
+                    and not profile.get("authoritativeTermChecks")
+                ):
+                    self.issue(source, f"{topic_id}/{lang}: authoritative term check missing")
+
+        promotion = contract.get("promotionPolicy")
+        if not isinstance(promotion, dict):
+            self.issue(source, "localization promotionPolicy must be an object")
+        else:
+            if promotion.get("futureScenarioBatchFloor") != 39:
+                self.issue(source, "future localization promotion gate must begin at batch 39")
+            if promotion.get("localizationContractValue") != relative:
+                self.issue(source, "promotion policy contract path must be canonical")
+
+        tts = contract.get("ttsBoundary")
+        if not isinstance(tts, dict) or tts.get("ttsOwner") != "Jin":
+            self.issue(source, "localization contract must preserve Jin TTS ownership")
+        elif tts.get("contentFactoryGeneratesTts"):
+            self.issue(source, "localization content factory must not generate TTS")
 
     def validate_trilingual_content_topic_coverage(self) -> None:
         """Fail closed on silent gaps in the 32-topic research coverage ledger."""

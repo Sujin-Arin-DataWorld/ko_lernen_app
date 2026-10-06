@@ -48,6 +48,8 @@ class TrilingualNativeUsageRegistryTest(unittest.TestCase):
                     self.assertIsInstance(profile["registerNotes"], list)
                     self.assertIsInstance(profile["speechSurfaceNotes"], list)
                 self.assertIn("crossLanguage", row)
+                self.assertTrue(row["crossLanguage"]["categoryShiftRisks"])
+                self.assertTrue(row["crossLanguage"]["pedagogicalAlignmentNotes"])
                 self.assertIsInstance(row["sources"], list)
 
     def test_research_protocol_has_measurable_completion_gates(self) -> None:
@@ -73,6 +75,23 @@ class TrilingualNativeUsageRegistryTest(unittest.TestCase):
         )
         self.assertIn("MANUAL_REVIEW_DEBT", coverage["status"])
         self.assertIn("never changes approval state", coverage["policy"])
+
+    def test_completion_snapshot_matches_deep_pass_program_state(self) -> None:
+        completion = self.registry["completion"]
+        self.assertEqual(
+            completion["status"],
+            "DEEP_PASS_COMPLETE_ACTIVE_MAINTENANCE",
+        )
+        self.assertEqual(completion["canonicalTopicCount"], 32)
+        self.assertEqual(completion["languageProfileCount"], 96)
+        self.assertEqual(completion["deepPassCompleteTopicCount"], 32)
+        self.assertEqual(completion["deepPassCompleteProfileCount"], 96)
+        self.assertEqual(completion["categoryShiftTopicCount"], 32)
+        self.assertEqual(completion["pedagogicalAlignmentTopicCount"], 32)
+        self.assertIn(
+            "dialogue_localization_contract_20261006.json",
+            completion["localizationContract"],
+        )
 
     def test_language_policy_forbids_translation_chain_corpus(self) -> None:
         policy = self.registry["languagePolicy"]
