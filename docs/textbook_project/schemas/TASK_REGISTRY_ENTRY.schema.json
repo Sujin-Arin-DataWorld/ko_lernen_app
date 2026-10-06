@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hangulsori://textbook/schemas/TASK_REGISTRY_ENTRY",
+  "title": "Stable textbook task registry entry",
+  "type": "object",
+  "required": [
+    "taskId",
+    "unitId",
+    "surface",
+    "taskType",
+    "plannedPageSlot",
+    "answerPolicy",
+    "pilotEligible",
+    "status"
+  ],
+  "properties": {
+    "taskId": {
+      "type": "string",
+      "pattern": "^1A\\.(U0[1-8]|R(12|34|56|78)|FINAL)\\.(SB|WB|RV)\\.T[0-9]{2}$"
+    },
+    "unitId": {
+      "type": "string"
+    },
+    "surface": {
+      "type": "string",
+      "enum": [
+        "student_book",
+        "workbook",
+        "review"
+      ]
+    },
+    "taskType": {
+      "type": "string",
+      "enum": [
+        "meaning",
+        "form",
+        "listening",
+        "reading",
+        "writing",
+        "speaking",
+        "interaction",
+        "retrieval",
+        "transfer_diagnostic",
+        "pronunciation",
+        "self_check"
+      ]
+    },
+    "taskKey": {
+      "type": "string",
+      "minLength": 1
+    },
+    "plannedPageSlot": {
+      "type": "string",
+      "minLength": 1
+    },
+    "editionScope": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "shared",
+          "en",
+          "de"
+        ]
+      }
+    },
+    "answerPolicy": {
+      "type": "string",
+      "enum": [
+        "closed",
+        "multiple_accepted",
+        "sample_only",
+        "rubric",
+        "self_check"
+      ]
+    },
+    "targetRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sourceRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "transferRiskRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "pilotEligible": {
+      "type": "boolean"
+    },
+    "pilotStages": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "baseline",
+          "guided",
+          "immediate_post",
+          "delayed_24h",
+          "delayed_7d",
+          "transfer"
+        ]
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "model_reviewed",
+        "human_reviewed",
+        "pilot_validated"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

@@ -396,3 +396,63 @@ PASS student_pages=144 workbook_pages=96 answer_entries=6 pilot_examples=2 cross
 
 Next:
 Phase 2D — assign stable task IDs, full answer-key coverage, pair-review contracts, pilot task registry, then human Unit04 review + small EN/DE adult pilot.
+
+## Phase 2D complete — stable tasks / full keys / reviews / pilot registry
+
+Date: 2026-10-06
+Status: PHASE_2D_COMPLETE_READY_FOR_HUMAN_REVIEW_AND_PILOT
+
+Stable task system:
+- 190 task IDs total
+- 160 unit tasks
+- 24 pair-review tasks
+- 6 final-review tasks
+- page slot is metadata; task identity survives layout changes
+
+Answer-key system:
+- 196 entries total
+- all 190 stable tasks covered
+- 16 closed tasks
+- 16/16 closed tasks have exact answers
+- Unit 04 detailed six sub-item keys retained
+- open production uses rubric/sample/multiple-answer policy rather than fake single answers
+
+Review architecture:
+- R12 / R34 / R56 / R78
+- 6 tasks per pair review
+- EN and DE rendered review editions
+- final 6-task cross-unit transfer review
+
+Pilot registry:
+- 50 tasks
+- baseline 8
+- immediate_post 8
+- delayed_24h 8
+- delayed_7d 8
+- transfer 18
+
+Unit 04 human-review packet:
+- Korean educator lane
+- EN pedagogy lane
+- DE pedagogy lane
+- assessment lane
+- spoken/audio lane
+- decision template
+- allowed decisions: APPROVE / APPROVE_WITH_EDITS / HOLD
+- final SHA-256 manifest generated after Phase 2D main commit
+
+Key files:
+- production/ONE_A_TASK_REGISTRY_20261006.json
+- production/ONE_A_PAGE_TASK_MAP_20261006.csv
+- production/ONE_A_ANSWER_KEY_REGISTRY_20261006.json
+- production/ONE_A_REVIEW_CONTRACTS_20261006.json
+- production/ONE_A_PILOT_TASK_REGISTRY_20261006.json
+- production/ONE_A_PHASE2D_CLOSEOUT_20261006.md
+- production/human_review_packets/unit04/
+
+Validator:
+- tools/textbook_project/validate_one_a_phase2d.py
+
+Next phase:
+Phase 3 = real human evidence.
+Human review Unit04 -> EN/DE adult pilot -> 24h/7d retrieval -> template revision -> propagate to all 1A -> then 1B.

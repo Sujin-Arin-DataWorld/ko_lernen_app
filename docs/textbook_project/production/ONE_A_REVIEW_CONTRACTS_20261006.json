@@ -1,0 +1,655 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "book": "1A",
+  "status": "MODEL_REVIEWED",
+  "reviews": [
+    {
+      "reviewId": "R12",
+      "afterUnits": [
+        1,
+        2
+      ],
+      "focus": [
+        "greeting",
+        "identity",
+        "repair",
+        "topic"
+      ],
+      "tasks": [
+        {
+          "taskId": "1A.R12.RV.T01",
+          "taskType": "meaning",
+          "answerPolicy": "closed",
+          "promptEn": "Which Korean phrase is the safest polite default when you did not hear someone?",
+          "promptDe": "Welche koreanische Form ist eine sichere höfliche Standardform, wenn du etwas nicht gehört hast?",
+          "options": [
+            "다시 말씀해 주세요.",
+            "뭐?",
+            "말해."
+          ],
+          "exactAnswers": [
+            "다시 말씀해 주세요."
+          ],
+          "targetRefs": [
+            "다시 말씀해 주세요"
+          ],
+          "sourceRefs": [
+            "airport_arrival"
+          ]
+        },
+        {
+          "taskId": "1A.R12.RV.T02",
+          "taskType": "form",
+          "answerPolicy": "closed",
+          "promptEn": "Complete: 저__ 수진이에요.",
+          "promptDe": "Ergänze: 저__ 수진이에요.",
+          "exactAnswers": [
+            "는"
+          ],
+          "targetRefs": [
+            "은/는"
+          ],
+          "sourceRefs": [
+            "introduce_yourself"
+          ]
+        },
+        {
+          "taskId": "1A.R12.RV.T03",
+          "taskType": "meaning",
+          "answerPolicy": "closed",
+          "promptEn": "Choose the sentence that naturally says 'I'm from Germany.'",
+          "promptDe": "Wähle den Satz für „Ich komme aus Deutschland.“",
+          "options": [
+            "독일에서 왔어요.",
+            "독일에 먹어요.",
+            "독일을 있어요."
+          ],
+          "exactAnswers": [
+            "독일에서 왔어요."
+          ],
+          "targetRefs": [
+            "N에서 왔어요"
+          ],
+          "sourceRefs": [
+            "introduce_yourself"
+          ]
+        },
+        {
+          "taskId": "1A.R12.RV.T04",
+          "taskType": "listening",
+          "answerPolicy": "closed",
+          "promptEn": "You hear '네?' with rising intonation. What is it doing?",
+          "promptDe": "Du hörst „네?“ mit steigender Intonation. Welche Funktion hat es?",
+          "options": [
+            "asking for confirmation/repetition",
+            "ending the conversation",
+            "introducing yourself"
+          ],
+          "exactAnswers": [
+            "asking for confirmation/repetition"
+          ],
+          "targetRefs": [
+            "네?"
+          ],
+          "sourceRefs": [
+            "airport_arrival"
+          ]
+        },
+        {
+          "taskId": "1A.R12.RV.T05",
+          "taskType": "speaking",
+          "answerPolicy": "rubric",
+          "promptEn": "Greet a new classmate, say your name and origin, then ask one return question.",
+          "promptDe": "Begrüße eine neue Person, nenne Name und Herkunft und stelle eine Rückfrage.",
+          "rubricDimensions": [
+            "greeting",
+            "name",
+            "origin",
+            "return question",
+            "appropriate register"
+          ],
+          "targetRefs": [
+            "안녕하세요",
+            "저는 ___이에요/예요",
+            "N에서 왔어요"
+          ],
+          "sourceRefs": [
+            "airport_arrival",
+            "introduce_yourself"
+          ]
+        },
+        {
+          "taskId": "1A.R12.RV.T06",
+          "taskType": "retrieval",
+          "answerPolicy": "rubric",
+          "promptEn": "Without looking back, repair one missed sentence and continue the introduction.",
+          "promptDe": "Ohne zurückzublättern: Repariere einen nicht verstandenen Satz und setze die Vorstellung fort.",
+          "rubricDimensions": [
+            "repair phrase",
+            "interaction continuation"
+          ],
+          "targetRefs": [
+            "다시 말씀해 주세요",
+            "저는 ___이에요/예요"
+          ],
+          "sourceRefs": [
+            "airport_arrival",
+            "introduce_yourself"
+          ]
+        }
+      ]
+    },
+    {
+      "reviewId": "R34",
+      "afterUnits": [
+        3,
+        4
+      ],
+      "focus": [
+        "particles",
+        "shopping",
+        "ordering",
+        "service pragmatics"
+      ],
+      "tasks": [
+        {
+          "taskId": "1A.R34.RV.T01",
+          "taskType": "form",
+          "answerPolicy": "closed",
+          "promptEn": "Complete: 우유는 냉장고__ 있어요.",
+          "promptDe": "Ergänze: 우유는 냉장고__ 있어요.",
+          "exactAnswers": [
+            "에"
+          ],
+          "targetRefs": [
+            "에 있다"
+          ],
+          "sourceRefs": [
+            "mart_grocery"
+          ]
+        },
+        {
+          "taskId": "1A.R34.RV.T02",
+          "taskType": "form",
+          "answerPolicy": "closed",
+          "promptEn": "Complete: 고기__ 먹어요.",
+          "promptDe": "Ergänze: 고기__ 먹어요.",
+          "exactAnswers": [
+            "를"
+          ],
+          "targetRefs": [
+            "을/를"
+          ],
+          "sourceRefs": [
+            "cloze_a1_0037"
+          ]
+        },
+        {
+          "taskId": "1A.R34.RV.T03",
+          "taskType": "meaning",
+          "answerPolicy": "closed",
+          "promptEn": "Choose the natural order.",
+          "promptDe": "Wähle die natürliche Bestellung.",
+          "options": [
+            "떡볶이 하나 주세요.",
+            "떡볶이가 어디예요 주세요.",
+            "하나 떡볶이를 있어요."
+          ],
+          "exactAnswers": [
+            "떡볶이 하나 주세요."
+          ],
+          "targetRefs": [
+            "N 하나 주세요"
+          ],
+          "sourceRefs": [
+            "bunshik_tteokbokki"
+          ]
+        },
+        {
+          "taskId": "1A.R34.RV.T04",
+          "taskType": "meaning",
+          "answerPolicy": "closed",
+          "promptEn": "You want the mild version. Choose the best response.",
+          "promptDe": "Du möchtest die milde Variante. Wähle die passende Antwort.",
+          "options": [
+            "안 매운 걸로 주세요.",
+            "많이 매워요 주세요.",
+            "포장 아니에요?"
+          ],
+          "exactAnswers": [
+            "안 매운 걸로 주세요."
+          ],
+          "targetRefs": [
+            "안 매운 걸로 주세요"
+          ],
+          "sourceRefs": [
+            "bunshik_tteokbokki"
+          ]
+        },
+        {
+          "taskId": "1A.R34.RV.T05",
+          "taskType": "interaction",
+          "answerPolicy": "rubric",
+          "promptEn": "Find one item in a shop, then order one food or drink.",
+          "promptDe": "Finde einen Gegenstand im Laden und bestelle danach ein Essen oder Getränk.",
+          "rubricDimensions": [
+            "attention/getting help",
+            "location question",
+            "order",
+            "quantity",
+            "polite request"
+          ],
+          "targetRefs": [
+            "저기요",
+            "___는 어디에 있어요?",
+            "N 하나 주세요"
+          ],
+          "sourceRefs": [
+            "mart_grocery",
+            "bunshik_tteokbokki"
+          ]
+        },
+        {
+          "taskId": "1A.R34.RV.T06",
+          "taskType": "transfer_diagnostic",
+          "answerPolicy": "multiple_accepted",
+          "promptEn": "Give one natural English or German service equivalent of '아메리카노 한 잔 주세요.'",
+          "promptDe": "Gib eine natürliche englische oder deutsche Service-Entsprechung für „아메리카노 한 잔 주세요.“",
+          "acceptedAnswers": [
+            "Can I get an Americano, please?",
+            "Can I have an Americano, please?",
+            "I'll have an Americano, please.",
+            "Ich hätte gern einen Americano.",
+            "Einmal einen Americano, bitte.",
+            "Ich nehme einen Americano."
+          ],
+          "targetRefs": [
+            "아메리카노 한 잔 주세요"
+          ],
+          "sourceRefs": [
+            "bunshik_tteokbokki"
+          ]
+        }
+      ]
+    },
+    {
+      "reviewId": "R56",
+      "afterUnits": [
+        5,
+        6
+      ],
+      "focus": [
+        "time",
+        "numbers",
+        "transport",
+        "spatial repair"
+      ],
+      "tasks": [
+        {
+          "taskId": "1A.R56.RV.T01",
+          "taskType": "form",
+          "answerPolicy": "closed",
+          "promptEn": "Complete: 일곱 시__ 만나요.",
+          "promptDe": "Ergänze: 일곱 시__ 만나요.",
+          "exactAnswers": [
+            "에"
+          ],
+          "targetRefs": [
+            "N시에"
+          ],
+          "sourceRefs": [
+            "meeting_time"
+          ]
+        },
+        {
+          "taskId": "1A.R56.RV.T02",
+          "taskType": "meaning",
+          "answerPolicy": "closed",
+          "promptEn": "Choose a natural way to propose 1 p.m.",
+          "promptDe": "Wähle eine natürliche Form, 13 Uhr vorzuschlagen.",
+          "options": [
+            "오후 한 시 어때요?",
+            "오후 한 시 주세요.",
+            "오후 한 시 어디예요?"
+          ],
+          "exactAnswers": [
+            "오후 한 시 어때요?"
+          ],
+          "targetRefs": [
+            "N시 어때요?"
+          ],
+          "sourceRefs": [
+            "meeting_time"
+          ]
+        },
+        {
+          "taskId": "1A.R56.RV.T03",
+          "taskType": "meaning",
+          "answerPolicy": "closed",
+          "promptEn": "Choose the natural destination question.",
+          "promptDe": "Wähle die natürliche Frage nach dem Ziel.",
+          "options": [
+            "이 버스 시청에 가요?",
+            "이 버스 시청을 있어요?",
+            "이 버스 시청에서 몇 시예요?"
+          ],
+          "exactAnswers": [
+            "이 버스 시청에 가요?"
+          ],
+          "targetRefs": [
+            "에"
+          ],
+          "sourceRefs": [
+            "taxi_kakao"
+          ]
+        },
+        {
+          "taskId": "1A.R56.RV.T04",
+          "taskType": "meaning",
+          "answerPolicy": "closed",
+          "promptEn": "Which phrase asks where to transfer?",
+          "promptDe": "Welche Form fragt, wo man umsteigen soll?",
+          "options": [
+            "어디서 갈아타요?",
+            "어디에 먹어요?",
+            "몇 시를 갈아타요?"
+          ],
+          "exactAnswers": [
+            "어디서 갈아타요?"
+          ],
+          "targetRefs": [
+            "어디서 갈아타요?"
+          ],
+          "sourceRefs": [
+            "a1_w10_wayfinding"
+          ]
+        },
+        {
+          "taskId": "1A.R56.RV.T05",
+          "taskType": "interaction",
+          "answerPolicy": "rubric",
+          "promptEn": "Agree on a time, then ask how to reach the meeting place.",
+          "promptDe": "Vereinbart eine Uhrzeit und fragt anschließend nach dem Weg zum Treffpunkt.",
+          "rubricDimensions": [
+            "ask/propose time",
+            "confirm/correct number",
+            "destination question",
+            "route repair"
+          ],
+          "targetRefs": [
+            "몇 시에 만나요?",
+            "오후 한 시 어때요?",
+            "몇 번 출구예요?",
+            "어디서 갈아타요?"
+          ],
+          "sourceRefs": [
+            "meeting_time",
+            "taxi_kakao"
+          ]
+        },
+        {
+          "taskId": "1A.R56.RV.T06",
+          "taskType": "retrieval",
+          "answerPolicy": "rubric",
+          "promptEn": "A partner says '6 o'clock' but you remember 7. Correct the time, then ask for the exit.",
+          "promptDe": "Dein Partner sagt 18 Uhr, du erinnerst dich an 19 Uhr. Korrigiere die Zeit und frage nach dem Ausgang.",
+          "rubricDimensions": [
+            "time correction",
+            "exit question"
+          ],
+          "targetRefs": [
+            "여섯 시 아니에요?",
+            "아니요, 일곱 시예요",
+            "몇 번 출구예요?"
+          ],
+          "sourceRefs": [
+            "meeting_time",
+            "taxi_kakao"
+          ]
+        }
+      ]
+    },
+    {
+      "reviewId": "R78",
+      "afterUnits": [
+        7,
+        8
+      ],
+      "focus": [
+        "messaging",
+        "boundaries",
+        "repair",
+        "integrated interaction"
+      ],
+      "tasks": [
+        {
+          "taskId": "1A.R78.RV.T01",
+          "taskType": "meaning",
+          "answerPolicy": "closed",
+          "promptEn": "Choose a low-pressure contact proposal.",
+          "promptDe": "Wähle einen unverbindlichen Vorschlag für den Kontaktaustausch.",
+          "options": [
+            "카카오톡으로 연락할까요?",
+            "연락처 줘.",
+            "당장 전화하세요."
+          ],
+          "exactAnswers": [
+            "카카오톡으로 연락할까요?"
+          ],
+          "targetRefs": [
+            "-(으)ㄹ까요?"
+          ],
+          "sourceRefs": [
+            "kakao_contact_after_class"
+          ]
+        },
+        {
+          "taskId": "1A.R78.RV.T02",
+          "taskType": "meaning",
+          "answerPolicy": "closed",
+          "promptEn": "Which message tells someone you expect to be about ten minutes late?",
+          "promptDe": "Welche Nachricht sagt, dass du ungefähr zehn Minuten später kommst?",
+          "options": [
+            "10분 정도 늦을 것 같아요.",
+            "10분을 주세요.",
+            "10분 어디예요?"
+          ],
+          "exactAnswers": [
+            "10분 정도 늦을 것 같아요."
+          ],
+          "targetRefs": [
+            "-(으)ㄹ 것 같아요"
+          ],
+          "sourceRefs": [
+            "a1_message_contact_after_class_2026"
+          ]
+        },
+        {
+          "taskId": "1A.R78.RV.T03",
+          "taskType": "meaning",
+          "answerPolicy": "closed",
+          "promptEn": "Which phrase is for not hearing something?",
+          "promptDe": "Welche Form benutzt du, wenn du etwas akustisch nicht verstanden hast?",
+          "options": [
+            "다시 말씀해 주세요.",
+            "무슨 뜻이에요?",
+            "카톡 하세요?"
+          ],
+          "exactAnswers": [
+            "다시 말씀해 주세요."
+          ],
+          "targetRefs": [
+            "repeat_request"
+          ],
+          "sourceRefs": [
+            "clarify_repeat"
+          ]
+        },
+        {
+          "taskId": "1A.R78.RV.T04",
+          "taskType": "meaning",
+          "answerPolicy": "closed",
+          "promptEn": "Which phrase asks for the meaning of a word?",
+          "promptDe": "Welche Form fragt nach der Bedeutung eines Wortes?",
+          "options": [
+            "무슨 뜻이에요?",
+            "몇 시예요?",
+            "포장이세요?"
+          ],
+          "exactAnswers": [
+            "무슨 뜻이에요?"
+          ],
+          "targetRefs": [
+            "meaning_request"
+          ],
+          "sourceRefs": [
+            "clarify_repeat"
+          ]
+        },
+        {
+          "taskId": "1A.R78.RV.T05",
+          "taskType": "interaction",
+          "answerPolicy": "rubric",
+          "promptEn": "Exchange a contact method, then repair one unclear message or number.",
+          "promptDe": "Vereinbart einen Kontaktweg und repariert anschließend eine unklare Nachricht oder Zahl.",
+          "rubricDimensions": [
+            "contact proposal",
+            "boundary respect",
+            "repair strategy",
+            "interaction continuation"
+          ],
+          "targetRefs": [
+            "카카오톡으로 연락할까요?",
+            "다시 말씀해 주세요",
+            "13번이요?"
+          ],
+          "sourceRefs": [
+            "kakao_contact_after_class",
+            "clarify_repeat"
+          ]
+        },
+        {
+          "taskId": "1A.R78.RV.T06",
+          "taskType": "retrieval",
+          "answerPolicy": "rubric",
+          "promptEn": "Without looking back, send a short delay message and then ask for repetition.",
+          "promptDe": "Ohne nachzusehen: Schreibe eine kurze Verspätungsnachricht und bitte anschließend um Wiederholung.",
+          "rubricDimensions": [
+            "delay notice",
+            "repeat request"
+          ],
+          "targetRefs": [
+            "10분 정도 늦을 것 같아요",
+            "다시 말씀해 주세요"
+          ],
+          "sourceRefs": [
+            "a1_message_contact_after_class_2026",
+            "clarify_repeat"
+          ]
+        }
+      ]
+    }
+  ],
+  "finalReview": {
+    "reviewId": "FINAL",
+    "tasks": [
+      {
+        "taskId": "1A.FINAL.RV.T01",
+        "taskType": "interaction",
+        "answerPolicy": "rubric",
+        "promptEn": "Meet someone, introduce yourself, and arrange a later contact.",
+        "promptDe": "Lerne jemanden kennen, stelle dich vor und vereinbare späteren Kontakt.",
+        "rubricDimensions": [
+          "greeting",
+          "identity",
+          "return question",
+          "contact proposal"
+        ],
+        "targetRefs": [
+          "Units01",
+          "Units02",
+          "Unit07"
+        ]
+      },
+      {
+        "taskId": "1A.FINAL.RV.T02",
+        "taskType": "interaction",
+        "answerPolicy": "rubric",
+        "promptEn": "Find an item, order something, and respond to one staff question.",
+        "promptDe": "Finde einen Gegenstand, bestelle etwas und reagiere auf eine Frage des Personals.",
+        "rubricDimensions": [
+          "location request",
+          "order",
+          "quantity",
+          "service response"
+        ],
+        "targetRefs": [
+          "Unit03",
+          "Unit04"
+        ]
+      },
+      {
+        "taskId": "1A.FINAL.RV.T03",
+        "taskType": "interaction",
+        "answerPolicy": "rubric",
+        "promptEn": "Set a meeting time and ask for route/exit information.",
+        "promptDe": "Vereinbare eine Uhrzeit und frage nach Weg/Ausgang.",
+        "rubricDimensions": [
+          "time negotiation",
+          "number correction",
+          "route question"
+        ],
+        "targetRefs": [
+          "Unit05",
+          "Unit06"
+        ]
+      },
+      {
+        "taskId": "1A.FINAL.RV.T04",
+        "taskType": "retrieval",
+        "answerPolicy": "rubric",
+        "promptEn": "Repair three problems: you did not hear, you do not know a word, and you want to confirm a number.",
+        "promptDe": "Repariere drei Probleme: nicht gehört, Wortbedeutung unbekannt, Zahl bestätigen.",
+        "rubricDimensions": [
+          "hearing repair",
+          "meaning repair",
+          "confirmation"
+        ],
+        "targetRefs": [
+          "Unit08"
+        ]
+      },
+      {
+        "taskId": "1A.FINAL.RV.T05",
+        "taskType": "writing",
+        "answerPolicy": "rubric",
+        "promptEn": "Write a short message saying you will be about ten minutes late and what you will do next.",
+        "promptDe": "Schreibe eine kurze Nachricht: ca. zehn Minuten Verspätung + nächster Schritt.",
+        "rubricDimensions": [
+          "delay amount",
+          "polite tone",
+          "next step"
+        ],
+        "targetRefs": [
+          "Unit07",
+          "Unit05"
+        ]
+      },
+      {
+        "taskId": "1A.FINAL.RV.T06",
+        "taskType": "reading",
+        "answerPolicy": "rubric",
+        "promptEn": "Read a mini itinerary/menu/chat bundle and answer five practical questions without unit labels.",
+        "promptDe": "Lies Mini-Fahrplan/Menü/Chat und beantworte fünf praktische Fragen ohne Kapitelhinweise.",
+        "rubricDimensions": [
+          "information extraction",
+          "cross-unit transfer"
+        ],
+        "targetRefs": [
+          "Units03-08"
+        ]
+      }
+    ]
+  }
+}
