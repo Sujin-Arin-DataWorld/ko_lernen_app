@@ -140,3 +140,29 @@ Validation:
 
 Next recommended Tier-1 batch:
 shopping_consumption, transport_wayfinding, health_body, work_career.
+
+## Tier-1 native-usage research checkpoint — Batch 02
+
+Completed broad-pass multi-genre evidence packs for:
+- shopping_consumption
+- transport_wayfinding
+- health_body
+- work_career
+
+Research now distinguishes service/casual/blog-review/community/news/authoritative lanes instead of treating a topic as one undifferentiated native corpus.
+
+Health uses a strict split:
+- community/blog sources for natural symptom wording
+- KDCA/NHS/gesund.bund authoritative sources for factual terminology and safety boundaries
+
+Validation:
+- Batch 02 native-usage validator PASS
+- Batch 01 validator PASS
+- textbook reuse regression PASS
+- content validation PASS
+
+A cross-language genre map was added:
+research/SOURCE_GENRE_DISCOURSE_MAP_KO_EN_DE_20261006.md
+
+Next 1A-readiness research batch:
+personal_identification, communication_phone_digital, language_learning_communication_repair, social_etiquette_customs.
