@@ -60,6 +60,20 @@ class TrilingualNativeUsageRegistryTest(unittest.TestCase):
         self.assertIn("unmappedReason", protocol["mappingRule"])
         self.assertIn("spoken-surface", protocol["ttsRule"])
 
+    def test_registry_points_to_explicit_content_coverage_ledger(self) -> None:
+        coverage = self.registry["contentCoverage"]
+        self.assertEqual(
+            coverage["ledgerPath"],
+            "tools/content_factory/review/trilingual_content_topic_coverage_20261006.json",
+        )
+        self.assertEqual(coverage["trackedItemCount"], 8960)
+        self.assertEqual(
+            coverage["trackedItemCount"],
+            coverage["mappedItemCount"] + coverage["explicitUnmappedItemCount"],
+        )
+        self.assertIn("MANUAL_REVIEW_DEBT", coverage["status"])
+        self.assertIn("never changes approval state", coverage["policy"])
+
     def test_language_policy_forbids_translation_chain_corpus(self) -> None:
         policy = self.registry["languagePolicy"]
         self.assertIn("independently", policy["en"].lower())

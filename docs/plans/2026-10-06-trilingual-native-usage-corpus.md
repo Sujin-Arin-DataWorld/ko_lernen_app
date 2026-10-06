@@ -199,12 +199,53 @@ Examples:
 - `한류` is suitable as a culture-card term, while casual EN/DE may prefer
   concrete `K-pop / K-dramas / Korean food / koreanische Serien`
 
-### R-4 Scenario coverage
-Map every live/canonical/draft scenario to:
+### R-4 Content → topic coverage
+Status: **baseline ledger complete; manual review/adapters remain**
+
+Canonical generated ledger:
+`tools/content_factory/review/trilingual_content_topic_coverage_20261006.json`
+
+Generator:
+`tools/content_factory/build_trilingual_content_topic_coverage.py`
+
+Current baseline (2026-10-06):
+- tracked item rows: **8,960**
+- confidently mapped: **7,997**
+- explicit item-level unmapped/manual-review debt: **963**
+- legacy/batch draft files explicitly tracked at file level pending schema adapters: **197**
+- Living Korea scenes: **23/23 mapped**
+- all **32/32 canonical topics** have at least one mapped content item
+- there are **zero silent unmapped rows**: each mapped row has a canonical topic,
+  and each non-mapped row carries `unmappedReason`
+
+Tracked item surfaces currently include:
+- live scenarios
+- listening
+- smalltalk
+- cloze
+- sentence building
+- vocab
+- canonical 120 review-only scenario briefs
+- live scenario-culture links / culture-story arcs
+- Living Korea user-reviewed/not-live scenes
+
+The remaining 963 item-level ambiguities are deliberately not force-mapped. The
+197 legacy/batch draft files remain in research scope with an explicit
+file-level unmapped reason until an item-level schema adapter exists.
+
+Mapping status is independent from learner-content approval. Research never
+promotes a draft/review artifact to live.
+
+For mapped content retain:
 - canonical topic profile
 - optional subtopic profile
 - register lane
-- source coverage confidence
+- mapping evidence / confidence path
+- original approval state
+
+For uncertain content retain:
+- explicit `unmappedReason`
+- manual-review status instead of a guessed topic
 
 ### R-5 Localization contract integration
 Localization cannot begin at scale until:

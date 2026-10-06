@@ -248,6 +248,7 @@ class ContentValidator:
         self.validate_curriculum_graph()
         self.validate_audit_manifest(vocab, grammar, scenarios)
         self.validate_dialogue_authoring_contract()
+        self.validate_trilingual_content_topic_coverage()
         self.validate_ledger_entries()
         return self.issues
 
@@ -361,6 +362,94 @@ class ContentValidator:
                 source,
                 "no governed persona dialogue authoring artifacts were found",
             )
+
+    def validate_trilingual_content_topic_coverage(self) -> None:
+        """Fail closed on silent gaps in the 32-topic research coverage ledger."""
+
+        taxonomy_path = self.root / "tools/content_factory/cefr_matrix/taxonomy.json"
+        ledger_path = (
+            self.root
+            / "tools"
+            / "content_factory"
+            / "review"
+            / "trilingual_content_topic_coverage_20261006.json"
+        )
+        source = ledger_path.name
+        if not taxonomy_path.is_file():
+            self.issue(source, "missing CEFR taxonomy for topic coverage validation")
+            return
+        if not ledger_path.is_file():
+            self.issue(source, "missing trilingual content-topic coverage ledger")
+            return
+        try:
+            taxonomy = json.loads(taxonomy_path.read_text(encoding="utf-8"))
+            ledger = json.loads(ledger_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            self.issue(source, f"cannot parse topic coverage inputs: {exc}")
+            return
+
+        topic_ids = {row.get("id") for row in taxonomy.get("topics", [])}
+        if len(topic_ids) != 32 or None in topic_ids:
+            self.issue(source, "canonical taxonomy must expose exactly 32 topic ids")
+            return
+
+        policy = ledger.get("policy")
+        if not isinstance(policy, dict):
+            self.issue(source, "topic coverage ledger policy must be an object")
+            return
+        if not policy.get("researchCoverageDoesNotImplyApproval"):
+            self.issue(source, "research coverage must not imply content approval")
+        if not policy.get("noSilentUnmappedItems"):
+            self.issue(source, "topic coverage ledger must forbid silent unmapped items")
+
+        records = ledger.get("records")
+        if not isinstance(records, list) or not records:
+            self.issue(source, "topic coverage ledger records must be non-empty")
+            return
+
+        mapped_topics: set[str] = set()
+        for index, row in enumerate(records):
+            if not isinstance(row, dict):
+                self.issue(source, f"records[{index}] must be an object")
+                continue
+            item_id = str(row.get("itemId") or f"records[{index}]")
+            topic_id = row.get("canonicalTopicId")
+            if topic_id is None:
+                if not row.get("unmappedReason"):
+                    self.issue(
+                        source,
+                        f"{item_id}: unmapped item requires explicit unmappedReason",
+                    )
+                if row.get("researchCoverageStatus") != "manual_topic_review_required":
+                    self.issue(
+                        source,
+                        f"{item_id}: explicit unmapped item must require manual review",
+                    )
+                continue
+            if topic_id not in topic_ids:
+                self.issue(source, f"{item_id}: unknown canonicalTopicId {topic_id!r}")
+                continue
+            mapped_topics.add(topic_id)
+
+        missing_topics = sorted(topic_ids - mapped_topics)
+        if missing_topics:
+            self.issue(
+                source,
+                "32-topic coverage ledger has no mapped content for: "
+                + ", ".join(missing_topics),
+            )
+
+        unparsed = ledger.get("unparsedDraftSources")
+        if not isinstance(unparsed, list):
+            self.issue(source, "unparsedDraftSources must be a list")
+        else:
+            for row in unparsed:
+                if not isinstance(row, dict) or not row.get("unmappedReason"):
+                    self.issue(
+                        source,
+                        "every unparsed draft source requires an explicit unmappedReason",
+                    )
+                    break
 
     def validate_ledger_entries(self) -> None:
         """Fail-closed cross-check of relevel_ledger.json against the live

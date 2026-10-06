@@ -2485,5 +2485,15 @@
     "evidenceRule": "No single thread/post should dominate a topic-language profile; store normalized patterns, not long quotations.",
     "mappingRule": "Every tracked content item must map to a canonical topic/subtopic or carry an explicit unmappedReason; approval state remains separate.",
     "ttsRule": "Each language profile may record display-only chat markers or orthographic forms that require a separate spoken-surface decision."
+  },
+  "contentCoverage": {
+    "ledgerPath": "tools/content_factory/review/trilingual_content_topic_coverage_20261006.json",
+    "generatorPath": "tools/content_factory/build_trilingual_content_topic_coverage.py",
+    "status": "BASELINE_LEDGER_ACTIVE_MANUAL_REVIEW_DEBT",
+    "trackedItemCount": 8960,
+    "mappedItemCount": 7997,
+    "explicitUnmappedItemCount": 963,
+    "unparsedDraftSourceCount": 197,
+    "policy": "Every tracked item is mapped or carries an explicit unmappedReason. Research coverage never changes approval state."
   }
 }
