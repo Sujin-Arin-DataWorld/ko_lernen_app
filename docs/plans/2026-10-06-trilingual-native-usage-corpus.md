@@ -172,12 +172,33 @@ Status: **complete**
 - 32 canonical taxonomy topics established as SSoT
 
 ### R-1 Broad corpus pass
-Status: **in progress**
+Status: **in progress — Tier 1 complete**
+
 For all 32 topics:
 - native Korean community search
 - native English community search
 - native German community search
 - record recurring patterns, not isolated clever phrases
+
+Current progress (2026-10-06):
+- **Tier 1: 13/13 topics complete at broad-pass**
+- **39/39 Tier-1 language profiles (KO/EN/DE) broad-pass complete**
+- program-wide broad-pass: **39/96 profiles**
+- program-wide all-language broad-pass: **13/32 topics**
+- deep-pass: **0/96 profiles, 0/32 topics** — not claimed yet
+
+Tier-1 completed topics:
+`family_relationships`, `house_home`, `food_drink`,
+`shopping_consumption`, `transport_wayfinding`, `health_body`,
+`work_career`, `services_public_admin`,
+`communication_phone_digital`, `social_etiquette_customs`,
+`language_learning_communication_repair`,
+`money_finance_contracts`, `technology_digital_ai`.
+
+Each completion is computed from evidence rather than handwritten status:
+`tools/content_factory/audit_trilingual_native_usage_progress.py` checks
+source-context count, phrase-pattern count, register lanes, translationese
+warnings, research date and (for deep pass) authoritative terminology checks.
 
 ### R-2 Topic phrase-bank normalization
 For each language/topic classify candidates as:
