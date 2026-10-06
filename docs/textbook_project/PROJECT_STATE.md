@@ -118,3 +118,25 @@ Confirmed level moves:
 - smalltalk.c2.partner_family.decisions -> C1
 
 The urgent repair queue is closed. Next executable phase is 1A–6B allocation with explicit core/recycling/optional roles.
+
+## Tier-1 native-usage research checkpoint — Batch 01
+
+Completed broad-pass evidence packs for:
+- family_relationships
+- house_home
+- food_drink
+
+KO/EN/DE all meet:
+- 3+ source contexts
+- 8+ normalized patterns
+- 2+ register lanes
+- translationese warning
+- spoken/display note
+
+Validation:
+- validate_tier1_native_usage_batch.py PASS
+- textbook reuse regression PASS
+- content validation PASS
+
+Next recommended Tier-1 batch:
+shopping_consumption, transport_wayfinding, health_body, work_career.

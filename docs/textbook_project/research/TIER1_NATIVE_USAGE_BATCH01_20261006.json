@@ -1,0 +1,941 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "EVIDENCE_PACK_BROAD_PASS_COMPLETE",
+  "scope": [
+    "family_relationships",
+    "house_home",
+    "food_drink"
+  ],
+  "policy": {
+    "independentLanguageResearch": true,
+    "normalizedPatternsNotQuotes": true,
+    "researchCoverageDoesNotImplyPublicationApproval": true,
+    "minSourceContextsPerLanguage": 3,
+    "minPatternsPerLanguage": 8,
+    "minRegisterLanesPerLanguage": 2
+  },
+  "topics": [
+    {
+      "topicId": "family_relationships",
+      "ko": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "ko_family_internal_reviewed",
+          "ko_family_pann_space",
+          "ko_family_pann_cancel"
+        ],
+        "registerLanes": [
+          "casual",
+          "relationship",
+          "chat"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "오늘은 좀 쉬고 싶어.",
+            "function": "boundary",
+            "registerLane": "relationship",
+            "tone": "soft-direct"
+          },
+          {
+            "surfacePattern": "오늘은 혼자 있고 싶어.",
+            "function": "boundary",
+            "registerLane": "relationship",
+            "tone": "direct"
+          },
+          {
+            "surfacePattern": "이번에는 좀 어려울 것 같아.",
+            "function": "decline",
+            "registerLane": "casual",
+            "tone": "soft"
+          },
+          {
+            "surfacePattern": "다음에 보자.",
+            "function": "reschedule",
+            "registerLane": "casual",
+            "tone": "warm"
+          },
+          {
+            "surfacePattern": "다음에 다시 만나자.",
+            "function": "reschedule",
+            "registerLane": "relationship",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "미안한데 오늘은 못 갈 것 같아.",
+            "function": "cancel",
+            "registerLane": "casual",
+            "tone": "soft"
+          },
+          {
+            "surfacePattern": "조금 생각할 시간이 필요해.",
+            "function": "boundary",
+            "registerLane": "relationship",
+            "tone": "serious"
+          },
+          {
+            "surfacePattern": "그건 나한테 조금 부담돼.",
+            "function": "boundary",
+            "registerLane": "relationship",
+            "tone": "calibrated"
+          },
+          {
+            "surfacePattern": "괜찮아, 다음에 하면 되지.",
+            "function": "reassure",
+            "registerLane": "casual",
+            "tone": "warm"
+          },
+          {
+            "surfacePattern": "나중에 다시 얘기하자.",
+            "function": "defer",
+            "registerLane": "relationship",
+            "tone": "neutral"
+          }
+        ],
+        "avoidTranslationese": [
+          "개인적 공간이 필요해요 → intimate Korean often prefers 시간이 필요하다 / 혼자 있고 싶다 / 좀 쉬고 싶다 depending context."
+        ],
+        "speechSurfaceNotes": [
+          "ㅋㅋ/ㅎㅎ may soften chat tone but should usually be omitted from spoken/TTS surface unless laughter is intentionally performed."
+        ]
+      },
+      "en": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "en_family_cant_make_it",
+          "en_family_need_space_2026",
+          "en_family_plans_group"
+        ],
+        "registerLanes": [
+          "casual",
+          "relationship",
+          "chat"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "Sorry, I can't make it.",
+            "function": "cancel",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "I can't make it this time.",
+            "function": "cancel",
+            "registerLane": "casual",
+            "tone": "soft"
+          },
+          {
+            "surfacePattern": "Maybe next time.",
+            "function": "reschedule",
+            "registerLane": "casual",
+            "tone": "warm"
+          },
+          {
+            "surfacePattern": "Catch you next time.",
+            "function": "reschedule",
+            "registerLane": "casual",
+            "tone": "friendly"
+          },
+          {
+            "surfacePattern": "I need some space.",
+            "function": "boundary",
+            "registerLane": "relationship",
+            "tone": "serious"
+          },
+          {
+            "surfacePattern": "I need some time to myself.",
+            "function": "boundary",
+            "registerLane": "relationship",
+            "tone": "soft"
+          },
+          {
+            "surfacePattern": "I just need a bit of me-time.",
+            "function": "boundary",
+            "registerLane": "casual",
+            "tone": "light"
+          },
+          {
+            "surfacePattern": "I'm not ready to talk about it yet.",
+            "function": "boundary",
+            "registerLane": "relationship",
+            "tone": "clear"
+          },
+          {
+            "surfacePattern": "Can we talk about this later?",
+            "function": "defer",
+            "registerLane": "relationship",
+            "tone": "soft"
+          },
+          {
+            "surfacePattern": "Thanks for the invite, but I can't.",
+            "function": "decline",
+            "registerLane": "casual",
+            "tone": "polite"
+          }
+        ],
+        "avoidTranslationese": [
+          "Do not force Korean 다음에 into literal 'at the next time'; use next time / another time / later according to function."
+        ],
+        "speechSurfaceNotes": [
+          "Typed lol/lmao may mark stance in chat but should not automatically be spoken aloud in audio."
+        ]
+      },
+      "de": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "de_family_cancel_2025",
+          "de_family_next_week_2026",
+          "de_family_space_2025"
+        ],
+        "registerLanes": [
+          "casual",
+          "relationship",
+          "chat"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "Ich kann diesmal nicht.",
+            "function": "cancel",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Ich muss leider absagen.",
+            "function": "cancel",
+            "registerLane": "casual",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Lass uns das nächste Woche machen.",
+            "function": "reschedule",
+            "registerLane": "casual",
+            "tone": "warm"
+          },
+          {
+            "surfacePattern": "Dann eben nächsten Samstag.",
+            "function": "reschedule",
+            "registerLane": "casual",
+            "tone": "matter-of-fact"
+          },
+          {
+            "surfacePattern": "Ich brauche etwas Zeit für mich.",
+            "function": "boundary",
+            "registerLane": "relationship",
+            "tone": "soft"
+          },
+          {
+            "surfacePattern": "Ich brauche gerade ein bisschen Freiraum.",
+            "function": "boundary",
+            "registerLane": "relationship",
+            "tone": "serious"
+          },
+          {
+            "surfacePattern": "Ich melde mich, wenn es bei mir wieder passt.",
+            "function": "defer",
+            "registerLane": "relationship",
+            "tone": "clear"
+          },
+          {
+            "surfacePattern": "Das ist mir gerade etwas zu viel.",
+            "function": "boundary",
+            "registerLane": "relationship",
+            "tone": "calibrated"
+          },
+          {
+            "surfacePattern": "Können wir später darüber reden?",
+            "function": "defer",
+            "registerLane": "relationship",
+            "tone": "soft"
+          },
+          {
+            "surfacePattern": "Danke für die Einladung, aber ich schaffe es nicht.",
+            "function": "decline",
+            "registerLane": "casual",
+            "tone": "polite"
+          }
+        ],
+        "avoidTranslationese": [
+          "Korean 관계/거리 language does not map mechanically to Abstand; Freiraum, Zeit für mich, Abstand or Ruhe depend on relationship and intensity."
+        ],
+        "speechSurfaceNotes": [
+          "Typed chat abbreviations or emoji may carry warmth/irony but are not automatically spoken."
+        ]
+      },
+      "crossLanguage": {
+        "categoryShiftRisks": [
+          "Korean can soften boundaries through sentence endings and omission; EN/DE often need an explicit subject and clearer proposition.",
+          "English space and German Freiraum/Abstand differ in emotional intensity; choose by relationship context, not dictionary equivalence.",
+          "Korean 다음에 often functions as a face-saving reschedule without a concrete date; EN/DE may sound more committal if rendered too literally."
+        ]
+      }
+    },
+    {
+      "topicId": "house_home",
+      "ko": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "ko_house_internal_reviewed",
+          "ko_house_theqoo_repair",
+          "ko_house_pann_management"
+        ],
+        "registerLanes": [
+          "casual",
+          "service",
+          "chat"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "누수가 생겼어요.",
+            "function": "report_problem",
+            "registerLane": "service",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "벽이 계속 젖어요.",
+            "function": "describe_problem",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "관리실에 연락했어요.",
+            "function": "report_action",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "집주인한테 연락해 봤어요.",
+            "function": "report_action",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "사진 찍어서 보냈어요.",
+            "function": "document",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "언제 수리할 수 있는지 확인해 주세요.",
+            "function": "request_followup",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "아직 연락이 없어요.",
+            "function": "followup",
+            "registerLane": "service",
+            "tone": "frustrated"
+          },
+          {
+            "surfacePattern": "수리 일정이 잡혔나요?",
+            "function": "followup",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "물이 새는 것 같아요.",
+            "function": "hedged_report",
+            "registerLane": "service",
+            "tone": "cautious"
+          },
+          {
+            "surfacePattern": "일단 관리사무소에 문의해 볼게요.",
+            "function": "next_step",
+            "registerLane": "casual",
+            "tone": "practical"
+          }
+        ],
+        "avoidTranslationese": [
+          "Do not overuse formal defect terminology in everyday Korean; 누수/물이 새다/벽이 젖다 often precede technical labels."
+        ],
+        "speechSurfaceNotes": [
+          "Service chat may include photos, ellipsis and repeated punctuation; spoken version should state the problem directly."
+        ]
+      },
+      "en": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "en_house_repair_2026",
+          "en_house_leak_charge_2026",
+          "en_house_maintenance_2025"
+        ],
+        "registerLanes": [
+          "casual",
+          "service",
+          "written"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "There's a leak.",
+            "function": "report_problem",
+            "registerLane": "service",
+            "tone": "direct"
+          },
+          {
+            "surfacePattern": "I noticed water damage on the wall.",
+            "function": "describe_problem",
+            "registerLane": "service",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "I put in a maintenance request.",
+            "function": "report_action",
+            "registerLane": "service",
+            "tone": "standard"
+          },
+          {
+            "surfacePattern": "I reported it already.",
+            "function": "followup",
+            "registerLane": "service",
+            "tone": "firm"
+          },
+          {
+            "surfacePattern": "We haven't heard back yet.",
+            "function": "followup",
+            "registerLane": "service",
+            "tone": "frustrated"
+          },
+          {
+            "surfacePattern": "Could you give me an update?",
+            "function": "request_followup",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Do you know when someone can come out?",
+            "function": "schedule_request",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "The leak is getting worse.",
+            "function": "escalate",
+            "registerLane": "service",
+            "tone": "urgent"
+          },
+          {
+            "surfacePattern": "I documented it with photos.",
+            "function": "document",
+            "registerLane": "written",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "I'm following up on the repair request.",
+            "function": "followup",
+            "registerLane": "written",
+            "tone": "professional"
+          }
+        ],
+        "avoidTranslationese": [
+          "Korean 관리실 is not always 'management office'; apartment office, building management, property management or maintenance may be more natural by setting."
+        ],
+        "speechSurfaceNotes": [
+          "Written maintenance requests are denser than speech; audio should not mimic legal complaint prose unless the task is explicitly formal."
+        ]
+      },
+      "de": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "de_house_damage_2026a",
+          "de_house_damage_2026b",
+          "de_house_followup_2025"
+        ],
+        "registerLanes": [
+          "casual",
+          "service",
+          "written"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "Ich habe einen Wasserschaden.",
+            "function": "report_problem",
+            "registerLane": "service",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Die Wand ist feucht.",
+            "function": "describe_problem",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "Ich habe den Schaden gemeldet.",
+            "function": "report_action",
+            "registerLane": "service",
+            "tone": "standard"
+          },
+          {
+            "surfacePattern": "Ich habe die Hausverwaltung informiert.",
+            "function": "report_action",
+            "registerLane": "service",
+            "tone": "formal-neutral"
+          },
+          {
+            "surfacePattern": "Bisher habe ich keine Rückmeldung bekommen.",
+            "function": "followup",
+            "registerLane": "written",
+            "tone": "firm"
+          },
+          {
+            "surfacePattern": "Wann kann die Reparatur stattfinden?",
+            "function": "schedule_request",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Der Schaden wird größer.",
+            "function": "escalate",
+            "registerLane": "service",
+            "tone": "urgent"
+          },
+          {
+            "surfacePattern": "Ich habe alles mit Fotos dokumentiert.",
+            "function": "document",
+            "registerLane": "written",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Ich wollte noch einmal nachfragen.",
+            "function": "followup",
+            "registerLane": "service",
+            "tone": "soft"
+          },
+          {
+            "surfacePattern": "Können Sie mir bitte einen Termin nennen?",
+            "function": "schedule_request",
+            "registerLane": "service",
+            "tone": "polite"
+          }
+        ],
+        "avoidTranslationese": [
+          "Korean 집주인 may map to Vermieter/Vermieterin, but 관리실/관리사무소 may require Hausverwaltung, Hausmeister or Gebäudemanagement depending role."
+        ],
+        "speechSurfaceNotes": [
+          "Formal written landlord messages may use Mangel/Frist; casual spoken housing talk often stays with Schaden, Problem, feucht, kaputt."
+        ]
+      },
+      "crossLanguage": {
+        "categoryShiftRisks": [
+          "Korean 관리실/관리사무소 is role-ambiguous; EN/DE require role-sensitive localization.",
+          "English maintenance request is a common institutional chunk; Korean often expresses the action as 연락하다/수리 요청하다.",
+          "German Mangel is useful in formal tenant writing but can sound unnecessarily legalistic in everyday dialogue."
+        ]
+      }
+    },
+    {
+      "topicId": "food_drink",
+      "ko": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "ko_food_internal_reviewed",
+          "ko_food_pann_2026_order",
+          "ko_food_pann_staff"
+        ],
+        "registerLanes": [
+          "service",
+          "casual",
+          "chat"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "아메리카노 한 잔 주세요.",
+            "function": "order",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "이거 하나 주세요.",
+            "function": "order",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "뼈해장국 하나 주세요.",
+            "function": "order",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "포장해 주세요.",
+            "function": "takeout_request",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "이거 포장 가능한가요?",
+            "function": "availability",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "덜 맵게 해 주세요.",
+            "function": "modify_order",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "얼음 빼 주세요.",
+            "function": "modify_order",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "여기서 먹고 갈게요.",
+            "function": "dine_in",
+            "registerLane": "service",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "가져갈게요.",
+            "function": "takeout",
+            "registerLane": "service",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "뭐가 제일 잘 나가요?",
+            "function": "recommendation",
+            "registerLane": "service",
+            "tone": "casual-polite"
+          }
+        ],
+        "avoidTranslationese": [
+          "Do not over-expand 주세요 into a full subject-verb request; Korean service orders are naturally compact."
+        ],
+        "speechSurfaceNotes": [
+          "Menu shorthand such as 아아 may be recognition material; use depends on setting and age/community."
+        ]
+      },
+      "en": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "en_food_order_2024",
+          "en_food_order_2026",
+          "en_food_order_2023"
+        ],
+        "registerLanes": [
+          "service",
+          "casual"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "Can I get a latte, please?",
+            "function": "order",
+            "registerLane": "service",
+            "tone": "casual-polite"
+          },
+          {
+            "surfacePattern": "Could I please get a latte?",
+            "function": "order",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Can I have the chicken sandwich?",
+            "function": "order",
+            "registerLane": "service",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "I'll have the burger, please.",
+            "function": "order",
+            "registerLane": "service",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "I'll take the soup.",
+            "function": "order",
+            "registerLane": "service",
+            "tone": "slightly-assertive"
+          },
+          {
+            "surfacePattern": "Could I get that to go?",
+            "function": "takeout_request",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Can I get that without onions?",
+            "function": "modify_order",
+            "registerLane": "service",
+            "tone": "casual"
+          },
+          {
+            "surfacePattern": "What do you recommend?",
+            "function": "recommendation",
+            "registerLane": "service",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Is this spicy?",
+            "function": "clarify",
+            "registerLane": "service",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "That's for here.",
+            "function": "dine_in",
+            "registerLane": "service",
+            "tone": "plain"
+          }
+        ],
+        "avoidTranslationese": [
+          "Avoid teaching Give me... as a default equivalent of 주세요; it can sound command-like. 'Can I get/have' and 'I'll have' are safer defaults."
+        ],
+        "speechSurfaceNotes": [
+          "Regional preference differs: Can I get is strongly associated with North American speech for some speakers but is also widespread elsewhere."
+        ]
+      },
+      "de": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "de_food_order_2025",
+          "de_food_order_2022",
+          "de_food_order_2026"
+        ],
+        "registerLanes": [
+          "service",
+          "casual"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "Ich hätte gern einen Kaffee.",
+            "function": "order",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Einmal einen Kaffee, bitte.",
+            "function": "order",
+            "registerLane": "service",
+            "tone": "casual-polite"
+          },
+          {
+            "surfacePattern": "Ich nehme den Burger.",
+            "function": "order",
+            "registerLane": "service",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Ich würde gern die Suppe nehmen.",
+            "function": "order",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Zum Mitnehmen, bitte.",
+            "function": "takeout_request",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "Kann ich das zum Mitnehmen haben?",
+            "function": "takeout_request",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Ohne Zwiebeln, bitte.",
+            "function": "modify_order",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "Was können Sie empfehlen?",
+            "function": "recommendation",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Ist das scharf?",
+            "function": "clarify",
+            "registerLane": "service",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Für hier, bitte.",
+            "function": "dine_in",
+            "registerLane": "service",
+            "tone": "plain"
+          }
+        ],
+        "avoidTranslationese": [
+          "Do not map 주세요 mechanically to ich bekomme/ich kriege as the default. Those forms are attested but politeness judgments vary; ich hätte gern / einmal ... bitte are safer teaching defaults."
+        ],
+        "speechSurfaceNotes": [
+          "Service formula choice is socially variable; keep multiple natural options and teach tone/bitte rather than one 'correct' sentence."
+        ]
+      },
+      "crossLanguage": {
+        "categoryShiftRisks": [
+          "Korean counters are obligatory in many order frames; EN/DE often encode quantity directly without a classifier system.",
+          "Korean 주세요 is compact and relation-neutral-polite; EN/DE require a wider choice among request formulas.",
+          "Takeout terminology differs structurally: 포장하다 vs to go/takeaway vs zum Mitnehmen."
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "ko_family_internal_reviewed": {
+      "type": "internal_reviewed_native",
+      "title": "Hangul Sori Living Korea + directly reviewed relationship dialogue",
+      "date": "2026-10-06",
+      "path": "tools/content_factory/canonical_scenarios/dialogue_authoring_contract_20261006.json"
+    },
+    "ko_family_pann_space": {
+      "type": "community",
+      "title": "Korean relationship/family discussion with 혼자 있고 싶어",
+      "url": "https://pann.nate.com/talk/118692361",
+      "date": "2008-06-10"
+    },
+    "ko_family_pann_cancel": {
+      "type": "community",
+      "title": "Korean discussion using 다음에 다시 만나자 / 약속 취소",
+      "url": "https://pann.nate.com/talk/349435693",
+      "date": "2020-02-20"
+    },
+    "en_family_cant_make_it": {
+      "type": "community",
+      "title": "FriendshipAdvice: natural decline formulas",
+      "url": "https://www.reddit.com/r/FriendshipAdvice/comments/1ffzv59",
+      "date": "2024-09-13"
+    },
+    "en_family_need_space_2026": {
+      "type": "community",
+      "title": "BreakUps: need space in family context",
+      "url": "https://www.reddit.com/r/BreakUps/comments/1v0vac0",
+      "date": "2026-07-19"
+    },
+    "en_family_plans_group": {
+      "type": "community",
+      "title": "AskWomenOver30: can't make it / catch you next time",
+      "url": "https://www.reddit.com/r/AskWomenOver30/comments/tm1a31",
+      "date": "2022-03-24"
+    },
+    "de_family_cancel_2025": {
+      "type": "community",
+      "title": "Beziehungen: dates abgesagt / Alternativtermin",
+      "url": "https://www.reddit.com/r/beziehungen/comments/1nfbchr",
+      "date": "2025-09-12"
+    },
+    "de_family_next_week_2026": {
+      "type": "community",
+      "title": "Beziehungen: nächster Samstag / Terminverschiebung",
+      "url": "https://www.reddit.com/r/beziehungen/comments/1wpuewh",
+      "date": "2026-09-25"
+    },
+    "de_family_space_2025": {
+      "type": "community",
+      "title": "Beziehungen: Freiraum geben / wieder treffen",
+      "url": "https://www.reddit.com/r/beziehungen/comments/1ori7q7",
+      "date": "2025-11-08"
+    },
+    "ko_house_internal_reviewed": {
+      "type": "internal_reviewed_native",
+      "title": "Hangul Sori reviewed housing/repair scenarios",
+      "date": "2026-10-06",
+      "path": "docs/content_qa/direct_editorial_audit_20261002.json"
+    },
+    "ko_house_theqoo_repair": {
+      "type": "community",
+      "title": "TheQoo: landlord repair contact after water damage",
+      "url": "https://theqoo.net/livingalone/4180614998",
+      "date": "2026-04-27"
+    },
+    "ko_house_pann_management": {
+      "type": "community",
+      "title": "Nate Pann: apartment drain issue and management office contact",
+      "url": "https://pann.nate.com/talk/373368668",
+      "date": "2024-10-22"
+    },
+    "en_house_repair_2026": {
+      "type": "community",
+      "title": "Renters: maintenance request after water damage",
+      "url": "https://www.reddit.com/r/Renters/comments/1vaisse",
+      "date": "2026-07-30"
+    },
+    "en_house_leak_charge_2026": {
+      "type": "community",
+      "title": "Renters: reported leak / property manager follow-up",
+      "url": "https://www.reddit.com/r/Renters/comments/1wjyo8m",
+      "date": "2026-09-18"
+    },
+    "en_house_maintenance_2025": {
+      "type": "community",
+      "title": "Renters: maintenance request / unresolved leak",
+      "url": "https://www.reddit.com/r/Renters/comments/1lwc9f2",
+      "date": "2025-07-10"
+    },
+    "de_house_damage_2026a": {
+      "type": "community",
+      "title": "r/wohnen: Wasserschaden / Vermieter / Reparatur",
+      "url": "https://www.reddit.com/r/wohnen/comments/1utkbxc",
+      "date": "2026-07-11"
+    },
+    "de_house_damage_2026b": {
+      "type": "community",
+      "title": "r/wohnen: Wasserschaden / Kostenvoranschlag / Vermieter",
+      "url": "https://www.reddit.com/r/wohnen/comments/1w0vs6w",
+      "date": "2026-08-28"
+    },
+    "de_house_followup_2025": {
+      "type": "community",
+      "title": "r/wohnen: Hausverwaltung / Terminvereinbarung / nachfragen",
+      "url": "https://www.reddit.com/r/wohnen/comments/1k16a4z",
+      "date": "2025-04-17"
+    },
+    "ko_food_internal_reviewed": {
+      "type": "internal_reviewed_native",
+      "title": "Hangul Sori reviewed café/restaurant/order scenarios",
+      "date": "2026-10-06",
+      "path": "docs/content_qa/direct_editorial_audit_20261002.json"
+    },
+    "ko_food_pann_2026_order": {
+      "type": "community",
+      "title": "Nate Pann: 뼈해장국 하나 주세요",
+      "url": "https://m.pann.nate.com/talk/375190391",
+      "date": "2026-01-26"
+    },
+    "ko_food_pann_staff": {
+      "type": "community",
+      "title": "Nate Pann café staff discussion of ordering and takeout",
+      "url": "https://pann.nate.com/talk/323883902",
+      "date": "2014-08-01"
+    },
+    "en_food_order_2024": {
+      "type": "community",
+      "title": "EnglishLearning: Can I get / I'll have / I'd like",
+      "url": "https://www.reddit.com/r/EnglishLearning/comments/18xdqyg",
+      "date": "2024-01-03"
+    },
+    "en_food_order_2026": {
+      "type": "community",
+      "title": "ENGLISH: polite restaurant ordering",
+      "url": "https://www.reddit.com/r/ENGLISH/comments/1r2o60h",
+      "date": "2026-02-12"
+    },
+    "en_food_order_2023": {
+      "type": "community",
+      "title": "AskAnAmerican: common opening phrase when ordering",
+      "url": "https://www.reddit.com/r/AskAnAmerican/comments/14m1o9z",
+      "date": "2023-06-29"
+    },
+    "de_food_order_2025": {
+      "type": "community",
+      "title": "German: everyday ordering formulas",
+      "url": "https://www.reddit.com/r/German/comments/1j2h9sp",
+      "date": "2025-03-03"
+    },
+    "de_food_order_2022": {
+      "type": "community",
+      "title": "German: alternatives to ich möchte gern",
+      "url": "https://www.reddit.com/r/German/comments/u60534",
+      "date": "2022-04-18"
+    },
+    "de_food_order_2026": {
+      "type": "community",
+      "title": "Unbeliebtemeinung: politeness judgments around ich bekomme",
+      "url": "https://www.reddit.com/r/Unbeliebtemeinung/comments/1vfcr5m",
+      "date": "2026-08-04"
+    }
+  }
+}
