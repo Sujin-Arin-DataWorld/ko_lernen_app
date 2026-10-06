@@ -54,6 +54,19 @@ class GlobalLocalizationCoverageTest(unittest.TestCase):
             all(r["topicReviewStatus"] == "manual_topic_review_required" for r in unresolved)
         )
 
+    def test_g2_owner_surfaces_have_no_topic_mapping_debt(self) -> None:
+        owner_types = {
+            "vocab_lexeme",
+            "vocab_example",
+            "smalltalk_expression",
+            "smalltalk_expression_variant",
+            "smalltalk_followup",
+        }
+        owners = [r for r in self.records if r["surfaceType"] in owner_types]
+        self.assertEqual(len(owners), 7706)
+        self.assertTrue(all(r["canonicalTopicId"] for r in owners))
+        self.assertTrue(all(r["topicReviewStatus"] == "mapped" for r in owners))
+
     def test_inventory_does_not_claim_quality_review(self) -> None:
         self.assertTrue(all(r["qaStatus"] == "inventory_only" for r in self.records))
         self.assertTrue(self.ledger["policy"]["inventoryDoesNotImplyQa"])

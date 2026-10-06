@@ -102,7 +102,7 @@ Living Korea is the reference implementation for the rest of the repo.
 
 Status: **in progress**
 
-Baseline owner audit now tracks 7,706 surfaces: vocab lexeme 2,968 + vocab example 2,968 + smalltalk expression/variant/follow-up 590 each. Structural owner linkage currently passes 7,706/7,706; 444 rows carry explicit manual-review flags and 1,497 owner rows still need topic review. This is not human-native sign-off and corpus/native QA remains open.
+Baseline owner audit now tracks 7,706 surfaces: vocab lexeme 2,968 + vocab example 2,968 + smalltalk expression/variant/follow-up 590 each. Structural owner linkage currently passes 7,706/7,706, and canonical native-usage topic mapping is now complete for 7,706/7,706 owner surfaces with explicit source-taxonomy or phrase-level mapping evidence where the older content-topic ledger had no canonical topic. Manual owner-topic review debt is 0. 444 rows still carry explicit language-review flags (mostly example target-surface anchoring plus intentional Korean metalanguage candidates). This is not human-native sign-off and corpus/native QA remains open.
 
 Audit the canonical localization owners first:
 

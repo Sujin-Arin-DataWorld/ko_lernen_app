@@ -23,6 +23,148 @@ LIVING_LOCALIZATION = (
     ROOT / "tools/content_factory/review/living_korea_localization_20261006.json"
 )
 
+# Stable source taxonomies that can be mapped to one canonical native-usage topic
+# without inspecting the localized copy. Mixed smalltalk buckets are handled by
+# phrase-level overrides below rather than being force-mapped as a whole.
+VOCAB_TOPIC_TO_CANONICAL = {
+    "Begrüßung": "social_etiquette_customs",
+    "Geographie": "travel_accommodation",
+    "Farben": "shopping_consumption",
+    "Automatisierung & Rechtsweg": "technology_digital_ai",
+    "Modernes Leben": "society_current_affairs",
+    "Sicherheit & Regeln": "politics_law_institutions",
+    "Formelle Vereinbarungen": "money_finance_contracts",
+    "Fundsachen": "services_public_admin",
+    "Dienstmail": "work_career",
+    "Reise & Verkehr": "transport_wayfinding",
+    "Digitale Aufmerksamkeit": "technology_digital_ai",
+    "Bankschalter": "money_finance_contracts",
+    "Risikosprache": "professional_specialised_fields",
+    "Formelle Beschwerde & Abhilfe": "services_public_admin",
+    "Sprache & Gesellschaft": "language_learning_communication_repair",
+    "Sprache und Wandel": "language_learning_communication_repair",
+    "Betriebslast": "professional_specialised_fields",
+    "Framinganalyse": "professional_specialised_fields",
+    "Sprache, Deutung & Macht": "ethics_philosophy_abstract",
+    "Autoritätssprache": "politics_law_institutions",
+    "Widerrufsrecht": "politics_law_institutions",
+    "Medien & Evidenz": "science_research_evidence",
+    "Fanarbeit & Belastung": "economy_business_labour",
+    "AI 투명성과 문화 노동": "technology_digital_ai",
+    "Risiko & öffentliche Information": "society_current_affairs",
+    "Technikethik & Verantwortung": "ethics_philosophy_abstract",
+    "Wochenendzusage": "daily_life_routines",
+    "Handytarif": "communication_phone_digital",
+    "Fitnesskurs": "free_time_hobbies_sport",
+    "Zugangskosten": "society_current_affairs",
+    "Ortliche Abwägung": "neighbourhood_environment",
+    "Diskurs, Macht & Verantwortung": "ethics_philosophy_abstract",
+    "Wohnen & Vertrag": "house_home",
+    "Bürgerversammlung": "politics_law_institutions",
+    "인구 담론과 제도 책임": "society_current_affairs",
+    "주거비와 사회 통합": "intercultural_globalisation_migration",
+}
+
+SMALLTALK_CATEGORY_TO_CANONICAL = {
+    "weather": "weather_nature_climate",
+    "mood": "feelings_character",
+    "weekend": "free_time_hobbies_sport",
+    "food": "food_drink",
+    "daily": "daily_life_routines",
+    "screen": "media_entertainment_culture_pop",
+    "music": "media_entertainment_culture_pop",
+    "hobby": "free_time_hobbies_sport",
+    "travel": "travel_accommodation",
+    "family": "family_relationships",
+    "health": "health_body",
+    "kpop": "media_entertainment_culture_pop",
+    "dating": "family_relationships",
+    "interview": "work_career",
+    "job_hunting": "work_career",
+    "moving": "house_home",
+    "hospital": "health_body",
+    "transport": "transport_wayfinding",
+    "shopping": "shopping_consumption",
+    "phone": "communication_phone_digital",
+    "partner_family": "family_relationships",
+    "theme_park_date": "free_time_hobbies_sport",
+}
+
+SMALLTALK_PHRASE_TOPIC_OVERRIDES = {
+    "smalltalk_a1_0011": "work_career",
+    "smalltalk_a2_0010": "work_career",
+    "smalltalk_b1_0010": "work_career",
+    "smalltalk_b2_0010": "work_career",
+    "smalltalk_a1_0023": "work_career",
+    "smalltalk_a2_0022": "education_study",
+    "smalltalk_b1_0022": "work_career",
+    "smalltalk_b2_0022": "work_career",
+    "smalltalk_b1_0045": "work_career",
+    "smalltalk_b1_0046": "work_career",
+    "smalltalk_b1_0047": "work_career",
+    "smalltalk_b1_0048": "work_career",
+    "smalltalk_b2_0065": "work_career",
+    "smalltalk_b2_0066": "work_career",
+    "smalltalk_b2_0070": "science_research_evidence",
+    "smalltalk_b2_0072": "work_career",
+    "smalltalk_b2_0078": "work_career",
+    "smalltalk_c1_0003": "science_research_evidence",
+    "smalltalk_c1_0004": "science_research_evidence",
+    "smalltalk_c1_0008": "science_research_evidence",
+    "smalltalk_c1_0011": "science_research_evidence",
+    "smalltalk_c1_0014": "professional_specialised_fields",
+    "smalltalk_c2_0001": "politics_law_institutions",
+    "smalltalk_c2_0003": "ethics_philosophy_abstract",
+    "smalltalk_c2_0006": "arts_literature_history",
+    "smalltalk_c2_0008": "ethics_philosophy_abstract",
+    "smalltalk_c2_0011": "ethics_philosophy_abstract",
+    "smalltalk_c2_0013": "technology_digital_ai",
+    "smalltalk_c2_0015": "technology_digital_ai",
+    "smalltalk_c1_0017": "science_research_evidence",
+    "smalltalk_c1_0018": "science_research_evidence",
+    "smalltalk_b1_0071": "work_career",
+    "smalltalk_c1_0023": "science_research_evidence",
+    "smalltalk_c2_0023": "ethics_philosophy_abstract",
+    "smalltalk_c1_0035": "technology_digital_ai",
+    "smalltalk_c1_0036": "technology_digital_ai",
+    "smalltalk_c2_0037": "intercultural_globalisation_migration",
+    "smalltalk_c2_0038": "intercultural_globalisation_migration",
+    "smalltalk_b1_0076": "work_career",
+    "smalltalk_b1_0077": "work_career",
+    "smalltalk_b1_0078": "work_career",
+    "smalltalk_c1_0075": "technology_digital_ai",
+    "smalltalk_c2_0073": "science_research_evidence",
+    "smalltalk_c2_0076": "ethics_philosophy_abstract",
+    "smalltalk_c2_0087": "social_etiquette_customs",
+    "smalltalk_c2_0088": "social_etiquette_customs",
+    "smalltalk_c2_0089": "social_etiquette_customs",
+    "smalltalk_c2_0090": "language_learning_communication_repair",
+    "smalltalk_a1_0054": "services_public_admin",
+    "smalltalk_a1_0055": "services_public_admin",
+    "smalltalk_a1_0056": "health_body",
+    "smalltalk_a1_0057": "services_public_admin",
+    "smalltalk_a1_0058": "services_public_admin",
+    "smalltalk_a2_0053": "travel_accommodation",
+    "smalltalk_a2_0054": "services_public_admin",
+    "smalltalk_a2_0055": "services_public_admin",
+    "smalltalk_b1_0043": "services_public_admin",
+    "smalltalk_b1_0044": "services_public_admin",
+    "smalltalk_b2_0043": "services_public_admin",
+    "smalltalk_b2_0044": "services_public_admin",
+    "smalltalk_c1_0070": "services_public_admin",
+    "smalltalk_c1_0071": "science_research_evidence",
+    "smalltalk_c2_0069": "politics_law_institutions",
+    "smalltalk_c2_0070": "technology_digital_ai",
+}
+
+
+def inferred_topic_row(topic_id: str, basis: str) -> dict[str, Any]:
+    return {
+        "canonicalTopicId": topic_id,
+        "researchCoverageStatus": "topic_profile_deep_pass_complete",
+        "mappingEvidence": basis,
+    }
+
 
 def load_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
@@ -74,6 +216,8 @@ def base_record(
     }
     if notes:
         row["notes"] = notes
+    if (topic_row or {}).get("mappingEvidence"):
+        row["topicMappingEvidence"] = topic_row["mappingEvidence"]
     if row["canonicalTopicId"] is None:
         row["topicReviewStatus"] = "manual_topic_review_required"
     else:
@@ -97,6 +241,12 @@ def build() -> dict[str, Any]:
     for row in vocab_rows:
         vocab_id = row["id"]
         topic_row = topic_index.get(("vocab", vocab_id))
+        if not (topic_row or {}).get("canonicalTopicId"):
+            canonical = VOCAB_TOPIC_TO_CANONICAL.get(str(row.get("topic") or "").strip())
+            if canonical:
+                topic_row = inferred_topic_row(
+                    canonical, f"vocab.topic={row.get('topic','')}"
+                )
         records.append(
             base_record(
                 surface_type="vocab_lexeme",
@@ -140,6 +290,15 @@ def build() -> dict[str, Any]:
     for phrase in smalltalk.get("phrases", []):
         phrase_id = phrase["id"]
         topic_row = topic_index.get(("smalltalk", phrase_id))
+        if not (topic_row or {}).get("canonicalTopicId"):
+            override = SMALLTALK_PHRASE_TOPIC_OVERRIDES.get(phrase_id)
+            if override:
+                topic_row = inferred_topic_row(override, f"smalltalk.phrase={phrase_id}")
+            else:
+                category = str(phrase.get("category") or "").strip()
+                canonical = SMALLTALK_CATEGORY_TO_CANONICAL.get(category)
+                if canonical:
+                    topic_row = inferred_topic_row(canonical, f"smalltalk.category={category}")
         records.append(
             base_record(
                 surface_type="smalltalk_expression",

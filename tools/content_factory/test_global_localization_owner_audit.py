@@ -34,6 +34,12 @@ class GlobalLocalizationOwnerAuditTest(unittest.TestCase):
             self.assertEqual(row["humanNativeReviewStatus"], "not_reviewed")
             self.assertIn("spokenSurfaceStatus", row)
 
+    def test_all_g2_owner_surfaces_have_canonical_topics(self) -> None:
+        summary = self.payload["summary"]
+        self.assertEqual(summary["topicMappedCount"], summary["ownerRecordCount"])
+        self.assertEqual(summary["manualTopicReviewCount"], 0)
+        self.assertTrue(all(row["canonicalTopicId"] for row in self.payload["records"]))
+
     def test_no_human_native_review_is_claimed(self) -> None:
         self.assertEqual(self.payload["summary"]["humanNativeReviewedCount"], 0)
 
