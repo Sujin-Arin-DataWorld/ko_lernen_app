@@ -1,0 +1,1292 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "EVIDENCE_PACK_BROAD_PASS_COMPLETE",
+  "purpose": "Close the remaining high-priority native-usage gaps for Korean 1A publishing readiness.",
+  "scope": [
+    "personal_identification",
+    "communication_phone_digital",
+    "language_learning_communication_repair",
+    "social_etiquette_customs"
+  ],
+  "policy": {
+    "independentLanguageResearch": true,
+    "multiGenreSampling": true,
+    "normalizedPatternsNotQuotes": true,
+    "researchCoverageDoesNotImplyPublicationApproval": true,
+    "minSourceContextsPerLanguage": 3,
+    "minPatternsPerLanguage": 8,
+    "minRegisterLanesPerLanguage": 2,
+    "beginnerProductionMustPreferStableLowRiskForms": true,
+    "communitySourcesAreUsageEvidenceNotUniversalRules": true
+  },
+  "topics": [
+    {
+      "topicId": "personal_identification",
+      "ko": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "ko_intro_internal",
+          "ko_intro_brunch",
+          "ko_intro_firstchat"
+        ],
+        "registerLanes": [
+          "first_meeting",
+          "casual",
+          "chat"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "안녕하세요. 저는 수진이에요.",
+            "function": "self_intro",
+            "registerLane": "first_meeting",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "저는 독일에서 왔어요.",
+            "function": "origin",
+            "registerLane": "first_meeting",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "지금 프랑크푸르트에 살아요.",
+            "function": "residence",
+            "registerLane": "first_meeting",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "무슨 일 하세요?",
+            "function": "ask_work",
+            "registerLane": "first_meeting",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "어디 사세요?",
+            "function": "ask_residence",
+            "registerLane": "first_meeting",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "저는 한국어를 가르쳐요.",
+            "function": "work_intro",
+            "registerLane": "first_meeting",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "취미가 뭐예요?",
+            "function": "ask_interest",
+            "registerLane": "casual",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "주말에는 보통 뭐 하세요?",
+            "function": "ask_routine",
+            "registerLane": "casual",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "저도 그거 좋아해요.",
+            "function": "find_common_ground",
+            "registerLane": "casual",
+            "tone": "warm"
+          },
+          {
+            "surfacePattern": "처음 뵙겠습니다.",
+            "function": "formal_greeting",
+            "registerLane": "first_meeting",
+            "tone": "formal"
+          }
+        ],
+        "avoidTranslationese": [
+          "한국어 첫 만남을 영어식 '이름-직업-취미' 자기소개 독백으로만 만들지 않는다. 실제 대화에서는 짧은 답과 되묻기, 공통점 찾기가 중요하다.",
+          "나이·직업·거주지 질문은 맥락에 따라 부담스러울 수 있으므로 모든 첫 만남의 필수 질문으로 가르치지 않는다."
+        ],
+        "speechSurfaceNotes": [
+          "첫 만남의 실제 대화는 완전한 자기소개 문단보다 짧은 질문-응답 연쇄가 자연스럽다."
+        ]
+      },
+      "en": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "en_intro_britishcouncil",
+          "en_intro_reddit_smalltalk",
+          "en_intro_titles"
+        ],
+        "registerLanes": [
+          "first_meeting",
+          "casual",
+          "workplace"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "Hi, I'm Anna.",
+            "function": "self_intro",
+            "registerLane": "first_meeting",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Nice to meet you.",
+            "function": "greeting",
+            "registerLane": "first_meeting",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Where are you from?",
+            "function": "ask_origin",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "What do you do?",
+            "function": "ask_work",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "What do you like to do for fun?",
+            "function": "ask_interest",
+            "registerLane": "casual",
+            "tone": "friendly"
+          },
+          {
+            "surfacePattern": "How was your journey?",
+            "function": "smalltalk",
+            "registerLane": "first_meeting",
+            "tone": "warm"
+          },
+          {
+            "surfacePattern": "You can call me Alex.",
+            "function": "name_preference",
+            "registerLane": "first_meeting",
+            "tone": "friendly"
+          },
+          {
+            "surfacePattern": "This is Vanya.",
+            "function": "introduce_other",
+            "registerLane": "first_meeting",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Welcome to the team.",
+            "function": "welcome",
+            "registerLane": "workplace",
+            "tone": "warm"
+          },
+          {
+            "surfacePattern": "It's great to be here.",
+            "function": "response",
+            "registerLane": "workplace",
+            "tone": "warm"
+          }
+        ],
+        "avoidTranslationese": [
+          "Do not map Korean age/status-driven address rules onto English by automatically adding sir/ma'am or Mr/Ms.",
+          "A Korean question like 직업이 어떻게 되세요? often maps to 'What do you do?' in casual adult conversation, not a literal 'What is your occupation?'"
+        ],
+        "speechSurfaceNotes": [
+          "English first meetings commonly use first names quickly in many settings, but regional/family/workplace variation is real."
+        ]
+      },
+      "de": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "de_intro_goethe_a1",
+          "de_intro_goethe_course",
+          "de_intro_reddit_conversation"
+        ],
+        "registerLanes": [
+          "first_meeting",
+          "casual",
+          "formal"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "Hallo, ich bin Lena.",
+            "function": "self_intro",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Ich heiße Lena.",
+            "function": "self_intro",
+            "registerLane": "first_meeting",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Mein Name ist Lena.",
+            "function": "self_intro",
+            "registerLane": "formal",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Ich komme aus Deutschland.",
+            "function": "origin",
+            "registerLane": "first_meeting",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Ich wohne in Frankfurt.",
+            "function": "residence",
+            "registerLane": "first_meeting",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Ich arbeite als Analystin.",
+            "function": "work_intro",
+            "registerLane": "first_meeting",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Was machst du beruflich?",
+            "function": "ask_work",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Woher kommst du?",
+            "function": "ask_origin",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Freut mich.",
+            "function": "greeting",
+            "registerLane": "first_meeting",
+            "tone": "friendly"
+          },
+          {
+            "surfacePattern": "Und du?",
+            "function": "return_question",
+            "registerLane": "casual",
+            "tone": "neutral"
+          }
+        ],
+        "avoidTranslationese": [
+          "Korean 저는 ...이에요 should not always become the formal-sounding 'Mein Name ist ...'; 'Ich bin ...' and 'Ich heiße ...' are often more natural.",
+          "Do not map Korean 존댓말 mechanically to German Sie. The relationship and setting decide whether du or Sie is natural."
+        ],
+        "speechSurfaceNotes": [
+          "Goethe A1 provides stable beginner forms; community evidence is needed to decide when du/Sie is socially natural."
+        ]
+      },
+      "crossLanguage": {
+        "categoryShiftRisks": [
+          "KO first-meeting talk often encodes politeness in endings; EN relies more on lexical courtesy and conversational flow; DE additionally chooses du/Sie.",
+          "Occupation, age and residence differ in social sensitivity across cultures, so an A1 textbook should teach optional follow-up questions rather than a rigid interview script."
+        ]
+      }
+    },
+    {
+      "topicId": "communication_phone_digital",
+      "ko": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "ko_contact_internal",
+          "ko_contact_kakaotalk_blog",
+          "ko_contact_late_message",
+          "ko_contact_katok_usage"
+        ],
+        "registerLanes": [
+          "chat",
+          "casual",
+          "service"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "카톡 하세요?",
+            "function": "check_channel",
+            "registerLane": "casual",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "카톡 아이디 있어요?",
+            "function": "ask_contact",
+            "registerLane": "casual",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "제가 카톡 보낼게요.",
+            "function": "promise_contact",
+            "registerLane": "casual",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "나중에 카톡해요.",
+            "function": "keep_in_touch",
+            "registerLane": "casual",
+            "tone": "warm"
+          },
+          {
+            "surfacePattern": "연락처 알려 주실래요?",
+            "function": "ask_contact",
+            "registerLane": "casual",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "예약 메시지로 보내 놨어요.",
+            "function": "message_status",
+            "registerLane": "chat",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "미안해요. 10분 정도 늦을 것 같아요.",
+            "function": "delay_notice",
+            "registerLane": "chat",
+            "tone": "apologetic"
+          },
+          {
+            "surfacePattern": "도착하면 바로 연락할게요.",
+            "function": "status_update",
+            "registerLane": "chat",
+            "tone": "considerate"
+          },
+          {
+            "surfacePattern": "시간을 조금 바꿔도 될까요?",
+            "function": "reschedule",
+            "registerLane": "chat",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "먼저 들어가 있어도 돼요.",
+            "function": "offer_option",
+            "registerLane": "chat",
+            "tone": "considerate"
+          }
+        ],
+        "avoidTranslationese": [
+          "연락하다를 매번 'contact'로 번역하지 않는다. 실제 일상에서는 카톡하다/메시지 보내다/전화하다처럼 채널을 명시하는 경우가 많다.",
+          "카톡은 앱명, 메시지, 동사적 표현이 모두 가능하므로 의미 역할을 metadata로 구분한다."
+        ],
+        "speechSurfaceNotes": [
+          "카톡 UI어(예약 전송, 발송 취소)와 실제 사람의 발화(카톡 보낼게요)를 분리한다.",
+          "ㅠㅠ/ㅋㅋ/이모지는 display stance이며 TTS lexical surface가 아니다."
+        ]
+      },
+      "en": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "en_contact_online_dating",
+          "en_contact_reschedule",
+          "en_contact_social"
+        ],
+        "registerLanes": [
+          "chat",
+          "casual",
+          "dating"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "Can I get your number?",
+            "function": "ask_contact",
+            "registerLane": "casual",
+            "tone": "direct-friendly"
+          },
+          {
+            "surfacePattern": "I'll give you my number.",
+            "function": "offer_contact",
+            "registerLane": "casual",
+            "tone": "low-pressure"
+          },
+          {
+            "surfacePattern": "Text me when you get there.",
+            "function": "status_request",
+            "registerLane": "casual",
+            "tone": "friendly"
+          },
+          {
+            "surfacePattern": "I'll text you later.",
+            "function": "promise_contact",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Can we reschedule?",
+            "function": "reschedule",
+            "registerLane": "chat",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Something came up.",
+            "function": "reason",
+            "registerLane": "chat",
+            "tone": "soft"
+          },
+          {
+            "surfacePattern": "Does another day work for you?",
+            "function": "reschedule",
+            "registerLane": "chat",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "I'm running about ten minutes late.",
+            "function": "delay_notice",
+            "registerLane": "chat",
+            "tone": "clear"
+          },
+          {
+            "surfacePattern": "I'll let you know when I'm there.",
+            "function": "status_update",
+            "registerLane": "chat",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "No pressure — we can keep chatting here.",
+            "function": "boundary",
+            "registerLane": "dating",
+            "tone": "low-pressure"
+          }
+        ],
+        "avoidTranslationese": [
+          "Korean 연락처 알려 주세요 can be 'Can I get your number?', 'What's the best way to reach you?', or an offer to share one's own contact depending on pressure and relationship.",
+          "연락할게요 is often 'I'll text/call you', not the formal 'I will contact you'."
+        ],
+        "speechSurfaceNotes": [
+          "Text-message spelling, emoji and 'lol' can soften tone but are not automatic audio content."
+        ]
+      },
+      "de": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "de_contact_whatsapp_group",
+          "de_contact_number_exchange",
+          "de_contact_friendship",
+          "de_contact_reschedule"
+        ],
+        "registerLanes": [
+          "chat",
+          "casual",
+          "formal"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "Wollen wir Nummern austauschen?",
+            "function": "ask_contact",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Sollen wir auf WhatsApp weiterschreiben?",
+            "function": "switch_channel",
+            "registerLane": "casual",
+            "tone": "friendly"
+          },
+          {
+            "surfacePattern": "Ich kann dir meine Nummer geben.",
+            "function": "offer_contact",
+            "registerLane": "casual",
+            "tone": "low-pressure"
+          },
+          {
+            "surfacePattern": "Schreib mir einfach.",
+            "function": "invite_contact",
+            "registerLane": "chat",
+            "tone": "casual"
+          },
+          {
+            "surfacePattern": "Ich melde mich später.",
+            "function": "promise_contact",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Können wir den Termin verschieben?",
+            "function": "reschedule",
+            "registerLane": "formal",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Passt es dir auch am Donnerstag?",
+            "function": "reschedule",
+            "registerLane": "casual",
+            "tone": "friendly"
+          },
+          {
+            "surfacePattern": "Ich komme ungefähr zehn Minuten später.",
+            "function": "delay_notice",
+            "registerLane": "chat",
+            "tone": "clear"
+          },
+          {
+            "surfacePattern": "Ich gebe dir Bescheid, wenn ich da bin.",
+            "function": "status_update",
+            "registerLane": "chat",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Wir können auch erstmal hier weiterschreiben.",
+            "function": "boundary",
+            "registerLane": "chat",
+            "tone": "low-pressure"
+          }
+        ],
+        "avoidTranslationese": [
+          "Korean 연락하다 does not map to kontaktieren in casual relationships; sich melden, schreiben, Bescheid geben and anrufen are usually more natural.",
+          "Nummer austauschen is idiomatic, but sharing private contact information has context/safety implications and should not be presented as obligatory."
+        ],
+        "speechSurfaceNotes": [
+          "WhatsApp/community chat uses fragments and emoji; spoken audio should preserve pragmatic function, not typed artifacts."
+        ]
+      },
+      "crossLanguage": {
+        "categoryShiftRisks": [
+          "KO uses platform-name verbs such as 카톡하다 more freely; EN/DE typically choose text/message/write/sich melden or name the platform in a phrase.",
+          "Contact exchange is a social-boundary act, not just vocabulary; low-pressure alternatives should be taught."
+        ]
+      }
+    },
+    {
+      "topicId": "language_learning_communication_repair",
+      "ko": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "ko_repair_internal",
+          "ko_repair_dailyhangul",
+          "ko_repair_airport"
+        ],
+        "registerLanes": [
+          "service",
+          "learning",
+          "casual"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "다시 말씀해 주세요.",
+            "function": "repeat_request",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "한 번만 더 말씀해 주세요.",
+            "function": "repeat_request",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "잘 못 들었어요.",
+            "function": "hearing_problem",
+            "registerLane": "service",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "천천히 말씀해 주세요.",
+            "function": "slow_request",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "죄송하지만 다시 말씀해 주세요.",
+            "function": "repeat_request",
+            "registerLane": "service",
+            "tone": "more_polite"
+          },
+          {
+            "surfacePattern": "무슨 뜻이에요?",
+            "function": "meaning_request",
+            "registerLane": "learning",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "이 단어가 무슨 뜻이에요?",
+            "function": "meaning_request",
+            "registerLane": "learning",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "제가 잘 이해한 게 맞아요?",
+            "function": "confirmation",
+            "registerLane": "learning",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "그러니까 ○○라는 말이에요?",
+            "function": "confirmation",
+            "registerLane": "casual",
+            "tone": "checking"
+          },
+          {
+            "surfacePattern": "뭐라고 했어?",
+            "function": "repeat_request",
+            "registerLane": "casual",
+            "tone": "informal"
+          }
+        ],
+        "avoidTranslationese": [
+          "못 들었어요(hearing)와 이해가 안 돼요(meaning/comprehension)를 같은 repair로 합치지 않는다.",
+          "뭐라고요?는 억양과 상황에 따라 단순 재청부터 놀람/항의까지 갈 수 있어 초급 기본형은 다시 말씀해 주세요가 안전하다."
+        ],
+        "speechSurfaceNotes": [
+          "Repair는 억양이 화용을 크게 바꾸므로 audio/performance cue를 별도 검수한다."
+        ]
+      },
+      "en": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "en_repair_britishcouncil",
+          "en_repair_reddit_native",
+          "en_repair_reddit_polite"
+        ],
+        "registerLanes": [
+          "casual",
+          "service",
+          "learning"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "Sorry?",
+            "function": "repeat_request",
+            "registerLane": "casual",
+            "tone": "polite-light"
+          },
+          {
+            "surfacePattern": "Sorry, what was that?",
+            "function": "repeat_request",
+            "registerLane": "casual",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "I didn't catch that.",
+            "function": "hearing_problem",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Could you say that again?",
+            "function": "repeat_request",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Could you repeat that, please?",
+            "function": "repeat_request",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Could you speak a little more slowly?",
+            "function": "slow_request",
+            "registerLane": "learning",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "What does that mean?",
+            "function": "meaning_request",
+            "registerLane": "learning",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Do you mean ...?",
+            "function": "confirmation",
+            "registerLane": "casual",
+            "tone": "checking"
+          },
+          {
+            "surfacePattern": "What did you say?",
+            "function": "repeat_request",
+            "registerLane": "casual",
+            "tone": "direct"
+          },
+          {
+            "surfacePattern": "Come again?",
+            "function": "repeat_or_incredulity",
+            "registerLane": "casual",
+            "tone": "context_sensitive"
+          }
+        ],
+        "avoidTranslationese": [
+          "'Say it again' is grammatically transparent but can sound too command-like with strangers; teach question-form requests first.",
+          "'Come again?' is region/tone sensitive and can signal disbelief, so it should be recognition-first rather than the sole beginner formula."
+        ],
+        "speechSurfaceNotes": [
+          "Tone changes Sorry?/What?/Excuse me? from neutral repair to irritation or disbelief; audio contrast is required."
+        ]
+      },
+      "de": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "de_repair_reddit_wiebitte",
+          "de_repair_reddit_repeat",
+          "de_repair_goethe_a1"
+        ],
+        "registerLanes": [
+          "casual",
+          "service",
+          "learning"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "Wie bitte?",
+            "function": "repeat_request",
+            "registerLane": "service",
+            "tone": "polite-neutral"
+          },
+          {
+            "surfacePattern": "Noch mal, bitte.",
+            "function": "repeat_request",
+            "registerLane": "casual",
+            "tone": "polite-light"
+          },
+          {
+            "surfacePattern": "Könnten Sie das bitte wiederholen?",
+            "function": "repeat_request",
+            "registerLane": "service",
+            "tone": "formal-polite"
+          },
+          {
+            "surfacePattern": "Kannst du das bitte noch mal sagen?",
+            "function": "repeat_request",
+            "registerLane": "casual",
+            "tone": "friendly"
+          },
+          {
+            "surfacePattern": "Ich habe Sie nicht verstanden.",
+            "function": "comprehension_problem",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Das habe ich akustisch nicht verstanden.",
+            "function": "hearing_problem",
+            "registerLane": "service",
+            "tone": "explicit"
+          },
+          {
+            "surfacePattern": "Was bedeutet das?",
+            "function": "meaning_request",
+            "registerLane": "learning",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Was heißt das?",
+            "function": "meaning_request",
+            "registerLane": "learning",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Meinst du ...?",
+            "function": "confirmation",
+            "registerLane": "casual",
+            "tone": "checking"
+          },
+          {
+            "surfacePattern": "Was?",
+            "function": "repeat_request",
+            "registerLane": "casual",
+            "tone": "potentially_blunt"
+          }
+        ],
+        "avoidTranslationese": [
+          "Wie bitte? is a safe polite repair but can also express shocked 'Excuse me?' with different intonation.",
+          "Wiederholen Sie! is formally grammatical but can sound command-like; Könnten Sie ...? is safer as a beginner service formula."
+        ],
+        "speechSurfaceNotes": [
+          "German community evidence shows strong context dependence for Was?/Hä?/Wie bitte?; audio should contrast polite, casual and rude/intense delivery."
+        ]
+      },
+      "crossLanguage": {
+        "categoryShiftRisks": [
+          "All three languages distinguish not hearing from not understanding, but they lexicalize the distinction differently.",
+          "Short repair forms are highly intonation-dependent, so written equivalence alone is insufficient."
+        ]
+      }
+    },
+    {
+      "topicId": "social_etiquette_customs",
+      "ko": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "ko_etiquette_internal",
+          "ko_etiquette_malnoeul",
+          "ko_etiquette_age_titles",
+          "ko_etiquette_recent_titles"
+        ],
+        "registerLanes": [
+          "first_meeting",
+          "relationship",
+          "online"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "처음에는 존댓말로 해요.",
+            "function": "default_register",
+            "registerLane": "first_meeting",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "우리 말 놓을까요?",
+            "function": "register_negotiation",
+            "registerLane": "relationship",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "반말해도 괜찮아요?",
+            "function": "register_negotiation",
+            "registerLane": "relationship",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "편하게 말씀하세요.",
+            "function": "register_offer",
+            "registerLane": "relationship",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "저는 존댓말이 더 편해요.",
+            "function": "register_boundary",
+            "registerLane": "relationship",
+            "tone": "clear"
+          },
+          {
+            "surfacePattern": "어떻게 불러 드리면 될까요?",
+            "function": "address_preference",
+            "registerLane": "first_meeting",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "○○님이라고 부를게요.",
+            "function": "address_choice",
+            "registerLane": "online",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "우리 동갑이에요.",
+            "function": "age_relation",
+            "registerLane": "relationship",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "이름으로 불러도 돼요?",
+            "function": "address_negotiation",
+            "registerLane": "relationship",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "아직은 존댓말이 편해요.",
+            "function": "register_boundary",
+            "registerLane": "relationship",
+            "tone": "soft"
+          }
+        ],
+        "avoidTranslationese": [
+          "존댓말=formal, 반말=informal이라는 번역만으로는 관계적 의미가 사라진다. closeness/distance, role, setting을 함께 표시한다.",
+          "오빠/언니/형/누나를 나이 하나로 자동 결정하지 않는다. 관계와 당사자 선호도 중요하다."
+        ],
+        "speechSurfaceNotes": [
+          "말 놓기 자체가 관계 변화 event이므로 단순 활용표보다 대화 장면으로 가르친다."
+        ]
+      },
+      "en": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "en_etiquette_titles_uk",
+          "en_etiquette_englishlearning",
+          "en_etiquette_firstnames_2026"
+        ],
+        "registerLanes": [
+          "casual",
+          "service",
+          "workplace"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "Excuse me.",
+            "function": "get_attention",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Just call me James.",
+            "function": "name_preference",
+            "registerLane": "casual",
+            "tone": "friendly"
+          },
+          {
+            "surfacePattern": "Please call me Alex.",
+            "function": "name_preference",
+            "registerLane": "workplace",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Nice to meet you.",
+            "function": "greeting",
+            "registerLane": "casual",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "What would you like me to call you?",
+            "function": "address_preference",
+            "registerLane": "workplace",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Is it okay if I call you ...?",
+            "function": "address_negotiation",
+            "registerLane": "casual",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Mr. Smith",
+            "function": "title_lastname",
+            "registerLane": "formal",
+            "tone": "respectful"
+          },
+          {
+            "surfacePattern": "Sir",
+            "function": "honorific_address",
+            "registerLane": "service",
+            "tone": "region_context_sensitive"
+          },
+          {
+            "surfacePattern": "Ma'am",
+            "function": "honorific_address",
+            "registerLane": "service",
+            "tone": "region_context_sensitive"
+          },
+          {
+            "surfacePattern": "First names are fine.",
+            "function": "register_offer",
+            "registerLane": "workplace",
+            "tone": "casual-professional"
+          }
+        ],
+        "avoidTranslationese": [
+          "English has no one-to-one counterpart to Korean honorific speech levels; first-name use is often compatible with politeness.",
+          "Sir/ma'am vary strongly by region and institution and should not be taught as universal equivalents of 존댓말."
+        ],
+        "speechSurfaceNotes": [
+          "Regional variation (US South, UK/Ireland, workplace, military/service settings) must be visible in teacher notes."
+        ]
+      },
+      "de": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "de_etiquette_du_sie_2026",
+          "de_etiquette_reddit_job",
+          "de_etiquette_reddit_offer",
+          "de_etiquette_goethe"
+        ],
+        "registerLanes": [
+          "casual",
+          "workplace",
+          "formal"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "Wie heißen Sie?",
+            "function": "ask_name",
+            "registerLane": "formal",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Wie heißt du?",
+            "function": "ask_name",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Wollen wir uns duzen?",
+            "function": "register_negotiation",
+            "registerLane": "workplace",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Wir können uns gern duzen.",
+            "function": "register_offer",
+            "registerLane": "workplace",
+            "tone": "friendly"
+          },
+          {
+            "surfacePattern": "Du ist okay, oder?",
+            "function": "register_offer",
+            "registerLane": "casual",
+            "tone": "informal"
+          },
+          {
+            "surfacePattern": "Bleiben wir beim Sie.",
+            "function": "register_boundary",
+            "registerLane": "formal",
+            "tone": "clear"
+          },
+          {
+            "surfacePattern": "Sie können mich Lena nennen.",
+            "function": "name_preference",
+            "registerLane": "formal",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Hallo, ich bin Lena.",
+            "function": "self_intro",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Guten Tag, mein Name ist Lena.",
+            "function": "self_intro",
+            "registerLane": "formal",
+            "tone": "formal"
+          },
+          {
+            "surfacePattern": "Freut mich.",
+            "function": "greeting",
+            "registerLane": "casual",
+            "tone": "friendly"
+          }
+        ],
+        "avoidTranslationese": [
+          "Sie/du is not equivalent to 존댓말/반말. Korean can preserve polite endings in relationships where German naturally uses du, and vice versa depending setting.",
+          "Age alone does not mechanically determine du/Sie; workplace culture, setting, invitation and local norms matter."
+        ],
+        "speechSurfaceNotes": [
+          "German switch-to-du often occurs as an explicit social negotiation; community evidence also shows settings where du is immediate."
+        ]
+      },
+      "crossLanguage": {
+        "categoryShiftRisks": [
+          "KO speech level is morphologically pervasive; DE pronoun/address choice is narrower; EN often has no grammatical register switch at all.",
+          "A single 'polite/casual' column hides the real social structure. Store relationship, setting, address preference and speech style independently."
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "ko_intro_internal": {
+      "genre": "internal_reviewed_native",
+      "title": "Hangul Sori directly reviewed A1 first-meeting scenarios",
+      "path": "docs/content_qa/direct_editorial_audit_20261002.json",
+      "date": "2026-10-02"
+    },
+    "ko_intro_brunch": {
+      "genre": "personal_essay",
+      "title": "행동이 곧 웅변이다 - 처음 만난 사람과의 대화",
+      "url": "https://brunch.co.kr/@/2YvW/17",
+      "date": "2024-08-15"
+    },
+    "ko_intro_firstchat": {
+      "genre": "advice_blog",
+      "title": "첫 만남 전 카톡, 어떻게 해야 부담 없을까?",
+      "url": "https://life10000.tistory.com/259",
+      "date": "2026-08"
+    },
+    "en_intro_britishcouncil": {
+      "genre": "authoritative_learning",
+      "title": "Meeting new people | LearnEnglish",
+      "url": "https://learnenglish.britishcouncil.org/free-resources/speaking/a1/meeting-new-people",
+      "date": "current"
+    },
+    "en_intro_reddit_smalltalk": {
+      "genre": "reddit_community",
+      "title": "Small talk as finding common ground",
+      "url": "https://www.reddit.com/r/infj/comments/11t5hqk/",
+      "date": "2023"
+    },
+    "en_intro_titles": {
+      "genre": "reddit_community",
+      "title": "Addressing somebody by their first name?",
+      "url": "https://www.reddit.com/r/EnglishLearning/comments/145bgqa",
+      "date": "2023-06-09"
+    },
+    "de_intro_goethe_a1": {
+      "genre": "authoritative_learning",
+      "title": "Goethe-Zertifikat A1 speaking: sich vorstellen",
+      "url": "https://www.goethe.de/ins/de/de/prf/prf/gzsd1.html",
+      "date": "current"
+    },
+    "de_intro_goethe_course": {
+      "genre": "authoritative_learning",
+      "title": "Deutsch Online A1 — Sich Kennenlernen",
+      "url": "https://lernplattform.goethe.de/pluginfile.php/1525467/mod_resource/content/3/deutschonline_Ihr_Kurs_im_%C3%9Cberblick.pdf",
+      "date": "current"
+    },
+    "de_intro_reddit_conversation": {
+      "genre": "reddit_community",
+      "title": "Normal formal/informal introduction conversation",
+      "url": "https://www.reddit.com/r/German/comments/1420tci",
+      "date": "2023-06-06"
+    },
+    "ko_contact_internal": {
+      "genre": "internal_reviewed_native",
+      "title": "Hangul Sori messaging/contact scenarios",
+      "path": "docs/content_qa/direct_editorial_audit_20261002.json",
+      "date": "2026-10-02"
+    },
+    "ko_contact_kakaotalk_blog": {
+      "genre": "naver_blog_howto",
+      "title": "카카오톡 예약 전송 / 메시지 확인 취소 방법",
+      "url": "https://blog.naver.com/PostView.naver?blogId=techref&logNo=223214488565",
+      "date": "2023-09-18"
+    },
+    "ko_contact_late_message": {
+      "genre": "current_advice",
+      "title": "약속 시간 늦을 때 상황별 카톡 예시",
+      "url": "https://thinkyou.co.kr/info_room/7260/",
+      "date": "2026-09-08"
+    },
+    "ko_contact_katok_usage": {
+      "genre": "language_usage_blog",
+      "title": "카톡 — 한국 사람이 연락하다 대신 쓰는 말",
+      "url": "https://learnk.kimnchai.com/ko/posts/katok-kakaotalk-korean-expression/",
+      "date": "2026-08-13"
+    },
+    "en_contact_online_dating": {
+      "genre": "reddit_community",
+      "title": "Do you exchange numbers before meeting?",
+      "url": "https://www.reddit.com/r/OnlineDating/comments/1vi47sa/",
+      "date": "2026-08-07"
+    },
+    "en_contact_reschedule": {
+      "genre": "reddit_community",
+      "title": "Can we reschedule?",
+      "url": "https://www.reddit.com/r/AmItheAsshole/comments/rde38e",
+      "date": "2021-12-10"
+    },
+    "en_contact_social": {
+      "genre": "reddit_community",
+      "title": "Low-pressure number sharing / texting",
+      "url": "https://www.reddit.com/r/teenagers/comments/16qkihu",
+      "date": "2023-09-24"
+    },
+    "de_contact_whatsapp_group": {
+      "genre": "reddit_community",
+      "title": "WhatsApp group for making friends in Germany",
+      "url": "https://www.reddit.com/r/MakeFriendsInGermany/comments/1ww6muj/whatsapp_gruppe/",
+      "date": "2026-10-02"
+    },
+    "de_contact_number_exchange": {
+      "genre": "current_advice",
+      "title": "Nummer austauschen beim Online-Dating",
+      "url": "https://trustdating.net/ratgeber/nummer-austauschen-online-dating",
+      "date": "2026-09-14"
+    },
+    "de_contact_friendship": {
+      "genre": "reddit_community",
+      "title": "Freundschaft after exchanging numbers",
+      "url": "https://www.reddit.com/r/Weibsvolk/comments/15n8kbz",
+      "date": "2023-08-10"
+    },
+    "de_contact_reschedule": {
+      "genre": "reddit_learning_corrected",
+      "title": "Einen Termin verschieben",
+      "url": "https://www.reddit.com/r/WriteStreakGerman/comments/13ziws1",
+      "date": "2023-06-03"
+    },
+    "ko_repair_internal": {
+      "genre": "internal_reviewed_native",
+      "title": "Hangul Sori A1 communication repair scenarios",
+      "path": "docs/content_qa/direct_editorial_audit_20261002.json",
+      "date": "2026-10-02"
+    },
+    "ko_repair_dailyhangul": {
+      "genre": "learning_usage",
+      "title": "Ask names/repeat information in Korean",
+      "url": "https://dailyhangul.com/2025/12/20/sorry-what-was-your-name-asking-again-like-a-pro/",
+      "date": "2025-12-20"
+    },
+    "ko_repair_airport": {
+      "genre": "current_learning_usage",
+      "title": "Airport Korean: asking for repetition/slower speech",
+      "url": "https://fengniii.com/en/archives/6916",
+      "date": "2026-09"
+    },
+    "en_repair_britishcouncil": {
+      "genre": "authoritative_learning",
+      "title": "Arriving late to class — I didn't catch that",
+      "url": "https://learnenglish.britishcouncil.org/free-resources/listening/b1/arriving-late-class",
+      "date": "current"
+    },
+    "en_repair_reddit_native": {
+      "genre": "reddit_community",
+      "title": "Most common/native ways to ask for repetition",
+      "url": "https://www.reddit.com/r/EnglishLearning/comments/1bwxi0i",
+      "date": "2024-04-06"
+    },
+    "en_repair_reddit_polite": {
+      "genre": "reddit_community",
+      "title": "Is 'say it again' rude?",
+      "url": "https://www.reddit.com/r/EnglishLearning/comments/onl49b",
+      "date": "2021-07-19"
+    },
+    "de_repair_reddit_wiebitte": {
+      "genre": "reddit_community",
+      "title": "Is Wie bitte the only way to say what?",
+      "url": "https://www.reddit.com/r/German/comments/17fln8a",
+      "date": "2023-10-24"
+    },
+    "de_repair_reddit_repeat": {
+      "genre": "reddit_community",
+      "title": "How to ask someone to repeat",
+      "url": "https://www.reddit.com/r/German/comments/w0ypud",
+      "date": "2022-07-17"
+    },
+    "de_repair_goethe_a1": {
+      "genre": "authoritative_learning",
+      "title": "Goethe A1 interaction descriptor: slower/repeat/rephrase",
+      "url": "https://www.goethe.de/ins/de/de/uun/dln/da1.html",
+      "date": "current"
+    },
+    "ko_etiquette_internal": {
+      "genre": "internal_reviewed_native",
+      "title": "Hangul Sori relationship/register canon",
+      "path": "tools/content_factory/canonical_scenarios/dialogue_authoring_contract_20261006.json",
+      "date": "2026-10-06"
+    },
+    "ko_etiquette_malnoeul": {
+      "genre": "book_review",
+      "title": "말 놓을 용기 review / adult polite-speech relationships",
+      "url": "https://blog.naver.com/PostView.naver?blogId=ways_of_seeing-&categoryNo=113&currentPage=1&from=postList&logNo=223528022922&parentCategoryNo=0",
+      "date": "2024"
+    },
+    "ko_etiquette_age_titles": {
+      "genre": "current_explainer",
+      "title": "한국 나이와 호칭 완전 정리",
+      "url": "https://korluv.net/ko/guides/korean-age-system",
+      "date": "2026"
+    },
+    "ko_etiquette_recent_titles": {
+      "genre": "current_culture_article",
+      "title": "한국인 친구, 어떻게 불러야 할까?",
+      "url": "https://note.com/seoul_link/n/n7ae243a7d179?hl=ko",
+      "date": "2026-10-02"
+    },
+    "en_etiquette_titles_uk": {
+      "genre": "reddit_community",
+      "title": "How do you politely address a stranger?",
+      "url": "https://www.reddit.com/r/england/comments/mr5ezg",
+      "date": "2021-04-15"
+    },
+    "en_etiquette_englishlearning": {
+      "genre": "reddit_community",
+      "title": "How to address someone whose name we don't know",
+      "url": "https://www.reddit.com/r/EnglishLearning/comments/nugp6b",
+      "date": "2021-06-07"
+    },
+    "en_etiquette_firstnames_2026": {
+      "genre": "reddit_community",
+      "title": "Sir/ma'am or first name at work?",
+      "url": "https://www.reddit.com/r/AskAnAmerican/comments/1t7ou1z/",
+      "date": "2026-05-08"
+    },
+    "de_etiquette_du_sie_2026": {
+      "genre": "reddit_community",
+      "title": "Duzen oder Siezen?",
+      "url": "https://www.reddit.com/r/German/comments/1uz5s57/duzen_oder_siezen/",
+      "date": "2026-07-17"
+    },
+    "de_etiquette_reddit_job": {
+      "genre": "reddit_community",
+      "title": "Sie or du in professional context",
+      "url": "https://www.reddit.com/r/German/comments/16vflg8",
+      "date": "2023-09-29"
+    },
+    "de_etiquette_reddit_offer": {
+      "genre": "reddit_community",
+      "title": "How to offer/ask to duzen",
+      "url": "https://www.reddit.com/r/German/comments/lgaf9w",
+      "date": "2021-02-09"
+    },
+    "de_etiquette_goethe": {
+      "genre": "authoritative_learning",
+      "title": "Goethe A1 personal information and interaction",
+      "url": "https://www.goethe.de/ins/de/de/prf/prf/gzsd1.html",
+      "date": "current"
+    }
+  }
+}
