@@ -76,3 +76,29 @@ Display text and spoken text are separate fields.
 check-update exited successfully.
 Full update and --no-cluster update both entered silent input-wait state and produced no graphify-out changes; sessions were terminated safely.
 No Graphify reindex completion is claimed for this branch.
+
+## First-pass reuse audit checkpoint
+
+Completed 2026-10-06 for all 5,961 tracked items.
+
+Decisions:
+- KEEP 5,813
+- REWRITE 128
+- RELEVEL 12
+- REJECT 8
+
+Validation:
+- textbook reuse audit regression PASS
+- textbook inventory regression PASS
+- content validation PASS
+
+Key audit rule:
+Current Level Bible/current live vocab placement outranks historical relevel candidate sheets. Historical conflicts are advisory unless the current exercise actually places a target above its current canonical level.
+
+The 327 unresolved topic-map rows are a separate taxonomy-review issue and do not automatically reduce reuse quality.
+
+Next:
+1. work REJECT 8 replacements first;
+2. resolve RELEVEL 12;
+3. rewrite 128 in priority order;
+4. then run second-pass editorial review on KEEP exercise-bank candidates before publication.

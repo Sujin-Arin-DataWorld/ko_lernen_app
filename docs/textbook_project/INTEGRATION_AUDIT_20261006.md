@@ -100,3 +100,20 @@ C:\dev\hangulsori\ko_lernen_textbook_worktree
 - no Graphify output is claimed or committed by this textbook integration
 
 A future session can diagnose the Graphify CLI interaction separately without blocking the textbook work.
+
+## Textbook reuse audit checkpoint
+
+A first-pass KEEP / REWRITE / RELEVEL / REJECT audit now covers all 5,961 inventory rows.
+
+Final first-pass counts after sanity review:
+- KEEP 5,813
+- REWRITE 128
+- RELEVEL 12
+- REJECT 8
+
+Sanity corrections:
+- stale 2026-08-26 naturalness flags were compared with current live cloze records and removed from blocking decisions because the fixes are present;
+- higher-level reuse of easier vocabulary is treated as valid spiral recycling;
+- historical V2/NIKL conflicts do not override current canonical level decisions by themselves.
+
+The 8 REJECT rows are four cloze + four sentence-building derivatives whose four target lexemes are explicitly marked in the Level Bible as invented poetic noun phrases requiring replacement.
