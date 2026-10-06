@@ -56,7 +56,9 @@ A derived surface must not be “fixed” independently if the owner is wrong. F
 
 ### G-0 — inventory + owner graph
 
-Status: **baseline complete — 2026-10-06**
+Status: **expanded baseline complete — 2026-10-06**
+
+The generated ledger now tracks **22,631 learner-facing localization surfaces**: **9,339 canonical owners + 13,292 derived surfaces**. All 22,631 currently have KO/EN/DE strings present; silent localized-field omission is 0. The G-4 expansion added **8,084** previously unregistered listening/smalltalk lesson and culture/editorial surfaces. Topic mapping and owner resolution remain separate review axes rather than being guessed.
 
 Create a generated ledger that records every live localization-bearing surface and the canonical owner relationship where known.
 
@@ -100,9 +102,9 @@ Living Korea is the reference implementation for the rest of the repo.
 
 ### G-2 — existing vocab + expressions + every canonical example
 
-Status: **in progress**
+Status: **structural/topic baseline complete; corpus/native QA still in progress**
 
-Baseline owner audit now tracks 7,706 surfaces: vocab lexeme 2,968 + vocab example 2,968 + smalltalk expression/variant/follow-up 590 each. Structural owner linkage currently passes 7,706/7,706, and canonical native-usage topic mapping is now complete for 7,706/7,706 owner surfaces with explicit source-taxonomy or phrase-level mapping evidence where the older content-topic ledger had no canonical topic. Manual owner-topic review debt is 0. 444 rows still carry explicit language-review flags (mostly example target-surface anchoring plus intentional Korean metalanguage candidates). This is not human-native sign-off and corpus/native QA remains open.
+The owner audit tracks 7,706 surfaces: vocab lexeme 2,968 + vocab example 2,968 + smalltalk expression/variant/follow-up 590 each. Structural owner linkage passes **7,706/7,706**, canonical native-usage topic mapping passes **7,706/7,706**, and manual owner-topic review debt is **0**. The former 444 heuristic review flags were reduced by morphology/metalanguage-aware auditing; the remaining 63 Korean example-target anchor cases were then explicitly reviewed and resolved as **29 inflected surfaces + 25 multiword realizations + 9 semantic/concept examples**. Structural/manual anchor review debt is now **0**. These resolutions do **not** certify EN/DE native fluency: `humanNativeReviewedCount` remains 0 and corpus/native QA remains a separate open axis.
 
 Audit the canonical localization owners first:
 
@@ -137,6 +139,12 @@ Reconcile:
 Derived consumers must match their canonical owner’s meaning and current EN/DE copy.
 
 ### G-4 — remaining dialogues/editorial surfaces
+
+Status: **inventory expanded; QA/topic reconciliation in progress — 2026-10-06**
+
+The global ledger now also registers the learner-facing localization copy that had previously sat outside the 14,547-surface baseline: **3,629 listening-lesson surfaces + 4,413 smalltalk-lesson surfaces + 36 culture notes + 6 culture-story title/summary surfaces = 8,084 additional surfaces**. The new global total is **22,631**, with KO/EN/DE presence **22,631/22,631** and zero silent missing localized fields. Across the expanded ledger, **20,382** surfaces have canonical topics and **2,249** retain explicit topic-review status; derived owner resolution is **12,683/13,292**, with the prior **609** unresolved cloze/Satz owners still explicit rather than guessed. Living Korea's 138 turns are now recorded as live, matching batch 39 runtime promotion.
+
+Inventory coverage is not a QA claim. Listening/smalltalk question copy, recognition-only Korean distractors, scenario dialogue and culture/editorial copy still require their appropriate owner/corpus QA before the program can close.
 
 Audit existing:
 

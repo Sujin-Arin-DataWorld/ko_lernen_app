@@ -14,6 +14,10 @@ VOCAB = ROOT / "assets/data/korean_vocab.csv"
 SMALLTALK = ROOT / "assets/data/smalltalk.json"
 CLOZE = ROOT / "assets/data/cloze.json"
 SATZ = ROOT / "assets/data/satz_sentences.json"
+LISTENING_LESSONS = ROOT / "assets/data/listening_lessons.json"
+SMALLTALK_LESSONS = ROOT / "assets/data/smalltalk_lessons.json"
+CULTURE_NOTES = ROOT / "assets/data/culture_notes.json"
+CULTURE_STORY_ARCS = ROOT / "assets/data/culture_story_arcs.json"
 SCENARIOS = [ROOT / f"assets/data/scenarios_{level}.json" for level in ("a1","a2","b1","b2","c1","c2")]
 LIVING = [
     ROOT / "tools/content_factory/drafts/living_korea_scene_first_drafts_20261005.json",
@@ -287,6 +291,9 @@ def build() -> dict[str, Any]:
 
     # Canonical conversational expressions plus explicit variant/follow-up copy.
     smalltalk = load_json(SMALLTALK)
+    smalltalk_phrase_index = {
+        phrase["id"]: phrase for phrase in smalltalk.get("phrases", [])
+    }
     for phrase in smalltalk.get("phrases", []):
         phrase_id = phrase["id"]
         topic_row = topic_index.get(("smalltalk", phrase_id))
@@ -402,15 +409,222 @@ def build() -> dict[str, Any]:
                             de=localized.get("deDisplay", ""),
                             owner_kind="canonical_owner",
                             owner_id=f"{scene['id']}#turn_{idx}",
-                            approval_state="user_reviewed_not_live",
+                            approval_state="live",
                             topic_row=topic_row,
                             derived=False,
                             notes=(
                                 f"speaker={turn.get('speaker','')}; scene={scene['id']}; "
-                                "localized in living_korea_localization_20261006.json"
+                                "localized in living_korea_localization_20261006.json; promoted live via batch 39"
                             ),
                         )
                     )
+
+    # Derived lesson/editorial localization surfaces. These are learner-facing
+    # copy too, so they must be visible in the global ledger rather than hidden
+    # behind the scenario/smalltalk owners that generated them.
+    def smalltalk_topic_for(phrase_id: str) -> dict[str, Any] | None:
+        topic_row = topic_index.get(("smalltalk", phrase_id))
+        if (topic_row or {}).get("canonicalTopicId"):
+            return topic_row
+        override = SMALLTALK_PHRASE_TOPIC_OVERRIDES.get(phrase_id)
+        if override:
+            return inferred_topic_row(override, f"smalltalk.phrase={phrase_id}")
+        phrase = smalltalk_phrase_index.get(phrase_id) or {}
+        category = str(phrase.get("category") or "").strip()
+        canonical = SMALLTALK_CATEGORY_TO_CANONICAL.get(category)
+        if canonical:
+            return inferred_topic_row(canonical, f"smalltalk.category={category}")
+        return None
+
+    def source_topic_for(source_ids: list[str], source_kind: str) -> dict[str, Any] | None:
+        topics: set[str] = set()
+        for source_id in source_ids:
+            row: dict[str, Any] | None = None
+            if source_kind == "smalltalk":
+                row = smalltalk_topic_for(source_id)
+            else:
+                row = topic_index.get(("scenario", source_id))
+                if not (row or {}).get("canonicalTopicId"):
+                    row = smalltalk_topic_for(source_id)
+            topic = (row or {}).get("canonicalTopicId")
+            if topic:
+                topics.add(str(topic))
+        if len(topics) == 1:
+            topic = next(iter(topics))
+            return inferred_topic_row(
+                topic, f"{source_kind}.sources={','.join(source_ids)}"
+            )
+        return None
+
+    def source_owner_ref(source_ids: list[str]) -> str:
+        return "|".join(source_ids)
+
+    def add_lesson_copy(path: Path, source_kind: str) -> None:
+        payload = load_json(path)
+        for lesson in payload.get("lessons", []):
+            content_ids = [str(x) for x in lesson.get("contentIds", [])]
+            lesson_topic = source_topic_for(content_ids, source_kind)
+            if lesson_topic is None and source_kind == "smalltalk":
+                canonical = SMALLTALK_CATEGORY_TO_CANONICAL.get(
+                    str(lesson.get("topicId") or "").strip()
+                )
+                if canonical:
+                    lesson_topic = inferred_topic_row(
+                        canonical, f"smalltalk.lesson.topicId={lesson.get('topicId','')}"
+                    )
+            owner_ref = source_owner_ref(content_ids)
+            for field in ("title", "intro"):
+                localized = lesson.get(field) or {}
+                records.append(
+                    base_record(
+                        surface_type=f"{source_kind}_lesson_{field}",
+                        item_id=f"{lesson['id']}#{field}",
+                        source_path=path,
+                        ko=localized.get("ko", ""),
+                        en=localized.get("en", ""),
+                        de=localized.get("de", ""),
+                        owner_kind=f"derived_from_{source_kind}_sources" if owner_ref else "unresolved_owner",
+                        owner_id=owner_ref,
+                        approval_state="live",
+                        topic_row=lesson_topic,
+                        derived=True,
+                        notes=f"lesson={lesson['id']}; contentIds={','.join(content_ids)}",
+                    )
+                )
+            for question in lesson.get("questions", []):
+                source_ids = [str(x) for x in question.get("sourceIds", [])] or content_ids
+                question_topic = source_topic_for(source_ids, source_kind) or lesson_topic
+                question_owner = source_owner_ref(source_ids)
+                for field in ("prompt", "explanation"):
+                    localized = question.get(field) or {}
+                    records.append(
+                        base_record(
+                            surface_type=f"{source_kind}_question_{field}",
+                            item_id=f"{question['id']}#{field}",
+                            source_path=path,
+                            ko=localized.get("ko", ""),
+                            en=localized.get("en", ""),
+                            de=localized.get("de", ""),
+                            owner_kind=f"derived_from_{source_kind}_sources" if question_owner else "unresolved_owner",
+                            owner_id=question_owner,
+                            approval_state="live",
+                            topic_row=question_topic,
+                            derived=True,
+                            notes=f"question={question['id']}; skill={question.get('skill','')}",
+                        )
+                    )
+                for option_index, option in enumerate(question.get("options", []), 1):
+                    records.append(
+                        base_record(
+                            surface_type=f"{source_kind}_question_option",
+                            item_id=f"{question['id']}#option_{option_index}",
+                            source_path=path,
+                            ko=option.get("ko", ""),
+                            en=option.get("en", ""),
+                            de=option.get("de", ""),
+                            owner_kind=f"derived_from_{source_kind}_sources" if question_owner else "unresolved_owner",
+                            owner_id=question_owner,
+                            approval_state="live",
+                            topic_row=question_topic,
+                            derived=True,
+                            notes=(
+                                f"question={question['id']}; option={option_index}; "
+                                "may intentionally retain Korean on recognition-only distractor surfaces"
+                            ),
+                        )
+                    )
+
+    add_lesson_copy(LISTENING_LESSONS, "listening")
+    add_lesson_copy(SMALLTALK_LESSONS, "smalltalk")
+
+    # Culture notes and story-arc title/summary copy are editorial owners rather
+    # than mechanically derived exercise strings.
+    media_kind_topic = {
+        "kpop": "media_entertainment_culture_pop",
+        "drama": "media_entertainment_culture_pop",
+        "film": "media_entertainment_culture_pop",
+    }
+
+    def vocab_topic_for_term(term: str) -> dict[str, Any] | None:
+        topics: set[str] = set()
+        for row in vocab_rows:
+            if str(row.get("korean") or "").strip() != term:
+                continue
+            topic_row = topic_index.get(("vocab", row["id"]))
+            if not (topic_row or {}).get("canonicalTopicId"):
+                canonical = VOCAB_TOPIC_TO_CANONICAL.get(
+                    str(row.get("topic") or "").strip()
+                )
+                if canonical:
+                    topic_row = inferred_topic_row(
+                        canonical, f"vocab.topic={row.get('topic','')}"
+                    )
+            topic = (topic_row or {}).get("canonicalTopicId")
+            if topic:
+                topics.add(str(topic))
+        if len(topics) == 1:
+            return inferred_topic_row(
+                next(iter(topics)), f"culture.term={term}; unique vocab owner topic"
+            )
+        return None
+
+    culture_notes = load_json(CULTURE_NOTES)
+    for idx, note in enumerate(culture_notes.get("notes", []), 1):
+        term = str(note.get("ko") or "").strip()
+        canonical = media_kind_topic.get(str(note.get("kind") or "").strip())
+        topic_row = (
+            inferred_topic_row(canonical, f"culture.kind={note.get('kind','')}")
+            if canonical
+            else vocab_topic_for_term(term)
+        )
+        item_id = f"culture_note_{idx:03d}"
+        records.append(
+            base_record(
+                surface_type="culture_editorial_note",
+                item_id=item_id,
+                source_path=CULTURE_NOTES,
+                ko=term,
+                en=note.get("en", ""),
+                de=note.get("de", ""),
+                owner_kind="canonical_editorial_owner",
+                owner_id=item_id,
+                approval_state="live",
+                topic_row=topic_row,
+                derived=False,
+                notes=(
+                    f"kind={note.get('kind','')}; asymmetric glossary surface: "
+                    "KO is the culture term, EN/DE are explanatory editorial copy"
+                ),
+            )
+        )
+
+    culture_arcs = load_json(CULTURE_STORY_ARCS)
+    for arc in culture_arcs.get("arcs", []):
+        scenario_ids = [
+            str(step.get("scenarioId") or "")
+            for step in arc.get("steps", [])
+            if step.get("scenarioId")
+        ]
+        topic_row = source_topic_for(scenario_ids, "scenario")
+        for field in ("title", "summary"):
+            localized = arc.get(field) or {}
+            item_id = f"{arc['arcId']}#{field}"
+            records.append(
+                base_record(
+                    surface_type=f"culture_story_{field}",
+                    item_id=item_id,
+                    source_path=CULTURE_STORY_ARCS,
+                    ko=localized.get("ko", ""),
+                    en=localized.get("en", ""),
+                    de=localized.get("de", ""),
+                    owner_kind="canonical_editorial_owner",
+                    owner_id=item_id,
+                    approval_state="live",
+                    topic_row=topic_row,
+                    derived=False,
+                    notes=f"arc={arc['arcId']}; scenarioIds={','.join(scenario_ids)}",
+                )
+            )
 
     # Derived cloze translations should reconcile to the canonical vocab example.
     for item in load_json(CLOZE).get("items", []):
