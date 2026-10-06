@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "total": 5961,
+  "manualBefore": 107,
+  "manualAfter": 0,
+  "resolutionRows": 107,
+  "legacyTopicBridgeRows": 83,
+  "curatedSmalltalkUnitRows": 17,
+  "curatedOptionalBookRows": 7,
+  "allocationStateCounts": {
+    "ALLOCATED": 5385,
+    "ALLOCATED_CURATED_SMALLTALK": 17,
+    "OPTIONAL_BOOK_BANK": 469,
+    "OPTIONAL_BOOK_BANK_CURATED": 7,
+    "ALLOCATED_LEGACY_BRIDGE": 83
+  },
+  "bookRoleCounts": {
+    "1A": {
+      "CORE": 41,
+      "RECYCLE": 564,
+      "OPTIONAL": 3
+    },
+    "1B": {
+      "CORE": 39,
+      "RECYCLE": 685,
+      "OPTIONAL": 83
+    },
+    "2A": {
+      "CORE": 45,
+      "RECYCLE": 447,
+      "OPTIONAL": 7
+    },
+    "2B": {
+      "CORE": 40,
+      "OPTIONAL": 65,
+      "RECYCLE": 360
+    },
+    "3A": {
+      "CORE": 40,
+      "OPTIONAL": 68,
+      "RECYCLE": 306
+    },
+    "3B": {
+      "CORE": 49,
+      "RECYCLE": 675,
+      "OPTIONAL": 51
+    },
+    "4A": {
+      "CORE": 44,
+      "RECYCLE": 223,
+      "OPTIONAL": 19
+    },
+    "4B": {
+      "CORE": 40,
+      "OPTIONAL": 181,
+      "RECYCLE": 597
+    },
+    "5A": {
+      "CORE": 51,
+      "RECYCLE": 265,
+      "OPTIONAL": 40
+    },
+    "5B": {
+      "CORE": 31,
+      "OPTIONAL": 92,
+      "RECYCLE": 137,
+      "RETIRED": 4
+    },
+    "6A": {
+      "CORE": 40,
+      "RECYCLE": 194,
+      "OPTIONAL": 34
+    },
+    "6B": {
+      "CORE": 42,
+      "OPTIONAL": 69,
+      "RECYCLE": 286,
+      "RETIRED": 4
+    }
+  },
+  "policy": {
+    "canonicalTaxonomyMutated": false,
+    "legacyLabelsUsedOnlyAsAllocationEvidence": true,
+    "weakThemeParkAdvancedSmalltalkKeptOptional": true
+  }
+}

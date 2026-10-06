@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "totalSourceRows": 5961,
+  "roleCounts": {
+    "CORE": 502,
+    "RECYCLE": 4739,
+    "OPTIONAL": 712,
+    "RETIRED": 8
+  },
+  "allocationStateCounts": {
+    "ALLOCATED": 5385,
+    "MANUAL_UNIT_REVIEW": 107,
+    "OPTIONAL_BOOK_BANK": 469
+  },
+  "bookRoleCounts": {
+    "1A": {
+      "CORE": 41,
+      "RECYCLE": 564,
+      "OPTIONAL": 2
+    },
+    "1B": {
+      "CORE": 39,
+      "RECYCLE": 685,
+      "OPTIONAL": 72
+    },
+    "2A": {
+      "CORE": 45,
+      "RECYCLE": 447,
+      "OPTIONAL": 3
+    },
+    "2B": {
+      "CORE": 40,
+      "OPTIONAL": 64,
+      "RECYCLE": 360
+    },
+    "3A": {
+      "CORE": 40,
+      "OPTIONAL": 65,
+      "RECYCLE": 306
+    },
+    "3B": {
+      "CORE": 49,
+      "RECYCLE": 675,
+      "OPTIONAL": 38
+    },
+    "4A": {
+      "CORE": 44,
+      "RECYCLE": 223,
+      "OPTIONAL": 11
+    },
+    "4B": {
+      "CORE": 40,
+      "OPTIONAL": 157,
+      "RECYCLE": 597
+    },
+    "5A": {
+      "CORE": 51,
+      "RECYCLE": 265,
+      "OPTIONAL": 27
+    },
+    "5B": {
+      "CORE": 31,
+      "OPTIONAL": 91,
+      "RECYCLE": 137,
+      "RETIRED": 4
+    },
+    "6A": {
+      "CORE": 40,
+      "RECYCLE": 194,
+      "OPTIONAL": 24
+    },
+    "6B": {
+      "CORE": 42,
+      "OPTIONAL": 51,
+      "RECYCLE": 286,
+      "RETIRED": 4
+    }
+  },
+  "manualUnitReviewCount": 107,
+  "optionalBookBankCount": 469,
+  "runtimeMirrorDuplicateCount": 120,
+  "practiceBankCount": 5242,
+  "densityFlags": [
+    {
+      "unitId": "b1_04_relationships",
+      "book": "3B",
+      "practiceBank": 414,
+      "narrative": 12,
+      "pragmatics": 7,
+      "flags": [
+        "PRACTICE_BANK_HEAVY"
+      ]
+    },
+    {
+      "unitId": "b2_06_advanced_capstone",
+      "book": "4B",
+      "practiceBank": 267,
+      "narrative": 14,
+      "pragmatics": 7,
+      "flags": [
+        "PRACTICE_BANK_HEAVY"
+      ]
+    }
+  ],
+  "policy": {
+    "sourcePoolIsNotPrintedPageCount": true,
+    "canonicalScenarioWinsOverRuntimeMirror": true,
+    "practiceBankRequiresSelection": true,
+    "cultureTrendAssetsJoinedSeparately": true,
+    "unresolvedTopicsAreNotForced": true
+  }
+}
