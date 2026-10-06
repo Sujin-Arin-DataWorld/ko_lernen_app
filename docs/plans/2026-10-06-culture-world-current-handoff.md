@@ -200,6 +200,51 @@ Authoring-pipeline follow-up:
 - support roles must already exist in the live scenario corpus and do not create persona relationships
 - Windows promotion has a staged/validated fsync fallback when an editor watcher blocks `os.replace` with WinError 5; exact originals remain available for rollback and final content validation still runs
 
+## Batch 40 expansion — drafted, not live
+
+Batch 40 continues the Batch 39 rule: natural lived situation first, then key-vocab extraction and CEFR audit.
+
+Draft commit:
+- `c7687c6f1 feat(culture): draft batch 40 social culture scenes`
+
+Prerequisite commits:
+- `f17ecdaa9 feat(culture): add social language glossary terms`
+- `6d88c5ee4 feat(content): allow support-role culture scenes`
+
+Status:
+- manifest: `review_only_draft`
+- **live corpus remains 196 scenarios / 609 scenario quests**
+- promotion preview only: **196 -> 201 scenarios / 609 -> 624 scenario quests**
+- 5 draft scenarios
+- 5 listening lessons / 20 listening questions
+- 5 scenario-culture links
+- 2 review-only derived story arcs
+- key vocab: **30 total / above-target 0 / unmapped 0**
+- focused authoring/integration regressions: **38 passed**
+- TTS: not generated
+
+Draft scenes:
+- `b1_jun_coding_club_speech_switch` — Jun + existing `student` support role — `sunbae_hubae`, `jondaetmal_banmal`
+- `b1_minho_coworker_hoesik_leave_early` — Minho + existing `coworker` support role — `hoesik`
+- `a2_dongsun_christian_maehwa_gift` — Christian x Dongsun — `maehwa`
+- `b1_dongsun_customer_maedeup_repair` — Dongsun + existing `customer` support role — `maedeup`
+- `b1_byeongcheol_hyuna_daecheong_rest` — Hyuna x Byeongcheol — `daecheong`
+
+Review-only arcs:
+- `relationship_language_in_daily_life`
+- `patterns_repairs_and_spaces`
+
+Batch 40 authoring notes:
+- support-role scenes may contain one recurring persona plus one existing generic support role
+- support roles do not become recurring personas and create no relationship canon
+- social-language culture is negotiated in-scene; `sunbae`, age, or position do not automatically authorize banmal
+- hoesik is treated as organization-specific scheduling/participation context, not an alcohol or mandatory-attendance stereotype
+- Dongsun remains a jewellery/repair shop owner, not a traditional-craft master
+- Byeongcheol observes structure/airflow from practical experience and does not invent architectural history
+- key vocab is extracted from the actual dialogue; intro-only vocabulary is not promoted as learner key vocab
+
+Do **not** promote Batch 40 merely because structural/CEFR checks pass. Learner-facing dialogue still needs Jin review.
+
 ## Required reading for the next session
 
 1. `AGENTS.md`
