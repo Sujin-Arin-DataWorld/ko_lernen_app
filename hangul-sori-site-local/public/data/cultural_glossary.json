@@ -911,6 +911,92 @@
           "url": "https://ich.unesco.org/en/RL/nongak-community-band-music-dance-and-rituals-in-the-republic-of-korea-00717"
         }
       ]
+    },
+    {
+      "termId": "sunbae_hubae",
+      "ko": "선배·후배",
+      "romanization": "Sunbae · Hubae",
+      "localizations": {
+        "ko": {
+          "meaning": "선배와 후배는 같은 학교·단체·분야에서 먼저 들어온 사람과 나중에 들어온 사람의 관계를 나타내는 말이에요.",
+          "story": "학교·동아리·직장 등에서 쓰이지만 실제 호칭은 집단마다 달라요. 선배라고 해서 자동으로 반말을 쓰는 규칙은 아니에요."
+        },
+        "en": {
+          "meaning": "Sunbae and hubae describe people who entered the same school, group, or field earlier or later than one another.",
+          "story": "They are used in schools, clubs, workplaces and other groups, but actual forms of address vary; being sunbae does not automatically license banmal."
+        },
+        "de": {
+          "meaning": "Sunbae und Hubae bezeichnen Personen, die derselben Schule, Gruppe oder Branche früher beziehungsweise später beigetreten sind.",
+          "story": "Die Wörter werden in Schulen, Clubs und Berufen benutzt, doch Anrede und Umgang unterscheiden sich je nach Gruppe; Sunbae erlaubt nicht automatisch Banmal."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "국립국어원 온라인가나다 존칭 여부",
+          "url": "https://korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=98&pageIndex=1&qna_seq=331085"
+        },
+        {
+          "title": "한국어기초사전 대선배",
+          "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=49426"
+        }
+      ]
+    },
+    {
+      "termId": "jondaetmal_banmal",
+      "ko": "존댓말·반말",
+      "romanization": "Jondaetmal · Banmal",
+      "localizations": {
+        "ko": {
+          "meaning": "존댓말은 상대를 높여 말하는 방식이고, 반말은 가까운 관계 등에서 격식을 덜 갖춰 말하는 방식이에요.",
+          "story": "말투는 나이 하나만으로 정해지지 않아요. 처음 만난 사람에게 바로 반말을 쓰면 부담스러울 수 있어 관계와 상황을 보고 조정해요."
+        },
+        "en": {
+          "meaning": "Jondaetmal is respectful speech, while banmal is less formal speech used in close relationships and some other familiar contexts.",
+          "story": "Speech style is not decided by age alone. Using banmal immediately with someone new can feel uncomfortable, so speakers adjust to relationship and context."
+        },
+        "de": {
+          "meaning": "Jondaetmal ist respektvolle Redeweise; Banmal ist eine weniger formelle Sprechweise für enge oder andere vertraute Beziehungen.",
+          "story": "Die Sprechweise hängt nicht nur vom Alter ab. Direkt beim ersten Treffen Banmal zu benutzen kann unangenehm wirken, daher zählen Beziehung und Situation."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "한국어기초사전 존댓말",
+          "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=24607"
+        },
+        {
+          "title": "한국어기초사전 반말",
+          "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=15843"
+        }
+      ]
+    },
+    {
+      "termId": "hoesik",
+      "ko": "회식",
+      "romanization": "Hoesik",
+      "localizations": {
+        "ko": {
+          "meaning": "회식은 모임이나 조직에 속한 사람들이 함께 모여 음식을 먹는 자리예요.",
+          "story": "직장 회식도 있지만 참석 방식과 분위기는 조직마다 달라요. 한글소리에서는 일정과 귀가 시간, 참여 범위를 말하는 실제 상황으로 다뤄요."
+        },
+        "en": {
+          "meaning": "Hoesik is a group meal where people from the same organization or group gather to eat together.",
+          "story": "Workplace hoesik is common, but attendance and atmosphere vary by organization. Hangul Sori treats it through practical plans, timing and personal boundaries."
+        },
+        "de": {
+          "meaning": "Hoesik ist ein gemeinsames Essen, bei dem sich Mitglieder derselben Gruppe oder Organisation treffen.",
+          "story": "Hoesik gibt es oft im Arbeitsleben, doch Teilnahme und Atmosphäre unterscheiden sich je nach Organisation. Hangul Sori behandelt praktische Planung und Grenzen."
+        }
+      },
+      "decorationSlugs": [],
+      "sources": [
+        {
+          "title": "한국어기초사전 회식",
+          "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=88144&blockCount=10&currentPage=1&exaType=&mainSearchWord=%EB%81%9D&nation=eng&nationCode=6&proverbType=&searchType=E&sort=W&viewType=A&wordMatchFlag=N"
+        }
+      ]
     }
   ]
 }
