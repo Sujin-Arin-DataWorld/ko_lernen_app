@@ -241,11 +241,14 @@ Canonical generated ledger:
 Generator:
 `tools/content_factory/build_trilingual_content_topic_coverage.py`
 
-Current baseline (2026-10-06):
-- tracked item rows: **8,960**
-- confidently mapped: **7,997**
-- explicit item-level unmapped/manual-review debt: **963**
-- legacy/batch draft files explicitly tracked at file level pending schema adapters: **197**
+Current baseline (2026-10-06, draft-adapter pass 1):
+- tracked item rows: **19,776**
+- confidently mapped: **17,244**
+- explicit item-level unmapped/manual-review debt: **2,532**
+  - live: **945**
+  - canonical review-only: **18**
+  - draft/review artifacts: **1,569**
+- legacy/batch draft files still tracked only at file level: **70**
 - Living Korea scenes: **23/23 mapped**
 - all **32/32 canonical topics** have at least one mapped content item
 - there are **zero silent unmapped rows**: each mapped row has a canonical topic,
@@ -261,10 +264,19 @@ Tracked item surfaces currently include:
 - canonical 120 review-only scenario briefs
 - live scenario-culture links / culture-story arcs
 - Living Korea user-reviewed/not-live scenes
+- repeatable draft/review schemas for vocab, cloze, Satz, scenarios, listening,
+  and smalltalk (including W10 scenario lists)
 
-The remaining 963 item-level ambiguities are deliberately not force-mapped. The
-197 legacy/batch draft files remain in research scope with an explicit
-file-level unmapped reason until an item-level schema adapter exists.
+The first draft-schema adapter pass moved **127** previously file-level draft
+sources into conservative item-level tracking without changing their approval
+state. This expanded the visible research scope from 8,960 to 19,776 rows, so
+the item-level manual-review count rose because previously hidden draft
+ambiguities are now explicit rather than because live coverage regressed.
+
+The remaining 2,532 item-level ambiguities are deliberately not force-mapped.
+The remaining 70 file-level sources are mostly manifests/metadata plus
+grammar/pronunciation and a few one-off schemas; they remain explicit until a
+surface-specific adapter is justified.
 
 Mapping status is independent from learner-content approval. Research never
 promotes a draft/review artifact to live.
@@ -546,10 +558,11 @@ Completion evidence:
 - every high-risk profile carries an authoritative-term check
 - **32/32** topics have category-shift and pedagogical-alignment notes
 - display/spoken/TTS notes exist across all 96 profiles
-- content coverage ledger tracks **8,960** item rows with zero silent unmapped
-  rows: **7,997 mapped + 963 explicit manual-review unmapped**
-- **197** legacy/batch draft files remain explicitly file-level unmapped rather
-  than being falsely auto-classified
+- content coverage ledger tracks **19,776** item rows with zero silent unmapped
+  rows: **17,244 mapped + 2,532 explicit manual-review unmapped**
+- first draft-schema adapter pass moved **127** repeatable draft sources to
+  item-level tracking; **70** unsupported/metadata sources remain explicitly
+  file-level unmapped rather than being falsely auto-classified
 - Living Korea **23/23** scenes are mapped
 - localization contract consumes the registry
 - future scenario promotion batch **39+** fails closed without the contract,

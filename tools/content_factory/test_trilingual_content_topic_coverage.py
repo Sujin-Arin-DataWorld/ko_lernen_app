@@ -61,7 +61,7 @@ class TrilingualContentTopicCoverageTest(unittest.TestCase):
                     self.assertNotIn("unmappedReason", row)
                     self.assertEqual(
                         row["researchCoverageStatus"],
-                        "topic_profile_pending_deep_pass",
+                        "topic_profile_deep_pass_complete",
                     )
 
     def test_all_32_topics_are_represented_by_mapped_content(self) -> None:
@@ -89,7 +89,28 @@ class TrilingualContentTopicCoverageTest(unittest.TestCase):
         self.assertIn("review_only", states)
         self.assertIn("user_reviewed_not_live", states)
 
-    def test_legacy_drafts_are_explicitly_tracked_at_file_level(self) -> None:
+    def test_repeatable_draft_schemas_are_tracked_at_item_level(self) -> None:
+        file_level_paths = {
+            row["sourcePath"] for row in self.ledger["unparsedDraftSources"]
+        }
+        expected_item_level = {
+            "tools/content_factory/drafts/batch_25_a1_rows.csv",
+            "tools/content_factory/drafts/batch_25_a1_cloze.json",
+            "tools/content_factory/drafts/batch_25_a1_satz.json",
+            "tools/content_factory/drafts/c1_batch11_scenarios_a1_c2.json",
+            "tools/content_factory/drafts/w10_scenarios_a1.json",
+            "tools/content_factory/drafts/c2_batch01_smalltalk_b1_b2.json",
+            "tools/content_factory/drafts/persona_a2_listening_20261003.json",
+        }
+        self.assertTrue(expected_item_level.isdisjoint(file_level_paths))
+        item_level_paths = {
+            row["sourcePath"]
+            for row in self.ledger["records"]
+            if row["approvalState"] == "draft_or_review_artifact"
+        }
+        self.assertTrue(expected_item_level.issubset(item_level_paths))
+
+    def test_unsupported_legacy_drafts_are_explicitly_tracked_at_file_level(self) -> None:
         sources = self.ledger["unparsedDraftSources"]
         self.assertEqual(
             len(sources),

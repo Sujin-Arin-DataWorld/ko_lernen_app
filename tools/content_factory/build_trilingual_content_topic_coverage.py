@@ -15,6 +15,11 @@ OUT_PATH = (
     / "tools/content_factory/review"
     / "trilingual_content_topic_coverage_20261006.json"
 )
+NATIVE_USAGE_REGISTRY_PATH = (
+    ROOT
+    / "tools/content_factory/canonical_scenarios"
+    / "trilingual_native_usage_registry_20261006.json"
+)
 
 LIVE_SCENARIO_PATHS = [
     ROOT / f"assets/data/scenarios_{level}.json"
@@ -648,15 +653,357 @@ def build() -> dict[str, Any]:
                     )
                 )
 
-    # Make the scope of unparsed draft schemas explicit. This keeps "all
-    # drafts included in research scope" true without pretending every legacy
-    # draft schema already has an item-level adapter.
+    # Parse repeatable draft schemas at item level without changing their
+    # approval state. Unsupported manifests/one-off schemas remain explicitly
+    # tracked at file level below instead of being guessed.
     parsed_draft_names = {path.name for path in LIVING_KOREA_PATHS}
-    unparsed_draft_sources = []
-    for path in sorted(DRAFT_DIR.glob("*")):
-        if not path.is_file() or path.name in parsed_draft_names:
+    draft_paths = [
+        path
+        for path in sorted(DRAFT_DIR.glob("*"))
+        if path.is_file()
+        and path.suffix.lower() in {".json", ".csv", ".md"}
+        and path.name not in parsed_draft_names
+    ]
+    draft_vocab_topic_by_id: dict[str, str | None] = {}
+    draft_vocab_topic_by_korean: dict[str, set[str]] = collections.defaultdict(set)
+    draft_scenario_topic: dict[str, str | None] = {}
+
+    def _draft_localized_text(value: object) -> str:
+        if isinstance(value, dict):
+            return " ".join(str(part) for part in value.values())
+        return str(value or "")
+
+    # Vocab CSVs are the strongest reusable draft owner for downstream cloze
+    # and Satz rows. Grammar CSVs do not carry korean/topic/id together and are
+    # intentionally left file-level until a grammar-specific adapter exists.
+    for path in draft_paths:
+        if path.suffix.lower() != ".csv":
             continue
-        if path.suffix.lower() not in {".json", ".csv", ".md"}:
+        with path.open(encoding="utf-8-sig", newline="") as handle:
+            reader = csv.DictReader(handle)
+            if not {"id", "korean", "topic"}.issubset(set(reader.fieldnames or [])):
+                continue
+            rows = list(reader)
+        if not all(row.get("id") for row in rows):
+            continue
+        parsed_draft_names.add(path.name)
+        for row in rows:
+            topic_id = resolver.exact_one("vocabTopics", row.get("topic"))
+            if topic_id:
+                evidence = {
+                    "reason": "exact_vocab_topic_alias",
+                    "topic": row.get("topic"),
+                }
+            else:
+                topic_id, evidence = resolver.keyword_resolution(
+                    title_text=row.get("korean", ""),
+                    context_text=" ".join(
+                        [
+                            row.get("topic", ""),
+                            row.get("pack_id", ""),
+                            row.get("german", ""),
+                            row.get("english", ""),
+                        ]
+                    ),
+                )
+            draft_vocab_topic_by_id[row["id"]] = topic_id
+            if topic_id:
+                draft_vocab_topic_by_korean[_norm(row.get("korean"))].add(topic_id)
+            records.append(
+                _record(
+                    kind="vocab",
+                    item_id=row["id"],
+                    source_path=path,
+                    approval_state="draft_or_review_artifact",
+                    topic_id=topic_id,
+                    mapping_method=evidence.get("reason", "unknown"),
+                    mapping_evidence=evidence,
+                    register_lane="pedagogical_or_mixed",
+                    unmapped_reason=evidence.get("reason"),
+                )
+            )
+
+    # Scenario draft families share the live scenario structure closely enough
+    # to reuse the same conservative resolver. Their approval state remains
+    # draft/review-only even when a topic is confidently mapped.
+    for path in draft_paths:
+        if path.name in parsed_draft_names or path.suffix.lower() != ".json":
+            continue
+        try:
+            payload = _load_json(path)
+        except (json.JSONDecodeError, UnicodeDecodeError):
+            continue
+        if isinstance(payload, dict) and isinstance(payload.get("scenarios"), list):
+            rows = payload["scenarios"]
+        elif isinstance(payload, list):
+            rows = payload
+        else:
+            continue
+        if not all(isinstance(row, dict) and row.get("id") for row in rows):
+            continue
+        parsed_draft_names.add(path.name)
+        for row in rows:
+            title = _draft_localized_text(row.get("title"))
+            context = " ".join(
+                [
+                    str(row.get("id") or ""),
+                    str(row.get("shelf") or ""),
+                    str(row.get("courseUnitId") or ""),
+                    str(row.get("intent") or ""),
+                    _draft_localized_text(row.get("intro")),
+                ]
+            )
+            topic_id, evidence = resolver.keyword_resolution(
+                title_text=title,
+                context_text=context,
+            )
+            if topic_id is None:
+                stripped_shelf = re.sub(
+                    r"^[abc][12]_",
+                    "",
+                    _norm(row.get("shelf")),
+                )
+                shelf_topic = resolver.exact_one("shelfSlugs", stripped_shelf)
+                if shelf_topic:
+                    topic_id = shelf_topic
+                    evidence = {
+                        "reason": "unique_stripped_shelf_alias",
+                        "shelf": row.get("shelf"),
+                        "normalizedShelf": stripped_shelf,
+                    }
+            draft_scenario_topic[row["id"]] = topic_id
+            records.append(
+                _record(
+                    kind="scenario",
+                    item_id=row["id"],
+                    source_path=path,
+                    approval_state="draft_or_review_artifact",
+                    topic_id=topic_id,
+                    mapping_method=evidence.get("reason", "unknown"),
+                    mapping_evidence=evidence,
+                    register_lane=_register_lane(row, "scenario"),
+                    unmapped_reason=evidence.get("reason"),
+                )
+            )
+
+    # Remaining repeatable JSON families: cloze/Satz items, listening lessons,
+    # and smalltalk phrases. Pronunciation phrase files intentionally do not
+    # match the smalltalk category gate and remain file-level.
+    for path in draft_paths:
+        if path.name in parsed_draft_names or path.suffix.lower() != ".json":
+            continue
+        try:
+            payload = _load_json(path)
+        except (json.JSONDecodeError, UnicodeDecodeError):
+            continue
+        if not isinstance(payload, dict):
+            continue
+
+        rows = payload.get("items")
+        if isinstance(rows, list) and all(
+            isinstance(row, dict) and row.get("id") for row in rows
+        ):
+            first = rows[0] if rows else {}
+            if not rows:
+                parsed_draft_names.add(path.name)
+                continue
+            if "answer" in first and ("fullKo" in first or "sentenceKo" in first):
+                parsed_draft_names.add(path.name)
+                for row in rows:
+                    topic_id = resolver.exact_one("vocabTopics", row.get("topic"))
+                    evidence: dict[str, Any]
+                    source_vocab_id = str(row.get("sourceVocabId") or "")
+                    inherited = draft_vocab_topic_by_id.get(source_vocab_id)
+                    if topic_id:
+                        evidence = {
+                            "reason": "exact_cloze_topic_alias",
+                            "topic": row.get("topic"),
+                        }
+                    elif inherited:
+                        topic_id = inherited
+                        evidence = {
+                            "reason": "draft_source_vocab_topic_inheritance",
+                            "sourceVocabId": source_vocab_id,
+                        }
+                    else:
+                        topic_id, evidence = resolver.keyword_resolution(
+                            title_text=str(
+                                row.get("fullKo") or row.get("sentenceKo") or ""
+                            ),
+                            context_text=" ".join(
+                                [
+                                    str(row.get("topic") or ""),
+                                    str(row.get("de") or ""),
+                                    str(row.get("en") or ""),
+                                ]
+                            ),
+                        )
+                    records.append(
+                        _record(
+                            kind="cloze",
+                            item_id=row["id"],
+                            source_path=path,
+                            approval_state="draft_or_review_artifact",
+                            topic_id=topic_id,
+                            mapping_method=evidence.get("reason", "unknown"),
+                            mapping_evidence=evidence,
+                            register_lane="pedagogical_or_mixed",
+                            unmapped_reason=evidence.get("reason"),
+                        )
+                    )
+                continue
+
+            if "targetKo" in first and (
+                "vocabKo" in first or "sourceVocabId" in first
+            ):
+                parsed_draft_names.add(path.name)
+                for row in rows:
+                    candidates: set[str] = set()
+                    source_vocab_id = str(row.get("sourceVocabId") or "")
+                    source_topic = draft_vocab_topic_by_id.get(source_vocab_id)
+                    if source_topic:
+                        candidates.add(source_topic)
+                    norm_vocab = _norm(row.get("vocabKo"))
+                    candidates.update(vocab_topic_by_korean.get(norm_vocab, set()))
+                    candidates.update(
+                        draft_vocab_topic_by_korean.get(norm_vocab, set())
+                    )
+                    if len(candidates) == 1:
+                        topic_id = next(iter(candidates))
+                        evidence = {
+                            "reason": "draft_vocab_topic_inheritance",
+                            "sourceVocabId": source_vocab_id,
+                            "vocabKo": row.get("vocabKo"),
+                        }
+                    else:
+                        topic_id, evidence = resolver.keyword_resolution(
+                            title_text=str(row.get("targetKo") or ""),
+                            context_text=" ".join(
+                                [
+                                    str(row.get("vocabKo") or ""),
+                                    str(row.get("promptDe") or ""),
+                                    str(row.get("promptEn") or ""),
+                                ]
+                            ),
+                        )
+                        if len(candidates) > 1 and topic_id is None:
+                            evidence = {
+                                **evidence,
+                                "reason": "draft_vocab_maps_to_multiple_topics",
+                                "candidateTopics": sorted(candidates),
+                            }
+                    records.append(
+                        _record(
+                            kind="satz",
+                            item_id=row["id"],
+                            source_path=path,
+                            approval_state="draft_or_review_artifact",
+                            topic_id=topic_id,
+                            mapping_method=evidence.get("reason", "unknown"),
+                            mapping_evidence=evidence,
+                            register_lane="pedagogical_or_mixed",
+                            unmapped_reason=evidence.get("reason"),
+                        )
+                    )
+                continue
+
+        lessons = payload.get("lessons")
+        if isinstance(lessons, list) and all(
+            isinstance(row, dict) and row.get("id") for row in lessons
+        ):
+            parsed_draft_names.add(path.name)
+            for row in lessons:
+                candidates = {
+                    topic
+                    for source_id in row.get("contentIds", [])
+                    for topic in (
+                        draft_scenario_topic.get(source_id),
+                        live_scenario_topic.get(source_id),
+                    )
+                    if topic
+                }
+                topic_id = next(iter(candidates)) if len(candidates) == 1 else None
+                if topic_id:
+                    evidence = {
+                        "reason": "source_scenario_topic_inheritance",
+                        "contentIds": row.get("contentIds", []),
+                    }
+                else:
+                    topic_id, evidence = resolver.keyword_resolution(
+                        title_text=_draft_localized_text(row.get("title")),
+                        context_text=" ".join(
+                            [
+                                str(row.get("id") or ""),
+                                str(row.get("topicId") or ""),
+                                _draft_localized_text(row.get("intro")),
+                            ]
+                        ),
+                    )
+                records.append(
+                    _record(
+                        kind="listening",
+                        item_id=row["id"],
+                        source_path=path,
+                        approval_state="draft_or_review_artifact",
+                        topic_id=topic_id,
+                        mapping_method=evidence.get("reason", "unknown"),
+                        mapping_evidence=evidence,
+                        register_lane="pedagogical_or_mixed",
+                        unmapped_reason=evidence.get("reason"),
+                    )
+                )
+            continue
+
+        phrases = payload.get("phrases")
+        payload_category = payload.get("category")
+        if (
+            isinstance(phrases, list)
+            and all(isinstance(row, dict) and row.get("id") for row in phrases)
+            and (
+                payload_category
+                or any(row.get("category") or row.get("topicId") for row in phrases)
+            )
+        ):
+            parsed_draft_names.add(path.name)
+            for row in phrases:
+                category = row.get("category") or row.get("topicId") or payload_category
+                topic_id = resolver.exact_one("smalltalkCategories", category)
+                if topic_id:
+                    evidence = {
+                        "reason": "exact_smalltalk_category_alias",
+                        "topicId": category,
+                    }
+                else:
+                    topic_id, evidence = resolver.keyword_resolution(
+                        title_text=str(row.get("ko") or ""),
+                        context_text=" ".join(
+                            [
+                                str(category or ""),
+                                str(row.get("de") or ""),
+                                str(row.get("en") or ""),
+                                _draft_localized_text(row.get("reply")),
+                            ]
+                        ),
+                    )
+                records.append(
+                    _record(
+                        kind="smalltalk",
+                        item_id=row["id"],
+                        source_path=path,
+                        approval_state="draft_or_review_artifact",
+                        topic_id=topic_id,
+                        mapping_method=evidence.get("reason", "unknown"),
+                        mapping_evidence=evidence,
+                        register_lane=_register_lane(row, "smalltalk"),
+                        unmapped_reason=evidence.get("reason"),
+                    )
+                )
+
+    # Keep every unsupported draft schema visible at file level instead of
+    # silently dropping it from the research scope.
+    unparsed_draft_sources = []
+    for path in draft_paths:
+        if path.name in parsed_draft_names:
             continue
         unparsed_draft_sources.append(
             {
@@ -665,6 +1012,24 @@ def build() -> dict[str, Any]:
                 "trackingStatus": "file_level_explicit_unmapped",
                 "unmappedReason": "legacy_or_batch_specific_draft_schema_not_registered_for_item_level_topic_mapping",
             }
+        )
+
+    # Research coverage status is derived from the native-usage registry rather
+    # than frozen in the ledger. This keeps the coverage ledger truthful after
+    # a topic moves from broad/pass-in-progress to deep-pass complete.
+    native_registry = _load_json(NATIVE_USAGE_REGISTRY_PATH)
+    native_topic_status = {
+        row["topicId"]: row.get("researchStatus")
+        for row in native_registry["topics"]
+    }
+    for row in records:
+        topic_id = row["canonicalTopicId"]
+        if topic_id is None:
+            continue
+        row["researchCoverageStatus"] = (
+            "topic_profile_deep_pass_complete"
+            if native_topic_status.get(topic_id) == "deep_pass_complete"
+            else "topic_profile_pending_deep_pass"
         )
 
     by_kind: dict[str, dict[str, int]] = {}
@@ -689,16 +1054,16 @@ def build() -> dict[str, Any]:
         "generatedDate": "2026-10-06",
         "status": "CONTENT_TOPIC_MAPPING_LEDGER_ACTIVE",
         "taxonomyPath": TAXONOMY_PATH.relative_to(ROOT).as_posix(),
-        "nativeUsageRegistryPath": (
-            "tools/content_factory/canonical_scenarios/"
-            "trilingual_native_usage_registry_20261006.json"
-        ),
+        "nativeUsageRegistryPath": NATIVE_USAGE_REGISTRY_PATH.relative_to(
+            ROOT
+        ).as_posix(),
         "policy": {
             "researchCoverageDoesNotImplyApproval": True,
             "noSilentUnmappedItems": True,
             "ambiguousMappingsRemainExplicitlyUnmapped": True,
             "secondaryTopicsAllowedForCrossDomainScenes": True,
             "legacyDraftSchemasTrackedAtFileLevelUntilAdapterExists": True,
+            "mappedCoverageStatusDerivedFromNativeUsageRegistry": True,
         },
         "summary": {
             "trackedItemCount": len(records),
