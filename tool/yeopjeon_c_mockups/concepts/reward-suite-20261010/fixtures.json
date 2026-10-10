@@ -1,0 +1,75 @@
+{
+  "reviewOnly": true,
+  "liveAccountData": false,
+  "date": "2026-10-10",
+  "selectedDirection": "C",
+  "screens": [
+    {
+      "id": "second",
+      "kind": "positiveReceipt",
+      "grantKind": "dailySecond",
+      "earned": 10,
+      "balanceBefore": 20,
+      "balanceAfter": 30,
+      "cumulativeEarnedAfter": 30,
+      "cumulativeSpentAfter": 0,
+      "eligibleBefore": 0,
+      "eligibleAfter": 0,
+      "ownedBefore": 0,
+      "ownedAfter": 0,
+      "currentRoute": "/rewards/yeopjeon",
+      "mainAction": "keepLearning"
+    },
+    {
+      "id": "milestone",
+      "kind": "positiveReceipt",
+      "grantKind": "newConstructionEligibility",
+      "earned": 40,
+      "balanceBefore": 30,
+      "balanceAfter": 70,
+      "cumulativeEarnedAfter": 70,
+      "cumulativeSpentAfter": 0,
+      "eligibleBefore": 0,
+      "eligibleAfter": 1,
+      "ownedBefore": 0,
+      "ownedAfter": 0,
+      "currentRoute": "/rewards/yeopjeon",
+      "mainAction": "visitIlduHouse"
+    },
+    {
+      "id": "wallet",
+      "kind": "readOnlySummary",
+      "balance": 70,
+      "cumulativeEarned": 70,
+      "cumulativeSpent": 0,
+      "eligible": 1,
+      "owned": 0,
+      "proposedNewSummary": true,
+      "currentWalletBadgeDestination": "/rewards/ildu-house",
+      "mainAction": "visitIlduHouse"
+    },
+    {
+      "id": "build",
+      "kind": "preSpendConfirmation",
+      "currentBalance": 70,
+      "cost": 40,
+      "expectedBalanceAfterSuccess": 30,
+      "eligible": 1,
+      "currentOwned": 0,
+      "ownedAfterSuccess": 1,
+      "alreadySpent": false,
+      "currentRoute": "/rewards/ildu-house",
+      "mainAction": "buildNext"
+    }
+  ],
+  "rules": {
+    "firstDailyCompletion": 20,
+    "secondDailyCompletion": 10,
+    "furtherDailyBonus": 0,
+    "newEligibleStageGrant": 40,
+    "nextConstructionCost": 40,
+    "dueReviewApi": 10,
+    "dueReviewProductionCallerFound": false,
+    "questXpDancheongAutomaticallyCoins": false
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "review": "Playback paused at decoded motion frames for edge inspection",
+  "frames": [
+    {
+      "name": "jump-de",
+      "hidden": false,
+      "paused": true,
+      "phase": "entering",
+      "readyState": 4,
+      "seekable": [
+        [
+          0,
+          0
+        ]
+      ],
+      "time": 2.413014
+    },
+    {
+      "name": "playing-de",
+      "hidden": false,
+      "paused": true,
+      "phase": "crediting",
+      "readyState": 4,
+      "reel": "c-two-row",
+      "seekable": [
+        [
+          0,
+          0
+        ]
+      ],
+      "time": 5.266566
+    }
+  ]
+}

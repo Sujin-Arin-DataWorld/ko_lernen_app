@@ -1,0 +1,102 @@
+{
+  "actionDock": {
+    "bottom": 840,
+    "height": 130,
+    "right": 402,
+    "width": 402,
+    "x": 0,
+    "y": 710
+  },
+  "actions": [
+    {
+      "bottom": 772,
+      "height": 54,
+      "label": "Verwendung ansehen",
+      "right": 384,
+      "width": 366,
+      "x": 18,
+      "y": 718
+    },
+    {
+      "bottom": 828,
+      "height": 48,
+      "label": "Weiterlernen",
+      "right": 384,
+      "width": 366,
+      "x": 18,
+      "y": 780
+    }
+  ],
+  "animations": 1,
+  "balance": 70,
+  "contentHeight": 600,
+  "dialog": null,
+  "failures": [],
+  "reducedMotion": "false",
+  "rewardMedia": [
+    {
+      "bottom": 376.1875,
+      "height": 214,
+      "kind": "IMG",
+      "naturalHeight": 1024,
+      "naturalWidth": 1536,
+      "right": 361.5,
+      "width": 321,
+      "x": 40.5,
+      "y": 162.1875
+    }
+  ],
+  "scale": "1",
+  "scene": "R03",
+  "screen": {
+    "bottom": 710,
+    "height": 600,
+    "right": 402,
+    "width": 402,
+    "x": 0,
+    "y": 110
+  },
+  "scrollNeeded": false,
+  "sections": [
+    {
+      "bottom": 154.1875,
+      "height": 32.1875,
+      "kind": "heading",
+      "right": 384,
+      "width": 366,
+      "x": 18,
+      "y": 122
+    },
+    {
+      "bottom": 382.1875,
+      "height": 220,
+      "kind": "reward",
+      "right": 384,
+      "width": 366,
+      "x": 18,
+      "y": 162.1875
+    },
+    {
+      "bottom": 504.5625,
+      "height": 114.375,
+      "kind": "earned",
+      "right": 384,
+      "width": 366,
+      "x": 18,
+      "y": 390.1875
+    },
+    {
+      "bottom": 651.84375,
+      "height": 139.28125,
+      "kind": "receipt",
+      "right": 384,
+      "width": 366,
+      "x": 18,
+      "y": 512.5625
+    }
+  ],
+  "viewport": {
+    "height": 874,
+    "width": 402
+  }
+}

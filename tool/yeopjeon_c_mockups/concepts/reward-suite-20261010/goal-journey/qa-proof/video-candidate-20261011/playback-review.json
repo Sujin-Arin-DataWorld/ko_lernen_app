@@ -1,0 +1,452 @@
+{
+  "confirmed": "30",
+  "earned": "20",
+  "ended": true,
+  "frames": [
+    {
+      "earned": "0",
+      "elapsed": 0.4000000022351742,
+      "numeralGap": null,
+      "phase": "entering",
+      "reels": [
+        {
+          "kind": "wallet",
+          "rows": [
+            "",
+            ""
+          ],
+          "transform": "none",
+          "visible": false
+        },
+        {
+          "kind": "earned",
+          "rows": [
+            "",
+            ""
+          ],
+          "transform": "none",
+          "visible": false
+        }
+      ],
+      "videoTime": 0.15164,
+      "wallet": "10"
+    },
+    {
+      "coinLocal": "true",
+      "earned": "0",
+      "elapsed": 4592.699999999255,
+      "numeralGap": 8,
+      "phase": "crediting",
+      "reels": [
+        {
+          "kind": "wallet",
+          "rows": [
+            "",
+            ""
+          ],
+          "transform": "none",
+          "visible": false
+        },
+        {
+          "kind": "earned",
+          "rows": [
+            "",
+            ""
+          ],
+          "transform": "none",
+          "visible": false
+        }
+      ],
+      "videoTime": 4.744336,
+      "wallet": "10"
+    },
+    {
+      "coinLocal": "true",
+      "earned": "2",
+      "elapsed": 4690.60000000149,
+      "numeralGap": 8,
+      "phase": "crediting",
+      "reels": [
+        {
+          "kind": "wallet",
+          "rows": [
+            "10",
+            "12"
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, -17.6545)",
+          "visible": true
+        },
+        {
+          "kind": "earned",
+          "rows": [
+            "0",
+            "2"
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, -37.6603)",
+          "visible": true
+        }
+      ],
+      "videoTime": 4.842198,
+      "wallet": "12"
+    },
+    {
+      "coinLocal": "true",
+      "earned": "2",
+      "elapsed": 4774.199999999255,
+      "numeralGap": 8,
+      "phase": "crediting",
+      "reels": [
+        {
+          "kind": "wallet",
+          "rows": [
+            "10",
+            "12"
+          ],
+          "transform": "none",
+          "visible": false
+        },
+        {
+          "kind": "earned",
+          "rows": [
+            "0",
+            "2"
+          ],
+          "transform": "none",
+          "visible": false
+        }
+      ],
+      "videoTime": 4.926196,
+      "wallet": "12"
+    },
+    {
+      "coinLocal": "true",
+      "earned": "6",
+      "elapsed": 4790.60000000149,
+      "numeralGap": 8,
+      "phase": "crediting",
+      "reels": [
+        {
+          "kind": "wallet",
+          "rows": [
+            "12",
+            "16"
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, -17.6476)",
+          "visible": true
+        },
+        {
+          "kind": "earned",
+          "rows": [
+            "2",
+            "6"
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, -37.6455)",
+          "visible": true
+        }
+      ],
+      "videoTime": 4.942081,
+      "wallet": "16"
+    },
+    {
+      "coinLocal": "true",
+      "earned": "9",
+      "elapsed": 4874,
+      "numeralGap": 8,
+      "phase": "crediting",
+      "reels": [
+        {
+          "kind": "wallet",
+          "rows": [
+            "16",
+            "19"
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, -17.5933)",
+          "visible": true
+        },
+        {
+          "kind": "earned",
+          "rows": [
+            "6",
+            "9"
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, -37.5297)",
+          "visible": true
+        }
+      ],
+      "videoTime": 5.025279,
+      "wallet": "19"
+    },
+    {
+      "coinLocal": "true",
+      "earned": "9",
+      "elapsed": 4957.5,
+      "numeralGap": 8,
+      "phase": "crediting",
+      "reels": [
+        {
+          "kind": "wallet",
+          "rows": [
+            "16",
+            "19"
+          ],
+          "transform": "none",
+          "visible": false
+        },
+        {
+          "kind": "earned",
+          "rows": [
+            "6",
+            "9"
+          ],
+          "transform": "none",
+          "visible": false
+        }
+      ],
+      "videoTime": 5.109318,
+      "wallet": "19"
+    },
+    {
+      "coinLocal": "true",
+      "earned": "13",
+      "elapsed": 4973.900000002235,
+      "numeralGap": 8,
+      "phase": "crediting",
+      "reels": [
+        {
+          "kind": "wallet",
+          "rows": [
+            "19",
+            "23"
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, -17.596)",
+          "visible": true
+        },
+        {
+          "kind": "earned",
+          "rows": [
+            "9",
+            "13"
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, -37.5356)",
+          "visible": true
+        }
+      ],
+      "videoTime": 5.125059,
+      "wallet": "23"
+    },
+    {
+      "coinLocal": "true",
+      "earned": "13",
+      "elapsed": 5057.400000002235,
+      "numeralGap": 8,
+      "phase": "crediting",
+      "reels": [
+        {
+          "kind": "wallet",
+          "rows": [
+            "19",
+            "23"
+          ],
+          "transform": "none",
+          "visible": false
+        },
+        {
+          "kind": "earned",
+          "rows": [
+            "9",
+            "13"
+          ],
+          "transform": "none",
+          "visible": false
+        }
+      ],
+      "videoTime": 5.208829,
+      "wallet": "23"
+    },
+    {
+      "coinLocal": "true",
+      "earned": "16",
+      "elapsed": 5073.800000000745,
+      "numeralGap": 8,
+      "phase": "crediting",
+      "reels": [
+        {
+          "kind": "wallet",
+          "rows": [
+            "23",
+            "26"
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, -17.6023)",
+          "visible": true
+        },
+        {
+          "kind": "earned",
+          "rows": [
+            "13",
+            "16"
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, -37.549)",
+          "visible": true
+        }
+      ],
+      "videoTime": 5.225107,
+      "wallet": "26"
+    },
+    {
+      "coinLocal": "true",
+      "earned": "16",
+      "elapsed": 5157.300000000745,
+      "numeralGap": 8,
+      "phase": "crediting",
+      "reels": [
+        {
+          "kind": "wallet",
+          "rows": [
+            "23",
+            "26"
+          ],
+          "transform": "none",
+          "visible": false
+        },
+        {
+          "kind": "earned",
+          "rows": [
+            "13",
+            "16"
+          ],
+          "transform": "none",
+          "visible": false
+        }
+      ],
+      "videoTime": 5.309612,
+      "wallet": "26"
+    },
+    {
+      "coinLocal": "true",
+      "earned": "19",
+      "elapsed": 5207.300000000745,
+      "numeralGap": 8,
+      "phase": "crediting",
+      "reels": [
+        {
+          "kind": "wallet",
+          "rows": [
+            "26",
+            "29"
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, -17.6427)",
+          "visible": true
+        },
+        {
+          "kind": "earned",
+          "rows": [
+            "16",
+            "19"
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, -37.6351)",
+          "visible": true
+        }
+      ],
+      "videoTime": 5.358801,
+      "wallet": "29"
+    },
+    {
+      "coinLocal": "true",
+      "earned": "19",
+      "elapsed": 5290.699999999255,
+      "numeralGap": 8,
+      "phase": "crediting",
+      "reels": [
+        {
+          "kind": "wallet",
+          "rows": [
+            "26",
+            "29"
+          ],
+          "transform": "none",
+          "visible": false
+        },
+        {
+          "kind": "earned",
+          "rows": [
+            "16",
+            "19"
+          ],
+          "transform": "none",
+          "visible": false
+        }
+      ],
+      "videoTime": 5.44302,
+      "wallet": "29"
+    },
+    {
+      "coinLocal": "true",
+      "earned": "20",
+      "elapsed": 5357.300000000745,
+      "numeralGap": 8,
+      "phase": "crediting",
+      "reels": [
+        {
+          "kind": "wallet",
+          "rows": [
+            "29",
+            "30"
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, -17.6343)",
+          "visible": true
+        },
+        {
+          "kind": "earned",
+          "rows": [
+            "19",
+            "20"
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, -37.6173)",
+          "visible": true
+        }
+      ],
+      "videoTime": 5.508625,
+      "wallet": "30"
+    },
+    {
+      "coinLocal": "true",
+      "earned": "20",
+      "elapsed": 5440.60000000149,
+      "numeralGap": 8,
+      "phase": "crediting",
+      "reels": [
+        {
+          "kind": "wallet",
+          "rows": [
+            "29",
+            "30"
+          ],
+          "transform": "none",
+          "visible": false
+        },
+        {
+          "kind": "earned",
+          "rows": [
+            "19",
+            "20"
+          ],
+          "transform": "none",
+          "visible": false
+        }
+      ],
+      "videoTime": 5.592369,
+      "wallet": "30"
+    }
+  ],
+  "phase": "settled",
+  "reason": "completed",
+  "reel": "c-two-row",
+  "time": 10.005,
+  "viewport": [
+    402,
+    874
+  ],
+  "visualWallet": "30",
+  "boundary": "Uninterrupted HTML sample playback; final coin-local glyph placement and original C two-row reels",
+  "timeUtc": "2026-10-10T22:52:55.415330+00:00"
+}

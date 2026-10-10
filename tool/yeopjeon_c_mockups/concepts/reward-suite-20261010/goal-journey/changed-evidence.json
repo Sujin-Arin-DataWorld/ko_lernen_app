@@ -1,0 +1,1973 @@
+{
+  "changed_count": 487,
+  "reviewed_hash_changes": 3,
+  "changes": [
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-union-audit-20261010\\DECISIONS.json",
+      "status": "review_source_hash_changed"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\c-hangul-parity-20261009\\craft-v2\\hangul-atelier\\DIRECTION.md",
+      "status": "review_source_hash_changed"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\progress.md",
+      "status": "review_source_hash_changed"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\붓\\exec-b88c4130-58ee-4898-a370-6fb173d37e30.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비변신-도깨비소개\\exec-09ef8b7c-06ef-4a3c-909a-2fa3fe6e5739.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비변신-도깨비소개\\exec-0ec802f0-9c97-4173-9173-2b05fbab9ac8.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비변신-도깨비소개\\exec-13f11698-1207-48f1-a3fe-04e6253e57cb.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비변신-도깨비소개\\exec-432c674c-ec2f-436b-b77d-b0ff79d6a6fb.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비변신-도깨비소개\\exec-7acc6c7f-a2b0-4929-97a9-390814335715.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비변신-도깨비소개\\exec-9f7b585f-4881-42ec-93c5-7b3a384f5da9.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Fotofrafieren사진\\exec-3080562c-23ae-4493-8cdf-cf93faf624e1.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Fotofrafieren사진\\exec-42692204-a7fe-4f5e-8cf4-b865ea66fe29.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Fotofrafieren사진\\exec-bc134e17-0f17-4f7f-8b9f-27ca296c2fcd.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Fotofrafieren사진\\exec-db097516-1ade-4ab0-992f-7db843b4834c.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Fotofrafieren사진\\exec-e4ec1004-f0f3-4cb0-8884-b6cf95c7c4c2.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\einleitung1.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\einleitung1_levelchoose.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\einleitung2.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\einleitung3.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\einleitung4.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\einleitung5.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\einleitung6.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\einleitung7-joy.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\einleitung7-taego.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-000f02b9-46be-4e18-a3ee-d32343eaa91d.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-033e5332-7eae-4763-8da3-8a827e332f7a.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-03b6d51a-b21f-4738-b0c0-91e9808b66e4.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-0532e953-d18d-48f1-a693-f2459766e822.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-09b3ff63-9980-4b67-a48c-c5f4409fa7b7.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-0c92c0f4-e5ce-4191-a744-4643a6f56758.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-13d95ef0-1e31-45e1-a9b4-af141cd1d45c.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-14351317-fbc2-4ef2-8634-904fad58dc37.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-1492b2fe-69c7-4bb6-9d4b-7e0b54c514d0.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-14f15d4f-21dc-4a46-9e3f-fb4d3c1a6af9.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-18668fda-1d3e-4cb0-802d-25f59eaccad0.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-2635f7c6-911d-43c2-81ac-36226c98b8d4.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-2f373952-8a83-4741-9750-ee78605c9142.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-30eab357-1eb1-4529-95a4-aa17a2af9bc8.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-352d9390-61c0-4d73-bee2-168b7131d29a.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-3b30e939-9a36-471b-a59a-8c65e8025a5f.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-3c8952f5-d2be-409f-b084-e84d592694a7.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-40292fa6-b17b-4fbe-a79e-03d3c472e065.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-41ad8497-2057-4b3f-b287-4093ef572521.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-432d8b55-1b63-49d7-9dc8-1d80ced6f272.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-4736a58b-24de-47ab-be74-ee267cd17736.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-4fa3fa46-240e-4d64-a4f6-d29d2eca35ef.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-512da3ce-6193-43d9-9c9a-136322422ab2.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-5503d24d-ebb9-4138-883c-0aadd74f867c.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-5cea1ec8-b410-430e-bce0-2dd45dce8e1f.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-5ec1718f-f54b-4d06-a213-8b147c85f5ec.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-625a0185-b886-41e5-8d23-2ceca8bd427a.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-6573551b-838c-4e12-aee3-b6edf4177828.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-6603f5d0-697c-4d29-b449-64630e4dcff1.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-6ae6abbc-6ab0-4f55-8c4c-5c41dcf65c49.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-71724704-9259-4e92-a869-f99a6bde74bb.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-7894cf94-c61f-4298-be2b-8d1db55f329f.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-79980d19-0193-417c-a623-85cc226c2db3.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-7a875fda-e7a1-4f89-85fb-b8332a4eb28a.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-7c3bdaaf-e565-494b-893c-08de15914472.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-80258973-9730-432f-b33b-db5d120aeb00.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-85189dbb-8e56-4e5f-9d6f-b298fedd5dc5.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-85bd852e-8d0b-4385-b482-98cfb1595661.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-90ed5804-d58f-42ef-b3e1-57db12c00435.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-9563b555-c730-4f98-becf-7ec17087fa07.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-96e10845-fdf9-482b-9eaf-5ccc1caeea30.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-986b681c-7a7d-4fac-99fa-46ef2d180c47.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-99010cb0-b066-4f14-b8d6-e9d7aadf8e0a.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-9a225fa1-2c7d-4afb-94a6-8a6609560f30.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-9d0fbdc4-51c6-4f15-b161-89480d675cb9.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-a516ed52-fd38-4bd5-b723-ff52f6ce9c1e.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-a576db89-9426-48a2-b44d-8da99060486f.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-a88c4b5e-3464-4797-905f-08e68c75c863.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-b1a08f0d-aeaa-412c-9120-89e785306b77.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-b1b41d0d-f8ff-48bd-848e-ab2e332badd0.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-b415aa8c-5482-42a6-bbe2-4bdd970265d7.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-b4235369-db28-4c4f-86d4-436c2a6dc126.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-b89f95ee-98f3-4299-9e75-310c15c71965.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-c10abb38-d643-4d95-a93c-c4c3a926fe1a.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-c5eb404d-a158-4dc4-8560-0958086c82dc.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-cb500809-fff4-4825-82d5-c54cc328932a.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-cc2926db-406a-4f56-ac7d-4760cc3794f6.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-cc5b9c9a-1eed-4502-b235-b789b315c999.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-cdc3385e-3e13-43b0-a9fc-1d3ecb5f6c28.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-ce62d4e5-29bc-4175-918f-fdbc7525a478.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-cf591d65-11e5-45ac-ac25-ee2ff1ec5beb.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-d1fb7af6-bd6d-44f0-957e-4137c2f20bae.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-d20f279f-64c6-4136-90b8-e6b0f59a2f80.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-d767a8e0-8de7-4780-a531-e0521fb92d38.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-e7448ca7-a474-4ea3-a3e2-6b594acb2e45.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-eab6d3d6-2855-4e21-8c75-6851ad680cd3.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-eb24f3b2-ec95-44b9-86ae-4b58b5bbd880.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-ed9e954c-ea68-4c4b-9526-ab1ba6127725.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-ef2a15b1-2e15-448d-8031-3ad7875fbe64.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-efcabadf-1c35-408f-a052-4209b9969487.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-f0e2afad-0a5f-4634-967a-f5283fc979cb.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-f31f3392-7adf-4a47-8b82-d18cf48297a1.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-f5cf1c0d-bbd5-47dc-9b84-6d1f83c248bc.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-f7a808e1-5c4c-4eba-a77d-79cbee60ab3a.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-f83cccd6-d60f-4bca-a691-905885633fa3.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-f8cd77ee-61ad-4453-b4ef-d9554632ef7d.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-fb48b7ee-2720-4749-b996-cd6149c5e975.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-fcfd4042-aed6-4ab1-8712-4392c7d4af0f.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats\\exec-ffc97698-c44d-4c51-b7a4-202ac3c82860.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12775-dac1-7942-88e0-6842577140b3\\exec-b09a4e04-85a6-41d5-8eee-7dff86c015ed.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12775-dac1-7942-88e0-6842577140b3\\exec-cb26043c-de3b-4b4d-ba23-a9cdd105ec46.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12764-5384-7383-b529-1e218f9c951e\\exec-7deaf9b1-6e3b-4b4b-bbc7-97fbc0f22a09.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12764-5384-7383-b529-1e218f9c951e\\exec-855a533b-4b5f-4d60-9c85-48dcb86abc3a.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12764-5384-7383-b529-1e218f9c951e\\exec-c2d475da-05ea-4921-8bb5-225487afb12e.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a126bc-3685-7bf0-a70c-a3e953f75c95\\exec-5b153189-bda9-4c21-b6d5-f98bd0313f88.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a126bc-3685-7bf0-a70c-a3e953f75c95\\exec-e7a1c32e-64c1-447e-b994-5b41ebf33be1.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12633-7a68-7493-92c3-870282d036c4\\exec-283326cd-a830-4935-8349-c404731d80e0.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12633-7a68-7493-92c3-870282d036c4\\exec-5ef7d1e1-6cb8-4c70-a9db-2d34171bf710.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12633-7a68-7493-92c3-870282d036c4\\exec-9397fa1f-c02e-4958-88f1-12727544f450.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12633-7a68-7493-92c3-870282d036c4\\exec-a762b904-ebf4-409b-8314-3b30b8d3a064.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12252-a369-74c1-a37d-25e1f0933b5d\\exec-18536749-83f1-47ec-b29e-eca57272b165.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12252-a369-74c1-a37d-25e1f0933b5d\\exec-194eb7e6-295a-453f-acba-0f55f23f8db7.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12252-a369-74c1-a37d-25e1f0933b5d\\exec-19c84f1c-d2d2-4b41-9769-20c00e6e7b51.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12252-a369-74c1-a37d-25e1f0933b5d\\exec-1dffc936-f573-4638-a290-f715684dfdad.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12252-a369-74c1-a37d-25e1f0933b5d\\exec-27274463-f244-42c3-a263-f8f88c23a378.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12252-a369-74c1-a37d-25e1f0933b5d\\exec-392f6abd-72c3-4b03-883c-fdcf6a63e575.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12252-a369-74c1-a37d-25e1f0933b5d\\exec-51b8c701-72f6-4553-90ea-a948728ee819.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12252-a369-74c1-a37d-25e1f0933b5d\\exec-674cff4f-4a4b-4dd2-b1b6-df06b478771a.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12252-a369-74c1-a37d-25e1f0933b5d\\exec-8f8d23e9-2467-4879-b74b-e7f8ea38caeb.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12252-a369-74c1-a37d-25e1f0933b5d\\exec-9625dbde-638b-4f81-8e81-d875c91f91fa.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12252-a369-74c1-a37d-25e1f0933b5d\\exec-9741ac84-26a9-4e77-a0e5-4cfc2b2ab650.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12252-a369-74c1-a37d-25e1f0933b5d\\exec-9cea6781-843c-40e8-a72d-a26b1a0ceb76.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12252-a369-74c1-a37d-25e1f0933b5d\\exec-a854a913-b4c0-4ad0-bf5e-f4437dda47dd.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12252-a369-74c1-a37d-25e1f0933b5d\\exec-d8f32401-4538-4c4f-a3d5-bdc5b48d6a4d.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12252-a369-74c1-a37d-25e1f0933b5d\\exec-fee56b8f-68e7-497e-8d02-7c5180822267.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\active-vocab-quantity-result.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\active_vocab_quantity_test.dart",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\apply_lernen_material.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\audit_canonical_tts_delta.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\build_downstream_hanok_coverage.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\build_function_design_review.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\build_lernen_mockup_view.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\build_mockup_adoption.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\build_progress_view.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\build_screen_map_evidence.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\C2_TASK_SAMPLES.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\canonical-tts-before.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\canonical-tts-build.log",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\canonical-tts-check.log",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\canonical-tts-delta.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\canonical-tts-unit-test.log",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\common-c-real-font-test.log",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\common-c-test.log",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\content-analyze.log",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\content-change-manifest.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\content-cross-catalog-final-test.log",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\content-focused-test.log",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\content-report.md",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\content-tts-manifest-check.log",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\CONTENT_RECONCILIATION.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\copy_c_companions.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\copy_c_materials.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\cross-review.md",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\CULTURE_JOURNEY_REDESIGN.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\C_COMPANION_PROVENANCE.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\C_MATERIAL_PROVENANCE.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\C_MOCKUP_BACKLOG.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\C_VISUAL_RESET_20261010.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\daily-quantity-learning-audit.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\daily-quantity-source-probe.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\daily-quantity-word-audit.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\DAILY_QUANTITY_SOURCE_HASHES.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\downstream-hanok-culture-gap.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\downstream-learning-gap.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\downstream-word-photo-gap.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\DOWNSTREAM_AUDIT_SOURCE_HASHES.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\enhance_content_ledger.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\feedback-c-test.log",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\feedback-native-analyze.log",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\feedback-native-capture.log",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\flutter-native-preview.log",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\FOLDER_01A11BF5_RECONCILIATION.csv",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\FOLDER_01A11BF5_RECONCILIATION.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\FUNCTION_GAP_MOCKUPS.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\FUNCTION_REVIEW_PERSISTENCE.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\graph-before-function-review.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\hanok-report.md",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\integrate_content.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\LATEST_ATTACHMENT_RECONCILIATION.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\lernen-mockup-map.html",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\lernen-report.md",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\LERNEN_C_MOCKUPS_BUILD.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\LERNEN_DOWNSTREAM_DESIGN_REVIEW.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\LERNEN_SOURCE_STATUS.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\make_daily_quantity_word_audit.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\make_downstream_word_photo_gap.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\make_supplementary_core_screen_groups.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-selected-source-query.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-source-changes.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\MOCKUP_ADOPTION.csv",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\MOCKUP_ADOPTION.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\MOCKUP_ADOPTION.md",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\persist_function_design_review.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\preview-import-analyze.log",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\progress.md",
+      "status": "metadata_changed"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\reconcile_content.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\record_canonical_tts_completion.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\record_c_visual_approval.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\SCREEN_CONTENT_MAP.md",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\SCREEN_MAP_SOURCE_EVIDENCE.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\shared-c-regression-test.log",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\SKILL_APPLICATION_NATIVE.md",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\SOURCE_IDS.csv",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\supplementary-core-screen-groups.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\work-progress.html",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\wortpakete-c-review.html",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\WORTPAKETE_C_APPROVAL.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\WORTPAKETE_C_HANDOFF.md",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\_daily_quantity_probe.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\_validate_daily_quantity_audit.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\__pycache__\\reconcile_content.cpython-313.pyc",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\rejected-c-mockups\\r0001-do-not-copy.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\rejected-c-mockups\\r0002-do-not-copy.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\native-captures\\companion-render-reviewed.txt",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\native-captures\\feedback-magpie-de-402.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\native-captures\\feedback-magpie-en-402.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\native-captures\\feedback-tiger-de-402.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\native-captures\\feedback-tiger-en-402.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\001aa8ca636d76b087b3.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\0036807953964e938ce7.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\016141ebaa6eb30fc034.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\0709913f7a23c646a0e9.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\0f3063ab2444352716b2.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\105158e3d71c778ce50c.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\110872242ab8ce89ead7.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\1767e697074c7198ea1f.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\1b0e3a40b89c6787ee41.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\2ef59c53fae191c75984.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\43f310a46a8bad545a6b.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\49cf0b3c04ed84aaa56a.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\504d5745b20e4ee49c22.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\510faeac2c2d11838d67.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\59b616a5c8ff02678f9a.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\69597213f5e54c6b1b53.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\699193149481a1ac0e82.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\6aa472947e5369974e71.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\708fa82009af6c535221.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\713e0cbe732d8898a9c3.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\725105fe9958beeaa2d9.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\7401e696e1859f5980ce.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\74a8364ba827958c9e8f.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\74ae4d5d445ff6e7dc0d.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\760caaa561a1089a2e50.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\7d42a7e886ec177a7779.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\828ffea1bc4d8f9adc65.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\83f6aad3d23893dc6ffe.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\88a76a1c282601b5ce87.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\8c17baf136c8dd168d6f.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\8f92f8881337a350c61e.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\921de69a6577010323fa.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\96830b8b7aa87dd9c406.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\9e1026349ef681b8e6a0.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\a3643aec0d2b7f3b751b.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\a4be221e22e19958406e.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\b1026979e1d54d1c2c53.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\c5c8231230da1f855c56.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\c94eef03190bde28fabb.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\cdcc4138f90e02bc639e.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\d59fdc71e6c763596040.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\ec24284d4ebe511bc096.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\ece14f2ba30e7d71d0ea.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\fbe818edb0a77f828a9e.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\fe4c533c97ba475ae277.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\mockup-sources\\fed770786f5ffa8d68f5.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\function-gap-mockups\\catalog-and-quantity-c-v2.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\function-gap-mockups\\mywords-photo-downstream-c-v1.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\function-gap-mockups\\wortpakete-c-authority-grid-v1.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\culture-journey-redesign\\culture-journeys-c-v1.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\captures\\culture-actions-de-402.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\captures\\culture-actions-en-402.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\captures\\culture-journeys-de-402.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\captures\\culture-journeys-en-402.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\captures\\culture-reading-de-402.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\captures\\culture-reading-en-402.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\captures\\culture-scenes-de-402.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\captures\\culture-scenes-en-402.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\captures\\hanok-culture-entry-de-402.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\captures\\hanok-frame-de-402.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\captures\\hanok-practice-unfinished-de-402.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-ab-depth-review-20261010-v1\\build_depth_review.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-ab-depth-review-20261010-v1\\C2_GRAMMAR_IMAGE_PROMPT.txt",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-ab-depth-review-20261010-v1\\CONTENT_LAYOUT_CONTRACT.md",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-ab-depth-review-20261010-v1\\CURRENT_SOURCE_HASHES.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-ab-depth-review-20261010-v1\\C_SCREEN_MOCKUPS.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-ab-depth-review-20261010-v1\\C_STYLE_GENERATION_CONTRACT.md",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-ab-depth-review-20261010-v1\\graph-before-depth-review.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-ab-depth-review-20261010-v1\\index.html",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-ab-depth-review-20261010-v1\\LERNEN_AB_DEPTH_REVIEW.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-ab-depth-review-20261010-v1\\mockups.html",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-ab-depth-review-20261010-v1\\PERSISTENCE_RECEIPT.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-ab-depth-review-20261010-v1\\persist_depth_review.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-ab-depth-review-20261010-v1\\README.md",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-ab-depth-review-20261010-v1\\record_mockup.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-ab-depth-review-20261010-v1\\serve_review.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-ab-depth-review-20261010-v1\\SOURCE_HTTP_MAP.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-ab-depth-review-20261010-v1\\records\\C001.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\hanok-c-resume-20261010\\DESIGN_DIRECTION.md",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\hanok-c-resume-20261010\\inspect-01a11bd6-01.jpg",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\hanok-c-resume-20261010\\inspect-01a11bd6-02.jpg",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\hanok-c-resume-20261010\\inspect-01a11bd6-03.jpg",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\hanok-c-resume-20261010\\inspect-01a11bd6-04.jpg",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\hanok-c-resume-20261010\\inspect-01a11bd6-05.jpg",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\hanok-c-resume-20261010\\inspect-01a126bc-01.jpg",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\hanok-c-resume-20261010\\inspect-01a12764-01.jpg",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\hanok-c-resume-20261010\\inspect-canonical-Persona-TalSunbi-01.jpg",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\hanok-c-resume-20261010\\inspect-canonical-Persona-TalSunbi-02.jpg",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\hanok-c-resume-20261010\\inspect_visual_references.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\hanok-c-resume-20261010\\QUALITY_AUDIT.md",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\hanok-c-resume-20261010\\VISUAL_INVENTORY.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\hanok-c-resume-20261010\\images\\01-hanok-culture-paths.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\hanok-c-mockups-20261010-01a12764\\01-culture-scenes-and-sources.png",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\hanok-c-mockups-20261010-01a12764\\source-changes.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\generated-images-audit-20261002-20261010\\audit_data.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\generated-images-audit-20261002-20261010\\audit_middle.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\generated-images-audit-20261002-20261010\\audit_recent.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\generated-images-audit-20261002-20261010\\audit_recent.md",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\generated-images-audit-20261002-20261010\\build_gallery_data.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\generated-images-audit-20261002-20261010\\classified_images.csv",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\generated-images-audit-20261002-20261010\\REPORT.md",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\generated-images-audit-20261002-20261010\\serve_gallery.py",
+      "status": "metadata_changed"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\generated-images-audit-20261002-20261010\\audit_middle_parts\\2026-10-04_01.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\generated-images-audit-20261002-20261010\\audit_middle_parts\\2026-10-04_02.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\generated-images-audit-20261002-20261010\\audit_middle_parts\\2026-10-04_03.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\generated-images-audit-20261002-20261010\\audit_middle_parts\\2026-10-04_04.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\generated-images-audit-20261002-20261010\\audit_middle_parts\\2026-10-04_05.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\generated-images-audit-20261002-20261010\\audit_middle_parts\\2026-10-04_06.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\generated-images-audit-20261002-20261010\\audit_middle_parts\\2026-10-05_01.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\generated-images-audit-20261002-20261010\\audit_middle_parts\\2026-10-05_02.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\generated-images-audit-20261002-20261010\\audit_middle_parts\\2026-10-05_03.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\generated-images-audit-20261002-20261010\\audit_middle_parts\\2026-10-05_04.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\generated-images-audit-20261002-20261010\\audit_middle_parts\\2026-10-05_05.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\generated-images-audit-20261002-20261010\\audit_middle_parts\\2026-10-05_06.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\generated-images-audit-20261002-20261010\\audit_middle_parts\\2026-10-05_07.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\c-hangul-parity-20261009\\craft-v2\\hangul-atelier\\adaptive.css",
+      "status": "metadata_changed"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\c-hangul-parity-20261009\\craft-v2\\hangul-atelier\\app-settings.mjs",
+      "status": "metadata_changed"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\c-hangul-parity-20261009\\craft-v2\\hangul-atelier\\DIRECTION.md",
+      "status": "metadata_changed"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\c-hangul-parity-20261009\\craft-v2\\hangul-atelier\\enhancement-verification.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\c-hangul-parity-20261009\\craft-v2\\hangul-atelier\\index.html",
+      "status": "metadata_changed"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\c-hangul-parity-20261009\\craft-v2\\hangul-atelier\\interaction.js",
+      "status": "metadata_changed"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\c-hangul-parity-20261009\\craft-v2\\hangul-atelier\\review-session.mjs",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\c-hangul-parity-20261009\\craft-v2\\hangul-atelier\\review-session.test.mjs",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\c-hangul-parity-20261009\\craft-v2\\hangul-atelier\\settings-reference-receipts.json",
+      "status": "metadata_changed"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\c-hangul-parity-20261009\\craft-v2\\hangul-atelier\\verify-enhancements.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\c-hangul-parity-20261009\\craft-v2\\hangul-atelier\\proof\\adaptive-cards-phone-20261010.jpg",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\c-hangul-parity-20261009\\craft-v2\\hangul-atelier\\proof\\adaptive-cards-phone-20261010.jpg.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\c-hangul-parity-20261009\\craft-v2\\hangul-atelier\\proof\\adaptive-settings-phone-20261010.jpg",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\c-hangul-parity-20261009\\craft-v2\\hangul-atelier\\proof\\adaptive-settings-phone-20261010.jpg.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\c-hangul-parity-20261009\\craft-v2\\hangul-atelier\\proof\\adaptive-writing-phone-20261010.jpg",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\c-hangul-parity-20261009\\craft-v2\\hangul-atelier\\proof\\adaptive-writing-phone-20261010.jpg.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\c-hangul-parity-20261009\\craft-v2\\hangul-atelier\\proof\\adaptive-writing-tablet-20261010.jpg",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\c-hangul-parity-20261009\\craft-v2\\hangul-atelier\\proof\\adaptive-writing-tablet-20261010.jpg.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\ADOPTION_OPEN_CONDITIONS.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\audit_canonical.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\audit_runtime.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\build_extension.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\CANONICAL_RUNTIME_MATCHES.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\changes_after_review.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\changes_initial.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\CHARACTER_RUNTIME_REFERENCES.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\contact-H-1.jpg",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\contact-V-1.jpg",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\contact-X-1.jpg",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\contact-X-2.jpg",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\dashboard.html",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\DELTA_TRIAGE.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\explore.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\extension.sqlite",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\FINDINGS.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\FROZEN_APPROVAL_CHECK.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\guardian-identity-check.jpg",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\image_delta_records.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\LIVE_CONTENT_CHECK.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\lookup.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\prepare.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\record_review.py",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\SOURCE_RECEIPTS.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\SUMMARY.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\graphify-out\\cost.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-index-extension-20261010-01a12687\\graphify-out\\graph.json",
+      "status": "new"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-f7a808e1-5c4c-4eba-a77d-79cbee60ab3a.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-5ec1718f-f54b-4d06-a213-8b147c85f5ec.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-96e10845-fdf9-482b-9eaf-5ccc1caeea30.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-14351317-fbc2-4ef2-8634-904fad58dc37.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-3b30e939-9a36-471b-a59a-8c65e8025a5f.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-9d0fbdc4-51c6-4f15-b161-89480d675cb9.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-6603f5d0-697c-4d29-b449-64630e4dcff1.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-79980d19-0193-417c-a623-85cc226c2db3.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-5503d24d-ebb9-4138-883c-0aadd74f867c.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-13d95ef0-1e31-45e1-a9b4-af141cd1d45c.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-eb24f3b2-ec95-44b9-86ae-4b58b5bbd880.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-fcfd4042-aed6-4ab1-8712-4392c7d4af0f.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-c5eb404d-a158-4dc4-8560-0958086c82dc.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-90ed5804-d58f-42ef-b3e1-57db12c00435.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-b1a08f0d-aeaa-412c-9120-89e785306b77.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-ffc97698-c44d-4c51-b7a4-202ac3c82860.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-b89f95ee-98f3-4299-9e75-310c15c71965.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-14f15d4f-21dc-4a46-9e3f-fb4d3c1a6af9.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-986b681c-7a7d-4fac-99fa-46ef2d180c47.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-09b3ff63-9980-4b67-a48c-c5f4409fa7b7.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-512da3ce-6193-43d9-9c9a-136322422ab2.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a11bd6-c610-7ee3-9a04-1ce616508896\\exec-a20a6322-f98d-4575-8dd1-f1fc4b8fc24b.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-18668fda-1d3e-4cb0-802d-25f59eaccad0.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-f5cf1c0d-bbd5-47dc-9b84-6d1f83c248bc.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-3c8952f5-d2be-409f-b084-e84d592694a7.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-d767a8e0-8de7-4780-a531-e0521fb92d38.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a120e1-8621-77f1-b07c-f6499ac0829e\\exec-13f11698-1207-48f1-a3fe-04e6253e57cb.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a11bd6-c610-7ee3-9a04-1ce616508896\\exec-b6644a69-0047-4844-9d96-b3016046445a.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-7a875fda-e7a1-4f89-85fb-b8332a4eb28a.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a120e1-8621-77f1-b07c-f6499ac0829e\\exec-432c674c-ec2f-436b-b77d-b0ff79d6a6fb.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\einleitung7-joy.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-efcabadf-1c35-408f-a052-4209b9969487.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a11bd6-c610-7ee3-9a04-1ce616508896\\exec-36592f51-120a-4d5c-91ba-6135a6cb0776.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-7c3bdaaf-e565-494b-893c-08de15914472.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-eab6d3d6-2855-4e21-8c75-6851ad680cd3.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-e7448ca7-a474-4ea3-a3e2-6b594acb2e45.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-033e5332-7eae-4763-8da3-8a827e332f7a.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-2635f7c6-911d-43c2-81ac-36226c98b8d4.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-c10abb38-d643-4d95-a93c-c4c3a926fe1a.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-b4235369-db28-4c4f-86d4-436c2a6dc126.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a11bd6-c610-7ee3-9a04-1ce616508896\\exec-b987e635-84e5-4cd5-9ae6-7fea40acc1a6.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a120e1-8621-77f1-b07c-f6499ac0829e\\exec-9f7b585f-4881-42ec-93c5-7b3a384f5da9.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-80258973-9730-432f-b33b-db5d120aeb00.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-2f373952-8a83-4741-9750-ee78605c9142.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-1492b2fe-69c7-4bb6-9d4b-7e0b54c514d0.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-a516ed52-fd38-4bd5-b723-ff52f6ce9c1e.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-352d9390-61c0-4d73-bee2-168b7131d29a.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-ef2a15b1-2e15-448d-8031-3ad7875fbe64.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\einleitung7-taego.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-cb500809-fff4-4825-82d5-c54cc328932a.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12234-808f-75e2-bbaf-918f3b737f14\\exec-e4ec1004-f0f3-4cb0-8884-b6cf95c7c4c2.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-b1b41d0d-f8ff-48bd-848e-ab2e332badd0.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-6573551b-838c-4e12-aee3-b6edf4177828.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-0532e953-d18d-48f1-a693-f2459766e822.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-b415aa8c-5482-42a6-bbe2-4bdd970265d7.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a11bd6-c610-7ee3-9a04-1ce616508896\\exec-39498576-712e-4d52-be62-5649eced88b8.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-cc5b9c9a-1eed-4502-b235-b789b315c999.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-0c92c0f4-e5ce-4191-a744-4643a6f56758.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\einleitung6.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\einleitung3.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-cf591d65-11e5-45ac-ac25-ee2ff1ec5beb.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12234-808f-75e2-bbaf-918f3b737f14\\exec-42692204-a7fe-4f5e-8cf4-b865ea66fe29.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-f83cccd6-d60f-4bca-a691-905885633fa3.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-000f02b9-46be-4e18-a3ee-d32343eaa91d.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12234-808f-75e2-bbaf-918f3b737f14\\exec-bc134e17-0f17-4f7f-8b9f-27ca296c2fcd.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-f0e2afad-0a5f-4634-967a-f5283fc979cb.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-d20f279f-64c6-4136-90b8-e6b0f59a2f80.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-7894cf94-c61f-4298-be2b-8d1db55f329f.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-625a0185-b886-41e5-8d23-2ceca8bd427a.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-ce62d4e5-29bc-4175-918f-fdbc7525a478.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-4fa3fa46-240e-4d64-a4f6-d29d2eca35ef.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-5cea1ec8-b410-430e-bce0-2dd45dce8e1f.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-85bd852e-8d0b-4385-b482-98cfb1595661.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-cdc3385e-3e13-43b0-a9fc-1d3ecb5f6c28.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\einleitung1.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12234-d0ac-7222-88e8-68cabc297c3c\\exec-b88c4130-58ee-4898-a370-6fb173d37e30.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\einleitung1_levelchoose.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-40292fa6-b17b-4fbe-a79e-03d3c472e065.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a120e1-8621-77f1-b07c-f6499ac0829e\\exec-09ef8b7c-06ef-4a3c-909a-2fa3fe6e5739.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\einleitung4.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-a88c4b5e-3464-4797-905f-08e68c75c863.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a0fcf4-681f-7c21-8c3a-bd5dff48c05f\\exec-f92877b9-ca7c-4a36-b4b2-0beb5e122f8a.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-41ad8497-2057-4b3f-b287-4093ef572521.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-9563b555-c730-4f98-becf-7ec17087fa07.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12234-808f-75e2-bbaf-918f3b737f14\\exec-db097516-1ade-4ab0-992f-7db843b4834c.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-d1fb7af6-bd6d-44f0-957e-4137c2f20bae.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-f8cd77ee-61ad-4453-b4ef-d9554632ef7d.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-a576db89-9426-48a2-b44d-8da99060486f.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-fb48b7ee-2720-4749-b996-cd6149c5e975.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a0fcf4-681f-7c21-8c3a-bd5dff48c05f\\exec-d063380d-c851-435e-9127-b7acc903b87c.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\einleitung2.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-30eab357-1eb1-4529-95a4-aa17a2af9bc8.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a120e1-8621-77f1-b07c-f6499ac0829e\\exec-7acc6c7f-a2b0-4929-97a9-390814335715.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12234-808f-75e2-bbaf-918f3b737f14\\exec-3080562c-23ae-4493-8cdf-cf93faf624e1.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-71724704-9259-4e92-a869-f99a6bde74bb.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-85189dbb-8e56-4e5f-9d6f-b298fedd5dc5.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a120e1-8621-77f1-b07c-f6499ac0829e\\exec-0ec802f0-9c97-4173-9173-2b05fbab9ac8.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-99010cb0-b066-4f14-b8d6-e9d7aadf8e0a.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-432d8b55-1b63-49d7-9dc8-1d80ced6f272.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-cc2926db-406a-4f56-ac7d-4760cc3794f6.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-9a225fa1-2c7d-4afb-94a6-8a6609560f30.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-03b6d51a-b21f-4738-b0c0-91e9808b66e4.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-4736a58b-24de-47ab-be74-ee267cd17736.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\einleitung5.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-6ae6abbc-6ab0-4f55-8c4c-5c41dcf65c49.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-ed9e954c-ea68-4c4b-9526-ab1ba6127725.png",
+      "status": "missing"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-f31f3392-7adf-4a47-8b82-d18cf48297a1.png",
+      "status": "missing"
+    }
+  ],
+  "errors": [],
+  "roots": [
+    "C:\\dev\\hangulsori\\_codex_artifacts",
+    "C:\\Users\\vjinn\\.codex\\generated_images"
+  ],
+  "note": "Sources are not mutated. Metadata-only checks cannot detect same-size edits with restored timestamps; --verify-reviewed checks recorded document hashes. Index update does not imply approval.",
+  "external_api_calls": 0
+}

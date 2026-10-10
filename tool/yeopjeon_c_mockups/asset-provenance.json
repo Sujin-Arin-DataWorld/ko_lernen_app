@@ -1,0 +1,245 @@
+[
+  {
+    "file": "assets/material_atlas.png",
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\concept_c\\material_atlas.png",
+    "sha256": "de51969fdc7fbd7f2f4c0c87acbe5061afdaf799b9a90937c5abbf2b6570e464",
+    "unchanged": true
+  },
+  {
+    "file": "assets/garden_frame.png",
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\concept_c\\garden_frame.png",
+    "sha256": "a1d4d0b7cad22141681baa2d5ee4506663d332cb724409dd6118d6cf91d38eaa",
+    "unchanged": true
+  },
+  {
+    "file": "assets/dokkaebi_ready.png",
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\tactile\\dokkaebi\\dokkaebi_ready.png",
+    "sha256": "facaa51a5a420fd57fa07a805607d083592e801cbc6e39ff049a32818f3f04ba",
+    "unchanged": true
+  },
+  {
+    "file": "assets/dokkaebi_celebrate.png",
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\tactile\\dokkaebi\\dokkaebi_celebrate.png",
+    "sha256": "690d6640d37c1147cd25d104458b8854c3356fc8001ab352ecb3fdd70c4b8819",
+    "unchanged": true
+  },
+  {
+    "file": "assets/dokkaebi_inviting.png",
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\tactile\\dokkaebi\\dokkaebi_inviting.png",
+    "sha256": "fd2ff0fc837dbba6a06679970f2bf938811b3a319e6838a8c8fbc9364e71b2c8",
+    "unchanged": true
+  },
+  {
+    "file": "assets/yupjeon.png",
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets\\illustrations\\mascot\\yupjeon.png",
+    "sha256": "4a1a7f8066e7253827916b777a2e8970ebf36a66316e78044a6fc78111f2fad7",
+    "unchanged": true
+  },
+  {
+    "file": "assets/bok.png",
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets\\illustrations\\mascot\\bok.png",
+    "sha256": "d5bdb6f959c4bec07e07c1881dc5ba9d5f67e0e70100b64865e4ca4aadb3b33c",
+    "unchanged": true
+  },
+  {
+    "file": "assets/coin.png",
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\concept_c\\coin_v2.png",
+    "sha256": "c187032485925a52d6a6148fdeea11382a95648f0c37eecdfd1cd5654959f40f",
+    "unchanged": true
+  },
+  {
+    "file": "assets/book.png",
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\concept_c\\book_v2.png",
+    "sha256": "d1c814c375dc8d92712bf4b0975229e5c4cc72d048c3af3eaebf01b1a104d6d4",
+    "unchanged": true
+  },
+  {
+    "file": "assets/arrow.png",
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\concept_c\\arrow_v2.png",
+    "sha256": "d3a29d5361ecabfb2afd1a81a9c4b20e9cc28bf6b4d4f31807c3cfa7d347baf4",
+    "unchanged": true
+  },
+  {
+    "file": "assets/cloud.png",
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\concept_c\\cloud_v2.png",
+    "sha256": "c728baced6dd3bff2729bf2a28dbf62e3954ad91a04594e04dc923fbd530f6a5",
+    "unchanged": true
+  },
+  {
+    "file": "legacy-reference/stage_07.png",
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\sarangchae\\stage_07_purlins.png",
+    "sha256": "a25f87e0ab56884c0b6988bfbcb0a5e8b4e13c1ba0de4e91cd82f708a7c5ffa6",
+    "unchanged": true,
+    "use": "reference_only_do_not_connect"
+  },
+  {
+    "file": "legacy-reference/stage_08.png",
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\sarangchae\\stage_08_rafters.png",
+    "sha256": "81e68c58d5d342bef0e5849dae38bfc6f5483d436140cc6615c492d3119dcd10",
+    "unchanged": true,
+    "use": "reference_only_do_not_connect"
+  },
+  {
+    "file": "legacy-reference/stage_16.png",
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\sarangchae\\stage_16_complete.png",
+    "sha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a",
+    "unchanged": true,
+    "use": "reference_only_do_not_connect"
+  },
+  {
+    "file": "assets/making_money.mp4",
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\making_money.mp4",
+    "sha256": "6e850b717ec285fd1d9be057da361fed629c178e750a15c77b592cbda6f91ff5",
+    "unchanged": true
+  },
+  {
+    "file": "assets/money_start.png",
+    "source": "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-407-0.png",
+    "sha256": "857f2a6dee2b9c976db8c75474112852ead5065301bf03d65d672438606a9a7c",
+    "unchanged": true
+  },
+  {
+    "file": "assets/money_end.png",
+    "source": "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-407-7.png",
+    "sha256": "338d311cdcbf894dab580f1d1a57c1c201294f1d0a055a7bc34fd709e3c46356",
+    "unchanged": true
+  },
+  {
+    "file": "assets/Paperlogy-Regular.ttf",
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\fonts\\Paperlogy\\Paperlogy-Regular.ttf",
+    "sha256": "05e1021e3de620dddc97875342e2be1a94c5f8e9b9f792bd16c4c1d0085343b3",
+    "unchanged": true
+  },
+  {
+    "file": "assets/Paperlogy-SemiBold.ttf",
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\fonts\\Paperlogy\\Paperlogy-SemiBold.ttf",
+    "sha256": "ca92034a1c4602a57c55434dfdbf8428a0bb88ac84a99a5effec1a41f0118127",
+    "unchanged": true
+  },
+  {
+    "file": "assets/Paperlogy-Bold.ttf",
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\fonts\\Paperlogy\\Paperlogy-Bold.ttf",
+    "sha256": "7effb892621474e9c2a9112f482eb87dd25b65a470e5ae5971be5a68d89ad89b",
+    "unchanged": true
+  },
+  {
+    "file": "assets/NotoSansKR.ttf",
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\fonts\\NotoSansKR\\NotoSansKR-Variable.ttf",
+    "sha256": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252",
+    "unchanged": true
+  },
+  {
+    "file": "assets/Paperlogy-OFL.txt",
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\fonts\\Paperlogy\\OFL.txt",
+    "sha256": "938f22d657804edfed66e0597beeb7897a40b2045080fb995b8bdec4aede316e",
+    "unchanged": true
+  },
+  {
+    "file": "assets/NotoSansKR-OFL.txt",
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\fonts\\NotoSansKR\\OFL.txt",
+    "sha256": "7accca2f29220c9ab44e4950799b821f36ebf5bbe6b5fb5342724b32228a8daf",
+    "unchanged": true
+  },
+  {
+    "file": "assets/brass_cta.png",
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-432d8b55-1b63-49d7-9dc8-1d80ced6f272.png",
+    "sha256": "5d3ce82ad26b5bbf00ab5457fbef0cfaf0fb7c3e65d774f5846e1893fe98312f",
+    "unchanged": true
+  },
+  {
+    "file": "assets/cta_atlas.png",
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a120e1-8621-77f1-b07c-f6499ac0829e\\exec-13f11698-1207-48f1-a3fe-04e6253e57cb.png",
+    "sha256": "8776e14cb6abd67e9df23ee97d8b30e19ad84099b9d381f12904ed71bf9a5ce6",
+    "unchanged": true
+  },
+  {
+    "file": "design/approved-board.png",
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12252-a369-74c1-a37d-25e1f0933b5d\\exec-33955262-114b-4389-bb37-512609cd5ba1.png",
+    "sha256": "55e99a8da1359ce89c042e85e521ffbcfe5d4c062059bd4fec0e5428a50ab577",
+    "unchanged": true
+  },
+  {
+    "file": "design/secret-board.png",
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a12252-a369-74c1-a37d-25e1f0933b5d\\exec-4783054e-103e-49fb-91cf-67aaa4fa1fbf.png",
+    "sha256": "e98dcbfeeae9411e170f863028bfa56c352d3d872d2bf96bf1caef5a419a37ed",
+    "unchanged": true,
+    "use": "user_rejected_cloth_question_mark_do_not_copy"
+  },
+  {
+    "file": "assets/making_money_alpha.webm",
+    "source": "assets/making_money.mp4",
+    "sha256": "07be35371433429057021e017223bae49e2ed3bd992e1e52ec34fc88b60452dd",
+    "unchanged": false,
+    "use": "active_video_alpha_derivative",
+    "recipe": "transparent_video.py alpha-only RGB-preserving matte",
+    "verification": "media-review/video-alpha-report.json"
+  },
+  {
+    "file": "design/ab-board.png",
+    "source": "C:/Users/vjinn/.codex/generated_images/01a12252-a369-74c1-a37d-25e1f0933b5d/exec-07f95974-1ed0-4159-bbad-f77f0acdebaa.png",
+    "sha256": "2999c46b1493ceb5c7df1854ff64516c2fc05088a7f070e9198412c821efaa78",
+    "unchanged": true,
+    "use": "user_rejected_excessive_decoration_do_not_copy"
+  },
+  {
+    "file": "assets/money_alpha_start.png",
+    "source": "media-review/frame-000.png",
+    "sha256": "f778588609afaff04709a7c26d9fcd7dc37e447d452cfe70fbe017215eb5b984",
+    "unchanged": true,
+    "use": "alpha_video_frame_poster_same_full_frame",
+    "recipe": "transparent_video.py alpha-only RGB-preserving matte"
+  },
+  {
+    "file": "assets/money_alpha_end.png",
+    "source": "media-review/frame-120.png",
+    "sha256": "c3cda24733f90995a2f2858647e0ae493624cba054e5d4036a08a5a73e533b9c",
+    "unchanged": true,
+    "use": "alpha_video_frame_poster_same_full_frame",
+    "recipe": "transparent_video.py alpha-only RGB-preserving matte"
+  },
+  {
+    "file": "reference-style/style-learning-ab.png",
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a11bf5-1d87-7473-ade6-4b743bff6238\\exec-7c429893-3027-4194-b975-361336d7753a.png",
+    "sha256": "a3643aec0d2b7f3b751b1d883b60f2b64bf8cec3992e68e544ec03d55932cca4",
+    "unchanged": true,
+    "use": "user_named_style_reference_not_runtime"
+  },
+  {
+    "file": "reference-style/style-review-ab.png",
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a11bf5-1d87-7473-ade6-4b743bff6238\\exec-99f4dcf5-5a48-4a8c-a7e5-ff70fef77827.png",
+    "sha256": "2ef59c53fae191c7598428364d7b08f61eb803f2c62bd3d57e80411ada122c2a",
+    "unchanged": true,
+    "use": "user_named_style_reference_not_runtime"
+  },
+  {
+    "file": "reference-style/style-c-foundation.png",
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a11bf5-1d87-7473-ade6-4b743bff6238\\exec-46801e6d-0d14-4ec1-9887-58525999f98b.png",
+    "sha256": "1f57d95181eb11f03b60b02ab57e8913eda825aa83310a6ead031606bc7d5df9",
+    "unchanged": true,
+    "use": "user_named_style_reference_not_runtime"
+  },
+  {
+    "file": "assets/coin_face.png",
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-efcabadf-1c35-408f-a052-4209b9969487.png",
+    "sha256": "9786f2acaae738972bfdb91104d8be43c9bc0ec8ce64c4b3ac1ad2a3ae51c0c9",
+    "unchanged": true
+  },
+  {
+    "file": "assets/brand_seal.png",
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-1492b2fe-69c7-4bb6-9d4b-7e0b54c514d0.png",
+    "sha256": "efb9e4fd903a87685a568de4a191d3a9f66fc4cc270aeea7a75228d45b932ce6",
+    "unchanged": true
+  },
+  {
+    "file": "assets/paper_texture.png",
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-9d0fbdc4-51c6-4f15-b161-89480d675cb9.png",
+    "sha256": "6d9fcb2e702e515634911a83ece52b73ee441f86a74e41d19a1e1b903f043602",
+    "unchanged": true
+  },
+  {
+    "file": "assets/jade_texture.png",
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a10981-52b8-7171-9152-7c911290e994\\exec-b1b41d0d-f8ff-48bd-848e-ab2e332badd0.png",
+    "sha256": "88bd3a7d543ac5fb7b7436c892b174ec977bc717520f218699fc137c255c77fe",
+    "unchanged": true
+  }
+]

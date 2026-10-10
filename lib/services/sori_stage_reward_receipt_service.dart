@@ -249,6 +249,8 @@ abstract final class SoriStageRewardReceiptService {
       activityId: activityId,
       receiptId: stableId,
       items: List.unmodifiable(items),
+      yeopjeonBalanceBefore: beforeWallet?.balance,
+      yeopjeonWalletAfter: afterWallet,
       sarangchaeStageBefore: before.ownedSarangchaeStage,
       sarangchaeStageAfter: after.ownedSarangchaeStage,
       b2ConstructionStageBefore: before.ownedB2Stage,

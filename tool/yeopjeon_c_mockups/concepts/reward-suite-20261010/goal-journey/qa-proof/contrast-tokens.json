@@ -1,0 +1,41 @@
+{
+  "method": "Token colour contrast; textured backgrounds require separate rendered review.",
+  "pairs": [
+    {
+      "role": "body/hanji",
+      "text": "#1c2520",
+      "background": "#f6ede0",
+      "ratio": 13.57
+    },
+    {
+      "role": "muted/hanji",
+      "text": "#4b5148",
+      "background": "#f6ede0",
+      "ratio": 7.05
+    },
+    {
+      "role": "kicker/hanji",
+      "text": "#565441",
+      "background": "#f6ede0",
+      "ratio": 6.61
+    },
+    {
+      "role": "CTA/brass dark end",
+      "text": "#211b10",
+      "background": "#dfa443",
+      "ratio": 7.75
+    },
+    {
+      "role": "heading/jade",
+      "text": "#fff8ee",
+      "background": "#123e37",
+      "ratio": 11.25
+    },
+    {
+      "role": "context/jade",
+      "text": "#efe1c9",
+      "background": "#123e37",
+      "ratio": 9.2
+    }
+  ]
+}

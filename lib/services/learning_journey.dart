@@ -125,6 +125,15 @@ class LearningJourney {
       activityId: receipt.activityId,
       receiptId: receipt.receiptId,
       items: items,
+      // Advance only through already-presented confirmed credits. If another
+      // transaction changed the balance, the UI shows the final snapshot.
+      yeopjeonBalanceBefore: receipt.canRollYeopjeon
+          ? receipt.yeopjeonWalletAfter!.balance -
+                items
+                    .where((item) => item.kind == SoriRewardKind.yeopjeon)
+                    .fold<int>(0, (sum, item) => sum + (item.amount ?? 0))
+          : receipt.yeopjeonBalanceBefore,
+      yeopjeonWalletAfter: receipt.yeopjeonWalletAfter,
       // Keep the actual stage bounds while advancing past stages already
       // presented natively. An XP-only remainder must not replay the upgrade.
       sarangchaeStageBefore: receipt.hasSarangchaeUpgrade

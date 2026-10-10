@@ -1,0 +1,79 @@
+{
+  "lifecycle": {
+    "effectiveLaunch": {
+      "browserLaunched": true,
+      "engine": "chrome",
+      "launchHash": 7707568497978554591
+    },
+    "launched": false,
+    "relaunchedBrowser": false,
+    "restartedBackground": false,
+    "restoreStatus": "not_configured",
+    "reused": true,
+    "saveStatus": "not_attempted"
+  },
+  "origin": "http://127.0.0.1:8793/concepts/reward-suite-20261010/goal-journey/preview.html?lang=de",
+  "refs": {
+    "e1": {
+      "name": "Alle sieben Ansichten",
+      "role": "link"
+    },
+    "e10": {
+      "name": "Aktuelles Guthaben: 30 Yeopjeon. Deine Yeopjeon",
+      "role": "button"
+    },
+    "e11": {
+      "name": "Dein Lernziel",
+      "role": "region"
+    },
+    "e12": {
+      "name": "Lernziel fortsetzen",
+      "role": "button"
+    },
+    "e13": {
+      "name": "Zurück zu deinen Yeopjeon",
+      "role": "button"
+    },
+    "e14": {
+      "name": "Dein Lernziel",
+      "role": "heading"
+    },
+    "e15": {
+      "name": "Erste Begrüßung und Nachfragen",
+      "role": "heading"
+    },
+    "e2": {
+      "name": "Sprache",
+      "role": "navigation"
+    },
+    "e3": {
+      "name": "Interaktive App-Vorschau",
+      "role": "region"
+    },
+    "e4": {
+      "name": "Deutsch",
+      "role": "button"
+    },
+    "e5": {
+      "name": "English",
+      "role": "button"
+    },
+    "e6": {
+      "name": "Deine Yeopjeon. Dein nächster Schritt.",
+      "role": "heading"
+    },
+    "e7": {
+      "name": "Yeopjeon-Übersicht",
+      "role": "button"
+    },
+    "e8": {
+      "name": "Von vorne beginnen",
+      "role": "button"
+    },
+    "e9": {
+      "name": "Früherer Entwurf",
+      "role": "link"
+    }
+  },
+  "snapshot": "- link \"Alle sieben Ansichten\" [ref=e1]\n- navigation \"Sprache\" [ref=e2]\n  - button \"Deutsch\" [ref=e4]\n  - button \"English\" [ref=e5]\n- region \"Interaktive App-Vorschau\" [ref=e3]\n  - button \"Aktuelles Guthaben: 30 Yeopjeon. Deine Yeopjeon\" [ref=e10]\n  - region \"Dein Lernziel\" [ref=e11]\n    - heading \"Dein Lernziel\" [level=1, ref=e14]\n    - heading \"Erste Begrüßung und Nachfragen\" [level=2, ref=e15]\n  - button \"Lernziel fortsetzen\" [ref=e12]\n  - button \"Zurück zu deinen Yeopjeon\" [ref=e13]\n- heading \"Deine Yeopjeon. Dein nächster Schritt.\" [level=1, ref=e6]\n- button \"Yeopjeon-Übersicht\" [ref=e7]\n- button \"Von vorne beginnen\" [ref=e8]\n- link \"Früherer Entwurf\" [ref=e9]"
+}

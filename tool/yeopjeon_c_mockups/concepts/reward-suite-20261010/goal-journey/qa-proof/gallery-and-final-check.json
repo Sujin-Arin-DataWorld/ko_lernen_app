@@ -1,0 +1,290 @@
+{
+  "timeUtc": "2026-10-10T23:12:14.955559+00:00",
+  "boundary": "Local HTML/sample storage only",
+  "gallery": [
+    {
+      "images": [
+        {
+          "h": 874,
+          "src": "rendered/R01-first-daily-de.png",
+          "w": 402
+        },
+        {
+          "h": 874,
+          "src": "rendered/R03-reward-received-de.png",
+          "w": 402
+        },
+        {
+          "h": 874,
+          "src": "rendered/W03-learning-goal-de.png",
+          "w": 402
+        },
+        {
+          "h": 874,
+          "src": "rendered/W04-build-ready-de.png",
+          "w": 402
+        },
+        {
+          "h": 874,
+          "src": "rendered/B01-spend-confirm-de.png",
+          "w": 402
+        },
+        {
+          "h": 874,
+          "src": "rendered/B03-saved-progress-de.png",
+          "w": 402
+        },
+        {
+          "h": 874,
+          "src": "rendered/W05-next-goal-de.png",
+          "w": 402
+        }
+      ],
+      "lang": "de",
+      "originals": [
+        {
+          "scene": "R01",
+          "status": 200
+        },
+        {
+          "scene": "R03",
+          "status": 200
+        },
+        {
+          "scene": "W03",
+          "status": 200
+        },
+        {
+          "scene": "W04",
+          "status": 200
+        },
+        {
+          "scene": "B01",
+          "status": 200
+        },
+        {
+          "scene": "B03",
+          "status": 200
+        },
+        {
+          "scene": "W05",
+          "status": 200
+        }
+      ],
+      "overflow": false,
+      "previewLinks": [
+        {
+          "href": "preview.html?lang=de&scene=R01",
+          "scene": "R01"
+        },
+        {
+          "href": "preview.html?lang=de&scene=R03",
+          "scene": "R03"
+        },
+        {
+          "href": "preview.html?lang=de&scene=W03",
+          "scene": "W03"
+        },
+        {
+          "href": "preview.html?lang=de&scene=W04",
+          "scene": "W04"
+        },
+        {
+          "href": "preview.html?lang=de&scene=B01",
+          "scene": "B01"
+        },
+        {
+          "href": "preview.html?lang=de&scene=B03",
+          "scene": "B03"
+        },
+        {
+          "href": "preview.html?lang=de&scene=W05",
+          "scene": "W05"
+        }
+      ],
+      "start": "preview.html?lang=de&scene=R01",
+      "zoomAndFocusChecks": 7
+    },
+    {
+      "images": [
+        {
+          "h": 874,
+          "src": "rendered/R01-first-daily-en.png",
+          "w": 402
+        },
+        {
+          "h": 874,
+          "src": "rendered/R03-reward-received-en.png",
+          "w": 402
+        },
+        {
+          "h": 874,
+          "src": "rendered/W03-learning-goal-en.png",
+          "w": 402
+        },
+        {
+          "h": 874,
+          "src": "rendered/W04-build-ready-en.png",
+          "w": 402
+        },
+        {
+          "h": 874,
+          "src": "rendered/B01-spend-confirm-en.png",
+          "w": 402
+        },
+        {
+          "h": 874,
+          "src": "rendered/B03-saved-progress-en.png",
+          "w": 402
+        },
+        {
+          "h": 874,
+          "src": "rendered/W05-next-goal-en.png",
+          "w": 402
+        }
+      ],
+      "lang": "en",
+      "originals": [
+        {
+          "scene": "R01",
+          "status": 200
+        },
+        {
+          "scene": "R03",
+          "status": 200
+        },
+        {
+          "scene": "W03",
+          "status": 200
+        },
+        {
+          "scene": "W04",
+          "status": 200
+        },
+        {
+          "scene": "B01",
+          "status": 200
+        },
+        {
+          "scene": "B03",
+          "status": 200
+        },
+        {
+          "scene": "W05",
+          "status": 200
+        }
+      ],
+      "overflow": false,
+      "previewLinks": [
+        {
+          "href": "preview.html?lang=en&scene=R01",
+          "scene": "R01"
+        },
+        {
+          "href": "preview.html?lang=en&scene=R03",
+          "scene": "R03"
+        },
+        {
+          "href": "preview.html?lang=en&scene=W03",
+          "scene": "W03"
+        },
+        {
+          "href": "preview.html?lang=en&scene=W04",
+          "scene": "W04"
+        },
+        {
+          "href": "preview.html?lang=en&scene=B01",
+          "scene": "B01"
+        },
+        {
+          "href": "preview.html?lang=en&scene=B03",
+          "scene": "B03"
+        },
+        {
+          "href": "preview.html?lang=en&scene=W05",
+          "scene": "W05"
+        }
+      ],
+      "start": "preview.html?lang=en&scene=R01",
+      "zoomAndFocusChecks": 7
+    },
+    {
+      "viewport": "402x874",
+      "horizontalOverflow": false
+    }
+  ],
+  "preferences": [
+    {
+      "normal": {
+        "balance": 70,
+        "earned": "56px",
+        "scale": "1",
+        "wallet": "70"
+      },
+      "largeInternalQA": {
+        "balance": 70,
+        "earned": "112px",
+        "scale": "2",
+        "wallet": "70"
+      },
+      "restoredNormal": {
+        "balance": 70,
+        "earned": "56px",
+        "scale": "1",
+        "wallet": "70"
+      }
+    }
+  ],
+  "candidate": [
+    {
+      "viewport": [
+        402,
+        874
+      ],
+      "language": "de",
+      "amount": "20",
+      "animations": 0,
+      "balance": 30,
+      "media": [
+        {
+          "height": 187.875,
+          "inside": true,
+          "width": 334
+        }
+      ],
+      "phase": "settled",
+      "scale": "1",
+      "stageHeight": 260
+    },
+    {
+      "viewport": [
+        375,
+        812
+      ],
+      "language": "en",
+      "amount": "20",
+      "animations": 0,
+      "balance": 30,
+      "media": [
+        {
+          "height": 172.6875,
+          "inside": true,
+          "width": 307
+        }
+      ],
+      "phase": "settled",
+      "scale": "1",
+      "stageHeight": 260
+    }
+  ],
+  "finalView": {
+    "balance": "70",
+    "language": "de",
+    "scale": "1",
+    "scene": "R03",
+    "viewport": [
+      402,
+      874
+    ]
+  }
+}

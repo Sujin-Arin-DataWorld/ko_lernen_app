@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-10",
+  "selected_concept": "C",
+  "authority": "Direct user preference with attached C mockup",
+  "german_file": "C-spatial-jade-de.png",
+  "german_sha256": "bc15e526aee76d584150d76d4c390172503ab4fdd585f098000cb92b15069ae2",
+  "english_file": "C-spatial-jade-en.png",
+  "english_sha256": "5444f1b258f6cbe06402a8a210f95d24947611eb0a75f6fd9e1c409716523381",
+  "scope": "Static visual direction for reward-suite exploration",
+  "runtime_promoted": false,
+  "flutter_device_approved": false
+}

@@ -1,0 +1,154 @@
+{
+  "cRewardBrand": [
+    "Hangul Sori",
+    "Hangul Sori"
+  ],
+  "cRewardTitle": [
+    "Lektion geschafft",
+    "Lesson complete"
+  ],
+  "cRewardCurrency": [
+    "Yeopjeon",
+    "Yeopjeon"
+  ],
+  "cRewardFirst": [
+    "Für deine erste Lektion heute",
+    "For your first lesson today"
+  ],
+  "cRewardSecond": [
+    "Für deine zweite Lektion heute",
+    "For your second lesson today"
+  ],
+  "cRewardSupport": [
+    "Bauzuschuss · +{amount} Yeopjeon",
+    "Building support · +{amount} Yeopjeon"
+  ],
+  "cRewardConfirmed": [
+    "Deine Yeopjeon sind gutgeschrieben.",
+    "Your Yeopjeon have been credited."
+  ],
+  "cRewardHouse": [
+    "Dein Ildu-Haus",
+    "Your Ildu house"
+  ],
+  "cRewardReady": [
+    "Bereit für den nächsten Bauschritt.",
+    "Your next building stage is ready."
+  ],
+  "cRewardLocked": [
+    "Erfülle das nächste Lernziel, um weiterzubauen.",
+    "Finish your next learning goal to build further."
+  ],
+  "cRewardNeedCoins": [
+    "Noch {amount} Yeopjeon bis zum nächsten Bauschritt.",
+    "{amount} more Yeopjeon for the next stage."
+  ],
+  "cRewardFuture": [
+    "Die neue Form siehst du nach dem Bauen.",
+    "Build to discover what has changed."
+  ],
+  "cRewardVisit": [
+    "Zum Ildu-Haus",
+    "Visit my Ildu house"
+  ],
+  "cRewardContinue": [
+    "Weiterlernen",
+    "Keep learning"
+  ],
+  "cRewardReplay": [
+    "Noch einmal",
+    "Replay"
+  ],
+  "cRewardSkip": [
+    "Überspringen",
+    "Skip animation"
+  ],
+  "cRewardMotionOff": [
+    "Bewegung aus",
+    "Motion off"
+  ],
+  "cRewardMotionOn": [
+    "Bewegung an",
+    "Motion on"
+  ],
+  "cRewardSoundOn": [
+    "Ton an",
+    "Sound on"
+  ],
+  "cRewardSoundOff": [
+    "Ton aus",
+    "Sound off"
+  ],
+  "cRewardSurprise": [
+    "Was entsteht als Nächstes?",
+    "What will you build next?"
+  ],
+  "cRewardGrowth": [
+    "Mit jedem Lernen wächst dein Haus.",
+    "Your house grows as you learn."
+  ],
+  "cRewardCoinHint": [
+    "Tippe auf die Münze",
+    "Tap the coin to awaken its light"
+  ],
+  "cRewardCost": [
+    "Baukosten: {amount}",
+    "Building cost: {amount}"
+  ],
+  "cRewardBuild": [
+    "Für {amount} weiterbauen",
+    "Build for {amount}"
+  ],
+  "cRewardLater": [
+    "Später bauen",
+    "Build later"
+  ],
+  "cRewardConfirmTitle": [
+    "Den nächsten Schritt bauen?",
+    "Build the next stage?"
+  ],
+  "cRewardConfirmBody": [
+    "Mit {amount} Yeopjeon entsteht etwas Neues.",
+    "Use {amount} Yeopjeon to create a new change."
+  ],
+  "cRewardBalanceNow": [
+    "Dein Guthaben jetzt",
+    "Your balance now"
+  ],
+  "cRewardBalanceAfter": [
+    "Nach dem Bauen",
+    "After building"
+  ],
+  "cRewardUse": [
+    "{amount} Yeopjeon verwenden",
+    "Use {amount} Yeopjeon"
+  ],
+  "cRewardBuiltTitle": [
+    "Etwas Neues ist entstanden!",
+    "Something new has taken shape!"
+  ],
+  "cRewardBuiltBody": [
+    "Dein Lernen ist ein Teil des Ildu-Hauses geworden.",
+    "Your learning has become part of the Ildu house."
+  ],
+  "cRewardMore": [
+    "Weitere Belohnungen",
+    "Other rewards"
+  ],
+  "cRewardWaiting": [
+    "Dein Guthaben wird geladen",
+    "Loading your balance"
+  ],
+  "cRewardReview": [
+    "Für deine Wiederholung heute",
+    "For your review practice today"
+  ],
+  "cRewardPracticeTitle": [
+    "Übung geschafft",
+    "Practice complete"
+  ],
+  "cRewardSupportTitle": [
+    "Bauzuschuss freigeschaltet",
+    "Building support unlocked"
+  ]
+}

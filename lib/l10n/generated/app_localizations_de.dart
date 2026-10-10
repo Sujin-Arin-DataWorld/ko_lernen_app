@@ -11934,4 +11934,138 @@ class AppL10nDe extends AppL10n {
   String practiceHintWordPath(int count, int row, int column) {
     return '$count Silben · Start: Zeile $row, Spalte $column';
   }
+
+  @override
+  String get cRewardBrand => 'Hangul Sori';
+
+  @override
+  String get cRewardTitle => 'Lektion geschafft';
+
+  @override
+  String get cRewardCurrency => 'Yeopjeon';
+
+  @override
+  String get cRewardEarnedLabel => 'Belohnung';
+
+  @override
+  String get cRewardFirst => 'Für deine erste Lektion heute';
+
+  @override
+  String get cRewardSecond => 'Für deine zweite Lektion heute';
+
+  @override
+  String cRewardSupport(int amount) {
+    return 'Bauzuschuss · +$amount Yeopjeon';
+  }
+
+  @override
+  String get cRewardConfirmed => 'Deine Yeopjeon sind gutgeschrieben.';
+
+  @override
+  String get cRewardHouse => 'Dein Ildu-Haus';
+
+  @override
+  String get cRewardNextBuild => 'Nächster Bauschritt';
+
+  @override
+  String get cRewardReady => 'Bereit für den nächsten Bauschritt.';
+
+  @override
+  String get cRewardLocked => 'Erfülle das nächste Lernziel, um weiterzubauen.';
+
+  @override
+  String cRewardNeedCoins(int amount) {
+    return 'Noch $amount Yeopjeon bis zum nächsten Bauschritt.';
+  }
+
+  @override
+  String get cRewardFuture =>
+      'Die 3D-Ansicht folgt. Dein Baufortschritt bleibt erhalten.';
+
+  @override
+  String get cRewardVisit => 'Zum Ildu-Haus';
+
+  @override
+  String get cRewardContinue => 'Weiterlernen';
+
+  @override
+  String get cRewardReplay => 'Noch einmal';
+
+  @override
+  String get cRewardSkip => 'Überspringen';
+
+  @override
+  String get cRewardMotionOff => 'Bewegung aus';
+
+  @override
+  String get cRewardMotionOn => 'Bewegung an';
+
+  @override
+  String get cRewardSoundOn => 'Ton an';
+
+  @override
+  String get cRewardSoundOff => 'Ton aus';
+
+  @override
+  String get cRewardSurprise => 'Was entsteht als Nächstes?';
+
+  @override
+  String get cRewardGrowth => 'Mit jedem Lernen wächst dein Haus.';
+
+  @override
+  String get cRewardCoinHint => 'Tippe auf die Münze';
+
+  @override
+  String cRewardCost(int amount) {
+    return 'Baukosten: $amount';
+  }
+
+  @override
+  String cRewardBuild(int amount) {
+    return 'Für $amount weiterbauen';
+  }
+
+  @override
+  String get cRewardLater => 'Später bauen';
+
+  @override
+  String get cRewardConfirmTitle => 'Den nächsten Schritt bauen?';
+
+  @override
+  String cRewardConfirmBody(int amount) {
+    return 'Verwende $amount Yeopjeon für den nächsten Bauschritt.';
+  }
+
+  @override
+  String get cRewardBalanceNow => 'Dein Guthaben jetzt';
+
+  @override
+  String get cRewardBalanceAfter => 'Nach dem Bauen';
+
+  @override
+  String cRewardUse(int amount) {
+    return '$amount Yeopjeon verwenden';
+  }
+
+  @override
+  String get cRewardBuiltTitle => 'Baufortschritt gespeichert';
+
+  @override
+  String get cRewardBuiltBody =>
+      'Dein Lernen ist ein Teil des Ildu-Hauses geworden.';
+
+  @override
+  String get cRewardMore => 'Weitere Belohnungen';
+
+  @override
+  String get cRewardWaiting => 'Dein Guthaben wird geladen';
+
+  @override
+  String get cRewardReview => 'Für deine Wiederholung heute';
+
+  @override
+  String get cRewardPracticeTitle => 'Übung geschafft';
+
+  @override
+  String get cRewardSupportTitle => 'Bauzuschuss freigeschaltet';
 }

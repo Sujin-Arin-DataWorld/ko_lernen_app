@@ -5715,5 +5715,93 @@
         "type": "int"
       }
     }
-  }
+  },
+  "cRewardBrand": "Hangul Sori",
+  "cRewardTitle": "Lektion geschafft",
+  "cRewardCurrency": "Yeopjeon",
+  "cRewardEarnedLabel": "Belohnung",
+  "cRewardFirst": "Für deine erste Lektion heute",
+  "cRewardSecond": "Für deine zweite Lektion heute",
+  "cRewardSupport": "Bauzuschuss · +{amount} Yeopjeon",
+  "cRewardConfirmed": "Deine Yeopjeon sind gutgeschrieben.",
+  "cRewardHouse": "Dein Ildu-Haus",
+  "cRewardNextBuild": "Nächster Bauschritt",
+  "cRewardReady": "Bereit für den nächsten Bauschritt.",
+  "cRewardLocked": "Erfülle das nächste Lernziel, um weiterzubauen.",
+  "cRewardNeedCoins": "Noch {amount} Yeopjeon bis zum nächsten Bauschritt.",
+  "cRewardFuture": "Die 3D-Ansicht folgt. Dein Baufortschritt bleibt erhalten.",
+  "cRewardVisit": "Zum Ildu-Haus",
+  "cRewardContinue": "Weiterlernen",
+  "cRewardReplay": "Noch einmal",
+  "cRewardSkip": "Überspringen",
+  "cRewardMotionOff": "Bewegung aus",
+  "cRewardMotionOn": "Bewegung an",
+  "cRewardSoundOn": "Ton an",
+  "cRewardSoundOff": "Ton aus",
+  "cRewardSurprise": "Was entsteht als Nächstes?",
+  "cRewardGrowth": "Mit jedem Lernen wächst dein Haus.",
+  "cRewardCoinHint": "Tippe auf die Münze",
+  "cRewardCost": "Baukosten: {amount}",
+  "cRewardBuild": "Für {amount} weiterbauen",
+  "cRewardLater": "Später bauen",
+  "cRewardConfirmTitle": "Den nächsten Schritt bauen?",
+  "cRewardConfirmBody": "Verwende {amount} Yeopjeon für den nächsten Bauschritt.",
+  "cRewardBalanceNow": "Dein Guthaben jetzt",
+  "cRewardBalanceAfter": "Nach dem Bauen",
+  "cRewardUse": "{amount} Yeopjeon verwenden",
+  "cRewardBuiltTitle": "Baufortschritt gespeichert",
+  "cRewardBuiltBody": "Dein Lernen ist ein Teil des Ildu-Hauses geworden.",
+  "cRewardMore": "Weitere Belohnungen",
+  "cRewardWaiting": "Dein Guthaben wird geladen",
+  "@cRewardSupport": {
+    "description": "Approved C reward presentation copy.",
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "@cRewardNeedCoins": {
+    "description": "Approved C reward presentation copy.",
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "@cRewardCost": {
+    "description": "Approved C reward presentation copy.",
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "@cRewardBuild": {
+    "description": "Approved C reward presentation copy.",
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "@cRewardConfirmBody": {
+    "description": "Approved C reward presentation copy.",
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "@cRewardUse": {
+    "description": "Approved C reward presentation copy.",
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "cRewardReview": "Für deine Wiederholung heute",
+  "cRewardPracticeTitle": "Übung geschafft",
+  "cRewardSupportTitle": "Bauzuschuss freigeschaltet"
 }

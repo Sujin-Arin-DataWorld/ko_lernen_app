@@ -1,0 +1,8 @@
+{
+  "mode": "built-in image_gen",
+  "intent": "subject-reference compositing",
+  "inputs": {
+    "target": "drafts/*-de-v1.png",
+    "supportingOriginal": "../../assets/money_alpha_end.png"
+  }
+}

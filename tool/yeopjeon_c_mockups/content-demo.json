@@ -1,0 +1,11 @@
+{
+  "id": "smalltalk.a1.weather.outside",
+  "title": {
+    "ko": "밖의 날씨",
+    "de": "Das Wetter draußen",
+    "en": "The weather outside"
+  },
+  "questions": 4,
+  "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\data\\smalltalk_lessons.json",
+  "sourceSha256": "845b0944c47e4b33fd44aef4828198d3a87091b78d31c6e0f76e8ddf8bf862d0"
+}

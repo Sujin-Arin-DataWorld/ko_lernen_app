@@ -1,0 +1,3936 @@
+[
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\sarangchae\\stage_01_site.png",
+    "rel": "sarangchae\\stage_01_site.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\sarangchae\\stage_02_foundation.png",
+    "rel": "sarangchae\\stage_02_foundation.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\sarangchae\\stage_03_choseok.png",
+    "rel": "sarangchae\\stage_03_choseok.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\sarangchae\\stage_04_fitting.png",
+    "rel": "sarangchae\\stage_04_fitting.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\sarangchae\\stage_05_columns.png",
+    "rel": "sarangchae\\stage_05_columns.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\sarangchae\\stage_06_beams.png",
+    "rel": "sarangchae\\stage_06_beams.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\sarangchae\\stage_07_purlins.png",
+    "rel": "sarangchae\\stage_07_purlins.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\sarangchae\\stage_08_rafters.png",
+    "rel": "sarangchae\\stage_08_rafters.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\sarangchae\\stage_09_decking.png",
+    "rel": "sarangchae\\stage_09_decking.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\sarangchae\\stage_10_earth_roof.png",
+    "rel": "sarangchae\\stage_10_earth_roof.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\sarangchae\\stage_11_tiles.png",
+    "rel": "sarangchae\\stage_11_tiles.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\sarangchae\\stage_12_walls.png",
+    "rel": "sarangchae\\stage_12_walls.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\sarangchae\\stage_13_ondol.png",
+    "rel": "sarangchae\\stage_13_ondol.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\sarangchae\\stage_14_maru.png",
+    "rel": "sarangchae\\stage_14_maru.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\sarangchae\\stage_15_changho.png",
+    "rel": "sarangchae\\stage_15_changho.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\sarangchae\\stage_16_complete.png",
+    "rel": "sarangchae\\stage_16_complete.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\changgo_relocation.png",
+    "rel": "turnarounds\\changgo_relocation.png",
+    "size": [
+      1448,
+      1086
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_anchae_00_front.png",
+    "rel": "turnarounds\\ildu_anchae_00_front.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_anchae_01_front_right.png",
+    "rel": "turnarounds\\ildu_anchae_01_front_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_anchae_02_right.png",
+    "rel": "turnarounds\\ildu_anchae_02_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_anchae_03_rear_right.png",
+    "rel": "turnarounds\\ildu_anchae_03_rear_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_anchae_04_rear.png",
+    "rel": "turnarounds\\ildu_anchae_04_rear.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_anchae_05_rear_left.png",
+    "rel": "turnarounds\\ildu_anchae_05_rear_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_anchae_06_left.png",
+    "rel": "turnarounds\\ildu_anchae_06_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_anchae_07_front_left.png",
+    "rel": "turnarounds\\ildu_anchae_07_front_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_anchae_store_00_front.png",
+    "rel": "turnarounds\\ildu_anchae_store_00_front.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_anchae_store_01_front_right.png",
+    "rel": "turnarounds\\ildu_anchae_store_01_front_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_anchae_store_02_right.png",
+    "rel": "turnarounds\\ildu_anchae_store_02_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_anchae_store_03_rear_right.png",
+    "rel": "turnarounds\\ildu_anchae_store_03_rear_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_anchae_store_04_rear.png",
+    "rel": "turnarounds\\ildu_anchae_store_04_rear.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_anchae_store_05_rear_left.png",
+    "rel": "turnarounds\\ildu_anchae_store_05_rear_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_anchae_store_06_left.png",
+    "rel": "turnarounds\\ildu_anchae_store_06_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_anchae_store_07_front_left.png",
+    "rel": "turnarounds\\ildu_anchae_store_07_front_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_ansarangchae_00_front.png",
+    "rel": "turnarounds\\ildu_ansarangchae_00_front.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_ansarangchae_01_front_right.png",
+    "rel": "turnarounds\\ildu_ansarangchae_01_front_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_ansarangchae_02_right.png",
+    "rel": "turnarounds\\ildu_ansarangchae_02_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_ansarangchae_03_rear_right.png",
+    "rel": "turnarounds\\ildu_ansarangchae_03_rear_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_ansarangchae_04_rear.png",
+    "rel": "turnarounds\\ildu_ansarangchae_04_rear.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_ansarangchae_05_rear_left.png",
+    "rel": "turnarounds\\ildu_ansarangchae_05_rear_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_ansarangchae_06_left.png",
+    "rel": "turnarounds\\ildu_ansarangchae_06_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_ansarangchae_07_front_left.png",
+    "rel": "turnarounds\\ildu_ansarangchae_07_front_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_araechae_00_front.png",
+    "rel": "turnarounds\\ildu_araechae_00_front.png",
+    "size": [
+      2560,
+      1440
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_araechae_01_front_right.png",
+    "rel": "turnarounds\\ildu_araechae_01_front_right.png",
+    "size": [
+      2560,
+      1440
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_araechae_02_right.png",
+    "rel": "turnarounds\\ildu_araechae_02_right.png",
+    "size": [
+      2560,
+      1440
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_araechae_03_rear_right.png",
+    "rel": "turnarounds\\ildu_araechae_03_rear_right.png",
+    "size": [
+      2560,
+      1440
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_araechae_04_rear.png",
+    "rel": "turnarounds\\ildu_araechae_04_rear.png",
+    "size": [
+      2560,
+      1440
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_araechae_05_rear_left.png",
+    "rel": "turnarounds\\ildu_araechae_05_rear_left.png",
+    "size": [
+      2560,
+      1440
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_araechae_06_left.png",
+    "rel": "turnarounds\\ildu_araechae_06_left.png",
+    "size": [
+      2560,
+      1440
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_araechae_07_front_left.png",
+    "rel": "turnarounds\\ildu_araechae_07_front_left.png",
+    "size": [
+      2560,
+      1440
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_changgo_00_front.png",
+    "rel": "turnarounds\\ildu_changgo_00_front.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_changgo_01_front_right.png",
+    "rel": "turnarounds\\ildu_changgo_01_front_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_changgo_02_right.png",
+    "rel": "turnarounds\\ildu_changgo_02_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_changgo_03_rear_right.png",
+    "rel": "turnarounds\\ildu_changgo_03_rear_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_changgo_04_rear.png",
+    "rel": "turnarounds\\ildu_changgo_04_rear.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_changgo_05_rear_left.png",
+    "rel": "turnarounds\\ildu_changgo_05_rear_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_changgo_06_left.png",
+    "rel": "turnarounds\\ildu_changgo_06_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_changgo_07_front_left.png",
+    "rel": "turnarounds\\ildu_changgo_07_front_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_gokgan_00_front.png",
+    "rel": "turnarounds\\ildu_gokgan_00_front.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_gokgan_01_front_right.png",
+    "rel": "turnarounds\\ildu_gokgan_01_front_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_gokgan_02_right.png",
+    "rel": "turnarounds\\ildu_gokgan_02_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_gokgan_03_rear_right.png",
+    "rel": "turnarounds\\ildu_gokgan_03_rear_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_gokgan_04_rear.png",
+    "rel": "turnarounds\\ildu_gokgan_04_rear.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_gokgan_05_rear_left.png",
+    "rel": "turnarounds\\ildu_gokgan_05_rear_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_gokgan_06_left.png",
+    "rel": "turnarounds\\ildu_gokgan_06_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_gokgan_07_front_left.png",
+    "rel": "turnarounds\\ildu_gokgan_07_front_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_jungmunganchae_00_front.png",
+    "rel": "turnarounds\\ildu_jungmunganchae_00_front.png",
+    "size": [
+      1792,
+      878
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_jungmunganchae_01_front_right.png",
+    "rel": "turnarounds\\ildu_jungmunganchae_01_front_right.png",
+    "size": [
+      1454,
+      1082
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_jungmunganchae_02_right.png",
+    "rel": "turnarounds\\ildu_jungmunganchae_02_right.png",
+    "size": [
+      1400,
+      1123
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_jungmunganchae_03_rear_right.png",
+    "rel": "turnarounds\\ildu_jungmunganchae_03_rear_right.png",
+    "size": [
+      1453,
+      1082
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_jungmunganchae_04_rear.png",
+    "rel": "turnarounds\\ildu_jungmunganchae_04_rear.png",
+    "size": [
+      1791,
+      878
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_jungmunganchae_05_rear_left.png",
+    "rel": "turnarounds\\ildu_jungmunganchae_05_rear_left.png",
+    "size": [
+      1571,
+      1001
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_jungmunganchae_06_left.png",
+    "rel": "turnarounds\\ildu_jungmunganchae_06_left.png",
+    "size": [
+      1525,
+      1031
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_jungmunganchae_07_front_left.png",
+    "rel": "turnarounds\\ildu_jungmunganchae_07_front_left.png",
+    "size": [
+      1493,
+      1054
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sadangmun_00_front.png",
+    "rel": "turnarounds\\ildu_sadangmun_00_front.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sadangmun_01_front_right.png",
+    "rel": "turnarounds\\ildu_sadangmun_01_front_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sadangmun_02_right.png",
+    "rel": "turnarounds\\ildu_sadangmun_02_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sadangmun_03_rear_right.png",
+    "rel": "turnarounds\\ildu_sadangmun_03_rear_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sadangmun_04_rear.png",
+    "rel": "turnarounds\\ildu_sadangmun_04_rear.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sadangmun_05_rear_left.png",
+    "rel": "turnarounds\\ildu_sadangmun_05_rear_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sadangmun_06_left.png",
+    "rel": "turnarounds\\ildu_sadangmun_06_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sadangmun_07_front_left.png",
+    "rel": "turnarounds\\ildu_sadangmun_07_front_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sadang_00_front.png",
+    "rel": "turnarounds\\ildu_sadang_00_front.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sadang_01_front_right.png",
+    "rel": "turnarounds\\ildu_sadang_01_front_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sadang_02_right.png",
+    "rel": "turnarounds\\ildu_sadang_02_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sadang_03_rear_right.png",
+    "rel": "turnarounds\\ildu_sadang_03_rear_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sadang_04_rear.png",
+    "rel": "turnarounds\\ildu_sadang_04_rear.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sadang_05_rear_left.png",
+    "rel": "turnarounds\\ildu_sadang_05_rear_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sadang_06_left.png",
+    "rel": "turnarounds\\ildu_sadang_06_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sadang_07_front_left.png",
+    "rel": "turnarounds\\ildu_sadang_07_front_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sadang_hyeopmun_00_front.png",
+    "rel": "turnarounds\\ildu_sadang_hyeopmun_00_front.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sadang_hyeopmun_01_front_right.png",
+    "rel": "turnarounds\\ildu_sadang_hyeopmun_01_front_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sadang_hyeopmun_02_right.png",
+    "rel": "turnarounds\\ildu_sadang_hyeopmun_02_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sadang_hyeopmun_03_rear_right.png",
+    "rel": "turnarounds\\ildu_sadang_hyeopmun_03_rear_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sadang_hyeopmun_04_rear.png",
+    "rel": "turnarounds\\ildu_sadang_hyeopmun_04_rear.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sadang_hyeopmun_05_rear_left.png",
+    "rel": "turnarounds\\ildu_sadang_hyeopmun_05_rear_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sadang_hyeopmun_06_left.png",
+    "rel": "turnarounds\\ildu_sadang_hyeopmun_06_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sadang_hyeopmun_07_front_left.png",
+    "rel": "turnarounds\\ildu_sadang_hyeopmun_07_front_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sotdaeulmun_00_front.png",
+    "rel": "turnarounds\\ildu_sotdaeulmun_00_front.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sotdaeulmun_01_front_right.png",
+    "rel": "turnarounds\\ildu_sotdaeulmun_01_front_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sotdaeulmun_02_right.png",
+    "rel": "turnarounds\\ildu_sotdaeulmun_02_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sotdaeulmun_03_rear_right.png",
+    "rel": "turnarounds\\ildu_sotdaeulmun_03_rear_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sotdaeulmun_04_rear.png",
+    "rel": "turnarounds\\ildu_sotdaeulmun_04_rear.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sotdaeulmun_05_rear_left.png",
+    "rel": "turnarounds\\ildu_sotdaeulmun_05_rear_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sotdaeulmun_06_left.png",
+    "rel": "turnarounds\\ildu_sotdaeulmun_06_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_sotdaeulmun_07_front_left.png",
+    "rel": "turnarounds\\ildu_sotdaeulmun_07_front_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_toilet_00_front.png",
+    "rel": "turnarounds\\ildu_toilet_00_front.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_toilet_01_front_right.png",
+    "rel": "turnarounds\\ildu_toilet_01_front_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_toilet_02_right.png",
+    "rel": "turnarounds\\ildu_toilet_02_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_toilet_03_rear_right.png",
+    "rel": "turnarounds\\ildu_toilet_03_rear_right.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_toilet_04_rear.png",
+    "rel": "turnarounds\\ildu_toilet_04_rear.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_toilet_05_rear_left.png",
+    "rel": "turnarounds\\ildu_toilet_05_rear_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_toilet_06_left.png",
+    "rel": "turnarounds\\ildu_toilet_06_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\ildu_toilet_07_front_left.png",
+    "rel": "turnarounds\\ildu_toilet_07_front_left.png",
+    "size": [
+      384,
+      512
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\솟을대문.png",
+    "rel": "turnarounds\\솟을대문.png",
+    "size": [
+      1448,
+      1086
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\솟을대문1.png",
+    "rel": "turnarounds\\솟을대문1.png",
+    "size": [
+      1448,
+      1086
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\솟을대문2.png",
+    "rel": "turnarounds\\솟을대문2.png",
+    "size": [
+      1448,
+      1086
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\솟을대문6.png",
+    "rel": "turnarounds\\솟을대문6.png",
+    "size": [
+      1448,
+      1086
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\turnarounds\\솟을대문8.png",
+    "rel": "turnarounds\\솟을대문8.png",
+    "size": [
+      1448,
+      1086
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\world\\anchae-store.png",
+    "rel": "world\\anchae-store.png",
+    "size": [
+      1100,
+      619
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\world\\anchae.png",
+    "rel": "world\\anchae.png",
+    "size": [
+      1100,
+      619
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\world\\ansarangchae.png",
+    "rel": "world\\ansarangchae.png",
+    "size": [
+      1100,
+      618
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\world\\araechae.png",
+    "rel": "world\\araechae.png",
+    "size": [
+      1100,
+      619
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\world\\changgo.png",
+    "rel": "world\\changgo.png",
+    "size": [
+      1100,
+      618
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\world\\gokganchae.png",
+    "rel": "world\\gokganchae.png",
+    "size": [
+      1100,
+      618
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\world\\hyeopmun.png",
+    "rel": "world\\hyeopmun.png",
+    "size": [
+      736,
+      1100
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\world\\ildu-wall-masterplan-v1.png",
+    "rel": "world\\ildu-wall-masterplan-v1.png",
+    "size": [
+      2412,
+      2622
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\world\\main-gate.png",
+    "rel": "world\\main-gate.png",
+    "size": [
+      1100,
+      733
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\world\\outside-gate.png",
+    "rel": "world\\outside-gate.png",
+    "size": [
+      1100,
+      825
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\world\\rear-wing.png",
+    "rel": "world\\rear-wing.png",
+    "size": [
+      1100,
+      537
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\world\\sadang-gate.png",
+    "rel": "world\\sadang-gate.png",
+    "size": [
+      1100,
+      1100
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\world\\sadang.png",
+    "rel": "world\\sadang.png",
+    "size": [
+      1100,
+      733
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\world\\sarangchae.png",
+    "rel": "world\\sarangchae.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\world\\toilet.png",
+    "rel": "world\\toilet.png",
+    "size": [
+      1100,
+      825
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae\\stage_01_site_household.png",
+    "rel": "construction\\anchae\\stage_01_site_household.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae\\stage_02_stone_foundation.png",
+    "rel": "construction\\anchae\\stage_02_stone_foundation.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae\\stage_03_posts.png",
+    "rel": "construction\\anchae\\stage_03_posts.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 3
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae\\stage_04_beams_purlins.png",
+    "rel": "construction\\anchae\\stage_04_beams_purlins.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 3
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae\\stage_05_hip_frame.png",
+    "rel": "construction\\anchae\\stage_05_hip_frame.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 3
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae\\stage_06_rafters_eaves.png",
+    "rel": "construction\\anchae\\stage_06_rafters_eaves.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 3
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae\\stage_07_roof_bed.png",
+    "rel": "construction\\anchae\\stage_07_roof_bed.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae\\stage_08_tiles.png",
+    "rel": "construction\\anchae\\stage_08_tiles.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae\\stage_09_walls_kitchen.png",
+    "rel": "construction\\anchae\\stage_09_walls_kitchen.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae\\stage_10_kitchen_loft.png",
+    "rel": "construction\\anchae\\stage_10_kitchen_loft.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae\\stage_11_ondol.png",
+    "rel": "construction\\anchae\\stage_11_ondol.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae\\stage_12_daecheong_maru.png",
+    "rel": "construction\\anchae\\stage_12_daecheong_maru.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae\\stage_13_changho.png",
+    "rel": "construction\\anchae\\stage_13_changho.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae\\stage_14_complete_use.png",
+    "rel": "construction\\anchae\\stage_14_complete_use.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae-store\\stage_01_site_storage.png",
+    "rel": "construction\\anchae-store\\stage_01_site_storage.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae-store\\stage_02_stone_foundation.png",
+    "rel": "construction\\anchae-store\\stage_02_stone_foundation.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae-store\\stage_03_posts.png",
+    "rel": "construction\\anchae-store\\stage_03_posts.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae-store\\stage_04_beams_purlins.png",
+    "rel": "construction\\anchae-store\\stage_04_beams_purlins.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae-store\\stage_05_rafters_eaves.png",
+    "rel": "construction\\anchae-store\\stage_05_rafters_eaves.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae-store\\stage_06_roof_bed.png",
+    "rel": "construction\\anchae-store\\stage_06_roof_bed.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae-store\\stage_07_tiles.png",
+    "rel": "construction\\anchae-store\\stage_07_tiles.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae-store\\stage_08_compacted_floor.png",
+    "rel": "construction\\anchae-store\\stage_08_compacted_floor.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae-store\\stage_09_walls_partition.png",
+    "rel": "construction\\anchae-store\\stage_09_walls_partition.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae-store\\stage_10_doors_vents.png",
+    "rel": "construction\\anchae-store\\stage_10_doors_vents.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\anchae-store\\stage_11_complete_use.png",
+    "rel": "construction\\anchae-store\\stage_11_complete_use.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\ansarangchae\\stage_01_site.webp",
+    "rel": "construction\\ansarangchae\\stage_01_site.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\ansarangchae\\stage_02_foundation.webp",
+    "rel": "construction\\ansarangchae\\stage_02_foundation.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\ansarangchae\\stage_03_padstones.webp",
+    "rel": "construction\\ansarangchae\\stage_03_padstones.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\ansarangchae\\stage_04_posts.webp",
+    "rel": "construction\\ansarangchae\\stage_04_posts.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\ansarangchae\\stage_05_beams.webp",
+    "rel": "construction\\ansarangchae\\stage_05_beams.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\ansarangchae\\stage_06_rafters.webp",
+    "rel": "construction\\ansarangchae\\stage_06_rafters.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\ansarangchae\\stage_07_roof_bed.webp",
+    "rel": "construction\\ansarangchae\\stage_07_roof_bed.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\ansarangchae\\stage_08_tiles.webp",
+    "rel": "construction\\ansarangchae\\stage_08_tiles.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\ansarangchae\\stage_09_walls.webp",
+    "rel": "construction\\ansarangchae\\stage_09_walls.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\ansarangchae\\stage_10_ondol.webp",
+    "rel": "construction\\ansarangchae\\stage_10_ondol.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\ansarangchae\\stage_11_maru_interior.webp",
+    "rel": "construction\\ansarangchae\\stage_11_maru_interior.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\ansarangchae\\stage_12_maru_porch.webp",
+    "rel": "construction\\ansarangchae\\stage_12_maru_porch.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\ansarangchae\\stage_13_doors.webp",
+    "rel": "construction\\ansarangchae\\stage_13_doors.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\ansarangchae\\stage_14_complete.webp",
+    "rel": "construction\\ansarangchae\\stage_14_complete.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\araechae\\stage_01_site_rooms.png",
+    "rel": "construction\\araechae\\stage_01_site_rooms.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\araechae\\stage_02_stone_foundation.png",
+    "rel": "construction\\araechae\\stage_02_stone_foundation.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\araechae\\stage_03_posts_floor_support.png",
+    "rel": "construction\\araechae\\stage_03_posts_floor_support.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\araechae\\stage_04_beams_purlins.png",
+    "rel": "construction\\araechae\\stage_04_beams_purlins.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\araechae\\stage_05_rafters_eaves.png",
+    "rel": "construction\\araechae\\stage_05_rafters_eaves.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\araechae\\stage_06_roof_bed.png",
+    "rel": "construction\\araechae\\stage_06_roof_bed.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\araechae\\stage_07_tiles.png",
+    "rel": "construction\\araechae\\stage_07_tiles.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\araechae\\stage_08_room_walls.png",
+    "rel": "construction\\araechae\\stage_08_room_walls.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\araechae\\stage_09_ondol.png",
+    "rel": "construction\\araechae\\stage_09_ondol.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\araechae\\stage_10_maru.png",
+    "rel": "construction\\araechae\\stage_10_maru.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\araechae\\stage_11_changho.png",
+    "rel": "construction\\araechae\\stage_11_changho.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\araechae\\stage_12_complete_use.png",
+    "rel": "construction\\araechae\\stage_12_complete_use.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\changgo\\stage_01_foundation.webp",
+    "rel": "construction\\changgo\\stage_01_foundation.webp",
+    "size": [
+      2736,
+      1536
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\changgo\\stage_02_posts.webp",
+    "rel": "construction\\changgo\\stage_02_posts.webp",
+    "size": [
+      2736,
+      1536
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\changgo\\stage_03_beams.webp",
+    "rel": "construction\\changgo\\stage_03_beams.webp",
+    "size": [
+      2736,
+      1536
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\changgo\\stage_04_rafters.webp",
+    "rel": "construction\\changgo\\stage_04_rafters.webp",
+    "size": [
+      2736,
+      1536
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\changgo\\stage_05_roof_bed.webp",
+    "rel": "construction\\changgo\\stage_05_roof_bed.webp",
+    "size": [
+      2736,
+      1536
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\changgo\\stage_06_roof_tiles.webp",
+    "rel": "construction\\changgo\\stage_06_roof_tiles.webp",
+    "size": [
+      2736,
+      1536
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\changgo\\stage_07_walls.webp",
+    "rel": "construction\\changgo\\stage_07_walls.webp",
+    "size": [
+      2736,
+      1536
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\changgo\\stage_08_complete.png",
+    "rel": "construction\\changgo\\stage_08_complete.png",
+    "size": [
+      2736,
+      1536
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\gokgan\\stage_01_layout.png",
+    "rel": "construction\\gokgan\\stage_01_layout.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 2
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\gokgan\\stage_02_foundations.png",
+    "rel": "construction\\gokgan\\stage_02_foundations.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 2
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\gokgan\\stage_03_posts.png",
+    "rel": "construction\\gokgan\\stage_03_posts.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 2
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\gokgan\\stage_04_beams.png",
+    "rel": "construction\\gokgan\\stage_04_beams.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 2
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\gokgan\\stage_05_roof_frame.png",
+    "rel": "construction\\gokgan\\stage_05_roof_frame.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 2
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\gokgan\\stage_06_rafters.png",
+    "rel": "construction\\gokgan\\stage_06_rafters.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 2
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\gokgan\\stage_07_roof_bed.png",
+    "rel": "construction\\gokgan\\stage_07_roof_bed.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 2
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\gokgan\\stage_08_tiles.png",
+    "rel": "construction\\gokgan\\stage_08_tiles.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 2
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\gokgan\\stage_09_floor.png",
+    "rel": "construction\\gokgan\\stage_09_floor.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 1
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\gokgan\\stage_10_walls.png",
+    "rel": "construction\\gokgan\\stage_10_walls.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\gokgan\\stage_11_doors.png",
+    "rel": "construction\\gokgan\\stage_11_doors.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\gokgan\\stage_12_complete.png",
+    "rel": "construction\\gokgan\\stage_12_complete.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\hyeopmun\\stage_01_foundation.webp",
+    "rel": "construction\\hyeopmun\\stage_01_foundation.webp",
+    "size": [
+      1568,
+      2021
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\hyeopmun\\stage_02_frame.webp",
+    "rel": "construction\\hyeopmun\\stage_02_frame.webp",
+    "size": [
+      1568,
+      2021
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\hyeopmun\\stage_03_rafters.webp",
+    "rel": "construction\\hyeopmun\\stage_03_rafters.webp",
+    "size": [
+      1568,
+      2021
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\hyeopmun\\stage_04_roof_bed.webp",
+    "rel": "construction\\hyeopmun\\stage_04_roof_bed.webp",
+    "size": [
+      1568,
+      2021
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\hyeopmun\\stage_05_roof_tiles.webp",
+    "rel": "construction\\hyeopmun\\stage_05_roof_tiles.webp",
+    "size": [
+      1568,
+      2021
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\hyeopmun\\stage_06_complete.png",
+    "rel": "construction\\hyeopmun\\stage_06_complete.png",
+    "size": [
+      1568,
+      2021
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\jungmunganchae\\stage_01_site_route.png",
+    "rel": "construction\\jungmunganchae\\stage_01_site_route.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\jungmunganchae\\stage_02_stone_foundation.png",
+    "rel": "construction\\jungmunganchae\\stage_02_stone_foundation.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\jungmunganchae\\stage_03_posts.png",
+    "rel": "construction\\jungmunganchae\\stage_03_posts.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\jungmunganchae\\stage_04_beams_purlins.png",
+    "rel": "construction\\jungmunganchae\\stage_04_beams_purlins.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\jungmunganchae\\stage_05_rafters_eaves.png",
+    "rel": "construction\\jungmunganchae\\stage_05_rafters_eaves.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\jungmunganchae\\stage_06_roof_bed.png",
+    "rel": "construction\\jungmunganchae\\stage_06_roof_bed.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\jungmunganchae\\stage_07_tiles.png",
+    "rel": "construction\\jungmunganchae\\stage_07_tiles.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\jungmunganchae\\stage_08_room_walls.png",
+    "rel": "construction\\jungmunganchae\\stage_08_room_walls.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\jungmunganchae\\stage_09_ondol_floors.png",
+    "rel": "construction\\jungmunganchae\\stage_09_ondol_floors.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\jungmunganchae\\stage_10_open_maru.png",
+    "rel": "construction\\jungmunganchae\\stage_10_open_maru.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\jungmunganchae\\stage_11_gate_changho.png",
+    "rel": "construction\\jungmunganchae\\stage_11_gate_changho.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\jungmunganchae\\stage_12_complete_use.png",
+    "rel": "construction\\jungmunganchae\\stage_12_complete_use.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 4
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\lessons\\storage_box_cloth.webp",
+    "rel": "construction\\lessons\\storage_box_cloth.webp",
+    "size": [
+      1448,
+      1086
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sadang\\stage_01_site.webp",
+    "rel": "construction\\sadang\\stage_01_site.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sadang\\stage_02_foundation.webp",
+    "rel": "construction\\sadang\\stage_02_foundation.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sadang\\stage_03_padstones.webp",
+    "rel": "construction\\sadang\\stage_03_padstones.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sadang\\stage_04_posts.webp",
+    "rel": "construction\\sadang\\stage_04_posts.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sadang\\stage_05_brackets.webp",
+    "rel": "construction\\sadang\\stage_05_brackets.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sadang\\stage_06_rafters.webp",
+    "rel": "construction\\sadang\\stage_06_rafters.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sadang\\stage_07_roof_bed.webp",
+    "rel": "construction\\sadang\\stage_07_roof_bed.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sadang\\stage_08_tiles.webp",
+    "rel": "construction\\sadang\\stage_08_tiles.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sadang\\stage_09_maru_interior.webp",
+    "rel": "construction\\sadang\\stage_09_maru_interior.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sadang\\stage_10_walls.webp",
+    "rel": "construction\\sadang\\stage_10_walls.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sadang\\stage_11_finish.webp",
+    "rel": "construction\\sadang\\stage_11_finish.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sadang\\stage_12_complete.webp",
+    "rel": "construction\\sadang\\stage_12_complete.webp",
+    "size": [
+      1536,
+      1024
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sadangmun\\stage_01_foundation.webp",
+    "rel": "construction\\sadangmun\\stage_01_foundation.webp",
+    "size": [
+      1086,
+      1448
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sadangmun\\stage_02_posts.webp",
+    "rel": "construction\\sadangmun\\stage_02_posts.webp",
+    "size": [
+      1086,
+      1448
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sadangmun\\stage_03_beams.webp",
+    "rel": "construction\\sadangmun\\stage_03_beams.webp",
+    "size": [
+      1086,
+      1448
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sadangmun\\stage_04_rafters.webp",
+    "rel": "construction\\sadangmun\\stage_04_rafters.webp",
+    "size": [
+      1086,
+      1448
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sadangmun\\stage_05_roof_bed.webp",
+    "rel": "construction\\sadangmun\\stage_05_roof_bed.webp",
+    "size": [
+      1086,
+      1448
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sadangmun\\stage_06_tiles.webp",
+    "rel": "construction\\sadangmun\\stage_06_tiles.webp",
+    "size": [
+      1086,
+      1448
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sadangmun\\stage_07_doors.webp",
+    "rel": "construction\\sadangmun\\stage_07_doors.webp",
+    "size": [
+      1086,
+      1448
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sadangmun\\stage_08_complete.webp",
+    "rel": "construction\\sadangmun\\stage_08_complete.webp",
+    "size": [
+      1086,
+      1448
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\site\\stage_01_neglected.png",
+    "rel": "construction\\site\\stage_01_neglected.png",
+    "size": [
+      1202,
+      1309
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\site\\stage_02_debris_cleared.png",
+    "rel": "construction\\site\\stage_02_debris_cleared.png",
+    "size": [
+      1201,
+      1309
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\site\\stage_03_weeded.png",
+    "rel": "construction\\site\\stage_03_weeded.png",
+    "size": [
+      1201,
+      1309
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\site\\stage_04_levelled.png",
+    "rel": "construction\\site\\stage_04_levelled.png",
+    "size": [
+      1202,
+      1309
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\site\\stage_05_compacted.png",
+    "rel": "construction\\site\\stage_05_compacted.png",
+    "size": [
+      1202,
+      1308
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\site\\stage_06_boundary_layout.png",
+    "rel": "construction\\site\\stage_06_boundary_layout.png",
+    "size": [
+      1202,
+      1308
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sotdaeulmun\\01_site.png",
+    "rel": "construction\\sotdaeulmun\\01_site.png",
+    "size": [
+      1447,
+      1087
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sotdaeulmun\\02_foundation.png",
+    "rel": "construction\\sotdaeulmun\\02_foundation.png",
+    "size": [
+      1447,
+      1087
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sotdaeulmun\\03_posts.png",
+    "rel": "construction\\sotdaeulmun\\03_posts.png",
+    "size": [
+      1447,
+      1087
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sotdaeulmun\\04_beams.png",
+    "rel": "construction\\sotdaeulmun\\04_beams.png",
+    "size": [
+      1447,
+      1087
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sotdaeulmun\\05_rafters.png",
+    "rel": "construction\\sotdaeulmun\\05_rafters.png",
+    "size": [
+      1447,
+      1087
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sotdaeulmun\\06_roof_bed.png",
+    "rel": "construction\\sotdaeulmun\\06_roof_bed.png",
+    "size": [
+      1447,
+      1087
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sotdaeulmun\\07_roof_tiles.png",
+    "rel": "construction\\sotdaeulmun\\07_roof_tiles.png",
+    "size": [
+      1447,
+      1087
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sotdaeulmun\\08_floors.png",
+    "rel": "construction\\sotdaeulmun\\08_floors.png",
+    "size": [
+      1447,
+      1087
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sotdaeulmun\\09_walls.png",
+    "rel": "construction\\sotdaeulmun\\09_walls.png",
+    "size": [
+      1448,
+      1086
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sotdaeulmun\\10_doors.png",
+    "rel": "construction\\sotdaeulmun\\10_doors.png",
+    "size": [
+      1447,
+      1087
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sotdaeulmun\\11_identity.png",
+    "rel": "construction\\sotdaeulmun\\11_identity.png",
+    "size": [
+      1448,
+      1086
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\sotdaeulmun\\12_complete.png",
+    "rel": "construction\\sotdaeulmun\\12_complete.png",
+    "size": [
+      1448,
+      1086
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\toilet\\stage_01_layout.png",
+    "rel": "construction\\toilet\\stage_01_layout.png",
+    "size": [
+      1448,
+      1086
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 3
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\toilet\\stage_02_foundations.png",
+    "rel": "construction\\toilet\\stage_02_foundations.png",
+    "size": [
+      1448,
+      1086
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 3
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\toilet\\stage_03_posts.png",
+    "rel": "construction\\toilet\\stage_03_posts.png",
+    "size": [
+      1448,
+      1086
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 3
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\toilet\\stage_04_beams.png",
+    "rel": "construction\\toilet\\stage_04_beams.png",
+    "size": [
+      1448,
+      1086
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 3
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\toilet\\stage_05_roof_frame.png",
+    "rel": "construction\\toilet\\stage_05_roof_frame.png",
+    "size": [
+      1448,
+      1086
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 3
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\toilet\\stage_06_rafters.png",
+    "rel": "construction\\toilet\\stage_06_rafters.png",
+    "size": [
+      1448,
+      1086
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 3
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\toilet\\stage_07_roof_bed.png",
+    "rel": "construction\\toilet\\stage_07_roof_bed.png",
+    "size": [
+      1448,
+      1086
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 3
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\toilet\\stage_08_tiles.png",
+    "rel": "construction\\toilet\\stage_08_tiles.png",
+    "size": [
+      1448,
+      1086
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 1
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\toilet\\stage_09_floor.png",
+    "rel": "construction\\toilet\\stage_09_floor.png",
+    "size": [
+      1448,
+      1086
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 1
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\toilet\\stage_10_walls.png",
+    "rel": "construction\\toilet\\stage_10_walls.png",
+    "size": [
+      1448,
+      1086
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\toilet\\stage_11_door.png",
+    "rel": "construction\\toilet\\stage_11_door.png",
+    "size": [
+      1448,
+      1086
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\toilet\\stage_12_complete.png",
+    "rel": "construction\\toilet\\stage_12_complete.png",
+    "size": [
+      1448,
+      1086
+    ],
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "transparent": true,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\wall\\stage_01_footing_trench.png",
+    "rel": "construction\\wall\\stage_01_footing_trench.png",
+    "size": [
+      1202,
+      1309
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\wall\\stage_02_base_stones.png",
+    "rel": "construction\\wall\\stage_02_base_stones.png",
+    "size": [
+      1201,
+      1309
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\wall\\stage_03_corners.png",
+    "rel": "construction\\wall\\stage_03_corners.png",
+    "size": [
+      1201,
+      1309
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\wall\\stage_04_two_faces.png",
+    "rel": "construction\\wall\\stage_04_two_faces.png",
+    "size": [
+      1201,
+      1309
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\wall\\stage_05_core_fill.png",
+    "rel": "construction\\wall\\stage_05_core_fill.png",
+    "size": [
+      1201,
+      1309
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\wall\\stage_06_full_height.png",
+    "rel": "construction\\wall\\stage_06_full_height.png",
+    "size": [
+      1201,
+      1309
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\wall\\stage_07_cap_bed.png",
+    "rel": "construction\\wall\\stage_07_cap_bed.png",
+    "size": [
+      1201,
+      1309
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  },
+  {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\assets\\illustrations\\personal_hanok_v3\\construction\\wall\\stage_08_complete.png",
+    "rel": "construction\\wall\\stage_08_complete.png",
+    "size": [
+      1201,
+      1309
+    ],
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "transparent": false,
+    "whiteCorners": 0
+  }
+]

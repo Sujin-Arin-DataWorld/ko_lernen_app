@@ -1,0 +1,5617 @@
+{
+  "boundary": "Interactive HTML with local sample storage, not Flutter/device evidence",
+  "session": "goaljourney-01a1278f",
+  "timeUtc": "2026-10-10T23:02:54.136136+00:00",
+  "scope": "Yeopjeon rewards; no Hanok screen or construction-stage artwork",
+  "flows": [
+    {
+      "language": "de",
+      "passed": [
+        "Yeopjeon overview",
+        "course goal dialog",
+        "confirmed reward 30 + 40 = 70",
+        "review use conditions",
+        "cancel preserves 70",
+        "Escape restores focus",
+        "double press spends once",
+        "reload restores debit receipt and 30",
+        "next goal keeps 30",
+        "wallet shows earned 40, used 40, balance 30"
+      ]
+    },
+    {
+      "language": "en",
+      "passed": [
+        "Yeopjeon overview",
+        "course goal dialog",
+        "confirmed reward 30 + 40 = 70",
+        "review use conditions",
+        "cancel preserves 70",
+        "Escape restores focus",
+        "double press spends once",
+        "reload restores debit receipt and 30",
+        "next goal keeps 30",
+        "wallet shows earned 40, used 40, balance 30"
+      ]
+    },
+    {
+      "language": "de",
+      "passed": [
+        "failed write keeps 70",
+        "retry confirms the same use target",
+        "successful retry saves debit receipt and 30"
+      ]
+    }
+  ],
+  "layouts": [
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 840,
+        "height": 130,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 710
+      },
+      "actions": [
+        {
+          "bottom": 772,
+          "height": 54,
+          "label": "Zum Kursziel",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 718
+        },
+        {
+          "bottom": 828,
+          "height": 48,
+          "label": "Weiterlernen",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 780
+        }
+      ],
+      "animations": 1,
+      "balance": 30,
+      "contentHeight": 600,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [
+        {
+          "bottom": 422.1875,
+          "height": 260,
+          "kind": "IMG",
+          "naturalHeight": 960,
+          "naturalWidth": 960,
+          "right": 331,
+          "width": 260,
+          "x": 71,
+          "y": 162.1875
+        }
+      ],
+      "scale": "1",
+      "scene": "R01",
+      "screen": {
+        "bottom": 710,
+        "height": 600,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": false,
+      "sections": [
+        {
+          "bottom": 154.1875,
+          "height": 32.1875,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 422.1875,
+          "height": 260,
+          "kind": "reward",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 162.1875
+        },
+        {
+          "bottom": 544.5625,
+          "height": 114.375,
+          "kind": "earned",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 430.1875
+        },
+        {
+          "bottom": 691.84375,
+          "height": 139.28125,
+          "kind": "receipt",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 552.5625
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 840,
+        "height": 130,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 710
+      },
+      "actions": [
+        {
+          "bottom": 772,
+          "height": 54,
+          "label": "Verwendung ansehen",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 718
+        },
+        {
+          "bottom": 828,
+          "height": 48,
+          "label": "Weiterlernen",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 780
+        }
+      ],
+      "animations": 1,
+      "balance": 70,
+      "contentHeight": 600,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [
+        {
+          "bottom": 376.1875,
+          "height": 214,
+          "kind": "IMG",
+          "naturalHeight": 1024,
+          "naturalWidth": 1536,
+          "right": 361.5,
+          "width": 321,
+          "x": 40.5,
+          "y": 162.1875
+        }
+      ],
+      "scale": "1",
+      "scene": "R03",
+      "screen": {
+        "bottom": 710,
+        "height": 600,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": false,
+      "sections": [
+        {
+          "bottom": 154.1875,
+          "height": 32.1875,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 382.1875,
+          "height": 220,
+          "kind": "reward",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 162.1875
+        },
+        {
+          "bottom": 504.5625,
+          "height": 114.375,
+          "kind": "earned",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 390.1875
+        },
+        {
+          "bottom": 651.84375,
+          "height": 139.28125,
+          "kind": "receipt",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 512.5625
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 840,
+        "height": 130,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 710
+      },
+      "actions": [
+        {
+          "bottom": 772,
+          "height": 54,
+          "label": "Lernziel fortsetzen",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 718
+        },
+        {
+          "bottom": 828,
+          "height": 48,
+          "label": "Zurück zu deinen Yeopjeon",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 780
+        }
+      ],
+      "animations": 2,
+      "balance": 30,
+      "contentHeight": 600,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "1",
+      "scene": "W03",
+      "screen": {
+        "bottom": 710,
+        "height": 600,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": false,
+      "sections": [
+        {
+          "bottom": 181.78125,
+          "height": 59.78125,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 294.46875,
+          "height": 100.6875,
+          "kind": "balance",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 193.78125
+        },
+        {
+          "bottom": 539.625,
+          "height": 233.15625,
+          "kind": "course",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 306.46875
+        },
+        {
+          "bottom": 571.921875,
+          "height": 20.296875,
+          "kind": "context",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 551.625
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 840,
+        "height": 130,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 710
+      },
+      "actions": [
+        {
+          "bottom": 772,
+          "height": 54,
+          "label": "Verwendung prüfen",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 718
+        },
+        {
+          "bottom": 828,
+          "height": 48,
+          "label": "Weiterlernen",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 780
+        }
+      ],
+      "animations": 2,
+      "balance": 70,
+      "contentHeight": 600,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "1",
+      "scene": "W04",
+      "screen": {
+        "bottom": 710,
+        "height": 600,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": false,
+      "sections": [
+        {
+          "bottom": 154.1875,
+          "height": 32.1875,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 266.875,
+          "height": 100.6875,
+          "kind": "balance",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 166.1875
+        },
+        {
+          "bottom": 345.359375,
+          "height": 66.484375,
+          "kind": "conditions",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 278.875
+        },
+        {
+          "bottom": 477.984375,
+          "height": 120.625,
+          "kind": "target",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 357.359375
+        },
+        {
+          "bottom": 530.578125,
+          "height": 40.59375,
+          "kind": "context",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 489.984375
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 839,
+        "height": 134,
+        "right": 385,
+        "width": 368,
+        "x": 17,
+        "y": 705
+      },
+      "actions": [
+        {
+          "bottom": 771,
+          "height": 54,
+          "label": "40 Yeopjeon verwenden",
+          "right": 365,
+          "width": 328,
+          "x": 37,
+          "y": 717
+        },
+        {
+          "bottom": 827,
+          "height": 48,
+          "label": "Abbrechen",
+          "right": 365,
+          "width": 328,
+          "x": 37,
+          "y": 779
+        }
+      ],
+      "animations": 2,
+      "balance": 70,
+      "contentHeight": 600,
+      "dialog": {
+        "bottom": 840,
+        "height": 425.28125,
+        "right": 386,
+        "width": 370,
+        "x": 16,
+        "y": 414.71875
+      },
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "1",
+      "scene": "B01",
+      "screen": {
+        "bottom": 710,
+        "height": 600,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": false,
+      "sections": [
+        {
+          "bottom": 154.1875,
+          "height": 32.1875,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 266.875,
+          "height": 100.6875,
+          "kind": "balance",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 166.1875
+        },
+        {
+          "bottom": 345.359375,
+          "height": 66.484375,
+          "kind": "conditions",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 278.875
+        },
+        {
+          "bottom": 477.984375,
+          "height": 120.625,
+          "kind": "target",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 357.359375
+        },
+        {
+          "bottom": 530.578125,
+          "height": 40.59375,
+          "kind": "context",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 489.984375
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 840,
+        "height": 130,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 710
+      },
+      "actions": [
+        {
+          "bottom": 772,
+          "height": 54,
+          "label": "Nächstes Lernziel",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 718
+        },
+        {
+          "bottom": 828,
+          "height": 48,
+          "label": "Zurück zu deinen Yeopjeon",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 780
+        }
+      ],
+      "animations": 2,
+      "balance": 30,
+      "contentHeight": 600,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "1",
+      "scene": "B03",
+      "screen": {
+        "bottom": 710,
+        "height": 600,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": false,
+      "sections": [
+        {
+          "bottom": 181.78125,
+          "height": 59.78125,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 294.46875,
+          "height": 100.6875,
+          "kind": "balance",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 193.78125
+        },
+        {
+          "bottom": 519.65625,
+          "height": 213.1875,
+          "kind": "receipt",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 306.46875
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 840,
+        "height": 130,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 710
+      },
+      "actions": [
+        {
+          "bottom": 772,
+          "height": 54,
+          "label": "Weiterlernen",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 718
+        },
+        {
+          "bottom": 828,
+          "height": 48,
+          "label": "Zurück zu deinen Yeopjeon",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 780
+        }
+      ],
+      "animations": 1,
+      "balance": 30,
+      "contentHeight": 600,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "1",
+      "scene": "W05",
+      "screen": {
+        "bottom": 710,
+        "height": 600,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": false,
+      "sections": [
+        {
+          "bottom": 181.78125,
+          "height": 59.78125,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 407.53125,
+          "height": 213.75,
+          "kind": "course",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 193.78125
+        },
+        {
+          "bottom": 439.828125,
+          "height": 20.296875,
+          "kind": "context",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 419.53125
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 840,
+        "height": 147.390625,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 692.609375
+      },
+      "actions": [
+        {
+          "bottom": 766.203125,
+          "height": 65.59375,
+          "label": "Zum Kursziel",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 700.609375
+        },
+        {
+          "bottom": 828,
+          "height": 53.796875,
+          "label": "Weiterlernen",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 774.203125
+        }
+      ],
+      "animations": 1,
+      "balance": 30,
+      "contentHeight": 1056,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [
+        {
+          "bottom": 547.78125,
+          "height": 260,
+          "kind": "IMG",
+          "naturalHeight": 960,
+          "naturalWidth": 960,
+          "right": 331,
+          "width": 260,
+          "x": 71,
+          "y": 287.78125
+        }
+      ],
+      "scale": "2",
+      "scene": "R01",
+      "screen": {
+        "bottom": 692.609375,
+        "height": 553.609375,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 139
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 279.78125,
+          "height": 128.78125,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 151
+        },
+        {
+          "bottom": 547.78125,
+          "height": 260,
+          "kind": "reward",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 287.78125
+        },
+        {
+          "bottom": 817.734375,
+          "height": 261.953125,
+          "kind": "earned",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 555.78125
+        },
+        {
+          "bottom": 1183,
+          "height": 357.265625,
+          "kind": "receipt",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 825.734375
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 840,
+        "height": 188.984375,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 651.015625
+      },
+      "actions": [
+        {
+          "bottom": 766.203125,
+          "height": 107.1875,
+          "label": "Verwendung ansehen",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 659.015625
+        },
+        {
+          "bottom": 828,
+          "height": 53.796875,
+          "label": "Weiterlernen",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 774.203125
+        }
+      ],
+      "animations": 1,
+      "balance": 70,
+      "contentHeight": 1016,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [
+        {
+          "bottom": 501.78125,
+          "height": 214,
+          "kind": "IMG",
+          "naturalHeight": 1024,
+          "naturalWidth": 1536,
+          "right": 361.5,
+          "width": 321,
+          "x": 40.5,
+          "y": 287.78125
+        }
+      ],
+      "scale": "2",
+      "scene": "R03",
+      "screen": {
+        "bottom": 651.015625,
+        "height": 512.015625,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 139
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 279.78125,
+          "height": 128.78125,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 151
+        },
+        {
+          "bottom": 507.78125,
+          "height": 220,
+          "kind": "reward",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 287.78125
+        },
+        {
+          "bottom": 777.734375,
+          "height": 261.953125,
+          "kind": "earned",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 515.78125
+        },
+        {
+          "bottom": 1143,
+          "height": 357.265625,
+          "kind": "receipt",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 785.734375
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 840,
+        "height": 226.78125,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 613.21875
+      },
+      "actions": [
+        {
+          "bottom": 728.40625,
+          "height": 107.1875,
+          "label": "Lernziel fortsetzen",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 621.21875
+        },
+        {
+          "bottom": 828,
+          "height": 91.59375,
+          "label": "Zurück zu deinen Yeopjeon",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 736.40625
+        }
+      ],
+      "animations": 2,
+      "balance": 30,
+      "contentHeight": 1188,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "2",
+      "scene": "W03",
+      "screen": {
+        "bottom": 613.21875,
+        "height": 483.21875,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 130
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 357.15625,
+          "height": 215.15625,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 142
+        },
+        {
+          "bottom": 540.546875,
+          "height": 171.390625,
+          "kind": "balance",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 369.15625
+        },
+        {
+          "bottom": 1172.6875,
+          "height": 620.140625,
+          "kind": "course",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 552.546875
+        },
+        {
+          "bottom": 1306.46875,
+          "height": 121.78125,
+          "kind": "context",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 1184.6875
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 840,
+        "height": 188.984375,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 651.015625
+      },
+      "actions": [
+        {
+          "bottom": 766.203125,
+          "height": 107.1875,
+          "label": "Verwendung prüfen",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 659.015625
+        },
+        {
+          "bottom": 828,
+          "height": 53.796875,
+          "label": "Weiterlernen",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 774.203125
+        }
+      ],
+      "animations": 2,
+      "balance": 70,
+      "contentHeight": 882,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "2",
+      "scene": "W04",
+      "screen": {
+        "bottom": 651.015625,
+        "height": 521.015625,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 130
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 270.78125,
+          "height": 128.78125,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 142
+        },
+        {
+          "bottom": 454.171875,
+          "height": 171.390625,
+          "kind": "balance",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 282.78125
+        },
+        {
+          "bottom": 573.15625,
+          "height": 106.984375,
+          "kind": "conditions",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 466.171875
+        },
+        {
+          "bottom": 825.4375,
+          "height": 240.28125,
+          "kind": "target",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 585.15625
+        },
+        {
+          "bottom": 999.8125,
+          "height": 162.375,
+          "kind": "context",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 837.4375
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 839,
+        "height": 192.984375,
+        "right": 385,
+        "width": 368,
+        "x": 17,
+        "y": 646.015625
+      },
+      "actions": [
+        {
+          "bottom": 765.203125,
+          "height": 107.1875,
+          "label": "40 Yeopjeon verwenden",
+          "right": 365,
+          "width": 328,
+          "x": 37,
+          "y": 658.015625
+        },
+        {
+          "bottom": 827,
+          "height": 53.796875,
+          "label": "Abbrechen",
+          "right": 365,
+          "width": 328,
+          "x": 37,
+          "y": 773.203125
+        }
+      ],
+      "animations": 2,
+      "balance": 70,
+      "contentHeight": 882,
+      "dialog": {
+        "bottom": 840,
+        "height": 744,
+        "right": 386,
+        "width": 370,
+        "x": 16,
+        "y": 96
+      },
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "2",
+      "scene": "B01",
+      "screen": {
+        "bottom": 651.015625,
+        "height": 521.015625,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 130
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 270.78125,
+          "height": 128.78125,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 142
+        },
+        {
+          "bottom": 454.171875,
+          "height": 171.390625,
+          "kind": "balance",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 282.78125
+        },
+        {
+          "bottom": 573.15625,
+          "height": 106.984375,
+          "kind": "conditions",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 466.171875
+        },
+        {
+          "bottom": 825.4375,
+          "height": 240.28125,
+          "kind": "target",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 585.15625
+        },
+        {
+          "bottom": 999.8125,
+          "height": 162.375,
+          "kind": "context",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 837.4375
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 840,
+        "height": 226.78125,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 613.21875
+      },
+      "actions": [
+        {
+          "bottom": 728.40625,
+          "height": 107.1875,
+          "label": "Nächstes Lernziel",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 621.21875
+        },
+        {
+          "bottom": 828,
+          "height": 91.59375,
+          "label": "Zurück zu deinen Yeopjeon",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 736.40625
+        }
+      ],
+      "animations": 2,
+      "balance": 30,
+      "contentHeight": 957,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "2",
+      "scene": "B03",
+      "screen": {
+        "bottom": 613.21875,
+        "height": 483.21875,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 130
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 317.96875,
+          "height": 175.96875,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 142
+        },
+        {
+          "bottom": 501.359375,
+          "height": 171.390625,
+          "kind": "balance",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 329.96875
+        },
+        {
+          "bottom": 1074.75,
+          "height": 561.390625,
+          "kind": "receipt",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 513.359375
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 840,
+        "height": 185.1875,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 654.8125
+      },
+      "actions": [
+        {
+          "bottom": 728.40625,
+          "height": 65.59375,
+          "label": "Weiterlernen",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 662.8125
+        },
+        {
+          "bottom": 828,
+          "height": 91.59375,
+          "label": "Zurück zu deinen Yeopjeon",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 736.40625
+        }
+      ],
+      "animations": 1,
+      "balance": 30,
+      "contentHeight": 968,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "2",
+      "scene": "W05",
+      "screen": {
+        "bottom": 654.8125,
+        "height": 524.8125,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 130
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 382.359375,
+          "height": 240.359375,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 142
+        },
+        {
+          "bottom": 992.59375,
+          "height": 598.234375,
+          "kind": "course",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 394.359375
+        },
+        {
+          "bottom": 1085.78125,
+          "height": 81.1875,
+          "kind": "context",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 1004.59375
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 840,
+        "height": 130,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 710
+      },
+      "actions": [
+        {
+          "bottom": 772,
+          "height": 54,
+          "label": "View course goal",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 718
+        },
+        {
+          "bottom": 828,
+          "height": 48,
+          "label": "Keep learning",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 780
+        }
+      ],
+      "animations": 1,
+      "balance": 30,
+      "contentHeight": 600,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [
+        {
+          "bottom": 422.1875,
+          "height": 260,
+          "kind": "IMG",
+          "naturalHeight": 960,
+          "naturalWidth": 960,
+          "right": 331,
+          "width": 260,
+          "x": 71,
+          "y": 162.1875
+        }
+      ],
+      "scale": "1",
+      "scene": "R01",
+      "screen": {
+        "bottom": 710,
+        "height": 600,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": false,
+      "sections": [
+        {
+          "bottom": 154.1875,
+          "height": 32.1875,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 422.1875,
+          "height": 260,
+          "kind": "reward",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 162.1875
+        },
+        {
+          "bottom": 544.5625,
+          "height": 114.375,
+          "kind": "earned",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 430.1875
+        },
+        {
+          "bottom": 684.03125,
+          "height": 131.46875,
+          "kind": "receipt",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 552.5625
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 840,
+        "height": 130,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 710
+      },
+      "actions": [
+        {
+          "bottom": 772,
+          "height": 54,
+          "label": "View use",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 718
+        },
+        {
+          "bottom": 828,
+          "height": 48,
+          "label": "Keep learning",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 780
+        }
+      ],
+      "animations": 1,
+      "balance": 70,
+      "contentHeight": 600,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [
+        {
+          "bottom": 376.1875,
+          "height": 214,
+          "kind": "IMG",
+          "naturalHeight": 1024,
+          "naturalWidth": 1536,
+          "right": 361.5,
+          "width": 321,
+          "x": 40.5,
+          "y": 162.1875
+        }
+      ],
+      "scale": "1",
+      "scene": "R03",
+      "screen": {
+        "bottom": 710,
+        "height": 600,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": false,
+      "sections": [
+        {
+          "bottom": 154.1875,
+          "height": 32.1875,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 382.1875,
+          "height": 220,
+          "kind": "reward",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 162.1875
+        },
+        {
+          "bottom": 504.5625,
+          "height": 114.375,
+          "kind": "earned",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 390.1875
+        },
+        {
+          "bottom": 644.03125,
+          "height": 131.46875,
+          "kind": "receipt",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 512.5625
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 840,
+        "height": 130,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 710
+      },
+      "actions": [
+        {
+          "bottom": 772,
+          "height": 54,
+          "label": "Continue your goal",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 718
+        },
+        {
+          "bottom": 828,
+          "height": 48,
+          "label": "Back to your yeopjeon",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 780
+        }
+      ],
+      "animations": 2,
+      "balance": 30,
+      "contentHeight": 600,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "1",
+      "scene": "W03",
+      "screen": {
+        "bottom": 710,
+        "height": 600,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": false,
+      "sections": [
+        {
+          "bottom": 181.78125,
+          "height": 59.78125,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 294.46875,
+          "height": 100.6875,
+          "kind": "balance",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 193.78125
+        },
+        {
+          "bottom": 539.625,
+          "height": 233.15625,
+          "kind": "course",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 306.46875
+        },
+        {
+          "bottom": 571.921875,
+          "height": 20.296875,
+          "kind": "context",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 551.625
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 840,
+        "height": 130,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 710
+      },
+      "actions": [
+        {
+          "bottom": 772,
+          "height": 54,
+          "label": "Review use",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 718
+        },
+        {
+          "bottom": 828,
+          "height": 48,
+          "label": "Keep learning",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 780
+        }
+      ],
+      "animations": 2,
+      "balance": 70,
+      "contentHeight": 600,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "1",
+      "scene": "W04",
+      "screen": {
+        "bottom": 710,
+        "height": 600,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": false,
+      "sections": [
+        {
+          "bottom": 154.1875,
+          "height": 32.1875,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 266.875,
+          "height": 100.6875,
+          "kind": "balance",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 166.1875
+        },
+        {
+          "bottom": 345.359375,
+          "height": 66.484375,
+          "kind": "conditions",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 278.875
+        },
+        {
+          "bottom": 477.984375,
+          "height": 120.625,
+          "kind": "target",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 357.359375
+        },
+        {
+          "bottom": 530.578125,
+          "height": 40.59375,
+          "kind": "context",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 489.984375
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 839,
+        "height": 134,
+        "right": 385,
+        "width": 368,
+        "x": 17,
+        "y": 705
+      },
+      "actions": [
+        {
+          "bottom": 771,
+          "height": 54,
+          "label": "Use 40 yeopjeon",
+          "right": 365,
+          "width": 328,
+          "x": 37,
+          "y": 717
+        },
+        {
+          "bottom": 827,
+          "height": 48,
+          "label": "Cancel",
+          "right": 365,
+          "width": 328,
+          "x": 37,
+          "y": 779
+        }
+      ],
+      "animations": 2,
+      "balance": 70,
+      "contentHeight": 600,
+      "dialog": {
+        "bottom": 840,
+        "height": 425.28125,
+        "right": 386,
+        "width": 370,
+        "x": 16,
+        "y": 414.71875
+      },
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "1",
+      "scene": "B01",
+      "screen": {
+        "bottom": 710,
+        "height": 600,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": false,
+      "sections": [
+        {
+          "bottom": 154.1875,
+          "height": 32.1875,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 266.875,
+          "height": 100.6875,
+          "kind": "balance",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 166.1875
+        },
+        {
+          "bottom": 345.359375,
+          "height": 66.484375,
+          "kind": "conditions",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 278.875
+        },
+        {
+          "bottom": 477.984375,
+          "height": 120.625,
+          "kind": "target",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 357.359375
+        },
+        {
+          "bottom": 530.578125,
+          "height": 40.59375,
+          "kind": "context",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 489.984375
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 840,
+        "height": 130,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 710
+      },
+      "actions": [
+        {
+          "bottom": 772,
+          "height": 54,
+          "label": "Next learning goal",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 718
+        },
+        {
+          "bottom": 828,
+          "height": 48,
+          "label": "Back to your yeopjeon",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 780
+        }
+      ],
+      "animations": 2,
+      "balance": 30,
+      "contentHeight": 600,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "1",
+      "scene": "B03",
+      "screen": {
+        "bottom": 710,
+        "height": 600,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": false,
+      "sections": [
+        {
+          "bottom": 181.78125,
+          "height": 59.78125,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 294.46875,
+          "height": 100.6875,
+          "kind": "balance",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 193.78125
+        },
+        {
+          "bottom": 519.65625,
+          "height": 213.1875,
+          "kind": "receipt",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 306.46875
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 840,
+        "height": 130,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 710
+      },
+      "actions": [
+        {
+          "bottom": 772,
+          "height": 54,
+          "label": "Keep learning",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 718
+        },
+        {
+          "bottom": 828,
+          "height": 48,
+          "label": "Back to your yeopjeon",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 780
+        }
+      ],
+      "animations": 1,
+      "balance": 30,
+      "contentHeight": 600,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "1",
+      "scene": "W05",
+      "screen": {
+        "bottom": 710,
+        "height": 600,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": false,
+      "sections": [
+        {
+          "bottom": 181.78125,
+          "height": 59.78125,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 384.34375,
+          "height": 190.5625,
+          "kind": "course",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 193.78125
+        },
+        {
+          "bottom": 416.640625,
+          "height": 20.296875,
+          "kind": "context",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 396.34375
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 840,
+        "height": 188.984375,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 651.015625
+      },
+      "actions": [
+        {
+          "bottom": 766.203125,
+          "height": 107.1875,
+          "label": "View course goal",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 659.015625
+        },
+        {
+          "bottom": 828,
+          "height": 53.796875,
+          "label": "Keep learning",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 774.203125
+        }
+      ],
+      "animations": 1,
+      "balance": 30,
+      "contentHeight": 1009,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [
+        {
+          "bottom": 547.78125,
+          "height": 260,
+          "kind": "IMG",
+          "naturalHeight": 960,
+          "naturalWidth": 960,
+          "right": 331,
+          "width": 260,
+          "x": 71,
+          "y": 287.78125
+        }
+      ],
+      "scale": "2",
+      "scene": "R01",
+      "screen": {
+        "bottom": 651.015625,
+        "height": 512.015625,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 139
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 279.78125,
+          "height": 128.78125,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 151
+        },
+        {
+          "bottom": 547.78125,
+          "height": 260,
+          "kind": "reward",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 287.78125
+        },
+        {
+          "bottom": 817.734375,
+          "height": 261.953125,
+          "kind": "earned",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 555.78125
+        },
+        {
+          "bottom": 1135.90625,
+          "height": 310.171875,
+          "kind": "receipt",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 825.734375
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 840,
+        "height": 147.390625,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 692.609375
+      },
+      "actions": [
+        {
+          "bottom": 766.203125,
+          "height": 65.59375,
+          "label": "View use",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 700.609375
+        },
+        {
+          "bottom": 828,
+          "height": 53.796875,
+          "label": "Keep learning",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 774.203125
+        }
+      ],
+      "animations": 1,
+      "balance": 70,
+      "contentHeight": 969,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [
+        {
+          "bottom": 501.78125,
+          "height": 214,
+          "kind": "IMG",
+          "naturalHeight": 1024,
+          "naturalWidth": 1536,
+          "right": 361.5,
+          "width": 321,
+          "x": 40.5,
+          "y": 287.78125
+        }
+      ],
+      "scale": "2",
+      "scene": "R03",
+      "screen": {
+        "bottom": 692.609375,
+        "height": 553.609375,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 139
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 279.78125,
+          "height": 128.78125,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 151
+        },
+        {
+          "bottom": 507.78125,
+          "height": 220,
+          "kind": "reward",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 287.78125
+        },
+        {
+          "bottom": 777.734375,
+          "height": 261.953125,
+          "kind": "earned",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 515.78125
+        },
+        {
+          "bottom": 1095.90625,
+          "height": 310.171875,
+          "kind": "receipt",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 785.734375
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 840,
+        "height": 226.78125,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 613.21875
+      },
+      "actions": [
+        {
+          "bottom": 728.40625,
+          "height": 107.1875,
+          "label": "Continue your goal",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 621.21875
+        },
+        {
+          "bottom": 828,
+          "height": 91.59375,
+          "label": "Back to your yeopjeon",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 736.40625
+        }
+      ],
+      "animations": 2,
+      "balance": 30,
+      "contentHeight": 1113,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "2",
+      "scene": "W03",
+      "screen": {
+        "bottom": 613.21875,
+        "height": 483.21875,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 130
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 421.546875,
+          "height": 279.546875,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 142
+        },
+        {
+          "bottom": 604.9375,
+          "height": 171.390625,
+          "kind": "balance",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 433.546875
+        },
+        {
+          "bottom": 1138.1875,
+          "height": 521.25,
+          "kind": "course",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 616.9375
+        },
+        {
+          "bottom": 1231.375,
+          "height": 81.1875,
+          "kind": "context",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 1150.1875
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 840,
+        "height": 147.390625,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 692.609375
+      },
+      "actions": [
+        {
+          "bottom": 766.203125,
+          "height": 65.59375,
+          "label": "Review use",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 700.609375
+        },
+        {
+          "bottom": 828,
+          "height": 53.796875,
+          "label": "Keep learning",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 774.203125
+        }
+      ],
+      "animations": 2,
+      "balance": 70,
+      "contentHeight": 884,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "2",
+      "scene": "W04",
+      "screen": {
+        "bottom": 692.609375,
+        "height": 562.609375,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 130
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 270.78125,
+          "height": 128.78125,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 142
+        },
+        {
+          "bottom": 454.171875,
+          "height": 171.390625,
+          "kind": "balance",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 282.78125
+        },
+        {
+          "bottom": 616.34375,
+          "height": 150.171875,
+          "kind": "conditions",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 466.171875
+        },
+        {
+          "bottom": 868.625,
+          "height": 240.28125,
+          "kind": "target",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 628.34375
+        },
+        {
+          "bottom": 1002.40625,
+          "height": 121.78125,
+          "kind": "context",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 880.625
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 839,
+        "height": 192.984375,
+        "right": 385,
+        "width": 368,
+        "x": 17,
+        "y": 646.015625
+      },
+      "actions": [
+        {
+          "bottom": 765.203125,
+          "height": 107.1875,
+          "label": "Use 40 yeopjeon",
+          "right": 365,
+          "width": 328,
+          "x": 37,
+          "y": 658.015625
+        },
+        {
+          "bottom": 827,
+          "height": 53.796875,
+          "label": "Cancel",
+          "right": 365,
+          "width": 328,
+          "x": 37,
+          "y": 773.203125
+        }
+      ],
+      "animations": 2,
+      "balance": 70,
+      "contentHeight": 884,
+      "dialog": {
+        "bottom": 840,
+        "height": 744,
+        "right": 386,
+        "width": 370,
+        "x": 16,
+        "y": 96
+      },
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "2",
+      "scene": "B01",
+      "screen": {
+        "bottom": 692.609375,
+        "height": 562.609375,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 130
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 270.78125,
+          "height": 128.78125,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 142
+        },
+        {
+          "bottom": 454.171875,
+          "height": 171.390625,
+          "kind": "balance",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 282.78125
+        },
+        {
+          "bottom": 616.34375,
+          "height": 150.171875,
+          "kind": "conditions",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 466.171875
+        },
+        {
+          "bottom": 868.625,
+          "height": 240.28125,
+          "kind": "target",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 628.34375
+        },
+        {
+          "bottom": 1002.40625,
+          "height": 121.78125,
+          "kind": "context",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 880.625
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 840,
+        "height": 226.78125,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 613.21875
+      },
+      "actions": [
+        {
+          "bottom": 728.40625,
+          "height": 107.1875,
+          "label": "Next learning goal",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 621.21875
+        },
+        {
+          "bottom": 828,
+          "height": 91.59375,
+          "label": "Back to your yeopjeon",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 736.40625
+        }
+      ],
+      "animations": 2,
+      "balance": 30,
+      "contentHeight": 819,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "2",
+      "scene": "B03",
+      "screen": {
+        "bottom": 613.21875,
+        "height": 483.21875,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 130
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 317.96875,
+          "height": 175.96875,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 142
+        },
+        {
+          "bottom": 501.359375,
+          "height": 171.390625,
+          "kind": "balance",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 329.96875
+        },
+        {
+          "bottom": 936.75,
+          "height": 423.390625,
+          "kind": "receipt",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 513.359375
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 840,
+        "height": 185.1875,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 654.8125
+      },
+      "actions": [
+        {
+          "bottom": 728.40625,
+          "height": 65.59375,
+          "label": "Keep learning",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 662.8125
+        },
+        {
+          "bottom": 828,
+          "height": 91.59375,
+          "label": "Back to your yeopjeon",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 736.40625
+        }
+      ],
+      "animations": 1,
+      "balance": 30,
+      "contentHeight": 974,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "2",
+      "scene": "W05",
+      "screen": {
+        "bottom": 654.8125,
+        "height": 524.8125,
+        "right": 402,
+        "width": 402,
+        "x": 0,
+        "y": 130
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 382.359375,
+          "height": 240.359375,
+          "kind": "heading",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 142
+        },
+        {
+          "bottom": 998.703125,
+          "height": 604.34375,
+          "kind": "course",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 394.359375
+        },
+        {
+          "bottom": 1091.890625,
+          "height": 81.1875,
+          "kind": "context",
+          "right": 384,
+          "width": 366,
+          "x": 18,
+          "y": 1010.703125
+        }
+      ],
+      "viewport": {
+        "height": 874,
+        "width": 402
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 778,
+        "height": 130,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 648
+      },
+      "actions": [
+        {
+          "bottom": 710,
+          "height": 54,
+          "label": "Zum Kursziel",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 656
+        },
+        {
+          "bottom": 766,
+          "height": 48,
+          "label": "Weiterlernen",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 718
+        }
+      ],
+      "animations": 1,
+      "balance": 30,
+      "contentHeight": 594,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [
+        {
+          "bottom": 422.1875,
+          "height": 260,
+          "kind": "IMG",
+          "naturalHeight": 960,
+          "naturalWidth": 960,
+          "right": 317.5,
+          "width": 260,
+          "x": 57.5,
+          "y": 162.1875
+        }
+      ],
+      "scale": "1",
+      "scene": "R01",
+      "screen": {
+        "bottom": 648,
+        "height": 538,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 154.1875,
+          "height": 32.1875,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 422.1875,
+          "height": 260,
+          "kind": "reward",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 162.1875
+        },
+        {
+          "bottom": 544.5625,
+          "height": 114.375,
+          "kind": "earned",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 430.1875
+        },
+        {
+          "bottom": 691.84375,
+          "height": 139.28125,
+          "kind": "receipt",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 552.5625
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 778,
+        "height": 130,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 648
+      },
+      "actions": [
+        {
+          "bottom": 710,
+          "height": 54,
+          "label": "Verwendung ansehen",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 656
+        },
+        {
+          "bottom": 766,
+          "height": 48,
+          "label": "Weiterlernen",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 718
+        }
+      ],
+      "animations": 1,
+      "balance": 70,
+      "contentHeight": 554,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [
+        {
+          "bottom": 376.1875,
+          "height": 214,
+          "kind": "IMG",
+          "naturalHeight": 1024,
+          "naturalWidth": 1536,
+          "right": 348,
+          "width": 321,
+          "x": 27,
+          "y": 162.1875
+        }
+      ],
+      "scale": "1",
+      "scene": "R03",
+      "screen": {
+        "bottom": 648,
+        "height": 538,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 154.1875,
+          "height": 32.1875,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 382.1875,
+          "height": 220,
+          "kind": "reward",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 162.1875
+        },
+        {
+          "bottom": 504.5625,
+          "height": 114.375,
+          "kind": "earned",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 390.1875
+        },
+        {
+          "bottom": 651.84375,
+          "height": 139.28125,
+          "kind": "receipt",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 512.5625
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 778,
+        "height": 130,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 648
+      },
+      "actions": [
+        {
+          "bottom": 710,
+          "height": 54,
+          "label": "Lernziel fortsetzen",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 656
+        },
+        {
+          "bottom": 766,
+          "height": 48,
+          "label": "Zurück zu deinen Yeopjeon",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 718
+        }
+      ],
+      "animations": 2,
+      "balance": 30,
+      "contentHeight": 538,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "1",
+      "scene": "W03",
+      "screen": {
+        "bottom": 648,
+        "height": 538,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": false,
+      "sections": [
+        {
+          "bottom": 181.78125,
+          "height": 59.78125,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 294.46875,
+          "height": 100.6875,
+          "kind": "balance",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 193.78125
+        },
+        {
+          "bottom": 539.625,
+          "height": 233.15625,
+          "kind": "course",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 306.46875
+        },
+        {
+          "bottom": 571.921875,
+          "height": 20.296875,
+          "kind": "context",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 551.625
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 778,
+        "height": 130,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 648
+      },
+      "actions": [
+        {
+          "bottom": 710,
+          "height": 54,
+          "label": "Verwendung prüfen",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 656
+        },
+        {
+          "bottom": 766,
+          "height": 48,
+          "label": "Weiterlernen",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 718
+        }
+      ],
+      "animations": 2,
+      "balance": 70,
+      "contentHeight": 538,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "1",
+      "scene": "W04",
+      "screen": {
+        "bottom": 648,
+        "height": 538,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": false,
+      "sections": [
+        {
+          "bottom": 154.1875,
+          "height": 32.1875,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 266.875,
+          "height": 100.6875,
+          "kind": "balance",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 166.1875
+        },
+        {
+          "bottom": 345.359375,
+          "height": 66.484375,
+          "kind": "conditions",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 278.875
+        },
+        {
+          "bottom": 477.984375,
+          "height": 120.625,
+          "kind": "target",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 357.359375
+        },
+        {
+          "bottom": 530.578125,
+          "height": 40.59375,
+          "kind": "context",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 489.984375
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 777,
+        "height": 145.59375,
+        "right": 358,
+        "width": 341,
+        "x": 17,
+        "y": 631.40625
+      },
+      "actions": [
+        {
+          "bottom": 709,
+          "height": 65.59375,
+          "label": "40 Yeopjeon verwenden",
+          "right": 338,
+          "width": 301,
+          "x": 37,
+          "y": 643.40625
+        },
+        {
+          "bottom": 765,
+          "height": 48,
+          "label": "Abbrechen",
+          "right": 338,
+          "width": 301,
+          "x": 37,
+          "y": 717
+        }
+      ],
+      "animations": 2,
+      "balance": 70,
+      "contentHeight": 538,
+      "dialog": {
+        "bottom": 778,
+        "height": 436.875,
+        "right": 359,
+        "width": 343,
+        "x": 16,
+        "y": 341.125
+      },
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "1",
+      "scene": "B01",
+      "screen": {
+        "bottom": 648,
+        "height": 538,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": false,
+      "sections": [
+        {
+          "bottom": 154.1875,
+          "height": 32.1875,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 266.875,
+          "height": 100.6875,
+          "kind": "balance",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 166.1875
+        },
+        {
+          "bottom": 345.359375,
+          "height": 66.484375,
+          "kind": "conditions",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 278.875
+        },
+        {
+          "bottom": 477.984375,
+          "height": 120.625,
+          "kind": "target",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 357.359375
+        },
+        {
+          "bottom": 530.578125,
+          "height": 40.59375,
+          "kind": "context",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 489.984375
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 778,
+        "height": 130,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 648
+      },
+      "actions": [
+        {
+          "bottom": 710,
+          "height": 54,
+          "label": "Nächstes Lernziel",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 656
+        },
+        {
+          "bottom": 766,
+          "height": 48,
+          "label": "Zurück zu deinen Yeopjeon",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 718
+        }
+      ],
+      "animations": 2,
+      "balance": 30,
+      "contentHeight": 538,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "1",
+      "scene": "B03",
+      "screen": {
+        "bottom": 648,
+        "height": 538,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": false,
+      "sections": [
+        {
+          "bottom": 181.78125,
+          "height": 59.78125,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 294.46875,
+          "height": 100.6875,
+          "kind": "balance",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 193.78125
+        },
+        {
+          "bottom": 519.65625,
+          "height": 213.1875,
+          "kind": "receipt",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 306.46875
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 778,
+        "height": 130,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 648
+      },
+      "actions": [
+        {
+          "bottom": 710,
+          "height": 54,
+          "label": "Weiterlernen",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 656
+        },
+        {
+          "bottom": 766,
+          "height": 48,
+          "label": "Zurück zu deinen Yeopjeon",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 718
+        }
+      ],
+      "animations": 1,
+      "balance": 30,
+      "contentHeight": 538,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "1",
+      "scene": "W05",
+      "screen": {
+        "bottom": 648,
+        "height": 538,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": false,
+      "sections": [
+        {
+          "bottom": 181.78125,
+          "height": 59.78125,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 407.53125,
+          "height": 213.75,
+          "kind": "course",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 193.78125
+        },
+        {
+          "bottom": 439.828125,
+          "height": 20.296875,
+          "kind": "context",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 419.53125
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 778,
+        "height": 147.390625,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 630.609375
+      },
+      "actions": [
+        {
+          "bottom": 704.203125,
+          "height": 65.59375,
+          "label": "Zum Kursziel",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 638.609375
+        },
+        {
+          "bottom": 766,
+          "height": 53.796875,
+          "label": "Weiterlernen",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 712.203125
+        }
+      ],
+      "animations": 1,
+      "balance": 30,
+      "contentHeight": 1091,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [
+        {
+          "bottom": 547.78125,
+          "height": 260,
+          "kind": "IMG",
+          "naturalHeight": 960,
+          "naturalWidth": 960,
+          "right": 317.5,
+          "width": 260,
+          "x": 57.5,
+          "y": 287.78125
+        }
+      ],
+      "scale": "2",
+      "scene": "R01",
+      "screen": {
+        "bottom": 630.609375,
+        "height": 491.609375,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 139
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 279.78125,
+          "height": 128.78125,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 151
+        },
+        {
+          "bottom": 547.78125,
+          "height": 260,
+          "kind": "reward",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 287.78125
+        },
+        {
+          "bottom": 817.734375,
+          "height": 261.953125,
+          "kind": "earned",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 555.78125
+        },
+        {
+          "bottom": 1218.09375,
+          "height": 392.359375,
+          "kind": "receipt",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 825.734375
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 778,
+        "height": 188.984375,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 589.015625
+      },
+      "actions": [
+        {
+          "bottom": 704.203125,
+          "height": 107.1875,
+          "label": "Verwendung ansehen",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 597.015625
+        },
+        {
+          "bottom": 766,
+          "height": 53.796875,
+          "label": "Weiterlernen",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 712.203125
+        }
+      ],
+      "animations": 1,
+      "balance": 70,
+      "contentHeight": 1051,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [
+        {
+          "bottom": 501.78125,
+          "height": 214,
+          "kind": "IMG",
+          "naturalHeight": 1024,
+          "naturalWidth": 1536,
+          "right": 348,
+          "width": 321,
+          "x": 27,
+          "y": 287.78125
+        }
+      ],
+      "scale": "2",
+      "scene": "R03",
+      "screen": {
+        "bottom": 589.015625,
+        "height": 450.015625,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 139
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 279.78125,
+          "height": 128.78125,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 151
+        },
+        {
+          "bottom": 507.78125,
+          "height": 220,
+          "kind": "reward",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 287.78125
+        },
+        {
+          "bottom": 777.734375,
+          "height": 261.953125,
+          "kind": "earned",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 515.78125
+        },
+        {
+          "bottom": 1178.09375,
+          "height": 392.359375,
+          "kind": "receipt",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 785.734375
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 778,
+        "height": 226.78125,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 551.21875
+      },
+      "actions": [
+        {
+          "bottom": 666.40625,
+          "height": 107.1875,
+          "label": "Lernziel fortsetzen",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 559.21875
+        },
+        {
+          "bottom": 766,
+          "height": 91.59375,
+          "label": "Zurück zu deinen Yeopjeon",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 674.40625
+        }
+      ],
+      "animations": 2,
+      "balance": 30,
+      "contentHeight": 1245,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "2",
+      "scene": "W03",
+      "screen": {
+        "bottom": 551.21875,
+        "height": 421.21875,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 130
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 357.15625,
+          "height": 215.15625,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 142
+        },
+        {
+          "bottom": 597.34375,
+          "height": 228.1875,
+          "kind": "balance",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 369.15625
+        },
+        {
+          "bottom": 1229.484375,
+          "height": 620.140625,
+          "kind": "course",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 609.34375
+        },
+        {
+          "bottom": 1363.265625,
+          "height": 121.78125,
+          "kind": "context",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 1241.484375
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 778,
+        "height": 188.984375,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 589.015625
+      },
+      "actions": [
+        {
+          "bottom": 704.203125,
+          "height": 107.1875,
+          "label": "Verwendung prüfen",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 597.015625
+        },
+        {
+          "bottom": 766,
+          "height": 53.796875,
+          "label": "Weiterlernen",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 712.203125
+        }
+      ],
+      "animations": 2,
+      "balance": 70,
+      "contentHeight": 939,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "2",
+      "scene": "W04",
+      "screen": {
+        "bottom": 589.015625,
+        "height": 459.015625,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 130
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 270.78125,
+          "height": 128.78125,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 142
+        },
+        {
+          "bottom": 510.96875,
+          "height": 228.1875,
+          "kind": "balance",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 282.78125
+        },
+        {
+          "bottom": 629.953125,
+          "height": 106.984375,
+          "kind": "conditions",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 522.96875
+        },
+        {
+          "bottom": 882.234375,
+          "height": 240.28125,
+          "kind": "target",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 641.953125
+        },
+        {
+          "bottom": 1056.609375,
+          "height": 162.375,
+          "kind": "context",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 894.234375
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 777,
+        "height": 234.578125,
+        "right": 358,
+        "width": 341,
+        "x": 17,
+        "y": 542.421875
+      },
+      "actions": [
+        {
+          "bottom": 703.203125,
+          "height": 148.78125,
+          "label": "40 Yeopjeon verwenden",
+          "right": 338,
+          "width": 301,
+          "x": 37,
+          "y": 554.421875
+        },
+        {
+          "bottom": 765,
+          "height": 53.796875,
+          "label": "Abbrechen",
+          "right": 338,
+          "width": 301,
+          "x": 37,
+          "y": 711.203125
+        }
+      ],
+      "animations": 2,
+      "balance": 70,
+      "contentHeight": 939,
+      "dialog": {
+        "bottom": 778,
+        "height": 682,
+        "right": 359,
+        "width": 343,
+        "x": 16,
+        "y": 96
+      },
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "2",
+      "scene": "B01",
+      "screen": {
+        "bottom": 589.015625,
+        "height": 459.015625,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 130
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 270.78125,
+          "height": 128.78125,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 142
+        },
+        {
+          "bottom": 510.96875,
+          "height": 228.1875,
+          "kind": "balance",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 282.78125
+        },
+        {
+          "bottom": 629.953125,
+          "height": 106.984375,
+          "kind": "conditions",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 522.96875
+        },
+        {
+          "bottom": 882.234375,
+          "height": 240.28125,
+          "kind": "target",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 641.953125
+        },
+        {
+          "bottom": 1056.609375,
+          "height": 162.375,
+          "kind": "context",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 894.234375
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 778,
+        "height": 226.78125,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 551.21875
+      },
+      "actions": [
+        {
+          "bottom": 666.40625,
+          "height": 107.1875,
+          "label": "Nächstes Lernziel",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 559.21875
+        },
+        {
+          "bottom": 766,
+          "height": 91.59375,
+          "label": "Zurück zu deinen Yeopjeon",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 674.40625
+        }
+      ],
+      "animations": 2,
+      "balance": 30,
+      "contentHeight": 1208,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "2",
+      "scene": "B03",
+      "screen": {
+        "bottom": 551.21875,
+        "height": 421.21875,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 130
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 421.546875,
+          "height": 279.546875,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 142
+        },
+        {
+          "bottom": 698.125,
+          "height": 264.578125,
+          "kind": "balance",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 433.546875
+        },
+        {
+          "bottom": 1325.515625,
+          "height": 615.390625,
+          "kind": "receipt",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 710.125
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "de",
+      "actionDock": {
+        "bottom": 778,
+        "height": 185.1875,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 592.8125
+      },
+      "actions": [
+        {
+          "bottom": 666.40625,
+          "height": 65.59375,
+          "label": "Weiterlernen",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 600.8125
+        },
+        {
+          "bottom": 766,
+          "height": 91.59375,
+          "label": "Zurück zu deinen Yeopjeon",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 674.40625
+        }
+      ],
+      "animations": 1,
+      "balance": 30,
+      "contentHeight": 1014,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "2",
+      "scene": "W05",
+      "screen": {
+        "bottom": 592.8125,
+        "height": 462.8125,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 130
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 382.359375,
+          "height": 240.359375,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 142
+        },
+        {
+          "bottom": 1038.984375,
+          "height": 644.625,
+          "kind": "course",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 394.359375
+        },
+        {
+          "bottom": 1132.171875,
+          "height": 81.1875,
+          "kind": "context",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 1050.984375
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 778,
+        "height": 130,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 648
+      },
+      "actions": [
+        {
+          "bottom": 710,
+          "height": 54,
+          "label": "View course goal",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 656
+        },
+        {
+          "bottom": 766,
+          "height": 48,
+          "label": "Keep learning",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 718
+        }
+      ],
+      "animations": 1,
+      "balance": 30,
+      "contentHeight": 586,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [
+        {
+          "bottom": 422.1875,
+          "height": 260,
+          "kind": "IMG",
+          "naturalHeight": 960,
+          "naturalWidth": 960,
+          "right": 317.5,
+          "width": 260,
+          "x": 57.5,
+          "y": 162.1875
+        }
+      ],
+      "scale": "1",
+      "scene": "R01",
+      "screen": {
+        "bottom": 648,
+        "height": 538,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 154.1875,
+          "height": 32.1875,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 422.1875,
+          "height": 260,
+          "kind": "reward",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 162.1875
+        },
+        {
+          "bottom": 544.5625,
+          "height": 114.375,
+          "kind": "earned",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 430.1875
+        },
+        {
+          "bottom": 684.03125,
+          "height": 131.46875,
+          "kind": "receipt",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 552.5625
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 778,
+        "height": 130,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 648
+      },
+      "actions": [
+        {
+          "bottom": 710,
+          "height": 54,
+          "label": "View use",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 656
+        },
+        {
+          "bottom": 766,
+          "height": 48,
+          "label": "Keep learning",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 718
+        }
+      ],
+      "animations": 1,
+      "balance": 70,
+      "contentHeight": 546,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [
+        {
+          "bottom": 376.1875,
+          "height": 214,
+          "kind": "IMG",
+          "naturalHeight": 1024,
+          "naturalWidth": 1536,
+          "right": 348,
+          "width": 321,
+          "x": 27,
+          "y": 162.1875
+        }
+      ],
+      "scale": "1",
+      "scene": "R03",
+      "screen": {
+        "bottom": 648,
+        "height": 538,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 154.1875,
+          "height": 32.1875,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 382.1875,
+          "height": 220,
+          "kind": "reward",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 162.1875
+        },
+        {
+          "bottom": 504.5625,
+          "height": 114.375,
+          "kind": "earned",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 390.1875
+        },
+        {
+          "bottom": 644.03125,
+          "height": 131.46875,
+          "kind": "receipt",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 512.5625
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 778,
+        "height": 130,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 648
+      },
+      "actions": [
+        {
+          "bottom": 710,
+          "height": 54,
+          "label": "Continue your goal",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 656
+        },
+        {
+          "bottom": 766,
+          "height": 48,
+          "label": "Back to your yeopjeon",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 718
+        }
+      ],
+      "animations": 2,
+      "balance": 30,
+      "contentHeight": 538,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "1",
+      "scene": "W03",
+      "screen": {
+        "bottom": 648,
+        "height": 538,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": false,
+      "sections": [
+        {
+          "bottom": 181.78125,
+          "height": 59.78125,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 294.46875,
+          "height": 100.6875,
+          "kind": "balance",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 193.78125
+        },
+        {
+          "bottom": 539.625,
+          "height": 233.15625,
+          "kind": "course",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 306.46875
+        },
+        {
+          "bottom": 571.921875,
+          "height": 20.296875,
+          "kind": "context",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 551.625
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 778,
+        "height": 130,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 648
+      },
+      "actions": [
+        {
+          "bottom": 710,
+          "height": 54,
+          "label": "Review use",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 656
+        },
+        {
+          "bottom": 766,
+          "height": 48,
+          "label": "Keep learning",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 718
+        }
+      ],
+      "animations": 2,
+      "balance": 70,
+      "contentHeight": 538,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "1",
+      "scene": "W04",
+      "screen": {
+        "bottom": 648,
+        "height": 538,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": false,
+      "sections": [
+        {
+          "bottom": 154.1875,
+          "height": 32.1875,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 266.875,
+          "height": 100.6875,
+          "kind": "balance",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 166.1875
+        },
+        {
+          "bottom": 345.359375,
+          "height": 66.484375,
+          "kind": "conditions",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 278.875
+        },
+        {
+          "bottom": 477.984375,
+          "height": 120.625,
+          "kind": "target",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 357.359375
+        },
+        {
+          "bottom": 530.578125,
+          "height": 40.59375,
+          "kind": "context",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 489.984375
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 777,
+        "height": 134,
+        "right": 358,
+        "width": 341,
+        "x": 17,
+        "y": 643
+      },
+      "actions": [
+        {
+          "bottom": 709,
+          "height": 54,
+          "label": "Use 40 yeopjeon",
+          "right": 338,
+          "width": 301,
+          "x": 37,
+          "y": 655
+        },
+        {
+          "bottom": 765,
+          "height": 48,
+          "label": "Cancel",
+          "right": 338,
+          "width": 301,
+          "x": 37,
+          "y": 717
+        }
+      ],
+      "animations": 2,
+      "balance": 70,
+      "contentHeight": 538,
+      "dialog": {
+        "bottom": 778,
+        "height": 425.28125,
+        "right": 359,
+        "width": 343,
+        "x": 16,
+        "y": 352.71875
+      },
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "1",
+      "scene": "B01",
+      "screen": {
+        "bottom": 648,
+        "height": 538,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": false,
+      "sections": [
+        {
+          "bottom": 154.1875,
+          "height": 32.1875,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 266.875,
+          "height": 100.6875,
+          "kind": "balance",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 166.1875
+        },
+        {
+          "bottom": 345.359375,
+          "height": 66.484375,
+          "kind": "conditions",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 278.875
+        },
+        {
+          "bottom": 477.984375,
+          "height": 120.625,
+          "kind": "target",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 357.359375
+        },
+        {
+          "bottom": 530.578125,
+          "height": 40.59375,
+          "kind": "context",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 489.984375
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 778,
+        "height": 130,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 648
+      },
+      "actions": [
+        {
+          "bottom": 710,
+          "height": 54,
+          "label": "Next learning goal",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 656
+        },
+        {
+          "bottom": 766,
+          "height": 48,
+          "label": "Back to your yeopjeon",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 718
+        }
+      ],
+      "animations": 2,
+      "balance": 30,
+      "contentHeight": 538,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "1",
+      "scene": "B03",
+      "screen": {
+        "bottom": 648,
+        "height": 538,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": false,
+      "sections": [
+        {
+          "bottom": 181.78125,
+          "height": 59.78125,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 294.46875,
+          "height": 100.6875,
+          "kind": "balance",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 193.78125
+        },
+        {
+          "bottom": 519.65625,
+          "height": 213.1875,
+          "kind": "receipt",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 306.46875
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 778,
+        "height": 130,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 648
+      },
+      "actions": [
+        {
+          "bottom": 710,
+          "height": 54,
+          "label": "Keep learning",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 656
+        },
+        {
+          "bottom": 766,
+          "height": 48,
+          "label": "Back to your yeopjeon",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 718
+        }
+      ],
+      "animations": 1,
+      "balance": 30,
+      "contentHeight": 538,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "1",
+      "scene": "W05",
+      "screen": {
+        "bottom": 648,
+        "height": 538,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": false,
+      "sections": [
+        {
+          "bottom": 181.78125,
+          "height": 59.78125,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 410.28125,
+          "height": 216.5,
+          "kind": "course",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 193.78125
+        },
+        {
+          "bottom": 442.578125,
+          "height": 20.296875,
+          "kind": "context",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 422.28125
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 778,
+        "height": 188.984375,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 589.015625
+      },
+      "actions": [
+        {
+          "bottom": 704.203125,
+          "height": 107.1875,
+          "label": "View course goal",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 597.015625
+        },
+        {
+          "bottom": 766,
+          "height": 53.796875,
+          "label": "Keep learning",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 712.203125
+        }
+      ],
+      "animations": 1,
+      "balance": 30,
+      "contentHeight": 1009,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [
+        {
+          "bottom": 547.78125,
+          "height": 260,
+          "kind": "IMG",
+          "naturalHeight": 960,
+          "naturalWidth": 960,
+          "right": 317.5,
+          "width": 260,
+          "x": 57.5,
+          "y": 287.78125
+        }
+      ],
+      "scale": "2",
+      "scene": "R01",
+      "screen": {
+        "bottom": 589.015625,
+        "height": 450.015625,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 139
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 279.78125,
+          "height": 128.78125,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 151
+        },
+        {
+          "bottom": 547.78125,
+          "height": 260,
+          "kind": "reward",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 287.78125
+        },
+        {
+          "bottom": 817.734375,
+          "height": 261.953125,
+          "kind": "earned",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 555.78125
+        },
+        {
+          "bottom": 1135.90625,
+          "height": 310.171875,
+          "kind": "receipt",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 825.734375
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 778,
+        "height": 147.390625,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 630.609375
+      },
+      "actions": [
+        {
+          "bottom": 704.203125,
+          "height": 65.59375,
+          "label": "View use",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 638.609375
+        },
+        {
+          "bottom": 766,
+          "height": 53.796875,
+          "label": "Keep learning",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 712.203125
+        }
+      ],
+      "animations": 1,
+      "balance": 70,
+      "contentHeight": 969,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [
+        {
+          "bottom": 501.78125,
+          "height": 214,
+          "kind": "IMG",
+          "naturalHeight": 1024,
+          "naturalWidth": 1536,
+          "right": 348,
+          "width": 321,
+          "x": 27,
+          "y": 287.78125
+        }
+      ],
+      "scale": "2",
+      "scene": "R03",
+      "screen": {
+        "bottom": 630.609375,
+        "height": 491.609375,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 139
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 279.78125,
+          "height": 128.78125,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 151
+        },
+        {
+          "bottom": 507.78125,
+          "height": 220,
+          "kind": "reward",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 287.78125
+        },
+        {
+          "bottom": 777.734375,
+          "height": 261.953125,
+          "kind": "earned",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 515.78125
+        },
+        {
+          "bottom": 1095.90625,
+          "height": 310.171875,
+          "kind": "receipt",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 785.734375
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 778,
+        "height": 226.78125,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 551.21875
+      },
+      "actions": [
+        {
+          "bottom": 666.40625,
+          "height": 107.1875,
+          "label": "Continue your goal",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 559.21875
+        },
+        {
+          "bottom": 766,
+          "height": 91.59375,
+          "label": "Back to your yeopjeon",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 674.40625
+        }
+      ],
+      "animations": 2,
+      "balance": 30,
+      "contentHeight": 1296,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "2",
+      "scene": "W03",
+      "screen": {
+        "bottom": 551.21875,
+        "height": 421.21875,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 130
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 421.546875,
+          "height": 279.546875,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 142
+        },
+        {
+          "bottom": 661.734375,
+          "height": 228.1875,
+          "kind": "balance",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 433.546875
+        },
+        {
+          "bottom": 1280.5625,
+          "height": 606.828125,
+          "kind": "course",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 673.734375
+        },
+        {
+          "bottom": 1414.34375,
+          "height": 121.78125,
+          "kind": "context",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 1292.5625
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 778,
+        "height": 147.390625,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 630.609375
+      },
+      "actions": [
+        {
+          "bottom": 704.203125,
+          "height": 65.59375,
+          "label": "Review use",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 638.609375
+        },
+        {
+          "bottom": 766,
+          "height": 53.796875,
+          "label": "Keep learning",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 712.203125
+        }
+      ],
+      "animations": 2,
+      "balance": 70,
+      "contentHeight": 982,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "2",
+      "scene": "W04",
+      "screen": {
+        "bottom": 630.609375,
+        "height": 500.609375,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 130
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 270.78125,
+          "height": 128.78125,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 142
+        },
+        {
+          "bottom": 510.96875,
+          "height": 228.1875,
+          "kind": "balance",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 282.78125
+        },
+        {
+          "bottom": 673.140625,
+          "height": 150.171875,
+          "kind": "conditions",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 522.96875
+        },
+        {
+          "bottom": 925.421875,
+          "height": 240.28125,
+          "kind": "target",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 685.140625
+        },
+        {
+          "bottom": 1099.796875,
+          "height": 162.375,
+          "kind": "context",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 937.421875
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 777,
+        "height": 192.984375,
+        "right": 358,
+        "width": 341,
+        "x": 17,
+        "y": 584.015625
+      },
+      "actions": [
+        {
+          "bottom": 703.203125,
+          "height": 107.1875,
+          "label": "Use 40 yeopjeon",
+          "right": 338,
+          "width": 301,
+          "x": 37,
+          "y": 596.015625
+        },
+        {
+          "bottom": 765,
+          "height": 53.796875,
+          "label": "Cancel",
+          "right": 338,
+          "width": 301,
+          "x": 37,
+          "y": 711.203125
+        }
+      ],
+      "animations": 2,
+      "balance": 70,
+      "contentHeight": 982,
+      "dialog": {
+        "bottom": 778,
+        "height": 682,
+        "right": 359,
+        "width": 343,
+        "x": 16,
+        "y": 96
+      },
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "2",
+      "scene": "B01",
+      "screen": {
+        "bottom": 630.609375,
+        "height": 500.609375,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 130
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 270.78125,
+          "height": 128.78125,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 142
+        },
+        {
+          "bottom": 510.96875,
+          "height": 228.1875,
+          "kind": "balance",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 282.78125
+        },
+        {
+          "bottom": 673.140625,
+          "height": 150.171875,
+          "kind": "conditions",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 522.96875
+        },
+        {
+          "bottom": 925.421875,
+          "height": 240.28125,
+          "kind": "target",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 685.140625
+        },
+        {
+          "bottom": 1099.796875,
+          "height": 162.375,
+          "kind": "context",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 937.421875
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 778,
+        "height": 226.78125,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 551.21875
+      },
+      "actions": [
+        {
+          "bottom": 666.40625,
+          "height": 107.1875,
+          "label": "Next learning goal",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 559.21875
+        },
+        {
+          "bottom": 766,
+          "height": 91.59375,
+          "label": "Back to your yeopjeon",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 674.40625
+        }
+      ],
+      "animations": 2,
+      "balance": 30,
+      "contentHeight": 876,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "2",
+      "scene": "B03",
+      "screen": {
+        "bottom": 551.21875,
+        "height": 421.21875,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 130
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 317.96875,
+          "height": 175.96875,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 142
+        },
+        {
+          "bottom": 558.15625,
+          "height": 228.1875,
+          "kind": "balance",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 329.96875
+        },
+        {
+          "bottom": 993.546875,
+          "height": 423.390625,
+          "kind": "receipt",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 570.15625
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "en",
+      "actionDock": {
+        "bottom": 778,
+        "height": 185.1875,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 592.8125
+      },
+      "actions": [
+        {
+          "bottom": 666.40625,
+          "height": 65.59375,
+          "label": "Keep learning",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 600.8125
+        },
+        {
+          "bottom": 766,
+          "height": 91.59375,
+          "label": "Back to your yeopjeon",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 674.40625
+        }
+      ],
+      "animations": 1,
+      "balance": 30,
+      "contentHeight": 974,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "false",
+      "rewardMedia": [],
+      "scale": "2",
+      "scene": "W05",
+      "screen": {
+        "bottom": 592.8125,
+        "height": 462.8125,
+        "right": 375,
+        "width": 375,
+        "x": 0,
+        "y": 130
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 382.359375,
+          "height": 240.359375,
+          "kind": "heading",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 142
+        },
+        {
+          "bottom": 998.703125,
+          "height": 604.34375,
+          "kind": "course",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 394.359375
+        },
+        {
+          "bottom": 1091.890625,
+          "height": 81.1875,
+          "kind": "context",
+          "right": 357,
+          "width": 339,
+          "x": 18,
+          "y": 1010.703125
+        }
+      ],
+      "viewport": {
+        "height": 812,
+        "width": 375
+      }
+    },
+    {
+      "language": "en",
+      "mode": "landscape-reduced-motion",
+      "actionDock": {
+        "bottom": 368,
+        "height": 130,
+        "right": 874,
+        "width": 874,
+        "x": 0,
+        "y": 238
+      },
+      "actions": [
+        {
+          "bottom": 300,
+          "height": 54,
+          "label": "Review use",
+          "right": 856,
+          "width": 838,
+          "x": 18,
+          "y": 246
+        },
+        {
+          "bottom": 356,
+          "height": 48,
+          "label": "Keep learning",
+          "right": 856,
+          "width": 838,
+          "x": 18,
+          "y": 308
+        }
+      ],
+      "animations": 0,
+      "balance": 70,
+      "contentHeight": 412,
+      "dialog": null,
+      "failures": [],
+      "reducedMotion": "true",
+      "rewardMedia": [],
+      "scale": "1",
+      "scene": "W04",
+      "screen": {
+        "bottom": 238,
+        "height": 128,
+        "right": 874,
+        "width": 874,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 154.1875,
+          "height": 32.1875,
+          "kind": "heading",
+          "right": 856,
+          "width": 838,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 266.875,
+          "height": 100.6875,
+          "kind": "balance",
+          "right": 856,
+          "width": 838,
+          "x": 18,
+          "y": 166.1875
+        },
+        {
+          "bottom": 345.359375,
+          "height": 66.484375,
+          "kind": "conditions",
+          "right": 856,
+          "width": 838,
+          "x": 18,
+          "y": 278.875
+        },
+        {
+          "bottom": 477.984375,
+          "height": 120.625,
+          "kind": "target",
+          "right": 856,
+          "width": 838,
+          "x": 18,
+          "y": 357.359375
+        },
+        {
+          "bottom": 510.28125,
+          "height": 20.296875,
+          "kind": "context",
+          "right": 856,
+          "width": 838,
+          "x": 18,
+          "y": 489.984375
+        }
+      ],
+      "viewport": {
+        "height": 402,
+        "width": 874
+      }
+    },
+    {
+      "language": "en",
+      "mode": "landscape-reduced-motion",
+      "actionDock": {
+        "bottom": 367,
+        "height": 134,
+        "right": 621,
+        "width": 368,
+        "x": 253,
+        "y": 233
+      },
+      "actions": [
+        {
+          "bottom": 299,
+          "height": 54,
+          "label": "Use 40 yeopjeon",
+          "right": 601,
+          "width": 328,
+          "x": 273,
+          "y": 245
+        },
+        {
+          "bottom": 355,
+          "height": 48,
+          "label": "Cancel",
+          "right": 601,
+          "width": 328,
+          "x": 273,
+          "y": 307
+        }
+      ],
+      "animations": 0,
+      "balance": 70,
+      "contentHeight": 412,
+      "dialog": {
+        "bottom": 368,
+        "height": 272,
+        "right": 622,
+        "width": 370,
+        "x": 252,
+        "y": 96
+      },
+      "failures": [],
+      "reducedMotion": "true",
+      "rewardMedia": [],
+      "scale": "1",
+      "scene": "B01",
+      "screen": {
+        "bottom": 238,
+        "height": 128,
+        "right": 874,
+        "width": 874,
+        "x": 0,
+        "y": 110
+      },
+      "scrollNeeded": true,
+      "sections": [
+        {
+          "bottom": 154.1875,
+          "height": 32.1875,
+          "kind": "heading",
+          "right": 856,
+          "width": 838,
+          "x": 18,
+          "y": 122
+        },
+        {
+          "bottom": 266.875,
+          "height": 100.6875,
+          "kind": "balance",
+          "right": 856,
+          "width": 838,
+          "x": 18,
+          "y": 166.1875
+        },
+        {
+          "bottom": 345.359375,
+          "height": 66.484375,
+          "kind": "conditions",
+          "right": 856,
+          "width": 838,
+          "x": 18,
+          "y": 278.875
+        },
+        {
+          "bottom": 477.984375,
+          "height": 120.625,
+          "kind": "target",
+          "right": 856,
+          "width": 838,
+          "x": 18,
+          "y": 357.359375
+        },
+        {
+          "bottom": 510.28125,
+          "height": 20.296875,
+          "kind": "context",
+          "right": 856,
+          "width": 838,
+          "x": 18,
+          "y": 489.984375
+        }
+      ],
+      "viewport": {
+        "height": 402,
+        "width": 874
+      }
+    }
+  ],
+  "browserErrors": {
+    "errors": [],
+    "lifecycle": {
+      "effectiveLaunch": {
+        "browserLaunched": true,
+        "engine": "chrome",
+        "launchHash": 7707568497978554591
+      },
+      "launched": false,
+      "relaunchedBrowser": false,
+      "restartedBackground": false,
+      "restoreStatus": "not_configured",
+      "reused": true,
+      "saveStatus": "not_attempted"
+    }
+  }
+}

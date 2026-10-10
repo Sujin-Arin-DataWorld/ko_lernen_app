@@ -1,0 +1,3203 @@
+{
+  "boundary": "HTML sample fixture only; no Flutter or device QA",
+  "timeUtc": "2026-10-10T22:45:53.222038+00:00",
+  "layoutMode": "Current two-row reel slots, settled receipt and reduced motion",
+  "layouts": [
+    {
+      "scene": "R01",
+      "language": "de",
+      "scale": 100,
+      "candidate": false,
+      "viewport": [
+        402,
+        874
+      ],
+      "top": {
+        "actionDock": {
+          "bottom": 840,
+          "height": 130,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 710
+        },
+        "actions": [
+          {
+            "bottom": 772,
+            "height": 54,
+            "label": "Zum Kursziel",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 718
+          },
+          {
+            "bottom": 828,
+            "height": 48,
+            "label": "Weiterlernen",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 780
+          }
+        ],
+        "animations": 0,
+        "balance": 30,
+        "contentHeight": 600,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "1",
+        "scene": "R01",
+        "screen": {
+          "bottom": 710,
+          "height": 600,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 110
+        },
+        "scrollNeeded": false,
+        "sections": [
+          {
+            "bottom": 154.1875,
+            "height": 32.1875,
+            "kind": "heading",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 122
+          },
+          {
+            "bottom": 422.1875,
+            "height": 260,
+            "kind": "reward",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 162.1875
+          },
+          {
+            "bottom": 544.5625,
+            "height": 114.375,
+            "kind": "earned",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 430.1875
+          },
+          {
+            "bottom": 691.84375,
+            "height": 139.28125,
+            "kind": "receipt",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 552.5625
+          }
+        ],
+        "viewport": {
+          "height": 874,
+          "width": 402
+        }
+      },
+      "bottom": {
+        "actionDock": {
+          "bottom": 840,
+          "height": 130,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 710
+        },
+        "actions": [
+          {
+            "bottom": 772,
+            "height": 54,
+            "label": "Zum Kursziel",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 718
+          },
+          {
+            "bottom": 828,
+            "height": 48,
+            "label": "Weiterlernen",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 780
+          }
+        ],
+        "animations": 0,
+        "balance": 30,
+        "contentHeight": 600,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "1",
+        "scene": "R01",
+        "screen": {
+          "bottom": 710,
+          "height": 600,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 110
+        },
+        "scrollNeeded": false,
+        "sections": [
+          {
+            "bottom": 154.1875,
+            "height": 32.1875,
+            "kind": "heading",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 122
+          },
+          {
+            "bottom": 422.1875,
+            "height": 260,
+            "kind": "reward",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 162.1875
+          },
+          {
+            "bottom": 544.5625,
+            "height": 114.375,
+            "kind": "earned",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 430.1875
+          },
+          {
+            "bottom": 691.84375,
+            "height": 139.28125,
+            "kind": "receipt",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 552.5625
+          }
+        ],
+        "viewport": {
+          "height": 874,
+          "width": 402
+        }
+      },
+      "scroll": {
+        "after": 710,
+        "announcement": "Erhalten: 20 Yeopjeon. Gespeichertes Guthaben: 30 Yeopjeon.",
+        "before": 710,
+        "receiptBottom": 691.84375,
+        "receiptTop": 552.5625,
+        "scrollBottom": 710,
+        "scrollTop": 0,
+        "visibleReels": 0
+      }
+    },
+    {
+      "scene": "R01",
+      "language": "de",
+      "scale": 200,
+      "candidate": false,
+      "viewport": [
+        402,
+        874
+      ],
+      "top": {
+        "actionDock": {
+          "bottom": 840,
+          "height": 147.390625,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 692.609375
+        },
+        "actions": [
+          {
+            "bottom": 766.203125,
+            "height": 65.59375,
+            "label": "Zum Kursziel",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 700.609375
+          },
+          {
+            "bottom": 828,
+            "height": 53.796875,
+            "label": "Weiterlernen",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 774.203125
+          }
+        ],
+        "animations": 0,
+        "balance": 30,
+        "contentHeight": 1056,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "2",
+        "scene": "R01",
+        "screen": {
+          "bottom": 692.609375,
+          "height": 553.609375,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 139
+        },
+        "scrollNeeded": true,
+        "sections": [
+          {
+            "bottom": 279.78125,
+            "height": 128.78125,
+            "kind": "heading",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 151
+          },
+          {
+            "bottom": 547.78125,
+            "height": 260,
+            "kind": "reward",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 287.78125
+          },
+          {
+            "bottom": 817.734375,
+            "height": 261.953125,
+            "kind": "earned",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 555.78125
+          },
+          {
+            "bottom": 1183,
+            "height": 357.265625,
+            "kind": "receipt",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 825.734375
+          }
+        ],
+        "viewport": {
+          "height": 874,
+          "width": 402
+        }
+      },
+      "bottom": {
+        "actionDock": {
+          "bottom": 840,
+          "height": 147.390625,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 692.609375
+        },
+        "actions": [
+          {
+            "bottom": 766.203125,
+            "height": 65.59375,
+            "label": "Zum Kursziel",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 700.609375
+          },
+          {
+            "bottom": 828,
+            "height": 53.796875,
+            "label": "Weiterlernen",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 774.203125
+          }
+        ],
+        "animations": 0,
+        "balance": 30,
+        "contentHeight": 1056,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "2",
+        "scene": "R01",
+        "screen": {
+          "bottom": 692.609375,
+          "height": 553.609375,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 139
+        },
+        "scrollNeeded": true,
+        "sections": [
+          {
+            "bottom": -222.21875,
+            "height": 128.78125,
+            "kind": "heading",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": -351
+          },
+          {
+            "bottom": 45.78125,
+            "height": 260,
+            "kind": "reward",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": -214.21875
+          },
+          {
+            "bottom": 315.734375,
+            "height": 261.953125,
+            "kind": "earned",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 53.78125
+          },
+          {
+            "bottom": 681,
+            "height": 357.265625,
+            "kind": "receipt",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 323.734375
+          }
+        ],
+        "viewport": {
+          "height": 874,
+          "width": 402
+        }
+      },
+      "scroll": {
+        "after": 692.609375,
+        "announcement": "Erhalten: 20 Yeopjeon. Gespeichertes Guthaben: 30 Yeopjeon.",
+        "before": 692.609375,
+        "receiptBottom": 681,
+        "receiptTop": 323.734375,
+        "scrollBottom": 692.609375,
+        "scrollTop": 502,
+        "visibleReels": 0
+      }
+    },
+    {
+      "scene": "R01",
+      "language": "en",
+      "scale": 100,
+      "candidate": false,
+      "viewport": [
+        402,
+        874
+      ],
+      "top": {
+        "actionDock": {
+          "bottom": 840,
+          "height": 130,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 710
+        },
+        "actions": [
+          {
+            "bottom": 772,
+            "height": 54,
+            "label": "View course goal",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 718
+          },
+          {
+            "bottom": 828,
+            "height": 48,
+            "label": "Keep learning",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 780
+          }
+        ],
+        "animations": 0,
+        "balance": 30,
+        "contentHeight": 600,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "1",
+        "scene": "R01",
+        "screen": {
+          "bottom": 710,
+          "height": 600,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 110
+        },
+        "scrollNeeded": false,
+        "sections": [
+          {
+            "bottom": 154.1875,
+            "height": 32.1875,
+            "kind": "heading",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 122
+          },
+          {
+            "bottom": 422.1875,
+            "height": 260,
+            "kind": "reward",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 162.1875
+          },
+          {
+            "bottom": 544.5625,
+            "height": 114.375,
+            "kind": "earned",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 430.1875
+          },
+          {
+            "bottom": 684.03125,
+            "height": 131.46875,
+            "kind": "receipt",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 552.5625
+          }
+        ],
+        "viewport": {
+          "height": 874,
+          "width": 402
+        }
+      },
+      "bottom": {
+        "actionDock": {
+          "bottom": 840,
+          "height": 130,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 710
+        },
+        "actions": [
+          {
+            "bottom": 772,
+            "height": 54,
+            "label": "View course goal",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 718
+          },
+          {
+            "bottom": 828,
+            "height": 48,
+            "label": "Keep learning",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 780
+          }
+        ],
+        "animations": 0,
+        "balance": 30,
+        "contentHeight": 600,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "1",
+        "scene": "R01",
+        "screen": {
+          "bottom": 710,
+          "height": 600,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 110
+        },
+        "scrollNeeded": false,
+        "sections": [
+          {
+            "bottom": 154.1875,
+            "height": 32.1875,
+            "kind": "heading",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 122
+          },
+          {
+            "bottom": 422.1875,
+            "height": 260,
+            "kind": "reward",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 162.1875
+          },
+          {
+            "bottom": 544.5625,
+            "height": 114.375,
+            "kind": "earned",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 430.1875
+          },
+          {
+            "bottom": 684.03125,
+            "height": 131.46875,
+            "kind": "receipt",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 552.5625
+          }
+        ],
+        "viewport": {
+          "height": 874,
+          "width": 402
+        }
+      },
+      "scroll": {
+        "after": 710,
+        "announcement": "Received: 20 Yeopjeon. Saved balance: 30 Yeopjeon.",
+        "before": 710,
+        "receiptBottom": 684.03125,
+        "receiptTop": 552.5625,
+        "scrollBottom": 710,
+        "scrollTop": 0,
+        "visibleReels": 0
+      }
+    },
+    {
+      "scene": "R01",
+      "language": "en",
+      "scale": 200,
+      "candidate": false,
+      "viewport": [
+        402,
+        874
+      ],
+      "top": {
+        "actionDock": {
+          "bottom": 840,
+          "height": 188.984375,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 651.015625
+        },
+        "actions": [
+          {
+            "bottom": 766.203125,
+            "height": 107.1875,
+            "label": "View course goal",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 659.015625
+          },
+          {
+            "bottom": 828,
+            "height": 53.796875,
+            "label": "Keep learning",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 774.203125
+          }
+        ],
+        "animations": 0,
+        "balance": 30,
+        "contentHeight": 1009,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "2",
+        "scene": "R01",
+        "screen": {
+          "bottom": 651.015625,
+          "height": 512.015625,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 139
+        },
+        "scrollNeeded": true,
+        "sections": [
+          {
+            "bottom": 279.78125,
+            "height": 128.78125,
+            "kind": "heading",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 151
+          },
+          {
+            "bottom": 547.78125,
+            "height": 260,
+            "kind": "reward",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 287.78125
+          },
+          {
+            "bottom": 817.734375,
+            "height": 261.953125,
+            "kind": "earned",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 555.78125
+          },
+          {
+            "bottom": 1135.90625,
+            "height": 310.171875,
+            "kind": "receipt",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 825.734375
+          }
+        ],
+        "viewport": {
+          "height": 874,
+          "width": 402
+        }
+      },
+      "bottom": {
+        "actionDock": {
+          "bottom": 840,
+          "height": 188.984375,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 651.015625
+        },
+        "actions": [
+          {
+            "bottom": 766.203125,
+            "height": 107.1875,
+            "label": "View course goal",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 659.015625
+          },
+          {
+            "bottom": 828,
+            "height": 53.796875,
+            "label": "Keep learning",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 774.203125
+          }
+        ],
+        "animations": 0,
+        "balance": 30,
+        "contentHeight": 1009,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "2",
+        "scene": "R01",
+        "screen": {
+          "bottom": 651.015625,
+          "height": 512.015625,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 139
+        },
+        "scrollNeeded": true,
+        "sections": [
+          {
+            "bottom": -217.21875,
+            "height": 128.78125,
+            "kind": "heading",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": -346
+          },
+          {
+            "bottom": 50.78125,
+            "height": 260,
+            "kind": "reward",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": -209.21875
+          },
+          {
+            "bottom": 320.734375,
+            "height": 261.953125,
+            "kind": "earned",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 58.78125
+          },
+          {
+            "bottom": 638.90625,
+            "height": 310.171875,
+            "kind": "receipt",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 328.734375
+          }
+        ],
+        "viewport": {
+          "height": 874,
+          "width": 402
+        }
+      },
+      "scroll": {
+        "after": 651.015625,
+        "announcement": "Received: 20 Yeopjeon. Saved balance: 30 Yeopjeon.",
+        "before": 651.015625,
+        "receiptBottom": 638.90625,
+        "receiptTop": 328.734375,
+        "scrollBottom": 651.015625,
+        "scrollTop": 497,
+        "visibleReels": 0
+      }
+    },
+    {
+      "scene": "R03",
+      "language": "de",
+      "scale": 100,
+      "candidate": false,
+      "viewport": [
+        402,
+        874
+      ],
+      "top": {
+        "actionDock": {
+          "bottom": 840,
+          "height": 130,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 710
+        },
+        "actions": [
+          {
+            "bottom": 772,
+            "height": 54,
+            "label": "Verwendung ansehen",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 718
+          },
+          {
+            "bottom": 828,
+            "height": 48,
+            "label": "Weiterlernen",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 780
+          }
+        ],
+        "animations": 0,
+        "balance": 70,
+        "contentHeight": 600,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "1",
+        "scene": "R03",
+        "screen": {
+          "bottom": 710,
+          "height": 600,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 110
+        },
+        "scrollNeeded": false,
+        "sections": [
+          {
+            "bottom": 154.1875,
+            "height": 32.1875,
+            "kind": "heading",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 122
+          },
+          {
+            "bottom": 382.1875,
+            "height": 220,
+            "kind": "reward",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 162.1875
+          },
+          {
+            "bottom": 504.5625,
+            "height": 114.375,
+            "kind": "earned",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 390.1875
+          },
+          {
+            "bottom": 651.84375,
+            "height": 139.28125,
+            "kind": "receipt",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 512.5625
+          }
+        ],
+        "viewport": {
+          "height": 874,
+          "width": 402
+        }
+      },
+      "bottom": {
+        "actionDock": {
+          "bottom": 840,
+          "height": 130,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 710
+        },
+        "actions": [
+          {
+            "bottom": 772,
+            "height": 54,
+            "label": "Verwendung ansehen",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 718
+          },
+          {
+            "bottom": 828,
+            "height": 48,
+            "label": "Weiterlernen",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 780
+          }
+        ],
+        "animations": 0,
+        "balance": 70,
+        "contentHeight": 600,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "1",
+        "scene": "R03",
+        "screen": {
+          "bottom": 710,
+          "height": 600,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 110
+        },
+        "scrollNeeded": false,
+        "sections": [
+          {
+            "bottom": 154.1875,
+            "height": 32.1875,
+            "kind": "heading",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 122
+          },
+          {
+            "bottom": 382.1875,
+            "height": 220,
+            "kind": "reward",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 162.1875
+          },
+          {
+            "bottom": 504.5625,
+            "height": 114.375,
+            "kind": "earned",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 390.1875
+          },
+          {
+            "bottom": 651.84375,
+            "height": 139.28125,
+            "kind": "receipt",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 512.5625
+          }
+        ],
+        "viewport": {
+          "height": 874,
+          "width": 402
+        }
+      },
+      "scroll": {
+        "after": 710,
+        "announcement": "Erhalten: 40 Yeopjeon. Gespeichertes Guthaben: 70 Yeopjeon.",
+        "before": 710,
+        "receiptBottom": 651.84375,
+        "receiptTop": 512.5625,
+        "scrollBottom": 710,
+        "scrollTop": 0,
+        "visibleReels": 0
+      }
+    },
+    {
+      "scene": "R03",
+      "language": "de",
+      "scale": 200,
+      "candidate": false,
+      "viewport": [
+        402,
+        874
+      ],
+      "top": {
+        "actionDock": {
+          "bottom": 840,
+          "height": 188.984375,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 651.015625
+        },
+        "actions": [
+          {
+            "bottom": 766.203125,
+            "height": 107.1875,
+            "label": "Verwendung ansehen",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 659.015625
+          },
+          {
+            "bottom": 828,
+            "height": 53.796875,
+            "label": "Weiterlernen",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 774.203125
+          }
+        ],
+        "animations": 0,
+        "balance": 70,
+        "contentHeight": 1016,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "2",
+        "scene": "R03",
+        "screen": {
+          "bottom": 651.015625,
+          "height": 512.015625,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 139
+        },
+        "scrollNeeded": true,
+        "sections": [
+          {
+            "bottom": 279.78125,
+            "height": 128.78125,
+            "kind": "heading",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 151
+          },
+          {
+            "bottom": 507.78125,
+            "height": 220,
+            "kind": "reward",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 287.78125
+          },
+          {
+            "bottom": 777.734375,
+            "height": 261.953125,
+            "kind": "earned",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 515.78125
+          },
+          {
+            "bottom": 1143,
+            "height": 357.265625,
+            "kind": "receipt",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 785.734375
+          }
+        ],
+        "viewport": {
+          "height": 874,
+          "width": 402
+        }
+      },
+      "bottom": {
+        "actionDock": {
+          "bottom": 840,
+          "height": 188.984375,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 651.015625
+        },
+        "actions": [
+          {
+            "bottom": 766.203125,
+            "height": 107.1875,
+            "label": "Verwendung ansehen",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 659.015625
+          },
+          {
+            "bottom": 828,
+            "height": 53.796875,
+            "label": "Weiterlernen",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 774.203125
+          }
+        ],
+        "animations": 0,
+        "balance": 70,
+        "contentHeight": 1016,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "2",
+        "scene": "R03",
+        "screen": {
+          "bottom": 651.015625,
+          "height": 512.015625,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 139
+        },
+        "scrollNeeded": true,
+        "sections": [
+          {
+            "bottom": -224.21875,
+            "height": 128.78125,
+            "kind": "heading",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": -353
+          },
+          {
+            "bottom": 3.78125,
+            "height": 220,
+            "kind": "reward",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": -216.21875
+          },
+          {
+            "bottom": 273.734375,
+            "height": 261.953125,
+            "kind": "earned",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 11.78125
+          },
+          {
+            "bottom": 639,
+            "height": 357.265625,
+            "kind": "receipt",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 281.734375
+          }
+        ],
+        "viewport": {
+          "height": 874,
+          "width": 402
+        }
+      },
+      "scroll": {
+        "after": 651.015625,
+        "announcement": "Erhalten: 40 Yeopjeon. Gespeichertes Guthaben: 70 Yeopjeon.",
+        "before": 651.015625,
+        "receiptBottom": 639,
+        "receiptTop": 281.734375,
+        "scrollBottom": 651.015625,
+        "scrollTop": 504,
+        "visibleReels": 0
+      }
+    },
+    {
+      "scene": "R03",
+      "language": "en",
+      "scale": 100,
+      "candidate": false,
+      "viewport": [
+        402,
+        874
+      ],
+      "top": {
+        "actionDock": {
+          "bottom": 840,
+          "height": 130,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 710
+        },
+        "actions": [
+          {
+            "bottom": 772,
+            "height": 54,
+            "label": "View use",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 718
+          },
+          {
+            "bottom": 828,
+            "height": 48,
+            "label": "Keep learning",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 780
+          }
+        ],
+        "animations": 0,
+        "balance": 70,
+        "contentHeight": 600,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "1",
+        "scene": "R03",
+        "screen": {
+          "bottom": 710,
+          "height": 600,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 110
+        },
+        "scrollNeeded": false,
+        "sections": [
+          {
+            "bottom": 154.1875,
+            "height": 32.1875,
+            "kind": "heading",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 122
+          },
+          {
+            "bottom": 382.1875,
+            "height": 220,
+            "kind": "reward",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 162.1875
+          },
+          {
+            "bottom": 504.5625,
+            "height": 114.375,
+            "kind": "earned",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 390.1875
+          },
+          {
+            "bottom": 644.03125,
+            "height": 131.46875,
+            "kind": "receipt",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 512.5625
+          }
+        ],
+        "viewport": {
+          "height": 874,
+          "width": 402
+        }
+      },
+      "bottom": {
+        "actionDock": {
+          "bottom": 840,
+          "height": 130,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 710
+        },
+        "actions": [
+          {
+            "bottom": 772,
+            "height": 54,
+            "label": "View use",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 718
+          },
+          {
+            "bottom": 828,
+            "height": 48,
+            "label": "Keep learning",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 780
+          }
+        ],
+        "animations": 0,
+        "balance": 70,
+        "contentHeight": 600,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "1",
+        "scene": "R03",
+        "screen": {
+          "bottom": 710,
+          "height": 600,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 110
+        },
+        "scrollNeeded": false,
+        "sections": [
+          {
+            "bottom": 154.1875,
+            "height": 32.1875,
+            "kind": "heading",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 122
+          },
+          {
+            "bottom": 382.1875,
+            "height": 220,
+            "kind": "reward",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 162.1875
+          },
+          {
+            "bottom": 504.5625,
+            "height": 114.375,
+            "kind": "earned",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 390.1875
+          },
+          {
+            "bottom": 644.03125,
+            "height": 131.46875,
+            "kind": "receipt",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 512.5625
+          }
+        ],
+        "viewport": {
+          "height": 874,
+          "width": 402
+        }
+      },
+      "scroll": {
+        "after": 710,
+        "announcement": "Received: 40 Yeopjeon. Saved balance: 70 Yeopjeon.",
+        "before": 710,
+        "receiptBottom": 644.03125,
+        "receiptTop": 512.5625,
+        "scrollBottom": 710,
+        "scrollTop": 0,
+        "visibleReels": 0
+      }
+    },
+    {
+      "scene": "R03",
+      "language": "en",
+      "scale": 200,
+      "candidate": false,
+      "viewport": [
+        402,
+        874
+      ],
+      "top": {
+        "actionDock": {
+          "bottom": 840,
+          "height": 147.390625,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 692.609375
+        },
+        "actions": [
+          {
+            "bottom": 766.203125,
+            "height": 65.59375,
+            "label": "View use",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 700.609375
+          },
+          {
+            "bottom": 828,
+            "height": 53.796875,
+            "label": "Keep learning",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 774.203125
+          }
+        ],
+        "animations": 0,
+        "balance": 70,
+        "contentHeight": 969,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "2",
+        "scene": "R03",
+        "screen": {
+          "bottom": 692.609375,
+          "height": 553.609375,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 139
+        },
+        "scrollNeeded": true,
+        "sections": [
+          {
+            "bottom": 279.78125,
+            "height": 128.78125,
+            "kind": "heading",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 151
+          },
+          {
+            "bottom": 507.78125,
+            "height": 220,
+            "kind": "reward",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 287.78125
+          },
+          {
+            "bottom": 777.734375,
+            "height": 261.953125,
+            "kind": "earned",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 515.78125
+          },
+          {
+            "bottom": 1095.90625,
+            "height": 310.171875,
+            "kind": "receipt",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 785.734375
+          }
+        ],
+        "viewport": {
+          "height": 874,
+          "width": 402
+        }
+      },
+      "bottom": {
+        "actionDock": {
+          "bottom": 840,
+          "height": 147.390625,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 692.609375
+        },
+        "actions": [
+          {
+            "bottom": 766.203125,
+            "height": 65.59375,
+            "label": "View use",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 700.609375
+          },
+          {
+            "bottom": 828,
+            "height": 53.796875,
+            "label": "Keep learning",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 774.203125
+          }
+        ],
+        "animations": 0,
+        "balance": 70,
+        "contentHeight": 969,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "2",
+        "scene": "R03",
+        "screen": {
+          "bottom": 692.609375,
+          "height": 553.609375,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 139
+        },
+        "scrollNeeded": true,
+        "sections": [
+          {
+            "bottom": -135.21875,
+            "height": 128.78125,
+            "kind": "heading",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": -264
+          },
+          {
+            "bottom": 92.78125,
+            "height": 220,
+            "kind": "reward",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": -127.21875
+          },
+          {
+            "bottom": 362.734375,
+            "height": 261.953125,
+            "kind": "earned",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 100.78125
+          },
+          {
+            "bottom": 680.90625,
+            "height": 310.171875,
+            "kind": "receipt",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 370.734375
+          }
+        ],
+        "viewport": {
+          "height": 874,
+          "width": 402
+        }
+      },
+      "scroll": {
+        "after": 692.609375,
+        "announcement": "Received: 40 Yeopjeon. Saved balance: 70 Yeopjeon.",
+        "before": 692.609375,
+        "receiptBottom": 680.90625,
+        "receiptTop": 370.734375,
+        "scrollBottom": 692.609375,
+        "scrollTop": 415,
+        "visibleReels": 0
+      }
+    },
+    {
+      "scene": "R01",
+      "language": "de",
+      "scale": 100,
+      "candidate": true,
+      "viewport": [
+        402,
+        874
+      ],
+      "top": {
+        "actionDock": {
+          "bottom": 840,
+          "height": 130,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 710
+        },
+        "actions": [
+          {
+            "bottom": 772,
+            "height": 54,
+            "label": "Zum Kursziel",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 718
+          },
+          {
+            "bottom": 828,
+            "height": 48,
+            "label": "Weiterlernen",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 780
+          }
+        ],
+        "animations": 0,
+        "balance": 30,
+        "contentHeight": 600,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "1",
+        "scene": "R01",
+        "screen": {
+          "bottom": 710,
+          "height": 600,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 110
+        },
+        "scrollNeeded": false,
+        "sections": [
+          {
+            "bottom": 154.1875,
+            "height": 32.1875,
+            "kind": "heading",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 122
+          },
+          {
+            "bottom": 422.1875,
+            "height": 260,
+            "kind": "reward",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 162.1875
+          },
+          {
+            "bottom": 544.5625,
+            "height": 114.375,
+            "kind": "earned",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 430.1875
+          },
+          {
+            "bottom": 691.84375,
+            "height": 139.28125,
+            "kind": "receipt",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 552.5625
+          }
+        ],
+        "viewport": {
+          "height": 874,
+          "width": 402
+        }
+      },
+      "bottom": {
+        "actionDock": {
+          "bottom": 840,
+          "height": 130,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 710
+        },
+        "actions": [
+          {
+            "bottom": 772,
+            "height": 54,
+            "label": "Zum Kursziel",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 718
+          },
+          {
+            "bottom": 828,
+            "height": 48,
+            "label": "Weiterlernen",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 780
+          }
+        ],
+        "animations": 0,
+        "balance": 30,
+        "contentHeight": 600,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "1",
+        "scene": "R01",
+        "screen": {
+          "bottom": 710,
+          "height": 600,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 110
+        },
+        "scrollNeeded": false,
+        "sections": [
+          {
+            "bottom": 154.1875,
+            "height": 32.1875,
+            "kind": "heading",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 122
+          },
+          {
+            "bottom": 422.1875,
+            "height": 260,
+            "kind": "reward",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 162.1875
+          },
+          {
+            "bottom": 544.5625,
+            "height": 114.375,
+            "kind": "earned",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 430.1875
+          },
+          {
+            "bottom": 691.84375,
+            "height": 139.28125,
+            "kind": "receipt",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 552.5625
+          }
+        ],
+        "viewport": {
+          "height": 874,
+          "width": 402
+        }
+      },
+      "scroll": {
+        "after": 710,
+        "announcement": "Erhalten: 20 Yeopjeon. Gespeichertes Guthaben: 30 Yeopjeon.",
+        "before": 710,
+        "receiptBottom": 691.84375,
+        "receiptTop": 552.5625,
+        "scrollBottom": 710,
+        "scrollTop": 0,
+        "visibleReels": 0
+      }
+    },
+    {
+      "scene": "R01",
+      "language": "de",
+      "scale": 100,
+      "candidate": true,
+      "viewport": [
+        375,
+        812
+      ],
+      "top": {
+        "actionDock": {
+          "bottom": 778,
+          "height": 130,
+          "right": 375,
+          "width": 375,
+          "x": 0,
+          "y": 648
+        },
+        "actions": [
+          {
+            "bottom": 710,
+            "height": 54,
+            "label": "Zum Kursziel",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 656
+          },
+          {
+            "bottom": 766,
+            "height": 48,
+            "label": "Weiterlernen",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 718
+          }
+        ],
+        "animations": 0,
+        "balance": 30,
+        "contentHeight": 594,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "1",
+        "scene": "R01",
+        "screen": {
+          "bottom": 648,
+          "height": 538,
+          "right": 375,
+          "width": 375,
+          "x": 0,
+          "y": 110
+        },
+        "scrollNeeded": true,
+        "sections": [
+          {
+            "bottom": 154.1875,
+            "height": 32.1875,
+            "kind": "heading",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 122
+          },
+          {
+            "bottom": 422.1875,
+            "height": 260,
+            "kind": "reward",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 162.1875
+          },
+          {
+            "bottom": 544.5625,
+            "height": 114.375,
+            "kind": "earned",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 430.1875
+          },
+          {
+            "bottom": 691.84375,
+            "height": 139.28125,
+            "kind": "receipt",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 552.5625
+          }
+        ],
+        "viewport": {
+          "height": 812,
+          "width": 375
+        }
+      },
+      "bottom": {
+        "actionDock": {
+          "bottom": 778,
+          "height": 130,
+          "right": 375,
+          "width": 375,
+          "x": 0,
+          "y": 648
+        },
+        "actions": [
+          {
+            "bottom": 710,
+            "height": 54,
+            "label": "Zum Kursziel",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 656
+          },
+          {
+            "bottom": 766,
+            "height": 48,
+            "label": "Weiterlernen",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 718
+          }
+        ],
+        "animations": 0,
+        "balance": 30,
+        "contentHeight": 594,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "1",
+        "scene": "R01",
+        "screen": {
+          "bottom": 648,
+          "height": 538,
+          "right": 375,
+          "width": 375,
+          "x": 0,
+          "y": 110
+        },
+        "scrollNeeded": true,
+        "sections": [
+          {
+            "bottom": 98.1875,
+            "height": 32.1875,
+            "kind": "heading",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 66
+          },
+          {
+            "bottom": 366.1875,
+            "height": 260,
+            "kind": "reward",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 106.1875
+          },
+          {
+            "bottom": 488.5625,
+            "height": 114.375,
+            "kind": "earned",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 374.1875
+          },
+          {
+            "bottom": 635.84375,
+            "height": 139.28125,
+            "kind": "receipt",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 496.5625
+          }
+        ],
+        "viewport": {
+          "height": 812,
+          "width": 375
+        }
+      },
+      "scroll": {
+        "after": 648,
+        "announcement": "Erhalten: 20 Yeopjeon. Gespeichertes Guthaben: 30 Yeopjeon.",
+        "before": 648,
+        "receiptBottom": 635.84375,
+        "receiptTop": 496.5625,
+        "scrollBottom": 648,
+        "scrollTop": 56,
+        "visibleReels": 0
+      }
+    },
+    {
+      "scene": "R01",
+      "language": "de",
+      "scale": 200,
+      "candidate": true,
+      "viewport": [
+        402,
+        874
+      ],
+      "top": {
+        "actionDock": {
+          "bottom": 840,
+          "height": 147.390625,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 692.609375
+        },
+        "actions": [
+          {
+            "bottom": 766.203125,
+            "height": 65.59375,
+            "label": "Zum Kursziel",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 700.609375
+          },
+          {
+            "bottom": 828,
+            "height": 53.796875,
+            "label": "Weiterlernen",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 774.203125
+          }
+        ],
+        "animations": 0,
+        "balance": 30,
+        "contentHeight": 1056,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "2",
+        "scene": "R01",
+        "screen": {
+          "bottom": 692.609375,
+          "height": 553.609375,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 139
+        },
+        "scrollNeeded": true,
+        "sections": [
+          {
+            "bottom": 279.78125,
+            "height": 128.78125,
+            "kind": "heading",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 151
+          },
+          {
+            "bottom": 547.78125,
+            "height": 260,
+            "kind": "reward",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 287.78125
+          },
+          {
+            "bottom": 817.734375,
+            "height": 261.953125,
+            "kind": "earned",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 555.78125
+          },
+          {
+            "bottom": 1183,
+            "height": 357.265625,
+            "kind": "receipt",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 825.734375
+          }
+        ],
+        "viewport": {
+          "height": 874,
+          "width": 402
+        }
+      },
+      "bottom": {
+        "actionDock": {
+          "bottom": 840,
+          "height": 147.390625,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 692.609375
+        },
+        "actions": [
+          {
+            "bottom": 766.203125,
+            "height": 65.59375,
+            "label": "Zum Kursziel",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 700.609375
+          },
+          {
+            "bottom": 828,
+            "height": 53.796875,
+            "label": "Weiterlernen",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 774.203125
+          }
+        ],
+        "animations": 0,
+        "balance": 30,
+        "contentHeight": 1056,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "2",
+        "scene": "R01",
+        "screen": {
+          "bottom": 692.609375,
+          "height": 553.609375,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 139
+        },
+        "scrollNeeded": true,
+        "sections": [
+          {
+            "bottom": -222.21875,
+            "height": 128.78125,
+            "kind": "heading",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": -351
+          },
+          {
+            "bottom": 45.78125,
+            "height": 260,
+            "kind": "reward",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": -214.21875
+          },
+          {
+            "bottom": 315.734375,
+            "height": 261.953125,
+            "kind": "earned",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 53.78125
+          },
+          {
+            "bottom": 681,
+            "height": 357.265625,
+            "kind": "receipt",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 323.734375
+          }
+        ],
+        "viewport": {
+          "height": 874,
+          "width": 402
+        }
+      },
+      "scroll": {
+        "after": 692.609375,
+        "announcement": "Erhalten: 20 Yeopjeon. Gespeichertes Guthaben: 30 Yeopjeon.",
+        "before": 692.609375,
+        "receiptBottom": 681,
+        "receiptTop": 323.734375,
+        "scrollBottom": 692.609375,
+        "scrollTop": 502,
+        "visibleReels": 0
+      }
+    },
+    {
+      "scene": "R01",
+      "language": "de",
+      "scale": 200,
+      "candidate": true,
+      "viewport": [
+        375,
+        812
+      ],
+      "top": {
+        "actionDock": {
+          "bottom": 778,
+          "height": 147.390625,
+          "right": 375,
+          "width": 375,
+          "x": 0,
+          "y": 630.609375
+        },
+        "actions": [
+          {
+            "bottom": 704.203125,
+            "height": 65.59375,
+            "label": "Zum Kursziel",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 638.609375
+          },
+          {
+            "bottom": 766,
+            "height": 53.796875,
+            "label": "Weiterlernen",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 712.203125
+          }
+        ],
+        "animations": 0,
+        "balance": 30,
+        "contentHeight": 1091,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "2",
+        "scene": "R01",
+        "screen": {
+          "bottom": 630.609375,
+          "height": 491.609375,
+          "right": 375,
+          "width": 375,
+          "x": 0,
+          "y": 139
+        },
+        "scrollNeeded": true,
+        "sections": [
+          {
+            "bottom": 279.78125,
+            "height": 128.78125,
+            "kind": "heading",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 151
+          },
+          {
+            "bottom": 547.78125,
+            "height": 260,
+            "kind": "reward",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 287.78125
+          },
+          {
+            "bottom": 817.734375,
+            "height": 261.953125,
+            "kind": "earned",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 555.78125
+          },
+          {
+            "bottom": 1218.09375,
+            "height": 392.359375,
+            "kind": "receipt",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 825.734375
+          }
+        ],
+        "viewport": {
+          "height": 812,
+          "width": 375
+        }
+      },
+      "bottom": {
+        "actionDock": {
+          "bottom": 778,
+          "height": 147.390625,
+          "right": 375,
+          "width": 375,
+          "x": 0,
+          "y": 630.609375
+        },
+        "actions": [
+          {
+            "bottom": 704.203125,
+            "height": 65.59375,
+            "label": "Zum Kursziel",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 638.609375
+          },
+          {
+            "bottom": 766,
+            "height": 53.796875,
+            "label": "Weiterlernen",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 712.203125
+          }
+        ],
+        "animations": 0,
+        "balance": 30,
+        "contentHeight": 1091,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "2",
+        "scene": "R01",
+        "screen": {
+          "bottom": 630.609375,
+          "height": 491.609375,
+          "right": 375,
+          "width": 375,
+          "x": 0,
+          "y": 139
+        },
+        "scrollNeeded": true,
+        "sections": [
+          {
+            "bottom": -319.21875,
+            "height": 128.78125,
+            "kind": "heading",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": -448
+          },
+          {
+            "bottom": -51.21875,
+            "height": 260,
+            "kind": "reward",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": -311.21875
+          },
+          {
+            "bottom": 218.734375,
+            "height": 261.953125,
+            "kind": "earned",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": -43.21875
+          },
+          {
+            "bottom": 619.09375,
+            "height": 392.359375,
+            "kind": "receipt",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 226.734375
+          }
+        ],
+        "viewport": {
+          "height": 812,
+          "width": 375
+        }
+      },
+      "scroll": {
+        "after": 630.609375,
+        "announcement": "Erhalten: 20 Yeopjeon. Gespeichertes Guthaben: 30 Yeopjeon.",
+        "before": 630.609375,
+        "receiptBottom": 619.09375,
+        "receiptTop": 226.734375,
+        "scrollBottom": 630.609375,
+        "scrollTop": 599,
+        "visibleReels": 0
+      }
+    },
+    {
+      "scene": "R01",
+      "language": "en",
+      "scale": 100,
+      "candidate": true,
+      "viewport": [
+        402,
+        874
+      ],
+      "top": {
+        "actionDock": {
+          "bottom": 840,
+          "height": 130,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 710
+        },
+        "actions": [
+          {
+            "bottom": 772,
+            "height": 54,
+            "label": "View course goal",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 718
+          },
+          {
+            "bottom": 828,
+            "height": 48,
+            "label": "Keep learning",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 780
+          }
+        ],
+        "animations": 0,
+        "balance": 30,
+        "contentHeight": 600,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "1",
+        "scene": "R01",
+        "screen": {
+          "bottom": 710,
+          "height": 600,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 110
+        },
+        "scrollNeeded": false,
+        "sections": [
+          {
+            "bottom": 154.1875,
+            "height": 32.1875,
+            "kind": "heading",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 122
+          },
+          {
+            "bottom": 422.1875,
+            "height": 260,
+            "kind": "reward",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 162.1875
+          },
+          {
+            "bottom": 544.5625,
+            "height": 114.375,
+            "kind": "earned",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 430.1875
+          },
+          {
+            "bottom": 684.03125,
+            "height": 131.46875,
+            "kind": "receipt",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 552.5625
+          }
+        ],
+        "viewport": {
+          "height": 874,
+          "width": 402
+        }
+      },
+      "bottom": {
+        "actionDock": {
+          "bottom": 840,
+          "height": 130,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 710
+        },
+        "actions": [
+          {
+            "bottom": 772,
+            "height": 54,
+            "label": "View course goal",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 718
+          },
+          {
+            "bottom": 828,
+            "height": 48,
+            "label": "Keep learning",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 780
+          }
+        ],
+        "animations": 0,
+        "balance": 30,
+        "contentHeight": 600,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "1",
+        "scene": "R01",
+        "screen": {
+          "bottom": 710,
+          "height": 600,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 110
+        },
+        "scrollNeeded": false,
+        "sections": [
+          {
+            "bottom": 154.1875,
+            "height": 32.1875,
+            "kind": "heading",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 122
+          },
+          {
+            "bottom": 422.1875,
+            "height": 260,
+            "kind": "reward",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 162.1875
+          },
+          {
+            "bottom": 544.5625,
+            "height": 114.375,
+            "kind": "earned",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 430.1875
+          },
+          {
+            "bottom": 684.03125,
+            "height": 131.46875,
+            "kind": "receipt",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 552.5625
+          }
+        ],
+        "viewport": {
+          "height": 874,
+          "width": 402
+        }
+      },
+      "scroll": {
+        "after": 710,
+        "announcement": "Received: 20 Yeopjeon. Saved balance: 30 Yeopjeon.",
+        "before": 710,
+        "receiptBottom": 684.03125,
+        "receiptTop": 552.5625,
+        "scrollBottom": 710,
+        "scrollTop": 0,
+        "visibleReels": 0
+      }
+    },
+    {
+      "scene": "R01",
+      "language": "en",
+      "scale": 100,
+      "candidate": true,
+      "viewport": [
+        375,
+        812
+      ],
+      "top": {
+        "actionDock": {
+          "bottom": 778,
+          "height": 130,
+          "right": 375,
+          "width": 375,
+          "x": 0,
+          "y": 648
+        },
+        "actions": [
+          {
+            "bottom": 710,
+            "height": 54,
+            "label": "View course goal",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 656
+          },
+          {
+            "bottom": 766,
+            "height": 48,
+            "label": "Keep learning",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 718
+          }
+        ],
+        "animations": 0,
+        "balance": 30,
+        "contentHeight": 586,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "1",
+        "scene": "R01",
+        "screen": {
+          "bottom": 648,
+          "height": 538,
+          "right": 375,
+          "width": 375,
+          "x": 0,
+          "y": 110
+        },
+        "scrollNeeded": true,
+        "sections": [
+          {
+            "bottom": 154.1875,
+            "height": 32.1875,
+            "kind": "heading",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 122
+          },
+          {
+            "bottom": 422.1875,
+            "height": 260,
+            "kind": "reward",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 162.1875
+          },
+          {
+            "bottom": 544.5625,
+            "height": 114.375,
+            "kind": "earned",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 430.1875
+          },
+          {
+            "bottom": 684.03125,
+            "height": 131.46875,
+            "kind": "receipt",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 552.5625
+          }
+        ],
+        "viewport": {
+          "height": 812,
+          "width": 375
+        }
+      },
+      "bottom": {
+        "actionDock": {
+          "bottom": 778,
+          "height": 130,
+          "right": 375,
+          "width": 375,
+          "x": 0,
+          "y": 648
+        },
+        "actions": [
+          {
+            "bottom": 710,
+            "height": 54,
+            "label": "View course goal",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 656
+          },
+          {
+            "bottom": 766,
+            "height": 48,
+            "label": "Keep learning",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 718
+          }
+        ],
+        "animations": 0,
+        "balance": 30,
+        "contentHeight": 586,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "1",
+        "scene": "R01",
+        "screen": {
+          "bottom": 648,
+          "height": 538,
+          "right": 375,
+          "width": 375,
+          "x": 0,
+          "y": 110
+        },
+        "scrollNeeded": true,
+        "sections": [
+          {
+            "bottom": 106.1875,
+            "height": 32.1875,
+            "kind": "heading",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 74
+          },
+          {
+            "bottom": 374.1875,
+            "height": 260,
+            "kind": "reward",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 114.1875
+          },
+          {
+            "bottom": 496.5625,
+            "height": 114.375,
+            "kind": "earned",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 382.1875
+          },
+          {
+            "bottom": 636.03125,
+            "height": 131.46875,
+            "kind": "receipt",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 504.5625
+          }
+        ],
+        "viewport": {
+          "height": 812,
+          "width": 375
+        }
+      },
+      "scroll": {
+        "after": 648,
+        "announcement": "Received: 20 Yeopjeon. Saved balance: 30 Yeopjeon.",
+        "before": 648,
+        "receiptBottom": 636.03125,
+        "receiptTop": 504.5625,
+        "scrollBottom": 648,
+        "scrollTop": 48,
+        "visibleReels": 0
+      }
+    },
+    {
+      "scene": "R01",
+      "language": "en",
+      "scale": 200,
+      "candidate": true,
+      "viewport": [
+        402,
+        874
+      ],
+      "top": {
+        "actionDock": {
+          "bottom": 840,
+          "height": 188.984375,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 651.015625
+        },
+        "actions": [
+          {
+            "bottom": 766.203125,
+            "height": 107.1875,
+            "label": "View course goal",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 659.015625
+          },
+          {
+            "bottom": 828,
+            "height": 53.796875,
+            "label": "Keep learning",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 774.203125
+          }
+        ],
+        "animations": 0,
+        "balance": 30,
+        "contentHeight": 1009,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "2",
+        "scene": "R01",
+        "screen": {
+          "bottom": 651.015625,
+          "height": 512.015625,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 139
+        },
+        "scrollNeeded": true,
+        "sections": [
+          {
+            "bottom": 279.78125,
+            "height": 128.78125,
+            "kind": "heading",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 151
+          },
+          {
+            "bottom": 547.78125,
+            "height": 260,
+            "kind": "reward",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 287.78125
+          },
+          {
+            "bottom": 817.734375,
+            "height": 261.953125,
+            "kind": "earned",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 555.78125
+          },
+          {
+            "bottom": 1135.90625,
+            "height": 310.171875,
+            "kind": "receipt",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 825.734375
+          }
+        ],
+        "viewport": {
+          "height": 874,
+          "width": 402
+        }
+      },
+      "bottom": {
+        "actionDock": {
+          "bottom": 840,
+          "height": 188.984375,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 651.015625
+        },
+        "actions": [
+          {
+            "bottom": 766.203125,
+            "height": 107.1875,
+            "label": "View course goal",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 659.015625
+          },
+          {
+            "bottom": 828,
+            "height": 53.796875,
+            "label": "Keep learning",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 774.203125
+          }
+        ],
+        "animations": 0,
+        "balance": 30,
+        "contentHeight": 1009,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "2",
+        "scene": "R01",
+        "screen": {
+          "bottom": 651.015625,
+          "height": 512.015625,
+          "right": 402,
+          "width": 402,
+          "x": 0,
+          "y": 139
+        },
+        "scrollNeeded": true,
+        "sections": [
+          {
+            "bottom": -217.21875,
+            "height": 128.78125,
+            "kind": "heading",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": -346
+          },
+          {
+            "bottom": 50.78125,
+            "height": 260,
+            "kind": "reward",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": -209.21875
+          },
+          {
+            "bottom": 320.734375,
+            "height": 261.953125,
+            "kind": "earned",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 58.78125
+          },
+          {
+            "bottom": 638.90625,
+            "height": 310.171875,
+            "kind": "receipt",
+            "right": 384,
+            "width": 366,
+            "x": 18,
+            "y": 328.734375
+          }
+        ],
+        "viewport": {
+          "height": 874,
+          "width": 402
+        }
+      },
+      "scroll": {
+        "after": 651.015625,
+        "announcement": "Received: 20 Yeopjeon. Saved balance: 30 Yeopjeon.",
+        "before": 651.015625,
+        "receiptBottom": 638.90625,
+        "receiptTop": 328.734375,
+        "scrollBottom": 651.015625,
+        "scrollTop": 497,
+        "visibleReels": 0
+      }
+    },
+    {
+      "scene": "R01",
+      "language": "en",
+      "scale": 200,
+      "candidate": true,
+      "viewport": [
+        375,
+        812
+      ],
+      "top": {
+        "actionDock": {
+          "bottom": 778,
+          "height": 188.984375,
+          "right": 375,
+          "width": 375,
+          "x": 0,
+          "y": 589.015625
+        },
+        "actions": [
+          {
+            "bottom": 704.203125,
+            "height": 107.1875,
+            "label": "View course goal",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 597.015625
+          },
+          {
+            "bottom": 766,
+            "height": 53.796875,
+            "label": "Keep learning",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 712.203125
+          }
+        ],
+        "animations": 0,
+        "balance": 30,
+        "contentHeight": 1009,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "2",
+        "scene": "R01",
+        "screen": {
+          "bottom": 589.015625,
+          "height": 450.015625,
+          "right": 375,
+          "width": 375,
+          "x": 0,
+          "y": 139
+        },
+        "scrollNeeded": true,
+        "sections": [
+          {
+            "bottom": 279.78125,
+            "height": 128.78125,
+            "kind": "heading",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 151
+          },
+          {
+            "bottom": 547.78125,
+            "height": 260,
+            "kind": "reward",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 287.78125
+          },
+          {
+            "bottom": 817.734375,
+            "height": 261.953125,
+            "kind": "earned",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 555.78125
+          },
+          {
+            "bottom": 1135.90625,
+            "height": 310.171875,
+            "kind": "receipt",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 825.734375
+          }
+        ],
+        "viewport": {
+          "height": 812,
+          "width": 375
+        }
+      },
+      "bottom": {
+        "actionDock": {
+          "bottom": 778,
+          "height": 188.984375,
+          "right": 375,
+          "width": 375,
+          "x": 0,
+          "y": 589.015625
+        },
+        "actions": [
+          {
+            "bottom": 704.203125,
+            "height": 107.1875,
+            "label": "View course goal",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 597.015625
+          },
+          {
+            "bottom": 766,
+            "height": 53.796875,
+            "label": "Keep learning",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 712.203125
+          }
+        ],
+        "animations": 0,
+        "balance": 30,
+        "contentHeight": 1009,
+        "dialog": null,
+        "failures": [],
+        "reducedMotion": "true",
+        "scale": "2",
+        "scene": "R01",
+        "screen": {
+          "bottom": 589.015625,
+          "height": 450.015625,
+          "right": 375,
+          "width": 375,
+          "x": 0,
+          "y": 139
+        },
+        "scrollNeeded": true,
+        "sections": [
+          {
+            "bottom": -279.21875,
+            "height": 128.78125,
+            "kind": "heading",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": -408
+          },
+          {
+            "bottom": -11.21875,
+            "height": 260,
+            "kind": "reward",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": -271.21875
+          },
+          {
+            "bottom": 258.734375,
+            "height": 261.953125,
+            "kind": "earned",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": -3.21875
+          },
+          {
+            "bottom": 576.90625,
+            "height": 310.171875,
+            "kind": "receipt",
+            "right": 357,
+            "width": 339,
+            "x": 18,
+            "y": 266.734375
+          }
+        ],
+        "viewport": {
+          "height": 812,
+          "width": 375
+        }
+      },
+      "scroll": {
+        "after": 589.015625,
+        "announcement": "Received: 20 Yeopjeon. Saved balance: 30 Yeopjeon.",
+        "before": 589.015625,
+        "receiptBottom": 576.90625,
+        "receiptTop": 266.734375,
+        "scrollBottom": 589.015625,
+        "scrollTop": 559,
+        "visibleReels": 0
+      }
+    }
+  ],
+  "clickChecks": [
+    {
+      "language": "de",
+      "currentLesson": {
+        "balance": "30",
+        "complete": true,
+        "open": true,
+        "title": "Erste Begrüßung und Nachfragen"
+      },
+      "courseGoal": {
+        "balance": "30",
+        "scene": "W03"
+      }
+    },
+    {
+      "language": "en",
+      "currentLesson": {
+        "balance": "30",
+        "complete": true,
+        "open": true,
+        "title": "First greetings and asking again"
+      },
+      "courseGoal": {
+        "balance": "30",
+        "scene": "W03"
+      }
+    }
+  ]
+}

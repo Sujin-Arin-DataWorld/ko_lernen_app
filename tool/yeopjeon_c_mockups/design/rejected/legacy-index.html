@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <title>Hangul Sori · 도깨비 엽전 보상 · C안</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="visual-lock.css">
+</head>
+<body>
+  <div class="review-page">
+    <button class="review-toggle" id="review-toggle" aria-expanded="false" aria-controls="review-controls">화면 설정</button>
+    <header class="review-header">
+      <div class="eyebrow">HANGUL SORI · C DESIGN STUDY · 2026.10.09</div>
+      <h1>도깨비의 엽전 · 다음 공정은 비밀</h1>
+      <p>도깨비가 건네는 엽전, 한지에 스며드는 영상, 일두고택의 다음 공정.</p>
+      <nav class="review-links" aria-label="검토 자료">
+        <a href="AUDIT.md">현재 시스템 조사</a><a href="FLOW_AND_HANDOFF.md">화면 흐름·구현 명세</a><a href="audit.html">이미지·스킬 검토</a>
+      </nav>
+    </header>
+    <section id="review-controls" class="review-controls" aria-label="목업 검토 설정">
+      <label>첫 화면 상태<select id="state-select">
+        <option value="first">첫 학습 보상 · +20</option><option value="second">두 번째 학습 · +10</option>
+        <option value="milestone">새 건축 단계 · +40</option><option value="cap">일일 한도 도달</option>
+        <option value="repeat">이미 보상받은 수업 복습</option><option value="pending">지급 확인 중</option>
+        <option value="recovery">누락 보상 복구 · +20</option><option value="failure">영상 재생 실패</option>
+        <option value="wallet">엽전 지갑·건축 가능</option><option value="locked">학습 조건 미충족</option>
+        <option value="short">잔액 부족</option><option value="built">건축 완료</option>
+      </select></label>
+      <label>첫 화면 소재<select id="surface-select"><option value="paper">한지 · 투명 영상</option><option value="jade">녹청 · 투명 에셋</option></select></label>
+      <label>앱 언어<select id="language-select"><option value="de">Deutsch</option><option value="ko">한국어 검토</option><option value="en">English</option></select></label>
+      <label>글자 크기<select id="size-select"><option value="1">100%</option><option value="1.5">150%</option><option value="2">200%</option></select></label>
+      <label class="check"><input id="reduce-motion" type="checkbox">동작 줄이기</label>
+      <label class="check"><input id="exact-visual" type="checkbox" checked>승인 목업 그대로 보기</label>
+      <a class="direct-link" href="media.html">투명 영상 확인</a>
+      <label class="check"><input id="night-view" type="checkbox">어두운 검토 배경</label>
+      <a class="direct-link" href="index.html?solo=1&screen=first">첫 보상 크게 보기</a>
+      <a class="direct-link" href="index.html?solo=1&screen=first&play=1">학습 완료 연출부터 보기</a>
+      <a class="direct-link" href="index.html?solo=1&screen=milestone">비공개 한옥 크게 보기</a>
+      <a class="direct-link" href="index.html">세 화면 비교</a>
+    </section>
+    <p class="scope-note">도깨비·봉인·금빛 버튼을 눌러보세요. 잔액·건설은 목업 예시입니다. 다음 공정은 40엽전으로 건설한 뒤에 공개됩니다.</p>
+    <main id="screens" class="screens" aria-label="앱 화면 목업"></main>
+    <section class="design-explanation">
+      <div><span>01 · 투명 영상</span><h2>화면 안에서 움직이는 도깨비.</h2><p>왼쪽 도깨비의 ‘영상 보기’를 누르면 투명 배경 영상이 재생됩니다. 한지와 녹청 위에서 확인할 수 있습니다. 원본 MP4는 별도로 보존했습니다.</p></div>
+      <div><span>02 · 투명 엽전</span><h2>익숙한 에셋이 살아나다.</h2><p>녹청 위에는 기존 도깨비와 yupjeon.png를 투명 레이어로 배치합니다. 짧은 수령 연출이 끝나면 금액과 다음 행동이 남습니다.</p></div>
+      <div><span>03 · 한옥 교체 자리</span><h2>새 정본을 기다리는 건설 흐름.</h2><p>현재 한옥 원본의 배경 수정은 보류했습니다. 화면과 건설 상태는 완성하고, 새로 승인된 투명 이미지만 교체할 수 있도록 분리했습니다. 승인 전에는 봉인·완료 표시로 검토합니다.</p></div>
+    </section>
+    <footer class="review-footer">기존 C안 소재와 원본 에셋을 재사용한 검토 제안 · 앱 구현·배포 상태는 조사 보고서에 별도 기재</footer>
+  </div>
+  <script src="visual-lock.js"></script>
+  <script src="hanok-asset-slot.js"></script>
+  <script src="app.js"></script>
+  <script src="motion.js"></script>
+</body>
+</html>

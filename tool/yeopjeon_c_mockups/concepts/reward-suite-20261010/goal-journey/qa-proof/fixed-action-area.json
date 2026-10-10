@@ -1,0 +1,18 @@
+[
+  {
+    "afterY": 621.21875,
+    "balance": 30,
+    "beforeY": 621.21875,
+    "scene": "W03",
+    "scrolled": true,
+    "visible": true
+  },
+  {
+    "afterY": 658.015625,
+    "balance": 70,
+    "beforeY": 658.015625,
+    "scene": "B01",
+    "scrolled": true,
+    "visible": true
+  }
+]

@@ -1,0 +1,63 @@
+{
+  "purpose": "Preserved implementation before fresh ABC image exploration; runtime files remain unchanged",
+  "sourceRoot": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\yeopjeon-c-mockups-20261009",
+  "head": "44727c1921b4b7f40748ac0d210d0ca62a094028",
+  "files": [
+    {
+      "path": "tool/yeopjeon_c_mockups/refined.html",
+      "sha256": "b410fb151c9708096d1e92831ae448dc761eec06b86c1cef2a598bf9036c8b13"
+    },
+    {
+      "path": "tool/yeopjeon_c_mockups/refined.css",
+      "sha256": "171554842be01285bfca8d11562fa0dcf267b061eb2c05fcdec131088acaada4"
+    },
+    {
+      "path": "tool/yeopjeon_c_mockups/refined.js",
+      "sha256": "c978b075cbbbc1005c22b64c56123a21255a4b7509e8b02d6779aadf451e3ad0"
+    },
+    {
+      "path": "tool/yeopjeon_c_mockups/native_preview.dart",
+      "sha256": "1af42dbf544a317383a722a7aff3a6d0f15657d9e5353245026dabcdd8ed8e63"
+    },
+    {
+      "path": "lib/screens/sori_stage/yeopjeon_reward_screen.dart",
+      "sha256": "c52cc7e46a431f40ef73902dc5cbfade5639d09f926e73007d823353dfe60139"
+    },
+    {
+      "path": "lib/screens/sori_stage/yeopjeon_ildu_house_screen.dart",
+      "sha256": "4f8315ec5828f3b6d17ce0859abe42c27b2fc0ab91e50eeb3f5edb8610a8f121"
+    },
+    {
+      "path": "lib/widgets/sori/yeopjeon_reward_style.dart",
+      "sha256": "e2af6f0787212ca066690a4d5ca4d027eb4cec4b33304e6f13e856d5f2b14750"
+    },
+    {
+      "path": "lib/widgets/sori/yeopjeon_material.dart",
+      "sha256": "8c5e0b54d97277bbf5fb6dc76c9cbcf4bb1facea03afa3b014779abf360a4aa1"
+    },
+    {
+      "path": "lib/widgets/sori/yeopjeon_credit_badge.dart",
+      "sha256": "68ecd95614ece515c0d5b460467986ebe9455a5a00efa1aa94000241783caf11"
+    },
+    {
+      "path": "lib/widgets/sori/dokkaebi_reward_movie.dart",
+      "sha256": "4bfb79d673bd09439fbca26ead199448e2f07225e66e4cc25173107be91560a1"
+    },
+    {
+      "path": "lib/widgets/sori/yeopjeon_coin_scene.dart",
+      "sha256": "9607a1dd698a6d8cf1ba478d1772683fe7ea253beda4618ed05e010ae3ebedc2"
+    },
+    {
+      "path": "tool/yeopjeon_c_mockups/review-proof/proof-kept-20261010-html-de.jpg",
+      "sha256": "f7de4ac361213ecf1f847bc11cc2ee5d8a8d25419a7f7079b74e467514f05dc9"
+    },
+    {
+      "path": "tool/yeopjeon_c_mockups/review-proof/proof-final-native-de.jpg",
+      "sha256": "901d9ee1217ade03beedb97c4da163ca3202ca5d2fb248d3cab849796f65f064"
+    },
+    {
+      "path": "tool/yeopjeon_c_mockups/review-proof/proof-final-native-en.jpg",
+      "sha256": "25bbf5095697ea6a45587e1319dc761ee8375bb46fcec47dddb6444c7d18b2c0"
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+[
+  {
+    "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\doccabi6.mp4",
+    "rel": "도깨비/doccabi6.mp4",
+    "bytes": 846685,
+    "created": "2026-10-03T18:16:57.655985+02:00",
+    "modified": "2026-10-03T05:20:41.649596+02:00",
+    "sha256": "48e0709b87fb10b8df595444a6b0ce8cc73c95a2ca573ca233a8dd41ba9235b9",
+    "media": ".mp4",
+    "duplicateOf": null,
+    "id": "src-373",
+    "duration": 2.041667,
+    "width": 960,
+    "height": 960,
+    "codec": "h264",
+    "fps": "24/1",
+    "audio": [],
+    "sheet": "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-373-sheet.jpg",
+    "frames": [
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-373-0.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-373-1.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-373-2.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-373-3.png"
+    ]
+  },
+  {
+    "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\doggabi.mp4",
+    "rel": "도깨비/doggabi.mp4",
+    "bytes": 882021,
+    "created": "2026-10-03T18:16:57.670396+02:00",
+    "modified": "2026-10-03T17:17:48.748423+02:00",
+    "sha256": "d948bd61971814ca8941eed43e6561912e6e7d3596be4041c4768c2dfc1baf6d",
+    "media": ".mp4",
+    "duplicateOf": null,
+    "id": "src-374",
+    "duration": 2.041667,
+    "width": 960,
+    "height": 960,
+    "codec": "h264",
+    "fps": "24/1",
+    "audio": [],
+    "sheet": "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-374-sheet.jpg",
+    "frames": [
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-374-0.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-374-1.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-374-2.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-374-3.png"
+    ]
+  },
+  {
+    "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\doggabi5.mp4",
+    "rel": "도깨비/doggabi5.mp4",
+    "bytes": 4904803,
+    "created": "2026-10-03T18:16:57.691943+02:00",
+    "modified": "2026-10-03T12:57:29.533304+02:00",
+    "sha256": "cd5df882ef472695ad63b4fcb1280e422ca41e5833a527992c6c444d71ebba3e",
+    "media": ".mp4",
+    "duplicateOf": null,
+    "id": "src-375",
+    "duration": 2.0,
+    "width": 1440,
+    "height": 1440,
+    "codec": "h264",
+    "fps": "30/1",
+    "audio": [],
+    "sheet": "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-375-sheet.jpg",
+    "frames": [
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-375-0.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-375-1.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-375-2.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-375-3.png"
+    ]
+  },
+  {
+    "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\dokkabi.mp4",
+    "rel": "도깨비/dokkabi.mp4",
+    "bytes": 1060731,
+    "created": "2026-10-03T18:16:57.707849+02:00",
+    "modified": "2026-10-03T17:16:35.397514+02:00",
+    "sha256": "9f153772937adf29ccd63817daa998698e2513975980cfd76219f56d410ed280",
+    "media": ".mp4",
+    "duplicateOf": null,
+    "id": "src-376",
+    "duration": 3.041667,
+    "width": 960,
+    "height": 960,
+    "codec": "h264",
+    "fps": "24/1",
+    "audio": [],
+    "sheet": "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-376-sheet.jpg",
+    "frames": [
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-376-0.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-376-1.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-376-2.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-376-3.png"
+    ]
+  },
+  {
+    "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\dokkabi_front.mp4",
+    "rel": "도깨비/dokkabi_front.mp4",
+    "bytes": 898019,
+    "created": "2026-10-03T18:16:57.728303+02:00",
+    "modified": "2026-10-03T17:17:16.090777+02:00",
+    "sha256": "2cecd97e2750efcf3b26a6eb4db499bddda32950cf37150158e2cf4de4b345c3",
+    "media": ".mp4",
+    "duplicateOf": null,
+    "id": "src-377",
+    "duration": 3.041667,
+    "width": 960,
+    "height": 960,
+    "codec": "h264",
+    "fps": "24/1",
+    "audio": [],
+    "sheet": "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-377-sheet.jpg",
+    "frames": [
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-377-0.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-377-1.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-377-2.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-377-3.png"
+    ]
+  },
+  {
+    "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\making_money.mp4",
+    "rel": "도깨비/making_money.mp4",
+    "bytes": 4501874,
+    "created": "2026-10-04T13:10:25.542042+02:00",
+    "modified": "2026-10-04T13:10:26.470393+02:00",
+    "sha256": "6e850b717ec285fd1d9be057da361fed629c178e750a15c77b592cbda6f91ff5",
+    "media": ".mp4",
+    "duplicateOf": null,
+    "id": "src-407",
+    "duration": 5.041667,
+    "width": 960,
+    "height": 960,
+    "codec": "h264",
+    "fps": "24/1",
+    "audio": [
+      "aac"
+    ],
+    "sheet": "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-407-sheet.jpg",
+    "frames": [
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-407-0.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-407-1.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-407-2.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-407-3.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-407-4.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-407-5.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-407-6.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-407-7.png"
+    ]
+  },
+  {
+    "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\양옆잘린 변신동영상.mp4",
+    "rel": "도깨비/양옆잘린 변신동영상.mp4",
+    "bytes": 15743186,
+    "created": "2026-10-03T20:42:27.828611+02:00",
+    "modified": "2026-10-03T20:42:28.318239+02:00",
+    "sha256": "b75f64c320accb50b66413c0300d9be449cbdc36cc0204d304fc77d78214933f",
+    "media": ".mp4",
+    "duplicateOf": null,
+    "id": "src-430",
+    "duration": 8.041667,
+    "width": 1244,
+    "height": 1660,
+    "codec": "h264",
+    "fps": "24/1",
+    "audio": [],
+    "sheet": "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-430-sheet.jpg",
+    "frames": [
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-430-0.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-430-1.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-430-2.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-430-3.png"
+    ]
+  },
+  {
+    "path": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\backho.mp4",
+    "rel": "백호정본채택/backho.mp4",
+    "bytes": 10231724,
+    "created": "2026-10-03T16:20:28.790493+02:00",
+    "modified": "2026-10-03T16:20:29.745805+02:00",
+    "sha256": "56df30ebec7ee7555aa7ae2dc04eee5470d5fc7d1cb8cec04dc00984451e2939",
+    "media": ".mp4",
+    "duplicateOf": null,
+    "id": "src-443",
+    "duration": 10.041667,
+    "width": 1920,
+    "height": 1080,
+    "codec": "h264",
+    "fps": "24/1",
+    "audio": [
+      "aac"
+    ],
+    "sheet": "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-443-sheet.jpg",
+    "frames": [
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-443-0.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-443-1.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-443-2.png",
+      "C:\\dev\\hangulsori\\_codex_artifacts\\yeopjeon-c-design-20261009\\inspection\\videos\\src-443-3.png"
+    ]
+  }
+]

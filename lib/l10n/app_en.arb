@@ -5533,5 +5533,93 @@
         "type": "int"
       }
     }
-  }
+  },
+  "cRewardBrand": "Hangul Sori",
+  "cRewardTitle": "Lesson complete",
+  "cRewardCurrency": "Yeopjeon",
+  "cRewardEarnedLabel": "Reward",
+  "cRewardFirst": "For your first lesson today",
+  "cRewardSecond": "For your second lesson today",
+  "cRewardSupport": "Building support · +{amount} Yeopjeon",
+  "cRewardConfirmed": "Your Yeopjeon have been credited.",
+  "cRewardHouse": "Your Ildu house",
+  "cRewardNextBuild": "Next build",
+  "cRewardReady": "Your next building stage is ready.",
+  "cRewardLocked": "Finish your next learning goal to build further.",
+  "cRewardNeedCoins": "{amount} more Yeopjeon for the next stage.",
+  "cRewardFuture": "The 3D view will follow. Your build progress is saved.",
+  "cRewardVisit": "Visit my Ildu house",
+  "cRewardContinue": "Keep learning",
+  "cRewardReplay": "Replay",
+  "cRewardSkip": "Skip",
+  "cRewardMotionOff": "Motion off",
+  "cRewardMotionOn": "Motion on",
+  "cRewardSoundOn": "Sound on",
+  "cRewardSoundOff": "Sound off",
+  "cRewardSurprise": "What will you build next?",
+  "cRewardGrowth": "Your house grows as you learn.",
+  "cRewardCoinHint": "Tap the coin to awaken its light",
+  "cRewardCost": "Building cost: {amount}",
+  "cRewardBuild": "Build for {amount}",
+  "cRewardLater": "Build later",
+  "cRewardConfirmTitle": "Build the next stage?",
+  "cRewardConfirmBody": "Use {amount} Yeopjeon for the next building step.",
+  "cRewardBalanceNow": "Your balance now",
+  "cRewardBalanceAfter": "After building",
+  "cRewardUse": "Use {amount} Yeopjeon",
+  "cRewardBuiltTitle": "Build progress saved",
+  "cRewardBuiltBody": "Your learning has become part of the Ildu house.",
+  "cRewardMore": "Other rewards",
+  "cRewardWaiting": "Loading your balance",
+  "@cRewardSupport": {
+    "description": "Approved C reward presentation copy.",
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "@cRewardNeedCoins": {
+    "description": "Approved C reward presentation copy.",
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "@cRewardCost": {
+    "description": "Approved C reward presentation copy.",
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "@cRewardBuild": {
+    "description": "Approved C reward presentation copy.",
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "@cRewardConfirmBody": {
+    "description": "Approved C reward presentation copy.",
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "@cRewardUse": {
+    "description": "Approved C reward presentation copy.",
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "cRewardReview": "For your review practice today",
+  "cRewardPracticeTitle": "Practice complete",
+  "cRewardSupportTitle": "Building support unlocked"
 }

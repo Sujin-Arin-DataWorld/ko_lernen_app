@@ -14,7 +14,7 @@ import 'tokens.dart';
 import 'activity_illustration.dart';
 import 'toast.dart';
 import 'pressable.dart';
-import 'sheet.dart';
+import '../../screens/sori_stage/yeopjeon_ildu_house_screen.dart';
 
 /// Saved money and construction ownership, with no optimistic spending.
 class YeopjeonWalletCard extends StatefulWidget {
@@ -342,9 +342,11 @@ class YeopjeonWalletBadge extends StatelessWidget {
       label: '${t.yeopjeonTitle}. ${t.yeopjeonBalance(wallet.balance)}',
       child: SoriPressable(
         onTap: () async {
-          await showSoriSheet<void>(
-            context: context,
-            builder: (_) => const YeopjeonWalletCard(),
+          await Navigator.of(context).push<void>(
+            MaterialPageRoute(
+              settings: const RouteSettings(name: '/rewards/ildu-house'),
+              builder: (_) => YeopjeonIlduHouseScreen(initialWallet: wallet),
+            ),
           );
           if (context.mounted) {
             onReturned?.call();

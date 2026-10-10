@@ -6,6 +6,10 @@ import '../../models/grammar.dart';
 import '../../services/data_loader.dart';
 import '../../services/local_data_lifetime.dart';
 import '../../services/learning_journey.dart';
+import '../../services/account/cloud_write_session.dart';
+import '../../models/yeopjeon_wallet.dart';
+import '../../models/sori_stage_progression.dart';
+import '../../screens/sori_stage/sori_stage_reward_receipt_sheet.dart';
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
@@ -67,6 +71,7 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
         ContentLearningDayRefresh<ContentLessonScreen> {
   final _speechLifecycle = ContentSpeechController();
   final _lifetime = LocalDataLifetime.capture();
+  final _rewardIdentity = cloudWriteSessionController.identityEpoch;
   Future<void>? _walletReady;
   bool _loading = true;
   bool _loadError = false;
@@ -713,33 +718,92 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
       }
     },
   );
+  void _assertRewardOwner() {
+    _lifetime.assertCurrent();
+    if (_rewardIdentity != cloudWriteSessionController.identityEpoch) {
+      throw const StaleLocalDataLifetimeException();
+    }
+  }
+
   Future<void> _finish() => _run(() async {
+    _assertRewardOwner();
+    final attempt = LearningJourneyObserver.forContext(
+      context,
+    )?.active?.beginAttempt();
     // Reading and answering need no wallet I/O. Establish ownership and settle
     // earlier proof immediately before this lesson produces completion proof.
     await (_walletReady ??= _prepareWallet(recover: true));
-    _lifetime.assertCurrent();
+    _assertRewardOwner();
     await _prepareWallet();
-    _lifetime.assertCurrent();
+    _assertRewardOwner();
     await ContentLearningService.startLesson(widget.lesson, widget.scope);
-    _lifetime.assertCurrent();
+    _assertRewardOwner();
     final alreadyCompleted = _progress.completed;
-    await ContentLearningService.finish(widget.lesson);
+    await trackLearningPersistence(
+      attempt,
+      ContentLearningService.finish(widget.lesson),
+    );
     _earnedYeopjeon = 0;
+    RewardReceipt? receipt;
     if (!alreadyCompleted || _claimPending) {
       _claimPending = true;
       try {
+        YeopjeonWallet? before;
+        try {
+          final beforeRaw = await YeopjeonService.captureBackupJson();
+          before = beforeRaw == null ? null : YeopjeonWallet.decode(beforeRaw);
+        } catch (_) {
+          // Presentation measurement must never prevent a confirmed grant.
+          _assertRewardOwner();
+        }
+        _assertRewardOwner();
         final reward = await YeopjeonService.grantConfirmedLesson(
           lessonId: widget.lesson.id,
         );
-        _lifetime.assertCurrent();
+        _assertRewardOwner();
         _claimPending =
             reward.status == YeopjeonTransactionStatus.failed ||
             reward.status == YeopjeonTransactionStatus.unknown;
         if (reward.amount > 0) {
           _earnedYeopjeon = reward.amount;
+          final after = reward.wallet;
+          final beforeWallet = before;
+          if (reward.confirmed && beforeWallet != null && after != null) {
+            final claims = after.claims.entries
+                .where(
+                  (claim) =>
+                      !beforeWallet.claims.containsKey(claim.key) &&
+                      claim.value > 0,
+                )
+                .toList();
+            // Ambiguous concurrent deltas stay with the shell's snapshot owner.
+            if (claims.fold<int>(0, (sum, claim) => sum + claim.value) ==
+                reward.amount) {
+              receipt = RewardReceipt(
+                activityId: widget.lesson.id,
+                receiptId:
+                    'lesson:${widget.lesson.id}:${claims.map((claim) => claim.key).join('|')}',
+                yeopjeonBalanceBefore: beforeWallet.balance,
+                yeopjeonWalletAfter: after,
+                items: [
+                  for (final claim in claims)
+                    RewardReceiptItem(
+                      kind: SoriRewardKind.yeopjeon,
+                      amount: claim.value,
+                      identity: claim.key,
+                      label: const SoriLocalizedCopy(
+                        de: 'Yeopjeon',
+                        en: 'Yeopjeon',
+                        key: SoriCopyKey.rewardYeopjeon,
+                      ),
+                    ),
+                ],
+              );
+            }
+          }
         }
       } catch (_) {
-        _lifetime.assertCurrent();
+        _assertRewardOwner();
         // Persisted learning is successful. The ledger recovers its proof later.
       }
     }
@@ -749,6 +813,25 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
       });
       SoundService.complete();
       SoriCelebration.burst(context, particles: 26);
+      final confirmed = receipt;
+      if (confirmed != null) {
+        await showSoriStageRewardReceipt(
+          context,
+          confirmed,
+          onPresented: () {
+            if (_lifetime.isCurrent &&
+                _rewardIdentity == cloudWriteSessionController.identityEpoch) {
+              for (final item in confirmed.items) {
+                attempt?.shown(
+                  item.kind,
+                  item.amount ?? 0,
+                  identity: item.identity,
+                );
+              }
+            }
+          },
+        );
+      }
     }
   });
   Future<void> _replace(ContentLesson lesson, {bool review = false}) =>

@@ -1,0 +1,1704 @@
+[
+  {
+    "language": "de",
+    "scene": "W03",
+    "audit": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 41,
+        "incomplete": 2,
+        "passes": 21,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must only use permitted ARIA attributes",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/aria-prohibited-attr?application=axeAPI",
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "nodeCount": 1,
+          "nodes": [
+            {
+              "failureSummary": "Fix all of the following:\n  aria-label attribute is not well supported on a footer with no valid role attribute.",
+              "html": "<footer class=\"screen-actions\" id=\"screen-actions\" aria-label=\"Aktionen\">",
+              "target": [
+                "#screen-actions"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.aria",
+            "wcag2a",
+            "wcag412",
+            "EN-301-549",
+            "EN-9.4.1.2",
+            "RGAAv4",
+            "RGAA-7.1.1"
+          ]
+        },
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 16,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span id=\"status-time\">9:41</span>",
+              "target": [
+                "#status-time"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"system-status\">●●● ▰</span>",
+              "target": [
+                ".system-status"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span>HANGUL SORI</span>",
+              "target": [
+                ".brand > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span id=\"wallet-value\">30</span>",
+              "target": [
+                "#wallet-value"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<h1 id=\"screen-title\" tabindex=\"-1\">Dein Lernziel</h1>",
+              "target": [
+                "#screen-title"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p class=\"screen-subtitle\">Zuerst das Lernziel abschließen.</p>",
+              "target": [
+                ".screen-subtitle"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p class=\"card-kicker\">Aktuelles Guthaben</p>",
+              "target": [
+                ".balance-card > .card-kicker"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<strong>30</strong>",
+              "target": [
+                "strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span>Yeopjeon</span>",
+              "target": [
+                ".wallet-amount > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p class=\"card-kicker\">A1 · Lernen</p>",
+              "target": [
+                ".course-card > .card-kicker"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 7707568497978554591
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:8793/concepts/reward-suite-20261010/goal-journey/preview.html?lang=de&scene=W03&embed=1",
+      "violations": []
+    }
+  },
+  {
+    "language": "de",
+    "scene": "R03",
+    "audit": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 39,
+        "incomplete": 2,
+        "passes": 23,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must only use permitted ARIA attributes",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/aria-prohibited-attr?application=axeAPI",
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "nodeCount": 1,
+          "nodes": [
+            {
+              "failureSummary": "Fix all of the following:\n  aria-label attribute is not well supported on a footer with no valid role attribute.",
+              "html": "<footer class=\"screen-actions\" id=\"screen-actions\" aria-label=\"Aktionen\">",
+              "target": [
+                "#screen-actions"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.aria",
+            "wcag2a",
+            "wcag412",
+            "EN-301-549",
+            "EN-9.4.1.2",
+            "RGAAv4",
+            "RGAA-7.1.1"
+          ]
+        },
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 16,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span id=\"status-time\">9:41</span>",
+              "target": [
+                "#status-time"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"system-status\">●●● ▰</span>",
+              "target": [
+                ".system-status"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span>HANGUL SORI</span>",
+              "target": [
+                ".brand > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span id=\"wallet-value\">70</span>",
+              "target": [
+                "#wallet-value"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<h1 id=\"screen-title\" tabindex=\"-1\">Belohnung erhalten</h1>",
+              "target": [
+                "#screen-title"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p class=\"screen-subtitle\">Lernziel erfüllt</p>",
+              "target": [
+                ".screen-subtitle"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<h2>+40 Yeopjeon</h2>",
+              "target": [
+                ".paper-card > h2"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p>Belohnung und Guthaben bestätigt.</p>",
+              "target": [
+                ".paper-card > p"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<dt>Guthaben vorher</dt>",
+              "target": [
+                "div:nth-child(1) > dt"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<dd>30</dd>",
+              "target": [
+                "div:nth-child(1) > dd"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 7707568497978554591
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:8793/concepts/reward-suite-20261010/goal-journey/preview.html?lang=de&scene=R03&embed=1",
+      "violations": []
+    }
+  },
+  {
+    "language": "de",
+    "scene": "W04",
+    "audit": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 41,
+        "incomplete": 2,
+        "passes": 21,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must only use permitted ARIA attributes",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/aria-prohibited-attr?application=axeAPI",
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "nodeCount": 1,
+          "nodes": [
+            {
+              "failureSummary": "Fix all of the following:\n  aria-label attribute is not well supported on a footer with no valid role attribute.",
+              "html": "<footer class=\"screen-actions\" id=\"screen-actions\" aria-label=\"Aktionen\">",
+              "target": [
+                "#screen-actions"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.aria",
+            "wcag2a",
+            "wcag412",
+            "EN-301-549",
+            "EN-9.4.1.2",
+            "RGAAv4",
+            "RGAA-7.1.1"
+          ]
+        },
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 17,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span id=\"status-time\">9:41</span>",
+              "target": [
+                "#status-time"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"system-status\">●●● ▰</span>",
+              "target": [
+                ".system-status"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span>HANGUL SORI</span>",
+              "target": [
+                ".brand > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span id=\"wallet-value\">70</span>",
+              "target": [
+                "#wallet-value"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<h1 id=\"screen-title\" tabindex=\"-1\">Bereit zum Bauen</h1>",
+              "target": [
+                "#screen-title"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p class=\"card-kicker\">Aktuelles Guthaben</p>",
+              "target": [
+                ".balance-card > .card-kicker"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<strong>70</strong>",
+              "target": [
+                ".wallet-amount > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span>Yeopjeon</span>",
+              "target": [
+                ".wallet-amount > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<h2>Lernziel erfüllt</h2>",
+              "target": [
+                ".readiness > h2"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p>40 Yeopjeon erhalten.</p>",
+              "target": [
+                ".readiness > p"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 7707568497978554591
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:8793/concepts/reward-suite-20261010/goal-journey/preview.html?lang=de&scene=W04&embed=1",
+      "violations": []
+    }
+  },
+  {
+    "language": "de",
+    "scene": "B01",
+    "audit": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 46,
+        "incomplete": 1,
+        "passes": 15,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 11,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image",
+              "html": "<p class=\"card-kicker\">Verwendung: Dachsparren</p>",
+              "target": [
+                ".sheet-scroll > .card-kicker"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image",
+              "html": "<h2 id=\"build-title\" tabindex=\"-1\">Betrag bestätigen</h2>",
+              "target": [
+                "#build-title"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image",
+              "html": "<dt>Aktuelles Guthaben</dt>",
+              "target": [
+                "div:nth-child(1) > dt"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image",
+              "html": "<dd>70</dd>",
+              "target": [
+                "div:nth-child(1) > dd"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image",
+              "html": "<dt>Baukosten</dt>",
+              "target": [
+                "div:nth-child(2) > dt"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image",
+              "html": "<dd>−40</dd>",
+              "target": [
+                "div:nth-child(2) > dd"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image",
+              "html": "<dt>Danach voraussichtlich</dt>",
+              "target": [
+                "div:nth-child(3) > dt"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image",
+              "html": "<dd>30</dd>",
+              "target": [
+                "div:nth-child(3) > dd"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it partially overlaps other elements",
+              "html": "<p id=\"build-note\" class=\"dialog-note \">Die 40 Yeopjeon werden nach bestätigtem Speichern abgezogen.</p>",
+              "target": [
+                "#build-note"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image",
+              "html": "<span class=\"button-label\">40 Yeopjeon verwenden</span>",
+              "target": [
+                "button[data-action=\"save\"] > .button-label"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 7707568497978554591
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:8793/concepts/reward-suite-20261010/goal-journey/preview.html?lang=de&scene=B01&embed=1",
+      "violations": []
+    }
+  },
+  {
+    "language": "de",
+    "scene": "B03",
+    "audit": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 39,
+        "incomplete": 2,
+        "passes": 23,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must only use permitted ARIA attributes",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/aria-prohibited-attr?application=axeAPI",
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "nodeCount": 1,
+          "nodes": [
+            {
+              "failureSummary": "Fix all of the following:\n  aria-label attribute is not well supported on a footer with no valid role attribute.",
+              "html": "<footer class=\"screen-actions\" id=\"screen-actions\" aria-label=\"Aktionen\">",
+              "target": [
+                "#screen-actions"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.aria",
+            "wcag2a",
+            "wcag412",
+            "EN-301-549",
+            "EN-9.4.1.2",
+            "RGAAv4",
+            "RGAA-7.1.1"
+          ]
+        },
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 20,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span id=\"status-time\">9:41</span>",
+              "target": [
+                "#status-time"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"system-status\">●●● ▰</span>",
+              "target": [
+                ".system-status"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span>HANGUL SORI</span>",
+              "target": [
+                ".brand > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span id=\"wallet-value\">30</span>",
+              "target": [
+                "#wallet-value"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<h1 id=\"screen-title\" tabindex=\"-1\">Guthaben gespeichert</h1>",
+              "target": [
+                "#screen-title"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p class=\"screen-subtitle\">Verwendung gespeichert</p>",
+              "target": [
+                ".screen-subtitle"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p class=\"card-kicker\">Gespeichertes Guthaben</p>",
+              "target": [
+                ".balance-card > .card-kicker"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<strong>30</strong>",
+              "target": [
+                "strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span>Yeopjeon</span>",
+              "target": [
+                ".wallet-amount > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p class=\"card-kicker\">Gespeicherter Beleg</p>",
+              "target": [
+                ".debit-receipt > .card-kicker"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 7707568497978554591
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:8793/concepts/reward-suite-20261010/goal-journey/preview.html?lang=de&scene=B03&embed=1",
+      "violations": []
+    }
+  },
+  {
+    "language": "de",
+    "scene": "W05",
+    "audit": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 41,
+        "incomplete": 2,
+        "passes": 21,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must only use permitted ARIA attributes",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/aria-prohibited-attr?application=axeAPI",
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "nodeCount": 1,
+          "nodes": [
+            {
+              "failureSummary": "Fix all of the following:\n  aria-label attribute is not well supported on a footer with no valid role attribute.",
+              "html": "<footer class=\"screen-actions\" id=\"screen-actions\" aria-label=\"Aktionen\">",
+              "target": [
+                "#screen-actions"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.aria",
+            "wcag2a",
+            "wcag412",
+            "EN-301-549",
+            "EN-9.4.1.2",
+            "RGAAv4",
+            "RGAA-7.1.1"
+          ]
+        },
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 12,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span id=\"status-time\">9:41</span>",
+              "target": [
+                "#status-time"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"system-status\">●●● ▰</span>",
+              "target": [
+                ".system-status"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span>HANGUL SORI</span>",
+              "target": [
+                ".brand > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span id=\"wallet-value\">30</span>",
+              "target": [
+                "#wallet-value"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<h1 id=\"screen-title\" tabindex=\"-1\">Dein nächstes Lernziel</h1>",
+              "target": [
+                "#screen-title"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p class=\"screen-subtitle\">A1 · Lernen</p>",
+              "target": [
+                ".screen-subtitle"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p class=\"card-kicker\">A1 · Lernen</p>",
+              "target": [
+                ".card-kicker"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<h2>Name und Herkunft nennen</h2>",
+              "target": [
+                ".course-heading > h2"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p class=\"can-do\">Ich kann meinen Namen und meine Herkunft nennen und den Namen meines Gegenübers bestätigen.</p>",
+              "target": [
+                ".can-do"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p class=\"saved-context\" data-layout=\"context\">Gespeichertes Guthaben: 30 Yeopjeon</p>",
+              "target": [
+                ".saved-context"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 7707568497978554591
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:8793/concepts/reward-suite-20261010/goal-journey/preview.html?lang=de&scene=W05&embed=1",
+      "violations": []
+    }
+  },
+  {
+    "language": "en",
+    "scene": "W03",
+    "audit": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 41,
+        "incomplete": 2,
+        "passes": 21,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must only use permitted ARIA attributes",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/aria-prohibited-attr?application=axeAPI",
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "nodeCount": 1,
+          "nodes": [
+            {
+              "failureSummary": "Fix all of the following:\n  aria-label attribute is not well supported on a footer with no valid role attribute.",
+              "html": "<footer class=\"screen-actions\" id=\"screen-actions\" aria-label=\"Actions\">",
+              "target": [
+                "#screen-actions"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.aria",
+            "wcag2a",
+            "wcag412",
+            "EN-301-549",
+            "EN-9.4.1.2",
+            "RGAAv4",
+            "RGAA-7.1.1"
+          ]
+        },
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 16,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span id=\"status-time\">9:41</span>",
+              "target": [
+                "#status-time"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"system-status\">●●● ▰</span>",
+              "target": [
+                ".system-status"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span>HANGUL SORI</span>",
+              "target": [
+                ".brand > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span id=\"wallet-value\">30</span>",
+              "target": [
+                "#wallet-value"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<h1 id=\"screen-title\" tabindex=\"-1\">Your learning goal</h1>",
+              "target": [
+                "#screen-title"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p class=\"screen-subtitle\">Complete your learning goal first.</p>",
+              "target": [
+                ".screen-subtitle"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p class=\"card-kicker\">Current balance</p>",
+              "target": [
+                ".balance-card > .card-kicker"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<strong>30</strong>",
+              "target": [
+                "strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span>Yeopjeon</span>",
+              "target": [
+                ".wallet-amount > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p class=\"card-kicker\">A1 · Learning</p>",
+              "target": [
+                ".course-card > .card-kicker"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 7707568497978554591
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:8793/concepts/reward-suite-20261010/goal-journey/preview.html?lang=en&scene=W03&embed=1",
+      "violations": []
+    }
+  },
+  {
+    "language": "en",
+    "scene": "R03",
+    "audit": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 39,
+        "incomplete": 2,
+        "passes": 23,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must only use permitted ARIA attributes",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/aria-prohibited-attr?application=axeAPI",
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "nodeCount": 1,
+          "nodes": [
+            {
+              "failureSummary": "Fix all of the following:\n  aria-label attribute is not well supported on a footer with no valid role attribute.",
+              "html": "<footer class=\"screen-actions\" id=\"screen-actions\" aria-label=\"Actions\">",
+              "target": [
+                "#screen-actions"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.aria",
+            "wcag2a",
+            "wcag412",
+            "EN-301-549",
+            "EN-9.4.1.2",
+            "RGAAv4",
+            "RGAA-7.1.1"
+          ]
+        },
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 16,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span id=\"status-time\">9:41</span>",
+              "target": [
+                "#status-time"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"system-status\">●●● ▰</span>",
+              "target": [
+                ".system-status"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span>HANGUL SORI</span>",
+              "target": [
+                ".brand > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span id=\"wallet-value\">70</span>",
+              "target": [
+                "#wallet-value"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<h1 id=\"screen-title\" tabindex=\"-1\">Reward received</h1>",
+              "target": [
+                "#screen-title"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p class=\"screen-subtitle\">Learning goal completed</p>",
+              "target": [
+                ".screen-subtitle"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<h2>+40 Yeopjeon</h2>",
+              "target": [
+                ".paper-card > h2"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p>Reward and balance confirmed.</p>",
+              "target": [
+                ".paper-card > p"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<dt>Previous balance</dt>",
+              "target": [
+                "div:nth-child(1) > dt"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<dd>30</dd>",
+              "target": [
+                "div:nth-child(1) > dd"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 7707568497978554591
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:8793/concepts/reward-suite-20261010/goal-journey/preview.html?lang=en&scene=R03&embed=1",
+      "violations": []
+    }
+  },
+  {
+    "language": "en",
+    "scene": "W04",
+    "audit": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 41,
+        "incomplete": 2,
+        "passes": 21,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must only use permitted ARIA attributes",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/aria-prohibited-attr?application=axeAPI",
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "nodeCount": 1,
+          "nodes": [
+            {
+              "failureSummary": "Fix all of the following:\n  aria-label attribute is not well supported on a footer with no valid role attribute.",
+              "html": "<footer class=\"screen-actions\" id=\"screen-actions\" aria-label=\"Actions\">",
+              "target": [
+                "#screen-actions"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.aria",
+            "wcag2a",
+            "wcag412",
+            "EN-301-549",
+            "EN-9.4.1.2",
+            "RGAAv4",
+            "RGAA-7.1.1"
+          ]
+        },
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 17,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span id=\"status-time\">9:41</span>",
+              "target": [
+                "#status-time"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"system-status\">●●● ▰</span>",
+              "target": [
+                ".system-status"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span>HANGUL SORI</span>",
+              "target": [
+                ".brand > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span id=\"wallet-value\">70</span>",
+              "target": [
+                "#wallet-value"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<h1 id=\"screen-title\" tabindex=\"-1\">Ready to build</h1>",
+              "target": [
+                "#screen-title"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p class=\"card-kicker\">Current balance</p>",
+              "target": [
+                ".balance-card > .card-kicker"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<strong>70</strong>",
+              "target": [
+                ".wallet-amount > strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span>Yeopjeon</span>",
+              "target": [
+                ".wallet-amount > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<h2>Learning goal completed</h2>",
+              "target": [
+                ".readiness > h2"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p>40 yeopjeon received.</p>",
+              "target": [
+                ".readiness > p"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 7707568497978554591
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:8793/concepts/reward-suite-20261010/goal-journey/preview.html?lang=en&scene=W04&embed=1",
+      "violations": []
+    }
+  },
+  {
+    "language": "en",
+    "scene": "B01",
+    "audit": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 46,
+        "incomplete": 1,
+        "passes": 15,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 11,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image",
+              "html": "<p class=\"card-kicker\">Use: Rafters</p>",
+              "target": [
+                ".sheet-scroll > .card-kicker"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image",
+              "html": "<h2 id=\"build-title\" tabindex=\"-1\">Confirm use</h2>",
+              "target": [
+                "#build-title"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image",
+              "html": "<dt>Current balance</dt>",
+              "target": [
+                "div:nth-child(1) > dt"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image",
+              "html": "<dd>70</dd>",
+              "target": [
+                "div:nth-child(1) > dd"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image",
+              "html": "<dt>Building cost</dt>",
+              "target": [
+                "div:nth-child(2) > dt"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image",
+              "html": "<dd>−40</dd>",
+              "target": [
+                "div:nth-child(2) > dd"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image",
+              "html": "<dt>Expected balance after</dt>",
+              "target": [
+                "div:nth-child(3) > dt"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image",
+              "html": "<dd>30</dd>",
+              "target": [
+                "div:nth-child(3) > dd"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it partially overlaps other elements",
+              "html": "<p id=\"build-note\" class=\"dialog-note \">The 40 yeopjeon are deducted after saving is confirmed.</p>",
+              "target": [
+                "#build-note"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background image",
+              "html": "<span class=\"button-label\">Use 40 yeopjeon</span>",
+              "target": [
+                "button[data-action=\"save\"] > .button-label"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 7707568497978554591
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:8793/concepts/reward-suite-20261010/goal-journey/preview.html?lang=en&scene=B01&embed=1",
+      "violations": []
+    }
+  },
+  {
+    "language": "en",
+    "scene": "B03",
+    "audit": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 39,
+        "incomplete": 2,
+        "passes": 23,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must only use permitted ARIA attributes",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/aria-prohibited-attr?application=axeAPI",
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "nodeCount": 1,
+          "nodes": [
+            {
+              "failureSummary": "Fix all of the following:\n  aria-label attribute is not well supported on a footer with no valid role attribute.",
+              "html": "<footer class=\"screen-actions\" id=\"screen-actions\" aria-label=\"Actions\">",
+              "target": [
+                "#screen-actions"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.aria",
+            "wcag2a",
+            "wcag412",
+            "EN-301-549",
+            "EN-9.4.1.2",
+            "RGAAv4",
+            "RGAA-7.1.1"
+          ]
+        },
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 20,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span id=\"status-time\">9:41</span>",
+              "target": [
+                "#status-time"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"system-status\">●●● ▰</span>",
+              "target": [
+                ".system-status"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span>HANGUL SORI</span>",
+              "target": [
+                ".brand > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span id=\"wallet-value\">30</span>",
+              "target": [
+                "#wallet-value"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<h1 id=\"screen-title\" tabindex=\"-1\">Balance saved</h1>",
+              "target": [
+                "#screen-title"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p class=\"screen-subtitle\">Use saved</p>",
+              "target": [
+                ".screen-subtitle"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p class=\"card-kicker\">Saved balance</p>",
+              "target": [
+                ".balance-card > .card-kicker"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<strong>30</strong>",
+              "target": [
+                "strong"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span>Yeopjeon</span>",
+              "target": [
+                ".wallet-amount > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p class=\"card-kicker\">Saved receipt</p>",
+              "target": [
+                ".debit-receipt > .card-kicker"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 7707568497978554591
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:8793/concepts/reward-suite-20261010/goal-journey/preview.html?lang=en&scene=B03&embed=1",
+      "violations": []
+    }
+  },
+  {
+    "language": "en",
+    "scene": "W05",
+    "audit": {
+      "axeVersion": "4.12.1",
+      "counts": {
+        "inapplicable": 41,
+        "incomplete": 2,
+        "passes": 21,
+        "violations": 0
+      },
+      "incomplete": [
+        {
+          "help": "Elements must only use permitted ARIA attributes",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/aria-prohibited-attr?application=axeAPI",
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "nodeCount": 1,
+          "nodes": [
+            {
+              "failureSummary": "Fix all of the following:\n  aria-label attribute is not well supported on a footer with no valid role attribute.",
+              "html": "<footer class=\"screen-actions\" id=\"screen-actions\" aria-label=\"Actions\">",
+              "target": [
+                "#screen-actions"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.aria",
+            "wcag2a",
+            "wcag412",
+            "EN-301-549",
+            "EN-9.4.1.2",
+            "RGAAv4",
+            "RGAA-7.1.1"
+          ]
+        },
+        {
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/color-contrast?application=axeAPI",
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodeCount": 12,
+          "nodes": [
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span id=\"status-time\">9:41</span>",
+              "target": [
+                "#status-time"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters",
+              "html": "<span class=\"system-status\">●●● ▰</span>",
+              "target": [
+                ".system-status"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span>HANGUL SORI</span>",
+              "target": [
+                ".brand > span"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<span id=\"wallet-value\">30</span>",
+              "target": [
+                "#wallet-value"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<h1 id=\"screen-title\" tabindex=\"-1\">Your next learning goal</h1>",
+              "target": [
+                "#screen-title"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p class=\"screen-subtitle\">A1 · Learning</p>",
+              "target": [
+                ".screen-subtitle"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p class=\"card-kicker\">A1 · Learning</p>",
+              "target": [
+                ".card-kicker"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<h2>Saying your name and where you are from</h2>",
+              "target": [
+                ".course-heading > h2"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p class=\"can-do\">I can say my name and where I am from, and confirm the other person’s name.</p>",
+              "target": [
+                ".can-do"
+              ]
+            },
+            {
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+              "html": "<p class=\"saved-context\" data-layout=\"context\">Saved balance: 30 Yeopjeon</p>",
+              "target": [
+                ".saved-context"
+              ]
+            }
+          ],
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "effectiveLaunch": {
+          "browserLaunched": true,
+          "engine": "chrome",
+          "launchHash": 7707568497978554591
+        },
+        "launched": false,
+        "relaunchedBrowser": false,
+        "restartedBackground": false,
+        "restoreStatus": "not_configured",
+        "reused": true,
+        "saveStatus": "not_attempted"
+      },
+      "url": "http://127.0.0.1:8793/concepts/reward-suite-20261010/goal-journey/preview.html?lang=en&scene=W05&embed=1",
+      "violations": []
+    }
+  }
+]

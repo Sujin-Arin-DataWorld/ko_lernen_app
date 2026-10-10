@@ -1,0 +1,131 @@
+{
+  "verified_remote_main": {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\yeopjeon-c-mockups-20261009",
+    "head": "44727c1921b4b7f40748ac0d210d0ca62a094028",
+    "branch": "session/yeopjeon-c-mockups-20261009",
+    "files": {
+      "lib/services/yeopjeon_service.dart": {
+        "exists": true,
+        "sha256": "8f827063ab636a25d9844bd320b94a24d7ade8ebf07a8d36a4298def132f9161"
+      },
+      "lib/models/yeopjeon_wallet.dart": {
+        "exists": true,
+        "sha256": "c8a9bbc237ba8bec532e6b2f2d27442e362ae3d43370436fc5b123487458d828"
+      },
+      "lib/services/yeopjeon_learning_checkpoint.dart": {
+        "exists": true,
+        "sha256": "ab41139e49e83c385ebce61c8ba5a9e32634433364277a5e6df1033525fd6ec0"
+      },
+      "lib/features/content_learning/content_learning_service.dart": {
+        "exists": true,
+        "sha256": "1d49315efab8ce96823a1a81bafca3b78072169a828cd6b25ec02540a06ba43c"
+      },
+      "lib/features/content_learning/content_lesson_screen.dart": {
+        "exists": true,
+        "sha256": "4e7efb890979d0ccb9fd3dc9bff6babf7ddecfad55753fc35536e5815036d010"
+      },
+      "lib/screens/sori_stage/sori_stage_reward_receipt_sheet.dart": {
+        "exists": true,
+        "sha256": "7a735eb6c139bf95952f9780e790c5facbeb456202610cc9697905940d856be5"
+      },
+      "lib/widgets/sori/yeopjeon_wallet_card.dart": {
+        "exists": true,
+        "sha256": "32a2f4b3c801c06b0bd97930d64643d67e6fddbeefdb8954452fa4c59c02885a"
+      },
+      "lib/widgets/sori/yeopjeon_reward_presentation.dart": {
+        "exists": false,
+        "sha256": null
+      },
+      "lib/models/companion_art.dart": {
+        "exists": false,
+        "sha256": null
+      }
+    }
+  },
+  "local_main": {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app",
+    "head": "afd4c4dc524d89c316b23fd001dac37e087796cd",
+    "branch": "main",
+    "files": {
+      "lib/services/yeopjeon_service.dart": {
+        "exists": true,
+        "sha256": "8f827063ab636a25d9844bd320b94a24d7ade8ebf07a8d36a4298def132f9161"
+      },
+      "lib/models/yeopjeon_wallet.dart": {
+        "exists": true,
+        "sha256": "c8a9bbc237ba8bec532e6b2f2d27442e362ae3d43370436fc5b123487458d828"
+      },
+      "lib/services/yeopjeon_learning_checkpoint.dart": {
+        "exists": true,
+        "sha256": "ab41139e49e83c385ebce61c8ba5a9e32634433364277a5e6df1033525fd6ec0"
+      },
+      "lib/features/content_learning/content_learning_service.dart": {
+        "exists": true,
+        "sha256": "1d49315efab8ce96823a1a81bafca3b78072169a828cd6b25ec02540a06ba43c"
+      },
+      "lib/features/content_learning/content_lesson_screen.dart": {
+        "exists": true,
+        "sha256": "4e7efb890979d0ccb9fd3dc9bff6babf7ddecfad55753fc35536e5815036d010"
+      },
+      "lib/screens/sori_stage/sori_stage_reward_receipt_sheet.dart": {
+        "exists": true,
+        "sha256": "7a735eb6c139bf95952f9780e790c5facbeb456202610cc9697905940d856be5"
+      },
+      "lib/widgets/sori/yeopjeon_wallet_card.dart": {
+        "exists": true,
+        "sha256": "32a2f4b3c801c06b0bd97930d64643d67e6fddbeefdb8954452fa4c59c02885a"
+      },
+      "lib/widgets/sori/yeopjeon_reward_presentation.dart": {
+        "exists": false,
+        "sha256": null
+      },
+      "lib/models/companion_art.dart": {
+        "exists": false,
+        "sha256": null
+      }
+    }
+  },
+  "active_c_design": {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004",
+    "head": "618129e40f139c806307fd55ea2e6db1337994c6",
+    "branch": "session/canonical-reward-onboarding-20261004-2026-10-04",
+    "files": {
+      "lib/services/yeopjeon_service.dart": {
+        "exists": true,
+        "sha256": "25df0942a816a41d40d7b27452be57ae71ed9576c4b6d0e46075b9637bdaea86"
+      },
+      "lib/models/yeopjeon_wallet.dart": {
+        "exists": true,
+        "sha256": "c8a9bbc237ba8bec532e6b2f2d27442e362ae3d43370436fc5b123487458d828"
+      },
+      "lib/services/yeopjeon_learning_checkpoint.dart": {
+        "exists": true,
+        "sha256": "4ffd6e60894b493284494500aadf06d014995b063fd4f989b8d0e4832f670f7f"
+      },
+      "lib/features/content_learning/content_learning_service.dart": {
+        "exists": true,
+        "sha256": "1d49315efab8ce96823a1a81bafca3b78072169a828cd6b25ec02540a06ba43c"
+      },
+      "lib/features/content_learning/content_lesson_screen.dart": {
+        "exists": true,
+        "sha256": "8e633880fc6c595f678333a9177046d514b9c851279afbc0634b67a70b8a2b53"
+      },
+      "lib/screens/sori_stage/sori_stage_reward_receipt_sheet.dart": {
+        "exists": true,
+        "sha256": "e5491c381d80777ae25212fd92be80be31a4b662832125490c70ff4190dfa3f6"
+      },
+      "lib/widgets/sori/yeopjeon_wallet_card.dart": {
+        "exists": true,
+        "sha256": "6de1c153def7b7958c380f003b8db2a637a98377078dc5aea0c0e499937c7a7c"
+      },
+      "lib/widgets/sori/yeopjeon_reward_presentation.dart": {
+        "exists": true,
+        "sha256": "545ebbc4595fb32b9ebd7902c1ecb580a1a1dfbf24af74f74e51696f5322147f"
+      },
+      "lib/models/companion_art.dart": {
+        "exists": true,
+        "sha256": "e6032506f710a2f09cdaacbb10658b3663a0a42d5c5717354c4c71397692e593"
+      }
+    }
+  }
+}

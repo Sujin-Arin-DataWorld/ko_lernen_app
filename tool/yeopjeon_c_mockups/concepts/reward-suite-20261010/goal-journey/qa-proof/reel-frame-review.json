@@ -1,0 +1,139 @@
+{
+  "boundary": "HTML sample fixture. Existing WAAPI reel paused at15ms for glyph/envelope inspection, then restored and settled.",
+  "frames": [
+    {
+      "scale": 100,
+      "frame": {
+        "coinLocal": "true",
+        "confirmed": "70",
+        "field": {
+          "bottom": 100,
+          "height": 46,
+          "right": 327,
+          "width": 28,
+          "x": 299,
+          "y": 54
+        },
+        "pausedForReview": true,
+        "phase": "crediting",
+        "reels": [
+          {
+            "bounds": {
+              "bottom": 101.75,
+              "height": 31.5,
+              "right": 371,
+              "width": 36,
+              "x": 335,
+              "y": 70.25
+            },
+            "kind": "wallet",
+            "rows": [
+              "30",
+              "34"
+            ],
+            "time": 15,
+            "transform": "matrix(1, 0, 0, 1, 0, -16.4331)"
+          },
+          {
+            "bounds": {
+              "bottom": 458.12884521484375,
+              "height": 68.6951904296875,
+              "right": 230.337646484375,
+              "width": 76.33154296875,
+              "x": 154.006103515625,
+              "y": 389.43365478515625
+            },
+            "kind": "earned",
+            "rows": [
+              "0",
+              "4"
+            ],
+            "time": 15,
+            "transform": "matrix(1, 0, 0, 1, 0, -35.0549)"
+          }
+        ],
+        "slot": {
+          "bottom": 101.75,
+          "height": 31.5,
+          "right": 371,
+          "width": 36,
+          "x": 335,
+          "y": 70.25
+        }
+      },
+      "afterSkip": {
+        "earned": "40",
+        "phase": "settled",
+        "visibleReels": 0,
+        "wallet": "70"
+      }
+    },
+    {
+      "scale": 200,
+      "frame": {
+        "coinLocal": "true",
+        "confirmed": "70",
+        "field": {
+          "bottom": 114.5,
+          "height": 46,
+          "right": 291,
+          "width": 28,
+          "x": 263,
+          "y": 68.5
+        },
+        "pausedForReview": true,
+        "phase": "crediting",
+        "reels": [
+          {
+            "bounds": {
+              "bottom": 132,
+              "height": 63,
+              "right": 371,
+              "width": 72,
+              "x": 299,
+              "y": 69
+            },
+            "kind": "wallet",
+            "rows": [
+              "30",
+              "34"
+            ],
+            "time": 15,
+            "transform": "matrix(1, 0, 0, 1, 0, -32.8663)"
+          },
+          {
+            "bounds": {
+              "bottom": 587.8185424804688,
+              "height": 137.6839599609375,
+              "right": 281.8453369140625,
+              "width": 152.987548828125,
+              "x": 128.8577880859375,
+              "y": 450.1345825195313
+            },
+            "kind": "earned",
+            "rows": [
+              "0",
+              "4"
+            ],
+            "time": 15,
+            "transform": "matrix(1, 0, 0, 1, 0, -70.1139)"
+          }
+        ],
+        "slot": {
+          "bottom": 132,
+          "height": 63,
+          "right": 371,
+          "width": 72,
+          "x": 299,
+          "y": 69
+        }
+      },
+      "afterSkip": {
+        "earned": "40",
+        "phase": "settled",
+        "visibleReels": 0,
+        "wallet": "70"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+/* The image is kept intact; CSS apertures and motion sit over A/B proposal art. */
+.estate-locked .locked-screen{background:#17473c}
+.estate-locked .locked-screen .locked-wallet{left:70%;top:3.8%;height:6%;width:25%}
+.estate-locked .locked-screen .locked-hero{inset:17.5% 3.5% 38%;mix-blend-mode:normal}
+.estate-locked .locked-depth{inset:-39.3258% -3.7634% -85.3933%;clip-path:inset(17.5% 3.5% 38%);transform-origin:50% 85%}
+.estate-locked .locked-screen .locked-foot{left:9%;right:9%;top:84.3%;bottom:3.2%}
+.estate-locked .locked-screen .locked-primary{inset:0 0 45%;min-height:48px}
+.estate-locked .locked-screen .locked-secondary{inset:57% 0 0;min-height:44px}
+.estate-hero{border:0;padding:0;color:inherit;background:transparent;mix-blend-mode:normal!important;cursor:pointer;perspective:1000px}
+.estate-depth{transform:perspective(1000px) rotateY(calc(var(--pointer-x,0)*2.5deg)) rotateX(calc(var(--pointer-y,0)*-1.3deg));will-change:transform}
+.estate-light,.estate-ring,.estate-coin-glow{position:absolute;pointer-events:none;opacity:0}
+.estate-light{inset:4% 15% -1%;background:radial-gradient(ellipse at 50% 62%,#fff3abdf 0,#ffc95555 20%,transparent 65%);filter:blur(3px)}
+.variant-a .estate-light{inset:0 35% -2%;background:linear-gradient(90deg,transparent,#ffc54c55 20%,#fff7cfee 49%,#ffe48ea0 51%,#ffc54c55 80%,transparent);clip-path:polygon(35% 0,65% 0,90% 100%,10% 100%)}
+.estate-ring{left:14%;top:65%;width:72%;height:27%;border:2px solid #fff0a3;border-radius:50%;box-shadow:0 0 7px #ffc955bb,inset 0 0 5px #fff5af66;transform-origin:center}
+.ring-two{top:60%;width:78%;left:11%;height:33%}.ring-three{top:56%;width:84%;left:8%;height:38%}
+.variant-a .estate-ring{top:18%;height:62%;width:70%;left:15%;border-width:1px}
+.estate-coin-glow{left:28%;top:29%;width:44%;height:42%;border-radius:50%;background:radial-gradient(ellipse,#fff7af22 30%,#fff7af9a 50%,transparent 70%);filter:blur(3px)}
+.variant-b .estate-coin-glow{top:11%;height:53%}
+.estate-editable{min-height:150px!important;max-height:390px!important;overflow:clip!important;margin:0 -4px 8px!important;border-radius:12px!important;background:#164c41}
+.estate-scene{position:absolute;inset:0;background:url('design/ab-board.png') no-repeat;background-size:var(--scene-w) var(--scene-h);background-position:var(--scene-x) var(--scene-y);transform-origin:50% 85%}
+.estate-hint{position:absolute;left:15%;right:15%;bottom:3%;font-size:calc(11px * var(--font-scale));line-height:1.4;color:#fff0c7;text-shadow:0 1px 3px #0b2920;background:#174438d9;padding:6px 8px;border:1px solid #cdb57a70;border-radius:16px}
+.estate-progress{display:flex;gap:12px;align-items:center;font-size:calc(12px * var(--font-scale));padding:10px 0;border-top:1px solid #ccb69a;line-height:1.5}
+.estate-progress strong{font-size:calc(20px * var(--font-scale));color:#174f41}.growth-dots{margin-left:auto;display:flex;gap:5px}.growth-dots i{height:5px;width:5px;background:#c99f57;border-radius:50%}.growth-dots i:last-child{background:#1c5148}
+.variant-explanation{text-align:center;font-size:12px;line-height:1.8;color:#344f42;margin:14px 0 0}.variant-explanation small{font-size:10px;color:#687163}.screen-caption>a{font-weight:400;font-size:10px;min-height:28px;display:inline-flex;align-items:center}
+.ab-compare .screens{grid-template-columns:repeat(2,minmax(0,390px));gap:44px}.ab-compare .review-header h1{font-size:22px}.ab-compare .design-explanation{display:none}
+.solo .variant-explanation{display:none}.solo .estate-locked .screen{aspect-ratio:var(--phone-ratio)}
+.solo .screens:has(.estate-locked){width:min(100%,calc((100dvh - 12px)*.5));max-width:460px}
+.large-type .estate-hint{font-size:calc(11px * var(--font-scale));left:8%;right:8%}.large-type .growth-dots{display:none}
+.reduced .estate-depth{transform:none!important;will-change:auto}.reduced .estate-light,.reduced .estate-ring,.reduced .estate-coin-glow{display:none}
+.night .variant-explanation,.night .variant-explanation small{color:#f6e6c3}
+@media(max-width:849px){.ab-compare .screens{grid-template-columns:minmax(0,390px);gap:36px}.ab-compare .review-header h1{font-size:19px}.variant-explanation{font-size:11px}}
+@media(max-height:540px) and (min-width:600px){.solo .screens:has(.estate-locked){width:100%}.estate-editable{min-height:0!important;max-height:none!important}.estate-hint{font-size:10px}}

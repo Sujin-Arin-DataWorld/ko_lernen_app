@@ -1,0 +1,31 @@
+{
+  "lifecycle": {
+    "effectiveLaunch": {
+      "browserLaunched": true,
+      "engine": "chrome",
+      "launchHash": 7707568497978554591
+    },
+    "launched": false,
+    "relaunchedBrowser": false,
+    "restartedBackground": false,
+    "restoreStatus": "not_configured",
+    "reused": true,
+    "saveStatus": "not_attempted"
+  },
+  "origin": "http://127.0.0.1:8793/concepts/reward-suite-20261010/goal-journey/preview.html?lang=en",
+  "refs": {
+    "e1": {
+      "name": "Confirm use",
+      "role": "heading"
+    },
+    "e2": {
+      "name": "Use 40 yeopjeon",
+      "role": "button"
+    },
+    "e3": {
+      "name": "Cancel",
+      "role": "button"
+    }
+  },
+  "snapshot": "- heading \"Confirm use\" [level=2, ref=e1]\n- button \"Use 40 yeopjeon\" [ref=e2]\n- button \"Cancel\" [ref=e3]"
+}

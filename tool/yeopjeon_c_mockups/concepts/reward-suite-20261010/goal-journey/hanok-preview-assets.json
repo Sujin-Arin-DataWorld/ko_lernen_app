@@ -1,0 +1,59 @@
+{
+  "sourceManifest": "assets/data/sarangchae_construction_v3.json",
+  "sourceManifestSha256": "c0cd9a453fb3e7cbb787d67e3bf5cda53dd35bb606ee5cef78f45af8485bb65e",
+  "reviewFixture": {
+    "owned": 7,
+    "target": 8,
+    "balance": 30
+  },
+  "assets": [
+    {
+      "sequence": 7,
+      "source": "assets/illustrations/personal_hanok_v3/sarangchae/stage_07_purlins.png",
+      "previewFile": "layers/stage_07_purlins.png",
+      "sha256": "a25f87e0ab56884c0b6988bfbcb0a5e8b4e13c1ba0de4e91cd82f708a7c5ffa6",
+      "stageId": "sarangchae-purlins",
+      "term": "상량",
+      "gloss": {
+        "ko": "상량",
+        "en": "raising the ridge beam",
+        "de": "Aufrichten des Firstbalkens"
+      },
+      "title": {
+        "ko": "지붕의 뼈대가 서다",
+        "en": "A moment to celebrate",
+        "de": "Das Dachgerüst steht"
+      },
+      "caption": {
+        "ko": "첫 번째 큰 순간. 집의 뼈대가 섰습니다.",
+        "en": "The first great moment: the frame stands.",
+        "de": "Der erste große Moment: Das Tragwerk steht."
+      },
+      "runtimeStatus": "approved_runtime"
+    },
+    {
+      "sequence": 8,
+      "source": "assets/illustrations/personal_hanok_v3/sarangchae/stage_08_rafters.png",
+      "previewFile": "layers/stage_08_rafters.png",
+      "sha256": "81e68c58d5d342bef0e5849dae38bfc6f5483d436140cc6615c492d3119dcd10",
+      "stageId": "sarangchae-rafters",
+      "term": "서까래",
+      "gloss": {
+        "ko": "서까래",
+        "en": "rafter",
+        "de": "Dachsparren"
+      },
+      "title": {
+        "ko": "처마의 선을 만들다",
+        "en": "Drawing the eaves",
+        "de": "Die Dachlinie entsteht"
+      },
+      "caption": {
+        "ko": "나란한 서까래가 한옥의 선을 그립니다.",
+        "en": "Rafter by rafter, the roof takes shape.",
+        "de": "Sparren für Sparren nimmt das Dach Gestalt an."
+      },
+      "runtimeStatus": "approved_runtime"
+    }
+  ]
+}

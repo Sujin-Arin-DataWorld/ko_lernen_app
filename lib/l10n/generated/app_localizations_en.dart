@@ -11877,4 +11877,139 @@ class AppL10nEn extends AppL10n {
   String practiceHintWordPath(int count, int row, int column) {
     return '$count syllables · Start: row $row, column $column';
   }
+
+  @override
+  String get cRewardBrand => 'Hangul Sori';
+
+  @override
+  String get cRewardTitle => 'Lesson complete';
+
+  @override
+  String get cRewardCurrency => 'Yeopjeon';
+
+  @override
+  String get cRewardEarnedLabel => 'Reward';
+
+  @override
+  String get cRewardFirst => 'For your first lesson today';
+
+  @override
+  String get cRewardSecond => 'For your second lesson today';
+
+  @override
+  String cRewardSupport(int amount) {
+    return 'Building support · +$amount Yeopjeon';
+  }
+
+  @override
+  String get cRewardConfirmed => 'Your Yeopjeon have been credited.';
+
+  @override
+  String get cRewardHouse => 'Your Ildu house';
+
+  @override
+  String get cRewardNextBuild => 'Next build';
+
+  @override
+  String get cRewardReady => 'Your next building stage is ready.';
+
+  @override
+  String get cRewardLocked =>
+      'Finish your next learning goal to build further.';
+
+  @override
+  String cRewardNeedCoins(int amount) {
+    return '$amount more Yeopjeon for the next stage.';
+  }
+
+  @override
+  String get cRewardFuture =>
+      'The 3D view will follow. Your build progress is saved.';
+
+  @override
+  String get cRewardVisit => 'Visit my Ildu house';
+
+  @override
+  String get cRewardContinue => 'Keep learning';
+
+  @override
+  String get cRewardReplay => 'Replay';
+
+  @override
+  String get cRewardSkip => 'Skip';
+
+  @override
+  String get cRewardMotionOff => 'Motion off';
+
+  @override
+  String get cRewardMotionOn => 'Motion on';
+
+  @override
+  String get cRewardSoundOn => 'Sound on';
+
+  @override
+  String get cRewardSoundOff => 'Sound off';
+
+  @override
+  String get cRewardSurprise => 'What will you build next?';
+
+  @override
+  String get cRewardGrowth => 'Your house grows as you learn.';
+
+  @override
+  String get cRewardCoinHint => 'Tap the coin to awaken its light';
+
+  @override
+  String cRewardCost(int amount) {
+    return 'Building cost: $amount';
+  }
+
+  @override
+  String cRewardBuild(int amount) {
+    return 'Build for $amount';
+  }
+
+  @override
+  String get cRewardLater => 'Build later';
+
+  @override
+  String get cRewardConfirmTitle => 'Build the next stage?';
+
+  @override
+  String cRewardConfirmBody(int amount) {
+    return 'Use $amount Yeopjeon for the next building step.';
+  }
+
+  @override
+  String get cRewardBalanceNow => 'Your balance now';
+
+  @override
+  String get cRewardBalanceAfter => 'After building';
+
+  @override
+  String cRewardUse(int amount) {
+    return 'Use $amount Yeopjeon';
+  }
+
+  @override
+  String get cRewardBuiltTitle => 'Build progress saved';
+
+  @override
+  String get cRewardBuiltBody =>
+      'Your learning has become part of the Ildu house.';
+
+  @override
+  String get cRewardMore => 'Other rewards';
+
+  @override
+  String get cRewardWaiting => 'Loading your balance';
+
+  @override
+  String get cRewardReview => 'For your review practice today';
+
+  @override
+  String get cRewardPracticeTitle => 'Practice complete';
+
+  @override
+  String get cRewardSupportTitle => 'Building support unlocked';
 }

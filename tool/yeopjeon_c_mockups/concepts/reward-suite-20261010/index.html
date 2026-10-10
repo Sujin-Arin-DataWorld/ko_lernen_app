@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hangul Sori · C reward suite</title>
+<style>
+:root{--jade:#123e37;--paper:#f6ede0;--brass:#b58c50}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--jade);font:16px/1.45 system-ui,sans-serif}
+header,footer{max-width:852px;margin:auto;padding:24px 14px 16px}h1{font-size:26px;line-height:1.2;margin:0 0 6px}p{margin:6px 0}.meta{font-size:14px;color:#536660}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+button,.link{font:inherit;border:1px solid var(--brass);border-radius:8px;min-height:48px;padding:8px 16px;color:var(--jade);background:#fff8ed;text-decoration:none;display:inline-flex;align-items:center;cursor:pointer}
+button[aria-pressed=true]{background:var(--jade);color:var(--paper)}
+button:focus-visible,a:focus-visible{outline:3px solid #a46912;outline-offset:4px}
+main{display:grid;grid-template-columns:repeat(2,402px);gap:28px 20px;width:824px;margin:0 auto;padding-bottom:16px}
+figure{width:402px;margin:0}.label{min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:12px;margin:4px 0;font-size:18px}.label a{color:var(--jade);font-size:14px;min-height:48px;display:inline-flex;align-items:center}
+.phone{width:402px;height:874px;background:var(--jade);box-shadow:0 8px 24px #123e3726}.phone img{display:block;width:402px;height:874px;object-fit:contain;object-position:center}
+.caption{font-size:14px;margin:12px 0 0;color:#435c54}.detail-links{display:flex;gap:12px;flex-wrap:wrap}.detail-links a{color:var(--jade);min-height:48px;display:inline-flex;align-items:center}
+@media(max-width:850px){main{grid-template-columns:402px;width:402px}}
+@media(max-width:425px){header,footer{padding:16px 12px}main{margin:0;width:402px}}
+</style>
+</head>
+<body>
+<header>
+<h1 data-copy="heading">C · Deine Yeopjeon</h1>
+<p data-copy="intro">Vier neue Szenen · Gleiche Materialien wie dein gewähltes C</p>
+<p class="meta" data-copy="meta">402×874 Vergleichsrahmen · Statische Entwürfe · Bestehende App unverändert</p>
+<div class="toolbar" aria-label="Language">
+<button data-lang="de" aria-pressed="true">Deutsch</button><button data-lang="en" aria-pressed="false">English</button>
+<a class="link" href="../abc-20261010/C-spatial-jade-de.png" target="_blank" rel="noopener" data-copy="selected">Gewähltes C</a>
+<a class="link" href="../../refined.html?solo=1&amp;view=reward&amp;lang=de" target="_blank" rel="noopener" data-copy="kept">Bestehende App</a>
+</div>
+</header>
+<main aria-label="Four C-style reward and construction proposals">
+<figure><figcaption class="label"><strong data-copy="secondTitle">01 · Zweite Lektion</strong><a data-full="second" href="01-second-lesson-de-v2.png" target="_blank" rel="noopener" data-copy="full">Originalbild</a></figcaption><div class="phone"><img data-screen="second" src="01-second-lesson-de-v2.png" alt="Confirmed second-lesson10 reward, wallet30, learning opens new construction steps"></div><p class="caption" data-copy="secondCaption">+10 · Guthaben20→30. Lernen öffnet neue Bauschritte.</p></figure>
+<figure><figcaption class="label"><strong data-copy="milestoneTitle">02 · Bau-Unterstützung</strong><a data-full="milestone" href="02-milestone-grant-de-v3.png" target="_blank" rel="noopener" data-copy="full">Originalbild</a></figcaption><div class="phone"><img data-screen="milestone" src="02-milestone-grant-de-v3.png" alt="Confirmed construction eligibility grant40, wallet70, next step ready"></div><p class="caption" data-copy="milestoneCaption">+40 · Guthaben30→70. Ein neuer Bauschritt ist bereit.</p></figure>
+<figure><figcaption class="label"><strong data-copy="walletTitle">03 · Yeopjeon-Übersicht</strong><a data-full="wallet" href="03-wallet-magic-de.png" target="_blank" rel="noopener" data-copy="full">Originalbild</a></figcaption><div class="phone"><img data-screen="wallet" src="03-wallet-magic-de.png" alt="User-selected wallet: balance70, cumulative earned70, spent0; exactly one blue Dokkaebi flame beside the coin"></div><p class="caption" data-copy="walletCaption">Guthaben70 · Gesammelt70 · Verbaut0. Übersicht ohne neue Auszahlung.</p></figure>
+<figure><figcaption class="label"><strong data-copy="buildTitle">04 · Vor dem Bauen</strong><a data-full="build" href="04-construction-ready-de-v3.png" target="_blank" rel="noopener" data-copy="full">Originalbild</a></figcaption><div class="phone"><img data-screen="build" src="04-construction-ready-de-v3.png" alt="Before construction: wallet70, cost40, predicted remaining30; future building art private"></div><p class="caption" data-copy="buildCaption">70−40=30 nach erfolgreichem Bau. Die nächste Form bleibt privat.</p></figure>
+</main>
+<footer>
+<p data-copy="boundary">Die Bilder zeigen Vorschläge, keine neue Flutter-Implementierung. SafeArea, echte Textskalierung, Touch und Motion brauchen eigene Geräteprüfung.</p>
+<div class="detail-links"><a href="DESIGN_BRIEF.md">Design &amp; source rules</a><a href="MOTION_CONTRACT.md">Motion contract</a><a href="prompts-de.json">Generation prompts</a><a href="fixtures.json">Review data</a><a href="GENERATED_ASSETS.json">Image provenance</a></div>
+</footer>
+<script>
+const files={
+ second:{de:'01-second-lesson-de-v2.png',en:'01-second-lesson-en.png'},
+ milestone:{de:'02-milestone-grant-de-v3.png',en:'02-milestone-grant-en.png'},
+ wallet:{de:'03-wallet-magic-de.png',en:'03-wallet-magic-en.png'},
+ build:{de:'04-construction-ready-de-v3.png',en:'04-construction-ready-en.png'}
+};
+const copy={
+de:{heading:'C · Deine Yeopjeon',intro:'Vier neue Szenen · Gleiche Materialien wie dein gewähltes C',meta:'402×874 Vergleichsrahmen · Statische Entwürfe · Bestehende App unverändert',selected:'Gewähltes C',kept:'Bestehende App',full:'Originalbild',secondTitle:'01 · Zweite Lektion',milestoneTitle:'02 · Bau-Unterstützung',walletTitle:'03 · Yeopjeon-Übersicht',buildTitle:'04 · Vor dem Bauen',secondCaption:'+10 · Guthaben20→30. Lernen öffnet neue Bauschritte.',milestoneCaption:'+40 · Guthaben30→70. Ein neuer Bauschritt ist bereit.',walletCaption:'Guthaben70 · Gesammelt70 · Verbaut0. Übersicht ohne neue Auszahlung.',buildCaption:'70−40=30 nach erfolgreichem Bau. Die nächste Form bleibt privat.',boundary:'Die Bilder zeigen Vorschläge, keine neue Flutter-Implementierung. SafeArea, echte Textskalierung, Touch und Motion brauchen eigene Geräteprüfung.'},
+en:{heading:'C · Your Yeopjeon',intro:'Four new scenes · The materials of your selected C',meta:'402×874 comparison frames · Static concepts · Existing app kept',selected:'Selected C',kept:'Existing app',full:'Full resolution',secondTitle:'01 · Second lesson',milestoneTitle:'02 · Building grant',walletTitle:'03 · Wallet summary',buildTitle:'04 · Before building',secondCaption:'+10 · Balance20→30. Learning opens new building steps.',milestoneCaption:'+40 · Balance30→70. A new building step is ready.',walletCaption:'Balance70 · Earned70 · Used0. This summary grants no new reward.',buildCaption:'70−40=30 after a successful build. The next form stays private.',boundary:'These images are proposals, not a new Flutter implementation. Native safe areas, real text scaling, touch and motion need separate device checks.'}
+};
+function selectLanguage(lang){
+ document.documentElement.lang=lang;
+ document.querySelectorAll('button[data-lang]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.lang===lang)));
+ document.querySelectorAll('[data-screen]').forEach(x=>x.src=files[x.dataset.screen][lang]);
+ document.querySelectorAll('[data-full]').forEach(x=>x.href=files[x.dataset.full][lang]);
+ document.querySelectorAll('[data-copy]').forEach(x=>x.textContent=copy[lang][x.dataset.copy]);
+ document.querySelector('.toolbar a[data-copy="selected"]').href='../abc-20261010/C-spatial-jade-'+lang+'.png';
+ document.querySelector('.toolbar a[data-copy="kept"]').href='../../refined.html?solo=1&view=reward&lang='+lang;
+}
+document.querySelectorAll('button[data-lang]').forEach(x=>x.addEventListener('click',()=>selectLanguage(x.dataset.lang)));
+const requested=new URLSearchParams(location.search).get('lang');
+if(requested==='en')selectLanguage('en');
+</script>
+</body></html>

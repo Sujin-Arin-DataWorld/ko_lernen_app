@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Hangul Sori · Yeopjeon ausprobieren</title>
+  <link rel="icon" href="../../../assets/coin_face.png">
+  <link rel="stylesheet" href="preview.css">
+  <link rel="stylesheet" href="reward-hero.css">
+  <script type="module" src="preview.mjs"></script>
+</head>
+<body>
+  <header class="review-bar">
+    <a href="index.html" id="gallery-link">Alle sieben Ansichten</a>
+    <nav class="languages" aria-label="Sprache">
+      <button type="button" data-language="de" lang="de" aria-pressed="true">Deutsch</button>
+      <button type="button" data-language="en" lang="en" aria-pressed="false">English</button>
+    </nav>
+  </header>
+  <main class="review-layout">
+    <section class="device-column" aria-label="Interaktive App-Vorschau">
+      <div class="phone" id="phone">
+        <div class="system-bar" aria-hidden="true"><span id="status-time">9:41</span><i></i><span class="system-status">●●● ▰</span></div>
+        <header class="app-bar">
+          <div class="brand"><img src="../../../assets/cloud.png" alt="" width="30" height="28"><span>HANGUL SORI</span></div>
+          <button class="wallet" id="wallet-button" type="button"><img src="../../../assets/coin_face.png" alt="" width="28" height="28"><span id="wallet-value">30</span></button>
+        </header>
+        <div class="app-scroll" id="app-scroll">
+          <section class="screen" id="screen" aria-labelledby="screen-title"></section>
+        </div>
+        <footer class="screen-actions" id="screen-actions" aria-label="Aktionen"></footer>
+        <div class="home-area" aria-hidden="true"><i></i></div>
+        <p class="sr-only" id="announcement" role="status" aria-live="polite" aria-atomic="true"></p>
+      </div>
+    </section>
+    <aside class="review-panel" aria-labelledby="review-title">
+      <p class="review-eyebrow" id="review-eyebrow">Interaktive Designvorschau</p>
+      <h1 id="review-title">Deine Yeopjeon. Dein nächster Schritt.</h1>
+      <p id="review-description">30 → 70 → 30. Die Beispieldaten werden nur in diesem Browser gespeichert.</p>
+      <ol class="flow-list" id="flow-list"></ol>
+      <section class="playback-tools" id="playback-tools" aria-labelledby="playback-title" hidden><h2 id="playback-title">Wiedergabe · Designprüfung</h2><div class="playback-actions"><button type="button" id="replay-reward">Noch einmal abspielen</button><button type="button" id="skip-reward">Zum Ergebnis</button></div><p id="playback-note">Wiederholen und Überspringen ändern nur die Darstellung.</p><div class="video-review-links"><a id="new-video-preview" href="preview.html?lang=de&amp;scene=R01&amp;video=candidate">Neues Video im Layout ansehen</a><a id="original-video-preview" href="preview.html?lang=de&amp;scene=R01">Bisheriges Video vergleichen</a></div></section>
+      <div class="review-actions"><button type="button" id="wallet-entry">Yeopjeon-Übersicht</button><button type="button" id="restart">Von vorne beginnen</button><a href="W03-learning-goal-de.png" id="reference-link" target="_blank" rel="noopener">Früherer Entwurf</a></div>
+      <details id="qa-tools">
+        <summary id="qa-title">Ansicht und QA</summary>
+        <label for="text-size"><span id="text-size-label">Schriftgröße</span><select id="text-size"><option value="1">100%</option><option value="1.5">150% · QA</option><option value="2">200% · QA</option></select></label>
+        <label class="motion-option"><input type="checkbox" id="reduce-motion"><span id="motion-label">Bewegung reduzieren</span></label>
+        <label for="save-outcome"><span id="save-label">Nächster Speicherversuch</span><select id="save-outcome"><option value="success" id="save-success">Speichern</option><option value="failure" id="save-failure">Speicherfehler prüfen</option></select></label>
+        <p id="qa-note">100% ist die normale Ansicht. Größere Schrift ist ein separater QA-Modus.</p>
+      </details>
+      <p class="review-boundary" id="review-boundary">Lokale Vorschau mit Beispieldaten. Flutter, echte Lernbewertung und Kontostand sind separat zu prüfen.</p>
+      <p class="review-feedback" id="review-feedback" role="status"></p>
+    </aside>
+  </main>
+  <dialog id="build-dialog" class="build-sheet" aria-labelledby="build-title" aria-describedby="build-note">
+    <div id="build-content"></div>
+  </dialog>
+  <dialog id="learning-dialog" aria-labelledby="learning-title">
+    <form method="dialog" class="learning-dialog-content">
+      <p class="dialog-kicker" id="learning-kicker">Lernziel · Vorschau</p>
+      <h2 id="learning-title"></h2>
+      <p id="learning-description"></p>
+      <div id="learning-content"></div>
+      <p class="dialog-note" id="learning-note"></p>
+      <button class="tactile primary" type="button" id="learning-complete"><svg class="cta-art" data-primary="true" aria-hidden="true" focusable="false" preserveAspectRatio="none"></svg><span class="button-label"></span></button>
+      <button class="dialog-back" type="submit" id="learning-close">Zurück zum Lernziel</button>
+    </form>
+  </dialog>
+  <dialog id="wallet-dialog" aria-labelledby="wallet-title">
+    <form method="dialog" class="wallet-dialog-content">
+      <h2 id="wallet-title">Deine Yeopjeon</h2>
+      <dl id="wallet-summary"></dl>
+      <p id="wallet-note"></p>
+      <button class="dialog-back" type="submit" id="wallet-close">Schließen</button>
+    </form>
+  </dialog>
+</body>
+</html>

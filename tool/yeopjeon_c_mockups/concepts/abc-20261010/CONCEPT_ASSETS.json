@@ -1,0 +1,104 @@
+{
+  "date": "2026-10-10",
+  "mode": "built-in image_gen",
+  "runtime_changed": false,
+  "actor": "reference-based generated artwork; original runtime movie preserved separately",
+  "entries": [
+    {
+      "concept": "A",
+      "language": "de",
+      "file": "A-jade-stage-de.png",
+      "source": "C:/Users/vjinn/.codex/generated_images/01a12252-a369-74c1-a37d-25e1f0933b5d/exec-e0ae9bd0-253b-42e1-b3a6-40fa122ffc87.png",
+      "sha256": "181d35f9e157fb2352bebf34f947c55ae06ffd06f61da879441e62cde56df678",
+      "raster_dimensions": [
+        851,
+        1847
+      ],
+      "comparison_frame": [
+        402,
+        874
+      ],
+      "status": "static concept, not Flutter or device approval"
+    },
+    {
+      "concept": "B",
+      "language": "de",
+      "file": "B-hanji-atelier-de.png",
+      "source": "C:/Users/vjinn/.codex/generated_images/01a12252-a369-74c1-a37d-25e1f0933b5d/exec-e76b5531-28c3-4633-a203-f673f4a6997c.png",
+      "sha256": "88e293bffd05480aacf41afe85a48507c0195208c944b685c0f24c6a13fec72f",
+      "raster_dimensions": [
+        851,
+        1848
+      ],
+      "comparison_frame": [
+        402,
+        874
+      ],
+      "status": "static concept, not Flutter or device approval"
+    },
+    {
+      "concept": "C",
+      "language": "de",
+      "file": "C-spatial-jade-de.png",
+      "source": "C:/Users/vjinn/.codex/generated_images/01a12252-a369-74c1-a37d-25e1f0933b5d/exec-f000fe79-27ba-48fb-a0ee-a2595cdf05b2.png",
+      "sha256": "bc15e526aee76d584150d76d4c390172503ab4fdd585f098000cb92b15069ae2",
+      "raster_dimensions": [
+        851,
+        1848
+      ],
+      "comparison_frame": [
+        402,
+        874
+      ],
+      "status": "static concept, not Flutter or device approval"
+    },
+    {
+      "concept": "A",
+      "language": "en",
+      "file": "A-jade-stage-en.png",
+      "source": "C:/Users/vjinn/.codex/generated_images/01a12252-a369-74c1-a37d-25e1f0933b5d/exec-72c4950e-c703-4c70-88d1-2b7243c203d3.png",
+      "sha256": "ae45919f6cc9978c08cd68e8d4329972a5011f1dde5c4d4ed6a2e65fbe221f44",
+      "raster_dimensions": [
+        852,
+        1846
+      ],
+      "comparison_frame": [
+        402,
+        874
+      ],
+      "status": "static concept, not Flutter or device approval"
+    },
+    {
+      "concept": "B",
+      "language": "en",
+      "file": "B-hanji-atelier-en.png",
+      "source": "C:/Users/vjinn/.codex/generated_images/01a12252-a369-74c1-a37d-25e1f0933b5d/exec-3daec65a-69d6-4359-a821-647c8f509ae1.png",
+      "sha256": "9cb61f7cf76baa9a77a8d8fab17a53d06ce2268c38d5a38c696454e5f53d93b5",
+      "raster_dimensions": [
+        851,
+        1848
+      ],
+      "comparison_frame": [
+        402,
+        874
+      ],
+      "status": "static concept, not Flutter or device approval"
+    },
+    {
+      "concept": "C",
+      "language": "en",
+      "file": "C-spatial-jade-en.png",
+      "source": "C:/Users/vjinn/.codex/generated_images/01a12252-a369-74c1-a37d-25e1f0933b5d/exec-31e07be1-655a-4fd6-8c30-72b3c9b82aa5.png",
+      "sha256": "5444f1b258f6cbe06402a8a210f95d24947611eb0a75f6fd9e1c409716523381",
+      "raster_dimensions": [
+        851,
+        1848
+      ],
+      "comparison_frame": [
+        402,
+        874
+      ],
+      "status": "static concept, not Flutter or device approval"
+    }
+  ]
+}

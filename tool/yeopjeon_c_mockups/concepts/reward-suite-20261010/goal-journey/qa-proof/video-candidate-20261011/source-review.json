@@ -1,0 +1,15 @@
+{
+  "purpose": "Optional HTML video review; no default or native promotion",
+  "source": "C:\\Users\\vjinn\\ELibrary\\Downloads\\gemini_generated_video_5dc2f044.mp4",
+  "copy": "qa-proof/video-candidate-20261011/candidate.mp4",
+  "sha256": "cfbe5ff0317f743d7a9266097c21de79d774a42514b323db15d4a37ce5ac7cf7",
+  "runtimePromotion": false,
+  "presentation": {
+    "fit": "contain",
+    "sourceRgb": "unchanged",
+    "alpha": "Asymmetric background-edge CSS mask; opaque face, main wand, coins and central fire",
+    "cue": 4.75,
+    "posterPolicy": "Full original final frame after one playback"
+  },
+  "characterReview": "Outer large horns plus small forehead horns are four in5dc;7312599d is closer to original character proportions. No replacement approved by this source inspection."
+}

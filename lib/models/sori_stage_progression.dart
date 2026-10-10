@@ -121,6 +121,8 @@ class RewardReceipt {
     required this.activityId,
     required this.receiptId,
     required this.items,
+    this.yeopjeonBalanceBefore,
+    this.yeopjeonWalletAfter,
     this.sarangchaeStageBefore = 0,
     this.sarangchaeStageAfter = 0,
     this.b2ConstructionStageBefore = 0,
@@ -130,6 +132,23 @@ class RewardReceipt {
   final String activityId;
   final String receiptId;
   final List<RewardReceiptItem> items;
+
+  /// Confirmed ledger snapshots, never values inferred from the animation.
+  final int? yeopjeonBalanceBefore;
+  final YeopjeonWallet? yeopjeonWalletAfter;
+
+  int get earnedYeopjeon => items
+      .where((item) => item.kind == SoriRewardKind.yeopjeon)
+      .fold(0, (sum, item) => sum + (item.amount ?? 0));
+
+  bool get canPresentYeopjeon =>
+      earnedYeopjeon > 0 && yeopjeonWalletAfter != null;
+
+  bool get canRollYeopjeon =>
+      canPresentYeopjeon &&
+      yeopjeonBalanceBefore != null &&
+      yeopjeonBalanceBefore! >= 0 &&
+      yeopjeonBalanceBefore! + earnedYeopjeon == yeopjeonWalletAfter!.balance;
   final int sarangchaeStageBefore;
   final int sarangchaeStageAfter;
   final int b2ConstructionStageBefore;

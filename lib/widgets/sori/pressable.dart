@@ -27,6 +27,8 @@ class SoriPressable extends StatefulWidget {
 
   /// 0.0 — 1.0. Default 0.96.
   final double pressScale;
+  final Duration pressDuration, releaseDuration;
+  final Curve releaseCurve;
 
   /// 햅틱 타입. null이면 햅틱 없음.
   final SoriHaptic? haptic;
@@ -55,6 +57,9 @@ class SoriPressable extends StatefulWidget {
     this.onTap,
     this.onLongPress,
     this.pressScale = SoriMotion.pressScale,
+    this.pressDuration = SoriMotion.fast,
+    this.releaseDuration = SoriMotion.medium,
+    this.releaseCurve = SoriMotion.release,
     this.haptic = SoriHaptic.selection,
     this.behavior = HitTestBehavior.opaque,
     this.alignment = Alignment.center,
@@ -84,7 +89,7 @@ class _SoriPressableState extends State<SoriPressable>
     super.initState();
     _ctrl = AnimationController(
       vsync: this,
-      duration: SoriMotion.fast,
+      duration: widget.pressDuration,
       lowerBound: widget.pressScale,
       upperBound: 1.0,
       value: 1.0,
@@ -109,7 +114,7 @@ class _SoriPressableState extends State<SoriPressable>
     }
     _ctrl.animateTo(
       widget.pressScale,
-      duration: SoriMotion.fast,
+      duration: widget.pressDuration,
       curve: SoriMotion.press,
     );
   }
@@ -131,8 +136,8 @@ class _SoriPressableState extends State<SoriPressable>
       }
       _ctrl.animateTo(
         1.0,
-        duration: SoriMotion.medium,
-        curve: SoriMotion.release,
+        duration: widget.releaseDuration,
+        curve: widget.releaseCurve,
       );
     }
 
@@ -142,7 +147,7 @@ class _SoriPressableState extends State<SoriPressable>
       _ctrl
           .animateTo(
             widget.pressScale,
-            duration: SoriMotion.fast,
+            duration: widget.pressDuration,
             curve: SoriMotion.press,
           )
           .whenCompleteOrCancel(settle);

@@ -1,0 +1,212 @@
+[
+  {
+    "lang": "de",
+    "scenario": "first",
+    "canvas": [
+      402,
+      874
+    ],
+    "horizontalOverflow": 0,
+    "mainOverflow": 0,
+    "pageOverflow": 0,
+    "minimumTarget": 48,
+    "ctaGap": 8,
+    "bottomSafeGap": 240.3125,
+    "mediaControls": 0
+  },
+  {
+    "lang": "de",
+    "scenario": "second",
+    "canvas": [
+      402,
+      874
+    ],
+    "horizontalOverflow": 0,
+    "mainOverflow": 0,
+    "pageOverflow": 0,
+    "minimumTarget": 48,
+    "ctaGap": 8,
+    "bottomSafeGap": 220.71875,
+    "mediaControls": 0
+  },
+  {
+    "lang": "de",
+    "scenario": "support",
+    "canvas": [
+      402,
+      874
+    ],
+    "horizontalOverflow": 0,
+    "mainOverflow": 0,
+    "pageOverflow": 0,
+    "minimumTarget": 48,
+    "ctaGap": 8,
+    "bottomSafeGap": 19,
+    "mediaControls": 0
+  },
+  {
+    "lang": "de",
+    "scenario": "pending",
+    "canvas": [
+      402,
+      874
+    ],
+    "horizontalOverflow": 0,
+    "mainOverflow": 0,
+    "pageOverflow": 0,
+    "minimumTarget": 48,
+    "ctaGap": 8,
+    "bottomSafeGap": 19,
+    "mediaControls": 0
+  },
+  {
+    "lang": "de",
+    "scenario": "cap",
+    "canvas": [
+      402,
+      874
+    ],
+    "horizontalOverflow": 0,
+    "mainOverflow": 0,
+    "pageOverflow": 0,
+    "minimumTarget": 48,
+    "ctaGap": 8,
+    "bottomSafeGap": 19,
+    "mediaControls": 0
+  },
+  {
+    "lang": "de",
+    "scenario": "short",
+    "canvas": [
+      402,
+      874
+    ],
+    "horizontalOverflow": 0,
+    "mainOverflow": 0,
+    "pageOverflow": 0,
+    "minimumTarget": 48,
+    "ctaGap": 8,
+    "bottomSafeGap": 19,
+    "mediaControls": 0
+  },
+  {
+    "lang": "de",
+    "scenario": "locked",
+    "canvas": [
+      402,
+      874
+    ],
+    "horizontalOverflow": 0,
+    "mainOverflow": 0,
+    "pageOverflow": 0,
+    "minimumTarget": 48,
+    "ctaGap": 8,
+    "bottomSafeGap": 19,
+    "mediaControls": 0
+  },
+  {
+    "lang": "en",
+    "scenario": "first",
+    "canvas": [
+      402,
+      874
+    ],
+    "horizontalOverflow": 0,
+    "mainOverflow": 0,
+    "pageOverflow": 0,
+    "minimumTarget": 48,
+    "ctaGap": 8,
+    "bottomSafeGap": 240.3125,
+    "mediaControls": 0
+  },
+  {
+    "lang": "en",
+    "scenario": "second",
+    "canvas": [
+      402,
+      874
+    ],
+    "horizontalOverflow": 0,
+    "mainOverflow": 0,
+    "pageOverflow": 0,
+    "minimumTarget": 48,
+    "ctaGap": 8,
+    "bottomSafeGap": 240.3125,
+    "mediaControls": 0
+  },
+  {
+    "lang": "en",
+    "scenario": "support",
+    "canvas": [
+      402,
+      874
+    ],
+    "horizontalOverflow": 0,
+    "mainOverflow": 0,
+    "pageOverflow": 0,
+    "minimumTarget": 48,
+    "ctaGap": 8,
+    "bottomSafeGap": 19,
+    "mediaControls": 0
+  },
+  {
+    "lang": "en",
+    "scenario": "pending",
+    "canvas": [
+      402,
+      874
+    ],
+    "horizontalOverflow": 0,
+    "mainOverflow": 0,
+    "pageOverflow": 0,
+    "minimumTarget": 48,
+    "ctaGap": 8,
+    "bottomSafeGap": 19,
+    "mediaControls": 0
+  },
+  {
+    "lang": "en",
+    "scenario": "cap",
+    "canvas": [
+      402,
+      874
+    ],
+    "horizontalOverflow": 0,
+    "mainOverflow": 0,
+    "pageOverflow": 0,
+    "minimumTarget": 48,
+    "ctaGap": 8,
+    "bottomSafeGap": 19,
+    "mediaControls": 0
+  },
+  {
+    "lang": "en",
+    "scenario": "short",
+    "canvas": [
+      402,
+      874
+    ],
+    "horizontalOverflow": 0,
+    "mainOverflow": 0,
+    "pageOverflow": 0,
+    "minimumTarget": 48,
+    "ctaGap": 8,
+    "bottomSafeGap": 19,
+    "mediaControls": 0
+  },
+  {
+    "lang": "en",
+    "scenario": "locked",
+    "canvas": [
+      402,
+      874
+    ],
+    "horizontalOverflow": 0,
+    "mainOverflow": 0,
+    "pageOverflow": 0,
+    "minimumTarget": 48,
+    "ctaGap": 8,
+    "bottomSafeGap": 19,
+    "mediaControls": 0
+  }
+]

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hangul Sori · New C-style ABC</title>
+<style>
+:root{--jade:#123e37;--paper:#f6ede0;--brass:#b58c50}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--jade);font:16px/1.5 system-ui,sans-serif}
+header{padding:24px 24px 16px;max-width:1374px;margin:auto}h1{font-size:24px;margin:0 0 4px}p{margin:4px 0}.meta{font-size:14px;color:#536660}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 0}button,.kept-link{font:inherit;border:1px solid var(--brass);border-radius:8px;min-height:48px;padding:8px 16px;color:var(--jade);background:#fff8ed;text-decoration:none;cursor:pointer}button[aria-pressed=true]{background:var(--jade);color:var(--paper)}button:focus-visible,a:focus-visible{outline:3px solid #d59a32;outline-offset:4px}
+main{display:grid;grid-template-columns:repeat(3,402px);gap:12px;padding:0 12px 24px;width:max-content;max-width:none;margin:0 auto}.concept{width:402px;margin:0}.label{display:flex;align-items:center;justify-content:space-between;margin:8px 0;font-size:18px}.label a{color:var(--jade);font-size:14px;min-height:48px;display:flex;align-items:center}
+.phone{width:402px;height:874px;background:var(--jade);box-shadow:0 8px 24px #123e371f}.phone img{display:block;width:402px;height:874px;object-fit:contain;object-position:center}.caption{font-size:14px;margin:12px 0;max-width:402px}footer{padding:0 24px 32px;max-width:1374px;margin:auto;font-size:14px}
+@media(max-width:1254px){main{grid-template-columns:repeat(2,402px);}}@media(max-width:840px){main{grid-template-columns:402px;}}@media(max-width:425px){main{padding:0 0 24px;margin:0;}}
+</style>
+<header><h1>New C-style · A / B / C</h1><p>Large acting scenes · Bottom actions · Jade, hanji and brass</p><p class="meta">402×874 comparison frames · Static concept images · Existing implementation kept</p><div class="toolbar" aria-label="Concept language"><button data-lang="de" aria-pressed="true">Deutsch</button><button data-lang="en" aria-pressed="false">English</button><a class="kept-link" href="../../refined.html?solo=1&view=reward&lang=de" target="_blank" rel="noopener">Kept implementation</a></div></header>
+<main aria-label="Three new design alternatives">
+<figure class="concept"><figcaption class="label"><strong>A · Jade stage</strong><a data-full="A" href="A-jade-stage-de.png" target="_blank">Full resolution</a></figcaption><div class="phone"><img data-concept="A" src="A-jade-stage-de.png" alt="A: new large jade Dokkaebi stage, reward ledger and bottom actions"></div><p class="caption">A large actor on jade, followed by a paper ledger and the next building action.</p></figure>
+<figure class="concept"><figcaption class="label"><strong>B · Hanji atelier</strong><a data-full="B" href="B-hanji-atelier-de.png" target="_blank">Full resolution</a></figcaption><div class="phone"><img data-concept="B" src="B-hanji-atelier-de.png" alt="B: new full-height hanji Dokkaebi scene with a low reward tray and bottom actions"></div><p class="caption">Warm paper across the screen, a generous acting scene, and one low information tray.</p></figure>
+<figure class="concept"><figcaption class="label"><strong>C · Spatial jade</strong><a data-full="C" href="C-spatial-jade-de.png" target="_blank">Full resolution</a></figcaption><div class="phone"><img data-concept="C" src="C-spatial-jade-de.png" alt="C: new reward-led jade scene with central Dokkaebi, subtle relief and bottom actions"></div><p class="caption">Reward typography above the actor; spatial lighting connects the stage to the building action.</p></figure>
+</main><footer>The image compositions are proposals. Movie identity, full-frame containment, exact spacing, live counts and accessibility still require implementation QA. <a href="CONCEPT_BRIEF.md">Design brief</a> · <a href="prompts.json">Exact generation prompts</a> · <a href="kept/KEEP.json">Preserved-source hashes</a></footer>
+<script>
+const files={A:'A-jade-stage',B:'B-hanji-atelier',C:'C-spatial-jade'};
+document.querySelectorAll('button[data-lang]').forEach(button=>button.addEventListener('click',()=>{
+ const lang=button.dataset.lang;
+ document.querySelectorAll('button[data-lang]').forEach(x=>x.setAttribute('aria-pressed',String(x===button)));
+ document.documentElement.lang=lang;
+ document.querySelectorAll('[data-concept]').forEach(x=>x.src=files[x.dataset.concept]+'-'+lang+'.png');
+ document.querySelectorAll('[data-full]').forEach(x=>x.href=files[x.dataset.full]+'-'+lang+'.png');
+}));
+</script></html>

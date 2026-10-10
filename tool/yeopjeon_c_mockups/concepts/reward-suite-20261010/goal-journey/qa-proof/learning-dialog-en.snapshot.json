@@ -1,0 +1,31 @@
+{
+  "lifecycle": {
+    "effectiveLaunch": {
+      "browserLaunched": true,
+      "engine": "chrome",
+      "launchHash": 7707568497978554591
+    },
+    "launched": false,
+    "relaunchedBrowser": false,
+    "restartedBackground": false,
+    "restoreStatus": "not_configured",
+    "reused": true,
+    "saveStatus": "not_attempted"
+  },
+  "origin": "http://127.0.0.1:8793/concepts/reward-suite-20261010/goal-journey/preview.html?lang=en",
+  "refs": {
+    "e1": {
+      "name": "First greetings and asking again",
+      "role": "heading"
+    },
+    "e2": {
+      "name": "View completed goal",
+      "role": "button"
+    },
+    "e3": {
+      "name": "Back to your learning goal",
+      "role": "button"
+    }
+  },
+  "snapshot": "- heading \"First greetings and asking again\" [level=2, ref=e1]\n- button \"View completed goal\" [ref=e2]\n- button \"Back to your learning goal\" [ref=e3]"
+}

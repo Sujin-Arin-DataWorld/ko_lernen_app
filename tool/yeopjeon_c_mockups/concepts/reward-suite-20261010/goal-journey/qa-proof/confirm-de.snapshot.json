@@ -1,0 +1,31 @@
+{
+  "lifecycle": {
+    "effectiveLaunch": {
+      "browserLaunched": true,
+      "engine": "chrome",
+      "launchHash": 7707568497978554591
+    },
+    "launched": false,
+    "relaunchedBrowser": false,
+    "restartedBackground": false,
+    "restoreStatus": "not_configured",
+    "reused": true,
+    "saveStatus": "not_attempted"
+  },
+  "origin": "http://127.0.0.1:8793/concepts/reward-suite-20261010/goal-journey/preview.html?lang=de",
+  "refs": {
+    "e1": {
+      "name": "Betrag bestätigen",
+      "role": "heading"
+    },
+    "e2": {
+      "name": "40 Yeopjeon verwenden",
+      "role": "button"
+    },
+    "e3": {
+      "name": "Abbrechen",
+      "role": "button"
+    }
+  },
+  "snapshot": "- heading \"Betrag bestätigen\" [level=2, ref=e1]\n- button \"40 Yeopjeon verwenden\" [ref=e2]\n- button \"Abbrechen\" [ref=e3]"
+}

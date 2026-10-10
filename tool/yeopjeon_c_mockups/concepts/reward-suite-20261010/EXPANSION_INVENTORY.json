@@ -1,0 +1,663 @@
+{
+  "schemaVersion": 1,
+  "statusLabelsPurpose": "Coverage cross-reference only; never a UI display predicate",
+  "receiptPresentation": {
+    "authority": "Confirmed new positive claim sum from validated before/after wallets in the same account and data lifetime",
+    "priority": "Confirmed positive claims take precedence over the daily transaction status, including daily noReward",
+    "requireCurrentAccount": true,
+    "requireValidatedSavedWallet": true,
+    "requireDistinctClaimIds": true,
+    "doNotInferFromTransactionAmount": true,
+    "doNotInferNoRewardFromNullReceipt": true,
+    "reasonSelection": "Classify claim kinds and recovery context; check claim date before using today-first/today-second copy",
+    "pendingOrUnconfirmed": "Show confirmation state until strict saved outcome is established",
+    "stale": "Cancel previous account presentation; do not show old balance"
+  },
+  "date": "2026-10-10",
+  "kind": "design_expansion_plan",
+  "implementation": false,
+  "newVideo": "deferred_by_user",
+  "selectedStyle": "C",
+  "viewport": {
+    "width": 402,
+    "height": 874,
+    "normalTextScale": 1,
+    "designSafeTop": 62,
+    "designSafeBottom": 34,
+    "minimumTouch": 48,
+    "largeTextQaSeparate": true
+  },
+  "approvedAnchors": [
+    {
+      "file": "tool/yeopjeon_c_mockups/concepts/abc-20261010/C-spatial-jade-de.png",
+      "sha256": "bc15e526aee76d584150d76d4c390172503ab4fdd585f098000cb92b15069ae2",
+      "size": [
+        851,
+        1848
+      ]
+    },
+    {
+      "file": "tool/yeopjeon_c_mockups/concepts/reward-suite-20261010/03-wallet-summary-de.png",
+      "sha256": "055405c9323860c254276719f80daf915175c1c5d3ed8cb27870169595e9edc0",
+      "size": [
+        851,
+        1848
+      ]
+    },
+    {
+      "file": "tool/yeopjeon_c_mockups/concepts/reward-suite-20261010/03-wallet-magic-de.png",
+      "sha256": "0319f9d857dff49581575159c271086dd4d94240fa5c42a62ab6f10dabed6694",
+      "size": [
+        851,
+        1848
+      ]
+    }
+  ],
+  "families": {
+    "receipt": "Approved Dokkaebi reward screen and coin scene variants",
+    "wallet_goal": "Approved wallet frame plus persistent goal view",
+    "construction": "Hanji transaction panel with confirmed result",
+    "information": "Shared hanji overlay"
+  },
+  "reviewScenes": [
+    {
+      "id": "R01",
+      "family": "receipt",
+      "label": "하루 첫 확정 보상",
+      "priority": "approved",
+      "representation": "approved_full_screen",
+      "approved": true,
+      "statuses": [
+        "granted"
+      ],
+      "variants": [
+        "dailyFirst20",
+        "validBeforeAfter",
+        "buildReadyOrLocked"
+      ]
+    },
+    {
+      "id": "R02",
+      "family": "receipt",
+      "label": "두 번째 완료 +10",
+      "priority": "P1",
+      "representation": "approved_template_variant",
+      "statuses": [
+        "granted"
+      ],
+      "variants": [
+        "dailySecond10"
+      ]
+    },
+    {
+      "id": "R03",
+      "family": "receipt",
+      "label": "건설 지원금 +40",
+      "priority": "P1",
+      "representation": "approved_template_variant",
+      "statuses": [
+        "granted"
+      ],
+      "variants": [
+        "milestone40",
+        "milestone40TimesN"
+      ]
+    },
+    {
+      "id": "R04",
+      "family": "receipt",
+      "label": "합산 보상 +60/+50/실제 합계",
+      "priority": "P1",
+      "representation": "approved_template_variant",
+      "statuses": [
+        "granted"
+      ],
+      "variants": [
+        "daily20PlusMilestone40",
+        "daily10PlusMilestone40",
+        "multipleMilestones"
+      ]
+    },
+    {
+      "id": "R05",
+      "family": "receipt",
+      "label": "새 학습 완료·일일 완료 보너스 없음",
+      "priority": "P1",
+      "representation": "learning_result_inline_state",
+      "statuses": [
+        "noReward"
+      ],
+      "variants": [
+        "noPositiveCoinClaims",
+        "preserveXpStampsAndLearningProgress"
+      ]
+    },
+    {
+      "id": "R06",
+      "family": "receipt",
+      "label": "이미 반영된 학습",
+      "priority": "P1",
+      "representation": "learning_result_inline_state",
+      "statuses": [
+        "alreadyClaimed"
+      ],
+      "variants": [
+        "noRepeatedPayout",
+        "keepPracticeAvailable"
+      ]
+    },
+    {
+      "id": "R07",
+      "family": "receipt",
+      "label": "보상 반영 확인 중",
+      "priority": "P1",
+      "representation": "shared_status_panel",
+      "statuses": [],
+      "variants": [
+        "pendingDurableWrite",
+        "knownLastConfirmedBalance"
+      ]
+    },
+    {
+      "id": "R08",
+      "family": "receipt",
+      "label": "학습 완료 근거 미확인",
+      "priority": "P1",
+      "representation": "shared_status_panel",
+      "statuses": [
+        "unverified"
+      ],
+      "variants": [
+        "noPromisedCredit",
+        "confirmLearningEvidence"
+      ]
+    },
+    {
+      "id": "R09",
+      "family": "receipt",
+      "label": "보상 저장 오류·결과 미확정·계정 변경",
+      "priority": "P1",
+      "representation": "shared_status_panel",
+      "statuses": [
+        "failed",
+        "unknown",
+        "stale"
+      ],
+      "variants": [
+        "reloadBeforeRetry",
+        "unknownIsNotZero",
+        "staleCancelOldAccountUi"
+      ]
+    },
+    {
+      "id": "R10",
+      "family": "receipt",
+      "label": "확정된 미반영 보상 복구",
+      "priority": "P1",
+      "representation": "approved_template_variant",
+      "statuses": [
+        "granted"
+      ],
+      "variants": [
+        "newlyRecoveredClaimSum",
+        "restoreReceiptWiringRequired",
+        "neverRepayExistingClaims"
+      ]
+    },
+    {
+      "id": "W01",
+      "family": "wallet_goal",
+      "label": "승인 지갑70과 푸른 불꽃 한 개",
+      "priority": "approved",
+      "representation": "approved_full_screen",
+      "approved": true,
+      "statuses": [],
+      "variants": [
+        "readConfirmedLedger",
+        "noAwardAnimation"
+      ]
+    },
+    {
+      "id": "W02",
+      "family": "wallet_goal",
+      "label": "처음 엽전0·사용처 소개",
+      "priority": "P1",
+      "representation": "approved_template_variant",
+      "statuses": [],
+      "variants": [
+        "pristineZero",
+        "legacyOwnedProgressWithZeroBalance"
+      ]
+    },
+    {
+      "id": "W03",
+      "family": "wallet_goal",
+      "label": "상시 목표·다음 학습 조건 대기",
+      "priority": "P0",
+      "representation": "wallet_based_goal_view",
+      "statuses": [
+        "locked"
+      ],
+      "variants": [
+        "fundsMayAlreadyBeEnough",
+        "ownedEqualsEligibleBelowConfiguredMax",
+        "verifiedCourseGoal",
+        "genericLearningFallbackWithoutUnlockPromise"
+      ]
+    },
+    {
+      "id": "W04",
+      "family": "wallet_goal",
+      "label": "상시 목표·건설 가능",
+      "priority": "P0",
+      "representation": "wallet_based_goal_view",
+      "statuses": [],
+      "variants": [
+        "ownedLessThanEligible",
+        "balanceAtLeast40",
+        "oneOrSeveralUnbuiltEntitlements"
+      ]
+    },
+    {
+      "id": "W05",
+      "family": "wallet_goal",
+      "label": "건설 후 다음 목표·남은 자격",
+      "priority": "P0",
+      "representation": "wallet_based_goal_view",
+      "statuses": [],
+      "variants": [
+        "moreUnbuiltEntitlements",
+        "allEarnedStagesUsedButMoreLearningPossible"
+      ]
+    },
+    {
+      "id": "W06",
+      "family": "wallet_goal",
+      "label": "현재 제공되는 건설 단계 모두 완료",
+      "priority": "P1",
+      "representation": "wallet_based_goal_view",
+      "statuses": [
+        "alreadyBuilt"
+      ],
+      "variants": [
+        "bothConfiguredOwnedMaximaReached",
+        "keepRemainingBalance",
+        "continueLearningWithoutFutureSpendPromise"
+      ]
+    },
+    {
+      "id": "W07",
+      "family": "wallet_goal",
+      "label": "지갑·목표 불러오는 중",
+      "priority": "P1",
+      "representation": "shared_status_panel",
+      "statuses": [],
+      "variants": [
+        "doNotShowZeroAsLoading",
+        "disableSpendUntilConfirmed"
+      ]
+    },
+    {
+      "id": "W08",
+      "family": "wallet_goal",
+      "label": "지갑 조회 실패·확인 불가·복구 충돌",
+      "priority": "P1",
+      "representation": "shared_status_panel",
+      "statuses": [
+        "failed",
+        "unknown",
+        "stale"
+      ],
+      "variants": [
+        "strictReadFailure",
+        "accountRestoreConflict",
+        "noMaxMerge",
+        "knownPreviousValueMarkedUnconfirmed",
+        "accountTransitionClearsOldValues"
+      ]
+    },
+    {
+      "id": "W09",
+      "family": "wallet_goal",
+      "label": "자금 부족 방어 분기",
+      "priority": "QA_only",
+      "representation": "shared_status_panel",
+      "statuses": [
+        "insufficientFunds"
+      ],
+      "normalJourney": false,
+      "variants": [
+        "unreachableUnderCurrentValidLedger",
+        "policyChangeOrDefensiveWriterTestOnly"
+      ]
+    },
+    {
+      "id": "B01",
+      "family": "construction",
+      "label": "40엽전 사용 확인",
+      "priority": "P0",
+      "representation": "hanji_confirmation_panel",
+      "statuses": [],
+      "variants": [
+        "before70",
+        "cost40",
+        "expectedAfter30",
+        "cancelIsFree",
+        "freezeBuildingAndTargetStage"
+      ]
+    },
+    {
+      "id": "B02",
+      "family": "construction",
+      "label": "건설 진행 저장 중",
+      "priority": "P0",
+      "representation": "same_panel_state",
+      "statuses": [],
+      "variants": [
+        "doubleTapGuard",
+        "noOptimisticDebit",
+        "noUnapprovedArtReveal"
+      ]
+    },
+    {
+      "id": "B03",
+      "family": "construction",
+      "label": "건설 진행 저장 완료",
+      "priority": "P0",
+      "representation": "same_panel_state",
+      "statuses": [
+        "built",
+        "alreadyBuilt"
+      ],
+      "variants": [
+        "confirmedAfter30",
+        "targetOwnershipConfirmed",
+        "alreadyBuiltWithoutNewDebit",
+        "chooseW05OrW06"
+      ]
+    },
+    {
+      "id": "B04",
+      "family": "construction",
+      "label": "건설 실패·조건 변경",
+      "priority": "P1",
+      "representation": "same_panel_state",
+      "statuses": [
+        "failed",
+        "locked",
+        "insufficientFunds"
+      ],
+      "variants": [
+        "strictReload",
+        "showVerifiedGoal",
+        "insufficientFundsDefensiveOnly"
+      ]
+    },
+    {
+      "id": "B05",
+      "family": "construction",
+      "label": "건설 결과 미확정·세션 변경",
+      "priority": "P1",
+      "representation": "same_panel_state",
+      "statuses": [
+        "unknown",
+        "stale"
+      ],
+      "variants": [
+        "checkOriginalTargetBeforeRetry",
+        "neverAutoBuyNextStage",
+        "writerExpectedTargetContractNeeded",
+        "staleCloseOldSession"
+      ]
+    },
+    {
+      "id": "I01",
+      "family": "information",
+      "label": "엽전 사용처와 획득 규칙",
+      "priority": "P1",
+      "representation": "shared_hanji_overlay",
+      "statuses": [],
+      "variants": [
+        "studyEarnBuild",
+        "dailyShared20Then10",
+        "constructionSupport40",
+        "constructionUse40",
+        "notAShopOrPaidCurrency"
+      ]
+    },
+    {
+      "id": "I02",
+      "family": "information",
+      "label": "확정된 획득·건설 사용 내역",
+      "priority": "P2",
+      "representation": "shared_hanji_overlay",
+      "statuses": [],
+      "variants": [
+        "verifiedClaimCategoryTotals",
+        "grandfatheredStagesExcludedFromSpend",
+        "noInventedMilestoneDates",
+        "maxFourRowsPerPage"
+      ]
+    },
+    {
+      "id": "I03",
+      "family": "information",
+      "label": "다음 건설 조건·학습 목표 설명",
+      "priority": "P1",
+      "representation": "shared_hanji_overlay",
+      "statuses": [],
+      "variants": [
+        "verifiedCurrentCourseRequirement",
+        "fundsAndEligibilitySeparate",
+        "currentProgressOnly",
+        "noFutureConstructionImage"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "file": "lib/services/yeopjeon_service.dart",
+      "lines": [
+        18,
+        299,
+        351,
+        371,
+        375,
+        378,
+        397,
+        493,
+        500,
+        603,
+        614,
+        650
+      ],
+      "use": "Transaction statuses, daily grants, milestone grants, build cost, recovery, account/unknown outcome boundaries"
+    },
+    {
+      "file": "lib/models/yeopjeon_wallet.dart",
+      "lines": [
+        29,
+        31,
+        70,
+        80,
+        86,
+        204,
+        270,
+        304
+      ],
+      "use": "Wallet fields, eligibility vs ownership, preserved legacy progress, accounting invariant"
+    },
+    {
+      "file": "lib/models/hanok_competence.dart",
+      "lines": [
+        9,
+        50,
+        56,
+        65
+      ],
+      "use": "Durable course proof determines construction eligibility; current projection counts A1-A2-B1-B2"
+    },
+    {
+      "file": "lib/models/ildu_construction_art.dart",
+      "lines": [
+        28,
+        34
+      ],
+      "use": "Current B2 projection may unlock several stages; not a new canonical art authority"
+    },
+    {
+      "file": "lib/services/sori_stage_reward_receipt_service.dart",
+      "lines": [
+        22,
+        121,
+        127,
+        137
+      ],
+      "use": "New claim sum produces receipt; missing receipt is not proof of noReward or failure"
+    },
+    {
+      "file": "lib/models/sori_stage_progression.dart",
+      "lines": [
+        136,
+        140,
+        144,
+        147
+      ],
+      "use": "Confirmed receipt and before/after guard for counter"
+    },
+    {
+      "file": "lib/services/yeopjeon_learning_checkpoint.dart",
+      "lines": [
+        25,
+        57,
+        62,
+        68
+      ],
+      "use": "Course-boundary settlement and recovery"
+    },
+    {
+      "file": "lib/features/content_learning/content_lesson_screen.dart",
+      "lines": [
+        760,
+        818
+      ],
+      "use": "Content lesson reward integration"
+    },
+    {
+      "file": "lib/services/learning_focus.dart",
+      "lines": [
+        34,
+        48,
+        63,
+        85
+      ],
+      "use": "Existing recommended learning destination, not guaranteed construction unlock"
+    },
+    {
+      "file": "lib/models/course_mission_brief.dart",
+      "lines": [
+        55,
+        88,
+        96,
+        98
+      ],
+      "use": "Actual unresolved course phases and first link"
+    },
+    {
+      "file": "lib/services/course_mission_navigation.dart",
+      "lines": [
+        198,
+        214
+      ],
+      "use": "Direct navigation with course context"
+    },
+    {
+      "file": "lib/screens/sori_stage/sori_stage_reward_receipt_sheet.dart",
+      "lines": [
+        522,
+        527
+      ],
+      "use": "Positive receipt navigation"
+    },
+    {
+      "file": "lib/screens/sori_stage/yeopjeon_ildu_house_screen.dart",
+      "lines": [
+        90,
+        112,
+        142,
+        173,
+        179,
+        189
+      ],
+      "use": "Existing confirmation and durable build success"
+    },
+    {
+      "file": "lib/widgets/sori/yeopjeon_reward_style.dart",
+      "lines": [
+        464,
+        481,
+        489
+      ],
+      "use": "Current goal panel lacks exact next learning and completed-all distinction"
+    },
+    {
+      "file": "lib/widgets/sori/yeopjeon_wallet_card.dart",
+      "lines": [
+        318,
+        342,
+        347
+      ],
+      "use": "Existing rules and wallet entry points"
+    },
+    {
+      "file": "lib/main.dart",
+      "lines": [
+        184,
+        189
+      ],
+      "use": "Startup recovery needs distinct confirmed recovery receipt wiring"
+    }
+  ],
+  "counts": {
+    "totalVisualStates": 27,
+    "approved": 2,
+    "additional": 25,
+    "defensiveOnly": 1,
+    "newRouteCountNotEqualToStateCount": true
+  },
+  "firstProductionBatch": [
+    "W03",
+    "W04",
+    "B01",
+    "B03"
+  ],
+  "rules": {
+    "dailyFirst": 20,
+    "dailySecond": 10,
+    "newEligibilityGrant": 40,
+    "buildCost": 40,
+    "dueReviewApi10NotConnected": true,
+    "automaticallyConvertXpQuestsDancheong": false,
+    "noFutureConstructionPreview": true,
+    "noOriginalVideoCropOrRgbChange": true,
+    "noCoinFlightToWallet": true,
+    "noAutomaticNextStagePurchaseOnRetry": true
+  },
+  "skillsApplied": [
+    "ui-ux-designer",
+    "user-flows",
+    "information-architecture",
+    "mobile-app-ui",
+    "design-system-builder",
+    "ux-audit-critique",
+    "accessibility-audit",
+    "motion-foundations",
+    "motion-advanced",
+    "motion-patterns"
+  ],
+  "crossReviews": [
+    "app_designer: source and goal/eligibility routes",
+    "mobile_layout_designer: approved-template reuse and 402x874 hierarchy",
+    "motion_media_designer: confirmed-money state and motion/recovery ownership"
+  ]
+}

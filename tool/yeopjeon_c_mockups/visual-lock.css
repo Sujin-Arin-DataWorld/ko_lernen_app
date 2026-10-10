@@ -1,0 +1,53 @@
+/* Exact art composition, scaled uniformly. No image files are recropped. */
+.visual-locked .phone{padding:0;background:none;border:0;border-radius:34px;box-shadow:0 14px 36px #39200f24}
+.visual-locked .screen{display:block;height:auto;min-height:0;width:100%;aspect-ratio:var(--phone-ratio);border-radius:8.5%;overflow:clip;isolation:isolate;background:#f6e4c8}
+.locked-art,.locked-depth{position:absolute;inset:0;background-image:var(--art);background-repeat:no-repeat;background-size:var(--board-w) var(--board-h);background-position:var(--board-x) var(--board-y);pointer-events:none}
+.locked-art{z-index:0}
+.locked-screen button{background:transparent;border:0;border-radius:12px;box-shadow:none;padding:0;margin:0;color:transparent;text-shadow:none}
+.locked-screen button:before,.locked-screen button:after{display:none}
+.locked-screen .locked-wallet{position:absolute;left:72%;top:3%;width:23%;height:6%;min-width:0;min-height:44px;z-index:4}
+.locked-screen .locked-hero{position:absolute;inset:15% 4% 34%;width:auto;height:auto;min-height:0;max-height:none;mix-blend-mode:normal;border-radius:0;overflow:visible;perspective:900px;z-index:2}
+.locked-depth{inset:-29.4118% -4.3478% -66.6667%;clip-path:inset(15% 4% 34%);transform-origin:50% 70%;transform:perspective(1000px) rotateY(calc(var(--pointer-x,0)*1.4deg)) rotateX(calc(var(--pointer-y,0)*-.7deg));transition:filter 180ms ease-out}
+.locked-hero:hover .locked-depth{filter:brightness(1.025)}
+.locked-screen .locked-foot{position:absolute;left:8.5%;right:8.5%;top:82.8%;bottom:2.8%;z-index:4}
+.locked-screen .locked-primary{position:absolute;inset:0 0 43%;width:100%;min-height:48px;border-radius:12px;transition:translate 130ms ease,box-shadow 130ms ease,background 130ms ease}
+.locked-screen .locked-primary:hover{background:#fff1aa14;box-shadow:0 0 14px #efba5530}
+.locked-screen .locked-primary:active{translate:0 3px;background:#59341120;box-shadow:inset 0 3px 7px #59341120}
+.locked-screen .locked-secondary{position:absolute;inset:58% 0 0;width:100%;min-height:44px;border-radius:12px}
+.locked-screen .locked-secondary:hover{background:#82522f0d}
+.locked-screen button:focus-visible{outline:3px solid #f6ce75;outline-offset:-3px;box-shadow:0 0 0 2px #174d42}
+.locked-screen .motion-layer{z-index:7}
+.locked-video-surface{position:absolute;inset:0;background:#faecd4;isolation:isolate;mask-image:radial-gradient(ellipse 75% 85% at 50% 50%,black 78%,transparent 100%)}
+.locked-video-surface:before{content:"";position:absolute;inset:0;background-image:url('assets/material_atlas.png');background-size:200% 200%;background-position:100% 0;opacity:.45;z-index:-1}
+.locked-screen .hero-video{display:block;position:absolute;inset:0;object-fit:contain;mix-blend-mode:normal;mask-image:none}
+.hero.alpha-media,.alpha-media .hero-video,.alpha-media .hero-poster{mix-blend-mode:normal!important;mask-image:none!important;-webkit-mask-image:none!important}
+.alpha-media:not(.locked-video-surface) .hero-poster,.alpha-media:not(.locked-video-surface) .hero-video{width:150%;height:150%;position:absolute;inset:auto;left:-25%;top:-18%;object-fit:contain}
+.video-cue{position:absolute;right:3%;bottom:4%;font-family:Paperlogy,sans-serif;font-size:11px;color:#483420;background:#f1d298dd;padding:8px 11px;border:1px solid #b88b41;border-radius:5px;box-shadow:0 2px 0 #896039;pointer-events:none}.locked-hero:disabled .video-cue{display:none}
+.completed-seal{position:absolute;inset:16% 18%;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:50%;background:radial-gradient(ellipse at 35% 25%,#efd9a5,#d6a04e 65%,#9a692e);border:5px ridge #f4d590;box-shadow:0 5px 0 #845422,0 14px 25px #6f4b2933,inset 0 0 0 10px #f8dc9d55;color:#453b2a}.completed-seal span{font-family:Georgia,serif;font-size:clamp(42px,8vw,72px);line-height:1}.completed-seal small{font-size:calc(16px * var(--font-scale));margin-top:8px}.asset-slot-complete{mix-blend-mode:normal!important}
+.locked-screen .locked-skip{position:absolute;left:32%;top:60%;width:36%;min-height:44px;z-index:6;border:1px solid #b49363;background:#f6e6cbdc;color:#2c322b;backdrop-filter:blur(6px);border-radius:24px;font-family:Paperlogy,sans-serif;font-size:12px}
+.locked-video-surface .hero-video{width:150%;height:150%;inset:auto;left:-25%;top:-18%;object-fit:contain}
+.secret-hero{min-height:130px;mix-blend-mode:normal!important;overflow:clip!important;perspective:900px}
+.sealed-art{position:absolute;left:0;right:0;top:50%;aspect-ratio:390/234;translate:0 -50%;background-image:url('design/secret-board.png');background-size:393.846% 437.607%;background-position:91.187% 47.468%;background-repeat:no-repeat;mask-image:radial-gradient(ellipse 68% 72% at 50% 50%,black 48%,transparent 95%);transform:perspective(900px) rotateY(calc(var(--pointer-x,0)*-4deg)) rotateX(calc(var(--pointer-y,0)*2deg));transform-origin:50% 80%}
+.secret-pouches{position:absolute;width:90%;left:5%;top:-13%;pointer-events:none;animation:pouch-float 4s ease-in-out infinite;opacity:.85}
+/* Keep the review chrome away from the app composition. */
+.review-page{padding:16px 28px 24px;max-width:1430px}
+.review-header{margin:0 auto 18px;max-width:1280px;display:flex;gap:24px;align-items:center;justify-content:space-between}
+.review-header .eyebrow{display:none}.review-header h1{font-size:24px;letter-spacing:-.8px;margin:0;line-height:1.25}.review-header h1 br{display:none}.review-header>p{display:none}.review-links{margin:0;gap:20px}.review-links a{font-size:12px;min-height:44px}
+.review-controls{display:none;position:fixed;left:20px;right:20px;top:70px;z-index:100;max-height:calc(100dvh - 130px);overflow:auto;box-shadow:0 16px 60px #09251c55}.settings-open .review-controls{display:flex}.review-toggle{display:block;font-size:11px;min-height:40px;right:12px;bottom:12px}
+.scope-note{margin:0 auto 16px;font-size:11px;line-height:1.6;max-width:1240px}.screen-caption{font-size:11px;margin-bottom:8px;line-height:1.5}
+.screens{grid-template-columns:repeat(3,minmax(0,410px));gap:22px}
+.design-explanation{margin:36px auto 20px}.design-explanation h2{font-size:17px}.design-explanation p{font-size:12px}
+/* Editable states keep the C-board's serif hierarchy and real HTML content. */
+.screen:not(.locked-screen) .app-title,.screen:not(.locked-screen) .reward-amount,.screen:not(.locked-screen) .primary,.screen:not(.locked-screen) .quiet-title{font-family:Georgia,'Times New Roman',KoreanLearning,serif}
+.screen:not(.locked-screen) .app-head{background-image:url('assets/garden_frame.png');background-size:100% auto;background-position:center 8%;min-height:96px}
+.screen:not(.locked-screen) .app-title{color:#f5d998;font-size:calc(25px * var(--font-scale));line-height:1.17;text-align:center}
+.screen:not(.locked-screen) .reward-amount{font-size:calc(55px * var(--font-scale))}.screen:not(.locked-screen) .reward-amount .unit{font-size:calc(28px * var(--font-scale))}.screen:not(.locked-screen) .primary{font-size:calc(23px * var(--font-scale))}
+.screen:not(.locked-screen) .next-build{display:none}.screen:not(.locked-screen) .balance-line{display:flex}
+.receipt-line{min-width:0}.receipt-line>span{min-width:0;max-width:45%;overflow-wrap:anywhere}.receipt-line strong{min-width:0;max-width:55%;flex-shrink:1;text-align:right;overflow-wrap:anywhere}
+@media(max-width:900px){.review-page{padding:12px}.review-header{display:block;text-align:center}.review-header h1{font-size:22px}.review-links{justify-content:center;gap:16px}.screens{grid-template-columns:minmax(0,410px);gap:28px}.scope-note{text-align:center;max-width:440px}}
+@media(min-width:901px) and (max-width:1099px){.screens{grid-template-columns:minmax(0,410px);gap:28px}.screen-caption{max-width:410px}.scope-note{text-align:center}.design-explanation{grid-template-columns:1fr;max-width:600px}}
+.solo{background:#f6e8d1}.solo .review-page{display:grid;min-height:100dvh;place-items:center;padding:0}.solo .screens{width:min(100%,calc((100dvh - 12px)*.524));max-width:460px;margin:auto}.solo .visual-locked .screen{height:auto;min-height:0;aspect-ratio:var(--phone-ratio);border-radius:8.5%}.solo .visual-locked .phone{box-shadow:none}.solo .review-toggle{top:auto;bottom:8px;right:8px;transform:none;font-size:10px;min-height:36px;opacity:.6;padding:8px 10px}.solo .review-toggle:hover,.solo .review-toggle:focus-visible{opacity:1}
+.large-type .locked-screen{aspect-ratio:auto}.solo.large-type .screens{width:100%;max-width:460px}.solo.large-type .review-page{display:block}
+@media(max-height:540px) and (min-width:600px){.solo .screens{width:100%;max-width:900px}.solo .visual-locked{width:calc((100dvh - 12px)*.524);margin:auto}}
+.reduced .locked-depth{transform:none;transition:none}.reduced .secret-pouches{animation:none}
+.reduced *,.reduced *:before,.reduced *:after{animation:none!important;transition:none!important}.reduced .video-cue{display:none}

@@ -1,0 +1,33 @@
+{
+  "images": [
+    {
+      "loaded": true,
+      "src": "rendered/W03-learning-goal-de.png"
+    },
+    {
+      "loaded": true,
+      "src": "rendered/W04-build-ready-de.png"
+    },
+    {
+      "loaded": true,
+      "src": "rendered/B01-spend-confirm-de.png"
+    },
+    {
+      "loaded": true,
+      "src": "rendered/B03-saved-progress-de.png"
+    },
+    {
+      "loaded": true,
+      "src": "rendered/W05-next-goal-de.png"
+    }
+  ],
+  "sources": [
+    "W03-learning-goal-de.png",
+    "W04-build-ready-de.png",
+    "B01-spend-confirm-de.png",
+    "B03-saved-progress-de.png",
+    "W05-next-goal-de.png"
+  ],
+  "text": false,
+  "title": "Hangul Sori · Deine Yeopjeon · dein nächster Schritt"
+}

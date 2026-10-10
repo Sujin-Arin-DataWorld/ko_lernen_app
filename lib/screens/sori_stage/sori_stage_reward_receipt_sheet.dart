@@ -21,6 +21,7 @@ import '../../widgets/sori/activity_illustration.dart';
 import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/motion.dart';
 import 'sori_stage_common.dart';
+import 'yeopjeon_reward_screen.dart';
 
 class SoriStageRewardReceiptSheet extends StatefulWidget {
   const SoriStageRewardReceiptSheet({
@@ -28,11 +29,13 @@ class SoriStageRewardReceiptSheet extends StatefulWidget {
     required this.receipt,
     this.loadConstruction,
     this.loadConstructionArt,
+    this.revealConstructionArt = true,
   });
 
   final RewardReceipt receipt;
   final Future<SarangchaeConstruction> Function()? loadConstruction;
   final Future<IlDuConstructionArtCatalog> Function()? loadConstructionArt;
+  final bool revealConstructionArt;
 
   @override
   State<SoriStageRewardReceiptSheet> createState() =>
@@ -47,11 +50,15 @@ class _SoriStageRewardReceiptSheetState
   @override
   void initState() {
     super.initState();
-    if (widget.receipt.hasSarangchaeUpgrade) {
+    if (widget.revealConstructionArt &&
+        !widget.receipt.canPresentYeopjeon &&
+        widget.receipt.hasSarangchaeUpgrade) {
       _constructionFuture =
           (widget.loadConstruction ?? SarangchaeConstruction.load)();
     }
-    if (widget.receipt.hasB2ConstructionUpgrade) {
+    if (widget.revealConstructionArt &&
+        !widget.receipt.canPresentYeopjeon &&
+        widget.receipt.hasB2ConstructionUpgrade) {
       _constructionArtFuture =
           (widget.loadConstructionArt ?? IlDuConstructionArtCatalog.load)();
     }
@@ -65,7 +72,9 @@ class _SoriStageRewardReceiptSheetState
             widget.receipt.sarangchaeStageBefore ||
         oldWidget.receipt.sarangchaeStageAfter !=
             widget.receipt.sarangchaeStageAfter;
-    if (widget.receipt.hasSarangchaeUpgrade &&
+    if (widget.revealConstructionArt &&
+        !widget.receipt.canPresentYeopjeon &&
+        widget.receipt.hasSarangchaeUpgrade &&
         (!oldWidget.receipt.hasSarangchaeUpgrade ||
             receiptChanged ||
             oldWidget.loadConstruction != widget.loadConstruction)) {
@@ -79,7 +88,9 @@ class _SoriStageRewardReceiptSheetState
             widget.receipt.b2ConstructionStageBefore ||
         oldWidget.receipt.b2ConstructionStageAfter !=
             widget.receipt.b2ConstructionStageAfter;
-    if (widget.receipt.hasB2ConstructionUpgrade &&
+    if (widget.revealConstructionArt &&
+        !widget.receipt.canPresentYeopjeon &&
+        widget.receipt.hasB2ConstructionUpgrade &&
         (!oldWidget.receipt.hasB2ConstructionUpgrade ||
             b2ReceiptChanged ||
             oldWidget.loadConstructionArt != widget.loadConstructionArt)) {
@@ -92,6 +103,33 @@ class _SoriStageRewardReceiptSheetState
 
   @override
   Widget build(BuildContext context) {
+    if (widget.receipt.canPresentYeopjeon) {
+      final remaining = widget.receipt.items
+          .where((item) => item.kind != SoriRewardKind.yeopjeon)
+          .toList(growable: false);
+      return YeopjeonRewardScreen(
+        receipt: widget.receipt,
+        onOtherRewards: remaining.isEmpty
+            ? null
+            : () => showSoriSheet<void>(
+                context: context,
+                builder: (_) => SoriStageRewardReceiptSheet(
+                  revealConstructionArt: false,
+                  receipt: RewardReceipt(
+                    activityId: widget.receipt.activityId,
+                    receiptId: '${widget.receipt.receiptId}:other',
+                    items: remaining,
+                    sarangchaeStageBefore: widget.receipt.sarangchaeStageBefore,
+                    sarangchaeStageAfter: widget.receipt.sarangchaeStageAfter,
+                    b2ConstructionStageBefore:
+                        widget.receipt.b2ConstructionStageBefore,
+                    b2ConstructionStageAfter:
+                        widget.receipt.b2ConstructionStageAfter,
+                  ),
+                ),
+              ),
+      );
+    }
     final t = AppL10n.of(context);
     final tt = SoriTextTheme.of(context);
     final receipt = widget.receipt;
@@ -192,38 +230,40 @@ class _SoriStageRewardReceiptSheetState
                     style: tt.label,
                   ),
                   const SizedBox(height: Spacing.md),
-                  FutureBuilder<SarangchaeConstruction>(
-                    future: _constructionFuture!,
-                    builder: (context, snapshot) {
-                      if (!snapshot.hasData) {
-                        return snapshot.hasError
-                            ? const SizedBox.shrink()
-                            : const AppLoading();
-                      }
-                      return Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          _SarangchaeBeforeAfter(
-                            construction: snapshot.data!,
-                            before: receipt.sarangchaeStageBefore,
-                            after: receipt.sarangchaeStageAfter,
-                          ),
-                          const SizedBox(height: Spacing.lg),
-                          SarangchaeConstructionExperience(
-                            construction: snapshot.data!,
-                            earnedStageCount: receipt.sarangchaeStageAfter,
-                            minimumSelectableStage:
-                                receipt.sarangchaeStageBefore + 1,
-                            showLockedStages: false,
-                            compact: true,
-                          ),
-                        ],
-                      );
-                    },
-                  ),
+                  if (widget.revealConstructionArt)
+                    FutureBuilder<SarangchaeConstruction>(
+                      future: _constructionFuture!,
+                      builder: (context, snapshot) {
+                        if (!snapshot.hasData) {
+                          return snapshot.hasError
+                              ? const SizedBox.shrink()
+                              : const AppLoading();
+                        }
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            _SarangchaeBeforeAfter(
+                              construction: snapshot.data!,
+                              before: receipt.sarangchaeStageBefore,
+                              after: receipt.sarangchaeStageAfter,
+                            ),
+                            const SizedBox(height: Spacing.lg),
+                            SarangchaeConstructionExperience(
+                              construction: snapshot.data!,
+                              earnedStageCount: receipt.sarangchaeStageAfter,
+                              minimumSelectableStage:
+                                  receipt.sarangchaeStageBefore + 1,
+                              showLockedStages: false,
+                              compact: true,
+                            ),
+                          ],
+                        );
+                      },
+                    ),
                   const SizedBox(height: Spacing.lg),
                 ],
-                if (receipt.hasB2ConstructionUpgrade) ...[
+                if (widget.revealConstructionArt &&
+                    receipt.hasB2ConstructionUpgrade) ...[
                   FutureBuilder<IlDuConstructionArtCatalog>(
                     future: _constructionArtFuture!,
                     builder: (context, snapshot) {
@@ -481,8 +521,45 @@ class _RewardLine extends StatelessWidget {
 
 Future<void> showSoriStageRewardReceipt(
   BuildContext context,
-  RewardReceipt receipt,
-) => showSoriSheet<void>(
-  context: context,
-  builder: (_) => SoriStageRewardReceiptSheet(receipt: receipt),
-);
+  RewardReceipt receipt, {
+  VoidCallback? onPresented,
+}) async {
+  if (receipt.canPresentYeopjeon) {
+    await Navigator.of(context).push<void>(
+      MaterialPageRoute(
+        settings: const RouteSettings(name: '/rewards/yeopjeon'),
+        builder: (_) =>
+            _PresentedReceipt(receipt: receipt, onPresented: onPresented),
+      ),
+    );
+    return;
+  }
+  await showSoriSheet<void>(
+    context: context,
+    builder: (_) => SoriStageRewardReceiptSheet(receipt: receipt),
+  );
+}
+
+class _PresentedReceipt extends StatefulWidget {
+  const _PresentedReceipt({required this.receipt, this.onPresented});
+  final RewardReceipt receipt;
+  final VoidCallback? onPresented;
+  @override
+  State<_PresentedReceipt> createState() => _PresentedReceiptState();
+}
+
+class _PresentedReceiptState extends State<_PresentedReceipt> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted && ModalRoute.of(context)?.isCurrent == true) {
+        widget.onPresented?.call();
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) =>
+      SoriStageRewardReceiptSheet(receipt: widget.receipt);
+}

@@ -159,6 +159,20 @@ flutter:
     - assets/illustrations/personal_hanok_v3/construction/lessons/
     - assets/illustrations/decorations/
     - assets/illustrations/reward/
+    - assets/animations/rewards/cloud.png
+    - assets/animations/rewards/coin.png
+    - assets/animations/rewards/coin_face.png
+    - assets/animations/rewards/brand_seal.png
+    - assets/animations/rewards/cta_atlas.png
+    - assets/animations/rewards/paper_texture.png
+    - assets/animations/rewards/jade_texture.png
+    - assets/animations/rewards/arrow.png
+    - assets/animations/rewards/making_money.mp3
+    - assets/animations/rewards/making_money.webp
+    - assets/animations/rewards/making_money_end.png
+    - assets/animations/rewards/making_money_start.png
+    - assets/animations/rewards/material_atlas.png
+    - assets/animations/rewards/yupjeon.png
     - assets/illustrations/stamps/
     - assets/illustrations/dancheong_studio/v1/
     - assets/illustrations/mascot/

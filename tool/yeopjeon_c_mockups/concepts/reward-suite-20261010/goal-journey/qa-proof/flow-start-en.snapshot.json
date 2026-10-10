@@ -1,0 +1,79 @@
+{
+  "lifecycle": {
+    "effectiveLaunch": {
+      "browserLaunched": true,
+      "engine": "chrome",
+      "launchHash": 7707568497978554591
+    },
+    "launched": false,
+    "relaunchedBrowser": false,
+    "restartedBackground": false,
+    "restoreStatus": "not_configured",
+    "reused": true,
+    "saveStatus": "not_attempted"
+  },
+  "origin": "http://127.0.0.1:8793/concepts/reward-suite-20261010/goal-journey/preview.html?lang=en",
+  "refs": {
+    "e1": {
+      "name": "All seven screens",
+      "role": "link"
+    },
+    "e10": {
+      "name": "Current balance: 30 Yeopjeon. Your yeopjeon",
+      "role": "button"
+    },
+    "e11": {
+      "name": "Balance saved",
+      "role": "region"
+    },
+    "e12": {
+      "name": "Next learning goal",
+      "role": "button"
+    },
+    "e13": {
+      "name": "Back to your yeopjeon",
+      "role": "button"
+    },
+    "e14": {
+      "name": "Balance saved",
+      "role": "heading"
+    },
+    "e15": {
+      "name": "−40 Yeopjeon",
+      "role": "heading"
+    },
+    "e2": {
+      "name": "Sprache",
+      "role": "navigation"
+    },
+    "e3": {
+      "name": "Interaktive App-Vorschau",
+      "role": "region"
+    },
+    "e4": {
+      "name": "Deutsch",
+      "role": "button"
+    },
+    "e5": {
+      "name": "English",
+      "role": "button"
+    },
+    "e6": {
+      "name": "Your yeopjeon. Your next step.",
+      "role": "heading"
+    },
+    "e7": {
+      "name": "Yeopjeon overview",
+      "role": "button"
+    },
+    "e8": {
+      "name": "Start again",
+      "role": "button"
+    },
+    "e9": {
+      "name": "Earlier design",
+      "role": "link"
+    }
+  },
+  "snapshot": "- link \"All seven screens\" [ref=e1]\n- navigation \"Sprache\" [ref=e2]\n  - button \"Deutsch\" [ref=e4]\n  - button \"English\" [ref=e5]\n- region \"Interaktive App-Vorschau\" [ref=e3]\n  - button \"Current balance: 30 Yeopjeon. Your yeopjeon\" [ref=e10]\n  - region \"Balance saved\" [ref=e11]\n    - heading \"Balance saved\" [level=1, ref=e14]\n    - heading \"−40 Yeopjeon\" [level=2, ref=e15]\n  - button \"Next learning goal\" [ref=e12]\n  - button \"Back to your yeopjeon\" [ref=e13]\n- heading \"Your yeopjeon. Your next step.\" [level=1, ref=e6]\n- button \"Yeopjeon overview\" [ref=e7]\n- button \"Start again\" [ref=e8]\n- link \"Earlier design\" [ref=e9]"
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "status": "awaiting_new_canonical_assets",
+  "updatedBy": "User steering: the Hanok canonical art will be replaced",
+  "rules": {
+    "transparentBackgroundRequired": true,
+    "futureStageVisibleOnlyAfterPurchase": true,
+    "displayOnlyOwnedStage": true,
+    "preserveBuildingSpecificGeometry": true,
+    "keepRewardAndBuildStateIndependentOfArt": true
+  },
+  "buildings": {
+    "sarangchae": {"approvedStages": {}},
+    "b2": {"approvedStages": {}}
+  }
+}

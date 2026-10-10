@@ -20219,6 +20219,246 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'{count} Silben · Start: Zeile {row}, Spalte {column}'**
   String practiceHintWordPath(int count, int row, int column);
+
+  /// No description provided for @cRewardBrand.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangul Sori'**
+  String get cRewardBrand;
+
+  /// No description provided for @cRewardTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Lektion geschafft'**
+  String get cRewardTitle;
+
+  /// No description provided for @cRewardCurrency.
+  ///
+  /// In de, this message translates to:
+  /// **'Yeopjeon'**
+  String get cRewardCurrency;
+
+  /// No description provided for @cRewardEarnedLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Belohnung'**
+  String get cRewardEarnedLabel;
+
+  /// No description provided for @cRewardFirst.
+  ///
+  /// In de, this message translates to:
+  /// **'Für deine erste Lektion heute'**
+  String get cRewardFirst;
+
+  /// No description provided for @cRewardSecond.
+  ///
+  /// In de, this message translates to:
+  /// **'Für deine zweite Lektion heute'**
+  String get cRewardSecond;
+
+  /// Approved C reward presentation copy.
+  ///
+  /// In de, this message translates to:
+  /// **'Bauzuschuss · +{amount} Yeopjeon'**
+  String cRewardSupport(int amount);
+
+  /// No description provided for @cRewardConfirmed.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Yeopjeon sind gutgeschrieben.'**
+  String get cRewardConfirmed;
+
+  /// No description provided for @cRewardHouse.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Ildu-Haus'**
+  String get cRewardHouse;
+
+  /// No description provided for @cRewardNextBuild.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächster Bauschritt'**
+  String get cRewardNextBuild;
+
+  /// No description provided for @cRewardReady.
+  ///
+  /// In de, this message translates to:
+  /// **'Bereit für den nächsten Bauschritt.'**
+  String get cRewardReady;
+
+  /// No description provided for @cRewardLocked.
+  ///
+  /// In de, this message translates to:
+  /// **'Erfülle das nächste Lernziel, um weiterzubauen.'**
+  String get cRewardLocked;
+
+  /// Approved C reward presentation copy.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch {amount} Yeopjeon bis zum nächsten Bauschritt.'**
+  String cRewardNeedCoins(int amount);
+
+  /// No description provided for @cRewardFuture.
+  ///
+  /// In de, this message translates to:
+  /// **'Die 3D-Ansicht folgt. Dein Baufortschritt bleibt erhalten.'**
+  String get cRewardFuture;
+
+  /// No description provided for @cRewardVisit.
+  ///
+  /// In de, this message translates to:
+  /// **'Zum Ildu-Haus'**
+  String get cRewardVisit;
+
+  /// No description provided for @cRewardContinue.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiterlernen'**
+  String get cRewardContinue;
+
+  /// No description provided for @cRewardReplay.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch einmal'**
+  String get cRewardReplay;
+
+  /// No description provided for @cRewardSkip.
+  ///
+  /// In de, this message translates to:
+  /// **'Überspringen'**
+  String get cRewardSkip;
+
+  /// No description provided for @cRewardMotionOff.
+  ///
+  /// In de, this message translates to:
+  /// **'Bewegung aus'**
+  String get cRewardMotionOff;
+
+  /// No description provided for @cRewardMotionOn.
+  ///
+  /// In de, this message translates to:
+  /// **'Bewegung an'**
+  String get cRewardMotionOn;
+
+  /// No description provided for @cRewardSoundOn.
+  ///
+  /// In de, this message translates to:
+  /// **'Ton an'**
+  String get cRewardSoundOn;
+
+  /// No description provided for @cRewardSoundOff.
+  ///
+  /// In de, this message translates to:
+  /// **'Ton aus'**
+  String get cRewardSoundOff;
+
+  /// No description provided for @cRewardSurprise.
+  ///
+  /// In de, this message translates to:
+  /// **'Was entsteht als Nächstes?'**
+  String get cRewardSurprise;
+
+  /// No description provided for @cRewardGrowth.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit jedem Lernen wächst dein Haus.'**
+  String get cRewardGrowth;
+
+  /// No description provided for @cRewardCoinHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe auf die Münze'**
+  String get cRewardCoinHint;
+
+  /// Approved C reward presentation copy.
+  ///
+  /// In de, this message translates to:
+  /// **'Baukosten: {amount}'**
+  String cRewardCost(int amount);
+
+  /// Approved C reward presentation copy.
+  ///
+  /// In de, this message translates to:
+  /// **'Für {amount} weiterbauen'**
+  String cRewardBuild(int amount);
+
+  /// No description provided for @cRewardLater.
+  ///
+  /// In de, this message translates to:
+  /// **'Später bauen'**
+  String get cRewardLater;
+
+  /// No description provided for @cRewardConfirmTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Den nächsten Schritt bauen?'**
+  String get cRewardConfirmTitle;
+
+  /// Approved C reward presentation copy.
+  ///
+  /// In de, this message translates to:
+  /// **'Verwende {amount} Yeopjeon für den nächsten Bauschritt.'**
+  String cRewardConfirmBody(int amount);
+
+  /// No description provided for @cRewardBalanceNow.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Guthaben jetzt'**
+  String get cRewardBalanceNow;
+
+  /// No description provided for @cRewardBalanceAfter.
+  ///
+  /// In de, this message translates to:
+  /// **'Nach dem Bauen'**
+  String get cRewardBalanceAfter;
+
+  /// Approved C reward presentation copy.
+  ///
+  /// In de, this message translates to:
+  /// **'{amount} Yeopjeon verwenden'**
+  String cRewardUse(int amount);
+
+  /// No description provided for @cRewardBuiltTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Baufortschritt gespeichert'**
+  String get cRewardBuiltTitle;
+
+  /// No description provided for @cRewardBuiltBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Lernen ist ein Teil des Ildu-Hauses geworden.'**
+  String get cRewardBuiltBody;
+
+  /// No description provided for @cRewardMore.
+  ///
+  /// In de, this message translates to:
+  /// **'Weitere Belohnungen'**
+  String get cRewardMore;
+
+  /// No description provided for @cRewardWaiting.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Guthaben wird geladen'**
+  String get cRewardWaiting;
+
+  /// No description provided for @cRewardReview.
+  ///
+  /// In de, this message translates to:
+  /// **'Für deine Wiederholung heute'**
+  String get cRewardReview;
+
+  /// No description provided for @cRewardPracticeTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Übung geschafft'**
+  String get cRewardPracticeTitle;
+
+  /// No description provided for @cRewardSupportTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Bauzuschuss freigeschaltet'**
+  String get cRewardSupportTitle;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

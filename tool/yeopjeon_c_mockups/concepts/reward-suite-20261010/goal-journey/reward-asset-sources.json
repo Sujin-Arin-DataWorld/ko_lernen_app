@@ -1,0 +1,148 @@
+{
+  "authority": "User-specified Dokkaebi/Yeopjeon folder; verified byte-identical project copies",
+  "sources": [
+    {
+      "asset": "tool\\yeopjeon_c_mockups\\concepts\\abc-20261010\\C-spatial-jade-de.png",
+      "sha256": "bc15e526aee76d584150d76d4c390172503ab4fdd585f098000cb92b15069ae2",
+      "size": [
+        851,
+        1848
+      ],
+      "userFolderMatches": [
+        "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-f000fe79-27ba-48fb-a0ee-a2595cdf05b2.png"
+      ]
+    },
+    {
+      "asset": "tool\\yeopjeon_c_mockups\\concepts\\reward-suite-20261010\\goal-journey\\layers\\jade-cloud-background.png",
+      "sha256": "fb01d00c4427a496d1dbe9aed92ac9599fac854eb5743bc8a38f532268d1be80",
+      "size": [
+        851,
+        1848
+      ],
+      "userFolderMatches": [
+        "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-51b8c701-72f6-4553-90ea-a948728ee819.png"
+      ]
+    },
+    {
+      "asset": "tool\\yeopjeon_c_mockups\\concepts\\reward-suite-20261010\\goal-journey\\layers\\coins-stage-magic.png",
+      "sha256": "cb8484dbe7019de7e5a0f0714283136173aaa07708e949546598108c9d7c10a4",
+      "size": [
+        1536,
+        1024
+      ],
+      "userFolderMatches": [
+        "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-d8f32401-4538-4c4f-a3d5-bdc5b48d6a4d.png"
+      ]
+    },
+    {
+      "asset": "tool\\yeopjeon_c_mockups\\concepts\\reward-suite-20261010\\goal-journey\\B01-spend-confirm-de.png",
+      "sha256": "627f8d877a1effc947e42a0f750c58940d9b96cfaeb0f1e3e001061cbdf57fb8",
+      "size": [
+        851,
+        1848
+      ],
+      "userFolderMatches": [
+        "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-a854a913-b4c0-4ad0-bf5e-f4437dda47dd.png"
+      ]
+    },
+    {
+      "asset": "tool\\yeopjeon_c_mockups\\concepts\\reward-suite-20261010\\goal-journey\\B03-saved-progress-de.png",
+      "sha256": "68ecc3eae13df26f0b1b395143444977ab554ca92890b644f4f59fcc0afdd700",
+      "size": [
+        851,
+        1848
+      ],
+      "userFolderMatches": [
+        "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-1dffc936-f573-4638-a290-f715684dfdad.png"
+      ]
+    },
+    {
+      "asset": "tool\\yeopjeon_c_mockups\\concepts\\reward-suite-20261010\\goal-journey\\W03-learning-goal-de.png",
+      "sha256": "2a0baeb8a8f609e4f168b50db40f56ae855aaa76119bb0079b0eecd998cd0804",
+      "size": [
+        851,
+        1848
+      ],
+      "userFolderMatches": [
+        "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-392f6abd-72c3-4b03-883c-fdcf6a63e575.png"
+      ]
+    },
+    {
+      "asset": "tool\\yeopjeon_c_mockups\\concepts\\reward-suite-20261010\\goal-journey\\W04-build-ready-de.png",
+      "sha256": "4c5f6a11c6988b8ab888c5b99b651021b54d3b55b0dbeeff6f636f39a0a875e9",
+      "size": [
+        851,
+        1848
+      ],
+      "userFolderMatches": [
+        "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-194eb7e6-295a-453f-acba-0f55f23f8db7.png"
+      ]
+    },
+    {
+      "asset": "tool\\yeopjeon_c_mockups\\concepts\\reward-suite-20261010\\goal-journey\\W05-next-goal-de.png",
+      "sha256": "6b8c3792bc4c4593b6b2eacdd93bcc1fec73d9dfb570da9d078ed29d5e43fffa",
+      "size": [
+        851,
+        1848
+      ],
+      "userFolderMatches": [
+        "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-18536749-83f1-47ec-b29e-eca57272b165.png"
+      ]
+    },
+    {
+      "asset": "tool\\yeopjeon_c_mockups\\concepts\\reward-suite-20261010\\goal-journey\\B01-spend-confirm-en.png",
+      "sha256": "fc6a56e9a286afb82312013bff56a8087f8c0c9520a643056307fb2b2ebba0fb",
+      "size": [
+        851,
+        1848
+      ],
+      "userFolderMatches": [
+        "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-9625dbde-638b-4f81-8e81-d875c91f91fa.png"
+      ]
+    },
+    {
+      "asset": "tool\\yeopjeon_c_mockups\\concepts\\reward-suite-20261010\\goal-journey\\B03-saved-progress-en.png",
+      "sha256": "d41229585f57c99ca42b64e8fb4085e2596d43a7746ce5b7ba5bf9b704959cbc",
+      "size": [
+        851,
+        1848
+      ],
+      "userFolderMatches": [
+        "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-674cff4f-4a4b-4dd2-b1b6-df06b478771a.png"
+      ]
+    },
+    {
+      "asset": "tool\\yeopjeon_c_mockups\\concepts\\reward-suite-20261010\\goal-journey\\W03-learning-goal-en.png",
+      "sha256": "ee3c6d916133bc9c21b37881c5b97f6acbfb7a590f2f9dd2ad48ca768168fe8d",
+      "size": [
+        851,
+        1848
+      ],
+      "userFolderMatches": [
+        "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-8f8d23e9-2467-4879-b74b-e7f8ea38caeb.png"
+      ]
+    },
+    {
+      "asset": "tool\\yeopjeon_c_mockups\\concepts\\reward-suite-20261010\\goal-journey\\W04-build-ready-en.png",
+      "sha256": "bd3598e98ac3fcb7ce55e75664fbd5014acba713ad537be0a1b91ce8f16527f2",
+      "size": [
+        851,
+        1848
+      ],
+      "userFolderMatches": [
+        "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-fee56b8f-68e7-497e-8d02-7c5180822267.png"
+      ]
+    },
+    {
+      "asset": "tool\\yeopjeon_c_mockups\\concepts\\reward-suite-20261010\\goal-journey\\W05-next-goal-en.png",
+      "sha256": "13ffd9a7fa3f428e17bf0c35d5d677fe6eecb9c6a45603916adafb6a4e905cf3",
+      "size": [
+        851,
+        1847
+      ],
+      "userFolderMatches": [
+        "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-9741ac84-26a9-4e77-a0e5-4cfc2b2ab650.png"
+      ]
+    }
+  ]
+}

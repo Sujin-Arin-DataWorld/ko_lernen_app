@@ -1,0 +1,27 @@
+@font-face{font-family:Paperlogy;src:url('assets/Paperlogy-Regular.ttf');font-display:swap}
+@font-face{font-family:Paperlogy;src:url('assets/Paperlogy-SemiBold.ttf');font-weight:600;font-display:swap}
+@font-face{font-family:Paperlogy;src:url('assets/Paperlogy-Bold.ttf');font-weight:700;font-display:swap}
+:root{
+ --color-bg-page:#e9e4d9;
+ --color-bg-surface:#f6ede0;
+ --color-bg-raised:#efe6d8;
+ --color-bg-action:#1c5148;
+ --color-bg-action-pressed:#123e37;
+ --color-text-primary:#1c2520;
+ --color-text-secondary:#4b5148;
+ --color-text-inverse:#fff8ee;
+ --color-edge-subtle:#ccbea8;
+ --color-focus:#1c5148;
+ --color-accent-currency:#b48031;
+ --color-material-brass:#d59f58;
+ --color-material-brass-light:#e9c98a;
+ --color-edge-brass:#b4864a;
+ --color-material-wood:#82522f;
+ --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;
+ --radius-control:14px;--radius-panel:18px;
+ --shadow-control:0 3px 0 #865829,0 5px 9px #6b48251b;
+ --shadow-object:0 16px 14px #60431b20;
+ --font-body:Paperlogy,system-ui,sans-serif;
+ --font-scale:1;
+ --duration-press:140ms;--duration-feedback:800ms;
+}

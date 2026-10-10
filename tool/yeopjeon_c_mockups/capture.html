@@ -1,0 +1,21 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Save browser review evidence</title><style>body{font:16px system-ui;margin:40px;max-width:800px}label{display:block;margin:24px 0 8px}input,textarea,button{font:inherit;padding:12px}textarea{width:100%;height:80px}button{margin-top:16px}</style><h1>Save browser review evidence</h1><p>Local review tool. JPEG evidence is saved only to this package's review-proof folder.</p><form><label for="name">File name</label><input id="name" value="proof-desktop"><label for="jpeg">JPEG Base64</label><textarea id="jpeg"></textarea><button>Save screenshot</button></form><p id="result" role="status"></p><script>
+document.querySelector('form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const result = document.getElementById('result');
+  result.textContent = 'Saving…';
+  try {
+    const jpeg = document.getElementById('jpeg').value;
+    if (!/^[A-Za-z0-9+/]+={0,2}$/.test(jpeg)) throw new Error('Invalid Base64 input');
+    const r = await fetch('/save-capture', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({name: document.getElementById('name').value, jpeg})
+    });
+    if (!r.ok) throw new Error(`Save failed (${r.status})`);
+    const d = await r.json();
+    result.textContent = d.saved || 'Save failed';
+    document.getElementById('jpeg').value = '';
+  } catch (error) {
+    result.textContent = error.message;
+  }
+});
+</script></html>
