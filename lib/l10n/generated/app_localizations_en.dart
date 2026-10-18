@@ -10782,43 +10782,7 @@ class AppL10nEn extends AppL10n {
   String get onboardingJourneyStartTitle => 'Your Korean.\nYour rhythm.';
 
   @override
-  String get onboardingJourneyNew => 'I am completely new';
-
-  @override
-  String get onboardingJourneyNewHint => 'Begin with letters and sounds.';
-
-  @override
-  String get onboardingJourneyReturning => 'I have learned some Korean';
-
-  @override
   String get onboardingJourneyReturningHint => 'Start from what you know.';
-
-  @override
-  String get onboardingJourneyExperience => 'Your experience';
-
-  @override
-  String get onboardingJourneyPathTitle => 'A clear path.\nYour next step.';
-
-  @override
-  String get onboardingJourneyLettersTitle => 'Letters become\nyour words.';
-
-  @override
-  String get onboardingJourneyLearnTitle => 'From understanding\nto speaking.';
-
-  @override
-  String get onboardingJourneyGamesTitle => 'Play is part\nof learning.';
-
-  @override
-  String get onboardingJourneyBookTitle =>
-      'Your book.\nNow part of your learning.';
-
-  @override
-  String get onboardingJourneyHanokTitle =>
-      'Your Korean grows.\nYour hanok comes alive.';
-
-  @override
-  String get onboardingJourneyCompanionTitle =>
-      'A learning path.\nA friend by your side.';
 
   @override
   String onboardingJourneyStartWith(String name) {
@@ -10910,30 +10874,6 @@ class AppL10nEn extends AppL10n {
   @override
   String get onboardingJourneyGrowthLink =>
       'As you reach learning goals, your hanok grows.';
-
-  @override
-  String get onboardingJourneyStartShort => 'Your start';
-
-  @override
-  String get onboardingJourneyPathShort => 'Your learning path';
-
-  @override
-  String get onboardingJourneyLettersShort => 'Letters & sounds';
-
-  @override
-  String get onboardingJourneyLearnShort => 'Your words';
-
-  @override
-  String get onboardingJourneyGamesShort => 'Learn through play';
-
-  @override
-  String get onboardingJourneyBookShort => 'Your book';
-
-  @override
-  String get onboardingJourneyHanokShort => 'Your hanok';
-
-  @override
-  String get onboardingJourneyCompanionShort => 'Your companion';
 
   @override
   String get questUnavailableTitle => 'This exercise is unavailable';

@@ -1,0 +1,480 @@
+{
+  "reviewedAt": "2026-10-18T20:40:30.521467+00:00",
+  "baselineHead": "2167a9ee616ccf3681fed2a6b085a3a8dc347fc2",
+  "runtimeChangedDuringCapture": [],
+  "testResult": "PASS_44_UNIQUE_NATIVE_TESTS",
+  "captureCount": 36,
+  "unchangedCount": 36,
+  "comparisons": [
+    {
+      "name": "intro-01-de-320-740-2x.png",
+      "size": [
+        320,
+        740
+      ],
+      "baselineSha256": "be4bf0f27a5f6463e64993d769139cf3c8d58fe51ef4cef8babd0a3afd029345",
+      "sha256": "be4bf0f27a5f6463e64993d769139cf3c8d58fe51ef4cef8babd0a3afd029345",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-01-de-402-874-1x.png",
+      "size": [
+        402,
+        874
+      ],
+      "baselineSha256": "3a9066eaefd57161cea79489909900df188c205506bf4ea1ccf69a3de350da80",
+      "sha256": "3a9066eaefd57161cea79489909900df188c205506bf4ea1ccf69a3de350da80",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-01-de-402-934-1.3x.png",
+      "size": [
+        402,
+        934
+      ],
+      "baselineSha256": "0f414c23c5649424ac837f8da25be805d5bd91a51d84275ab2e8acff2bfa7f8f",
+      "sha256": "0f414c23c5649424ac837f8da25be805d5bd91a51d84275ab2e8acff2bfa7f8f",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-01-de-402-934-1x.png",
+      "size": [
+        402,
+        934
+      ],
+      "baselineSha256": "754b7ae040304ac677e3107787727e487fbf74d39f3a1106c69d45a409fe1c71",
+      "sha256": "754b7ae040304ac677e3107787727e487fbf74d39f3a1106c69d45a409fe1c71",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-01-en-402-874-1x.png",
+      "size": [
+        402,
+        874
+      ],
+      "baselineSha256": "207a389d0b8a5d16de7d4aec5cd93f248a505c779b5a80a722e31280140957a8",
+      "sha256": "207a389d0b8a5d16de7d4aec5cd93f248a505c779b5a80a722e31280140957a8",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-02-de-320-740-2x.png",
+      "size": [
+        320,
+        740
+      ],
+      "baselineSha256": "02c02e70c1c0f758fc81a5778e57c34db56479a590f502ca7222b73f2d79f611",
+      "sha256": "02c02e70c1c0f758fc81a5778e57c34db56479a590f502ca7222b73f2d79f611",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-02-de-402-874-1x.png",
+      "size": [
+        402,
+        874
+      ],
+      "baselineSha256": "f8ae6323b5a0a18cceaa2bbb4c14b7f1e28be207e6c83f705edab952c4f33986",
+      "sha256": "f8ae6323b5a0a18cceaa2bbb4c14b7f1e28be207e6c83f705edab952c4f33986",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-02-de-402-934-1.3x.png",
+      "size": [
+        402,
+        934
+      ],
+      "baselineSha256": "0324c98cae0fb6d14cdfa98d7b6f0a929bb5f078a741e4ce3f76f9060a99ed10",
+      "sha256": "0324c98cae0fb6d14cdfa98d7b6f0a929bb5f078a741e4ce3f76f9060a99ed10",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-02-de-402-934-1x.png",
+      "size": [
+        402,
+        934
+      ],
+      "baselineSha256": "b1299096f5fd8300f7c624f94bf9164fd03cebdbc3362b2f6dcaaf046fac747f",
+      "sha256": "b1299096f5fd8300f7c624f94bf9164fd03cebdbc3362b2f6dcaaf046fac747f",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-02-en-402-874-1x.png",
+      "size": [
+        402,
+        874
+      ],
+      "baselineSha256": "1a5865c24324d6bfd2d132ef58c9d543a415444fe9e2706dbbf34d79cdf1b435",
+      "sha256": "1a5865c24324d6bfd2d132ef58c9d543a415444fe9e2706dbbf34d79cdf1b435",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-03-de-320-740-2x.png",
+      "size": [
+        320,
+        740
+      ],
+      "baselineSha256": "bbc7cd3419a790dcd3636fed46e7c6d153de67a38f9ea05ce8a21424c2964236",
+      "sha256": "bbc7cd3419a790dcd3636fed46e7c6d153de67a38f9ea05ce8a21424c2964236",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-03-de-402-874-1x.png",
+      "size": [
+        402,
+        874
+      ],
+      "baselineSha256": "82f732f1c742301b13d3e385330c8e2a7913285b6376f96269659785a2cffa73",
+      "sha256": "82f732f1c742301b13d3e385330c8e2a7913285b6376f96269659785a2cffa73",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-03-de-402-934-1.3x.png",
+      "size": [
+        402,
+        934
+      ],
+      "baselineSha256": "32aa396f1bbda597fe4e61efa21e4b641bcce95e207b7e4f297ee8e0a2667968",
+      "sha256": "32aa396f1bbda597fe4e61efa21e4b641bcce95e207b7e4f297ee8e0a2667968",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-03-de-402-934-1x.png",
+      "size": [
+        402,
+        934
+      ],
+      "baselineSha256": "08208f0b0cc673151fb34cb88e1ecdf954e403361543afe1a9bf8ec9dad217a0",
+      "sha256": "08208f0b0cc673151fb34cb88e1ecdf954e403361543afe1a9bf8ec9dad217a0",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-03-en-402-874-1x.png",
+      "size": [
+        402,
+        874
+      ],
+      "baselineSha256": "69a0a109256cdf92fb2ac1904bd857d303f28c7b5751ab8979f42a56be831ee9",
+      "sha256": "69a0a109256cdf92fb2ac1904bd857d303f28c7b5751ab8979f42a56be831ee9",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-04-de-320-740-2x.png",
+      "size": [
+        320,
+        740
+      ],
+      "baselineSha256": "05af8077094dd49d80b91d313f3e5afee94a1ec7b4467d7da587844db38ae2b5",
+      "sha256": "05af8077094dd49d80b91d313f3e5afee94a1ec7b4467d7da587844db38ae2b5",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-04-de-402-874-1x.png",
+      "size": [
+        402,
+        874
+      ],
+      "baselineSha256": "fe79c2e52ecfc1bcfe178cf6e939d2747d00070e2d66814f449155f37a3e1c12",
+      "sha256": "fe79c2e52ecfc1bcfe178cf6e939d2747d00070e2d66814f449155f37a3e1c12",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-04-de-402-934-1.3x.png",
+      "size": [
+        402,
+        934
+      ],
+      "baselineSha256": "713e8db4ef817718f90918493f068649074214a045bb1df252ac94d3c44fcffc",
+      "sha256": "713e8db4ef817718f90918493f068649074214a045bb1df252ac94d3c44fcffc",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-04-de-402-934-1x.png",
+      "size": [
+        402,
+        934
+      ],
+      "baselineSha256": "af84c6ce1c63f98ca01652c91182f3cb61523cbd2b0656eb474ae415c9e34001",
+      "sha256": "af84c6ce1c63f98ca01652c91182f3cb61523cbd2b0656eb474ae415c9e34001",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-04-en-402-874-1x.png",
+      "size": [
+        402,
+        874
+      ],
+      "baselineSha256": "010c5ecfe358007d341ef9a802d8e88408eec04a37e8e97003bc05d29ad74f4b",
+      "sha256": "010c5ecfe358007d341ef9a802d8e88408eec04a37e8e97003bc05d29ad74f4b",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-05-de-320-740-2x.png",
+      "size": [
+        320,
+        740
+      ],
+      "baselineSha256": "cd382cd8e1e7c53b4d61e8051a3e14b5fba6984958502099c279845560e782a5",
+      "sha256": "cd382cd8e1e7c53b4d61e8051a3e14b5fba6984958502099c279845560e782a5",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-05-de-402-874-1x.png",
+      "size": [
+        402,
+        874
+      ],
+      "baselineSha256": "574c097dcb8a6d34065774da15dba751f251b41702672fc9d46735eab2eb5304",
+      "sha256": "574c097dcb8a6d34065774da15dba751f251b41702672fc9d46735eab2eb5304",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-05-de-402-934-1.3x.png",
+      "size": [
+        402,
+        934
+      ],
+      "baselineSha256": "c1c58a75b2aa8359cc07edf2d28bfcbcb1c879ef8614881efbfbc731ee704a1a",
+      "sha256": "c1c58a75b2aa8359cc07edf2d28bfcbcb1c879ef8614881efbfbc731ee704a1a",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-05-de-402-934-1x.png",
+      "size": [
+        402,
+        934
+      ],
+      "baselineSha256": "26eb33f58c50ea305b17398f7881a746279cb685e9f719273d9b67887373c016",
+      "sha256": "26eb33f58c50ea305b17398f7881a746279cb685e9f719273d9b67887373c016",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-05-en-402-874-1x.png",
+      "size": [
+        402,
+        874
+      ],
+      "baselineSha256": "f83a67d0311a0f3d0e27c6cd333074533097fc849b6107ec1989a5820919dcf3",
+      "sha256": "f83a67d0311a0f3d0e27c6cd333074533097fc849b6107ec1989a5820919dcf3",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-06-de-320-740-2x.png",
+      "size": [
+        320,
+        740
+      ],
+      "baselineSha256": "4e9951da1365fc4235adf1cb8862ed76105f21753be5f8f43745d7091f25b3b1",
+      "sha256": "4e9951da1365fc4235adf1cb8862ed76105f21753be5f8f43745d7091f25b3b1",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-06-de-402-874-1x.png",
+      "size": [
+        402,
+        874
+      ],
+      "baselineSha256": "4bd5d687f14912a75b5d0269213bd25b082b402a34e4a193d008ae442aa2c75d",
+      "sha256": "4bd5d687f14912a75b5d0269213bd25b082b402a34e4a193d008ae442aa2c75d",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-06-de-402-934-1.3x.png",
+      "size": [
+        402,
+        934
+      ],
+      "baselineSha256": "53340c521c1591d518e8ce086f56f708dd46f31dd6d400c1101e14ed05261596",
+      "sha256": "53340c521c1591d518e8ce086f56f708dd46f31dd6d400c1101e14ed05261596",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-06-de-402-934-1x.png",
+      "size": [
+        402,
+        934
+      ],
+      "baselineSha256": "3d225104886e2e4782ee7b38323743ebee63b711ae9be34e2de923af21bfcfdc",
+      "sha256": "3d225104886e2e4782ee7b38323743ebee63b711ae9be34e2de923af21bfcfdc",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-06-en-402-874-1x.png",
+      "size": [
+        402,
+        874
+      ],
+      "baselineSha256": "1e69308ea8fd71af2775f33764449cc3944ad52469a9a9a0931fd6d4f6c533c2",
+      "sha256": "1e69308ea8fd71af2775f33764449cc3944ad52469a9a9a0931fd6d4f6c533c2",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-07-de-320-740-2x.png",
+      "size": [
+        320,
+        740
+      ],
+      "baselineSha256": "4dca76b559018fe8ec3b5b7a93696df10a07515c4d2e60383ccfead2415babfe",
+      "sha256": "4dca76b559018fe8ec3b5b7a93696df10a07515c4d2e60383ccfead2415babfe",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-07-de-402-874-1x.png",
+      "size": [
+        402,
+        874
+      ],
+      "baselineSha256": "1e30d4d6e23e3a1f209929dc3887e51621ceee80b27d4681fb844ac8fef29304",
+      "sha256": "1e30d4d6e23e3a1f209929dc3887e51621ceee80b27d4681fb844ac8fef29304",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-07-de-402-934-1.3x.png",
+      "size": [
+        402,
+        934
+      ],
+      "baselineSha256": "ef410fbf05a8679d9a284ab340257f10a91e9ca3c0a9e9ba8eccd471646be151",
+      "sha256": "ef410fbf05a8679d9a284ab340257f10a91e9ca3c0a9e9ba8eccd471646be151",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-07-de-402-934-1x.png",
+      "size": [
+        402,
+        934
+      ],
+      "baselineSha256": "d180aab9a0fd0db3380c4f382554bf30eb493a1f4c3833ae944b41e6d2f7ee51",
+      "sha256": "d180aab9a0fd0db3380c4f382554bf30eb493a1f4c3833ae944b41e6d2f7ee51",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-07-en-402-874-1x.png",
+      "size": [
+        402,
+        874
+      ],
+      "baselineSha256": "1446b9cb7cfba68a50f2f05159bdb4b7d5c6e935a81517d9a676bccc7f3bf576",
+      "sha256": "1446b9cb7cfba68a50f2f05159bdb4b7d5c6e935a81517d9a676bccc7f3bf576",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    },
+    {
+      "name": "intro-level-de-402-934-1x.png",
+      "size": [
+        402,
+        934
+      ],
+      "baselineSha256": "d5effde9ec1f46452838cece584c7154eab5a6564f8025c014c0edc6af6df68a",
+      "sha256": "d5effde9ec1f46452838cece584c7154eab5a6564f8025c014c0edc6af6df68a",
+      "changedPixels": 0,
+      "differenceBounds": null,
+      "maximumChannelDelta": 0
+    }
+  ],
+  "visualReview": {
+    "verdict": "PASS_SCOPED_STATIC_NO_REGRESSION",
+    "directlyInspected": [
+      "intro-01-de-402-934-1x.png",
+      "intro-05-de-402-934-1x.png",
+      "intro-level-de-402-934-1x.png",
+      "intro-07-de-402-934-1x.png"
+    ],
+    "findings": [],
+    "observed": [
+      "01 title/tiger/paper, A2 field and change action, four interest cards and CTA retain their reviewed composition.",
+      "05 title, scholar and props, native Korean/romanization/translation card, three tools, complete two-line body and CTA/Back retain their reviewed composition.",
+      "Level sheet handle/title/close, beginner plus A1-C2 grid, selected check, helper and complete apply CTA remain visible and aligned.",
+      "07 character identity, selected Taego medal, foreground branch, labels, Gye block and CTA/Back remain unchanged."
+    ]
+  },
+  "scope": "Pixel comparison is against the prior committed native captures, not a claim of exact identity to independently generated original reference art.",
+  "runtimeReview": {
+    "mode": "READ_ONLY",
+    "scope": [
+      "c_intro_art.dart",
+      "c_intro_reference_setup.dart",
+      "c_intro_reference_story.dart",
+      "c_intro_welcome_reference.dart",
+      "c_onboarding.dart",
+      "widgets/sori/intro_tokens.dart",
+      "widgets/sori/button.dart",
+      "widgets/sori/sheet.dart"
+    ],
+    "findings": [],
+    "summary": "Reference metrics were moved to bounded Intro tokens without changing numeric values. Common text actions preserve style/labels and minimum targets; explicit sheet presentation preserves the reference sheet. Main gate/coordinator behavior is outside these presentation edits."
+  },
+  "byteIdenticalCount": 36,
+  "limitations": [
+    "Pixel equality applies only to these 36 native captures versus committed native evidence at2167a9ee616ccf3681fed2a6b085a3a8dc347fc2. Independent generated art still differs from the user's original mockup raster.",
+    "The matrix covers seven pages at five viewport/language/text-scale configurations and one100percent level sheet; it does not capture an open200percent adaptive sheet or arbitrary preview-sheet content.",
+    "This review does not establish physical-device, final web/browser, CI, merge or store completion."
+  ]
+}

@@ -18330,77 +18330,11 @@ abstract class AppL10n {
   /// **'Dein Koreanisch.\nDein Rhythmus.'**
   String get onboardingJourneyStartTitle;
 
-  /// No description provided for @onboardingJourneyNew.
-  ///
-  /// In de, this message translates to:
-  /// **'Ich fange neu an'**
-  String get onboardingJourneyNew;
-
-  /// No description provided for @onboardingJourneyNewHint.
-  ///
-  /// In de, this message translates to:
-  /// **'Mit Zeichen und Lauten beginnen.'**
-  String get onboardingJourneyNewHint;
-
-  /// No description provided for @onboardingJourneyReturning.
-  ///
-  /// In de, this message translates to:
-  /// **'Ich habe schon gelernt'**
-  String get onboardingJourneyReturning;
-
   /// No description provided for @onboardingJourneyReturningHint.
   ///
   /// In de, this message translates to:
   /// **'Bei deinem Können anknüpfen.'**
   String get onboardingJourneyReturningHint;
-
-  /// No description provided for @onboardingJourneyExperience.
-  ///
-  /// In de, this message translates to:
-  /// **'Deine Erfahrung'**
-  String get onboardingJourneyExperience;
-
-  /// No description provided for @onboardingJourneyPathTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Ein klarer Weg.\nDein nächster Schritt.'**
-  String get onboardingJourneyPathTitle;
-
-  /// No description provided for @onboardingJourneyLettersTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Zeichen werden\nzu deinen Worten.'**
-  String get onboardingJourneyLettersTitle;
-
-  /// No description provided for @onboardingJourneyLearnTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Aus Verstehen\nwird Sprechen.'**
-  String get onboardingJourneyLearnTitle;
-
-  /// No description provided for @onboardingJourneyGamesTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Spielen gehört\nzum Lernen.'**
-  String get onboardingJourneyGamesTitle;
-
-  /// No description provided for @onboardingJourneyBookTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein Buch.\nJetzt zum Mitlernen.'**
-  String get onboardingJourneyBookTitle;
-
-  /// No description provided for @onboardingJourneyHanokTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein Koreanisch wächst.\nDein Hanok lebt.'**
-  String get onboardingJourneyHanokTitle;
-
-  /// No description provided for @onboardingJourneyCompanionTitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Ein Lernweg.\nEin Freund an deiner Seite.'**
-  String get onboardingJourneyCompanionTitle;
 
   /// No description provided for @onboardingJourneyStartWith.
   ///
@@ -18569,54 +18503,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Mit deinen Lernzielen wächst dein Hanok.'**
   String get onboardingJourneyGrowthLink;
-
-  /// No description provided for @onboardingJourneyStartShort.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein Anfang'**
-  String get onboardingJourneyStartShort;
-
-  /// No description provided for @onboardingJourneyPathShort.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein Lernweg'**
-  String get onboardingJourneyPathShort;
-
-  /// No description provided for @onboardingJourneyLettersShort.
-  ///
-  /// In de, this message translates to:
-  /// **'Zeichen & Laute'**
-  String get onboardingJourneyLettersShort;
-
-  /// No description provided for @onboardingJourneyLearnShort.
-  ///
-  /// In de, this message translates to:
-  /// **'Deine Worte'**
-  String get onboardingJourneyLearnShort;
-
-  /// No description provided for @onboardingJourneyGamesShort.
-  ///
-  /// In de, this message translates to:
-  /// **'Spielend lernen'**
-  String get onboardingJourneyGamesShort;
-
-  /// No description provided for @onboardingJourneyBookShort.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein Buch'**
-  String get onboardingJourneyBookShort;
-
-  /// No description provided for @onboardingJourneyHanokShort.
-  ///
-  /// In de, this message translates to:
-  /// **'Dein Hanok'**
-  String get onboardingJourneyHanokShort;
-
-  /// No description provided for @onboardingJourneyCompanionShort.
-  ///
-  /// In de, this message translates to:
-  /// **'Deine Begleitung'**
-  String get onboardingJourneyCompanionShort;
 
   /// No description provided for @questUnavailableTitle.
   ///

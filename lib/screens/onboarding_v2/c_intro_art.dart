@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../models/learner_level.dart';
 import '../../widgets/sori/intro_tokens.dart';
 export '../../widgets/sori/intro_tokens.dart';
 
@@ -89,17 +90,27 @@ class IntroMedal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final (name, bounds) = switch (label.toUpperCase()) {
-      'A1' => ('level-a1', const Rect.fromLTRB(101, 104, 1149, 1133)),
-      'A2' => ('level-a2', const Rect.fromLTRB(103, 106, 1146, 1132)),
-      'B1' => ('level-b1', const Rect.fromLTRB(102, 104, 1148, 1133)),
-      'B2' => ('level-b2', const Rect.fromLTRB(102, 104, 1149, 1134)),
-      'C1' => ('level-c1', const Rect.fromLTRB(103, 104, 1147, 1134)),
-      'C2' => ('level-c2', const Rect.fromLTRB(102, 104, 1148, 1133)),
-      '가' => ('level-beginner', const Rect.fromLTRB(104, 103, 1146, 1133)),
-      '✓' => ('check', const Rect.fromLTRB(171, 169, 1079, 1071)),
-      _ => ('level-blank', const Rect.fromLTRB(103, 109, 1144, 1126)),
+    final level = LearnerLevel.fromCode(label);
+    final bounds = switch (level) {
+      LearnerLevel.a1 => const Rect.fromLTRB(101, 104, 1149, 1133),
+      LearnerLevel.a2 => const Rect.fromLTRB(103, 106, 1146, 1132),
+      LearnerLevel.b1 => const Rect.fromLTRB(102, 104, 1148, 1133),
+      LearnerLevel.b2 => const Rect.fromLTRB(102, 104, 1149, 1134),
+      LearnerLevel.c1 => const Rect.fromLTRB(103, 104, 1147, 1134),
+      LearnerLevel.c2 => const Rect.fromLTRB(102, 104, 1148, 1133),
+      null => switch (label) {
+        '가' => const Rect.fromLTRB(104, 103, 1146, 1133),
+        '✓' => const Rect.fromLTRB(171, 169, 1079, 1071),
+        _ => const Rect.fromLTRB(103, 109, 1144, 1126),
+      },
     };
+    final name = level != null
+        ? 'level-${level.code}'
+        : switch (label) {
+            '가' => 'level-beginner',
+            '✓' => 'check',
+            _ => 'level-blank',
+          };
     return ExcludeSemantics(
       child: SizedBox.square(
         dimension: size,

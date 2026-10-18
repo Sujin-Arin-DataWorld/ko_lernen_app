@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../widgets/sori/pressable.dart';
+import '../../widgets/sori/button.dart';
 import 'c_intro_art.dart';
 import 'onboarding_v2_presentation.dart';
 
@@ -178,10 +179,15 @@ class IntroReferenceSetup extends StatelessWidget {
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    words(
-                                      t.onboardingCChange,
-                                      16,
-                                      color: IntroPalette.white,
+                                    Flexible(
+                                      child: FittedBox(
+                                        fit: BoxFit.scaleDown,
+                                        child: words(
+                                          t.onboardingCChange,
+                                          16,
+                                          color: IntroPalette.white,
+                                        ),
+                                      ),
                                     ),
                                     Icon(
                                       Icons.keyboard_arrow_down,
@@ -589,19 +595,17 @@ class IntroReferenceLevelSheet extends StatelessWidget {
                 top: 50 * s - 24,
                 width: 79 * s,
                 height: 48,
-                child: TextButton(
+                child: SoriTextAction(
                   key: const ValueKey('c-onboarding-sheet-close'),
+                  label: t.btnClose,
                   onPressed: onClose,
                   style: TextButton.styleFrom(
                     padding: EdgeInsets.zero,
                     alignment: Alignment.centerRight,
                   ),
-                  child: Text(
-                    t.btnClose,
-                    maxLines: 1,
-                    softWrap: false,
-                    style: IntroTypography.sheetClose(s),
-                  ),
+                  maxLines: 1,
+                  softWrap: false,
+                  textStyle: IntroTypography.sheetClose(s),
                 ),
               ),
               at(

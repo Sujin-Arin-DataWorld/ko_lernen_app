@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../widgets/sori/pressable.dart';
+import '../../widgets/sori/button.dart';
 import '../../widgets/sori/type_scale.dart';
 import '../../widgets/sori/intro_tokens.dart';
 
@@ -73,7 +74,7 @@ class CIntroWelcomeReference extends StatelessWidget {
                           height: 25,
                           child: CustomPaint(painter: _WelcomeCloud()),
                         ),
-                        const SizedBox(height: 6),
+                        const SizedBox(height: IntroSpacing.welcomeBrandGap),
                         _brand(1),
                         Padding(
                           padding: const EdgeInsets.fromLTRB(24, 12, 24, 8),
@@ -239,7 +240,7 @@ class CIntroWelcomeReference extends StatelessWidget {
         ? const SizedBox(
             width: 14,
             height: 14,
-            child: CircularProgressIndicator(strokeWidth: 1.5, color: _cream),
+            child: SoriLoadingIndicator(strokeWidth: 1.5, color: _cream),
           )
         : const CustomPaint(size: Size(13, 12), painter: _WelcomeArrow());
     return Semantics(
@@ -306,18 +307,16 @@ class CIntroWelcomeReference extends StatelessWidget {
   Widget _later(AppL10n t, {double scale = 1, bool adaptive = false}) =>
       Semantics(
         hint: t.welcomeLaterHint,
-        child: TextButton(
+        child: SoriTextAction(
           key: const ValueKey('welcome-later'),
+          label: t.welcomeLater,
           onPressed: busy ? null : onLater,
           style: TextButton.styleFrom(
             minimumSize: const Size(48, 48),
             padding: EdgeInsets.zero,
             foregroundColor: const Color(0xffe8e5d6),
           ),
-          child: Text(
-            t.welcomeLater,
-            style: IntroTypography.welcomeLater(scale, adaptive),
-          ),
+          textStyle: IntroTypography.welcomeLater(scale, adaptive),
         ),
       );
 

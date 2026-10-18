@@ -2,14 +2,30 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/widgets/sori/intro_tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
-/// 앱의 단일 Noto Sans KR 번들에 라틴·한글 글리프가 모두 있는지 검사한다.
+/// 기존 인터페이스/학습 폰트의 라틴·한글과 Einleitung의 라틴 역할을 검사한다.
 ///
 /// 2026-08-19 발견: `PretendardStd-*.otf` 5개가 라틴 전용 서브셋이라 한글 글리프가
 /// 0개였고, 한국어 전부가 OS 폴백 폰트로 그려지고 있었다. pubspec 주석은
 /// "한국어 모던 산세리프"라고 적혀 있었다. 의존성 없이 OTF `cmap`(format 4/12)을
 /// 직접 읽어 독일어와 완성형 한글을 검사한다.
+const _koreanFaces = [
+  'assets/fonts/Paperlogy/Paperlogy-Regular.ttf',
+  'assets/fonts/Paperlogy/Paperlogy-Medium.ttf',
+  'assets/fonts/Paperlogy/Paperlogy-SemiBold.ttf',
+  'assets/fonts/Paperlogy/Paperlogy-Bold.ttf',
+  'assets/fonts/NotoSansKR/NotoSansKR-Variable.ttf',
+];
+
+const _introLatinFaces = [
+  'assets/fonts/Roboto/Roboto-Variable.ttf',
+  'assets/fonts/RobotoCondensed/RobotoCondensed-Variable.ttf',
+  'assets/fonts/Lora/Lora-Variable.ttf',
+  'assets/fonts/NotoSerif/NotoSerif-Variable.ttf',
+];
+
 void main() {
   test(
     'interface lettering is distinct from Korean, German and English learning copy',
@@ -23,49 +39,83 @@ void main() {
     },
   );
 
-  test(
-    'every bundled interface and learning face covers German and Korean',
-    () {
-      final pubspec = File('pubspec.yaml').readAsStringSync();
-      final assets = RegExp(
-        r'asset:\s*(assets/fonts/\S+\.(?:otf|ttf))',
-      ).allMatches(pubspec).map((m) => m.group(1)!).toList();
-      expect(assets, [
-        'assets/fonts/Paperlogy/Paperlogy-Regular.ttf',
-        'assets/fonts/Paperlogy/Paperlogy-Medium.ttf',
-        'assets/fonts/Paperlogy/Paperlogy-SemiBold.ttf',
-        'assets/fonts/Paperlogy/Paperlogy-Bold.ttf',
-        'assets/fonts/NotoSansKR/NotoSansKR-Variable.ttf',
-      ]);
-      const requiredLatin = <String, int>{
-        'A': 0x41,
-        'a': 0x61,
-        'Z': 0x5A,
-        'z': 0x7A,
-        '0': 0x30,
-        '9': 0x39,
-        'Ä': 0xC4,
-        'ä': 0xE4,
-        'Ö': 0xD6,
-        'ö': 0xF6,
-        'Ü': 0xDC,
-        'ü': 0xFC,
-        'ß': 0xDF,
-        '€': 0x20AC,
-      };
-      for (final asset in assets) {
-        final cps = _cmapCodepoints(File(asset).readAsBytesSync());
-        final missing = requiredLatin.entries
-            .where((e) => !cps.contains(e.value))
-            .map((e) => e.key)
-            .toList();
-        expect(missing, isEmpty, reason: '$asset 에 글리프 없음: $missing');
-        expect(cps, containsAll([0x3131, 0xAC00, 0xD7A3]));
-        final hangul = cps.where((c) => c >= 0xAC00 && c <= 0xD7A3).length;
-        expect(hangul, 11172, reason: '$asset 한글 음절 $hangul/11172');
-      }
-    },
-  );
+  test('every declared font is inventoried and covers German and English', () {
+    final pubspec = File('pubspec.yaml').readAsStringSync();
+    final assets = RegExp(
+      r'asset:\s*(assets/fonts/\S+\.(?:otf|ttf))',
+    ).allMatches(pubspec).map((m) => m.group(1)!).toList();
+    expect(assets, unorderedEquals([..._koreanFaces, ..._introLatinFaces]));
+    const requiredLatin = <String, int>{
+      'A': 0x41,
+      'a': 0x61,
+      'Z': 0x5A,
+      'z': 0x7A,
+      '0': 0x30,
+      '9': 0x39,
+      'Ä': 0xC4,
+      'ä': 0xE4,
+      'Ö': 0xD6,
+      'ö': 0xF6,
+      'Ü': 0xDC,
+      'ü': 0xFC,
+      'ß': 0xDF,
+      '€': 0x20AC,
+    };
+    for (final asset in assets) {
+      final cps = _cmapCodepoints(File(asset).readAsBytesSync());
+      final missing = requiredLatin.entries
+          .where((e) => !cps.contains(e.value))
+          .map((e) => e.key)
+          .toList();
+      expect(missing, isEmpty, reason: '$asset 에 글리프 없음: $missing');
+    }
+  });
+
+  test('original interface and learning faces retain complete Korean', () {
+    for (final asset in _koreanFaces) {
+      final cps = _cmapCodepoints(File(asset).readAsBytesSync());
+      expect(cps, containsAll([0x3131, 0x314F, 0xAC00, 0xD7A3]));
+      final hangul = cps.where((c) => c >= 0xAC00 && c <= 0xD7A3).length;
+      expect(hangul, 11172, reason: '$asset 한글 음절 $hangul/11172');
+    }
+  });
+
+  test('Einleitung Korean and mixed copy explicitly select bundled Korean', () {
+    expect(IntroFonts.sans, 'Roboto');
+    expect(IntroFonts.condensed, 'RobotoCondensed');
+    expect(IntroFonts.serif, 'Lora');
+    expect(IntroFonts.brand, 'NotoSerif');
+    expect(IntroFonts.korean, SoriFonts.korean);
+
+    final koreanStyles = {
+      'sound glyph': IntroTypography.soundGlyph(44),
+      'Korean sentence': IntroTypography.koreanSample,
+      'book Korean': IntroTypography.bookInk(18, 24, true, false),
+    };
+    for (final entry in koreanStyles.entries) {
+      expect(entry.value.fontFamily, 'NotoSansKR', reason: entry.key);
+    }
+    final mixedStyles = {
+      'setup': IntroTypography.setupWords(18, 1, false, IntroPalette.ink),
+      'companion': IntroTypography.companionWords(
+        18,
+        24,
+        1,
+        false,
+        IntroPalette.ink,
+      ),
+      'Gye': IntroTypography.gyeBody(1),
+      'body': IntroTypography.body(18, false, IntroPalette.ink),
+      'action': IntroTypography.primaryAction(20, true),
+    };
+    for (final entry in mixedStyles.entries) {
+      expect(
+        entry.value.fontFamilyFallback,
+        ['NotoSansKR'],
+        reason: '${entry.key} must not depend on an OS Korean fallback',
+      );
+    }
+  });
 }
 
 Set<int> _cmapCodepoints(Uint8List bytes) {
@@ -91,6 +141,8 @@ Set<int> _cmapCodepoints(Uint8List bytes) {
       final segX2 = d.getUint16(sub + 6);
       final ends = sub + 14;
       final starts = ends + segX2 + 2;
+      final deltas = starts + segX2;
+      final rangeOffsets = deltas + segX2;
       for (var s = 0; s < segX2 ~/ 2; s++) {
         final end = d.getUint16(ends + s * 2);
         final start = d.getUint16(starts + s * 2);
@@ -98,7 +150,17 @@ Set<int> _cmapCodepoints(Uint8List bytes) {
           continue;
         }
         for (var c = start; c <= end; c++) {
-          out.add(c);
+          final delta = d.getInt16(deltas + s * 2);
+          final rangeOffset = d.getUint16(rangeOffsets + s * 2);
+          final glyph = rangeOffset == 0
+              ? (c + delta) & 0xffff
+              : d.getUint16(
+                  rangeOffsets + s * 2 + rangeOffset + (c - start) * 2,
+                );
+          if (glyph != 0 &&
+              (rangeOffset == 0 || ((glyph + delta) & 0xffff) != 0)) {
+            out.add(c);
+          }
         }
       }
     } else if (format == 12) {
@@ -107,8 +169,11 @@ Set<int> _cmapCodepoints(Uint8List bytes) {
         final base = sub + 16 + g * 12;
         final start = d.getUint32(base);
         final end = d.getUint32(base + 4);
+        final firstGlyph = d.getUint32(base + 8);
         for (var c = start; c <= end; c++) {
-          out.add(c);
+          if (firstGlyph + c - start != 0) {
+            out.add(c);
+          }
         }
       }
     }

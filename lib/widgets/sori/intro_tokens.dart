@@ -20,6 +20,13 @@ abstract final class IntroLayout {
 }
 
 abstract final class IntroGeometry {
+  static const heroClearance = 150.0;
+  static const headerPortraitHeight = 190.0;
+  static const changeActionWidth = 105.0;
+
+  /// Preview activities need a little less chrome below this available height
+  /// when accessibility text is enlarged; reference artwork is unchanged.
+  static const previewWorkingHeight = 720.0;
   static const card = 14.0;
   static const interest = 13.0;
   static const interestArt = 12.0;
@@ -40,6 +47,23 @@ abstract final class IntroGeometry {
   static const compactAction = 12.0;
   static const action = 16.0;
   static const compactBevel = 10.5;
+}
+
+/// Measured offsets inside the approved artwork composition, not a second
+/// application spacing grid. Standard page gaps still use Spacing/SoriGaps.
+abstract final class IntroSpacing {
+  static const backBaselineInset = 1.0;
+  static const bookLine = 3.0;
+  static const portraitMat = 3.0;
+  static const welcomeBrandGap = 6.0;
+  static const heroInset = 20.0;
+  static const heroCaptionInset = 18.0;
+  static const cardInset = 10.0;
+  static const inlineGap = 10.0;
+  static const sectionGap = 14.0;
+  static const actionGap = 18.0;
+  static const detailGap = 9.0;
+  static const captionGap = 5.0;
 }
 
 abstract final class IntroPalette {
@@ -65,6 +89,7 @@ abstract final class IntroTypography {
   static TextStyle gyeBody(double s) => TextStyle(
     fontFamily: IntroFonts.condensed,
     fontFamilyFallback: const [IntroFonts.korean],
+    // Reviewed 07 artwork caption only; adaptive Gye copy uses the body token.
     fontSize: 12.5 * s,
     letterSpacing: 0,
     height: 20 / 12.5,
@@ -205,6 +230,7 @@ abstract final class IntroTypography {
   static TextStyle welcomeBrand(double scale) => TextStyle(
     fontFamily: IntroFonts.brand,
     fontWeight: FontWeight.w400,
+    // Reviewed 85:32 brand lockup; not an interface/body-text size preset.
     fontSize: 12 * scale,
     height: 1.5,
     letterSpacing: 1.7 * scale,

@@ -2,6 +2,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import '../../widgets/sori/button.dart';
+
 import '../../l10n/generated/app_localizations.dart';
 import '../../widgets/sori/pressable.dart';
 import 'c_intro_art.dart';
@@ -136,8 +138,9 @@ class IntroReferenceStoryHero extends StatelessWidget {
                 top: 607 * s,
                 width: 112 * s,
                 height: 48,
-                child: TextButton(
+                child: SoriTextAction(
                   key: const ValueKey('c-onboarding-games-preview-button'),
+                  label: AppL10n.of(context).guideAvailabilityPreview,
                   onPressed: onPreview,
                   style: TextButton.styleFrom(
                     padding: EdgeInsets.zero,
@@ -151,11 +154,7 @@ class IntroReferenceStoryHero extends StatelessWidget {
                       ),
                     ),
                   ),
-                  child: CIntroText(
-                    AppL10n.of(context).guideAvailabilityPreview,
-                    size: 16,
-                    bold: true,
-                  ),
+                  textStyle: IntroTypography.body(16, true, IntroPalette.ink),
                 ),
               ),
           ],
@@ -253,11 +252,11 @@ class IntroStoryArtwork extends StatelessWidget {
                         bold: true,
                         align: TextAlign.left,
                       ),
-                      const SizedBox(height: 3),
+                      const SizedBox(height: IntroSpacing.bookLine),
                       _ink('안녕하세요', 26, 38, korean: true),
-                      const SizedBox(height: 3),
+                      const SizedBox(height: IntroSpacing.bookLine),
                       _ink('annyeonghaseyo', 11.5, 19),
-                      const SizedBox(height: 3),
+                      const SizedBox(height: IntroSpacing.bookLine),
                       _ink(t.introGreetingTranslation, 17, 24, bold: true),
                     ],
                   ),

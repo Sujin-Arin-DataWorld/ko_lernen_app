@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "verifiedAt": "2026-10-18T20:01:03.796631+00:00",
+  "verifiedAt": "2026-10-18T20:46:13.302706+00:00",
   "status": "LOCAL_FLUTTER_AND_BROWSER_VERIFIED_DELIVERY_TRACKED_IN_GITHUB",
   "worktree": "C:/dev/hangulsori/ko_lernen_app_worktrees/einleitung-settings-parity-20261018",
   "branch": "session/einleitung-reviewed-main-20261018",
@@ -52,8 +52,8 @@
       "count": 32,
       "receipt": {
         "path": "tool/einleitung_http_verification.json",
-        "bytes": 8543,
-        "sha256": "1738460a66cd08d9b365addd8f42c17d379436b135c39fb88a2dbab8680207c8"
+        "bytes": 8312,
+        "sha256": "619db6dfdcc1f516fbd676cb32ab149509dd9e47161189802acff1050f3a63b9"
       },
       "scope": "Final release build: all 32 PNGs served with HTTP 200, image/png and exact reviewed SHA-256."
     }
@@ -187,8 +187,8 @@
     "exitCode": 0,
     "mainJs": {
       "path": "build/web/main.dart.js",
-      "bytes": 8721987,
-      "sha256": "d00b155106bb7460822f2dafaf2e863f9fe21743190bfe38be135b661a4ad626"
+      "bytes": 8722612,
+      "sha256": "2dd7ff0c633609365586360a2729c2d22c9873c1f30bfe45fc758de36a4ab3f1"
     }
   },
   "browser": {
@@ -326,11 +326,80 @@
         "bytes": 107040,
         "sha256": "d8f3f9de4f57cabb33de6e12cef9cbe17aa981e4c8ae683d4c27556b89cb2212"
       }
-    ]
+    ],
+    "buildAtFullJourneyVerification": {
+      "path": "build/web/main.dart.js",
+      "bytes": 8721987,
+      "sha256": "d00b155106bb7460822f2dafaf2e863f9fe21743190bfe38be135b661a4ad626"
+    },
+    "scope": "Full journey checked on the recorded earlier build; post-CI changes have 36 identical native captures and a separate latest-build re-entry check."
   },
   "codeReview": {
     "path": "tool/einleitung_code_review.json",
     "bytes": 10442,
     "sha256": "532508309e62f27d6a48e8301179ca88eaae69e9850cc86aa00a1a6a51e983ba"
+  },
+  "postCiRegressionReview": {
+    "initialCi": {
+      "runId": 39161703734,
+      "flutter": {
+        "passed": 8515,
+        "failed": 39,
+        "skipped": 45
+      },
+      "status": "SUPERSEDED_BY_CORRECTIONS_AWAITING_EXACT_HEAD_CI"
+    },
+    "changes": [
+      "Shared Sori sheet, text action, busy glyph and named reference spacing retain approved normal-size geometry.",
+      "Canonical LearnerLevel selects existing medal files.",
+      "Legacy tests follow Welcome and existing sheet entry; persistence, retry, consent and static portrait stability contracts retained.",
+      "A 320x640 viewport at 200% text uses 4dp less activity-sheet vertical padding to avoid overflow.",
+      "Four Latin-only fonts retain explicit Korean fallback; original five Korean fonts retain full Hangul checks.",
+      "Remove 19 obsolete localized keys per locale; exact two reference-only small-caption exceptions and conditional TTS close-label guard retain global baselines."
+    ],
+    "targetedRuns": [
+      {
+        "group": "Existing onboarding and startup regressions",
+        "passed": 52
+      },
+      {
+        "group": "Shared components and UI guards",
+        "passed": 29
+      },
+      {
+        "group": "Inventory, font coverage and localization guards",
+        "passed": 16
+      },
+      {
+        "group": "Viewport, companion stability, Welcome, type scale and TTS",
+        "passed": 44
+      },
+      {
+        "group": "Native introduction captures and interaction tests",
+        "passed": 44
+      }
+    ],
+    "countsOverlap": true,
+    "visual": {
+      "path": "tool/einleitung_post_ci_visual_review.json",
+      "bytes": 16416,
+      "sha256": "9226d8916f1d90453f7e078ddb145ba55c0399b8dbc0ecf90912feb499462315"
+    },
+    "visualScope": "All 36 captures are byte-identical and have zero pixel differences against the prior reviewed Flutter capture. This does not establish identity to original mockup artwork; opened 200% activity sheets are covered by functional tests, not this capture set.",
+    "latestReleaseBuild": "PASS",
+    "latestBrowser": {
+      "status": "PASS_REENTRY_ONLY",
+      "checks": [
+        "Completed profile opens AppShell directly with A2 and zero XP/Yeopjeon",
+        "No new console error or warning after latest-build reload"
+      ],
+      "capture": {
+        "path": "C:\\dev\\hangulsori\\_codex_artifacts\\einleitung-main-integration-20261018\\post-ci-browser-reentry.png",
+        "bytes": 50887,
+        "sha256": "980cccc07e2114f65ffcc11d7996c412ecfc2c49ec8333837644a14335ee7916"
+      },
+      "consoleCutoffUtc": "2026-10-18T20:40:00Z"
+    },
+    "ci": "Exact correction commit and merged-main runs must pass separately."
   }
 }

@@ -6,6 +6,10 @@ import '../../features/onboarding_v2/curriculum_evidence_projector.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/learner_level.dart';
 import '../../widgets/sori/pressable.dart';
+import '../../widgets/sori/button.dart';
+import '../../widgets/sori/sheet.dart';
+import '../../widgets/sori/toast.dart';
+import '../../widgets/sori/tokens.dart' show SoriBreakpoints, Spacing;
 import '../../widgets/sori/type_scale.dart';
 import 'c_intro_art.dart';
 import 'c_intro_reference_setup.dart';
@@ -247,18 +251,18 @@ class COnboardingFrame extends StatelessWidget {
                               ),
                               if (onBack != null) ...[
                                 SizedBox(height: backGap),
-                                TextButton(
+                                SoriTextAction(
                                   key: backKey,
+                                  label: AppL10n.of(context).onboardingV2Back,
                                   onPressed: onBack,
                                   style: TextButton.styleFrom(
                                     minimumSize: const Size(96, 48),
-                                    padding: const EdgeInsets.only(top: 1),
+                                    padding: const EdgeInsets.only(
+                                      top: IntroSpacing.backBaselineInset,
+                                    ),
                                     alignment: Alignment.topCenter,
                                   ),
-                                  child: Text(
-                                    AppL10n.of(context).onboardingV2Back,
-                                    style: IntroTypography.backAction(step),
-                                  ),
+                                  textStyle: IntroTypography.backAction(step),
                                 ),
                               ],
                             ],
@@ -607,7 +611,10 @@ class _IntroHero extends StatelessWidget {
                 ),
               ),
             );
-      if (!setup && scene == null && !large && bounds.maxWidth >= 360) {
+      if (!setup &&
+          scene == null &&
+          !large &&
+          bounds.maxWidth >= SoriBreakpoints.narrowPhone) {
         return SizedBox(
           height: 236 * scale,
           child: Stack(
@@ -629,7 +636,7 @@ class _IntroHero extends StatelessWidget {
           ),
         );
       }
-      if (setup && !large && bounds.maxWidth >= 360) {
+      if (setup && !large && bounds.maxWidth >= SoriBreakpoints.narrowPhone) {
         return SizedBox(
           height: 307 * scale,
           child: Stack(
@@ -675,10 +682,16 @@ class _IntroHero extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const SizedBox(height: 150),
-              Padding(padding: const EdgeInsets.all(20), child: heading),
+              const SizedBox(height: IntroGeometry.heroClearance),
+              Padding(
+                padding: const EdgeInsets.all(IntroSpacing.heroInset),
+                child: heading,
+              ),
               if (setup)
-                const SizedBox(height: 190, child: CIntroArt('taego-header')),
+                const SizedBox(
+                  height: IntroGeometry.headerPortraitHeight,
+                  child: CIntroArt('taego-header'),
+                ),
               if (scene != null) AspectRatio(aspectRatio: 2 / 3, child: art),
               if (labels.isNotEmpty)
                 Padding(
@@ -699,7 +712,7 @@ class _IntroHero extends StatelessWidget {
                 ),
               if (sound)
                 const Padding(
-                  padding: EdgeInsets.all(18),
+                  padding: EdgeInsets.all(IntroSpacing.heroCaptionInset),
                   child: COnboardingSoundScene(),
                 ),
               if (showPreviewButton)
@@ -802,8 +815,9 @@ class _IntroHero extends StatelessWidget {
     },
   );
 
-  Widget _previewButton(BuildContext context) => TextButton(
+  Widget _previewButton(BuildContext context) => SoriTextAction(
     key: const ValueKey('c-onboarding-games-preview-button'),
+    label: AppL10n.of(context).guideAvailabilityPreview,
     onPressed: onPreview,
     style: TextButton.styleFrom(
       minimumSize: const Size(112, 48),
@@ -814,11 +828,7 @@ class _IntroHero extends StatelessWidget {
         borderRadius: BorderRadius.circular(IntroGeometry.preview),
       ),
     ),
-    child: CIntroText(
-      AppL10n.of(context).guideAvailabilityPreview,
-      size: 16,
-      bold: true,
-    ),
+    textStyle: IntroTypography.body(16, true, IntroPalette.ink),
   );
 }
 
@@ -866,7 +876,7 @@ class COnboardingSetup extends StatelessWidget {
       bodyKey: const ValueKey('onboarding-v2-setup-scroll'),
       body: LayoutBuilder(
         builder: (context, bounds) {
-          if (bounds.maxWidth >= 360 &&
+          if (bounds.maxWidth >= SoriBreakpoints.narrowPhone &&
               IntroLayout.usesReferenceText(context)) {
             return IntroReferenceSetup(
               copy: copy,
@@ -892,7 +902,7 @@ class COnboardingSetup extends StatelessWidget {
                 const SizedBox(height: 12),
                 IntroPanel(
                   selected: true,
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(IntroSpacing.cardInset),
                   child: LayoutBuilder(
                     builder: (context, bounds) {
                       final large = !IntroLayout.usesReferenceText(context);
@@ -933,7 +943,7 @@ class COnboardingSetup extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
                                 words,
-                                const SizedBox(height: 10),
+                                const SizedBox(height: IntroSpacing.inlineGap),
                                 change,
                               ],
                             )
@@ -941,7 +951,10 @@ class COnboardingSetup extends StatelessWidget {
                               children: [
                                 Expanded(child: words),
                                 const SizedBox(width: 8),
-                                SizedBox(width: 105, child: change),
+                                SizedBox(
+                                  width: IntroGeometry.changeActionWidth,
+                                  child: change,
+                                ),
                               ],
                             );
                     },
@@ -954,9 +967,9 @@ class COnboardingSetup extends StatelessWidget {
                   size: 15,
                   color: IntroPalette.blue,
                 ),
-                const SizedBox(height: 14),
+                const SizedBox(height: IntroSpacing.sectionGap),
                 CIntroText(t.onboardingCInterest, size: 23, bold: true),
-                const SizedBox(height: 10),
+                const SizedBox(height: IntroSpacing.inlineGap),
                 LayoutBuilder(
                   builder: (context, bounds) => Wrap(
                     spacing: 10,
@@ -1059,22 +1072,22 @@ class COnboardingSetup extends StatelessWidget {
     var beginner = beginnerSelected;
     (String, bool)? result;
     await showOnboardingV2ModalWithFocusRestore(() async {
-      result = await showModalBottomSheet<(String, bool)>(
+      result = await showSoriSheet<(String, bool)>(
         context: context,
-        constraints: const BoxConstraints(maxWidth: 402),
-        isScrollControlled: true,
-        useSafeArea: true,
-        backgroundColor: IntroPalette.paper,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(IntroGeometry.adaptiveSheet),
+        presentation: const SoriSheetPresentation(
+          constraints: BoxConstraints(maxWidth: 402),
+          backgroundColor: IntroPalette.paper,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              top: Radius.circular(IntroGeometry.adaptiveSheet),
+            ),
           ),
         ),
         builder: (sheet) => SoriViewportTypeScale(
           child: StatefulBuilder(
             builder: (sheet, update) => LayoutBuilder(
               builder: (sheet, bounds) {
-                if (bounds.maxWidth >= 360 &&
+                if (bounds.maxWidth >= SoriBreakpoints.narrowPhone &&
                     IntroLayout.usesReferenceText(sheet) &&
                     MediaQuery.sizeOf(sheet).height >= 600) {
                   return IntroReferenceLevelSheet(
@@ -1120,10 +1133,10 @@ class COnboardingSetup extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              TextButton(
+                              SoriTextAction(
                                 key: const ValueKey('c-onboarding-sheet-close'),
+                                label: t.btnClose,
                                 onPressed: () => Navigator.of(sheet).pop(),
-                                child: Text(t.btnClose),
                               ),
                             ],
                           ),
@@ -1180,7 +1193,7 @@ class COnboardingSetup extends StatelessWidget {
                             size: 15,
                             color: IntroPalette.blue,
                           ),
-                          const SizedBox(height: 18),
+                          const SizedBox(height: IntroSpacing.actionGap),
                           IntroAction(
                             key: const ValueKey('intro-level-apply'),
                             label: t.introApplyLevel,
@@ -1241,7 +1254,7 @@ class _LevelOption extends StatelessWidget {
             children: [
               if (label.length == 2) ...[
                 IntroMedal(label, size: 40),
-                const SizedBox(width: 10),
+                const SizedBox(width: IntroSpacing.inlineGap),
               ],
               Expanded(
                 child: Column(
@@ -1288,10 +1301,9 @@ class _COnboardingSoundSceneState
       onTap: () async {
         await demoSpeak('가');
         if (mounted && context.mounted && demoAudioFailed) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(AppL10n.of(context).onboardingDemoAudioUnavailable),
-            ),
+          soriToast(
+            context,
+            AppL10n.of(context).onboardingDemoAudioUnavailable,
           );
         }
       },
@@ -1416,7 +1428,7 @@ class COnboardingStory extends StatelessWidget {
       progress: copy.navigation.progress(pageIndex + 2, 7),
       hero: LayoutBuilder(
         builder: (context, bounds) {
-          if (bounds.maxWidth >= 360 &&
+          if (bounds.maxWidth >= SoriBreakpoints.narrowPhone &&
               IntroLayout.usesReferenceText(context)) {
             return IntroReferenceStoryHero(
               index: pageIndex,
@@ -1441,7 +1453,7 @@ class COnboardingStory extends StatelessWidget {
       bodyKey: ValueKey('onboarding-v2-story-scroll-${ids[pageIndex]}'),
       body: LayoutBuilder(
         builder: (context, bounds) {
-          if (bounds.maxWidth >= 360 &&
+          if (bounds.maxWidth >= SoriBreakpoints.narrowPhone &&
               IntroLayout.usesReferenceText(context)) {
             return IntroReferenceStoryBody(
               index: pageIndex,
@@ -1465,7 +1477,7 @@ class COnboardingStory extends StatelessWidget {
                   ),
                 ),
                 if (pageIndex == 0) ...[
-                  const SizedBox(height: 3),
+                  const SizedBox(height: IntroSpacing.bookLine),
                   CIntroText(
                     t.introTwelveTools,
                     size: 19,
@@ -1473,7 +1485,7 @@ class COnboardingStory extends StatelessWidget {
                     center: true,
                   ),
                 ],
-                const SizedBox(height: 9),
+                const SizedBox(height: IntroSpacing.detailGap),
                 CIntroText(
                   body,
                   size: 16,
@@ -1481,7 +1493,7 @@ class COnboardingStory extends StatelessWidget {
                   color: IntroPalette.blue,
                 ),
                 if (pageIndex == 0) ...[
-                  const SizedBox(height: 5),
+                  const SizedBox(height: IntroSpacing.captionGap),
                   CIntroText(t.introNextSample, size: 14, center: true),
                 ],
               ],
@@ -1539,7 +1551,7 @@ class COnboardingCompanion extends StatelessWidget {
       bodyKey: const ValueKey('onboarding-v2-companion-scroll'),
       body: LayoutBuilder(
         builder: (context, bounds) {
-          if (bounds.maxWidth >= 360 &&
+          if (bounds.maxWidth >= SoriBreakpoints.narrowPhone &&
               IntroLayout.usesReferenceText(context)) {
             return IntroReferenceCompanion(
               copy: copy,
@@ -1580,7 +1592,7 @@ class COnboardingCompanion extends StatelessWidget {
                         child: CIntroArt('gye-reading'),
                       );
                       final words = Padding(
-                        padding: const EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(IntroSpacing.cardInset),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -1661,7 +1673,7 @@ class COnboardingCompanion extends StatelessWidget {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(3),
+                    padding: const EdgeInsets.all(IntroSpacing.portraitMat),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(
                         IntroGeometry.adaptivePortrait,
@@ -1722,19 +1734,27 @@ Future<void> showCOnboardingSheet(
   required String title,
   required Widget body,
 }) async {
+  final verticalInset =
+      MediaQuery.sizeOf(context).height < IntroGeometry.previewWorkingHeight &&
+          !IntroLayout.usesReferenceText(context)
+      ? Spacing.md
+      : Spacing.lg;
   await showOnboardingV2ModalWithFocusRestore(
-    () => showModalBottomSheet<void>(
+    () => showSoriSheet<void>(
       context: context,
-      isScrollControlled: true,
-      useSafeArea: true,
-      backgroundColor: IntroPalette.paper,
+      presentation: const SoriSheetPresentation(
+        backgroundColor: IntroPalette.paper,
+      ),
       builder: (sheet) => SoriViewportTypeScale(
         child: SizedBox(
           height: MediaQuery.sizeOf(sheet).height * .88,
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.all(16),
+                padding: EdgeInsets.symmetric(
+                  horizontal: Spacing.lg,
+                  vertical: verticalInset,
+                ),
                 child: Semantics(
                   header: true,
                   child: CIntroText(title, size: 24, bold: true),
@@ -1744,7 +1764,10 @@ Future<void> showCOnboardingSheet(
               SafeArea(
                 top: false,
                 child: Padding(
-                  padding: const EdgeInsets.all(16),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: Spacing.lg,
+                    vertical: verticalInset,
+                  ),
                   child: IntroAction(
                     key: const ValueKey('c-onboarding-sheet-close'),
                     label: AppL10n.of(sheet).btnClose,
