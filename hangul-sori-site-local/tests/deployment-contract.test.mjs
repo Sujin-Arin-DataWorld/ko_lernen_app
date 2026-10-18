@@ -92,9 +92,9 @@ test("deploys the GitHub-tracked source directly to the production Worker", () =
 
 test("keeps all quality gates and deployment in one command", () => {
   assert.deepEqual(packageJson.allowScripts, {
-    "esbuild@0.28.1": true,
+    "esbuild@0.28.2": true,
     "unrs-resolver@1.11.1": true,
-    "workerd@1.20260926.1": true,
+    "workerd@1.20261006.1": true,
   });
   assert.equal(
     packageJson.scripts.deploy,

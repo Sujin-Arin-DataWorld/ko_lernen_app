@@ -666,9 +666,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/package.json": {
-    "mtime": 1792285886.5039678,
-    "seen": 1792351329.916907,
-    "ast_hash": "6ce8b0f9d7e2071ebcd7d3f72b7c3e2c",
+    "mtime": 1792356732.604995,
+    "seen": 1792357268.4470584,
+    "ast_hash": "4cfb251bee013696209b6dd9283b8863",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/postcss.config.mjs": {
@@ -738,9 +738,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/tests/deployment-contract.test.mjs": {
-    "mtime": 1792285887.6613705,
-    "seen": 1792351329.9170053,
-    "ast_hash": "6c6c41d5663a054ca040d1b40105b0ac",
+    "mtime": 1792356755.1672764,
+    "seen": 1792357268.4529042,
+    "ast_hash": "ca605ce8962654214f4f1bdae01a2023",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/tests/release-safety.test.mjs": {
@@ -22212,9 +22212,9 @@
     "semantic_hash": ""
   },
   "tool/einleitung_verification.json": {
-    "mtime": 1792353663.8206222,
-    "seen": 1792355057.403727,
-    "ast_hash": "ad57fe400fdd66baa2938b3adec4d31b",
+    "mtime": 1792356373.3277035,
+    "seen": 1792357268.82954,
+    "ast_hash": "b0ee9caa05ae855edcfe07cbd8eab841",
     "semantic_hash": ""
   },
   "tool/einleitung_visual_revision_briefs.json": {
@@ -22914,9 +22914,9 @@
     "semantic_hash": ""
   },
   "tool/einleitung_http_verification.json": {
-    "mtime": 1792353342.1171386,
-    "seen": 1792353540.9123437,
-    "ast_hash": "4e10f0f9bae9a9d893dcdb0d06b81025",
+    "mtime": 1792356373.3010356,
+    "seen": 1792357268.8280559,
+    "ast_hash": "f86c98addfc67b6f0f48f7aeab39e31b",
     "semantic_hash": ""
   },
   "tool/einleitung_code_review.json": {
@@ -23037,6 +23037,12 @@
     "mtime": 1792355922.5465646,
     "seen": 1792356313.0789363,
     "ast_hash": "0097c365f2011bc965434e8c7758c682",
+    "semantic_hash": ""
+  },
+  "tool/einleitung_post_ci_visual_review.json": {
+    "mtime": 1792356373.3010356,
+    "seen": 1792357268.828666,
+    "ast_hash": "b738eaa76664a554f5abe9aad4a4d346",
     "semantic_hash": ""
   }
 }
