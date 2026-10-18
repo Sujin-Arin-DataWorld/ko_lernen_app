@@ -10782,43 +10782,7 @@ class AppL10nEn extends AppL10n {
   String get onboardingJourneyStartTitle => 'Your Korean.\nYour rhythm.';
 
   @override
-  String get onboardingJourneyNew => 'I am completely new';
-
-  @override
-  String get onboardingJourneyNewHint => 'Begin with letters and sounds.';
-
-  @override
-  String get onboardingJourneyReturning => 'I have learned some Korean';
-
-  @override
   String get onboardingJourneyReturningHint => 'Start from what you know.';
-
-  @override
-  String get onboardingJourneyExperience => 'Your experience';
-
-  @override
-  String get onboardingJourneyPathTitle => 'A clear path.\nYour next step.';
-
-  @override
-  String get onboardingJourneyLettersTitle => 'Letters become\nyour words.';
-
-  @override
-  String get onboardingJourneyLearnTitle => 'From understanding\nto speaking.';
-
-  @override
-  String get onboardingJourneyGamesTitle => 'Play is part\nof learning.';
-
-  @override
-  String get onboardingJourneyBookTitle =>
-      'Your book.\nNow part of your learning.';
-
-  @override
-  String get onboardingJourneyHanokTitle =>
-      'Your Korean grows.\nYour hanok comes alive.';
-
-  @override
-  String get onboardingJourneyCompanionTitle =>
-      'A learning path.\nA friend by your side.';
 
   @override
   String onboardingJourneyStartWith(String name) {
@@ -10910,30 +10874,6 @@ class AppL10nEn extends AppL10n {
   @override
   String get onboardingJourneyGrowthLink =>
       'As you reach learning goals, your hanok grows.';
-
-  @override
-  String get onboardingJourneyStartShort => 'Your start';
-
-  @override
-  String get onboardingJourneyPathShort => 'Your learning path';
-
-  @override
-  String get onboardingJourneyLettersShort => 'Letters & sounds';
-
-  @override
-  String get onboardingJourneyLearnShort => 'Your words';
-
-  @override
-  String get onboardingJourneyGamesShort => 'Learn through play';
-
-  @override
-  String get onboardingJourneyBookShort => 'Your book';
-
-  @override
-  String get onboardingJourneyHanokShort => 'Your hanok';
-
-  @override
-  String get onboardingJourneyCompanionShort => 'Your companion';
 
   @override
   String get questUnavailableTitle => 'This exercise is unavailable';
@@ -11877,4 +11817,179 @@ class AppL10nEn extends AppL10n {
   String practiceHintWordPath(int count, int row, int column) {
     return '$count syllables · Start: row $row, column $column';
   }
+
+  @override
+  String get welcomeTitle => 'Welcome to\nHangul Sori.';
+
+  @override
+  String get welcomeBody =>
+      'Discover Korean, culture and your growing Hanok adventure.';
+
+  @override
+  String get welcomeStart => 'Let’s begin';
+
+  @override
+  String get welcomeLater => 'Later';
+
+  @override
+  String get welcomeLaterHint => 'Try a preview, then set things up.';
+
+  @override
+  String get welcomeCharacters =>
+      'Baekho and the new magpie welcome you to the Hanok.';
+
+  @override
+  String get onboardingCBookBody =>
+      'Discover words in context. TalSunbi helps you understand them.';
+
+  @override
+  String get onboardingCBookSummary => 'Learn from your books.';
+
+  @override
+  String get onboardingCChange => 'Change';
+
+  @override
+  String get onboardingCGamesBody =>
+      'Practise with your saved words. Discover rewards for your progress.';
+
+  @override
+  String get onboardingCGamesSummary => '8 games. Plenty of discoveries.';
+
+  @override
+  String get onboardingCGyeBody =>
+      'Find your learning group later. You can start on your own.';
+
+  @override
+  String get onboardingCGyeTitle => 'Learn together: Gye';
+
+  @override
+  String get onboardingCHanokBody =>
+      'Stamp book & Dancheong Studio. Your artwork for the Sarangbang.';
+
+  @override
+  String get onboardingCHanokSummary => 'Your Hanok grows with Yeopjeon.';
+
+  @override
+  String get onboardingCInterest => 'What matters to you?';
+
+  @override
+  String get onboardingCJoyRole => 'Your curious companion';
+
+  @override
+  String get onboardingCLater => 'You can change this later.';
+
+  @override
+  String get introLevelLater => 'You can change this later.';
+
+  @override
+  String get onboardingJourneyStartWhere => 'Where would you like to start?';
+
+  @override
+  String get onboardingJourneyBeginnerHint => 'I\'m starting from scratch';
+
+  @override
+  String get onboardingCLevelRange => 'Brand new or A1 to C2.';
+
+  @override
+  String get onboardingCPathBody =>
+      'From your first sounds to a real conversation.';
+
+  @override
+  String get onboardingCPathSummary => 'A clear learning path.';
+
+  @override
+  String get onboardingCSoundBody => 'Listen, connect, and try.';
+
+  @override
+  String get onboardingCSoundSummary => 'Two letters. One sound.';
+
+  @override
+  String get onboardingCStartLevel => 'Your starting level';
+
+  @override
+  String get onboardingCTaegoRole => 'Your calm companion';
+
+  @override
+  String get onboardingCtaGames => 'Explore the games';
+
+  @override
+  String get onboardingCtaTry => 'Try a short lesson';
+
+  @override
+  String get onboardingCBrand => 'INTRODUCTION';
+
+  @override
+  String get onboardingCPathTitle => 'A path that fits you.';
+
+  @override
+  String get onboardingCSoundTitle => 'Your first sound.';
+
+  @override
+  String get onboardingCGamesTitle => 'Remember more through play.';
+
+  @override
+  String get onboardingCBookTitle => 'Your book joins in.';
+
+  @override
+  String get onboardingCHanokTitle => 'See your learning grow.';
+
+  @override
+  String get onboardingCCompanionTitle => 'A friend by your side.';
+
+  @override
+  String get introNew => 'Completely new';
+
+  @override
+  String get introNewHint => 'Start with Hangul';
+
+  @override
+  String get introA2Hint => 'You know the basics.';
+
+  @override
+  String get introChooseLevel => 'Choose your starting level';
+
+  @override
+  String get introApplyLevel => 'Use this level';
+
+  @override
+  String get introNextPath => 'Next: Your learning path.';
+
+  @override
+  String get introNextSample => 'Next: A short learning sample.';
+
+  @override
+  String get introTwelveTools => '12 learning tools for your everyday life.';
+
+  @override
+  String get introGreetingTranslation => 'Hello';
+
+  @override
+  String get onboardingCDiscover => 'Discover';
+
+  @override
+  String get onboardingCPractice => 'Practise';
+
+  @override
+  String get onboardingCRetain => 'Remember';
+
+  @override
+  String get onboardingCPhoto => 'Photo';
+
+  @override
+  String get onboardingCUnderstand => 'Understand';
+
+  @override
+  String get onboardingCRemember => 'Remember';
+
+  @override
+  String get onboardingCBuild => 'Build';
+
+  @override
+  String get onboardingCCollect => 'Collect';
+
+  @override
+  String get onboardingCCreate => 'Create';
+
+  @override
+  String get grammarBookExample => 'Example';
 }

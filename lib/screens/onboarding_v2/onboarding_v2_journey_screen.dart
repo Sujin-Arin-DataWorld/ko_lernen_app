@@ -129,9 +129,13 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
 
   void _replace(Widget screen) {
     _recordStoryExit(OnboardingStoryExit.dropped);
-    Navigator.of(
-      context,
-    ).pushReplacement(SoriTransitions.firstRun(context, (_) => screen));
+    // Completing first run must remove older first-run routes underneath it.
+    // The gate remains the next route when required by the durable journal;
+    // its eventual AppShell replacement must not reveal a stale draft on Back.
+    Navigator.of(context).pushAndRemoveUntil(
+      SoriTransitions.firstRun(context, (_) => screen),
+      (_) => false,
+    );
   }
 
   void _applyState(

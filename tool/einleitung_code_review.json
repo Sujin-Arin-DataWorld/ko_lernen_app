@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "review_axis": "Spec: final integration, state ownership, scope and viewport accessibility",
+  "verdict": "PASS",
+  "reviewed_at_utc": "2026-10-18T19:44:07.420533+00:00",
+  "workspace": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\einleitung-settings-parity-20261018",
+  "branch": "session/einleitung-reviewed-main-20261018",
+  "base_head": "44727c1921b4b7f40748ac0d210d0ca62a094028",
+  "review_target": "Current working changes and new runtime files; not a committed revision.",
+  "reviewer": "ux_state_designer",
+  "blocking_findings": [],
+  "spec": [
+    {
+      "path": "docs/superpowers/plans/2026-10-18-einleitung-reference-parity.md",
+      "line": 102,
+      "rule": "Vorschau destination excluded; preserve existing entry and stable same-frame Joy/Taego selection."
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-18-einleitung-reference-parity.md",
+      "line": 108,
+      "rule": "Preserve Journey and FirstRunCoordinator save/completion contracts; no unrelated state changes."
+    }
+  ],
+  "checks": [
+    {
+      "id": "first-run-gate",
+      "result": "PASS",
+      "evidence": "FirstRunCoordinator and its test are byte-identical to base. IntroGate and Consent code match base after checkout line-ending normalization. Splash and Journey still route required gate state to IntroGateScreen."
+    },
+    {
+      "id": "completion-back-stack",
+      "result": "PASS",
+      "path": "lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart:130",
+      "evidence": "Only journey diff is pushAndRemoveUntil in _replace, preventing stale first-run routes underneath gate or AppShell. Coordinator commit sequencing remains unchanged."
+    },
+    {
+      "id": "welcome-consent",
+      "result": "PASS",
+      "path": "lib/screens/onboarding_v2/welcome_screen.dart:36",
+      "evidence": "Start guards busy/local data lifetime, writes only welcomeSeen then opens ConsentScreen. Later opens existing read-only AppReviewDemoScreen. Neither action grants consent, onboarding completion, progress or reward."
+    },
+    {
+      "id": "presentation-state-ownership",
+      "result": "PASS",
+      "path": "lib/screens/onboarding_v2/c_onboarding.dart",
+      "evidence": "New C presentation delegates level/purpose/companion and Continue/Back callbacks. Level sheet keeps draft until Apply; Close discards draft. No preference/progress/economy writes in new C presentation files."
+    },
+    {
+      "id": "vorschau-scope",
+      "result": "PASS",
+      "path": "lib/screens/onboarding_v2/c_onboarding.dart:1500",
+      "evidence": "Existing OnboardingGamesDemo(level: level) destination preserved. Games demo/support content matches main; demo JSON is byte-identical. No new destination screen or game implementation."
+    },
+    {
+      "id": "viewport-scale",
+      "result": "PASS",
+      "path": "lib/widgets/sori/type_scale.dart:17",
+      "evidence": "Unwraps only app-owned SoriComfortTextScaler and retains exact OS/custom base scaler. Pane and modal opt-in recompute comfort from constrained bounds. Existing global SoriTypeScale.build is unchanged; real accessibility scaling remains active."
+    },
+    {
+      "id": "concurrency",
+      "result": "PASS",
+      "evidence": "Original Spec review made no runtime/test/Git mutations. A subsequent root-authorized TTS blocker repair changed only lib/widgets/sori/tts_unavailable_banner.dart and test/tts_unavailable_banner_test.dart; this review JSON was updated. Root owns integration and browser recheck."
+    },
+    {
+      "id": "tts-root-banner-overlay",
+      "result": "PASS",
+      "path": "lib/widgets/sori/tts_unavailable_banner.dart:82",
+      "evidence": "MaterialApp.builder puts the recovery strip above Navigator, without an Overlay ancestor. Guard tooltip creation with Overlay.maybeOf; use the same localized close label as icon semantics when absent. Keep routed tooltips and the original clearUnavailable callback; no layout, service, consent or progress change."
+    }
+  ],
+  "verification": [
+    {
+      "source": "independent reviewer execution",
+      "phase": "Before final viewport fix",
+      "count": 76,
+      "result": "PASS",
+      "suites": {
+        "onboarding_companion_landscape": 20,
+        "first_run_motion": 2,
+        "splash_screen_gate": 2,
+        "onboarding_v2_single_screen": 30,
+        "onboarding_v2_setup_level_tile": 8,
+        "onboarding_v2_accessibility_gate": 14
+      },
+      "logs": [
+        "%TEMP%/einleitung-wrapper-fonts-20261018.log",
+        "%TEMP%/einleitung-wrapper-single-final-20261018.log",
+        "%TEMP%/einleitung-wrapper-controls-final-20261018.log"
+      ]
+    },
+    {
+      "source": "material_component_designer execution report; test source independently reviewed",
+      "phase": "After final viewport fix",
+      "count": 75,
+      "new_viewport_tests": 9,
+      "result": "PASS",
+      "session_id": 51741,
+      "exit_code": 0,
+      "terminal_result": "00:09 +75: All tests passed!",
+      "command": "flutter test --no-pub test/c_onboarding_viewport_scale_test.dart test/type_scale_test.dart test/c_onboarding_native_test.dart test/c_onboarding_welcome_test.dart test/onboarding_v2_tablet_layout_test.dart test/typography_guard_test.dart --reporter expanded",
+      "coverage": "Actual 1280x720 app SoriTypeScale parent; pane and level modal base scaler at 100/130/200% and nonlinear custom scaling; 16/40px invariance; outer Navigator comfort preserved; Welcome behavior; sound-title natural height.",
+      "suites": {
+        "c_onboarding_viewport_scale": 9,
+        "type_scale": 3,
+        "c_onboarding_native": 44,
+        "c_onboarding_welcome": 4,
+        "onboarding_v2_tablet_layout": 5,
+        "typography_guard": 10
+      }
+    },
+    {
+      "source": "material_component_designer execution report",
+      "phase": "After final viewport fix",
+      "result": "PASS",
+      "session_id": 22303,
+      "exit_code": 0,
+      "terminal_result": "No issues found!",
+      "command": "dart analyze lib/widgets/sori/type_scale.dart lib/widgets/sori/intro_tokens.dart lib/screens/onboarding_v2/c_onboarding.dart lib/screens/onboarding_v2/c_intro_welcome_reference.dart test/c_onboarding_viewport_scale_test.dart"
+    },
+    {
+      "source": "independent reviewer execution",
+      "phase": "After actual-browser TTS blocker repair",
+      "count": 22,
+      "new_tests": 8,
+      "result": "PASS",
+      "session_id": 26649,
+      "exit_code": 0,
+      "terminal_result": "00:02 +22: All tests passed!",
+      "suites": {
+        "tts_unavailable_banner": 12,
+        "tts_unavailable_reasons": 6,
+        "tts_hourly_quota": 4
+      },
+      "command": "flutter test --no-pub test/tts_unavailable_banner_test.dart test/tts_unavailable_reasons_test.dart test/tts_hourly_quota_test.dart --reporter expanded",
+      "log": "%TEMP%/einleitung-tts-overlay-final-20261018.log",
+      "coverage": "DE/EN actual MaterialApp.builder placement; no-overlay close label/button/tap semantics; mouse hover and actual button focus; click/Enter/Space dismissal; next-route no ErrorWidget; routed banner localized tooltip preservation. Existing reasons/quota and 320dp/200% cases retained. Tab traversal beyond Navigator route scope is not claimed."
+    },
+    {
+      "source": "independent reviewer execution",
+      "phase": "After TTS blocker repair",
+      "result": "PASS",
+      "exit_code": 0,
+      "terminal_result": "No issues found!",
+      "command": "dart analyze lib/widgets/sori/tts_unavailable_banner.dart test/tts_unavailable_banner_test.dart"
+    }
+  ],
+  "verification_count_note": "Runs overlap. Do not sum counts as unique total.",
+  "delivery_boundary": "Spec code approval only. Root separately verifies actual browser, exact committed revision CI, push/PR/main merge and safe worktree cleanup. Physical-device QA and store release are not claimed.",
+  "source_sha256": {
+    "lib/features/onboarding_v2/first_run_coordinator.dart": "3ab445b25050f08a549c5007473789be37807d3a248efd527fa2762c0fdf5142",
+    "lib/screens/intro_gate_screen.dart": "1f9fa56ee4225d4fc76181defb99717ec1e130395dd63fab1ac4d3ed1d4027b9",
+    "lib/screens/consent_screen.dart": "956d5c907ba6d9847b904994d0276389347bdb76adc3e6ee4a47388316080f88",
+    "lib/screens/splash_screen.dart": "58e9cff0a6848aae02c7945d284778b5c293ff36ee369e62ddec2b39819ee3fb",
+    "lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart": "422a9e41fcbd3d45bb09f6ef251268ace8d738531b525b94affe58a5b82abc88",
+    "lib/screens/onboarding_v2/welcome_screen.dart": "c8feafb5209800488844cb6b4ba51d974f89ec6659a0d833d29dc6095e88f4ca",
+    "lib/services/storage_service.dart": "74539768c9607a9f06436f7c7714586aa19ce550bd7a812860945318593eb984",
+    "lib/screens/onboarding_v2/c_onboarding.dart": "12fb7bbd23cbaa601238f07c4df4183493d4ee13c0e9dc9c33ccf17141244837",
+    "lib/screens/onboarding_v2/c_intro_welcome_reference.dart": "3b2c437238585a4800250b46cde291d5df1865b6ee0f2bd33a6f57a3efbe7673",
+    "lib/widgets/sori/type_scale.dart": "6424c5f4c726036f72210c4030f74c673ec9a04aa40de9330ca5aa724b19d1d7",
+    "test/c_onboarding_viewport_scale_test.dart": "7d572eb9672a7ddaee646365fcd67a506e36dd843cb553fde71bca6e09376deb",
+    "lib/widgets/sori/tts_unavailable_banner.dart": "fbd6fdc6a9b8c9998bc6bab5438566b1aea264623b4736559da6bca17fda3068",
+    "test/tts_unavailable_banner_test.dart": "e72e366f828a0084d50e11624dd884a58c0e1516c7953e85723d9a6972390b93"
+  },
+  "resolved_findings": [
+    {
+      "priority": "P1",
+      "title": "Root TTS close tooltip crashes without an Overlay ancestor",
+      "trigger": "TTS unavailable banner displayed through main MaterialApp.builder, then hovered/dismissed before continuing onboarding.",
+      "root_cause": "IconButton.tooltip builds RawTooltip outside Navigator Overlay; its ErrorWidget produces a huge Row overflow.",
+      "red_evidence": {
+        "session_id": 50970,
+        "exit_code": 1,
+        "log": "%TEMP%/einleitung-tts-overlay-red-20261018.log",
+        "result": "No Overlay widget found; Row overflowed by 99274 pixels"
+      },
+      "repair": "Reuse the narrowly scoped original WIP stash overlay guard, preserving localized accessible close action.",
+      "status": "RESOLVED: red/green widget regression and final release-browser close -> 04/05 verified without errors"
+    }
+  ],
+  "rootActualBrowser": {
+    "status": "PASS_IN_SCOPE",
+    "record": "tool/einleitung_verification.json",
+    "separateFromCI": true
+  }
+}

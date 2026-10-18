@@ -79,6 +79,10 @@ class _Strip extends StatelessWidget {
     final t = AppL10n.of(context);
     final tt = SoriTextTheme.of(context);
     final s = SoriSurfaces.of(context);
+    // MaterialApp.builder also hosts this strip above the Navigator. A tooltip
+    // cannot create an overlay there, but the close action still needs a name.
+    final hasOverlay = Overlay.maybeOf(context) != null;
+    final closeLabel = MaterialLocalizations.of(context).closeButtonTooltip;
     return SafeArea(
       top: false,
       child: Padding(
@@ -104,9 +108,12 @@ class _Strip extends StatelessWidget {
                   visualDensity: VisualDensity.compact,
                   iconSize: 18,
                   color: s.textMuted,
-                  tooltip: MaterialLocalizations.of(context).closeButtonTooltip,
+                  tooltip: hasOverlay ? closeLabel : null,
                   onPressed: TtsService.clearUnavailable,
-                  icon: const Icon(Icons.close_rounded),
+                  icon: Icon(
+                    Icons.close_rounded,
+                    semanticLabel: hasOverlay ? null : closeLabel,
+                  ),
                 ),
               ],
             ),

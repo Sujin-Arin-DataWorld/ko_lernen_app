@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-
 import '../../l10n/generated/app_localizations.dart';
 import '../../widgets/sori/button.dart';
-import 'onboarding_character_media.dart';
 import '../../widgets/sori/tokens.dart';
+import 'onboarding_character_media.dart';
+import 'c_onboarding.dart';
 import 'onboarding_v2_presentation.dart';
 import 'onboarding_v2_shell.dart';
 import 'onboarding_v2_stage.dart';
-import 'onboarding_journey_scenes.dart';
 
 class OnboardingCompanionScreen extends StatelessWidget {
   const OnboardingCompanionScreen({
@@ -28,142 +27,13 @@ class OnboardingCompanionScreen extends StatelessWidget {
   final bool mediaEnabled;
 
   @override
-  Widget build(BuildContext context) {
-    assert(copy.companion.companions.length == 2);
-    final companionCopy = copy.companion;
-    final text = SoriTextTheme.of(context);
-    final progress = copy.navigation.progress(7, 7);
-    return OnboardingV2PageShell(
-      brandLatin: copy.brandLatin,
-      brandKorean: copy.brandKorean,
-      currentStep: 7,
-      totalSteps: 7,
-      progressLabel: progress,
-      showStage: false,
-      heading: JourneyHeading(
-        title: AppL10n.of(context).onboardingJourneyCompanionTitle,
-        shortTitle: AppL10n.of(context).onboardingJourneyCompanionShort,
-      ),
-      bodyKey: const ValueKey('onboarding-v2-companion-scroll'),
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          final content = Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Expanded(
-                child: OnboardingCompanionStage(
-                  mediaEnabled: mediaEnabled,
-                  companions: companionCopy.companions,
-                  selectedCompanionId: selectedCompanionId,
-                  onCompanionChanged: onCompanionChanged,
-                  showDescription:
-                      constraints.maxHeight >= 300 &&
-                      MediaQuery.textScalerOf(context).scale(16) <= 24,
-                ),
-              ),
-              if (constraints.maxHeight >= 650) ...[
-                const SizedBox(height: Spacing.sm),
-                Text(
-                  companionCopy.body,
-                  textAlign: TextAlign.center,
-                  style: text.body,
-                ),
-              ],
-              OnboardingV2DetailsButton(
-                key: const ValueKey('onboarding-v2-companion-details'),
-                label: AppL10n.of(context).onboardingV2DetailsAction,
-                sheetTitle: companionCopy.title,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Text(
-                      companionCopy.title,
-                      textAlign: TextAlign.center,
-                      style: text.h3,
-                    ),
-                    const SizedBox(height: Spacing.sm),
-                    Text(
-                      companionCopy.body,
-                      textAlign: TextAlign.center,
-                      style: text.body,
-                    ),
-                    const SizedBox(height: Spacing.md),
-                    for (final companion in companionCopy.companions) ...[
-                      Text(
-                        '${companion.name} · ${companion.koreanName}',
-                        textAlign: TextAlign.center,
-                        style: text.h2,
-                      ),
-                      Text(
-                        companion.rhythm,
-                        textAlign: TextAlign.center,
-                        style: text.cardTitle,
-                      ),
-                      Text(
-                        companion.body,
-                        textAlign: TextAlign.center,
-                        style: text.body,
-                      ),
-                      const SizedBox(height: Spacing.md),
-                    ],
-                    Text(
-                      companionCopy.equalLearningNote,
-                      key: const ValueKey(
-                        'onboarding-v2-companion-equal-learning-note',
-                      ),
-                      textAlign: TextAlign.center,
-                      style: text.bodySmall,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          );
-          // Reserve the details action's 48dp minimum after measuring both
-          // choice labels. Large-text portrait layouts can still fit below
-          // the former fixed 240dp cutoff.
-          final minimumBodyHeight =
-              OnboardingCompanionStage.minimumHeight(
-                context,
-                companionCopy.companions,
-                constraints.maxWidth,
-              ) +
-              48;
-          if (constraints.maxHeight < minimumBodyHeight) {
-            // A short landscape viewport must scroll the choices AND details;
-            // reserving a details row can otherwise leave a 17dp tap viewport.
-            return SingleChildScrollView(
-              child: SizedBox(height: minimumBodyHeight, child: content),
-            );
-          }
-          return content;
-        },
-      ),
-      footer: OnboardingV2FooterActions(
-        backKey: const ValueKey('onboarding-v2-companion-back'),
-        backLabel: copy.navigation.back,
-        onBack: onBack,
-        primaryAction: SoriButton.filled(
-          key: const ValueKey('onboarding-v2-companion-continue'),
-          label: selectedCompanionId == null
-              ? companionCopy.continueAction
-              : AppL10n.of(context).onboardingJourneyStartWith(
-                  companionCopy.companions
-                      .firstWhere((c) => c.id == selectedCompanionId)
-                      .name,
-                ),
-          trailingIcon: MediaQuery.textScalerOf(context).scale(16) > 24
-              ? null
-              : Icons.arrow_forward_rounded,
-          fullWidth: true,
-          size: SoriButtonSize.md,
-          onTap: selectedCompanionId == null
-              ? null
-              : () => onContinue(selectedCompanionId!),
-        ),
-      ),
-    );
-  }
+  Widget build(BuildContext context) => COnboardingCompanion(
+    copy: copy,
+    selectedCompanionId: selectedCompanionId,
+    onCompanionChanged: onCompanionChanged,
+    onContinue: onContinue,
+    onBack: onBack,
+  );
 }
 
 typedef CompanionPreviewBuilder =

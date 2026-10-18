@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_companion_screen.dart';
@@ -9,7 +10,17 @@ import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'support/real_fonts.dart';
 
 void main() {
-  setUpAll(loadSoriRealFonts);
+  TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(() async {
+    await loadSoriRealFonts(materialIcons: true);
+    for (final family in ['Roboto', 'RobotoCondensed', 'Lora', 'NotoSerif']) {
+      final loader = FontLoader(family);
+      loader.addFont(
+        rootBundle.load('assets/fonts/$family/$family-Variable.ttf'),
+      );
+      await loader.load();
+    }
+  });
   for (final language in ['de', 'en']) {
     for (final height in [360.0, 480.0, 500.0, 520.0, 540.0]) {
       for (final scale in [1.0, 2.0]) {

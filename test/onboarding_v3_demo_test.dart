@@ -16,12 +16,12 @@ import 'package:ko_lernen_app/widgets/trace_canvas.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'support/real_fonts.dart';
+import 'support/einleitung_capture_assets.dart';
 import 'support/sori_speech_stubs.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  setUpAll(() => loadSoriRealFonts(materialIcons: true));
+  setUpAll(loadEinleitungFonts);
   setUp(
     () =>
         SharedPreferences.setMockInitialValues({'kl_xp': 42, 'kl_level': 'b1'}),
@@ -431,6 +431,8 @@ void main() {
           LearnerLevel level, {
           bool beginner = false,
         }) async {
+          // Close the previous preview before mounting the next story owner.
+          await tester.pumpWidget(const SizedBox.shrink());
           await tester.pumpWidget(
             MaterialApp(
               locale: Locale(lang),
@@ -463,6 +465,17 @@ void main() {
             isNull,
             reason: '$lang page $index $level',
           );
+          final preview = find.byKey(
+            ValueKey('c-onboarding-preview-${index + 2}'),
+          );
+          await Scrollable.ensureVisible(
+            tester.element(preview),
+            alignment: .5,
+          );
+          await tester.pumpAndSettle();
+          await tester.tap(preview);
+          await tester.pumpAndSettle();
+          expect(tester.takeException(), isNull);
         }
 
         Future<void> tap(String key) async {

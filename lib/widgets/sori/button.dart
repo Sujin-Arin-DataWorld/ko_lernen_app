@@ -213,10 +213,7 @@ class SoriButton extends StatelessWidget {
         ? SizedBox(
             width: visualFontSize,
             height: visualFontSize,
-            child: CircularProgressIndicator(
-              strokeWidth: 2,
-              valueColor: AlwaysStoppedAnimation<Color>(fg),
-            ),
+            child: SoriLoadingIndicator(color: fg),
           )
         : Row(
             mainAxisSize: fullWidth ? MainAxisSize.max : MainAxisSize.min,
@@ -365,4 +362,57 @@ class SoriButton extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Shared busy glyph for actions whose approved surface is painted separately.
+/// The default is the same indicator used by [SoriButton].
+class SoriLoadingIndicator extends StatelessWidget {
+  const SoriLoadingIndicator({
+    super.key,
+    required this.color,
+    this.strokeWidth = 2,
+  });
+
+  final Color color;
+  final double strokeWidth;
+
+  @override
+  Widget build(BuildContext context) => CircularProgressIndicator(
+    strokeWidth: strokeWidth,
+    valueColor: AlwaysStoppedAnimation<Color>(color),
+  );
+}
+
+/// A text-only action with Material keyboard/focus behavior and a 48dp target.
+/// Approved artwork may supply its text metrics and alignment without replacing
+/// the common action owner or relying on an unlabelled gesture detector.
+class SoriTextAction extends StatelessWidget {
+  const SoriTextAction({
+    super.key,
+    required this.label,
+    required this.onPressed,
+    this.style,
+    this.textStyle,
+    this.maxLines,
+    this.softWrap,
+  });
+
+  final String label;
+  final VoidCallback? onPressed;
+  final ButtonStyle? style;
+  final TextStyle? textStyle;
+  final int? maxLines;
+  final bool? softWrap;
+
+  @override
+  Widget build(BuildContext context) => TextButton(
+    onPressed: onPressed,
+    style: TextButton.styleFrom(minimumSize: const Size(48, 48)).merge(style),
+    child: Text(
+      label,
+      style: textStyle,
+      maxLines: maxLines,
+      softWrap: softWrap,
+    ),
+  );
 }
