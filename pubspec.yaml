@@ -134,6 +134,7 @@ flutter:
   generate: true                   # für ARB Localisations
 
   assets:
+    - assets/illustrations/einleitung_generated/
     - assets/data/
     - assets/tts/v3/female/
     - assets/tts/v3/male/
@@ -238,6 +239,18 @@ flutter:
   # OFL: Paperlogy for interface lettering; Noto Sans KR for learning copy.
   # Both families contain Korean, German and English glyphs (font bundle guard).
   fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto/Roboto-Variable.ttf
+    - family: RobotoCondensed
+      fonts:
+        - asset: assets/fonts/RobotoCondensed/RobotoCondensed-Variable.ttf
+    - family: Lora
+      fonts:
+        - asset: assets/fonts/Lora/Lora-Variable.ttf
+    - family: NotoSerif
+      fonts:
+        - asset: assets/fonts/NotoSerif/NotoSerif-Variable.ttf
     - family: Paperlogy
       fonts:
         - asset: assets/fonts/Paperlogy/Paperlogy-Regular.ttf

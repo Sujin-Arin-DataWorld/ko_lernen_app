@@ -1,4 +1,8 @@
+import 'dart:async';
+import 'dart:ui' show PointerDeviceKind, SemanticsAction, Tristate;
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/services/tts_service.dart';
@@ -23,6 +27,131 @@ Future<void> _pump(WidgetTester tester) async {
 
 void main() {
   tearDown(TtsService.clearUnavailable);
+
+  for (final locale in const [Locale('de'), Locale('en')]) {
+    for (final activation in ['click', 'enter', 'space']) {
+      testWidgets(
+        'root ${locale.languageCode} $activation is overlay safe after hover and focus',
+        (tester) async {
+          final semantics = tester.ensureSemantics();
+          final navigatorKey = GlobalKey<NavigatorState>();
+          final mouse = await tester.createGesture(
+            kind: PointerDeviceKind.mouse,
+          );
+          try {
+            TtsService.clearUnavailable();
+            await tester.pumpWidget(
+              MaterialApp(
+                navigatorKey: navigatorKey,
+                locale: locale,
+                localizationsDelegates: AppL10n.localizationsDelegates,
+                supportedLocales: AppL10n.supportedLocales,
+                // This matches main.dart: the strip is outside Navigator's Overlay.
+                builder: (_, child) => TtsUnavailableBanner(child: child!),
+                home: const Scaffold(body: Text('first route')),
+              ),
+            );
+            await tester.pumpAndSettle();
+            TtsService.unavailable.value =
+                TtsUnavailableReason.audioUnavailable;
+            await tester.pumpAndSettle();
+            expect(tester.takeException(), isNull);
+            final dismiss = find.byKey(const Key('tts-unavailable-dismiss'));
+            expect(Overlay.maybeOf(tester.element(dismiss)), isNull);
+            final closeLabel = MaterialLocalizations.of(
+              tester.element(dismiss),
+            ).closeButtonTooltip;
+            expect(
+              closeLabel,
+              locale.languageCode == 'de' ? 'Schließen' : 'Close',
+            );
+            var data = tester.getSemantics(dismiss).getSemanticsData();
+            expect(data.label, closeLabel);
+            expect(data.flagsCollection.isButton, isTrue);
+            expect(data.hasAction(SemanticsAction.tap), isTrue);
+            await mouse.addPointer(location: Offset.zero);
+            await mouse.moveTo(tester.getCenter(dismiss));
+            await tester.pump(const Duration(seconds: 1));
+            expect(tester.takeException(), isNull);
+            // Focus the actual IconButton node: Navigator's route traversal
+            // is a separate scope from this app-level recovery strip.
+            final buttonContext = tester.element(
+              find
+                  .descendant(of: dismiss, matching: find.byType(MouseRegion))
+                  .last,
+            );
+            final focus = Focus.of(buttonContext);
+            focus.requestFocus();
+            await tester.pumpAndSettle();
+            data = tester.getSemantics(dismiss).getSemanticsData();
+            expect(data.flagsCollection.isFocused, Tristate.isTrue);
+            switch (activation) {
+              case 'enter':
+                await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+              case 'space':
+                await tester.sendKeyEvent(LogicalKeyboardKey.space);
+              default:
+                await tester.tap(dismiss);
+            }
+            await tester.pumpAndSettle();
+            expect(TtsService.unavailable.value, isNull);
+            expect(dismiss, findsNothing);
+            expect(find.text('first route'), findsOneWidget);
+            expect(tester.takeException(), isNull);
+            unawaited(
+              navigatorKey.currentState!.push<void>(
+                MaterialPageRoute(
+                  builder: (_) => const Scaffold(body: Text('next route')),
+                ),
+              ),
+            );
+            await tester.pumpAndSettle();
+            await tester.pump(const Duration(seconds: 2));
+            expect(find.text('next route'), findsOneWidget);
+            expect(find.byType(ErrorWidget), findsNothing);
+            expect(tester.takeException(), isNull);
+          } finally {
+            await mouse.removePointer();
+            semantics.dispose();
+          }
+        },
+      );
+    }
+
+    testWidgets(
+      'routed ${locale.languageCode} banner retains localized hover tooltip',
+      (tester) async {
+        TtsService.unavailable.value = TtsUnavailableReason.audioUnavailable;
+        await tester.pumpWidget(
+          MaterialApp(
+            locale: locale,
+            localizationsDelegates: AppL10n.localizationsDelegates,
+            supportedLocales: AppL10n.supportedLocales,
+            home: const TtsUnavailableBanner(
+              child: Scaffold(body: Text('content')),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+        final dismiss = find.byKey(const Key('tts-unavailable-dismiss'));
+        final label = MaterialLocalizations.of(
+          tester.element(dismiss),
+        ).closeButtonTooltip;
+        expect(Overlay.maybeOf(tester.element(dismiss)), isNotNull);
+        expect(tester.widget<IconButton>(dismiss).tooltip, label);
+        final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
+        await mouse.addPointer(location: Offset.zero);
+        await mouse.moveTo(tester.getCenter(dismiss));
+        await tester.pump(const Duration(seconds: 1));
+        expect(find.text(label), findsOneWidget);
+        await tester.tap(dismiss);
+        await mouse.removePointer();
+        await tester.pumpAndSettle();
+        expect(TtsService.unavailable.value, isNull);
+        expect(tester.takeException(), isNull);
+      },
+    );
+  }
 
   testWidgets('문제가 없으면 아무것도 안 그린다', (tester) async {
     TtsService.clearUnavailable();

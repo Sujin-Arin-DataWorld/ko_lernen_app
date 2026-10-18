@@ -1,0 +1,263 @@
+{
+  "generatedAt": "2026-10-18",
+  "referenceFolder": "C:/Users/vjinn/.codex/generated_images/einleitung_setting_rats확정",
+  "status": "Reviewed whole PNG assets used by the final Figma and Flutter implementation; see einleitung_verification.json for delivery gates",
+  "files": [
+    {
+      "name": "intro-jade-surface",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-547d1ef6-e713-451e-934f-06ce5810448a.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-jade-surface.png",
+      "sha256": "55b0e761d46859a36998aec85880e764da74e0f0f31b952c270915f3a8b2e4fe",
+      "generation": "Built-in image_gen; independent whole asset; no source screenshot crop",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-taego-header",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-8bf63e01-845b-4c8c-ac40-7a466231d852.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-taego-header.png",
+      "sha256": "f2cf498c516f9913d30d7d1dd5df5e48a61fc64c345e6dbd96520c70d4b36ef9",
+      "generation": "Built-in image_gen; independent whole asset; no source screenshot crop",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-path-scene",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14ebc-f7b4-7661-83ad-0489170ce757\\exec-2ad0562d-9a91-4ad7-a8ba-fc0fbd4ba4a1.png",
+      "generation": "Built-in image_gen; complete independent master; no reference screenshot crop",
+      "asset": "assets/illustrations/einleitung_generated/intro-path-scene.png",
+      "sha256": "fbd4caf41fc97dbe1dd78c5a26a81f3e6753af0e400026308f5f8290f5c37218",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-sound-scene",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14ebc-f7b4-7661-83ad-0489170ce757\\exec-dd1e7576-1d70-4a29-9aa3-dc3ba51a49f9.png",
+      "generation": "Built-in image_gen; complete independent master; no reference screenshot crop",
+      "asset": "assets/illustrations/einleitung_generated/intro-sound-scene.png",
+      "sha256": "f678c24138ae822168e8761e6a198a9ba4a9aa330802f58faa4e462890d4c48c",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-games-scene",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14ebc-f7b4-7661-83ad-0489170ce757\\exec-5ba0166c-9af9-472a-8ff1-1a9afba3b7d2.png",
+      "generation": "Built-in image_gen; complete independent master; no reference screenshot crop",
+      "asset": "assets/illustrations/einleitung_generated/intro-games-scene.png",
+      "sha256": "88c1fa529b1bbabbd5f3c89bde99f0fa6c5aa9c3c2d25c3e08ef80763445e4a9",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-scholar-scene",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14ebd-78e5-7e91-b475-afb8a438d696\\exec-3f7646ad-ac49-49a2-a169-daeada34dee5.png",
+      "generation": "Built-in image_gen; complete independent master; no reference screenshot crop",
+      "asset": "assets/illustrations/einleitung_generated/intro-scholar-scene.png",
+      "sha256": "1c69acca1e44b4bcecc4a8b3c7a9ddac385f7b627e7931126a3c6fd2c25f1f26",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-hanok-scene",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14ebd-78e5-7e91-b475-afb8a438d696\\exec-49e625e0-4fd1-43e7-bd36-bfb5defce134.png",
+      "generation": "Built-in image_gen; complete independent master; no reference screenshot crop",
+      "asset": "assets/illustrations/einleitung_generated/intro-hanok-scene.png",
+      "sha256": "68621abea34a66b0cb1a1dc8d4f56568616c41c676b9183213886c563a116501",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-gold-button",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-4ff42b89-6503-4479-a5c6-5b0de7247464.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-gold-button.png",
+      "sha256": "9f65271a81e51a10f78819e34a3de199918662ce4da24af0ee50e09f05518240",
+      "generation": "Built-in image_gen; independent whole asset; no source screenshot crop",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-paper-footer",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-64f751ec-661c-4460-8154-5c7314cc537b.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-paper-footer.png",
+      "sha256": "a8d072e8ae73d875c64829c95bfd47af62ff8e0a1744ec8018e7f07a7e258c10",
+      "generation": "Built-in image_gen; independent whole asset; no source screenshot crop",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-interest-travel",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-3af92f12-22ce-41c1-9ec9-b3912158cd0d.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-interest-travel.png",
+      "sha256": "899548ed570bfb61d426afa87c9d8d5e6b11c42ba04633b3564753d546327fe6",
+      "generation": "Built-in image_gen; independent whole asset; no source screenshot crop",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-interest-culture",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-006956a7-b66a-4b10-893e-2991f5146358.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-interest-culture.png",
+      "sha256": "c867600b5b86e2cb492bfcafab36654d0033444ca872ce79efad9985ea652bec",
+      "generation": "Built-in image_gen; independent whole asset; no source screenshot crop",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-interest-study",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-4c84be44-3b74-421e-9f70-a949abd3b11f.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-interest-study.png",
+      "sha256": "85184d1970123a1960c0a5edabe032d64aa3e7587f81b59c9162672fa0a22b08",
+      "generation": "Built-in image_gen; independent whole asset; no source screenshot crop",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-interest-kcontent",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-4cb45d7f-3958-4b29-9d64-2ddaf5c2eb3c.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-interest-kcontent.png",
+      "sha256": "b1142b8f1311980024294f4676947bd2720dbc4715c7203c45d96f1747045ef5",
+      "generation": "Built-in image_gen; independent whole asset; no source screenshot crop",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-gye-reading",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-e615732c-1252-4ec4-b424-523ccf4e7eae.png",
+      "generation": "image_gen built-in; reference-guided standalone asset; no mockup crop",
+      "asset": "assets/illustrations/einleitung_generated/intro-gye-reading.png",
+      "sha256": "87371f0da6687fd80e7411f3474cc63769768d9629f05bbd6b1d06513831192a",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-speaker",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-00347072-e237-4d62-8635-1af894810ea6.png",
+      "generation": "image_gen built-in; reference-guided standalone asset; no mockup crop",
+      "asset": "assets/illustrations/einleitung_generated/intro-speaker.png",
+      "sha256": "220246df2c7dde5279fa464369268db83f3fe7d2bdce25b37829489557306647",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-plum-branch",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-cbf6f8de-50ae-4911-b22e-7163f34a4c76.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-plum-branch.png",
+      "sha256": "5ba7d29153b3f799d84d3b5682ff9b3205890c37f2d5df16936db78e808cd1c3",
+      "generation": "Built-in image_gen; independent whole asset; no source screenshot crop",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-taego-close",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-3ec508cc-0704-4ac9-9817-f8bd6990c640.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-taego-close.png",
+      "generation": "image_gen built-in; new whole portrait or mark; reference-guided; no screenshot crop",
+      "sha256": "45e2c07aa8d8bccd4e593d29d1506f4eac776f5257de172543685533598d0503",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-joy-close",
+      "source": "C:/Users/vjinn/.codex/generated_images/01a14d68-68e9-78c3-8e50-146dae12bb6f/exec-18ed5c08-6dfc-4920-8f99-79915019335b.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-joy-close.png",
+      "generation": "image_gen built-in; new whole portrait or mark; reference-guided; no screenshot crop",
+      "sha256": "9c49d07afeb6a23f9bc160a8fab6fd51a3911cebafc9ae7573f328c74b6f96ac",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-cloud-mark",
+      "source": "C:/Users/vjinn/.codex/generated_images/01a14d68-68e9-78c3-8e50-146dae12bb6f/exec-4306bdda-60ca-4e29-a737-d1e869d3f171.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-cloud-mark.png",
+      "generation": "image_gen built-in; new whole portrait or mark; reference-guided; no screenshot crop",
+      "sha256": "d85fc91299b03696ff9f285e5d6d9f2bc9a35470fd0f84d524e41a4826ce5e14",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-welcome-scene",
+      "source": "C:/Users/vjinn/.codex/generated_images/01a14d68-68e9-78c3-8e50-146dae12bb6f/exec-d8d5a526-b7e8-4a68-a35d-8c16eeaab0c1.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-welcome-scene.png",
+      "generation": "image_gen built-in; reference-guided full welcome artwork; no screenshot crop",
+      "sha256": "b5082b040b4b976bcdb5f9fdf1c7a553c08509ba1afa54aaa5cfcee3734924a0",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-book-tools",
+      "source": "C:/Users/vjinn/.codex/generated_images/01a14d68-68e9-78c3-8e50-146dae12bb6f/exec-c3e0ab0c-bee7-4abc-9961-72bf24b97ceb.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-book-tools.png",
+      "generation": "image_gen; transparent whole ornament layer; no crop or slicing",
+      "sha256": "2db8aaf09b8bc829efc833c41ca442e5aec92f2f3c2b2793d049059a15420fdc",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-hanok-tools",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14ebd-78e5-7e91-b475-afb8a438d696\\exec-26c09b49-56ca-4f4e-89df-433b88e7c308.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-hanok-tools.png",
+      "generation": "Built-in image_gen; complete independent master; no reference screenshot crop",
+      "sha256": "7047197f66f974126a732e1dd1e1c8364a882206e6671e4c175ebd64e1606657",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-header-right-leaves",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-d4d18c6f-e3df-4eac-90ee-5ac093291aba.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-header-right-leaves.png",
+      "sha256": "d30f68cec91a168d1c1860637f463fba0eebc9098536e33b97b1733d5aa3b96f",
+      "generation": "Built-in image_gen; independent whole asset; no source screenshot crop",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-level-a1",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-860bc350-ddb4-4d65-9f45-71ae92562742.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-level-a1.png",
+      "sha256": "8a407c9af57313a980659d0bc332d20ea45328372695f315a887ff443658df9b",
+      "generation": "Built-in image_gen; independent whole asset; no source screenshot crop",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-level-a2",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-06748ff7-bc2a-4723-a775-6fb731b76b42.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-level-a2.png",
+      "sha256": "0af3f35bca1e8770fede3e2baa482f60c1ba619474dabfc629ddb0a729813129",
+      "generation": "Built-in image_gen; independent whole asset; no source screenshot crop",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-level-b1",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-7713e03d-80a6-4484-a684-95a44dcc52a4.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-level-b1.png",
+      "sha256": "48414eb8ab868afe446e0ea33162b126153570475130c9e07a2ea53fd3424778",
+      "generation": "Built-in image_gen; independent whole asset; no source screenshot crop",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-level-b2",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-0e8451eb-2fef-4a9d-8f3d-bd8ebcdf299b.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-level-b2.png",
+      "sha256": "af8ca4894a9624a7e05b34c3b63c4d9f88174615c2c58358f472d1e1cf0c7ef0",
+      "generation": "Built-in image_gen; independent whole asset; no source screenshot crop",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-level-c1",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-5a3956d0-4d15-44a8-be07-edec32302eef.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-level-c1.png",
+      "sha256": "03f6dcab2c0c2a41f04b8775efe490e4727e54e49cdee039dd914cd119174590",
+      "generation": "Built-in image_gen; independent whole asset; no source screenshot crop",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-level-c2",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-92caf85f-552a-4e1c-87b9-bfccf6280682.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-level-c2.png",
+      "sha256": "9c099b64ba4c71e0da324b05b37278102492ffce3a1458595244862cbef803ec",
+      "generation": "Built-in image_gen; independent whole asset; no source screenshot crop",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-level-beginner",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-9a03a0e6-2434-4dd6-a64b-4cadbb8ad2e6.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-level-beginner.png",
+      "sha256": "2b96e89161486e4bd1be8b0df55e6a9e2249415b3f3f5b51bd36940464fea474",
+      "generation": "Built-in image_gen; independent whole asset; no source screenshot crop",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-check",
+      "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-6a0e5bf7-f658-4f31-9d59-a59231d7a927.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-check.png",
+      "sha256": "89144f953ef9235c7263bde06fc8c1f283ca046598527adcd0b1b84d1b8b7e3f",
+      "generation": "User-provided original PNG",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-level-blank",
+      "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-ea7d2a36-4041-48dc-8792-d0ead0f1eb88.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-level-blank.png",
+      "sha256": "1fca7f57aafc7799d9055a2be9dc5246063f51f10ee92aa6ec0c88920421d97c",
+      "generation": "User-provided original PNG",
+      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    }
+  ]
+}

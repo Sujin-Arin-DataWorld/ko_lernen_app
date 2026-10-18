@@ -1190,6 +1190,17 @@ class _PronunciationProgressRecord {
 /// Alle Schlüssel mit Präfix `kl_`. iOS und Android automatisch (über
 /// `SharedPreferences`, das auf iOS `NSUserDefaults` nutzt).
 class Storage {
+  static bool get welcomeSeen => _prefs?.getBool('kl_welcome_seen_v1') ?? false;
+  static Future<void> setWelcomeSeen() async {
+    final lifetime = LocalDataLifetime.capture();
+    await _sbStrict(
+      'kl_welcome_seen_v1',
+      true,
+      assertCurrentWrite: lifetime.assertCurrent,
+    );
+    lifetime.assertCurrent();
+  }
+
   static const accountDeletionCheckpointPreferenceKey =
       'kl_account_deletion_journal_v1';
   static const accountDeletionFeedbackActivationCheckpointPreferenceKey =

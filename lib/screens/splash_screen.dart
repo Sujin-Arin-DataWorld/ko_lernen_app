@@ -13,6 +13,7 @@ import 'app_shell.dart';
 import 'consent_screen.dart';
 import 'intro_gate_screen.dart';
 import 'onboarding_v2/onboarding_v2_journey_screen.dart';
+import 'onboarding_v2/welcome_screen.dart';
 
 /// 앱 시작 시 로고 화면. 최소 표시 시간(기본 600ms)과 백그라운드 준비
 /// 신호([SplashGate.ready])를 병행 대기하고, 상한(기본 1500ms)을 넘기지
@@ -94,6 +95,11 @@ class _SplashScreenState extends State<SplashScreen> {
     try {
       await OnboardingRolloutService.waitForInitialMode();
       final resolution = await coordinator.resolveEntry();
+      if (resolution.entry == FirstRunEntry.consent &&
+          resolution.state == null &&
+          !Storage.welcomeSeen) {
+        return WelcomeScreen(firstRunCoordinator: coordinator);
+      }
       return switch (resolution.entry) {
         FirstRunEntry.consent => ConsentScreen(
           firstRunCoordinator: coordinator,

@@ -20219,6 +20219,342 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'{count} Silben · Start: Zeile {row}, Spalte {column}'**
   String practiceHintWordPath(int count, int row, int column);
+
+  /// No description provided for @welcomeTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Willkommen bei\nHangul Sori.'**
+  String get welcomeTitle;
+
+  /// No description provided for @welcomeBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Entdecke Koreanisch, Kultur und\ndein wachsendes Hanok-Abenteuer.'**
+  String get welcomeBody;
+
+  /// No description provided for @welcomeStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Los geht’s'**
+  String get welcomeStart;
+
+  /// No description provided for @welcomeLater.
+  ///
+  /// In de, this message translates to:
+  /// **'Später'**
+  String get welcomeLater;
+
+  /// No description provided for @welcomeLaterHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Erst ausprobieren, danach einrichten.'**
+  String get welcomeLaterHint;
+
+  /// No description provided for @welcomeCharacters.
+  ///
+  /// In de, this message translates to:
+  /// **'Baekho und die neue Elster begrüßen dich im Hanok.'**
+  String get welcomeCharacters;
+
+  /// No description provided for @onboardingCBookBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Entdecke Wörter und ihren Kontext.\nTalSunbi hilft dir, sie zu verstehen.'**
+  String get onboardingCBookBody;
+
+  /// No description provided for @onboardingCBookSummary.
+  ///
+  /// In de, this message translates to:
+  /// **'Aus deinen Büchern lernen.'**
+  String get onboardingCBookSummary;
+
+  /// No description provided for @onboardingCChange.
+  ///
+  /// In de, this message translates to:
+  /// **'Ändern'**
+  String get onboardingCChange;
+
+  /// No description provided for @onboardingCGamesBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Übe mit deinen gespeicherten Wörtern.\nEntdecke Belohnungen für deine Fortschritte.'**
+  String get onboardingCGamesBody;
+
+  /// No description provided for @onboardingCGamesSummary.
+  ///
+  /// In de, this message translates to:
+  /// **'8 Spiele. Viele Aha-Momente.'**
+  String get onboardingCGamesSummary;
+
+  /// No description provided for @onboardingCGyeBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Finde später deine Lerngruppe. Du kannst alleine starten.'**
+  String get onboardingCGyeBody;
+
+  /// No description provided for @onboardingCGyeTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Auch gemeinsam: Gye'**
+  String get onboardingCGyeTitle;
+
+  /// No description provided for @onboardingCHanokBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Stempelbuch & Dancheong-Atelier.\nDeine Werke für die Sarangbang.'**
+  String get onboardingCHanokBody;
+
+  /// No description provided for @onboardingCHanokSummary.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit Yeopjeon wächst dein Hanok.'**
+  String get onboardingCHanokSummary;
+
+  /// No description provided for @onboardingCInterest.
+  ///
+  /// In de, this message translates to:
+  /// **'Was ist dir wichtig?'**
+  String get onboardingCInterest;
+
+  /// No description provided for @onboardingCJoyRole.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine neugierige Begleiterin'**
+  String get onboardingCJoyRole;
+
+  /// No description provided for @onboardingCLater.
+  ///
+  /// In de, this message translates to:
+  /// **'Du kannst das später ändern.'**
+  String get onboardingCLater;
+
+  /// No description provided for @introLevelLater.
+  ///
+  /// In de, this message translates to:
+  /// **'Du kannst es später ändern.'**
+  String get introLevelLater;
+
+  /// No description provided for @onboardingJourneyStartWhere.
+  ///
+  /// In de, this message translates to:
+  /// **'Wo möchtest du starten?'**
+  String get onboardingJourneyStartWhere;
+
+  /// No description provided for @onboardingJourneyBeginnerHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich fange neu an'**
+  String get onboardingJourneyBeginnerHint;
+
+  /// No description provided for @onboardingCLevelRange.
+  ///
+  /// In de, this message translates to:
+  /// **'Ganz neu oder A1 bis C2.'**
+  String get onboardingCLevelRange;
+
+  /// No description provided for @onboardingCPathBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Von den ersten Lauten bis zum echten Gespräch.'**
+  String get onboardingCPathBody;
+
+  /// No description provided for @onboardingCPathSummary.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein klarer Lernweg.'**
+  String get onboardingCPathSummary;
+
+  /// No description provided for @onboardingCSoundBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Hören, verbinden, ausprobieren.'**
+  String get onboardingCSoundBody;
+
+  /// No description provided for @onboardingCSoundSummary.
+  ///
+  /// In de, this message translates to:
+  /// **'Zwei Zeichen. Ein Klang.'**
+  String get onboardingCSoundSummary;
+
+  /// No description provided for @onboardingCStartLevel.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Startniveau'**
+  String get onboardingCStartLevel;
+
+  /// No description provided for @onboardingCTaegoRole.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein ruhiger Begleiter'**
+  String get onboardingCTaegoRole;
+
+  /// No description provided for @onboardingCtaGames.
+  ///
+  /// In de, this message translates to:
+  /// **'Spiele entdecken'**
+  String get onboardingCtaGames;
+
+  /// No description provided for @onboardingCtaTry.
+  ///
+  /// In de, this message translates to:
+  /// **'Kurz ausprobieren'**
+  String get onboardingCtaTry;
+
+  /// No description provided for @onboardingCBrand.
+  ///
+  /// In de, this message translates to:
+  /// **'EINLEITUNG'**
+  String get onboardingCBrand;
+
+  /// No description provided for @onboardingCPathTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Weg, der\nzu dir passt.'**
+  String get onboardingCPathTitle;
+
+  /// No description provided for @onboardingCSoundTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein erster\nKlang.'**
+  String get onboardingCSoundTitle;
+
+  /// No description provided for @onboardingCGamesTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Spielend\nbleibt mehr.'**
+  String get onboardingCGamesTitle;
+
+  /// No description provided for @onboardingCBookTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Buch\nlernt mit.'**
+  String get onboardingCBookTitle;
+
+  /// No description provided for @onboardingCHanokTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Lernen\nwird sichtbar.'**
+  String get onboardingCHanokTitle;
+
+  /// No description provided for @onboardingCCompanionTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Freund\nan deiner Seite.'**
+  String get onboardingCCompanionTitle;
+
+  /// No description provided for @introNew.
+  ///
+  /// In de, this message translates to:
+  /// **'Ganz neu'**
+  String get introNew;
+
+  /// No description provided for @introNewHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit Hangul anfangen'**
+  String get introNewHint;
+
+  /// No description provided for @introA2Hint.
+  ///
+  /// In de, this message translates to:
+  /// **'Du kennst die Grundlagen.'**
+  String get introA2Hint;
+
+  /// No description provided for @introChooseLevel.
+  ///
+  /// In de, this message translates to:
+  /// **'Startniveau wählen'**
+  String get introChooseLevel;
+
+  /// No description provided for @introApplyLevel.
+  ///
+  /// In de, this message translates to:
+  /// **'Niveau übernehmen'**
+  String get introApplyLevel;
+
+  /// No description provided for @introNextPath.
+  ///
+  /// In de, this message translates to:
+  /// **'Als Nächstes: Dein Lernweg.'**
+  String get introNextPath;
+
+  /// No description provided for @introNextSample.
+  ///
+  /// In de, this message translates to:
+  /// **'Als Nächstes: Eine kurze Lernprobe.'**
+  String get introNextSample;
+
+  /// No description provided for @introTwelveTools.
+  ///
+  /// In de, this message translates to:
+  /// **'12 Lernwerkzeuge für deinen Alltag.'**
+  String get introTwelveTools;
+
+  /// No description provided for @introGreetingTranslation.
+  ///
+  /// In de, this message translates to:
+  /// **'Guten Tag'**
+  String get introGreetingTranslation;
+
+  /// No description provided for @onboardingCDiscover.
+  ///
+  /// In de, this message translates to:
+  /// **'Entdecken'**
+  String get onboardingCDiscover;
+
+  /// No description provided for @onboardingCPractice.
+  ///
+  /// In de, this message translates to:
+  /// **'Üben'**
+  String get onboardingCPractice;
+
+  /// No description provided for @onboardingCRetain.
+  ///
+  /// In de, this message translates to:
+  /// **'Behalten'**
+  String get onboardingCRetain;
+
+  /// No description provided for @onboardingCPhoto.
+  ///
+  /// In de, this message translates to:
+  /// **'Foto'**
+  String get onboardingCPhoto;
+
+  /// No description provided for @onboardingCUnderstand.
+  ///
+  /// In de, this message translates to:
+  /// **'Verstehen'**
+  String get onboardingCUnderstand;
+
+  /// No description provided for @onboardingCRemember.
+  ///
+  /// In de, this message translates to:
+  /// **'Merken'**
+  String get onboardingCRemember;
+
+  /// No description provided for @onboardingCBuild.
+  ///
+  /// In de, this message translates to:
+  /// **'Bauen'**
+  String get onboardingCBuild;
+
+  /// No description provided for @onboardingCCollect.
+  ///
+  /// In de, this message translates to:
+  /// **'Sammeln'**
+  String get onboardingCCollect;
+
+  /// No description provided for @onboardingCCreate.
+  ///
+  /// In de, this message translates to:
+  /// **'Gestalten'**
+  String get onboardingCCreate;
+
+  /// No description provided for @grammarBookExample.
+  ///
+  /// In de, this message translates to:
+  /// **'Beispiel'**
+  String get grammarBookExample;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

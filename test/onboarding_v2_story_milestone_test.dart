@@ -1,14 +1,29 @@
 import 'dart:io';
 import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:image/image.dart' as img;
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_journey_scenes.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/theme.dart';
 
+import 'support/real_fonts.dart';
+
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(() async {
+    await loadSoriRealFonts(materialIcons: true);
+    for (final family in ['Roboto', 'RobotoCondensed', 'Lora', 'NotoSerif']) {
+      final loader = FontLoader(family);
+      loader.addFont(
+        rootBundle.load('assets/fonts/$family/$family-Variable.ttf'),
+      );
+      await loader.load();
+    }
+  });
   test('lossless onboarding WebP keeps the approved RGBA pixels', () {
     // Digests were taken from the approved PNGs before their lossless conversion.
     // They include transparent pixels, not just the visible non-alpha area.
@@ -103,11 +118,20 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
+      final hanok = find.byType(OnboardingHanokScene);
+      expect(hanok, findsNothing);
+      final preview = find.byKey(const ValueKey('c-onboarding-preview-6'));
+      await tester.ensureVisible(preview);
+      await tester.tap(preview);
+      await tester.pumpAndSettle();
+      expect(hanok, findsOneWidget);
       await tester.tap(find.byKey(const ValueKey('onboarding-v3-place-1')));
       await tester.pumpAndSettle();
       expect(find.text('누마루'), findsOneWidget);
       final window = tester
-          .widgetList<ClipPath>(find.byType(ClipPath))
+          .widgetList<ClipPath>(
+            find.descendant(of: hanok, matching: find.byType(ClipPath)),
+          )
           .where((c) => c.clipper != null)
           .last;
       final path = window.clipper!.getClip(const Size(600, 400));
@@ -118,7 +142,9 @@ void main() {
         isTrue,
         reason: 'The view uses a rounded rectangle, not an ellipse.',
       );
-      await tester.tap(find.text('So wächst er'));
+      await tester.tap(
+        find.byKey(const ValueKey('onboarding-v3-hanok-growth')),
+      );
       await tester.pumpAndSettle();
       for (var i = 0; i < 2; i++) {
         await tester.tap(find.byKey(ValueKey('onboarding-v3-growth-$i')));

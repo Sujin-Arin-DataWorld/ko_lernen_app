@@ -1,0 +1,231 @@
+{
+  "url": "http://127.0.0.1:7392",
+  "passed": true,
+  "count": 32,
+  "assets": [
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-jade-surface.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 2396682,
+      "sha256": "55b0e761d46859a36998aec85880e764da74e0f0f31b952c270915f3a8b2e4fe"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-taego-header.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 2120966,
+      "sha256": "f2cf498c516f9913d30d7d1dd5df5e48a61fc64c345e6dbd96520c70d4b36ef9"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-path-scene.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 2141362,
+      "sha256": "fbd4caf41fc97dbe1dd78c5a26a81f3e6753af0e400026308f5f8290f5c37218"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-sound-scene.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1990987,
+      "sha256": "f678c24138ae822168e8761e6a198a9ba4a9aa330802f58faa4e462890d4c48c"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-games-scene.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 2251638,
+      "sha256": "88c1fa529b1bbabbd5f3c89bde99f0fa6c5aa9c3c2d25c3e08ef80763445e4a9"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-scholar-scene.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 2334516,
+      "sha256": "1c69acca1e44b4bcecc4a8b3c7a9ddac385f7b627e7931126a3c6fd2c25f1f26"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-hanok-scene.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 2529857,
+      "sha256": "68621abea34a66b0cb1a1dc8d4f56568616c41c676b9183213886c563a116501"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-gold-button.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 852534,
+      "sha256": "9f65271a81e51a10f78819e34a3de199918662ce4da24af0ee50e09f05518240"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-paper-footer.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1851430,
+      "sha256": "a8d072e8ae73d875c64829c95bfd47af62ff8e0a1744ec8018e7f07a7e258c10"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-interest-travel.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 2054681,
+      "sha256": "899548ed570bfb61d426afa87c9d8d5e6b11c42ba04633b3564753d546327fe6"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-interest-culture.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 2492477,
+      "sha256": "c867600b5b86e2cb492bfcafab36654d0033444ca872ce79efad9985ea652bec"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-interest-study.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 2409369,
+      "sha256": "85184d1970123a1960c0a5edabe032d64aa3e7587f81b59c9162672fa0a22b08"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-interest-kcontent.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 2211214,
+      "sha256": "b1142b8f1311980024294f4676947bd2720dbc4715c7203c45d96f1747045ef5"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-gye-reading.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 2387531,
+      "sha256": "87371f0da6687fd80e7411f3474cc63769768d9629f05bbd6b1d06513831192a"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-speaker.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1311108,
+      "sha256": "220246df2c7dde5279fa464369268db83f3fe7d2bdce25b37829489557306647"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-plum-branch.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1290886,
+      "sha256": "5ba7d29153b3f799d84d3b5682ff9b3205890c37f2d5df16936db78e808cd1c3"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-taego-close.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 2272847,
+      "sha256": "45e2c07aa8d8bccd4e593d29d1506f4eac776f5257de172543685533598d0503"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-joy-close.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 2316259,
+      "sha256": "9c49d07afeb6a23f9bc160a8fab6fd51a3911cebafc9ae7573f328c74b6f96ac"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-cloud-mark.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 688363,
+      "sha256": "d85fc91299b03696ff9f285e5d6d9f2bc9a35470fd0f84d524e41a4826ce5e14"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-welcome-scene.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 2536453,
+      "sha256": "b5082b040b4b976bcdb5f9fdf1c7a553c08509ba1afa54aaa5cfcee3734924a0"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-book-tools.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1750354,
+      "sha256": "2db8aaf09b8bc829efc833c41ca442e5aec92f2f3c2b2793d049059a15420fdc"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-hanok-tools.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 278046,
+      "sha256": "7047197f66f974126a732e1dd1e1c8364a882206e6671e4c175ebd64e1606657"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-header-right-leaves.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1044892,
+      "sha256": "d30f68cec91a168d1c1860637f463fba0eebc9098536e33b97b1733d5aa3b96f"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-level-a1.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1566209,
+      "sha256": "8a407c9af57313a980659d0bc332d20ea45328372695f315a887ff443658df9b"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-level-a2.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1711471,
+      "sha256": "0af3f35bca1e8770fede3e2baa482f60c1ba619474dabfc629ddb0a729813129"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-level-b1.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1541850,
+      "sha256": "48414eb8ab868afe446e0ea33162b126153570475130c9e07a2ea53fd3424778"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-level-b2.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1556798,
+      "sha256": "af8ca4894a9624a7e05b34c3b63c4d9f88174615c2c58358f472d1e1cf0c7ef0"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-level-c1.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1578211,
+      "sha256": "03f6dcab2c0c2a41f04b8775efe490e4727e54e49cdee039dd914cd119174590"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-level-c2.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1594143,
+      "sha256": "9c099b64ba4c71e0da324b05b37278102492ffce3a1458595244862cbef803ec"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-level-beginner.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1627297,
+      "sha256": "2b96e89161486e4bd1be8b0df55e6a9e2249415b3f3f5b51bd36940464fea474"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-check.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1377146,
+      "sha256": "89144f953ef9235c7263bde06fc8c1f283ca046598527adcd0b1b84d1b8b7e3f"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-level-blank.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1703962,
+      "sha256": "1fca7f57aafc7799d9055a2be9dc5246063f51f10ee92aa6ec0c88920421d97c"
+    }
+  ]
+}

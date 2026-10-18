@@ -1,0 +1,1049 @@
+{
+  "schemaVersion": 1,
+  "preparedAt": "2026-10-18",
+  "scope": "Six independent asset regeneration briefs only. No generation, runtime asset mutation, or Figma mutation performed by this reviewer.",
+  "reviewStatus": "Scoped visual PASS for v7 composition, scene identity, geometry and typography; material and native gates remain separate",
+  "authority": {
+    "referencePath": "C:/Users/vjinn/.codex/generated_images/einleitung_setting_rats확정/einleitung1.png",
+    "referenceSha256": "c03ae18d08556d3e6a62cf0cfb39a2764d1db35793021049a19c8b55c59e9857",
+    "comparisonPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/einleitung-settings-parity-20261018/docs/screenshots/einleitung-parity-review-20261018/reference-comparison.png",
+    "comparisonSha256": "8e4b61af31161786b1204e53c955b71ddd148aee6ba300477ab25fe86b5e813c",
+    "sourceViewport": [
+      52,
+      52,
+      748,
+      1738
+    ],
+    "normalizedViewport": [
+      402,
+      934
+    ],
+    "coordinateConvention": "Rectangles are [x,y,width,height] in normalized viewport pixels; visual anchors are approximate optical observations from the raster, not original vector metadata.",
+    "currentAssetResolution": "v2 interest masters matched to upload JSON by byte size and visually inspected whole; root also confirmed exact paths. Tiger and plum remain v1 sources from generated-assets manifest.",
+    "stylePrecedence": "Current user-approved tactile C-style reference overrides the older ASSET_GENERATION_BIBLE flat-faceted/orange-tiger examples. Do not substitute that older visual family."
+  },
+  "sharedGenerationContract": {
+    "useReference": "C:/Users/vjinn/.codex/generated_images/einleitung_setting_rats확정/einleitung1.png",
+    "referenceUsage": "Attach the full approved original as guidance. Generate each asset independently; do not crop, slice, copy, trace bitmap pixels, or promote screenshot fragments as runtime art.",
+    "preserve": "Scene identity, object/character count, costume, pose, camera direction, object overlap, composition, and material family.",
+    "outputExclusions": [
+      "No German labels or other text",
+      "No phone shell or camera island",
+      "No UI controls, panel borders, rounded card frame, progress dots, or CTA",
+      "No watermark",
+      "No new decorative objects absent from the reference"
+    ],
+    "style": "Warm tactile 3D illustration with restrained sculpted surfaces, soft upper-left illumination, jade/teal, cream, olive foliage, warm wood and antique gold. Match the approved original rather than applying a generic flat-minhwa, toy, photographic, or anime restyle.",
+    "composition": "Interest images are opaque complete rectangular scenes; runtime supplies card corners and label bands. Tiger and branch are complete standalone RGBA layers with clean transparency.",
+    "acceptance": "Check whole generated master first, then render at the exact target rectangle. Accept visual scene/layout/material fidelity; do not require byte identity or invent similarity percentages.",
+    "residualDisclosure": "Independent generation can leave small fur, leaf, grain and highlight differences. Disclose them explicitly after visual review. This does not waive changed faces, poses, object counts, costume, camera angle, or materially different framing.",
+    "preserveMasters": "Save new candidates separately. Preserve existing masters and provenance. Do not silently replace approved/runtime assets."
+  },
+  "assets": [
+    {
+      "id": "taego-header",
+      "current": {
+        "path": "C:/Users/vjinn/.codex/generated_images/01a14d68-68e9-78c3-8e50-146dae12bb6f/exec-873f3c77-bec2-4213-a81c-4ae76179f15f.png",
+        "sha256": "ec748131d242ad2aa3e6aeba54f6b4dfff2d10221071331ec132eb278ca0e381",
+        "size": [
+          1024,
+          1536
+        ],
+        "figmaImageHash": "f954c7295a3b55388a2ed923002d38a2699f8f37"
+      },
+      "output": {
+        "aspect": "2:3 portrait master",
+        "suggestedSize": [
+          1024,
+          1536
+        ],
+        "transparentBackground": true
+      },
+      "referenceScene": {
+        "count": "Exactly one adult white tiger; no paws or tail required in this header crop.",
+        "anatomy": "Mature, slightly angular broad brow, compact muzzle, restrained blue-gray almond eyes, low rounded ears, layered cheek tufts and a long substantial cream-white chest. Preserve the original forehead/cheek stripe language and face identity.",
+        "pose": "Seated upright; face near-frontal with only the reference's subtle asymmetry. Calm closed mouth, level gaze toward viewer, no head tilt, grin, roar, or raised paw.",
+        "material": "Cream-white softly sculpted/clumped fur with charcoal warm-gray stripes; broad tufts and restrained strand detail. Antique gold edged dark-jade three-curl shoulder emblem on viewer-right.",
+        "camera": "Eye-level near-frontal upper-body portrait, matching the source. Do not switch to an overhead, low-angle, centered tight headshot, or childlike toy portrait.",
+        "framing": "Bust continues below paper occlusion. Left shoulder/chest flares toward screen center; right shoulder exits screen edge. Preserve generous torso width rather than a head-dominant narrow column."
+      },
+      "normalizedTarget": {
+        "visibleHeroRegion": [
+          213,
+          125,
+          189,
+          182
+        ],
+        "approximateAnchors": {
+          "leftEarTop": [
+            280,
+            126
+          ],
+          "rightEarTop": [
+            377,
+            132
+          ],
+          "nose": [
+            329,
+            210
+          ],
+          "leftShoulderAtPaper": [
+            214,
+            307
+          ],
+          "rightShoulderEmblemRegion": [
+            361,
+            259,
+            40,
+            48
+          ]
+        },
+        "occlusion": "Paper begins at y=307. Shape must remain behind paper. Title occupies x=20..270, y=145..219; do not overlap or shrink the title.",
+        "compositingNote": "Use natural aspect and optical anchor placement. Do not horizontally stretch the generated tiger to imitate the original."
+      },
+      "currentCandidateDifferences": [
+        "The current portrait has a rounder, fuller cheek/muzzle silhouette and larger rounder eyes, making it read as a different, softer tiger.",
+        "Current brow stripes are more regular/symmetrical; the reference has more irregular expressive stripe grouping and a firmer brow.",
+        "Current fine-fur portrait treatment differs from the reference's broader sculpted tufts.",
+        "At the comparison placement the body is too narrow near the paper and the face sits farther right/lower; placement correction alone cannot fix the changed face shape."
+      ],
+      "generationInstruction": "Create only the same adult white guardian tiger from the full approved screen, as an independent transparent upper-body asset. Keep its mature face, restrained blue-gray eyes, closed calm mouth, compact muzzle, cheek tufts, dark stripe language, substantial chest and the small jade/gold three-curl emblem on the viewer-right shoulder. Match eye-level near-frontal camera and reference asymmetry. Include enough torso to be hidden by a paper panel across the lower bust. Keep both ears intact. Avoid the rounder baby-faced geometry and narrow chest of the current candidate.",
+      "reviewChecks": [
+        "Same recognizable face and stripe language at 402px screen scale",
+        "Original ear/nose/shoulder anchors can be met without stretching",
+        "No title collision; torso meets paper across the original width",
+        "Emblem remains correctly sized and on viewer-right",
+        "Transparent edges are clean on jade, cream and black"
+      ]
+    },
+    {
+      "id": "plum-branch-low-wide",
+      "current": {
+        "path": "C:/Users/vjinn/.codex/generated_images/01a14d68-68e9-78c3-8e50-146dae12bb6f/exec-2033d2f5-8023-49b6-a382-8cff341d37dd.png",
+        "sha256": "49ec00b84e5cfb29b46ad9d7d270437a3d3b911fcbc61d1ebd4f3e9c56eaf49a",
+        "size": [
+          1536,
+          1024
+        ],
+        "figmaImageHash": "3a156e169e8b65e8a770a6a9c2ef2852b279abbe"
+      },
+      "output": {
+        "aspect": "Approximately 2.1:1 landscape; low wide subject silhouette",
+        "suggestedSize": [
+          1536,
+          732
+        ],
+        "transparentBackground": true
+      },
+      "referenceScene": {
+        "count": "One branching woody spray with four clearly visible blossom heads in the displayed crop: one dominant left blossom, two smaller blossoms across the lower span, and one partial small blossom near the lower-left edge. Additional buds/occluded foliage are subordinate, not an evenly spaced flower chain.",
+        "form": "Forked brown branches spreading mostly horizontally from the left edge. Taller olive-green leaves near the left; lower small leaf fans extend right. Ivory five-petal blossoms with small warm-gold stamens, natural mixed sizes and sparse buds.",
+        "camera": "Frontal botanical ornament with shallow sculpted depth; no dramatic macro perspective.",
+        "colorAndMaterial": "Muted olive leaves with soft waxy highlights, warm brown stems, warm ivory petals and muted gold centers. Light comes from upper-left.",
+        "framing": "Low fan shape, broad at the base; leave the upper-right part mostly transparent. Rightmost small blossom remains low, near the paper."
+      },
+      "normalizedTarget": {
+        "visibleRegion": [
+          0,
+          215,
+          196,
+          94
+        ],
+        "approximateBlossomCenters": [
+          [
+            30,
+            267
+          ],
+          [
+            70,
+            289
+          ],
+          [
+            151,
+            292
+          ],
+          [
+            7,
+            303
+          ]
+        ],
+        "topBoundary": "Highest leaves near x=20, y=216; the right tip must not climb into title space.",
+        "occlusion": "Lower branch base may pass behind the panel at y=307."
+      },
+      "currentCandidateDifferences": [
+        "Current main stem is one steep lower-left to upper-right diagonal; its far-right flower rises into the title band when placed.",
+        "Current five large flowers are distributed serially along the stem, producing a garland rather than the reference's unequal low clusters.",
+        "Current glossy large leaf/flower scale and uniform spacing make the spray too dominant and orderly."
+      ],
+      "generationInstruction": "Generate a complete independent transparent low, wide white-blossom branch matching the left-bottom header ornament in the approved screen. Make a forked horizontal fan, with one larger cream flower on the left, two smaller low flowers farther right, a partial small low-left bloom, sparse buds and muted olive leaves. Keep the right end low. The taller foliage belongs on the left. Do not make the present ascending diagonal five-flower garland. Preserve warm sculpted depth and soft light, without a background, pot or UI.",
+      "reviewChecks": [
+        "Fits the [0,215,196,94] region without rotation or nonuniform scaling",
+        "Right flower remains around y=292 and does not reach the title",
+        "Branch has unequal low clusters rather than evenly spaced diagonal blossoms",
+        "No opaque rectangle or halo on jade"
+      ]
+    },
+    {
+      "id": "interest-travel",
+      "current": {
+        "path": "C:/Users/vjinn/.codex/generated_images/01a14d68-68e9-78c3-8e50-146dae12bb6f/exec-ee929d7f-7730-42f0-b13e-3da439b28898.png",
+        "sha256": "fdaa46f014cb9f7bac6350084b42020e0931bea7c3661b951b3919081219e2f7",
+        "size": [
+          1688,
+          932
+        ],
+        "figmaImageHash": "473374dedb02792bd6a15a734c76fbf402dd67b6"
+      },
+      "output": {
+        "aspect": "178:96 (approximately 1.854:1)",
+        "suggestedSize": [
+          1780,
+          960
+        ],
+        "transparentBackground": false
+      },
+      "normalizedTarget": {
+        "artRect": [
+          17,
+          505,
+          178,
+          96
+        ],
+        "cardRect": [
+          16,
+          504,
+          180,
+          125
+        ]
+      },
+      "referenceScene": {
+        "count": "One upright mug, one thin low wooden coaster/saucer, one sparse leafy branch to the right. No real open white blossom beside the mug.",
+        "shape": "Tall jade ceramic mug with nearly upright sides, rounded lower corners, elliptical gold rim and thick left C-shaped handle. Small cream floral motif with dark-jade stamen/rosette detail and restrained gold accents.",
+        "camera": "Front three-quarter still life, just high enough to see the oval opening and saucer. Match the reference's taller mug silhouette; do not flatten it through a lower or more elevated camera.",
+        "composition": "Mug plus handle occupies roughly the left 60% of art width. Mug base nearly reaches the art's bottom. Olive leaf cluster occupies right third and touches/overlaps mug base. Thin wood surface appears at the bottom; pale cream background and faint leaf shadow above.",
+        "materialsAndColors": "Deep muted jade ceramic with restrained reflections, thin antique-gold rim, cream motif, warm walnut/honey tabletop, matte olive leaves."
+      },
+      "currentCandidateDifferences": [
+        "Current adds a prominent open white flower and several buds on the right; the reference shows a simpler leafy branch.",
+        "Current large gold-outlined flower/stamen motif changes the reference's smaller, softer cream motif with dark center detail.",
+        "Current broad raised wooden platter and larger tabletop exposure reduce the mug's relative vertical presence.",
+        "The glossy highlights and decorative gold diamonds/vines are more emphatic than the original."
+      ],
+      "generationInstruction": "Generate the complete reference travel-card still life, without text or card frame: one tall jade mug on a very thin low wooden coaster, thick handle on the left, delicate gold rim and the same modest cream flower motif. A sparse olive leafy sprig lies to its right, with no large real open white flower. Pale warm cream background with a faint leaf shadow; shallow warm wood strip below. Match the approved mug, camera and relative scale rather than adding a decorative flower bouquet or large wooden platter.",
+      "reviewChecks": [
+        "Exactly one mug; no added open white flower beside it",
+        "Mug/handle dominates left 60% and remains tall at 178x96",
+        "Thin coaster and restrained wood band",
+        "Cream motif, rim and handle match the reference's visual hierarchy"
+      ]
+    },
+    {
+      "id": "interest-culture",
+      "current": {
+        "path": "C:/Users/vjinn/.codex/generated_images/01a14d68-68e9-78c3-8e50-146dae12bb6f/exec-50bce99a-355e-4389-bdf9-3ad1a7696e82.png",
+        "sha256": "1863214642d4799ef1dd3ce941582935401ff6522d39dfba655a2ae0d936d7aa",
+        "size": [
+          1688,
+          932
+        ],
+        "figmaImageHash": "024af3b1dc52eb2b8de1e519572a8b31cceb90af"
+      },
+      "output": {
+        "aspect": "178:96 (approximately 1.854:1)",
+        "suggestedSize": [
+          1780,
+          960
+        ],
+        "transparentBackground": false
+      },
+      "normalizedTarget": {
+        "artRect": [
+          208,
+          505,
+          178,
+          96
+        ],
+        "cardRect": [
+          207,
+          504,
+          180,
+          125
+        ]
+      },
+      "referenceScene": {
+        "count": "Exactly two small stylized Korean figures and one small red rectangular book/booklet held against the man's lower chest. Background foliage stays subordinate.",
+        "characters": "Woman on left in coral-red hanbok with ivory collar, dark bundled hair and small ivory/coral/gold floral ornaments; man on right in teal-blue hanbok with ivory collar and one rounded black topknot.",
+        "pose": "They turn slightly toward one another, smiling and conversing. Woman's forearm stays close to her own chest; man keeps his hands around the small red book. Their hands do not meet in a handshake or clasp.",
+        "camera": "Chest-up at near eye level with mild three-quarter turns toward each other. Warm sculpted miniature character style; preserve reference head/face proportions rather than making more infant-like round cheeks.",
+        "composition": "Woman occupies left center, man right center. Their hairstyles touch the upper image boundary while torsos meet the bottom edge. Sparse olive leaves, a few cream buds and wood behind/below; cream upper background.",
+        "colorsAndMaterial": "Coral fabric, deep teal fabric, ivory collars, warm skin, charcoal hair, tiny antique-gold ornaments; soft tactile fabric and hair, not glossy plastic."
+      },
+      "currentCandidateDifferences": [
+        "Current replaces conversation/book-holding with a conspicuous two-person hand clasp.",
+        "The small red book/booklet is missing.",
+        "Current cheeks/head treatment is rounder and more toddler-like; hair volume and face orientation differ.",
+        "Current large white blossoms and broad leafy backdrop add more decoration than the reference."
+      ],
+      "generationInstruction": "Generate only the complete two-person culture-card scene from the approved screen. Keep the coral-hanbok woman on the left and teal-hanbok man with rounded topknot on the right, smiling toward each other. Match their original faces, hair ornaments and chest-up framing. The woman keeps her forearm near her chest; the man holds the small red rectangular book/booklet at his lower chest. Do not make them hold hands. Keep foliage sparse, with pale cream background and a narrow wooden base. No labels or border.",
+      "reviewChecks": [
+        "Two figures, same left/right identity and clothing",
+        "Small red book visible against man's chest",
+        "No hand clasp; conversation pose retained",
+        "Original face/hair scale at 178x96",
+        "Foliage does not dominate character silhouettes"
+      ]
+    },
+    {
+      "id": "interest-study",
+      "current": {
+        "path": "C:/Users/vjinn/.codex/generated_images/01a14d68-68e9-78c3-8e50-146dae12bb6f/exec-4a5cafe3-7822-4853-9b38-95c6c4f5e8fe.png",
+        "sha256": "d00ce42921455f12a2495e49155861905b41ee8e62e0683b9cd810f802c6231a",
+        "size": [
+          1688,
+          932
+        ],
+        "figmaImageHash": "911597566fd64fbbee0cb02a6535114e0db7ed9d"
+      },
+      "output": {
+        "aspect": "178:91 (approximately 1.956:1)",
+        "suggestedSize": [
+          1780,
+          910
+        ],
+        "transparentBackground": false
+      },
+      "normalizedTarget": {
+        "artRect": [
+          17,
+          637,
+          178,
+          91
+        ],
+        "cardRect": [
+          16,
+          636,
+          180,
+          120
+        ]
+      },
+      "referenceScene": {
+        "count": "Three closed books. Both reference and current candidate already contain three; do not change the count. No pencil and no surrounding plant arrangement in this card.",
+        "form": "Loosely staggered, crossing book stack with dark desaturated blue/teal covers, warm tan page blocks, gold edging/corner accents and one prominent muted-gold blossom on the upper cover.",
+        "camera": "Elevated three-quarter still life, showing a substantial upper cover plane and the thickness/offset of all three books. Preserve the original diagonal orientation and loose fan rather than tidying into an aligned pile.",
+        "composition": "Stack fills almost the full art width and height, resting on a narrow wooden strip. Top cover runs diagonally; its spine/front-left edge descends toward the lower center. Lower volumes fan at different angles. Cream background is mostly a thin upper margin.",
+        "colorsAndMaterial": "Slate-blue/teal slightly worn covers, restrained antique-gold motif and border, warm ochre page edges, tactile book thickness, quiet cream backdrop."
+      },
+      "currentCandidateDifferences": [
+        "Current adds a foreground pencil and substantial leaves behind/around the books; both are absent in the reference study card.",
+        "Current stack is more neatly aligned and the top volume has a different camera/orientation and page/spine balance.",
+        "Current gold corner ornament is more ornate and the cover is brighter teal; reference reads darker slate-blue with simpler gold accents.",
+        "The initial small-board review suspected a count difference; whole-master inspection confirms three books on both sides, so count is not a defect."
+      ],
+      "generationInstruction": "Generate the complete study-card still life from the approved screen: exactly three closed, loosely staggered blue/teal books on a narrow warm wooden base, no pencil or foliage. Match the original elevated three-quarter view, diagonal top cover and differently angled lower books. Keep the large muted-gold blossom on the upper cover, restrained gold edging, visible warm page-block thickness and darker slate-blue material. Fill the wide card image with the stack rather than leaving a large scenic background. No lettering or UI frame.",
+      "reviewChecks": [
+        "Three distinct closed volumes",
+        "No pencil or leaf scenery",
+        "Same diagonal top-cover/spine direction and loose lower-book fan",
+        "Dark slate-blue covers and restrained gold",
+        "All three book edges remain visible at 178x91"
+      ]
+    },
+    {
+      "id": "interest-kcontent",
+      "current": {
+        "path": "C:/Users/vjinn/.codex/generated_images/01a14d68-68e9-78c3-8e50-146dae12bb6f/exec-8fb4ad8d-0ef2-4e2b-8e1e-ea8d28d5eeb7.png",
+        "sha256": "51737bf7ff030b97f7f9d9b05ac86f3f3a9aa3a8bd255f71fd73032ab069032f",
+        "size": [
+          1688,
+          932
+        ],
+        "figmaImageHash": "cbf12aa6e5781f7a6f4b0e70339dc361e0910c32"
+      },
+      "output": {
+        "aspect": "178:91 (approximately 1.956:1)",
+        "suggestedSize": [
+          1780,
+          910
+        ],
+        "transparentBackground": false
+      },
+      "normalizedTarget": {
+        "artRect": [
+          208,
+          637,
+          178,
+          91
+        ],
+        "cardRect": [
+          207,
+          636,
+          180,
+          120
+        ]
+      },
+      "referenceScene": {
+        "count": "Exactly two performers, two handheld microphones and two finger-heart gestures. Sparse olive leaves/cream buds behind them.",
+        "characters": "Wavy brown-haired man on left in teal jacket with warm-gold trim over light shirt; long brown-haired woman on right in black/dark jacket with gold accents. Keep the woman's jacket and sleeves dark rather than teal.",
+        "pose": "Both face the viewer with friendly restrained smiles. Man's outside hand at viewer-left makes a finger-heart; his inner hand holds a microphone. Woman's inner hand makes a finger-heart and outer hand near viewer-right cheek holds the second microphone.",
+        "camera": "Near-eye-level waist/chest-up paired portrait, with slight inward lean. Preserve original hair and face silhouettes and their relative head sizes.",
+        "composition": "Heads occupy upper half and hands/microphones the lower half; shoulder/torso bases meet the image bottom. Pair nearly fills width, with small leaf fans visible at side edges and a warm wooden base. Woman's head sits slightly lower than the man's.",
+        "colorsAndMaterial": "Rich brown hair, warm skin, teal and black costumes, restrained gold microphone heads/trim, olive foliage and warm cream background; soft sculpted tactile character rendering."
+      },
+      "currentCandidateDifferences": [
+        "Current gives the woman prominent teal sleeves/jacket sections instead of the reference dark costume.",
+        "Current pair has rounder/larger eyes and more open exaggerated smiles, changing the original face identities.",
+        "Current microphones, hands and foreground tabletop are more prominent relative to the heads.",
+        "Current adds large white open blossoms behind the pair; reference foliage is quieter and mostly leaves/buds."
+      ],
+      "generationInstruction": "Generate the complete K-content card scene from the approved screen, keeping the same two performers, original face/hair proportions, two microphones and two finger-hearts. Man left: teal gold-trim jacket, light shirt, outside finger-heart and inner microphone. Woman right: dark black gold-accent jacket including sleeves, inner finger-heart and outer microphone near her cheek. Match restrained friendly smiles and near-eye-level chest-up composition. Keep small olive leaf fans and cream buds at the edges, no oversized open white blossoms or broad tabletop foreground. No words or card border.",
+      "reviewChecks": [
+        "Exactly two microphones and two finger-hearts in original hand positions",
+        "Woman's full costume remains dark; man remains teal",
+        "Faces, hairstyles and relative head heights match reference identity",
+        "Hands do not obscure faces; pair fills original frame",
+        "Sparse side foliage without prominent extra flowers"
+      ]
+    }
+  ],
+  "reviewV5": {
+    "date": "2026-10-18",
+    "revision": "v5-after-six-asset-replacement",
+    "verdict": "FAIL for full visual parity; bounded fixes below. Scene identity defects from the previous round are largely resolved.",
+    "evidence": {
+      "liveNodes": [
+        "rVlcMLvngw07BYJ7nRT87C/80:336",
+        "rVlcMLvngw07BYJ7nRT87C/80:569"
+      ],
+      "liveRead": "Both nodes were directly captured and inspected with read-only Figma property queries. No Figma content was changed.",
+      "localLatest": [
+        {
+          "path": "docs/screenshots/einleitung-parity-review-20261018/01-v5.png",
+          "sha256": "957997cee9812856e04c40a704bcc1558cba7df9e8174cc8857a40ba1f9bead9"
+        },
+        {
+          "path": "docs/screenshots/einleitung-parity-review-20261018/level-v5.png",
+          "sha256": "504e1d742f436e97b3c9043faea5c7d64e99f8ad947857c03a731d2d1af418a2"
+        },
+        {
+          "path": "docs/screenshots/einleitung-parity-review-20261018/reference-comparison-v5.png",
+          "sha256": "3b581c1af699f37b948f3ee5ca47dea1e1f03c24ea676b513aed170c00681c74"
+        }
+      ],
+      "temporalNote": "The initial direct modal screenshot preceded the root's sprout-medal update. Latest local v5 shows the sprout; the missing-sprout finding is therefore resolved.",
+      "measurement": "Ink/color bounds measured from raster masks after source viewport normalization. Coordinates [x,y,w,h]; allow 1-2px antialias uncertainty. Do not confuse these bounds with text-node rectangles.",
+      "runtimeGate": "Static design review only. No native/runtime/device approval inferred."
+    },
+    "resolved": [
+      "Culture no longer clasps hands; the small red book-like prop is restored.",
+      "Study retains three books and removes the extra pencil and plant scenery.",
+      "K-content woman's costume is dark again; two microphones and two finger-hearts remain.",
+      "Plum branch now has the correct low, wide composition rather than a diagonal garland.",
+      "Modal underlay correctly separates committed beginner state from draft A2; latest v5 includes the sprout.",
+      "Lora Bold 35 matches the level numeral size and stroke silhouette closely; do not restart font exploration.",
+      "Start-level and interest-heading text widths now match the reference closely."
+    ],
+    "closeEnoughDoNotReopen": [
+      {
+        "item": "Start-level heading",
+        "referenceInk": [
+          23,
+          325,
+          191,
+          20
+        ],
+        "candidateInk": [
+          23,
+          326,
+          192,
+          19
+        ]
+      },
+      {
+        "item": "Interest heading",
+        "referenceInk": [
+          21,
+          473,
+          193,
+          23
+        ],
+        "candidateInk": [
+          22,
+          474,
+          192,
+          21
+        ]
+      },
+      {
+        "item": "Modal title",
+        "referenceInk": [
+          17,
+          453,
+          244,
+          22
+        ],
+        "candidateInk": [
+          17,
+          453,
+          245,
+          21
+        ]
+      },
+      {
+        "item": "A1",
+        "referenceInk": [
+          90,
+          595,
+          35,
+          25
+        ],
+        "candidateInk": [
+          88,
+          595,
+          35,
+          25
+        ]
+      },
+      {
+        "item": "A2",
+        "referenceInk": [
+          273,
+          595,
+          40,
+          25
+        ],
+        "candidateInk": [
+          272,
+          595,
+          40,
+          25
+        ]
+      },
+      {
+        "item": "B1",
+        "referenceInk": [
+          90,
+          670,
+          33,
+          25
+        ],
+        "candidateInk": [
+          89,
+          670,
+          34,
+          25
+        ]
+      },
+      {
+        "item": "C1",
+        "referenceInk": [
+          89,
+          745,
+          34,
+          25
+        ],
+        "candidateInk": [
+          87,
+          744,
+          36,
+          25
+        ]
+      },
+      {
+        "item": "Weiter label",
+        "referenceInk": [
+          168,
+          867,
+          67,
+          16
+        ],
+        "candidateInk": [
+          168,
+          866,
+          66,
+          17
+        ]
+      }
+    ],
+    "fixes": [
+      {
+        "id": "V5-01",
+        "priority": "P1",
+        "item": "Travel mug is visibly too small inside the unchanged card",
+        "nodeId": "80:354",
+        "currentArtRect": [
+          17,
+          505,
+          178,
+          96
+        ],
+        "referenceJadeBounds": [
+          24,
+          518,
+          114,
+          82
+        ],
+        "candidateJadeBounds": [
+          33,
+          518,
+          82,
+          66
+        ],
+        "target": "Keep the card/label fixed. Restore the original taller, broader mug so the rim stays near y518 and the mug reaches about y600; wood band should begin near y582 rather than the current higher band.",
+        "firstPass": "For the complete independent image, try a 1.24 uniform internal zoom anchored near screen [71,518], then align the cup left edge to x24. This derives from the measured 82/66 height ratio. Do not enlarge the card itself or use screenshot pixels.",
+        "caveat": "The current mug is also proportionally narrow. If uniform framing still leaves its body visibly narrow, revise only the mug's width in the independent master. Do not stretch the whole scene horizontally.",
+        "passCondition": "Cup visual bounds approach [24,518,114,82] without cutting its rim/handle; leaves and coaster retain the original hierarchy."
+      },
+      {
+        "id": "V5-02",
+        "priority": "P2",
+        "item": "Hero title baseline and second-line width",
+        "nodeId": "80:341",
+        "currentNodeRect": [
+          20,
+          141,
+          274,
+          78
+        ],
+        "font": "Roboto Bold 31.5; line height 35.5",
+        "referenceLine1": [
+          22,
+          147,
+          237,
+          25
+        ],
+        "candidateLine1": [
+          22,
+          150,
+          235,
+          23
+        ],
+        "referenceLine2": [
+          22,
+          183,
+          228,
+          31
+        ],
+        "candidateLine2": [
+          22,
+          186,
+          219,
+          29
+        ],
+        "firstPass": "Move title y141 to y138. Keep family/size initially. Apply approximately 0.65px tracking only to 'Dein Rhythmus.' (13 inter-character gaps gives about 8.5px added width); do not widen both lines or stretch text.",
+        "passCondition": "First-line ink begins near y147 and second-line near y183; second-line width near228, with no tiger overlap.",
+        "residual": "Reference stroke weight is slightly fuller; reassess only after the positional fix. Do not restart broad typeface exploration for a 1-2px raster-edge difference."
+      },
+      {
+        "id": "V5-03",
+        "priority": "P2",
+        "item": "Tiger shoulder emblem and missing right-edge foliage",
+        "nodeId": "80:339",
+        "hash": "fecf04998ee45b2eb145a45d5bbaad0805449a52",
+        "currentRect": [
+          192,
+          76,
+          220,
+          330
+        ],
+        "targetEmblemRegionApprox": [
+          361,
+          259,
+          40,
+          48
+        ],
+        "currentEmblemRegionApprox": [
+          378,
+          279,
+          24,
+          28
+        ],
+        "finding": "Face/ear placement and adult guardian identity are much improved. The visible emblem is now too far right/lower and is substantially cut by the panel. The source's leaf sprig behind the head at the far right is absent.",
+        "firstPass": "Keep the tiger face placement. Move the emblem within the independent artwork approximately 16px left and 18px up at screen scale; do not shift the entire tiger merely to rescue the emblem. Alternatively use a separately generated whole emblem layer with matching depth and no screenshot extraction.",
+        "foliageTargetApprox": [
+          375,
+          103,
+          27,
+          126
+        ],
+        "foliageAction": "Restore the small right-edge foliage behind the tiger using a complete independent foliage layer; keep it subordinate and behind the head, rather than adding a visible bouquet.",
+        "passCondition": "All three shoulder curls read above the paper, at the original relative size; right-edge leaves restore the source framing.",
+        "residual": "Small fur/stripe/highlight variations may be disclosed; they are not by themselves a reason to regenerate the entire tiger again."
+      },
+      {
+        "id": "V5-04",
+        "priority": "P2",
+        "item": "Plum accent slightly low/right",
+        "nodeId": "80:340",
+        "hash": "72164c5f6f1a7ee1c9d4578f4d95805dbbfdf848",
+        "currentRect": [
+          -5,
+          212,
+          218,
+          104
+        ],
+        "firstPassRect": [
+          -10,
+          207,
+          218,
+          104
+        ],
+        "finding": "The low-wide silhouette is now correct. Main blossom and higher left leaves remain roughly5px down/right relative to source.",
+        "passCondition": "Main blossom center near[30,267], small right bloom near[151,292], while the base remains occluded by the y307 paper. Do not regenerate the whole branch for small leaf differences."
+      },
+      {
+        "id": "V5-05",
+        "priority": "P2",
+        "item": "Culture and K-content subjects remain a little undersized",
+        "nodeIds": [
+          "80:357",
+          "80:363"
+        ],
+        "artRects": [
+          [
+            208,
+            505,
+            178,
+            96
+          ],
+          [
+            208,
+            637,
+            178,
+            91
+          ]
+        ],
+        "firstPass": "Keep card geometry and text fixed. Test only a modest 1.08-1.10 internal zoom of each whole independent image around its center; the goal is original head/torso occupancy and less exposed tabletop/foliage. Confirm hair is not clipped.",
+        "finding": "Object counts, hand actions and clothing are now correct. This is a framing correction, not a request for another character redesign.",
+        "passCondition": "Faces and hair occupy the source proportions and bottoms meet the art edge; preserve two figures and all required hands/microphones.",
+        "studyDisposition": "Study now has the correct three-book scene and no extra props. Remaining cover-grain and small stacking-angle differences are disclosed generation variation; no additional full study regeneration requested."
+      },
+      {
+        "id": "V5-06",
+        "priority": "P2",
+        "item": "CTA body height/placement and plain arrow",
+        "setupTargetVisibleRect": [
+          16,
+          849,
+          370,
+          51
+        ],
+        "modalTargetVisibleRect": [
+          16,
+          843,
+          370,
+          51
+        ],
+        "currentComponentHeight": 58,
+        "currentGoldAssetGeometry": {
+          "localRect": [
+            -15.3,
+            -37.8,
+            400.6,
+            133.53
+          ],
+          "hash": "2101804632e35fa2b55261051fc7fa5563e40462"
+        },
+        "observation": "The raster gold face begins around y847 in setup and y841 in modal, about2px too high. It also appears deeper than the source. Changing only the empty component frame height will not change the visible asset.",
+        "firstPass": "Set target component height51 and adjust the whole independent gold art to approximately local[-15.3,-34,400.6,126], then recheck actual visible bounds. This is an initial geometric correction; visible-face measurement governs the final result.",
+        "arrowTargetApprox": [
+          351,
+          864,
+          11,
+          17
+        ],
+        "arrowAction": "Replace the plain Roboto '›' with a matched compact chevron that retains the source's dark body and thin gold-lit edge. Preserve a separate accessible action label.",
+        "passCondition": "Visible button rectangle meets target, including side wall/shadow; label stays aligned and arrow is not a generic text glyph."
+      },
+      {
+        "id": "V5-07",
+        "priority": "P2",
+        "item": "Modal bottom helper and apply label too wide/lower",
+        "helper": {
+          "nodeId": "80:641",
+          "referenceInk": [
+            112,
+            812,
+            180,
+            14
+          ],
+          "candidateInk": [
+            99,
+            816,
+            204,
+            15
+          ],
+          "currentFrame": [
+            16,
+            810,
+            370,
+            25
+          ],
+          "currentFontSize": 16,
+          "firstPass": {
+            "frame": [
+              16,
+              806,
+              370,
+              23
+            ],
+            "fontSize": 14.2,
+            "lineHeight": 23
+          }
+        },
+        "apply": {
+          "nodeId": "110:53",
+          "referenceInk": [
+            114,
+            858,
+            177,
+            15
+          ],
+          "candidateInk": [
+            103,
+            861,
+            196,
+            16
+          ],
+          "currentFrame": [
+            28,
+            853,
+            346,
+            32
+          ],
+          "currentFontSize": 22,
+          "firstPass": {
+            "frame": [
+              28,
+              849,
+              346,
+              32
+            ],
+            "fontSize": 20
+          }
+        },
+        "passCondition": "Rendered helper/apply ink approaches the reference bounds; preserve centered text and card hit regions."
+      },
+      {
+        "id": "V5-08",
+        "priority": "P2",
+        "item": "Jade texture and modal footer remain visibly different",
+        "jadeNodeId": "80:337",
+        "jadeFinding": "Current background exposes fibrous diagonal paper streaks. Reference is cloudier, smoother mottled deep jade. Color alone will not remove that material difference.",
+        "jadeAction": "Use a new whole jade-surface candidate guided by the approved reference's diffuse mottling, without diagonal fibers. No layout changes required.",
+        "footerFinding": "The modal now has foliage, resolving the prior blank bottom, but the white flowers/leaves rise too high and are more dominant than the source.",
+        "footerTarget": "Keep the light wave motifs starting around y806. Lower the prominent floral mass roughly20px so most blossoms remain near y910..934 rather than occupying the area beside/below the CTA. Do not shift the entire sheet or CTA to compensate.",
+        "ownership": "Coordinate with the material reviewer; this is one shared texture/footer fix, not duplicate generation work.",
+        "passCondition": "Diffuse jade and quieter bottom foliage preserve the source material hierarchy."
+      }
+    ],
+    "stoppingRule": "Apply the bounded geometry/typography fixes, correct the clearly undersized mug and the named material/crest issues, then capture once again. Do not reopen resolved scene semantics or chase individual fur/leaf/grain pixels. Full PASS remains withheld until these visible differences are checked.",
+    "changesMadeByReviewer": "Appended this structured review to the existing reviewer JSON only."
+  },
+  "latestReview": {
+    "date": "2026-10-18",
+    "revision": "v7-final-bounded-rereview",
+    "verdict": "PASS_SCOPED_VISUAL",
+    "files": [
+      {
+        "path": "docs/screenshots/einleitung-parity-review-20261018/01-v7.png",
+        "sha256": "c40906b0c4a6c04915d262253e525aa26cbe8b984af781179a7e9d365fcbac84"
+      },
+      {
+        "path": "docs/screenshots/einleitung-parity-review-20261018/level-v7.png",
+        "sha256": "244aa07e640b16a5d8ec96fdc5e808627f7bd7f4269062f133614b6b16cdab75"
+      }
+    ],
+    "evidence": "Inspected both saved 402x934 v7 exports and the full approved original modal. Local v7 evidence; no new live Figma hash claim.",
+    "passedScope": [
+      "Travel mug now has the source scale and framing, including rim, handle and lower edge.",
+      "Hero title baseline and second-line width corrected.",
+      "Tiger face/identity retained; shoulder emblem now readable above paper and no longer substantially clipped.",
+      "Low-wide branch moved into the intended lower-left region; right-edge foliage restored.",
+      "Culture and K-content framing corrected while preserving the fixed book, costume and hand actions.",
+      "Study scene remains accepted under the previously defined stopping rule.",
+      "CTA visible depth/geometry and replacement chevron now read consistently with the source direction.",
+      "Modal apply label now matches width/position closely.",
+      "Footer flowers lowered; no additional composition regeneration requested.",
+      "Lora35 level labels and source-state underlay remain accepted.",
+      "Modal helper exact copy corrected to Du kannst es später ändern.; ink height and readability restored. Main setup retains its correct das copy."
+    ],
+    "resolvedRequired": [
+      {
+        "id": "V6-01",
+        "nodeId": "80:641",
+        "status": "PASS",
+        "text": "Du kannst es später ändern.",
+        "referenceInk": [
+          111,
+          812,
+          182,
+          15
+        ],
+        "v7Ink": [
+          106,
+          811,
+          190,
+          15
+        ],
+        "measurement": "Same blue/dark pixel mask over normalized source and v7. Exact glyph outline differs; y differs by1px and total width by8px. Height restored to15px; centered, legible and unclipped. These small font-rendering differences do not reopen the bounded correction."
+      }
+    ],
+    "remainingRequired": [],
+    "delegatedMaterialGate": {
+      "item": "Jade luminance and surface",
+      "status": "INDEPENDENT_MATERIAL_REVIEW",
+      "observation": "Root reports the material reviewers recommended #094838 at60% native glaze has been applied. Its final material verdict belongs to that reviewer; this visual PASS does not independently certify that gate."
+    },
+    "residualDisclosure": "Independent generated fur, stripes, foliage, grain and highlights retain fine differences. Typography retains small source-font/rendering differences. Scene identity and layout are accepted under the agreed stopping rule; pixel identity is not claimed.",
+    "expansionGate": "This designer approves the scoped static visual result. Combine with the independent material verdict and other assigned review gates before expansion. Flutter, interaction and physical-device verification remain separate.",
+    "furtherRegeneration": "None requested.",
+    "changesMade": "This review JSON only; no Figma, runtime or image mutations."
+  },
+  "reReview": {
+    "requiredEvidence": [
+      "New whole masters with paths, dimensions and SHA-256",
+      "Updated 402x934 DE100% comparison board showing original, candidate and overlay for setup and level chooser",
+      "Native capture remains a separate gate after static approval"
+    ],
+    "decisionRule": "PASS only when scene identity, composition, pose, camera and materials above match at actual render size. Enumerate residual generation details honestly; neither matching node rectangles nor different raster bytes alone determines the verdict.",
+    "notSolvedByTheseBriefs": [
+      "Typography metrics",
+      "Modal committed-versus-draft background state",
+      "Paper/footer wave and leaf composition",
+      "CTA arrow/material",
+      "Header mark/progress styling"
+    ]
+  },
+  "reviewV6": {
+    "date": "2026-10-18",
+    "revision": "v6-bounded-rereview",
+    "verdict": "PASS_SCOPED_COMPOSITION_ASSETS_AND_GEOMETRY; one modal helper correction remains; jade luminance remains with material reviewer",
+    "files": [
+      {
+        "path": "docs/screenshots/einleitung-parity-review-20261018/01-v6.png",
+        "sha256": "863afb504c50c29e184ca26ea5df834b5b8007b08ef483dea7cd0c23132eb409"
+      },
+      {
+        "path": "docs/screenshots/einleitung-parity-review-20261018/level-v6.png",
+        "sha256": "4e8abccd8ff16cb1f0425662f730e76d429e0edd2641df3eb5cc67835c4dbe2c"
+      }
+    ],
+    "liveEvidence": "Direct screenshots of Figma80:336 and80:569 were fetched read-only. Their SHA-256 values exactly match the two inspected v6 saved PNGs above.",
+    "passedScope": [
+      "Travel mug now has the source scale and framing, including rim, handle and lower edge.",
+      "Hero title baseline and second-line width corrected.",
+      "Tiger face/identity retained; shoulder emblem now readable above paper and no longer substantially clipped.",
+      "Low-wide branch moved into the intended lower-left region; right-edge foliage restored.",
+      "Culture and K-content framing corrected while preserving the fixed book, costume and hand actions.",
+      "Study scene remains accepted under the previously defined stopping rule.",
+      "CTA visible depth/geometry and replacement chevron now read consistently with the source direction.",
+      "Modal apply label now matches width/position closely.",
+      "Footer flowers lowered; no additional composition regeneration requested.",
+      "Lora35 level labels and source-state underlay remain accepted."
+    ],
+    "measuredBounds": [
+      {
+        "item": "Travel jade",
+        "reference": [
+          24,
+          518,
+          114,
+          82
+        ],
+        "v6": [
+          26,
+          518,
+          113,
+          81
+        ]
+      },
+      {
+        "item": "Title first line",
+        "reference": [
+          22,
+          147,
+          237,
+          25
+        ],
+        "v6": [
+          22,
+          147,
+          235,
+          23
+        ]
+      },
+      {
+        "item": "Title second line",
+        "reference": [
+          22,
+          183,
+          228,
+          31
+        ],
+        "v6": [
+          22,
+          183,
+          228,
+          29
+        ]
+      },
+      {
+        "item": "Apply label",
+        "reference": [
+          114,
+          858,
+          177,
+          15
+        ],
+        "v6": [
+          114,
+          857,
+          178,
+          15
+        ]
+      },
+      {
+        "item": "Modal helper",
+        "reference": [
+          112,
+          812,
+          180,
+          14
+        ],
+        "v6": [
+          110,
+          812,
+          182,
+          10
+        ],
+        "status": "Content correction plus restore readable ink height"
+      }
+    ],
+    "remainingRequired": [
+      {
+        "id": "V6-01",
+        "nodeId": "80:641",
+        "priority": "P2",
+        "issue": "Source modal copy is 'Du kannst es später ändern.'; candidate incorrectly uses 'Du kannst das später ändern.'. Main setup correctly uses das and must retain it.",
+        "exactText": "Du kannst es später ändern.",
+        "typeCorrection": "The previous reviewer suggestion of14.2px over-reduced the rendered ink height to10px. Restore approximately15.5-16px, keep centered, and retain ink top near y812. Adjust tracking only if needed to stay near the180px source width; do not scale or distort glyphs.",
+        "targetInk": [
+          112,
+          812,
+          180,
+          14
+        ],
+        "reviewAccountability": "The wrong modal word and resulting over-reduction were missed in the earlier reviewer pass. This is a bounded correction, not a new design direction."
+      }
+    ],
+    "delegatedMaterialGate": {
+      "item": "Jade brightness/luminance",
+      "status": "PENDING_MATERIAL_REVIEW",
+      "observation": "The new jade removed the long paper fibers but appears brighter/cloudier than the reference in the upper field. Root already requested an independent material check. No duplicate regeneration requested here."
+    },
+    "residualDisclosure": "Fine fur, stripe, leaf, book-grain and highlight differences remain from independent generation. Under the agreed stopping rule they do not reopen scene/geometry approval. Pixel identity is not claimed.",
+    "expansionGate": "Visual reviewer approves the passed static scope. Full static approval still requires V6-01 and material review. Flutter, interaction and device checks remain separate.",
+    "furtherRegeneration": "None requested for the six scene assets in this pass.",
+    "changesMade": "Reviewer JSON only; no Figma or image mutations."
+  }
+}

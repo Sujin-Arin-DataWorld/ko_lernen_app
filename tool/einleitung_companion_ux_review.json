@@ -1,0 +1,299 @@
+{
+  "reviewDate": "2026-10-18",
+  "reviewer": "ux_state_designer",
+  "scope": "Welcome and 07 static UX; companion selection state and motion; separate Flutter regression coverage",
+  "excluded": "Spiele Vorschau belongs to the separate Spiele app implementation chat. No preview artifact or code changes.",
+  "sourceHead": "2d68784d3b642a14fe174de26d55b0c82209a694",
+  "workingTree": "Concurrent uncommitted implementation; the source HEAD is not the identity of the rendered candidates.",
+  "staticReview": {
+    "verdict": "PASS",
+    "language": "de",
+    "textScale": "100%",
+    "welcome": {
+      "capture": "docs/screenshots/einleitung-parity-review-20261018/welcome-v8.png",
+      "sha256": "2213454676ca5f7c457a676933d681e601b3e84093ad992c80ba4f5d7730f13b",
+      "rasterSize": [
+        402,
+        715
+      ],
+      "observations": [
+        "Title, explanatory copy and primary CTA fit without clipping or portrait overlap.",
+        "Los geht’s is the clear primary action; Später remains visually subordinate and separate.",
+        "The supplied Welcome capture is 402 by 715, so this verdict does not establish 402 by 934 runtime parity."
+      ]
+    },
+    "companion": {
+      "captures": [
+        {
+          "file": "docs/screenshots/einleitung-parity-review-20261018/07-taego-v8.png",
+          "sha256": "2a9021213d7ec5ffd5ef28c64f7d300af71e753c0a0acc9315422c69097f7425"
+        },
+        {
+          "file": "docs/screenshots/einleitung-parity-review-20261018/07-joy-v8.png",
+          "sha256": "8819e23b37e035ad6f3a51bf3e0857f21d8ff13a4dce1cfaea1bcb809117ba9c"
+        }
+      ],
+      "rasterSize": [
+        402,
+        934
+      ],
+      "observations": [
+        "Both portraits, captions, Gye panel, primary CTA and Back caption retain their positions between selected states.",
+        "Selected state is conveyed by a check and border; the name-specific CTA confirms the current single selection.",
+        "Check ornaments stay inside their portrait region and do not cover the names or roles.",
+        "Gye copy remains secondary and explicitly permits starting alone; selection does not imply group membership or rewards."
+      ]
+    },
+    "limits": [
+      "Raster inspection does not establish screen-reader semantics, measured color contrast, touch hit areas, persistence or actual interaction.",
+      "Large text and smaller screen adaptations belong to separate Flutter QA and must preserve the 100% reference layout."
+    ]
+  },
+  "figmaInteraction": {
+    "fileKey": "rVlcMLvngw07BYJ7nRT87C",
+    "liveFrame": "178:316",
+    "cardsComponentSet": "178:290",
+    "ctaComponentSet": "178:309",
+    "selectionVariable": "VariableID:178:228",
+    "structuralVerdict": "PASS",
+    "actualPlayVerdict": "PASS",
+    "structuralEvidence": [
+      "All six card reactions set the same selectedCompanionId variable; no card NAVIGATE, SWAP or whole-frame replacement remains.",
+      "Both card and CTA instances bind to that same variable and support none, taego and joy.",
+      "Card component bounds are fixed at 402 by 360; CTA component bounds are fixed at 370 by 58.",
+      "Back hit target is 122 by 48 at y=834, below the CTA, preserving its original visual caption.",
+      "06 Continue targets live 07 and Back targets 06; the variable is not reset by those transitions."
+    ],
+    "playAcceptance": [
+      "Open live 07 with no selection: Continue is disabled.",
+      "Joy then Taego then Joy changes only selection check/border and CTA label; title, portraits, Gye and CTA remain fixed.",
+      "Repeated selection of the same card remains stable.",
+      "07 Back to 06 then Continue restores the current companion choice.",
+      "Back and primary CTA hit regions do not overlap."
+    ],
+    "boundary": "START_DESTINATION_ID is intentionally null; final app confirmation, persistence and destination are checked in Flutter. No simulated completion or reward is added.",
+    "browserLimitation": "The UX reviewer browser became unavailable after first-unit QA. Root completed the 07 actual Play checks through its in-app browser; this verdict records that direct root verification.",
+    "actualPlayEvidence": {
+      "operator": "root agent",
+      "surface": "Codex in-app browser, actual Figma Play",
+      "date": "2026-10-18",
+      "source": "Root direct inspection report delivered to UX reviewer in the current task",
+      "selectionSequence": [
+        "none",
+        "taego",
+        "joy",
+        "joy",
+        "taego",
+        "joy"
+      ],
+      "observations": [
+        "All companion choices retained live frame 178:316 in the URL.",
+        "Cards, CTA and overall screen geometry remained fixed; only the active selection check and corresponding CTA label changed.",
+        "Repeating Joy retained Joy without deselection or movement.",
+        "Back opened 80:480; Continue returned to 178:316 with Joy selection, check and CTA label preserved; root inspected the returned screenshot."
+      ],
+      "snapshotFiles": "Root viewed browser screenshots. No local screenshot filenames were supplied to this reviewer.",
+      "scopeLimit": "Prototype selection and return only. Final CTA has no fabricated destination; runtime completion remains unverified."
+    }
+  },
+  "flutterRegression": {
+    "file": "test/c_onboarding_companion_stability_test.dart",
+    "status": "PASS_6_UNIQUE_WIDGET_TESTS",
+    "executed": true,
+    "actualRuntimePath": "OnboardingV2JourneyScreen -> OnboardingCompanionScreen -> COnboardingCompanion, with the real FirstRunCoordinator serialized draft path",
+    "testBoundary": "Only the local draft repository and unused product commit gateway are replaced. No test-owned companion selection logic.",
+    "coverage": [
+      "402x934 and 402x640 at 100%, and 320x640 at 200% with reduced motion.",
+      "Top, middle and bottom scroll offsets remain fixed across repeated Joy/Taego selections.",
+      "Screen Element, ScrollableState and ScrollPosition retain identity; content extent, viewport, hero/card/CTA bounds remain unchanged.",
+      "Empty-to-selected CTA labels retain reserved height and remain inside the button at 200%.",
+      "Rapid pointer choices while the first save is pending preserve latest intent and serialize Joy/Taego/Joy writes.",
+      "Failed draft save restores the durable companion without moving content.",
+      "Enter/Space keyboard selection retains focus, selected semantics and at least 48px card targets.",
+      "Selection never invokes the product commit gateway or leaves companion phase."
+    ],
+    "runCommand": "flutter test --no-pub test/c_onboarding_companion_stability_test.dart --reporter expanded",
+    "remainingGate": "The six stability checks remain valid evidence at their recorded hashes; final minor visual changes are supported by fresh captures and root-reported source tests. Final completion and physical-device QA remain root-owned.",
+    "executionResults": [
+      {
+        "command": "flutter test --no-pub test/c_onboarding_companion_stability_test.dart --reporter expanded",
+        "exitCode": 1,
+        "passed": 5,
+        "failed": 1,
+        "failure": "The keyboard test reached all functional assertions but leaked its manually enabled SemanticsHandle until addTearDown, after Flutter end-of-test verification. Harness lifetime defect; no application geometry failure."
+      },
+      {
+        "command": "flutter test --no-pub test/c_onboarding_companion_stability_test.dart --reporter expanded --plain-name \"keyboard selection retains focus and selected semantics at 200%\"",
+        "exitCode": 0,
+        "passed": 1,
+        "failed": 0,
+        "result": "All tests passed after disposing the SemanticsHandle in try/finally inside the test body."
+      }
+    ],
+    "harnessOnlyRepair": "Replaced late addTearDown semantics disposal with try/finally. No assertion was removed or weakened, and no application code changed during failure repair.",
+    "uniquePassingTests": 6,
+    "executionCoordination": "Before the run, process inspection found only Serena Dart language servers and no Flutter test/tester. Root was notified to keep native captures sequential. Test process exited before returning execution ownership to root.",
+    "testedFiles": {
+      "test/c_onboarding_companion_stability_test.dart": "9e37502f319e1ad85dcd20901720ac0fd4c949267fb66d63edee98592e8be57d",
+      "lib/screens/onboarding_v2/c_intro_reference_companion.dart": "b95b43c8441d78e3484559bc0f665df349da586db548f9b1529771c413690af3",
+      "lib/screens/onboarding_v2/c_onboarding.dart": "e464e3f4ae6c20c9f6ef3d5e3603e0d490aa0449a95059b35edfc7e1dea7d07b",
+      "lib/screens/onboarding_v2/onboarding_v2_journey_screen.dart": "a2363fb951bee4d13375f7fb14ea3fea520af44ab9a266678e13a514ec339e29"
+    }
+  },
+  "flutterImplementation": {
+    "status": "PASS_07_NATIVE_UX_AND_WIDGET_STABILITY",
+    "ownedFiles": [
+      "lib/screens/onboarding_v2/c_intro_reference_companion.dart",
+      "COnboardingCompanion class in lib/screens/onboarding_v2/c_onboarding.dart"
+    ],
+    "referenceBodySha256": "b95b43c8441d78e3484559bc0f665df349da586db548f9b1529771c413690af3",
+    "companionClassUtf8Sha256": "ed75dc95916bc4deabb5d824d68fbe571af5adc84986c95312b5ca9c76f4a6d8",
+    "normalReference": "width >=360 and textScaler.scale(16) <=21; scale coordinates from 402; body height525; native controls and whole image assets.",
+    "geometry": {
+      "taego": [
+        7,
+        0,
+        195,
+        360
+      ],
+      "joy": [
+        210,
+        0,
+        188,
+        360
+      ],
+      "gye": [
+        12,
+        369,
+        378,
+        156
+      ]
+    },
+    "applied": [
+      "Names and roles use native RobotoCondensed at exact v8 positions; Gye text reuses localized strings, splitting at the first sentence boundary.",
+      "Constant full-card border with paint-only jade/gold portrait selection rims; transparent check master is positioned by its visible bounds.",
+      "Both normal and adaptive card paths use pressScale .995 and surfaceDepth0, preserving keyboard and selected semantics and existing keys/callbacks.",
+      "Small/large-text flow remains scrollable; its full-card IntroPanel no longer changes selected border, and its portrait selected rim is a paint-only overlay.",
+      "Pass all empty/Taego/Joy CTA label candidates to the root-owned COnboardingFrame stable label height implementation."
+    ],
+    "rootOwned": [
+      "COnboardingFrame/footer backgrounds",
+      "IntroAction stable label height",
+      "07 hero height236",
+      "Taego master asset"
+    ],
+    "reviewBoundary": "Final normal934/874 native captures reviewed after branch, Gye spacing and Back corrections.200%capture and six interaction/layout tests are recorded with their iteration boundaries. Final completion and physical-device approval remain separate.",
+    "staticAnalysis": {
+      "command": "dart analyze lib/screens/onboarding_v2/c_intro_reference_companion.dart test/c_onboarding_companion_stability_test.dart",
+      "result": "PASS - No issues found"
+    }
+  },
+  "layoutMotionAnalysis": {
+    "confirmedPrototypeCause": "Previous card actions navigated between full frames with160ms dissolve and resetScrollPosition. Same-frame SET_VARIABLE now replaces that path; root Play PASS confirms no whole-screen movement.",
+    "flutterSourceFinding": "Current selection stays in OnboardingPhase.companion, uses optimistic intent and serialized local draft writes, and has no route change, AnimatedSwitcher, AnimatedSize, jumpTo, animateTo or ensureVisible call on the selection path.",
+    "geometryRisk": "The previous large-text IntroAction sized itself to the current label. A wrapping change could resize the pinned footer and scroll viewport. This was a source-supported risk, not a reproduced explanation of the reported large screen jump. Root now reserves height across all three labels.",
+    "localMotion": "Previous card press depth3 could paint-translate by2.25px and hover/focus by2px; it never changed layout geometry. The companion now uses depth0 and .995 scale to keep the local tactile response small.",
+    "preserved": "Real coordinator serializes writes and restores the durable draft after failed save. Rebuilding for intent/save is not by itself evidence of screen replacement.",
+    "minimumFurtherAction": "Run the already prepared measurements before making any scroll-controller, animation-container or state-ownership changes. Do not alter the global SoriPressable or excluded Vorschau."
+  },
+  "nativeVisualFollowup": {
+    "status": "PASS_07_UX_REVIEW",
+    "reviewDate": "2026-10-18",
+    "firstCapture": {
+      "path": "docs/screenshots/einleitung-generated-20261018/intro-07-de-402-934-1x.png",
+      "size": [
+        402,
+        934
+      ],
+      "language": "de",
+      "textScale": "100%",
+      "sha256": "415ea7a8d800c48d4e5012f77fd53dfc3131a33a3d7ea27ffda6552aebbb3967"
+    },
+    "reference": "docs/screenshots/einleitung-parity-review-20261018/07-taego-v8.png",
+    "passed": [
+      "Taego/Joy card bounds, name and role hierarchy, check placement and primary CTA align with the approved v8 arrangement.",
+      "The Gye scene uses the complete1536x1024 image in a214x142.667 viewport with BoxFit.contain. Characters, vase, books and table remain visible, with the same rounded image treatment as v8.",
+      "Native card names and roles use RobotoCondensed; no caption is visibly cut in the402x934 first capture.",
+      "Existing six widget checks establish selected semantics, focus, stable card/CTA geometry and scroll ownership, separately from this raster comparison."
+    ],
+    "pending": [],
+    "semanticsBoundary": "Native card selected/focus semantics and48px targets passed the six widget checks. Gye retains both localized sentences in native Text.rich and both are now visible in the normal capture. No screen-reader device session or spoken-output claim is made.",
+    "nextGate": "No remaining07UX design blocker. Root owns final completion/persistence validation, integration and any physical-device or release gate; those are not implied by this approval.",
+    "finalCaptures": [
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/intro-07-de-402-934-1x.png",
+        "size": [
+          402,
+          934
+        ],
+        "modifiedLocal": "2026-10-18T20:55:41.992010",
+        "sha256": "d180aab9a0fd0db3380c4f382554bf30eb493a1f4c3833ae944b41e6d2f7ee51"
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/intro-07-de-402-874-1x.png",
+        "size": [
+          402,
+          874
+        ],
+        "modifiedLocal": "2026-10-18T20:55:42.208518",
+        "sha256": "1e30d4d6e23e3a1f209929dc3887e51621ceee80b27d4681fb844ac8fef29304"
+      },
+      {
+        "path": "docs/screenshots/einleitung-generated-20261018/intro-07-de-320-740-2x.png",
+        "size": [
+          320,
+          740
+        ],
+        "modifiedLocal": "2026-10-18T20:52:57.653339",
+        "sha256": "12d4e5d0f300f8a197b496e9266bd437e8c2a6423d577d6a72600e92632dd0dc"
+      }
+    ],
+    "resolvedFindings": [
+      {
+        "item": "Plum orientation and layer",
+        "result": "PASS. Fresh934 and874 captures show the transposed branch in the upper right, above the portrait layer and clear of the title."
+      },
+      {
+        "item": "Gye two-sentence copy",
+        "result": "PASS. Fresh934 capture shows both full sentences on two lines within the44px body region, matching the approved v8 hierarchy and colors."
+      },
+      {
+        "item": "Back typography",
+        "result": "PASS. Fresh934 and874 captures show the reviewed condensed18px ink caption. The existing48px action target remains in source."
+      }
+    ],
+    "normalReferenceVerdict": "PASS at402x934 DE100 for reviewed UX arrangement, hierarchy, readable copy, selection indication and whole-scene image preservation. This is visual review, not a claim of pixel identity.",
+    "shortViewportVerdict": "PASS for the402x874 adaptation. The fixed CTA/footer creates a shorter scroll viewport, so the lower Gye panel is initially below the fold; this is viewport scrolling rather than clipping inside the Gye text box. Existing stability checks exercise shorter-height scroll positions.",
+    "enlargedTextVerdict": "PASS for the reviewed320x740 DE200 adaptation: CTA wraps to two readable lines and Back remains visible; the companion body scrolls. The captured accessibility image precedes the final minor counter/Back edits, as reported by root, so it is not represented as the final exact typography raster. Selection/focus/reachability at200% are separately supported by the six stability tests."
+  },
+  "rootReportedVerification": {
+    "count": 46,
+    "result": "PASS",
+    "source": "Root reported46source tests passed while refreshing the accessibility captures; final normal934/874 captures were refreshed after the minor counter/Back changes.",
+    "countingRule": "Do not add this count to the six reviewer stability checks without checking overlap."
+  },
+  "scopeBoundaryAudit": {
+    "status": "PASS",
+    "companionOwnership": "Selection remains a native callback into the real serialized draft flow. New reference controls own no progress, economy, assessment, route destination or final commit.",
+    "excludedPreviewFilesWithNoGitDiff": [
+      "lib/screens/onboarding_v2/onboarding_games_demo.dart",
+      "lib/screens/onboarding_v2/onboarding_v3_demo_support.dart",
+      "assets/data/onboarding_v3_demo_content.json",
+      "assets/data/cloze.json",
+      "assets/data/silben_puzzles.json"
+    ],
+    "preservedPreviewEntry": "Existing story index2 still opens OnboardingGamesDemo(level:level). No new preview mockup, activity content, reward or completion was added by this reviewer.",
+    "prototypeBoundary": "The companion script still uses SET_VARIABLE for choice; START_DESTINATION_ID remains null, so no fabricated final result was introduced.",
+    "finalReviewMutationScope": "Only UX JSON reports changed in this final review. No Git mutations or runtime source edits."
+  },
+  "finalUxVerdict": {
+    "status": "PASS",
+    "scope": "Welcome/07 static UX, actual07Figma selection/return, native07normal visual review and companion stability tests",
+    "pendingDesignBlockers": [],
+    "separateGates": [
+      "Final application completion/persistence",
+      "Physical-device screen reader and motion QA",
+      "Integration/release operations"
+    ]
+  }
+}
