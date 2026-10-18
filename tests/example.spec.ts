@@ -155,7 +155,7 @@ async function expectRegionsToBePainted(
   }
 }
 
-test('boots the release consent screen without production network access', async ({
+test('boots through Welcome to Consent without production network access', async ({
   context,
   page,
 }, testInfo) => {
@@ -179,6 +179,8 @@ test('boots the release consent screen without production network access', async
     navigationCompletedMs: null as number | null,
     accessibilityTriggerVisibleMs: null as number | null,
     accessibilityActivationCompletedMs: null as number | null,
+    welcomeHeadingVisibleMs: null as number | null,
+    welcomeStartActivatedMs: null as number | null,
     consentHeadingVisibleMs: null as number | null,
     consentPaintCapturedMs: null as number | null,
   };
@@ -312,6 +314,28 @@ test('boots the release consent screen without production network access', async
       timeout: remainingBootTimeout('accessibility activation'),
     });
     readiness.accessibilityActivationCompletedMs = elapsedBootMs();
+
+    const welcomeHeading = page.getByRole('heading', {
+      name: 'Welcome to Hangul Sori.',
+      exact: true,
+    });
+    await expect(welcomeHeading).toBeVisible({
+      timeout: remainingBootTimeout('the Welcome screen'),
+    });
+    readiness.welcomeHeadingVisibleMs = elapsedBootMs();
+    // Fresh installs now enter through Welcome. Use its localized English
+    // action; it records only welcomeSeen and must still open Consent.
+    const welcomeStart = page.getByRole('button', {
+      name: 'Let’s begin',
+      exact: true,
+    });
+    await expect(welcomeStart).toBeEnabled({
+      timeout: remainingBootTimeout('the Welcome start action'),
+    });
+    await welcomeStart.click({
+      timeout: remainingBootTimeout('Welcome start activation'),
+    });
+    readiness.welcomeStartActivatedMs = elapsedBootMs();
 
     const consentHeading = page.getByRole('heading', {
       name: 'Welcome to Hangul Sori',

@@ -936,20 +936,20 @@
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations.dart": {
-    "mtime": 1792350815.477037,
-    "seen": 1792351329.9174423,
+    "mtime": 1792354580.2294295,
+    "seen": 1792355057.084586,
     "ast_hash": "fc2aef87605dde398c9f88de6b39292a",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_de.dart": {
-    "mtime": 1792350814.8645985,
-    "seen": 1792351329.9174464,
+    "mtime": 1792354579.971136,
+    "seen": 1792355057.0845892,
     "ast_hash": "d24e09e425b140b5709b254df12cb301",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_en.dart": {
-    "mtime": 1792350815.167559,
-    "seen": 1792351329.9174507,
+    "mtime": 1792354580.1120586,
+    "seen": 1792355057.0845912,
     "ast_hash": "add4a22c2ddb50fc133d876e59762acf",
     "semantic_hash": ""
   },
@@ -8118,9 +8118,9 @@
     "semantic_hash": ""
   },
   ".github/workflows/ci.yml": {
-    "mtime": 1792285869.808821,
-    "seen": 1792351330.064328,
-    "ast_hash": "20b2c30d8829d206bbfe7a08d6ae9825",
+    "mtime": 1792354430.6523428,
+    "seen": 1792355057.6584744,
+    "ast_hash": "1a5f723761c0b771357e574fd3137b68",
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-07-29-account-transition-and-deletion/task-6-report.md": {
@@ -10230,9 +10230,9 @@
     "semantic_hash": ""
   },
   "tests/example.spec.ts": {
-    "mtime": 1792285889.7345808,
-    "seen": 1792351329.9246552,
-    "ast_hash": "d97f5457bfd1233f26aa3731573d9c11",
+    "mtime": 1792354554.2967727,
+    "seen": 1792355057.3866508,
+    "ast_hash": "95048d9db813d4cf3dd9d062d8807a2e",
     "semantic_hash": ""
   },
   ".github/workflows/playwright.yml": {
@@ -22212,9 +22212,9 @@
     "semantic_hash": ""
   },
   "tool/einleitung_verification.json": {
-    "mtime": 1792352675.6638598,
-    "seen": 1792352856.395951,
-    "ast_hash": "33abc9ca9e90942f40c04282ba3d2ccb",
+    "mtime": 1792353663.8206222,
+    "seen": 1792355057.403727,
+    "ast_hash": "ad57fe400fdd66baa2938b3adec4d31b",
     "semantic_hash": ""
   },
   "tool/einleitung_visual_revision_briefs.json": {
@@ -22344,9 +22344,9 @@
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-10-18-einleitung-reference-parity.md": {
-    "mtime": 1792352675.6670527,
-    "seen": 1792352856.6738153,
-    "ast_hash": "da67cb4e4cdab15b8b591808c829a660",
+    "mtime": 1792353663.8216324,
+    "seen": 1792355057.74354,
+    "ast_hash": "8486fb62b24e5d062f9777b53520dad8",
     "semantic_hash": ""
   },
   "docs/screenshots/einleitung-generated-20261018/intro-01-de-320-740-2x.png": {
@@ -22920,9 +22920,9 @@
     "semantic_hash": ""
   },
   "tool/einleitung_code_review.json": {
-    "mtime": 1792353276.1343777,
-    "seen": 1792353540.9102447,
-    "ast_hash": "3852d09916e1af895194fe170d927920",
+    "mtime": 1792353663.8110893,
+    "seen": 1792355057.4001496,
+    "ast_hash": "8b0e903e2cd276764cd983a465895f7e",
     "semantic_hash": ""
   },
   "docs/screenshots/einleitung-generated-20261018/web-final-01-desktop.png": {
@@ -22995,6 +22995,42 @@
     "mtime": 1792352850.9618757,
     "seen": 1792353541.274324,
     "ast_hash": "bac15d4cba5dc9bd14a92cc378c41049",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/einleitung-generated-20261018/web-final-05-after-audio-close.png": {
+    "mtime": 1792353472.364054,
+    "seen": 1792355057.79413,
+    "ast_hash": "7c096acdf5b2dc38f73726f9d8dfe8ae",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/einleitung-generated-20261018/web-final-07-restored-joy.png": {
+    "mtime": 1792353496.5648737,
+    "seen": 1792355057.7949595,
+    "ast_hash": "baf20d3e9d86f227ac9cf40df170c2fb",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/einleitung-generated-20261018/web-final-complete-heute.png": {
+    "mtime": 1792353560.6978245,
+    "seen": 1792355057.795169,
+    "ast_hash": "f09f6e3815b30ccfd3aa9b6fb25979ae",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/einleitung-generated-20261018/web-final-completed-reentry.png": {
+    "mtime": 1792353604.0966582,
+    "seen": 1792355057.7951715,
+    "ast_hash": "f09f6e3815b30ccfd3aa9b6fb25979ae",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/einleitung-generated-20261018/web-final-welcome-actions.png": {
+    "mtime": 1792353482.8858216,
+    "seen": 1792355057.7953792,
+    "ast_hash": "52b8d79025da68f84de77ded29c145a3",
+    "semantic_hash": ""
+  },
+  "docs/screenshots/einleitung-generated-20261018/web-final-welcome-desktop.png": {
+    "mtime": 1792353447.7987509,
+    "seen": 1792355057.795381,
+    "ast_hash": "dea5c73cc5d9efaa52023be7055bddaf",
     "semantic_hash": ""
   }
 }
