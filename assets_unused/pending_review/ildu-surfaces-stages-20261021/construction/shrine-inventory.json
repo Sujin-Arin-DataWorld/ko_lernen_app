@@ -1,0 +1,4025 @@
+{
+  "gate": "shrine",
+  "scene": "사당문 | New drawing construction",
+  "camera": {
+    "name": "Camera.shrine",
+    "position": [
+      8.5411958694458,
+      -16.339677810668945,
+      9.309964179992676
+    ],
+    "rotation": [
+      1.1706453561782837,
+      1.4947616477911652e-09,
+      0.48166364431381226
+    ],
+    "orthoScale": 4.1036810874938965
+  },
+  "objects": [
+    {
+      "name": "shrine.foundation.shinbangseok",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | stone"
+      ]
+    },
+    {
+      "name": "shrine.foundation.shinbangseok.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | stone"
+      ]
+    },
+    {
+      "name": "shrine.foundation.threshold",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | stone"
+      ]
+    },
+    {
+      "name": "shrine.timber.round main post",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 96,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.timber.fore aft support",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.timber.fore aft support.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.timber.dori",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | green"
+      ]
+    },
+    {
+      "name": "shrine.timber.round main post.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 96,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.timber.fore aft support.002",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.timber.fore aft support.003",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.timber.dori.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | green"
+      ]
+    },
+    {
+      "name": "shrine.timber.central changbang",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | green"
+      ]
+    },
+    {
+      "name": "shrine.timber.cross bearing 70x80",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | green"
+      ]
+    },
+    {
+      "name": "shrine.timber.cross bearing 70x80.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | green"
+      ]
+    },
+    {
+      "name": "shrine.timber.upper door jamb",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.timber.sill",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.timber.side door jamb",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.timber.side door jamb.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.board 01",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.board 02",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.rebated plank joint",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.board 03",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.rebated plank joint.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.board 04",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.rebated plank joint.002",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.board 05",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.board 06",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.rebated plank joint.003",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.board 07",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.rebated plank joint.004",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.board 08",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.rebated plank joint.005",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.rear rail",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.rear rail.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.rear rail.002",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.wood pivot",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 64,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.wood pivot.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 64,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.pivot housing lower",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.pivot housing upper",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.rear rail.003",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.rear rail.004",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.rear rail.005",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.wood pivot.002",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 64,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.wood pivot.003",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 64,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.pivot housing lower.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.pivot housing upper.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.sliding wooden bolt",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.bolt keeper",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.door.bolt keeper.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.square rafter 0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 216,
+      "materials": [
+        "Fresh | green"
+      ]
+    },
+    {
+      "name": "shrine.roof.square rafter 1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 216,
+      "materials": [
+        "Fresh | green"
+      ]
+    },
+    {
+      "name": "shrine.roof.square rafter 2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 216,
+      "materials": [
+        "Fresh | green"
+      ]
+    },
+    {
+      "name": "shrine.roof.square rafter 3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 216,
+      "materials": [
+        "Fresh | green"
+      ]
+    },
+    {
+      "name": "shrine.roof.square rafter 4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 216,
+      "materials": [
+        "Fresh | green"
+      ]
+    },
+    {
+      "name": "shrine.roof.square rafter 5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 216,
+      "materials": [
+        "Fresh | green"
+      ]
+    },
+    {
+      "name": "shrine.roof.square rafter 6",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 216,
+      "materials": [
+        "Fresh | green"
+      ]
+    },
+    {
+      "name": "shrine.roof.boarding THK30 plank 00",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 100,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.boarding THK30 plank 01",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 100,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.boarding THK30 plank 02",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 100,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.boarding THK30 plank 03",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 100,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.boarding THK30 plank 04",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 100,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.boarding THK30 plank 05",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 100,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.boarding THK30 plank 06",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 100,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.boarding THK30 plank 07",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 100,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.boarding THK30 plank 08",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 100,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.boarding THK30 plank 09",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 100,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.iron.escutcheon",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 64,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.ring",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 588,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.eye",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 40,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.plate pin",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.escutcheon.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 64,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.ring.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 588,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.eye.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 40,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.plate pin.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.board nail",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.board nail.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.board nail.002",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.board nail.003",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.board nail.004",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.board nail.005",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.board nail.006",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.board nail.007",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.board nail.008",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.board nail.009",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.board nail.010",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.board nail.011",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.board nail.012",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.board nail.013",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.board nail.014",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.board nail.015",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.corner strap",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.corner strap.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.corner strap.002",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.iron.corner strap.003",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "shrine.paint.taegeuk red disk on boards",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 2684,
+      "materials": [
+        "Fresh | red disk paint"
+      ]
+    },
+    {
+      "name": "shrine.paint.taegeuk blue on boards",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 2959,
+      "materials": [
+        "Fresh | blue"
+      ]
+    },
+    {
+      "name": "shrine.roof.compacted earth surface",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 3362,
+      "materials": [
+        "Fresh | earth"
+      ]
+    },
+    {
+      "name": "shrine.roof.gable lining THK30 -1 0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 16,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.gable lining THK30 -1 1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.gable lining THK30 -1 2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 24,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.gable lining THK30 -1 3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 24,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.gable lining THK30 -1 4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 24,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.gable lining THK30 -1 5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 6,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.gable lining THK30 1 0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 16,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.gable lining THK30 1 1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.gable lining THK30 1 2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 24,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.gable lining THK30 1 3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 24,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.gable lining THK30 1 4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 24,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.gable lining THK30 1 5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 6,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing boarding THK30 -1 0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing boarding THK30 -1 1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing boarding THK30 -1 2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing boarding THK30 -1 3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing boarding THK30 -1 4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing boarding THK30 -1 5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing boarding THK30 -1 6",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing boarding THK30 -1 7",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing boarding THK30 -1 8",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing boarding THK30 -1 9",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing boarding THK30 -1 10",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing support rib -1 -1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | green"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing support rib -1 0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | green"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing support rib -1 1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | green"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing boarding THK30 1 0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing boarding THK30 1 1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing boarding THK30 1 2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing boarding THK30 1 3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing boarding THK30 1 4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing boarding THK30 1 5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing boarding THK30 1 6",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing boarding THK30 1 7",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing boarding THK30 1 8",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing boarding THK30 1 9",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing boarding THK30 1 10",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing support rib 1 -1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | green"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing support rib 1 0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | green"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing support rib 1 1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 36,
+      "materials": [
+        "Fresh | green"
+      ]
+    },
+    {
+      "name": "shrine.roof.eave thin tile bedding",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 410,
+      "materials": [
+        "Fresh | eave bedding"
+      ]
+    },
+    {
+      "name": "shrine.roof.eave thin tile bedding.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 410,
+      "materials": [
+        "Fresh | eave bedding"
+      ]
+    },
+    {
+      "name": "shrine.roof.eave timber edge",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 164,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.eave timber edge.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 164,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.diagonal barge board plank 0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 116,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.diagonal barge board plank 1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 116,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.diagonal barge board plank 0.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 116,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.diagonal barge board plank 1.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 116,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.diagonal barge board plank 0.002",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 116,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.diagonal barge board plank 1.002",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 116,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.diagonal barge board plank 0.003",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 116,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.diagonal barge board plank 1.003",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 116,
+      "materials": [
+        "Fresh | red"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r0.l0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r0.l1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r0.l2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r0.l3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r0.l4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r0.l5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r0.l6",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r0.l0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r0.l1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r0.l2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r0.l3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r0.l4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r0.l5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r1.l0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r1.l1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r1.l2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r1.l3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r1.l4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r1.l5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r1.l6",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r1.l0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r1.l1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r1.l2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r1.l3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r1.l4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r1.l5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r2.l0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r2.l1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r2.l2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r2.l3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r2.l4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r2.l5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r2.l6",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r2.l0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r2.l1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r2.l2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r2.l3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r2.l4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r2.l5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r3.l0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r3.l1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r3.l2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r3.l3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r3.l4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r3.l5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r3.l6",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r3.l0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r3.l1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r3.l2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r3.l3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r3.l4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r3.l5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r4.l0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r4.l1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r4.l2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r4.l3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r4.l4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r4.l5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r4.l6",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r4.l0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r4.l1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r4.l2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r4.l3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r4.l4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r4.l5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r5.l0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r5.l1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r5.l2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r5.l3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r5.l4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r5.l5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s-1.r5.l6",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r5.l0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover lip",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.lime half moon closure",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 66,
+      "materials": [
+        "Fresh | plaster"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r5.l1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover lip.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.lime half moon closure.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 66,
+      "materials": [
+        "Fresh | plaster"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r5.l2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover lip.002",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.lime half moon closure.002",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 66,
+      "materials": [
+        "Fresh | plaster"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r5.l3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover lip.003",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.lime half moon closure.003",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 66,
+      "materials": [
+        "Fresh | plaster"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r5.l4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover lip.004",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.lime half moon closure.004",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 66,
+      "materials": [
+        "Fresh | plaster"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s-1.r5.l5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover lip.005",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.lime half moon closure.005",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 66,
+      "materials": [
+        "Fresh | plaster"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r0.l0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r0.l1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r0.l2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r0.l3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r0.l4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r0.l5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r0.l6",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r0.l0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r0.l1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r0.l2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r0.l3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r0.l4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r0.l5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r1.l0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r1.l1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r1.l2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r1.l3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r1.l4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r1.l5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r1.l6",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r1.l0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r1.l1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r1.l2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r1.l3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r1.l4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r1.l5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r2.l0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r2.l1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r2.l2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r2.l3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r2.l4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r2.l5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r2.l6",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r2.l0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r2.l1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r2.l2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r2.l3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r2.l4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r2.l5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r3.l0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r3.l1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r3.l2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r3.l3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r3.l4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r3.l5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r3.l6",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r3.l0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r3.l1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r3.l2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r3.l3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r3.l4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r3.l5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r4.l0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r4.l1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r4.l2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r4.l3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r4.l4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r4.l5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r4.l6",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r4.l0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r4.l1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r4.l2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r4.l3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r4.l4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r4.l5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r5.l0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r5.l1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r5.l2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r5.l3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r5.l4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r5.l5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.pan.s1.r5.l6",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r5.l0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover lip.006",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.lime half moon closure.006",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 66,
+      "materials": [
+        "Fresh | plaster"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r5.l1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover lip.007",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.lime half moon closure.007",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 66,
+      "materials": [
+        "Fresh | plaster"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r5.l2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover lip.008",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.lime half moon closure.008",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 66,
+      "materials": [
+        "Fresh | plaster"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r5.l3",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover lip.009",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.lime half moon closure.009",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 66,
+      "materials": [
+        "Fresh | plaster"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r5.l4",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover lip.010",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.lime half moon closure.010",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 66,
+      "materials": [
+        "Fresh | plaster"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover.s1.r5.l5",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.cover lip.011",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.lime half moon closure.011",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 66,
+      "materials": [
+        "Fresh | plaster"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing pan",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing cover",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing pan.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing cover.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing pan.002",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing cover.002",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing pan.003",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing cover.003",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing pan.004",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing cover.004",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing pan.005",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing cover.005",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing pan.006",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing cover.006",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing pan.007",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing cover.007",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing pan.008",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing cover.008",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing pan.009",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing cover.009",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing pan.010",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing cover.010",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing pan.011",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing cover.011",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing pan.012",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing cover.012",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing pan.013",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing cover.013",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing pan.014",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing cover.014",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing pan.015",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.wing cover.015",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge course 0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 350,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge course 1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 350,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge course 2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 350,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge cap tile",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge cap tile.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge cap tile.002",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge cap tile.003",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge cap tile.004",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge cap tile.005",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge end face",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 66,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge end relief",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 168,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge end relief.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 168,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge course 0.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 350,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge course 1.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 350,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge course 2.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 350,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge cap tile.006",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge cap tile.007",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge cap tile.008",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge cap tile.009",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge cap tile.010",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge cap tile.011",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge end face.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 66,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge end relief.002",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 168,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge end relief.003",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 168,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge course 0.002",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 350,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge course 1.002",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 350,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge course 2.002",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 350,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge cap tile.012",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge cap tile.013",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge cap tile.014",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge cap tile.015",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge cap tile.016",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge cap tile.017",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge end face.002",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 66,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge end relief.004",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 168,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge end relief.005",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 168,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge course 0.003",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 350,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge course 1.003",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 350,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge course 2.003",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 350,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge cap tile.018",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge cap tile.019",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge cap tile.020",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge cap tile.021",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge cap tile.022",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge cap tile.023",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge end face.003",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 66,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge end relief.006",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 168,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.barge end relief.007",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 168,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.ridge bedding",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 246,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 0",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 0.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 0.002",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 0.003",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 0.004",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 0.005",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 0.006",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 0.007",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 1",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 1.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 1.002",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 1.003",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 1.004",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 1.005",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 1.006",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 1.007",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 1.008",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 2",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 2.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 2.002",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 2.003",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 2.004",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 2.005",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 2.006",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge course 2.007",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge cap",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge cap.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge cap.002",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge cap.003",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge cap.004",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge cap.005",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge cap.006",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.main ridge cap.007",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.ridge end finial",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 10,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "shrine.roof.ridge end finial.001",
+      "owner": "shrine",
+      "hideRender": false,
+      "vertices": 10,
+      "materials": [
+        "Fresh | clay"
+      ]
+    }
+  ]
+}

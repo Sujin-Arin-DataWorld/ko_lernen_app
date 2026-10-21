@@ -1,0 +1,885 @@
+[
+  {
+    "gate": "left",
+    "file": "left-new.blend",
+    "sha256": "b0431b15ebe83529c59307cabea2e66be481ecc0a406df4f68e30e868606fed0",
+    "checks": [
+      {
+        "name": "printed column centre spacing",
+        "passed": true,
+        "actual": [
+          -1.0399999618530273,
+          1.0399999618530273
+        ]
+      },
+      {
+        "name": "printed main post section",
+        "passed": true,
+        "actual": [
+          [
+            0.1549999713897705,
+            0.15500003099441528
+          ],
+          [
+            0.1549999713897705,
+            0.15500003099441528
+          ]
+        ]
+      },
+      {
+        "name": "door plank count and printed thickness",
+        "passed": true,
+        "actual": [
+          0.02500000037252903,
+          0.02500000037252903,
+          0.02500000037252903,
+          0.02500000037252903,
+          0.02500000037252903,
+          0.02500000037252903,
+          0.02500000037252903,
+          0.02500000037252903
+        ]
+      },
+      {
+        "name": "door pair width; right inferred from two570 rails",
+        "passed": true,
+        "actual": 1.788699984550476
+      },
+      {
+        "name": "drawing front nail count",
+        "passed": true,
+        "actual": 32
+      },
+      {
+        "name": "drawing rear rail count and sections",
+        "passed": true,
+        "actual": [
+          [
+            0.045,
+            0.06
+          ],
+          [
+            0.045,
+            0.06
+          ],
+          [
+            0.045,
+            0.06
+          ],
+          [
+            0.045,
+            0.06
+          ],
+          [
+            0.045,
+            0.06
+          ],
+          [
+            0.045,
+            0.06
+          ],
+          [
+            0.045,
+            0.06
+          ],
+          [
+            0.045,
+            0.06
+          ]
+        ]
+      },
+      {
+        "name": "drawing rafter count and body section",
+        "passed": true,
+        "actual": [
+          [
+            0.12000000476837158,
+            0.12000012397766113
+          ],
+          [
+            0.12000000476837158,
+            0.12000012397766113
+          ],
+          [
+            0.12000006437301636,
+            0.12000012397766113
+          ],
+          [
+            0.12000003457069397,
+            0.12000012397766113
+          ],
+          [
+            0.11999999731779099,
+            0.12000012397766113
+          ],
+          [
+            0.12000002712011337,
+            0.12000012397766113
+          ],
+          [
+            0.12000009417533875,
+            0.12000012397766113
+          ],
+          [
+            0.1199999451637268,
+            0.12000012397766113
+          ],
+          [
+            0.12000000476837158,
+            0.12000012397766113
+          ],
+          [
+            0.12000000476837158,
+            0.12000012397766113
+          ]
+        ]
+      },
+      {
+        "name": "printed rafter projected length",
+        "passed": true,
+        "actual": [
+          2.890000581741333,
+          2.890000581741333,
+          2.890000581741333,
+          2.890000581741333,
+          2.890000581741333,
+          2.890000581741333,
+          2.890000581741333,
+          2.890000581741333,
+          2.890000581741333,
+          2.8900007009506226
+        ]
+      },
+      {
+        "name": "separate boarding measured thickness",
+        "passed": true,
+        "actual": [
+          0.02500009536743164,
+          0.02500009536743164,
+          0.02500009536743164,
+          0.02500009536743164,
+          0.02500009536743164,
+          0.02499985694885254,
+          0.02500009536743164,
+          0.02500009536743164,
+          0.02500009536743164,
+          0.02500009536743164,
+          0.02500009536743164,
+          0.02500009536743164,
+          0.02500009536743164,
+          0.02500009536743164,
+          0.02500009536743164,
+          0.02499985694885254,
+          0.024999618530273438,
+          0.024999618530273438
+        ]
+      },
+      {
+        "name": "actual rafter-to-boarding ray contacts <=1mm",
+        "passed": true,
+        "actual": [
+          -9.5367431640625e-07,
+          -7.152557373046875e-07,
+          -9.5367431640625e-07,
+          -9.5367431640625e-07,
+          -7.152557373046875e-07,
+          -9.5367431640625e-07,
+          -9.5367431640625e-07,
+          -4.76837158203125e-07,
+          -7.152557373046875e-07,
+          -7.152557373046875e-07,
+          -4.76837158203125e-07,
+          -7.152557373046875e-07,
+          -7.152557373046875e-07,
+          -4.76837158203125e-07,
+          -7.152557373046875e-07,
+          -7.152557373046875e-07,
+          -7.152557373046875e-07,
+          -7.152557373046875e-07,
+          -7.152557373046875e-07,
+          -7.152557373046875e-07,
+          -7.152557373046875e-07,
+          -7.152557373046875e-07,
+          -7.152557373046875e-07,
+          -4.76837158203125e-07,
+          -4.76837158203125e-07,
+          -4.76837158203125e-07,
+          -4.76837158203125e-07,
+          -4.76837158203125e-07,
+          -7.152557373046875e-07,
+          -4.76837158203125e-07
+        ]
+      },
+      {
+        "name": "080/083 four octagonal props and four X braces",
+        "passed": true,
+        "actual": null
+      },
+      {
+        "name": "080 no invented stair flight",
+        "passed": true,
+        "actual": null
+      },
+      {
+        "name": "081 central dori150x150",
+        "passed": true,
+        "actual": null
+      },
+      {
+        "name": "081/082 side dori120x120",
+        "passed": true,
+        "actual": null
+      },
+      {
+        "name": "actual dori-to-rafter ray contacts <=2mm",
+        "passed": true,
+        "actual": [
+          7.152557373046875e-07,
+          7.152557373046875e-07,
+          4.76837158203125e-07,
+          4.76837158203125e-07,
+          4.76837158203125e-07,
+          4.76837158203125e-07,
+          4.76837158203125e-07,
+          4.76837158203125e-07,
+          2.384185791015625e-07,
+          2.384185791015625e-07
+        ]
+      },
+      {
+        "name": "roof wing fan corners retain inner depth and turn inward at outer edge",
+        "passed": true,
+        "actual": {
+          "innerHalfDepth": 1.5549999475479126,
+          "outerHalfDepth": 1.375,
+          "interpretedCornerInset": 0.18
+        }
+      },
+      {
+        "name": "printed roof front-back span within5mm",
+        "passed": true,
+        "actual": [
+          3.0799999237060547,
+          3.1100001335144043,
+          1.1436293125152588
+        ]
+      },
+      {
+        "name": "closed ceramic shells",
+        "passed": true,
+        "actual": []
+      },
+      {
+        "name": "finite geometry",
+        "passed": true,
+        "actual": null
+      },
+      {
+        "name": "no imported legacy mesh or linked library",
+        "passed": true,
+        "actual": null
+      },
+      {
+        "name": "native wood and clay samples packed in Blender source",
+        "passed": true,
+        "actual": {
+          "wood": [
+            "wood-endgrain-atlas-v1.png",
+            "wood-long-members-trim-v1.png"
+          ],
+          "red": [],
+          "blue": [],
+          "green": [],
+          "clay": [
+            "gye-clay-matte-v26.png",
+            "tile-blue-charcoal-v1.png"
+          ]
+        }
+      },
+      {
+        "name": "native quiet fieldstone sample packed; rejected gravel sample unused",
+        "passed": true,
+        "actual": [
+          "gye-fieldstone-brush-v26.png"
+        ]
+      }
+    ],
+    "allChecksPassed": true,
+    "fullDrawingMatchClaimed": false,
+    "userApproved": false,
+    "geometryDesignApprovedByUser": true,
+    "surfaceApprovedByUser": false
+  },
+  {
+    "gate": "right",
+    "file": "right-new.blend",
+    "sha256": "6995b49bcbabf69dcca3e4a94cf4a3ec2b8af892f5d1223eb045133e229e88ca",
+    "checks": [
+      {
+        "name": "printed column centre spacing",
+        "passed": true,
+        "actual": [
+          -0.7300000190734863,
+          0.7300000190734863
+        ]
+      },
+      {
+        "name": "printed main post section",
+        "passed": true,
+        "actual": [
+          [
+            0.18000006675720215,
+            0.18000003695487976
+          ],
+          [
+            0.18000006675720215,
+            0.18000003695487976
+          ]
+        ]
+      },
+      {
+        "name": "door plank count and printed thickness",
+        "passed": true,
+        "actual": [
+          0.029999999329447746,
+          0.029999999329447746,
+          0.029999999329447746,
+          0.029999999329447746
+        ]
+      },
+      {
+        "name": "door pair width; right inferred from two570 rails",
+        "passed": true,
+        "actual": 1.138700008392334
+      },
+      {
+        "name": "drawing front nail count",
+        "passed": true,
+        "actual": 24
+      },
+      {
+        "name": "drawing rear rail count and sections",
+        "passed": true,
+        "actual": [
+          [
+            0.035,
+            0.065
+          ],
+          [
+            0.035,
+            0.065
+          ],
+          [
+            0.035,
+            0.065
+          ],
+          [
+            0.035,
+            0.065
+          ],
+          [
+            0.035,
+            0.065
+          ],
+          [
+            0.035,
+            0.065
+          ]
+        ]
+      },
+      {
+        "name": "drawing rafter count and body section",
+        "passed": true,
+        "actual": [
+          [
+            0.07999980449676514,
+            0.09999990463256836
+          ],
+          [
+            0.07999998331069946,
+            0.09999990463256836
+          ],
+          [
+            0.08000007271766663,
+            0.09999990463256836
+          ],
+          [
+            0.08000001311302185,
+            0.09999990463256836
+          ],
+          [
+            0.08000007271766663,
+            0.09999990463256836
+          ],
+          [
+            0.07999992370605469,
+            0.09999990463256836
+          ],
+          [
+            0.07999992370605469,
+            0.09999990463256836
+          ]
+        ]
+      },
+      {
+        "name": "printed rafter projected length",
+        "passed": true,
+        "actual": [
+          1.6600003242492676,
+          1.6600005626678467,
+          1.6600005626678467,
+          1.6600005626678467,
+          1.6600005626678467,
+          1.6600005626678467,
+          1.6600004434585571
+        ]
+      },
+      {
+        "name": "separate boarding measured thickness",
+        "passed": true,
+        "actual": [
+          0.02499985694885254,
+          0.02500009536743164,
+          0.025000333786010742,
+          0.02500009536743164,
+          0.025000333786010742,
+          0.02500009536743164,
+          0.02500009536743164,
+          0.02499985694885254,
+          0.025000333786010742,
+          0.02500009536743164,
+          0.02499985694885254
+        ]
+      },
+      {
+        "name": "actual rafter-to-boarding ray contacts <=1mm",
+        "passed": true,
+        "actual": [
+          -4.76837158203125e-07,
+          -7.152557373046875e-07,
+          -4.76837158203125e-07,
+          -4.76837158203125e-07,
+          -4.76837158203125e-07,
+          -4.76837158203125e-07,
+          -4.76837158203125e-07,
+          -4.76837158203125e-07,
+          -4.76837158203125e-07,
+          -2.384185791015625e-07,
+          -4.76837158203125e-07,
+          -4.76837158203125e-07,
+          -2.384185791015625e-07,
+          -4.76837158203125e-07,
+          -2.384185791015625e-07,
+          -4.76837158203125e-07,
+          -4.76837158203125e-07,
+          -2.384185791015625e-07,
+          -2.384185791015625e-07,
+          -2.384185791015625e-07,
+          0.0
+        ]
+      },
+      {
+        "name": "092 ridge dori180x230",
+        "passed": true,
+        "actual": null
+      },
+      {
+        "name": "089/092 shinbangmok210x210x1400",
+        "passed": true,
+        "actual": null
+      },
+      {
+        "name": "092 unequal stair rise datums",
+        "passed": true,
+        "actual": [
+          0.20353937149047852,
+          0.3532658815383911,
+          0.5029603838920593,
+          0.6329485774040222,
+          0.7534673810005188
+        ]
+      },
+      {
+        "name": "actual dori-to-rafter ray contacts <=2mm",
+        "passed": true,
+        "actual": [
+          7.152557373046875e-07,
+          4.76837158203125e-07,
+          4.76837158203125e-07,
+          4.76837158203125e-07,
+          4.76837158203125e-07,
+          4.76837158203125e-07,
+          2.384185791015625e-07
+        ]
+      },
+      {
+        "name": "roof wing fan corners retain inner depth and turn inward at outer edge",
+        "passed": true,
+        "actual": {
+          "innerHalfDepth": 0.9300000071525574,
+          "outerHalfDepth": 0.7699999809265137,
+          "interpretedCornerInset": 0.16
+        }
+      },
+      {
+        "name": "printed roof front-back span within5mm",
+        "passed": true,
+        "actual": [
+          3.0,
+          1.8600000143051147,
+          1.0281641483306885
+        ]
+      },
+      {
+        "name": "closed ceramic shells",
+        "passed": true,
+        "actual": []
+      },
+      {
+        "name": "finite geometry",
+        "passed": true,
+        "actual": null
+      },
+      {
+        "name": "no imported legacy mesh or linked library",
+        "passed": true,
+        "actual": null
+      },
+      {
+        "name": "native wood and clay samples packed in Blender source",
+        "passed": true,
+        "actual": {
+          "wood": [
+            "wood-endgrain-atlas-v1.png",
+            "wood-long-members-trim-v1.png"
+          ],
+          "red": [],
+          "blue": [],
+          "green": [],
+          "clay": [
+            "gye-clay-matte-v26.png",
+            "tile-blue-charcoal-v1.png"
+          ]
+        }
+      },
+      {
+        "name": "native quiet fieldstone sample packed; rejected gravel sample unused",
+        "passed": true,
+        "actual": [
+          "gye-fieldstone-brush-v26.png"
+        ]
+      }
+    ],
+    "allChecksPassed": true,
+    "fullDrawingMatchClaimed": false,
+    "userApproved": false,
+    "geometryDesignApprovedByUser": true,
+    "surfaceApprovedByUser": false
+  },
+  {
+    "gate": "shrine",
+    "file": "shrine-new.blend",
+    "sha256": "d0424a1c0e5d8032a7dbb68fa2cad308655d0e9e36b9502bd648d46899d73f20",
+    "checks": [
+      {
+        "name": "printed column centre spacing",
+        "passed": true,
+        "actual": [
+          -0.675000011920929,
+          0.675000011920929
+        ]
+      },
+      {
+        "name": "printed main post section",
+        "passed": true,
+        "actual": [
+          [
+            0.16999995708465576,
+            0.17000000178813934
+          ],
+          [
+            0.16999995708465576,
+            0.17000000178813934
+          ]
+        ]
+      },
+      {
+        "name": "door plank count and printed thickness",
+        "passed": true,
+        "actual": [
+          0.029999999329447746,
+          0.029999999329447746,
+          0.029999999329447746,
+          0.029999999329447746,
+          0.029999999329447746,
+          0.029999999329447746,
+          0.029999999329447746,
+          0.029999999329447746
+        ]
+      },
+      {
+        "name": "door pair width; right inferred from two570 rails",
+        "passed": true,
+        "actual": 1.0184999704360962
+      },
+      {
+        "name": "086 door panel height1500",
+        "passed": true,
+        "actual": null
+      },
+      {
+        "name": "drawing front nail count",
+        "passed": true,
+        "actual": 16
+      },
+      {
+        "name": "drawing rear rail count and sections",
+        "passed": true,
+        "actual": [
+          [
+            0.065,
+            0.095
+          ],
+          [
+            0.034,
+            0.054
+          ],
+          [
+            0.065,
+            0.095
+          ],
+          [
+            0.065,
+            0.095
+          ],
+          [
+            0.034,
+            0.054
+          ],
+          [
+            0.065,
+            0.095
+          ]
+        ]
+      },
+      {
+        "name": "drawing rafter count and body section",
+        "passed": true,
+        "actual": [
+          [
+            0.07499992847442627,
+            0.08999991416931152
+          ],
+          [
+            0.07500004768371582,
+            0.08999991416931152
+          ],
+          [
+            0.07500004768371582,
+            0.08999991416931152
+          ],
+          [
+            0.07500001788139343,
+            0.08999991416931152
+          ],
+          [
+            0.07500004768371582,
+            0.08999991416931152
+          ],
+          [
+            0.07500004768371582,
+            0.08999991416931152
+          ],
+          [
+            0.07499992847442627,
+            0.08999991416931152
+          ]
+        ]
+      },
+      {
+        "name": "printed rafter projected length",
+        "passed": true,
+        "actual": [
+          1.8000003695487976,
+          1.8000001907348633,
+          1.8000003099441528,
+          1.8000003099441528,
+          1.8000003099441528,
+          1.8000001907348633,
+          1.800000250339508
+        ]
+      },
+      {
+        "name": "separate boarding measured thickness",
+        "passed": true,
+        "actual": [
+          0.029999971389770508,
+          0.029999971389770508,
+          0.029999971389770508,
+          0.029999971389770508,
+          0.029999971389770508,
+          0.029999971389770508,
+          0.029999971389770508,
+          0.029999971389770508,
+          0.029999971389770508,
+          0.029999971389770508
+        ]
+      },
+      {
+        "name": "actual rafter-to-boarding ray contacts <=1mm",
+        "passed": true,
+        "actual": [
+          -4.76837158203125e-07,
+          -4.76837158203125e-07,
+          -4.76837158203125e-07,
+          -4.76837158203125e-07,
+          0.0,
+          -4.76837158203125e-07,
+          -2.384185791015625e-07,
+          -2.384185791015625e-07,
+          -4.76837158203125e-07,
+          -2.384185791015625e-07,
+          -2.384185791015625e-07,
+          -2.384185791015625e-07,
+          -2.384185791015625e-07,
+          -2.384185791015625e-07,
+          -2.384185791015625e-07,
+          -2.384185791015625e-07,
+          -2.384185791015625e-07,
+          -2.384185791015625e-07,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "name": "086/087 two longitudinal dori82x150x1800",
+        "passed": true,
+        "actual": [
+          {
+            "raw": [
+              0.0820000171661377,
+              1.7999999523162842,
+              0.15000009536743164
+            ],
+            "bevelled": [
+              0.0820000171661377,
+              1.7992850542068481,
+              0.15000009536743164
+            ]
+          },
+          {
+            "raw": [
+              0.0820000171661377,
+              1.7999999523162842,
+              0.15000009536743164
+            ],
+            "bevelled": [
+              0.0820000171661377,
+              1.7992850542068481,
+              0.15000009536743164
+            ]
+          }
+        ]
+      },
+      {
+        "name": "086 transverse bearing70x80",
+        "passed": true,
+        "actual": null
+      },
+      {
+        "name": "086 pivot outside height1600",
+        "passed": true,
+        "actual": 1.5999999642372131
+      },
+      {
+        "name": "actual dori-to-rafter ray contacts <=2mm",
+        "passed": true,
+        "actual": [
+          4.76837158203125e-07,
+          4.76837158203125e-07,
+          2.384185791015625e-07,
+          2.384185791015625e-07,
+          2.384185791015625e-07,
+          2.384185791015625e-07,
+          0.0,
+          2.384185791015625e-07,
+          2.384185791015625e-07,
+          2.384185791015625e-07,
+          2.384185791015625e-07,
+          2.384185791015625e-07,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "name": "roof wing fan corners retain inner depth and turn inward at outer edge",
+        "passed": true,
+        "actual": {
+          "innerHalfDepth": 0.9700000286102295,
+          "outerHalfDepth": 0.7799999713897705,
+          "interpretedCornerInset": 0.19
+        }
+      },
+      {
+        "name": "printed roof front-back span within5mm",
+        "passed": true,
+        "actual": [
+          2.569999933242798,
+          1.940000057220459,
+          0.9079999923706055
+        ]
+      },
+      {
+        "name": "closed ceramic shells",
+        "passed": true,
+        "actual": []
+      },
+      {
+        "name": "finite geometry",
+        "passed": true,
+        "actual": null
+      },
+      {
+        "name": "no imported legacy mesh or linked library",
+        "passed": true,
+        "actual": null
+      },
+      {
+        "name": "native wood and clay samples packed in Blender source",
+        "passed": true,
+        "actual": {
+          "wood": [],
+          "red": [
+            "wood-endgrain-atlas-v1.png",
+            "wood-long-members-trim-v1.png"
+          ],
+          "blue": [
+            "wood-endgrain-atlas-v1.png",
+            "wood-long-members-trim-v1.png"
+          ],
+          "green": [
+            "wood-endgrain-atlas-v1.png",
+            "wood-long-members-trim-v1.png"
+          ],
+          "clay": [
+            "gye-clay-matte-v26.png",
+            "tile-blue-charcoal-v1.png"
+          ]
+        }
+      },
+      {
+        "name": "native quiet fieldstone sample packed; rejected gravel sample unused",
+        "passed": true,
+        "actual": [
+          "gye-fieldstone-brush-v26.png"
+        ]
+      }
+    ],
+    "allChecksPassed": true,
+    "fullDrawingMatchClaimed": false,
+    "userApproved": false,
+    "geometryDesignApprovedByUser": true,
+    "surfaceApprovedByUser": false
+  }
+]

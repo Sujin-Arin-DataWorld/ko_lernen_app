@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "source": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\canonical\\native\\ildu-estate-r12-packed.blend",
+  "source_sha256": "b3b51dec9f2d4a7629912326bb224e8cf5595c2a874a1c3c85075a5f742af434",
+  "library_sha256": "0bc9eb89d7eb4810aae1c6cfa7e5a532fd9b7acb99ecef395c9a8cc90902b0cf",
+  "render_connected_material_signatures_equal": true,
+  "all_geometry_uv_transforms_equal": true,
+  "all_nontarget_bindings_equal": true,
+  "all_candidate_bindings_equal": true,
+  "verified_objects": 6135,
+  "applied_slots": 211,
+  "saved_output": null,
+  "reference_candidate_native_sha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+}

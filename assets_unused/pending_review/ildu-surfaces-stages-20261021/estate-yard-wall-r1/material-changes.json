@@ -1,0 +1,4222 @@
+[
+  {
+    "object": "ConnectionGarden.wall1.end stones",
+    "slot": 0,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 01",
+    "new": "YW1 stone | HS lower east stone r2 | 01",
+    "bounds": [
+      [
+        14.623108863830566,
+        -12.854400634765625,
+        0.00059936149045825
+      ],
+      [
+        15.010000228881836,
+        -4.049511432647705,
+        1.2182695865631104
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "ConnectionGarden.wall1.fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 02",
+    "new": "YW1 stone | HS lower east stone r2 | 02",
+    "bounds": [
+      [
+        14.568007469177246,
+        -12.807177543640137,
+        -0.002385451691225171
+      ],
+      [
+        15.065364837646484,
+        -4.092372894287109,
+        1.2207906246185303
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "ConnectionGarden.wall1.ochre core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "HS lower earth r1 | 01 body",
+    "new": "YW1 mortar | HS lower earth r1 | 01 body",
+    "bounds": [
+      [
+        14.635000228881836,
+        -12.800000190734863,
+        0.004999999888241291
+      ],
+      [
+        15.005000114440918,
+        -4.099999904632568,
+        1.2200000286102295
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "ConnectionGarden.wall2.end stones",
+    "slot": 0,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 03",
+    "new": "YW1 stone | HS lower east stone r2 | 03",
+    "bounds": [
+      [
+        14.623297691345215,
+        -21.1522159576416,
+        0.002038855804130435
+      ],
+      [
+        15.010000228881836,
+        -15.548986434936523,
+        1.7070598602294922
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "ConnectionGarden.wall2.fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 04",
+    "new": "YW1 stone | HS lower east stone r2 | 04",
+    "bounds": [
+      [
+        14.568028450012207,
+        -21.10718536376953,
+        -0.013991670683026314
+      ],
+      [
+        15.065265655517578,
+        -15.59186840057373,
+        1.716636300086975
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "ConnectionGarden.wall2.ochre core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "HS lower earth r1 | 02 body",
+    "new": "YW1 mortar | HS lower earth r1 | 02 body",
+    "bounds": [
+      [
+        14.635000228881836,
+        -21.100000381469727,
+        0.004999999888241291
+      ],
+      [
+        15.005000114440918,
+        -15.600000381469727,
+        1.7195473909378052
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "ConnectionGarden.wall3.end stones",
+    "slot": 0,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 05",
+    "new": "YW1 stone | HS lower east stone r2 | 05",
+    "bounds": [
+      [
+        23.19550323486328,
+        -0.1137913390994072,
+        0.3155244290828705
+      ],
+      [
+        29.554481506347656,
+        0.27300000190734863,
+        2.5543787479400635
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "ConnectionGarden.wall3.fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 06",
+    "new": "YW1 stone | HS lower east stone r2 | 06",
+    "bounds": [
+      [
+        23.241756439208984,
+        -0.1689627766609192,
+        0.27931666374206543
+      ],
+      [
+        29.50811767578125,
+        0.32812705636024475,
+        2.54866099357605
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "ConnectionGarden.wall3.ochre core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "HS lower earth r1 | 03 body",
+    "new": "YW1 mortar | HS lower earth r1 | 03 body",
+    "bounds": [
+      [
+        23.25,
+        -0.10199999809265137,
+        0.31825125217437744
+      ],
+      [
+        29.5,
+        0.2680000066757202,
+        2.553128719329834
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "ConnectionGarden.wall4.end stones",
+    "slot": 0,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 07",
+    "new": "YW1 stone | HS lower east stone r2 | 07",
+    "bounds": [
+      [
+        29.30343246459961,
+        -21.153974533081055,
+        0.011821771040558815
+      ],
+      [
+        29.690000534057617,
+        0.13645334541797638,
+        2.5557641983032227
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "ConnectionGarden.wall4.fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 08",
+    "new": "YW1 stone | HS lower east stone r2 | 08",
+    "bounds": [
+      [
+        29.248001098632812,
+        -21.1080379486084,
+        0.014854468405246735
+      ],
+      [
+        29.7450008392334,
+        0.08997654914855957,
+        2.5354104042053223
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "ConnectionGarden.wall4.ochre core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "HS lower earth r1 | 04 body",
+    "new": "YW1 mortar | HS lower earth r1 | 04 body",
+    "bounds": [
+      [
+        29.315000534057617,
+        -21.100000381469727,
+        0.005073926877230406
+      ],
+      [
+        29.684999465942383,
+        0.08299999684095383,
+        2.5531773567199707
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "ConnectionGarden.wall5.end stones",
+    "slot": 0,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 09",
+    "new": "YW1 stone | HS lower east stone r2 | 09",
+    "bounds": [
+      [
+        14.764244079589844,
+        -21.290929794311523,
+        -0.006123524159193039
+      ],
+      [
+        29.55453872680664,
+        -20.90262794494629,
+        2.243516683578491
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "ConnectionGarden.wall5.fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 10",
+    "new": "YW1 stone | HS lower east stone r2 | 10",
+    "bounds": [
+      [
+        14.808197975158691,
+        -21.345287322998047,
+        -0.013989274390041828
+      ],
+      [
+        29.507394790649414,
+        -20.8480224609375,
+        2.218601942062378
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "ConnectionGarden.wall5.ochre core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "HS lower earth r1 | 05 body",
+    "new": "YW1 mortar | HS lower earth r1 | 05 body",
+    "bounds": [
+      [
+        14.819999694824219,
+        -21.28499984741211,
+        0.004999999888241291
+      ],
+      [
+        29.5,
+        -20.915000915527344,
+        2.23982310295105
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "ConnectionLeft.high wall lower end",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.139359474182129,
+        3.6012606620788574,
+        0.013593710958957672
+      ],
+      [
+        -0.0267857164144516,
+        3.996999979019165,
+        0.8998814821243286
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "ConnectionLeft.high wall lower end.001",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.151658773422241,
+        3.600944995880127,
+        0.23428644239902496
+      ],
+      [
+        -0.023592064157128334,
+        3.996999979019165,
+        0.903490424156189
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "ConnectionLeft.high wall lower end.002",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.1383001804351807,
+        3.603686571121216,
+        0.4439579248428345
+      ],
+      [
+        -2.0389599800109863,
+        3.996999979019165,
+        0.6922846436500549
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "ConnectionLeft.high wall lower end.003",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -0.12570589780807495,
+        3.6025261878967285,
+        0.23986148834228516
+      ],
+      [
+        -0.03062073513865471,
+        3.996999979019165,
+        0.6887842416763306
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "ConnectionLeft.high wall lower fieldstone",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.0896337032318115,
+        3.542383909225464,
+        0.007834725081920624
+      ],
+      [
+        -0.08373934030532837,
+        4.057000160217285,
+        0.9154743552207947
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "ConnectionLeft.high wall lower fieldstone.001",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.0857174396514893,
+        3.540647268295288,
+        0.004753763321787119
+      ],
+      [
+        -0.07791014760732651,
+        4.057000160217285,
+        0.915888786315918
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "ConnectionLeft.high wall lower fieldstone.002",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.0926883220672607,
+        3.5401611328125,
+        0.010220148600637913
+      ],
+      [
+        -0.07234039902687073,
+        4.057000160217285,
+        0.9092522859573364
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "ConnectionLeft.high wall lower fieldstone.003",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.093538999557495,
+        3.5402112007141113,
+        0.011095162481069565
+      ],
+      [
+        -0.0857396200299263,
+        4.057000160217285,
+        0.9026668071746826
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "ConnectionLeft.high wall lower fieldstone.004",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.093891143798828,
+        3.5412402153015137,
+        0.007209638133645058
+      ],
+      [
+        -0.080705426633358,
+        4.057000160217285,
+        0.9111711978912354
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "Estate.fabric.gotgan garden return.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        -11.329256057739258,
+        10.237750053405762,
+        0.602658212184906
+      ],
+      [
+        -10.616294860839844,
+        13.482413291931152,
+        2.202458620071411
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.gotgan garden return.exact pan underside bedding v61",
+    "slot": 0,
+    "role": "earthwall",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 earthwall | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        -11.297712326049805,
+        10.258543014526367,
+        1.8039997816085815
+      ],
+      [
+        -10.64784049987793,
+        13.46161937713623,
+        2.314361095428467
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.gotgan garden return.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -11.401140213012695,
+        10.243613243103027,
+        0.5959787964820862
+      ],
+      [
+        -10.546276092529297,
+        13.467754364013672,
+        2.202475070953369
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.gotgan rear boundary.coping seated stones v43.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -25.17477798461914,
+        12.185161590576172,
+        0.664725124835968
+      ],
+      [
+        -11.111668586730957,
+        13.71745491027832,
+        2.2170491218566895
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.gotgan rear boundary.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        -25.190282821655273,
+        12.254880905151367,
+        0.667401909828186
+      ],
+      [
+        -11.098114967346191,
+        13.644270896911621,
+        2.2417290210723877
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.gotgan rear boundary.exact pan underside bedding v42",
+    "slot": 0,
+    "role": "earthwall",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+    "new": "YW1 earthwall | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        -25.169700622558594,
+        12.286589622497559,
+        1.9579333066940308
+      ],
+      [
+        -11.098749160766602,
+        13.613971710205078,
+        2.3199093341827393
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.gwang byeoldang join.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        29.318483352661133,
+        0.02061639353632927,
+        0.38937509059906006
+      ],
+      [
+        30.28821563720703,
+        2.4435837268829346,
+        2.511787176132202
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.gwang byeoldang join.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        29.24431037902832,
+        0.012088939547538757,
+        0.5505634546279907
+      ],
+      [
+        30.361143112182617,
+        2.457096576690674,
+        2.5443761348724365
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.jung building tie.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis2 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis2 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        -1.5271553993225098,
+        15.35322380065918,
+        1.2799999713897705
+      ],
+      [
+        -1.1235542297363281,
+        16.295507431030273,
+        2.5
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.jung building tie.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis2 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis2 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -1.6049449443817139,
+        15.367973327636719,
+        1.2957640886306763
+      ],
+      [
+        -1.0492169857025146,
+        16.279273986816406,
+        2.497666120529175
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.jung to gotgan boundary.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        -11.19903564453125,
+        13.253549575805664,
+        0.9290830492973328
+      ],
+      [
+        -1.2586350440979004,
+        16.46634864807129,
+        2.4994261264801025
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.jung to gotgan boundary.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -11.209606170654297,
+        13.184418678283691,
+        0.9425385594367981
+      ],
+      [
+        -1.2626450061798096,
+        16.532560348510742,
+        2.5111517906188965
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.northwest field wall.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        39.029747009277344,
+        51.199092864990234,
+        1.5
+      ],
+      [
+        42.80455017089844,
+        58.38015365600586,
+        2.759999990463257
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.northwest field wall.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        38.969486236572266,
+        51.17723846435547,
+        1.4862496852874756
+      ],
+      [
+        42.8631591796875,
+        58.39368438720703,
+        2.7711987495422363
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.northwest road wall.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        41.38200378417969,
+        29.874231338500977,
+        1.5
+      ],
+      [
+        42.82351303100586,
+        51.325645446777344,
+        2.784973382949829
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.northwest road wall.exact pan underside bedding v40",
+    "slot": 0,
+    "role": "earthwall",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 earthwall | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        41.42079544067383,
+        29.751480102539062,
+        2.744000196456909
+      ],
+      [
+        42.79169845581055,
+        51.305233001708984,
+        2.9118130207061768
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.northwest road wall.uneven fieldstone.bonded corner v38.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        41.324562072753906,
+        30.204208374023438,
+        1.4868509769439697
+      ],
+      [
+        42.894569396972656,
+        51.31673049926758,
+        2.773449659347534
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.road behind shrine.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        29.063413619995117,
+        28.332929611206055,
+        1.5
+      ],
+      [
+        41.62083435058594,
+        30.10129737854004,
+        2.849665641784668
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.road behind shrine.exact pan underside bedding v54",
+    "slot": 0,
+    "role": "earthwall",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+    "new": "YW1 earthwall | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        28.902198791503906,
+        28.38591766357422,
+        2.768220901489258
+      ],
+      [
+        41.75054168701172,
+        30.061777114868164,
+        2.9764771461486816
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.road behind shrine.forecourt seated stones v49.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        29.072710037231445,
+        28.26007843017578,
+        1.4860291481018066
+      ],
+      [
+        41.29839324951172,
+        30.144636154174805,
+        2.8430967330932617
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.shrine gwang join.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        30.299972534179688,
+        15.779999732971191,
+        1.4859999418258667
+      ],
+      [
+        30.700027465820312,
+        18.899999618530273,
+        2.8343091011047363
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.shrine gwang join.exact pan underside bedding v54",
+    "slot": 0,
+    "role": "earthwall",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 earthwall | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        30.33197784423828,
+        15.777488708496094,
+        2.5968663692474365
+      ],
+      [
+        30.66802215576172,
+        18.91209602355957,
+        2.969191789627075
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.shrine gwang join.forecourt seated stones v49.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        30.203445434570312,
+        15.69333553314209,
+        1.4706590175628662
+      ],
+      [
+        30.78354263305664,
+        19.157493591308594,
+        2.8785159587860107
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.south edge middle.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        -25.356651306152344,
+        -3.57066011428833,
+        0.6001487374305725
+      ],
+      [
+        -23.41558265686035,
+        12.491087913513184,
+        1.9824910163879395
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.south edge middle.exact pan underside bedding v49",
+    "slot": 0,
+    "role": "earthwall",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 earthwall | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        -25.326276779174805,
+        -3.5430867671966553,
+        1.703870415687561
+      ],
+      [
+        -23.443952560424805,
+        12.468840599060059,
+        2.0996267795562744
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.south edge middle.forecourt seated stones v49.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -25.432737350463867,
+        -3.5609564781188965,
+        0.5869354009628296
+      ],
+      [
+        -23.34329605102539,
+        12.474541664123535,
+        1.9629833698272705
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.south edge west.coping seated stones v43.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -26.87607192993164,
+        12.433426856994629,
+        0.7101874351501465
+      ],
+      [
+        -24.885421752929688,
+        31.084705352783203,
+        2.543999433517456
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.south edge west.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        -26.802675247192383,
+        12.42052936553955,
+        0.6968226432800293
+      ],
+      [
+        -24.958694458007812,
+        31.105138778686523,
+        2.549290895462036
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.south edge west.exact pan underside bedding v42",
+    "slot": 0,
+    "role": "earthwall",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 earthwall | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        -26.772554397583008,
+        12.439597129821777,
+        1.9578847885131836
+      ],
+      [
+        -24.990489959716797,
+        31.10444450378418,
+        2.6715550422668457
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.toilet1 east.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        -14.470195770263672,
+        23.59874153137207,
+        1.2799999713897705
+      ],
+      [
+        -9.439783096313477,
+        24.539905548095703,
+        2.5
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.toilet1 east.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -14.463851928710938,
+        23.534753799438477,
+        1.2711105346679688
+      ],
+      [
+        -9.458674430847168,
+        24.61124610900879,
+        2.5125949382781982
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.toilet1 outer return.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        -15.610370635986328,
+        27.712507247924805,
+        1.2799999713897705
+      ],
+      [
+        -14.688944816589355,
+        32.34156799316406,
+        2.5
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.toilet1 outer return.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -15.683097839355469,
+        27.722448348999023,
+        1.2674007415771484
+      ],
+      [
+        -14.617647171020508,
+        32.323097229003906,
+        2.5136935710906982
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.toilet1 short north.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        -10.084121704101562,
+        25.641681671142578,
+        1.2799999713897705
+      ],
+      [
+        -9.385143280029297,
+        28.342466354370117,
+        2.5
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.toilet1 short north.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -10.155704498291016,
+        25.648988723754883,
+        1.2742458581924438
+      ],
+      [
+        -9.318737983703613,
+        28.326217651367188,
+        2.50115966796875
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.toilet1 south.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        -15.08562183380127,
+        23.757064819335938,
+        1.2799999713897705
+      ],
+      [
+        -14.232641220092773,
+        27.792810440063477,
+        2.5
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.toilet1 south.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -15.160223960876465,
+        23.762161254882812,
+        1.2703622579574585
+      ],
+      [
+        -14.159599304199219,
+        27.776647567749023,
+        2.50547194480896
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.toilet1 west.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        -14.926499366760254,
+        27.554182052612305,
+        1.2799999713897705
+      ],
+      [
+        -9.846566200256348,
+        28.500789642333984,
+        2.5
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.toilet1 west.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -14.907736778259277,
+        27.485729217529297,
+        1.2700834274291992
+      ],
+      [
+        -9.84952449798584,
+        28.573657989501953,
+        2.5134572982788086
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.west estate edge.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        -26.642723083496094,
+        30.87302017211914,
+        1.2801692485809326
+      ],
+      [
+        3.0980703830718994,
+        34.52980422973633,
+        2.764843463897705
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.west estate edge.exact pan underside bedding v40",
+    "slot": 0,
+    "role": "earthwall",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+    "new": "YW1 earthwall | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        -26.62186050415039,
+        30.90450096130371,
+        2.5340001583099365
+      ],
+      [
+        3.2264492511749268,
+        34.4819221496582,
+        2.890761137008667
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.west estate edge.uneven fieldstone.bonded corner v38.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -26.639127731323242,
+        30.799837112426758,
+        1.2664319276809692
+      ],
+      [
+        2.7754125595092773,
+        34.57196807861328,
+        2.7629446983337402
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.west field south return.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        2.858863592147827,
+        34.310848236083984,
+        1.5
+      ],
+      [
+        3.2876369953155518,
+        44.96978759765625,
+        2.764998197555542
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.west field south return.exact pan underside bedding v40",
+    "slot": 0,
+    "role": "earthwall",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 earthwall | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        2.8912622928619385,
+        34.18073654174805,
+        2.744000196456909
+      ],
+      [
+        3.255645275115967,
+        44.949764251708984,
+        2.891944408416748
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.west field south return.uneven fieldstone.bonded corner v38.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        2.782595634460449,
+        34.64558410644531,
+        1.4893593788146973
+      ],
+      [
+        3.361227035522461,
+        44.95515823364258,
+        2.7704737186431885
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.west field wall.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        3.0064995288848877,
+        44.761619567871094,
+        1.5
+      ],
+      [
+        39.29155349731445,
+        58.46986770629883,
+        2.759999990463257
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.fabric.west field wall.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        2.9856815338134766,
+        44.69672393798828,
+        1.4871882200241089
+      ],
+      [
+        39.29608917236328,
+        58.541194915771484,
+        2.773404121398926
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Estate.garden.arae.unplanted beds",
+    "slot": 0,
+    "role": "garden",
+    "old": "Garden worked earth with quiet pigment",
+    "new": "YW1 garden | Garden worked earth with quiet pigment",
+    "bounds": [
+      [
+        4.3061933517456055,
+        34.675113677978516,
+        1.50600004196167
+      ],
+      [
+        8.494625091552734,
+        43.434165954589844,
+        1.6412290334701538
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "Estate.garden.changgo.unplanted beds",
+    "slot": 0,
+    "role": "garden",
+    "old": "Garden worked earth with quiet pigment",
+    "new": "YW1 garden | Garden worked earth with quiet pigment",
+    "bounds": [
+      [
+        -24.398452758789062,
+        15.066427230834961,
+        1.2825908660888672
+      ],
+      [
+        -16.11621856689453,
+        29.645160675048828,
+        1.422463059425354
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "Forecourt.wall.gate-ansarang.0.core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "HS lower earth r1 | 06 body",
+    "new": "YW1 mortar | HS lower earth r1 | 06 body",
+    "bounds": [
+      [
+        -1.939072608947754,
+        -23.241653442382812,
+        -0.10000000149011612
+      ],
+      [
+        -1.6461490392684937,
+        -15.199999809265137,
+        1.7200000286102295
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Forecourt.wall.gate-ansarang.0.rubble",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | forecourt_wall | P18 image.forecourt_wall.stone.P15 stone forecourt_wall board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | forecourt_wall | P18 image.forecourt_wall.stone.P15 stone forecourt_wall board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.2584567070007324,
+        -23.220346450805664,
+        -0.10860080271959305
+      ],
+      [
+        -1.2820281982421875,
+        -15.600000381469727,
+        1.7286652326583862
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Forecourt.wall.gate-ansarang.1.core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "HS lower earth r1 | 07 body",
+    "new": "YW1 mortar | HS lower earth r1 | 07 body",
+    "bounds": [
+      [
+        -2.034900665283203,
+        -23.349733352661133,
+        -0.10000381618738174
+      ],
+      [
+        14.866901397705078,
+        -20.95326805114746,
+        1.7200000286102295
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Forecourt.wall.gate-ansarang.1.rubble",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | forecourt_wall | P18 image.forecourt_wall.stone.P15 stone forecourt_wall board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | forecourt_wall | P18 image.forecourt_wall.stone.P15 stone forecourt_wall board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.017268180847168,
+        -23.4716796875,
+        -0.10969848930835724
+      ],
+      [
+        14.861634254455566,
+        -20.836227416992188,
+        1.7298249006271362
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Forecourt.wall.warehouse-toilet.0.core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "HS lower earth r1 | 08 body",
+    "new": "YW1 mortar | HS lower earth r1 | 08 body",
+    "bounds": [
+      [
+        -23.64299964904785,
+        -3.680000066757202,
+        0.4999965727329254
+      ],
+      [
+        -10.055000305175781,
+        -3.3899998664855957,
+        1.7200000286102295
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Forecourt.wall.warehouse-toilet.0.exact pan underside bedding v49",
+    "slot": 0,
+    "role": "earthwall",
+    "old": "HS lower earth r1 | 09 bedding",
+    "new": "YW1 earthwall | HS lower earth r1 | 09 bedding",
+    "bounds": [
+      [
+        -23.613000869750977,
+        -3.6568002700805664,
+        1.7040001153945923
+      ],
+      [
+        -10.055000305175781,
+        -3.4131996631622314,
+        1.8470189571380615
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Forecourt.wall.warehouse-toilet.0.rubble",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | forecourt_wall | P18 image.forecourt_wall.stone.P15 stone forecourt_wall board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | forecourt_wall | P18 image.forecourt_wall.stone.P15 stone forecourt_wall board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -23.621456146240234,
+        -3.8010001182556152,
+        0.48988619446754456
+      ],
+      [
+        -10.055000305175781,
+        -3.2620134353637695,
+        1.7200000286102295
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Forecourt.wall.warehouse-toilet.1.core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "HS lower earth r1 | 10 body",
+    "new": "YW1 mortar | HS lower earth r1 | 10 body",
+    "bounds": [
+      [
+        -23.763015747070312,
+        -10.489099502563477,
+        -0.10000190883874893
+      ],
+      [
+        -23.467985153198242,
+        -3.5049004554748535,
+        1.7199997901916504
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Forecourt.wall.warehouse-toilet.1.exact pan underside bedding v49",
+    "slot": 0,
+    "role": "earthwall",
+    "old": "HS lower earth r1 | 11 bedding",
+    "new": "YW1 earthwall | HS lower earth r1 | 11 bedding",
+    "bounds": [
+      [
+        -23.739824295043945,
+        -10.48908805847168,
+        1.7040001153945923
+      ],
+      [
+        -23.491195678710938,
+        -3.5291736125946045,
+        1.8470189571380615
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Forecourt.wall.warehouse-toilet.1.rubble",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | forecourt_wall | P18 image.forecourt_wall.stone.P15 stone forecourt_wall board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | forecourt_wall | P18 image.forecourt_wall.stone.P15 stone forecourt_wall board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -23.89036750793457,
+        -10.471765518188477,
+        -0.10998014360666275
+      ],
+      [
+        -23.34700584411621,
+        -3.5272786617279053,
+        1.7213056087493896
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Forecourt.wall.warehouse-toilet.2.core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "HS lower earth r1 | 12 body",
+    "new": "YW1 mortar | HS lower earth r1 | 12 body",
+    "bounds": [
+      [
+        -23.670909881591797,
+        -12.71574878692627,
+        -0.10000190883874893
+      ],
+      [
+        -11.162331581115723,
+        -10.312210083007812,
+        1.7199997901916504
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "Forecourt.wall.warehouse-toilet.2.rubble",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | forecourt_wall | P18 image.forecourt_wall.stone.P15 stone forecourt_wall board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | forecourt_wall | P18 image.forecourt_wall.stone.P15 stone forecourt_wall board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -23.67124366760254,
+        -12.83662223815918,
+        -0.11001521348953247
+      ],
+      [
+        -11.15572738647461,
+        -10.198101043701172,
+        1.7200000286102295
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "GyeCraft.main gate right wall bonded end stones v30",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | site | P18 image.site.stone.P15 stone site board axis2 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | site | P18 image.site.stone.P15 stone site board axis2 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.1417484283447266,
+        -15.697675704956055,
+        -0.09562462568283081
+      ],
+      [
+        -1.5309768915176392,
+        -15.099042892456055,
+        1.7141995429992676
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "GyeCraft.wall basal fieldstones ConnectionGarden.wall4.ochre core",
+    "slot": 0,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 11",
+    "new": "YW1 stone | HS lower east stone r2 | 11",
+    "bounds": [
+      [
+        29.230358123779297,
+        -12.614099502563477,
+        0.08007995784282684
+      ],
+      [
+        29.77239990234375,
+        -0.07573946565389633,
+        0.3425930440425873
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "GyeCraft.wall basal fieldstones Estate.fabric.gotgan garden return.earth core",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 stone estate_wall joinery axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall joinery axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -11.393627166748047,
+        10.233909606933594,
+        0.5717019438743591
+      ],
+      [
+        -10.537413597106934,
+        13.491568565368652,
+        0.9915283918380737
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "GyeCraft.wall basal fieldstones Estate.fabric.south edge middle.earth core",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 stone estate_wall joinery axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall joinery axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -25.439918518066406,
+        -0.966097354888916,
+        0.5714340806007385
+      ],
+      [
+        -23.586654663085938,
+        12.498571395874023,
+        0.7387094497680664
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "GyeCraft.wall basal fieldstones Estate.fabric.west estate edge.earth core",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 stone estate_wall joinery axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall joinery axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -24.28693199157715,
+        31.074424743652344,
+        1.2430018186569214
+      ],
+      [
+        1.8879486322402954,
+        34.4782829284668,
+        1.5160505771636963
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "GyeCraft.wall basal fieldstones V27.left_changgo.wall to warehouse.earth core",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo joinery axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo joinery axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -7.293458938598633,
+        2.7491166591644287,
+        0.5700218677520752
+      ],
+      [
+        -4.2414703369140625,
+        4.063531875610352,
+        0.6492774486541748
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "GyeCraft.wall basal fieldstones V27.right_ansarang.wall to sarang.earth core",
+    "slot": 0,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 12",
+    "new": "YW1 stone | HS lower east stone r2 | 12",
+    "bounds": [
+      [
+        14.602018356323242,
+        -0.2003730684518814,
+        -0.02806852199137211
+      ],
+      [
+        16.056833267211914,
+        0.3656044900417328,
+        0.04798092320561409
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "GyeCraft.wall seated footing ConnectionGarden.wall1.ochre core",
+    "slot": 0,
+    "role": "stone",
+    "old": "HS lower earth r1 | 13 thin-footing",
+    "new": "YW1 stone | HS lower earth r1 | 13 thin-footing",
+    "bounds": [
+      [
+        14.635000228881836,
+        -12.800000190734863,
+        -0.018015258014202118
+      ],
+      [
+        15.005000114440918,
+        -4.099999904632568,
+        0.008999999612569809
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "GyeCraft.wall seated footing ConnectionGarden.wall2.ochre core",
+    "slot": 0,
+    "role": "stone",
+    "old": "HS lower earth r1 | 14 thin-footing",
+    "new": "YW1 stone | HS lower earth r1 | 14 thin-footing",
+    "bounds": [
+      [
+        14.635000228881836,
+        -21.100000381469727,
+        -0.018015258014202118
+      ],
+      [
+        15.005000114440918,
+        -15.600000381469727,
+        0.008999999612569809
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "GyeCraft.wall seated footing ConnectionGarden.wall3.ochre core",
+    "slot": 0,
+    "role": "stone",
+    "old": "HS lower earth r1 | 15 thin-footing",
+    "new": "YW1 stone | HS lower earth r1 | 15 thin-footing",
+    "bounds": [
+      [
+        23.25,
+        -0.10199999809265137,
+        0.2897239923477173
+      ],
+      [
+        29.5,
+        0.2680000066757202,
+        0.32225126028060913
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "GyeCraft.wall seated footing ConnectionGarden.wall4.ochre core",
+    "slot": 0,
+    "role": "stone",
+    "old": "HS lower earth r1 | 16 thin-footing",
+    "new": "YW1 stone | HS lower earth r1 | 16 thin-footing",
+    "bounds": [
+      [
+        29.315000534057617,
+        -21.100000381469727,
+        -0.010999999940395355
+      ],
+      [
+        29.684999465942383,
+        0.08299999684095383,
+        0.32225126028060913
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "GyeCraft.wall seated footing ConnectionGarden.wall5.ochre core",
+    "slot": 0,
+    "role": "stone",
+    "old": "HS lower earth r1 | 17 thin-footing",
+    "new": "YW1 stone | HS lower earth r1 | 17 thin-footing",
+    "bounds": [
+      [
+        14.819999694824219,
+        -21.28499984741211,
+        -0.018015258014202118
+      ],
+      [
+        29.5,
+        -20.915000915527344,
+        0.008999999612569809
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "GyeCraft.wall seated footing Estate.fabric.gotgan garden return.earth core",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        -11.331534385681152,
+        10.235471725463867,
+        0.581983208656311
+      ],
+      [
+        -10.61401653289795,
+        13.484691619873047,
+        0.989793598651886
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "GyeCraft.wall seated footing Estate.fabric.gotgan rear boundary.earth core",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        -25.191904067993164,
+        12.253260612487793,
+        0.6448723077774048
+      ],
+      [
+        -11.096494674682617,
+        13.645891189575195,
+        1.0320037603378296
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "GyeCraft.wall seated footing Estate.fabric.gwang byeoldang join.earth core",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        29.312820434570312,
+        0.01495418418198824,
+        0.354962557554245
+      ],
+      [
+        30.29387855529785,
+        2.4492459297180176,
+        0.707181990146637
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "GyeCraft.wall seated footing Estate.fabric.south edge middle.earth core",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        -25.35886001586914,
+        -3.5728702545166016,
+        0.581983208656311
+      ],
+      [
+        -23.413372039794922,
+        12.493298530578613,
+        0.7174021601676941
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "GyeCraft.wall seated footing Estate.fabric.west estate edge.earth core",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+    "new": "YW1 stone | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        -26.645235061645508,
+        30.870508193969727,
+        1.2619835138320923
+      ],
+      [
+        3.1005828380584717,
+        34.532318115234375,
+        1.503999948501587
+      ]
+    ],
+    "in_old_wall_scope": true
+  },
+  {
+    "object": "GyeCraft.wall seated footing North.site.gwang north.earth core",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 stone | Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        29.900056838989258,
+        2.3940227031707764,
+        0.6211962699890137
+      ],
+      [
+        30.69994354248047,
+        15.785977363586426,
+        1.5182629823684692
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "GyeCraft.wall seated footing V27.left_changgo.wall to warehouse.earth core",
+    "slot": 0,
+    "role": "stone",
+    "old": "HS lower earth r1 | 18 thin-footing",
+    "new": "YW1 stone | HS lower earth r1 | 18 thin-footing",
+    "bounds": [
+      [
+        -7.281474590301514,
+        2.829402446746826,
+        0.5759941339492798
+      ],
+      [
+        -4.252525329589844,
+        3.995262622833252,
+        0.6240000128746033
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "GyeCraft.wall seated footing V27.right_ansarang.wall to sarang.earth core",
+    "slot": 0,
+    "role": "stone",
+    "old": "HS lower earth r1 | 19 thin-footing",
+    "new": "YW1 stone | HS lower earth r1 | 19 thin-footing",
+    "bounds": [
+      [
+        14.600000381469727,
+        -0.11700001358985901,
+        -0.018015258014202118
+      ],
+      [
+        17.322002410888672,
+        0.28300005197525024,
+        0.024000000208616257
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "GyeSite.Estate.site.west field ground extension.pigment surface v48",
+    "slot": 0,
+    "role": "yard",
+    "old": "Illustrated lived courtyard earth",
+    "new": "YW1 yard | Illustrated lived courtyard earth",
+    "bounds": [
+      [
+        -45.0,
+        52.0,
+        1.2799999713897705
+      ],
+      [
+        52.0,
+        60.282188415527344,
+        1.5
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "North.site.gwang north.ceramic seated v59.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        29.90074348449707,
+        2.394710063934326,
+        0.6422085165977478
+      ],
+      [
+        30.699256896972656,
+        15.785289764404297,
+        2.5963380336761475
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "North.site.gwang north.exact pan underside bedding v54",
+    "slot": 0,
+    "role": "earthwall",
+    "old": "Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 earthwall | Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        29.933189392089844,
+        2.356802225112915,
+        2.1803693771362305
+      ],
+      [
+        30.668027877807617,
+        15.782510757446289,
+        2.7358834743499756
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "North.site.gwang north.forecourt seated stones v49.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | north_site | P15 stone north_site board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | north_site | P15 stone north_site board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        29.822162628173828,
+        2.391815423965454,
+        0.6442469358444214
+      ],
+      [
+        30.78081703186035,
+        15.975435256958008,
+        2.6413629055023193
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "North.site.jar yard east lower.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | north_site | P15 plaster north_site board axis0 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | north_site | P15 plaster north_site board axis0 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        13.577238082885742,
+        13.609651565551758,
+        1.5
+      ],
+      [
+        15.364891052246094,
+        14.039888381958008,
+        2.619999885559082
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "North.site.jar yard east lower.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | north_site | P15 stone north_site board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | north_site | P15 stone north_site board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        13.590301513671875,
+        13.5363130569458,
+        1.4891308546066284
+      ],
+      [
+        15.349305152893066,
+        14.114388465881348,
+        2.6288180351257324
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "North.site.jar yard east upper.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | north_site | P15 plaster north_site board axis0 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | north_site | P15 plaster north_site board axis0 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        16.3377628326416,
+        13.673510551452637,
+        1.5
+      ],
+      [
+        18.726171493530273,
+        14.119580268859863,
+        2.619999885559082
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "North.site.jar yard east upper.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | north_site | P15 stone north_site board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | north_site | P15 stone north_site board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        16.351253509521484,
+        13.602069854736328,
+        1.496061086654663
+      ],
+      [
+        18.711132049560547,
+        14.19424057006836,
+        2.6290903091430664
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "North.site.jar yard return.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        18.33807373046875,
+        13.88904857635498,
+        1.5
+      ],
+      [
+        18.90213394165039,
+        16.685998916625977,
+        2.7340495586395264
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "North.site.jar yard return.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | north_site | P15 stone north_site board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | north_site | P15 stone north_site board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        18.268404006958008,
+        13.900288581848145,
+        1.4867995977401733
+      ],
+      [
+        18.974943161010742,
+        16.670137405395508,
+        2.7312066555023193
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "North.site.jar yard west.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | north_site | P15 plaster north_site board axis0 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | north_site | P15 plaster north_site board axis0 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        11.999552726745605,
+        28.567543029785156,
+        1.5
+      ],
+      [
+        18.515329360961914,
+        29.007110595703125,
+        2.7345938682556152
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "North.site.jar yard west.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | north_site | P15 stone north_site board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | north_site | P15 stone north_site board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        12.019326210021973,
+        28.49483871459961,
+        1.4890623092651367
+      ],
+      [
+        18.49843406677246,
+        29.086002349853516,
+        2.7399582862854004
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "North.site.shrine east.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        18.29425811767578,
+        16.63473892211914,
+        1.5
+      ],
+      [
+        18.737518310546875,
+        28.78815269470215,
+        2.734999895095825
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "North.site.shrine east.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | north_site | P15 stone north_site board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | north_site | P15 stone north_site board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        18.218278884887695,
+        16.651105880737305,
+        1.4874330759048462
+      ],
+      [
+        18.810218811035156,
+        28.772808074951172,
+        2.747342824935913
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "North.site.shrine gate left earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | north_site | P15 plaster north_site board axis2 | North earthen plaster",
+    "new": "YW1 mortar | Selected timber v2 | north_site | P15 plaster north_site board axis2 | North earthen plaster",
+    "bounds": [
+      [
+        18.47966766357422,
+        16.516843795776367,
+        1.5
+      ],
+      [
+        19.19711685180664,
+        17.063243865966797,
+        2.8499999046325684
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "North.site.shrine gate left.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | north_site | P15 stone north_site board axis0 | Canonical gate stone pigment.004",
+    "new": "YW1 stone | Selected timber v2 | north_site | P15 stone north_site board axis0 | Canonical gate stone pigment.004",
+    "bounds": [
+      [
+        18.448795318603516,
+        16.440431594848633,
+        1.506239891052246
+      ],
+      [
+        19.233226776123047,
+        17.136070251464844,
+        2.024479627609253
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "North.site.shrine rear.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        28.908546447753906,
+        18.874645233154297,
+        1.4859999418258667
+      ],
+      [
+        30.694652557373047,
+        28.576753616333008,
+        2.8359999656677246
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "North.site.shrine rear.exact pan underside bedding v54",
+    "slot": 0,
+    "role": "earthwall",
+    "old": "Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+    "new": "YW1 earthwall | Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        28.910037994384766,
+        18.887800216674805,
+        2.827043056488037
+      ],
+      [
+        30.669456481933594,
+        28.69081687927246,
+        2.9769082069396973
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "North.site.shrine rear.forecourt seated stones v49.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | north_site | P15 stone north_site board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | north_site | P15 stone north_site board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        28.830177307128906,
+        18.74017906188965,
+        1.470331072807312
+      ],
+      [
+        30.774301528930664,
+        28.588821411132812,
+        2.871889591217041
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "North.site.shrine west.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "Selected timber v2 | north_site | P15 plaster north_site board axis0 | Forecourt ochre lime mortar",
+    "new": "YW1 mortar | Selected timber v2 | north_site | P15 plaster north_site board axis0 | Forecourt ochre lime mortar",
+    "bounds": [
+      [
+        18.470312118530273,
+        28.331520080566406,
+        1.5
+      ],
+      [
+        29.12656593322754,
+        28.967405319213867,
+        2.8497514724731445
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "North.site.shrine west.uneven fieldstone",
+    "slot": 0,
+    "role": "stone",
+    "old": "Selected timber v2 | north_site | P15 stone north_site board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | north_site | P15 stone north_site board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        18.484474182128906,
+        28.258272171020508,
+        1.489769697189331
+      ],
+      [
+        29.112934112548828,
+        29.039581298828125,
+        2.845341444015503
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V27.left_changgo.wall to sarang.seated v71.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "HS lower earth r1 | 20 body",
+    "new": "YW1 mortar | HS lower earth r1 | 20 body",
+    "bounds": [
+      [
+        -2.0920000076293945,
+        3.6019999980926514,
+        0.019999999552965164
+      ],
+      [
+        -0.07999995350837708,
+        4.002000331878662,
+        3.0281858444213867
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V27.left_changgo.wall to warehouse.seated v71.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "HS lower earth r1 | 21 body",
+    "new": "YW1 mortar | HS lower earth r1 | 21 body",
+    "bounds": [
+      [
+        -7.279158115386963,
+        2.831718921661377,
+        0.6200000047683716
+      ],
+      [
+        -4.2548418045043945,
+        3.992946147918701,
+        1.7681704759597778
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V27.right_ansarang.wall to ansarang.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "HS lower earth r1 | 22 body",
+    "new": "YW1 mortar | HS lower earth r1 | 22 body",
+    "bounds": [
+      [
+        18.861997604370117,
+        -0.11700010299682617,
+        0.019999999552965164
+      ],
+      [
+        23.25,
+        0.28299999237060547,
+        2.399672269821167
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V27.right_ansarang.wall to sarang.seated v71.earth core",
+    "slot": 0,
+    "role": "mortar",
+    "old": "HS lower earth r1 | 23 body",
+    "new": "YW1 mortar | HS lower earth r1 | 23 body",
+    "bounds": [
+      [
+        14.600000381469727,
+        -0.11700001358985901,
+        0.019999999552965164
+      ],
+      [
+        17.322002410888672,
+        0.28300005197525024,
+        2.208190679550171
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to sarang.rubble face0",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.0827455520629883,
+        3.5251238346099854,
+        0.9031245708465576
+      ],
+      [
+        -0.08925491571426392,
+        3.6744415760040283,
+        3.0565357208251953
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to sarang.rubble face0.001",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.0827455520629883,
+        3.5252907276153564,
+        0.9080864191055298
+      ],
+      [
+        -0.0892549455165863,
+        3.67431378364563,
+        2.868252754211426
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to sarang.rubble face0.002",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.0827455520629883,
+        3.525585412979126,
+        0.9024112820625305
+      ],
+      [
+        -0.08925491571426392,
+        3.67344331741333,
+        2.8699240684509277
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to sarang.rubble face0.003",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.0827455520629883,
+        3.5249035358428955,
+        0.9099773168563843
+      ],
+      [
+        -0.0892549455165863,
+        3.674797534942627,
+        3.058558464050293
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to sarang.rubble face0.004",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.082745313644409,
+        3.5284032821655273,
+        1.130064845085144
+      ],
+      [
+        -0.40655314922332764,
+        3.67457914352417,
+        2.862277030944824
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to sarang.rubble face1",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -0.14863833785057068,
+        3.610999584197998,
+        0.9064399600028992
+      ],
+      [
+        -0.014515865594148636,
+        3.993000030517578,
+        1.2469905614852905
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to sarang.rubble face1.001",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -0.1518317610025406,
+        3.610999584197998,
+        0.9102333188056946
+      ],
+      [
+        -0.003887192578986287,
+        3.993000030517578,
+        2.881575584411621
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to sarang.rubble face1.002",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -0.15172547101974487,
+        3.610999584197998,
+        1.2724907398223877
+      ],
+      [
+        -0.010051012970507145,
+        3.993000030517578,
+        3.051724910736084
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to sarang.rubble face1.003",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -0.15138396620750427,
+        3.610999584197998,
+        1.2741777896881104
+      ],
+      [
+        -0.008286300115287304,
+        3.993000030517578,
+        2.2297935485839844
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to sarang.rubble face1.004",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -0.14975321292877197,
+        3.847024917602539,
+        2.2480297088623047
+      ],
+      [
+        -0.02323785424232483,
+        3.993000030517578,
+        3.055696487426758
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to sarang.rubble face2",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.08274507522583,
+        3.929077386856079,
+        0.9072335362434387
+      ],
+      [
+        -0.08925488591194153,
+        4.070348262786865,
+        3.053734302520752
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to sarang.rubble face2.001",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.082745313644409,
+        3.928907871246338,
+        0.9114671945571899
+      ],
+      [
+        -0.08925491571426392,
+        4.080467224121094,
+        2.876491069793701
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to sarang.rubble face2.002",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.082745313644409,
+        3.9289608001708984,
+        0.9038400650024414
+      ],
+      [
+        -0.08925488591194153,
+        4.076773166656494,
+        3.053485870361328
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to sarang.rubble face2.003",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.08274507522583,
+        3.9289376735687256,
+        0.905751645565033
+      ],
+      [
+        -0.08925491571426392,
+        4.079966068267822,
+        3.0542616844177246
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to sarang.rubble face2.004",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.082745313644409,
+        3.930579900741577,
+        0.9129558801651001
+      ],
+      [
+        -0.08925491571426392,
+        4.0781660079956055,
+        3.058897018432617
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to sarang.rubble face3",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.157932996749878,
+        3.610999822616577,
+        0.9043012261390686
+      ],
+      [
+        -2.0168466567993164,
+        3.9930005073547363,
+        1.5467020273208618
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to sarang.rubble face3.001",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.156964063644409,
+        3.610999822616577,
+        0.9055087566375732
+      ],
+      [
+        -2.0217723846435547,
+        3.9930005073547363,
+        2.6737961769104004
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to sarang.rubble face3.002",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.1634318828582764,
+        3.6110000610351562,
+        1.1075986623764038
+      ],
+      [
+        -2.019227981567383,
+        3.9930005073547363,
+        2.095308780670166
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to sarang.rubble face3.003",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.160125970840454,
+        3.610999822616577,
+        1.568005084991455
+      ],
+      [
+        -2.0168521404266357,
+        3.9930005073547363,
+        3.0584335327148438
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to sarang.rubble face3.004",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -2.1625125408172607,
+        3.610999822616577,
+        1.887438416481018
+      ],
+      [
+        -2.0177903175354004,
+        3.993000030517578,
+        2.8360483646392822
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to warehouse.rubble face0",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -7.184884548187256,
+        2.765735626220703,
+        0.6315200328826904
+      ],
+      [
+        -4.686906337738037,
+        3.557464838027954,
+        1.57395339012146
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to warehouse.rubble face0.001",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -7.184748649597168,
+        2.7740464210510254,
+        0.6216303110122681
+      ],
+      [
+        -4.2582855224609375,
+        3.6701767444610596,
+        1.7979378700256348
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to warehouse.rubble face0.002",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -6.104770660400391,
+        3.056302785873413,
+        0.627810001373291
+      ],
+      [
+        -4.258490562438965,
+        3.671736240386963,
+        1.796096682548523
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to warehouse.rubble face0.003",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -7.184471607208252,
+        2.788219690322876,
+        0.8392893075942993
+      ],
+      [
+        -4.258275985717773,
+        3.669705867767334,
+        1.7975962162017822
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to warehouse.rubble face0.004",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -7.1842451095581055,
+        2.7924587726593018,
+        0.8417900204658508
+      ],
+      [
+        -4.982721328735352,
+        3.479527235031128,
+        1.798019528388977
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to warehouse.rubble face1",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -4.426341533660889,
+        3.5983359813690186,
+        0.6269031167030334
+      ],
+      [
+        -4.178953647613525,
+        3.991243600845337,
+        1.5623809099197388
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to warehouse.rubble face1.001",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -4.427464008331299,
+        3.5985937118530273,
+        0.8116328120231628
+      ],
+      [
+        -4.191883563995361,
+        3.9914371967315674,
+        1.005018949508667
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to warehouse.rubble face1.002",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -4.42769193649292,
+        3.598707437515259,
+        1.0157305002212524
+      ],
+      [
+        -4.198110103607178,
+        3.991201877593994,
+        1.1965289115905762
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to warehouse.rubble face1.003",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -4.426746368408203,
+        3.598525047302246,
+        1.2060420513153076
+      ],
+      [
+        -4.192716121673584,
+        3.991394281387329,
+        1.3752472400665283
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to warehouse.rubble face1.004",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -4.428929328918457,
+        3.5980966091156006,
+        1.3922981023788452
+      ],
+      [
+        -4.201559543609619,
+        4.001209735870361,
+        1.7913686037063599
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to warehouse.rubble face2",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -6.979331970214844,
+        3.2342913150787354,
+        0.622968852519989
+      ],
+      [
+        -4.348980903625488,
+        4.049455642700195,
+        1.7945067882537842
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to warehouse.rubble face2.001",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -7.168550491333008,
+        3.1836206912994385,
+        0.6217536926269531
+      ],
+      [
+        -4.7350263595581055,
+        3.948395252227783,
+        1.7931803464889526
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to warehouse.rubble face2.002",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -7.275453090667725,
+        3.155409336090088,
+        0.6217533946037292
+      ],
+      [
+        -4.349216938018799,
+        4.041075706481934,
+        1.7961623668670654
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to warehouse.rubble face2.003",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -7.275696754455566,
+        3.1528029441833496,
+        0.6215872168540955
+      ],
+      [
+        -4.349034786224365,
+        4.051629066467285,
+        1.7945154905319214
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to warehouse.rubble face2.004",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -7.279199600219727,
+        3.1558115482330322,
+        0.8059799671173096
+      ],
+      [
+        -4.655825138092041,
+        3.953223943710327,
+        1.7910975217819214
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to warehouse.rubble face3",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -7.344486713409424,
+        2.8259387016296387,
+        0.6216322183609009
+      ],
+      [
+        -7.102691173553467,
+        3.2264134883880615,
+        1.5771808624267578
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to warehouse.rubble face3.001",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -7.351730823516846,
+        2.833833932876587,
+        0.8084713220596313
+      ],
+      [
+        -7.108844757080078,
+        3.2256438732147217,
+        0.9880644083023071
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to warehouse.rubble face3.002",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -7.354617118835449,
+        2.825294017791748,
+        1.0087759494781494
+      ],
+      [
+        -7.106745719909668,
+        3.2262771129608154,
+        1.3672643899917603
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to warehouse.rubble face3.003",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -7.358070373535156,
+        2.8251984119415283,
+        1.01204514503479
+      ],
+      [
+        -7.105748176574707,
+        3.226762056350708,
+        1.7979722023010254
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.left_changgo.wall to warehouse.rubble face3.004",
+    "slot": 1,
+    "role": "stone",
+    "old": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+    "new": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+    "bounds": [
+      [
+        -7.338656425476074,
+        2.9627065658569336,
+        1.378462314605713
+      ],
+      [
+        -7.1396989822387695,
+        3.226698398590088,
+        1.5849733352661133
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to ansarang.rubble face0",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 13",
+    "new": "YW1 stone | HS lower east stone r2 | 13",
+    "bounds": [
+      [
+        18.871065139770508,
+        -0.19577202200889587,
+        0.021514087915420532
+      ],
+      [
+        23.240934371948242,
+        -0.04381333291530609,
+        2.3375015258789062
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to ansarang.rubble face0.001",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 14",
+    "new": "YW1 stone | HS lower east stone r2 | 14",
+    "bounds": [
+      [
+        18.871065139770508,
+        -0.19361905753612518,
+        0.02429240383207798
+      ],
+      [
+        23.24093246459961,
+        -0.043864890933036804,
+        2.2571206092834473
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to ansarang.rubble face0.002",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 15",
+    "new": "YW1 stone | HS lower east stone r2 | 15",
+    "bounds": [
+      [
+        18.871065139770508,
+        -0.1925351321697235,
+        0.023107722401618958
+      ],
+      [
+        23.24093246459961,
+        -0.044119685888290405,
+        2.3692691326141357
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to ansarang.rubble face0.003",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 16",
+    "new": "YW1 stone | HS lower east stone r2 | 16",
+    "bounds": [
+      [
+        19.252004623413086,
+        -0.1939581036567688,
+        0.0341966487467289
+      ],
+      [
+        23.24093246459961,
+        -0.044088367372751236,
+        2.39178466796875
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to ansarang.rubble face0.004",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 17",
+    "new": "YW1 stone | HS lower east stone r2 | 17",
+    "bounds": [
+      [
+        18.871065139770508,
+        -0.19713689386844635,
+        0.026791896671056747
+      ],
+      [
+        23.24093246459961,
+        -0.0440979041159153,
+        2.3887534141540527
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to ansarang.rubble face1",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 18",
+    "new": "YW1 stone | HS lower east stone r2 | 18",
+    "bounds": [
+      [
+        23.177099227905273,
+        -0.1080002710223198,
+        0.026760417968034744
+      ],
+      [
+        23.318939208984375,
+        0.27400004863739014,
+        2.176123857498169
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to ansarang.rubble face1.001",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 19",
+    "new": "YW1 stone | HS lower east stone r2 | 19",
+    "bounds": [
+      [
+        23.180316925048828,
+        -0.10800015181303024,
+        0.23367266356945038
+      ],
+      [
+        23.32122230529785,
+        0.27400004863739014,
+        1.1763516664505005
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to ansarang.rubble face1.002",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 20",
+    "new": "YW1 stone | HS lower east stone r2 | 20",
+    "bounds": [
+      [
+        23.176843643188477,
+        -0.10800015926361084,
+        0.4131994843482971
+      ],
+      [
+        23.321657180786133,
+        0.27400004863739014,
+        2.3937902450561523
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to ansarang.rubble face1.003",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 21",
+    "new": "YW1 stone | HS lower east stone r2 | 21",
+    "bounds": [
+      [
+        23.17790412902832,
+        -0.10800015926361084,
+        0.41263145208358765
+      ],
+      [
+        23.32304573059082,
+        0.27400004863739014,
+        1.4157240390777588
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to ansarang.rubble face1.004",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 22",
+    "new": "YW1 stone | HS lower east stone r2 | 22",
+    "bounds": [
+      [
+        23.177453994750977,
+        -0.10800015926361084,
+        0.5729334354400635
+      ],
+      [
+        23.32155990600586,
+        0.27400004863739014,
+        1.9511512517929077
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to ansarang.rubble face2",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 23",
+    "new": "YW1 stone | HS lower east stone r2 | 23",
+    "bounds": [
+      [
+        18.871065139770508,
+        0.20993031561374664,
+        0.023106316104531288
+      ],
+      [
+        23.240934371948242,
+        0.36187446117401123,
+        2.377232074737549
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to ansarang.rubble face2.001",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 24",
+    "new": "YW1 stone | HS lower east stone r2 | 24",
+    "bounds": [
+      [
+        18.871065139770508,
+        0.21027934551239014,
+        0.021659227088093758
+      ],
+      [
+        23.240934371948242,
+        0.3576573133468628,
+        2.3861160278320312
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to ansarang.rubble face2.002",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 25",
+    "new": "YW1 stone | HS lower east stone r2 | 25",
+    "bounds": [
+      [
+        18.871065139770508,
+        0.20986957848072052,
+        0.02246893011033535
+      ],
+      [
+        23.24093246459961,
+        0.3613950312137604,
+        2.3424901962280273
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to ansarang.rubble face2.003",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 26",
+    "new": "YW1 stone | HS lower east stone r2 | 26",
+    "bounds": [
+      [
+        18.87106704711914,
+        0.2100333720445633,
+        0.02471045032143593
+      ],
+      [
+        23.240934371948242,
+        0.3618928790092468,
+        2.281353712081909
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to ansarang.rubble face2.004",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 27",
+    "new": "YW1 stone | HS lower east stone r2 | 27",
+    "bounds": [
+      [
+        18.87106704711914,
+        0.20960579812526703,
+        0.02930114045739174
+      ],
+      [
+        23.240934371948242,
+        0.3588654100894928,
+        2.364964246749878
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to ansarang.rubble face3",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 28",
+    "new": "YW1 stone | HS lower east stone r2 | 28",
+    "bounds": [
+      [
+        18.789058685302734,
+        -0.10800015926361084,
+        0.022025227546691895
+      ],
+      [
+        18.935400009155273,
+        0.27400004863739014,
+        2.036625385284424
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to ansarang.rubble face3.001",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 29",
+    "new": "YW1 stone | HS lower east stone r2 | 29",
+    "bounds": [
+      [
+        18.800626754760742,
+        -0.10800015181303024,
+        0.028476063162088394
+      ],
+      [
+        18.933183670043945,
+        0.27400004863739014,
+        0.9513124823570251
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to ansarang.rubble face3.002",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 30",
+    "new": "YW1 stone | HS lower east stone r2 | 30",
+    "bounds": [
+      [
+        18.787691116333008,
+        -0.10800015181303024,
+        0.2381979376077652
+      ],
+      [
+        18.9326229095459,
+        0.27399998903274536,
+        2.239311456680298
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to ansarang.rubble face3.003",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 31",
+    "new": "YW1 stone | HS lower east stone r2 | 31",
+    "bounds": [
+      [
+        18.794052124023438,
+        -0.10800015181303024,
+        0.34669750928878784
+      ],
+      [
+        18.930299758911133,
+        0.2739999294281006,
+        1.6824069023132324
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to ansarang.rubble face3.004",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 32",
+    "new": "YW1 stone | HS lower east stone r2 | 32",
+    "bounds": [
+      [
+        18.79656410217285,
+        -0.10800014436244965,
+        0.9534034132957458
+      ],
+      [
+        18.93467140197754,
+        0.27400004863739014,
+        2.040933132171631
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to sarang.rubble face0",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 33",
+    "new": "YW1 stone | HS lower east stone r2 | 33",
+    "bounds": [
+      [
+        14.609254837036133,
+        -0.19325116276741028,
+        0.022547688335180283
+      ],
+      [
+        17.312747955322266,
+        -0.04384180158376694,
+        2.2315614223480225
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to sarang.rubble face0.001",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 34",
+    "new": "YW1 stone | HS lower east stone r2 | 34",
+    "bounds": [
+      [
+        14.609253883361816,
+        -0.19361484050750732,
+        0.022855723276734352
+      ],
+      [
+        17.201602935791016,
+        -0.043936923146247864,
+        2.2337729930877686
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to sarang.rubble face0.002",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 35",
+    "new": "YW1 stone | HS lower east stone r2 | 35",
+    "bounds": [
+      [
+        14.609253883361816,
+        -0.1951541304588318,
+        0.024759981781244278
+      ],
+      [
+        17.312746047973633,
+        -0.04394249990582466,
+        2.237851619720459
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to sarang.rubble face0.003",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 36",
+    "new": "YW1 stone | HS lower east stone r2 | 36",
+    "bounds": [
+      [
+        14.609254837036133,
+        -0.1928979456424713,
+        0.02120036631822586
+      ],
+      [
+        17.312746047973633,
+        -0.04390121251344681,
+        2.236562728881836
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to sarang.rubble face0.004",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 37",
+    "new": "YW1 stone | HS lower east stone r2 | 37",
+    "bounds": [
+      [
+        14.609254837036133,
+        -0.19119839370250702,
+        0.022950632497668266
+      ],
+      [
+        17.312747955322266,
+        -0.04536287859082222,
+        2.0207931995391846
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to sarang.rubble face1",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 38",
+    "new": "YW1 stone | HS lower east stone r2 | 38",
+    "bounds": [
+      [
+        17.247314453125,
+        -0.10800004005432129,
+        0.028319383040070534
+      ],
+      [
+        17.401334762573242,
+        0.27400004863739014,
+        1.4915380477905273
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to sarang.rubble face1.001",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 39",
+    "new": "YW1 stone | HS lower east stone r2 | 39",
+    "bounds": [
+      [
+        17.246652603149414,
+        -0.10800004005432129,
+        0.19005179405212402
+      ],
+      [
+        17.390552520751953,
+        0.27400004863739014,
+        2.2351467609405518
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to sarang.rubble face1.002",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 40",
+    "new": "YW1 stone | HS lower east stone r2 | 40",
+    "bounds": [
+      [
+        17.249427795410156,
+        -0.10800004005432129,
+        0.4112354815006256
+      ],
+      [
+        17.388824462890625,
+        0.27400004863739014,
+        1.9030686616897583
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to sarang.rubble face1.003",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 41",
+    "new": "YW1 stone | HS lower east stone r2 | 41",
+    "bounds": [
+      [
+        17.247093200683594,
+        -0.10800006985664368,
+        0.622408926486969
+      ],
+      [
+        17.40068244934082,
+        0.27400004863739014,
+        2.2379794120788574
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to sarang.rubble face1.004",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 42",
+    "new": "YW1 stone | HS lower east stone r2 | 42",
+    "bounds": [
+      [
+        17.253360748291016,
+        -0.10800004005432129,
+        1.3349560499191284
+      ],
+      [
+        17.386180877685547,
+        0.27400004863739014,
+        2.042605400085449
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to sarang.rubble face2",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 43",
+    "new": "YW1 stone | HS lower east stone r2 | 43",
+    "bounds": [
+      [
+        14.609254837036133,
+        0.2095232605934143,
+        0.02149292267858982
+      ],
+      [
+        17.312747955322266,
+        0.36149904131889343,
+        2.233438491821289
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to sarang.rubble face2.001",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 44",
+    "new": "YW1 stone | HS lower east stone r2 | 44",
+    "bounds": [
+      [
+        14.609254837036133,
+        0.21003395318984985,
+        0.022158795967698097
+      ],
+      [
+        17.312747955322266,
+        0.3604746460914612,
+        2.2386629581451416
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to sarang.rubble face2.002",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 45",
+    "new": "YW1 stone | HS lower east stone r2 | 45",
+    "bounds": [
+      [
+        14.609254837036133,
+        0.2104477882385254,
+        0.034196820110082626
+      ],
+      [
+        17.312746047973633,
+        0.3589966595172882,
+        2.238199234008789
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to sarang.rubble face2.003",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 46",
+    "new": "YW1 stone | HS lower east stone r2 | 46",
+    "bounds": [
+      [
+        14.609254837036133,
+        0.2098785638809204,
+        0.02290404587984085
+      ],
+      [
+        17.312746047973633,
+        0.35977426171302795,
+        2.2373600006103516
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to sarang.rubble face2.004",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 47",
+    "new": "YW1 stone | HS lower east stone r2 | 47",
+    "bounds": [
+      [
+        14.609254837036133,
+        0.210574671626091,
+        0.3895094692707062
+      ],
+      [
+        17.312747955322266,
+        0.3579328954219818,
+        2.233844041824341
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to sarang.rubble face3",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 48",
+    "new": "YW1 stone | HS lower east stone r2 | 48",
+    "bounds": [
+      [
+        14.524584770202637,
+        -0.10800004005432129,
+        0.02612932398915291
+      ],
+      [
+        14.672415733337402,
+        0.27400004863739014,
+        2.236589193344116
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to sarang.rubble face3.001",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 49",
+    "new": "YW1 stone | HS lower east stone r2 | 49",
+    "bounds": [
+      [
+        14.521035194396973,
+        -0.10800004005432129,
+        0.022132661193609238
+      ],
+      [
+        14.673935890197754,
+        0.27400004863739014,
+        2.0907082557678223
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to sarang.rubble face3.002",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 50",
+    "new": "YW1 stone | HS lower east stone r2 | 50",
+    "bounds": [
+      [
+        14.528048515319824,
+        -0.01109191495925188,
+        0.22006812691688538
+      ],
+      [
+        14.671594619750977,
+        0.27400004863739014,
+        0.575580894947052
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to sarang.rubble face3.003",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 51",
+    "new": "YW1 stone | HS lower east stone r2 | 51",
+    "bounds": [
+      [
+        14.522671699523926,
+        -0.10800004005432129,
+        0.21712760627269745
+      ],
+      [
+        14.672943115234375,
+        0.27400004863739014,
+        0.9563469886779785
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "V30.right_ansarang.wall to sarang.rubble face3.004",
+    "slot": 1,
+    "role": "stone",
+    "old": "HS lower east stone r2 | 52",
+    "new": "YW1 stone | HS lower east stone r2 | 52",
+    "bounds": [
+      [
+        14.525099754333496,
+        -0.10800004005432129,
+        0.4360809028148651
+      ],
+      [
+        14.668710708618164,
+        0.27400004863739014,
+        1.558334231376648
+      ]
+    ],
+    "in_old_wall_scope": false
+  },
+  {
+    "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+    "slot": 0,
+    "role": "yard",
+    "old": "Illustrated lived courtyard earth",
+    "new": "YW1 yard | Illustrated lived courtyard earth",
+    "bounds": [
+      [
+        -45.0,
+        -38.0,
+        0.0
+      ],
+      [
+        52.0,
+        52.0,
+        1.5
+      ]
+    ],
+    "in_old_wall_scope": false
+  }
+]

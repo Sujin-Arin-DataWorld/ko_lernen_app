@@ -1,0 +1,19 @@
+{
+  "geometry_uv_transform_equal": true,
+  "geometry_before_sha256": "9450885722b8b3c3a3f4d815a2eaf7ffd00cf89e6d08170742777cbe40e516fe",
+  "geometry_after_sha256": "9450885722b8b3c3a3f4d815a2eaf7ffd00cf89e6d08170742777cbe40e516fe",
+  "object_count": 6135,
+  "mesh_count": 6043,
+  "nontarget_binding_equal": true,
+  "nontarget_slots": 13046,
+  "target_slots": 211,
+  "role_counts": {
+    "stone": 152,
+    "mortar": 42,
+    "earthwall": 13,
+    "garden": 2,
+    "yard": 2
+  },
+  "bindings_before_sha256": "305d7e3e7444c2a6d6580f738b6c7d96a6fb3e6004481bc985d0881d7224fd8d",
+  "bindings_after_sha256": "a5ad9715e3f5f3c9cfdae8c356a0463579b562777cdec256904e06011ec3bbff"
+}

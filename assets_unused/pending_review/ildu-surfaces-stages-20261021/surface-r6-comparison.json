@@ -1,0 +1,97 @@
+{
+  "left": {
+    "regionPx": [
+      320,
+      85,
+      1280,
+      390
+    ],
+    "validPx": 292778,
+    "medianLumaR5": 98.91,
+    "medianLumaR6": 110.19,
+    "medianLumaChangePercent": 11.4,
+    "meanFineContrastR5": 7.342,
+    "meanFineContrastR6": 8.538,
+    "fineContrastChangePercent": 16.3
+  },
+  "right": {
+    "regionPx": [
+      320,
+      85,
+      1280,
+      390
+    ],
+    "validPx": 290236,
+    "medianLumaR5": 102.7,
+    "medianLumaR6": 114.9,
+    "medianLumaChangePercent": 11.9,
+    "meanFineContrastR5": 6.354,
+    "meanFineContrastR6": 7.574,
+    "fineContrastChangePercent": 19.2
+  },
+  "shrine": {
+    "regionPx": [
+      320,
+      85,
+      1280,
+      390
+    ],
+    "validPx": 292297,
+    "medianLumaR5": 96.7,
+    "medianLumaR6": 87.28,
+    "medianLumaChangePercent": -9.7,
+    "meanFineContrastR5": 6.477,
+    "meanFineContrastR6": 7.18,
+    "fineContrastChangePercent": 10.9
+  },
+  "shrinePaintSamples": {
+    "red": {
+      "regionPx": [
+        300,
+        470,
+        1250,
+        550
+      ],
+      "R5": {
+        "pixelCount": 16103,
+        "medianRgb": [
+          108.0,
+          80.0,
+          46.0
+        ]
+      },
+      "R6": {
+        "pixelCount": 14515,
+        "medianRgb": [
+          96.0,
+          43.0,
+          32.0
+        ]
+      }
+    },
+    "green": {
+      "regionPx": [
+        300,
+        520,
+        1250,
+        680
+      ],
+      "R5": {
+        "pixelCount": 19087,
+        "medianRgb": [
+          51.0,
+          71.0,
+          48.0
+        ]
+      },
+      "R6": {
+        "pixelCount": 17439,
+        "medianRgb": [
+          45.0,
+          64.0,
+          48.0
+        ]
+      }
+    }
+  }
+}

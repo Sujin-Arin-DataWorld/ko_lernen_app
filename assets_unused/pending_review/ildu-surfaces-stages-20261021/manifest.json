@@ -1,0 +1,426 @@
+{
+  "nativeFiles": [
+    {
+      "gate": "left",
+      "path": "left-new.blend",
+      "sha256": "b0431b15ebe83529c59307cabea2e66be481ecc0a406df4f68e30e868606fed0"
+    },
+    {
+      "gate": "right",
+      "path": "right-new.blend",
+      "sha256": "6995b49bcbabf69dcca3e4a94cf4a3ec2b8af892f5d1223eb045133e229e88ca"
+    },
+    {
+      "gate": "shrine",
+      "path": "shrine-new.blend",
+      "sha256": "d0424a1c0e5d8032a7dbb68fa2cad308655d0e9e36b9502bd648d46899d73f20"
+    }
+  ],
+  "renders": [
+    {
+      "gate": "left",
+      "view": "hero",
+      "file": "left-hero.png",
+      "camera": [
+        8.536690711975098,
+        -16.3310604095459,
+        9.700153350830078
+      ],
+      "orthoScale": 5.510727405548096,
+      "nativeSha256": "b0431b15ebe83529c59307cabea2e66be481ecc0a406df4f68e30e868606fed0",
+      "draft": false
+    },
+    {
+      "gate": "left",
+      "view": "front",
+      "file": "left-front.png",
+      "camera": [
+        0.0,
+        -20.040000915527344,
+        1.9409695863723755
+      ],
+      "orthoScale": 4.425410270690918,
+      "nativeSha256": "b0431b15ebe83529c59307cabea2e66be481ecc0a406df4f68e30e868606fed0",
+      "draft": false
+    },
+    {
+      "gate": "left",
+      "view": "side",
+      "file": "left-side.png",
+      "camera": [
+        20.0,
+        -7.450580596923828e-09,
+        1.9409695863723755
+      ],
+      "orthoScale": 4.425410270690918,
+      "nativeSha256": "b0431b15ebe83529c59307cabea2e66be481ecc0a406df4f68e30e868606fed0",
+      "draft": false
+    },
+    {
+      "gate": "left",
+      "view": "back",
+      "file": "left-back.png",
+      "camera": [
+        -1.2651520364670432e-07,
+        19.959999084472656,
+        1.9409695863723755
+      ],
+      "orthoScale": 4.425410747528076,
+      "nativeSha256": "b0431b15ebe83529c59307cabea2e66be481ecc0a406df4f68e30e868606fed0",
+      "draft": false
+    },
+    {
+      "gate": "left",
+      "view": "plan",
+      "file": "left-plan.png",
+      "camera": [
+        -1.887379141862766e-15,
+        -1.64999926606229e-22,
+        21.5
+      ],
+      "orthoScale": 3.545400381088257,
+      "nativeSha256": "b0431b15ebe83529c59307cabea2e66be481ecc0a406df4f68e30e868606fed0",
+      "draft": false
+    },
+    {
+      "gate": "left",
+      "view": "eaves",
+      "file": "left-eaves.png",
+      "camera": [
+        1.987615942955017,
+        -21.331159591674805,
+        1.8911919593811035
+      ],
+      "orthoScale": 3.4495999813079834,
+      "nativeSha256": "b0431b15ebe83529c59307cabea2e66be481ecc0a406df4f68e30e868606fed0",
+      "draft": false
+    },
+    {
+      "gate": "left",
+      "view": "underside",
+      "file": "left-underside.png",
+      "camera": [
+        6.330299377441406,
+        -18.186569213867188,
+        -2.7374141216278076
+      ],
+      "orthoScale": 3.3264000415802,
+      "nativeSha256": "b0431b15ebe83529c59307cabea2e66be481ecc0a406df4f68e30e868606fed0",
+      "draft": false
+    },
+    {
+      "gate": "right",
+      "view": "hero",
+      "file": "right-hero.png",
+      "camera": [
+        8.457844734191895,
+        -16.50658416748047,
+        9.461944580078125
+      ],
+      "orthoScale": 5.7587456703186035,
+      "nativeSha256": "6995b49bcbabf69dcca3e4a94cf4a3ec2b8af892f5d1223eb045133e229e88ca",
+      "draft": false
+    },
+    {
+      "gate": "right",
+      "view": "front",
+      "file": "right-front.png",
+      "camera": [
+        0.0,
+        -20.040000915527344,
+        1.9850612878799438
+      ],
+      "orthoScale": 4.53007698059082,
+      "nativeSha256": "6995b49bcbabf69dcca3e4a94cf4a3ec2b8af892f5d1223eb045133e229e88ca",
+      "draft": false
+    },
+    {
+      "gate": "right",
+      "view": "side",
+      "file": "right-side.png",
+      "camera": [
+        20.0,
+        -0.7597865462303162,
+        1.9850612878799438
+      ],
+      "orthoScale": 4.530076503753662,
+      "nativeSha256": "6995b49bcbabf69dcca3e4a94cf4a3ec2b8af892f5d1223eb045133e229e88ca",
+      "draft": false
+    },
+    {
+      "gate": "right",
+      "view": "back",
+      "file": "right-back.png",
+      "camera": [
+        -1.297435261449209e-07,
+        19.959999084472656,
+        1.9850612878799438
+      ],
+      "orthoScale": 4.53007698059082,
+      "nativeSha256": "6995b49bcbabf69dcca3e4a94cf4a3ec2b8af892f5d1223eb045133e229e88ca",
+      "draft": false
+    },
+    {
+      "gate": "right",
+      "view": "plan",
+      "file": "right-plan.png",
+      "camera": [
+        6.642265759637667e-08,
+        -0.7597866058349609,
+        21.5
+      ],
+      "orthoScale": 3.8527138233184814,
+      "nativeSha256": "6995b49bcbabf69dcca3e4a94cf4a3ec2b8af892f5d1223eb045133e229e88ca",
+      "draft": false
+    },
+    {
+      "gate": "right",
+      "view": "eaves",
+      "file": "right-eaves.png",
+      "camera": [
+        1.987615942955017,
+        -20.706159591674805,
+        2.111191987991333
+      ],
+      "orthoScale": 3.359999895095825,
+      "nativeSha256": "6995b49bcbabf69dcca3e4a94cf4a3ec2b8af892f5d1223eb045133e229e88ca",
+      "draft": false
+    },
+    {
+      "gate": "right",
+      "view": "underside",
+      "file": "right-underside.png",
+      "camera": [
+        6.330299377441406,
+        -18.186569213867188,
+        -2.6874141693115234
+      ],
+      "orthoScale": 3.240000009536743,
+      "nativeSha256": "6995b49bcbabf69dcca3e4a94cf4a3ec2b8af892f5d1223eb045133e229e88ca",
+      "draft": false
+    },
+    {
+      "gate": "shrine",
+      "view": "hero",
+      "file": "shrine-hero.png",
+      "camera": [
+        8.5411958694458,
+        -16.339677810668945,
+        9.309964179992676
+      ],
+      "orthoScale": 4.1036810874938965,
+      "nativeSha256": "d0424a1c0e5d8032a7dbb68fa2cad308655d0e9e36b9502bd648d46899d73f20",
+      "draft": false
+    },
+    {
+      "gate": "shrine",
+      "view": "front",
+      "file": "shrine-front.png",
+      "camera": [
+        5.9604641222676946e-08,
+        -20.040000915527344,
+        1.5358161926269531
+      ],
+      "orthoScale": 3.5086240768432617,
+      "nativeSha256": "d0424a1c0e5d8032a7dbb68fa2cad308655d0e9e36b9502bd648d46899d73f20",
+      "draft": false
+    },
+    {
+      "gate": "shrine",
+      "view": "side",
+      "file": "shrine-side.png",
+      "camera": [
+        20.0,
+        -7.450580596923828e-09,
+        1.5358160734176636
+      ],
+      "orthoScale": 3.5086238384246826,
+      "nativeSha256": "d0424a1c0e5d8032a7dbb68fa2cad308655d0e9e36b9502bd648d46899d73f20",
+      "draft": false
+    },
+    {
+      "gate": "shrine",
+      "view": "back",
+      "file": "shrine-back.png",
+      "camera": [
+        -1.982214747897615e-08,
+        19.959999084472656,
+        1.5358161926269531
+      ],
+      "orthoScale": 3.508624315261841,
+      "nativeSha256": "d0424a1c0e5d8032a7dbb68fa2cad308655d0e9e36b9502bd648d46899d73f20",
+      "draft": false
+    },
+    {
+      "gate": "shrine",
+      "view": "plan",
+      "file": "shrine-plan.png",
+      "camera": [
+        5.378635492547801e-08,
+        4.702152634817637e-15,
+        21.5
+      ],
+      "orthoScale": 2.929800271987915,
+      "nativeSha256": "d0424a1c0e5d8032a7dbb68fa2cad308655d0e9e36b9502bd648d46899d73f20",
+      "draft": false
+    },
+    {
+      "gate": "shrine",
+      "view": "eaves",
+      "file": "shrine-eaves.png",
+      "camera": [
+        1.987615942955017,
+        -20.74616050720215,
+        1.2511918544769287
+      ],
+      "orthoScale": 2.8784000873565674,
+      "nativeSha256": "d0424a1c0e5d8032a7dbb68fa2cad308655d0e9e36b9502bd648d46899d73f20",
+      "draft": false
+    },
+    {
+      "gate": "shrine",
+      "view": "underside",
+      "file": "shrine-underside.png",
+      "camera": [
+        6.330299377441406,
+        -18.186569213867188,
+        -3.717414140701294
+      ],
+      "orthoScale": 2.775599956512451,
+      "nativeSha256": "d0424a1c0e5d8032a7dbb68fa2cad308655d0e9e36b9502bd648d46899d73f20",
+      "draft": false
+    }
+  ],
+  "status": "new-build-rendered-needs-surface-review",
+  "legacyMeshesImported": 0,
+  "legacyMaterialsImported": 0,
+  "sourceBlend": null,
+  "fullDrawingMatchClaimed": false,
+  "configuration": {
+    "left": {
+      "title": "사랑채 왼쪽 협문",
+      "sheet": "2007: 080 / 081 / 082 / 083",
+      "w": 3.08,
+      "d": 3.11,
+      "axis": 2.08,
+      "post": 0.155,
+      "floor": 0.355,
+      "head": 2.835,
+      "door": 1.79,
+      "doorH": 2.24,
+      "doorT": 0.025,
+      "doorBase": 0.335,
+      "boards": 8,
+      "covers": 8,
+      "pitch": 0.273,
+      "barge": 1.18,
+      "eave": 2.795,
+      "peak": 3.84,
+      "levels": 5,
+      "steps": 0,
+      "support": 0.925,
+      "rafters": 10,
+      "roofRows": 9,
+      "verifiedElevation": true,
+      "roofProfile": [
+        1,
+        0.675,
+        0.39,
+        0.163,
+        0
+      ],
+      "limeEnds": false,
+      "rafterEnd": 1.445,
+      "boardingHalf": 1.39,
+      "rafterTop": 3.075,
+      "rafterFall": 0.325,
+      "rafterHeight": 0.12
+    },
+    "right": {
+      "title": "안채 연결 협문",
+      "sheet": "2007: 089 / 090 / 091 / 092 / 093",
+      "w": 3.0,
+      "d": 1.86,
+      "axis": 1.46,
+      "post": 0.18,
+      "floor": 1.04,
+      "head": 2.79,
+      "door": 1.14,
+      "doorH": 1.68,
+      "doorT": 0.03,
+      "doorBase": 0.98,
+      "boards": 4,
+      "covers": 7,
+      "pitch": 0.274,
+      "barge": 1.14,
+      "eave": 3.015,
+      "peak": 3.93,
+      "levels": 5,
+      "steps": 5,
+      "support": 0.6,
+      "rafters": 7,
+      "roofRows": 6,
+      "verifiedElevation": true,
+      "roofProfile": [
+        1,
+        0.64,
+        0.32,
+        0.105,
+        0
+      ],
+      "limeEnds": true,
+      "rafterEnd": 0.83,
+      "boardingHalf": 1.18,
+      "rafterTop": 3.125,
+      "rafterFall": 0.175,
+      "rafterHeight": 0.1
+    },
+    "shrine": {
+      "title": "사당문",
+      "sheet": "086 / 087 / 088",
+      "w": 2.57,
+      "d": 1.94,
+      "axis": 1.35,
+      "post": 0.17,
+      "floor": 0.2,
+      "head": 2.0,
+      "door": 1.02,
+      "doorH": 1.5,
+      "doorT": 0.03,
+      "doorBase": 0.35,
+      "boards": 8,
+      "covers": 6,
+      "pitch": 0.27,
+      "barge": 0.82,
+      "eave": 2.155,
+      "peak": 3.075,
+      "levels": 3,
+      "steps": 1,
+      "support": 0.5,
+      "rafters": 7,
+      "roofRows": 6,
+      "verifiedElevation": true,
+      "roofProfile": [
+        1,
+        0.69,
+        0.405,
+        0.176,
+        0
+      ],
+      "limeEnds": true,
+      "rafterEnd": 0.9,
+      "rafterHalf": 1.0515,
+      "boardingHalf": 1.089
+    }
+  },
+  "objectCounts": {
+    "left": 681,
+    "right": 531,
+    "shrine": 446
+  },
+  "geometryDesignApprovedByUser": true,
+  "surfaceApprovedByUser": false,
+  "surfaceRevision": "R6c full-length timber grain and calm dressed stone",
+  "surfaceSourceReceipt": "reference-textures/source-receipt.json",
+  "geometryBaselineCommit": "bbe88e7"
+}

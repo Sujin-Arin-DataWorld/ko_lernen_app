@@ -1,0 +1,1814 @@
+{
+  "source_sha256": "b3b51dec9f2d4a7629912326bb224e8cf5595c2a874a1c3c85075a5f742af434",
+  "candidate_native_sha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+  "library": "yard-wall-materials.blend",
+  "library_sha256": "0bc9eb89d7eb4810aae1c6cfa7e5a532fd9b7acb99ecef395c9a8cc90902b0cf",
+  "library_datablocks": {
+    "materials": 104,
+    "images": 10,
+    "node_groups": 0,
+    "meshes": 0,
+    "objects": 0
+  },
+  "geometry_signature": "c823965e2e0f8b81b2d7e46e32676dd33853b05d7afbc1d82acb0294fb565586",
+  "candidate_binding_signature": "5e58ce434d9b5e27a987cb6ef1abe3565f45bb8ae03a6a95f200736a17ea4a40",
+  "material_signatures": {
+    "YW1 stone | HS lower east stone r2 | 22": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower east stone r2 | 47": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower earth r1 | 16 thin-footing": "0dc18fb2bb190aa67f3eedd4a9d8c3aad4a9e743b7ce1c822bf4861eaad1bf67",
+    "YW1 stone | Selected timber v2 | forecourt_wall | P18 image.forecourt_wall.stone.P15 stone forecourt_wall board axis0 | Gye unified estate wall fieldstone": "add8d50ee8f8843f8fea8ce624825921330a71d8097ccba84718fb26818f23a5",
+    "YW1 mortar | HS lower earth r1 | 12 body": "d26888946b67bebe4f6219abccfdd557603011031198d15606983ccce14e5c58",
+    "YW1 mortar | HS lower earth r1 | 03 body": "d26888946b67bebe4f6219abccfdd557603011031198d15606983ccce14e5c58",
+    "YW1 stone | HS lower earth r1 | 19 thin-footing": "0dc18fb2bb190aa67f3eedd4a9d8c3aad4a9e743b7ce1c822bf4861eaad1bf67",
+    "YW1 mortar | HS lower earth r1 | 22 body": "d26888946b67bebe4f6219abccfdd557603011031198d15606983ccce14e5c58",
+    "YW1 stone | HS lower east stone r2 | 25": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower east stone r2 | 50": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone": "8767978119e940cc2347aef3ac538d759074dc806b3a12dfcea82871dd6bcf17",
+    "YW1 stone | HS lower east stone r2 | 28": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar": "3c02fe1e240a3b2c894a6d9929bb7360699b4cfa44f13fa1c8596a394c12f178",
+    "YW1 stone | HS lower east stone r2 | 03": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar": "3c02fe1e240a3b2c894a6d9929bb7360699b4cfa44f13fa1c8596a394c12f178",
+    "YW1 earthwall | HS lower earth r1 | 09 bedding": "e39b29654df886a6e256ae17c94cd66019c2af3b705cdae0ccd9321927a041b2",
+    "YW1 stone | HS lower east stone r2 | 06": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower east stone r2 | 31": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis2 | Gye unified estate wall fieldstone": "4d77c6489a76627e410a793433cb08299dc8777071b081559cd2bf235764b641",
+    "YW1 stone | HS lower east stone r2 | 34": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower east stone r2 | 09": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar": "d26888946b67bebe4f6219abccfdd557603011031198d15606983ccce14e5c58",
+    "YW1 earthwall | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar": "e39b29654df886a6e256ae17c94cd66019c2af3b705cdae0ccd9321927a041b2",
+    "YW1 stone | HS lower east stone r2 | 12": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower east stone r2 | 37": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 mortar | Selected timber v2 | north_site | P15 plaster north_site board axis2 | North earthen plaster": "d26888946b67bebe4f6219abccfdd557603011031198d15606983ccce14e5c58",
+    "YW1 stone | HS lower east stone r2 | 44": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 mortar | HS lower earth r1 | 02 body": "d26888946b67bebe4f6219abccfdd557603011031198d15606983ccce14e5c58",
+    "YW1 stone | HS lower east stone r2 | 15": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower east stone r2 | 40": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower east stone r2 | 18": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 mortar | HS lower earth r1 | 06 body": "d26888946b67bebe4f6219abccfdd557603011031198d15606983ccce14e5c58",
+    "YW1 stone | HS lower east stone r2 | 43": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | Selected timber v2 | north_site | P15 stone north_site board axis1 | Gye unified estate wall fieldstone": "4d77c6489a76627e410a793433cb08299dc8777071b081559cd2bf235764b641",
+    "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone": "4d77c6489a76627e410a793433cb08299dc8777071b081559cd2bf235764b641",
+    "YW1 mortar | HS lower earth r1 | 10 body": "d26888946b67bebe4f6219abccfdd557603011031198d15606983ccce14e5c58",
+    "YW1 stone | HS lower earth r1 | 15 thin-footing": "0dc18fb2bb190aa67f3eedd4a9d8c3aad4a9e743b7ce1c822bf4861eaad1bf67",
+    "YW1 stone | HS lower east stone r2 | 21": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall joinery axis1 | Gye unified estate wall fieldstone": "4d77c6489a76627e410a793433cb08299dc8777071b081559cd2bf235764b641",
+    "YW1 stone | HS lower east stone r2 | 46": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower earth r1 | 18 thin-footing": "0dc18fb2bb190aa67f3eedd4a9d8c3aad4a9e743b7ce1c822bf4861eaad1bf67",
+    "YW1 mortar | HS lower earth r1 | 21 body": "d26888946b67bebe4f6219abccfdd557603011031198d15606983ccce14e5c58",
+    "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone": "8767978119e940cc2347aef3ac538d759074dc806b3a12dfcea82871dd6bcf17",
+    "YW1 stone | HS lower east stone r2 | 24": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower east stone r2 | 49": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo joinery axis0 | Gye unified estate wall fieldstone": "8767978119e940cc2347aef3ac538d759074dc806b3a12dfcea82871dd6bcf17",
+    "YW1 stone | HS lower east stone r2 | 02": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower east stone r2 | 27": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower east stone r2 | 52": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar": "d26888946b67bebe4f6219abccfdd557603011031198d15606983ccce14e5c58",
+    "YW1 earthwall | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar": "e39b29654df886a6e256ae17c94cd66019c2af3b705cdae0ccd9321927a041b2",
+    "YW1 stone | HS lower east stone r2 | 30": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower east stone r2 | 05": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 mortar | Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar": "d26888946b67bebe4f6219abccfdd557603011031198d15606983ccce14e5c58",
+    "YW1 earthwall | Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar": "e39b29654df886a6e256ae17c94cd66019c2af3b705cdae0ccd9321927a041b2",
+    "YW1 stone | HS lower east stone r2 | 33": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower east stone r2 | 08": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 mortar | HS lower earth r1 | 01 body": "d26888946b67bebe4f6219abccfdd557603011031198d15606983ccce14e5c58",
+    "YW1 stone | HS lower east stone r2 | 11": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 mortar | HS lower earth r1 | 05 body": "d26888946b67bebe4f6219abccfdd557603011031198d15606983ccce14e5c58",
+    "YW1 stone | HS lower east stone r2 | 36": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower earth r1 | 13 thin-footing": "0dc18fb2bb190aa67f3eedd4a9d8c3aad4a9e743b7ce1c822bf4861eaad1bf67",
+    "YW1 stone | HS lower east stone r2 | 14": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower east stone r2 | 19": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower east stone r2 | 39": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone": "4d77c6489a76627e410a793433cb08299dc8777071b081559cd2bf235764b641",
+    "YW1 stone | HS lower east stone r2 | 42": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | Selected timber v2 | north_site | P15 stone north_site board axis0 | Gye unified estate wall fieldstone": "4d77c6489a76627e410a793433cb08299dc8777071b081559cd2bf235764b641",
+    "YW1 stone | HS lower east stone r2 | 17": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 mortar | HS lower earth r1 | 08 body": "d26888946b67bebe4f6219abccfdd557603011031198d15606983ccce14e5c58",
+    "YW1 stone | HS lower east stone r2 | 20": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 yard | Illustrated lived courtyard earth": "ca95e1da6355b03320f3f3615aed9162c58a2f2e1f8085d3e25cdf4aa1a2e737",
+    "YW1 stone | HS lower east stone r2 | 45": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall joinery axis0 | Gye unified estate wall fieldstone": "4d77c6489a76627e410a793433cb08299dc8777071b081559cd2bf235764b641",
+    "YW1 stone | HS lower earth r1 | 14 thin-footing": "0dc18fb2bb190aa67f3eedd4a9d8c3aad4a9e743b7ce1c822bf4861eaad1bf67",
+    "YW1 stone | HS lower earth r1 | 17 thin-footing": "0dc18fb2bb190aa67f3eedd4a9d8c3aad4a9e743b7ce1c822bf4861eaad1bf67",
+    "YW1 mortar | HS lower earth r1 | 20 body": "d26888946b67bebe4f6219abccfdd557603011031198d15606983ccce14e5c58",
+    "YW1 mortar | Selected timber v2 | north_site | P15 plaster north_site board axis0 | Forecourt ochre lime mortar": "d26888946b67bebe4f6219abccfdd557603011031198d15606983ccce14e5c58",
+    "YW1 stone | Selected timber v2 | forecourt_wall | P18 image.forecourt_wall.stone.P15 stone forecourt_wall board axis1 | Gye unified estate wall fieldstone": "add8d50ee8f8843f8fea8ce624825921330a71d8097ccba84718fb26818f23a5",
+    "YW1 stone | HS lower east stone r2 | 23": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower east stone r2 | 48": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 mortar | HS lower earth r1 | 23 body": "d26888946b67bebe4f6219abccfdd557603011031198d15606983ccce14e5c58",
+    "YW1 stone | HS lower east stone r2 | 51": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 garden | Garden worked earth with quiet pigment": "89a0513ffc0b35e5d27951c92dfb92e0b8f034f0895902f619c6d1e03f7a8a0e",
+    "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone": "8767978119e940cc2347aef3ac538d759074dc806b3a12dfcea82871dd6bcf17",
+    "YW1 stone | HS lower east stone r2 | 01": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower east stone r2 | 26": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower east stone r2 | 29": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower east stone r2 | 04": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 mortar | HS lower earth r1 | 04 body": "d26888946b67bebe4f6219abccfdd557603011031198d15606983ccce14e5c58",
+    "YW1 earthwall | HS lower earth r1 | 11 bedding": "e39b29654df886a6e256ae17c94cd66019c2af3b705cdae0ccd9321927a041b2",
+    "YW1 stone | HS lower east stone r2 | 32": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower east stone r2 | 07": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower east stone r2 | 10": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | Selected timber v2 | north_site | P15 stone north_site board axis0 | Canonical gate stone pigment.004": "36e9db90ba10516a2389cd0c8bfbc735e00ec59b880aa3042c0aefccaa47a2ad",
+    "YW1 stone | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar": "3c02fe1e240a3b2c894a6d9929bb7360699b4cfa44f13fa1c8596a394c12f178",
+    "YW1 stone | HS lower east stone r2 | 35": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | Selected timber v2 | site | P18 image.site.stone.P15 stone site board axis2 | Gye unified estate wall fieldstone": "8767978119e940cc2347aef3ac538d759074dc806b3a12dfcea82871dd6bcf17",
+    "YW1 stone | HS lower east stone r2 | 38": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower east stone r2 | 13": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower east stone r2 | 41": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 stone | HS lower east stone r2 | 16": "f1f5a2301274dfae41a663ed206ad734ac233fa93bb53a6b240f7f1d8182e0eb",
+    "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis2 | Forecourt ochre lime mortar": "d26888946b67bebe4f6219abccfdd557603011031198d15606983ccce14e5c58",
+    "YW1 mortar | HS lower earth r1 | 07 body": "d26888946b67bebe4f6219abccfdd557603011031198d15606983ccce14e5c58"
+  },
+  "bindings": [
+    {
+      "object": "ConnectionGarden.wall1.end stones",
+      "slot": 0,
+      "source_material": "HS lower east stone r2 | 01",
+      "material": "YW1 stone | HS lower east stone r2 | 01",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "ConnectionGarden.wall1.fieldstone",
+      "slot": 0,
+      "source_material": "HS lower east stone r2 | 02",
+      "material": "YW1 stone | HS lower east stone r2 | 02",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "ConnectionGarden.wall1.ochre core",
+      "slot": 0,
+      "source_material": "HS lower earth r1 | 01 body",
+      "material": "YW1 mortar | HS lower earth r1 | 01 body",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "ConnectionGarden.wall2.end stones",
+      "slot": 0,
+      "source_material": "HS lower east stone r2 | 03",
+      "material": "YW1 stone | HS lower east stone r2 | 03",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "ConnectionGarden.wall2.fieldstone",
+      "slot": 0,
+      "source_material": "HS lower east stone r2 | 04",
+      "material": "YW1 stone | HS lower east stone r2 | 04",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "ConnectionGarden.wall2.ochre core",
+      "slot": 0,
+      "source_material": "HS lower earth r1 | 02 body",
+      "material": "YW1 mortar | HS lower earth r1 | 02 body",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "ConnectionGarden.wall3.end stones",
+      "slot": 0,
+      "source_material": "HS lower east stone r2 | 05",
+      "material": "YW1 stone | HS lower east stone r2 | 05",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "ConnectionGarden.wall3.fieldstone",
+      "slot": 0,
+      "source_material": "HS lower east stone r2 | 06",
+      "material": "YW1 stone | HS lower east stone r2 | 06",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "ConnectionGarden.wall3.ochre core",
+      "slot": 0,
+      "source_material": "HS lower earth r1 | 03 body",
+      "material": "YW1 mortar | HS lower earth r1 | 03 body",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "ConnectionGarden.wall4.end stones",
+      "slot": 0,
+      "source_material": "HS lower east stone r2 | 07",
+      "material": "YW1 stone | HS lower east stone r2 | 07",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "ConnectionGarden.wall4.fieldstone",
+      "slot": 0,
+      "source_material": "HS lower east stone r2 | 08",
+      "material": "YW1 stone | HS lower east stone r2 | 08",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "ConnectionGarden.wall4.ochre core",
+      "slot": 0,
+      "source_material": "HS lower earth r1 | 04 body",
+      "material": "YW1 mortar | HS lower earth r1 | 04 body",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "ConnectionGarden.wall5.end stones",
+      "slot": 0,
+      "source_material": "HS lower east stone r2 | 09",
+      "material": "YW1 stone | HS lower east stone r2 | 09",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "ConnectionGarden.wall5.fieldstone",
+      "slot": 0,
+      "source_material": "HS lower east stone r2 | 10",
+      "material": "YW1 stone | HS lower east stone r2 | 10",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "ConnectionGarden.wall5.ochre core",
+      "slot": 0,
+      "source_material": "HS lower earth r1 | 05 body",
+      "material": "YW1 mortar | HS lower earth r1 | 05 body",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "ConnectionLeft.high wall lower end",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "ConnectionLeft.high wall lower end.001",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "ConnectionLeft.high wall lower end.002",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "ConnectionLeft.high wall lower end.003",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "ConnectionLeft.high wall lower fieldstone",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "ConnectionLeft.high wall lower fieldstone.001",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "ConnectionLeft.high wall lower fieldstone.002",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "ConnectionLeft.high wall lower fieldstone.003",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "ConnectionLeft.high wall lower fieldstone.004",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "Estate.fabric.gotgan garden return.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "Estate.fabric.gotgan garden return.exact pan underside bedding v61",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 earthwall | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "earthwall"
+    },
+    {
+      "object": "Estate.fabric.gotgan garden return.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "Estate.fabric.gotgan rear boundary.coping seated stones v43.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "Estate.fabric.gotgan rear boundary.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "Estate.fabric.gotgan rear boundary.exact pan underside bedding v42",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+      "material": "YW1 earthwall | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "earthwall"
+    },
+    {
+      "object": "Estate.fabric.gwang byeoldang join.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "Estate.fabric.gwang byeoldang join.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "Estate.fabric.jung building tie.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis2 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis2 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "Estate.fabric.jung building tie.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis2 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis2 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "Estate.fabric.jung to gotgan boundary.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "Estate.fabric.jung to gotgan boundary.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "Estate.fabric.northwest field wall.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "Estate.fabric.northwest field wall.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "Estate.fabric.northwest road wall.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "Estate.fabric.northwest road wall.exact pan underside bedding v40",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 earthwall | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "earthwall"
+    },
+    {
+      "object": "Estate.fabric.northwest road wall.uneven fieldstone.bonded corner v38.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "Estate.fabric.road behind shrine.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "Estate.fabric.road behind shrine.exact pan underside bedding v54",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+      "material": "YW1 earthwall | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "earthwall"
+    },
+    {
+      "object": "Estate.fabric.road behind shrine.forecourt seated stones v49.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "Estate.fabric.shrine gwang join.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "Estate.fabric.shrine gwang join.exact pan underside bedding v54",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 earthwall | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "earthwall"
+    },
+    {
+      "object": "Estate.fabric.shrine gwang join.forecourt seated stones v49.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "Estate.fabric.south edge middle.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "Estate.fabric.south edge middle.exact pan underside bedding v49",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 earthwall | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "earthwall"
+    },
+    {
+      "object": "Estate.fabric.south edge middle.forecourt seated stones v49.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "Estate.fabric.south edge west.coping seated stones v43.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "Estate.fabric.south edge west.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "Estate.fabric.south edge west.exact pan underside bedding v42",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 earthwall | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "earthwall"
+    },
+    {
+      "object": "Estate.fabric.toilet1 east.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "Estate.fabric.toilet1 east.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "Estate.fabric.toilet1 outer return.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "Estate.fabric.toilet1 outer return.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "Estate.fabric.toilet1 short north.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "Estate.fabric.toilet1 short north.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "Estate.fabric.toilet1 south.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "Estate.fabric.toilet1 south.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "Estate.fabric.toilet1 west.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "Estate.fabric.toilet1 west.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "Estate.fabric.west estate edge.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "Estate.fabric.west estate edge.exact pan underside bedding v40",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+      "material": "YW1 earthwall | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "earthwall"
+    },
+    {
+      "object": "Estate.fabric.west estate edge.uneven fieldstone.bonded corner v38.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "Estate.fabric.west field south return.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "Estate.fabric.west field south return.exact pan underside bedding v40",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 earthwall | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "earthwall"
+    },
+    {
+      "object": "Estate.fabric.west field south return.uneven fieldstone.bonded corner v38.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "Estate.fabric.west field wall.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "Estate.fabric.west field wall.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "Estate.garden.arae.unplanted beds",
+      "slot": 0,
+      "source_material": "Garden worked earth with quiet pigment",
+      "material": "YW1 garden | Garden worked earth with quiet pigment",
+      "link": "OBJECT",
+      "role": "garden"
+    },
+    {
+      "object": "Estate.garden.changgo.unplanted beds",
+      "slot": 0,
+      "source_material": "Garden worked earth with quiet pigment",
+      "material": "YW1 garden | Garden worked earth with quiet pigment",
+      "link": "OBJECT",
+      "role": "garden"
+    },
+    {
+      "object": "Forecourt.wall.gate-ansarang.0.core",
+      "slot": 0,
+      "source_material": "HS lower earth r1 | 06 body",
+      "material": "YW1 mortar | HS lower earth r1 | 06 body",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "Forecourt.wall.gate-ansarang.0.rubble",
+      "slot": 0,
+      "source_material": "Selected timber v2 | forecourt_wall | P18 image.forecourt_wall.stone.P15 stone forecourt_wall board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | forecourt_wall | P18 image.forecourt_wall.stone.P15 stone forecourt_wall board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "Forecourt.wall.gate-ansarang.1.core",
+      "slot": 0,
+      "source_material": "HS lower earth r1 | 07 body",
+      "material": "YW1 mortar | HS lower earth r1 | 07 body",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "Forecourt.wall.gate-ansarang.1.rubble",
+      "slot": 0,
+      "source_material": "Selected timber v2 | forecourt_wall | P18 image.forecourt_wall.stone.P15 stone forecourt_wall board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | forecourt_wall | P18 image.forecourt_wall.stone.P15 stone forecourt_wall board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "Forecourt.wall.warehouse-toilet.0.core",
+      "slot": 0,
+      "source_material": "HS lower earth r1 | 08 body",
+      "material": "YW1 mortar | HS lower earth r1 | 08 body",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "Forecourt.wall.warehouse-toilet.0.exact pan underside bedding v49",
+      "slot": 0,
+      "source_material": "HS lower earth r1 | 09 bedding",
+      "material": "YW1 earthwall | HS lower earth r1 | 09 bedding",
+      "link": "OBJECT",
+      "role": "earthwall"
+    },
+    {
+      "object": "Forecourt.wall.warehouse-toilet.0.rubble",
+      "slot": 0,
+      "source_material": "Selected timber v2 | forecourt_wall | P18 image.forecourt_wall.stone.P15 stone forecourt_wall board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | forecourt_wall | P18 image.forecourt_wall.stone.P15 stone forecourt_wall board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "Forecourt.wall.warehouse-toilet.1.core",
+      "slot": 0,
+      "source_material": "HS lower earth r1 | 10 body",
+      "material": "YW1 mortar | HS lower earth r1 | 10 body",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "Forecourt.wall.warehouse-toilet.1.exact pan underside bedding v49",
+      "slot": 0,
+      "source_material": "HS lower earth r1 | 11 bedding",
+      "material": "YW1 earthwall | HS lower earth r1 | 11 bedding",
+      "link": "OBJECT",
+      "role": "earthwall"
+    },
+    {
+      "object": "Forecourt.wall.warehouse-toilet.1.rubble",
+      "slot": 0,
+      "source_material": "Selected timber v2 | forecourt_wall | P18 image.forecourt_wall.stone.P15 stone forecourt_wall board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | forecourt_wall | P18 image.forecourt_wall.stone.P15 stone forecourt_wall board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "Forecourt.wall.warehouse-toilet.2.core",
+      "slot": 0,
+      "source_material": "HS lower earth r1 | 12 body",
+      "material": "YW1 mortar | HS lower earth r1 | 12 body",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "Forecourt.wall.warehouse-toilet.2.rubble",
+      "slot": 0,
+      "source_material": "Selected timber v2 | forecourt_wall | P18 image.forecourt_wall.stone.P15 stone forecourt_wall board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | forecourt_wall | P18 image.forecourt_wall.stone.P15 stone forecourt_wall board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "GyeCraft.main gate right wall bonded end stones v30",
+      "slot": 0,
+      "source_material": "Selected timber v2 | site | P18 image.site.stone.P15 stone site board axis2 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | site | P18 image.site.stone.P15 stone site board axis2 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "GyeCraft.wall basal fieldstones ConnectionGarden.wall4.ochre core",
+      "slot": 0,
+      "source_material": "HS lower east stone r2 | 11",
+      "material": "YW1 stone | HS lower east stone r2 | 11",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "GyeCraft.wall basal fieldstones Estate.fabric.gotgan garden return.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 stone estate_wall joinery axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall joinery axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "GyeCraft.wall basal fieldstones Estate.fabric.south edge middle.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 stone estate_wall joinery axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall joinery axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "GyeCraft.wall basal fieldstones Estate.fabric.west estate edge.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 stone estate_wall joinery axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 stone estate_wall joinery axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "GyeCraft.wall basal fieldstones V27.left_changgo.wall to warehouse.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo joinery axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo joinery axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "GyeCraft.wall basal fieldstones V27.right_ansarang.wall to sarang.earth core",
+      "slot": 0,
+      "source_material": "HS lower east stone r2 | 12",
+      "material": "YW1 stone | HS lower east stone r2 | 12",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "GyeCraft.wall seated footing ConnectionGarden.wall1.ochre core",
+      "slot": 0,
+      "source_material": "HS lower earth r1 | 13 thin-footing",
+      "material": "YW1 stone | HS lower earth r1 | 13 thin-footing",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "GyeCraft.wall seated footing ConnectionGarden.wall2.ochre core",
+      "slot": 0,
+      "source_material": "HS lower earth r1 | 14 thin-footing",
+      "material": "YW1 stone | HS lower earth r1 | 14 thin-footing",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "GyeCraft.wall seated footing ConnectionGarden.wall3.ochre core",
+      "slot": 0,
+      "source_material": "HS lower earth r1 | 15 thin-footing",
+      "material": "YW1 stone | HS lower earth r1 | 15 thin-footing",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "GyeCraft.wall seated footing ConnectionGarden.wall4.ochre core",
+      "slot": 0,
+      "source_material": "HS lower earth r1 | 16 thin-footing",
+      "material": "YW1 stone | HS lower earth r1 | 16 thin-footing",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "GyeCraft.wall seated footing ConnectionGarden.wall5.ochre core",
+      "slot": 0,
+      "source_material": "HS lower earth r1 | 17 thin-footing",
+      "material": "YW1 stone | HS lower earth r1 | 17 thin-footing",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "GyeCraft.wall seated footing Estate.fabric.gotgan garden return.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "GyeCraft.wall seated footing Estate.fabric.gotgan rear boundary.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "GyeCraft.wall seated footing Estate.fabric.gwang byeoldang join.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "GyeCraft.wall seated footing Estate.fabric.south edge middle.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "GyeCraft.wall seated footing Estate.fabric.west estate edge.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+      "material": "YW1 stone | Selected timber v2 | estate_wall | P15 plaster estate_wall board axis0 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "GyeCraft.wall seated footing North.site.gwang north.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 stone | Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "GyeCraft.wall seated footing V27.left_changgo.wall to warehouse.earth core",
+      "slot": 0,
+      "source_material": "HS lower earth r1 | 18 thin-footing",
+      "material": "YW1 stone | HS lower earth r1 | 18 thin-footing",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "GyeCraft.wall seated footing V27.right_ansarang.wall to sarang.earth core",
+      "slot": 0,
+      "source_material": "HS lower earth r1 | 19 thin-footing",
+      "material": "YW1 stone | HS lower earth r1 | 19 thin-footing",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "GyeSite.Estate.site.west field ground extension.pigment surface v48",
+      "slot": 0,
+      "source_material": "Illustrated lived courtyard earth",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "link": "OBJECT",
+      "role": "yard"
+    },
+    {
+      "object": "North.site.gwang north.ceramic seated v59.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "North.site.gwang north.exact pan underside bedding v54",
+      "slot": 0,
+      "source_material": "Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 earthwall | Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "earthwall"
+    },
+    {
+      "object": "North.site.gwang north.forecourt seated stones v49.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | north_site | P15 stone north_site board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | north_site | P15 stone north_site board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "North.site.jar yard east lower.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | north_site | P15 plaster north_site board axis0 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | north_site | P15 plaster north_site board axis0 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "North.site.jar yard east lower.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | north_site | P15 stone north_site board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | north_site | P15 stone north_site board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "North.site.jar yard east upper.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | north_site | P15 plaster north_site board axis0 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | north_site | P15 plaster north_site board axis0 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "North.site.jar yard east upper.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | north_site | P15 stone north_site board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | north_site | P15 stone north_site board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "North.site.jar yard return.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "North.site.jar yard return.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | north_site | P15 stone north_site board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | north_site | P15 stone north_site board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "North.site.jar yard west.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | north_site | P15 plaster north_site board axis0 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | north_site | P15 plaster north_site board axis0 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "North.site.jar yard west.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | north_site | P15 stone north_site board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | north_site | P15 stone north_site board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "North.site.shrine east.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "North.site.shrine east.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | north_site | P15 stone north_site board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | north_site | P15 stone north_site board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "North.site.shrine gate left earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | north_site | P15 plaster north_site board axis2 | North earthen plaster",
+      "material": "YW1 mortar | Selected timber v2 | north_site | P15 plaster north_site board axis2 | North earthen plaster",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "North.site.shrine gate left.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | north_site | P15 stone north_site board axis0 | Canonical gate stone pigment.004",
+      "material": "YW1 stone | Selected timber v2 | north_site | P15 stone north_site board axis0 | Canonical gate stone pigment.004",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "North.site.shrine rear.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "North.site.shrine rear.exact pan underside bedding v54",
+      "slot": 0,
+      "source_material": "Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+      "material": "YW1 earthwall | Selected timber v2 | north_site | P15 plaster north_site board axis1 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "earthwall"
+    },
+    {
+      "object": "North.site.shrine rear.forecourt seated stones v49.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | north_site | P15 stone north_site board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | north_site | P15 stone north_site board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "North.site.shrine west.earth core",
+      "slot": 0,
+      "source_material": "Selected timber v2 | north_site | P15 plaster north_site board axis0 | Forecourt ochre lime mortar",
+      "material": "YW1 mortar | Selected timber v2 | north_site | P15 plaster north_site board axis0 | Forecourt ochre lime mortar",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "North.site.shrine west.uneven fieldstone",
+      "slot": 0,
+      "source_material": "Selected timber v2 | north_site | P15 stone north_site board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | north_site | P15 stone north_site board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V27.left_changgo.wall to sarang.seated v71.earth core",
+      "slot": 0,
+      "source_material": "HS lower earth r1 | 20 body",
+      "material": "YW1 mortar | HS lower earth r1 | 20 body",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "V27.left_changgo.wall to warehouse.seated v71.earth core",
+      "slot": 0,
+      "source_material": "HS lower earth r1 | 21 body",
+      "material": "YW1 mortar | HS lower earth r1 | 21 body",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "V27.right_ansarang.wall to ansarang.earth core",
+      "slot": 0,
+      "source_material": "HS lower earth r1 | 22 body",
+      "material": "YW1 mortar | HS lower earth r1 | 22 body",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "V27.right_ansarang.wall to sarang.seated v71.earth core",
+      "slot": 0,
+      "source_material": "HS lower earth r1 | 23 body",
+      "material": "YW1 mortar | HS lower earth r1 | 23 body",
+      "link": "OBJECT",
+      "role": "mortar"
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face0",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face0.001",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face0.002",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face0.003",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face0.004",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face1",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face1.001",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face1.002",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face1.003",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face1.004",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face2",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face2.001",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face2.002",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face2.003",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face2.004",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face3",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face3.001",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face3.002",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face3.003",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face3.004",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face0",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face0.001",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face0.002",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face0.003",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face0.004",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face1",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face1.001",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face1.002",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face1.003",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face1.004",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face2",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face2.001",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face2.002",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face2.003",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face2.004",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis0 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face3",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face3.001",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face3.002",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face3.003",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis2 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face3.004",
+      "slot": 1,
+      "source_material": "Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+      "material": "YW1 stone | Selected timber v2 | left_changgo | P18 image.left_changgo.stone.P15 stone left_changgo board axis1 | Gye unified estate wall fieldstone",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face0",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 13",
+      "material": "YW1 stone | HS lower east stone r2 | 13",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face0.001",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 14",
+      "material": "YW1 stone | HS lower east stone r2 | 14",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face0.002",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 15",
+      "material": "YW1 stone | HS lower east stone r2 | 15",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face0.003",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 16",
+      "material": "YW1 stone | HS lower east stone r2 | 16",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face0.004",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 17",
+      "material": "YW1 stone | HS lower east stone r2 | 17",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face1",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 18",
+      "material": "YW1 stone | HS lower east stone r2 | 18",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face1.001",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 19",
+      "material": "YW1 stone | HS lower east stone r2 | 19",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face1.002",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 20",
+      "material": "YW1 stone | HS lower east stone r2 | 20",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face1.003",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 21",
+      "material": "YW1 stone | HS lower east stone r2 | 21",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face1.004",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 22",
+      "material": "YW1 stone | HS lower east stone r2 | 22",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face2",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 23",
+      "material": "YW1 stone | HS lower east stone r2 | 23",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face2.001",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 24",
+      "material": "YW1 stone | HS lower east stone r2 | 24",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face2.002",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 25",
+      "material": "YW1 stone | HS lower east stone r2 | 25",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face2.003",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 26",
+      "material": "YW1 stone | HS lower east stone r2 | 26",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face2.004",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 27",
+      "material": "YW1 stone | HS lower east stone r2 | 27",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face3",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 28",
+      "material": "YW1 stone | HS lower east stone r2 | 28",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face3.001",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 29",
+      "material": "YW1 stone | HS lower east stone r2 | 29",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face3.002",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 30",
+      "material": "YW1 stone | HS lower east stone r2 | 30",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face3.003",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 31",
+      "material": "YW1 stone | HS lower east stone r2 | 31",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face3.004",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 32",
+      "material": "YW1 stone | HS lower east stone r2 | 32",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face0",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 33",
+      "material": "YW1 stone | HS lower east stone r2 | 33",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face0.001",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 34",
+      "material": "YW1 stone | HS lower east stone r2 | 34",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face0.002",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 35",
+      "material": "YW1 stone | HS lower east stone r2 | 35",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face0.003",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 36",
+      "material": "YW1 stone | HS lower east stone r2 | 36",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face0.004",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 37",
+      "material": "YW1 stone | HS lower east stone r2 | 37",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face1",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 38",
+      "material": "YW1 stone | HS lower east stone r2 | 38",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face1.001",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 39",
+      "material": "YW1 stone | HS lower east stone r2 | 39",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face1.002",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 40",
+      "material": "YW1 stone | HS lower east stone r2 | 40",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face1.003",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 41",
+      "material": "YW1 stone | HS lower east stone r2 | 41",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face1.004",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 42",
+      "material": "YW1 stone | HS lower east stone r2 | 42",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face2",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 43",
+      "material": "YW1 stone | HS lower east stone r2 | 43",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face2.001",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 44",
+      "material": "YW1 stone | HS lower east stone r2 | 44",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face2.002",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 45",
+      "material": "YW1 stone | HS lower east stone r2 | 45",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face2.003",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 46",
+      "material": "YW1 stone | HS lower east stone r2 | 46",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face2.004",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 47",
+      "material": "YW1 stone | HS lower east stone r2 | 47",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face3",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 48",
+      "material": "YW1 stone | HS lower east stone r2 | 48",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face3.001",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 49",
+      "material": "YW1 stone | HS lower east stone r2 | 49",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face3.002",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 50",
+      "material": "YW1 stone | HS lower east stone r2 | 50",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face3.003",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 51",
+      "material": "YW1 stone | HS lower east stone r2 | 51",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face3.004",
+      "slot": 1,
+      "source_material": "HS lower east stone r2 | 52",
+      "material": "YW1 stone | HS lower east stone r2 | 52",
+      "link": "OBJECT",
+      "role": "stone"
+    },
+    {
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "slot": 0,
+      "source_material": "Illustrated lived courtyard earth",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "link": "OBJECT",
+      "role": "yard"
+    }
+  ],
+  "candidate_shader_signatures_match_library": true,
+  "unused_source_texture_nodes_removed": true,
+  "geometry_not_in_library": true
+}

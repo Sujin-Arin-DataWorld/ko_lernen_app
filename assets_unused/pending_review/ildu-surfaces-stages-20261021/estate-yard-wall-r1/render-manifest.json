@@ -1,0 +1,189 @@
+{
+  "candidate_sha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+  "renders": [
+    {
+      "view": "full",
+      "variant": "before",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\estate-yard-wall-r1\\full-before.png",
+      "sha256": "e1345948c872ba0f61d5a2571eecd61a7b2f95336685b752f0edc190bc9b70a7",
+      "view_settings": {
+        "location": [
+          -31.79344940185547,
+          -40.955894470214844,
+          66.74041748046875
+        ],
+        "rotation": [
+          0.8604140877723694,
+          -7.433416726598807e-08,
+          -0.6107259392738342
+        ],
+        "ortho_scale": 91.33671569824219,
+        "samples": 24,
+        "resolution": [
+          1280,
+          960
+        ],
+        "engine": "CYCLES CPU",
+        "lights_preserved": true,
+        "source_colour_management_preserved": true
+      },
+      "seconds": 188.23,
+      "native_sha256": "b3b51dec9f2d4a7629912326bb224e8cf5595c2a874a1c3c85075a5f742af434"
+    },
+    {
+      "view": "wall",
+      "variant": "before",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\estate-yard-wall-r1\\wall-before.png",
+      "sha256": "708d2044a85bd9397f642ceb0191b6006da0fd3f4d546158e46711d2613ee2b9",
+      "view_settings": {
+        "location": [
+          -64.24842071533203,
+          -55.26013946533203,
+          35.31649398803711
+        ],
+        "rotation": [
+          1.1246899366378784,
+          3.95843997580414e-08,
+          -1.0460004806518555
+        ],
+        "ortho_scale": 11.2,
+        "samples": 24,
+        "resolution": [
+          1280,
+          960
+        ],
+        "engine": "CYCLES CPU",
+        "threads": 8,
+        "persistent_data": true,
+        "lights_preserved": true,
+        "source_colour_management_preserved": true
+      },
+      "seconds": 148.42,
+      "native_sha256": "b3b51dec9f2d4a7629912326bb224e8cf5595c2a874a1c3c85075a5f742af434"
+    },
+    {
+      "view": "wall",
+      "variant": "after",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\estate-yard-wall-r1\\wall-after.png",
+      "sha256": "75f1123a79a2021a48f0510f6ce79511bddeecb28ca6a6fa50e43964560e3ac9",
+      "view_settings": {
+        "location": [
+          -64.24842071533203,
+          -55.26013946533203,
+          35.31649398803711
+        ],
+        "rotation": [
+          1.1246899366378784,
+          3.95843997580414e-08,
+          -1.0460004806518555
+        ],
+        "ortho_scale": 11.2,
+        "samples": 24,
+        "resolution": [
+          1280,
+          960
+        ],
+        "engine": "CYCLES CPU",
+        "threads": 8,
+        "persistent_data": true,
+        "lights_preserved": true,
+        "source_colour_management_preserved": true
+      },
+      "seconds": 146.45,
+      "native_sha256": "a9c1d12060a0d2b8f4dd36ac51f2691699e5b2518e66f1573fa1ee2269d5c68c"
+    },
+    {
+      "view": "courtyard",
+      "variant": "before",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\estate-yard-wall-r1\\courtyard-before.png",
+      "sha256": "71f0ef39dc84ef584f7dcfeccfc8160a254cda967ab1f5f1b62e527ee6d81960",
+      "view_settings": {
+        "location": [
+          -40.135169982910156,
+          -56.988040924072266,
+          53.9586181640625
+        ],
+        "rotation": [
+          0.8372841477394104,
+          -3.1053900784172583e-08,
+          -0.5713374614715576
+        ],
+        "ortho_scale": 29,
+        "samples": 24,
+        "resolution": [
+          1280,
+          960
+        ],
+        "engine": "CYCLES CPU",
+        "threads": 8,
+        "persistent_data": true,
+        "lights_preserved": true,
+        "source_colour_management_preserved": true
+      },
+      "seconds": 171.16,
+      "native_sha256": "b3b51dec9f2d4a7629912326bb224e8cf5595c2a874a1c3c85075a5f742af434"
+    },
+    {
+      "view": "courtyard",
+      "variant": "after",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\estate-yard-wall-r1\\courtyard-after.png",
+      "sha256": "2de5b3bf0d49fa60129a75ac566cea48086e588735a9cb0899ea30879e8763d3",
+      "native_sha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "view_settings": {
+        "location": [
+          -40.135169982910156,
+          -56.988040924072266,
+          53.9586181640625
+        ],
+        "rotation": [
+          0.8372841477394104,
+          -3.1053900784172583e-08,
+          -0.5713374614715576
+        ],
+        "ortho_scale": 29,
+        "samples": 24,
+        "resolution": [
+          1280,
+          960
+        ],
+        "engine": "CYCLES CPU",
+        "threads": 8,
+        "persistent_data": true,
+        "lights_preserved": true,
+        "source_colour_management_preserved": true
+      },
+      "seconds": 171.51
+    },
+    {
+      "view": "full",
+      "variant": "after",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\estate-yard-wall-r1\\full-after.png",
+      "sha256": "b60ab6780ed8083eded181395922ba0c1eb671c6b60657132cccad61dc2a621b",
+      "native_sha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "view_settings": {
+        "location": [
+          -31.79344940185547,
+          -40.955894470214844,
+          66.74041748046875
+        ],
+        "rotation": [
+          0.8604140877723694,
+          -7.433416726598807e-08,
+          -0.6107259392738342
+        ],
+        "ortho_scale": 91.33671569824219,
+        "samples": 24,
+        "resolution": [
+          1280,
+          960
+        ],
+        "engine": "CYCLES CPU",
+        "threads": 8,
+        "persistent_data": true,
+        "lights_preserved": true,
+        "source_colour_management_preserved": true
+      },
+      "seconds": 191.73
+    }
+  ]
+}

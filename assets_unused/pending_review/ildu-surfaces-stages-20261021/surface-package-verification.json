@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "renders": 21,
+  "gates": {
+    "left": {
+      "checksPassed": 22,
+      "geometrySha256": "de8f8bcc71099d55d5e4b55085a284ca22ad30b45b0177abf568bf0f3027fa7b",
+      "nativeSha256": "b0431b15ebe83529c59307cabea2e66be481ecc0a406df4f68e30e868606fed0"
+    },
+    "right": {
+      "checksPassed": 21,
+      "geometrySha256": "6e61042df2138704b010c26789f044a259c158578f561a6e74968d94f6042881",
+      "nativeSha256": "6995b49bcbabf69dcca3e4a94cf4a3ec2b8af892f5d1223eb045133e229e88ca"
+    },
+    "shrine": {
+      "checksPassed": 22,
+      "geometrySha256": "839bde89d15bfd08d21f3158271932e04d575163863d4a89e3c6e560db03bb10",
+      "nativeSha256": "d0424a1c0e5d8032a7dbb68fa2cad308655d0e9e36b9502bd648d46899d73f20"
+    }
+  },
+  "sourceSamples": 5,
+  "upstreamNativeHashVerified": true
+}

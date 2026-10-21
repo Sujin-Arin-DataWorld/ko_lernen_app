@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-21",
+  "status": "native-candidate-review-passed",
+  "user_approved": false,
+  "app_integrated": false,
+  "new_three_gates_integrated": false,
+  "candidate_native_sha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+  "reviews": [
+    {
+      "reviewer": "estate material author",
+      "scope": "full before/after, courtyard before/after, wall before/after",
+      "result": "pass after two rejected pilots",
+      "observations": [
+        "individual stone pigments restored",
+        "quiet nonperiodic compacted earth visible",
+        "source architecture and planting preserved"
+      ]
+    },
+    {
+      "reviewer": "parent designer /root",
+      "scope": "courtyard and wall before/after",
+      "result": "pass",
+      "observations": [
+        "tended earth meso variation visible without gravel",
+        "initial continuous stone palette corrected"
+      ]
+    },
+    {
+      "reviewer": "independent /root/gate_construction",
+      "scope": "courtyard and wall before/after four images",
+      "result": "no blocking defects",
+      "additional_edits_or_renders": 0,
+      "observations": [
+        "no repeating floor tile or new gravel observed",
+        "no glossy plastic response observed",
+        "ivory grey and ochre stone identities retained"
+      ]
+    }
+  ],
+  "reused_wall_after_native_sha256": "a9c1d12060a0d2b8f4dd36ac51f2691699e5b2518e66f1573fa1ee2269d5c68c",
+  "reuse_note": "wall shader unchanged in final native; the wall close image soil predates final soil refinement",
+  "render_count": 6,
+  "render_manifest": "render-manifest.json"
+}

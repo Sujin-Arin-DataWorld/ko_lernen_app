@@ -1,0 +1,41 @@
+{
+  "sourceBlend": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\canonical\\native\\ildu-estate-r12-packed.blend",
+  "sourceBlendSha256": "b3b51dec9f2d4a7629912326bb224e8cf5595c2a874a1c3c85075a5f742af434",
+  "extractedImages": [
+    {
+      "sourceImage": "wood-long-members-trim-v1.png",
+      "path": "reference-textures/wood-long-members-trim-v1.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "fe8da49bc606baef63beffd9db6c60e0173b9be7a4cb0993e33a383aa639a4d8"
+    },
+    {
+      "sourceImage": "wood-endgrain-atlas-v1.png",
+      "path": "reference-textures/wood-endgrain-atlas-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "1470b07452cf8f7e238d8c916d41d1aafa852fe98986db6a9aac537c3dd3737a"
+    },
+    {
+      "sourceImage": "tile-blue-charcoal-v1.png",
+      "path": "reference-textures/tile-blue-charcoal-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "d446aeb06e8dd5533b2b3200c987e05c0e431b4624fa95cefcb61f203602d098"
+    },
+    {
+      "sourceImage": "gye-clay-matte-v26.png",
+      "path": "reference-textures/gye-clay-matte-v26.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "889e68713b095d32c40206601fb307478640c487a89453d9a6615a86355e0209"
+    },
+    {
+      "sourceImage": "gye-fieldstone-brush-v26.png",
+      "path": "reference-textures/gye-fieldstone-brush-v26.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "62e5da144479fbd962afe6f37dd6f9b9905e5c594a6f36be44f4588431e04c01"
+    }
+  ]
+}

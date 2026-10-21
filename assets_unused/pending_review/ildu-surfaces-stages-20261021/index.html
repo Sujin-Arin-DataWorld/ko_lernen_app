@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>일두고택 세 문 · 도면·표면 대조</title>
+<style>
+  :root{color-scheme:light;--paper:#f4efe5;--panel:#fffaf0;--ink:#292821;--muted:#676458;--line:#d5cbb8;--wood:#70513c;--focus:#125a64}
+  *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 system-ui,"Malgun Gothic",sans-serif}
+  header{padding:28px max(20px,calc((100vw - 1440px)/2));background:#e9dfce;border-bottom:1px solid var(--line)}
+  h1{margin:0;font-size:clamp(1.5rem,3vw,2.5rem);letter-spacing:-.035em}header p{margin:8px 0 0;max-width:950px;color:var(--muted)}
+  main{max-width:1480px;margin:auto;padding:20px}h2,h3{margin:0 0 8px}p{margin:0 0 12px}
+  button,a{font:inherit}button{min-height:44px;padding:8px 14px;border:1px solid #a89a84;background:#fffaf0;color:var(--ink);cursor:pointer}
+  button[aria-pressed="true"]{background:var(--wood);border-color:var(--wood);color:white}button:hover{filter:brightness(.96)}
+  :focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+  .controls{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}.group{margin:0 0 18px}.group strong{display:block;margin:0 0 6px}
+  .notice{padding:12px 16px;border-left:5px solid #ad7c32;background:#fff8e7;margin-bottom:18px}
+  .notice.ok{border-color:#3c7867;background:#e8f3eb}.notice.bad{border-color:#9b4c40;background:#fff0ea}
+  .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+  figure{margin:0;background:var(--panel);border:1px solid var(--line);min-width:0;display:flex;flex-direction:column}
+  figcaption{padding:12px 16px;border-bottom:1px solid var(--line);font-weight:700}
+  .frame{height:min(65vh,760px);min-height:340px;display:grid;place-items:center;overflow:auto;background:#282725}
+  figure.source .frame{background:#ded7c8}img{display:block;max-width:100%;max-height:100%;object-fit:contain}
+  .frame.zoom2 img{max-width:none;max-height:none;width:200%}.frame.zoom3 img{max-width:none;max-height:none;width:300%}
+  .meta{padding:12px 16px;color:var(--muted);font-size:.9rem}.meta a{color:#174d5a}
+  .meta button{min-height:36px;margin-left:10px;padding:4px 10px}
+  .notes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+  .notes article{background:var(--panel);border:1px solid var(--line);padding:14px}.notes p{color:var(--muted);font-size:.93rem}
+  footer{padding:20px;color:var(--muted);font-size:.88rem}code{font-size:.9em;overflow-wrap:anywhere}
+  @media(max-width:900px){.grid,.notes{grid-template-columns:1fr}.frame{height:50vh;min-height:280px}header{padding:20px}}
+</style>
+</head>
+<body>
+<header><h1>일두고택 세 문 · 도면·표면 대조</h1><p>현재 형상 디자인은 2026-10-18 승인됐습니다. 새 목재·기와 표면은 검토 후보입니다. 치수 검사와 전체 도면 일치, 앱 적용은 별도 상태입니다.</p></header>
+<main>
+  <nav class="controls" aria-label="작업 결과"><a href="construction/index.html">세 문 건설 공정 20단계</a><a href="estate-yard-wall-r1/index.html">돌담·흙마당 전후 비교</a></nav>
+  <div id="buildState" class="notice" role="status">파일과 검증 기록을 확인하는 중입니다.</div>
+  <div class="group"><strong>문 선택</strong><nav class="controls" id="gates" aria-label="문 선택"></nav></div>
+  <div class="group"><strong>시점 선택</strong><nav class="controls" id="views" aria-label="시점 선택"></nav></div>
+  <div class="group"><strong>오른쪽 비교 대상</strong><nav class="controls" id="comparisons" aria-label="비교 대상 선택"></nav></div>
+  <div class="notice" aria-label="직전 R5와 현재 표면의 처마 렌더 차이">같은 카메라·조명에서 R5 → 현재 지붕 밝기 / 미세 대비: 왼쪽 협문 <strong>+11.4% / +16.3%</strong>, 안채 연결 협문 <strong>+11.9% / +19.2%</strong>, 사당문 <strong>−9.7% / +10.9%</strong>. 영상 지표이며 물리적 거칠기 수치는 아닙니다. <a href="surface-r6-comparison.json">측정 기록</a></div>
+  <div class="grid">
+    <figure><figcaption id="renderTitle">Blender 렌더</figcaption><div class="frame"><img id="render" alt=""></div><div class="meta" id="renderMeta"></div></figure>
+    <figure class="source"><figcaption id="sourceTitle">원도면 또는 이전 표면</figcaption><div class="frame" id="sourceFrame"><img id="source" alt=""></div><div class="meta" id="sourceMeta"></div></figure>
+  </div>
+  <section class="notes" aria-label="대조 시 유의사항">
+    <article><h3>왼쪽 협문</h3><p>080–083: 기울어진 팔각 보조기둥, X자 버팀목, 원형 서까래, 낮은 자연석 받침과 신방목. 지붕 귀의 곡선은 인쇄 치수가 없어 축척 판독입니다.</p></article>
+    <article><h3>안채 연결 협문</h3><p>089–093: 별도 도리와 80×100 각서까래, 높이·폭이 서로 다른 5단 계단. 092 단면과 093 평면의 폭 표기가 다릅니다.</p></article>
+    <article><h3>사당문</h3><p>086–088: 앞뒤 방향의 도리 두 줄, 별도 문판·뒤 빗장과 문턱석. 도리 1800mm는 bevel 전 원부재로 측정합니다.</p></article>
+  </section>
+</main>
+<footer>원본 출처와 SHA: <a href="sources/source-index.json">source-index.json</a> · 기존 건물 표면 이미지 출처: <a href="reference-textures/source-receipt.json">source-receipt.json</a> · <a href="SURFACE_REVIEW.md">재질 변경·검증</a> · <a href="surface-package-verification.json">최종 패키지 검사</a> · 검사 상세: <a href="validation-summary.json">validation-summary.json</a> · 작업 경계: <a href="CONTINUATION.md">CONTINUATION.md</a></footer>
+<script>
+const gates={
+ left:{label:'사랑채 왼쪽 협문',src:{hero:'sources/left083.jpg',front:'sources/left083.jpg',side:'sources/left083.jpg',back:'sources/left083.jpg',plan:'sources/left082.jpg',eaves:'sources/left083.jpg',underside:'sources/left082.jpg'},extra:{eaves:'sources/left081.jpg',underside:'sources/left081.jpg'}},
+ right:{label:'안채 연결 협문',src:{hero:'sources/right090.jpg',front:'sources/right090.jpg',side:'sources/right090.jpg',back:'sources/right091.jpg',plan:'sources/right093.jpg',eaves:'sources/right090.jpg',underside:'sources/right093.jpg'},extra:{eaves:'sources/right092.jpg',underside:'sources/right092.jpg'}},
+ shrine:{label:'사당문',src:{hero:'sources/shrine088.jpg',front:'sources/shrine088.jpg',side:'sources/shrine088.jpg',back:'sources/shrine088.jpg',plan:'sources/shrine086.jpg',eaves:'sources/shrine088.jpg',underside:'sources/shrine086.jpg'},extra:{eaves:'sources/shrine087.jpg',underside:'sources/shrine087.jpg'}}
+};
+const views={hero:'전체',front:'정면',side:'측면',back:'배면',plan:'평면',eaves:'처마',underside:'처마 하부'};
+let gate='left',view='hero',comparison='drawing',zoom=1,manifest=null,validation=null;
+function buttons(id,items,current,onClick){const root=document.getElementById(id);root.replaceChildren();for(const [key,label] of Object.entries(items)){const b=document.createElement('button');b.type='button';b.textContent=label;b.setAttribute('aria-pressed',String(key===current));b.onclick=()=>onClick(key);root.append(b)}}
+function show(){buttons('gates',Object.fromEntries(Object.entries(gates).map(([k,v])=>[k,v.label])),gate,k=>{gate=k;show()});buttons('views',views,view,k=>{view=k;show()});buttons('comparisons',{drawing:'원도면',r6b:'직전 R6b 표면',r5:'R5 표면',before:'승인 당시 표면'},comparison,k=>{comparison=k;zoom=1;show()});const g=gates[gate];const image=document.getElementById('render');image.src=`${gate}-${view}.png`;image.alt=`${g.label} ${views[view]} 새 표면 Blender 렌더`;document.getElementById('renderTitle').textContent=`${g.label} · ${views[view]} · 새 표면`;document.getElementById('renderMeta').textContent=`${gate}-new.blend · ${views[view]} 시점`;
+ const sourcePath=comparison==='before'?`surface-before/${gate}-${view}.png`:comparison==='r5'?`surface-r5/${gate}-${view}.png`:comparison==='r6b'?`surface-r6b-before-wood/${gate}-${view}.png`:g.src[view];const sheet=sourcePath.match(/(\d{3})\.jpg$/)?.[1]||'원본';const source=document.getElementById('source');source.src=sourcePath;source.alt=comparison==='before'?`${g.label} ${views[view]} 승인 당시 렌더`:comparison==='r5'?`${g.label} ${views[view]} R5 표면 렌더`:comparison==='r6b'?`${g.label} ${views[view]} 직전 R6b 표면 렌더`:`${g.label} 공식 도면 ${sheet}`;document.getElementById('sourceTitle').textContent=comparison==='before'?`승인 당시 표면 · ${views[view]} · 커밋 bbe88e7`:comparison==='r5'?`R5 표면 · ${views[view]}`:comparison==='r6b'?`직전 R6b 표면 · ${views[view]}`:`원도면 ${sheet}`;const sourceMeta=document.getElementById('sourceMeta');sourceMeta.replaceChildren();const link=document.createElement('a');link.href=sourcePath;link.target='_blank';link.rel='noopener';link.textContent='원본 해상도로 열기';sourceMeta.append(link);if(comparison==='drawing'&&g.extra[view]){const extra=document.createElement('a');extra.href=g.extra[view];extra.target='_blank';extra.rel='noopener';extra.textContent='보조 단면 도면 열기';sourceMeta.append(' · ',extra)}const zoomButton=document.createElement('button');zoomButton.type='button';zoomButton.textContent=`비교 이미지 ${zoom}배 확대`;zoomButton.setAttribute('aria-label',`비교 이미지 확대, 현재 ${zoom}배`);zoomButton.onclick=()=>{zoom=zoom===3?1:zoom+1;show()};sourceMeta.append(zoomButton);document.getElementById('sourceFrame').className=`frame zoom${zoom}`;
+ const file=manifest?.nativeFiles?.find(x=>x.gate===gate);const render=manifest?.renders?.find(x=>x.gate===gate&&x.view===view);const check=validation?.find(x=>x.gate===gate);const state=document.getElementById('buildState');if(!manifest||!validation){state.className='notice bad';state.textContent='검증 기록을 읽지 못했습니다. 로컬 HTTP 서버에서 열어 주세요.';return}const current=file&&render&&check&&file.sha256===render.nativeSha256&&file.sha256===check.sha256&&!render.draft&&check.allChecksPassed;state.className='notice '+(current?'ok':'bad');state.textContent=current?`${g.label} ${views[view]}: 렌더·Blender 원본·치수 검사 SHA 일치. 형상 디자인 승인, 새 표면은 검토 후보입니다.`:`${g.label} ${views[view]}: 렌더·원본·검사 버전 또는 검사 결과가 일치하지 않습니다. 현재 보이는 이미지를 최종으로 판단하지 마세요.`}
+Promise.all([fetch('manifest.json').then(x=>x.json()),fetch('validation-summary.json').then(x=>x.json())]).then(([m,v])=>{manifest=m;validation=v;show()}).catch(()=>show());show();
+</script>
+</body>
+</html>
