@@ -1,0 +1,21 @@
+{
+  "nativeAssemblyGeometryVerified": true,
+  "allOriginalGeometryUvTransformRenderStatePreserved": true,
+  "gateNativeFilesIndependentlyVerified": true,
+  "gateRendersVerified": 21,
+  "browserGroupsVerified": 16,
+  "browserInstanceStagesVerified": 160,
+  "wholeCombinedNativeMaterialRenderCompleted": false,
+  "reason": "The optional additional combined Cycles verification renderer reached physical-memory pressure (available memory under 1 GiB). Only this task's renderer PID 33824 was stopped; the saved native SHA and source files remain unchanged.",
+  "wholeCombinedNativeJunctionVisualApproval": false,
+  "appIntegrated": false,
+  "mobilePbrMaterialParity": false,
+  "physicalDeviceVerified": false,
+  "canonicalGateAuthority": "Explicit direct user designation of the three R6c native files, not this optional render.",
+  "threeGateMaterialBakeCompleted": true,
+  "threeGateColoredStages": 20,
+  "illustrationPilotBuilding": "sadangmun",
+  "illustrationPilotScope": "Live lighting only; approved source color and geometry preserved",
+  "otherBuildingViewerMaterial": "structural neutral, linked approved native renders available",
+  "mobileOptimizationCompleted": false
+}

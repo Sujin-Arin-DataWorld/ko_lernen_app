@@ -1,0 +1,23 @@
+{
+  "gate": "right",
+  "key": "right_ansarang",
+  "sourceNativeSha256": "6995b49bcbabf69dcca3e4a94cf4a3ec2b8af892f5d1223eb045133e229e88ca",
+  "sourceNativeSaved": false,
+  "sourceMaterialsModified": false,
+  "sourceGeometryModified": false,
+  "partCount": 530,
+  "materialCount": 1,
+  "imageCount": 4,
+  "model": "right_ansarang-pbr.glb",
+  "sha256": "2560e76f8e7bbe3e5d3b3e16bf97f74a31f367878f08f8bbf15a86c3de3f4676",
+  "atlasSize": 4096,
+  "channels": [
+    "baseColor",
+    "normal",
+    "roughnessMetallic",
+    "specular"
+  ],
+  "colorSource": "actual source shader bake, no arbitrary recolor",
+  "nativeRenderPixelParityClaimed": false,
+  "sourcePartsFile": "pbr\\right\\right_ansarang-source-parts.json"
+}

@@ -1,0 +1,167 @@
+{
+  "passed": true,
+  "before": {
+    "azimuth": 0.6037493333974363,
+    "camera": [
+      5.411284521338373,
+      5.140720295271455,
+      7.846362555940641
+    ],
+    "distance": 10.829331035865486,
+    "error": null,
+    "key": "left_changgo",
+    "loaded": true,
+    "renderCount": 41,
+    "stage": 6,
+    "target": [
+      0,
+      0,
+      0
+    ],
+    "visibleMeshes": 680
+  },
+  "brokenImages": [],
+  "keyboard": {
+    "azimuth": 0.45374933339743634,
+    "camera": [
+      4.1779758621118175,
+      5.140720295271455,
+      8.566908615466529
+    ],
+    "distance": 10.829331035865486,
+    "error": null,
+    "key": "left_changgo",
+    "loaded": true,
+    "renderCount": 48,
+    "stage": 6,
+    "target": [
+      0,
+      0,
+      0
+    ],
+    "visibleMeshes": 680
+  },
+  "overflow": false,
+  "restored": {
+    "azimuth": 0.6037493333974363,
+    "camera": [
+      5.411284521338373,
+      5.140720295271455,
+      7.846362555940641
+    ],
+    "distance": 10.829331035865486,
+    "error": null,
+    "key": "left_changgo",
+    "loaded": true,
+    "renderCount": 47,
+    "stage": 6,
+    "target": [
+      0,
+      0,
+      0
+    ],
+    "visibleMeshes": 680
+  },
+  "rotations": [
+    {
+      "azimuth": 2.174545660192333,
+      "camera": [
+        7.846362555940641,
+        5.140720295271455,
+        -5.411284521338374
+      ],
+      "distance": 10.829331035865486,
+      "error": null,
+      "key": "left_changgo",
+      "loaded": true,
+      "renderCount": 42,
+      "stage": 6,
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "visibleMeshes": 680
+    },
+    {
+      "azimuth": -2.5378433201923567,
+      "camera": [
+        -5.4112845213383745,
+        5.140720295271455,
+        -7.84636255594064
+      ],
+      "distance": 10.829331035865486,
+      "error": null,
+      "key": "left_changgo",
+      "loaded": true,
+      "renderCount": 43,
+      "stage": 6,
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "visibleMeshes": 680
+    },
+    {
+      "azimuth": -0.96704699339746,
+      "camera": [
+        -7.84636255594064,
+        5.140720295271455,
+        5.411284521338374
+      ],
+      "distance": 10.829331035865486,
+      "error": null,
+      "key": "left_changgo",
+      "loaded": true,
+      "renderCount": 44,
+      "stage": 6,
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "visibleMeshes": 680
+    },
+    {
+      "azimuth": 0.6037493333974364,
+      "camera": [
+        5.411284521338374,
+        5.140720295271455,
+        7.846362555940641
+      ],
+      "distance": 10.829331035865486,
+      "error": null,
+      "key": "left_changgo",
+      "loaded": true,
+      "renderCount": 45,
+      "stage": 6,
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "visibleMeshes": 680
+    }
+  ],
+  "zoomed": {
+    "azimuth": 0.6037493333974364,
+    "camera": [
+      4.3290276170706985,
+      4.112576236217164,
+      6.277090044752513
+    ],
+    "distance": 8.66346482869239,
+    "error": null,
+    "key": "left_changgo",
+    "loaded": true,
+    "renderCount": 46,
+    "stage": 6,
+    "target": [
+      0,
+      0,
+      0
+    ],
+    "visibleMeshes": 680
+  }
+}

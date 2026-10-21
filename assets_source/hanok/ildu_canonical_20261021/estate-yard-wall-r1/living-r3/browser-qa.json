@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "checks": {
+    "fourViewsSwitched": true,
+    "bothImagesLoaded": true,
+    "aOnlyAndBOnlyAndHalf": true,
+    "keyboardRange50To51": true,
+    "smallPreview": true
+  },
+  "dom": {
+    "activeViews": [
+      "고택 전체"
+    ],
+    "images": [
+      {
+        "display": [
+          477,
+          357.75
+        ],
+        "id": "a",
+        "loaded": true,
+        "natural": [
+          1280,
+          960
+        ],
+        "src": "full-A.png"
+      },
+      {
+        "display": [
+          477,
+          357.75
+        ],
+        "id": "b",
+        "loaded": true,
+        "natural": [
+          1280,
+          960
+        ],
+        "src": "full-B.png"
+      }
+    ],
+    "slider": "100",
+    "status": "같은 카메라·조명입니다. 기존 A와 새 표면 B를 버튼이나 키보드 방향키로 비교하세요.",
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    }
+  }
+}

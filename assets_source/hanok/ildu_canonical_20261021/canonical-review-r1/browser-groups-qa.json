@@ -1,0 +1,1204 @@
+{
+  "passed": true,
+  "groups": [
+    {
+      "final": {
+        "azimuth": 0.6037493333974364,
+        "camera": [
+          20.73767218651024,
+          19.700788577184724,
+          30.069624670439843
+        ],
+        "distance": 41.501258367659375,
+        "error": null,
+        "key": "sarang",
+        "loaded": true,
+        "renderCount": 25,
+        "stage": 16,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "visibleMeshes": 710
+      },
+      "key": "sarang",
+      "stages": [
+        {
+          "error": null,
+          "stage": 1,
+          "visible": 0
+        },
+        {
+          "error": null,
+          "stage": 2,
+          "visible": 69
+        },
+        {
+          "error": null,
+          "stage": 3,
+          "visible": 79
+        },
+        {
+          "error": null,
+          "stage": 4,
+          "visible": 79
+        },
+        {
+          "error": null,
+          "stage": 5,
+          "visible": 97
+        },
+        {
+          "error": null,
+          "stage": 6,
+          "visible": 126
+        },
+        {
+          "error": null,
+          "stage": 7,
+          "visible": 127
+        },
+        {
+          "error": null,
+          "stage": 8,
+          "visible": 144
+        },
+        {
+          "error": null,
+          "stage": 9,
+          "visible": 148
+        },
+        {
+          "error": null,
+          "stage": 10,
+          "visible": 148
+        },
+        {
+          "error": null,
+          "stage": 11,
+          "visible": 189
+        },
+        {
+          "error": null,
+          "stage": 12,
+          "visible": 248
+        },
+        {
+          "error": null,
+          "stage": 13,
+          "visible": 258
+        },
+        {
+          "error": null,
+          "stage": 14,
+          "visible": 393
+        },
+        {
+          "error": null,
+          "stage": 15,
+          "visible": 695
+        },
+        {
+          "error": null,
+          "stage": 16,
+          "visible": 710
+        }
+      ]
+    },
+    {
+      "final": {
+        "azimuth": 0.6037493333974364,
+        "camera": [
+          15.505077112530582,
+          14.729823256904051,
+          22.48236181316934
+        ],
+        "distance": 31.029529518563542,
+        "error": null,
+        "key": "ansarang",
+        "loaded": true,
+        "renderCount": 41,
+        "stage": 14,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "visibleMeshes": 385
+      },
+      "key": "ansarang",
+      "stages": [
+        {
+          "error": null,
+          "stage": 1,
+          "visible": 0
+        },
+        {
+          "error": null,
+          "stage": 2,
+          "visible": 16
+        },
+        {
+          "error": null,
+          "stage": 3,
+          "visible": 21
+        },
+        {
+          "error": null,
+          "stage": 4,
+          "visible": 24
+        },
+        {
+          "error": null,
+          "stage": 5,
+          "visible": 33
+        },
+        {
+          "error": null,
+          "stage": 6,
+          "visible": 43
+        },
+        {
+          "error": null,
+          "stage": 7,
+          "visible": 44
+        },
+        {
+          "error": null,
+          "stage": 8,
+          "visible": 63
+        },
+        {
+          "error": null,
+          "stage": 9,
+          "visible": 82
+        },
+        {
+          "error": null,
+          "stage": 10,
+          "visible": 90
+        },
+        {
+          "error": null,
+          "stage": 11,
+          "visible": 101
+        },
+        {
+          "error": null,
+          "stage": 12,
+          "visible": 109
+        },
+        {
+          "error": null,
+          "stage": 13,
+          "visible": 372
+        },
+        {
+          "error": null,
+          "stage": 14,
+          "visible": 385
+        }
+      ]
+    },
+    {
+      "final": {
+        "azimuth": 0.6037493333974363,
+        "camera": [
+          21.56887876012428,
+          20.490434822118072,
+          31.274874202180214
+        ],
+        "distance": 43.164710198617186,
+        "error": null,
+        "key": "anchae",
+        "loaded": true,
+        "renderCount": 57,
+        "stage": 14,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "visibleMeshes": 876
+      },
+      "key": "anchae",
+      "stages": [
+        {
+          "error": null,
+          "stage": 1,
+          "visible": 0
+        },
+        {
+          "error": null,
+          "stage": 2,
+          "visible": 9
+        },
+        {
+          "error": null,
+          "stage": 3,
+          "visible": 12
+        },
+        {
+          "error": null,
+          "stage": 4,
+          "visible": 25
+        },
+        {
+          "error": null,
+          "stage": 5,
+          "visible": 25
+        },
+        {
+          "error": null,
+          "stage": 6,
+          "visible": 37
+        },
+        {
+          "error": null,
+          "stage": 7,
+          "visible": 39
+        },
+        {
+          "error": null,
+          "stage": 8,
+          "visible": 408
+        },
+        {
+          "error": null,
+          "stage": 9,
+          "visible": 446
+        },
+        {
+          "error": null,
+          "stage": 10,
+          "visible": 446
+        },
+        {
+          "error": null,
+          "stage": 11,
+          "visible": 453
+        },
+        {
+          "error": null,
+          "stage": 12,
+          "visible": 464
+        },
+        {
+          "error": null,
+          "stage": 13,
+          "visible": 846
+        },
+        {
+          "error": null,
+          "stage": 14,
+          "visible": 876
+        }
+      ]
+    },
+    {
+      "final": {
+        "azimuth": 0.6037493333974364,
+        "camera": [
+          12.290501539100667,
+          11.675976462145634,
+          17.821227231695968
+        ],
+        "distance": 24.596361407146315,
+        "error": null,
+        "key": "sadang",
+        "loaded": true,
+        "renderCount": 71,
+        "stage": 12,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "visibleMeshes": 229
+      },
+      "key": "sadang",
+      "stages": [
+        {
+          "error": null,
+          "stage": 1,
+          "visible": 0
+        },
+        {
+          "error": null,
+          "stage": 2,
+          "visible": 4
+        },
+        {
+          "error": null,
+          "stage": 3,
+          "visible": 6
+        },
+        {
+          "error": null,
+          "stage": 4,
+          "visible": 12
+        },
+        {
+          "error": null,
+          "stage": 5,
+          "visible": 23
+        },
+        {
+          "error": null,
+          "stage": 6,
+          "visible": 31
+        },
+        {
+          "error": null,
+          "stage": 7,
+          "visible": 36
+        },
+        {
+          "error": null,
+          "stage": 8,
+          "visible": 95
+        },
+        {
+          "error": null,
+          "stage": 9,
+          "visible": 99
+        },
+        {
+          "error": null,
+          "stage": 10,
+          "visible": 170
+        },
+        {
+          "error": null,
+          "stage": 11,
+          "visible": 223
+        },
+        {
+          "error": null,
+          "stage": 12,
+          "visible": 229
+        }
+      ]
+    },
+    {
+      "final": {
+        "azimuth": 0.6037493333974364,
+        "camera": [
+          13.89032834796772,
+          13.195811930569334,
+          20.14097610455319
+        ],
+        "distance": 27.798014183849432,
+        "error": null,
+        "key": "jung",
+        "loaded": true,
+        "renderCount": 85,
+        "stage": 12,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "visibleMeshes": 244
+      },
+      "key": "jung",
+      "stages": [
+        {
+          "error": null,
+          "stage": 1,
+          "visible": 0
+        },
+        {
+          "error": null,
+          "stage": 2,
+          "visible": 41
+        },
+        {
+          "error": null,
+          "stage": 3,
+          "visible": 42
+        },
+        {
+          "error": null,
+          "stage": 4,
+          "visible": 48
+        },
+        {
+          "error": null,
+          "stage": 5,
+          "visible": 52
+        },
+        {
+          "error": null,
+          "stage": 6,
+          "visible": 53
+        },
+        {
+          "error": null,
+          "stage": 7,
+          "visible": 64
+        },
+        {
+          "error": null,
+          "stage": 8,
+          "visible": 84
+        },
+        {
+          "error": null,
+          "stage": 9,
+          "visible": 87
+        },
+        {
+          "error": null,
+          "stage": 10,
+          "visible": 95
+        },
+        {
+          "error": null,
+          "stage": 11,
+          "visible": 232
+        },
+        {
+          "error": null,
+          "stage": 12,
+          "visible": 244
+        }
+      ]
+    },
+    {
+      "final": {
+        "azimuth": 0.6037493333974364,
+        "camera": [
+          11.421586475773,
+          10.85050715198435,
+          16.56130038987085
+        ],
+        "distance": 22.8574454758698,
+        "error": null,
+        "key": "arae",
+        "loaded": true,
+        "renderCount": 99,
+        "stage": 12,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "visibleMeshes": 259
+      },
+      "key": "arae",
+      "stages": [
+        {
+          "error": null,
+          "stage": 1,
+          "visible": 0
+        },
+        {
+          "error": null,
+          "stage": 2,
+          "visible": 4
+        },
+        {
+          "error": null,
+          "stage": 3,
+          "visible": 5
+        },
+        {
+          "error": null,
+          "stage": 4,
+          "visible": 8
+        },
+        {
+          "error": null,
+          "stage": 5,
+          "visible": 11
+        },
+        {
+          "error": null,
+          "stage": 6,
+          "visible": 13
+        },
+        {
+          "error": null,
+          "stage": 7,
+          "visible": 26
+        },
+        {
+          "error": null,
+          "stage": 8,
+          "visible": 34
+        },
+        {
+          "error": null,
+          "stage": 9,
+          "visible": 38
+        },
+        {
+          "error": null,
+          "stage": 10,
+          "visible": 43
+        },
+        {
+          "error": null,
+          "stage": 11,
+          "visible": 247
+        },
+        {
+          "error": null,
+          "stage": 12,
+          "visible": 259
+        }
+      ]
+    },
+    {
+      "final": {
+        "azimuth": 0.6037493333974364,
+        "camera": [
+          15.946006174189842,
+          15.148705865480348,
+          23.12170895257527
+        ],
+        "distance": 31.911938631078787,
+        "error": null,
+        "key": "gokgan",
+        "loaded": true,
+        "renderCount": 112,
+        "stage": 11,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "visibleMeshes": 75
+      },
+      "key": "gokgan",
+      "stages": [
+        {
+          "error": null,
+          "stage": 1,
+          "visible": 0
+        },
+        {
+          "error": null,
+          "stage": 2,
+          "visible": 11
+        },
+        {
+          "error": null,
+          "stage": 3,
+          "visible": 13
+        },
+        {
+          "error": null,
+          "stage": 4,
+          "visible": 16
+        },
+        {
+          "error": null,
+          "stage": 5,
+          "visible": 18
+        },
+        {
+          "error": null,
+          "stage": 6,
+          "visible": 20
+        },
+        {
+          "error": null,
+          "stage": 7,
+          "visible": 41
+        },
+        {
+          "error": null,
+          "stage": 8,
+          "visible": 51
+        },
+        {
+          "error": null,
+          "stage": 9,
+          "visible": 70
+        },
+        {
+          "error": null,
+          "stage": 10,
+          "visible": 75
+        },
+        {
+          "error": null,
+          "stage": 11,
+          "visible": 75
+        }
+      ]
+    },
+    {
+      "final": {
+        "azimuth": 0.6037493333974363,
+        "camera": [
+          12.872581988246251,
+          12.228952888833945,
+          18.66524388295707
+        ],
+        "distance": 25.761249678765747,
+        "error": null,
+        "key": "angotgan",
+        "loaded": true,
+        "renderCount": 125,
+        "stage": 11,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "visibleMeshes": 108
+      },
+      "key": "angotgan",
+      "stages": [
+        {
+          "error": null,
+          "stage": 1,
+          "visible": 0
+        },
+        {
+          "error": null,
+          "stage": 2,
+          "visible": 4
+        },
+        {
+          "error": null,
+          "stage": 3,
+          "visible": 5
+        },
+        {
+          "error": null,
+          "stage": 4,
+          "visible": 26
+        },
+        {
+          "error": null,
+          "stage": 5,
+          "visible": 28
+        },
+        {
+          "error": null,
+          "stage": 6,
+          "visible": 29
+        },
+        {
+          "error": null,
+          "stage": 7,
+          "visible": 43
+        },
+        {
+          "error": null,
+          "stage": 8,
+          "visible": 43
+        },
+        {
+          "error": null,
+          "stage": 9,
+          "visible": 63
+        },
+        {
+          "error": null,
+          "stage": 10,
+          "visible": 101
+        },
+        {
+          "error": null,
+          "stage": 11,
+          "visible": 108
+        }
+      ]
+    },
+    {
+      "final": {
+        "azimuth": 0.6037493333974364,
+        "camera": [
+          14.863363384538228,
+          14.120195215311318,
+          21.551876907580432
+        ],
+        "distance": 29.745300170931728,
+        "error": null,
+        "key": "changgo",
+        "loaded": true,
+        "renderCount": 135,
+        "stage": 8,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "visibleMeshes": 209
+      },
+      "key": "changgo",
+      "stages": [
+        {
+          "error": null,
+          "stage": 1,
+          "visible": 26
+        },
+        {
+          "error": null,
+          "stage": 2,
+          "visible": 27
+        },
+        {
+          "error": null,
+          "stage": 3,
+          "visible": 33
+        },
+        {
+          "error": null,
+          "stage": 4,
+          "visible": 41
+        },
+        {
+          "error": null,
+          "stage": 5,
+          "visible": 42
+        },
+        {
+          "error": null,
+          "stage": 6,
+          "visible": 63
+        },
+        {
+          "error": null,
+          "stage": 7,
+          "visible": 77
+        },
+        {
+          "error": null,
+          "stage": 8,
+          "visible": 209
+        }
+      ]
+    },
+    {
+      "final": {
+        "azimuth": 0.6037493333974364,
+        "camera": [
+          6.92045849960615,
+          6.574435574625843,
+          10.034664824428916
+        ],
+        "distance": 13.849564870720952,
+        "error": null,
+        "key": "toilet",
+        "loaded": true,
+        "renderCount": 146,
+        "stage": 9,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "visibleMeshes": 83
+      },
+      "key": "toilet",
+      "stages": [
+        {
+          "error": null,
+          "stage": 1,
+          "visible": 22
+        },
+        {
+          "error": null,
+          "stage": 2,
+          "visible": 23
+        },
+        {
+          "error": null,
+          "stage": 3,
+          "visible": 29
+        },
+        {
+          "error": null,
+          "stage": 4,
+          "visible": 37
+        },
+        {
+          "error": null,
+          "stage": 5,
+          "visible": 38
+        },
+        {
+          "error": null,
+          "stage": 6,
+          "visible": 55
+        },
+        {
+          "error": null,
+          "stage": 7,
+          "visible": 65
+        },
+        {
+          "error": null,
+          "stage": 8,
+          "visible": 76
+        },
+        {
+          "error": null,
+          "stage": 9,
+          "visible": 83
+        }
+      ]
+    },
+    {
+      "final": {
+        "azimuth": 0.6037493333974364,
+        "camera": [
+          5.8951077667528695,
+          5.600352378415226,
+          8.547906261791661
+        ],
+        "distance": 11.79758211687582,
+        "error": null,
+        "key": "toilet1",
+        "loaded": true,
+        "renderCount": 157,
+        "stage": 9,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "visibleMeshes": 83
+      },
+      "key": "toilet1",
+      "stages": [
+        {
+          "error": null,
+          "stage": 1,
+          "visible": 22
+        },
+        {
+          "error": null,
+          "stage": 2,
+          "visible": 23
+        },
+        {
+          "error": null,
+          "stage": 3,
+          "visible": 29
+        },
+        {
+          "error": null,
+          "stage": 4,
+          "visible": 37
+        },
+        {
+          "error": null,
+          "stage": 5,
+          "visible": 38
+        },
+        {
+          "error": null,
+          "stage": 6,
+          "visible": 55
+        },
+        {
+          "error": null,
+          "stage": 7,
+          "visible": 65
+        },
+        {
+          "error": null,
+          "stage": 8,
+          "visible": 76
+        },
+        {
+          "error": null,
+          "stage": 9,
+          "visible": 83
+        }
+      ]
+    },
+    {
+      "final": {
+        "azimuth": 0.6037493333974364,
+        "camera": [
+          12.27171909903657,
+          11.658133144084744,
+          17.793992693603027
+        ],
+        "distance": 24.55877305630035,
+        "error": null,
+        "key": "main_gate",
+        "loaded": true,
+        "renderCount": 171,
+        "stage": 12,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "visibleMeshes": 184
+      },
+      "key": "main_gate",
+      "stages": [
+        {
+          "error": null,
+          "stage": 1,
+          "visible": 0
+        },
+        {
+          "error": null,
+          "stage": 2,
+          "visible": 3
+        },
+        {
+          "error": null,
+          "stage": 3,
+          "visible": 4
+        },
+        {
+          "error": null,
+          "stage": 4,
+          "visible": 15
+        },
+        {
+          "error": null,
+          "stage": 5,
+          "visible": 25
+        },
+        {
+          "error": null,
+          "stage": 6,
+          "visible": 25
+        },
+        {
+          "error": null,
+          "stage": 7,
+          "visible": 65
+        },
+        {
+          "error": null,
+          "stage": 8,
+          "visible": 77
+        },
+        {
+          "error": null,
+          "stage": 9,
+          "visible": 159
+        },
+        {
+          "error": null,
+          "stage": 10,
+          "visible": 166
+        },
+        {
+          "error": null,
+          "stage": 11,
+          "visible": 181
+        },
+        {
+          "error": null,
+          "stage": 12,
+          "visible": 184
+        }
+      ]
+    },
+    {
+      "final": {
+        "azimuth": 0.6037493333974364,
+        "camera": [
+          5.411284428139245,
+          5.140720206732283,
+          7.846362420801905
+        ],
+        "distance": 10.829330849350766,
+        "error": null,
+        "key": "left_changgo",
+        "loaded": true,
+        "renderCount": 179,
+        "stage": 6,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "visibleMeshes": 680
+      },
+      "key": "left_changgo",
+      "stages": [
+        {
+          "error": null,
+          "stage": 1,
+          "visible": 20
+        },
+        {
+          "error": null,
+          "stage": 2,
+          "visible": 42
+        },
+        {
+          "error": null,
+          "stage": 3,
+          "visible": 112
+        },
+        {
+          "error": null,
+          "stage": 4,
+          "visible": 128
+        },
+        {
+          "error": null,
+          "stage": 5,
+          "visible": 622
+        },
+        {
+          "error": null,
+          "stage": 6,
+          "visible": 680
+        }
+      ]
+    },
+    {
+      "final": {
+        "azimuth": 0.6037493333974363,
+        "camera": [
+          5.5593715977104345,
+          5.281403017824914,
+          8.061088816680131
+        ],
+        "distance": 11.125690239644689,
+        "error": null,
+        "key": "right_ansarang",
+        "loaded": true,
+        "renderCount": 187,
+        "stage": 6,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "visibleMeshes": 530
+      },
+      "key": "right_ansarang",
+      "stages": [
+        {
+          "error": null,
+          "stage": 1,
+          "visible": 29
+        },
+        {
+          "error": null,
+          "stage": 2,
+          "visible": 50
+        },
+        {
+          "error": null,
+          "stage": 3,
+          "visible": 110
+        },
+        {
+          "error": null,
+          "stage": 4,
+          "visible": 126
+        },
+        {
+          "error": null,
+          "stage": 5,
+          "visible": 474
+        },
+        {
+          "error": null,
+          "stage": 6,
+          "visible": 530
+        }
+      ]
+    },
+    {
+      "final": {
+        "azimuth": 0.6037493333974364,
+        "camera": [
+          4.110918127982116,
+          3.9053722215830105,
+          5.960831285574068
+        ],
+        "distance": 8.226973298799674,
+        "error": null,
+        "key": "sadangmun",
+        "loaded": true,
+        "renderCount": 197,
+        "stage": 8,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "visibleMeshes": 445
+      },
+      "key": "sadangmun",
+      "stages": [
+        {
+          "error": null,
+          "stage": 1,
+          "visible": 3
+        },
+        {
+          "error": null,
+          "stage": 2,
+          "visible": 9
+        },
+        {
+          "error": null,
+          "stage": 3,
+          "visible": 18
+        },
+        {
+          "error": null,
+          "stage": 4,
+          "visible": 25
+        },
+        {
+          "error": null,
+          "stage": 5,
+          "visible": 89
+        },
+        {
+          "error": null,
+          "stage": 6,
+          "visible": 384
+        },
+        {
+          "error": null,
+          "stage": 7,
+          "visible": 443
+        },
+        {
+          "error": null,
+          "stage": 8,
+          "visible": 445
+        }
+      ]
+    },
+    {
+      "final": {
+        "azimuth": 0.6037493333974364,
+        "camera": [
+          127.4961243808934,
+          121.12131816184872,
+          184.86938035229545
+        ],
+        "distance": 255.151569145192,
+        "error": null,
+        "key": "estate-context",
+        "loaded": true,
+        "renderCount": 199,
+        "stage": 1,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "visibleMeshes": 374
+      },
+      "key": "estate-context",
+      "stages": []
+    }
+  ]
+}

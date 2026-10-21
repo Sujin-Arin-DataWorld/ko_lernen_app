@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "stageCount": 20,
+  "visualScope": "contact-sheet overview of all 20 stages; selected full-size subsets and final hero comparison",
+  "findings": [
+    "No missing stage image or sequence jump observed in contact sheets.",
+    "Left low foundation and right five-step foundation remain in the same camera frame through completion.",
+    "Shrine stages7/8 distinguish door assembly from original taegeuk paint objects."
+  ],
+  "browserEvidence": [
+    "browser-desktop-qa.json",
+    "browser-mobile-qa.json",
+    "browser-text200-qa.json"
+  ],
+  "screenshots": [
+    "browser-desktop.png",
+    "browser-mobile-text200.png"
+  ],
+  "keyboard": {
+    "key": "Enter",
+    "trigger": "next",
+    "result": "2. 기둥 · 보와 도리",
+    "focusRetained": "next",
+    "focusOutline": "solid"
+  },
+  "userApproved": false,
+  "appIntegrated": false,
+  "limits": [
+    "Contact sheets do not certify hidden faces or small geometry/material defects.",
+    "Original curriculum lessonEvidence retains obsolete three-step wording; separate displayDescription is used.",
+    "Historical construction chronology and runtime eligibility require separate review."
+  ]
+}

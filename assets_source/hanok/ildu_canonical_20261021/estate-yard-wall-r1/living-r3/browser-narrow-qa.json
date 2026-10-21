@@ -1,0 +1,31 @@
+{
+  "buttons": [
+    {
+      "height": 48,
+      "text": "마당 가까이"
+    },
+    {
+      "height": 48,
+      "text": "담장 가까이"
+    },
+    {
+      "height": 48,
+      "text": "마당 전체"
+    },
+    {
+      "height": 48,
+      "text": "고택 전체"
+    },
+    {
+      "height": 48,
+      "text": "크게 보기"
+    }
+  ],
+  "documentWidth": 595,
+  "imageWidth": 477,
+  "loaded": true,
+  "viewport": [
+    610,
+    668
+  ]
+}

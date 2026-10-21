@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "images": [
+    "full-A.png",
+    "full-B.png",
+    "overview-A.png",
+    "overview-B.png",
+    "detail-A.png",
+    "detail-B.png"
+  ],
+  "same_camera_samples_seed_resolution": true,
+  "render_library_sha256": "5be498fbf7f8d95011610c4c380fa6efb23ecf3b042907cab6d184d6959ec9de",
+  "only_two_soil_slots_changed": true,
+  "geometry_uv_transforms_equal": true,
+  "r3_wall_garden_shaders_unchanged": true,
+  "visual_acceptance": "See VISUAL_REVIEW.md; integrity checks alone do not establish naturalness",
+  "app_integrated": false
+}

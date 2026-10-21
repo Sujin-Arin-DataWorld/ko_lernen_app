@@ -1,0 +1,3668 @@
+{
+  "createdUtc": "2026-10-17T12:45:09.663780+00:00",
+  "kind": "사용자 정본 지정에 따른 실제 3D 검토판",
+  "sourceNative": {
+    "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-connected-courtyard-20261013\\ildu-estate-full-with-complete-roofs-r12.blend",
+    "sha256": "b954f76cdccc26619cf977497ac45509dabebc5e45f194ad5396e1d655e734b5",
+    "bytes": 556899567
+  },
+  "processCount": 154,
+  "buildings": [
+    {
+      "key": "sarang",
+      "buildingId": "sarangchae",
+      "name": "사랑채",
+      "group": "주요 건물",
+      "memberCount": 710,
+      "unassignedCount": 5,
+      "steps": [
+        {
+          "id": "ildu.sarangchae-site",
+          "sequence": 1,
+          "label": "터 닦기",
+          "memberCount": 0,
+          "sourceStatus": "no_source_assigned_members",
+          "isFinal": false,
+          "legacyImage": "images/5ed4923fba189442.png",
+          "unitCount": 4,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sarangchae-foundation",
+          "sequence": 2,
+          "label": "기단",
+          "memberCount": 69,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/3b328c697cf1bd57.png",
+          "unitCount": 8,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sarangchae-choseok",
+          "sequence": 3,
+          "label": "초석",
+          "memberCount": 10,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/20d0a220fca2e590.png",
+          "unitCount": 12,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sarangchae-fitting",
+          "sequence": 4,
+          "label": "목재 치목",
+          "memberCount": 0,
+          "sourceStatus": "no_source_assigned_members",
+          "isFinal": false,
+          "legacyImage": "images/dfae617098b905d1.png",
+          "unitCount": 16,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sarangchae-columns",
+          "sequence": 5,
+          "label": "기둥",
+          "memberCount": 18,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/0f5e796fdc46c27a.png",
+          "unitCount": 19,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sarangchae-beams",
+          "sequence": 6,
+          "label": "보",
+          "memberCount": 29,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/4f51ff202300881e.png",
+          "unitCount": 22,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sarangchae-purlins",
+          "sequence": 7,
+          "label": "도리",
+          "memberCount": 1,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/a25f87e0ab56884c.png",
+          "unitCount": 24,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sarangchae-rafters",
+          "sequence": 8,
+          "label": "서까래",
+          "memberCount": 17,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/81e68c58d5d342be.png",
+          "unitCount": 26,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sarangchae-decking",
+          "sequence": 9,
+          "label": "마루판",
+          "memberCount": 4,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/60ffa4184d6d947c.png",
+          "unitCount": 27,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sarangchae-earth-roof",
+          "sequence": 10,
+          "label": "지붕 흙",
+          "memberCount": 0,
+          "sourceStatus": "no_source_assigned_members",
+          "isFinal": false,
+          "legacyImage": "images/21db199864dc73d5.png",
+          "unitCount": 29,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sarangchae-tiles",
+          "sequence": 11,
+          "label": "기와",
+          "memberCount": 41,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/4cf7a5138c092445.png",
+          "unitCount": 30,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sarangchae-walls",
+          "sequence": 12,
+          "label": "벽체",
+          "memberCount": 59,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/79959bd0f0885612.png",
+          "unitCount": 33,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sarangchae-ondol",
+          "sequence": 13,
+          "label": "온돌",
+          "memberCount": 10,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/b3225234ca637a26.png",
+          "unitCount": 36,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sarangchae-maru",
+          "sequence": 14,
+          "label": "마루",
+          "memberCount": 135,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/bb5d353c95c9db07.png",
+          "unitCount": 39,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sarangchae-changho",
+          "sequence": 15,
+          "label": "창호",
+          "memberCount": 302,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/dc07735943c511bb.png",
+          "unitCount": 42,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sarangchae-complete",
+          "sequence": 16,
+          "label": "완성",
+          "memberCount": 10,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": true,
+          "legacyImage": "images/f917724120d4080d.png",
+          "unitCount": 48,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        }
+      ],
+      "views": [
+        {
+          "id": "front",
+          "label": "대표 사선",
+          "image": "images/3e599aefecb4ef8c.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-000",
+          "label": "측면 0°",
+          "image": "images/7116825a0b847b12.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-090",
+          "label": "측면 90°",
+          "image": "images/0a8d33fb742bf448.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-180",
+          "label": "측면 180°",
+          "image": "images/6450df80fd07ddd6.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-270",
+          "label": "측면 270°",
+          "image": "images/a61a3210067748c5.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "roof-front",
+          "label": "지붕 앞",
+          "image": "images/2c39ef2e2a5ce767.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "roof-back",
+          "label": "지붕 뒤",
+          "image": "images/3f62ebecb0b73c65.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-000",
+          "label": "처마 0°",
+          "image": "images/147efd2d9c68c6c8.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-090",
+          "label": "처마 90°",
+          "image": "images/a962525b8b4da282.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-180",
+          "label": "처마 180°",
+          "image": "images/62c9ee0685c5e2bd.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-270",
+          "label": "처마 270°",
+          "image": "images/5a9aa9ef089f6b04.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        }
+      ],
+      "standaloneViews": [
+        {
+          "id": "front",
+          "label": "정면",
+          "image": "images/9fb6aac0db9ed923.png",
+          "sourceVersion": "R9",
+          "nativeSha256": "8bb3a7401295f333e620f0db3abdcf660663ce3f5fb13e2c63e42f6c8281fb49",
+          "note": "사랑채 앞·뒤·위 구도에서 큰 결손 없이 지붕이 이어집니다. 옆면·낮은 처마 아래는 별도 검수 범위입니다."
+        },
+        {
+          "id": "back",
+          "label": "뒷면",
+          "image": "images/66088378f54b30f2.png",
+          "sourceVersion": "R9",
+          "nativeSha256": "8bb3a7401295f333e620f0db3abdcf660663ce3f5fb13e2c63e42f6c8281fb49",
+          "note": "사랑채 앞·뒤·위 구도에서 큰 결손 없이 지붕이 이어집니다. 옆면·낮은 처마 아래는 별도 검수 범위입니다."
+        },
+        {
+          "id": "top",
+          "label": "지붕 위",
+          "image": "images/ea338c89c781d9b7.png",
+          "sourceVersion": "R9",
+          "nativeSha256": "8bb3a7401295f333e620f0db3abdcf660663ce3f5fb13e2c63e42f6c8281fb49",
+          "note": "사랑채 앞·뒤·위 구도에서 큰 결손 없이 지붕이 이어집니다. 옆면·낮은 처마 아래는 별도 검수 범위입니다."
+        },
+        {
+          "id": "sarang-hero",
+          "label": "대표 사선",
+          "image": "images/844a16a4ed4fbdf4.png",
+          "sourceVersion": "R9",
+          "nativeSha256": "8bb3a7401295f333e620f0db3abdcf660663ce3f5fb13e2c63e42f6c8281fb49",
+          "note": "R9 사랑채의 실제 추가 구도입니다. 독립 지붕의 외곽이 이어지고 새 큰 절단면은 관찰되지 않았습니다. 지붕의 교차 띠와 용마루 아래 가는 밝은 틈은 남아 있으며 전체 표면 결함 해소를 뜻하지 않습니다."
+        },
+        {
+          "id": "sarang-east",
+          "label": "동쪽",
+          "image": "images/6afd022d540bebb1.png",
+          "sourceVersion": "R9",
+          "nativeSha256": "8bb3a7401295f333e620f0db3abdcf660663ce3f5fb13e2c63e42f6c8281fb49",
+          "note": "R9 사랑채의 실제 추가 구도입니다. 독립 지붕의 외곽이 이어지고 새 큰 절단면은 관찰되지 않았습니다. 지붕의 교차 띠와 용마루 아래 가는 밝은 틈은 남아 있으며 전체 표면 결함 해소를 뜻하지 않습니다."
+        },
+        {
+          "id": "sarang-west",
+          "label": "서쪽",
+          "image": "images/62e85967cdf4d7bd.png",
+          "sourceVersion": "R9",
+          "nativeSha256": "8bb3a7401295f333e620f0db3abdcf660663ce3f5fb13e2c63e42f6c8281fb49",
+          "note": "R9 사랑채의 실제 추가 구도입니다. 독립 지붕의 외곽이 이어지고 새 큰 절단면은 관찰되지 않았습니다. 지붕의 교차 띠와 용마루 아래 가는 밝은 틈은 남아 있으며 전체 표면 결함 해소를 뜻하지 않습니다."
+        },
+        {
+          "id": "sarang-underside-front",
+          "label": "처마 아래 앞",
+          "image": "images/d4d5ede74447fea4.png",
+          "sourceVersion": "R9",
+          "nativeSha256": "8bb3a7401295f333e620f0db3abdcf660663ce3f5fb13e2c63e42f6c8281fb49",
+          "note": "R9 사랑채의 실제 추가 구도입니다. 독립 지붕의 외곽이 이어지고 새 큰 절단면은 관찰되지 않았습니다. 지붕의 교차 띠와 용마루 아래 가는 밝은 틈은 남아 있으며 전체 표면 결함 해소를 뜻하지 않습니다."
+        },
+        {
+          "id": "sarang-underside-back",
+          "label": "처마 아래 뒤",
+          "image": "images/9675a05ad09bedec.png",
+          "sourceVersion": "R9",
+          "nativeSha256": "8bb3a7401295f333e620f0db3abdcf660663ce3f5fb13e2c63e42f6c8281fb49",
+          "note": "R9 사랑채의 실제 추가 구도입니다. 독립 지붕의 외곽이 이어지고 새 큰 절단면은 관찰되지 않았습니다. 지붕의 교차 띠와 용마루 아래 가는 밝은 틈은 남아 있으며 전체 표면 결함 해소를 뜻하지 않습니다."
+        }
+      ],
+      "hero": "images/9fb6aac0db9ed923.png",
+      "model": "models/sarang.glb",
+      "standaloneModel": "models/sarang-standalone.glb",
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "deferred_memory_budget",
+        "message": "사랑채 색·표면 3D는 용량 최적화 대기 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
+        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
+        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+    },
+    {
+      "key": "ansarang",
+      "buildingId": "ansarang",
+      "name": "안사랑채",
+      "group": "주요 건물",
+      "memberCount": 385,
+      "unassignedCount": 11,
+      "steps": [
+        {
+          "id": "ildu.ansarangchae-site",
+          "sequence": 1,
+          "label": "터 닦기",
+          "memberCount": 0,
+          "sourceStatus": "no_source_assigned_members",
+          "isFinal": false,
+          "legacyImage": "images/275f9e1adcfb116d.webp",
+          "unitCount": 6,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.ansarangchae-foundation",
+          "sequence": 2,
+          "label": "기단",
+          "memberCount": 16,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/660317cb7db43ce5.webp",
+          "unitCount": 11,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.ansarangchae-padstones",
+          "sequence": 3,
+          "label": "초석",
+          "memberCount": 5,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/ef6d187bfbe5d3bf.webp",
+          "unitCount": 16,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.ansarangchae-posts",
+          "sequence": 4,
+          "label": "기둥",
+          "memberCount": 3,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/d1b393f34037b6d5.webp",
+          "unitCount": 20,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.ansarangchae-beams",
+          "sequence": 5,
+          "label": "보",
+          "memberCount": 9,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/e23a7a3f3a73380a.webp",
+          "unitCount": 24,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.ansarangchae-rafters",
+          "sequence": 6,
+          "label": "서까래",
+          "memberCount": 10,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/64b0fd2a6ec87163.webp",
+          "unitCount": 26,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.ansarangchae-roof_bed",
+          "sequence": 7,
+          "label": "지붕 바탕",
+          "memberCount": 1,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/57d8d9dab6ca8619.webp",
+          "unitCount": 28,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.ansarangchae-tiles",
+          "sequence": 8,
+          "label": "기와",
+          "memberCount": 19,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/64904a13e7d5db51.webp",
+          "unitCount": 30,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.ansarangchae-walls",
+          "sequence": 9,
+          "label": "벽체",
+          "memberCount": 19,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/5ce6b597cc909b53.webp",
+          "unitCount": 36,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.ansarangchae-ondol",
+          "sequence": 10,
+          "label": "온돌",
+          "memberCount": 8,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/e9140ecff0741c13.webp",
+          "unitCount": 38,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.ansarangchae-maru_interior",
+          "sequence": 11,
+          "label": "마루 내부",
+          "memberCount": 11,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/b2a6085665b56435.webp",
+          "unitCount": 39,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.ansarangchae-maru_porch",
+          "sequence": 12,
+          "label": "툇마루",
+          "memberCount": 8,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/ffe3728de102cbaf.webp",
+          "unitCount": 41,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.ansarangchae-doors",
+          "sequence": 13,
+          "label": "문",
+          "memberCount": 263,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/6c0ffc40e655a969.webp",
+          "unitCount": 42,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.ansarangchae-complete",
+          "sequence": 14,
+          "label": "완성",
+          "memberCount": 2,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": true,
+          "legacyImage": "images/c529c22825d9db47.webp",
+          "unitCount": 48,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        }
+      ],
+      "views": [
+        {
+          "id": "front",
+          "label": "대표 사선",
+          "image": "images/01618e516652a44a.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-000",
+          "label": "측면 0°",
+          "image": "images/1f1bebd5bc0eaa19.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-090",
+          "label": "측면 90°",
+          "image": "images/c324e1bc3356c9b8.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-180",
+          "label": "측면 180°",
+          "image": "images/35c05ab18478c9e6.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-270",
+          "label": "측면 270°",
+          "image": "images/bd977a64797c6c59.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "roof-front",
+          "label": "지붕 앞",
+          "image": "images/0c93980db4e64e54.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "roof-back",
+          "label": "지붕 뒤",
+          "image": "images/255038bb49fc2134.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-000",
+          "label": "처마 0°",
+          "image": "images/fafb3c11f3b7dec4.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-090",
+          "label": "처마 90°",
+          "image": "images/b495c2e1dab3bf95.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-180",
+          "label": "처마 180°",
+          "image": "images/ce6dedf943de479d.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-270",
+          "label": "처마 270°",
+          "image": "images/0d1e18d16eecff07.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "images/01618e516652a44a.png",
+      "model": "models/ansarang.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
+        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
+        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+    },
+    {
+      "key": "anchae",
+      "buildingId": "anchae",
+      "name": "안채",
+      "group": "주요 건물",
+      "memberCount": 882,
+      "unassignedCount": 7,
+      "steps": [
+        {
+          "id": "ildu.anchae-site-household",
+          "sequence": 1,
+          "label": "집터",
+          "memberCount": 0,
+          "sourceStatus": "no_source_assigned_members",
+          "isFinal": false,
+          "legacyImage": "images/e5c25d00f115b926.png",
+          "unitCount": 8,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.anchae-stone-foundation",
+          "sequence": 2,
+          "label": "돌기단",
+          "memberCount": 9,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/a1ee9576cbd4980b.png",
+          "unitCount": 16,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.anchae-posts",
+          "sequence": 3,
+          "label": "기둥",
+          "memberCount": 3,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/32237b786b6e02f7.png",
+          "unitCount": 19,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.anchae-beams-purlins",
+          "sequence": 4,
+          "label": "보와 도리",
+          "memberCount": 13,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/098de6ae3f3e7211.png",
+          "unitCount": 22,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.anchae-hip-frame",
+          "sequence": 5,
+          "label": "추녀 틀",
+          "memberCount": 0,
+          "sourceStatus": "no_source_assigned_members",
+          "isFinal": false,
+          "legacyImage": "images/d11560e23f652233.png",
+          "unitCount": 24,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.anchae-rafters-eaves",
+          "sequence": 6,
+          "label": "서까래와 처마",
+          "memberCount": 12,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/4439f400dd8f27ee.png",
+          "unitCount": 26,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.anchae-roof-bed",
+          "sequence": 7,
+          "label": "지붕 바탕",
+          "memberCount": 2,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/75a2cd4005530aa7.png",
+          "unitCount": 28,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.anchae-tiles",
+          "sequence": 8,
+          "label": "기와",
+          "memberCount": 369,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/b8526856fd74f9fd.png",
+          "unitCount": 30,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.anchae-walls-kitchen",
+          "sequence": 9,
+          "label": "벽체와 부엌",
+          "memberCount": 38,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/21c900f76b552160.png",
+          "unitCount": 36,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.anchae-kitchen-loft",
+          "sequence": 10,
+          "label": "부엌과 다락",
+          "memberCount": 0,
+          "sourceStatus": "no_source_assigned_members",
+          "isFinal": false,
+          "legacyImage": "images/425020540d7a0464.png",
+          "unitCount": 38,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.anchae-ondol",
+          "sequence": 11,
+          "label": "온돌",
+          "memberCount": 9,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/da430042fe5cc54e.png",
+          "unitCount": 39,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.anchae-daecheong-maru",
+          "sequence": 12,
+          "label": "대청마루",
+          "memberCount": 11,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/98555c21b3365870.png",
+          "unitCount": 41,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.anchae-changho",
+          "sequence": 13,
+          "label": "창호",
+          "memberCount": 386,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/fc0ec2f33d6a4cc1.png",
+          "unitCount": 42,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.anchae-complete-use",
+          "sequence": 14,
+          "label": "완성 · 사용",
+          "memberCount": 23,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": true,
+          "legacyImage": "images/0840b9998db3c50f.png",
+          "unitCount": 48,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        }
+      ],
+      "views": [
+        {
+          "id": "front",
+          "label": "대표 사선",
+          "image": "images/0b417c0e0bb62324.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-000",
+          "label": "측면 0°",
+          "image": "images/72c58e16d4863f4c.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-090",
+          "label": "측면 90°",
+          "image": "images/3bb499d83733b98d.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-180",
+          "label": "측면 180°",
+          "image": "images/4c4f91a7b1d2114f.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-270",
+          "label": "측면 270°",
+          "image": "images/828b6bf55755df7e.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "roof-front",
+          "label": "지붕 앞",
+          "image": "images/bd9206ec82275356.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "roof-back",
+          "label": "지붕 뒤",
+          "image": "images/9a65bc8f1de2edd7.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-000",
+          "label": "처마 0°",
+          "image": "images/cb3d0366e0464d49.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-090",
+          "label": "처마 90°",
+          "image": "images/d5dc879e79fc5340.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-180",
+          "label": "처마 180°",
+          "image": "images/ff7122129f3281e8.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-270",
+          "label": "처마 270°",
+          "image": "images/8e76633f3e47c103.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "images/0b417c0e0bb62324.png",
+      "model": "models/anchae.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
+        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
+        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+    },
+    {
+      "key": "sadang",
+      "buildingId": "sadang",
+      "name": "사당",
+      "group": "주요 건물",
+      "memberCount": 229,
+      "unassignedCount": 6,
+      "steps": [
+        {
+          "id": "ildu.sadang-site",
+          "sequence": 1,
+          "label": "터 닦기",
+          "memberCount": 0,
+          "sourceStatus": "no_source_assigned_members",
+          "isFinal": false,
+          "legacyImage": "images/9070886da13bc219.webp",
+          "unitCount": 6,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sadang-foundation",
+          "sequence": 2,
+          "label": "기단",
+          "memberCount": 4,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/b8d34813e18e6312.webp",
+          "unitCount": 11,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sadang-padstones",
+          "sequence": 3,
+          "label": "초석",
+          "memberCount": 2,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/723331284d260034.webp",
+          "unitCount": 16,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sadang-posts",
+          "sequence": 4,
+          "label": "기둥",
+          "memberCount": 6,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/aa7384d8b0d67659.webp",
+          "unitCount": 20,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sadang-brackets",
+          "sequence": 5,
+          "label": "공포",
+          "memberCount": 11,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/a8be7c2f0fad97ed.webp",
+          "unitCount": 24,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sadang-rafters",
+          "sequence": 6,
+          "label": "서까래",
+          "memberCount": 8,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/6dc9f6e080af42ff.webp",
+          "unitCount": 26,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sadang-roof_bed",
+          "sequence": 7,
+          "label": "지붕 바탕",
+          "memberCount": 5,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/065e167a2560226c.webp",
+          "unitCount": 28,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sadang-tiles",
+          "sequence": 8,
+          "label": "기와",
+          "memberCount": 59,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/486076cfaf36fb23.webp",
+          "unitCount": 30,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sadang-maru_interior",
+          "sequence": 9,
+          "label": "마루 내부",
+          "memberCount": 4,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/0d495e15c20813f0.webp",
+          "unitCount": 38,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sadang-walls",
+          "sequence": 10,
+          "label": "벽체",
+          "memberCount": 71,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/5c5286ab726e4d89.webp",
+          "unitCount": 40,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sadang-finish",
+          "sequence": 11,
+          "label": "마감",
+          "memberCount": 53,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/ed0e406ad2417600.webp",
+          "unitCount": 42,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.sadang-complete",
+          "sequence": 12,
+          "label": "완성",
+          "memberCount": 0,
+          "sourceStatus": "no_source_assigned_members",
+          "isFinal": true,
+          "legacyImage": "images/5f1317fbfc6016a8.webp",
+          "unitCount": 48,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        }
+      ],
+      "views": [
+        {
+          "id": "front",
+          "label": "대표 사선",
+          "image": "images/46ef19ed36e50482.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-000",
+          "label": "측면 0°",
+          "image": "images/99f0a3eeeb360cd4.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-090",
+          "label": "측면 90°",
+          "image": "images/10c2c529537db951.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-180",
+          "label": "측면 180°",
+          "image": "images/d33fd1b2fa7ad74b.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-270",
+          "label": "측면 270°",
+          "image": "images/204a3e1ceac38d4f.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "roof-front",
+          "label": "지붕 앞",
+          "image": "images/0b1b91abdd267796.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "roof-back",
+          "label": "지붕 뒤",
+          "image": "images/ce8256656cdcd87c.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-000",
+          "label": "처마 0°",
+          "image": "images/cad82cf2a6721714.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-090",
+          "label": "처마 90°",
+          "image": "images/ec38e07c1719db97.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-180",
+          "label": "처마 180°",
+          "image": "images/4feb391437e62528.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-270",
+          "label": "처마 270°",
+          "image": "images/03bfed0d51bbdb22.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "images/46ef19ed36e50482.png",
+      "model": "models/sadang.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
+        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
+        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+    },
+    {
+      "key": "jung",
+      "buildingId": "jungmunganchae",
+      "name": "중문간채",
+      "group": "부속 건물",
+      "memberCount": 244,
+      "unassignedCount": 6,
+      "steps": [
+        {
+          "id": "ildu.jungmunganchae-site-route",
+          "sequence": 1,
+          "label": "터와 통로",
+          "memberCount": 0,
+          "sourceStatus": "no_source_assigned_members",
+          "isFinal": false,
+          "legacyImage": "images/21b75324e6dc098e.png",
+          "unitCount": 8,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.jungmunganchae-stone-foundation",
+          "sequence": 2,
+          "label": "돌기단",
+          "memberCount": 41,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/8033e02f3876d19a.png",
+          "unitCount": 16,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.jungmunganchae-posts",
+          "sequence": 3,
+          "label": "기둥",
+          "memberCount": 1,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/9b9055d2dfecb8df.png",
+          "unitCount": 20,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.jungmunganchae-beams-purlins",
+          "sequence": 4,
+          "label": "보와 도리",
+          "memberCount": 6,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/dde340c19fc80e05.png",
+          "unitCount": 24,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.jungmunganchae-rafters-eaves",
+          "sequence": 5,
+          "label": "서까래와 처마",
+          "memberCount": 4,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/85933f03f97e5d06.png",
+          "unitCount": 26,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.jungmunganchae-roof-bed",
+          "sequence": 6,
+          "label": "지붕 바탕",
+          "memberCount": 1,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/d2d4b1cc9f5904b2.png",
+          "unitCount": 28,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.jungmunganchae-tiles",
+          "sequence": 7,
+          "label": "기와",
+          "memberCount": 11,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/d775405eaa9a5db9.png",
+          "unitCount": 30,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.jungmunganchae-room-walls",
+          "sequence": 8,
+          "label": "방 벽체",
+          "memberCount": 20,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/71e103b0679406f6.png",
+          "unitCount": 36,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.jungmunganchae-ondol-floors",
+          "sequence": 9,
+          "label": "온돌과 바닥",
+          "memberCount": 3,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/ebd1bf08b34106f6.png",
+          "unitCount": 38,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.jungmunganchae-open-maru",
+          "sequence": 10,
+          "label": "열린 마루",
+          "memberCount": 8,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/ed9a104446c0545c.png",
+          "unitCount": 40,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.jungmunganchae-gate-changho",
+          "sequence": 11,
+          "label": "문과 창호",
+          "memberCount": 137,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/4a0c912315aa43f6.png",
+          "unitCount": 42,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.jungmunganchae-complete-use",
+          "sequence": 12,
+          "label": "완성 · 사용",
+          "memberCount": 6,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": true,
+          "legacyImage": "images/f90f20232539127d.png",
+          "unitCount": 48,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        }
+      ],
+      "views": [
+        {
+          "id": "front",
+          "label": "대표 사선",
+          "image": "images/7a26430299125dbf.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-000",
+          "label": "측면 0°",
+          "image": "images/ffe8e2a3a83a46c4.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-090",
+          "label": "측면 90°",
+          "image": "images/5a507dadd9bc5630.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-180",
+          "label": "측면 180°",
+          "image": "images/0e29a1793521ebbd.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-270",
+          "label": "측면 270°",
+          "image": "images/863fc93261fe05ee.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "roof-front",
+          "label": "지붕 앞",
+          "image": "images/78155775a720fbda.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "roof-back",
+          "label": "지붕 뒤",
+          "image": "images/378833514637fdef.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-000",
+          "label": "처마 0°",
+          "image": "images/8fc54079ac41ceae.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-090",
+          "label": "처마 90°",
+          "image": "images/c3ac24351850e7ee.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-180",
+          "label": "처마 180°",
+          "image": "images/04071ecc96a6d6fe.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-270",
+          "label": "처마 270°",
+          "image": "images/6e70c5539eede97c.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "context",
+          "label": "사랑채 접합",
+          "image": "images/4166186d6b479d7b.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "121개 표준 구도와 별도로 연결한 접합 맥락 자료입니다."
+        }
+      ],
+      "standaloneViews": [
+        {
+          "id": "jung-hero",
+          "label": "대표 사선",
+          "image": "images/aa37cc75b71b5f82.png",
+          "sourceVersion": "R10",
+          "nativeSha256": "4ff4c63fa1e7773eab3c3ddc8241874e8a2b821318f930e086ff8ceb6bc87eec",
+          "note": "R10 대표 사선·앞·뒤·위 구도에서 R9 복원 경계의 밝은 곡선 띠가 더 이상 보이지 않고 지붕 경사가 이어집니다. 끝 기와의 작은 밝은 틈은 R9에도 있었으며, 모든 면의 결함 해소 판정과 구분합니다."
+        },
+        {
+          "id": "jung-front",
+          "label": "정면",
+          "image": "images/b00753906bf39a20.png",
+          "sourceVersion": "R10",
+          "nativeSha256": "4ff4c63fa1e7773eab3c3ddc8241874e8a2b821318f930e086ff8ceb6bc87eec",
+          "note": "R10 대표 사선·앞·뒤·위 구도에서 R9 복원 경계의 밝은 곡선 띠가 더 이상 보이지 않고 지붕 경사가 이어집니다. 끝 기와의 작은 밝은 틈은 R9에도 있었으며, 모든 면의 결함 해소 판정과 구분합니다."
+        },
+        {
+          "id": "jung-back",
+          "label": "뒷면",
+          "image": "images/8bd0a74d6b6efa7f.png",
+          "sourceVersion": "R10",
+          "nativeSha256": "4ff4c63fa1e7773eab3c3ddc8241874e8a2b821318f930e086ff8ceb6bc87eec",
+          "note": "R10 대표 사선·앞·뒤·위 구도에서 R9 복원 경계의 밝은 곡선 띠가 더 이상 보이지 않고 지붕 경사가 이어집니다. 끝 기와의 작은 밝은 틈은 R9에도 있었으며, 모든 면의 결함 해소 판정과 구분합니다."
+        },
+        {
+          "id": "jung-top",
+          "label": "지붕 위",
+          "image": "images/2d8c4d0def56f10e.png",
+          "sourceVersion": "R10",
+          "nativeSha256": "4ff4c63fa1e7773eab3c3ddc8241874e8a2b821318f930e086ff8ceb6bc87eec",
+          "note": "R10 대표 사선·앞·뒤·위 구도에서 R9 복원 경계의 밝은 곡선 띠가 더 이상 보이지 않고 지붕 경사가 이어집니다. 끝 기와의 작은 밝은 틈은 R9에도 있었으며, 모든 면의 결함 해소 판정과 구분합니다."
+        },
+        {
+          "id": "jung-east",
+          "label": "동쪽",
+          "image": "images/efe52718a3a2511c.png",
+          "sourceVersion": "R10",
+          "nativeSha256": "4ff4c63fa1e7773eab3c3ddc8241874e8a2b821318f930e086ff8ceb6bc87eec",
+          "note": "R10 동·서·처마 아래 앞뒤에서 복원 지붕 끝과 경사가 이어지고 밝은 복원 경계가 사라진 것을 확인했습니다. 기존 용마루·끝 기와의 가는 틈, 낮은 구도에서 보이는 마루 아래 바닥·벽의 틈과 밝은 반복 세부는 별도이며 모든 표면 결함 해소 판정은 아닙니다."
+        },
+        {
+          "id": "jung-west",
+          "label": "서쪽",
+          "image": "images/b0750f3f31d3d797.png",
+          "sourceVersion": "R10",
+          "nativeSha256": "4ff4c63fa1e7773eab3c3ddc8241874e8a2b821318f930e086ff8ceb6bc87eec",
+          "note": "R10 동·서·처마 아래 앞뒤에서 복원 지붕 끝과 경사가 이어지고 밝은 복원 경계가 사라진 것을 확인했습니다. 기존 용마루·끝 기와의 가는 틈, 낮은 구도에서 보이는 마루 아래 바닥·벽의 틈과 밝은 반복 세부는 별도이며 모든 표면 결함 해소 판정은 아닙니다."
+        },
+        {
+          "id": "jung-underside-front",
+          "label": "처마 아래 앞",
+          "image": "images/c7a93b5f2fe99708.png",
+          "sourceVersion": "R10",
+          "nativeSha256": "4ff4c63fa1e7773eab3c3ddc8241874e8a2b821318f930e086ff8ceb6bc87eec",
+          "note": "R10 동·서·처마 아래 앞뒤에서 복원 지붕 끝과 경사가 이어지고 밝은 복원 경계가 사라진 것을 확인했습니다. 기존 용마루·끝 기와의 가는 틈, 낮은 구도에서 보이는 마루 아래 바닥·벽의 틈과 밝은 반복 세부는 별도이며 모든 표면 결함 해소 판정은 아닙니다."
+        },
+        {
+          "id": "jung-underside-back",
+          "label": "처마 아래 뒤",
+          "image": "images/de3e0f25690de974.png",
+          "sourceVersion": "R10",
+          "nativeSha256": "4ff4c63fa1e7773eab3c3ddc8241874e8a2b821318f930e086ff8ceb6bc87eec",
+          "note": "R10 동·서·처마 아래 앞뒤에서 복원 지붕 끝과 경사가 이어지고 밝은 복원 경계가 사라진 것을 확인했습니다. 기존 용마루·끝 기와의 가는 틈, 낮은 구도에서 보이는 마루 아래 바닥·벽의 틈과 밝은 반복 세부는 별도이며 모든 표면 결함 해소 판정은 아닙니다."
+        }
+      ],
+      "hero": "images/aa37cc75b71b5f82.png",
+      "model": "models/jung.glb",
+      "standaloneModel": "models/jung-standalone.glb",
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
+        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
+        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+    },
+    {
+      "key": "arae",
+      "buildingId": "araechae",
+      "name": "아랫채",
+      "group": "부속 건물",
+      "memberCount": 259,
+      "unassignedCount": 6,
+      "steps": [
+        {
+          "id": "ildu.araechae-site-rooms",
+          "sequence": 1,
+          "label": "터와 방 배치",
+          "memberCount": 0,
+          "sourceStatus": "no_source_assigned_members",
+          "isFinal": false,
+          "legacyImage": "images/c34097b57f510df9.png",
+          "unitCount": 8,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.araechae-stone-foundation",
+          "sequence": 2,
+          "label": "돌기단",
+          "memberCount": 4,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/778c8e8330f2c81e.png",
+          "unitCount": 16,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.araechae-posts-floor-support",
+          "sequence": 3,
+          "label": "기둥과 바닥틀",
+          "memberCount": 1,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/403906e7bd587220.png",
+          "unitCount": 20,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.araechae-beams-purlins",
+          "sequence": 4,
+          "label": "보와 도리",
+          "memberCount": 3,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/cd7e8420a504df60.png",
+          "unitCount": 24,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.araechae-rafters-eaves",
+          "sequence": 5,
+          "label": "서까래와 처마",
+          "memberCount": 3,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/49d45cd1ed211532.png",
+          "unitCount": 26,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.araechae-roof-bed",
+          "sequence": 6,
+          "label": "지붕 바탕",
+          "memberCount": 2,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/bf3dc11e887cfb97.png",
+          "unitCount": 28,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.araechae-tiles",
+          "sequence": 7,
+          "label": "기와",
+          "memberCount": 13,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/751e233446f7a390.png",
+          "unitCount": 30,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.araechae-room-walls",
+          "sequence": 8,
+          "label": "방 벽체",
+          "memberCount": 8,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/4dfc83fba8638b60.png",
+          "unitCount": 36,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.araechae-ondol",
+          "sequence": 9,
+          "label": "온돌",
+          "memberCount": 4,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/6d2af1937a77e07e.png",
+          "unitCount": 38,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.araechae-maru",
+          "sequence": 10,
+          "label": "마루",
+          "memberCount": 5,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/7fdec94627095f98.png",
+          "unitCount": 40,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.araechae-changho",
+          "sequence": 11,
+          "label": "창호",
+          "memberCount": 204,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/ecad08d535f1b8f3.png",
+          "unitCount": 42,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.araechae-complete-use",
+          "sequence": 12,
+          "label": "완성 · 사용",
+          "memberCount": 6,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": true,
+          "legacyImage": "images/785150cf4e349261.png",
+          "unitCount": 48,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        }
+      ],
+      "views": [
+        {
+          "id": "front",
+          "label": "대표 사선",
+          "image": "images/eed26dd1671f8dcf.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-000",
+          "label": "측면 0°",
+          "image": "images/a56c37691889c30f.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-090",
+          "label": "측면 90°",
+          "image": "images/59307e1b49361ed5.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-180",
+          "label": "측면 180°",
+          "image": "images/b4969b9b03ce1842.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-270",
+          "label": "측면 270°",
+          "image": "images/8d3d7cf1dbb06de7.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "roof-front",
+          "label": "지붕 앞",
+          "image": "images/08367cb9d886b234.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "roof-back",
+          "label": "지붕 뒤",
+          "image": "images/e68dd8b202bbdef6.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-000",
+          "label": "처마 0°",
+          "image": "images/8d9e4c624b23fbf9.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-090",
+          "label": "처마 90°",
+          "image": "images/04cc54d2c5a09de9.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-180",
+          "label": "처마 180°",
+          "image": "images/fc5ef77c8769f8df.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-270",
+          "label": "처마 270°",
+          "image": "images/b31f670a4ceec6dc.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "images/eed26dd1671f8dcf.png",
+      "model": "models/arae.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
+        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
+        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+    },
+    {
+      "key": "gokgan",
+      "buildingId": "gokgan",
+      "name": "곳간채",
+      "group": "부속 건물",
+      "memberCount": 75,
+      "unassignedCount": 0,
+      "steps": [
+        {
+          "id": "ildu.gokgan-site",
+          "sequence": 1,
+          "label": "터 닦기",
+          "memberCount": 0,
+          "sourceStatus": "no_source_assigned_members",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 8,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.gokgan-foundation",
+          "sequence": 2,
+          "label": "기단",
+          "memberCount": 11,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 16,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.gokgan-posts",
+          "sequence": 3,
+          "label": "기둥",
+          "memberCount": 2,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 20,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.gokgan-beams",
+          "sequence": 4,
+          "label": "보",
+          "memberCount": 3,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 24,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.gokgan-rafters",
+          "sequence": 5,
+          "label": "서까래",
+          "memberCount": 2,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 26,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.gokgan-roof-bed",
+          "sequence": 6,
+          "label": "지붕 바탕",
+          "memberCount": 2,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 28,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.gokgan-tiles",
+          "sequence": 7,
+          "label": "기와",
+          "memberCount": 21,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 30,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.gokgan-walls",
+          "sequence": 8,
+          "label": "벽체",
+          "memberCount": 10,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 36,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.gokgan-doors",
+          "sequence": 9,
+          "label": "문",
+          "memberCount": 19,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 39,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.gokgan-stone-path",
+          "sequence": 10,
+          "label": "돌길",
+          "memberCount": 5,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 42,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.gokgan-care",
+          "sequence": 11,
+          "label": "돌봄",
+          "memberCount": 0,
+          "sourceStatus": "no_source_assigned_members",
+          "isFinal": true,
+          "legacyImage": null,
+          "unitCount": 48,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        }
+      ],
+      "views": [
+        {
+          "id": "front",
+          "label": "대표 사선",
+          "image": "images/9e64044bd06c3a84.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-000",
+          "label": "측면 0°",
+          "image": "images/fb5159c885f1443b.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-090",
+          "label": "측면 90°",
+          "image": "images/a0864e6821c6734c.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-180",
+          "label": "측면 180°",
+          "image": "images/b93a1c58ccd16b11.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-270",
+          "label": "측면 270°",
+          "image": "images/1c4ad9976e13fd6c.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "roof-front",
+          "label": "지붕 앞",
+          "image": "images/2aafce66f73c2cb7.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "roof-back",
+          "label": "지붕 뒤",
+          "image": "images/cd19690319728a1f.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-000",
+          "label": "처마 0°",
+          "image": "images/b810487b41b1912b.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-090",
+          "label": "처마 90°",
+          "image": "images/be26cbd2ba0bb186.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-180",
+          "label": "처마 180°",
+          "image": "images/ad6739d692369147.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-270",
+          "label": "처마 270°",
+          "image": "images/ddaa4348d512d523.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "images/9e64044bd06c3a84.png",
+      "model": "models/gokgan.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
+        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
+        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+    },
+    {
+      "key": "angotgan",
+      "buildingId": "anchae-store",
+      "name": "안채곳간채",
+      "group": "부속 건물",
+      "memberCount": 108,
+      "unassignedCount": 7,
+      "steps": [
+        {
+          "id": "ildu.anchae-store-site-storage",
+          "sequence": 1,
+          "label": "터와 수납 공간",
+          "memberCount": 0,
+          "sourceStatus": "no_source_assigned_members",
+          "isFinal": false,
+          "legacyImage": "images/7ef3951682323312.png",
+          "unitCount": 8,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.anchae-store-stone-foundation",
+          "sequence": 2,
+          "label": "돌기단",
+          "memberCount": 4,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/3a60999fee3f8d18.png",
+          "unitCount": 16,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.anchae-store-posts",
+          "sequence": 3,
+          "label": "기둥",
+          "memberCount": 1,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/f9b46ef7d83cefdd.png",
+          "unitCount": 20,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.anchae-store-beams-purlins",
+          "sequence": 4,
+          "label": "보와 도리",
+          "memberCount": 21,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/eae1118b860a8fdb.png",
+          "unitCount": 24,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.anchae-store-rafters-eaves",
+          "sequence": 5,
+          "label": "서까래와 처마",
+          "memberCount": 2,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/ee54b1302c4067b2.png",
+          "unitCount": 26,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.anchae-store-roof-bed",
+          "sequence": 6,
+          "label": "지붕 바탕",
+          "memberCount": 1,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/63b1099b9b7e9690.png",
+          "unitCount": 28,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.anchae-store-tiles",
+          "sequence": 7,
+          "label": "기와",
+          "memberCount": 14,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/21fff7b91c2825b2.png",
+          "unitCount": 30,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.anchae-store-compacted-floor",
+          "sequence": 8,
+          "label": "다짐 바닥",
+          "memberCount": 0,
+          "sourceStatus": "no_source_assigned_members",
+          "isFinal": false,
+          "legacyImage": "images/972ea798c5073ee9.png",
+          "unitCount": 33,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.anchae-store-walls-partition",
+          "sequence": 9,
+          "label": "벽체와 칸막이",
+          "memberCount": 20,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/bb8023445b6b319a.png",
+          "unitCount": 36,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.anchae-store-doors-vents",
+          "sequence": 10,
+          "label": "문과 환기창",
+          "memberCount": 38,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/10572eeacf28decf.png",
+          "unitCount": 42,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.anchae-store-complete-use",
+          "sequence": 11,
+          "label": "완성 · 사용",
+          "memberCount": 0,
+          "sourceStatus": "no_source_assigned_members",
+          "isFinal": true,
+          "legacyImage": "images/0f1ff39dcbe49f78.png",
+          "unitCount": 48,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        }
+      ],
+      "views": [
+        {
+          "id": "front",
+          "label": "대표 사선",
+          "image": "images/76ba858d07b7c092.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-000",
+          "label": "측면 0°",
+          "image": "images/e436a5948c99deac.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-090",
+          "label": "측면 90°",
+          "image": "images/24e84403a648554f.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-180",
+          "label": "측면 180°",
+          "image": "images/50731b98cf53c2a1.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-270",
+          "label": "측면 270°",
+          "image": "images/cd768247527a617b.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "roof-front",
+          "label": "지붕 앞",
+          "image": "images/6bfda54abb0ff434.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "roof-back",
+          "label": "지붕 뒤",
+          "image": "images/4471adbc2acdc419.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-000",
+          "label": "처마 0°",
+          "image": "images/1af37395acdbe76b.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-090",
+          "label": "처마 90°",
+          "image": "images/46b37f09e294971e.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-180",
+          "label": "처마 180°",
+          "image": "images/bbbbb8e0d72fc9fd.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-270",
+          "label": "처마 270°",
+          "image": "images/81bbb65c8e151b35.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "eave-detail",
+          "label": "처마 세부",
+          "image": "images/09cac0e43c669a24.png",
+          "sourceVersion": "R5 · 기존 건물 재질",
+          "nativeSha256": "cd9f56e2cb0b58803b6bdf24330bca843a531839ed3b83f3d9053b8ff335aa57",
+          "note": "R5 밝은 목재 처마의 실제 확대 자료입니다. 전체 부재의 모든 면 수용과 구분합니다."
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "images/76ba858d07b7c092.png",
+      "model": "models/angotgan.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
+        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
+        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+    },
+    {
+      "key": "changgo",
+      "buildingId": "changgo",
+      "name": "창고",
+      "group": "부속 건물",
+      "memberCount": 209,
+      "unassignedCount": 14,
+      "steps": [
+        {
+          "id": "ildu.changgo-foundation",
+          "sequence": 1,
+          "label": "터 닦기 · 기단",
+          "memberCount": 26,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/c5eeef039e878103.webp",
+          "unitCount": 16,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.changgo-posts",
+          "sequence": 2,
+          "label": "기둥",
+          "memberCount": 1,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/493a2547adc84d3f.webp",
+          "unitCount": 20,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.changgo-beams",
+          "sequence": 3,
+          "label": "보와 도리",
+          "memberCount": 6,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/685800084c237ba1.webp",
+          "unitCount": 24,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.changgo-rafters",
+          "sequence": 4,
+          "label": "서까래와 산자",
+          "memberCount": 8,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/b8686bca8f4569aa.webp",
+          "unitCount": 26,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.changgo-roof-bed",
+          "sequence": 5,
+          "label": "지붕 바탕",
+          "memberCount": 1,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/ffc78c9a50e3c308.webp",
+          "unitCount": 28,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.changgo-roof-tiles",
+          "sequence": 6,
+          "label": "기와",
+          "memberCount": 21,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/00d15aa40b830a68.webp",
+          "unitCount": 30,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.changgo-walls",
+          "sequence": 7,
+          "label": "벽체 채움",
+          "memberCount": 14,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": "images/732a1234b6e5e7e2.webp",
+          "unitCount": 36,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.changgo-complete",
+          "sequence": 8,
+          "label": "문과 창호 · 마감 · 완성",
+          "memberCount": 118,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": true,
+          "legacyImage": "images/867495181c3507a2.png",
+          "unitCount": 48,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        }
+      ],
+      "views": [
+        {
+          "id": "front",
+          "label": "대표 사선",
+          "image": "images/d332e3159a54e176.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-000",
+          "label": "측면 0°",
+          "image": "images/75abdb4184ac125b.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-090",
+          "label": "측면 90°",
+          "image": "images/57707e1038b5d538.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-180",
+          "label": "측면 180°",
+          "image": "images/0f1d3c9b5f254d4e.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-270",
+          "label": "측면 270°",
+          "image": "images/9337075b68578a54.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "roof-front",
+          "label": "지붕 앞",
+          "image": "images/3c52ba28ab4fdab1.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "roof-back",
+          "label": "지붕 뒤",
+          "image": "images/8538d9ca0d8dccc6.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-000",
+          "label": "처마 0°",
+          "image": "images/9a77556af277d410.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-090",
+          "label": "처마 90°",
+          "image": "images/2f357edca357502d.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-180",
+          "label": "처마 180°",
+          "image": "images/e5b1c49c79e3a4f4.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-270",
+          "label": "처마 270°",
+          "image": "images/10b86287311f22e8.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "images/d332e3159a54e176.png",
+      "model": "models/changgo.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
+        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
+        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+    },
+    {
+      "key": "toilet",
+      "buildingId": "toilet-north",
+      "name": "북측 측간",
+      "group": "부속 건물",
+      "memberCount": 83,
+      "unassignedCount": 7,
+      "steps": [
+        {
+          "id": "ildu.toilet-north-foundation",
+          "sequence": 1,
+          "label": "기단",
+          "memberCount": 22,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 16,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.toilet-north-posts",
+          "sequence": 2,
+          "label": "기둥",
+          "memberCount": 1,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 20,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.toilet-north-beams",
+          "sequence": 3,
+          "label": "보",
+          "memberCount": 6,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 24,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.toilet-north-rafters",
+          "sequence": 4,
+          "label": "서까래",
+          "memberCount": 8,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 26,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.toilet-north-roof-bed",
+          "sequence": 5,
+          "label": "지붕 바탕",
+          "memberCount": 1,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 28,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.toilet-north-tiles",
+          "sequence": 6,
+          "label": "기와",
+          "memberCount": 17,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 30,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.toilet-north-walls",
+          "sequence": 7,
+          "label": "벽체",
+          "memberCount": 10,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 36,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.toilet-north-doors",
+          "sequence": 8,
+          "label": "문",
+          "memberCount": 11,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 42,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.toilet-north-care",
+          "sequence": 9,
+          "label": "돌봄",
+          "memberCount": 0,
+          "sourceStatus": "no_source_assigned_members",
+          "isFinal": true,
+          "legacyImage": null,
+          "unitCount": 48,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        }
+      ],
+      "views": [
+        {
+          "id": "front",
+          "label": "대표 사선",
+          "image": "images/03f21e33e35cdf24.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-000",
+          "label": "측면 0°",
+          "image": "images/a2d3c8683f58665c.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-090",
+          "label": "측면 90°",
+          "image": "images/c03f335e62e7dab0.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-180",
+          "label": "측면 180°",
+          "image": "images/13d54349fed306cf.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-270",
+          "label": "측면 270°",
+          "image": "images/dd0442f3033ee9aa.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "roof-front",
+          "label": "지붕 앞",
+          "image": "images/0f9e940ef8241c62.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "roof-back",
+          "label": "지붕 뒤",
+          "image": "images/03b19fc2424ba8e6.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-000",
+          "label": "처마 0°",
+          "image": "images/55007d6d8b44408f.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-090",
+          "label": "처마 90°",
+          "image": "images/ff0c51a7117ba332.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-180",
+          "label": "처마 180°",
+          "image": "images/ddd8beea14bb00de.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-270",
+          "label": "처마 270°",
+          "image": "images/e78c8c4788c5a15a.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "images/03f21e33e35cdf24.png",
+      "model": "models/toilet.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
+        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
+        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+    },
+    {
+      "key": "toilet1",
+      "buildingId": "toilet-south",
+      "name": "남측 측간",
+      "group": "부속 건물",
+      "memberCount": 83,
+      "unassignedCount": 7,
+      "steps": [
+        {
+          "id": "ildu.toilet-south-foundation",
+          "sequence": 1,
+          "label": "기단",
+          "memberCount": 22,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 16,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.toilet-south-posts",
+          "sequence": 2,
+          "label": "기둥",
+          "memberCount": 1,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 20,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.toilet-south-beams",
+          "sequence": 3,
+          "label": "보",
+          "memberCount": 6,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 24,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.toilet-south-rafters",
+          "sequence": 4,
+          "label": "서까래",
+          "memberCount": 8,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 26,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.toilet-south-roof-bed",
+          "sequence": 5,
+          "label": "지붕 바탕",
+          "memberCount": 1,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 28,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.toilet-south-tiles",
+          "sequence": 6,
+          "label": "기와",
+          "memberCount": 17,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 30,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.toilet-south-walls",
+          "sequence": 7,
+          "label": "벽체",
+          "memberCount": 10,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 36,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.toilet-south-doors",
+          "sequence": 8,
+          "label": "문",
+          "memberCount": 11,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 42,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.toilet-south-care",
+          "sequence": 9,
+          "label": "돌봄",
+          "memberCount": 0,
+          "sourceStatus": "no_source_assigned_members",
+          "isFinal": true,
+          "legacyImage": null,
+          "unitCount": 48,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        }
+      ],
+      "views": [
+        {
+          "id": "front",
+          "label": "대표 사선",
+          "image": "images/06f1ab2fb422ad0e.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-000",
+          "label": "측면 0°",
+          "image": "images/3f956b51a45b4a4b.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-090",
+          "label": "측면 90°",
+          "image": "images/0d4f0eb2ee389a31.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-180",
+          "label": "측면 180°",
+          "image": "images/544205c30fb3c854.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "side-270",
+          "label": "측면 270°",
+          "image": "images/f93cc8db2d562122.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "roof-front",
+          "label": "지붕 앞",
+          "image": "images/6d7f5ae945aca194.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "roof-back",
+          "label": "지붕 뒤",
+          "image": "images/f7656ba1540ba1a7.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-000",
+          "label": "처마 0°",
+          "image": "images/0d85c8ff2153d8ca.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-090",
+          "label": "처마 90°",
+          "image": "images/6cc66525d930214d.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-180",
+          "label": "처마 180°",
+          "image": "images/3944d943660f99c7.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        },
+        {
+          "id": "under-eaves-270",
+          "label": "처마 270°",
+          "image": "images/fd2a4eae9db9eeb9.png",
+          "sourceVersion": "R4 · 기존 건물 재질",
+          "nativeSha256": "0ad26e2324d8d52e670541daade2f6a9312e7189f0d1228b2054b87eebe33da4",
+          "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "images/06f1ab2fb422ad0e.png",
+      "model": "models/toilet1.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
+        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
+        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+    },
+    {
+      "key": "main_gate",
+      "buildingId": "main-gate",
+      "name": "대문",
+      "group": "문",
+      "memberCount": 184,
+      "unassignedCount": 3,
+      "steps": [
+        {
+          "id": "ildu.main-gate-site",
+          "sequence": 1,
+          "label": "터 닦기",
+          "memberCount": 0,
+          "sourceStatus": "no_source_assigned_members",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 8,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.main-gate-foundation",
+          "sequence": 2,
+          "label": "기단",
+          "memberCount": 3,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 16,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.main-gate-posts",
+          "sequence": 3,
+          "label": "기둥",
+          "memberCount": 1,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 20,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.main-gate-beams",
+          "sequence": 4,
+          "label": "보",
+          "memberCount": 11,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 24,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.main-gate-rafters",
+          "sequence": 5,
+          "label": "서까래",
+          "memberCount": 10,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 26,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.main-gate-roof-bed",
+          "sequence": 6,
+          "label": "지붕 바탕",
+          "memberCount": 0,
+          "sourceStatus": "no_source_assigned_members",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 28,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.main-gate-tiles",
+          "sequence": 7,
+          "label": "기와",
+          "memberCount": 40,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 30,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.main-gate-walls",
+          "sequence": 8,
+          "label": "벽체",
+          "memberCount": 12,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 36,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.main-gate-doors",
+          "sequence": 9,
+          "label": "문",
+          "memberCount": 82,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 38,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.main-gate-stone-path",
+          "sequence": 10,
+          "label": "돌길",
+          "memberCount": 7,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 40,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.main-gate-finish",
+          "sequence": 11,
+          "label": "마감",
+          "memberCount": 15,
+          "sourceStatus": "source_evidence_pending_geometry_review",
+          "isFinal": false,
+          "legacyImage": null,
+          "unitCount": 42,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        },
+        {
+          "id": "ildu.main-gate-care",
+          "sequence": 12,
+          "label": "돌봄",
+          "memberCount": 0,
+          "sourceStatus": "no_source_assigned_members",
+          "isFinal": true,
+          "legacyImage": null,
+          "unitCount": 48,
+          "description": "기존 원본 부재의 누적 조립 보기입니다. 새 부재가 없는 단계도 기존 학습 공정에 남아 있습니다."
+        }
+      ],
+      "views": [
+        {
+          "id": "main_gate-front",
+          "label": "정면",
+          "image": "images/df1d959d763d6d16.png",
+          "sourceVersion": "R12",
+          "nativeSha256": "b954f76cdccc26619cf977497ac45509dabebc5e45f194ad5396e1d655e734b5",
+          "note": "R12 문 표면의 실제 렌더입니다. 이전 재질 버튼은 같은 구도의 R9 출처를 표시합니다. 수용한 표면 범위와 남아 있는 제한은 검수 근거에 따릅니다."
+        },
+        {
+          "id": "main_gate-back",
+          "label": "뒷면",
+          "image": "images/66863ba05eb20056.png",
+          "sourceVersion": "R12",
+          "nativeSha256": "b954f76cdccc26619cf977497ac45509dabebc5e45f194ad5396e1d655e734b5",
+          "note": "R12 문 표면의 실제 렌더입니다. 이전 재질 버튼은 같은 구도의 R9 출처를 표시합니다. 수용한 표면 범위와 남아 있는 제한은 검수 근거에 따릅니다."
+        },
+        {
+          "id": "main_gate-detail",
+          "label": "세부",
+          "image": "images/ee251b43c2d3fe50.png",
+          "sourceVersion": "R12",
+          "nativeSha256": "b954f76cdccc26619cf977497ac45509dabebc5e45f194ad5396e1d655e734b5",
+          "note": "R12 문 표면의 실제 렌더입니다. 이전 재질 버튼은 같은 구도의 R9 출처를 표시합니다. 수용한 표면 범위와 남아 있는 제한은 검수 근거에 따릅니다."
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "images/df1d959d763d6d16.png",
+      "model": "models/main_gate.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
+        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
+        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+    },
+    {
+      "key": "left_changgo",
+      "buildingId": "hyeopmun",
+      "name": "사랑채 왼쪽 협문",
+      "group": "문",
+      "memberCount": 680,
+      "unassignedCount": 0,
+      "steps": [
+        {
+          "id": "ildu.hyeopmun-foundation",
+          "sequence": 1,
+          "label": "터 닦기 · 기단",
+          "memberCount": 20,
+          "isFinal": false,
+          "description": "계단 없이 낮은 흙바닥을 다지고, 양쪽 신방석과 가장자리 돌을 놓아요. 2007년 081·083 도면을 따라 낮은 바닥을 유지했어요.",
+          "image": "images/left-stage-1.png",
+          "noNewGeometry": false
+        },
+        {
+          "id": "ildu.hyeopmun-frame",
+          "sequence": 2,
+          "label": "기둥 · 보와 도리",
+          "memberCount": 22,
+          "isFinal": false,
+          "description": "신방목 위에 기둥 두 개를 세워요. 팔각 버팀대와 X자 보강재, 보와 도리가 지붕을 받을 골조를 만들어요.",
+          "image": "images/left-stage-2.png",
+          "noNewGeometry": false
+        },
+        {
+          "id": "ildu.hyeopmun-rafters",
+          "sequence": 3,
+          "label": "보와 도리 · 서까래와 산자",
+          "memberCount": 70,
+          "isFinal": false,
+          "description": "둥근 서까래 열 개와 경사진 개판을 올려요. 양쪽 지붕 끝을 받치는 목재와 판재도 함께 이어져요.",
+          "image": "images/left-stage-3.png",
+          "noNewGeometry": false
+        },
+        {
+          "id": "ildu.hyeopmun-roof-bed",
+          "sequence": 4,
+          "label": "지붕 바탕",
+          "memberCount": 16,
+          "isFinal": false,
+          "description": "개판 위에 흙 바탕을 채우고, 박공 판재와 처마의 평고대·연함을 갖춰 기와가 놓일 면을 만들어요.",
+          "image": "images/left-stage-4.png",
+          "noNewGeometry": false
+        },
+        {
+          "id": "ildu.hyeopmun-roof-tiles",
+          "sequence": 5,
+          "label": "기와",
+          "memberCount": 494,
+          "isFinal": false,
+          "description": "암키와와 수키와를 겹쳐 올려요. 양쪽 박공과 용마루까지 이어지는 기와가 지붕을 완성해요.",
+          "image": "images/left-stage-5.png",
+          "noNewGeometry": false
+        },
+        {
+          "id": "ildu.hyeopmun-complete",
+          "sequence": 6,
+          "label": "문과 창호 · 마감 · 완성",
+          "memberCount": 58,
+          "isFinal": true,
+          "description": "여덟 장의 판재로 만든 문과 뒤쪽 띠장·둔테·빗장, 철물까지 갖춰요. 도면을 바탕으로 다시 만든 왼쪽 협문의 전체 모습이에요.",
+          "image": "images/left-stage-6.png",
+          "noNewGeometry": false
+        }
+      ],
+      "views": [
+        {
+          "id": "hero",
+          "label": "전체",
+          "image": "images/left-hero.png",
+          "sourceVersion": "최신 R6c · 도면 재제작"
+        },
+        {
+          "id": "front",
+          "label": "정면",
+          "image": "images/left-front.png",
+          "sourceVersion": "최신 R6c · 도면 재제작"
+        },
+        {
+          "id": "back",
+          "label": "배면",
+          "image": "images/left-back.png",
+          "sourceVersion": "최신 R6c · 도면 재제작"
+        },
+        {
+          "id": "side",
+          "label": "측면",
+          "image": "images/left-side.png",
+          "sourceVersion": "최신 R6c · 도면 재제작"
+        },
+        {
+          "id": "plan",
+          "label": "평면",
+          "image": "images/left-plan.png",
+          "sourceVersion": "최신 R6c · 도면 재제작"
+        },
+        {
+          "id": "eaves",
+          "label": "처마",
+          "image": "images/left-eaves.png",
+          "sourceVersion": "최신 R6c · 도면 재제작"
+        },
+        {
+          "id": "underside",
+          "label": "처마 아래",
+          "image": "images/left-underside.png",
+          "sourceVersion": "최신 R6c · 도면 재제작"
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "images/2383bdbe16376cff.png",
+      "model": "models/left_changgo-pbr.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": true,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": true,
+      "historicalApproval": {
+        "status": "이 세션 제작본 · 정본 승격 확정",
+        "scope": "2026-10-21 사용자가 이 세션의 협문 두 개와 사당문을 직접 정본 지정했습니다. R6c 원본과 그 부재로 만든 공정을 연결합니다. 앱·실기기·출시 승인은 별도입니다.",
+        "quote": "협문두개랑 사당문은 이 세션에서 너가 작업한걸로 정본승격이야.",
+        "source": "이 대화 · 사용자 직접 발언",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": false,
+      "native": "../left-new.blend",
+      "nativeSha256": "b0431b15ebe83529c59307cabea2e66be481ecc0a406df4f68e30e868606fed0",
+      "materialMode": "approved-native-shader-baked-PBR",
+      "materialReceipt": "left-pbr-export.json",
+      "materialTextureCount": 4,
+      "nativeMaterialColorSource": "actual source shader bake, no arbitrary recolor"
+    },
+    {
+      "key": "right_ansarang",
+      "buildingId": "hyeopmun",
+      "name": "안채 연결 협문",
+      "group": "문",
+      "memberCount": 530,
+      "unassignedCount": 0,
+      "steps": [
+        {
+          "id": "ildu.hyeopmun-foundation",
+          "sequence": 1,
+          "label": "터 닦기 · 기단",
+          "memberCount": 29,
+          "isFinal": false,
+          "description": "다섯 단의 돌계단을 차례로 놓아요. 단 높이는 아래부터 200·150·150·130·120mm이며, 위쪽 바닥과 양쪽 신방석이 골조를 받아요.",
+          "image": "images/right-stage-1.png",
+          "noNewGeometry": false
+        },
+        {
+          "id": "ildu.hyeopmun-frame",
+          "sequence": 2,
+          "label": "기둥 · 보와 도리",
+          "memberCount": 21,
+          "isFinal": false,
+          "description": "양쪽 신방목과 기둥, 앞뒤 버팀목을 세워요. 보·도리와 측면 판재가 좁은 통로 위의 지붕을 받쳐요.",
+          "image": "images/right-stage-2.png",
+          "noNewGeometry": false
+        },
+        {
+          "id": "ildu.hyeopmun-rafters",
+          "sequence": 3,
+          "label": "보와 도리 · 서까래와 산자",
+          "memberCount": 60,
+          "isFinal": false,
+          "description": "각진 서까래 일곱 개와 개판을 올려요. 측면으로 이어지는 지붕 판재와 받침도 함께 연결돼요.",
+          "image": "images/right-stage-3.png",
+          "noNewGeometry": false
+        },
+        {
+          "id": "ildu.hyeopmun-roof-bed",
+          "sequence": 4,
+          "label": "지붕 바탕",
+          "memberCount": 16,
+          "isFinal": false,
+          "description": "개판 위에 흙 바탕과 기와 밑바탕을 놓아요. 박공 판재·평고대·연함이 기와를 받칠 가장자리를 만들어요.",
+          "image": "images/right-stage-4.png",
+          "noNewGeometry": false
+        },
+        {
+          "id": "ildu.hyeopmun-roof-tiles",
+          "sequence": 5,
+          "label": "기와",
+          "memberCount": 348,
+          "isFinal": false,
+          "description": "암키와·수키와를 올리고 용마루와 박공 기와를 이어가요. 처마 기와 끝의 회 마감도 원본 부재 그대로 보여요.",
+          "image": "images/right-stage-5.png",
+          "noNewGeometry": false
+        },
+        {
+          "id": "ildu.hyeopmun-complete",
+          "sequence": 6,
+          "label": "문과 창호 · 마감 · 완성",
+          "memberCount": 56,
+          "isFinal": true,
+          "description": "네 장의 판재로 된 문과 뒤쪽 띠장·둔테·빗장을 달아요. 고리와 철물을 갖춘 안채 연결 협문의 전체 모습이에요.",
+          "image": "images/right-stage-6.png",
+          "noNewGeometry": false
+        }
+      ],
+      "views": [
+        {
+          "id": "hero",
+          "label": "전체",
+          "image": "images/right-hero.png",
+          "sourceVersion": "최신 R6c · 도면 재제작"
+        },
+        {
+          "id": "front",
+          "label": "정면",
+          "image": "images/right-front.png",
+          "sourceVersion": "최신 R6c · 도면 재제작"
+        },
+        {
+          "id": "back",
+          "label": "배면",
+          "image": "images/right-back.png",
+          "sourceVersion": "최신 R6c · 도면 재제작"
+        },
+        {
+          "id": "side",
+          "label": "측면",
+          "image": "images/right-side.png",
+          "sourceVersion": "최신 R6c · 도면 재제작"
+        },
+        {
+          "id": "plan",
+          "label": "평면",
+          "image": "images/right-plan.png",
+          "sourceVersion": "최신 R6c · 도면 재제작"
+        },
+        {
+          "id": "eaves",
+          "label": "처마",
+          "image": "images/right-eaves.png",
+          "sourceVersion": "최신 R6c · 도면 재제작"
+        },
+        {
+          "id": "underside",
+          "label": "처마 아래",
+          "image": "images/right-underside.png",
+          "sourceVersion": "최신 R6c · 도면 재제작"
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "images/0670907d40b7e3b6.png",
+      "model": "models/right_ansarang-pbr.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": true,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": true,
+      "historicalApproval": {
+        "status": "이 세션 제작본 · 정본 승격 확정",
+        "scope": "2026-10-21 사용자가 이 세션의 협문 두 개와 사당문을 직접 정본 지정했습니다. R6c 원본과 그 부재로 만든 공정을 연결합니다. 앱·실기기·출시 승인은 별도입니다.",
+        "quote": "협문두개랑 사당문은 이 세션에서 너가 작업한걸로 정본승격이야.",
+        "source": "이 대화 · 사용자 직접 발언",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": false,
+      "native": "../right-new.blend",
+      "nativeSha256": "6995b49bcbabf69dcca3e4a94cf4a3ec2b8af892f5d1223eb045133e229e88ca",
+      "materialMode": "approved-native-shader-baked-PBR",
+      "materialReceipt": "right-pbr-export.json",
+      "materialTextureCount": 4,
+      "nativeMaterialColorSource": "actual source shader bake, no arbitrary recolor"
+    },
+    {
+      "key": "sadangmun",
+      "buildingId": "sadang-gate",
+      "name": "사당문",
+      "group": "문",
+      "memberCount": 445,
+      "unassignedCount": 0,
+      "steps": [
+        {
+          "id": "ildu.sadangmun-foundation",
+          "sequence": 1,
+          "label": "기단",
+          "memberCount": 3,
+          "isFinal": false,
+          "description": "문 양쪽에 길게 놓인 신방석 두 개와 가운데 문턱돌을 놓아요. 사당문 도면 086·087의 낮은 기초 구성이에요.",
+          "image": "images/shrine-stage-1.png",
+          "noNewGeometry": false
+        },
+        {
+          "id": "ildu.sadangmun-posts",
+          "sequence": 2,
+          "label": "기둥",
+          "memberCount": 6,
+          "isFinal": false,
+          "description": "둥근 기둥 두 개와 앞뒤 버팀목 네 개를 세워요. 낮은 기초 위에서 지붕 골조가 시작돼요.",
+          "image": "images/shrine-stage-2.png",
+          "noNewGeometry": false
+        },
+        {
+          "id": "ildu.sadangmun-beams",
+          "sequence": 3,
+          "label": "보",
+          "memberCount": 9,
+          "isFinal": false,
+          "description": "도리·창방·보를 연결하고 문설주와 문턱 목재를 갖춰요. 두 기둥 사이의 골조가 이어져요.",
+          "image": "images/shrine-stage-3.png",
+          "noNewGeometry": false
+        },
+        {
+          "id": "ildu.sadangmun-rafters",
+          "sequence": 4,
+          "label": "서까래",
+          "memberCount": 7,
+          "isFinal": false,
+          "description": "각진 서까래 일곱 개를 나란히 올려요. 이 단계에서는 개판과 지붕 흙을 덮기 전의 구조를 볼 수 있어요.",
+          "image": "images/shrine-stage-4.png",
+          "noNewGeometry": false
+        },
+        {
+          "id": "ildu.sadangmun-roof_bed",
+          "sequence": 5,
+          "label": "지붕 바탕",
+          "memberCount": 64,
+          "isFinal": false,
+          "description": "30mm 개판과 박공 안쪽 판재를 놓고 지붕의 흙 바탕을 채워요. 양쪽 날개 판재와 처마 가장자리도 연결돼요.",
+          "image": "images/shrine-stage-5.png",
+          "noNewGeometry": false
+        },
+        {
+          "id": "ildu.sadangmun-tiles",
+          "sequence": 6,
+          "label": "기와",
+          "memberCount": 295,
+          "isFinal": false,
+          "description": "암키와·수키와와 양쪽 박공 기와를 이어 올려요. 용마루와 회 마감까지 갖춘 지붕이에요.",
+          "image": "images/shrine-stage-6.png",
+          "noNewGeometry": false
+        },
+        {
+          "id": "ildu.sadangmun-doors",
+          "sequence": 7,
+          "label": "문",
+          "memberCount": 59,
+          "isFinal": false,
+          "description": "여덟 장의 문판과 띠장·빗장·둔테를 달고 고리와 철물을 더해요. 아직 태극 문양이 올라가기 전 모습이에요.",
+          "image": "images/shrine-stage-7.png",
+          "noNewGeometry": false
+        },
+        {
+          "id": "ildu.sadangmun-complete",
+          "sequence": 8,
+          "label": "완성",
+          "memberCount": 2,
+          "isFinal": true,
+          "description": "원본 문판 위의 붉은색과 푸른색 태극 문양을 더해요. 사당문 전체 부재가 모두 보이는 완성 모습이에요.",
+          "image": "images/shrine-stage-8.png",
+          "noNewGeometry": false
+        }
+      ],
+      "views": [
+        {
+          "id": "hero",
+          "label": "전체",
+          "image": "images/shrine-hero.png",
+          "sourceVersion": "최신 R6c · 도면 재제작"
+        },
+        {
+          "id": "front",
+          "label": "정면",
+          "image": "images/shrine-front.png",
+          "sourceVersion": "최신 R6c · 도면 재제작"
+        },
+        {
+          "id": "back",
+          "label": "배면",
+          "image": "images/shrine-back.png",
+          "sourceVersion": "최신 R6c · 도면 재제작"
+        },
+        {
+          "id": "side",
+          "label": "측면",
+          "image": "images/shrine-side.png",
+          "sourceVersion": "최신 R6c · 도면 재제작"
+        },
+        {
+          "id": "plan",
+          "label": "평면",
+          "image": "images/shrine-plan.png",
+          "sourceVersion": "최신 R6c · 도면 재제작"
+        },
+        {
+          "id": "eaves",
+          "label": "처마",
+          "image": "images/shrine-eaves.png",
+          "sourceVersion": "최신 R6c · 도면 재제작"
+        },
+        {
+          "id": "underside",
+          "label": "처마 아래",
+          "image": "images/shrine-underside.png",
+          "sourceVersion": "최신 R6c · 도면 재제작"
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "images/0ff94ed2af7bec98.png",
+      "model": "models/sadangmun-pbr.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "review_candidate",
+        "message": "표시 방식에서 색·표면 3D 후보를 열 수 있습니다. 앱 최종 품질은 검증 중입니다."
+      },
+      "pbrCandidate": {
+        "url": "../exports/sadangmun-pilot-r25/sadangmun.glb",
+        "sha256": "1ac3790b4573273e1971725b42044e792b01acdde5969696be8da0e8d3863882",
+        "bytes": 43230412,
+        "sourceVersion": "R12 / PBR R25",
+        "visualApproval": false,
+        "runtimePromoted": false
+      },
+      "newGate": true,
+      "historicalApproval": {
+        "status": "이 세션 제작본 · 정본 승격 확정",
+        "scope": "2026-10-21 사용자가 이 세션의 협문 두 개와 사당문을 직접 정본 지정했습니다. R6c 원본과 그 부재로 만든 공정을 연결합니다. 앱·실기기·출시 승인은 별도입니다. 사당문 색상은 별도 통과 발언이 있습니다.",
+        "quote": "협문두개랑 사당문은 이 세션에서 너가 작업한걸로 정본승격이야.",
+        "source": "이 대화 · 사용자 직접 발언",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": false,
+      "native": "../shrine-new.blend",
+      "nativeSha256": "d0424a1c0e5d8032a7dbb68fa2cad308655d0e9e36b9502bd648d46899d73f20",
+      "materialMode": "approved-native-shader-baked-PBR",
+      "materialReceipt": "shrine-pbr-export.json",
+      "materialTextureCount": 12,
+      "nativeMaterialColorSource": "actual source shader bake, no arbitrary recolor"
+    },
+    {
+      "key": "estate-context",
+      "buildingId": null,
+      "name": "돌담·마당",
+      "group": "공유 공간",
+      "memberCount": 374,
+      "unassignedCount": 0,
+      "steps": [],
+      "views": [
+        {
+          "id": "full",
+          "label": "전체",
+          "image": "images/yard-full.png",
+          "sourceVersion": "마당 R5 · 담장 R3"
+        },
+        {
+          "id": "overview",
+          "label": "사랑채 앞",
+          "image": "images/yard-overview.png",
+          "sourceVersion": "마당 R5 · 담장 R3"
+        },
+        {
+          "id": "detail",
+          "label": "흙 확대",
+          "image": "images/yard-detail.png",
+          "sourceVersion": "마당 R5 · 담장 R3"
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "images/15bd849faf78ff54.png",
+      "model": "models/estate-context.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "마당 경계 수정 승인",
+        "scope": "R5 절단선 수정에 “잘했어” 발언. 담장 전체 품질이나 새 문 결합 장면 전체 승인으로 확대하지 않습니다.",
+        "quote": "잘했어. 이제는 이 완성 화면을.. 아이폰 16프로 기준으로",
+        "source": "이 대화 · 사용자 직접 발언",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+    }
+  ],
+  "scope": "11 buildings, 4 gate instances, shared walls and courtyard",
+  "materialMode": "native material render by default; neutral structure geometry; Sadangmun R25 PBR opt-in candidate",
+  "stageApproval": false,
+  "instanceStageCount": 160,
+  "sourceVersion": "R12 건축 + 최신 R6c 세 문 + 마당 R5·담장 R3",
+  "modelMaterialMode": "구조 검토용 GLB; 재질 정본은 Blender 원본과 해당 렌더",
+  "approvalPolicy": "과거 개별 승인 근거와 현재 정본 지정을 구분. 앱·출시 승인을 추론하지 않음."
+}

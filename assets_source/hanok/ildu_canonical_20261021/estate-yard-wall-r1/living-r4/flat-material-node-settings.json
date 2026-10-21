@@ -1,0 +1,349 @@
+[
+  {
+    "name": "Soil R4 | front gate to foundation consolidation edge 00 signed",
+    "label": "front gate to foundation consolidation edge 00 signed metres",
+    "type": "VECT_MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "Scale": 1.0
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation edge 01 signed",
+    "label": "front gate to foundation consolidation edge 01 signed metres",
+    "type": "VECT_MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "Scale": 1.0
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation edge 01 convex",
+    "label": "front gate to foundation consolidation edge 01 convex minimum",
+    "type": "MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Value": 0.5
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation edge 02 signed",
+    "label": "front gate to foundation consolidation edge 02 signed metres",
+    "type": "VECT_MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "Scale": 1.0
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation edge 02 convex",
+    "label": "front gate to foundation consolidation edge 02 convex minimum",
+    "type": "MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Value": 0.5
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation edge 03 signed",
+    "label": "front gate to foundation consolidation edge 03 signed metres",
+    "type": "VECT_MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "Scale": 1.0
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation edge 03 convex",
+    "label": "front gate to foundation consolidation edge 03 convex minimum",
+    "type": "MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Value": 0.5
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation edge 04 signed",
+    "label": "front gate to foundation consolidation edge 04 signed metres",
+    "type": "VECT_MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "Scale": 1.0
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation edge 04 convex",
+    "label": "front gate to foundation consolidation edge 04 convex minimum",
+    "type": "MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Value": 0.5
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation edge 05 signed",
+    "label": "front gate to foundation consolidation edge 05 signed metres",
+    "type": "VECT_MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Vector": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "Scale": 1.0
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation edge 05 convex",
+    "label": "front gate to foundation consolidation edge 05 convex minimum",
+    "type": "MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Value": 0.5
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation finite inward ",
+    "label": "front gate to foundation consolidation finite inward feather",
+    "type": "MAP_RANGE",
+    "interpolation": "SMOOTHSTEP",
+    "clamp": true,
+    "inputs": {
+      "From Min": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "From Max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "To Min": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "To Max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "Steps": [
+        4.0,
+        4.0,
+        4.0
+      ],
+      "Vector": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation inverse aggreg",
+    "label": "front gate to foundation consolidation inverse aggregate densit",
+    "type": "MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Value": 0.5
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation previous aggre",
+    "label": "front gate to foundation consolidation previous aggregate densi",
+    "type": "MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Value": 0.5
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation local aggregat",
+    "label": "front gate to foundation consolidation local aggregate density",
+    "type": "MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Value": 0.5
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation blended aggreg",
+    "label": "front gate to foundation consolidation blended aggregate densit",
+    "type": "MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Value": 0.5
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation inverse powder",
+    "label": "front gate to foundation consolidation inverse powder",
+    "type": "MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Value": 0.5
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation previous powde",
+    "label": "front gate to foundation consolidation previous powder",
+    "type": "MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Value": 0.5
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation local powder",
+    "label": "front gate to foundation consolidation local powder",
+    "type": "MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Value": 0.5
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation blended powder",
+    "label": "front gate to foundation consolidation blended powder",
+    "type": "MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Value": 0.5
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation inverse compac",
+    "label": "front gate to foundation consolidation inverse compaction",
+    "type": "MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Value": 0.5
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation previous compa",
+    "label": "front gate to foundation consolidation previous compaction",
+    "type": "MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Value": 0.5
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation local compacti",
+    "label": "front gate to foundation consolidation local compaction",
+    "type": "MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Value": 0.5
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation blended compac",
+    "label": "front gate to foundation consolidation blended compaction",
+    "type": "MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Value": 0.5
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation inverse body c",
+    "label": "front gate to foundation consolidation inverse body contrast",
+    "type": "MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Value": 0.5
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation previous body ",
+    "label": "front gate to foundation consolidation previous body contrast",
+    "type": "MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Value": 0.5
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation local body con",
+    "label": "front gate to foundation consolidation local body contrast",
+    "type": "MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Value": 0.5
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation blended body c",
+    "label": "front gate to foundation consolidation blended body contrast",
+    "type": "MATH",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {
+      "Value": 0.5
+    }
+  },
+  {
+    "name": "Soil R4 | front gate to foundation consolidation continuous tex",
+    "label": "front gate to foundation consolidation continuous texture stati",
+    "type": "MIX_RGB",
+    "interpolation": null,
+    "clamp": null,
+    "inputs": {}
+  }
+]

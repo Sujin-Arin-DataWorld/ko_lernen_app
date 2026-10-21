@@ -1,0 +1,12 @@
+{
+  "gate": "right",
+  "key": "right_ansarang",
+  "sourceNativeSha256": "6995b49bcbabf69dcca3e4a94cf4a3ec2b8af892f5d1223eb045133e229e88ca",
+  "objectCount": 530,
+  "model": "right_ansarang.glb",
+  "sha256": "24149abc2f06a8310a4e8714425efa8f4627fa852b5751092cd56792401a6a83",
+  "bytes": 23390164,
+  "sourceNativeSaved": false,
+  "materials": "neutral structural preview; native shaders untouched",
+  "geometry": "exact evaluated source, no decimation or scale"
+}

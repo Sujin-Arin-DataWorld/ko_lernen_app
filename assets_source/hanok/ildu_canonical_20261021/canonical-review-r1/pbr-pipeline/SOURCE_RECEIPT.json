@@ -1,0 +1,152 @@
+[
+  {
+    "file": "audit_r12_delivery_footprint.py",
+    "sourceSha256": "42d8b9c82b2800c61e44e823033288c9fa8304946b0523d801bd149e03fe63e8",
+    "snapshotSha256": "42d8b9c82b2800c61e44e823033288c9fa8304946b0523d801bd149e03fe63e8",
+    "adaptation": null
+  },
+  {
+    "file": "build_r12_process_delivery.py",
+    "sourceSha256": "c9b470148a3520b8f761069c9fd738d44b6d3df201af5f6e114764ee123c04d6",
+    "snapshotSha256": "c9b470148a3520b8f761069c9fd738d44b6d3df201af5f6e114764ee123c04d6",
+    "adaptation": null
+  },
+  {
+    "file": "cycles_object_random.py",
+    "sourceSha256": "582c4421a18b02877c643052b3e0a74e7b3703bf5e9396deabc7f23cba67db4c",
+    "snapshotSha256": "582c4421a18b02877c643052b3e0a74e7b3703bf5e9396deabc7f23cba67db4c",
+    "adaptation": null
+  },
+  {
+    "file": "export_r12_pbr.py",
+    "sourceSha256": "8042c2a9a8309749d057508e2a153db0764667dcf24694bffc5928b759fbb5d4",
+    "snapshotSha256": "8042c2a9a8309749d057508e2a153db0764667dcf24694bffc5928b759fbb5d4",
+    "adaptation": null
+  },
+  {
+    "file": "optimize_r12_glb_scalar_channels.py",
+    "sourceSha256": "fa0336ff0ff57d56105fc1f995f4b0841bfa2dbafa650d1c4d7e45d21a2b8c46",
+    "snapshotSha256": "fa0336ff0ff57d56105fc1f995f4b0841bfa2dbafa650d1c4d7e45d21a2b8c46",
+    "adaptation": null
+  },
+  {
+    "file": "optimize_r12_glb_textures.py",
+    "sourceSha256": "5a13c8fe27d3469dbfdc287728d0f9431aa97ccde8bdcca2152fafbde7ed2de6",
+    "snapshotSha256": "5a13c8fe27d3469dbfdc287728d0f9431aa97ccde8bdcca2152fafbde7ed2de6",
+    "adaptation": null
+  },
+  {
+    "file": "probe_r12_tile_atlas.py",
+    "sourceSha256": "2c45263f2e2dda1fa7b19e8282de1de9591c83dcfc6a9e85139ea56b5a2a9f5f",
+    "snapshotSha256": "2c45263f2e2dda1fa7b19e8282de1de9591c83dcfc6a9e85139ea56b5a2a9f5f",
+    "adaptation": null
+  },
+  {
+    "file": "r12_export_selection.py",
+    "sourceSha256": "7815eb72d5d223a0fd993378233b8292a153417f75b443a91451221790637a51",
+    "snapshotSha256": "7815eb72d5d223a0fd993378233b8292a153417f75b443a91451221790637a51",
+    "adaptation": null
+  },
+  {
+    "file": "r12_frame_export.py",
+    "sourceSha256": "500e4e13ca11996837d87d71bc30ee2580cb4a0095606e48d7d85b6824136cc6",
+    "snapshotSha256": "500e4e13ca11996837d87d71bc30ee2580cb4a0095606e48d7d85b6824136cc6",
+    "adaptation": null
+  },
+  {
+    "file": "r12_frame_nodes.py",
+    "sourceSha256": "0e8ca2bd07dda4433486f7c1dc2a70678a48a20eb9c8d984604d8232d76d51c3",
+    "snapshotSha256": "0e8ca2bd07dda4433486f7c1dc2a70678a48a20eb9c8d984604d8232d76d51c3",
+    "adaptation": null
+  },
+  {
+    "file": "r12_native_inventory.py",
+    "sourceSha256": "e7ff2e6dbd915fba154d29e2cce3da2de57fdc2c57baa29c5a831d95e270cfd9",
+    "snapshotSha256": "e7ff2e6dbd915fba154d29e2cce3da2de57fdc2c57baa29c5a831d95e270cfd9",
+    "adaptation": null
+  },
+  {
+    "file": "r12_native_source.py",
+    "sourceSha256": "dde6093fff1f1149226942b73942166d2841c28818f424ddba155b4b99947c9a",
+    "snapshotSha256": "dde6093fff1f1149226942b73942166d2841c28818f424ddba155b4b99947c9a",
+    "adaptation": null
+  },
+  {
+    "file": "r12_paired_surface.py",
+    "sourceSha256": "04c7290c189de80f809e3c96f1888303e9bf15d7be8c68326680e8edf8da3e0f",
+    "snapshotSha256": "04c7290c189de80f809e3c96f1888303e9bf15d7be8c68326680e8edf8da3e0f",
+    "adaptation": null
+  },
+  {
+    "file": "r12_pbr_delivery.py",
+    "sourceSha256": "fc37f0e3b46d76bd73723669c648077863040b30c0da719b4dfcbf237de4d292",
+    "snapshotSha256": "aeaba60b5cbba61d8cb7710ccc02c8b0353e6ff6294db4d5e630de3214dd0e92",
+    "adaptation": "all source members exported separately"
+  },
+  {
+    "file": "r12_stable_frame.py",
+    "sourceSha256": "198a033cefeb3c1e30647302767e5bb032cfb2e6286528dc8222b87d277fb006",
+    "snapshotSha256": "198a033cefeb3c1e30647302767e5bb032cfb2e6286528dc8222b87d277fb006",
+    "adaptation": null
+  },
+  {
+    "file": "r12_uv_coverage.py",
+    "sourceSha256": "4f618e1d999af183208811706574adc0d1d917d5a47ad022c1f345cbce68c1ff",
+    "snapshotSha256": "4f618e1d999af183208811706574adc0d1d917d5a47ad022c1f345cbce68c1ff",
+    "adaptation": null
+  },
+  {
+    "file": "r12_uv_pack.py",
+    "sourceSha256": "b93186cfc400cb5ed43b870dd42fe03c435b89e9e30969bff659560998cdb7ba",
+    "snapshotSha256": "b93186cfc400cb5ed43b870dd42fe03c435b89e9e30969bff659560998cdb7ba",
+    "adaptation": null
+  },
+  {
+    "file": "r12_uv_patch.py",
+    "sourceSha256": "35de40de0f5a47d40f4c37fc6f56f158b49dc96fc5af39f6d319f2d35ad1bbbe",
+    "snapshotSha256": "35de40de0f5a47d40f4c37fc6f56f158b49dc96fc5af39f6d319f2d35ad1bbbe",
+    "adaptation": null
+  },
+  {
+    "file": "split_r12_process_glb.py",
+    "sourceSha256": "49487dde16b4c99f5810a9ae625132ba1a7bab542dd4e69eb4dbae71df951349",
+    "snapshotSha256": "49487dde16b4c99f5810a9ae625132ba1a7bab542dd4e69eb4dbae71df951349",
+    "adaptation": null
+  },
+  {
+    "file": "validate_r12_glb.py",
+    "sourceSha256": "3a10b0835a46cd0fa029de3e6e4b0ca4a271ae9f84beb729ac5c79308cf9eb57",
+    "snapshotSha256": "3a10b0835a46cd0fa029de3e6e4b0ca4a271ae9f84beb729ac5c79308cf9eb57",
+    "adaptation": null
+  },
+  {
+    "file": "verify_cycles_missing_uv.py",
+    "sourceSha256": "8a61ba9aca2df7e359875444fd24a5737c67ba745ec29f916c6b2f746775cd8f",
+    "snapshotSha256": "8a61ba9aca2df7e359875444fd24a5737c67ba745ec29f916c6b2f746775cd8f",
+    "adaptation": null
+  },
+  {
+    "file": "verify_cycles_object_random.py",
+    "sourceSha256": "596484fcd208261f8e17853efdaeceb9e05a9188e6e0e035f5fc80fd69c3f213",
+    "snapshotSha256": "596484fcd208261f8e17853efdaeceb9e05a9188e6e0e035f5fc80fd69c3f213",
+    "adaptation": null
+  },
+  {
+    "file": "verify_r12_bake_tessellation_blender.py",
+    "sourceSha256": "f4ff6862b9b4980fc8a27e40c0df58b6071eb689cbe1f2f8a981c290498a7e02",
+    "snapshotSha256": "f4ff6862b9b4980fc8a27e40c0df58b6071eb689cbe1f2f8a981c290498a7e02",
+    "adaptation": null
+  },
+  {
+    "file": "verify_r12_frame_bake_blender.py",
+    "sourceSha256": "e98dae1e9588dd9de4f385f0a9ce28c2826e0bbd98ed1e22bb256d7ce9bd50a7",
+    "snapshotSha256": "e98dae1e9588dd9de4f385f0a9ce28c2826e0bbd98ed1e22bb256d7ce9bd50a7",
+    "adaptation": null
+  },
+  {
+    "file": "verify_r12_uv_pack_blender.py",
+    "sourceSha256": "c249550cf3d24eefa6d29d95df4ecb152dab5928039c8d6b1a923886c80e23f7",
+    "snapshotSha256": "c249550cf3d24eefa6d29d95df4ecb152dab5928039c8d6b1a923886c80e23f7",
+    "adaptation": null
+  }
+]

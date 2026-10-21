@@ -1,0 +1,124 @@
+{
+  "passed": true,
+  "source_sha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+  "r4_library_sha256": "5be498fbf7f8d95011610c4c380fa6efb23ecf3b042907cab6d184d6959ec9de",
+  "library": "continuous-yard-r5.blend",
+  "library_sha256": "ece671ac893dc57fcbd7c6ad1312bd4e982ba59164a53fd43f6454322ad98f7f",
+  "library_datablocks": {
+    "materials": 1,
+    "lights": 1,
+    "objects": 0,
+    "meshes": 0,
+    "images": 0,
+    "collections": 0
+  },
+  "material_signatures": {
+    "Living R5 | global outer scope | Living R4 | place-specific compacted earth | Living R3 | tended sandy courtyard": "2fc0fa7f749eb867a0832419de1475c6583e1054e0a5d9f53a9f6ff765a513e7"
+  },
+  "light_data_name": "Living R5 | horizontal courtyard fill 200W",
+  "light_data_state": {
+    "type": "AREA",
+    "energy": 200.0,
+    "color": [
+      1.0,
+      0.9700000286102295,
+      0.9100000262260437
+    ],
+    "size": 8.0,
+    "shape": "DISK",
+    "spread": 3.1415927410125732,
+    "emission": [
+      {
+        "Color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "Strength": 1.0,
+        "Weight": 0.0
+      }
+    ]
+  },
+  "bindings": [
+    {
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "slot": 0,
+      "old": "Living R4 | place-specific compacted earth | Living R3 | tended sandy courtyard",
+      "new": "Living R5 | global outer scope | Living R4 | place-specific compacted earth | Living R3 | tended sandy courtyard",
+      "link": "OBJECT",
+      "role": "yard"
+    },
+    {
+      "object": "GyeSite.Estate.site.west field ground extension.pigment surface v48",
+      "slot": 0,
+      "old": "Living R4 | place-specific compacted earth | Living R3 | tended sandy courtyard",
+      "new": "Living R5 | global outer scope | Living R4 | place-specific compacted earth | Living R3 | tended sandy courtyard",
+      "link": "OBJECT",
+      "role": "yard"
+    }
+  ],
+  "lighting_patch": {
+    "source_light": "Warm estate | P16 low broad courtyard reflection.005",
+    "source_transform_preserved": true,
+    "original_pose": {
+      "location": [
+        5.272500038146973,
+        -4.430019378662109,
+        2.5450000762939453
+      ],
+      "rotation": [
+        1.5841962099075317,
+        -1.3961198419565335e-08,
+        0.15384867787361145
+      ]
+    },
+    "original_disk_size": 8.0,
+    "original_disk_bottom_approx": -1.455,
+    "source_receivers": "all original scene objects except the two yard surfaces",
+    "source_receiver_count": 4186,
+    "source_receiver_names_sha256": "74f7c3556ae6b94a5a214dea69fda5d0d2bf57848353668ff0a31ee0e5943bf4",
+    "fixed_light": "Living R5 | continuous courtyard fill above soil",
+    "fixed_pose": {
+      "location": [
+        5.272500038146973,
+        -4.430019378662109,
+        6.545000076293945
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "fixed_energy": 200.0,
+    "fixed_size": 8.0,
+    "fixed_shape": "DISK",
+    "fixed_receivers": [
+      "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "GyeSite.Estate.site.west field ground extension.pigment surface v48"
+    ],
+    "yard_max_height": 1.5,
+    "minimum_fill_height_above_yard": 5.045,
+    "architecture_and_garden_materials_preserved": true,
+    "existing_architecture_and_garden_direct_fill_preserved": true,
+    "note": "Indirect light may change slightly because corrected yard reflectance is physically coupled."
+  },
+  "all_existing_geometry_uv_transforms_equal": true,
+  "verified_existing_objects": 6135,
+  "existing_geometry_signature": "a60051f7a749e9757ef4f97fb1ca177df35f35489e0c7dbe404cdd32c9ce958c",
+  "new_objects": [
+    {
+      "name": "Living R5 | continuous courtyard fill above soil",
+      "type": "LIGHT"
+    }
+  ],
+  "original_soil_shader_unchanged": true,
+  "all_existing_light_data_equal": true,
+  "non_target_bindings_equal": true,
+  "saved_material_and_light_reloaded_equal": true,
+  "ground_scope_sha256": "12fffc0fcbf85558308b9899a8e5f9ed2c15a2ead5477261fc28308720ec0d62",
+  "scope_code_sha256": "5cbbe3d1faf06b0596a93cec75418fa7a479d56f92784710456c333aa1308ff8",
+  "light_code_sha256": "9a7e83776bc3418bf106af7b6b2e54b0df9edbb0d9aa214fddded5f5c68bfcdc",
+  "app_integrated": false
+}

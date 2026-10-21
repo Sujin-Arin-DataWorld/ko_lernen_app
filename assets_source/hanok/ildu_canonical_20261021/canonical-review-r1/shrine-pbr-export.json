@@ -1,0 +1,24 @@
+{
+  "gate": "shrine",
+  "key": "sadangmun",
+  "sourceNativeSha256": "d0424a1c0e5d8032a7dbb68fa2cad308655d0e9e36b9502bd648d46899d73f20",
+  "sourceNativeSaved": false,
+  "sourceMaterialsModified": false,
+  "sourceGeometryModified": false,
+  "partCount": 445,
+  "materialCount": 3,
+  "imageCount": 12,
+  "model": "sadangmun-pbr.glb",
+  "sha256": "f9a0825129e5fbcb9fa31f4268dbf4862122c22dd5aea063b176d437e099f776",
+  "atlasSize": 4096,
+  "channels": [
+    "baseColor",
+    "normal",
+    "roughnessMetallic",
+    "specular"
+  ],
+  "colorSource": "actual source shader bake, no arbitrary recolor",
+  "nativeRenderPixelParityClaimed": false,
+  "sourcePartsFile": "pbr\\shrine\\sadangmun-source-parts.json",
+  "continuousPaintUvReceipt": "paint-uv-verification.json"
+}

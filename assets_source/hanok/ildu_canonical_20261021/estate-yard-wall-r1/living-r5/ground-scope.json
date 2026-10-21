@@ -1,0 +1,554 @@
+{
+  "method": "World XY material footprint from current native wall bounds, with inward-only feather. Semantic areas are art-direction regions, not historical survey claims.",
+  "ownership_evidence": "ground-ownership.json; source-audit.json visible wall cores",
+  "preserve": [
+    "both cultivated garden materials",
+    "grass",
+    "all R3 walls",
+    "architecture geometry, UV, transforms",
+    "exterior outside footprint"
+  ],
+  "zones": [
+    {
+      "name": "interior piece 0",
+      "type": "scope",
+      "polygon": [
+        [
+          -23.6,
+          -3.5
+        ],
+        [
+          -23.5,
+          -10.3
+        ],
+        [
+          -11.2,
+          -12.4
+        ]
+      ],
+      "feather": 0.45,
+      "hard_edges": [
+        2
+      ]
+    },
+    {
+      "name": "interior piece 1",
+      "type": "scope",
+      "polygon": [
+        [
+          -23.6,
+          -3.5
+        ],
+        [
+          -11.2,
+          -12.4
+        ],
+        [
+          -1.8,
+          -15.1
+        ]
+      ],
+      "feather": 0.45,
+      "hard_edges": [
+        0,
+        2
+      ]
+    },
+    {
+      "name": "interior piece 2",
+      "type": "scope",
+      "polygon": [
+        [
+          -1.8,
+          -15.1
+        ],
+        [
+          -1.8,
+          -23.1
+        ],
+        [
+          14.82,
+          -21.1
+        ]
+      ],
+      "feather": 0.45,
+      "hard_edges": [
+        2
+      ]
+    },
+    {
+      "name": "interior piece 3",
+      "type": "scope",
+      "polygon": [
+        [
+          -23.6,
+          -3.5
+        ],
+        [
+          -1.8,
+          -15.1
+        ],
+        [
+          14.82,
+          -21.1
+        ],
+        [
+          29.5,
+          -21.1
+        ],
+        [
+          29.5,
+          0.1
+        ]
+      ],
+      "feather": 0.45,
+      "hard_edges": [
+        0,
+        1,
+        4
+      ]
+    },
+    {
+      "name": "interior piece 4",
+      "type": "scope",
+      "polygon": [
+        [
+          -23.6,
+          -3.5
+        ],
+        [
+          29.5,
+          0.1
+        ],
+        [
+          30.5,
+          2.5
+        ],
+        [
+          30.5,
+          18.7
+        ],
+        [
+          29.3,
+          28.5
+        ]
+      ],
+      "feather": 0.45,
+      "hard_edges": [
+        0,
+        4
+      ]
+    },
+    {
+      "name": "interior piece 5",
+      "type": "scope",
+      "polygon": [
+        [
+          29.3,
+          28.5
+        ],
+        [
+          41.5,
+          30.0
+        ],
+        [
+          42.5,
+          51.2
+        ]
+      ],
+      "feather": 0.45,
+      "hard_edges": [
+        2
+      ]
+    },
+    {
+      "name": "interior piece 6",
+      "type": "scope",
+      "polygon": [
+        [
+          -23.6,
+          -3.5
+        ],
+        [
+          29.3,
+          28.5
+        ],
+        [
+          42.5,
+          51.2
+        ],
+        [
+          39.2,
+          58.1
+        ],
+        [
+          3.1,
+          34.4
+        ]
+      ],
+      "feather": 0.45,
+      "hard_edges": [
+        0,
+        1,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "interior piece 7",
+      "type": "scope",
+      "polygon": [
+        [
+          39.2,
+          58.1
+        ],
+        [
+          3.2,
+          44.9
+        ],
+        [
+          3.1,
+          34.4
+        ]
+      ],
+      "feather": 0.45,
+      "hard_edges": [
+        2
+      ]
+    },
+    {
+      "name": "interior piece 8",
+      "type": "scope",
+      "polygon": [
+        [
+          -26.3,
+          31.0
+        ],
+        [
+          -25.1,
+          12.4
+        ],
+        [
+          -23.6,
+          -3.5
+        ],
+        [
+          3.1,
+          34.4
+        ]
+      ],
+      "feather": 0.45,
+      "hard_edges": [
+        2
+      ]
+    },
+    {
+      "name": "front lived courtyard",
+      "type": "front",
+      "feather": 2.3,
+      "polygon": [
+        [
+          -22,
+          -14
+        ],
+        [
+          14.8,
+          -23
+        ],
+        [
+          18,
+          -3
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          -18,
+          4
+        ]
+      ]
+    },
+    {
+      "name": "central household passages",
+      "type": "central",
+      "feather": 2.2,
+      "polygon": [
+        [
+          -17,
+          19
+        ],
+        [
+          -14,
+          2
+        ],
+        [
+          24,
+          -1
+        ],
+        [
+          29,
+          26
+        ],
+        [
+          2,
+          33
+        ]
+      ]
+    },
+    {
+      "name": "north open courtyard",
+      "type": "north",
+      "feather": 2.8,
+      "polygon": [
+        [
+          6,
+          48
+        ],
+        [
+          8,
+          30
+        ],
+        [
+          31,
+          27
+        ],
+        [
+          43,
+          31
+        ],
+        [
+          44,
+          53
+        ],
+        [
+          39,
+          60
+        ]
+      ]
+    },
+    {
+      "name": "west narrow approaches",
+      "type": "side",
+      "feather": 1.7,
+      "polygon": [
+        [
+          -27,
+          -8
+        ],
+        [
+          -17,
+          -7
+        ],
+        [
+          -12,
+          16
+        ],
+        [
+          -9,
+          32
+        ],
+        [
+          -27,
+          35
+        ]
+      ]
+    },
+    {
+      "name": "east sheltered approaches",
+      "type": "side",
+      "feather": 1.8,
+      "polygon": [
+        [
+          15,
+          -22
+        ],
+        [
+          31,
+          -22
+        ],
+        [
+          32,
+          28
+        ],
+        [
+          25,
+          28
+        ],
+        [
+          15,
+          -3
+        ]
+      ]
+    },
+    {
+      "name": "front gate to foundation consolidation",
+      "type": "tended",
+      "feather": 2.2,
+      "polygon": [
+        [
+          -7,
+          -11
+        ],
+        [
+          -0.2,
+          -10
+        ],
+        [
+          7,
+          -4
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          -7,
+          -5
+        ]
+      ]
+    },
+    {
+      "name": "central sheltered passage consolidation",
+      "type": "tended",
+      "feather": 1.3,
+      "polygon": [
+        [
+          -9,
+          0
+        ],
+        [
+          -5,
+          0
+        ],
+        [
+          1,
+          14
+        ],
+        [
+          -2,
+          17
+        ],
+        [
+          -7,
+          11
+        ]
+      ]
+    },
+    {
+      "name": "north entry open consolidation",
+      "type": "tended",
+      "feather": 4.0,
+      "polygon": [
+        [
+          6,
+          32
+        ],
+        [
+          28,
+          28
+        ],
+        [
+          37,
+          37
+        ],
+        [
+          35,
+          50
+        ],
+        [
+          17,
+          51
+        ],
+        [
+          6,
+          43
+        ]
+      ]
+    }
+  ],
+  "original_scope_polygon": [
+    [
+      -23.5,
+      -10.3
+    ],
+    [
+      -11.2,
+      -12.4
+    ],
+    [
+      -1.8,
+      -15.1
+    ],
+    [
+      -1.8,
+      -23.1
+    ],
+    [
+      14.82,
+      -21.1
+    ],
+    [
+      29.5,
+      -21.1
+    ],
+    [
+      29.5,
+      0.1
+    ],
+    [
+      30.5,
+      2.5
+    ],
+    [
+      30.5,
+      18.7
+    ],
+    [
+      29.3,
+      28.5
+    ],
+    [
+      41.5,
+      30.0
+    ],
+    [
+      42.5,
+      51.2
+    ],
+    [
+      39.2,
+      58.1
+    ],
+    [
+      3.2,
+      44.9
+    ],
+    [
+      3.1,
+      34.4
+    ],
+    [
+      -26.3,
+      31.0
+    ],
+    [
+      -25.1,
+      12.4
+    ],
+    [
+      -23.6,
+      -3.5
+    ]
+  ],
+  "scope_decomposition": {
+    "area_equal": true,
+    "piece_count": 9,
+    "internal_edges": "hard inclusion, no feather; union has no diagonal seams"
+  },
+  "consolidation_evidence": "Front gate / existing V paving / foundation approaches use actual full-camera plane projections; north density distribution is illustration art direction, not a historical footprint reconstruction."
+}

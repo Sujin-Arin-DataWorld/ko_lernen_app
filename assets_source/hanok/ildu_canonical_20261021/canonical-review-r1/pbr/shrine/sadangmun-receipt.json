@@ -1,0 +1,85 @@
+{
+  "owner": "sadangmun",
+  "file": "sadangmun.glb",
+  "bytes": 108847936,
+  "sha256": "3d6759d77e12b1b5c01c056a6002e8de6ce646b6a8f0bc5deb8426ea686dbe41",
+  "sourceParts": 445,
+  "candidateSha256": "d0424a1c0e5d8032a7dbb68fa2cad308655d0e9e36b9502bd648d46899d73f20",
+  "sourceSha256": "d0424a1c0e5d8032a7dbb68fa2cad308655d0e9e36b9502bd648d46899d73f20",
+  "bakeSamples": 4,
+  "movableParts": 445,
+  "doorDefinitions": 0,
+  "interactivePivots": 0,
+  "unboundLeafParts": 0,
+  "meshes": 445,
+  "nodes": 445,
+  "materials": 1,
+  "images": 4,
+  "normalMaterials": 1,
+  "uncompressed": true,
+  "atlasSize": 4096,
+  "channels": [
+    {
+      "channel": "baseColor",
+      "file": "sadangmun-baseColor.png",
+      "bytes": 47566006,
+      "sha256": "a03a833ac53bdc76176e91f601fcf432ff02e106adbcc89df0a75afbeb77d987",
+      "size": [
+        4096,
+        4096
+      ],
+      "colorSpace": "sRGB",
+      "pixelMin": 0.0,
+      "pixelMax": 0.7459879517555237,
+      "pixelStd": 0.19827798008918762
+    },
+    {
+      "channel": "normal",
+      "file": "sadangmun-normal.png",
+      "bytes": 35023467,
+      "sha256": "fbc4398eeb29e197df5e6276a1d984a0d9f420d4d04498892f139ca001892402",
+      "size": [
+        4096,
+        4096
+      ],
+      "colorSpace": "Non-Color",
+      "pixelMin": 0.1617133468389511,
+      "pixelMax": 0.7659745216369629,
+      "pixelStd": 0.007632389198988676,
+      "blueMinimum": 1.0536441550357267e-05,
+      "blueAtOrBelowHalfPixels": 13647,
+      "normalHemisphereCompatibilityApproved": false
+    },
+    {
+      "channel": "roughnessMetallic",
+      "file": "sadangmun-roughnessMetallic.png",
+      "bytes": 6997007,
+      "sha256": "11303bb0fe7eea30afe096141990f78ccb39ce3339675665b472222a28efd691",
+      "size": [
+        4096,
+        4096
+      ],
+      "colorSpace": "Non-Color",
+      "pixelMin": 1.0,
+      "pixelMax": 1.0,
+      "pixelStd": 0.0
+    },
+    {
+      "channel": "specular",
+      "file": "sadangmun-specular.png",
+      "bytes": 800157,
+      "sha256": "f59f1a2e92839863c9420938027c723afce8d938b0ced9d3a44fa89f6404f496",
+      "size": [
+        4096,
+        4096
+      ],
+      "colorSpace": "Non-Color",
+      "pixelMin": 1.0,
+      "pixelMax": 1.0,
+      "pixelStd": 0.0
+    }
+  ],
+  "sourcePartsFile": "sadangmun-source-parts.json",
+  "sourcePartsSha256": "80c99d93b0f1664d30e88b3f702be136681bcd3280e01cc19f2219449cec9b69",
+  "coordinateWarnings": []
+}

@@ -1,0 +1,141 @@
+{
+  "kind": "CPU-only secondary scope repair QA; not primary lighting-cause or native-render evidence",
+  "scope_sha256": "12fffc0fcbf85558308b9899a8e5f9ed2c15a2ead5477261fc28308720ec0d62",
+  "scope_patch_sha256": "5cbbe3d1faf06b0596a93cec75418fa7a479d56f92784710456c333aa1308ff8",
+  "global_outer_segment_count": 18,
+  "convex_piece_count": 9,
+  "global_feather_m": 0.45,
+  "internal_inclusion_tolerance_m": 1e-06,
+  "areas": {
+    "original": 3543.1400000000003,
+    "difference_from_sum_pieces": 0.0
+  },
+  "internal_edges": {
+    "unique_count": 8,
+    "all_paired": true,
+    "sample_positions_per_edge": 99,
+    "pair_offset_m": 0.01,
+    "eligible_pair_count": 754,
+    "old_nonunit_pair_count": 4,
+    "new_nonunit_pair_count": 0,
+    "old_maximum_pair_jump": 0.08637090803075065,
+    "new_maximum_pair_jump": 0,
+    "old_four_bad_pairs_rechecked": [
+      {
+        "midpoint": [
+          -12.191999999999998,
+          -11.688
+        ],
+        "sample_points": [
+          [
+            -12.186169040743756,
+            -11.679875966878944
+          ],
+          [
+            -12.19783095925624,
+            -11.696124033121057
+          ]
+        ],
+        "outer_distance": 0.5348942437745254,
+        "old_masks": [
+          0.987163669743299,
+          1
+        ],
+        "new_masks": [
+          1,
+          1
+        ],
+        "new_passed": true
+      },
+      {
+        "midpoint": [
+          -12.068,
+          -11.777000000000001
+        ],
+        "sample_points": [
+          [
+            -12.062169040743758,
+            -11.768875966878944
+          ],
+          [
+            -12.073830959256242,
+            -11.785124033121058
+          ]
+        ],
+        "outer_distance": 0.46803246330270887,
+        "old_masks": [
+          0.9136290919692494,
+          1
+        ],
+        "new_masks": [
+          1,
+          1
+        ],
+        "new_passed": true
+      },
+      {
+        "midpoint": [
+          13.656600000000001,
+          -20.68
+        ],
+        "sample_points": [
+          [
+            13.65999561020825,
+            -20.670594159723148
+          ],
+          [
+            13.653204389791751,
+            -20.68940584027685
+          ]
+        ],
+        "outer_distance": 0.5559888375901596,
+        "old_masks": [
+          0.9939084505469169,
+          1
+        ],
+        "new_masks": [
+          1,
+          1
+        ],
+        "new_passed": true
+      },
+      {
+        "midpoint": [
+          13.822799999999999,
+          -20.740000000000002
+        ],
+        "sample_points": [
+          [
+            13.826195610208249,
+            -20.73059415972315
+          ],
+          [
+            13.81940438979175,
+            -20.749405840276854
+          ]
+        ],
+        "outer_distance": 0.4765618607915635,
+        "old_masks": [
+          0.9152611305377285,
+          1
+        ],
+        "new_masks": [
+          1,
+          1
+        ],
+        "new_passed": true
+      }
+    ]
+  },
+  "grid": {
+    "step_m": 0.25,
+    "tested": 95092,
+    "boundary_points_skipped": 98,
+    "classification_mismatch_count": 0,
+    "outside_leak_count": 0,
+    "deep_interior_nonunit_count": 0,
+    "failure_examples": []
+  },
+  "passed": true,
+  "limitation": "Numerical equations mirror scope_patch.py; actual Blender node construction, float behaviour, exported library and final lighting proof remain root verification."
+}

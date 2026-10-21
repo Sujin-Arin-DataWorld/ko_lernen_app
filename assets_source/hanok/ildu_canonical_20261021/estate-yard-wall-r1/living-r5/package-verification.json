@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "native_library_sha256": "ece671ac893dc57fcbd7c6ad1312bd4e982ba59164a53fd43f6454322ad98f7f",
+  "rendered_images": 6,
+  "comparison_crops": 2,
+  "same_camera_samples_seed_resolution": true,
+  "lighting_intentionally_changed_only_for_yard_direct_receivers": true,
+  "existing_geometry_uv_transforms_equal": true,
+  "non_target_material_bindings_equal": true,
+  "app_integrated": false
+}

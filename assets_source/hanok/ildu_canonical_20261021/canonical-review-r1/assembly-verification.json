@@ -1,0 +1,142 @@
+{
+  "passed": true,
+  "native": "ildu-estate-r5-three-gates-canonical.blend",
+  "nativeSha256": "3195809855213946a330048b3b86cd3f75ccddac045dbaf640909cee4de36d48",
+  "source": "C:/dev/hangulsori/_codex_artifacts/ildu-r12-app-integration-20261015/surface-redesign-20261018/gate-rebuild/drawing-r4/estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+  "sourceSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+  "r5LibrarySha256": "ece671ac893dc57fcbd7c6ad1312bd4e982ba59164a53fd43f6454322ad98f7f",
+  "sourceObjectsPreserved": 6136,
+  "allOriginalGeometryUvTransformsEqual": true,
+  "newGateMembers": 1655,
+  "activeScene": "Hangul Sori | Full Ildu Estate",
+  "activeSceneObjects": 5600,
+  "activeSceneMeshCount": 5593,
+  "oldGatesExcludedFromActiveScene": true,
+  "assembly": [
+    {
+      "gate": "left",
+      "key": "left_changgo",
+      "sourceNativeSha256": "b0431b15ebe83529c59307cabea2e66be481ecc0a406df4f68e30e868606fed0",
+      "objectCount": 680,
+      "removedLegacyCount": 75,
+      "preservedWallCount": 61,
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -3.197999954223633
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          3.802000045776367
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.6000000238418579
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "placementBasis": "existing authored portal centre and existing site datum, rigid placement only; join review required"
+    },
+    {
+      "gate": "right",
+      "key": "right_ansarang",
+      "sourceNativeSha256": "6995b49bcbabf69dcca3e4a94cf4a3ec2b8af892f5d1223eb045133e229e88ca",
+      "objectCount": 530,
+      "removedLegacyCount": 80,
+      "preservedWallCount": 52,
+      "matrix": [
+        [
+          1.0,
+          2.384185791015625e-07,
+          0.0,
+          18.091999053955078
+        ],
+        [
+          -2.384185791015625e-07,
+          1.0,
+          0.0,
+          0.0829988420009613
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "placementBasis": "existing authored portal centre and existing site datum, rigid placement only; join review required"
+    },
+    {
+      "gate": "shrine",
+      "key": "sadangmun",
+      "sourceNativeSha256": "d0424a1c0e5d8032a7dbb68fa2cad308655d0e9e36b9502bd648d46899d73f20",
+      "objectCount": 445,
+      "removedLegacyCount": 89,
+      "preservedWallCount": 0,
+      "matrix": [
+        [
+          0.9990789890289307,
+          0.042909082025289536,
+          0.0,
+          19.8104305267334
+        ],
+        [
+          -0.042909082025289536,
+          0.9990789890289307,
+          0.0,
+          16.89568519592285
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "placementBasis": "existing authored portal centre and existing site datum, rigid placement only; join review required"
+    }
+  ],
+  "oldObjectsRetainedInLegacyScene": true,
+  "sourceFilesOverwritten": false,
+  "appIntegrated": false,
+  "assemblyVisualReview": "pending",
+  "placementIsSurveyRecertification": false
+}

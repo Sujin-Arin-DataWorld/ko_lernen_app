@@ -1,0 +1,835 @@
+{
+  "passed": true,
+  "gates": [
+    {
+      "key": "left_changgo",
+      "stages": [
+        {
+          "state": {
+            "azimuth": 0.6037493333974363,
+            "camera": [
+              5.411284521338373,
+              5.140720295271455,
+              7.846362555940641
+            ],
+            "distance": 10.829331035865486,
+            "error": null,
+            "key": "left_changgo",
+            "loaded": true,
+            "renderCount": 5,
+            "stage": 1,
+            "target": [
+              0,
+              0,
+              0
+            ],
+            "visibleMeshes": 20
+          },
+          "surface": {
+            "lighting": "illustrated",
+            "materialMode": "approved-native-shader-baked-PBR",
+            "materials": [
+              "c21e238c-bc7b-40d7-a981-5b69c5d650f1"
+            ],
+            "textures": [
+              "5889c738-501f-4e9f-8e6b-d63a4ce4e441",
+              "7193538e-336d-40f9-afdf-52a490ae2949",
+              "97bfddfb-33c0-42d6-b05a-0a0f0ea5d33e",
+              "df32781f-f633-4b52-bfa0-6ea31cb71018"
+            ]
+          }
+        },
+        {
+          "state": {
+            "azimuth": 0.6037493333974363,
+            "camera": [
+              5.411284521338373,
+              5.140720295271455,
+              7.846362555940641
+            ],
+            "distance": 10.829331035865486,
+            "error": null,
+            "key": "left_changgo",
+            "loaded": true,
+            "renderCount": 6,
+            "stage": 2,
+            "target": [
+              0,
+              0,
+              0
+            ],
+            "visibleMeshes": 42
+          },
+          "surface": {
+            "lighting": "illustrated",
+            "materialMode": "approved-native-shader-baked-PBR",
+            "materials": [
+              "c21e238c-bc7b-40d7-a981-5b69c5d650f1"
+            ],
+            "textures": [
+              "5889c738-501f-4e9f-8e6b-d63a4ce4e441",
+              "7193538e-336d-40f9-afdf-52a490ae2949",
+              "97bfddfb-33c0-42d6-b05a-0a0f0ea5d33e",
+              "df32781f-f633-4b52-bfa0-6ea31cb71018"
+            ]
+          }
+        },
+        {
+          "state": {
+            "azimuth": 0.6037493333974363,
+            "camera": [
+              5.411284521338373,
+              5.140720295271455,
+              7.846362555940641
+            ],
+            "distance": 10.829331035865486,
+            "error": null,
+            "key": "left_changgo",
+            "loaded": true,
+            "renderCount": 7,
+            "stage": 3,
+            "target": [
+              0,
+              0,
+              0
+            ],
+            "visibleMeshes": 112
+          },
+          "surface": {
+            "lighting": "illustrated",
+            "materialMode": "approved-native-shader-baked-PBR",
+            "materials": [
+              "c21e238c-bc7b-40d7-a981-5b69c5d650f1"
+            ],
+            "textures": [
+              "5889c738-501f-4e9f-8e6b-d63a4ce4e441",
+              "7193538e-336d-40f9-afdf-52a490ae2949",
+              "97bfddfb-33c0-42d6-b05a-0a0f0ea5d33e",
+              "df32781f-f633-4b52-bfa0-6ea31cb71018"
+            ]
+          }
+        },
+        {
+          "state": {
+            "azimuth": 0.6037493333974363,
+            "camera": [
+              5.411284521338373,
+              5.140720295271455,
+              7.846362555940641
+            ],
+            "distance": 10.829331035865486,
+            "error": null,
+            "key": "left_changgo",
+            "loaded": true,
+            "renderCount": 8,
+            "stage": 4,
+            "target": [
+              0,
+              0,
+              0
+            ],
+            "visibleMeshes": 128
+          },
+          "surface": {
+            "lighting": "illustrated",
+            "materialMode": "approved-native-shader-baked-PBR",
+            "materials": [
+              "c21e238c-bc7b-40d7-a981-5b69c5d650f1"
+            ],
+            "textures": [
+              "5889c738-501f-4e9f-8e6b-d63a4ce4e441",
+              "7193538e-336d-40f9-afdf-52a490ae2949",
+              "97bfddfb-33c0-42d6-b05a-0a0f0ea5d33e",
+              "df32781f-f633-4b52-bfa0-6ea31cb71018"
+            ]
+          }
+        },
+        {
+          "state": {
+            "azimuth": 0.6037493333974363,
+            "camera": [
+              5.411284521338373,
+              5.140720295271455,
+              7.846362555940641
+            ],
+            "distance": 10.829331035865486,
+            "error": null,
+            "key": "left_changgo",
+            "loaded": true,
+            "renderCount": 9,
+            "stage": 5,
+            "target": [
+              0,
+              0,
+              0
+            ],
+            "visibleMeshes": 622
+          },
+          "surface": {
+            "lighting": "illustrated",
+            "materialMode": "approved-native-shader-baked-PBR",
+            "materials": [
+              "c21e238c-bc7b-40d7-a981-5b69c5d650f1"
+            ],
+            "textures": [
+              "5889c738-501f-4e9f-8e6b-d63a4ce4e441",
+              "7193538e-336d-40f9-afdf-52a490ae2949",
+              "97bfddfb-33c0-42d6-b05a-0a0f0ea5d33e",
+              "df32781f-f633-4b52-bfa0-6ea31cb71018"
+            ]
+          }
+        },
+        {
+          "state": {
+            "azimuth": 0.6037493333974363,
+            "camera": [
+              5.411284521338373,
+              5.140720295271455,
+              7.846362555940641
+            ],
+            "distance": 10.829331035865486,
+            "error": null,
+            "key": "left_changgo",
+            "loaded": true,
+            "renderCount": 10,
+            "stage": 6,
+            "target": [
+              0,
+              0,
+              0
+            ],
+            "visibleMeshes": 680
+          },
+          "surface": {
+            "lighting": "illustrated",
+            "materialMode": "approved-native-shader-baked-PBR",
+            "materials": [
+              "c21e238c-bc7b-40d7-a981-5b69c5d650f1"
+            ],
+            "textures": [
+              "5889c738-501f-4e9f-8e6b-d63a4ce4e441",
+              "7193538e-336d-40f9-afdf-52a490ae2949",
+              "97bfddfb-33c0-42d6-b05a-0a0f0ea5d33e",
+              "df32781f-f633-4b52-bfa0-6ea31cb71018"
+            ]
+          }
+        }
+      ],
+      "sharedSurfaceStable": true
+    },
+    {
+      "key": "right_ansarang",
+      "stages": [
+        {
+          "state": {
+            "azimuth": 0.6037493333974364,
+            "camera": [
+              5.559371489644904,
+              5.2814029151626585,
+              8.06108865998511
+            ],
+            "distance": 11.125690023378583,
+            "error": null,
+            "key": "right_ansarang",
+            "loaded": true,
+            "renderCount": 13,
+            "stage": 1,
+            "target": [
+              0,
+              0,
+              0
+            ],
+            "visibleMeshes": 29
+          },
+          "surface": {
+            "lighting": "illustrated",
+            "materialMode": "approved-native-shader-baked-PBR",
+            "materials": [
+              "81a8fe6d-7379-44a4-bbe6-4ff7c42036c8"
+            ],
+            "textures": [
+              "2862b48d-4d8b-4dd5-ae57-7d3ee01d92c0",
+              "307f8440-cdeb-4343-9d01-e65b5facce72",
+              "6a535eba-9ff9-410a-82cb-e20581f5aecb",
+              "e6ec2d27-ede6-4f13-a8ee-8f5fceb483e2"
+            ]
+          }
+        },
+        {
+          "state": {
+            "azimuth": 0.6037493333974364,
+            "camera": [
+              5.559371489644904,
+              5.2814029151626585,
+              8.06108865998511
+            ],
+            "distance": 11.125690023378583,
+            "error": null,
+            "key": "right_ansarang",
+            "loaded": true,
+            "renderCount": 14,
+            "stage": 2,
+            "target": [
+              0,
+              0,
+              0
+            ],
+            "visibleMeshes": 50
+          },
+          "surface": {
+            "lighting": "illustrated",
+            "materialMode": "approved-native-shader-baked-PBR",
+            "materials": [
+              "81a8fe6d-7379-44a4-bbe6-4ff7c42036c8"
+            ],
+            "textures": [
+              "2862b48d-4d8b-4dd5-ae57-7d3ee01d92c0",
+              "307f8440-cdeb-4343-9d01-e65b5facce72",
+              "6a535eba-9ff9-410a-82cb-e20581f5aecb",
+              "e6ec2d27-ede6-4f13-a8ee-8f5fceb483e2"
+            ]
+          }
+        },
+        {
+          "state": {
+            "azimuth": 0.6037493333974364,
+            "camera": [
+              5.559371489644904,
+              5.2814029151626585,
+              8.06108865998511
+            ],
+            "distance": 11.125690023378583,
+            "error": null,
+            "key": "right_ansarang",
+            "loaded": true,
+            "renderCount": 15,
+            "stage": 3,
+            "target": [
+              0,
+              0,
+              0
+            ],
+            "visibleMeshes": 110
+          },
+          "surface": {
+            "lighting": "illustrated",
+            "materialMode": "approved-native-shader-baked-PBR",
+            "materials": [
+              "81a8fe6d-7379-44a4-bbe6-4ff7c42036c8"
+            ],
+            "textures": [
+              "2862b48d-4d8b-4dd5-ae57-7d3ee01d92c0",
+              "307f8440-cdeb-4343-9d01-e65b5facce72",
+              "6a535eba-9ff9-410a-82cb-e20581f5aecb",
+              "e6ec2d27-ede6-4f13-a8ee-8f5fceb483e2"
+            ]
+          }
+        },
+        {
+          "state": {
+            "azimuth": 0.6037493333974364,
+            "camera": [
+              5.559371489644904,
+              5.2814029151626585,
+              8.06108865998511
+            ],
+            "distance": 11.125690023378583,
+            "error": null,
+            "key": "right_ansarang",
+            "loaded": true,
+            "renderCount": 16,
+            "stage": 4,
+            "target": [
+              0,
+              0,
+              0
+            ],
+            "visibleMeshes": 126
+          },
+          "surface": {
+            "lighting": "illustrated",
+            "materialMode": "approved-native-shader-baked-PBR",
+            "materials": [
+              "81a8fe6d-7379-44a4-bbe6-4ff7c42036c8"
+            ],
+            "textures": [
+              "2862b48d-4d8b-4dd5-ae57-7d3ee01d92c0",
+              "307f8440-cdeb-4343-9d01-e65b5facce72",
+              "6a535eba-9ff9-410a-82cb-e20581f5aecb",
+              "e6ec2d27-ede6-4f13-a8ee-8f5fceb483e2"
+            ]
+          }
+        },
+        {
+          "state": {
+            "azimuth": 0.6037493333974364,
+            "camera": [
+              5.559371489644904,
+              5.2814029151626585,
+              8.06108865998511
+            ],
+            "distance": 11.125690023378583,
+            "error": null,
+            "key": "right_ansarang",
+            "loaded": true,
+            "renderCount": 17,
+            "stage": 5,
+            "target": [
+              0,
+              0,
+              0
+            ],
+            "visibleMeshes": 474
+          },
+          "surface": {
+            "lighting": "illustrated",
+            "materialMode": "approved-native-shader-baked-PBR",
+            "materials": [
+              "81a8fe6d-7379-44a4-bbe6-4ff7c42036c8"
+            ],
+            "textures": [
+              "2862b48d-4d8b-4dd5-ae57-7d3ee01d92c0",
+              "307f8440-cdeb-4343-9d01-e65b5facce72",
+              "6a535eba-9ff9-410a-82cb-e20581f5aecb",
+              "e6ec2d27-ede6-4f13-a8ee-8f5fceb483e2"
+            ]
+          }
+        },
+        {
+          "state": {
+            "azimuth": 0.6037493333974364,
+            "camera": [
+              5.559371489644904,
+              5.2814029151626585,
+              8.06108865998511
+            ],
+            "distance": 11.125690023378583,
+            "error": null,
+            "key": "right_ansarang",
+            "loaded": true,
+            "renderCount": 18,
+            "stage": 6,
+            "target": [
+              0,
+              0,
+              0
+            ],
+            "visibleMeshes": 530
+          },
+          "surface": {
+            "lighting": "illustrated",
+            "materialMode": "approved-native-shader-baked-PBR",
+            "materials": [
+              "81a8fe6d-7379-44a4-bbe6-4ff7c42036c8"
+            ],
+            "textures": [
+              "2862b48d-4d8b-4dd5-ae57-7d3ee01d92c0",
+              "307f8440-cdeb-4343-9d01-e65b5facce72",
+              "6a535eba-9ff9-410a-82cb-e20581f5aecb",
+              "e6ec2d27-ede6-4f13-a8ee-8f5fceb483e2"
+            ]
+          }
+        }
+      ],
+      "sharedSurfaceStable": true
+    },
+    {
+      "key": "sadangmun",
+      "stages": [
+        {
+          "state": {
+            "azimuth": 0.6037493333974363,
+            "camera": [
+              4.110918127982121,
+              3.9053722215830153,
+              5.960831285574075
+            ],
+            "distance": 8.226973298799685,
+            "error": null,
+            "key": "sadangmun",
+            "loaded": true,
+            "renderCount": 21,
+            "stage": 1,
+            "target": [
+              0,
+              0,
+              0
+            ],
+            "visibleMeshes": 3
+          },
+          "surface": {
+            "lighting": "illustrated",
+            "materialMode": "approved-native-shader-baked-PBR",
+            "materials": [
+              "1dac82b9-ae64-48f6-9c71-651072581981",
+              "56e75dca-0543-4d96-87ef-9077a949536e",
+              "c37743de-ebc6-42e1-a0d0-cfe46956da59"
+            ],
+            "textures": [
+              "06fc2853-3c82-468b-94af-413b38952ed2",
+              "0f56b1f6-5744-48cf-81df-c8f09d3e35d5",
+              "231ed026-9ee8-4bd0-9ab1-8eb751869db6",
+              "29d70a2a-01e3-4798-98a9-860880d9ecfd",
+              "39a17de2-1c64-4d6a-a234-841d62b48da4",
+              "4762974f-5344-4088-aa60-c90446ebd255",
+              "51bbf296-2b8f-466d-a898-2b2f7a96128c",
+              "53c6daba-0654-4f32-8c15-83b202cdb683",
+              "7997b667-056e-4b1b-a01c-ca7e866cef5d",
+              "9a474cb3-9491-4686-bff9-e128b6b66369",
+              "b98987ef-7ca1-4e11-8f0b-153fc32914ed",
+              "d407958d-bfe5-4f90-880b-0b18fe6d8a67"
+            ]
+          }
+        },
+        {
+          "state": {
+            "azimuth": 0.6037493333974363,
+            "camera": [
+              4.110918127982121,
+              3.9053722215830153,
+              5.960831285574075
+            ],
+            "distance": 8.226973298799685,
+            "error": null,
+            "key": "sadangmun",
+            "loaded": true,
+            "renderCount": 22,
+            "stage": 2,
+            "target": [
+              0,
+              0,
+              0
+            ],
+            "visibleMeshes": 9
+          },
+          "surface": {
+            "lighting": "illustrated",
+            "materialMode": "approved-native-shader-baked-PBR",
+            "materials": [
+              "1dac82b9-ae64-48f6-9c71-651072581981",
+              "56e75dca-0543-4d96-87ef-9077a949536e",
+              "c37743de-ebc6-42e1-a0d0-cfe46956da59"
+            ],
+            "textures": [
+              "06fc2853-3c82-468b-94af-413b38952ed2",
+              "0f56b1f6-5744-48cf-81df-c8f09d3e35d5",
+              "231ed026-9ee8-4bd0-9ab1-8eb751869db6",
+              "29d70a2a-01e3-4798-98a9-860880d9ecfd",
+              "39a17de2-1c64-4d6a-a234-841d62b48da4",
+              "4762974f-5344-4088-aa60-c90446ebd255",
+              "51bbf296-2b8f-466d-a898-2b2f7a96128c",
+              "53c6daba-0654-4f32-8c15-83b202cdb683",
+              "7997b667-056e-4b1b-a01c-ca7e866cef5d",
+              "9a474cb3-9491-4686-bff9-e128b6b66369",
+              "b98987ef-7ca1-4e11-8f0b-153fc32914ed",
+              "d407958d-bfe5-4f90-880b-0b18fe6d8a67"
+            ]
+          }
+        },
+        {
+          "state": {
+            "azimuth": 0.6037493333974363,
+            "camera": [
+              4.110918127982121,
+              3.9053722215830153,
+              5.960831285574075
+            ],
+            "distance": 8.226973298799685,
+            "error": null,
+            "key": "sadangmun",
+            "loaded": true,
+            "renderCount": 23,
+            "stage": 3,
+            "target": [
+              0,
+              0,
+              0
+            ],
+            "visibleMeshes": 18
+          },
+          "surface": {
+            "lighting": "illustrated",
+            "materialMode": "approved-native-shader-baked-PBR",
+            "materials": [
+              "1dac82b9-ae64-48f6-9c71-651072581981",
+              "56e75dca-0543-4d96-87ef-9077a949536e",
+              "c37743de-ebc6-42e1-a0d0-cfe46956da59"
+            ],
+            "textures": [
+              "06fc2853-3c82-468b-94af-413b38952ed2",
+              "0f56b1f6-5744-48cf-81df-c8f09d3e35d5",
+              "231ed026-9ee8-4bd0-9ab1-8eb751869db6",
+              "29d70a2a-01e3-4798-98a9-860880d9ecfd",
+              "39a17de2-1c64-4d6a-a234-841d62b48da4",
+              "4762974f-5344-4088-aa60-c90446ebd255",
+              "51bbf296-2b8f-466d-a898-2b2f7a96128c",
+              "53c6daba-0654-4f32-8c15-83b202cdb683",
+              "7997b667-056e-4b1b-a01c-ca7e866cef5d",
+              "9a474cb3-9491-4686-bff9-e128b6b66369",
+              "b98987ef-7ca1-4e11-8f0b-153fc32914ed",
+              "d407958d-bfe5-4f90-880b-0b18fe6d8a67"
+            ]
+          }
+        },
+        {
+          "state": {
+            "azimuth": 0.6037493333974363,
+            "camera": [
+              4.110918127982121,
+              3.9053722215830153,
+              5.960831285574075
+            ],
+            "distance": 8.226973298799685,
+            "error": null,
+            "key": "sadangmun",
+            "loaded": true,
+            "renderCount": 24,
+            "stage": 4,
+            "target": [
+              0,
+              0,
+              0
+            ],
+            "visibleMeshes": 25
+          },
+          "surface": {
+            "lighting": "illustrated",
+            "materialMode": "approved-native-shader-baked-PBR",
+            "materials": [
+              "1dac82b9-ae64-48f6-9c71-651072581981",
+              "56e75dca-0543-4d96-87ef-9077a949536e",
+              "c37743de-ebc6-42e1-a0d0-cfe46956da59"
+            ],
+            "textures": [
+              "06fc2853-3c82-468b-94af-413b38952ed2",
+              "0f56b1f6-5744-48cf-81df-c8f09d3e35d5",
+              "231ed026-9ee8-4bd0-9ab1-8eb751869db6",
+              "29d70a2a-01e3-4798-98a9-860880d9ecfd",
+              "39a17de2-1c64-4d6a-a234-841d62b48da4",
+              "4762974f-5344-4088-aa60-c90446ebd255",
+              "51bbf296-2b8f-466d-a898-2b2f7a96128c",
+              "53c6daba-0654-4f32-8c15-83b202cdb683",
+              "7997b667-056e-4b1b-a01c-ca7e866cef5d",
+              "9a474cb3-9491-4686-bff9-e128b6b66369",
+              "b98987ef-7ca1-4e11-8f0b-153fc32914ed",
+              "d407958d-bfe5-4f90-880b-0b18fe6d8a67"
+            ]
+          }
+        },
+        {
+          "state": {
+            "azimuth": 0.6037493333974363,
+            "camera": [
+              4.110918127982121,
+              3.9053722215830153,
+              5.960831285574075
+            ],
+            "distance": 8.226973298799685,
+            "error": null,
+            "key": "sadangmun",
+            "loaded": true,
+            "renderCount": 25,
+            "stage": 5,
+            "target": [
+              0,
+              0,
+              0
+            ],
+            "visibleMeshes": 89
+          },
+          "surface": {
+            "lighting": "illustrated",
+            "materialMode": "approved-native-shader-baked-PBR",
+            "materials": [
+              "1dac82b9-ae64-48f6-9c71-651072581981",
+              "56e75dca-0543-4d96-87ef-9077a949536e",
+              "c37743de-ebc6-42e1-a0d0-cfe46956da59"
+            ],
+            "textures": [
+              "06fc2853-3c82-468b-94af-413b38952ed2",
+              "0f56b1f6-5744-48cf-81df-c8f09d3e35d5",
+              "231ed026-9ee8-4bd0-9ab1-8eb751869db6",
+              "29d70a2a-01e3-4798-98a9-860880d9ecfd",
+              "39a17de2-1c64-4d6a-a234-841d62b48da4",
+              "4762974f-5344-4088-aa60-c90446ebd255",
+              "51bbf296-2b8f-466d-a898-2b2f7a96128c",
+              "53c6daba-0654-4f32-8c15-83b202cdb683",
+              "7997b667-056e-4b1b-a01c-ca7e866cef5d",
+              "9a474cb3-9491-4686-bff9-e128b6b66369",
+              "b98987ef-7ca1-4e11-8f0b-153fc32914ed",
+              "d407958d-bfe5-4f90-880b-0b18fe6d8a67"
+            ]
+          }
+        },
+        {
+          "state": {
+            "azimuth": 0.6037493333974363,
+            "camera": [
+              4.110918127982121,
+              3.9053722215830153,
+              5.960831285574075
+            ],
+            "distance": 8.226973298799685,
+            "error": null,
+            "key": "sadangmun",
+            "loaded": true,
+            "renderCount": 26,
+            "stage": 6,
+            "target": [
+              0,
+              0,
+              0
+            ],
+            "visibleMeshes": 384
+          },
+          "surface": {
+            "lighting": "illustrated",
+            "materialMode": "approved-native-shader-baked-PBR",
+            "materials": [
+              "1dac82b9-ae64-48f6-9c71-651072581981",
+              "56e75dca-0543-4d96-87ef-9077a949536e",
+              "c37743de-ebc6-42e1-a0d0-cfe46956da59"
+            ],
+            "textures": [
+              "06fc2853-3c82-468b-94af-413b38952ed2",
+              "0f56b1f6-5744-48cf-81df-c8f09d3e35d5",
+              "231ed026-9ee8-4bd0-9ab1-8eb751869db6",
+              "29d70a2a-01e3-4798-98a9-860880d9ecfd",
+              "39a17de2-1c64-4d6a-a234-841d62b48da4",
+              "4762974f-5344-4088-aa60-c90446ebd255",
+              "51bbf296-2b8f-466d-a898-2b2f7a96128c",
+              "53c6daba-0654-4f32-8c15-83b202cdb683",
+              "7997b667-056e-4b1b-a01c-ca7e866cef5d",
+              "9a474cb3-9491-4686-bff9-e128b6b66369",
+              "b98987ef-7ca1-4e11-8f0b-153fc32914ed",
+              "d407958d-bfe5-4f90-880b-0b18fe6d8a67"
+            ]
+          }
+        },
+        {
+          "state": {
+            "azimuth": 0.6037493333974363,
+            "camera": [
+              4.110918127982121,
+              3.9053722215830153,
+              5.960831285574075
+            ],
+            "distance": 8.226973298799685,
+            "error": null,
+            "key": "sadangmun",
+            "loaded": true,
+            "renderCount": 27,
+            "stage": 7,
+            "target": [
+              0,
+              0,
+              0
+            ],
+            "visibleMeshes": 443
+          },
+          "surface": {
+            "lighting": "illustrated",
+            "materialMode": "approved-native-shader-baked-PBR",
+            "materials": [
+              "1dac82b9-ae64-48f6-9c71-651072581981",
+              "56e75dca-0543-4d96-87ef-9077a949536e",
+              "c37743de-ebc6-42e1-a0d0-cfe46956da59"
+            ],
+            "textures": [
+              "06fc2853-3c82-468b-94af-413b38952ed2",
+              "0f56b1f6-5744-48cf-81df-c8f09d3e35d5",
+              "231ed026-9ee8-4bd0-9ab1-8eb751869db6",
+              "29d70a2a-01e3-4798-98a9-860880d9ecfd",
+              "39a17de2-1c64-4d6a-a234-841d62b48da4",
+              "4762974f-5344-4088-aa60-c90446ebd255",
+              "51bbf296-2b8f-466d-a898-2b2f7a96128c",
+              "53c6daba-0654-4f32-8c15-83b202cdb683",
+              "7997b667-056e-4b1b-a01c-ca7e866cef5d",
+              "9a474cb3-9491-4686-bff9-e128b6b66369",
+              "b98987ef-7ca1-4e11-8f0b-153fc32914ed",
+              "d407958d-bfe5-4f90-880b-0b18fe6d8a67"
+            ]
+          }
+        },
+        {
+          "state": {
+            "azimuth": 0.6037493333974363,
+            "camera": [
+              4.110918127982121,
+              3.9053722215830153,
+              5.960831285574075
+            ],
+            "distance": 8.226973298799685,
+            "error": null,
+            "key": "sadangmun",
+            "loaded": true,
+            "renderCount": 28,
+            "stage": 8,
+            "target": [
+              0,
+              0,
+              0
+            ],
+            "visibleMeshes": 445
+          },
+          "surface": {
+            "lighting": "illustrated",
+            "materialMode": "approved-native-shader-baked-PBR",
+            "materials": [
+              "1dac82b9-ae64-48f6-9c71-651072581981",
+              "56e75dca-0543-4d96-87ef-9077a949536e",
+              "c37743de-ebc6-42e1-a0d0-cfe46956da59"
+            ],
+            "textures": [
+              "06fc2853-3c82-468b-94af-413b38952ed2",
+              "0f56b1f6-5744-48cf-81df-c8f09d3e35d5",
+              "231ed026-9ee8-4bd0-9ab1-8eb751869db6",
+              "29d70a2a-01e3-4798-98a9-860880d9ecfd",
+              "39a17de2-1c64-4d6a-a234-841d62b48da4",
+              "4762974f-5344-4088-aa60-c90446ebd255",
+              "51bbf296-2b8f-466d-a898-2b2f7a96128c",
+              "53c6daba-0654-4f32-8c15-83b202cdb683",
+              "7997b667-056e-4b1b-a01c-ca7e866cef5d",
+              "9a474cb3-9491-4686-bff9-e128b6b66369",
+              "b98987ef-7ca1-4e11-8f0b-153fc32914ed",
+              "d407958d-bfe5-4f90-880b-0b18fe6d8a67"
+            ]
+          }
+        }
+      ],
+      "sharedSurfaceStable": true
+    }
+  ],
+  "responsive": [
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "viewer": {
+        "bottom": 901.484375,
+        "height": 471.953125,
+        "left": 16,
+        "right": 386,
+        "top": 429.53125,
+        "width": 370,
+        "x": 16,
+        "y": 429.53125
+      },
+      "width": 402
+    },
+    {
+      "brokenImages": [],
+      "overflow": false,
+      "viewer": {
+        "bottom": 956.46875,
+        "height": 471.953125,
+        "left": 16,
+        "right": 304,
+        "top": 484.515625,
+        "width": 288,
+        "x": 16,
+        "y": 484.515625
+      },
+      "width": 320
+    }
+  ]
+}

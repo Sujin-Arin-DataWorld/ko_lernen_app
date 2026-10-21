@@ -1,0 +1,100 @@
+{
+  "passed": true,
+  "views": [
+    {
+      "images": [
+        {
+          "h": 960,
+          "loaded": true,
+          "src": "detail-A.png",
+          "w": 1280
+        },
+        {
+          "h": 960,
+          "loaded": true,
+          "src": "detail-B.png",
+          "w": 1280
+        }
+      ],
+      "split": "100",
+      "view": "detail"
+    },
+    {
+      "images": [
+        {
+          "h": 960,
+          "loaded": true,
+          "src": "overview-A.png",
+          "w": 1280
+        },
+        {
+          "h": 960,
+          "loaded": true,
+          "src": "overview-B.png",
+          "w": 1280
+        }
+      ],
+      "split": "100",
+      "view": "overview"
+    },
+    {
+      "images": [
+        {
+          "h": 960,
+          "loaded": true,
+          "src": "full-A.png",
+          "w": 1280
+        },
+        {
+          "h": 960,
+          "loaded": true,
+          "src": "full-B.png",
+          "w": 1280
+        }
+      ],
+      "split": "100",
+      "view": "full"
+    },
+    {
+      "images": [
+        {
+          "h": 250,
+          "loaded": true,
+          "src": "seam-A.png",
+          "w": 465
+        },
+        {
+          "h": 250,
+          "loaded": true,
+          "src": "seam-B.png",
+          "w": 465
+        }
+      ],
+      "split": "100",
+      "view": "seam"
+    }
+  ],
+  "keyboardHomeArrowRight": "1",
+  "final": {
+    "displayWidth": 477,
+    "documentWidth": 852,
+    "images": [
+      {
+        "h": 250,
+        "loaded": true,
+        "src": "seam-A.png",
+        "w": 465
+      },
+      {
+        "h": 250,
+        "loaded": true,
+        "src": "seam-B.png",
+        "w": 465
+      }
+    ],
+    "split": "100",
+    "title": "일두고택 · 흙마당 경계 수정",
+    "url": "http://127.0.0.1:8866/surface-redesign-20261018/gate-rebuild/drawing-r4/estate-yard-wall-r1/living-r5/index.html",
+    "width": 867
+  }
+}

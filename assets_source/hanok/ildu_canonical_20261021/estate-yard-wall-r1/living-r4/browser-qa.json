@@ -1,0 +1,73 @@
+{
+  "passed": true,
+  "observed": {
+    "buttons": [
+      {
+        "height": 48,
+        "text": "마당 가까이"
+      },
+      {
+        "height": 48,
+        "text": "마당 전체"
+      },
+      {
+        "height": 48,
+        "text": "고택 전체"
+      },
+      {
+        "height": 48,
+        "text": "크게 보기"
+      },
+      {
+        "height": 48,
+        "text": "기존 A만 보기"
+      },
+      {
+        "height": 48,
+        "text": "새 표면 B만 보기"
+      },
+      {
+        "height": 48,
+        "text": "반씩 비교"
+      }
+    ],
+    "documentWidth": 595,
+    "images": [
+      {
+        "complete": true,
+        "displayWidth": 477,
+        "natural": [
+          1280,
+          960
+        ],
+        "src": "full-A.png"
+      },
+      {
+        "complete": true,
+        "displayWidth": 477,
+        "natural": [
+          1280,
+          960
+        ],
+        "src": "full-B.png"
+      }
+    ],
+    "small": true,
+    "split": "100",
+    "status": "같은 카메라·조명입니다. 기존 A와 새 표면 B를 버튼이나 키보드 방향키로 비교하세요.",
+    "viewport": [
+      610,
+      668
+    ]
+  },
+  "verifiedViews": [
+    "full",
+    "overview",
+    "detail"
+  ],
+  "aOnly": 0,
+  "bOnly": 100,
+  "keyboardHomeArrowRight": 1,
+  "horizontalOverflow": false,
+  "scope": "local browser review only; no Flutter integration"
+}

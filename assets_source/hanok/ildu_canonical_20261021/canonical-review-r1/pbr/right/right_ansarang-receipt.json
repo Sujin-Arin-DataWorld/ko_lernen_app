@@ -1,0 +1,85 @@
+{
+  "owner": "right_ansarang",
+  "file": "right_ansarang.glb",
+  "bytes": 148294228,
+  "sha256": "d58df361bb57341751c9fb3fd2073f6d9a4cfe87079941e5f6f10ad724e95e6d",
+  "sourceParts": 530,
+  "candidateSha256": "6995b49bcbabf69dcca3e4a94cf4a3ec2b8af892f5d1223eb045133e229e88ca",
+  "sourceSha256": "6995b49bcbabf69dcca3e4a94cf4a3ec2b8af892f5d1223eb045133e229e88ca",
+  "bakeSamples": 4,
+  "movableParts": 530,
+  "doorDefinitions": 0,
+  "interactivePivots": 0,
+  "unboundLeafParts": 0,
+  "meshes": 530,
+  "nodes": 530,
+  "materials": 1,
+  "images": 4,
+  "normalMaterials": 1,
+  "uncompressed": true,
+  "atlasSize": 4096,
+  "channels": [
+    {
+      "channel": "baseColor",
+      "file": "right_ansarang-baseColor.png",
+      "bytes": 50843271,
+      "sha256": "c7b9f120f7455bc815ba0aa64b35e8c11232805fb2001224f89bff0e0ec5a482",
+      "size": [
+        4096,
+        4096
+      ],
+      "colorSpace": "sRGB",
+      "pixelMin": 0.0,
+      "pixelMax": 0.8278322219848633,
+      "pixelStd": 0.26210013031959534
+    },
+    {
+      "channel": "normal",
+      "file": "right_ansarang-normal.png",
+      "bytes": 40339601,
+      "sha256": "dedd474cbc85d83be93da30390b5bf44af5982082571a8cc3265a445ac666a6e",
+      "size": [
+        4096,
+        4096
+      ],
+      "colorSpace": "Non-Color",
+      "pixelMin": 0.010169700719416142,
+      "pixelMax": 0.9951536059379578,
+      "pixelStd": 0.012081685476005077,
+      "blueMinimum": 1.0298022971255705e-05,
+      "blueAtOrBelowHalfPixels": 13547,
+      "normalHemisphereCompatibilityApproved": false
+    },
+    {
+      "channel": "roughnessMetallic",
+      "file": "right_ansarang-roughnessMetallic.png",
+      "bytes": 7471285,
+      "sha256": "80aa53cc1654e4ec1e5baa1c579d488f8159b0d85132ac82eaa9592c87d1f42d",
+      "size": [
+        4096,
+        4096
+      ],
+      "colorSpace": "Non-Color",
+      "pixelMin": 1.0,
+      "pixelMax": 1.0,
+      "pixelStd": 0.0
+    },
+    {
+      "channel": "specular",
+      "file": "right_ansarang-specular.png",
+      "bytes": 827208,
+      "sha256": "cd9ae1a5c506efaeac2c071d5ace8f0389b16548ef9423cdfdfb718018307699",
+      "size": [
+        4096,
+        4096
+      ],
+      "colorSpace": "Non-Color",
+      "pixelMin": 1.0,
+      "pixelMax": 1.0,
+      "pixelStd": 0.0
+    }
+  ],
+  "sourcePartsFile": "right_ansarang-source-parts.json",
+  "sourcePartsSha256": "b1581e507a13c5281a6395f152f75ead93ef19f8322c5b362cfe14d0a9de97d4",
+  "coordinateWarnings": []
+}

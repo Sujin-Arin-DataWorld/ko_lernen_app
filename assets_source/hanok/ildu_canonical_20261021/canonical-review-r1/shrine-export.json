@@ -1,0 +1,12 @@
+{
+  "gate": "shrine",
+  "key": "sadangmun",
+  "sourceNativeSha256": "d0424a1c0e5d8032a7dbb68fa2cad308655d0e9e36b9502bd648d46899d73f20",
+  "objectCount": 445,
+  "model": "sadangmun.glb",
+  "sha256": "3a8e5e7e5732a656f1ee321ba9a182c617b41c5d731987e12cf2f740969aba7a",
+  "bytes": 8653332,
+  "sourceNativeSaved": false,
+  "materials": "neutral structural preview; native shaders untouched",
+  "geometry": "exact evaluated source, no decimation or scale"
+}

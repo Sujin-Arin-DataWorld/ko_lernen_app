@@ -1,0 +1,335 @@
+{
+  "source": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\estate-yard-wall-r1\\ildu-estate-yard-wall-r1.blend",
+  "method": "viewport depsgraph first-hit, alpha-unaware; sampled actual full-view pixels",
+  "camera": {
+    "location": [
+      -31.79344940185547,
+      -40.955894470214844,
+      66.74041748046875
+    ],
+    "rotation": [
+      0.8604140877723694,
+      -7.433416726598807e-08,
+      -0.6107259392738342
+    ],
+    "ortho_scale": 91.33671569824219,
+    "samples": 24,
+    "resolution": [
+      1280,
+      960
+    ],
+    "engine": "CYCLES CPU",
+    "threads": 8,
+    "persistent_data": true,
+    "lights_preserved": true,
+    "source_colour_management_preserved": true
+  },
+  "hits": [
+    {
+      "pixel": [
+        650,
+        200
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "position": [
+        29.8546085357666,
+        45.86844253540039,
+        1.5
+      ],
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "hide_render": false
+    },
+    {
+      "pixel": [
+        780,
+        230
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "position": [
+        35.571632385253906,
+        37.85951232910156,
+        1.5
+      ],
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "hide_render": false
+    },
+    {
+      "pixel": [
+        590,
+        290
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "position": [
+        20.699682235717773,
+        40.255863189697266,
+        1.5000076293945312
+      ],
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "hide_render": false
+    },
+    {
+      "pixel": [
+        490,
+        300
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "position": [
+        14.226417541503906,
+        43.45149230957031,
+        1.5
+      ],
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "hide_render": false
+    },
+    {
+      "pixel": [
+        750,
+        330
+      ],
+      "object": "North.sadang.roof.ridge course 5",
+      "position": [
+        24.13168716430664,
+        25.249683380126953,
+        6.616889953613281
+      ],
+      "material": "HS roof charcoal | sadang | Selected timber v2 | sadang | P15 tile sadang board axis1 | Gye cared charcoal clay v52",
+      "hide_render": false
+    },
+    {
+      "pixel": [
+        840,
+        760
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "position": [
+        6.821857452392578,
+        -10.677486419677734,
+        -3.814697265625e-06
+      ],
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "hide_render": false
+    },
+    {
+      "pixel": [
+        790,
+        800
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "position": [
+        1.3889846801757812,
+        -12.217159271240234,
+        3.814697265625e-06
+      ],
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "hide_render": false
+    },
+    {
+      "pixel": [
+        950,
+        720
+      ],
+      "object": "ConnectionGarden.wall1.ochre core",
+      "position": [
+        14.948862075805664,
+        -12.754947662353516,
+        1.2199974060058594
+      ],
+      "material": "YW1 mortar | HS lower earth r1 | 01 body",
+      "hide_render": false
+    },
+    {
+      "pixel": [
+        680,
+        805
+      ],
+      "object": "PhotoGate.roof2.003",
+      "position": [
+        -7.530019760131836,
+        -11.271121978759766,
+        3.2623558044433594
+      ],
+      "material": "HS gate r2 | main_gate | bbdf27823613",
+      "hide_render": false
+    },
+    {
+      "pixel": [
+        680,
+        500
+      ],
+      "object": "North.anchae.roof.002",
+      "position": [
+        10.129859924316406,
+        13.957279205322266,
+        5.480442047119141
+      ],
+      "material": "HS roof charcoal | anchae | Selected timber v2 | anchae | P18 image.anchae.tile.P15 tile anchae board axis1 | Anchae p8 B · roof-field",
+      "hide_render": false
+    },
+    {
+      "pixel": [
+        760,
+        580
+      ],
+      "object": "Sarang.main roof.003",
+      "position": [
+        9.97871208190918,
+        3.7868309020996094,
+        5.1921539306640625
+      ],
+      "material": "Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52",
+      "hide_render": false
+    },
+    {
+      "pixel": [
+        530,
+        620
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "position": [
+        -3.191112518310547,
+        13.592048645019531,
+        1.0139923095703125
+      ],
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "hide_render": false
+    },
+    {
+      "pixel": [
+        700,
+        470
+      ],
+      "object": "North.anchae.roof",
+      "position": [
+        14.052815437316895,
+        17.0728759765625,
+        4.1734619140625
+      ],
+      "material": "HS roof charcoal | anchae | Selected timber v2 | anchae | P18 image.anchae.tile.P15 tile anchae board axis1 | Anchae p8 B · roof-field",
+      "hide_render": false
+    },
+    {
+      "pixel": [
+        950,
+        620
+      ],
+      "object": "V32.ansarang.foundation terrace slabs.003",
+      "position": [
+        21.71403694152832,
+        -3.090412139892578,
+        0.4846595525741577
+      ],
+      "material": "Selected timber v2 | ansarang | P18 image.ansarang.stone.P15 stone ansarang board axis1 | Gye cared warm fieldstone v52",
+      "hide_render": false
+    },
+    {
+      "pixel": [
+        250,
+        570
+      ],
+      "object": "GyeGrass.solidLeaves.front_left.v55",
+      "position": [
+        -16.650638580322266,
+        29.204986572265625,
+        1.3572273254394531
+      ],
+      "material": "Gye solid curved leaves v55",
+      "hide_render": false
+    },
+    {
+      "pixel": [
+        420,
+        355
+      ],
+      "object": "Estate.garden.arae.unplanted beds",
+      "position": [
+        6.666919708251953,
+        41.3624267578125,
+        1.5243377685546875
+      ],
+      "material": "YW1 garden | Garden worked earth with quiet pigment",
+      "hide_render": false
+    }
+  ],
+  "earth_objects": [
+    {
+      "object": "Estate.garden.arae.unplanted beds",
+      "materials": [
+        "YW1 garden | Garden worked earth with quiet pigment"
+      ],
+      "hide_render": false,
+      "visible": true,
+      "bounds": [
+        [
+          4.3061933517456055,
+          34.675113677978516,
+          1.50600004196167
+        ],
+        [
+          8.494625091552734,
+          43.434165954589844,
+          1.6412290334701538
+        ]
+      ]
+    },
+    {
+      "object": "Estate.garden.changgo.unplanted beds",
+      "materials": [
+        "YW1 garden | Garden worked earth with quiet pigment"
+      ],
+      "hide_render": false,
+      "visible": true,
+      "bounds": [
+        [
+          -24.398452758789062,
+          15.066427230834961,
+          1.2825908660888672
+        ],
+        [
+          -16.11621856689453,
+          29.645160675048828,
+          1.422463059425354
+        ]
+      ]
+    },
+    {
+      "object": "GyeSite.Estate.site.west field ground extension.pigment surface v48",
+      "materials": [
+        "YW1 yard | Illustrated lived courtyard earth"
+      ],
+      "hide_render": false,
+      "visible": true,
+      "bounds": [
+        [
+          -45.0,
+          52.0,
+          1.2799999713897705
+        ],
+        [
+          52.0,
+          60.282188415527344,
+          1.5
+        ]
+      ]
+    },
+    {
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "materials": [
+        "YW1 yard | Illustrated lived courtyard earth"
+      ],
+      "hide_render": false,
+      "visible": true,
+      "bounds": [
+        [
+          -45.0,
+          -38.0,
+          0.0
+        ],
+        [
+          52.0,
+          52.0,
+          1.5
+        ]
+      ]
+    }
+  ]
+}

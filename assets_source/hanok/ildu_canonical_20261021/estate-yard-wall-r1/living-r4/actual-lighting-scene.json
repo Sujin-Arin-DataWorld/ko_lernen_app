@@ -1,0 +1,125 @@
+{
+  "lights": [
+    {
+      "name": "Warm estate | P16 broad warm daylight.005",
+      "kind": "SUN",
+      "location": [
+        -22.0,
+        8.0,
+        30.0
+      ],
+      "rotation": [
+        0.8503778576850891,
+        -8.996272171657438e-09,
+        -1.2120256423950195
+      ],
+      "energy": 2.5999999046325684,
+      "hide_render": false,
+      "angle": 0.24434609711170197,
+      "size": null
+    },
+    {
+      "name": "Warm estate | P16 broad soft sky.005",
+      "kind": "AREA",
+      "location": [
+        -8.0,
+        18.0,
+        18.0
+      ],
+      "rotation": [
+        0.8790737390518188,
+        8.373822879548243e-08,
+        -1.460139274597168
+      ],
+      "energy": 900.0,
+      "hide_render": false,
+      "angle": null,
+      "size": 22.0
+    },
+    {
+      "name": "Warm estate | P16 broad front reflected daylight.005",
+      "kind": "AREA",
+      "location": [
+        2.2725000381469727,
+        -9.43001937866211,
+        10.545000076293945
+      ],
+      "rotation": [
+        1.1264078617095947,
+        7.015478864502711e-09,
+        -0.07457225769758224
+      ],
+      "energy": 600.0,
+      "hide_render": false,
+      "angle": null,
+      "size": 14.0
+    },
+    {
+      "name": "Warm estate | P16 broad rear reflected daylight.005",
+      "kind": "AREA",
+      "location": [
+        12.272500038146973,
+        10.56998062133789,
+        13.545000076293945
+      ],
+      "rotation": [
+        0.71787428855896,
+        2.0496647934464818e-08,
+        1.9572807550430298
+      ],
+      "energy": 350.0,
+      "hide_render": false,
+      "angle": null,
+      "size": 15.0
+    },
+    {
+      "name": "Warm estate | P16 low broad courtyard reflection.005",
+      "kind": "AREA",
+      "location": [
+        5.272500038146973,
+        -4.430019378662109,
+        2.5450000762939453
+      ],
+      "rotation": [
+        1.5841962099075317,
+        -1.3961198419565335e-08,
+        0.15384867787361145
+      ],
+      "energy": 200.0,
+      "hide_render": false,
+      "angle": null,
+      "size": 8.0
+    }
+  ],
+  "volume_objects": [],
+  "use_nodes": true,
+  "compositor": [
+    {
+      "name": "렌더 레이어",
+      "type": "R_LAYERS"
+    },
+    {
+      "name": "색상",
+      "type": "RGB"
+    },
+    {
+      "name": "알파 오버",
+      "type": "ALPHAOVER"
+    },
+    {
+      "name": "그룹 출력",
+      "type": "GROUP_OUTPUT"
+    }
+  ],
+  "compositor_api": [
+    "compositing_node_group",
+    "use_nodes"
+  ],
+  "layers": [
+    {
+      "name": "뷰 레이어",
+      "use": true,
+      "override": null
+    }
+  ]
+}

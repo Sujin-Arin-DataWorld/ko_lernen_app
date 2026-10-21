@@ -1,0 +1,136 @@
+{
+  "geometryLocked": true,
+  "rule": "Each member uses its approved final material and the same UV/procedural coordinates from first appearance through completion; no stage-specific recoloring, texture reseeding or baked finished-building shadows.",
+  "pilotBuilding": "sadangmun",
+  "pilotScope": "live illustration lighting, faithful approved material transfer",
+  "buildings": [
+    {
+      "key": "sarang",
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "currentViewerMaterial": "structural-only; approved surface in linked native renders",
+      "materialReceipt": null,
+      "steps": 16
+    },
+    {
+      "key": "ansarang",
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "currentViewerMaterial": "structural-only; approved surface in linked native renders",
+      "materialReceipt": null,
+      "steps": 14
+    },
+    {
+      "key": "anchae",
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "currentViewerMaterial": "structural-only; approved surface in linked native renders",
+      "materialReceipt": null,
+      "steps": 14
+    },
+    {
+      "key": "sadang",
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "currentViewerMaterial": "structural-only; approved surface in linked native renders",
+      "materialReceipt": null,
+      "steps": 12
+    },
+    {
+      "key": "jung",
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "currentViewerMaterial": "structural-only; approved surface in linked native renders",
+      "materialReceipt": null,
+      "steps": 12
+    },
+    {
+      "key": "arae",
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "currentViewerMaterial": "structural-only; approved surface in linked native renders",
+      "materialReceipt": null,
+      "steps": 12
+    },
+    {
+      "key": "gokgan",
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "currentViewerMaterial": "structural-only; approved surface in linked native renders",
+      "materialReceipt": null,
+      "steps": 11
+    },
+    {
+      "key": "angotgan",
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "currentViewerMaterial": "structural-only; approved surface in linked native renders",
+      "materialReceipt": null,
+      "steps": 11
+    },
+    {
+      "key": "changgo",
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "currentViewerMaterial": "structural-only; approved surface in linked native renders",
+      "materialReceipt": null,
+      "steps": 8
+    },
+    {
+      "key": "toilet",
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "currentViewerMaterial": "structural-only; approved surface in linked native renders",
+      "materialReceipt": null,
+      "steps": 9
+    },
+    {
+      "key": "toilet1",
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "currentViewerMaterial": "structural-only; approved surface in linked native renders",
+      "materialReceipt": null,
+      "steps": 9
+    },
+    {
+      "key": "main_gate",
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "currentViewerMaterial": "structural-only; approved surface in linked native renders",
+      "materialReceipt": null,
+      "steps": 12
+    },
+    {
+      "key": "left_changgo",
+      "native": "../left-new.blend",
+      "nativeSha256": "b0431b15ebe83529c59307cabea2e66be481ecc0a406df4f68e30e868606fed0",
+      "currentViewerMaterial": "approved-native-shader-baked-PBR",
+      "materialReceipt": "left-pbr-export.json",
+      "steps": 6
+    },
+    {
+      "key": "right_ansarang",
+      "native": "../right-new.blend",
+      "nativeSha256": "6995b49bcbabf69dcca3e4a94cf4a3ec2b8af892f5d1223eb045133e229e88ca",
+      "currentViewerMaterial": "approved-native-shader-baked-PBR",
+      "materialReceipt": "right-pbr-export.json",
+      "steps": 6
+    },
+    {
+      "key": "sadangmun",
+      "native": "../shrine-new.blend",
+      "nativeSha256": "d0424a1c0e5d8032a7dbb68fa2cad308655d0e9e36b9502bd648d46899d73f20",
+      "currentViewerMaterial": "approved-native-shader-baked-PBR",
+      "materialReceipt": "shrine-pbr-export.json",
+      "steps": 8
+    },
+    {
+      "key": "estate-context",
+      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "currentViewerMaterial": "structural-only; approved surface in linked native renders",
+      "materialReceipt": null,
+      "steps": 0
+    }
+  ]
+}

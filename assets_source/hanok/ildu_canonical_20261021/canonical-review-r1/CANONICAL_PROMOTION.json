@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-21",
+  "designation": "user-designated Ildu source and construction canonical",
+  "authority": {
+    "source": "direct user messages in current conversation",
+    "gateQuote": "협문두개랑 사당문은 이 세션에서 너가 작업한걸로 정본승격이야.",
+    "allQuote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+  },
+  "canonicalGates": [
+    {
+      "key": "left",
+      "name": "왼쪽 협문",
+      "status": "user_designated_canonical",
+      "native": "left-new.blend",
+      "nativeSha256": "b0431b15ebe83529c59307cabea2e66be481ecc0a406df4f68e30e868606fed0",
+      "stageCount": 6,
+      "stageManifest": "construction/manifest.json",
+      "memberCount": 680,
+      "reviewModel": "canonical-review-r1/models/left_changgo-pbr.glb",
+      "reviewModelSha256": "a655adfd77fcf7b5f23b00c2300302bee7109d1587058c78a699be3dd70c8115",
+      "reviewModelHasNativeMaterialBake": true,
+      "embeddedTextureCount": 4,
+      "reviewModelIsNativeRenderPixelParity": false,
+      "previousModelsSuperseded": true
+    },
+    {
+      "key": "right",
+      "name": "오른쪽 협문",
+      "status": "user_designated_canonical",
+      "native": "right-new.blend",
+      "nativeSha256": "6995b49bcbabf69dcca3e4a94cf4a3ec2b8af892f5d1223eb045133e229e88ca",
+      "stageCount": 6,
+      "stageManifest": "construction/manifest.json",
+      "memberCount": 530,
+      "reviewModel": "canonical-review-r1/models/right_ansarang-pbr.glb",
+      "reviewModelSha256": "2560e76f8e7bbe3e5d3b3e16bf97f74a31f367878f08f8bbf15a86c3de3f4676",
+      "reviewModelHasNativeMaterialBake": true,
+      "embeddedTextureCount": 4,
+      "reviewModelIsNativeRenderPixelParity": false,
+      "previousModelsSuperseded": true
+    },
+    {
+      "key": "shrine",
+      "name": "사당문",
+      "status": "user_designated_canonical",
+      "native": "shrine-new.blend",
+      "nativeSha256": "d0424a1c0e5d8032a7dbb68fa2cad308655d0e9e36b9502bd648d46899d73f20",
+      "stageCount": 8,
+      "stageManifest": "construction/manifest.json",
+      "memberCount": 445,
+      "reviewModel": "canonical-review-r1/models/sadangmun-pbr.glb",
+      "reviewModelSha256": "f9a0825129e5fbcb9fa31f4268dbf4862122c22dd5aea063b176d437e099f776",
+      "reviewModelHasNativeMaterialBake": true,
+      "embeddedTextureCount": 12,
+      "reviewModelIsNativeRenderPixelParity": false,
+      "previousModelsSuperseded": true
+    }
+  ],
+  "construction": {
+    "uniqueProcessIds": 154,
+    "instanceStages": 160,
+    "groups": 16,
+    "scope": "11 buildings, four gate instances, shared wall/yard; process assembly interpretation, not proof of historical construction chronology"
+  },
+  "immutable": [
+    "building exterior",
+    "silhouette and shape",
+    "structural geometry and details",
+    "roofs/eaves",
+    "doors/windows/gates",
+    "footprints and layout"
+  ],
+  "permittedFutureStyleChanges": [
+    "materials",
+    "color",
+    "illustrative surface rendering"
+  ],
+  "review": "index.html",
+  "appIntegrated": false,
+  "deviceValidated": false,
+  "releaseApproved": false,
+  "generatedMockupsAreCanonical": false,
+  "oldGateModelsAreCurrentCanonical": false,
+  "assembledEstate": {
+    "native": "canonical-review-r1/ildu-estate-r5-three-gates-canonical.blend",
+    "sha256": "3195809855213946a330048b3b86cd3f75ccddac045dbaf640909cee4de36d48",
+    "verification": "canonical-review-r1/assembly-verification.json",
+    "placementReview": "pending"
+  }
+}

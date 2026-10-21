@@ -1,0 +1,150 @@
+{
+  "context_before": "Hangul Sori | Full Ildu Estate",
+  "render_scene": "Hangul Sori | Full Ildu Estate",
+  "hits": [
+    {
+      "pixel": [
+        1100,
+        150
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        7.045673370361328,
+        -2.8683509826660156,
+        -3.814697265625e-06
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "pixel": [
+        1100,
+        180
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        6.496662139892578,
+        -3.722362518310547,
+        3.814697265625e-06
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "pixel": [
+        1100,
+        210
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        5.947664260864258,
+        -4.576362609863281,
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "pixel": [
+        1000,
+        200
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        4.224874496459961,
+        -3.0665359497070312,
+        -7.62939453125e-06
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "pixel": [
+        1000,
+        230
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        3.6758689880371094,
+        -3.920543670654297,
+        3.814697265625e-06
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "pixel": [
+        1000,
+        260
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        3.1268692016601562,
+        -4.774543762207031,
+        3.814697265625e-06
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "pixel": [
+        950,
+        245
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        2.4484786987304688,
+        -3.7349586486816406,
+        -3.814697265625e-06
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "pixel": [
+        950,
+        275
+      ],
+      "object": "Estate.path.worn stepping stones",
+      "material": "Selected timber v2 | estate_path | P15 stone estate_path board axis1 | Illustrated granite v1 0",
+      "position": [
+        1.8678131103515625,
+        -4.638214111328125,
+        0.052768707275390625
+      ],
+      "normal": [
+        0.008443326689302921,
+        -0.030750518664717674,
+        0.9994914531707764
+      ]
+    }
+  ]
+}

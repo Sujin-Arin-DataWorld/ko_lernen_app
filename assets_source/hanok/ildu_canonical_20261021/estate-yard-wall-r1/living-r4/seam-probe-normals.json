@@ -1,0 +1,3014 @@
+{
+  "camera": {
+    "location": [
+      -40.135169982910156,
+      -56.988040924072266,
+      53.9586181640625
+    ],
+    "rotation": [
+      0.8372841477394104,
+      -3.1053900784172583e-08,
+      -0.5713374614715576
+    ],
+    "ortho_scale": 29,
+    "samples": 24,
+    "resolution": [
+      1280,
+      960
+    ],
+    "engine": "CYCLES CPU",
+    "threads": 8,
+    "persistent_data": true,
+    "lights_preserved": true,
+    "source_colour_management_preserved": true
+  },
+  "hits": [
+    {
+      "pixel": [
+        1100,
+        90
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        8.143669128417969,
+        -1.1603584289550781,
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mesh_details": {
+        "face": 40736,
+        "smooth": true,
+        "face_normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "corner_normals": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertex_z": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 0.0,
+        "interior piece 4": 1,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        1100,
+        100
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        7.960668563842773,
+        -1.4450225830078125,
+        -3.814697265625e-06
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mesh_details": {
+        "face": 39746,
+        "smooth": true,
+        "face_normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "corner_normals": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertex_z": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        1100,
+        150
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        7.045673370361328,
+        -2.8683509826660156,
+        -3.814697265625e-06
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mesh_details": {
+        "face": 36281,
+        "smooth": true,
+        "face_normal": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "corner_normals": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertex_z": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        1100,
+        170
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        6.679668426513672,
+        -3.437694549560547,
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mesh_details": {
+        "face": 34795,
+        "smooth": true,
+        "face_normal": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "corner_normals": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertex_z": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0.057429,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        1100,
+        180
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        6.496662139892578,
+        -3.722362518310547,
+        3.814697265625e-06
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mesh_details": {
+        "face": 34298,
+        "smooth": true,
+        "face_normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "corner_normals": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertex_z": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0.133083,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        1100,
+        190
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        6.313669204711914,
+        -4.007022857666016,
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mesh_details": {
+        "face": 33309,
+        "smooth": true,
+        "face_normal": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "corner_normals": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertex_z": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0.101388,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        1100,
+        200
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        6.130668640136719,
+        -4.291690826416016,
+        -7.62939453125e-06
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mesh_details": {
+        "face": 32812,
+        "smooth": true,
+        "face_normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "corner_normals": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertex_z": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0.061604,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        1100,
+        210
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        5.947664260864258,
+        -4.576362609863281,
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mesh_details": {
+        "face": 32316,
+        "smooth": true,
+        "face_normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "corner_normals": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertex_z": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0.030738,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        1000,
+        140
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        5.3228759765625,
+        -1.3585319519042969,
+        -3.814697265625e-06
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mesh_details": {
+        "face": 40214,
+        "smooth": true,
+        "face_normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "corner_normals": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertex_z": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 0.0,
+        "interior piece 4": 1,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0.673026,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        1000,
+        150
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        5.13987922668457,
+        -1.6431961059570312,
+        -3.814697265625e-06
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mesh_details": {
+        "face": 39225,
+        "smooth": true,
+        "face_normal": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "corner_normals": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertex_z": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0.840256,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        1000,
+        200
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        4.224874496459961,
+        -3.0665359497070312,
+        -7.62939453125e-06
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mesh_details": {
+        "face": 35759,
+        "smooth": true,
+        "face_normal": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "corner_normals": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertex_z": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 1,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        1000,
+        220
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        3.8588695526123047,
+        -3.6358718872070312,
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mesh_details": {
+        "face": 34273,
+        "smooth": true,
+        "face_normal": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "corner_normals": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertex_z": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 1,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        1000,
+        230
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        3.6758689880371094,
+        -3.920543670654297,
+        3.814697265625e-06
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mesh_details": {
+        "face": 33777,
+        "smooth": true,
+        "face_normal": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "corner_normals": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertex_z": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0.999927,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        1000,
+        240
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        3.4928722381591797,
+        -4.205207824707031,
+        3.814697265625e-06
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mesh_details": {
+        "face": 32787,
+        "smooth": true,
+        "face_normal": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "corner_normals": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertex_z": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0.992431,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        1000,
+        250
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        3.30987548828125,
+        -4.4898681640625,
+        -3.814697265625e-06
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mesh_details": {
+        "face": 32291,
+        "smooth": true,
+        "face_normal": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "corner_normals": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertex_z": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0.973463,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        1000,
+        270
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        2.9438724517822266,
+        -5.0592041015625,
+        -3.814697265625e-06
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mesh_details": {
+        "face": 30804,
+        "smooth": true,
+        "face_normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "corner_normals": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertex_z": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0.905823,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        900,
+        190
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        2.5020751953125,
+        -1.5567245483398438,
+        3.814697265625e-06
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mesh_details": {
+        "face": 39692,
+        "smooth": true,
+        "face_normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "corner_normals": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertex_z": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 0.0,
+        "interior piece 4": 1,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0.793508,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        900,
+        200
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        2.319080352783203,
+        -1.8413848876953125,
+        -7.62939453125e-06
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mesh_details": {
+        "face": 38703,
+        "smooth": true,
+        "face_normal": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "corner_normals": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertex_z": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0.928949,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        900,
+        250
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        1.4040756225585938,
+        -3.2647247314453125,
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mesh_details": {
+        "face": 35237,
+        "smooth": true,
+        "face_normal": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "corner_normals": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertex_z": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 1,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        900,
+        270
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        1.0380783081054688,
+        -3.8340530395507812,
+        -3.814697265625e-06
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mesh_details": {
+        "face": 33751,
+        "smooth": true,
+        "face_normal": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "corner_normals": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertex_z": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 1,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        900,
+        280
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        0.8550758361816406,
+        -4.118724822998047,
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mesh_details": {
+        "face": 33255,
+        "smooth": true,
+        "face_normal": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "corner_normals": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertex_z": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 1,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        900,
+        290
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        0.6720733642578125,
+        -4.403392791748047,
+        3.814697265625e-06
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mesh_details": {
+        "face": 32265,
+        "smooth": true,
+        "face_normal": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "corner_normals": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertex_z": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 1,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        900,
+        300
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        0.48907470703125,
+        -4.688053131103516,
+        -3.814697265625e-06
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mesh_details": {
+        "face": 31769,
+        "smooth": true,
+        "face_normal": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "corner_normals": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertex_z": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 1,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        900,
+        310
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        0.3060760498046875,
+        -4.97271728515625,
+        -3.814697265625e-06
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "mesh_details": {
+        "face": 31272,
+        "smooth": true,
+        "face_normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "corner_normals": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "vertex_z": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 1,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    }
+  ],
+  "floor_candidates": [
+    {
+      "name": "Craft.Sarang dressed foundation",
+      "bounds": [
+        [
+          -0.6422229409217834,
+          -0.6966986656188965,
+          6.964019848965108e-05
+        ],
+        [
+          10.707176208496094,
+          5.676788330078125,
+          1.0157443284988403
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "Craft.Sarang dressed foundation.001",
+      "bounds": [
+        [
+          -0.6404703259468079,
+          -0.6964640617370605,
+          0.0002578301646281034
+        ],
+        [
+          10.713587760925293,
+          5.678719520568848,
+          1.0159447193145752
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "Craft.Sarang dressed foundation.002",
+      "bounds": [
+        [
+          -0.6415542960166931,
+          -0.6970139145851135,
+          0.0008590946672484279
+        ],
+        [
+          10.70310115814209,
+          5.679524898529053,
+          1.0158696174621582
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "Craft.Sarang dressed foundation.003",
+      "bounds": [
+        [
+          -0.6558469533920288,
+          -0.7025920748710632,
+          4.4051183067495e-05
+        ],
+        [
+          10.701366424560547,
+          5.677645683288574,
+          1.0159947872161865
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "Craft.Sarang dressed foundation.004",
+      "bounds": [
+        [
+          -0.6417821049690247,
+          -0.6983570456504822,
+          9.549041715217754e-05
+        ],
+        [
+          10.713343620300293,
+          5.679056644439697,
+          1.0158934593200684
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "Craft.Sarang landing cap",
+      "bounds": [
+        [
+          -0.6630448698997498,
+          -0.6956087350845337,
+          1.0021740198135376
+        ],
+        [
+          8.934577941894531,
+          0.3169919550418854,
+          1.1000001430511475
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "Craft.Sarang landing cap.001",
+      "bounds": [
+        [
+          0.21394102275371552,
+          -0.7002686262130737,
+          1.0020027160644531
+        ],
+        [
+          9.810518264770508,
+          0.32020336389541626,
+          1.100000023841858
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "Craft.Sarang landing cap.002",
+      "bounds": [
+        [
+          1.0837862491607666,
+          -0.70039963722229,
+          1.0020651817321777
+        ],
+        [
+          10.679506301879883,
+          0.31603893637657166,
+          1.0999999046325684
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "Craft.Sarang landing cap.003",
+      "bounds": [
+        [
+          1.9551693201065063,
+          -0.6970451474189758,
+          1.0020790100097656
+        ],
+        [
+          7.1934099197387695,
+          0.32096537947654724,
+          1.100000023841858
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "Craft.Sarang landing cap.004",
+      "bounds": [
+        [
+          2.8303544521331787,
+          -0.6991095542907715,
+          1.002038598060608
+        ],
+        [
+          8.06305980682373,
+          0.3172158896923065,
+          1.100000023841858
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "Craft.Sarang platform inner core",
+      "bounds": [
+        [
+          -0.6600000262260437,
+          0.26499998569488525,
+          0.9700000286102295
+        ],
+        [
+          10.680000305175781,
+          5.675000190734863,
+          1.100000023841858
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "Estate.path.worn stepping stones",
+      "bounds": [
+        [
+          -11.890480995178223,
+          -7.566134452819824,
+          -0.04384128749370575
+        ],
+        [
+          3.781578302383423,
+          25.302783966064453,
+          1.3603718280792236
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | estate_path | North anchae stone",
+        "Selected timber v2 | estate_path | P15 stone estate_path board axis1 | Illustrated granite v1 0"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "FloorRepair.Craft.Sarang maru cross members",
+      "bounds": [
+        [
+          0.05000000074505806,
+          0.009999999776482582,
+          1.8899999856948853
+        ],
+        [
+          10.574999809265137,
+          3.9620003700256348,
+          2.000000238418579
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | Gye cared pine sarang v56 floor tone 2.001",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 0",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 4",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 2",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 3",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 1"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "FloorRepair.Craft.Sarang maru inset boards",
+      "bounds": [
+        [
+          0.12349999696016312,
+          0.14000000059604645,
+          1.9324989318847656
+        ],
+        [
+          10.321499824523926,
+          3.8400001525878906,
+          1.9975000619888306
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | Gye cared pine sarang v56 floor tone 0.001",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 2",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 3",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 0",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 4",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 1"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "FloorRepair.Craft.Sarang maru inset boards.001",
+      "bounds": [
+        [
+          0.3084999918937683,
+          0.14000000059604645,
+          1.9324990510940552
+        ],
+        [
+          10.501500129699707,
+          3.8400001525878906,
+          1.9975000619888306
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | Gye cared pine sarang v56 floor tone 3.001",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 2",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 1",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 3",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 0",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 4"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "FloorRepair.Craft.Sarang maru inset boards.002",
+      "bounds": [
+        [
+          0.4934999942779541,
+          0.14000000059604645,
+          1.9324984550476074
+        ],
+        [
+          9.961501121520996,
+          3.8399999141693115,
+          1.997499942779541
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | Gye cared pine sarang v56 floor tone 3.001",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 0",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 2",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 1",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 3",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 4"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "FloorRepair.Craft.Sarang maru inset boards.003",
+      "bounds": [
+        [
+          0.6784999966621399,
+          0.14000000059604645,
+          1.9324991703033447
+        ],
+        [
+          10.141501426696777,
+          3.8399999141693115,
+          1.9975000619888306
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | Gye cared pine sarang v56 floor tone 0.001",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 2",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 4",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 1",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 3",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 0"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "FloorRepair.Landing.maru longitudinal bearing",
+      "bounds": [
+        [
+          -0.020999999716877937,
+          0.07000000029802322,
+          1.8865858316421509
+        ],
+        [
+          10.645999908447266,
+          3.859999895095825,
+          2.0
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | Gye cared pine sarang v56 floor tone 3.001",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 0",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 2",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 1"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "GyeCraft.sarang.irregular paving 0",
+      "bounds": [
+        [
+          -0.6584565043449402,
+          -4.473752498626709,
+          0.48100030422210693
+        ],
+        [
+          15.099740028381348,
+          5.671473026275635,
+          1.1235355138778687
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "GyeCraft.sarang.irregular paving 1",
+      "bounds": [
+        [
+          -0.6586875915527344,
+          -4.473937511444092,
+          0.4810616672039032
+        ],
+        [
+          15.102182388305664,
+          5.672642707824707,
+          1.1233001947402954
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "GyeCraft.sarang.irregular paving 2",
+      "bounds": [
+        [
+          -0.6587159037590027,
+          -4.474535942077637,
+          0.48104438185691833
+        ],
+        [
+          15.099743843078613,
+          5.672488212585449,
+          1.1229259967803955
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "GyeCraft.sarang.irregular paving 3",
+      "bounds": [
+        [
+          -0.6590103507041931,
+          -4.473008155822754,
+          0.48108628392219543
+        ],
+        [
+          15.099746704101562,
+          5.672192573547363,
+          1.123599648475647
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "GyeCraft.sarang.irregular paving 4",
+      "bounds": [
+        [
+          -0.6575682163238525,
+          -4.474790573120117,
+          0.4810140132904053
+        ],
+        [
+          15.100028038024902,
+          5.671895980834961,
+          1.122902512550354
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "GyeStyle.Sarang hand-cut post feet",
+      "bounds": [
+        [
+          -0.23062467575073242,
+          -4.225491523742676,
+          0.42399999499320984
+        ],
+        [
+          14.782021522521973,
+          5.442437171936035,
+          1.9249907732009888
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52",
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52",
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52",
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52",
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52",
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "GyeStyle.Sarang irregular stone facing",
+      "bounds": [
+        [
+          -1.2974430322647095,
+          -5.230301380157471,
+          0.006000000052154064
+        ],
+        [
+          14.735809326171875,
+          -0.6859999895095825,
+          1.443440318107605
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52",
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52",
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52",
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52",
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52",
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "Landing.restored entrance maru",
+      "bounds": [
+        [
+          2.9135000705718994,
+          0.14000000059604645,
+          1.9325000047683716
+        ],
+        [
+          4.459000110626221,
+          2.630000114440918,
+          1.997499942779541
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | Gye cared pine sarang v56 floor tone 0 v66 boards.001",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1.003",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 4.001",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.003"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "Landing.restored entrance maru.001",
+      "bounds": [
+        [
+          3.0859999656677246,
+          0.14000000059604645,
+          1.9325000047683716
+        ],
+        [
+          4.631499767303467,
+          2.630000114440918,
+          1.997499942779541
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | Gye cared pine sarang v56 floor tone 0 v66 boards.001",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.003",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 3.001",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1.003"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "Landing.restored entrance maru.002",
+      "bounds": [
+        [
+          3.258500099182129,
+          0.14000000059604645,
+          1.9325000047683716
+        ],
+        [
+          4.803999900817871,
+          2.630000114440918,
+          1.997499942779541
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | Gye cared pine sarang v56 floor tone 0 v66 boards.001",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.003",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 3.001"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "Landing.restored entrance maru.003",
+      "bounds": [
+        [
+          3.430999994277954,
+          0.14000000059604645,
+          1.9325000047683716
+        ],
+        [
+          4.976500034332275,
+          2.630000114440918,
+          1.997499942779541
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | Gye cared pine sarang v56 floor tone 2 v66 boards.001",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.003",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 3.001",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1.003",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 0.002"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "Landing.restored maru cross member",
+      "bounds": [
+        [
+          2.9100000858306885,
+          0.009999999776482582,
+          1.8919999599456787
+        ],
+        [
+          4.980000019073486,
+          1.2999999523162842,
+          2.0
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | Gye cared pine sarang v56 floor tone 3 v66 boards.001",
+        "Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2.003"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "Sarang.foundation core",
+      "bounds": [
+        [
+          0.0,
+          -3.994999885559082,
+          0.0
+        ],
+        [
+          14.545000076293945,
+          5.204999923706055,
+          0.8899999856948853
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "Sarang.main front post.stone foot",
+      "bounds": [
+        [
+          -0.20999999344348907,
+          -0.20999999344348907,
+          1.0499999523162842
+        ],
+        [
+          10.78499984741211,
+          0.20999999344348907,
+          1.1799999475479126
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "V25.stair cheek",
+      "bounds": [
+        [
+          3.1475000381469727,
+          -2.9800000190734863,
+          0.02500000037252903
+        ],
+        [
+          4.71750020980835,
+          -1.2799999713897705,
+          1.3023309707641602
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        },
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    },
+    {
+      "name": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "bounds": [
+        [
+          -45.0,
+          -38.0,
+          0.0
+        ],
+        [
+          52.0,
+          52.0,
+          1.5
+        ]
+      ],
+      "hide_viewport": false,
+      "hidden_eye": false,
+      "visible": true,
+      "materials": [
+        "YW1 yard | Illustrated lived courtyard earth"
+      ],
+      "collections": [
+        {
+          "name": "Scene Collection",
+          "hide_render": false,
+          "hide_viewport": false
+        }
+      ]
+    }
+  ]
+}

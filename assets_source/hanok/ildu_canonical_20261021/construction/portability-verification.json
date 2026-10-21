@@ -1,0 +1,264 @@
+{
+  "kind": "single relocated package validation",
+  "imagesRerendered": false,
+  "temporaryPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\construction\\.portability-check-r0jnm47v",
+  "passed": true,
+  "nativeDryRun": {
+    "returncode": 0,
+    "validatedGates": [
+      "VALIDATED left 680 [20, 22, 70, 16, 494, 58]",
+      "VALIDATED right 530 [29, 21, 60, 16, 348, 56]",
+      "VALIDATED shrine 445 [3, 6, 9, 7, 64, 295, 59, 2]"
+    ]
+  },
+  "rendererUsedRelativeSnapshotBindings": true,
+  "relocatedVerification": {
+    "passed": true,
+    "renderCount": 20,
+    "gates": [
+      {
+        "gate": "left",
+        "imageCount": 6,
+        "images": [
+          {
+            "image": "renders/left-01.png",
+            "exists": true,
+            "hashMatches": true,
+            "resolution": [
+              1024,
+              1024
+            ],
+            "resolutionMatches": true
+          },
+          {
+            "image": "renders/left-02.png",
+            "exists": true,
+            "hashMatches": true,
+            "resolution": [
+              1024,
+              1024
+            ],
+            "resolutionMatches": true
+          },
+          {
+            "image": "renders/left-03.png",
+            "exists": true,
+            "hashMatches": true,
+            "resolution": [
+              1024,
+              1024
+            ],
+            "resolutionMatches": true
+          },
+          {
+            "image": "renders/left-04.png",
+            "exists": true,
+            "hashMatches": true,
+            "resolution": [
+              1024,
+              1024
+            ],
+            "resolutionMatches": true
+          },
+          {
+            "image": "renders/left-05.png",
+            "exists": true,
+            "hashMatches": true,
+            "resolution": [
+              1024,
+              1024
+            ],
+            "resolutionMatches": true
+          },
+          {
+            "image": "renders/left-06.png",
+            "exists": true,
+            "hashMatches": true,
+            "resolution": [
+              1400,
+              1400
+            ],
+            "resolutionMatches": true
+          }
+        ],
+        "nativeShaMatches": true,
+        "finalImageByteIdenticalToHero": true,
+        "sourceValidationPassed": true,
+        "sourceContractBindingsMatch": true,
+        "independentPartitionAndCumulativeCheck": true,
+        "passed": true
+      },
+      {
+        "gate": "right",
+        "imageCount": 6,
+        "images": [
+          {
+            "image": "renders/right-01.png",
+            "exists": true,
+            "hashMatches": true,
+            "resolution": [
+              1024,
+              1024
+            ],
+            "resolutionMatches": true
+          },
+          {
+            "image": "renders/right-02.png",
+            "exists": true,
+            "hashMatches": true,
+            "resolution": [
+              1024,
+              1024
+            ],
+            "resolutionMatches": true
+          },
+          {
+            "image": "renders/right-03.png",
+            "exists": true,
+            "hashMatches": true,
+            "resolution": [
+              1024,
+              1024
+            ],
+            "resolutionMatches": true
+          },
+          {
+            "image": "renders/right-04.png",
+            "exists": true,
+            "hashMatches": true,
+            "resolution": [
+              1024,
+              1024
+            ],
+            "resolutionMatches": true
+          },
+          {
+            "image": "renders/right-05.png",
+            "exists": true,
+            "hashMatches": true,
+            "resolution": [
+              1024,
+              1024
+            ],
+            "resolutionMatches": true
+          },
+          {
+            "image": "renders/right-06.png",
+            "exists": true,
+            "hashMatches": true,
+            "resolution": [
+              1400,
+              1400
+            ],
+            "resolutionMatches": true
+          }
+        ],
+        "nativeShaMatches": true,
+        "finalImageByteIdenticalToHero": true,
+        "sourceValidationPassed": true,
+        "sourceContractBindingsMatch": true,
+        "independentPartitionAndCumulativeCheck": true,
+        "passed": true
+      },
+      {
+        "gate": "shrine",
+        "imageCount": 8,
+        "images": [
+          {
+            "image": "renders/shrine-01.png",
+            "exists": true,
+            "hashMatches": true,
+            "resolution": [
+              1024,
+              1024
+            ],
+            "resolutionMatches": true
+          },
+          {
+            "image": "renders/shrine-02.png",
+            "exists": true,
+            "hashMatches": true,
+            "resolution": [
+              1024,
+              1024
+            ],
+            "resolutionMatches": true
+          },
+          {
+            "image": "renders/shrine-03.png",
+            "exists": true,
+            "hashMatches": true,
+            "resolution": [
+              1024,
+              1024
+            ],
+            "resolutionMatches": true
+          },
+          {
+            "image": "renders/shrine-04.png",
+            "exists": true,
+            "hashMatches": true,
+            "resolution": [
+              1024,
+              1024
+            ],
+            "resolutionMatches": true
+          },
+          {
+            "image": "renders/shrine-05.png",
+            "exists": true,
+            "hashMatches": true,
+            "resolution": [
+              1024,
+              1024
+            ],
+            "resolutionMatches": true
+          },
+          {
+            "image": "renders/shrine-06.png",
+            "exists": true,
+            "hashMatches": true,
+            "resolution": [
+              1024,
+              1024
+            ],
+            "resolutionMatches": true
+          },
+          {
+            "image": "renders/shrine-07.png",
+            "exists": true,
+            "hashMatches": true,
+            "resolution": [
+              1024,
+              1024
+            ],
+            "resolutionMatches": true
+          },
+          {
+            "image": "renders/shrine-08.png",
+            "exists": true,
+            "hashMatches": true,
+            "resolution": [
+              1400,
+              1400
+            ],
+            "resolutionMatches": true
+          }
+        ],
+        "nativeShaMatches": true,
+        "finalImageByteIdenticalToHero": true,
+        "sourceValidationPassed": true,
+        "sourceContractBindingsMatch": true,
+        "independentPartitionAndCumulativeCheck": true,
+        "passed": true
+      }
+    ],
+    "appIntegrated": false,
+    "userApproved": false
+  },
+  "buildOutput": "{\"passed\": true, \"renderCount\": 20}",
+  "relocatedImagesByteUnchanged": true,
+  "originalImagesByteUnchanged": true,
+  "nativeParentPathUsedDespiteInvalidProvenance": true,
+  "temporaryCopyRemoved": true
+}

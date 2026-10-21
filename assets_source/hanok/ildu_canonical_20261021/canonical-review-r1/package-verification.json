@@ -1,0 +1,108 @@
+{
+  "passed": true,
+  "models": [
+    {
+      "key": "sarang",
+      "path": "models/sarang.glb",
+      "sha256": "b447fae79c26725d0d50b0e8333d6cff1d9a28e7ae5e2069bef3817cc253b848",
+      "bytes": 113403508
+    },
+    {
+      "key": "ansarang",
+      "path": "models/ansarang.glb",
+      "sha256": "bd38b3c27864b9b8b2f446e686418095bad74c0f29b72f530fe82afa85e37a01",
+      "bytes": 64873172
+    },
+    {
+      "key": "anchae",
+      "path": "models/anchae.glb",
+      "sha256": "7ad2950ca0d690b930ae2323e38547c506c52fcd36cecf55a07930bed1fb06e1",
+      "bytes": 342948396
+    },
+    {
+      "key": "sadang",
+      "path": "models/sadang.glb",
+      "sha256": "9eb7c3677aa38ee2c8541889fa6621a68461d05cc88d3a2183076418ecb36eb0",
+      "bytes": 103679408
+    },
+    {
+      "key": "jung",
+      "path": "models/jung.glb",
+      "sha256": "ca26542eecd8ee8f280ab5379a3b9357204c9b18bc3db0b82c1e6a94290ec3ed",
+      "bytes": 63191300
+    },
+    {
+      "key": "arae",
+      "path": "models/arae.glb",
+      "sha256": "df22347ac4b96791fda3a0d6ee8c98786ea096052e58e04ffcad6553615d7c7e",
+      "bytes": 82135772
+    },
+    {
+      "key": "gokgan",
+      "path": "models/gokgan.glb",
+      "sha256": "4d0c3cf1f7ca87e1399577203c2908cdb298703422830c60db937f3c1127c3d9",
+      "bytes": 143053236
+    },
+    {
+      "key": "angotgan",
+      "path": "models/angotgan.glb",
+      "sha256": "260fc4853e6ebfdbe59ef2027b667d09b7dc808227e1eadf1e57ee49ab18b31a",
+      "bytes": 79105140
+    },
+    {
+      "key": "changgo",
+      "path": "models/changgo.glb",
+      "sha256": "7d9301a6ba542c98c166052063395dd03400faa7812f72e2384a988f5709092b",
+      "bytes": 82068100
+    },
+    {
+      "key": "toilet",
+      "path": "models/toilet.glb",
+      "sha256": "8cfabaf78a42ec8993ef6d449a5c8f9f9c5ca2d74df434d3c02fe8babcddb1ab",
+      "bytes": 20614004
+    },
+    {
+      "key": "toilet1",
+      "path": "models/toilet1.glb",
+      "sha256": "81735d93d4cdcc32d5ac1444811fbb972ca02dbb6957085ec12fe440022b7781",
+      "bytes": 18996076
+    },
+    {
+      "key": "main_gate",
+      "path": "models/main_gate.glb",
+      "sha256": "6e9f535dcb3ae1f9fc36ab4177931cb80bc652f33dbdfef1305d4531c83029c8",
+      "bytes": 86712352
+    },
+    {
+      "key": "left_changgo",
+      "path": "models/left_changgo-pbr.glb",
+      "sha256": "a655adfd77fcf7b5f23b00c2300302bee7109d1587058c78a699be3dd70c8115",
+      "bytes": 140948588
+    },
+    {
+      "key": "right_ansarang",
+      "path": "models/right_ansarang-pbr.glb",
+      "sha256": "2560e76f8e7bbe3e5d3b3e16bf97f74a31f367878f08f8bbf15a86c3de3f4676",
+      "bytes": 148384112
+    },
+    {
+      "key": "sadangmun",
+      "path": "models/sadangmun-pbr.glb",
+      "sha256": "f9a0825129e5fbcb9fa31f4268dbf4862122c22dd5aea063b176d437e099f776",
+      "bytes": 120457640
+    },
+    {
+      "key": "estate-context",
+      "path": "models/estate-context.glb",
+      "sha256": "754b1d79e089b819f2a8d4f235385648ca189342d6faca1c8feb6955586f4fe7",
+      "bytes": 471827752
+    }
+  ],
+  "groups": 16,
+  "uniqueProcessIds": 154,
+  "instanceStages": 160,
+  "images": 269,
+  "exactGateStageAssignments": true,
+  "canonicalGatesMatchCurrentNativeHashes": true,
+  "appIntegrated": false
+}

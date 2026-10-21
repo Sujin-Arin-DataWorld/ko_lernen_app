@@ -1,0 +1,5 @@
+{
+  "sourceSha256": "aeaba60b5cbba61d8cb7710ccc02c8b0353e6ff6294db4d5e630de3214dd0e92",
+  "snapshotSha256": "e10b01805a8cb5863eb3fc833dac3be72419ab67a1a4d9c25d60caa470759ffe",
+  "change": "Cache unchanged combined mesh triangulation between exact individual-member extractions. No geometry/UV/material changes."
+}

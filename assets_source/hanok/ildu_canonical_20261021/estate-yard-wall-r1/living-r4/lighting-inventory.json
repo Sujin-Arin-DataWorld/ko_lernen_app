@@ -1,0 +1,979 @@
+{
+  "lights": [
+    {
+      "name": "Warm estate | P16 low broad courtyard reflection.008",
+      "type": "AREA",
+      "energy": 200.0,
+      "spread": 3.1415927410125732,
+      "size": 8.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 low broad courtyard reflection.005",
+      "type": "AREA",
+      "energy": 200.0,
+      "spread": 3.1415927410125732,
+      "size": 8.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 low broad courtyard reflection.004",
+      "type": "AREA",
+      "energy": 200.0,
+      "spread": 3.1415927410125732,
+      "size": 8.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 low broad courtyard reflection.003",
+      "type": "AREA",
+      "energy": 200.0,
+      "spread": 3.1415927410125732,
+      "size": 8.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 low broad courtyard reflection.002",
+      "type": "AREA",
+      "energy": 200.0,
+      "spread": 3.1415927410125732,
+      "size": 8.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 low broad courtyard reflection.001",
+      "type": "AREA",
+      "energy": 200.0,
+      "spread": 3.1415927410125732,
+      "size": 8.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "Emission",
+          "type": "EMISSION"
+        },
+        {
+          "name": "Light Output",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 low broad courtyard reflection",
+      "type": "AREA",
+      "energy": 200.0,
+      "spread": 3.1415927410125732,
+      "size": 8.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad warm daylight.008",
+      "type": "SUN",
+      "energy": 2.5999999046325684,
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad warm daylight.005",
+      "type": "SUN",
+      "energy": 2.5999999046325684,
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad warm daylight.004",
+      "type": "SUN",
+      "energy": 2.5999999046325684,
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad warm daylight.003",
+      "type": "SUN",
+      "energy": 2.5999999046325684,
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad warm daylight.002",
+      "type": "SUN",
+      "energy": 2.5999999046325684,
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad warm daylight.001",
+      "type": "SUN",
+      "energy": 2.5999999046325684,
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "Emission",
+          "type": "EMISSION"
+        },
+        {
+          "name": "Light Output",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad warm daylight",
+      "type": "SUN",
+      "energy": 2.5999999046325684,
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad soft sky.008",
+      "type": "AREA",
+      "energy": 900.0,
+      "spread": 3.1415927410125732,
+      "size": 22.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad soft sky.005",
+      "type": "AREA",
+      "energy": 900.0,
+      "spread": 3.1415927410125732,
+      "size": 22.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad soft sky.004",
+      "type": "AREA",
+      "energy": 900.0,
+      "spread": 3.1415927410125732,
+      "size": 22.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad soft sky.003",
+      "type": "AREA",
+      "energy": 900.0,
+      "spread": 3.1415927410125732,
+      "size": 22.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad soft sky.002",
+      "type": "AREA",
+      "energy": 900.0,
+      "spread": 3.1415927410125732,
+      "size": 22.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad soft sky.001",
+      "type": "AREA",
+      "energy": 900.0,
+      "spread": 3.1415927410125732,
+      "size": 22.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "Emission",
+          "type": "EMISSION"
+        },
+        {
+          "name": "Light Output",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad soft sky",
+      "type": "AREA",
+      "energy": 900.0,
+      "spread": 3.1415927410125732,
+      "size": 22.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad rear reflected daylight.008",
+      "type": "AREA",
+      "energy": 350.0,
+      "spread": 3.1415927410125732,
+      "size": 15.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad rear reflected daylight.005",
+      "type": "AREA",
+      "energy": 350.0,
+      "spread": 3.1415927410125732,
+      "size": 15.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad rear reflected daylight.004",
+      "type": "AREA",
+      "energy": 350.0,
+      "spread": 3.1415927410125732,
+      "size": 15.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad rear reflected daylight.003",
+      "type": "AREA",
+      "energy": 350.0,
+      "spread": 3.1415927410125732,
+      "size": 15.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad rear reflected daylight.002",
+      "type": "AREA",
+      "energy": 350.0,
+      "spread": 3.1415927410125732,
+      "size": 15.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad rear reflected daylight.001",
+      "type": "AREA",
+      "energy": 350.0,
+      "spread": 3.1415927410125732,
+      "size": 15.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "Emission",
+          "type": "EMISSION"
+        },
+        {
+          "name": "Light Output",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad rear reflected daylight",
+      "type": "AREA",
+      "energy": 350.0,
+      "spread": 3.1415927410125732,
+      "size": 15.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad front reflected daylight.008",
+      "type": "AREA",
+      "energy": 600.0,
+      "spread": 3.1415927410125732,
+      "size": 14.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad front reflected daylight.005",
+      "type": "AREA",
+      "energy": 600.0,
+      "spread": 3.1415927410125732,
+      "size": 14.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad front reflected daylight.004",
+      "type": "AREA",
+      "energy": 600.0,
+      "spread": 3.1415927410125732,
+      "size": 14.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad front reflected daylight.003",
+      "type": "AREA",
+      "energy": 600.0,
+      "spread": 3.1415927410125732,
+      "size": 14.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad front reflected daylight.002",
+      "type": "AREA",
+      "energy": 600.0,
+      "spread": 3.1415927410125732,
+      "size": 14.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad front reflected daylight.001",
+      "type": "AREA",
+      "energy": 600.0,
+      "spread": 3.1415927410125732,
+      "size": 14.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "Emission",
+          "type": "EMISSION"
+        },
+        {
+          "name": "Light Output",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | P16 broad front reflected daylight",
+      "type": "AREA",
+      "energy": 600.0,
+      "spread": 3.1415927410125732,
+      "size": 14.0,
+      "size_y": 0.25,
+      "shape": "DISK",
+      "use_shadow": true,
+      "use_custom_distance": false,
+      "cutoff_distance": 40.0,
+      "nodes": [
+        {
+          "name": "\ubc29\ucd9c",
+          "type": "EMISSION"
+        },
+        {
+          "name": "\ub77c\uc774\ud2b8 \ucd9c\ub825",
+          "type": "OUTPUT_LIGHT"
+        }
+      ]
+    }
+  ],
+  "worlds": [
+    {
+      "name": "Warm estate | selected neutral sky.006",
+      "nodes": [
+        {
+          "name": "\ubc30\uacbd",
+          "type": "BACKGROUND"
+        },
+        {
+          "name": "\uc6d4\ub4dc \ucd9c\ub825",
+          "type": "OUTPUT_WORLD"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | selected neutral sky.005",
+      "nodes": [
+        {
+          "name": "\ubc30\uacbd",
+          "type": "BACKGROUND"
+        },
+        {
+          "name": "\uc6d4\ub4dc \ucd9c\ub825",
+          "type": "OUTPUT_WORLD"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | selected neutral sky.004",
+      "nodes": [
+        {
+          "name": "\ubc30\uacbd",
+          "type": "BACKGROUND"
+        },
+        {
+          "name": "\uc6d4\ub4dc \ucd9c\ub825",
+          "type": "OUTPUT_WORLD"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | selected neutral sky.003",
+      "nodes": [
+        {
+          "name": "\ubc30\uacbd",
+          "type": "BACKGROUND"
+        },
+        {
+          "name": "\uc6d4\ub4dc \ucd9c\ub825",
+          "type": "OUTPUT_WORLD"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | selected neutral sky.002",
+      "nodes": [
+        {
+          "name": "\ubc30\uacbd",
+          "type": "BACKGROUND"
+        },
+        {
+          "name": "\uc6d4\ub4dc \ucd9c\ub825",
+          "type": "OUTPUT_WORLD"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | selected neutral sky.001",
+      "nodes": [
+        {
+          "name": "Background",
+          "type": "BACKGROUND"
+        },
+        {
+          "name": "World Output",
+          "type": "OUTPUT_WORLD"
+        }
+      ]
+    },
+    {
+      "name": "Warm estate | selected neutral sky",
+      "nodes": [
+        {
+          "name": "\ubc30\uacbd",
+          "type": "BACKGROUND"
+        },
+        {
+          "name": "\uc6d4\ub4dc \ucd9c\ub825",
+          "type": "OUTPUT_WORLD"
+        }
+      ]
+    }
+  ],
+  "possible_light_objects": [
+    "Warm estate | P16 broad warm daylight.008",
+    "Warm estate | P16 broad warm daylight.005",
+    "Warm estate | P16 broad warm daylight.004",
+    "Warm estate | P16 broad warm daylight.003",
+    "Warm estate | P16 broad warm daylight.002",
+    "Warm estate | P16 broad warm daylight.001",
+    "Warm estate | P16 broad warm daylight",
+    "Warm estate | P16 broad rear reflected daylight.008",
+    "Warm estate | P16 broad rear reflected daylight.005",
+    "Warm estate | P16 broad rear reflected daylight.004",
+    "Warm estate | P16 broad rear reflected daylight.003",
+    "Warm estate | P16 broad rear reflected daylight.002",
+    "Warm estate | P16 broad rear reflected daylight.001",
+    "Warm estate | P16 broad rear reflected daylight",
+    "Warm estate | P16 broad front reflected daylight.008",
+    "Warm estate | P16 broad front reflected daylight.005",
+    "Warm estate | P16 broad front reflected daylight.004",
+    "Warm estate | P16 broad front reflected daylight.003",
+    "Warm estate | P16 broad front reflected daylight.002",
+    "Warm estate | P16 broad front reflected daylight.001",
+    "Warm estate | P16 broad front reflected daylight",
+    "Standalone retained | Sarang.light original plaque.board",
+    "Standalone retained | Sarang.light original plaque",
+    "Standalone retained | Projection.Numaru railing continuous mitered rim",
+    "Standalone retained | Jung.room subfloor infill",
+    "Sep29.sadang.altar moulded rim",
+    "Sarang.light original plaque.board",
+    "Sarang.light original plaque",
+    "Projection.Numaru railing continuous mitered rim",
+    "PhotoWarehouse.end ochre infill",
+    "PhotoRepair.right_ansarang.bearing.header infill",
+    "PhotoRepair.left_changgo.bearing.header infill",
+    "North.sadang.survey sanctuary 2.infill",
+    "North.sadang.survey sanctuary 1.infill",
+    "North.sadang.survey sanctuary 0.infill",
+    "North.arae.survey front infill",
+    "North.angotgan.eave measured-band infill V17",
+    "North.angotgan.completed upper lime infill (3, 1.35)",
+    "North.angotgan.completed upper lime infill (3, -1.35)",
+    "North.angotgan.completed upper lime infill (2, 1.35)",
+    "North.angotgan.completed upper lime infill (2, -1.35)",
+    "North.angotgan.completed upper lime infill (1, 1.35)",
+    "North.angotgan.completed upper lime infill (1, -1.35)",
+    "North.angotgan.completed upper lime infill (0, 1.35)",
+    "North.angotgan.completed upper lime infill (0, -1.35)",
+    "North.angotgan.completed upper infill rail (3, 1.35)",
+    "North.angotgan.completed upper infill rail (3, -1.35)",
+    "North.angotgan.completed upper infill rail (2, 1.35)",
+    "North.angotgan.completed upper infill rail (2, -1.35)",
+    "North.angotgan.completed upper infill rail (1, 1.35)",
+    "North.angotgan.completed upper infill rail (1, -1.35)",
+    "North.angotgan.completed upper infill rail (0, 1.35)",
+    "North.angotgan.completed upper infill rail (0, -1.35)",
+    "North.angotgan.completed gable infill (1, 9)",
+    "North.angotgan.completed gable infill (1, 8)",
+    "North.angotgan.completed gable infill (1, 7)",
+    "North.angotgan.completed gable infill (1, 6)",
+    "North.angotgan.completed gable infill (1, 5)",
+    "North.angotgan.completed gable infill (1, 4)",
+    "North.angotgan.completed gable infill (1, 3)",
+    "North.angotgan.completed gable infill (1, 29)",
+    "North.angotgan.completed gable infill (1, 28)",
+    "North.angotgan.completed gable infill (1, 27)",
+    "North.angotgan.completed gable infill (1, 26)",
+    "North.angotgan.completed gable infill (1, 25)",
+    "North.angotgan.completed gable infill (1, 24)",
+    "North.angotgan.completed gable infill (1, 23)",
+    "North.angotgan.completed gable infill (1, 22)",
+    "North.angotgan.completed gable infill (1, 21)",
+    "North.angotgan.completed gable infill (1, 20)",
+    "North.angotgan.completed gable infill (1, 2)",
+    "North.angotgan.completed gable infill (1, 19)",
+    "North.angotgan.completed gable infill (1, 18)",
+    "North.angotgan.completed gable infill (1, 17)",
+    "North.angotgan.completed gable infill (1, 16)",
+    "North.angotgan.completed gable infill (1, 15)",
+    "North.angotgan.completed gable infill (1, 14)",
+    "North.angotgan.completed gable infill (1, 13)",
+    "North.angotgan.completed gable infill (1, 12)",
+    "North.angotgan.completed gable infill (1, 11)",
+    "North.angotgan.completed gable infill (1, 10)",
+    "North.angotgan.completed gable infill (1, 1)",
+    "North.angotgan.completed gable infill (1, 0)",
+    "North.angotgan.completed gable infill (0, 9)",
+    "North.angotgan.completed gable infill (0, 8)",
+    "North.angotgan.completed gable infill (0, 7)",
+    "North.angotgan.completed gable infill (0, 6)",
+    "North.angotgan.completed gable infill (0, 5)",
+    "North.angotgan.completed gable infill (0, 4)",
+    "North.angotgan.completed gable infill (0, 3)",
+    "North.angotgan.completed gable infill (0, 29)",
+    "North.angotgan.completed gable infill (0, 28)",
+    "North.angotgan.completed gable infill (0, 27)",
+    "North.angotgan.completed gable infill (0, 26)",
+    "North.angotgan.completed gable infill (0, 25)",
+    "North.angotgan.completed gable infill (0, 24)",
+    "North.angotgan.completed gable infill (0, 23)",
+    "North.angotgan.completed gable infill (0, 22)",
+    "North.angotgan.completed gable infill (0, 21)",
+    "North.angotgan.completed gable infill (0, 20)",
+    "North.angotgan.completed gable infill (0, 2)",
+    "North.angotgan.completed gable infill (0, 19)",
+    "North.angotgan.completed gable infill (0, 18)",
+    "North.angotgan.completed gable infill (0, 17)",
+    "North.angotgan.completed gable infill (0, 16)",
+    "North.angotgan.completed gable infill (0, 15)",
+    "North.angotgan.completed gable infill (0, 14)",
+    "North.angotgan.completed gable infill (0, 13)",
+    "North.angotgan.completed gable infill (0, 12)",
+    "North.angotgan.completed gable infill (0, 11)",
+    "North.angotgan.completed gable infill (0, 10)",
+    "North.angotgan.completed gable infill (0, 1)",
+    "North.angotgan.completed gable infill (0, 0)",
+    "North.anchae.roof.p7 main upright end 1 raised rim.000",
+    "North.anchae.roof.p7 main upright end 0 raised rim.000",
+    "North.anchae.roof.p7 corner upright 1 1 raised rim.000",
+    "North.anchae.roof.p7 corner upright 1 -1 raised rim.000",
+    "North.anchae.roof.p7 corner upright -1 1 raised rim.000",
+    "North.anchae.roof.p7 corner upright -1 -1 raised rim.000",
+    "North.anchae.redraw kitchen side infill",
+    "North.anchae.redraw kitchen lower infill",
+    "Jung.room subfloor infill"
+  ],
+  "soil_outputs": [
+    {
+      "name": "Soil R3 | material output",
+      "target": "ALL",
+      "active": true,
+      "inputs": {
+        "Surface": [
+          "Soil R4 | original exterior versus R4 interior"
+        ],
+        "Volume": [],
+        "Displacement": [],
+        "Thickness": []
+      }
+    }
+  ],
+  "displacement_method": "BUMP"
+}

@@ -1,0 +1,45 @@
+{
+  "source_light": "Warm estate | P16 low broad courtyard reflection.005",
+  "source_transform_preserved": true,
+  "original_pose": {
+    "location": [
+      5.272500038146973,
+      -4.430019378662109,
+      2.5450000762939453
+    ],
+    "rotation": [
+      1.5841962099075317,
+      -1.3961198419565335e-08,
+      0.15384867787361145
+    ]
+  },
+  "original_disk_size": 8.0,
+  "original_disk_bottom_approx": -1.455,
+  "source_receivers": "all original scene objects except the two yard surfaces",
+  "source_receiver_count": 6,
+  "source_receiver_names_sha256": "80a147e6c22ee3a1d631168e04cc77be16b267324cd183e17cf0414bb556cca8",
+  "fixed_light": "Living R5 | continuous courtyard fill above soil",
+  "fixed_pose": {
+    "location": [
+      5.272500038146973,
+      -4.430019378662109,
+      6.545000076293945
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "fixed_energy": 200.0,
+  "fixed_size": 8.0,
+  "fixed_shape": "DISK",
+  "fixed_receivers": [
+    "Plane"
+  ],
+  "yard_max_height": 1.5,
+  "minimum_fill_height_above_yard": 5.045,
+  "architecture_and_garden_materials_preserved": true,
+  "existing_architecture_and_garden_direct_fill_preserved": true,
+  "note": "Indirect light may change slightly because corrected yard reflectance is physically coupled."
+}

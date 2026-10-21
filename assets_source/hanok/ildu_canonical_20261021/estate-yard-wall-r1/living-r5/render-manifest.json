@@ -1,0 +1,258 @@
+{
+  "source_sha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+  "r4_library_sha256": "5be498fbf7f8d95011610c4c380fa6efb23ecf3b042907cab6d184d6959ec9de",
+  "library_sha256": "ece671ac893dc57fcbd7c6ad1312bd4e982ba59164a53fd43f6454322ad98f7f",
+  "lighting_patch": {
+    "source_light": "Warm estate | P16 low broad courtyard reflection.005",
+    "source_transform_preserved": true,
+    "original_pose": {
+      "location": [
+        5.272500038146973,
+        -4.430019378662109,
+        2.5450000762939453
+      ],
+      "rotation": [
+        1.5841962099075317,
+        -1.3961198419565335e-08,
+        0.15384867787361145
+      ]
+    },
+    "original_disk_size": 8.0,
+    "original_disk_bottom_approx": -1.455,
+    "source_receivers": "all original scene objects except the two yard surfaces",
+    "source_receiver_count": 4186,
+    "source_receiver_names_sha256": "74f7c3556ae6b94a5a214dea69fda5d0d2bf57848353668ff0a31ee0e5943bf4",
+    "fixed_light": "Living R5 | continuous courtyard fill above soil",
+    "fixed_pose": {
+      "location": [
+        5.272500038146973,
+        -4.430019378662109,
+        6.545000076293945
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "fixed_energy": 200.0,
+    "fixed_size": 8.0,
+    "fixed_shape": "DISK",
+    "fixed_receivers": [
+      "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "GyeSite.Estate.site.west field ground extension.pigment surface v48"
+    ],
+    "yard_max_height": 1.5,
+    "minimum_fill_height_above_yard": 5.045,
+    "architecture_and_garden_materials_preserved": true,
+    "existing_architecture_and_garden_direct_fill_preserved": true,
+    "note": "Indirect light may change slightly because corrected yard reflectance is physically coupled."
+  },
+  "renders": [
+    {
+      "view": "overview",
+      "camera": {
+        "location": [
+          -40.135169982910156,
+          -56.988040924072266,
+          53.9586181640625
+        ],
+        "rotation": [
+          0.8372841477394104,
+          -3.1053900784172583e-08,
+          -0.5713374614715576
+        ],
+        "ortho_scale": 29,
+        "samples": 24,
+        "resolution": [
+          1280,
+          960
+        ],
+        "engine": "CYCLES CPU",
+        "threads": 8,
+        "persistent_data": true,
+        "lights_preserved": true,
+        "source_colour_management_preserved": true
+      },
+      "samples": 24,
+      "seed": 15,
+      "resolution": [
+        1280,
+        960
+      ],
+      "variant": "A",
+      "file": "overview-A.png",
+      "sha256": "77676d813c05edaf5d2e7d2f9839fefb07ccce3343641f03f3a7ce402b78823f",
+      "reused_from": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\estate-yard-wall-r1\\living-r4\\overview-B.png"
+    },
+    {
+      "view": "overview",
+      "camera": {
+        "location": [
+          -40.135169982910156,
+          -56.988040924072266,
+          53.9586181640625
+        ],
+        "rotation": [
+          0.8372841477394104,
+          -3.1053900784172583e-08,
+          -0.5713374614715576
+        ],
+        "ortho_scale": 29,
+        "samples": 24,
+        "resolution": [
+          1280,
+          960
+        ],
+        "engine": "CYCLES CPU",
+        "threads": 8,
+        "persistent_data": true,
+        "lights_preserved": true,
+        "source_colour_management_preserved": true
+      },
+      "samples": 24,
+      "seed": 15,
+      "resolution": [
+        1280,
+        960
+      ],
+      "variant": "B",
+      "file": "overview-B.png",
+      "sha256": "93b49a7db3213eb27b7d636aa643b35ac16ecd72e67e25ffab23a43e40fcb9aa",
+      "library_sha256": "ece671ac893dc57fcbd7c6ad1312bd4e982ba59164a53fd43f6454322ad98f7f",
+      "lighting": "linked ground-only corrected fill",
+      "all_other_source_lights_retained": true,
+      "seconds": 146.02
+    },
+    {
+      "view": "full",
+      "camera": {
+        "location": [
+          -31.79344940185547,
+          -40.955894470214844,
+          66.74041748046875
+        ],
+        "rotation": [
+          0.8604140877723694,
+          -7.433416726598807e-08,
+          -0.6107259392738342
+        ],
+        "ortho_scale": 91.33671569824219,
+        "samples": 24,
+        "resolution": [
+          1280,
+          960
+        ],
+        "engine": "CYCLES CPU",
+        "threads": 8,
+        "persistent_data": true,
+        "lights_preserved": true,
+        "source_colour_management_preserved": true
+      },
+      "samples": 24,
+      "seed": 15,
+      "resolution": [
+        1280,
+        960
+      ],
+      "variant": "A",
+      "file": "full-A.png",
+      "sha256": "67d688c907ec2538ccee4466bdd6203771419a2d309607af6979c3792405a46e",
+      "reused_from": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\estate-yard-wall-r1\\living-r4\\full-B.png"
+    },
+    {
+      "view": "full",
+      "camera": {
+        "location": [
+          -31.79344940185547,
+          -40.955894470214844,
+          66.74041748046875
+        ],
+        "rotation": [
+          0.8604140877723694,
+          -7.433416726598807e-08,
+          -0.6107259392738342
+        ],
+        "ortho_scale": 91.33671569824219,
+        "samples": 24,
+        "resolution": [
+          1280,
+          960
+        ],
+        "engine": "CYCLES CPU",
+        "threads": 8,
+        "persistent_data": true,
+        "lights_preserved": true,
+        "source_colour_management_preserved": true
+      },
+      "samples": 24,
+      "seed": 15,
+      "resolution": [
+        1280,
+        960
+      ],
+      "variant": "B",
+      "file": "full-B.png",
+      "sha256": "ed2047f91e043bf75d944fcdd6c2b7c0153a5124f027f490992c7d827ed79737",
+      "library_sha256": "ece671ac893dc57fcbd7c6ad1312bd4e982ba59164a53fd43f6454322ad98f7f",
+      "lighting": "linked ground-only corrected fill",
+      "all_other_source_lights_retained": true,
+      "seconds": 69.97
+    },
+    {
+      "view": "detail",
+      "camera": {
+        "location": [
+          -35.012962341308594,
+          36.925716400146484,
+          58.08964538574219
+        ],
+        "rotation": [
+          0.7603127360343933,
+          3.77958180308724e-08,
+          -2.5702552795410156
+        ],
+        "ortho_scale": 12.0
+      },
+      "samples": 24,
+      "seed": 15,
+      "resolution": [
+        1280,
+        960
+      ],
+      "variant": "A",
+      "file": "detail-A.png",
+      "sha256": "1f6da70ee70bfdbcb1dcb082bf3057c7b5e4ab8c2d50c1367ad0db331c346a48",
+      "reused_from": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\estate-yard-wall-r1\\living-r4\\detail-B.png"
+    },
+    {
+      "view": "detail",
+      "camera": {
+        "location": [
+          -35.012962341308594,
+          36.925716400146484,
+          58.08964538574219
+        ],
+        "rotation": [
+          0.7603127360343933,
+          3.77958180308724e-08,
+          -2.5702552795410156
+        ],
+        "ortho_scale": 12.0
+      },
+      "samples": 24,
+      "seed": 15,
+      "resolution": [
+        1280,
+        960
+      ],
+      "variant": "B",
+      "file": "detail-B.png",
+      "sha256": "b4673cb02a99837991ed1672fe8c2a4bf26b50519ad0fb403feb1caa622fbb26",
+      "library_sha256": "ece671ac893dc57fcbd7c6ad1312bd4e982ba59164a53fd43f6454322ad98f7f",
+      "lighting": "linked ground-only corrected fill",
+      "all_other_source_lights_retained": true,
+      "seconds": 81.37
+    }
+  ]
+}

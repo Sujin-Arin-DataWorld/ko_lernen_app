@@ -1,0 +1,23 @@
+{
+  "gate": "left",
+  "key": "left_changgo",
+  "sourceNativeSha256": "b0431b15ebe83529c59307cabea2e66be481ecc0a406df4f68e30e868606fed0",
+  "sourceNativeSaved": false,
+  "sourceMaterialsModified": false,
+  "sourceGeometryModified": false,
+  "partCount": 680,
+  "materialCount": 1,
+  "imageCount": 4,
+  "model": "left_changgo-pbr.glb",
+  "sha256": "a655adfd77fcf7b5f23b00c2300302bee7109d1587058c78a699be3dd70c8115",
+  "atlasSize": 4096,
+  "channels": [
+    "baseColor",
+    "normal",
+    "roughnessMetallic",
+    "specular"
+  ],
+  "colorSource": "actual source shader bake, no arbitrary recolor",
+  "nativeRenderPixelParityClaimed": false,
+  "sourcePartsFile": "pbr\\left\\left_changgo-source-parts.json"
+}

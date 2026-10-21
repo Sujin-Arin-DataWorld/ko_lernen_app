@@ -1,0 +1,687 @@
+{
+  "camera": {
+    "location": [
+      -40.135169982910156,
+      -56.988040924072266,
+      53.9586181640625
+    ],
+    "rotation": [
+      0.8372841477394104,
+      -3.1053900784172583e-08,
+      -0.5713374614715576
+    ],
+    "ortho_scale": 29,
+    "samples": 24,
+    "resolution": [
+      1280,
+      960
+    ],
+    "engine": "CYCLES CPU",
+    "threads": 8,
+    "persistent_data": true,
+    "lights_preserved": true,
+    "source_colour_management_preserved": true
+  },
+  "hits": [
+    {
+      "pixel": [
+        1100,
+        180
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        6.496662139892578,
+        -3.722362518310547,
+        3.814697265625e-06
+      ],
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0.133083,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        1100,
+        210
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        5.947664260864258,
+        -4.576362609863281,
+        0.0
+      ],
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0.030738,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        1100,
+        230
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        5.581663131713867,
+        -5.145698547363281,
+        3.814697265625e-06
+      ],
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0.000477,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        1100,
+        250
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        5.215665817260742,
+        -5.715030670166016,
+        0.0
+      ],
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        1100,
+        280
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        4.666662216186523,
+        -6.569034576416016,
+        3.814697265625e-06
+      ],
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        1000,
+        220
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        3.8588695526123047,
+        -3.6358718872070312,
+        0.0
+      ],
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 1,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        1000,
+        250
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        3.30987548828125,
+        -4.4898681640625,
+        -3.814697265625e-06
+      ],
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0.973463,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        1000,
+        270
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        2.9438724517822266,
+        -5.0592041015625,
+        -3.814697265625e-06
+      ],
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0.905823,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        1000,
+        290
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        2.577871322631836,
+        -5.628536224365234,
+        0.0
+      ],
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0.806446,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        1000,
+        320
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        2.02886962890625,
+        -6.4825439453125,
+        3.814697265625e-06
+      ],
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 0.618509,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        900,
+        270
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        1.0380783081054688,
+        -3.8340530395507812,
+        -3.814697265625e-06
+      ],
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 1,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        900,
+        290
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        0.6720733642578125,
+        -4.403392791748047,
+        3.814697265625e-06
+      ],
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 1,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        900,
+        310
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        0.3060760498046875,
+        -4.97271728515625,
+        -3.814697265625e-06
+      ],
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 1,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        900,
+        330
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        -0.05992889404296875,
+        -5.542060852050781,
+        3.814697265625e-06
+      ],
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 1,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        900,
+        360
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        -0.6089248657226562,
+        -6.396060943603516,
+        3.814697265625e-06
+      ],
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 1,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        820,
+        290
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        -0.8525581359863281,
+        -3.423259735107422,
+        0.0
+      ],
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 1,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        820,
+        310
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        -1.2185592651367188,
+        -3.9925918579101562,
+        -3.814697265625e-06
+      ],
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 1,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        820,
+        330
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        -1.584564208984375,
+        -4.5619354248046875,
+        3.814697265625e-06
+      ],
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 1,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        820,
+        350
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        -1.9505577087402344,
+        -5.131259918212891,
+        -7.62939453125e-06
+      ],
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 1,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    },
+    {
+      "pixel": [
+        820,
+        380
+      ],
+      "object": "GyeGrass.earth.v55.0 | R12 landing occupancy cut",
+      "material": "YW1 yard | Illustrated lived courtyard earth",
+      "position": [
+        -2.4996185302734375,
+        -5.985359191894531,
+        0.000102996826171875
+      ],
+      "scope": 1,
+      "masks": {
+        "interior piece 0": 0.0,
+        "interior piece 1": 0.0,
+        "interior piece 2": 0.0,
+        "interior piece 3": 1,
+        "interior piece 4": 0.0,
+        "interior piece 5": 0.0,
+        "interior piece 6": 0.0,
+        "interior piece 7": 0.0,
+        "interior piece 8": 0.0,
+        "front lived courtyard": 1,
+        "central household passages": 0,
+        "north open courtyard": 0,
+        "west narrow approaches": 0,
+        "east sheltered approaches": 0,
+        "front gate to foundation consolidation": 1,
+        "central sheltered passage consolidation": 0,
+        "north entry open consolidation": 0
+      }
+    }
+  ]
+}

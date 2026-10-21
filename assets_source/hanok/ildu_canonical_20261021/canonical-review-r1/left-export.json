@@ -1,0 +1,12 @@
+{
+  "gate": "left",
+  "key": "left_changgo",
+  "sourceNativeSha256": "b0431b15ebe83529c59307cabea2e66be481ecc0a406df4f68e30e868606fed0",
+  "objectCount": 680,
+  "model": "left_changgo.glb",
+  "sha256": "0491d3b25d67f67e5b100fc8d684e1f752e94a0a0332e89c744f7f7b8470ee61",
+  "bytes": 22941424,
+  "sourceNativeSaved": false,
+  "materials": "neutral structural preview; native shaders untouched",
+  "geometry": "exact evaluated source, no decimation or scale"
+}

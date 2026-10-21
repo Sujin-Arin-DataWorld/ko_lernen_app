@@ -1,0 +1,6140 @@
+{
+  "gate": "left",
+  "scene": "사랑채 왼쪽 협문 | New drawing construction",
+  "camera": {
+    "name": "Camera.left",
+    "position": [
+      8.536690711975098,
+      -16.3310604095459,
+      9.700153350830078
+    ],
+    "rotation": [
+      1.1706453561782837,
+      1.4947616477911652e-09,
+      0.48166364431381226
+    ],
+    "orthoScale": 5.510727405548096
+  },
+  "objects": [
+    {
+      "name": "left.foundation.earthen court",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | earth"
+      ]
+    },
+    {
+      "name": "left.foundation.local earth crown",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | earth"
+      ]
+    },
+    {
+      "name": "left.foundation.perimeter fieldstone",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 16,
+      "materials": [
+        "Fresh | stone"
+      ]
+    },
+    {
+      "name": "left.foundation.perimeter fieldstone.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 16,
+      "materials": [
+        "Fresh | stone"
+      ]
+    },
+    {
+      "name": "left.foundation.perimeter fieldstone.002",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 16,
+      "materials": [
+        "Fresh | stone"
+      ]
+    },
+    {
+      "name": "left.foundation.perimeter fieldstone.003",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 16,
+      "materials": [
+        "Fresh | stone"
+      ]
+    },
+    {
+      "name": "left.foundation.perimeter fieldstone.004",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 16,
+      "materials": [
+        "Fresh | stone"
+      ]
+    },
+    {
+      "name": "left.foundation.perimeter fieldstone.005",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 16,
+      "materials": [
+        "Fresh | stone"
+      ]
+    },
+    {
+      "name": "left.foundation.perimeter fieldstone.006",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 16,
+      "materials": [
+        "Fresh | stone"
+      ]
+    },
+    {
+      "name": "left.foundation.perimeter fieldstone.007",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 16,
+      "materials": [
+        "Fresh | stone"
+      ]
+    },
+    {
+      "name": "left.foundation.perimeter fieldstone.008",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 16,
+      "materials": [
+        "Fresh | stone"
+      ]
+    },
+    {
+      "name": "left.foundation.perimeter fieldstone.009",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 16,
+      "materials": [
+        "Fresh | stone"
+      ]
+    },
+    {
+      "name": "left.foundation.perimeter fieldstone.010",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 16,
+      "materials": [
+        "Fresh | stone"
+      ]
+    },
+    {
+      "name": "left.foundation.perimeter fieldstone.011",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 16,
+      "materials": [
+        "Fresh | stone"
+      ]
+    },
+    {
+      "name": "left.foundation.shinbangseok",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 16,
+      "materials": [
+        "Fresh | stone"
+      ]
+    },
+    {
+      "name": "left.foundation.shinbangseok.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 16,
+      "materials": [
+        "Fresh | stone"
+      ]
+    },
+    {
+      "name": "left.foundation.shinbangseok.002",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 16,
+      "materials": [
+        "Fresh | stone"
+      ]
+    },
+    {
+      "name": "left.timber.shinbangmok",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.foundation.shinbangseok.003",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 16,
+      "materials": [
+        "Fresh | stone"
+      ]
+    },
+    {
+      "name": "left.foundation.shinbangseok.004",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 16,
+      "materials": [
+        "Fresh | stone"
+      ]
+    },
+    {
+      "name": "left.foundation.shinbangseok.005",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 16,
+      "materials": [
+        "Fresh | stone"
+      ]
+    },
+    {
+      "name": "left.timber.shinbangmok.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.timber.main post",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.timber.octagonal inclined prop",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 16,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.timber.octagonal inclined prop.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 16,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.timber.side X brace",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.timber.side X brace.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.timber.side cross bearing",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.timber.main post.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.timber.octagonal inclined prop.002",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 16,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.timber.octagonal inclined prop.003",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 16,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.timber.side X brace.002",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.timber.side X brace.003",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.timber.side cross bearing.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.timber.central dori",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.timber.ridge bearing",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.timber.side dori",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.timber.side dori.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.round rafter 00",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 1568,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.round rafter 01",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 1568,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.round rafter 02",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 1568,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.round rafter 03",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 1568,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.round rafter 04",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 1568,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.round rafter 05",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 1568,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.round rafter 06",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 1568,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.round rafter 07",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 1568,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.round rafter 08",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 1568,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.round rafter 09",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 1568,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.pitched boarding 00",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 12,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.pitched boarding 01",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 12,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.pitched boarding 02",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 12,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.pitched boarding 03",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 12,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.pitched boarding 04",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 12,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.pitched boarding 05",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 12,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.pitched boarding 06",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 12,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.pitched boarding 07",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 12,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.pitched boarding 08",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 12,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.pitched boarding 09",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 12,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.pitched boarding 10",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 12,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.pitched boarding 11",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 12,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.pitched boarding 12",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 12,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.pitched boarding 13",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 12,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.pitched boarding 14",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 12,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.pitched boarding 15",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 12,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.pitched boarding 16",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 12,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.pitched boarding 17",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 12,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.timber.side door jamb",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.timber.side door jamb.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.timber.upper door jamb",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.timber.sill",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.board 01",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 18,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.board 02",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 18,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.board 03",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 18,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.board 04",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 18,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.board 05",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 18,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.board 06",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 18,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.board 07",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 18,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.board 08",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 18,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.rear rail",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.rear rail.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.rear rail.002",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.rear rail.003",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.wood pivot",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 64,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.wood pivot.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 64,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.lower pivot housing",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.rear rail.004",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.rear rail.005",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.rear rail.006",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.rear rail.007",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.wood pivot.002",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 64,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.wood pivot.003",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 64,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.lower pivot housing.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.upper dunte",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.sliding wooden bolt",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.bolt keeper",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.door.bolt keeper.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.iron.board nail",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.002",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.003",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.004",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.005",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.006",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.007",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.008",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.009",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.010",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.011",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.012",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.013",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.014",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.015",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.016",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.017",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.018",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.019",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.020",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.021",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.022",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.023",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.024",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.025",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.026",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.027",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.028",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.029",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.030",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.iron.board nail.031",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 81,
+      "materials": [
+        "Fresh | iron"
+      ]
+    },
+    {
+      "name": "left.roof.internal compacted fill",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 3626,
+      "materials": [
+        "Fresh | earth"
+      ]
+    },
+    {
+      "name": "left.roof.gable plank -1 -1 0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 132,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.gable plank -1 -1 1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 132,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.gable plank -1 1 0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 132,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.gable plank -1 1 1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 132,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.002",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.003",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.004",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.005",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.006",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.007",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.008",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.009",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.010",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.011",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.012",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.013",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.014",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.015",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.016",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.017",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return bearing",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return bearing.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return bearing.002",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.gable plank 1 -1 0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 132,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.gable plank 1 -1 1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 132,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.gable plank 1 1 0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 132,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.gable plank 1 1 1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 132,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.018",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.019",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.020",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.021",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.022",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.023",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.024",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.025",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.026",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.027",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.028",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.029",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.030",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.031",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.032",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.033",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.034",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return boarding.035",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 28,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return bearing.003",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return bearing.004",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.side return bearing.005",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.pyeonggodae",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.yeonham",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.thin tile bedding",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 124,
+      "materials": [
+        "Fresh | earth"
+      ]
+    },
+    {
+      "name": "left.roof.pyeonggodae.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.yeonham.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 8,
+      "materials": [
+        "Fresh | wood"
+      ]
+    },
+    {
+      "name": "left.roof.thin tile bedding.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 124,
+      "materials": [
+        "Fresh | earth"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r0.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r0.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r0.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r0.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r0.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r0.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r0.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r0.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r0.l8",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r0.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r0.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r0.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r0.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r0.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r0.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r0.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r0.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r1.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r1.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r1.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r1.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r1.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r1.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r1.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r1.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r1.l8",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r1.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r1.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r1.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r1.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r1.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r1.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r1.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r1.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r2.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r2.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r2.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r2.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r2.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r2.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r2.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r2.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r2.l8",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r2.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r2.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r2.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r2.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r2.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r2.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r2.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r2.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r3.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r3.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r3.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r3.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r3.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r3.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r3.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r3.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r3.l8",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r3.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r3.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r3.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r3.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r3.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r3.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r3.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r3.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r4.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r4.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r4.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r4.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r4.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r4.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r4.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r4.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r4.l8",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r4.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r4.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r4.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r4.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r4.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r4.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r4.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r4.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r5.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r5.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r5.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r5.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r5.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r5.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r5.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r5.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r5.l8",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r5.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r5.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r5.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r5.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r5.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r5.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r5.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r5.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r6.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r6.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r6.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r6.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r6.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r6.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r6.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r6.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r6.l8",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r6.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r6.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r6.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r6.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r6.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r6.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r6.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r6.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r7.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r7.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r7.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r7.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r7.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r7.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r7.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r7.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r7.l8",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r7.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r7.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r7.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r7.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r7.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r7.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r7.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r7.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r8.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r8.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r8.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r8.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r8.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r8.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r8.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r8.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s-1.r8.l8",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r8.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover lip",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r8.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover lip.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r8.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover lip.002",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r8.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover lip.003",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r8.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover lip.004",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r8.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover lip.005",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r8.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover lip.006",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s-1.r8.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover lip.007",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r0.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r0.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r0.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r0.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r0.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r0.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r0.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r0.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r0.l8",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r0.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r0.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r0.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r0.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r0.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r0.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r0.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r0.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r1.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r1.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r1.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r1.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r1.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r1.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r1.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r1.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r1.l8",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r1.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r1.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r1.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r1.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r1.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r1.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r1.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r1.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r2.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r2.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r2.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r2.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r2.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r2.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r2.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r2.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r2.l8",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r2.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r2.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r2.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r2.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r2.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r2.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r2.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r2.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r3.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r3.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r3.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r3.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r3.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r3.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r3.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r3.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r3.l8",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r3.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r3.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r3.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r3.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r3.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r3.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r3.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r3.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r4.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r4.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r4.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r4.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r4.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r4.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r4.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r4.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r4.l8",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r4.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r4.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r4.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r4.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r4.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r4.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r4.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r4.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r5.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r5.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r5.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r5.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r5.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r5.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r5.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r5.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r5.l8",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r5.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r5.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r5.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r5.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r5.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r5.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r5.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r5.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r6.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r6.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r6.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r6.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r6.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r6.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r6.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r6.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r6.l8",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r6.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r6.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r6.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r6.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r6.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r6.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r6.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r6.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r7.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r7.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r7.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r7.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r7.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r7.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r7.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r7.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r7.l8",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r7.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r7.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r7.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r7.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r7.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r7.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r7.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r7.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r8.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r8.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r8.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r8.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r8.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r8.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r8.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r8.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.pan.s1.r8.l8",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 154,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r8.l0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover lip.008",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r8.l1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover lip.009",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r8.l2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover lip.010",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r8.l3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover lip.011",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r8.l4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover lip.012",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r8.l5",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover lip.013",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r8.l6",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover lip.014",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover.s1.r8.l7",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 238,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.cover lip.015",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 300,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing pan",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing cover",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing pan.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing cover.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing pan.002",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing cover.002",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing pan.003",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing cover.003",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing pan.004",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing cover.004",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing pan.005",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing cover.005",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing pan.006",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing cover.006",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing pan.007",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing cover.007",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing pan.008",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing cover.008",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing pan.009",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing cover.009",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing pan.010",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing cover.010",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing pan.011",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing cover.011",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing pan.012",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing cover.012",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing pan.013",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing cover.013",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing pan.014",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing cover.014",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing pan.015",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing cover.015",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing pan.016",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing cover.016",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing pan.017",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing cover.017",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing pan.018",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing cover.018",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing pan.019",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing cover.019",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing pan.020",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing cover.020",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing pan.021",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing cover.021",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing pan.022",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing cover.022",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing pan.023",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.wing cover.023",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 240,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge course 0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 350,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge course 1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 350,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge course 2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 350,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.002",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.003",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.004",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.005",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.006",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.007",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.008",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge end face",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 66,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge end relief",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 168,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge end relief.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 168,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge course 0.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 350,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge course 1.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 350,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge course 2.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 350,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.009",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.010",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.011",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.012",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.013",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.014",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.015",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.016",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.017",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge end face.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 66,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge end relief.002",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 168,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge end relief.003",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 168,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge course 0.002",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 350,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge course 1.002",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 350,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge course 2.002",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 350,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.018",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.019",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.020",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.021",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.022",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.023",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.024",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.025",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.026",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge end face.002",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 66,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge end relief.004",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 168,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge end relief.005",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 168,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge course 0.003",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 350,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge course 1.003",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 350,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge course 2.003",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 350,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.027",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.028",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.029",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.030",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.031",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.032",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.033",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.034",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge cap tile.035",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge end face.003",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 66,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge end relief.006",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 168,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.barge end relief.007",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 168,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.ridge bedding",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 246,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 0",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 0.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 0.002",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 0.003",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 0.004",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 0.005",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 0.006",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 0.007",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 0.008",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 0.009",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 1",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 1.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 1.002",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 1.003",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 1.004",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 1.005",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 1.006",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 1.007",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 1.008",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 1.009",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 1.010",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 2",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 2.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 2.002",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 2.003",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 2.004",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 2.005",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 2.006",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 2.007",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 2.008",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 2.009",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 3",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 3.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 3.002",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 3.003",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 3.004",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 3.005",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 3.006",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 3.007",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 3.008",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 3.009",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 3.010",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 4",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 4.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 4.002",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 4.003",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 4.004",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 4.005",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 4.006",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 4.007",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 4.008",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge course 4.009",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 112,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge cap",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge cap.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge cap.002",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge cap.003",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge cap.004",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge cap.005",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge cap.006",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge cap.007",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge cap.008",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.main ridge cap.009",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 266,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.ridge end finial",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 10,
+      "materials": [
+        "Fresh | clay"
+      ]
+    },
+    {
+      "name": "left.roof.ridge end finial.001",
+      "owner": "left",
+      "hideRender": false,
+      "vertices": 10,
+      "materials": [
+        "Fresh | clay"
+      ]
+    }
+  ]
+}

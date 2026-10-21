@@ -1,0 +1,104 @@
+{
+  "version": 12,
+  "scope": "R12 exact selected-member PBR candidate",
+  "candidateSha256": "b0431b15ebe83529c59307cabea2e66be481ecc0a406df4f68e30e868606fed0",
+  "sourceSha256": "b0431b15ebe83529c59307cabea2e66be481ecc0a406df4f68e30e868606fed0",
+  "native": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\left-new.blend",
+  "owners": [
+    {
+      "owner": "left_changgo",
+      "file": "left_changgo.glb",
+      "bytes": 140834412,
+      "sha256": "8a41f5c9566c059de917c09ab6dd78cf52e414df4aabea02606843e8a9796269",
+      "sourceParts": 680,
+      "candidateSha256": "b0431b15ebe83529c59307cabea2e66be481ecc0a406df4f68e30e868606fed0",
+      "sourceSha256": "b0431b15ebe83529c59307cabea2e66be481ecc0a406df4f68e30e868606fed0",
+      "bakeSamples": 4,
+      "movableParts": 680,
+      "doorDefinitions": 0,
+      "interactivePivots": 0,
+      "unboundLeafParts": 0,
+      "meshes": 680,
+      "nodes": 680,
+      "materials": 1,
+      "images": 4,
+      "normalMaterials": 1,
+      "uncompressed": true,
+      "atlasSize": 4096,
+      "channels": [
+        {
+          "channel": "baseColor",
+          "file": "left_changgo-baseColor.png",
+          "bytes": 47610911,
+          "sha256": "de6dd84abf4228c0b2dcb850b1d38e9654563d3fa16d729960397bed0c10c68b",
+          "size": [
+            4096,
+            4096
+          ],
+          "colorSpace": "sRGB",
+          "pixelMin": 0.0,
+          "pixelMax": 0.7448965907096863,
+          "pixelStd": 0.23992402851581573
+        },
+        {
+          "channel": "normal",
+          "file": "left_changgo-normal.png",
+          "bytes": 35844388,
+          "sha256": "f85ef9220e9968fde7a70007a94c1b4185d570d824be5d56839e74a6f4e8a167",
+          "size": [
+            4096,
+            4096
+          ],
+          "colorSpace": "Non-Color",
+          "pixelMin": 0.14785417914390564,
+          "pixelMax": 0.8159939050674438,
+          "pixelStd": 0.007460830733180046,
+          "blueMinimum": 1.0953674063785002e-05,
+          "blueAtOrBelowHalfPixels": 15865,
+          "normalHemisphereCompatibilityApproved": false
+        },
+        {
+          "channel": "roughnessMetallic",
+          "file": "left_changgo-roughnessMetallic.png",
+          "bytes": 7236913,
+          "sha256": "987367baa5efbc18bcfc7f4350ceba97df4fa0c39dee0bcf761c8faf091f36f2",
+          "size": [
+            4096,
+            4096
+          ],
+          "colorSpace": "Non-Color",
+          "pixelMin": 1.0,
+          "pixelMax": 1.0,
+          "pixelStd": 0.0
+        },
+        {
+          "channel": "specular",
+          "file": "left_changgo-specular.png",
+          "bytes": 837910,
+          "sha256": "07b182e64bb62e64f9b3076d72332104b9e75fac13e8b80088ab8c8514e7a4f8",
+          "size": [
+            4096,
+            4096
+          ],
+          "colorSpace": "Non-Color",
+          "pixelMin": 1.0,
+          "pixelMax": 1.0,
+          "pixelStd": 0.0
+        }
+      ],
+      "sourcePartsFile": "left_changgo-source-parts.json",
+      "sourcePartsSha256": "230669fe0eb6421660d0b807c86c90c3f6934b0a7add4b28d64e6f0197e733ce",
+      "coordinateWarnings": []
+    }
+  ],
+  "allEstateDelivered": false,
+  "runtimePromoted": false,
+  "visualApproval": false,
+  "doors": [],
+  "bakeSurface": "actual evaluated source mesh",
+  "directLightingBaked": false,
+  "temporaryPlaneUsed": false,
+  "meshCompression": null,
+  "originalGeometryUvsAttributesMaterialsTransformsUnchanged": true,
+  "totalBytes": 140834412
+}

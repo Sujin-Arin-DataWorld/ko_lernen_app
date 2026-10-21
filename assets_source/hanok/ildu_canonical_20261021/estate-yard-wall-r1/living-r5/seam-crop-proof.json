@@ -1,0 +1,36 @@
+[
+  {
+    "variant": "A",
+    "file": "seam-A.png",
+    "sha256": "276ce1dbc7129f945a4970bb53bc829f3f7754cdb069f3063744e31812e2b888",
+    "source": "overview-A.png",
+    "source_sha256": "77676d813c05edaf5d2e7d2f9839fefb07ccce3343641f03f3a7ce402b78823f",
+    "source_crop": [
+      775,
+      70,
+      1240,
+      320
+    ],
+    "size": [
+      465,
+      250
+    ]
+  },
+  {
+    "variant": "B",
+    "file": "seam-B.png",
+    "sha256": "3432bbafdebbb7d3c32c9e114982dec8fc898de7947628fa08d18cc20d2a23c1",
+    "source": "overview-B.png",
+    "source_sha256": "93b49a7db3213eb27b7d636aa643b35ac16ecd72e67e25ffab23a43e40fcb9aa",
+    "source_crop": [
+      775,
+      70,
+      1240,
+      320
+    ],
+    "size": [
+      465,
+      250
+    ]
+  }
+]

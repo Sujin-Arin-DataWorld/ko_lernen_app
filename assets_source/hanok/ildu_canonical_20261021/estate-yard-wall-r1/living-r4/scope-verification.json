@@ -1,0 +1,394 @@
+{
+  "kind": "read-only numeric scope QA; not Blender/render evidence",
+  "scope_sha256": "12fffc0fcbf85558308b9899a8e5f9ed2c15a2ead5477261fc28308720ec0d62",
+  "scope_piece_count": 9,
+  "semantic_zone_count": 8,
+  "tended_zone_count": 3,
+  "tolerance_m": 1e-06,
+  "grid": {
+    "step_m": 0.25,
+    "tested": 95092,
+    "boundary_points_skipped": 98,
+    "inside_samples": 56695,
+    "outside_samples": 38397,
+    "classification_mismatch_count": 0,
+    "classification_mismatch_samples": [],
+    "interior_far_from_boundary_mask_deficit_count": 1,
+    "interior_far_from_boundary_mask_deficit_samples": [
+      {
+        "point": [
+          -11.55,
+          -11.850000000000001
+        ],
+        "boundary_distance": 0.4832512720185155,
+        "mask": 0.9953282440965908
+      }
+    ],
+    "outside_mask_leak_count": 0,
+    "outside_mask_leak_samples": []
+  },
+  "areas": {
+    "original": 3543.1400000000003,
+    "sum_convex_pieces": 3543.1400000000003,
+    "absolute_difference": 0.0
+  },
+  "convexity": [
+    {
+      "piece": "interior piece 0",
+      "type": "scope",
+      "minimum_vertex_halfplane_distance": 0.0,
+      "passed": true
+    },
+    {
+      "piece": "interior piece 1",
+      "type": "scope",
+      "minimum_vertex_halfplane_distance": 0.0,
+      "passed": true
+    },
+    {
+      "piece": "interior piece 2",
+      "type": "scope",
+      "minimum_vertex_halfplane_distance": 0.0,
+      "passed": true
+    },
+    {
+      "piece": "interior piece 3",
+      "type": "scope",
+      "minimum_vertex_halfplane_distance": -2.220446049250313e-16,
+      "passed": true
+    },
+    {
+      "piece": "interior piece 4",
+      "type": "scope",
+      "minimum_vertex_halfplane_distance": -3.552713678800501e-15,
+      "passed": true
+    },
+    {
+      "piece": "interior piece 5",
+      "type": "scope",
+      "minimum_vertex_halfplane_distance": -3.552713678800501e-15,
+      "passed": true
+    },
+    {
+      "piece": "interior piece 6",
+      "type": "scope",
+      "minimum_vertex_halfplane_distance": -3.552713678800501e-15,
+      "passed": true
+    },
+    {
+      "piece": "interior piece 7",
+      "type": "scope",
+      "minimum_vertex_halfplane_distance": 0.0,
+      "passed": true
+    },
+    {
+      "piece": "interior piece 8",
+      "type": "scope",
+      "minimum_vertex_halfplane_distance": 0.0,
+      "passed": true
+    },
+    {
+      "piece": "front lived courtyard",
+      "type": "front",
+      "minimum_vertex_halfplane_distance": 0.0,
+      "passed": true
+    },
+    {
+      "piece": "central household passages",
+      "type": "central",
+      "minimum_vertex_halfplane_distance": -1.7763568394002505e-15,
+      "passed": true
+    },
+    {
+      "piece": "north open courtyard",
+      "type": "north",
+      "minimum_vertex_halfplane_distance": -1.7763568394002505e-15,
+      "passed": true
+    },
+    {
+      "piece": "west narrow approaches",
+      "type": "side",
+      "minimum_vertex_halfplane_distance": 0.0,
+      "passed": true
+    },
+    {
+      "piece": "east sheltered approaches",
+      "type": "side",
+      "minimum_vertex_halfplane_distance": 0.0,
+      "passed": true
+    },
+    {
+      "piece": "front gate to foundation consolidation",
+      "type": "tended",
+      "minimum_vertex_halfplane_distance": -3.3306690738754696e-16,
+      "passed": true
+    },
+    {
+      "piece": "central sheltered passage consolidation",
+      "type": "tended",
+      "minimum_vertex_halfplane_distance": 0.0,
+      "passed": true
+    },
+    {
+      "piece": "north entry open consolidation",
+      "type": "tended",
+      "minimum_vertex_halfplane_distance": -7.105427357601002e-15,
+      "passed": true
+    }
+  ],
+  "internal_edges": {
+    "unique_count": 8,
+    "all_edges_paired": true,
+    "midpoint_checks": [
+      {
+        "edge": [
+          [
+            -23.6,
+            -3.5
+          ],
+          [
+            -11.2,
+            -12.4
+          ]
+        ],
+        "owners": [
+          {
+            "piece": "interior piece 0",
+            "edge": 2
+          },
+          {
+            "piece": "interior piece 1",
+            "edge": 0
+          }
+        ],
+        "point": [
+          -17.4,
+          -7.95
+        ],
+        "outer_boundary_distance": 3.3430890235907844,
+        "union_mask": 1,
+        "eligible_distance_gt_feather": true,
+        "passed": true
+      },
+      {
+        "edge": [
+          [
+            -23.6,
+            -3.5
+          ],
+          [
+            -1.8,
+            -15.1
+          ]
+        ],
+        "owners": [
+          {
+            "piece": "interior piece 1",
+            "edge": 2
+          },
+          {
+            "piece": "interior piece 3",
+            "edge": 0
+          }
+        ],
+        "point": [
+          -12.700000000000001,
+          -9.3
+        ],
+        "outer_boundary_distance": 2.803338224744231,
+        "union_mask": 1,
+        "eligible_distance_gt_feather": true,
+        "passed": true
+      },
+      {
+        "edge": [
+          [
+            -1.8,
+            -15.1
+          ],
+          [
+            14.82,
+            -21.1
+          ]
+        ],
+        "owners": [
+          {
+            "piece": "interior piece 2",
+            "edge": 2
+          },
+          {
+            "piece": "interior piece 3",
+            "edge": 1
+          }
+        ],
+        "point": [
+          6.51,
+          -18.1
+        ],
+        "outer_boundary_distance": 3.9713488399297,
+        "union_mask": 1,
+        "eligible_distance_gt_feather": true,
+        "passed": true
+      },
+      {
+        "edge": [
+          [
+            -23.6,
+            -3.5
+          ],
+          [
+            29.5,
+            0.1
+          ]
+        ],
+        "owners": [
+          {
+            "piece": "interior piece 3",
+            "edge": 4
+          },
+          {
+            "piece": "interior piece 4",
+            "edge": 0
+          }
+        ],
+        "point": [
+          2.9499999999999993,
+          -1.7
+        ],
+        "outer_boundary_distance": 14.216979285347502,
+        "union_mask": 1,
+        "eligible_distance_gt_feather": true,
+        "passed": true
+      },
+      {
+        "edge": [
+          [
+            -23.6,
+            -3.5
+          ],
+          [
+            29.3,
+            28.5
+          ]
+        ],
+        "owners": [
+          {
+            "piece": "interior piece 4",
+            "edge": 4
+          },
+          {
+            "piece": "interior piece 6",
+            "edge": 0
+          }
+        ],
+        "point": [
+          2.8499999999999996,
+          12.5
+        ],
+        "outer_boundary_distance": 21.72628667476835,
+        "union_mask": 1,
+        "eligible_distance_gt_feather": true,
+        "passed": true
+      },
+      {
+        "edge": [
+          [
+            29.3,
+            28.5
+          ],
+          [
+            42.5,
+            51.2
+          ]
+        ],
+        "owners": [
+          {
+            "piece": "interior piece 5",
+            "edge": 2
+          },
+          {
+            "piece": "interior piece 6",
+            "edge": 1
+          }
+        ],
+        "point": [
+          35.9,
+          39.85
+        ],
+        "outer_boundary_distance": 6.0578870137603,
+        "union_mask": 1,
+        "eligible_distance_gt_feather": true,
+        "passed": true
+      },
+      {
+        "edge": [
+          [
+            3.1,
+            34.4
+          ],
+          [
+            39.2,
+            58.1
+          ]
+        ],
+        "owners": [
+          {
+            "piece": "interior piece 6",
+            "edge": 3
+          },
+          {
+            "piece": "interior piece 7",
+            "edge": 2
+          }
+        ],
+        "point": [
+          21.150000000000002,
+          46.25
+        ],
+        "outer_boundary_distance": 4.911887925946774,
+        "union_mask": 1,
+        "eligible_distance_gt_feather": true,
+        "passed": true
+      },
+      {
+        "edge": [
+          [
+            -23.6,
+            -3.5
+          ],
+          [
+            3.1,
+            34.4
+          ]
+        ],
+        "owners": [
+          {
+            "piece": "interior piece 6",
+            "edge": 4
+          },
+          {
+            "piece": "interior piece 8",
+            "edge": 2
+          }
+        ],
+        "point": [
+          -10.25,
+          15.45
+        ],
+        "outer_boundary_distance": 15.015556786075399,
+        "union_mask": 1,
+        "eligible_distance_gt_feather": true,
+        "passed": true
+      }
+    ]
+  },
+  "nodecount_theory": {
+    "old_original_concave_scope_plus_same_semantics": 1014,
+    "new_nine_convex_pieces_plus_same_semantics": 181,
+    "reduction_percent": 82.14990138067061,
+    "excludes": "scope union, shared coordinates, original material, substrate and texture graphs; no runtime memory claim"
+  },
+  "required_checks_passed": true,
+  "passed": false,
+  "additional_strict_grid_check_note": "Preserve strict deficits: convex infinite-edge line distance can be smaller than segment distance near a corner. Required midpoint and exterior checks are separate from the strict all-interior-grid mask=1 criterion."
+}

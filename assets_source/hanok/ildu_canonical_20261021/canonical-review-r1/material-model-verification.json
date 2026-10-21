@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "gate": "left",
+      "members": 680,
+      "textures": 4,
+      "positionsIndicesNormalsTransformsExactlyPreserved": true,
+      "nativeSourceUnchanged": true,
+      "allStagesShareSameSurface": true,
+      "model": "left_changgo-pbr.glb",
+      "sha256": "a655adfd77fcf7b5f23b00c2300302bee7109d1587058c78a699be3dd70c8115"
+    },
+    {
+      "gate": "right",
+      "members": 530,
+      "textures": 4,
+      "positionsIndicesNormalsTransformsExactlyPreserved": true,
+      "nativeSourceUnchanged": true,
+      "allStagesShareSameSurface": true,
+      "model": "right_ansarang-pbr.glb",
+      "sha256": "2560e76f8e7bbe3e5d3b3e16bf97f74a31f367878f08f8bbf15a86c3de3f4676"
+    },
+    {
+      "gate": "shrine",
+      "members": 445,
+      "textures": 12,
+      "positionsIndicesNormalsTransformsExactlyPreserved": true,
+      "nativeSourceUnchanged": true,
+      "allStagesShareSameSurface": true,
+      "model": "sadangmun-pbr.glb",
+      "sha256": "f9a0825129e5fbcb9fa31f4268dbf4862122c22dd5aea063b176d437e099f776"
+    }
+  ]
+}

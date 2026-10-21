@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "originalPbrSha256": "b2e0f1049111e5b141bbfbe1f24140e7721bdc6facb9a277b3e9f2eb5399f5ba",
+  "nativeSha256": "d0424a1c0e5d8032a7dbb68fa2cad308655d0e9e36b9502bd648d46899d73f20",
+  "outputSha256": "f9a0825129e5fbcb9fa31f4268dbf4862122c22dd5aea063b176d437e099f776",
+  "reason": "Replace fragmented paint UV islands with continuous native planar shader bakes; no geometry changes.",
+  "parts": [
+    {
+      "sourceObject": "shrine.paint.taegeuk blue on boards",
+      "continuousUv": true,
+      "size": 1024,
+      "positionsIndicesNormalsUnchanged": true,
+      "sourceObjectRestored": true,
+      "files": [
+        "baseColor",
+        "normal",
+        "roughnessMetallic",
+        "specular"
+      ]
+    },
+    {
+      "sourceObject": "shrine.paint.taegeuk red disk on boards",
+      "continuousUv": true,
+      "size": 1024,
+      "positionsIndicesNormalsUnchanged": true,
+      "sourceObjectRestored": true,
+      "files": [
+        "baseColor",
+        "normal",
+        "roughnessMetallic",
+        "specular"
+      ]
+    }
+  ]
+}
