@@ -1,0 +1,58 @@
+{
+  "candidateOnly": true,
+  "palette": {
+    "wood": {
+      "hex": "#B48353",
+      "mix": 0.4,
+      "roughnessFloor": 0.68,
+      "meaning": "chestnut honey; existing longitudinal grain retained"
+    },
+    "tile": {
+      "hex": "#7B7970",
+      "mix": 0.48,
+      "roughnessFloor": 0.78,
+      "meaning": "middle value warm charcoal clay, source tile relief retained"
+    },
+    "stone": {
+      "hex": "#C7BAA3",
+      "mix": 0.3,
+      "roughnessFloor": 0.87,
+      "meaning": "muted limestone, source stone identity retained"
+    },
+    "plaster": {
+      "hex": "#E5DAC4",
+      "mix": 0.45,
+      "roughnessFloor": 0.92,
+      "meaning": "ivory lime, existing wall relief retained"
+    },
+    "paper": {
+      "hex": "#EADFC7",
+      "mix": 0.23,
+      "roughnessFloor": 0.9,
+      "meaning": "warm translucent-looking paper tone; opacity unchanged"
+    }
+  },
+  "sourceNativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+  "lighting": "same three broad area lights and warm open world for both variants",
+  "viewTransform": "AgX",
+  "look": "Medium Low Contrast",
+  "samples": 12,
+  "noNewGeometry": true,
+  "noAddedDanCheong": true,
+  "noGoldTrim": true,
+  "noNewProps": true,
+  "preservedSourcePlaques": true,
+  "preservedLongGrainInputs": true,
+  "officialSources": [
+    {
+      "url": "https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/principled.html",
+      "checked": "2026-10-22",
+      "application": "roughness floor preserves diffuse tactile response"
+    },
+    {
+      "url": "https://docs.blender.org/manual/en/4.4/render/color_management.html",
+      "checked": "2026-10-22",
+      "application": "AgX with controlled open shadow contrast; identical control/candidate transform"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "key": "toilet1",
+  "complete": true,
+  "matchedCameraLights": true,
+  "samples": 24,
+  "renders": [
+    {
+      "variant": "source",
+      "view": "hero",
+      "file": "before-hero.png",
+      "cameraLocation": [
+        -5.32664155960083,
+        16.664249420166016,
+        8.462850570678711
+      ],
+      "target": [
+        -12.033722877502441,
+        26.16594696044922,
+        3.153078079223633
+      ],
+      "orthoScale": 7.389673716227215,
+      "resolution": [
+        1100,
+        825
+      ],
+      "sha256": "d92e53df05d389632ab58f07051d18e00c6a468901c7b9d4e2fcb410c28bc519"
+    },
+    {
+      "variant": "source",
+      "view": "detail",
+      "file": "before-detail.png",
+      "cameraLocation": [
+        -10.804091453552246,
+        13.653827667236328,
+        3.376647472381592
+      ],
+      "target": [
+        -12.033722877502441,
+        24.83229637145996,
+        2.705939292907715
+      ],
+      "orthoScale": 3,
+      "resolution": [
+        1100,
+        825
+      ],
+      "sha256": "0f3719508a7f1f1ee7397a3c1351b980b93939795ac991229e6eb9add2b20e59"
+    },
+    {
+      "variant": "R5 candidate",
+      "view": "hero",
+      "file": "after-hero.png",
+      "cameraLocation": [
+        -5.32664155960083,
+        16.664249420166016,
+        8.462850570678711
+      ],
+      "target": [
+        -12.033722877502441,
+        26.16594696044922,
+        3.153078079223633
+      ],
+      "orthoScale": 7.389673716227215,
+      "resolution": [
+        1100,
+        825
+      ],
+      "sha256": "e2537ac6ef5a7730c293eb95093e590f6f323d58a0cff8af13c5abe186e4ea9d"
+    },
+    {
+      "variant": "R5 candidate",
+      "view": "detail",
+      "file": "after-detail.png",
+      "cameraLocation": [
+        -10.804091453552246,
+        13.653827667236328,
+        3.376647472381592
+      ],
+      "target": [
+        -12.033722877502441,
+        24.83229637145996,
+        2.705939292907715
+      ],
+      "orthoScale": 3,
+      "resolution": [
+        1100,
+        825
+      ],
+      "sha256": "fd76ffe29de83f58a9ea202df5b565a0f213a3b5424669abade1f63e00b069d8"
+    }
+  ],
+  "seconds": 110.4
+}

@@ -1,0 +1,169 @@
+{
+  "count": 17,
+  "initialSplit": "0",
+  "decoded": 68,
+  "bad": [],
+  "rows": [
+    {
+      "key": "sarang",
+      "decoded": 4,
+      "badImages": 0,
+      "links": [
+        200,
+        200
+      ]
+    },
+    {
+      "key": "ansarang",
+      "decoded": 4,
+      "badImages": 0,
+      "links": [
+        200,
+        200
+      ]
+    },
+    {
+      "key": "anchae",
+      "decoded": 4,
+      "badImages": 0,
+      "links": [
+        200,
+        200
+      ]
+    },
+    {
+      "key": "sadang",
+      "decoded": 4,
+      "badImages": 0,
+      "links": [
+        200,
+        200
+      ]
+    },
+    {
+      "key": "jung",
+      "decoded": 4,
+      "badImages": 0,
+      "links": [
+        200,
+        200
+      ]
+    },
+    {
+      "key": "arae",
+      "decoded": 4,
+      "badImages": 0,
+      "links": [
+        200,
+        200
+      ]
+    },
+    {
+      "key": "gokgan",
+      "decoded": 4,
+      "badImages": 0,
+      "links": [
+        200,
+        200
+      ]
+    },
+    {
+      "key": "angotgan",
+      "decoded": 4,
+      "badImages": 0,
+      "links": [
+        200,
+        200
+      ]
+    },
+    {
+      "key": "changgo",
+      "decoded": 4,
+      "badImages": 0,
+      "links": [
+        200,
+        200
+      ]
+    },
+    {
+      "key": "toilet",
+      "decoded": 4,
+      "badImages": 0,
+      "links": [
+        200,
+        200
+      ]
+    },
+    {
+      "key": "toilet1",
+      "decoded": 4,
+      "badImages": 0,
+      "links": [
+        200,
+        200
+      ]
+    },
+    {
+      "key": "main_gate",
+      "decoded": 4,
+      "badImages": 0,
+      "links": [
+        200,
+        200
+      ]
+    },
+    {
+      "key": "left_changgo",
+      "decoded": 4,
+      "badImages": 0,
+      "links": [
+        200,
+        200
+      ]
+    },
+    {
+      "key": "right_ansarang",
+      "decoded": 4,
+      "badImages": 0,
+      "links": [
+        200,
+        200
+      ]
+    },
+    {
+      "key": "sadangmun",
+      "decoded": 4,
+      "badImages": 0,
+      "links": [
+        200,
+        200
+      ]
+    },
+    {
+      "key": "sarang-standalone",
+      "decoded": 4,
+      "badImages": 0,
+      "links": [
+        200,
+        200
+      ]
+    },
+    {
+      "key": "jung-standalone",
+      "decoded": 4,
+      "badImages": 0,
+      "links": [
+        200,
+        200
+      ]
+    }
+  ],
+  "display": {
+    "name": "사랑채 · 독립형",
+    "src": "http://127.0.0.1:8866/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-standalone-r5/sarang-standalone/after-detail.png?v=e21741375b79",
+    "split": "0",
+    "native": "http://127.0.0.1:8866/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-standalone-r5/sarang-standalone/sarang-standalone-r5-brush-candidate.blend"
+  },
+  "width": 1920,
+  "scrollWidth": 1897
+}

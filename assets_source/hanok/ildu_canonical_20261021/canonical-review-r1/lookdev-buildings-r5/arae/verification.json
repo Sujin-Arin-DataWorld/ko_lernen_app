@@ -1,0 +1,1678 @@
+{
+  "key": "arae",
+  "name": "아랫채",
+  "version": "building-r5-2",
+  "sourceNative": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\estate-yard-wall-r1\\ildu-estate-yard-wall-r1.blend",
+  "sourceSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+  "candidateNative": "arae-r5-brush-candidate.blend",
+  "candidateSha256": "25842b2bc947699657a0c737191551cc571c5005217e54100e805239c5adc89a",
+  "passed": true,
+  "reopened": true,
+  "meshCount": 259,
+  "geometryUVsTransformsModifiersEqual": true,
+  "attributesStagesPropertiesEqual": true,
+  "sourceMaterialGraphsEqual": true,
+  "sourceImageBytesEqual": true,
+  "originalPlaquesAndAnonymousPatternsUnchanged": {
+    "North.arae.p12 passage hearth": [
+      "P12 ash soot 0"
+    ],
+    "North.arae.p12 passage hearth scattered charcoal 0 0": [
+      "P12 ash soot 2"
+    ],
+    "North.arae.p12 passage hearth scattered charcoal 0 1": [
+      "P12 ash soot 2"
+    ],
+    "North.arae.p12 passage hearth scattered charcoal 0 2": [
+      "P12 ash soot 2"
+    ]
+  },
+  "roles": {
+    "stone": 10,
+    "wood": 159,
+    "earth": 1,
+    "paper": 19,
+    "plaster": 7,
+    "lattice": 187,
+    "preserve": 4,
+    "metal": 3,
+    "tile": 15,
+    "endgrain": 2
+  },
+  "materials": [
+    {
+      "source": "HS stone balanced r3 | HS mineral response r2 | HS fieldstone r1 | Selected timber v2 | arae | P15 stone arae board axis0 | Gye cared warm fieldstone v52",
+      "candidate": "R5 stone | HS stone balanced r3 | HS mineral response r2 | HS fieldstone r1 | Selected timber v2 | arae | P15 stone arae board axis0 | Gye cared warm fieldstone v52",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | arae | North arae stone",
+      "candidate": "R5 stone | Selected timber v2 | arae | North arae stone",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS stone balanced r3 | HS mineral response r2 | HS fieldstone r1 | Selected timber v2 | arae | P15 stone arae joinery axis0 | Gye cared warm fieldstone v52",
+      "candidate": "R5 stone | HS stone balanced r3 | HS mineral response r2 | HS fieldstone r1 | Selected timber v2 | arae | P15 stone arae joinery axis0 | Gye cared warm fieldstone v52",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | arae | Canonical gate floor pigment.001",
+      "candidate": "R5 wood | Selected timber v2 | arae | Canonical gate floor pigment.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | arae | Gye cared pine arae v56 floor tone 0",
+      "candidate": "R5 wood | Selected timber v2 | arae | Gye cared pine arae v56 floor tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis0 | Gye cared pine arae v69 floor tone 2",
+      "candidate": "R5 wood | HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis0 | Gye cared pine arae v69 floor tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis0 | Gye cared pine arae v69 floor tone 0",
+      "candidate": "R5 wood | HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis0 | Gye cared pine arae v69 floor tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis0 | Gye cared pine arae v69 floor tone 4",
+      "candidate": "R5 wood | HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis0 | Gye cared pine arae v69 floor tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis0 | Gye cared pine arae v69 floor tone 3",
+      "candidate": "R5 wood | HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis0 | Gye cared pine arae v69 floor tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis0 | Gye cared pine arae v69 floor tone 1",
+      "candidate": "R5 wood | HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis0 | Gye cared pine arae v69 floor tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | arae | North arae beam.001",
+      "candidate": "R5 wood | Selected timber v2 | arae | North arae beam.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | arae | Gye cared pine arae v56 floor tone 4 v66 frame",
+      "candidate": "R5 wood | Selected timber v2 | arae | Gye cared pine arae v56 floor tone 4 v66 frame",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis0 | Gye cared pine arae v69 frame tone 2.001",
+      "candidate": "R5 wood | HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis0 | Gye cared pine arae v69 frame tone 2.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis0 | Gye cared pine arae v69 frame tone 3.001",
+      "candidate": "R5 wood | HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis0 | Gye cared pine arae v69 frame tone 3.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis0 | Gye cared pine arae v69 frame tone 1.001",
+      "candidate": "R5 wood | HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis0 | Gye cared pine arae v69 frame tone 1.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS foundation earth r1 | araechae | North tamped earth",
+      "candidate": "R5 earth | HS foundation earth r1 | araechae | North tamped earth",
+      "role": "earth",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | arae | P15 stone arae board axis0 | Gye cared warm fieldstone v52",
+      "candidate": "R5 stone | Selected timber v2 | arae | P15 stone arae board axis0 | Gye cared warm fieldstone v52",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | arae | North arae beam",
+      "candidate": "R5 wood | Selected timber v2 | arae | North arae beam",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | arae | Gye cared pine arae v56 frame tone 0",
+      "candidate": "R5 wood | Selected timber v2 | arae | Gye cared pine arae v56 frame tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | arae | wood_frame | Selected timber v2 | arae | P15 wood arae beam axis0 | Gye cared pine arae v69 frame tone 1",
+      "candidate": "R5 wood | HS heritage | arae | wood_frame | Selected timber v2 | arae | P15 wood arae beam axis0 | Gye cared pine arae v69 frame tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | arae | wood_frame | Selected timber v2 | arae | P15 wood arae beam axis0 | Gye cared pine arae v69 frame tone 2",
+      "candidate": "R5 wood | HS heritage | arae | wood_frame | Selected timber v2 | arae | P15 wood arae beam axis0 | Gye cared pine arae v69 frame tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | arae | wood_frame | Selected timber v2 | arae | P15 wood arae beam axis0 | Gye cared pine arae v69 frame tone 0",
+      "candidate": "R5 wood | HS heritage | arae | wood_frame | Selected timber v2 | arae | P15 wood arae beam axis0 | Gye cared pine arae v69 frame tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | arae | wood_frame | Selected timber v2 | arae | P15 wood arae beam axis0 | Gye cared pine arae v69 frame tone 3",
+      "candidate": "R5 wood | HS heritage | arae | wood_frame | Selected timber v2 | arae | P15 wood arae beam axis0 | Gye cared pine arae v69 frame tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | arae | North arae wood",
+      "candidate": "R5 wood | Selected timber v2 | arae | North arae wood",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | arae | Gye cared pine arae v56 boards tone 3",
+      "candidate": "R5 wood | Selected timber v2 | arae | Gye cared pine arae v56 boards tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | arae | P15 wood arae board axis0 | Gye cared pine arae v69 boards tone 2",
+      "candidate": "R5 wood | Selected timber v2 | arae | P15 wood arae board axis0 | Gye cared pine arae v69 boards tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | arae | P15 wood arae board axis0 | Gye cared pine arae v69 boards tone 3",
+      "candidate": "R5 wood | Selected timber v2 | arae | P15 wood arae board axis0 | Gye cared pine arae v69 boards tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | arae | P15 wood arae board axis0 | Gye cared pine arae v69 boards tone 1",
+      "candidate": "R5 wood | Selected timber v2 | arae | P15 wood arae board axis0 | Gye cared pine arae v69 boards tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | arae | P15 wood arae board axis0 | Gye cared pine arae v69 boards tone 0",
+      "candidate": "R5 wood | Selected timber v2 | arae | P15 wood arae board axis0 | Gye cared pine arae v69 boards tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | arae | North arae post",
+      "candidate": "R5 wood | Selected timber v2 | arae | North arae post",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | arae | Gye cared pine arae v56 posts tone 0",
+      "candidate": "R5 wood | Selected timber v2 | arae | Gye cared pine arae v56 posts tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | arae | wood_frame | Selected timber v2 | arae | P15 wood arae post axis0 | Gye cared pine arae v69 posts tone 4",
+      "candidate": "R5 wood | HS heritage | arae | wood_frame | Selected timber v2 | arae | P15 wood arae post axis0 | Gye cared pine arae v69 posts tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | arae | wood_frame | Selected timber v2 | arae | P15 wood arae post axis0 | Gye cared pine arae v69 posts tone 1",
+      "candidate": "R5 wood | HS heritage | arae | wood_frame | Selected timber v2 | arae | P15 wood arae post axis0 | Gye cared pine arae v69 posts tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | arae | wood_frame | Selected timber v2 | arae | P15 wood arae post axis0 | Gye cared pine arae v69 posts tone 3",
+      "candidate": "R5 wood | HS heritage | arae | wood_frame | Selected timber v2 | arae | P15 wood arae post axis0 | Gye cared pine arae v69 posts tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | arae | wood_frame | Selected timber v2 | arae | P15 wood arae post axis0 | Gye cared pine arae v69 posts tone 2",
+      "candidate": "R5 wood | HS heritage | arae | wood_frame | Selected timber v2 | arae | P15 wood arae post axis0 | Gye cared pine arae v69 posts tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | arae | P15 paper arae floor axis0 | North warm hanji",
+      "candidate": "R5 paper | Selected timber v2 | arae | P15 paper arae floor axis0 | North warm hanji",
+      "role": "paper",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS white r2 | arae | plaster | Selected timber v2 | arae | P15 plaster arae board axis1 | Gye cared limewash v52",
+      "candidate": "R5 plaster | HS white r2 | arae | plaster | Selected timber v2 | arae | P15 plaster arae board axis1 | Gye cared limewash v52",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye cared lime metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS white r2 | arae | plaster | Selected timber v2 | arae | P15 plaster arae floor axis1 | Gye cared limewash v52",
+      "candidate": "R5 plaster | HS white r2 | arae | plaster | Selected timber v2 | arae | P15 plaster arae floor axis1 | Gye cared limewash v52",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye cared lime metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS white r2 | arae | paper | Selected timber v2 | arae | P15 paper arae floor axis2 | North warm hanji",
+      "candidate": "R5 paper | HS white r2 | arae | paper | Selected timber v2 | arae | P15 paper arae floor axis2 | North warm hanji",
+      "role": "paper",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | arae | North arae wood.002",
+      "candidate": "R5 lattice | Selected timber v2 | arae | North arae wood.002",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | arae | Gye cared pine arae v56 floor tone 1 v66 joinery",
+      "candidate": "R5 lattice | Selected timber v2 | arae | Gye cared pine arae v56 floor tone 1 v66 joinery",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis2 | Gye cared pine arae v69 joinery tone 2.001",
+      "candidate": "R5 lattice | HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis2 | Gye cared pine arae v69 joinery tone 2.001",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis1 | Gye cared pine arae v69 joinery tone 2.001",
+      "candidate": "R5 lattice | HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis1 | Gye cared pine arae v69 joinery tone 2.001",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | arae | Gye cared pine arae v56 floor tone 0 v66 joinery",
+      "candidate": "R5 lattice | Selected timber v2 | arae | Gye cared pine arae v56 floor tone 0 v66 joinery",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | arae | Gye cared pine arae v56 floor tone 2 v66 joinery",
+      "candidate": "R5 lattice | Selected timber v2 | arae | Gye cared pine arae v56 floor tone 2 v66 joinery",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | arae | Gye cared pine arae v56 floor tone 4 v66 joinery",
+      "candidate": "R5 lattice | Selected timber v2 | arae | Gye cared pine arae v56 floor tone 4 v66 joinery",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis2 | Gye cared pine arae v69 joinery tone 3.001",
+      "candidate": "R5 lattice | HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis2 | Gye cared pine arae v69 joinery tone 3.001",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis2 | Gye cared pine arae v69 joinery tone 1.001",
+      "candidate": "R5 lattice | HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis2 | Gye cared pine arae v69 joinery tone 1.001",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | arae | Gye cared pine arae v56 floor tone 3 v66 joinery",
+      "candidate": "R5 lattice | Selected timber v2 | arae | Gye cared pine arae v56 floor tone 3 v66 joinery",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis1 | Gye cared pine arae v69 joinery tone 1.001",
+      "candidate": "R5 lattice | HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis1 | Gye cared pine arae v69 joinery tone 1.001",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis1 | Gye cared pine arae v69 joinery tone 4.001",
+      "candidate": "R5 lattice | HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis1 | Gye cared pine arae v69 joinery tone 4.001",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis2 | Gye cared pine arae v69 joinery tone 0.001",
+      "candidate": "R5 lattice | HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis2 | Gye cared pine arae v69 joinery tone 0.001",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis2 | Gye cared pine arae v69 joinery tone 4.001",
+      "candidate": "R5 lattice | HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis2 | Gye cared pine arae v69 joinery tone 4.001",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis1 | Gye cared pine arae v69 joinery tone 3.001",
+      "candidate": "R5 lattice | HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis1 | Gye cared pine arae v69 joinery tone 3.001",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | arae | Gye cared pine arae v56 floor tone 1 v66 boards",
+      "candidate": "R5 wood | Selected timber v2 | arae | Gye cared pine arae v56 floor tone 1 v66 boards",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis1 | Gye cared pine arae v69 boards tone 1.001",
+      "candidate": "R5 wood | HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis1 | Gye cared pine arae v69 boards tone 1.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis1 | Gye cared pine arae v69 boards tone 4",
+      "candidate": "R5 wood | HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis1 | Gye cared pine arae v69 boards tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | arae | Gye cared pine arae v56 floor tone 4 v66 boards",
+      "candidate": "R5 wood | Selected timber v2 | arae | Gye cared pine arae v56 floor tone 4 v66 boards",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis1 | Gye cared pine arae v69 boards tone 3.001",
+      "candidate": "R5 wood | HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis1 | Gye cared pine arae v69 boards tone 3.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis1 | Gye cared pine arae v69 boards tone 2.001",
+      "candidate": "R5 wood | HS heritage | arae | wood_floor | Selected timber v2 | arae | P15 wood arae floor axis1 | Gye cared pine arae v69 boards tone 2.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS white r2 | arae | plaster | Selected timber v2 | arae | P15 plaster arae board axis0 | Gye cared limewash v52",
+      "candidate": "R5 plaster | HS white r2 | arae | plaster | Selected timber v2 | arae | P15 plaster arae board axis0 | Gye cared limewash v52",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye cared lime metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | arae | wood_frame | Selected timber v2 | arae | P15 wood arae board axis1 | Anchae p8 B · boards",
+      "candidate": "R5 wood | HS heritage | arae | wood_frame | Selected timber v2 | arae | P15 wood arae board axis1 | Anchae p8 B · boards",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | arae | P15 plaster arae board axis1 | P12 worn hearth lime",
+      "candidate": "R5 plaster | Selected timber v2 | arae | P15 plaster arae board axis1 | P12 worn hearth lime",
+      "role": "plaster",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | arae | P15 plaster arae board axis1 | North.arae.p12 passage hearth integrated lime patina",
+      "candidate": "R5 plaster | Selected timber v2 | arae | P15 plaster arae board axis1 | North.arae.p12 passage hearth integrated lime patina",
+      "role": "plaster",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | arae | P15 plaster arae board axis1 | North.arae.p12 passage hearth firing mouth lime",
+      "candidate": "R5 plaster | Selected timber v2 | arae | P15 plaster arae board axis1 | North.arae.p12 passage hearth firing mouth lime",
+      "role": "plaster",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "P15 metal arae board axis1 | P12 seasoned cast iron",
+      "candidate": "R5 metal | P15 metal arae board axis1 | P12 seasoned cast iron",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "P15 metal arae board axis0 | P12 seasoned cast iron",
+      "candidate": "R5 metal | P15 metal arae board axis0 | P12 seasoned cast iron",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "P15 metal arae board axis2 | P12 seasoned cast iron",
+      "candidate": "R5 metal | P15 metal arae board axis2 | P12 seasoned cast iron",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS white r2 | arae | paper | Selected timber v2 | arae | P15 paper arae joinery axis2 | North warm hanji",
+      "candidate": "R5 paper | HS white r2 | arae | paper | Selected timber v2 | arae | P15 paper arae joinery axis2 | North warm hanji",
+      "role": "paper",
+      "mapping": [
+        "OBJECT",
+        2,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | arae | North arae wood.001",
+      "candidate": "R5 wood | Selected timber v2 | arae | North arae wood.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | arae | Gye cared pine arae v56 joinery tone 3",
+      "candidate": "R5 lattice | Selected timber v2 | arae | Gye cared pine arae v56 joinery tone 3",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | arae | wood_joinery | Selected timber v2 | arae | P15 wood arae joinery axis2 | Gye cared pine arae v69 joinery tone 2",
+      "candidate": "R5 lattice | HS heritage | arae | wood_joinery | Selected timber v2 | arae | P15 wood arae joinery axis2 | Gye cared pine arae v69 joinery tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | arae | Gye cared pine arae v56 joinery tone 4",
+      "candidate": "R5 lattice | Selected timber v2 | arae | Gye cared pine arae v56 joinery tone 4",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | arae | wood_joinery | Selected timber v2 | arae | P15 wood arae joinery axis0 | Gye cared pine arae v69 joinery tone 2",
+      "candidate": "R5 lattice | HS heritage | arae | wood_joinery | Selected timber v2 | arae | P15 wood arae joinery axis0 | Gye cared pine arae v69 joinery tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | arae | Gye cared pine arae v56 joinery tone 0",
+      "candidate": "R5 lattice | Selected timber v2 | arae | Gye cared pine arae v56 joinery tone 0",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | arae | Gye cared pine arae v56 joinery tone 2",
+      "candidate": "R5 lattice | Selected timber v2 | arae | Gye cared pine arae v56 joinery tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | arae | wood_joinery | Selected timber v2 | arae | P15 wood arae joinery axis2 | Gye cared pine arae v69 joinery tone 1",
+      "candidate": "R5 lattice | HS heritage | arae | wood_joinery | Selected timber v2 | arae | P15 wood arae joinery axis2 | Gye cared pine arae v69 joinery tone 1",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | arae | Gye cared pine arae v56 joinery tone 1",
+      "candidate": "R5 lattice | Selected timber v2 | arae | Gye cared pine arae v56 joinery tone 1",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | arae | wood_joinery | Selected timber v2 | arae | P15 wood arae joinery axis0 | Gye cared pine arae v69 joinery tone 1",
+      "candidate": "R5 lattice | HS heritage | arae | wood_joinery | Selected timber v2 | arae | P15 wood arae joinery axis0 | Gye cared pine arae v69 joinery tone 1",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | arae | wood_joinery | Selected timber v2 | arae | P15 wood arae joinery axis2 | Gye cared pine arae v69 joinery tone 3",
+      "candidate": "R5 lattice | HS heritage | arae | wood_joinery | Selected timber v2 | arae | P15 wood arae joinery axis2 | Gye cared pine arae v69 joinery tone 3",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | arae | wood_joinery | Selected timber v2 | arae | P15 wood arae joinery axis0 | Gye cared pine arae v69 joinery tone 3",
+      "candidate": "R5 lattice | HS heritage | arae | wood_joinery | Selected timber v2 | arae | P15 wood arae joinery axis0 | Gye cared pine arae v69 joinery tone 3",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | arae | wood_joinery | Selected timber v2 | arae | P15 wood arae joinery axis2 | Gye cared pine arae v69 joinery tone 0",
+      "candidate": "R5 lattice | HS heritage | arae | wood_joinery | Selected timber v2 | arae | P15 wood arae joinery axis2 | Gye cared pine arae v69 joinery tone 0",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | arae | wood_joinery | Selected timber v2 | arae | P15 wood arae joinery axis0 | Gye cared pine arae v69 joinery tone 0",
+      "candidate": "R5 lattice | HS heritage | arae | wood_joinery | Selected timber v2 | arae | P15 wood arae joinery axis0 | Gye cared pine arae v69 joinery tone 0",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | arae | wood_joinery | Selected timber v2 | arae | P15 wood arae joinery axis2 | Gye cared pine arae v69 joinery tone 4",
+      "candidate": "R5 lattice | HS heritage | arae | wood_joinery | Selected timber v2 | arae | P15 wood arae joinery axis2 | Gye cared pine arae v69 joinery tone 4",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | arae | Gye cared pine arae v56 boards tone 4",
+      "candidate": "R5 wood | Selected timber v2 | arae | Gye cared pine arae v56 boards tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | arae | wood_frame | Selected timber v2 | arae | P15 wood arae board axis0 | Gye cared pine arae v69 boards tone 2",
+      "candidate": "R5 wood | HS heritage | arae | wood_frame | Selected timber v2 | arae | P15 wood arae board axis0 | Gye cared pine arae v69 boards tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | arae | wood_frame | Selected timber v2 | arae | P15 wood arae board axis0 | Gye cared pine arae v69 boards tone 3",
+      "candidate": "R5 wood | HS heritage | arae | wood_frame | Selected timber v2 | arae | P15 wood arae board axis0 | Gye cared pine arae v69 boards tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | arae | Ansarang retained V33 main_gate source ceramic 0",
+      "candidate": "R5 tile | Selected timber v2 | arae | Ansarang retained V33 main_gate source ceramic 0",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS roof charcoal | arae | Selected timber v2 | arae | P15 tile arae board axis0 | Gye cared charcoal clay v52",
+      "candidate": "R5 tile | HS roof charcoal | arae | Selected timber v2 | arae | P15 tile arae board axis0 | Gye cared charcoal clay v52",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | arae | Ansarang retained V33 main_gate source ceramic 2",
+      "candidate": "R5 tile | Selected timber v2 | arae | Ansarang retained V33 main_gate source ceramic 2",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS mineral bedding r1 | arae | roof-bedding/backing | Selected timber v2 | arae | P15 plaster arae board axis0 | Gye cared limewash v52",
+      "candidate": "R5 stone | HS mineral bedding r1 | arae | roof-bedding/backing | Selected timber v2 | arae | P15 plaster arae board axis0 | Gye cared limewash v52",
+      "role": "stone",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | arae | Gye cared pine arae v56 boards tone 2",
+      "candidate": "R5 wood | Selected timber v2 | arae | Gye cared pine arae v56 boards tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | arae | Illustrated pine endgrain v1",
+      "candidate": "R5 endgrain | Selected timber v2 | arae | Illustrated pine endgrain v1",
+      "role": "endgrain",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | arae | Ansarang retained V33 main_gate source ceramic 1",
+      "candidate": "R5 tile | Selected timber v2 | arae | Ansarang retained V33 main_gate source ceramic 1",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | arae | Ansarang retained V33 main_gate source ceramic 3",
+      "candidate": "R5 tile | Selected timber v2 | arae | Ansarang retained V33 main_gate source ceramic 3",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | arae | Ansarang retained V33 main_gate source ceramic 4",
+      "candidate": "R5 tile | Selected timber v2 | arae | Ansarang retained V33 main_gate source ceramic 4",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | arae | Ansarang retained V33 main_gate source ceramic 5",
+      "candidate": "R5 tile | Selected timber v2 | arae | Ansarang retained V33 main_gate source ceramic 5",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | arae | Gye cared pine arae v56 frame tone 4",
+      "candidate": "R5 wood | Selected timber v2 | arae | Gye cared pine arae v56 frame tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | arae | wood_frame | Selected timber v2 | arae | P15 wood arae beam axis0 | Gye cared pine arae v69 frame tone 4",
+      "candidate": "R5 wood | HS heritage | arae | wood_frame | Selected timber v2 | arae | P15 wood arae beam axis0 | Gye cared pine arae v69 frame tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | arae | Gye cared pine arae v56 boards tone 1",
+      "candidate": "R5 wood | Selected timber v2 | arae | Gye cared pine arae v56 boards tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gable finegrain r2 | Selected timber v2 | arae | P15 wood arae board axis0 | Gye cared pine arae v69 boards tone 2",
+      "candidate": "R5 wood | HS gable finegrain r2 | Selected timber v2 | arae | P15 wood arae board axis0 | Gye cared pine arae v69 boards tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gable finegrain r2 | Selected timber v2 | arae | P15 wood arae board axis0 | Gye cared pine arae v69 boards tone 4.001",
+      "candidate": "R5 wood | HS gable finegrain r2 | Selected timber v2 | arae | P15 wood arae board axis0 | Gye cared pine arae v69 boards tone 4.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | arae | Gye cared pine arae v56 frame tone 3",
+      "candidate": "R5 wood | Selected timber v2 | arae | Gye cared pine arae v56 frame tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS ridge surface | HS roof charcoal | arae | Selected timber v2 | arae | P15 tile arae board axis0 | Gye cared charcoal clay v52",
+      "candidate": "R5 tile | HS ridge surface | HS roof charcoal | arae | Selected timber v2 | arae | P15 tile arae board axis0 | Gye cared charcoal clay v52",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | arae | P15 paper arae board axis0 | North warm hanji",
+      "candidate": "R5 paper | Selected timber v2 | arae | P15 paper arae board axis0 | North warm hanji",
+      "role": "paper",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | arae | wood_joinery | Selected timber v2 | arae | P15 wood arae joinery axis0 | Gye cared pine arae v69 joinery tone 4",
+      "candidate": "R5 lattice | HS heritage | arae | wood_joinery | Selected timber v2 | arae | P15 wood arae joinery axis0 | Gye cared pine arae v69 joinery tone 4",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    }
+  ],
+  "views": {
+    "hero": {
+      "position": [
+        13.601106643676758,
+        11.466391563415527,
+        12.590140342712402
+      ],
+      "target": [
+        2.4166767597198486,
+        27.31100082397461,
+        3.735799551010132
+      ],
+      "ortho": 11.956815719604494,
+      "resolution": [
+        1100,
+        825
+      ]
+    },
+    "detail": {
+      "position": [
+        4.467155456542969,
+        6.1367034912109375,
+        4.293503284454346
+      ],
+      "target": [
+        2.4166767597198486,
+        24.777420043945312,
+        3.175060272216797
+      ],
+      "ortho": 3,
+      "resolution": [
+        1100,
+        825
+      ]
+    }
+  },
+  "bounds": {
+    "bounds": [
+      [
+        -2.243502140045166,
+        23.977340698242188,
+        1.3993854522705078
+      ],
+      [
+        7.076855659484863,
+        30.644662857055664,
+        6.072213649749756
+      ]
+    ],
+    "span": 9.32035779953003
+  },
+  "sourceSpecificPalettes": true,
+  "newUVs": 0,
+  "newMeshes": 0,
+  "objectAttachedUVlessProjection": true,
+  "sceneLightBaked": false,
+  "lightingUnchangedAfterReopen": true,
+  "canonicalPromoted": false,
+  "glbConverted": false,
+  "appIntegrated": false,
+  "producerFiles": {
+    "restyle_building.py": "cefa711d1f3f70f389a53c241e13cb11a5062faf86aa135de39d21fb4dd6af05",
+    "material_rules.py": "71b4126f57eec61de897090e1b465d197e9f784ad68116c0a26e2c9201b67d31"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-22",
+  "connector": "ECC Chrome DevTools",
+  "url": "http://127.0.0.1:8866/surface-redesign-20261018/gate-rebuild/drawing-r4/canonical-review-r1/lookdev-sarang-r5/index.html?rev=r5-final-4#numaru",
+  "mobile": {"cssViewportWidth":402,"documentScrollWidth":402,"bodyMargin":"0px","mainPadding":"16px","comparisonWidth":370.4,"decodedImages":true,"errorVisible":false},
+  "desktop": {"requestedViewportWidth":1280,"actualCssViewportWidth":1024,"documentScrollWidth":1012,"appPreviewWidth":402},
+  "pairsDecoded": {"numaru":[1100,950],"eaves":[1300,650],"hero":[1400,1050],"reverse":[1100,950]},
+  "interaction": {"rangeInput":"63%","cssBoundary":"63%","beforeOnly":100,"afterOnly":0,"halfComparison":50,"allVisibleButtonsAtLeast48px":true,"appPreviewToggle":true},
+  "imageRevision":"r5-final-3",
+  "visualAssessment":"Whole-Numaru at 402px has restrained paint variation; broad layered colour and material differences are easier to inspect in close views/full-size renders. User style approval outstanding.",
+  "physicalIPhoneTest":false,
+  "flutterIntegrated":false
+}

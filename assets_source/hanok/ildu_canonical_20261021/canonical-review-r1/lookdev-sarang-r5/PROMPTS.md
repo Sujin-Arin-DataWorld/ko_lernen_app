@@ -1,0 +1,9 @@
+# Built-in image_gen edit
+
+Input palette reference: ../lookdev-sarang-r2/textures/handpainted-pine-r1.png
+
+Edit target: the attached flat wood texture. Asset type: native Blender base-color texture for an accurate Hanok architectural model; NO building, NO scene.
+Keep the same overall medium chestnut/walnut brown colour family and midtone density as the target; no whitening, no yellow warming, no red/orange colour shift. Flat diffuse colour only, no directional light or baked shadows.
+Replace the dense continuous fine woodgrain with clearly HAND-PAINTED GOUACHE AND OIL BRUSH COLOUR PLANES. Deliberately placed broad and medium vertical brush passes, visible tapered and broken endings, occasional short angled overlaps following the timber's vertical grain. A thoughtful human illustrator's material painting, semi-opaque pigment, unevenly loaded flat brush. Strong legible dark-brown strokes in selected regions, dominant medium-brown quiet shapes, a few lighter brown strokes. The entire field must still read as well maintained planed timber rather than abstract art.
+The marks must remain obvious when a quarter of this image is viewed at 150 pixels wide: broad deliberate shapes, NOT dense microtexture. Use a coherent dark/mid/light brown triad. Keep more of the original middle brown; the highlights should be brown, not cream or white. Vary length and width with intentional quiet areas. No outlines around every stroke. No repeating pinstripes or cloned identical strokes. Seam-friendly edges.
+Avoid photographic woodgrain, bark, knots, cracks, damaged timber, distressed paint, dust, chalk, sandpaper noise, carved texture, shiny varnish, canvas weave, boards/plank boundaries, text, labels, borders or watermark. This is original newly painted texture artwork, not a downloaded artist brush pack.

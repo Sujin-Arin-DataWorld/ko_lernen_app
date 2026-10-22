@@ -1,0 +1,46 @@
+{
+  "renders": [
+    {
+      "view": "numaru",
+      "file": "selective-numaru.png",
+      "cameraLocation": [
+        16,
+        -18,
+        5.3
+      ],
+      "target": [
+        11.5,
+        -2.8,
+        2.7
+      ],
+      "orthoScale": 6,
+      "resolution": [
+        1100,
+        950
+      ],
+      "sha256": "7a1c73e87a5b25616900df2c8b097e35e21f9ccae6e4be84fb529c43d5d0eedc"
+    },
+    {
+      "view": "hero",
+      "file": "selective-hero.png",
+      "cameraLocation": [
+        29.4,
+        -30.2,
+        15.45
+      ],
+      "target": [
+        7.4,
+        1.8,
+        2.85
+      ],
+      "orthoScale": 22,
+      "resolution": [
+        1400,
+        1050
+      ],
+      "sha256": "e5fb5b5d35dc255dd56630406c51f66ae2f671f623e43e7ae2b2174c5a5d2c62"
+    }
+  ],
+  "matchedBaselineLightCamera": true,
+  "seconds": 121.7
+}

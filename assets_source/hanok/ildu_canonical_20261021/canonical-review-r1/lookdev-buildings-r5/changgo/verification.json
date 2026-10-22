@@ -1,0 +1,1018 @@
+{
+  "key": "changgo",
+  "name": "창고",
+  "version": "building-r5-2",
+  "sourceNative": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\estate-yard-wall-r1\\ildu-estate-yard-wall-r1.blend",
+  "sourceSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+  "candidateNative": "changgo-r5-brush-candidate.blend",
+  "candidateSha256": "6dc1b764d31622c7e7206fd946cf80cddb538be473fead8a3aedc50dd97b53aa",
+  "passed": true,
+  "reopened": true,
+  "meshCount": 209,
+  "geometryUVsTransformsModifiersEqual": true,
+  "attributesStagesPropertiesEqual": true,
+  "sourceMaterialGraphsEqual": true,
+  "sourceImageBytesEqual": true,
+  "originalPlaquesAndAnonymousPatternsUnchanged": {},
+  "roles": {
+    "stone": 37,
+    "plaster": 3,
+    "wood": 77,
+    "lattice": 22,
+    "metal": 48,
+    "earth": 1,
+    "tile": 21
+  },
+  "materials": [
+    {
+      "source": "Selected timber v2 | changgo | P18 image.changgo.stone.P15 stone changgo board axis1 | Gye cared warm fieldstone v52",
+      "candidate": "R5 stone | Selected timber v2 | changgo | P18 image.changgo.stone.P15 stone changgo board axis1 | Gye cared warm fieldstone v52",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS white r2 | changgo | plaster | Selected timber v2 | changgo | P18 image.changgo.plaster.P15 plaster changgo board axis0 | Gye cared limewash v52",
+      "candidate": "R5 plaster | HS white r2 | changgo | plaster | Selected timber v2 | changgo | P18 image.changgo.plaster.P15 plaster changgo board axis0 | Gye cared limewash v52",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye cared lime metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS mineral response r2 | HS ochre infill r1 | changgo | Warehouse photographed ochre end.001",
+      "candidate": "R5 stone | HS mineral response r2 | HS ochre infill r1 | changgo | Warehouse photographed ochre end.001",
+      "role": "stone",
+      "mapping": [
+        "OBJECT",
+        0,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | changgo | Canonical gate beam pigment.004",
+      "candidate": "R5 wood | Selected timber v2 | changgo | Canonical gate beam pigment.004",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | changgo | wood_frame | Selected timber v2 | changgo | P18 image.changgo.wood.P15 wood changgo board axis0 | Illustrated pine longgrain v1",
+      "candidate": "R5 wood | HS heritage | changgo | wood_frame | Selected timber v2 | changgo | P18 image.changgo.wood.P15 wood changgo board axis0 | Illustrated pine longgrain v1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | changgo | wood_frame | Selected timber v2 | changgo | P18 image.changgo.wood_end.P15 wood_end changgo board axis0 | Illustrated pine endgrain v1",
+      "candidate": "R5 wood | HS heritage | changgo | wood_frame | Selected timber v2 | changgo | P18 image.changgo.wood_end.P15 wood_end changgo board axis0 | Illustrated pine endgrain v1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | changgo | Canonical gate post pigment.004",
+      "candidate": "R5 wood | Selected timber v2 | changgo | Canonical gate post pigment.004",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | changgo | wood_frame | Selected timber v2 | changgo | P18 image.changgo.wood.P15 wood changgo post axis2 | Illustrated pine longgrain v1",
+      "candidate": "R5 wood | HS heritage | changgo | wood_frame | Selected timber v2 | changgo | P18 image.changgo.wood.P15 wood changgo post axis2 | Illustrated pine longgrain v1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | changgo | wood_frame | Selected timber v2 | changgo | P18 image.changgo.wood_end.P15 wood_end changgo post axis2 | Illustrated pine endgrain v1",
+      "candidate": "R5 wood | HS heritage | changgo | wood_frame | Selected timber v2 | changgo | P18 image.changgo.wood_end.P15 wood_end changgo post axis2 | Illustrated pine endgrain v1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | changgo | wood_joinery | Selected timber v2 | changgo | P18 image.changgo.wood.P15 wood changgo joinery axis2 | Warehouse approved illustration wood",
+      "candidate": "R5 lattice | HS heritage | changgo | wood_joinery | Selected timber v2 | changgo | P18 image.changgo.wood.P15 wood changgo joinery axis2 | Warehouse approved illustration wood",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | changgo | wood_joinery | Selected timber v2 | changgo | P18 image.changgo.wood.P15 wood changgo joinery axis2 | Warehouse approved illustration beam",
+      "candidate": "R5 lattice | HS heritage | changgo | wood_joinery | Selected timber v2 | changgo | P18 image.changgo.wood.P15 wood changgo joinery axis2 | Warehouse approved illustration beam",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay1.leaf1.boards",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay1.leaf1.boards",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay1.leaf1.boards.001",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay1.leaf1.boards.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay1.leaf1.boards.002",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay1.leaf1.boards.002",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay1.leaf1.boards.003",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay1.leaf1.boards.003",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "P15 metal changgo joinery axis2 | Dark iron fittings.001",
+      "candidate": "R5 metal | P15 metal changgo joinery axis2 | Dark iron fittings.001",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "P15 metal changgo joinery axis1 | Dark iron fittings.001",
+      "candidate": "R5 metal | P15 metal changgo joinery axis1 | Dark iron fittings.001",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay1.leaf2.boards",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay1.leaf2.boards",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay1.leaf2.boards.001",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay1.leaf2.boards.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay1.leaf2.boards.002",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay1.leaf2.boards.002",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay1.leaf2.boards.003",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay1.leaf2.boards.003",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay2.leaf1.boards",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay2.leaf1.boards",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay2.leaf1.boards.001",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay2.leaf1.boards.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay2.leaf1.boards.002",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay2.leaf1.boards.002",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay2.leaf1.boards.003",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay2.leaf1.boards.003",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay2.leaf2.boards",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay2.leaf2.boards",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay2.leaf2.boards.001",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay2.leaf2.boards.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay2.leaf2.boards.002",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay2.leaf2.boards.002",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay2.leaf2.boards.003",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay2.leaf2.boards.003",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay3.leaf1.boards",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay3.leaf1.boards",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay3.leaf1.boards.001",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay3.leaf1.boards.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay3.leaf1.boards.002",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay3.leaf1.boards.002",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay3.leaf1.boards.003",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay3.leaf1.boards.003",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay3.leaf2.boards",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay3.leaf2.boards",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay3.leaf2.boards.001",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay3.leaf2.boards.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay3.leaf2.boards.002",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay3.leaf2.boards.002",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay3.leaf2.boards.003",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay3.leaf2.boards.003",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay4.leaf1.boards",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay4.leaf1.boards",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay4.leaf1.boards.001",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay4.leaf1.boards.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay4.leaf1.boards.002",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay4.leaf1.boards.002",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay4.leaf1.boards.003",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay4.leaf1.boards.003",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay4.leaf2.boards",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay4.leaf2.boards",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay4.leaf2.boards.001",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay4.leaf2.boards.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay4.leaf2.boards.002",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay4.leaf2.boards.002",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay4.leaf2.boards.003",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay4.leaf2.boards.003",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay5.leaf1.boards",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay5.leaf1.boards",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay5.leaf1.boards.001",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay5.leaf1.boards.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay5.leaf1.boards.002",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay5.leaf1.boards.002",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay5.leaf1.boards.003",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay5.leaf1.boards.003",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay5.leaf2.boards",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay5.leaf2.boards",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay5.leaf2.boards.001",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay5.leaf2.boards.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay5.leaf2.boards.002",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay5.leaf2.boards.002",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay5.leaf2.boards.003",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay5.leaf2.boards.003",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay6.leaf1.boards",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay6.leaf1.boards",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay6.leaf1.boards.001",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay6.leaf1.boards.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay6.leaf1.boards.002",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay6.leaf1.boards.002",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay6.leaf1.boards.003",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay6.leaf1.boards.003",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay6.leaf2.boards",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay6.leaf2.boards",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay6.leaf2.boards.001",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay6.leaf2.boards.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay6.leaf2.boards.002",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay6.leaf2.boards.002",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS warehouse door r1 | V28.changgo.bay6.leaf2.boards.003",
+      "candidate": "R5 wood | HS warehouse door r1 | V28.changgo.bay6.leaf2.boards.003",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS heritage | changgo | wood_frame | Selected timber v2 | changgo | P18 image.changgo.wood.P15 wood changgo board axis1 | Warehouse approved illustration wood",
+      "candidate": "R5 wood | HS heritage | changgo | wood_frame | Selected timber v2 | changgo | P18 image.changgo.wood.P15 wood changgo board axis1 | Warehouse approved illustration wood",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | changgo | wood_floor | Selected timber v2 | changgo | P18 image.changgo.wood.P15 wood changgo floor axis1 | Warehouse approved illustration wood",
+      "candidate": "R5 wood | HS heritage | changgo | wood_floor | Selected timber v2 | changgo | P18 image.changgo.wood.P15 wood changgo floor axis1 | Warehouse approved illustration wood",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Courtyard compacted earth.001",
+      "candidate": "R5 earth | Courtyard compacted earth.001",
+      "role": "earth",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | changgo | P18 image.changgo.stone.P15 stone changgo post axis1 | Gye cared warm fieldstone v52",
+      "candidate": "R5 stone | Selected timber v2 | changgo | P18 image.changgo.stone.P15 stone changgo post axis1 | Gye cared warm fieldstone v52",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | changgo | P18 image.changgo.stone.P15 stone changgo post axis0 | Gye cared warm fieldstone v52",
+      "candidate": "R5 stone | Selected timber v2 | changgo | P18 image.changgo.stone.P15 stone changgo post axis0 | Gye cared warm fieldstone v52",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | changgo | P18 image.changgo.stone.P15 stone changgo board axis0 | Gye cared warm fieldstone v52",
+      "candidate": "R5 stone | Selected timber v2 | changgo | P18 image.changgo.stone.P15 stone changgo board axis0 | Gye cared warm fieldstone v52",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | changgo | P15 wood changgo board axis1 | Warehouse approved illustration beam",
+      "candidate": "R5 wood | Selected timber v2 | changgo | P15 wood changgo board axis1 | Warehouse approved illustration beam",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | changgo | wood_frame | Selected timber v2 | changgo | P18 image.changgo.wood.P15 wood changgo board axis1 | Warehouse approved illustration beam",
+      "candidate": "R5 wood | HS heritage | changgo | wood_frame | Selected timber v2 | changgo | P18 image.changgo.wood.P15 wood changgo board axis1 | Warehouse approved illustration beam",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | changgo | wood_frame | Selected timber v2 | changgo | P18 image.changgo.wood.P15 wood changgo beam axis1 | Warehouse approved illustration beam",
+      "candidate": "R5 wood | HS heritage | changgo | wood_frame | Selected timber v2 | changgo | P18 image.changgo.wood.P15 wood changgo beam axis1 | Warehouse approved illustration beam",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | changgo | wood_frame | Selected timber v2 | changgo | P18 image.changgo.wood.P15 wood changgo post axis1 | Warehouse approved illustration post",
+      "candidate": "R5 wood | HS heritage | changgo | wood_frame | Selected timber v2 | changgo | P18 image.changgo.wood.P15 wood changgo post axis1 | Warehouse approved illustration post",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS white r2 | changgo | plaster | Selected timber v2 | changgo | P18 image.changgo.plaster.P15 plaster changgo board axis1 | V31 changgo warm ochre infill",
+      "candidate": "R5 plaster | HS white r2 | changgo | plaster | Selected timber v2 | changgo | P18 image.changgo.plaster.P15 plaster changgo board axis1 | V31 changgo warm ochre infill",
+      "role": "plaster",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS roof charcoal | changgo | Selected timber v2 | changgo | P18 image.changgo.tile.P15 tile changgo board axis1 | Gye cared charcoal clay v52",
+      "candidate": "R5 tile | HS roof charcoal | changgo | Selected timber v2 | changgo | P18 image.changgo.tile.P15 tile changgo board axis1 | Gye cared charcoal clay v52",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | changgo | P18 image.changgo.wood.P15 wood changgo board axis1 | Warehouse approved illustration wood",
+      "candidate": "R5 wood | Selected timber v2 | changgo | P18 image.changgo.wood.P15 wood changgo board axis1 | Warehouse approved illustration wood",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | changgo | wood_frame | Selected timber v2 | changgo | P18 image.changgo.wood.P15 wood changgo board axis1 | Warehouse approved illustration post",
+      "candidate": "R5 wood | HS heritage | changgo | wood_frame | Selected timber v2 | changgo | P18 image.changgo.wood.P15 wood changgo board axis1 | Warehouse approved illustration post",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | changgo | wood_joinery | Selected timber v2 | changgo | P18 image.changgo.wood.P15 wood changgo joinery axis1 | Warehouse approved illustration wood",
+      "candidate": "R5 lattice | HS heritage | changgo | wood_joinery | Selected timber v2 | changgo | P18 image.changgo.wood.P15 wood changgo joinery axis1 | Warehouse approved illustration wood",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Reference timber grain"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    }
+  ],
+  "views": {
+    "hero": {
+      "position": [
+        9.112374305725098,
+        -22.034648895263672,
+        16.993263244628906
+      ],
+      "target": [
+        -8.632990837097168,
+        3.104617118835449,
+        2.9448490142822266
+      ],
+      "ortho": 14.4612890625,
+      "resolution": [
+        1100,
+        825
+      ]
+    },
+    "detail": {
+      "position": [
+        -5.379673957824707,
+        -32.090354919433594,
+        4.155421733856201
+      ],
+      "target": [
+        -8.632990837097168,
+        -2.5147483348846436,
+        2.380885362625122
+      ],
+      "ortho": 4.7320971679687505,
+      "resolution": [
+        1100,
+        825
+      ]
+    }
+  },
+  "bounds": {
+    "bounds": [
+      [
+        -10.789595603942871,
+        -4.289284706115723,
+        0.5950000286102295
+      ],
+      [
+        -6.476386070251465,
+        10.498518943786621,
+        5.294698238372803
+      ]
+    ],
+    "span": 14.787803649902344
+  },
+  "sourceSpecificPalettes": true,
+  "newUVs": 0,
+  "newMeshes": 0,
+  "objectAttachedUVlessProjection": true,
+  "sceneLightBaked": false,
+  "lightingUnchangedAfterReopen": true,
+  "canonicalPromoted": false,
+  "glbConverted": false,
+  "appIntegrated": false,
+  "producerFiles": {
+    "restyle_building.py": "cefa711d1f3f70f389a53c241e13cb11a5062faf86aa135de39d21fb4dd6af05",
+    "material_rules.py": "71b4126f57eec61de897090e1b465d197e9f784ad68116c0a26e2c9201b67d31"
+  }
+}

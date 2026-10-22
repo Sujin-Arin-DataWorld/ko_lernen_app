@@ -1,0 +1,973 @@
+{
+  "key": "toilet1",
+  "name": "남측 측간",
+  "version": "building-r5-2",
+  "sourceNative": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\estate-yard-wall-r1\\ildu-estate-yard-wall-r1.blend",
+  "sourceSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+  "candidateNative": "toilet1-r5-brush-candidate.blend",
+  "candidateSha256": "18bd38953c5f5cef1f02f77c2af20a7ec713b4d1901575de19f27f0018154439",
+  "passed": true,
+  "reopened": true,
+  "meshCount": 83,
+  "geometryUVsTransformsModifiersEqual": true,
+  "attributesStagesPropertiesEqual": true,
+  "sourceMaterialGraphsEqual": true,
+  "sourceImageBytesEqual": true,
+  "originalPlaquesAndAnonymousPatternsUnchanged": {},
+  "roles": {
+    "stone": 29,
+    "lattice": 12,
+    "metal": 1,
+    "earth": 2,
+    "wood": 21,
+    "plaster": 3,
+    "tile": 17
+  },
+  "materials": [
+    {
+      "source": "HS stone balanced r3 | HS mineral response r2 | HS fieldstone r1 | Selected timber v2 | toilet1 | P15 stone toilet1 board axis1 | Gye cared warm fieldstone v52",
+      "candidate": "R5 stone | HS stone balanced r3 | HS mineral response r2 | HS fieldstone r1 | Selected timber v2 | toilet1 | P15 stone toilet1 board axis1 | Gye cared warm fieldstone v52",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS stone balanced r3 | HS mineral response r2 | HS fieldstone r1 | Selected timber v2 | toilet1 | P15 stone toilet1 board axis0 | Gye cared warm fieldstone v52",
+      "candidate": "R5 stone | HS stone balanced r3 | HS mineral response r2 | HS fieldstone r1 | Selected timber v2 | toilet1 | P15 stone toilet1 board axis0 | Gye cared warm fieldstone v52",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 joinery tone 1",
+      "candidate": "R5 lattice | Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 joinery tone 1",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_joinery | Selected timber v2 | toilet1 | P15 wood toilet1 joinery axis2 | Gye cared pine toilet1 v69 joinery tone 3",
+      "candidate": "R5 lattice | HS heritage | toilet1 | wood_joinery | Selected timber v2 | toilet1 | P15 wood toilet1 joinery axis2 | Gye cared pine toilet1 v69 joinery tone 3",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 joinery tone 4",
+      "candidate": "R5 lattice | Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 joinery tone 4",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_joinery | Selected timber v2 | toilet1 | P15 wood toilet1 joinery axis2 | Gye cared pine toilet1 v69 joinery tone 2",
+      "candidate": "R5 lattice | HS heritage | toilet1 | wood_joinery | Selected timber v2 | toilet1 | P15 wood toilet1 joinery axis2 | Gye cared pine toilet1 v69 joinery tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "P15 metal toilet1 joinery axis2 | Forecourt forged iron",
+      "candidate": "R5 metal | P15 metal toilet1 joinery axis2 | Forecourt forged iron",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        2,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 joinery tone 2",
+      "candidate": "R5 lattice | Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 joinery tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_joinery | Selected timber v2 | toilet1 | P15 wood toilet1 joinery axis2 | Gye cared pine toilet1 v69 joinery tone 0",
+      "candidate": "R5 lattice | HS heritage | toilet1 | wood_joinery | Selected timber v2 | toilet1 | P15 wood toilet1 joinery axis2 | Gye cared pine toilet1 v69 joinery tone 0",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 joinery tone 0",
+      "candidate": "R5 lattice | Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 joinery tone 0",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_joinery | Selected timber v2 | toilet1 | P15 wood toilet1 joinery axis2 | Gye cared pine toilet1 v69 joinery tone 4",
+      "candidate": "R5 lattice | HS heritage | toilet1 | wood_joinery | Selected timber v2 | toilet1 | P15 wood toilet1 joinery axis2 | Gye cared pine toilet1 v69 joinery tone 4",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 joinery tone 3",
+      "candidate": "R5 lattice | Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 joinery tone 3",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_joinery | Selected timber v2 | toilet1 | P15 wood toilet1 joinery axis2 | Gye cared pine toilet1 v69 joinery tone 1",
+      "candidate": "R5 lattice | HS heritage | toilet1 | wood_joinery | Selected timber v2 | toilet1 | P15 wood toilet1 joinery axis2 | Gye cared pine toilet1 v69 joinery tone 1",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_joinery | Selected timber v2 | toilet1 | P15 wood toilet1 joinery axis0 | Gye cared pine toilet1 v69 joinery tone 2",
+      "candidate": "R5 lattice | HS heritage | toilet1 | wood_joinery | Selected timber v2 | toilet1 | P15 wood toilet1 joinery axis0 | Gye cared pine toilet1 v69 joinery tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | toilet1 | P15 stone toilet1 board axis0 | Gye cared warm fieldstone v52",
+      "candidate": "R5 stone | Selected timber v2 | toilet1 | P15 stone toilet1 board axis0 | Gye cared warm fieldstone v52",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Ansarang retained Courtyard compacted earth.001",
+      "candidate": "R5 earth | Ansarang retained Courtyard compacted earth.001",
+      "role": "earth",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS stone balanced r3 | HS mineral response r2 | HS fieldstone r1 | Selected timber v2 | toilet1 | P15 stone toilet1 post axis0 | Gye cared warm fieldstone v52",
+      "candidate": "R5 stone | HS stone balanced r3 | HS mineral response r2 | HS fieldstone r1 | Selected timber v2 | toilet1 | P15 stone toilet1 post axis0 | Gye cared warm fieldstone v52",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 boards tone 1 v66 frame",
+      "candidate": "R5 wood | Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 boards tone 1 v66 frame",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | toilet1 | P15 wood toilet1 board axis0 | Gye cared pine toilet1 v69 frame tone 0.001",
+      "candidate": "R5 wood | Selected timber v2 | toilet1 | P15 wood toilet1 board axis0 | Gye cared pine toilet1 v69 frame tone 0.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | toilet1 | P15 wood toilet1 board axis0 | Gye cared pine toilet1 v69 frame tone 1.001",
+      "candidate": "R5 wood | Selected timber v2 | toilet1 | P15 wood toilet1 board axis0 | Gye cared pine toilet1 v69 frame tone 1.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 boards tone 2 v66 frame",
+      "candidate": "R5 wood | Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 boards tone 2 v66 frame",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 board axis0 | Gye cared pine toilet1 v69 frame tone 2.001",
+      "candidate": "R5 wood | HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 board axis0 | Gye cared pine toilet1 v69 frame tone 2.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 boards tone 3 v66 frame",
+      "candidate": "R5 wood | Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 boards tone 3 v66 frame",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 board axis0 | Gye cared pine toilet1 v69 frame tone 4.001",
+      "candidate": "R5 wood | HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 board axis0 | Gye cared pine toilet1 v69 frame tone 4.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 frame tone 4",
+      "candidate": "R5 wood | Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 frame tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 beam axis0 | Gye cared pine toilet1 v69 frame tone 2",
+      "candidate": "R5 wood | HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 beam axis0 | Gye cared pine toilet1 v69 frame tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 beam axis0 | Gye cared pine toilet1 v69 frame tone 3",
+      "candidate": "R5 wood | HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 beam axis0 | Gye cared pine toilet1 v69 frame tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 beam axis0 | Gye cared pine toilet1 v69 frame tone 1",
+      "candidate": "R5 wood | HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 beam axis0 | Gye cared pine toilet1 v69 frame tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 posts tone 3",
+      "candidate": "R5 wood | Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 posts tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 post axis0 | Gye cared pine toilet1 v69 posts tone 2",
+      "candidate": "R5 wood | HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 post axis0 | Gye cared pine toilet1 v69 posts tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 post axis0 | Gye cared pine toilet1 v69 posts tone 1",
+      "candidate": "R5 wood | HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 post axis0 | Gye cared pine toilet1 v69 posts tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS white r2 | toilet1 | plaster | Selected timber v2 | toilet1 | P15 plaster toilet1 board axis2 | Gye cared limewash v52",
+      "candidate": "R5 plaster | HS white r2 | toilet1 | plaster | Selected timber v2 | toilet1 | P15 plaster toilet1 board axis2 | Gye cared limewash v52",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye cared lime metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 boards tone 2",
+      "candidate": "R5 wood | Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 boards tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 board axis2 | Gye cared pine toilet1 v69 boards tone 1",
+      "candidate": "R5 wood | HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 board axis2 | Gye cared pine toilet1 v69 boards tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 board axis2 | Gye cared pine toilet1 v69 boards tone 2",
+      "candidate": "R5 wood | HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 board axis2 | Gye cared pine toilet1 v69 boards tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 boards tone 1",
+      "candidate": "R5 wood | Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 boards tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 board axis2 | Gye cared pine toilet1 v69 boards tone 3",
+      "candidate": "R5 wood | HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 board axis2 | Gye cared pine toilet1 v69 boards tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS roof charcoal | toilet1 | Selected timber v2 | toilet1 | P15 tile toilet1 board axis0 | Gye cared charcoal clay v52",
+      "candidate": "R5 tile | HS roof charcoal | toilet1 | Selected timber v2 | toilet1 | P15 tile toilet1 board axis0 | Gye cared charcoal clay v52",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 boards tone 3",
+      "candidate": "R5 wood | Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 boards tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | toilet1 | P15 wood toilet1 board axis0 | Gye cared pine toilet1 v69 boards tone 2",
+      "candidate": "R5 wood | Selected timber v2 | toilet1 | P15 wood toilet1 board axis0 | Gye cared pine toilet1 v69 boards tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 frame tone 3",
+      "candidate": "R5 wood | Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 frame tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 beam axis0 | Gye cared pine toilet1 v69 frame tone 0",
+      "candidate": "R5 wood | HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 beam axis0 | Gye cared pine toilet1 v69 frame tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 board axis0 | Gye cared pine toilet1 v69 frame tone 1.001",
+      "candidate": "R5 wood | HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 board axis0 | Gye cared pine toilet1 v69 frame tone 1.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 post axis0 | Gye cared pine toilet1 v69 posts tone 4",
+      "candidate": "R5 wood | HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 post axis0 | Gye cared pine toilet1 v69 posts tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 post axis0 | Gye cared pine toilet1 v69 posts tone 3",
+      "candidate": "R5 wood | HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 post axis0 | Gye cared pine toilet1 v69 posts tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 board axis0 | Gye cared pine toilet1 v69 boards tone 0",
+      "candidate": "R5 wood | HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 board axis0 | Gye cared pine toilet1 v69 boards tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 board axis0 | Gye cared pine toilet1 v69 boards tone 2",
+      "candidate": "R5 wood | HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 board axis0 | Gye cared pine toilet1 v69 boards tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 board axis0 | Gye cared pine toilet1 v69 boards tone 1",
+      "candidate": "R5 wood | HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 board axis0 | Gye cared pine toilet1 v69 boards tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 board axis0 | Gye cared pine toilet1 v69 boards tone 3",
+      "candidate": "R5 wood | HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 board axis0 | Gye cared pine toilet1 v69 boards tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | toilet1 | P15 wood toilet1 board axis0 | Gye cared pine toilet1 v69 boards tone 1",
+      "candidate": "R5 wood | Selected timber v2 | toilet1 | P15 wood toilet1 board axis0 | Gye cared pine toilet1 v69 boards tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 frame tone 2",
+      "candidate": "R5 wood | Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 frame tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 frame tone 1",
+      "candidate": "R5 wood | Selected timber v2 | toilet1 | Gye cared pine toilet1 v56 frame tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 beam axis0 | Gye cared pine toilet1 v69 frame tone 4",
+      "candidate": "R5 wood | HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 beam axis0 | Gye cared pine toilet1 v69 frame tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS white r2 | toilet1 | plaster | Selected timber v2 | toilet1 | P15 plaster toilet1 board axis0 | Gye cared limewash v52",
+      "candidate": "R5 plaster | HS white r2 | toilet1 | plaster | Selected timber v2 | toilet1 | P15 plaster toilet1 board axis0 | Gye cared limewash v52",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye cared lime metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS mineral response r2 | HS ochre infill r1 | toilet-south | Ansarang retained V31 toilet earthen skirt.001",
+      "candidate": "R5 stone | HS mineral response r2 | HS ochre infill r1 | toilet-south | Ansarang retained V31 toilet earthen skirt.001",
+      "role": "stone",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 joinery axis0 | Gye cared pine toilet1 v69 boards tone 0",
+      "candidate": "R5 lattice | HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 joinery axis0 | Gye cared pine toilet1 v69 boards tone 0",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 joinery axis0 | Gye cared pine toilet1 v69 boards tone 2",
+      "candidate": "R5 lattice | HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 joinery axis0 | Gye cared pine toilet1 v69 boards tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 joinery axis0 | Gye cared pine toilet1 v69 boards tone 1",
+      "candidate": "R5 lattice | HS heritage | toilet1 | wood_frame | Selected timber v2 | toilet1 | P15 wood toilet1 joinery axis0 | Gye cared pine toilet1 v69 boards tone 1",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    }
+  ],
+  "views": {
+    "hero": {
+      "position": [
+        -5.32664155960083,
+        16.664249420166016,
+        8.462850570678711
+      ],
+      "target": [
+        -12.033722877502441,
+        26.16594696044922,
+        3.153078079223633
+      ],
+      "ortho": 7.389673716227215,
+      "resolution": [
+        1100,
+        825
+      ]
+    },
+    "detail": {
+      "position": [
+        -10.804091453552246,
+        13.653827667236328,
+        3.376647472381592
+      ],
+      "target": [
+        -12.033722877502441,
+        24.83229637145996,
+        2.705939292907715
+      ],
+      "ortho": 3,
+      "resolution": [
+        1100,
+        825
+      ]
+    }
+  },
+  "bounds": {
+    "bounds": [
+      [
+        -13.944172859191895,
+        24.411144256591797,
+        1.2899999618530273
+      ],
+      [
+        -10.123272895812988,
+        27.92074966430664,
+        5.016156196594238
+      ]
+    ],
+    "span": 5.589234352111816
+  },
+  "sourceSpecificPalettes": true,
+  "newUVs": 0,
+  "newMeshes": 0,
+  "objectAttachedUVlessProjection": true,
+  "sceneLightBaked": false,
+  "lightingUnchangedAfterReopen": true,
+  "canonicalPromoted": false,
+  "glbConverted": false,
+  "appIntegrated": false,
+  "producerFiles": {
+    "restyle_building.py": "cefa711d1f3f70f389a53c241e13cb11a5062faf86aa135de39d21fb4dd6af05",
+    "material_rules.py": "71b4126f57eec61de897090e1b465d197e9f784ad68116c0a26e2c9201b67d31"
+  }
+}

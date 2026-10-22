@@ -1,0 +1,1675 @@
+{
+  "key": "anchae",
+  "name": "안채",
+  "version": "building-r5-2",
+  "sourceNative": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\estate-yard-wall-r1\\ildu-estate-yard-wall-r1.blend",
+  "sourceSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+  "candidateNative": "anchae-r5-brush-candidate.blend",
+  "candidateSha256": "bb136fad3bbc9ee63f78cdd8f88cb30a2559c5457cfbaa9f7d61c1b8d4ac9b06",
+  "passed": true,
+  "reopened": true,
+  "meshCount": 882,
+  "geometryUVsTransformsModifiersEqual": true,
+  "attributesStagesPropertiesEqual": true,
+  "sourceMaterialGraphsEqual": true,
+  "sourceImageBytesEqual": true,
+  "originalPlaquesAndAnonymousPatternsUnchanged": {
+    "North.anchae.end high lattice 0 black void": [
+      "North recess shadow"
+    ],
+    "North.anchae.end high lattice 7 black void": [
+      "North recess shadow"
+    ],
+    "North.anchae.kitchen high ventilator black void": [
+      "North recess shadow"
+    ],
+    "North.anchae.p12 continuous kitchen bank": [
+      "P12 ash soot 0"
+    ],
+    "North.anchae.p12 continuous kitchen bank scattered charcoal 0 0": [
+      "P12 ash soot 2"
+    ],
+    "North.anchae.p12 continuous kitchen bank scattered charcoal 0 1": [
+      "P12 ash soot 2"
+    ],
+    "North.anchae.p12 continuous kitchen bank scattered charcoal 0 2": [
+      "P12 ash soot 2"
+    ],
+    "North.anchae.p12 continuous kitchen bank scattered charcoal 1 0": [
+      "P12 ash soot 2"
+    ],
+    "North.anchae.p12 continuous kitchen bank scattered charcoal 1 1": [
+      "P12 ash soot 2"
+    ],
+    "North.anchae.p12 continuous kitchen bank scattered charcoal 1 2": [
+      "P12 ash soot 2"
+    ],
+    "North.anchae.p12 continuous kitchen bank scattered charcoal 2 0": [
+      "P12 ash soot 2"
+    ],
+    "North.anchae.p12 continuous kitchen bank scattered charcoal 2 1": [
+      "P12 ash soot 2"
+    ],
+    "North.anchae.p12 continuous kitchen bank scattered charcoal 2 2": [
+      "P12 ash soot 2"
+    ]
+  },
+  "roles": {
+    "metal": 161,
+    "stone": 15,
+    "tile": 371,
+    "lattice": 184,
+    "wood": 85,
+    "plaster": 25,
+    "preserve": 13,
+    "endgrain": 2,
+    "paper": 28,
+    "earth": 2
+  },
+  "materials": [
+    {
+      "source": "P15 metal anchae joinery axis2 | Anchae p8 B · iron",
+      "candidate": "R5 metal | P15 metal anchae joinery axis2 | Anchae p8 B · iron",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "P15 metal anchae joinery axis0 | Anchae p8 B · iron",
+      "candidate": "R5 metal | P15 metal anchae joinery axis0 | Anchae p8 B · iron",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "P15 metal anchae board axis2 | Anchae p8 B · iron",
+      "candidate": "R5 metal | P15 metal anchae board axis2 | Anchae p8 B · iron",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        2,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "P15 metal anchae board axis1 | Anchae p8 B · iron",
+      "candidate": "R5 metal | P15 metal anchae board axis1 | Anchae p8 B · iron",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "P15 metal anchae joinery axis2 | Anchae p8 B · iron",
+      "candidate": "R5 metal | P15 metal anchae joinery axis2 | Anchae p8 B · iron.001",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        2,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "P15 metal anchae joinery axis1 | Anchae p8 B · iron",
+      "candidate": "R5 metal | P15 metal anchae joinery axis1 | Anchae p8 B · iron",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "P15 metal anchae board axis2 | Anchae p8 B · iron",
+      "candidate": "R5 metal | P15 metal anchae board axis2 | Anchae p8 B · iron.001",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "P15 metal anchae board axis0 | Anchae p8 B · iron",
+      "candidate": "R5 metal | P15 metal anchae board axis0 | Anchae p8 B · iron",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | anchae | P18 image.anchae.stone.P15 stone anchae board axis1 | Anchae p8 B · stone",
+      "candidate": "R5 stone | Selected timber v2 | anchae | P18 image.anchae.stone.P15 stone anchae board axis1 | Anchae p8 B · stone",
+      "role": "stone",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS roof charcoal | anchae | Selected timber v2 | anchae | P18 image.anchae.tile.P15 tile anchae board axis0 | Anchae p8 B · roof",
+      "candidate": "R5 tile | HS roof charcoal | anchae | Selected timber v2 | anchae | P18 image.anchae.tile.P15 tile anchae board axis0 | Anchae p8 B · roof",
+      "role": "tile",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | anchae | wood_joinery | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae joinery axis2 | Anchae p8 B · frame",
+      "candidate": "R5 lattice | HS heritage | anchae | wood_joinery | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae joinery axis2 | Anchae p8 B · frame",
+      "role": "lattice",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | anchae | wood_joinery | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae joinery axis2 | Anchae p8 B · endgrain",
+      "candidate": "R5 lattice | HS heritage | anchae | wood_joinery | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae joinery axis2 | Anchae p8 B · endgrain",
+      "role": "lattice",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis1 | Anchae p8 B · boards",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis1 | Anchae p8 B · boards",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae board axis1 | Anchae p8 B · endgrain",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae board axis1 | Anchae p8 B · endgrain",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS white r2 | anchae | plaster | Selected timber v2 | anchae | P18 image.anchae.plaster.P15 plaster anchae board axis2 | Anchae p8 B · plaster",
+      "candidate": "R5 plaster | HS white r2 | anchae | plaster | Selected timber v2 | anchae | P18 image.anchae.plaster.P15 plaster anchae board axis2 | Anchae p8 B · plaster",
+      "role": "plaster",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | anchae | wood_joinery | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae joinery axis1 | Anchae p8 B · frame",
+      "candidate": "R5 lattice | HS heritage | anchae | wood_joinery | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae joinery axis1 | Anchae p8 B · frame",
+      "role": "lattice",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | anchae | wood_joinery | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae joinery axis1 | Anchae p8 B · endgrain",
+      "candidate": "R5 lattice | HS heritage | anchae | wood_joinery | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae joinery axis1 | Anchae p8 B · endgrain",
+      "role": "lattice",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | anchae | Gye maintained faceted pine pilot v25",
+      "candidate": "R5 lattice | Selected timber v2 | anchae | Gye maintained faceted pine pilot v25",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | anchae | wood_floor | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae floor axis1 | Anchae p8 B · floor",
+      "candidate": "R5 wood | HS heritage | anchae | wood_floor | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae floor axis1 | Anchae p8 B · floor",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | anchae | wood_floor | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae floor axis1 | Anchae p8 B · endgrain",
+      "candidate": "R5 wood | HS heritage | anchae | wood_floor | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae floor axis1 | Anchae p8 B · endgrain",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | anchae | wood_floor | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae floor axis1 | Anchae p8 B · frame",
+      "candidate": "R5 wood | HS heritage | anchae | wood_floor | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae floor axis1 | Anchae p8 B · frame",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae beam axis1 | Anchae p8 B · frame",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae beam axis1 | Anchae p8 B · frame",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae beam axis1 | Anchae p8 B · endgrain",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae beam axis1 | Anchae p8 B · endgrain",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | anchae | P15 wood anchae board axis1 | Anchae p8 B · boards",
+      "candidate": "R5 wood | Selected timber v2 | anchae | P15 wood anchae board axis1 | Anchae p8 B · boards",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | anchae | P15 wood_end anchae board axis1 | Anchae p8 B · endgrain",
+      "candidate": "R5 endgrain | Selected timber v2 | anchae | P15 wood_end anchae board axis1 | Anchae p8 B · endgrain",
+      "role": "endgrain",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae post axis1 | Anchae p8 B · endgrain",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae post axis1 | Anchae p8 B · endgrain",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae post axis1 | Anchae p8 B · posts",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae post axis1 | Anchae p8 B · posts",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis0 | Anchae p8 B · boards",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis0 | Anchae p8 B · boards",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae board axis0 | Anchae p8 B · endgrain",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae board axis0 | Anchae p8 B · endgrain",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae board axis2 | Anchae p8 B · endgrain",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae board axis2 | Anchae p8 B · endgrain",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        2,
+        0
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis2 | Anchae p8 B · boards",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis2 | Anchae p8 B · boards",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        2,
+        0
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS white r2 | anchae | plaster | Selected timber v2 | anchae | P18 image.anchae.plaster.P15 plaster anchae board axis0 | Anchae p8 B · plaster",
+      "candidate": "R5 plaster | HS white r2 | anchae | plaster | Selected timber v2 | anchae | P18 image.anchae.plaster.P15 plaster anchae board axis0 | Anchae p8 B · plaster",
+      "role": "plaster",
+      "mapping": [
+        "OBJECT",
+        0,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis0 | Anchae p8 B · boards",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis0 | Anchae p8 B · boards.001",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        0,
+        2
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae board axis0 | Anchae p8 B · endgrain",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae board axis0 | Anchae p8 B · endgrain.001",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        0,
+        2
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS white r2 | anchae | paper | Selected timber v2 | anchae | P18 image.anchae.paper.P15 paper anchae joinery axis2 | Anchae p8 B · hanji",
+      "candidate": "R5 paper | HS white r2 | anchae | paper | Selected timber v2 | anchae | P18 image.anchae.paper.P15 paper anchae joinery axis2 | Anchae p8 B · hanji",
+      "role": "paper",
+      "mapping": [
+        "OBJECT",
+        2,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | anchae | wood_joinery | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae joinery axis2 | Anchae p8 B · frame",
+      "candidate": "R5 lattice | HS heritage | anchae | wood_joinery | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae joinery axis2 | Anchae p8 B · frame.001",
+      "role": "lattice",
+      "mapping": [
+        "OBJECT",
+        2,
+        0
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | anchae | wood_joinery | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae joinery axis2 | Anchae p8 B · endgrain",
+      "candidate": "R5 lattice | HS heritage | anchae | wood_joinery | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae joinery axis2 | Anchae p8 B · endgrain.001",
+      "role": "lattice",
+      "mapping": [
+        "OBJECT",
+        2,
+        0
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | anchae | P18 image.anchae.plaster.P15 plaster anchae board axis1 | Anchae p8 B · plaster",
+      "candidate": "R5 plaster | Selected timber v2 | anchae | P18 image.anchae.plaster.P15 plaster anchae board axis1 | Anchae p8 B · plaster",
+      "role": "plaster",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | anchae | P18 image.anchae.paper.P15 paper anchae floor axis1 | Anchae p8 B · ondol",
+      "candidate": "R5 paper | Selected timber v2 | anchae | P18 image.anchae.paper.P15 paper anchae floor axis1 | Anchae p8 B · ondol",
+      "role": "paper",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | anchae | P18 image.anchae.plaster.P15 plaster anchae board axis0 | Anchae p8 B · plaster",
+      "candidate": "R5 plaster | Selected timber v2 | anchae | P18 image.anchae.plaster.P15 plaster anchae board axis0 | Anchae p8 B · plaster",
+      "role": "plaster",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | anchae | P18 image.anchae.paper.P15 paper anchae floor axis0 | Anchae p8 B · ondol",
+      "candidate": "R5 paper | Selected timber v2 | anchae | P18 image.anchae.paper.P15 paper anchae floor axis0 | Anchae p8 B · ondol",
+      "role": "paper",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS white r2 | anchae | plaster | Selected timber v2 | anchae | P18 image.anchae.plaster.P15 plaster anchae board axis1 | Anchae p8 B · plaster",
+      "candidate": "R5 plaster | HS white r2 | anchae | plaster | Selected timber v2 | anchae | P18 image.anchae.plaster.P15 plaster anchae board axis1 | Anchae p8 B · plaster",
+      "role": "plaster",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | anchae | wood_joinery | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae joinery axis0 | Anchae p8 B · frame",
+      "candidate": "R5 lattice | HS heritage | anchae | wood_joinery | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae joinery axis0 | Anchae p8 B · frame",
+      "role": "lattice",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | anchae | wood_joinery | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae joinery axis0 | Anchae p8 B · endgrain",
+      "candidate": "R5 lattice | HS heritage | anchae | wood_joinery | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae joinery axis0 | Anchae p8 B · endgrain",
+      "role": "lattice",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | anchae | wood_joinery | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae joinery axis0 | Anchae p8 B · frame",
+      "candidate": "R5 lattice | HS heritage | anchae | wood_joinery | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae joinery axis0 | Anchae p8 B · frame.001",
+      "role": "lattice",
+      "mapping": [
+        "OBJECT",
+        0,
+        2
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | anchae | wood_joinery | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae joinery axis0 | Anchae p8 B · endgrain",
+      "candidate": "R5 lattice | HS heritage | anchae | wood_joinery | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae joinery axis0 | Anchae p8 B · endgrain.001",
+      "role": "lattice",
+      "mapping": [
+        "OBJECT",
+        0,
+        2
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis2 | Anchae p8 B · boards",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis2 | Anchae p8 B · boards.001",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae board axis2 | Anchae p8 B · endgrain",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae board axis2 | Anchae p8 B · endgrain.001",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae joinery axis1 | Anchae p8 B · boards",
+      "candidate": "R5 lattice | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae joinery axis1 | Anchae p8 B · boards",
+      "role": "lattice",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae joinery axis1 | Anchae p8 B · endgrain.001",
+      "candidate": "R5 lattice | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae joinery axis1 | Anchae p8 B · endgrain.001",
+      "role": "lattice",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS white r2 | anchae | paper | Selected timber v2 | anchae | P18 image.anchae.paper.P15 paper anchae joinery axis2 | Anchae p8 B · hanji",
+      "candidate": "R5 paper | HS white r2 | anchae | paper | Selected timber v2 | anchae | P18 image.anchae.paper.P15 paper anchae joinery axis2 | Anchae p8 B · hanji.001",
+      "role": "paper",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "P15 metal anchae joinery axis1 | Anchae p8 B · iron",
+      "candidate": "R5 metal | P15 metal anchae joinery axis1 | Anchae p8 B · iron.001",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | anchae | wood_floor | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae joinery axis2 | Anchae p8 B · frame.001",
+      "candidate": "R5 lattice | HS heritage | anchae | wood_floor | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae joinery axis2 | Anchae p8 B · frame.001",
+      "role": "lattice",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | anchae | wood_floor | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae joinery axis2 | Anchae p8 B · endgrain.001",
+      "candidate": "R5 lattice | HS heritage | anchae | wood_floor | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae joinery axis2 | Anchae p8 B · endgrain.001",
+      "role": "lattice",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | anchae | wood_floor | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae floor axis1 | Anchae p8 B · floor",
+      "candidate": "R5 wood | HS heritage | anchae | wood_floor | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae floor axis1 | Anchae p8 B · floor.001",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | anchae | wood_floor | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae floor axis1 | Anchae p8 B · endgrain",
+      "candidate": "R5 wood | HS heritage | anchae | wood_floor | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae floor axis1 | Anchae p8 B · endgrain.001",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | anchae | wood_floor | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae floor axis0 | Anchae p8 B · floor",
+      "candidate": "R5 wood | HS heritage | anchae | wood_floor | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae floor axis0 | Anchae p8 B · floor",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        0,
+        2
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | anchae | wood_floor | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae floor axis0 | Anchae p8 B · endgrain",
+      "candidate": "R5 wood | HS heritage | anchae | wood_floor | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae floor axis0 | Anchae p8 B · endgrain",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        0,
+        2
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS white r2 | anchae | plaster | Selected timber v2 | anchae | P18 image.anchae.plaster.P15 plaster anchae board axis1 | Anchae p8 B · plaster",
+      "candidate": "R5 plaster | HS white r2 | anchae | plaster | Selected timber v2 | anchae | P18 image.anchae.plaster.P15 plaster anchae board axis1 | Anchae p8 B · plaster.001",
+      "role": "plaster",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis1 | Anchae p8 B · boards",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis1 | Anchae p8 B · boards.001",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | anchae | P18 image.anchae.plaster.P15 plaster anchae board axis1 | P12 worn hearth lime",
+      "candidate": "R5 plaster | Selected timber v2 | anchae | P18 image.anchae.plaster.P15 plaster anchae board axis1 | P12 worn hearth lime",
+      "role": "plaster",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | anchae | P18 image.anchae.plaster.P15 plaster anchae board axis1 | North.anchae.p12 continuous kitchen bank integrated lime patina",
+      "candidate": "R5 plaster | Selected timber v2 | anchae | P18 image.anchae.plaster.P15 plaster anchae board axis1 | North.anchae.p12 continuous kitchen bank integrated lime patina",
+      "role": "plaster",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | anchae | P18 image.anchae.plaster.P15 plaster anchae board axis1 | North.anchae.p12 continuous kitchen bank firing mouth lime",
+      "candidate": "R5 plaster | Selected timber v2 | anchae | P18 image.anchae.plaster.P15 plaster anchae board axis1 | North.anchae.p12 continuous kitchen bank firing mouth lime",
+      "role": "plaster",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "P15 metal anchae board axis1 | P12 seasoned cast iron",
+      "candidate": "R5 metal | P15 metal anchae board axis1 | P12 seasoned cast iron",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "P15 metal anchae board axis0 | P12 seasoned cast iron",
+      "candidate": "R5 metal | P15 metal anchae board axis0 | P12 seasoned cast iron",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "P15 metal anchae board axis2 | P12 seasoned cast iron",
+      "candidate": "R5 metal | P15 metal anchae board axis2 | P12 seasoned cast iron",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "P15 metal anchae board axis2 | P12 seasoned cast iron",
+      "candidate": "R5 metal | P15 metal anchae board axis2 | P12 seasoned cast iron.001",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        2,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis2 | Anchae p8 B · frame",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis2 | Anchae p8 B · frame",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        2,
+        0
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "P15 metal anchae joinery axis0 | Anchae p8 B · iron",
+      "candidate": "R5 metal | P15 metal anchae joinery axis0 | Anchae p8 B · iron.001",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        0,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis1 | Anchae p8 B · frame",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis1 | Anchae p8 B · frame",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | anchae | wood_floor | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis2 | Anchae p8 B · frame.001",
+      "candidate": "R5 wood | HS heritage | anchae | wood_floor | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis2 | Anchae p8 B · frame.001",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        2,
+        0
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | anchae | P18 image.anchae.paper.P15 paper anchae joinery axis0 | Anchae p8 B · hanji",
+      "candidate": "R5 paper | Selected timber v2 | anchae | P18 image.anchae.paper.P15 paper anchae joinery axis0 | Anchae p8 B · hanji",
+      "role": "paper",
+      "mapping": [
+        "OBJECT",
+        0,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis2 | Anchae p8 B · frame",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis2 | Anchae p8 B · frame.001",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis0 | Anchae p8 B · frame",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis0 | Anchae p8 B · frame",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        0,
+        2
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae joinery axis0 | Anchae p8 B · frame.001",
+      "candidate": "R5 lattice | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae joinery axis0 | Anchae p8 B · frame.001",
+      "role": "lattice",
+      "mapping": [
+        "OBJECT",
+        0,
+        2
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis1 | Anchae p8 B · frame",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis1 | Anchae p8 B · frame.001",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | anchae | wood_floor | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae floor axis1 | Anchae p8 B · boards",
+      "candidate": "R5 wood | HS heritage | anchae | wood_floor | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae floor axis1 | Anchae p8 B · boards",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | anchae | P15 wood anchae floor axis1 | Anchae p8 B · boards",
+      "candidate": "R5 wood | Selected timber v2 | anchae | P15 wood anchae floor axis1 | Anchae p8 B · boards",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | anchae | P15 wood_end anchae floor axis1 | Anchae p8 B · endgrain",
+      "candidate": "R5 wood | Selected timber v2 | anchae | P15 wood_end anchae floor axis1 | Anchae p8 B · endgrain",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae joinery axis1 | Anchae p8 B · bamboo",
+      "candidate": "R5 lattice | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae joinery axis1 | Anchae p8 B · bamboo",
+      "role": "lattice",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Anchae p8 B · earth",
+      "candidate": "R5 earth | Anchae p8 B · earth",
+      "role": "earth",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae post axis1 | Anchae p8 B · endgrain",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae post axis1 | Anchae p8 B · endgrain.001",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae post axis1 | Anchae p8 B · posts",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae post axis1 | Anchae p8 B · posts.001",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | anchae | P18 image.anchae.plaster.P15 plaster anchae floor axis0 | Anchae p8 B · plaster",
+      "candidate": "R5 plaster | Selected timber v2 | anchae | P18 image.anchae.plaster.P15 plaster anchae floor axis0 | Anchae p8 B · plaster",
+      "role": "plaster",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae board axis1 | Anchae p8 B · endgrain",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae board axis1 | Anchae p8 B · endgrain.001",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | anchae | P18 image.anchae.paper.P15 paper anchae floor axis0 | Anchae p8 B · hanji",
+      "candidate": "R5 paper | Selected timber v2 | anchae | P18 image.anchae.paper.P15 paper anchae floor axis0 | Anchae p8 B · hanji",
+      "role": "paper",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS roof charcoal | anchae | Selected timber v2 | anchae | P18 image.anchae.tile.P15 tile anchae board axis1 | Anchae p8 B · roof-field",
+      "candidate": "R5 tile | HS roof charcoal | anchae | Selected timber v2 | anchae | P18 image.anchae.tile.P15 tile anchae board axis1 | Anchae p8 B · roof-field",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Anchae whole roof painting"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS roof charcoal | anchae | Selected timber v2 | anchae | P18 image.anchae.tile.P15 tile anchae board axis1 | Anchae p8 B · roof",
+      "candidate": "R5 tile | HS roof charcoal | anchae | Selected timber v2 | anchae | P18 image.anchae.tile.P15 tile anchae board axis1 | Anchae p8 B · roof",
+      "role": "tile",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS roof charcoal | anchae | Selected timber v2 | anchae | P18 image.anchae.tile.P15 tile anchae board axis1 | Anchae p8 B · roof",
+      "candidate": "R5 tile | HS roof charcoal | anchae | Selected timber v2 | anchae | P18 image.anchae.tile.P15 tile anchae board axis1 | Anchae p8 B · roof.001",
+      "role": "tile",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS mineral bedding r1 | anchae | roof-bedding/backing | Selected timber v2 | anchae | P18 image.anchae.plaster.P15 plaster anchae board axis1 | Anchae p8 B · eave-fill",
+      "candidate": "R5 stone | HS mineral bedding r1 | anchae | roof-bedding/backing | Selected timber v2 | anchae | P18 image.anchae.plaster.P15 plaster anchae board axis1 | Anchae p8 B · eave-fill",
+      "role": "stone",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae beam axis1 | Anchae p8 B · rafters",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae beam axis1 | Anchae p8 B · rafters",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "P15 tile_end anchae board axis1 | Anchae p8 B · tile-end",
+      "candidate": "R5 tile | P15 tile_end anchae board axis1 | Anchae p8 B · tile-end",
+      "role": "tile",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS roof charcoal | anchae | Selected timber v2 | anchae | P18 image.anchae.tile.P15 tile anchae board axis2 | Anchae p8 B · roof",
+      "candidate": "R5 tile | HS roof charcoal | anchae | Selected timber v2 | anchae | P18 image.anchae.tile.P15 tile anchae board axis2 | Anchae p8 B · roof",
+      "role": "tile",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS roof charcoal | anchae | Selected timber v2 | anchae | P18 image.anchae.tile.P15 tile anchae board axis2 | Anchae p8 B · roof",
+      "candidate": "R5 tile | HS roof charcoal | anchae | Selected timber v2 | anchae | P18 image.anchae.tile.P15 tile anchae board axis2 | Anchae p8 B · roof.001",
+      "role": "tile",
+      "mapping": [
+        "OBJECT",
+        2,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis1 | Anchae p8 B · rafters",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis1 | Anchae p8 B · rafters",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis0 | Anchae p8 B · rafters",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis0 | Anchae p8 B · rafters",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS roof charcoal | anchae | Selected timber v2 | anchae | P18 image.anchae.tile.P15 tile anchae board axis0 | Anchae p8 B · roof",
+      "candidate": "R5 tile | HS roof charcoal | anchae | Selected timber v2 | anchae | P18 image.anchae.tile.P15 tile anchae board axis0 | Anchae p8 B · roof.001",
+      "role": "tile",
+      "mapping": [
+        "OBJECT",
+        0,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | anchae | P18 image.anchae.paper.P15 paper anchae board axis1 | Anchae p8 B · hanji",
+      "candidate": "R5 paper | Selected timber v2 | anchae | P18 image.anchae.paper.P15 paper anchae board axis1 | Anchae p8 B · hanji",
+      "role": "paper",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | anchae | wood_joinery | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae joinery axis1 | Anchae p8 B · frame",
+      "candidate": "R5 lattice | HS heritage | anchae | wood_joinery | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae joinery axis1 | Anchae p8 B · frame.001",
+      "role": "lattice",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | anchae | wood_joinery | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae joinery axis1 | Anchae p8 B · endgrain",
+      "candidate": "R5 lattice | HS heritage | anchae | wood_joinery | Selected timber v2 | anchae | P18 image.anchae.wood_end.P15 wood_end anchae joinery axis1 | Anchae p8 B · endgrain.001",
+      "role": "lattice",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | anchae | Gye pilot cared limewash v26",
+      "candidate": "R5 plaster | Selected timber v2 | anchae | Gye pilot cared limewash v26",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye lime metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | anchae | North warm hanji",
+      "candidate": "R5 paper | Selected timber v2 | anchae | North warm hanji",
+      "role": "paper",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis1 | Anchae p8 B · bamboo",
+      "candidate": "R5 wood | HS heritage | anchae | wood_frame | Selected timber v2 | anchae | P18 image.anchae.wood.P15 wood anchae board axis1 | Anchae p8 B · bamboo",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    }
+  ],
+  "views": {
+    "hero": {
+      "position": [
+        49.709617614746094,
+        -36.177085876464844,
+        34.11320114135742
+      ],
+      "target": [
+        12.072778701782227,
+        17.141769409179688,
+        4.317368507385254
+      ],
+      "ortho": 18.613091256658382,
+      "resolution": [
+        1100,
+        825
+      ]
+    },
+    "detail": {
+      "position": [
+        49.709617614746094,
+        -36.177085876464844,
+        11.119659423828125
+      ],
+      "target": [
+        12.072778701782227,
+        17.141769409179688,
+        2.3377301692962646
+      ],
+      "ortho": 8.74815289062944,
+      "resolution": [
+        1100,
+        825
+      ]
+    }
+  },
+  "bounds": {
+    "bounds": [
+      [
+        1.295424461364746,
+        -1.9106736183166504,
+        0.0
+      ],
+      [
+        14.995584487915039,
+        29.453359603881836,
+        6.49369478225708
+      ]
+    ],
+    "span": 31.364033222198486
+  },
+  "sourceSpecificPalettes": true,
+  "newUVs": 0,
+  "newMeshes": 0,
+  "objectAttachedUVlessProjection": true,
+  "sceneLightBaked": false,
+  "lightingUnchangedAfterReopen": true,
+  "canonicalPromoted": false,
+  "glbConverted": false,
+  "appIntegrated": false,
+  "producerFiles": {
+    "restyle_building.py": "cefa711d1f3f70f389a53c241e13cb11a5062faf86aa135de39d21fb4dd6af05",
+    "material_rules.py": "71b4126f57eec61de897090e1b465d197e9f784ad68116c0a26e2c9201b67d31",
+    "refine_review_cameras.py": "44a8cc5ca36901a6b963178ad317d09b4d9b6fa16dbd2e744b6d492dff3bb5bf"
+  },
+  "reviewCameraCorrection": {
+    "renderedOccupancy": [
+      440,
+      253,
+      1019,
+      654,
+      1100,
+      825
+    ],
+    "targetCorrection": [
+      3.927274227142334,
+      3.3704261779785156,
+      1.0705208778381348
+    ]
+  },
+  "reviewCameraOnlyMaterialAndGeometryEqual": true
+}

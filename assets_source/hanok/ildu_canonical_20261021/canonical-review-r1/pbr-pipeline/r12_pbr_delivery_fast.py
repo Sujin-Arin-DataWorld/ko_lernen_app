@@ -657,6 +657,13 @@ def export_review(bpy, OUT, candidate_sha, source_sha,
             for original,ob in copies: bpy.data.objects.remove(ob,do_unlink=True)
             for mesh in copied_data:
                 if mesh.users==0: bpy.data.meshes.remove(mesh)
+            # World geometry/attributes are already copied and fingerprinted in
+            # combined. Release Python construction buffers before UV packing
+            # and the float-image bakes; large buildings otherwise retain GBs.
+            del verts, faces, normals, tangents, material_ids, native_triangles
+            pieces.clear()
+            import gc
+            gc.collect()
             bpy.context.view_layer.objects.active=bake_ob; bake_ob.select_set(True)
             pre_pack_geometry=_bake_geometry_digest(combined)
             bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT')
@@ -664,7 +671,7 @@ def export_review(bpy, OUT, candidate_sha, source_sha,
                                      margin_method='FRACTION',area_weight=.0,
                                     correct_aspect=True,scale_to_bounds=True)
             bpy.ops.object.mode_set(mode='OBJECT')
-            from r12_uv_pack import guard_and_pack
+            from r12_uv_pack_fast import guard_and_pack
             atlas_guard = guard_and_pack(bpy, combined, combined.uv_layers[ATLAS_UV],
                                         size=size, bake_margin=bake_margin)
             assert _bake_geometry_digest(combined)==pre_pack_geometry, 'UV operators changed bake geometry or normals'

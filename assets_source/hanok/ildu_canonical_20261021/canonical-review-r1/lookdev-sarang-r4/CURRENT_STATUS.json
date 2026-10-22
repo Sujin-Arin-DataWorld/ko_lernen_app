@@ -1,0 +1,30 @@
+{
+  "status": "reconsider_after_user_washed_out_feedback",
+  "approved": false,
+  "newPaletteApplied": false,
+  "direction": "maintained Hanok illustrated with care; no copied weathering or global hue warming",
+  "before": {
+    "meanRGB": [
+      123.46807050092764,
+      86.11920222634508,
+      58.45751391465677
+    ],
+    "meanEncodedLuma": 92.06239772541744,
+    "stdEncodedLuma": 11.939556709103497
+  },
+  "after": {
+    "meanRGB": [
+      125.57413729128015,
+      87.77452690166976,
+      59.63543599257885
+    ],
+    "meanEncodedLuma": 93.77908170686456,
+    "stdEncodedLuma": 10.560914456982276
+  },
+  "sourceBase": "../lookdev-sarang-r3/sarang-r3-fix-checkpoint.blend",
+  "latestStudy": "sarang-palette-brush-selective.blend",
+  "research": "PALETTE_RESEARCH.md",
+  "originalGeometryPreserved": true,
+  "glbConverted": false,
+  "appIntegrated": false
+}

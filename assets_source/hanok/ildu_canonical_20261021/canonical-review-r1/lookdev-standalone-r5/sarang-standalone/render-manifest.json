@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "matchedCameraLights": true,
+  "samples": 24,
+  "renders": [
+    {
+      "view": "hero",
+      "variant": "original full-roof native",
+      "file": "before-hero.png",
+      "cameraLocation": [
+        29.4,
+        -30.2,
+        15.45
+      ],
+      "target": [
+        7.4,
+        1.8,
+        2.85
+      ],
+      "orthoScale": 22,
+      "resolution": [
+        1200,
+        900
+      ],
+      "sha256": "dcdf0a1203fdedba0dabc12d156b5e76c7a1d106f9d864e76683be94e12e895c"
+    },
+    {
+      "view": "detail",
+      "variant": "original full-roof native",
+      "file": "before-detail.png",
+      "cameraLocation": [
+        16,
+        -18,
+        5.3
+      ],
+      "target": [
+        11.5,
+        -2.8,
+        2.7
+      ],
+      "orthoScale": 6,
+      "resolution": [
+        1100,
+        950
+      ],
+      "sha256": "004f51757453b72169e5baadb16c635a3f94f99dbba999568e4eb5228f75bee0"
+    },
+    {
+      "view": "hero",
+      "variant": "R5 full-roof candidate",
+      "file": "after-hero.png",
+      "cameraLocation": [
+        29.4,
+        -30.2,
+        15.45
+      ],
+      "target": [
+        7.4,
+        1.8,
+        2.85
+      ],
+      "orthoScale": 22,
+      "resolution": [
+        1200,
+        900
+      ],
+      "sha256": "8ea9155eff36b1f63413003008829040131de1a7b55fe7ef562aeff39741d1cb"
+    },
+    {
+      "view": "detail",
+      "variant": "R5 full-roof candidate",
+      "file": "after-detail.png",
+      "cameraLocation": [
+        16,
+        -18,
+        5.3
+      ],
+      "target": [
+        11.5,
+        -2.8,
+        2.7
+      ],
+      "orthoScale": 6,
+      "resolution": [
+        1100,
+        950
+      ],
+      "sha256": "e21741375b792d22a4f9cacc31f32aeb177c02dec377aa48d42388f7fab74986"
+    }
+  ],
+  "seconds": 299.6
+}

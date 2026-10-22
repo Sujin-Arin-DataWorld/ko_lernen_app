@@ -1,5 +1,7 @@
 {
   "sourceSha256": "aeaba60b5cbba61d8cb7710ccc02c8b0353e6ff6294db4d5e630de3214dd0e92",
   "snapshotSha256": "e10b01805a8cb5863eb3fc833dac3be72419ab67a1a4d9c25d60caa470759ffe",
-  "change": "Cache unchanged combined mesh triangulation between exact individual-member extractions. No geometry/UV/material changes."
+  "change": "Cache unchanged combined mesh triangulation between exact individual-member extractions. No geometry/UV/material changes.",
+  "largeBuildingSnapshotSha256": "c72117f561b8f91ac05c2590edadd9f97c635b2dee496dc1ad5eb1fb25c5f624",
+  "largeBuildingMemoryChange": "Release temporary Python geometry construction buffers after copying to verified combined mesh, before UV/bake. Source arrays and final geometry unchanged."
 }

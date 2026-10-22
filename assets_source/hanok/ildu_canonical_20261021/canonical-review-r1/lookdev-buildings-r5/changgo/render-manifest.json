@@ -1,0 +1,93 @@
+{
+  "key": "changgo",
+  "complete": true,
+  "matchedCameraLights": true,
+  "samples": 24,
+  "renders": [
+    {
+      "variant": "source",
+      "view": "hero",
+      "file": "before-hero.png",
+      "cameraLocation": [
+        9.112374305725098,
+        -22.034648895263672,
+        16.993263244628906
+      ],
+      "target": [
+        -8.632990837097168,
+        3.104617118835449,
+        2.9448490142822266
+      ],
+      "orthoScale": 14.4612890625,
+      "resolution": [
+        1100,
+        825
+      ],
+      "sha256": "7f6c9a5b87de3332d609f9bfcf572c2ae3159ca4b323bdf381700a1464a98306"
+    },
+    {
+      "variant": "source",
+      "view": "detail",
+      "file": "before-detail.png",
+      "cameraLocation": [
+        -5.379673957824707,
+        -32.090354919433594,
+        4.155421733856201
+      ],
+      "target": [
+        -8.632990837097168,
+        -2.5147483348846436,
+        2.380885362625122
+      ],
+      "orthoScale": 4.7320971679687505,
+      "resolution": [
+        1100,
+        825
+      ],
+      "sha256": "3ca0eb19c05c258edd0c29cb3dc96ce34d67c35d8ea79d7a28d6c03508930db6"
+    },
+    {
+      "variant": "R5 candidate",
+      "view": "hero",
+      "file": "after-hero.png",
+      "cameraLocation": [
+        9.112374305725098,
+        -22.034648895263672,
+        16.993263244628906
+      ],
+      "target": [
+        -8.632990837097168,
+        3.104617118835449,
+        2.9448490142822266
+      ],
+      "orthoScale": 14.4612890625,
+      "resolution": [
+        1100,
+        825
+      ],
+      "sha256": "0ec69c834cd2c8898cb47530aa4de18e99b5f41e7802b429195fa09a361dca0f"
+    },
+    {
+      "variant": "R5 candidate",
+      "view": "detail",
+      "file": "after-detail.png",
+      "cameraLocation": [
+        -5.379673957824707,
+        -32.090354919433594,
+        4.155421733856201
+      ],
+      "target": [
+        -8.632990837097168,
+        -2.5147483348846436,
+        2.380885362625122
+      ],
+      "orthoScale": 4.7320971679687505,
+      "resolution": [
+        1100,
+        825
+      ],
+      "sha256": "44baf1b74d605103484bc9f3f96d891eca8b9dc87a28570b82fa26ff8621601e"
+    }
+  ],
+  "seconds": 137.0
+}

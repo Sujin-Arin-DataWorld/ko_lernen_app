@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "sourceNative": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\estate-yard-wall-r1\\ildu-estate-yard-wall-r1.blend",
+  "sourceNativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+  "exactSourceMembers": 710,
+  "geometryUvsTransformsModifiersEqual": true,
+  "originalMaterialsUnchanged": true,
+  "plaqueMaterialsImagesUvsUnchanged": true,
+  "plaqueBindings": {
+    "Sarang.light original plaque": [
+      "Sarang.light original plaque original pigment.001"
+    ],
+    "Sarang.dark original plaque": [
+      "Sarang.dark original plaque original pigment.001"
+    ],
+    "Sarang.dark original plaque.board": [
+      "Gye cared pine sarang v56 boards tone 2.003",
+      "Gye cared pine sarang v69 boards tone 2.002"
+    ],
+    "Sarang.light original plaque.board": [
+      "Gye cared pine sarang v56 boards tone 2.003",
+      "Gye cared pine sarang v69 boards tone 1.002"
+    ]
+  },
+  "sourceNativeSaved": false,
+  "candidateApproved": false,
+  "appIntegrated": false,
+  "glbConverted": false
+}

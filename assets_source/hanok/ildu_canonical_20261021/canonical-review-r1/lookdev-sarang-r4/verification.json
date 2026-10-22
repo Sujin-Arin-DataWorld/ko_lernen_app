@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "savedNativeReopened": true,
+  "all711ExistingMeshGeometryUvsAttributesTransformsModifiersEqual": true,
+  "original710AndInternalGapRepairPreserved": true,
+  "originalImagesPackedBytesEqual": true,
+  "sourceMaterialsUnchanged": true,
+  "plaquesEqual": true,
+  "lightingAndColorManagementEqual": true,
+  "newMeshObjects": 0,
+  "noHueSaturationValueGrading": true,
+  "neutralBrushMasksOnly": true,
+  "sourceSha256": "509ffb8a8d714663096c5c7e6d6f0d121a8720f23b281905ebf1cbe328d89c1d",
+  "native": "sarang-palette-brush-study.blend",
+  "nativeSha256": "1a7c262cd7ec7714c6d4c656f44e38879ab6bbd4939fbc78729b5219b390ee04",
+  "candidateApproved": false,
+  "appIntegrated": false,
+  "glbConverted": false,
+  "textureMeans": {
+    "wood": [
+      0.26844951239663706,
+      0.10249650881612103,
+      0.030634133880071576,
+      1
+    ],
+    "tile": [
+      0.10360430452717789,
+      0.1029820091280945,
+      0.10219570494716466,
+      1
+    ],
+    "stone": [
+      0.5891782068573787,
+      0.4621191522763318,
+      0.3158026845816,
+      1
+    ],
+    "plaster": [
+      0.804556966577635,
+      0.6796572811233799,
+      0.4980981556779434,
+      1
+    ],
+    "paper": [
+      0.811387209860388,
+      0.7030224530470061,
+      0.5435610933886049,
+      1
+    ]
+  },
+  "coverage": {
+    "wood": 316,
+    "paper": 35,
+    "lattice": 183,
+    "plaster": 30,
+    "stone": 83,
+    "endgrain": 4,
+    "tile": 42,
+    "pigment": 14
+  }
+}

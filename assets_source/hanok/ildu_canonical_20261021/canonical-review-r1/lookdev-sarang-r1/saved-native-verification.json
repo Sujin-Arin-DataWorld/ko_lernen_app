@@ -1,0 +1,134 @@
+{
+  "passed": true,
+  "freshReopen": true,
+  "exactGeometryUvsTransformsModifiersEqual": true,
+  "exactSourceMembers": 710,
+  "sourceNativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+  "sourceNativeUnchanged": true,
+  "candidateNativeSha256": "47f1879e48e85cdacab7c4f9762e6772f72d174da97c46d75d237f0aa3b9d9d1",
+  "originalPlaques": {
+    "Sarang.dark original plaque": {
+      "materials": [
+        "Sarang.dark original plaque original pigment.001"
+      ],
+      "images": [
+        {
+          "name": "master-sarangchae.png.001",
+          "size": [
+            1536,
+            1024
+          ],
+          "packed": true,
+          "packedSha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a"
+        }
+      ]
+    },
+    "Sarang.dark original plaque.board": {
+      "materials": [
+        "Gye cared pine sarang v56 boards tone 2.003",
+        "Gye cared pine sarang v69 boards tone 2.002"
+      ],
+      "images": [
+        {
+          "name": "master-sarangchae.png.001",
+          "size": [
+            1536,
+            1024
+          ],
+          "packed": true,
+          "packedSha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a"
+        },
+        {
+          "name": "hanok-sarang-wood-painted-v1.png.001",
+          "size": [
+            1254,
+            1254
+          ],
+          "packed": true,
+          "packedSha256": "d74b1bffd60e4378d741f5fde875b12dc0b9a657dc2aea87bbc6a39f15553458"
+        },
+        {
+          "name": "master-sarangchae.png.001",
+          "size": [
+            1536,
+            1024
+          ],
+          "packed": true,
+          "packedSha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a"
+        },
+        {
+          "name": "hanok-sarang-wood-painted-v1.png.001",
+          "size": [
+            1254,
+            1254
+          ],
+          "packed": true,
+          "packedSha256": "d74b1bffd60e4378d741f5fde875b12dc0b9a657dc2aea87bbc6a39f15553458"
+        }
+      ]
+    },
+    "Sarang.light original plaque": {
+      "materials": [
+        "Sarang.light original plaque original pigment.001"
+      ],
+      "images": [
+        {
+          "name": "master-sarangchae.png.001",
+          "size": [
+            1536,
+            1024
+          ],
+          "packed": true,
+          "packedSha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a"
+        }
+      ]
+    },
+    "Sarang.light original plaque.board": {
+      "materials": [
+        "Gye cared pine sarang v56 boards tone 2.003",
+        "Gye cared pine sarang v69 boards tone 1.002"
+      ],
+      "images": [
+        {
+          "name": "master-sarangchae.png.001",
+          "size": [
+            1536,
+            1024
+          ],
+          "packed": true,
+          "packedSha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a"
+        },
+        {
+          "name": "hanok-sarang-wood-painted-v1.png.001",
+          "size": [
+            1254,
+            1254
+          ],
+          "packed": true,
+          "packedSha256": "d74b1bffd60e4378d741f5fde875b12dc0b9a657dc2aea87bbc6a39f15553458"
+        },
+        {
+          "name": "master-sarangchae.png.001",
+          "size": [
+            1536,
+            1024
+          ],
+          "packed": true,
+          "packedSha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a"
+        },
+        {
+          "name": "hanok-sarang-wood-painted-v1.png.001",
+          "size": [
+            1254,
+            1254
+          ],
+          "packed": true,
+          "packedSha256": "d74b1bffd60e4378d741f5fde875b12dc0b9a657dc2aea87bbc6a39f15553458"
+        }
+      ]
+    }
+  },
+  "candidateApproved": false,
+  "glbConverted": false,
+  "appIntegrated": false
+}

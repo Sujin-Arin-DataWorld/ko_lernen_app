@@ -1,0 +1,277 @@
+{
+  "passed": true,
+  "savedNativeReopened": true,
+  "meshCount": 711,
+  "allGeometryUvsTransformsAttributesModifiersEqual": true,
+  "plaquesEqual": true,
+  "sourceImagesPackedBytesEqual": true,
+  "sourceMaterialsUnchanged": true,
+  "lightingAndViewTransformEqual": true,
+  "sourceSha256": "509ffb8a8d714663096c5c7e6d6f0d121a8720f23b281905ebf1cbe328d89c1d",
+  "candidateNative": "sarang-three-value-brush-candidate.blend",
+  "candidateSha256": "cab144f08a7836dc0eafc074456104cdbfe21eecd46eadf2c13b882d52efd4c8",
+  "newMeshes": 0,
+  "sourceColourAveraging": false,
+  "uniformAverageColourWash": false,
+  "woodThreeValueRemapping": true,
+  "woodResidualPigmentSignal": 0.2,
+  "latticeResidualPigmentSignal": 0.55,
+  "hueGrading": false,
+  "bakedSceneLighting": false,
+  "externalPacksInstalled": false,
+  "candidateApproved": false,
+  "glbConverted": false,
+  "appIntegrated": false,
+  "coverage": {
+    "wood": 316,
+    "paper": 35,
+    "lattice": 183,
+    "plaster": 30,
+    "stone": 83,
+    "endgrain": 4,
+    "tile": 42,
+    "pigment": 14
+  },
+  "alphaQuantiles": {
+    "wood": [
+      0.4394831706643105,
+      0.4688847375392914,
+      0.48542512871026994,
+      0.5333176748752594,
+      0.5607686536312103,
+      0.5882196323871612
+    ],
+    "tile": [
+      0.45096473860740655,
+      0.46524630638360975,
+      0.47617728612422944,
+      0.5111882644295692,
+      0.5347176747918129,
+      0.5624564966678619
+    ],
+    "stone": [
+      0.4453553271770477,
+      0.4697388551354408,
+      0.4887757167458534,
+      0.5347176747918129,
+      0.5582470851540565,
+      0.5854149266719818
+    ],
+    "plaster": [
+      0.5307961063981056,
+      0.5422776743412017,
+      0.5515208110451698,
+      0.5814933582782745,
+      0.5960627691745758,
+      0.6120321799874305
+    ]
+  },
+  "selectedMemberPaintPasses": {
+    "Projection.Numaru floor bearer": [
+      {
+        "start": [
+          11.05,
+          -4.535,
+          1.828
+        ],
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "cross": [
+          0,
+          0,
+          1
+        ],
+        "length": 2.05,
+        "width": 0.05875,
+        "pigment": 0.306
+      },
+      {
+        "start": [
+          12.8,
+          -4.535,
+          1.914
+        ],
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "cross": [
+          0,
+          0,
+          1
+        ],
+        "length": 1.6,
+        "width": 0.027499999999999997,
+        "pigment": -0.204
+      },
+      {
+        "start": [
+          10.6,
+          -4.535,
+          1.779
+        ],
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "cross": [
+          0,
+          0,
+          1
+        ],
+        "length": 1.1,
+        "width": 0.03125,
+        "pigment": 0.204
+      }
+    ],
+    "Craft.Numaru continuous post 12.56": [
+      {
+        "start": [
+          12.58,
+          -4.12,
+          2.52
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "cross": [
+          1,
+          0,
+          0
+        ],
+        "length": 1.08,
+        "width": 0.04125,
+        "pigment": 0.34
+      },
+      {
+        "start": [
+          12.5,
+          -4.12,
+          2.95
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "cross": [
+          1,
+          0,
+          0
+        ],
+        "length": 0.79,
+        "width": 0.0225,
+        "pigment": -0.204
+      }
+    ]
+  },
+  "woodPigmentLinearMeanBefore": [
+    0.26844951239663706,
+    0.10249650881612103,
+    0.030634133880071576,
+    1
+  ],
+  "woodPigmentLinearMeanGenerated": [
+    0.23246508536693186,
+    0.07764661900383936,
+    0.01860934023030697,
+    1
+  ],
+  "woodPigmentMeanCalibrationMultiplier": [
+    1.1547949747933373,
+    1.320038272510654,
+    1.6461697997321343,
+    1
+  ],
+  "baseProfiles": {
+    "wood": {
+      "base": 0.96,
+      "mid": 1.0,
+      "light": 1.12,
+      "darkPaint": 0.6,
+      "midPaint": 0.94,
+      "lightPaint": 1.25,
+      "coverage": 0.84
+    },
+    "lattice": {
+      "base": 0.97,
+      "mid": 1.0,
+      "light": 1.06,
+      "darkPaint": 0.76,
+      "midPaint": 0.97,
+      "lightPaint": 1.14,
+      "coverage": 0.65
+    },
+    "tile": {
+      "base": 0.96,
+      "mid": 1.0,
+      "light": 1.07,
+      "darkPaint": 0.7,
+      "midPaint": 0.96,
+      "lightPaint": 1.15,
+      "coverage": 0.8
+    },
+    "stone": {
+      "base": 0.98,
+      "mid": 1.0,
+      "light": 1.06,
+      "darkPaint": 0.76,
+      "midPaint": 0.97,
+      "lightPaint": 1.13,
+      "coverage": 0.72
+    },
+    "plaster": {
+      "base": 0.99,
+      "mid": 1.0,
+      "light": 1.015,
+      "darkPaint": 0.92,
+      "midPaint": 0.99,
+      "lightPaint": 1.04,
+      "coverage": 0.5
+    },
+    "paper": {
+      "base": 1.0,
+      "mid": 1.0,
+      "light": 1.005,
+      "darkPaint": 0.975,
+      "midPaint": 1.0,
+      "lightPaint": 1.015,
+      "coverage": 0.32
+    },
+    "endgrain": {
+      "base": 0.99,
+      "mid": 1.0,
+      "light": 1.025,
+      "darkPaint": 0.9,
+      "midPaint": 0.99,
+      "lightPaint": 1.04,
+      "coverage": 0.4
+    },
+    "pigment": {
+      "base": 1.0,
+      "mid": 1.0,
+      "light": 1.01,
+      "darkPaint": 0.97,
+      "midPaint": 1.0,
+      "lightPaint": 1.02,
+      "coverage": 0.32
+    }
+  },
+  "effectiveWoodAndLatticeProfile": {
+    "base": 0.99,
+    "mid": 1.0,
+    "light": 1.025,
+    "darkPaint": 0.91,
+    "midPaint": 1.0,
+    "lightPaint": 1.07
+  },
+  "freshFinalReopenVerified": true,
+  "allRenderedImageHashesVerified": true
+}

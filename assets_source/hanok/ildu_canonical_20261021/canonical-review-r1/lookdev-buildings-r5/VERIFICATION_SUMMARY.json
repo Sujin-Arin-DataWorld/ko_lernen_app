@@ -1,0 +1,427 @@
+{
+  "date": "2026-10-22",
+  "status": "14 building-specific native R5 materials complete and designated canonical by current user instruction",
+  "buildingCount": 14,
+  "meshCount": 4396,
+  "renderCount": 56,
+  "unchangedSourceFiles": {
+    "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\estate-yard-wall-r1\\ildu-estate-yard-wall-r1.blend": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+    "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\left-new.blend": "b0431b15ebe83529c59307cabea2e66be481ecc0a406df4f68e30e868606fed0",
+    "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\right-new.blend": "6995b49bcbabf69dcca3e4a94cf4a3ec2b8af892f5d1223eb045133e229e88ca",
+    "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\shrine-new.blend": "d0424a1c0e5d8032a7dbb68fa2cad308655d0e9e36b9502bd648d46899d73f20"
+  },
+  "acceptedSarangR5NativeUnchanged": true,
+  "allNativeFilesReopenedAndPreserved": true,
+  "allRenderFilesVerified": true,
+  "canonicalPromotion": true,
+  "glbViewerUpdated": false,
+  "constructionRuntimeUpdated": false,
+  "flutterUpdated": false,
+  "rows": [
+    {
+      "key": "ansarang",
+      "name": "안사랑채",
+      "meshCount": 385,
+      "native": "ansarang/ansarang-r5-brush-candidate.blend",
+      "sha256": "df17b8b8d8623dd5084186d6c3c03e6193101eb302be4ef74c15ec26375a516a",
+      "roles": {
+        "wood": 181,
+        "stone": 29,
+        "endgrain": 266,
+        "metal": 11,
+        "plaster": 24,
+        "paper": 24,
+        "lattice": 203,
+        "earth": 3,
+        "tile": 18
+      },
+      "reopenedPreservationPassed": true,
+      "renderCount": 4,
+      "pixelComparison": {
+        "hero": {
+          "meanAbsoluteRgbDifferenceInForeground": 1.255297064781189,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.09756805554749229
+        },
+        "detail": {
+          "meanAbsoluteRgbDifferenceInForeground": 2.1862237453460693,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.2468398091165428
+        }
+      }
+    },
+    {
+      "key": "anchae",
+      "name": "안채",
+      "meshCount": 882,
+      "native": "anchae/anchae-r5-brush-candidate.blend",
+      "sha256": "bb136fad3bbc9ee63f78cdd8f88cb30a2559c5457cfbaa9f7d61c1b8d4ac9b06",
+      "roles": {
+        "metal": 161,
+        "stone": 15,
+        "tile": 371,
+        "lattice": 184,
+        "wood": 85,
+        "plaster": 25,
+        "preserve": 13,
+        "endgrain": 2,
+        "paper": 28,
+        "earth": 2
+      },
+      "reopenedPreservationPassed": true,
+      "renderCount": 4,
+      "pixelComparison": {
+        "hero": {
+          "meanAbsoluteRgbDifferenceInForeground": 1.9576809406280518,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.18772326403260212
+        },
+        "detail": {
+          "meanAbsoluteRgbDifferenceInForeground": 1.889050841331482,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.24149399682036501
+        }
+      }
+    },
+    {
+      "key": "sadang",
+      "name": "사당",
+      "meshCount": 229,
+      "native": "sadang/sadang-r5-brush-candidate.blend",
+      "sha256": "9ad767f0bf08e60cd41a50cf2f77470c334c7fde3f0f78c8b508cc1678774006",
+      "roles": {
+        "stone": 16,
+        "paint": 107,
+        "wood": 23,
+        "endgrain": 10,
+        "earth": 1,
+        "lattice": 6,
+        "tile": 62,
+        "plaster": 8,
+        "paper": 4,
+        "metal": 9,
+        "wax": 1,
+        "fibre": 3
+      },
+      "reopenedPreservationPassed": true,
+      "renderCount": 4,
+      "pixelComparison": {
+        "hero": {
+          "meanAbsoluteRgbDifferenceInForeground": 1.2320364713668823,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.12997407338685815
+        },
+        "detail": {
+          "meanAbsoluteRgbDifferenceInForeground": 0.6576617360115051,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.058640970156634845
+        }
+      }
+    },
+    {
+      "key": "jung",
+      "name": "중문간채",
+      "meshCount": 244,
+      "native": "jung/jung-r5-brush-candidate.blend",
+      "sha256": "0e0c8f387a8a4f4bbac82e649401672da40416ebc03aca781c21edc91994f702",
+      "roles": {
+        "stone": 47,
+        "wood": 57,
+        "plaster": 14,
+        "lattice": 102,
+        "tile": 17,
+        "metal": 2,
+        "paper": 11
+      },
+      "reopenedPreservationPassed": true,
+      "renderCount": 4,
+      "pixelComparison": {
+        "hero": {
+          "meanAbsoluteRgbDifferenceInForeground": 3.3082149028778076,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.25462924451395014
+        },
+        "detail": {
+          "meanAbsoluteRgbDifferenceInForeground": 3.526611328125,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.3059827324462679
+        }
+      }
+    },
+    {
+      "key": "arae",
+      "name": "아랫채",
+      "meshCount": 259,
+      "native": "arae/arae-r5-brush-candidate.blend",
+      "sha256": "25842b2bc947699657a0c737191551cc571c5005217e54100e805239c5adc89a",
+      "roles": {
+        "stone": 10,
+        "wood": 159,
+        "earth": 1,
+        "paper": 19,
+        "plaster": 7,
+        "lattice": 187,
+        "preserve": 4,
+        "metal": 3,
+        "tile": 15,
+        "endgrain": 2
+      },
+      "reopenedPreservationPassed": true,
+      "renderCount": 4,
+      "pixelComparison": {
+        "hero": {
+          "meanAbsoluteRgbDifferenceInForeground": 4.964183330535889,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.3022216304140655
+        },
+        "detail": {
+          "meanAbsoluteRgbDifferenceInForeground": 7.885486125946045,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.5066824860328304
+        }
+      }
+    },
+    {
+      "key": "gokgan",
+      "name": "곳간채",
+      "meshCount": 75,
+      "native": "gokgan/gokgan-r5-brush-candidate.blend",
+      "sha256": "b954900cdcf0a35f8edd4f72cbd994e1a9feeae31d56b98d809cdbcf650e1daa",
+      "roles": {
+        "stone": 17,
+        "wood": 27,
+        "lattice": 11,
+        "metal": 6,
+        "tile": 23,
+        "endgrain": 1,
+        "plaster": 2,
+        "preserve": 2
+      },
+      "reopenedPreservationPassed": true,
+      "renderCount": 4,
+      "pixelComparison": {
+        "hero": {
+          "meanAbsoluteRgbDifferenceInForeground": 3.288087844848633,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.2731665300476459
+        },
+        "detail": {
+          "meanAbsoluteRgbDifferenceInForeground": 7.694697380065918,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.6827143440178319
+        }
+      }
+    },
+    {
+      "key": "angotgan",
+      "name": "안채곳간채",
+      "meshCount": 108,
+      "native": "angotgan/angotgan-r5-brush-candidate.blend",
+      "sha256": "9454564888071fdef82d097ed32626eb975bb3ad0f253e18327ef00c639f7862",
+      "roles": {
+        "stone": 8,
+        "earth": 1,
+        "wood": 53,
+        "metal": 18,
+        "lattice": 16,
+        "preserve": 2,
+        "plaster": 12,
+        "tile": 14
+      },
+      "reopenedPreservationPassed": true,
+      "renderCount": 4,
+      "pixelComparison": {
+        "hero": {
+          "meanAbsoluteRgbDifferenceInForeground": 2.8624556064605713,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.2425896168733388
+        },
+        "detail": {
+          "meanAbsoluteRgbDifferenceInForeground": 5.553059101104736,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.5401715268975064
+        }
+      }
+    },
+    {
+      "key": "changgo",
+      "name": "창고",
+      "meshCount": 209,
+      "native": "changgo/changgo-r5-brush-candidate.blend",
+      "sha256": "6dc1b764d31622c7e7206fd946cf80cddb538be473fead8a3aedc50dd97b53aa",
+      "roles": {
+        "stone": 37,
+        "plaster": 3,
+        "wood": 77,
+        "lattice": 22,
+        "metal": 48,
+        "earth": 1,
+        "tile": 21
+      },
+      "reopenedPreservationPassed": true,
+      "renderCount": 4,
+      "pixelComparison": {
+        "hero": {
+          "meanAbsoluteRgbDifferenceInForeground": 2.5356361865997314,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.19824171915147704
+        },
+        "detail": {
+          "meanAbsoluteRgbDifferenceInForeground": 4.3034892082214355,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.35215396854952014
+        }
+      }
+    },
+    {
+      "key": "toilet",
+      "name": "북측 측간",
+      "meshCount": 83,
+      "native": "toilet/toilet-r5-brush-candidate.blend",
+      "sha256": "67ba5f446aa96b5023f67cb5460ac8f1227c2413983448d461d6e885a120e922",
+      "roles": {
+        "stone": 29,
+        "lattice": 12,
+        "metal": 1,
+        "earth": 2,
+        "wood": 21,
+        "plaster": 3,
+        "tile": 17
+      },
+      "reopenedPreservationPassed": true,
+      "renderCount": 4,
+      "pixelComparison": {
+        "hero": {
+          "meanAbsoluteRgbDifferenceInForeground": 4.671227931976318,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.27456802282635456
+        },
+        "detail": {
+          "meanAbsoluteRgbDifferenceInForeground": 7.425408840179443,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.5325200165268953
+        }
+      }
+    },
+    {
+      "key": "toilet1",
+      "name": "남측 측간",
+      "meshCount": 83,
+      "native": "toilet1/toilet1-r5-brush-candidate.blend",
+      "sha256": "18bd38953c5f5cef1f02f77c2af20a7ec713b4d1901575de19f27f0018154439",
+      "roles": {
+        "stone": 29,
+        "lattice": 12,
+        "metal": 1,
+        "earth": 2,
+        "wood": 21,
+        "plaster": 3,
+        "tile": 17
+      },
+      "reopenedPreservationPassed": true,
+      "renderCount": 4,
+      "pixelComparison": {
+        "hero": {
+          "meanAbsoluteRgbDifferenceInForeground": 4.031843662261963,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.2796338167981029
+        },
+        "detail": {
+          "meanAbsoluteRgbDifferenceInForeground": 6.201691150665283,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.4167486315557435
+        }
+      }
+    },
+    {
+      "key": "main_gate",
+      "name": "대문",
+      "meshCount": 184,
+      "native": "main_gate/main_gate-r5-brush-candidate.blend",
+      "sha256": "c6369a07672a7006b842d507ac2a758a53fa367ddf5348395682e151135f6e41",
+      "roles": {
+        "stone": 11,
+        "lattice": 66,
+        "wood": 95,
+        "paper": 8,
+        "plaster": 13,
+        "preserve": 20,
+        "tile": 37
+      },
+      "reopenedPreservationPassed": true,
+      "renderCount": 4,
+      "pixelComparison": {
+        "hero": {
+          "meanAbsoluteRgbDifferenceInForeground": 1.728813886642456,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.14620139540576932
+        },
+        "detail": {
+          "meanAbsoluteRgbDifferenceInForeground": 3.5820212364196777,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.41272834563379013
+        }
+      }
+    },
+    {
+      "key": "left_changgo",
+      "name": "사랑채 왼쪽 협문",
+      "meshCount": 680,
+      "native": "left_changgo/left_changgo-r5-brush-candidate.blend",
+      "sha256": "237cf14ede53373ed39879d13ac6dad8fd9d598ba898415d8e094b6ef1e124ac",
+      "roles": {
+        "earth": 5,
+        "stone": 18,
+        "wood": 130,
+        "metal": 32,
+        "tile": 495
+      },
+      "reopenedPreservationPassed": true,
+      "renderCount": 4,
+      "pixelComparison": {
+        "hero": {
+          "meanAbsoluteRgbDifferenceInForeground": 2.4966039657592773,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.30572534430450693
+        },
+        "detail": {
+          "meanAbsoluteRgbDifferenceInForeground": 3.6522719860076904,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.5010195115429993
+        }
+      }
+    },
+    {
+      "key": "right_ansarang",
+      "name": "안채 연결 협문",
+      "meshCount": 530,
+      "native": "right_ansarang/right_ansarang-r5-brush-candidate.blend",
+      "sha256": "eb9064848e456d2faefdbf3cf1fd6cb2e4344cdd8b9b58adb0e259d10252519e",
+      "roles": {
+        "stone": 24,
+        "earth": 8,
+        "wood": 113,
+        "metal": 36,
+        "tile": 335,
+        "plaster": 14
+      },
+      "reopenedPreservationPassed": true,
+      "renderCount": 4,
+      "pixelComparison": {
+        "hero": {
+          "meanAbsoluteRgbDifferenceInForeground": 2.494767665863037,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.2495943218248262
+        },
+        "detail": {
+          "meanAbsoluteRgbDifferenceInForeground": 2.7054734230041504,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.3121493376409172
+        }
+      }
+    },
+    {
+      "key": "sadangmun",
+      "name": "사당문",
+      "meshCount": 445,
+      "native": "sadangmun/sadangmun-r5-brush-candidate.blend",
+      "sha256": "631767b183d2ef7802303b0ddb29fae78b38e8a91ea0c2ad957483098fbb551b",
+      "roles": {
+        "stone": 3,
+        "paint": 115,
+        "metal": 28,
+        "earth": 3,
+        "tile": 284,
+        "plaster": 12
+      },
+      "reopenedPreservationPassed": true,
+      "renderCount": 4,
+      "pixelComparison": {
+        "hero": {
+          "meanAbsoluteRgbDifferenceInForeground": 0.9385926723480225,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.047632221669872694
+        },
+        "detail": {
+          "meanAbsoluteRgbDifferenceInForeground": 0.5330625772476196,
+          "fractionForegroundWithMoreThan3RgbSteps": 0.021222235680991283
+        }
+      }
+    }
+  ],
+  "freeDiskBytes": 4435656704,
+  "canonicalPromotionManifest": "../MATERIAL_CANONICAL_PROMOTION_R5.json"
+}

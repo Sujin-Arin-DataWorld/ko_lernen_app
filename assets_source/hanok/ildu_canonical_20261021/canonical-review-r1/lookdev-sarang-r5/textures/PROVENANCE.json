@@ -1,0 +1,18 @@
+{
+  "files": {
+    "material-brush-atlas-r1.png": "29884bf83d55d2f04d448b0294e9465cac780ed0cdc4bcf008ae682c17cb499f",
+    "wood-colour-planes-r1.png": "96b31a48653361a3cb815ad89ef2a3f248ff256467646f3c14a2736f657fc054"
+  },
+  "wood": {
+    "tool": "built-in image_gen",
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a1501f-48a0-72b0-952f-b9030f42cafe\\exec-7e6a147a-2c93-4827-bc01-79214669494f.png",
+    "reference": "../lookdev-sarang-r2/textures/handpainted-pine-r1.png",
+    "prompt": "../PROMPTS.md",
+    "use": "original broader painted wood colour planes, calibrated to source pigment mean; no source-colour averaging"
+  },
+  "mask": {
+    "source": "../lookdev-sarang-r4/textures/material-brush-atlas-r1.png",
+    "use": "independent grayscale paint masks"
+  },
+  "humanPaintedProvenance": false
+}

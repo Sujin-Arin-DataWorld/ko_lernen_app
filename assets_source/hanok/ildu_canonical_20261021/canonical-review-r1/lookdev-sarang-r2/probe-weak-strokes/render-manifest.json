@@ -1,0 +1,95 @@
+{
+  "renders": [
+    {
+      "variant": "r1 previous candidate, matched lighting",
+      "view": "hero",
+      "file": "before-hero.png",
+      "cameraLocation": [
+        29.4,
+        -30.2,
+        15.45
+      ],
+      "target": [
+        7.4,
+        1.8,
+        2.85
+      ],
+      "orthoScale": 22,
+      "resolution": [
+        1400,
+        1050
+      ],
+      "sha256": "433098deca2db410df440d2fa68c5e1f24c9f01e4c5b8709782b0d6aea89cef4"
+    },
+    {
+      "variant": "r1 previous candidate, matched lighting",
+      "view": "wood",
+      "file": "before-wood.png",
+      "cameraLocation": [
+        18,
+        -15,
+        5.0
+      ],
+      "target": [
+        12.5,
+        -3.0,
+        2.3
+      ],
+      "orthoScale": 4.3,
+      "resolution": [
+        1100,
+        900
+      ],
+      "sha256": "0b28f239f8c59c0869bc33beb061063fbe97c8074b8b6700e02d709b17d602cd"
+    },
+    {
+      "variant": "r2 surface candidate, unapproved",
+      "view": "hero",
+      "file": "after-hero.png",
+      "cameraLocation": [
+        29.4,
+        -30.2,
+        15.45
+      ],
+      "target": [
+        7.4,
+        1.8,
+        2.85
+      ],
+      "orthoScale": 22,
+      "resolution": [
+        1400,
+        1050
+      ],
+      "sha256": "1927adbab6108fcf08477887a82f7034aa087c787c2cc4bd793fb3a2f95263ab"
+    },
+    {
+      "variant": "r2 surface candidate, unapproved",
+      "view": "wood",
+      "file": "after-wood.png",
+      "cameraLocation": [
+        18,
+        -15,
+        5.0
+      ],
+      "target": [
+        12.5,
+        -3.0,
+        2.3
+      ],
+      "orthoScale": 4.3,
+      "resolution": [
+        1100,
+        900
+      ],
+      "sha256": "fbc9224ab1f3f489005d86c0009c5c1586a2987f97d64a28b91deb2b61ff8ab7"
+    }
+  ],
+  "samples": 40,
+  "matchedLightsAndCameras": true,
+  "candidateApproved": false,
+  "seconds": 184.2,
+  "previousNativeSha256": "47f1879e48e85cdacab7c4f9762e6772f72d174da97c46d75d237f0aa3b9d9d1",
+  "candidateNativeSha256": "9dffe7bfc350cfeb5392a36ae408e83a26fc73c6e079b0672dfb5375bafe1233",
+  "nativeFile": "sarang-handpaint-candidate.blend"
+}

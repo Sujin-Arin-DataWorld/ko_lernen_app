@@ -1,0 +1,37 @@
+{
+  "fixCheckpointSavedAndVerified": true,
+  "checkpoint": {
+    "file": "sarang-r3-fix-checkpoint.blend",
+    "sha256": "509ffb8a8d714663096c5c7e6d6f0d121a8720f23b281905ebf1cbe328d89c1d",
+    "original710MeshesGeometryUvsTransformsModifiersEqual": true,
+    "originalAttributesEqual": true,
+    "originalImagesPackedBytesEqual": true,
+    "originalPlaquesEqual": true,
+    "addedInternalSurfaceObjects": 1,
+    "totalMeshObjects": 711,
+    "exteriorBoundsEqual": true,
+    "reopenedAndVerified": true,
+    "sourceR2NativeUnchanged": true
+  },
+  "warmRefinementComplete": true,
+  "final": {
+    "file": "sarang-r3-warm-refined.blend",
+    "sha256": "05879df088fab7bc6943ff1ef18649f3ecc28ebc4ed77efdc12e9d1ffaaf6d6a",
+    "original710MeshesGeometryUvsTransformsModifiersEqual": true,
+    "originalAttributesEqual": true,
+    "originalImagesPackedBytesEqual": true,
+    "originalPlaquesEqual": true,
+    "addedInternalSurfaceObjects": 1,
+    "totalMeshObjects": 711,
+    "exteriorBoundsEqual": true,
+    "reopenedAndVerified": true,
+    "sourceR2NativeUnchanged": true
+  },
+  "finalRendersComplete": false,
+  "temperatureGlazeWithdrawn": true,
+  "styleCandidateReady": false,
+  "nextDirection": "palette-preserving coherent hand-brush illustration",
+  "renderStoppedAfterUserCorrection": true,
+  "currentAllowedBase": "sarang-r3-fix-checkpoint.blend",
+  "newPaletteApproved": false
+}

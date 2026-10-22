@@ -1,0 +1,1756 @@
+{
+  "key": "jung",
+  "name": "중문간채",
+  "version": "building-r5-2",
+  "sourceNative": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\estate-yard-wall-r1\\ildu-estate-yard-wall-r1.blend",
+  "sourceSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+  "candidateNative": "jung-r5-brush-candidate.blend",
+  "candidateSha256": "0e0c8f387a8a4f4bbac82e649401672da40416ebc03aca781c21edc91994f702",
+  "passed": true,
+  "reopened": true,
+  "meshCount": 244,
+  "geometryUVsTransformsModifiersEqual": true,
+  "attributesStagesPropertiesEqual": true,
+  "sourceMaterialGraphsEqual": true,
+  "sourceImageBytesEqual": true,
+  "originalPlaquesAndAnonymousPatternsUnchanged": {},
+  "roles": {
+    "stone": 47,
+    "wood": 57,
+    "plaster": 14,
+    "lattice": 102,
+    "tile": 17,
+    "metal": 2,
+    "paper": 11
+  },
+  "materials": [
+    {
+      "source": "Selected timber v2 | jung | P18 image.jung.stone.P15 stone jung board axis1 | Gye cared warm fieldstone v52",
+      "candidate": "R5 stone | Selected timber v2 | jung | P18 image.jung.stone.P15 stone jung board axis1 | Gye cared warm fieldstone v52",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 frame tone 0",
+      "candidate": "R5 wood | Selected timber v2 | jung | Gye cared pine jung v56 frame tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung beam axis1 | Gye cared pine jung v69 frame tone 2",
+      "candidate": "R5 wood | HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung beam axis1 | Gye cared pine jung v69 frame tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung beam axis1 | Gye cared pine jung v69 frame tone 3",
+      "candidate": "R5 wood | HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung beam axis1 | Gye cared pine jung v69 frame tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung beam axis1 | Gye cared pine jung v69 frame tone 4",
+      "candidate": "R5 wood | HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung beam axis1 | Gye cared pine jung v69 frame tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 boards tone 1",
+      "candidate": "R5 wood | Selected timber v2 | jung | Gye cared pine jung v56 boards tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis1 | Gye cared pine jung v69 boards tone 1",
+      "candidate": "R5 wood | HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis1 | Gye cared pine jung v69 boards tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis1 | Gye cared pine jung v69 boards tone 2",
+      "candidate": "R5 wood | HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis1 | Gye cared pine jung v69 boards tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | jung | P15 wood jung board axis2 | Gye cared pine jung v69 boards tone 2.001",
+      "candidate": "R5 wood | Selected timber v2 | jung | P15 wood jung board axis2 | Gye cared pine jung v69 boards tone 2.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS white r2 | jung | plaster | Selected timber v2 | jung | P18 image.jung.plaster.P15 plaster jung board axis2 | Gye cared limewash v52",
+      "candidate": "R5 plaster | HS white r2 | jung | plaster | Selected timber v2 | jung | P18 image.jung.plaster.P15 plaster jung board axis2 | Gye cared limewash v52",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye cared lime metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 boards tone 4.001",
+      "candidate": "R5 wood | Selected timber v2 | jung | Gye cared pine jung v56 boards tone 4.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis2 | Gye cared pine jung v69 boards tone 2.001",
+      "candidate": "R5 wood | HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis2 | Gye cared pine jung v69 boards tone 2.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 boards tone 2.001",
+      "candidate": "R5 wood | Selected timber v2 | jung | Gye cared pine jung v56 boards tone 2.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 boards tone 3",
+      "candidate": "R5 wood | Selected timber v2 | jung | Gye cared pine jung v56 boards tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis2 | Gye cared pine jung v69 boards tone 2",
+      "candidate": "R5 lattice | HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis2 | Gye cared pine jung v69 boards tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis2 | Gye cared pine jung v69 boards tone 3",
+      "candidate": "R5 lattice | HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis2 | Gye cared pine jung v69 boards tone 3",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis2 | Gye cared pine jung v69 boards tone 3.001",
+      "candidate": "R5 wood | HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis2 | Gye cared pine jung v69 boards tone 3.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 frame tone 1",
+      "candidate": "R5 wood | Selected timber v2 | jung | Gye cared pine jung v56 frame tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung beam axis1 | Gye cared pine jung v69 frame tone 0",
+      "candidate": "R5 wood | HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung beam axis1 | Gye cared pine jung v69 frame tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung beam axis1 | Gye cared pine jung v69 frame tone 1",
+      "candidate": "R5 wood | HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung beam axis1 | Gye cared pine jung v69 frame tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | jung | P18 image.jung.stone.P15 stone jung board axis0 | Gye cared warm fieldstone v52",
+      "candidate": "R5 stone | Selected timber v2 | jung | P18 image.jung.stone.P15 stone jung board axis0 | Gye cared warm fieldstone v52",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | jung | P18 image.jung.stone.P15 stone jung floor axis1 | Gye cared warm fieldstone v52",
+      "candidate": "R5 stone | Selected timber v2 | jung | P18 image.jung.stone.P15 stone jung floor axis1 | Gye cared warm fieldstone v52",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS roof charcoal | jung | Selected timber v2 | jung | P18 image.jung.tile.P15 tile jung board axis1 | Gye cared charcoal clay v52",
+      "candidate": "R5 tile | HS roof charcoal | jung | Selected timber v2 | jung | P18 image.jung.tile.P15 tile jung board axis1 | Gye cared charcoal clay v52",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis0 | Gye cared pine jung v69 boards tone 1",
+      "candidate": "R5 wood | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis0 | Gye cared pine jung v69 boards tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 frame tone 3",
+      "candidate": "R5 wood | Selected timber v2 | jung | Gye cared pine jung v56 frame tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 floor tone 2 v66 boards",
+      "candidate": "R5 wood | Selected timber v2 | jung | Gye cared pine jung v56 floor tone 2 v66 boards",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung floor axis1 | Gye cared pine jung v69 boards tone 2.001",
+      "candidate": "R5 wood | HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung floor axis1 | Gye cared pine jung v69 boards tone 2.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung floor axis1 | Gye cared pine jung v69 boards tone 3.001",
+      "candidate": "R5 wood | HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung floor axis1 | Gye cared pine jung v69 boards tone 3.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 floor tone 3",
+      "candidate": "R5 wood | Selected timber v2 | jung | Gye cared pine jung v56 floor tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung floor axis1 | Gye cared pine jung v69 floor tone 2",
+      "candidate": "R5 wood | HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung floor axis1 | Gye cared pine jung v69 floor tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung floor axis1 | Gye cared pine jung v69 floor tone 1",
+      "candidate": "R5 wood | HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung floor axis1 | Gye cared pine jung v69 floor tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung floor axis1 | Gye cared pine jung v69 floor tone 3",
+      "candidate": "R5 wood | HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung floor axis1 | Gye cared pine jung v69 floor tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 floor tone 2 v66 frame",
+      "candidate": "R5 wood | Selected timber v2 | jung | Gye cared pine jung v56 floor tone 2 v66 frame",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung floor axis1 | Gye cared pine jung v69 frame tone 4.001",
+      "candidate": "R5 wood | HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung floor axis1 | Gye cared pine jung v69 frame tone 4.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung floor axis1 | Gye cared pine jung v69 frame tone 2.001",
+      "candidate": "R5 wood | HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung floor axis1 | Gye cared pine jung v69 frame tone 2.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 floor tone 0",
+      "candidate": "R5 wood | Selected timber v2 | jung | Gye cared pine jung v56 floor tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung floor axis1 | Gye cared pine jung v69 floor tone 0",
+      "candidate": "R5 wood | HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung floor axis1 | Gye cared pine jung v69 floor tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 floor tone 1",
+      "candidate": "R5 wood | Selected timber v2 | jung | Gye cared pine jung v56 floor tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 floor tone 2",
+      "candidate": "R5 wood | Selected timber v2 | jung | Gye cared pine jung v56 floor tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung floor axis1 | Gye cared pine jung v69 floor tone 4",
+      "candidate": "R5 wood | HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung floor axis1 | Gye cared pine jung v69 floor tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 boards tone 0",
+      "candidate": "R5 wood | Selected timber v2 | jung | Gye cared pine jung v56 boards tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis2 | Gye cared pine jung v69 boards tone 2",
+      "candidate": "R5 lattice | HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis2 | Gye cared pine jung v69 boards tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis2 | Gye cared pine jung v69 boards tone 4",
+      "candidate": "R5 lattice | HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis2 | Gye cared pine jung v69 boards tone 4",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 boards tone 4",
+      "candidate": "R5 wood | Selected timber v2 | jung | Gye cared pine jung v56 boards tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis2 | Gye cared pine jung v69 boards tone 1",
+      "candidate": "R5 lattice | HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis2 | Gye cared pine jung v69 boards tone 1",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 boards tone 2",
+      "candidate": "R5 wood | Selected timber v2 | jung | Gye cared pine jung v56 boards tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis2 | Gye cared pine jung v69 boards tone 3",
+      "candidate": "R5 lattice | HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis2 | Gye cared pine jung v69 boards tone 3",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis2 | Gye cared pine jung v69 boards tone 1",
+      "candidate": "R5 lattice | HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis2 | Gye cared pine jung v69 boards tone 1",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis2 | Gye cared pine jung v69 boards tone 4",
+      "candidate": "R5 lattice | HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis2 | Gye cared pine jung v69 boards tone 4",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 boards tone 1.001",
+      "candidate": "R5 wood | Selected timber v2 | jung | Gye cared pine jung v56 boards tone 1.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | jung | P15 wood jung board axis2 | Gye cared pine jung v69 boards tone 2",
+      "candidate": "R5 wood | Selected timber v2 | jung | P15 wood jung board axis2 | Gye cared pine jung v69 boards tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 floor tone 0 v66 boards",
+      "candidate": "R5 wood | Selected timber v2 | jung | Gye cared pine jung v56 floor tone 0 v66 boards",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS white r2 | jung | plaster | Selected timber v2 | jung | P18 image.jung.plaster.P15 plaster jung floor axis2 | Gye cared limewash v52",
+      "candidate": "R5 plaster | HS white r2 | jung | plaster | Selected timber v2 | jung | P18 image.jung.plaster.P15 plaster jung floor axis2 | Gye cared limewash v52",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye cared lime metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 posts tone 2",
+      "candidate": "R5 wood | Selected timber v2 | jung | Gye cared pine jung v56 posts tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | jung | P15 wood jung post axis1 | Gye cared pine jung v69 posts tone 3",
+      "candidate": "R5 wood | Selected timber v2 | jung | P15 wood jung post axis1 | Gye cared pine jung v69 posts tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | jung | P15 wood jung post axis1 | Gye cared pine jung v69 posts tone 2",
+      "candidate": "R5 wood | Selected timber v2 | jung | P15 wood jung post axis1 | Gye cared pine jung v69 posts tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | jung | P15 wood jung post axis1 | Gye cared pine jung v69 posts tone 4",
+      "candidate": "R5 wood | Selected timber v2 | jung | P15 wood jung post axis1 | Gye cared pine jung v69 posts tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | jung | P15 wood jung post axis1 | Gye cared pine jung v69 posts tone 0",
+      "candidate": "R5 wood | Selected timber v2 | jung | P15 wood jung post axis1 | Gye cared pine jung v69 posts tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | jung | P15 wood jung post axis1 | Gye cared pine jung v69 posts tone 1",
+      "candidate": "R5 wood | Selected timber v2 | jung | P15 wood jung post axis1 | Gye cared pine jung v69 posts tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 posts tone 1",
+      "candidate": "R5 wood | Selected timber v2 | jung | Gye cared pine jung v56 posts tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | jung | P18 image.jung.stone.P15 stone jung post axis1 | Gye cared warm fieldstone v52",
+      "candidate": "R5 stone | Selected timber v2 | jung | P18 image.jung.stone.P15 stone jung post axis1 | Gye cared warm fieldstone v52",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung post axis1 | Gye cared pine jung v69 posts tone 2",
+      "candidate": "R5 wood | HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung post axis1 | Gye cared pine jung v69 posts tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung post axis1 | Gye cared pine jung v69 posts tone 3",
+      "candidate": "R5 wood | HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung post axis1 | Gye cared pine jung v69 posts tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung post axis1 | Gye cared pine jung v69 posts tone 4",
+      "candidate": "R5 wood | HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung post axis1 | Gye cared pine jung v69 posts tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | jung | P18 image.jung.plaster.P15 plaster jung floor axis1 | Gye cared limewash v52",
+      "candidate": "R5 plaster | Selected timber v2 | jung | P18 image.jung.plaster.P15 plaster jung floor axis1 | Gye cared limewash v52",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye cared lime metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | jung | P18 image.jung.plaster.P15 plaster jung floor axis0 | Gye cared limewash v52",
+      "candidate": "R5 plaster | Selected timber v2 | jung | P18 image.jung.plaster.P15 plaster jung floor axis0 | Gye cared limewash v52",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye cared lime metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | jung | P18 image.jung.plaster.P15 plaster jung board axis0 | Gye cared limewash v52",
+      "candidate": "R5 plaster | Selected timber v2 | jung | P18 image.jung.plaster.P15 plaster jung board axis0 | Gye cared limewash v52",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye cared lime metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis2 | Gye cared pine jung v69 boards tone 0",
+      "candidate": "R5 wood | HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis2 | Gye cared pine jung v69 boards tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS mineral bedding r1 | jung | roof-bedding/backing | Selected timber v2 | jung | P18 image.jung.plaster.P15 plaster jung board axis0 | Gye cared limewash v52",
+      "candidate": "R5 stone | HS mineral bedding r1 | jung | roof-bedding/backing | Selected timber v2 | jung | P18 image.jung.plaster.P15 plaster jung board axis0 | Gye cared limewash v52",
+      "role": "stone",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 floor tone 0 v66 frame",
+      "candidate": "R5 wood | Selected timber v2 | jung | Gye cared pine jung v56 floor tone 0 v66 frame",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung floor axis1 | Gye cared pine jung v69 frame tone 1.001",
+      "candidate": "R5 wood | HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung floor axis1 | Gye cared pine jung v69 frame tone 1.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung floor axis1 | Gye cared pine jung v69 frame tone 0.001",
+      "candidate": "R5 wood | HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung floor axis1 | Gye cared pine jung v69 frame tone 0.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis1 | Gye cared pine jung v69 boards tone 3",
+      "candidate": "R5 wood | HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis1 | Gye cared pine jung v69 boards tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis1 | Gye cared pine jung v69 boards tone 4",
+      "candidate": "R5 wood | HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis1 | Gye cared pine jung v69 boards tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis1 | Gye cared pine jung v69 boards tone 0",
+      "candidate": "R5 wood | HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis1 | Gye cared pine jung v69 boards tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 joinery tone 0",
+      "candidate": "R5 lattice | Selected timber v2 | jung | Gye cared pine jung v56 joinery tone 0",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis2 | Gye cared pine jung v69 joinery tone 2",
+      "candidate": "R5 lattice | HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis2 | Gye cared pine jung v69 joinery tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "P15 metal jung joinery axis1 | Dark iron fittings",
+      "candidate": "R5 metal | P15 metal jung joinery axis1 | Dark iron fittings",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 joinery tone 4.001",
+      "candidate": "R5 lattice | Selected timber v2 | jung | Gye cared pine jung v56 joinery tone 4.001",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis2 | Gye cared pine jung v69 joinery tone 2.001",
+      "candidate": "R5 lattice | HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis2 | Gye cared pine jung v69 joinery tone 2.001",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 joinery tone 1",
+      "candidate": "R5 lattice | Selected timber v2 | jung | Gye cared pine jung v56 joinery tone 1",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 joinery tone 0.001",
+      "candidate": "R5 lattice | Selected timber v2 | jung | Gye cared pine jung v56 joinery tone 0.001",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis2 | Gye cared pine jung v69 joinery tone 0.001",
+      "candidate": "R5 lattice | HS heritage | jung | wood_floor | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis2 | Gye cared pine jung v69 joinery tone 0.001",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis2 | Gye cared pine jung v69 boards tone 1.001",
+      "candidate": "R5 wood | HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis2 | Gye cared pine jung v69 boards tone 1.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS white r2 | jung | paper | Selected timber v2 | jung | P18 image.jung.paper.P15 paper jung joinery axis2 | Warm hanji in timber lattice",
+      "candidate": "R5 paper | HS white r2 | jung | paper | Selected timber v2 | jung | P18 image.jung.paper.P15 paper jung joinery axis2 | Warm hanji in timber lattice",
+      "role": "paper",
+      "mapping": [
+        "OBJECT",
+        2,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 joinery tone 3",
+      "candidate": "R5 lattice | Selected timber v2 | jung | Gye cared pine jung v56 joinery tone 3",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis2 | Gye cared pine jung v69 joinery tone 1",
+      "candidate": "R5 lattice | HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis2 | Gye cared pine jung v69 joinery tone 1",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 joinery tone 2",
+      "candidate": "R5 lattice | Selected timber v2 | jung | Gye cared pine jung v56 joinery tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis0 | Gye cared pine jung v69 joinery tone 2",
+      "candidate": "R5 lattice | HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis0 | Gye cared pine jung v69 joinery tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 joinery tone 4",
+      "candidate": "R5 lattice | Selected timber v2 | jung | Gye cared pine jung v56 joinery tone 4",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis0 | Gye cared pine jung v69 joinery tone 1",
+      "candidate": "R5 lattice | HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis0 | Gye cared pine jung v69 joinery tone 1",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis2 | Gye cared pine jung v69 joinery tone 0",
+      "candidate": "R5 lattice | HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis2 | Gye cared pine jung v69 joinery tone 0",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis0 | Gye cared pine jung v69 joinery tone 2",
+      "candidate": "R5 lattice | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis0 | Gye cared pine jung v69 joinery tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis2 | Gye cared pine jung v69 joinery tone 3",
+      "candidate": "R5 lattice | HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis2 | Gye cared pine jung v69 joinery tone 3",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis0 | Gye cared pine jung v69 joinery tone 0",
+      "candidate": "R5 lattice | HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis0 | Gye cared pine jung v69 joinery tone 0",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis0 | Gye cared pine jung v69 joinery tone 3",
+      "candidate": "R5 lattice | HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis0 | Gye cared pine jung v69 joinery tone 3",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS white r2 | jung | plaster | Selected timber v2 | jung | P18 image.jung.plaster.P15 plaster jung board axis0 | Gye cared limewash v52",
+      "candidate": "R5 plaster | HS white r2 | jung | plaster | Selected timber v2 | jung | P18 image.jung.plaster.P15 plaster jung board axis0 | Gye cared limewash v52",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye cared lime metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis0 | Gye cared pine jung v69 boards tone 2",
+      "candidate": "R5 wood | HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis0 | Gye cared pine jung v69 boards tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis0 | Gye cared pine jung v69 boards tone 0",
+      "candidate": "R5 wood | HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis0 | Gye cared pine jung v69 boards tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS white r2 | jung | paper | Selected timber v2 | jung | P18 image.jung.paper.P15 paper jung joinery axis2 | Warm hanji in timber lattice",
+      "candidate": "R5 paper | HS white r2 | jung | paper | Selected timber v2 | jung | P18 image.jung.paper.P15 paper jung joinery axis2 | Warm hanji in timber lattice.001",
+      "role": "paper",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis2 | Gye cared pine jung v69 joinery tone 4",
+      "candidate": "R5 lattice | HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis2 | Gye cared pine jung v69 joinery tone 4",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS white r2 | jung | plaster | Selected timber v2 | jung | P18 image.jung.plaster.P15 plaster jung board axis1 | Gye cared limewash v52",
+      "candidate": "R5 plaster | HS white r2 | jung | plaster | Selected timber v2 | jung | P18 image.jung.plaster.P15 plaster jung board axis1 | Gye cared limewash v52",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye cared lime metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | jung | Gye cared pine jung v56 boards tone 0.001",
+      "candidate": "R5 wood | Selected timber v2 | jung | Gye cared pine jung v56 boards tone 0.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis1 | Gye cared pine jung v69 joinery tone 3",
+      "candidate": "R5 lattice | HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis1 | Gye cared pine jung v69 joinery tone 3",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS white r2 | jung | paper | Selected timber v2 | jung | P18 image.jung.paper.P15 paper jung joinery axis1 | Warm hanji in timber lattice",
+      "candidate": "R5 paper | HS white r2 | jung | paper | Selected timber v2 | jung | P18 image.jung.paper.P15 paper jung joinery axis1 | Warm hanji in timber lattice",
+      "role": "paper",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis1 | Gye cared pine jung v69 joinery tone 2",
+      "candidate": "R5 lattice | HS heritage | jung | wood_joinery | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung joinery axis1 | Gye cared pine jung v69 joinery tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis0 | Gye cared pine jung v69 boards tone 3",
+      "candidate": "R5 wood | HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis0 | Gye cared pine jung v69 boards tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis0 | Gye cared pine jung v69 boards tone 1",
+      "candidate": "R5 wood | HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis0 | Gye cared pine jung v69 boards tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis0 | Gye cared pine jung v69 boards tone 4",
+      "candidate": "R5 wood | HS heritage | jung | wood_frame | Selected timber v2 | jung | P18 image.jung.wood.P15 wood jung board axis0 | Gye cared pine jung v69 boards tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    }
+  ],
+  "views": {
+    "hero": {
+      "position": [
+        15.479140281677246,
+        -11.593183517456055,
+        15.10009765625
+      ],
+      "target": [
+        0.515717625617981,
+        9.604999542236328,
+        3.2540550231933594
+      ],
+      "ortho": 14.33966776529948,
+      "resolution": [
+        1100,
+        825
+      ]
+    },
+    "detail": {
+      "position": [
+        3.259011745452881,
+        -20.07245445251465,
+        4.113424301147461
+      ],
+      "target": [
+        0.515717625617981,
+        4.866582870483398,
+        2.617081880569458
+      ],
+      "ortho": 3.990245819091797,
+      "resolution": [
+        1100,
+        825
+      ]
+    }
+  },
+  "bounds": {
+    "bounds": [
+      [
+        -2.757554769515991,
+        3.3702406883239746,
+        0.6000000238418579
+      ],
+      [
+        3.788990020751953,
+        15.83975887298584,
+        5.90811014175415
+      ]
+    ],
+    "span": 12.469518184661865
+  },
+  "sourceSpecificPalettes": true,
+  "newUVs": 0,
+  "newMeshes": 0,
+  "objectAttachedUVlessProjection": true,
+  "sceneLightBaked": false,
+  "lightingUnchangedAfterReopen": true,
+  "canonicalPromoted": false,
+  "glbConverted": false,
+  "appIntegrated": false,
+  "producerFiles": {
+    "restyle_building.py": "cefa711d1f3f70f389a53c241e13cb11a5062faf86aa135de39d21fb4dd6af05",
+    "material_rules.py": "71b4126f57eec61de897090e1b465d197e9f784ad68116c0a26e2c9201b67d31"
+  }
+}

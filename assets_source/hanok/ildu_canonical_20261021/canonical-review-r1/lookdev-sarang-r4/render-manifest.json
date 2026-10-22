@@ -1,0 +1,91 @@
+{
+  "renders": [
+    {
+      "variant": "fix checkpoint",
+      "view": "numaru",
+      "file": "before-numaru.png",
+      "sha256": "de266d5315e0c1eca35c78ac3ccd47cadb2f62e3117df981ac0e6fac42ea8238",
+      "position": [
+        16,
+        -18,
+        5.3
+      ],
+      "target": [
+        11.5,
+        -2.8,
+        2.7
+      ],
+      "ortho": 6,
+      "resolution": [
+        1100,
+        950
+      ]
+    },
+    {
+      "variant": "fix checkpoint",
+      "view": "hero",
+      "file": "before-hero.png",
+      "sha256": "9e13d16e624d163ead33508eec65422fea3183a5bc8b2337219a26effd9b9487",
+      "position": [
+        29.4,
+        -30.2,
+        15.45
+      ],
+      "target": [
+        7.4,
+        1.8,
+        2.85
+      ],
+      "ortho": 22,
+      "resolution": [
+        1400,
+        1050
+      ]
+    },
+    {
+      "variant": "neutral brush study",
+      "view": "numaru",
+      "file": "after-numaru.png",
+      "cameraLocation": [
+        16,
+        -18,
+        5.3
+      ],
+      "target": [
+        11.5,
+        -2.8,
+        2.7
+      ],
+      "orthoScale": 6,
+      "resolution": [
+        1100,
+        950
+      ],
+      "sha256": "99db31afb2696aa5e4329436759870ee624942db863b73796b211c391bae9771"
+    },
+    {
+      "variant": "neutral brush study",
+      "view": "hero",
+      "file": "after-hero.png",
+      "cameraLocation": [
+        29.4,
+        -30.2,
+        15.45
+      ],
+      "target": [
+        7.4,
+        1.8,
+        2.85
+      ],
+      "orthoScale": 22,
+      "resolution": [
+        1400,
+        1050
+      ],
+      "sha256": "f5b3956e971a4635f5b356e2ce3e0ab2f5538d1fd3a8a0990d22400a270d4594"
+    }
+  ],
+  "matchedLightingAndCameras": true,
+  "samples": 40,
+  "seconds": 120.6
+}

@@ -1,0 +1,93 @@
+{
+  "key": "sadangmun",
+  "complete": true,
+  "matchedCameraLights": true,
+  "samples": 24,
+  "renders": [
+    {
+      "variant": "source",
+      "view": "hero",
+      "file": "before-hero.png",
+      "cameraLocation": [
+        5.539933204650879,
+        -7.848238945007324,
+        5.921596527099609
+      ],
+      "target": [
+        5.960464477539063e-08,
+        0.0,
+        1.5358161926269531
+      ],
+      "orthoScale": 5.466747283935548,
+      "resolution": [
+        1100,
+        825
+      ],
+      "sha256": "e017077a5115bfc431c2dba0eb2d1a001591b6735724a8509f0a79bde518f77f"
+    },
+    {
+      "variant": "source",
+      "view": "detail",
+      "file": "before-detail.png",
+      "cameraLocation": [
+        1.0156545639038086,
+        -9.97042179107666,
+        1.7204804420471191
+      ],
+      "target": [
+        5.960464477539063e-08,
+        -0.7372000217437744,
+        1.166487216949463
+      ],
+      "orthoScale": 3,
+      "resolution": [
+        1100,
+        825
+      ],
+      "sha256": "0c87512d516229c3d630b5dbe73518e00686a8f3e755e76f51af32eb7e1810ae"
+    },
+    {
+      "variant": "R5 candidate",
+      "view": "hero",
+      "file": "after-hero.png",
+      "cameraLocation": [
+        5.539933204650879,
+        -7.848238945007324,
+        5.921596527099609
+      ],
+      "target": [
+        5.960464477539063e-08,
+        0.0,
+        1.5358161926269531
+      ],
+      "orthoScale": 5.466747283935548,
+      "resolution": [
+        1100,
+        825
+      ],
+      "sha256": "18bbca2d283e99609c3f16836bf24facc7814c6d8b779b13bc795cd9b18289af"
+    },
+    {
+      "variant": "R5 candidate",
+      "view": "detail",
+      "file": "after-detail.png",
+      "cameraLocation": [
+        1.0156545639038086,
+        -9.97042179107666,
+        1.7204804420471191
+      ],
+      "target": [
+        5.960464477539063e-08,
+        -0.7372000217437744,
+        1.166487216949463
+      ],
+      "orthoScale": 3,
+      "resolution": [
+        1100,
+        825
+      ],
+      "sha256": "2ad2b8a7ab0a391530d353a40f0712598efee78bec7a4824a6827bebe3cc8211"
+    }
+  ],
+  "seconds": 63.3
+}

@@ -1,0 +1,1149 @@
+{
+  "key": "gokgan",
+  "name": "곳간채",
+  "version": "building-r5-2",
+  "sourceNative": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\estate-yard-wall-r1\\ildu-estate-yard-wall-r1.blend",
+  "sourceSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+  "candidateNative": "gokgan-r5-brush-candidate.blend",
+  "candidateSha256": "b954900cdcf0a35f8edd4f72cbd994e1a9feeae31d56b98d809cdbcf650e1daa",
+  "passed": true,
+  "reopened": true,
+  "meshCount": 75,
+  "geometryUVsTransformsModifiersEqual": true,
+  "attributesStagesPropertiesEqual": true,
+  "sourceMaterialGraphsEqual": true,
+  "sourceImageBytesEqual": true,
+  "originalPlaquesAndAnonymousPatternsUnchanged": {
+    "North.gokgan.side vents black void": [
+      "North recess shadow"
+    ],
+    "North.gokgan.store slatted opening black void": [
+      "North recess shadow"
+    ]
+  },
+  "roles": {
+    "stone": 17,
+    "wood": 27,
+    "lattice": 11,
+    "metal": 6,
+    "tile": 23,
+    "endgrain": 1,
+    "plaster": 2,
+    "preserve": 2
+  },
+  "materials": [
+    {
+      "source": "HS stone balanced r3 | HS mineral response r2 | HS fieldstone r1 | Selected timber v2 | gokgan | P15 stone gokgan board axis1 | Gye cared warm fieldstone v52",
+      "candidate": "R5 stone | HS stone balanced r3 | HS mineral response r2 | HS fieldstone r1 | Selected timber v2 | gokgan | P15 stone gokgan board axis1 | Gye cared warm fieldstone v52",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | North gokgan wood.001",
+      "candidate": "R5 wood | Selected timber v2 | gokgan | North gokgan wood.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | Gye cared pine gokgan v56 joinery tone 4",
+      "candidate": "R5 lattice | Selected timber v2 | gokgan | Gye cared pine gokgan v56 joinery tone 4",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_joinery | Selected timber v2 | gokgan | P15 wood gokgan joinery axis1 | Gye cared pine gokgan v69 joinery tone 2",
+      "candidate": "R5 lattice | HS heritage | gokgan | wood_joinery | Selected timber v2 | gokgan | P15 wood gokgan joinery axis1 | Gye cared pine gokgan v69 joinery tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "P15 metal gokgan joinery axis2 | North forged iron",
+      "candidate": "R5 metal | P15 metal gokgan joinery axis2 | North forged iron",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "P15 metal gokgan joinery axis1 | North forged iron",
+      "candidate": "R5 metal | P15 metal gokgan joinery axis1 | North forged iron",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | North gokgan beam.001",
+      "candidate": "R5 wood | Selected timber v2 | gokgan | North gokgan beam.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | Gye cared pine gokgan v56 joinery tone 3",
+      "candidate": "R5 lattice | Selected timber v2 | gokgan | Gye cared pine gokgan v56 joinery tone 3",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_joinery | Selected timber v2 | gokgan | P15 wood gokgan joinery axis2 | Gye cared pine gokgan v69 joinery tone 2",
+      "candidate": "R5 lattice | HS heritage | gokgan | wood_joinery | Selected timber v2 | gokgan | P15 wood gokgan joinery axis2 | Gye cared pine gokgan v69 joinery tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | Gye cared pine gokgan v56 joinery tone 2",
+      "candidate": "R5 lattice | Selected timber v2 | gokgan | Gye cared pine gokgan v56 joinery tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_joinery | Selected timber v2 | gokgan | P15 wood gokgan joinery axis2 | Gye cared pine gokgan v69 joinery tone 1",
+      "candidate": "R5 lattice | HS heritage | gokgan | wood_joinery | Selected timber v2 | gokgan | P15 wood gokgan joinery axis2 | Gye cared pine gokgan v69 joinery tone 1",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | Gye cared pine gokgan v56 joinery tone 0",
+      "candidate": "R5 lattice | Selected timber v2 | gokgan | Gye cared pine gokgan v56 joinery tone 0",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_joinery | Selected timber v2 | gokgan | P15 wood gokgan joinery axis2 | Gye cared pine gokgan v69 joinery tone 4",
+      "candidate": "R5 lattice | HS heritage | gokgan | wood_joinery | Selected timber v2 | gokgan | P15 wood gokgan joinery axis2 | Gye cared pine gokgan v69 joinery tone 4",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | North gokgan stone",
+      "candidate": "R5 stone | Selected timber v2 | gokgan | North gokgan stone",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | P15 stone gokgan board axis1 | Gye cared warm fieldstone v52",
+      "candidate": "R5 stone | Selected timber v2 | gokgan | P15 stone gokgan board axis1 | Gye cared warm fieldstone v52",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | North gokgan beam",
+      "candidate": "R5 wood | Selected timber v2 | gokgan | North gokgan beam",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | Gye cared pine gokgan v56 frame tone 4",
+      "candidate": "R5 wood | Selected timber v2 | gokgan | Gye cared pine gokgan v56 frame tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan beam axis1 | Gye cared pine gokgan v69 frame tone 2",
+      "candidate": "R5 wood | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan beam axis1 | Gye cared pine gokgan v69 frame tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | North gokgan wood",
+      "candidate": "R5 wood | Selected timber v2 | gokgan | North gokgan wood",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | Gye cared pine gokgan v56 boards tone 4",
+      "candidate": "R5 wood | Selected timber v2 | gokgan | Gye cared pine gokgan v56 boards tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | P15 wood gokgan board axis1 | Gye cared pine gokgan v69 boards tone 1",
+      "candidate": "R5 wood | Selected timber v2 | gokgan | P15 wood gokgan board axis1 | Gye cared pine gokgan v69 boards tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | P15 wood gokgan board axis1 | Gye cared pine gokgan v69 boards tone 2",
+      "candidate": "R5 wood | Selected timber v2 | gokgan | P15 wood gokgan board axis1 | Gye cared pine gokgan v69 boards tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | P15 wood gokgan board axis1 | Gye cared pine gokgan v69 boards tone 3",
+      "candidate": "R5 wood | Selected timber v2 | gokgan | P15 wood gokgan board axis1 | Gye cared pine gokgan v69 boards tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | P15 wood gokgan board axis1 | Gye cared pine gokgan v69 boards tone 0",
+      "candidate": "R5 wood | Selected timber v2 | gokgan | P15 wood gokgan board axis1 | Gye cared pine gokgan v69 boards tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | P15 wood gokgan board axis1 | Gye cared pine gokgan v69 boards tone 4",
+      "candidate": "R5 wood | Selected timber v2 | gokgan | P15 wood gokgan board axis1 | Gye cared pine gokgan v69 boards tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | North gokgan post",
+      "candidate": "R5 wood | Selected timber v2 | gokgan | North gokgan post",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | Gye cared pine gokgan v56 posts tone 2",
+      "candidate": "R5 wood | Selected timber v2 | gokgan | Gye cared pine gokgan v56 posts tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan post axis1 | Gye cared pine gokgan v69 posts tone 2",
+      "candidate": "R5 wood | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan post axis1 | Gye cared pine gokgan v69 posts tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan post axis1 | Gye cared pine gokgan v69 posts tone 4",
+      "candidate": "R5 wood | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan post axis1 | Gye cared pine gokgan v69 posts tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan post axis1 | Gye cared pine gokgan v69 posts tone 3",
+      "candidate": "R5 wood | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan post axis1 | Gye cared pine gokgan v69 posts tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | Gye cared pine gokgan v56 frame tone 1",
+      "candidate": "R5 wood | Selected timber v2 | gokgan | Gye cared pine gokgan v56 frame tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan beam axis1 | Gye cared pine gokgan v69 frame tone 3",
+      "candidate": "R5 wood | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan beam axis1 | Gye cared pine gokgan v69 frame tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan beam axis1 | Gye cared pine gokgan v69 frame tone 0",
+      "candidate": "R5 wood | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan beam axis1 | Gye cared pine gokgan v69 frame tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | Ansarang retained V33 main_gate source ceramic 0",
+      "candidate": "R5 tile | Selected timber v2 | gokgan | Ansarang retained V33 main_gate source ceramic 0",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS roof charcoal | gokgan | Selected timber v2 | gokgan | P15 tile gokgan board axis1 | Gye cared charcoal clay v52",
+      "candidate": "R5 tile | HS roof charcoal | gokgan | Selected timber v2 | gokgan | P15 tile gokgan board axis1 | Gye cared charcoal clay v52",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | Ansarang retained V33 main_gate source ceramic 1",
+      "candidate": "R5 tile | Selected timber v2 | gokgan | Ansarang retained V33 main_gate source ceramic 1",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | Ansarang retained V33 main_gate source ceramic 2",
+      "candidate": "R5 tile | Selected timber v2 | gokgan | Ansarang retained V33 main_gate source ceramic 2",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | Ansarang retained V33 main_gate source ceramic 3",
+      "candidate": "R5 tile | Selected timber v2 | gokgan | Ansarang retained V33 main_gate source ceramic 3",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | Ansarang retained V33 main_gate source ceramic 4",
+      "candidate": "R5 tile | Selected timber v2 | gokgan | Ansarang retained V33 main_gate source ceramic 4",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | Ansarang retained V33 main_gate source ceramic 5",
+      "candidate": "R5 tile | Selected timber v2 | gokgan | Ansarang retained V33 main_gate source ceramic 5",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | Gye cared pine gokgan v56 boards tone 0",
+      "candidate": "R5 wood | Selected timber v2 | gokgan | Gye cared pine gokgan v56 boards tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan board axis1 | Gye cared pine gokgan v69 boards tone 2",
+      "candidate": "R5 wood | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan board axis1 | Gye cared pine gokgan v69 boards tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan board axis1 | Gye cared pine gokgan v69 boards tone 1",
+      "candidate": "R5 wood | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan board axis1 | Gye cared pine gokgan v69 boards tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan board axis1 | Gye cared pine gokgan v69 boards tone 3",
+      "candidate": "R5 wood | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan board axis1 | Gye cared pine gokgan v69 boards tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan board axis1 | Gye cared pine gokgan v69 boards tone 4",
+      "candidate": "R5 wood | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan board axis1 | Gye cared pine gokgan v69 boards tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | Gye cared pine gokgan v56 frame tone 0",
+      "candidate": "R5 wood | Selected timber v2 | gokgan | Gye cared pine gokgan v56 frame tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan beam axis1 | Gye cared pine gokgan v69 frame tone 1",
+      "candidate": "R5 wood | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan beam axis1 | Gye cared pine gokgan v69 frame tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan beam axis1 | Gye cared pine gokgan v69 frame tone 4",
+      "candidate": "R5 wood | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan beam axis1 | Gye cared pine gokgan v69 frame tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS mineral bedding r1 | gokgan | roof-bedding/backing | Selected timber v2 | gokgan | P15 plaster gokgan board axis1 | Gye cared limewash v52",
+      "candidate": "R5 stone | HS mineral bedding r1 | gokgan | roof-bedding/backing | Selected timber v2 | gokgan | P15 plaster gokgan board axis1 | Gye cared limewash v52",
+      "role": "stone",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | Illustrated pine endgrain v1",
+      "candidate": "R5 endgrain | Selected timber v2 | gokgan | Illustrated pine endgrain v1",
+      "role": "endgrain",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | Gye cared pine gokgan v56 posts tone 4",
+      "candidate": "R5 wood | Selected timber v2 | gokgan | Gye cared pine gokgan v56 posts tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan post axis1 | Gye cared pine gokgan v69 posts tone 0",
+      "candidate": "R5 wood | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan post axis1 | Gye cared pine gokgan v69 posts tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS white r2 | gokgan | plaster | Selected timber v2 | gokgan | P15 plaster gokgan board axis1 | Gye cared limewash v52",
+      "candidate": "R5 plaster | HS white r2 | gokgan | plaster | Selected timber v2 | gokgan | P15 plaster gokgan board axis1 | Gye cared limewash v52",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye cared lime metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan board axis1 | Gye cared pine gokgan v69 boards tone 0",
+      "candidate": "R5 wood | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan board axis1 | Gye cared pine gokgan v69 boards tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan joinery axis1 | Gye cared pine gokgan v69 boards tone 2",
+      "candidate": "R5 lattice | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan joinery axis1 | Gye cared pine gokgan v69 boards tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan joinery axis1 | Gye cared pine gokgan v69 boards tone 3",
+      "candidate": "R5 lattice | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan joinery axis1 | Gye cared pine gokgan v69 boards tone 3",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan joinery axis1 | Gye cared pine gokgan v69 boards tone 0",
+      "candidate": "R5 lattice | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan joinery axis1 | Gye cared pine gokgan v69 boards tone 0",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | Gye cared pine gokgan v56 boards tone 1",
+      "candidate": "R5 wood | Selected timber v2 | gokgan | Gye cared pine gokgan v56 boards tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan joinery axis1 | Gye cared pine gokgan v69 boards tone 1",
+      "candidate": "R5 lattice | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan joinery axis1 | Gye cared pine gokgan v69 boards tone 1",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan joinery axis1 | Gye cared pine gokgan v69 boards tone 4",
+      "candidate": "R5 lattice | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan joinery axis1 | Gye cared pine gokgan v69 boards tone 4",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | Gye cared pine gokgan v56 boards tone 3",
+      "candidate": "R5 wood | Selected timber v2 | gokgan | Gye cared pine gokgan v56 boards tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan board axis0 | Gye cared pine gokgan v69 boards tone 1",
+      "candidate": "R5 wood | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan board axis0 | Gye cared pine gokgan v69 boards tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan board axis0 | Gye cared pine gokgan v69 boards tone 2",
+      "candidate": "R5 wood | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan board axis0 | Gye cared pine gokgan v69 boards tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan board axis0 | Gye cared pine gokgan v69 boards tone 3",
+      "candidate": "R5 wood | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan board axis0 | Gye cared pine gokgan v69 boards tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan joinery axis0 | Gye cared pine gokgan v69 boards tone 2",
+      "candidate": "R5 lattice | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan joinery axis0 | Gye cared pine gokgan v69 boards tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan joinery axis0 | Gye cared pine gokgan v69 boards tone 4",
+      "candidate": "R5 lattice | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan joinery axis0 | Gye cared pine gokgan v69 boards tone 4",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan joinery axis0 | Gye cared pine gokgan v69 boards tone 1",
+      "candidate": "R5 lattice | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan joinery axis0 | Gye cared pine gokgan v69 boards tone 1",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan joinery axis0 | Gye cared pine gokgan v69 boards tone 3",
+      "candidate": "R5 lattice | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan joinery axis0 | Gye cared pine gokgan v69 boards tone 3",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | gokgan | Gye cared pine gokgan v56 boards tone 2",
+      "candidate": "R5 wood | Selected timber v2 | gokgan | Gye cared pine gokgan v56 boards tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan board axis0 | Gye cared pine gokgan v69 boards tone 4",
+      "candidate": "R5 wood | HS heritage | gokgan | wood_frame | Selected timber v2 | gokgan | P15 wood gokgan board axis0 | Gye cared pine gokgan v69 boards tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    }
+  ],
+  "views": {
+    "hero": {
+      "position": [
+        41.060489654541016,
+        -12.083471298217773,
+        16.42485809326172
+      ],
+      "target": [
+        25.278888702392578,
+        10.273796081542969,
+        3.9310922622680664
+      ],
+      "ortho": 17.477332458496097,
+      "resolution": [
+        1100,
+        825
+      ]
+    },
+    "detail": {
+      "position": [
+        28.172182083129883,
+        -21.026378631591797,
+        4.740206718444824
+      ],
+      "target": [
+        25.278888702392578,
+        5.276288986206055,
+        3.162046432495117
+      ],
+      "ortho": 4.208426818847657,
+      "resolution": [
+        1100,
+        825
+      ]
+    }
+  },
+  "bounds": {
+    "bounds": [
+      [
+        20.68264389038086,
+        3.6981287002563477,
+        0.726734459400177
+      ],
+      [
+        29.875133514404297,
+        16.849462509155273,
+        7.1354498863220215
+      ]
+    ],
+    "span": 13.151333808898926
+  },
+  "sourceSpecificPalettes": true,
+  "newUVs": 0,
+  "newMeshes": 0,
+  "objectAttachedUVlessProjection": true,
+  "sceneLightBaked": false,
+  "lightingUnchangedAfterReopen": true,
+  "canonicalPromoted": false,
+  "glbConverted": false,
+  "appIntegrated": false,
+  "producerFiles": {
+    "restyle_building.py": "cefa711d1f3f70f389a53c241e13cb11a5062faf86aa135de39d21fb4dd6af05",
+    "material_rules.py": "71b4126f57eec61de897090e1b465d197e9f784ad68116c0a26e2c9201b67d31"
+  }
+}

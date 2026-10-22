@@ -1,0 +1,16 @@
+{
+  "status": "R5 native materials designated canonical by current human instruction",
+  "appliedCandidates": 14,
+  "approvedReference": "sarang R5",
+  "comparison": "index.html",
+  "verification": "VERIFICATION_SUMMARY.json",
+  "browserQA": "BROWSER_QA.json",
+  "independentFinalReview": "FINAL_REVIEW.md",
+  "allImplementationAndVerificationTasksComplete": true,
+  "checkoutHead": "bbe88e7d22bd1893b762609ed5a8990e1e84db5a",
+  "canonical": true,
+  "promotion": "../MATERIAL_CANONICAL_PROMOTION_R5.json",
+  "publicationAuthorized": true,
+  "appIntegrated": false,
+  "glbViewerUpdated": false
+}

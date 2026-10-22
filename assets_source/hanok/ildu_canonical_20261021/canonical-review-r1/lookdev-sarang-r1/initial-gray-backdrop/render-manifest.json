@@ -1,0 +1,97 @@
+{
+  "sourceNative": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\estate-yard-wall-r1\\ildu-estate-yard-wall-r1.blend",
+  "sourceNativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+  "sourceNativeUnchanged": true,
+  "memberCount": 710,
+  "candidateNative": "sarang-lookdev-candidate.blend",
+  "candidateNativeSha256": "dd7ad03f6ea44bcf8eac95cc49730cfd03b9d6a68f7d512cac2b1057d0c3d584",
+  "candidateApproved": false,
+  "exactGeometryUvsTransformsPreserved": true,
+  "seconds": 66.5,
+  "renders": [
+    {
+      "variant": "original native material control",
+      "view": "hero",
+      "file": "original-control-hero.png",
+      "cameraLocation": [
+        29.4,
+        -30.2,
+        15.45
+      ],
+      "target": [
+        7.4,
+        1.8,
+        2.85
+      ],
+      "orthoScale": 22,
+      "resolution": [
+        1200,
+        900
+      ],
+      "sha256": "6afa90dd258947d4a7753452dde3971e4823c225d57681be5f589109a0767763"
+    },
+    {
+      "variant": "original native material control",
+      "view": "front detail",
+      "file": "original-control-front.png",
+      "cameraLocation": [
+        6.4,
+        -22,
+        3.5
+      ],
+      "target": [
+        6.4,
+        0,
+        3.35
+      ],
+      "orthoScale": 12.8,
+      "resolution": [
+        1200,
+        750
+      ],
+      "sha256": "fa58161e3256d0e4b9a78a57ed27712911e434e7d66e0e73edb207b544c4f6e2"
+    },
+    {
+      "variant": "lookdev r1 candidate, unapproved",
+      "view": "hero",
+      "file": "candidate-hero.png",
+      "cameraLocation": [
+        29.4,
+        -30.2,
+        15.45
+      ],
+      "target": [
+        7.4,
+        1.8,
+        2.85
+      ],
+      "orthoScale": 22,
+      "resolution": [
+        1200,
+        900
+      ],
+      "sha256": "246bc9329b36897374278a76a939109d49688ef20fa8905b195ac74f5b9dfdd7"
+    },
+    {
+      "variant": "lookdev r1 candidate, unapproved",
+      "view": "front detail",
+      "file": "candidate-front.png",
+      "cameraLocation": [
+        6.4,
+        -22,
+        3.5
+      ],
+      "target": [
+        6.4,
+        0,
+        3.35
+      ],
+      "orthoScale": 12.8,
+      "resolution": [
+        1200,
+        750
+      ],
+      "sha256": "f4f69313ab1611bb23f43ac13c5a11ae18eb5bad2e527b4cac1f509965382a15"
+    }
+  ]
+}

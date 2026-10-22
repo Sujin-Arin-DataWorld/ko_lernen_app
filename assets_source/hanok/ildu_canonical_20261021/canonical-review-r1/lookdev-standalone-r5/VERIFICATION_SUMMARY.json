@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "standaloneOriginalMeshes": 1434,
+  "standaloneTotalMeshes": 1435,
+  "sourceVariants": 2,
+  "renderCount": 8,
+  "allSourceGeometryUvsTransformsPreserved": true,
+  "approvedSarangR5Unchanged": true,
+  "canonicalPromotion": "../MATERIAL_CANONICAL_PROMOTION_R5.json"
+}

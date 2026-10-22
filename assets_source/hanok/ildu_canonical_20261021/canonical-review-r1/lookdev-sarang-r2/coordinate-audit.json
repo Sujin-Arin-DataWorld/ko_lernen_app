@@ -1,0 +1,4065 @@
+[
+  {
+    "name": "Continuity.numaru corner posts",
+    "center": [
+      13.217499732971191,
+      0.0,
+      2.93999981880188
+    ],
+    "dimensions": [
+      2.8249998092651367,
+      2.869999885559082,
+      1.9200000762939453
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front changho.leaf1.hanji backing",
+    "center": [
+      12.648749351501465,
+      -1.3519999980926514,
+      2.9531002044677734
+    ],
+    "dimensions": [
+      1.0275001525878906,
+      0.006000041961669922,
+      1.107800006866455
+    ],
+    "uvs": [
+      "Reference timber grain"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference timber grain",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front changho.leaf1.horizontal band",
+    "center": [
+      12.648749351501465,
+      -1.408000111579895,
+      2.957531213760376
+    ],
+    "dimensions": [
+      1.0275001525878906,
+      0.018000006675720215,
+      1.0646257400512695
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front changho.leaf1.lock rail",
+    "center": [
+      12.648749351501465,
+      -1.375,
+      2.379199981689453
+    ],
+    "dimensions": [
+      1.1024999618530273,
+      0.06599998474121094,
+      0.039999961853027344
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front changho.leaf1.lower moulding.rail",
+    "center": [
+      12.648749351501465,
+      -1.3960000276565552,
+      2.2716002464294434
+    ],
+    "dimensions": [
+      0.9995002746582031,
+      0.018000006675720215,
+      0.19920015335083008
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front changho.leaf1.lower moulding.stile",
+    "center": [
+      12.648750305175781,
+      -1.3960000276565552,
+      2.2716002464294434
+    ],
+    "dimensions": [
+      1.0234994888305664,
+      0.018000006675720215,
+      0.19920015335083008
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front changho.leaf1.rail",
+    "center": [
+      12.648751258850098,
+      -1.3749998807907104,
+      2.8399996757507324
+    ],
+    "dimensions": [
+      1.0415000915527344,
+      0.06800007820129395,
+      1.440000057220459
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front changho.leaf1.rear paper rail",
+    "center": [
+      12.648749351501465,
+      -1.3420000076293945,
+      2.958639144897461
+    ],
+    "dimensions": [
+      1.0275001525878906,
+      0.018000006675720215,
+      0.9073178768157959
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front changho.leaf1.rebated bead.rail",
+    "center": [
+      12.648750305175781,
+      -1.3970000743865967,
+      2.9575998783111572
+    ],
+    "dimensions": [
+      1.0194997787475586,
+      0.02499997615814209,
+      1.1288001537322998
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front changho.leaf1.rebated bead.stile",
+    "center": [
+      12.648750305175781,
+      -1.3970000743865967,
+      2.9575998783111572
+    ],
+    "dimensions": [
+      1.0434999465942383,
+      0.02499997615814209,
+      1.1288001537322998
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front changho.leaf1.recessed lower board",
+    "center": [
+      12.648751258850098,
+      -1.3660000562667847,
+      2.2495999336242676
+    ],
+    "dimensions": [
+      1.0415000915527344,
+      0.02499997615814209,
+      0.18519997596740723
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front changho.leaf1.stile",
+    "center": [
+      12.648750305175781,
+      -1.3749998807907104,
+      2.8399996757507324
+    ],
+    "dimensions": [
+      1.1274995803833008,
+      0.06800007820129395,
+      1.440000057220459
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front changho.leaf1.vertical sal",
+    "center": [
+      12.648751258850098,
+      -1.3930000066757202,
+      2.9531002044677734
+    ],
+    "dimensions": [
+      0.9491519927978516,
+      0.02500009536743164,
+      1.107800006866455
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front changho.leaf2.hanji backing",
+    "center": [
+      13.786251068115234,
+      -1.3519999980926514,
+      2.9531002044677734
+    ],
+    "dimensions": [
+      1.0275001525878906,
+      0.006000041961669922,
+      1.107800006866455
+    ],
+    "uvs": [
+      "Reference timber grain"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference timber grain",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front changho.leaf2.horizontal band",
+    "center": [
+      13.786251068115234,
+      -1.408000111579895,
+      2.957531213760376
+    ],
+    "dimensions": [
+      1.0275001525878906,
+      0.018000006675720215,
+      1.0646257400512695
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front changho.leaf2.lock rail",
+    "center": [
+      13.786250114440918,
+      -1.375,
+      2.379199981689453
+    ],
+    "dimensions": [
+      1.1024999618530273,
+      0.06599998474121094,
+      0.039999961853027344
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front changho.leaf2.lower moulding.rail",
+    "center": [
+      13.786251068115234,
+      -1.3960000276565552,
+      2.2716002464294434
+    ],
+    "dimensions": [
+      0.9995002746582031,
+      0.018000006675720215,
+      0.19920015335083008
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front changho.leaf2.lower moulding.stile",
+    "center": [
+      13.786251068115234,
+      -1.3960000276565552,
+      2.2716002464294434
+    ],
+    "dimensions": [
+      1.0235004425048828,
+      0.018000006675720215,
+      0.19920015335083008
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front changho.leaf2.rail",
+    "center": [
+      13.786250114440918,
+      -1.3749998807907104,
+      2.8399996757507324
+    ],
+    "dimensions": [
+      1.0415000915527344,
+      0.06800007820129395,
+      1.440000057220459
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front changho.leaf2.rear paper rail",
+    "center": [
+      13.786251068115234,
+      -1.3420000076293945,
+      2.958639144897461
+    ],
+    "dimensions": [
+      1.0275001525878906,
+      0.018000006675720215,
+      0.9073178768157959
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front changho.leaf2.rebated bead.rail",
+    "center": [
+      13.786249160766602,
+      -1.3970000743865967,
+      2.9575998783111572
+    ],
+    "dimensions": [
+      1.0194997787475586,
+      0.02499997615814209,
+      1.1288001537322998
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front changho.leaf2.rebated bead.stile",
+    "center": [
+      13.786249160766602,
+      -1.3970000743865967,
+      2.9575998783111572
+    ],
+    "dimensions": [
+      1.0434999465942383,
+      0.02499997615814209,
+      1.1288001537322998
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front changho.leaf2.recessed lower board",
+    "center": [
+      13.786250114440918,
+      -1.3660000562667847,
+      2.2495999336242676
+    ],
+    "dimensions": [
+      1.0415000915527344,
+      0.02499997615814209,
+      0.18519997596740723
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front changho.leaf2.stile",
+    "center": [
+      13.786249160766602,
+      -1.3749998807907104,
+      2.8399996757507324
+    ],
+    "dimensions": [
+      1.1275005340576172,
+      0.06800007820129395,
+      1.440000057220459
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front changho.leaf2.vertical sal",
+    "center": [
+      13.786250114440918,
+      -1.3930000066757202,
+      2.9531002044677734
+    ],
+    "dimensions": [
+      0.9491519927978516,
+      0.02500009536743164,
+      1.107800006866455
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front wall",
+    "center": [
+      13.217499732971191,
+      -1.3350000381469727,
+      2.950439453125
+    ],
+    "dimensions": [
+      2.6549997329711914,
+      0.15000009536743164,
+      1.9051214456558228
+    ],
+    "uvs": [
+      "Gye cared lime metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared lime metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front wall.head/sill",
+    "center": [
+      13.217500686645508,
+      -1.3350000381469727,
+      2.8399999141693115
+    ],
+    "dimensions": [
+      2.3949995040893555,
+      0.25,
+      1.5199999809265137
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Continuity.numaru front wall.jamb",
+    "center": [
+      13.217499732971191,
+      -1.3350000381469727,
+      2.8399999141693115
+    ],
+    "dimensions": [
+      2.359999656677246,
+      0.25,
+      1.5399999618530273
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Craft.Numaru continuous post 10.575",
+    "center": [
+      10.576096534729004,
+      -3.997067928314209,
+      2.250000238418579
+    ],
+    "dimensions": [
+      0.2623739242553711,
+      0.261432409286499,
+      3.380000114440918
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Craft.Numaru continuous post 12.56",
+    "center": [
+      12.562959671020508,
+      -3.995213747024536,
+      2.250000238418579
+    ],
+    "dimensions": [
+      0.2622871398925781,
+      0.2614309787750244,
+      3.380000114440918
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Craft.Numaru continuous post 14.545",
+    "center": [
+      14.546825408935547,
+      -3.996919631958008,
+      2.250000238418579
+    ],
+    "dimensions": [
+      0.26239776611328125,
+      0.26143670082092285,
+      3.380000114440918
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Craft.Numaru front floor bearer",
+    "center": [
+      12.5600004196167,
+      -3.9900002479553223,
+      1.850000023841858
+    ],
+    "dimensions": [
+      3.9800004959106445,
+      0.2199997901916504,
+      0.23000001907348633
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Craft.Numaru front head beam",
+    "center": [
+      12.560001373291016,
+      -3.994999885559082,
+      3.924999713897705
+    ],
+    "dimensions": [
+      4.170000076293945,
+      0.23999977111816406,
+      0.2500002384185791
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Craft.Sarang continuous post 0",
+    "center": [
+      0.0029109716415405273,
+      0.00015985220670700073,
+      2.56000018119812
+    ],
+    "dimensions": [
+      0.262285053730011,
+      0.261427640914917,
+      2.760000228881836
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Craft.Sarang continuous post 10.575",
+    "center": [
+      10.574402809143066,
+      -0.0006481334567070007,
+      2.56000018119812
+    ],
+    "dimensions": [
+      0.2622842788696289,
+      0.2614274024963379,
+      2.760000228881836
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Craft.Sarang continuous post 2.595",
+    "center": [
+      2.597451686859131,
+      0.0009867101907730103,
+      2.56000018119812
+    ],
+    "dimensions": [
+      0.26228857040405273,
+      0.2614307105541229,
+      2.760000228881836
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Craft.Sarang continuous post 5.27",
+    "center": [
+      5.269375801086426,
+      -4.077702760696411e-05,
+      2.56000018119812
+    ],
+    "dimensions": [
+      0.2622861862182617,
+      0.26143062114715576,
+      2.760000228881836
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Craft.Sarang continuous post 7.915",
+    "center": [
+      7.917630195617676,
+      -0.0013068914413452148,
+      2.56000018119812
+    ],
+    "dimensions": [
+      0.2622857093811035,
+      0.2614292800426483,
+      2.760000228881836
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Craft.Sarang.main roof.eave beam.thin bedding board",
+    "center": [
+      7.272500038146973,
+      -1.3799998760223389,
+      4.402449607849121
+    ],
+    "dimensions": [
+      17.30500030517578,
+      0.07800006866455078,
+      0.7668986320495605
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Craft.Sarang.main roof.hip eave beam.thin bedding board",
+    "center": [
+      -1.3799998760223389,
+      2.6024999618530273,
+      4.402472019195557
+    ],
+    "dimensions": [
+      0.07800006866455078,
+      7.965000152587891,
+      0.7669434547424316
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Craft.Sarang.main roof.hip exposed rafters",
+    "center": [
+      7.272500038146973,
+      2.5990686416625977,
+      4.303421974182129
+    ],
+    "dimensions": [
+      17.419301986694336,
+      8.080458641052246,
+      0.8741283416748047
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Craft.Sarang.main roof.hip exposed rafters.end grain",
+    "center": [
+      7.272500038146973,
+      2.5990686416625977,
+      4.303421974182129
+    ],
+    "dimensions": [
+      17.419301986694336,
+      8.080458641052246,
+      0.8741283416748047
+    ],
+    "uvs": [
+      "Craft end grain"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Craft end grain",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Craft.Sarang.main roof.lower exposed rafters",
+    "center": [
+      7.276681900024414,
+      2.5972402095794678,
+      4.17558479309082
+    ],
+    "dimensions": [
+      17.15386199951172,
+      8.056366920471191,
+      0.7771906852722168
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Craft.Sarang.main roof.lower exposed rafters.end grain",
+    "center": [
+      7.276681900024414,
+      2.5972402095794678,
+      4.17558479309082
+    ],
+    "dimensions": [
+      17.15386199951172,
+      8.056366920471191,
+      0.7771906852722168
+    ],
+    "uvs": [
+      "Craft end grain"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Craft end grain",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Craft.Sarang.main roof.rafters",
+    "center": [
+      7.272500038146973,
+      2.600680351257324,
+      4.314357280731201
+    ],
+    "dimensions": [
+      17.122617721557617,
+      8.016082763671875,
+      0.6827144622802734
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "GyeStyle.Sarang hand-cut post feet",
+    "center": [
+      7.275698184967041,
+      0.6084728240966797,
+      1.1744953393936157
+    ],
+    "dimensions": [
+      15.012645721435547,
+      9.667928695678711,
+      1.5009907484054565
+    ],
+    "uvs": [
+      "Gye cared stone metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      "position",
+      ".corner_vert",
+      ".corner_edge",
+      ".select_poly",
+      "sharp_face",
+      ".edge_verts",
+      ".select_edge",
+      "material_index",
+      "Gye cared stone metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "HwaljuFix.numaru front apron masonry 0-0",
+    "center": [
+      10.76400089263916,
+      -4.835000038146973,
+      0.2150000035762787
+    ],
+    "dimensions": [
+      0.8820000290870667,
+      0.6499999761581421,
+      0.4300000071525574
+    ],
+    "uvs": [
+      "Gye cared stone metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      ".uv_select_vert",
+      ".uv_select_edge",
+      ".uv_select_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared stone metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "HwaljuFix.numaru front apron masonry 0-1",
+    "center": [
+      11.65200138092041,
+      -4.835000038146973,
+      0.2150000035762787
+    ],
+    "dimensions": [
+      0.8820000290870667,
+      0.6499999761581421,
+      0.4300000071525574
+    ],
+    "uvs": [
+      "Gye cared stone metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      ".uv_select_vert",
+      ".uv_select_edge",
+      ".uv_select_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared stone metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "HwaljuFix.numaru front apron masonry 0-2",
+    "center": [
+      12.540000915527344,
+      -4.835000038146973,
+      0.2150000035762787
+    ],
+    "dimensions": [
+      0.8820000290870667,
+      0.6499999761581421,
+      0.4300000071525574
+    ],
+    "uvs": [
+      "Gye cared stone metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      ".uv_select_vert",
+      ".uv_select_edge",
+      ".uv_select_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared stone metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "HwaljuFix.numaru front apron masonry 0-3",
+    "center": [
+      13.428001403808594,
+      -4.835000038146973,
+      0.2150000035762787
+    ],
+    "dimensions": [
+      0.8820000290870667,
+      0.6499999761581421,
+      0.4300000071525574
+    ],
+    "uvs": [
+      "Gye cared stone metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      ".uv_select_vert",
+      ".uv_select_edge",
+      ".uv_select_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared stone metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "HwaljuFix.numaru front apron masonry 0-4",
+    "center": [
+      14.316001892089844,
+      -4.835000038146973,
+      0.2150000035762787
+    ],
+    "dimensions": [
+      0.8820000290870667,
+      0.6499999761581421,
+      0.4300000071525574
+    ],
+    "uvs": [
+      "Gye cared stone metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      ".uv_select_vert",
+      ".uv_select_edge",
+      ".uv_select_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared stone metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Projection.Numaru railing anchored end post",
+    "center": [
+      12.589999198913574,
+      -1.334999918937683,
+      2.234999895095825
+    ],
+    "dimensions": [
+      3.9099998474121094,
+      0.12000000476837158,
+      0.5099999904632568
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.attic king post",
+    "center": [
+      5.287491321563721,
+      1.995147466659546,
+      5.005000114440918
+    ],
+    "dimensions": [
+      10.771199226379395,
+      0.19711804389953613,
+      2.010000228881836
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.dark original plaque",
+    "center": [
+      3.820000171661377,
+      -0.32100000977516174,
+      3.5250003337860107
+    ],
+    "dimensions": [
+      1.7400000095367432,
+      0.0,
+      0.5099999904632568
+    ],
+    "uvs": [
+      "Unmodified original source"
+    ],
+    "attributes": [
+      ".select_vert",
+      "position",
+      ".corner_vert",
+      ".corner_edge",
+      ".select_poly",
+      "sharp_face",
+      ".edge_verts",
+      ".select_edge",
+      "Unmodified original source"
+    ]
+  },
+  {
+    "name": "Sarang.dark original plaque.board",
+    "center": [
+      3.820000171661377,
+      -0.26999998092651367,
+      3.5250003337860107
+    ],
+    "dimensions": [
+      1.7400000095367432,
+      0.0949999988079071,
+      0.5099999904632568
+    ],
+    "uvs": [
+      "Reference timber grain",
+      "Gye heritage timber metres"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference timber grain",
+      "Reference member tone",
+      "Gye heritage timber metres",
+      "material_index"
+    ]
+  },
+  {
+    "name": "Sarang.light original plaque",
+    "center": [
+      7.874999523162842,
+      0.3189999759197235,
+      3.3799996376037598
+    ],
+    "dimensions": [
+      4.850000381469727,
+      0.0,
+      0.6600000858306885
+    ],
+    "uvs": [
+      "Unmodified original source"
+    ],
+    "attributes": [
+      ".select_vert",
+      "position",
+      ".corner_vert",
+      ".corner_edge",
+      ".select_poly",
+      "sharp_face",
+      ".edge_verts",
+      ".select_edge",
+      "Unmodified original source"
+    ]
+  },
+  {
+    "name": "Sarang.light original plaque.board",
+    "center": [
+      7.874999523162842,
+      0.3700000047683716,
+      3.3799996376037598
+    ],
+    "dimensions": [
+      4.850000381469727,
+      0.0949999988079071,
+      0.6600000858306885
+    ],
+    "uvs": [
+      "Reference timber grain",
+      "Gye heritage timber metres"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference timber grain",
+      "Reference member tone",
+      "Gye heritage timber metres",
+      "material_index"
+    ]
+  },
+  {
+    "name": "Sarang.main front post.capital",
+    "center": [
+      5.287499904632568,
+      0.0,
+      3.865000009536743
+    ],
+    "dimensions": [
+      10.914999961853027,
+      0.36000001430511475,
+      0.15999984741210938
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.main front post.capital tongue",
+    "center": [
+      5.287499904632568,
+      0.0,
+      3.7200000286102295
+    ],
+    "dimensions": [
+      11.02500057220459,
+      0.2800000011920929,
+      0.2200000286102295
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.main front post.stone foot",
+    "center": [
+      5.287499904632568,
+      0.0,
+      1.1150000095367432
+    ],
+    "dimensions": [
+      10.994999885559082,
+      0.41999998688697815,
+      0.12999999523162842
+    ],
+    "uvs": [
+      "Gye cared stone metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared stone metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.main roof",
+    "center": [
+      7.271899223327637,
+      2.6021573543548584,
+      5.352705955505371
+    ],
+    "dimensions": [
+      17.31389617919922,
+      7.971619129180908,
+      2.561335563659668
+    ],
+    "uvs": [
+      "Gye cared ceramic metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared ceramic metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.main roof left ornament.finial edge",
+    "center": [
+      0.8499999046325684,
+      1.9950001239776611,
+      6.875
+    ],
+    "dimensions": [
+      0.10799998044967651,
+      0.2999999523162842,
+      0.43000030517578125
+    ],
+    "uvs": [
+      "Gye cared ceramic metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared ceramic metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.main roof left ornament.original patterned face",
+    "center": [
+      0.7960000038146973,
+      1.9950001239776611,
+      6.875
+    ],
+    "dimensions": [
+      0.0,
+      0.2999999523162842,
+      0.43000030517578125
+    ],
+    "uvs": [
+      "Unmodified source outline"
+    ],
+    "attributes": [
+      ".select_vert",
+      "position",
+      ".corner_vert",
+      ".corner_edge",
+      ".select_poly",
+      "sharp_face",
+      ".edge_verts",
+      ".select_edge",
+      "Unmodified source outline"
+    ]
+  },
+  {
+    "name": "Sarang.main roof left ornament.original patterned face.001",
+    "center": [
+      0.903999924659729,
+      1.9950001239776611,
+      6.875
+    ],
+    "dimensions": [
+      0.0,
+      0.2999999523162842,
+      0.43000030517578125
+    ],
+    "uvs": [
+      "Unmodified source outline"
+    ],
+    "attributes": [
+      ".select_vert",
+      "position",
+      ".corner_vert",
+      ".corner_edge",
+      ".select_poly",
+      "sharp_face",
+      ".edge_verts",
+      ".select_edge",
+      "Unmodified source outline"
+    ]
+  },
+  {
+    "name": "Sarang.main roof left ornament.pale base",
+    "center": [
+      0.8500000238418579,
+      1.9950002431869507,
+      6.59999942779541
+    ],
+    "dimensions": [
+      0.25999999046325684,
+      0.2900000810623169,
+      0.28999996185302734
+    ],
+    "uvs": [
+      "Gye cared ceramic metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared ceramic metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.main roof right ornament.finial edge",
+    "center": [
+      13.69999885559082,
+      1.9950001239776611,
+      6.8650007247924805
+    ],
+    "dimensions": [
+      0.10799980163574219,
+      0.2999999523162842,
+      0.42999982833862305
+    ],
+    "uvs": [
+      "Gye cared ceramic metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared ceramic metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.main roof right ornament.original patterned face",
+    "center": [
+      13.645998001098633,
+      1.9950001239776611,
+      6.8650007247924805
+    ],
+    "dimensions": [
+      0.0,
+      0.2999999523162842,
+      0.42999982833862305
+    ],
+    "uvs": [
+      "Unmodified source outline"
+    ],
+    "attributes": [
+      ".select_vert",
+      "position",
+      ".corner_vert",
+      ".corner_edge",
+      ".select_poly",
+      "sharp_face",
+      ".edge_verts",
+      ".select_edge",
+      "Unmodified source outline"
+    ]
+  },
+  {
+    "name": "Sarang.main roof right ornament.original patterned face.001",
+    "center": [
+      13.753998756408691,
+      1.9950001239776611,
+      6.8650007247924805
+    ],
+    "dimensions": [
+      0.0,
+      0.2999999523162842,
+      0.42999982833862305
+    ],
+    "uvs": [
+      "Unmodified source outline"
+    ],
+    "attributes": [
+      ".select_vert",
+      "position",
+      ".corner_vert",
+      ".corner_edge",
+      ".select_poly",
+      "sharp_face",
+      ".edge_verts",
+      ".select_edge",
+      "Unmodified source outline"
+    ]
+  },
+  {
+    "name": "Sarang.main roof right ornament.pale base",
+    "center": [
+      13.700000762939453,
+      1.9950002431869507,
+      6.590000152587891
+    ],
+    "dimensions": [
+      0.26000022888183594,
+      0.2900000810623169,
+      0.28999996185302734
+    ],
+    "uvs": [
+      "Gye cared ceramic metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared ceramic metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.main roof.001",
+    "center": [
+      7.271725654602051,
+      2.6020517349243164,
+      5.334010124206543
+    ],
+    "dimensions": [
+      17.3146915435791,
+      7.977230072021484,
+      2.5239458084106445
+    ],
+    "uvs": [
+      "Gye cared ceramic metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared ceramic metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.main roof.002",
+    "center": [
+      7.27195930480957,
+      2.6023290157318115,
+      5.295129299163818
+    ],
+    "dimensions": [
+      17.31460952758789,
+      7.9720892906188965,
+      2.446183681488037
+    ],
+    "uvs": [
+      "Gye cared ceramic metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared ceramic metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.main roof.003",
+    "center": [
+      7.271839618682861,
+      2.6023268699645996,
+      5.352705955505371
+    ],
+    "dimensions": [
+      17.31517791748047,
+      7.971460819244385,
+      2.561335563659668
+    ],
+    "uvs": [
+      "Gye cared ceramic metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared ceramic metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.main roof.004",
+    "center": [
+      7.271738529205322,
+      2.6021676063537598,
+      5.28501033782959
+    ],
+    "dimensions": [
+      17.315662384033203,
+      7.977461814880371,
+      2.4259424209594727
+    ],
+    "uvs": [
+      "Gye cared ceramic metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared ceramic metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.main roof.005",
+    "center": [
+      7.27166748046875,
+      2.601970672607422,
+      5.298234939575195
+    ],
+    "dimensions": [
+      17.314210891723633,
+      7.971968173980713,
+      2.452392101287842
+    ],
+    "uvs": [
+      "Gye cared ceramic metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared ceramic metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.main roof.gable barge",
+    "center": [
+      7.272500038146973,
+      2.2830684185028076,
+      5.881979942321777
+    ],
+    "dimensions": [
+      12.964600563049316,
+      3.8930275440216064,
+      1.5743179321289062
+    ],
+    "uvs": [
+      "Gye cared ceramic metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared ceramic metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.main roof.gable brace",
+    "center": [
+      7.272500514984131,
+      2.1379873752593994,
+      5.48481559753418
+    ],
+    "dimensions": [
+      12.94260025024414,
+      1.9751731157302856,
+      0.8867454528808594
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.main roof.gable centre post",
+    "center": [
+      7.272500514984131,
+      1.9950000047683716,
+      5.789479732513428
+    ],
+    "dimensions": [
+      13.000600814819336,
+      0.14836478233337402,
+      1.417041301727295
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.main roof.gable frame",
+    "center": [
+      7.272500038146973,
+      2.281609058380127,
+      5.785223960876465
+    ],
+    "dimensions": [
+      13.01460075378418,
+      3.925143241882324,
+      1.5685310363769531
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.main roof.gable timber",
+    "center": [
+      7.272500514984131,
+      2.286600112915039,
+      5.789479732513428
+    ],
+    "dimensions": [
+      12.844600677490234,
+      3.823200225830078,
+      1.417041301727295
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.main roof.hip ridge",
+    "center": [
+      7.272500038146973,
+      2.600785732269287,
+      4.945163726806641
+    ],
+    "dimensions": [
+      17.386579513549805,
+      8.048015594482422,
+      0.7839717864990234
+    ],
+    "uvs": [
+      "Gye cared ceramic metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared ceramic metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.main roof.hip round tile ends",
+    "center": [
+      7.2724995613098145,
+      2.6025004386901855,
+      4.5
+    ],
+    "dimensions": [
+      17.355003356933594,
+      8.109000205993652,
+      0.874000072479248
+    ],
+    "uvs": [
+      "Gye cared ceramic metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      "position",
+      ".corner_vert",
+      ".corner_edge",
+      ".select_poly",
+      "sharp_face",
+      ".edge_verts",
+      ".select_edge",
+      "Gye cared ceramic metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.main roof.ridge stack",
+    "center": [
+      7.272500514984131,
+      1.9950001239776611,
+      6.5373215675354
+    ],
+    "dimensions": [
+      12.870748519897461,
+      0.13400006294250488,
+      0.32608556747436523
+    ],
+    "uvs": [
+      "Gye cared ceramic metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared ceramic metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.main roof.ridge stack.001",
+    "center": [
+      7.272500514984131,
+      1.9950001239776611,
+      6.602322101593018
+    ],
+    "dimensions": [
+      12.870748519897461,
+      0.13400006294250488,
+      0.32608604431152344
+    ],
+    "uvs": [
+      "Gye cared ceramic metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared ceramic metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.main roof.ridge stack.002",
+    "center": [
+      7.272500514984131,
+      1.9950001239776611,
+      6.667322158813477
+    ],
+    "dimensions": [
+      12.870748519897461,
+      0.13400006294250488,
+      0.32608604431152344
+    ],
+    "uvs": [
+      "Gye cared ceramic metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared ceramic metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.main roof.ridge stack.003",
+    "center": [
+      7.272500514984131,
+      1.9950001239776611,
+      6.732322692871094
+    ],
+    "dimensions": [
+      12.870748519897461,
+      0.13400006294250488,
+      0.32608604431152344
+    ],
+    "uvs": [
+      "Gye cared ceramic metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared ceramic metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.main roof.round tile ends",
+    "center": [
+      7.272500514984131,
+      2.6024999618530273,
+      4.4673566818237305
+    ],
+    "dimensions": [
+      17.191150665283203,
+      7.995003700256348,
+      0.774714469909668
+    ],
+    "uvs": [
+      "Gye cared ceramic metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      "position",
+      ".corner_vert",
+      ".corner_edge",
+      ".select_poly",
+      "sharp_face",
+      ".edge_verts",
+      ".select_edge",
+      "Gye cared ceramic metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.numaru front measured post.capital",
+    "center": [
+      12.559999465942383,
+      -3.9950003623962402,
+      3.8950002193450928
+    ],
+    "dimensions": [
+      4.310000419616699,
+      0.3600001335144043,
+      0.15999984741210938
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.numaru front measured post.capital tongue",
+    "center": [
+      12.560001373291016,
+      -3.994999885559082,
+      3.75
+    ],
+    "dimensions": [
+      4.420000076293945,
+      0.2800002098083496,
+      0.2199997901916504
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.numaru front measured post.stone foot",
+    "center": [
+      12.559999465942383,
+      -3.994999885559082,
+      0.4950000047683716
+    ],
+    "dimensions": [
+      4.390000343322754,
+      0.4199998378753662,
+      0.12999999523162842
+    ],
+    "uvs": [
+      "Gye cared stone metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared stone metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.numaru roof.gable centre post",
+    "center": [
+      12.5600004196167,
+      -3.490600347518921,
+      5.782005310058594
+    ],
+    "dimensions": [
+      0.15600013732910156,
+      0.14836502075195312,
+      1.431990146636963
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.rear post.capital",
+    "center": [
+      5.287499904632568,
+      4.595000267028809,
+      3.884999990463257
+    ],
+    "dimensions": [
+      10.914999961853027,
+      1.5800001621246338,
+      0.15999984741210938
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.rear post.capital tongue",
+    "center": [
+      5.287499904632568,
+      4.59499979019165,
+      3.7400002479553223
+    ],
+    "dimensions": [
+      11.02500057220459,
+      1.499999761581421,
+      0.2199997901916504
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.rear post.stone foot",
+    "center": [
+      5.287499904632568,
+      4.595000267028809,
+      1.1449999809265137
+    ],
+    "dimensions": [
+      10.994999885559082,
+      1.6399998664855957,
+      0.12999999523162842
+    ],
+    "uvs": [
+      "Gye cared stone metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared stone metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.rear post.wood",
+    "center": [
+      5.287499904632568,
+      4.595000267028809,
+      2.565000057220459
+    ],
+    "dimensions": [
+      10.782999992370605,
+      1.4279999732971191,
+      2.7100000381469727
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.room front post.capital",
+    "center": [
+      5.287499904632568,
+      1.3350000381469727,
+      3.9050002098083496
+    ],
+    "dimensions": [
+      10.914999961853027,
+      0.36000001430511475,
+      0.15999984741210938
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.room front post.capital tongue",
+    "center": [
+      5.287499904632568,
+      1.3350001573562622,
+      3.7599995136260986
+    ],
+    "dimensions": [
+      11.02500057220459,
+      0.2799999713897705,
+      0.2199997901916504
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.room front post.stone foot",
+    "center": [
+      6.585000038146973,
+      1.3350000381469727,
+      1.84499990940094
+    ],
+    "dimensions": [
+      8.399999618530273,
+      0.41999995708465576,
+      0.12999999523162842
+    ],
+    "uvs": [
+      "Gye cared stone metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared stone metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.room front post.wood",
+    "center": [
+      5.287499904632568,
+      1.3350000381469727,
+      2.924999952316284
+    ],
+    "dimensions": [
+      10.782999992370605,
+      0.2080000638961792,
+      2.0300002098083496
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.wing post.capital",
+    "center": [
+      13.217498779296875,
+      1.6700000762939453,
+      3.8950002193450928
+    ],
+    "dimensions": [
+      2.994999885559082,
+      6.369999885559082,
+      0.15999984741210938
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.wing post.capital tongue",
+    "center": [
+      13.217500686645508,
+      1.6699998378753662,
+      3.75
+    ],
+    "dimensions": [
+      3.1050004959106445,
+      6.289999485015869,
+      0.2199997901916504
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.wing post.stone foot",
+    "center": [
+      13.217499732971191,
+      1.6699998378753662,
+      0.8049999475479126
+    ],
+    "dimensions": [
+      3.0749998092651367,
+      6.429999828338623,
+      0.7499999403953552
+    ],
+    "uvs": [
+      "Gye cared stone metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared stone metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Sarang.wing post.wood",
+    "center": [
+      13.21749496459961,
+      1.6570172309875488,
+      2.245000123977661
+    ],
+    "dimensions": [
+      2.914923667907715,
+      6.243965148925781,
+      3.370000123977661
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "Support.rear post plinth",
+    "center": [
+      8.570000648498535,
+      5.204999923706055,
+      1.2444223165512085
+    ],
+    "dimensions": [
+      12.380000114440918,
+      0.43000030517578125,
+      0.20215535163879395
+    ],
+    "uvs": [
+      "Gye cared stone metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared stone metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "V25.left boarding end post",
+    "center": [
+      -0.09199999272823334,
+      2.0300002098083496,
+      1.5199999809265137
+    ],
+    "dimensions": [
+      0.07999999821186066,
+      3.950000047683716,
+      0.8400000333786011
+    ],
+    "uvs": [
+      "Gye cared member grain v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Reference member tone",
+      "Gye timber edge weights",
+      "Gye cared member grain v52",
+      "material_index",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "V25.stair cheek",
+    "center": [
+      3.9325003623962402,
+      -2.129999876022339,
+      0.6636655330657959
+    ],
+    "dimensions": [
+      1.570000171661377,
+      1.7000000476837158,
+      1.277330994606018
+    ],
+    "uvs": [
+      "Gye cared stone metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared stone metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "V25.stair tread 1",
+    "center": [
+      3.935232400894165,
+      -2.813270092010498,
+      0.11266666650772095
+    ],
+    "dimensions": [
+      1.2090022563934326,
+      0.35900068283081055,
+      0.20133334398269653
+    ],
+    "uvs": [
+      "Gye cared stone metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared stone metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "V25.stair tread 2",
+    "center": [
+      3.9351015090942383,
+      -2.4724678993225098,
+      0.21933333575725555
+    ],
+    "dimensions": [
+      1.2119534015655518,
+      0.36351752281188965,
+      0.41466671228408813
+    ],
+    "uvs": [
+      "Gye cared stone metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared stone metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "V25.stair tread 3",
+    "center": [
+      3.9321131706237793,
+      -2.1297061443328857,
+      0.3259999752044678
+    ],
+    "dimensions": [
+      1.2136919498443604,
+      0.36099398136138916,
+      0.628000020980835
+    ],
+    "uvs": [
+      "Gye cared stone metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared stone metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "V25.stair tread 4",
+    "center": [
+      3.9301834106445312,
+      -1.7912346124649048,
+      0.4326666593551636
+    ],
+    "dimensions": [
+      1.2128534317016602,
+      0.36608970165252686,
+      0.8413333892822266
+    ],
+    "uvs": [
+      "Gye cared stone metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared stone metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  },
+  {
+    "name": "V25.stair tread 5",
+    "center": [
+      3.9350457191467285,
+      -1.4512931108474731,
+      0.5393333435058594
+    ],
+    "dimensions": [
+      1.2215802669525146,
+      0.3615589141845703,
+      1.0546667575836182
+    ],
+    "uvs": [
+      "Gye cared stone metres v52"
+    ],
+    "attributes": [
+      ".select_vert",
+      ".select_edge",
+      ".select_poly",
+      "sharp_face",
+      "position",
+      ".edge_verts",
+      ".corner_vert",
+      ".corner_edge",
+      "Gye cared stone metres v52",
+      "P18 surface UV",
+      "P18 cut UV",
+      "P18 long timber UV",
+      "P18 long timber sample",
+      "P18 real cut face",
+      "P18 image eligible",
+      "P18 surface swatch",
+      "P18 member roughness",
+      "P18 source member id"
+    ]
+  }
+]

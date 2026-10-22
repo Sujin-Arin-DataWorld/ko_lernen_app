@@ -1,0 +1,176 @@
+{
+  "renders": [
+    {
+      "view": "numaru",
+      "variant": "R3 fix checkpoint",
+      "file": "before-numaru.png",
+      "sha256": "de266d5315e0c1eca35c78ac3ccd47cadb2f62e3117df981ac0e6fac42ea8238",
+      "position": [
+        16,
+        -18,
+        5.3
+      ],
+      "target": [
+        11.5,
+        -2.8,
+        2.7
+      ],
+      "ortho": 6,
+      "resolution": [
+        1100,
+        950
+      ]
+    },
+    {
+      "view": "eaves",
+      "variant": "R3 fix checkpoint",
+      "file": "before-eaves.png",
+      "sha256": "6bae2d3b34d05204a921cea845c093a9c09a7a66ca7a654a387834b436c5eaf1",
+      "position": [
+        13.5,
+        -12,
+        3.7
+      ],
+      "target": [
+        12.5,
+        -4.5,
+        3.9
+      ],
+      "ortho": 2.8,
+      "resolution": [
+        1300,
+        650
+      ]
+    },
+    {
+      "view": "hero",
+      "variant": "R3 fix checkpoint",
+      "file": "before-hero.png",
+      "sha256": "9e13d16e624d163ead33508eec65422fea3183a5bc8b2337219a26effd9b9487",
+      "position": [
+        29.4,
+        -30.2,
+        15.45
+      ],
+      "target": [
+        7.4,
+        1.8,
+        2.85
+      ],
+      "ortho": 22,
+      "resolution": [
+        1400,
+        1050
+      ]
+    },
+    {
+      "view": "reverse",
+      "variant": "R3 fix checkpoint",
+      "file": "before-reverse.png",
+      "sha256": "9ec1f04e722c71f0320fd41d7e441a4127984c3bc881099cf04834e8db41ff71",
+      "position": [
+        21,
+        12,
+        8
+      ],
+      "target": [
+        12,
+        -1,
+        2.7
+      ],
+      "ortho": 7,
+      "resolution": [
+        1100,
+        950
+      ]
+    },
+    {
+      "view": "numaru",
+      "variant": "R5 three-value brush candidate",
+      "file": "after-numaru.png",
+      "cameraLocation": [
+        16,
+        -18,
+        5.3
+      ],
+      "target": [
+        11.5,
+        -2.8,
+        2.7
+      ],
+      "orthoScale": 6,
+      "resolution": [
+        1100,
+        950
+      ],
+      "sha256": "dfa6f8a3b6bf46114f08b126b8bbfc5034da40d131004ff1feb0da2ec909114f"
+    },
+    {
+      "view": "eaves",
+      "variant": "R5 three-value brush candidate",
+      "file": "after-eaves.png",
+      "cameraLocation": [
+        13.5,
+        -12,
+        3.7
+      ],
+      "target": [
+        12.5,
+        -4.5,
+        3.9
+      ],
+      "orthoScale": 2.8,
+      "resolution": [
+        1300,
+        650
+      ],
+      "sha256": "e618afcfffcd02e59a63daeedd0a5ac710900801fdcd46439a4329007026204c"
+    },
+    {
+      "view": "hero",
+      "variant": "R5 three-value brush candidate",
+      "file": "after-hero.png",
+      "cameraLocation": [
+        29.4,
+        -30.2,
+        15.45
+      ],
+      "target": [
+        7.4,
+        1.8,
+        2.85
+      ],
+      "orthoScale": 22,
+      "resolution": [
+        1400,
+        1050
+      ],
+      "sha256": "a91c4aa7fb5b25eaee3b680d252c18036bc4bc10e93abe3a2f52eeaf0a82131c"
+    },
+    {
+      "view": "reverse",
+      "variant": "R5 three-value brush candidate",
+      "file": "after-reverse.png",
+      "cameraLocation": [
+        21,
+        12,
+        8
+      ],
+      "target": [
+        12,
+        -1,
+        2.7
+      ],
+      "orthoScale": 7,
+      "resolution": [
+        1100,
+        950
+      ],
+      "sha256": "4a55786d2ea400c69d54243176bb63b3c498f0caae3b0b63f4875ff0ec8b7e64"
+    }
+  ],
+  "matchedCameraLights": true,
+  "samples": 40,
+  "complete": true,
+  "seconds": 245.0
+}

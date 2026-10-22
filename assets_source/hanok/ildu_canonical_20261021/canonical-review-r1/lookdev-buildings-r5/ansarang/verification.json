@@ -1,0 +1,2633 @@
+{
+  "key": "ansarang",
+  "name": "안사랑채",
+  "version": "building-r5-2",
+  "sourceNative": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\estate-yard-wall-r1\\ildu-estate-yard-wall-r1.blend",
+  "sourceSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+  "candidateNative": "ansarang-r5-brush-candidate.blend",
+  "candidateSha256": "df17b8b8d8623dd5084186d6c3c03e6193101eb302be4ef74c15ec26375a516a",
+  "passed": true,
+  "reopened": true,
+  "meshCount": 385,
+  "geometryUVsTransformsModifiersEqual": true,
+  "attributesStagesPropertiesEqual": true,
+  "sourceMaterialGraphsEqual": true,
+  "sourceImageBytesEqual": true,
+  "originalPlaquesAndAnonymousPatternsUnchanged": {},
+  "roles": {
+    "wood": 181,
+    "stone": 29,
+    "endgrain": 266,
+    "metal": 11,
+    "plaster": 24,
+    "paper": 24,
+    "lattice": 203,
+    "earth": 3,
+    "tile": 18
+  },
+  "materials": [
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 frame tone 1",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 frame tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 frame tone 2",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 frame tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 frame tone 3",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 frame tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood_end ansarang board axis1 | Ansarang endgrain pegs",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood_end ansarang board axis1 | Ansarang endgrain pegs",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v56 posts tone 3",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Gye cared pine ansarang v56 posts tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P15 wood ansarang post axis1 | Gye cared pine ansarang v69 posts tone 2",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P15 wood ansarang post axis1 | Gye cared pine ansarang v69 posts tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P15 wood ansarang post axis1 | Gye cared pine ansarang v69 posts tone 4",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P15 wood ansarang post axis1 | Gye cared pine ansarang v69 posts tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P15 wood ansarang post axis1 | Gye cared pine ansarang v69 posts tone 3",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P15 wood ansarang post axis1 | Gye cared pine ansarang v69 posts tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P15 wood ansarang post axis1 | Gye cared pine ansarang v69 posts tone 0",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P15 wood ansarang post axis1 | Gye cared pine ansarang v69 posts tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P15 wood ansarang post axis1 | Gye cared pine ansarang v69 posts tone 1",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P15 wood ansarang post axis1 | Gye cared pine ansarang v69 posts tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18 image.ansarang.stone.P15 stone ansarang board axis1 | Gye cared warm fieldstone v52",
+      "candidate": "R5 stone | Selected timber v2 | ansarang | P18 image.ansarang.stone.P15 stone ansarang board axis1 | Gye cared warm fieldstone v52",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | North anchae beam",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | North anchae beam",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated pine longgrain v1",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Illustrated pine longgrain v1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated pine endgrain v1",
+      "candidate": "R5 endgrain | Selected timber v2 | ansarang | Illustrated pine endgrain v1",
+      "role": "endgrain",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v58 restored floor.001",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Gye cared pine ansarang v58 restored floor.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 boards tone 2.001",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 boards tone 2.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 boards tone 3.001",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 boards tone 3.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated pine endgrain v1",
+      "candidate": "R5 endgrain | Selected timber v2 | ansarang | Illustrated pine endgrain v1.001",
+      "role": "endgrain",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis0 | Gye cared pine ansarang v69 boards tone 2.001",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis0 | Gye cared pine ansarang v69 boards tone 2.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "P15 metal ansarang board axis1 | Sep29 cast iron",
+      "candidate": "R5 metal | P15 metal ansarang board axis1 | Sep29 cast iron",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18 image.ansarang.plaster.P15 plaster ansarang board axis0 | Gye cared limewash v52",
+      "candidate": "R5 plaster | Selected timber v2 | ansarang | P18 image.ansarang.plaster.P15 plaster ansarang board axis0 | Gye cared limewash v52",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye cared lime metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18 image.ansarang.plaster.P15 plaster ansarang board axis1 | Gye cared limewash v52",
+      "candidate": "R5 plaster | Selected timber v2 | ansarang | P18 image.ansarang.plaster.P15 plaster ansarang board axis1 | Gye cared limewash v52",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye cared lime metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v56 boards tone 2",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Gye cared pine ansarang v56 boards tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis0 | Gye cared pine ansarang v69 boards tone 2",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis0 | Gye cared pine ansarang v69 boards tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v56 floor tone 4",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Gye cared pine ansarang v56 floor tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis0 | Gye cared pine ansarang v69 floor tone 2.001",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis0 | Gye cared pine ansarang v69 floor tone 2.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v56 boards tone 0 v66 frame",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Gye cared pine ansarang v56 boards tone 0 v66 frame",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis0 | Gye cared pine ansarang v69 frame tone 1.002",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis0 | Gye cared pine ansarang v69 frame tone 1.002",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis0 | Gye cared pine ansarang v69 frame tone 3.002",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis0 | Gye cared pine ansarang v69 frame tone 3.002",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis0 | Gye cared pine ansarang v69 frame tone 2.001",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis0 | Gye cared pine ansarang v69 frame tone 2.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis0 | Gye cared pine ansarang v69 frame tone 4.001",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis0 | Gye cared pine ansarang v69 frame tone 4.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "P15 metal ansarang board axis1 | Sep29 cast iron",
+      "candidate": "R5 metal | P15 metal ansarang board axis1 | Sep29 cast iron.001",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v56 posts tone 1",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Gye cared pine ansarang v56 posts tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang post axis2 | Gye cared pine ansarang v69 posts tone 0",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang post axis2 | Gye cared pine ansarang v69 posts tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS white r2 | ansarang | plaster | Selected timber v2 | ansarang | P18 image.ansarang.plaster.P15 plaster ansarang board axis1 | Gye cared limewash v52",
+      "candidate": "R5 plaster | HS white r2 | ansarang | plaster | Selected timber v2 | ansarang | P18 image.ansarang.plaster.P15 plaster ansarang board axis1 | Gye cared limewash v52",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye cared lime metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Canonical gate wood pigment.001",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Canonical gate wood pigment.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated pine longgrain v1",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Illustrated pine longgrain v1.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v56 boards tone 1",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Gye cared pine ansarang v56 boards tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 boards tone 3",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 boards tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Canonical gate stone pigment.001",
+      "candidate": "R5 stone | Selected timber v2 | ansarang | Canonical gate stone pigment.001",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated granite v1 0",
+      "candidate": "R5 stone | Selected timber v2 | ansarang | Illustrated granite v1 0",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18 image.ansarang.stone.P15 stone ansarang post axis1 | Gye cared warm fieldstone v52",
+      "candidate": "R5 stone | Selected timber v2 | ansarang | P18 image.ansarang.stone.P15 stone ansarang post axis1 | Gye cared warm fieldstone v52",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18 image.ansarang.stone.P15 stone ansarang post axis0 | Gye cared warm fieldstone v52",
+      "candidate": "R5 stone | Selected timber v2 | ansarang | P18 image.ansarang.stone.P15 stone ansarang post axis0 | Gye cared warm fieldstone v52",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v56 boards tone 3 v66 frame",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Gye cared pine ansarang v56 boards tone 3 v66 frame",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 frame tone 3.001",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 frame tone 3.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 frame tone 0.001",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 frame tone 0.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 frame tone 4.002",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 frame tone 4.002",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 frame tone 1.001",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 frame tone 1.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 frame tone 2.002",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 frame tone 2.002",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v56 boards tone 2 v66 frame",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Gye cared pine ansarang v56 boards tone 2 v66 frame",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 frame tone 0.002",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 frame tone 0.002",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 frame tone 2.001",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 frame tone 2.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 frame tone 1.002",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 frame tone 1.002",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 frame tone 3.002",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 frame tone 3.002",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 frame tone 4.001",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 frame tone 4.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Canonical gate beam pigment.001",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Canonical gate beam pigment.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v56 frame tone 2",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Gye cared pine ansarang v56 frame tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang beam axis1 | Gye cared pine ansarang v69 frame tone 2",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang beam axis1 | Gye cared pine ansarang v69 frame tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang beam axis1 | Gye cared pine ansarang v69 frame tone 1",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang beam axis1 | Gye cared pine ansarang v69 frame tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang beam axis1 | Gye cared pine ansarang v69 frame tone 3",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang beam axis1 | Gye cared pine ansarang v69 frame tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v56 frame tone 0",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Gye cared pine ansarang v56 frame tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v69 frame tone 2",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Gye cared pine ansarang v69 frame tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v69 frame tone 3",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Gye cared pine ansarang v69 frame tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Canonical gate post pigment.001",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Canonical gate post pigment.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v56 posts tone 4",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Gye cared pine ansarang v56 posts tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang post axis1 | Gye cared pine ansarang v69 posts tone 2",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang post axis1 | Gye cared pine ansarang v69 posts tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang post axis1 | Gye cared pine ansarang v69 posts tone 1",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang post axis1 | Gye cared pine ansarang v69 posts tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS white r2 | ansarang | paper | Selected timber v2 | ansarang | P18 image.ansarang.paper.P15 paper ansarang joinery axis2 | Ansarang retained Warm hanji in timber lattice",
+      "candidate": "R5 paper | HS white r2 | ansarang | paper | Selected timber v2 | ansarang | P18 image.ansarang.paper.P15 paper ansarang joinery axis2 | Ansarang retained Warm hanji in timber lattice",
+      "role": "paper",
+      "mapping": [
+        "UV",
+        "Ansarang retained PBR"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Canonical gate wood pigment.002",
+      "candidate": "R5 lattice | Selected timber v2 | ansarang | Canonical gate wood pigment.002",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated pine longgrain v1.001",
+      "candidate": "R5 lattice | Selected timber v2 | ansarang | Illustrated pine longgrain v1.001",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated pine endgrain v1.001",
+      "candidate": "R5 endgrain | Selected timber v2 | ansarang | Illustrated pine endgrain v1.002",
+      "role": "endgrain",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v56 joinery tone 1",
+      "candidate": "R5 lattice | Selected timber v2 | ansarang | Gye cared pine ansarang v56 joinery tone 1",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis2 | Gye cared pine ansarang v69 joinery tone 0",
+      "candidate": "R5 lattice | Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis2 | Gye cared pine ansarang v69 joinery tone 0",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis2 | Gye cared pine ansarang v69 joinery tone 2",
+      "candidate": "R5 lattice | Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis2 | Gye cared pine ansarang v69 joinery tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v56 joinery tone 2",
+      "candidate": "R5 lattice | Selected timber v2 | ansarang | Gye cared pine ansarang v56 joinery tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis2 | Gye cared pine ansarang v69 joinery tone 1",
+      "candidate": "R5 lattice | Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis2 | Gye cared pine ansarang v69 joinery tone 1",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis2 | Gye cared pine ansarang v69 joinery tone 4",
+      "candidate": "R5 lattice | Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis2 | Gye cared pine ansarang v69 joinery tone 4",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v56 joinery tone 0",
+      "candidate": "R5 lattice | Selected timber v2 | ansarang | Gye cared pine ansarang v56 joinery tone 0",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v56 joinery tone 3",
+      "candidate": "R5 lattice | Selected timber v2 | ansarang | Gye cared pine ansarang v56 joinery tone 3",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated pine endgrain v1.001",
+      "candidate": "R5 endgrain | Selected timber v2 | ansarang | Illustrated pine endgrain v1.003",
+      "role": "endgrain",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis1 | Gye cared pine ansarang v69 joinery tone 4",
+      "candidate": "R5 lattice | Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis1 | Gye cared pine ansarang v69 joinery tone 4",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated pine endgrain v1.001",
+      "candidate": "R5 endgrain | Selected timber v2 | ansarang | Illustrated pine endgrain v1.004",
+      "role": "endgrain",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis1 | Gye cared pine ansarang v69 joinery tone 3",
+      "candidate": "R5 lattice | Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis1 | Gye cared pine ansarang v69 joinery tone 3",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis1 | Gye cared pine ansarang v69 joinery tone 2",
+      "candidate": "R5 lattice | Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis1 | Gye cared pine ansarang v69 joinery tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v56 joinery tone 4",
+      "candidate": "R5 lattice | Selected timber v2 | ansarang | Gye cared pine ansarang v56 joinery tone 4",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis2 | Gye cared pine ansarang v69 joinery tone 3",
+      "candidate": "R5 lattice | Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis2 | Gye cared pine ansarang v69 joinery tone 3",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis1 | Gye cared pine ansarang v69 joinery tone 0",
+      "candidate": "R5 lattice | Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis1 | Gye cared pine ansarang v69 joinery tone 0",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis1 | Gye cared pine ansarang v69 joinery tone 1",
+      "candidate": "R5 lattice | Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis1 | Gye cared pine ansarang v69 joinery tone 1",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "P15 metal ansarang joinery axis2 | Ansarang retained Dark iron fittings",
+      "candidate": "R5 metal | P15 metal ansarang joinery axis2 | Ansarang retained Dark iron fittings",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        2,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "P15 metal ansarang joinery axis1 | Ansarang retained Dark iron fittings",
+      "candidate": "R5 metal | P15 metal ansarang joinery axis1 | Ansarang retained Dark iron fittings",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "P15 metal ansarang joinery axis2 | Ansarang retained Dark iron fittings",
+      "candidate": "R5 metal | P15 metal ansarang joinery axis2 | Ansarang retained Dark iron fittings.001",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Canonical gate wood pigment.003",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Canonical gate wood pigment.003",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated pine longgrain v1.002",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Illustrated pine longgrain v1.002",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated pine endgrain v1.002",
+      "candidate": "R5 endgrain | Selected timber v2 | ansarang | Illustrated pine endgrain v1.005",
+      "role": "endgrain",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v58 restored floor v66 floor",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Gye cared pine ansarang v58 restored floor v66 floor",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis0 | Gye cared pine ansarang v69 floor tone 2",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis0 | Gye cared pine ansarang v69 floor tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis0 | Gye cared pine ansarang v69 floor tone 3",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis0 | Gye cared pine ansarang v69 floor tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis0 | Gye cared pine ansarang v69 floor tone 1",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis0 | Gye cared pine ansarang v69 floor tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis0 | Gye cared pine ansarang v69 floor tone 4",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis0 | Gye cared pine ansarang v69 floor tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Ansarang retained Courtyard compacted earth",
+      "candidate": "R5 earth | Ansarang retained Courtyard compacted earth",
+      "role": "earth",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18 image.ansarang.paper.P15 paper ansarang board axis1 | Ansarang retained Warm papered ondol floor",
+      "candidate": "R5 paper | Selected timber v2 | ansarang | P18 image.ansarang.paper.P15 paper ansarang board axis1 | Ansarang retained Warm papered ondol floor",
+      "role": "paper",
+      "mapping": [
+        "UV",
+        "Ansarang retained PBR"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated pine endgrain v1.002",
+      "candidate": "R5 endgrain | Selected timber v2 | ansarang | Illustrated pine endgrain v1.006",
+      "role": "endgrain",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 floor tone 0",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 floor tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 floor tone 1",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 floor tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 floor tone 4",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 floor tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 floor tone 2",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 floor tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 floor tone 3",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 floor tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v58 restored floor",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Gye cared pine ansarang v58 restored floor",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 boards tone 2.001",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 boards tone 2.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 boards tone 3.001",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 boards tone 3.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 boards tone 0.001",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 boards tone 0.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 boards tone 1.001",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 boards tone 1.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 boards tone 4.001",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis1 | Gye cared pine ansarang v69 boards tone 4.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis0 | Gye cared pine ansarang v69 floor tone 0",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_floor.P18 image.ansarang.wood.P15 wood ansarang floor axis0 | Gye cared pine ansarang v69 floor tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated pine endgrain v1",
+      "candidate": "R5 endgrain | Selected timber v2 | ansarang | Illustrated pine endgrain v1.007",
+      "role": "endgrain",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v56 posts tone 0",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Gye cared pine ansarang v56 posts tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang post axis1 | Gye cared pine ansarang v69 posts tone 3",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang post axis1 | Gye cared pine ansarang v69 posts tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v56 frame tone 4",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Gye cared pine ansarang v56 frame tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v56 boards tone 3",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Gye cared pine ansarang v56 boards tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 boards tone 2",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 boards tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 boards tone 0",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 boards tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated pine endgrain v1",
+      "candidate": "R5 endgrain | Selected timber v2 | ansarang | Illustrated pine endgrain v1.008",
+      "role": "endgrain",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis2 | Gye cared pine ansarang v69 boards tone 2",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis2 | Gye cared pine ansarang v69 boards tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis2 | Gye cared pine ansarang v69 boards tone 3",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis2 | Gye cared pine ansarang v69 boards tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis2 | Gye cared pine ansarang v69 boards tone 1",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis2 | Gye cared pine ansarang v69 boards tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v56 boards tone 0",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Gye cared pine ansarang v56 boards tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v56 boards tone 4",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Gye cared pine ansarang v56 boards tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 boards tone 4",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 boards tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 boards tone 1",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 boards tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 boards tone 1.001",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 boards tone 1.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 boards tone 3.002",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 boards tone 3.002",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 boards tone 2.002",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 boards tone 2.002",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 boards tone 2.003",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 boards tone 2.003",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 boards tone 3.003",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis1 | Gye cared pine ansarang v69 boards tone 3.003",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18 image.ansarang.stone.P15 stone ansarang floor axis1 | Gye cared warm fieldstone v52",
+      "candidate": "R5 stone | Selected timber v2 | ansarang | P18 image.ansarang.stone.P15 stone ansarang floor axis1 | Gye cared warm fieldstone v52",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS white r2 | ansarang | plaster | Selected timber v2 | ansarang | P18 image.ansarang.plaster.P15 plaster ansarang board axis2 | Gye cared limewash v52",
+      "candidate": "R5 plaster | HS white r2 | ansarang | plaster | Selected timber v2 | ansarang | P18 image.ansarang.plaster.P15 plaster ansarang board axis2 | Gye cared limewash v52",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye cared lime metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated pine endgrain v1",
+      "candidate": "R5 endgrain | Selected timber v2 | ansarang | Illustrated pine endgrain v1.009",
+      "role": "endgrain",
+      "mapping": [
+        "OBJECT",
+        2,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Canonical gate wood pigment.002",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Canonical gate wood pigment.002",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated pine longgrain v1.001",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Illustrated pine longgrain v1.003",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated pine endgrain v1.001",
+      "candidate": "R5 endgrain | Selected timber v2 | ansarang | Illustrated pine endgrain v1.010",
+      "role": "endgrain",
+      "mapping": [
+        "OBJECT",
+        2,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS white r2 | ansarang | plaster | Selected timber v2 | ansarang | P18 image.ansarang.plaster.P15 plaster ansarang board axis0 | Gye cared limewash v52",
+      "candidate": "R5 plaster | HS white r2 | ansarang | plaster | Selected timber v2 | ansarang | P18 image.ansarang.plaster.P15 plaster ansarang board axis0 | Gye cared limewash v52",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye cared lime metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis2 | Gye cared pine ansarang v69 boards tone 4",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis2 | Gye cared pine ansarang v69 boards tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated pine endgrain v1.001",
+      "candidate": "R5 endgrain | Selected timber v2 | ansarang | Illustrated pine endgrain v1.011",
+      "role": "endgrain",
+      "mapping": [
+        "OBJECT",
+        0,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis0 | Gye cared pine ansarang v69 joinery tone 2",
+      "candidate": "R5 lattice | Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis0 | Gye cared pine ansarang v69 joinery tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v56 boards tone 0.001",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Gye cared pine ansarang v56 boards tone 0.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang board axis0 | Gye cared pine ansarang v69 boards tone 2",
+      "candidate": "R5 lattice | Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang board axis0 | Gye cared pine ansarang v69 boards tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated pine endgrain v1",
+      "candidate": "R5 endgrain | Selected timber v2 | ansarang | Illustrated pine endgrain v1.012",
+      "role": "endgrain",
+      "mapping": [
+        "OBJECT",
+        0,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis0 | Gye cared pine ansarang v69 boards tone 1",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis0 | Gye cared pine ansarang v69 boards tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis0 | Gye cared pine ansarang v69 boards tone 4",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis0 | Gye cared pine ansarang v69 boards tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis0 | Gye cared pine ansarang v69 boards tone 3",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang board axis0 | Gye cared pine ansarang v69 boards tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS white r2 | ansarang | paper | Selected timber v2 | ansarang | P18 image.ansarang.paper.P15 paper ansarang joinery axis0 | Ansarang retained Warm hanji in timber lattice",
+      "candidate": "R5 paper | HS white r2 | ansarang | paper | Selected timber v2 | ansarang | P18 image.ansarang.paper.P15 paper ansarang joinery axis0 | Ansarang retained Warm hanji in timber lattice",
+      "role": "paper",
+      "mapping": [
+        "UV",
+        "Ansarang retained PBR"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis0 | Gye cared pine ansarang v69 joinery tone 0",
+      "candidate": "R5 lattice | Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis0 | Gye cared pine ansarang v69 joinery tone 0",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis0 | Gye cared pine ansarang v69 joinery tone 1",
+      "candidate": "R5 lattice | Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis0 | Gye cared pine ansarang v69 joinery tone 1",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis0 | Gye cared pine ansarang v69 joinery tone 3",
+      "candidate": "R5 lattice | Selected timber v2 | ansarang | P18B courtyard colours.wood_joinery.P18 image.ansarang.wood.P15 wood ansarang joinery axis0 | Gye cared pine ansarang v69 joinery tone 3",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS mineral bedding r1 | ansarang | thin-finial-mortar | Selected timber v2 | ansarang | P18 image.ansarang.plaster.P15 plaster ansarang board axis1 | Gye cared limewash v52",
+      "candidate": "R5 stone | HS mineral bedding r1 | ansarang | thin-finial-mortar | Selected timber v2 | ansarang | P18 image.ansarang.plaster.P15 plaster ansarang board axis1 | Gye cared limewash v52",
+      "role": "stone",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Ansarang retained V33 ansarang source ceramic 4",
+      "candidate": "R5 tile | Ansarang retained V33 ansarang source ceramic 4",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated clay v1 4",
+      "candidate": "R5 tile | Selected timber v2 | ansarang | Illustrated clay v1 4",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18 image.ansarang.tile.P15 tile ansarang board axis1 | Gye cared charcoal clay v52",
+      "candidate": "R5 tile | Selected timber v2 | ansarang | P18 image.ansarang.tile.P15 tile ansarang board axis1 | Gye cared charcoal clay v52",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Ansarang retained V33 ansarang source ceramic 2",
+      "candidate": "R5 tile | Ansarang retained V33 ansarang source ceramic 2",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated clay v1 2",
+      "candidate": "R5 tile | Selected timber v2 | ansarang | Illustrated clay v1 2",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Ansarang retained V33 ansarang source ceramic 0",
+      "candidate": "R5 tile | Ansarang retained V33 ansarang source ceramic 0",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated clay v1 0",
+      "candidate": "R5 tile | Selected timber v2 | ansarang | Illustrated clay v1 0",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Ansarang retained V33 ansarang source ceramic 1",
+      "candidate": "R5 tile | Ansarang retained V33 ansarang source ceramic 1",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated clay v1 1",
+      "candidate": "R5 tile | Selected timber v2 | ansarang | Illustrated clay v1 1",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Ansarang retained V33 ansarang source ceramic 3",
+      "candidate": "R5 tile | Ansarang retained V33 ansarang source ceramic 3",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated clay v1 3",
+      "candidate": "R5 tile | Selected timber v2 | ansarang | Illustrated clay v1 3",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Ansarang retained V33 ansarang source ceramic 5",
+      "candidate": "R5 tile | Ansarang retained V33 ansarang source ceramic 5",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Illustrated clay v1 5",
+      "candidate": "R5 tile | Selected timber v2 | ansarang | Illustrated clay v1 5",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood_end.Ansarang retained Craft rafter end grain",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood_end.Ansarang retained Craft rafter end grain",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang beam axis1 | Gye cared pine ansarang v69 frame tone 0",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang beam axis1 | Gye cared pine ansarang v69 frame tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang beam axis1 | Gye cared pine ansarang v69 frame tone 4",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | P18B courtyard colours.wood_frame.P18 image.ansarang.wood.P15 wood ansarang beam axis1 | Gye cared pine ansarang v69 frame tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | ansarang | Gye cared pine ansarang v56 frame tone 3",
+      "candidate": "R5 wood | Selected timber v2 | ansarang | Gye cared pine ansarang v56 frame tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye cared member grain v52"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    }
+  ],
+  "views": {
+    "hero": {
+      "position": [
+        40.95812225341797,
+        -33.48127746582031,
+        16.023197174072266
+      ],
+      "target": [
+        24.230060577392578,
+        -9.783188819885254,
+        2.780148983001709
+      ],
+      "ortho": 16.24683878580729,
+      "resolution": [
+        1100,
+        825
+      ]
+    },
+    "detail": {
+      "position": [
+        27.296871185302734,
+        -42.96051025390625,
+        3.8133907318115234
+      ],
+      "target": [
+        24.230060577392578,
+        -15.080408096313477,
+        2.140584707260132
+      ],
+      "ortho": 4.460816268920898,
+      "resolution": [
+        1100,
+        825
+      ]
+    }
+  },
+  "bounds": {
+    "bounds": [
+      [
+        20.37263298034668,
+        -16.75321388244629,
+        0.11529779434204102
+      ],
+      [
+        28.087488174438477,
+        -2.8131630420684814,
+        5.445000171661377
+      ]
+    ],
+    "span": 13.940050840377808
+  },
+  "sourceSpecificPalettes": true,
+  "newUVs": 0,
+  "newMeshes": 0,
+  "objectAttachedUVlessProjection": true,
+  "sceneLightBaked": false,
+  "lightingUnchangedAfterReopen": true,
+  "canonicalPromoted": false,
+  "glbConverted": false,
+  "appIntegrated": false,
+  "producerFiles": {
+    "restyle_building.py": "cefa711d1f3f70f389a53c241e13cb11a5062faf86aa135de39d21fb4dd6af05",
+    "material_rules.py": "71b4126f57eec61de897090e1b465d197e9f784ad68116c0a26e2c9201b67d31"
+  }
+}

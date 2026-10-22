@@ -1,0 +1,307 @@
+{
+  "key": "sadangmun",
+  "name": "사당문",
+  "version": "building-r5-2",
+  "sourceNative": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\shrine-new.blend",
+  "sourceSha256": "d0424a1c0e5d8032a7dbb68fa2cad308655d0e9e36b9502bd648d46899d73f20",
+  "candidateNative": "sadangmun-r5-brush-candidate.blend",
+  "candidateSha256": "631767b183d2ef7802303b0ddb29fae78b38e8a91ea0c2ad957483098fbb551b",
+  "passed": true,
+  "reopened": true,
+  "meshCount": 445,
+  "geometryUVsTransformsModifiersEqual": true,
+  "attributesStagesPropertiesEqual": true,
+  "sourceMaterialGraphsEqual": true,
+  "sourceImageBytesEqual": true,
+  "originalPlaquesAndAnonymousPatternsUnchanged": {},
+  "roles": {
+    "stone": 3,
+    "paint": 115,
+    "metal": 28,
+    "earth": 3,
+    "tile": 284,
+    "plaster": 12
+  },
+  "materials": [
+    {
+      "source": "Fresh | stone",
+      "candidate": "R5 stone | Fresh | stone",
+      "role": "stone",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Fresh | stone",
+      "candidate": "R5 stone | Fresh | stone.001",
+      "role": "stone",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Fresh | red",
+      "candidate": "R5 paint | Fresh | red",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Fresh | red",
+      "candidate": "R5 paint | Fresh | red.001",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Fresh | green",
+      "candidate": "R5 paint | Fresh | green",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Fresh | red",
+      "candidate": "R5 paint | Fresh | red.002",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        0,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Fresh | iron",
+      "candidate": "R5 metal | Fresh | iron",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        2,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Fresh | iron",
+      "candidate": "R5 metal | Fresh | iron.001",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        0,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Fresh | red disk paint",
+      "candidate": "R5 paint | Fresh | red disk paint",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        0,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Fresh | blue",
+      "candidate": "R5 paint | Fresh | blue",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        0,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Fresh | earth",
+      "candidate": "R5 earth | Fresh | earth",
+      "role": "earth",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Fresh | eave bedding",
+      "candidate": "R5 earth | Fresh | eave bedding",
+      "role": "earth",
+      "mapping": [
+        "OBJECT",
+        0,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Fresh | clay",
+      "candidate": "R5 tile | Fresh | clay",
+      "role": "tile",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Fresh | clay",
+      "candidate": "R5 tile | Fresh | clay.001",
+      "role": "tile",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Fresh | clay",
+      "candidate": "R5 tile | Fresh | clay.002",
+      "role": "tile",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Fresh | clay",
+      "candidate": "R5 tile | Fresh | clay.003",
+      "role": "tile",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Fresh | clay",
+      "candidate": "R5 tile | Fresh | clay.004",
+      "role": "tile",
+      "mapping": [
+        "OBJECT",
+        0,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Fresh | plaster",
+      "candidate": "R5 plaster | Fresh | plaster",
+      "role": "plaster",
+      "mapping": [
+        "OBJECT",
+        0,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    }
+  ],
+  "views": {
+    "hero": {
+      "position": [
+        5.539933204650879,
+        -7.848238945007324,
+        5.921596527099609
+      ],
+      "target": [
+        5.960464477539063e-08,
+        0.0,
+        1.5358161926269531
+      ],
+      "ortho": 5.466747283935548,
+      "resolution": [
+        1100,
+        825
+      ]
+    },
+    "detail": {
+      "position": [
+        1.0156545639038086,
+        -9.97042179107666,
+        1.7204804420471191
+      ],
+      "target": [
+        5.960464477539063e-08,
+        -0.7372000217437744,
+        1.166487216949463
+      ],
+      "ortho": 3,
+      "resolution": [
+        1100,
+        825
+      ]
+    }
+  },
+  "bounds": {
+    "bounds": [
+      [
+        -1.284999966621399,
+        -0.9700000286102295,
+        -0.0030542314052581787
+      ],
+      [
+        1.2850000858306885,
+        0.9700000286102295,
+        3.0746865272521973
+      ]
+    ],
+    "span": 4.616611137986183
+  },
+  "sourceSpecificPalettes": true,
+  "newUVs": 0,
+  "newMeshes": 0,
+  "objectAttachedUVlessProjection": true,
+  "sceneLightBaked": false,
+  "lightingUnchangedAfterReopen": true,
+  "canonicalPromoted": false,
+  "glbConverted": false,
+  "appIntegrated": false,
+  "producerFiles": {
+    "restyle_building.py": "cefa711d1f3f70f389a53c241e13cb11a5062faf86aa135de39d21fb4dd6af05",
+    "material_rules.py": "71b4126f57eec61de897090e1b465d197e9f784ad68116c0a26e2c9201b67d31"
+  }
+}

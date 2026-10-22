@@ -1,0 +1,59 @@
+[
+  {
+    "name": "Craft.Sarang broad apron boards",
+    "min": [
+      0.11999999731779099,
+      0.05249999836087227,
+      1.1200000047683716
+    ],
+    "max": [
+      10.449999809265137,
+      0.13750000298023224,
+      1.3869999647140503
+    ],
+    "material": [
+      "HANDPAINT r2 wood | Selected timber v2 | sarang | Gye cared pine sarang v56 boards tone 2.002",
+      "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2",
+      "HANDPAINT r2 wood | Selected timber v2 | sarang | Gye cared pine sarang v69 boards tone 1",
+      "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 3"
+    ]
+  },
+  {
+    "name": "Craft.Sarang broad apron boards.001",
+    "min": [
+      0.11999999731779099,
+      0.05249999836087227,
+      1.3930000066757202
+    ],
+    "max": [
+      10.449999809265137,
+      0.13750000298023224,
+      1.659999966621399
+    ],
+    "material": [
+      "HANDPAINT r2 wood | Selected timber v2 | sarang | Gye cared pine sarang v56 boards tone 1.001",
+      "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2",
+      "HANDPAINT r2 wood | Selected timber v2 | sarang | Gye cared pine sarang v69 boards tone 1"
+    ]
+  },
+  {
+    "name": "Craft.Sarang broad apron boards.002",
+    "min": [
+      0.11999999731779099,
+      0.05249999836087227,
+      1.6660000085830688
+    ],
+    "max": [
+      10.449999809265137,
+      0.13750000298023224,
+      1.9329999685287476
+    ],
+    "material": [
+      "HANDPAINT r2 wood | Selected timber v2 | sarang | Gye cared pine sarang v56 boards tone 4.001",
+      "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1",
+      "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 3",
+      "HANDPAINT r2 wood | Selected timber v2 | sarang | Gye cared pine sarang v69 boards tone 0",
+      "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 4"
+    ]
+  }
+]

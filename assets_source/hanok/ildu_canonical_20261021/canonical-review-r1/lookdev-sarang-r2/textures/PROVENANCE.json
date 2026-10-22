@@ -1,0 +1,25 @@
+{
+  "tool": "built-in imagegen",
+  "purpose": "generated painterly material textures, not architectural image replacements",
+  "promptFile": "../PROMPTS.md",
+  "files": [
+    {
+      "file": "textures/handpainted-pine-r1.png",
+      "pixels": [
+        1254,
+        1254
+      ],
+      "sha256": "bf10d56730b12b4e06e5c1fb50c532f04f8d9af2e4bd0c7f59e5e0de12a31728",
+      "generatedOriginal": "exec-bfe48a4e-f05d-464f-baf9-d92631404b48.png"
+    },
+    {
+      "file": "textures/handpainted-mineral-paper-atlas-r1.png",
+      "pixels": [
+        1254,
+        1254
+      ],
+      "sha256": "4407f687172a08eacae9cd21301e9ea1662fc20ba629a607ce1c5ddcedee057f",
+      "generatedOriginal": "exec-8a391cd5-20f9-404e-972f-1249e7e32057.png"
+    }
+  ]
+}

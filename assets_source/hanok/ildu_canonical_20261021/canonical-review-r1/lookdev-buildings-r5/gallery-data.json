@@ -1,0 +1,382 @@
+{
+  "buildings": [
+    {
+      "key": "sarang",
+      "name": "사랑채 · 연결형 · 승인 기준",
+      "count": 711,
+      "native": "../lookdev-sarang-r5/sarang-three-value-brush-candidate.blend",
+      "verification": "../lookdev-sarang-r5/verification.json",
+      "note": "사용자가 승인한 사랑채 R5 표현입니다. 다른 건물은 이 붓결의 원리를 각 원본 재료색에 맞춰 적용했습니다.",
+      "views": {
+        "hero": {
+          "label": "전체",
+          "before": "../lookdev-sarang-r5/before-hero.png?v=9e13d16e624d",
+          "after": "../lookdev-sarang-r5/after-hero.png?v=a91c4aa7fb5b",
+          "ratio": "4/3"
+        },
+        "detail": {
+          "label": "누마루 가까이",
+          "before": "../lookdev-sarang-r5/before-numaru.png?v=de266d5315e0",
+          "after": "../lookdev-sarang-r5/after-numaru.png?v=dfa6f8a3b6bf",
+          "ratio": "22/19"
+        }
+      }
+    },
+    {
+      "key": "ansarang",
+      "name": "안사랑채",
+      "count": 385,
+      "native": "ansarang/ansarang-r5-brush-candidate.blend",
+      "verification": "ansarang/verification.json",
+      "note": "안사랑채의 기존 목재색을 기준으로 넓은 면과 긴 붓결을 나누고, 촘촘한 창살은 더 낮은 강도로 다듬었습니다.",
+      "views": {
+        "hero": {
+          "label": "전체",
+          "before": "ansarang/before-hero.png?v=5d90da46415b",
+          "after": "ansarang/after-hero.png?v=8cf2532e86c3",
+          "ratio": "4/3"
+        },
+        "detail": {
+          "label": "재료 가까이",
+          "before": "ansarang/before-detail.png?v=48661428c4ab",
+          "after": "ansarang/after-detail.png?v=cce424527652",
+          "ratio": "4/3"
+        }
+      }
+    },
+    {
+      "key": "anchae",
+      "name": "안채",
+      "count": 882,
+      "native": "anchae/anchae-r5-brush-candidate.blend",
+      "verification": "anchae/verification.json",
+      "note": "안채의 격자·창호지·회벽을 구분하고, 원본 목재색 안에서 칠의 겹침이 보이게 했습니다.",
+      "views": {
+        "hero": {
+          "label": "전체",
+          "before": "anchae/before-hero.png?v=a00184065d60",
+          "after": "anchae/after-hero.png?v=28db525f74dd",
+          "ratio": "4/3"
+        },
+        "detail": {
+          "label": "재료 가까이",
+          "before": "anchae/before-detail.png?v=b42958eff1d8",
+          "after": "anchae/after-detail.png?v=4baf475a25b4",
+          "ratio": "4/3"
+        }
+      }
+    },
+    {
+      "key": "sadang",
+      "name": "사당",
+      "count": 229,
+      "native": "sadang/sadang-r5-brush-candidate.blend",
+      "verification": "sadang/verification.json",
+      "note": "사당의 붉은 칠과 녹색 부재, 단청 문양을 살렸습니다. 채색 부재에는 얇은 붓질만 더했습니다.",
+      "views": {
+        "hero": {
+          "label": "전체",
+          "before": "sadang/before-hero.png?v=5c0da25d3100",
+          "after": "sadang/after-hero.png?v=c785658dac68",
+          "ratio": "4/3"
+        },
+        "detail": {
+          "label": "재료 가까이",
+          "before": "sadang/before-detail.png?v=d2158f91cff2",
+          "after": "sadang/after-detail.png?v=1431fa7c0dd3",
+          "ratio": "4/3"
+        }
+      }
+    },
+    {
+      "key": "jung",
+      "name": "중문간채 · 연결형",
+      "count": 244,
+      "native": "jung/jung-r5-brush-candidate.blend",
+      "verification": "jung/verification.json",
+      "note": "중문간채의 출입 목재와 긴 구조재에 결을 따르는 붓결을, 회벽에는 조용한 칠의 겹침을 적용했습니다.",
+      "views": {
+        "hero": {
+          "label": "전체",
+          "before": "jung/before-hero.png?v=ee869a3487a1",
+          "after": "jung/after-hero.png?v=47f8f9927bc3",
+          "ratio": "4/3"
+        },
+        "detail": {
+          "label": "재료 가까이",
+          "before": "jung/before-detail.png?v=ff287a807d08",
+          "after": "jung/after-detail.png?v=2f3243643ec1",
+          "ratio": "4/3"
+        }
+      }
+    },
+    {
+      "key": "arae",
+      "name": "아랫채",
+      "count": 259,
+      "native": "arae/arae-r5-brush-candidate.blend",
+      "verification": "arae/verification.json",
+      "note": "아랫채의 목재·회벽·창호를 나누어 손질하고, 기존 재료색과 화덕의 어두운 표현을 보존했습니다.",
+      "views": {
+        "hero": {
+          "label": "전체",
+          "before": "arae/before-hero.png?v=b1a4fc4208da",
+          "after": "arae/after-hero.png?v=0a5eb285425b",
+          "ratio": "4/3"
+        },
+        "detail": {
+          "label": "재료 가까이",
+          "before": "arae/before-detail.png?v=d7e395d68ea8",
+          "after": "arae/after-detail.png?v=5579852a30fd",
+          "ratio": "4/3"
+        }
+      }
+    },
+    {
+      "key": "gokgan",
+      "name": "곳간채",
+      "count": 75,
+      "native": "gokgan/gokgan-r5-brush-candidate.blend",
+      "verification": "gokgan/verification.json",
+      "note": "곳간채의 넓은 판재에는 색면의 강약을 두고, 창살과 쇠장식은 작은 크기에 맞춰 강도를 낮췄습니다.",
+      "views": {
+        "hero": {
+          "label": "전체",
+          "before": "gokgan/before-hero.png?v=ad2dfa7a364a",
+          "after": "gokgan/after-hero.png?v=fde161c3f8a6",
+          "ratio": "4/3"
+        },
+        "detail": {
+          "label": "재료 가까이",
+          "before": "gokgan/before-detail.png?v=c878b0a7af89",
+          "after": "gokgan/after-detail.png?v=0b234a6a5e6a",
+          "ratio": "4/3"
+        }
+      }
+    },
+    {
+      "key": "angotgan",
+      "name": "안채곳간채",
+      "count": 108,
+      "native": "angotgan/angotgan-r5-brush-candidate.blend",
+      "verification": "angotgan/verification.json",
+      "note": "안채곳간채의 판재·기둥·회벽을 재료별로 나누고, 원본 색을 기준으로 결을 따라 붓질을 더했습니다.",
+      "views": {
+        "hero": {
+          "label": "전체",
+          "before": "angotgan/before-hero.png?v=bd9a5badbac4",
+          "after": "angotgan/after-hero.png?v=145df1394f44",
+          "ratio": "4/3"
+        },
+        "detail": {
+          "label": "재료 가까이",
+          "before": "angotgan/before-detail.png?v=b6faeb2398ac",
+          "after": "angotgan/after-detail.png?v=4b9886522269",
+          "ratio": "4/3"
+        }
+      }
+    },
+    {
+      "key": "changgo",
+      "name": "창고",
+      "count": 209,
+      "native": "changgo/changgo-r5-brush-candidate.blend",
+      "verification": "changgo/verification.json",
+      "note": "창고의 넓은 목재 면에는 긴 붓질을, 돌과 기와에는 더 끊긴 붓질을 사용했습니다.",
+      "views": {
+        "hero": {
+          "label": "전체",
+          "before": "changgo/before-hero.png?v=7f6c9a5b87de",
+          "after": "changgo/after-hero.png?v=0ec69c834cd2",
+          "ratio": "4/3"
+        },
+        "detail": {
+          "label": "재료 가까이",
+          "before": "changgo/before-detail.png?v=3ca0eb19c05c",
+          "after": "changgo/after-detail.png?v=44baf1b74d60",
+          "ratio": "4/3"
+        }
+      }
+    },
+    {
+      "key": "toilet",
+      "name": "북측 측간",
+      "count": 83,
+      "native": "toilet/toilet-r5-brush-candidate.blend",
+      "verification": "toilet/verification.json",
+      "note": "북측 측간의 목재와 흙벽을 분리하고, 과한 장식 없이 각 재료의 질감을 조율했습니다.",
+      "views": {
+        "hero": {
+          "label": "전체",
+          "before": "toilet/before-hero.png?v=2676b94a1a80",
+          "after": "toilet/after-hero.png?v=3a606d178a41",
+          "ratio": "4/3"
+        },
+        "detail": {
+          "label": "재료 가까이",
+          "before": "toilet/before-detail.png?v=f55c8179fe66",
+          "after": "toilet/after-detail.png?v=5e7555fcb30a",
+          "ratio": "4/3"
+        }
+      }
+    },
+    {
+      "key": "toilet1",
+      "name": "남측 측간",
+      "count": 83,
+      "native": "toilet1/toilet1-r5-brush-candidate.blend",
+      "verification": "toilet1/verification.json",
+      "note": "남측 측간의 목재·흙벽·기단석을 각각 다르게 처리했습니다. 잘 관리된 소박한 재료감을 목표로 했습니다.",
+      "views": {
+        "hero": {
+          "label": "전체",
+          "before": "toilet1/before-hero.png?v=d92e53df05d3",
+          "after": "toilet1/after-hero.png?v=e2537ac6ef5a",
+          "ratio": "4/3"
+        },
+        "detail": {
+          "label": "재료 가까이",
+          "before": "toilet1/before-detail.png?v=0f3719508a7f",
+          "after": "toilet1/after-detail.png?v=fd76ffe29de8",
+          "ratio": "4/3"
+        }
+      }
+    },
+    {
+      "key": "main_gate",
+      "name": "대문",
+      "count": 184,
+      "native": "main_gate/main_gate-r5-brush-candidate.blend",
+      "verification": "main_gate/verification.json",
+      "note": "대문의 부재색을 지키며 목재·기와·돌을 다듬었습니다. 현판과 원본 장식의 표현을 보존했습니다.",
+      "views": {
+        "hero": {
+          "label": "전체",
+          "before": "main_gate/before-hero.png?v=7574a1b02409",
+          "after": "main_gate/after-hero.png?v=dbb49b379b60",
+          "ratio": "4/3"
+        },
+        "detail": {
+          "label": "재료 가까이",
+          "before": "main_gate/before-detail.png?v=8ea9b25af90f",
+          "after": "main_gate/after-detail.png?v=44e0a2fab8c6",
+          "ratio": "4/3"
+        }
+      }
+    },
+    {
+      "key": "left_changgo",
+      "name": "사랑채 왼쪽 협문",
+      "count": 680,
+      "native": "left_changgo/left_changgo-r5-brush-candidate.blend",
+      "verification": "left_changgo/verification.json",
+      "note": "새로 만든 왼쪽 협문의 부재와 받침돌을 보존했습니다. 문과 목재의 좌표에 고정된 붓결을 적용했습니다.",
+      "views": {
+        "hero": {
+          "label": "전체",
+          "before": "left_changgo/before-hero.png?v=51dac9359a9a",
+          "after": "left_changgo/after-hero.png?v=cc6089c5387d",
+          "ratio": "4/3"
+        },
+        "detail": {
+          "label": "재료 가까이",
+          "before": "left_changgo/before-detail.png?v=acbb86a47dfb",
+          "after": "left_changgo/after-detail.png?v=9565118e0a4d",
+          "ratio": "4/3"
+        }
+      }
+    },
+    {
+      "key": "right_ansarang",
+      "name": "안채 연결 협문",
+      "count": 530,
+      "native": "right_ansarang/right_ansarang-r5-brush-candidate.blend",
+      "verification": "right_ansarang/verification.json",
+      "note": "새로 만든 안채 연결 협문의 목재·기와·계단석을 각각 다듬었습니다. 문을 움직여도 새 붓결이 부재에 붙도록 했습니다.",
+      "views": {
+        "hero": {
+          "label": "전체",
+          "before": "right_ansarang/before-hero.png?v=f8dc55067453",
+          "after": "right_ansarang/after-hero.png?v=903c1ce95f3d",
+          "ratio": "4/3"
+        },
+        "detail": {
+          "label": "재료 가까이",
+          "before": "right_ansarang/before-detail.png?v=d6e6c6ea0c76",
+          "after": "right_ansarang/after-detail.png?v=7d3434f29376",
+          "ratio": "4/3"
+        }
+      }
+    },
+    {
+      "key": "sadangmun",
+      "name": "사당문",
+      "count": 445,
+      "native": "sadangmun/sadangmun-r5-brush-candidate.blend",
+      "verification": "sadangmun/verification.json",
+      "note": "사당문의 승인된 붉은 칠·녹색·태극 색을 유지했습니다. 채색 위에 옅은 붓질과 무광 재료 반응을 더했습니다.",
+      "views": {
+        "hero": {
+          "label": "전체",
+          "before": "sadangmun/before-hero.png?v=e017077a5115",
+          "after": "sadangmun/after-hero.png?v=18bbca2d283e",
+          "ratio": "4/3"
+        },
+        "detail": {
+          "label": "재료 가까이",
+          "before": "sadangmun/before-detail.png?v=0c87512d5162",
+          "after": "sadangmun/after-detail.png?v=2ad2b8a7ab0a",
+          "ratio": "4/3"
+        }
+      }
+    },
+    {
+      "key": "sarang-standalone",
+      "name": "사랑채 · 독립형",
+      "count": 830,
+      "native": "../lookdev-standalone-r5/sarang-standalone/sarang-standalone-r5-brush-candidate.blend",
+      "verification": "../lookdev-standalone-r5/sarang-standalone/verification.json",
+      "note": "기존의 온전한 지붕을 가진 독립형입니다. 연결형 R5의 재질을 대응 부재와 지붕 부재에 직접 옮겼습니다.",
+      "views": {
+        "hero": {
+          "label": "전체",
+          "before": "../lookdev-standalone-r5/sarang-standalone/before-hero.png?v=dcdf0a1203fd",
+          "after": "../lookdev-standalone-r5/sarang-standalone/after-hero.png?v=8ea9155eff36",
+          "ratio": "4/3"
+        },
+        "detail": {
+          "label": "재료 가까이",
+          "before": "../lookdev-standalone-r5/sarang-standalone/before-detail.png?v=004f51757453",
+          "after": "../lookdev-standalone-r5/sarang-standalone/after-detail.png?v=e21741375b79",
+          "ratio": "22/19"
+        }
+      }
+    },
+    {
+      "key": "jung-standalone",
+      "name": "중문간채 · 독립형",
+      "count": 605,
+      "native": "../lookdev-standalone-r5/jung-standalone/jung-standalone-r5-brush-candidate.blend",
+      "verification": "../lookdev-standalone-r5/jung-standalone/verification.json",
+      "note": "기존의 온전한 지붕을 가진 독립형입니다. 연결형 R5의 재질을 대응 부재와 지붕 부재에 직접 옮겼습니다.",
+      "views": {
+        "hero": {
+          "label": "전체",
+          "before": "../lookdev-standalone-r5/jung-standalone/before-hero.png?v=69153adb906f",
+          "after": "../lookdev-standalone-r5/jung-standalone/after-hero.png?v=8f14fe8c54e1",
+          "ratio": "4/3"
+        },
+        "detail": {
+          "label": "재료 가까이",
+          "before": "../lookdev-standalone-r5/jung-standalone/before-detail.png?v=e9a9666b63fe",
+          "after": "../lookdev-standalone-r5/jung-standalone/after-detail.png?v=80baf1be311f",
+          "ratio": "4/3"
+        }
+      }
+    }
+  ],
+  "complete": true,
+  "referenceApproved": true,
+  "canonicalMaterialBundle": true,
+  "promotion": "../MATERIAL_CANONICAL_PROMOTION_R5.json"
+}

@@ -1,0 +1,2112 @@
+{
+  "key": "sadang",
+  "name": "사당",
+  "version": "building-r5-2",
+  "sourceNative": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\estate-yard-wall-r1\\ildu-estate-yard-wall-r1.blend",
+  "sourceSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+  "candidateNative": "sadang-r5-brush-candidate.blend",
+  "candidateSha256": "9ad767f0bf08e60cd41a50cf2f77470c334c7fde3f0f78c8b508cc1678774006",
+  "passed": true,
+  "reopened": true,
+  "meshCount": 229,
+  "geometryUVsTransformsModifiersEqual": true,
+  "attributesStagesPropertiesEqual": true,
+  "sourceMaterialGraphsEqual": true,
+  "sourceImageBytesEqual": true,
+  "originalPlaquesAndAnonymousPatternsUnchanged": {},
+  "roles": {
+    "stone": 16,
+    "paint": 107,
+    "wood": 23,
+    "endgrain": 10,
+    "earth": 1,
+    "lattice": 6,
+    "tile": 62,
+    "plaster": 8,
+    "paper": 4,
+    "metal": 9,
+    "wax": 1,
+    "fibre": 3
+  },
+  "materials": [
+    {
+      "source": "HS stone balanced r3 | HS mineral response r2 | HS fieldstone r1 | Selected timber v2 | sadang | P15 stone sadang board axis1 | Gye cared warm fieldstone v52",
+      "candidate": "R5 stone | HS stone balanced r3 | HS mineral response r2 | HS fieldstone r1 | Selected timber v2 | sadang | P15 stone sadang board axis1 | Gye cared warm fieldstone v52",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "North aged blue green",
+      "candidate": "R5 paint | North aged blue green",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Painted timber metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.dancheong carved bracket.lower seating block | 1",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.dancheong carved bracket.lower seating block | 1",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Painted timber metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.dancheong carved bracket.upper bearing | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.dancheong carved bracket.upper bearing | 1",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Painted timber metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.dancheong floral panel | 0",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.dancheong floral panel | 0",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Shrine frieze pigment"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.dancheong flower petal | 0",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.dancheong flower petal | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.dancheong painted beam | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.dancheong painted beam | 1",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Painted timber metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "North weathered vermilion",
+      "candidate": "R5 paint | North weathered vermilion",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.dancheong red flower eye | 1",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.dancheong red flower eye | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "North aged blue green",
+      "candidate": "R5 paint | North aged blue green.001",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.double eave square buyeon | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.double eave square buyeon | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | sadang | Canonical gate floor pigment.002",
+      "candidate": "R5 wood | Selected timber v2 | sadang | Canonical gate floor pigment.002",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | sadang | Illustrated pine longgrain v1.001",
+      "candidate": "R5 wood | Selected timber v2 | sadang | Illustrated pine longgrain v1.001",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | sadang | Illustrated pine endgrain v1.001",
+      "candidate": "R5 endgrain | Selected timber v2 | sadang | Illustrated pine endgrain v1.001",
+      "role": "endgrain",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | sadang | wood_floor | Selected timber v2 | sadang | P15 wood sadang floor axis1 | Reference sadang floor",
+      "candidate": "R5 wood | HS heritage | sadang | wood_floor | Selected timber v2 | sadang | P15 wood sadang floor axis1 | Reference sadang floor",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | sadang | North anchae wood",
+      "candidate": "R5 wood | Selected timber v2 | sadang | North anchae wood",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | sadang | North sadang stone",
+      "candidate": "R5 stone | Selected timber v2 | sadang | North sadang stone",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | sadang | Illustrated granite v1 0",
+      "candidate": "R5 stone | Selected timber v2 | sadang | Illustrated granite v1 0",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS foundation earth r1 | sadang | North tamped earth",
+      "candidate": "R5 earth | HS foundation earth r1 | sadang | North tamped earth",
+      "role": "earth",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | sadang | P15 stone sadang board axis1 | Gye cared warm fieldstone v52",
+      "candidate": "R5 stone | Selected timber v2 | sadang | P15 stone sadang board axis1 | Gye cared warm fieldstone v52",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | sadang | North sadang beam",
+      "candidate": "R5 wood | Selected timber v2 | sadang | North sadang beam",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.frame longitudinal beam | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.frame longitudinal beam | 1",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | sadang | Illustrated pine longgrain v1",
+      "candidate": "R5 wood | Selected timber v2 | sadang | Illustrated pine longgrain v1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | sadang | Illustrated pine endgrain v1",
+      "candidate": "R5 endgrain | Selected timber v2 | sadang | Illustrated pine endgrain v1",
+      "role": "endgrain",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | sadang | North sadang wood",
+      "candidate": "R5 wood | Selected timber v2 | sadang | North sadang wood",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | sadang | P15 wood sadang board axis1 | Reference sadang wood",
+      "candidate": "R5 wood | Selected timber v2 | sadang | P15 wood sadang board axis1 | Reference sadang wood",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Sep29 sadang North sadang post",
+      "candidate": "R5 wood | Sep29 sadang North sadang post",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "Selected timber v2 | sadang | Illustrated mineral paint red v1",
+      "candidate": "R5 paint | Selected timber v2 | sadang | Illustrated mineral paint red v1",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Painted timber metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Illustrated pine longgrain v1",
+      "candidate": "R5 wood | Illustrated pine longgrain v1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "Illustrated pine endgrain v1",
+      "candidate": "R5 endgrain | Illustrated pine endgrain v1",
+      "role": "endgrain",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.frame round red column | 4",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.frame round red column | 4",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Painted timber metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Illustrated pine endgrain v1",
+      "candidate": "R5 endgrain | Illustrated pine endgrain v1.001",
+      "role": "endgrain",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.frame square post | 4",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.frame square post | 4",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Painted timber metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.frame transverse beam | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.frame transverse beam | 1",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.joinery.bracket painted cream contour | 0",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.joinery.bracket painted cream contour | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.joinery.bracket painted ochre hairline | 0",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.joinery.bracket painted ochre hairline | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.joinery.bracket painted vermilion contour | 1",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.joinery.bracket painted vermilion contour | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | sadang | wood_frame | Selected timber v2 | sadang | P15 wood sadang board axis1 | Canonical gate wood pigment.001",
+      "candidate": "R5 lattice | HS heritage | sadang | wood_frame | Selected timber v2 | sadang | P15 wood sadang board axis1 | Canonical gate wood pigment.001",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Painted timber metres"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | sadang | wood_floor | Selected timber v2 | sadang | P15 wood sadang board axis1 | Canonical gate wood pigment.004",
+      "candidate": "R5 lattice | HS heritage | sadang | wood_floor | Selected timber v2 | sadang | P15 wood sadang board axis1 | Canonical gate wood pigment.004",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Painted timber metres"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS roof charcoal | sadang | Selected timber v2 | sadang | P15 tile sadang board axis1 | Gye cared charcoal clay v52",
+      "candidate": "R5 tile | HS roof charcoal | sadang | Selected timber v2 | sadang | P15 tile sadang board axis1 | Gye cared charcoal clay v52",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye cared ceramic metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "North aged blue green",
+      "candidate": "R5 paint | North aged blue green.002",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Shrine frieze pigment"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.joinery.sculpted bracket shoulder | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.joinery.sculpted bracket shoulder | 1",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Shrine frieze pigment"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.joinery.sculpted bracket shoulder | 2",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.joinery.sculpted bracket shoulder | 2",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Shrine frieze pigment"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS mineral bedding r1 | sadang | roof-bedding/backing | Selected timber v2 | sadang | P15 plaster sadang board axis1 | Gye cared limewash v52",
+      "candidate": "R5 stone | HS mineral bedding r1 | sadang | roof-bedding/backing | Selected timber v2 | sadang | P15 plaster sadang board axis1 | Gye cared limewash v52",
+      "role": "stone",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS white r2 | sadang | plaster | Selected timber v2 | sadang | P15 plaster sadang board axis0 | Gye cared limewash v52",
+      "candidate": "R5 plaster | HS white r2 | sadang | plaster | Selected timber v2 | sadang | P15 plaster sadang board axis0 | Gye cared limewash v52",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye cared lime metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "North anchae wood",
+      "candidate": "R5 wood | North anchae wood",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "preserved source colour signal; no guessed brown palette"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.measured porch donggwiteul | 3",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.measured porch donggwiteul | 3",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.measured porch janggwiteul | 3",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.measured porch janggwiteul | 3",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Craft timber metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.painted rafter end | 0",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.painted rafter end | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.photo beam fine painted border | 0",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.photo beam fine painted border | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.photo bracket ochre contour | 0",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.photo bracket ochre contour | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.photo canonical dancheong frieze | 0",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.photo canonical dancheong frieze | 0",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Shrine frieze pigment"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.photo carved wing bracket | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.photo carved wing bracket | 1",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Shrine frieze pigment"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.photo carved wing bracket | 2",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.photo carved wing bracket | 2",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Shrine frieze pigment"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.photo column lotus green outline | 0",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.photo column lotus green outline | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.photo column lotus ground | 0",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.photo column lotus ground | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.photo column lotus ochre eye | 0",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.photo column lotus ochre eye | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.photo column lotus petal | 1",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.photo column lotus petal | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.photo column painted collar | 0",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.photo column painted collar | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.photo column painted collar.001 | 0",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.photo column painted collar.001 | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.photo column painted collar.002 | 0",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.photo column painted collar.002 | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.photo column painted collar.003 | 1",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.photo column painted collar.003 | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.photo painted rafter collar | 0",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.photo painted rafter collar | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.photo painted rafter collar.001 | 0",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.photo painted rafter collar.001 | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.photo painted rafter collar.002 | 1",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.photo painted rafter collar.002 | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.photo painted rafter collar.003 | 0",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.photo painted rafter collar.003 | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.photo rafter rosette green outline | 0",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.photo rafter rosette green outline | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.photo rafter rosette ground | 0",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.photo rafter rosette ground | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.photo rafter rosette ochre eye | 0",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.photo rafter rosette ochre eye | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | North.sadang.photo rafter rosette petal | 1",
+      "candidate": "R5 paint | HS painted r1 | North.sadang.photo rafter rosette petal | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.photo side red beam | 4",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.photo side red beam | 4",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Painted timber metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | sadang | P15 plaster sadang board axis1 | Gye cared limewash v52",
+      "candidate": "R5 plaster | Selected timber v2 | sadang | P15 plaster sadang board axis1 | Gye cared limewash v52",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye cared lime metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS white r2 | sadang | plaster | Selected timber v2 | sadang | P15 plaster sadang board axis1 | Gye cared limewash v52",
+      "candidate": "R5 plaster | HS white r2 | sadang | plaster | Selected timber v2 | sadang | P15 plaster sadang board axis1 | Gye cared limewash v52",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye cared lime metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.roof.T45 W320 bargeboard | 0",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.roof.T45 W320 bargeboard | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.roof.eave binding | 0",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.roof.eave binding | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.roof.lower exposed rafters | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.roof.lower exposed rafters | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS white r2 | sadang | plaster | Selected timber v2 | sadang | P15 plaster sadang board axis2 | Gye cared limewash v52",
+      "candidate": "R5 plaster | HS white r2 | sadang | plaster | Selected timber v2 | sadang | P15 plaster sadang board axis2 | Gye cared limewash v52",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye cared lime metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS white r2 | sadang | paper | Selected timber v2 | sadang | P15 paper sadang joinery axis2 | North warm hanji",
+      "candidate": "R5 paper | HS white r2 | sadang | paper | Selected timber v2 | sadang | P15 paper sadang joinery axis2 | North warm hanji",
+      "role": "paper",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "North aged blue green",
+      "candidate": "R5 paint | North aged blue green.003",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | sadang | P15 stone sadang joinery axis2 | Gye cared warm fieldstone v52",
+      "candidate": "R5 stone | Selected timber v2 | sadang | P15 stone sadang joinery axis2 | Gye cared warm fieldstone v52",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye cared stone metres v52"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "P15 metal sadang joinery axis1 | North forged iron",
+      "candidate": "R5 metal | P15 metal sadang joinery axis1 | North forged iron",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 0.leaf1.lock rail | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 0.leaf1.lock rail | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "North aged blue green",
+      "candidate": "R5 paint | North aged blue green.004",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 0.leaf1.lower moulding.rail | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 0.leaf1.lower moulding.rail | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 0.leaf1.lower moulding.stile | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 0.leaf1.lower moulding.stile | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 0.leaf1.rail | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 0.leaf1.rail | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 0.leaf1.rear paper rail | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 0.leaf1.rear paper rail | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 0.leaf1.rebated bead.rail | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 0.leaf1.rebated bead.rail | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 0.leaf1.rebated bead.stile | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 0.leaf1.rebated bead.stile | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted panel r3 | North.sadang.survey sanctuary 0.leaf1.recessed lower board | 1",
+      "candidate": "R5 paint | HS painted panel r3 | North.sadang.survey sanctuary 0.leaf1.recessed lower board | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 0.leaf1.stile | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 0.leaf1.stile | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 0.leaf1.vertical sal | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 0.leaf1.vertical sal | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "North weathered vermilion",
+      "candidate": "R5 paint | North weathered vermilion.001",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Painted timber metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 0.measured head and sill | 2",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 0.measured head and sill | 2",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Painted timber metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 0.measured jamb | 2",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 0.measured jamb | 2",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Painted timber metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 1.leaf1.lock rail | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 1.leaf1.lock rail | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 1.leaf1.lower moulding.rail | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 1.leaf1.lower moulding.rail | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 1.leaf1.lower moulding.stile | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 1.leaf1.lower moulding.stile | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 1.leaf1.rail | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 1.leaf1.rail | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 1.leaf1.rear paper rail | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 1.leaf1.rear paper rail | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 1.leaf1.rebated bead.rail | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 1.leaf1.rebated bead.rail | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 1.leaf1.rebated bead.stile | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 1.leaf1.rebated bead.stile | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted panel r3 | North.sadang.survey sanctuary 1.leaf1.recessed lower board | 1",
+      "candidate": "R5 paint | HS painted panel r3 | North.sadang.survey sanctuary 1.leaf1.recessed lower board | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 1.leaf1.stile | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 1.leaf1.stile | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 1.leaf1.vertical sal | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 1.leaf1.vertical sal | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 1.leaf2.lock rail | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 1.leaf2.lock rail | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 1.leaf2.lower moulding.rail | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 1.leaf2.lower moulding.rail | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 1.leaf2.lower moulding.stile | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 1.leaf2.lower moulding.stile | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 1.leaf2.rail | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 1.leaf2.rail | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 1.leaf2.rear paper rail | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 1.leaf2.rear paper rail | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 1.leaf2.rebated bead.rail | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 1.leaf2.rebated bead.rail | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 1.leaf2.rebated bead.stile | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 1.leaf2.rebated bead.stile | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted panel r3 | North.sadang.survey sanctuary 1.leaf2.recessed lower board | 1",
+      "candidate": "R5 paint | HS painted panel r3 | North.sadang.survey sanctuary 1.leaf2.recessed lower board | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 1.leaf2.stile | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 1.leaf2.stile | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 1.leaf2.vertical sal | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 1.leaf2.vertical sal | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 1.measured head and sill | 2",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 1.measured head and sill | 2",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Painted timber metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 1.measured jamb | 2",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 1.measured jamb | 2",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Painted timber metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 2.leaf1.lock rail | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 2.leaf1.lock rail | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 2.leaf1.lower moulding.rail | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 2.leaf1.lower moulding.rail | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 2.leaf1.lower moulding.stile | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 2.leaf1.lower moulding.stile | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 2.leaf1.rail | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 2.leaf1.rail | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 2.leaf1.rear paper rail | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 2.leaf1.rear paper rail | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 2.leaf1.rebated bead.rail | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 2.leaf1.rebated bead.rail | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 2.leaf1.rebated bead.stile | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 2.leaf1.rebated bead.stile | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted panel r3 | North.sadang.survey sanctuary 2.leaf1.recessed lower board | 1",
+      "candidate": "R5 paint | HS painted panel r3 | North.sadang.survey sanctuary 2.leaf1.recessed lower board | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 2.leaf1.stile | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 2.leaf1.stile | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 2.leaf1.vertical sal | 1",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 2.leaf1.vertical sal | 1",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 2.measured head and sill | 2",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 2.measured head and sill | 2",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Painted timber metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | North.sadang.survey sanctuary 2.measured jamb | 2",
+      "candidate": "R5 paint | HS painted r2 | North.sadang.survey sanctuary 2.measured jamb | 2",
+      "role": "paint",
+      "mapping": [
+        "UV",
+        "Painted timber metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | sadang | wood_frame | Selected timber v2 | sadang | P15 wood sadang board axis1 | Sep29 altar Canonical gate wood pigment.007",
+      "candidate": "R5 wood | HS heritage | sadang | wood_frame | Selected timber v2 | sadang | P15 wood sadang board axis1 | Sep29 altar Canonical gate wood pigment.007",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | sadang | wood_frame | Selected timber v2 | sadang | P15 wood sadang board axis1 | Sep29 altar Canonical gate wood pigment.007",
+      "candidate": "R5 wood | HS heritage | sadang | wood_frame | Selected timber v2 | sadang | P15 wood sadang board axis1 | Sep29 altar Canonical gate wood pigment.001",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "P15 metal sadang board axis1 | Sep29 aged brass",
+      "candidate": "R5 metal | P15 metal sadang board axis1 | Sep29 aged brass",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "P15 metal sadang board axis0 | Sep29 aged brass",
+      "candidate": "R5 metal | P15 metal sadang board axis0 | Sep29 aged brass",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | sadang | P15 wood sadang board axis2 | Sep29 altar Canonical gate wood pigment.007",
+      "candidate": "R5 wood | Selected timber v2 | sadang | P15 wood sadang board axis2 | Sep29 altar Canonical gate wood pigment.007",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | sadang | wood_joinery | Selected timber v2 | sadang | P15 wood sadang joinery axis1 | Sep29 altar Canonical gate wood pigment.001",
+      "candidate": "R5 lattice | HS heritage | sadang | wood_joinery | Selected timber v2 | sadang | P15 wood sadang joinery axis1 | Sep29 altar Canonical gate wood pigment.001",
+      "role": "lattice",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS heritage | sadang | wood_frame | Selected timber v2 | sadang | P15 wood sadang joinery axis2 | Sep29 altar Canonical gate wood pigment.007",
+      "candidate": "R5 lattice | HS heritage | sadang | wood_frame | Selected timber v2 | sadang | P15 wood sadang joinery axis2 | Sep29 altar Canonical gate wood pigment.007",
+      "role": "lattice",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | sadang | wood_frame | Selected timber v2 | sadang | P15 wood sadang board axis2 | Sep29 altar Canonical gate wood pigment.007",
+      "candidate": "R5 wood | HS heritage | sadang | wood_frame | Selected timber v2 | sadang | P15 wood sadang board axis2 | Sep29 altar Canonical gate wood pigment.007",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        2,
+        1
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | sadang | wood_frame | Selected timber v2 | sadang | P15 wood sadang joinery axis1 | Sep29 altar Canonical gate wood pigment.007",
+      "candidate": "R5 lattice | HS heritage | sadang | wood_frame | Selected timber v2 | sadang | P15 wood sadang joinery axis1 | Sep29 altar Canonical gate wood pigment.007",
+      "role": "lattice",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "P15 metal sadang board axis1 | Sep29 aged brass",
+      "candidate": "R5 metal | P15 metal sadang board axis1 | Sep29 aged brass.001",
+      "role": "metal",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | Sep29.sadang.interior green rafter | 0",
+      "candidate": "R5 paint | HS painted r2 | Sep29.sadang.interior green rafter | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | sadang | wood_frame | Selected timber v2 | sadang | P15 wood sadang joinery axis1 | Sep29 sadang Canonical gate post pigment.002",
+      "candidate": "R5 lattice | HS heritage | sadang | wood_frame | Selected timber v2 | sadang | P15 wood sadang joinery axis1 | Sep29 sadang Canonical gate post pigment.002",
+      "role": "lattice",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Sep29 ivory candles",
+      "candidate": "R5 wax | Sep29 ivory candles",
+      "role": "wax",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | Sep29.sadang.lotus circular field | 0",
+      "candidate": "R5 paint | HS painted r1 | Sep29.sadang.lotus circular field | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | Sep29.sadang.lotus ochre centre | 0",
+      "candidate": "R5 paint | HS painted r1 | Sep29.sadang.lotus ochre centre | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | Sep29.sadang.lotus painted petal | 0",
+      "candidate": "R5 paint | HS painted r1 | Sep29.sadang.lotus painted petal | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | Sep29.sadang.lotus petal outline | 0",
+      "candidate": "R5 paint | HS painted r1 | Sep29.sadang.lotus petal outline | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Sep29 indigo mat binding",
+      "candidate": "R5 fibre | Sep29 indigo mat binding",
+      "role": "fibre",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Sep29 straw cross weave",
+      "candidate": "R5 fibre | Sep29 straw cross weave",
+      "role": "fibre",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS heritage | sadang | wood_frame | Selected timber v2 | sadang | P15 wood sadang board axis1 | Canonical gate wood pigment.007",
+      "candidate": "R5 wood | HS heritage | sadang | wood_frame | Selected timber v2 | sadang | P15 wood sadang board axis1 | Canonical gate wood pigment.007",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        2
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS heritage | sadang | wood_frame | Selected timber v2 | sadang | P15 wood sadang board axis1 | Canonical gate wood pigment.007",
+      "candidate": "R5 wood | HS heritage | sadang | wood_frame | Selected timber v2 | sadang | P15 wood sadang board axis1 | Canonical gate wood pigment.001",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | sadang | P15 wood sadang board axis1 | Canonical gate wood pigment.007",
+      "candidate": "R5 wood | Selected timber v2 | sadang | P15 wood sadang board axis1 | Canonical gate wood pigment.007",
+      "role": "wood",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS painted r1 | Sep29.sadang.painted column band | 0",
+      "candidate": "R5 paint | HS painted r1 | Sep29.sadang.painted column band | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | Sep29.sadang.painted column band.001 | 0",
+      "candidate": "R5 paint | HS painted r1 | Sep29.sadang.painted column band.001 | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | Sep29.sadang.painted column band.002 | 0",
+      "candidate": "R5 paint | HS painted r1 | Sep29.sadang.painted column band.002 | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | Sep29.sadang.painted column band.003 | 0",
+      "candidate": "R5 paint | HS painted r1 | Sep29.sadang.painted column band.003 | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | Sep29.sadang.scroll bracket solid | 0",
+      "candidate": "R5 paint | HS painted r2 | Sep29.sadang.scroll bracket solid | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | Sep29.sadang.scroll painted contour | 0",
+      "candidate": "R5 paint | HS painted r1 | Sep29.sadang.scroll painted contour | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | Sep29.sadang.scroll painted contour.001 | 0",
+      "candidate": "R5 paint | HS painted r1 | Sep29.sadang.scroll painted contour.001 | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r1 | Sep29.sadang.scroll painted contour.002 | 0",
+      "candidate": "R5 paint | HS painted r1 | Sep29.sadang.scroll painted contour.002 | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | Sep29.sadang.side horizontal red rail | 0",
+      "candidate": "R5 paint | HS painted r2 | Sep29.sadang.side horizontal red rail | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS painted r2 | Sep29.sadang.side lower red sill | 0",
+      "candidate": "R5 paint | HS painted r2 | Sep29.sadang.side lower red sill | 0",
+      "role": "paint",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Sep29 woven straw",
+      "candidate": "R5 fibre | Sep29 woven straw",
+      "role": "fibre",
+      "mapping": [
+        "OBJECT",
+        1,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    }
+  ],
+  "views": {
+    "hero": {
+      "position": [
+        7.217304229736328,
+        16.724096298217773,
+        10.129182815551758
+      ],
+      "target": [
+        24.35529327392578,
+        22.627182006835938,
+        3.940465211868286
+      ],
+      "ortho": 12.663069400787354,
+      "resolution": [
+        1100,
+        825
+      ]
+    },
+    "detail": {
+      "position": [
+        4.423152923583984,
+        21.434186935424805,
+        4.919210433959961
+      ],
+      "target": [
+        23.465362548828125,
+        22.576719284057617,
+        3.7766780853271484
+      ],
+      "ortho": 5.236607646942139,
+      "resolution": [
+        1100,
+        825
+      ]
+    }
+  },
+  "bounds": {
+    "bounds": [
+      [
+        20.584049224853516,
+        17.86663055419922,
+        1.4290634393692017
+      ],
+      [
+        28.126535415649414,
+        27.38773536682129,
+        6.888632297515869
+      ]
+    ],
+    "span": 9.52110481262207
+  },
+  "sourceSpecificPalettes": true,
+  "newUVs": 0,
+  "newMeshes": 0,
+  "objectAttachedUVlessProjection": true,
+  "sceneLightBaked": false,
+  "lightingUnchangedAfterReopen": true,
+  "canonicalPromoted": false,
+  "glbConverted": false,
+  "appIntegrated": false,
+  "producerFiles": {
+    "restyle_building.py": "cefa711d1f3f70f389a53c241e13cb11a5062faf86aa135de39d21fb4dd6af05",
+    "material_rules.py": "71b4126f57eec61de897090e1b465d197e9f784ad68116c0a26e2c9201b67d31",
+    "refine_review_cameras.py": "44a8cc5ca36901a6b963178ad317d09b4d9b6fa16dbd2e744b6d492dff3bb5bf"
+  },
+  "reviewCameraCorrection": {
+    "sanctuaryMemberCount": 61,
+    "facadeCenter": [
+      23.465362548828125,
+      22.576719284057617,
+      2.8017449378967285
+    ],
+    "frontDirection": [
+      -1.0,
+      0.0,
+      0.0
+    ]
+  },
+  "reviewCameraOnlyMaterialAndGeometryEqual": true
+}

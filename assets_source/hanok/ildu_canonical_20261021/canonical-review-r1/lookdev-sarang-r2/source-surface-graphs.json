@@ -1,0 +1,2836 @@
+[
+  {
+    "category": "wood",
+    "total": 1270,
+    "examples": [
+      {
+        "object": "Continuity.numaru corner posts",
+        "dimensions": [
+          2.8249998092651367,
+          2.869999885559082,
+          1.9200000762939453
+        ],
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "material": "LOOKDEV CANDIDATE r1 | Selected timber v2 | sarang | Gye cared pine sarang v56 floor tone 4 v66 posts.001",
+        "nodes": [
+          {
+            "name": "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "type": "ShaderNodeBsdfPrincipled",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uba38\ud2f0\ub9ac\uc5bc \ucd9c\ub825",
+            "type": "ShaderNodeOutputMaterial",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98",
+            "type": "ShaderNodeTexImage",
+            "scale": null,
+            "vector": null,
+            "image": "gye-maintained-pine-brush-v25.png.002"
+          },
+          {
+            "name": "UV \ub9f5",
+            "type": "ShaderNodeUVMap",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "RGB to BW",
+            "type": "ShaderNodeRGBToBW",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Color Ramp",
+            "type": "ShaderNodeValToRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Value",
+            "type": "ShaderNodeValue",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Math",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Lookdev source signal grade, no uniform repaint",
+            "type": "ShaderNodeHueSaturation",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Math.001",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          }
+        ],
+        "links": [
+          [
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "BSDF",
+            "\uba38\ud2f0\ub9ac\uc5bc \ucd9c\ub825",
+            "Surface"
+          ],
+          [
+            "UV \ub9f5",
+            "UV",
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98",
+            "Vector"
+          ],
+          [
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98",
+            "Color",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color1"
+          ],
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color",
+            "RGB to BW",
+            "Color"
+          ],
+          [
+            "RGB to BW",
+            "Val",
+            "Color Ramp",
+            "Factor"
+          ],
+          [
+            "Value",
+            "Value",
+            "Math",
+            "Value"
+          ],
+          [
+            "Color Ramp",
+            "Color",
+            "Lookdev source signal grade, no uniform repaint",
+            "Color"
+          ],
+          [
+            "Lookdev source signal grade, no uniform repaint",
+            "Color",
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "Base Color"
+          ],
+          [
+            "Math",
+            "Value",
+            "Math.001",
+            "Value"
+          ],
+          [
+            "Math.001",
+            "Value",
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "Roughness"
+          ]
+        ]
+      },
+      {
+        "object": "Continuity.numaru corner posts",
+        "dimensions": [
+          2.8249998092651367,
+          2.869999885559082,
+          1.9200000762939453
+        ],
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "material": "LOOKDEV CANDIDATE r1 | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 posts tone 3.001",
+        "nodes": [
+          {
+            "name": "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "type": "ShaderNodeBsdfPrincipled",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uba38\ud2f0\ub9ac\uc5bc \ucd9c\ub825",
+            "type": "ShaderNodeOutputMaterial",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98",
+            "type": "ShaderNodeTexImage",
+            "scale": null,
+            "vector": null,
+            "image": "gye-maintained-pine-brush-v25.png.002"
+          },
+          {
+            "name": "UV \ub9f5",
+            "type": "ShaderNodeUVMap",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.001",
+            "type": "ShaderNodeTexImage",
+            "scale": null,
+            "vector": null,
+            "image": "wood-longitudinal-atlas-v1.png"
+          },
+          {
+            "name": "\uc18d\uc131",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.002",
+            "type": "ShaderNodeTexImage",
+            "scale": null,
+            "vector": null,
+            "image": "wood-long-members-trim-v1.png"
+          },
+          {
+            "name": "\uc18d\uc131.001",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc18d\uc131.002",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.003",
+            "type": "ShaderNodeTexImage",
+            "scale": null,
+            "vector": null,
+            "image": "wood-endgrain-atlas-v1.png"
+          },
+          {
+            "name": "\uc18d\uc131.003",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).002",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc18d\uc131.004",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc18d\uc131.005",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).003",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559.001",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559.002",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559.003",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc18d\uc131.006",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559.004",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubc94\ud504",
+            "type": "ShaderNodeBump",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc9c0\uc624\uba54\ud2b8\ub9ac",
+            "type": "ShaderNodeNewGeometry",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).004",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "RGB to BW",
+            "type": "ShaderNodeRGBToBW",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Color Ramp",
+            "type": "ShaderNodeValToRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Math",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Lookdev source signal grade, no uniform repaint",
+            "type": "ShaderNodeHueSaturation",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Math.001",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          }
+        ],
+        "links": [
+          [
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "BSDF",
+            "\uba38\ud2f0\ub9ac\uc5bc \ucd9c\ub825",
+            "Surface"
+          ],
+          [
+            "UV \ub9f5",
+            "UV",
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98",
+            "Vector"
+          ],
+          [
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98",
+            "Color",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color1"
+          ],
+          [
+            "\uc18d\uc131",
+            "Vector",
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.001",
+            "Vector"
+          ],
+          [
+            "\uc18d\uc131.001",
+            "Vector",
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.002",
+            "Vector"
+          ],
+          [
+            "\uc18d\uc131.002",
+            "Factor",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "Factor"
+          ],
+          [
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.001",
+            "Color",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "Color1"
+          ],
+          [
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.002",
+            "Color",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "Color2"
+          ],
+          [
+            "\uc18d\uc131.003",
+            "Vector",
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.003",
+            "Vector"
+          ],
+          [
+            "\uc18d\uc131.004",
+            "Factor",
+            "\uc218\ud559",
+            "Value"
+          ],
+          [
+            "\uc218\ud559",
+            "Value",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).002",
+            "Factor"
+          ],
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "Color",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).002",
+            "Color1"
+          ],
+          [
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.003",
+            "Color",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).002",
+            "Color2"
+          ],
+          [
+            "\uc18d\uc131.005",
+            "Factor",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).003",
+            "Factor"
+          ],
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).003",
+            "Color1"
+          ],
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).002",
+            "Color",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).003",
+            "Color2"
+          ],
+          [
+            "\uc18d\uc131.005",
+            "Factor",
+            "\uc218\ud559.001",
+            "Value"
+          ],
+          [
+            "\uc218\ud559.001",
+            "Value",
+            "\uc218\ud559.002",
+            "Value"
+          ],
+          [
+            "\uc18d\uc131.006",
+            "Factor",
+            "\uc218\ud559.003",
+            "Value"
+          ],
+          [
+            "\uc18d\uc131.005",
+            "Factor",
+            "\uc218\ud559.003",
+            "Value"
+          ],
+          [
+            "\uc218\ud559.002",
+            "Value",
+            "\uc218\ud559.004",
+            "Value"
+          ],
+          [
+            "\uc218\ud559.003",
+            "Value",
+            "\uc218\ud559.004",
+            "Value"
+          ],
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).002",
+            "Color",
+            "\ubc94\ud504",
+            "Height"
+          ],
+          [
+            "\uc18d\uc131.005",
+            "Factor",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).004",
+            "Factor"
+          ],
+          [
+            "\uc9c0\uc624\uba54\ud2b8\ub9ac",
+            "Normal",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).004",
+            "Color1"
+          ],
+          [
+            "\ubc94\ud504",
+            "Normal",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).004",
+            "Color2"
+          ],
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).004",
+            "Color",
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "Normal"
+          ],
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).003",
+            "Color",
+            "RGB to BW",
+            "Color"
+          ],
+          [
+            "RGB to BW",
+            "Val",
+            "Color Ramp",
+            "Factor"
+          ],
+          [
+            "\uc218\ud559.004",
+            "Value",
+            "Math",
+            "Value"
+          ],
+          [
+            "Color Ramp",
+            "Color",
+            "Lookdev source signal grade, no uniform repaint",
+            "Color"
+          ],
+          [
+            "Lookdev source signal grade, no uniform repaint",
+            "Color",
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "Base Color"
+          ],
+          [
+            "Math",
+            "Value",
+            "Math.001",
+            "Value"
+          ],
+          [
+            "Math.001",
+            "Value",
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "Roughness"
+          ]
+        ]
+      },
+      {
+        "object": "Continuity.numaru corner posts",
+        "dimensions": [
+          2.8249998092651367,
+          2.869999885559082,
+          1.9200000762939453
+        ],
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "material": "LOOKDEV CANDIDATE r1 | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 posts tone 0.001",
+        "nodes": [
+          {
+            "name": "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "type": "ShaderNodeBsdfPrincipled",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uba38\ud2f0\ub9ac\uc5bc \ucd9c\ub825",
+            "type": "ShaderNodeOutputMaterial",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98",
+            "type": "ShaderNodeTexImage",
+            "scale": null,
+            "vector": null,
+            "image": "gye-maintained-pine-brush-v25.png.002"
+          },
+          {
+            "name": "UV \ub9f5",
+            "type": "ShaderNodeUVMap",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.001",
+            "type": "ShaderNodeTexImage",
+            "scale": null,
+            "vector": null,
+            "image": "wood-longitudinal-atlas-v1.png"
+          },
+          {
+            "name": "\uc18d\uc131",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.002",
+            "type": "ShaderNodeTexImage",
+            "scale": null,
+            "vector": null,
+            "image": "wood-long-members-trim-v1.png"
+          },
+          {
+            "name": "\uc18d\uc131.001",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc18d\uc131.002",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.003",
+            "type": "ShaderNodeTexImage",
+            "scale": null,
+            "vector": null,
+            "image": "wood-endgrain-atlas-v1.png"
+          },
+          {
+            "name": "\uc18d\uc131.003",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).002",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc18d\uc131.004",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc18d\uc131.005",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).003",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559.001",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559.002",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559.003",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc18d\uc131.006",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559.004",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubc94\ud504",
+            "type": "ShaderNodeBump",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc9c0\uc624\uba54\ud2b8\ub9ac",
+            "type": "ShaderNodeNewGeometry",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).004",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "RGB to BW",
+            "type": "ShaderNodeRGBToBW",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Color Ramp",
+            "type": "ShaderNodeValToRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Math",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Lookdev source signal grade, no uniform repaint",
+            "type": "ShaderNodeHueSaturation",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Math.001",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          }
+        ],
+        "links": [
+          [
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "BSDF",
+            "\uba38\ud2f0\ub9ac\uc5bc \ucd9c\ub825",
+            "Surface"
+          ],
+          [
+            "UV \ub9f5",
+            "UV",
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98",
+            "Vector"
+          ],
+          [
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98",
+            "Color",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color1"
+          ],
+          [
+            "\uc18d\uc131",
+            "Vector",
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.001",
+            "Vector"
+          ],
+          [
+            "\uc18d\uc131.001",
+            "Vector",
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.002",
+            "Vector"
+          ],
+          [
+            "\uc18d\uc131.002",
+            "Factor",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "Factor"
+          ],
+          [
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.001",
+            "Color",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "Color1"
+          ],
+          [
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.002",
+            "Color",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "Color2"
+          ],
+          [
+            "\uc18d\uc131.003",
+            "Vector",
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.003",
+            "Vector"
+          ],
+          [
+            "\uc18d\uc131.004",
+            "Factor",
+            "\uc218\ud559",
+            "Value"
+          ],
+          [
+            "\uc218\ud559",
+            "Value",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).002",
+            "Factor"
+          ],
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "Color",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).002",
+            "Color1"
+          ],
+          [
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.003",
+            "Color",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).002",
+            "Color2"
+          ],
+          [
+            "\uc18d\uc131.005",
+            "Factor",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).003",
+            "Factor"
+          ],
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).003",
+            "Color1"
+          ],
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).002",
+            "Color",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).003",
+            "Color2"
+          ],
+          [
+            "\uc18d\uc131.005",
+            "Factor",
+            "\uc218\ud559.001",
+            "Value"
+          ],
+          [
+            "\uc218\ud559.001",
+            "Value",
+            "\uc218\ud559.002",
+            "Value"
+          ],
+          [
+            "\uc18d\uc131.006",
+            "Factor",
+            "\uc218\ud559.003",
+            "Value"
+          ],
+          [
+            "\uc18d\uc131.005",
+            "Factor",
+            "\uc218\ud559.003",
+            "Value"
+          ],
+          [
+            "\uc218\ud559.002",
+            "Value",
+            "\uc218\ud559.004",
+            "Value"
+          ],
+          [
+            "\uc218\ud559.003",
+            "Value",
+            "\uc218\ud559.004",
+            "Value"
+          ],
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).002",
+            "Color",
+            "\ubc94\ud504",
+            "Height"
+          ],
+          [
+            "\uc18d\uc131.005",
+            "Factor",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).004",
+            "Factor"
+          ],
+          [
+            "\uc9c0\uc624\uba54\ud2b8\ub9ac",
+            "Normal",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).004",
+            "Color1"
+          ],
+          [
+            "\ubc94\ud504",
+            "Normal",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).004",
+            "Color2"
+          ],
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).004",
+            "Color",
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "Normal"
+          ],
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).003",
+            "Color",
+            "RGB to BW",
+            "Color"
+          ],
+          [
+            "RGB to BW",
+            "Val",
+            "Color Ramp",
+            "Factor"
+          ],
+          [
+            "\uc218\ud559.004",
+            "Value",
+            "Math",
+            "Value"
+          ],
+          [
+            "Color Ramp",
+            "Color",
+            "Lookdev source signal grade, no uniform repaint",
+            "Color"
+          ],
+          [
+            "Lookdev source signal grade, no uniform repaint",
+            "Color",
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "Base Color"
+          ],
+          [
+            "Math",
+            "Value",
+            "Math.001",
+            "Value"
+          ],
+          [
+            "Math.001",
+            "Value",
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "Roughness"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "category": "stone",
+    "total": 93,
+    "examples": [
+      {
+        "object": "Correction.rear room extended masonry",
+        "dimensions": [
+          2.5399999618530273,
+          1.1899998188018799,
+          0.3900001049041748
+        ],
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "material": "LOOKDEV CANDIDATE r1 | Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52",
+        "nodes": [
+          {
+            "name": "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "type": "ShaderNodeBsdfPrincipled",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uba38\ud2f0\ub9ac\uc5bc \ucd9c\ub825",
+            "type": "ShaderNodeOutputMaterial",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98",
+            "type": "ShaderNodeTexImage",
+            "scale": null,
+            "vector": null,
+            "image": "gye-fieldstone-brush-v26.png.001"
+          },
+          {
+            "name": "UV \ub9f5",
+            "type": "ShaderNodeUVMap",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.001",
+            "type": "ShaderNodeTexImage",
+            "scale": null,
+            "vector": null,
+            "image": "stone-atlas-v1.png"
+          },
+          {
+            "name": "\uc18d\uc131",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc18d\uc131.001",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559.001",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559.002",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc18d\uc131.002",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559.003",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubc94\ud504",
+            "type": "ShaderNodeBump",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc9c0\uc624\uba54\ud2b8\ub9ac",
+            "type": "ShaderNodeNewGeometry",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Math",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Lookdev restrained source color grade",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Math.001",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          }
+        ],
+        "links": [
+          [
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "BSDF",
+            "\uba38\ud2f0\ub9ac\uc5bc \ucd9c\ub825",
+            "Surface"
+          ],
+          [
+            "UV \ub9f5",
+            "UV",
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98",
+            "Vector"
+          ],
+          [
+            "\uc18d\uc131",
+            "Vector",
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.001",
+            "Vector"
+          ],
+          [
+            "\uc18d\uc131.001",
+            "Factor",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Factor"
+          ],
+          [
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98",
+            "Color",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color1"
+          ],
+          [
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.001",
+            "Color",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color2"
+          ],
+          [
+            "\uc18d\uc131.001",
+            "Factor",
+            "\uc218\ud559",
+            "Value"
+          ],
+          [
+            "\uc218\ud559",
+            "Value",
+            "\uc218\ud559.001",
+            "Value"
+          ],
+          [
+            "\uc18d\uc131.002",
+            "Factor",
+            "\uc218\ud559.002",
+            "Value"
+          ],
+          [
+            "\uc18d\uc131.001",
+            "Factor",
+            "\uc218\ud559.002",
+            "Value"
+          ],
+          [
+            "\uc218\ud559.001",
+            "Value",
+            "\uc218\ud559.003",
+            "Value"
+          ],
+          [
+            "\uc218\ud559.002",
+            "Value",
+            "\uc218\ud559.003",
+            "Value"
+          ],
+          [
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.001",
+            "Color",
+            "\ubc94\ud504",
+            "Height"
+          ],
+          [
+            "\uc18d\uc131.001",
+            "Factor",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "Factor"
+          ],
+          [
+            "\uc9c0\uc624\uba54\ud2b8\ub9ac",
+            "Normal",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "Color1"
+          ],
+          [
+            "\ubc94\ud504",
+            "Normal",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "Color2"
+          ],
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "Color",
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "Normal"
+          ],
+          [
+            "\uc218\ud559.003",
+            "Value",
+            "Math",
+            "Value"
+          ],
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color",
+            "Lookdev restrained source color grade",
+            "Color1"
+          ],
+          [
+            "Lookdev restrained source color grade",
+            "Color",
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "Base Color"
+          ],
+          [
+            "Math",
+            "Value",
+            "Math.001",
+            "Value"
+          ],
+          [
+            "Math.001",
+            "Value",
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "Roughness"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "category": "tile",
+    "total": 42,
+    "examples": [
+      {
+        "object": "Sarang.main roof",
+        "dimensions": [
+          17.31389617919922,
+          7.971619129180908,
+          2.561335563659668
+        ],
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "material": "LOOKDEV CANDIDATE r1 | Selected timber v2 | sarang | P18 image.sarang.tile.Gye cared charcoal clay v52",
+        "nodes": [
+          {
+            "name": "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "type": "ShaderNodeBsdfPrincipled",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uba38\ud2f0\ub9ac\uc5bc \ucd9c\ub825",
+            "type": "ShaderNodeOutputMaterial",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98",
+            "type": "ShaderNodeTexImage",
+            "scale": null,
+            "vector": null,
+            "image": "gye-clay-matte-v26.png.001"
+          },
+          {
+            "name": "UV \ub9f5",
+            "type": "ShaderNodeUVMap",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.001",
+            "type": "ShaderNodeTexImage",
+            "scale": null,
+            "vector": null,
+            "image": "tile-blue-charcoal-v1.png"
+          },
+          {
+            "name": "\uc18d\uc131",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc18d\uc131.001",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559.001",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559.002",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc18d\uc131.002",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559.003",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubc94\ud504",
+            "type": "ShaderNodeBump",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc9c0\uc624\uba54\ud2b8\ub9ac",
+            "type": "ShaderNodeNewGeometry",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).002",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Math",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Lookdev source signal grade, no uniform repaint",
+            "type": "ShaderNodeHueSaturation",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Math.001",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          }
+        ],
+        "links": [
+          [
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "BSDF",
+            "\uba38\ud2f0\ub9ac\uc5bc \ucd9c\ub825",
+            "Surface"
+          ],
+          [
+            "UV \ub9f5",
+            "UV",
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98",
+            "Vector"
+          ],
+          [
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98",
+            "Color",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color1"
+          ],
+          [
+            "\uc18d\uc131",
+            "Vector",
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.001",
+            "Vector"
+          ],
+          [
+            "\uc18d\uc131.001",
+            "Factor",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "Factor"
+          ],
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "Color1"
+          ],
+          [
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.001",
+            "Color",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "Color2"
+          ],
+          [
+            "\uc18d\uc131.001",
+            "Factor",
+            "\uc218\ud559",
+            "Value"
+          ],
+          [
+            "\uc218\ud559",
+            "Value",
+            "\uc218\ud559.001",
+            "Value"
+          ],
+          [
+            "\uc18d\uc131.002",
+            "Factor",
+            "\uc218\ud559.002",
+            "Value"
+          ],
+          [
+            "\uc18d\uc131.001",
+            "Factor",
+            "\uc218\ud559.002",
+            "Value"
+          ],
+          [
+            "\uc218\ud559.001",
+            "Value",
+            "\uc218\ud559.003",
+            "Value"
+          ],
+          [
+            "\uc218\ud559.002",
+            "Value",
+            "\uc218\ud559.003",
+            "Value"
+          ],
+          [
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.001",
+            "Color",
+            "\ubc94\ud504",
+            "Height"
+          ],
+          [
+            "\uc18d\uc131.001",
+            "Factor",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).002",
+            "Factor"
+          ],
+          [
+            "\uc9c0\uc624\uba54\ud2b8\ub9ac",
+            "Normal",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).002",
+            "Color1"
+          ],
+          [
+            "\ubc94\ud504",
+            "Normal",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).002",
+            "Color2"
+          ],
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).002",
+            "Color",
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "Normal"
+          ],
+          [
+            "\uc218\ud559.003",
+            "Value",
+            "Math",
+            "Value"
+          ],
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "Color",
+            "Lookdev source signal grade, no uniform repaint",
+            "Color"
+          ],
+          [
+            "Lookdev source signal grade, no uniform repaint",
+            "Color",
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "Base Color"
+          ],
+          [
+            "Math",
+            "Value",
+            "Math.001",
+            "Value"
+          ],
+          [
+            "Math.001",
+            "Value",
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "Roughness"
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "category": "plaster",
+    "total": 30,
+    "examples": [
+      {
+        "object": "Continuity.numaru front wall",
+        "dimensions": [
+          2.6549997329711914,
+          0.15000009536743164,
+          1.9051214456558228
+        ],
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "material": "LOOKDEV CANDIDATE r1 | HS white r2 | sarang | plaster | Selected timber v2 | sarang | P18 image.sarang.plaster.Gye cared limewash v52",
+        "nodes": [
+          {
+            "name": "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "type": "ShaderNodeBsdfPrincipled",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uba38\ud2f0\ub9ac\uc5bc \ucd9c\ub825",
+            "type": "ShaderNodeOutputMaterial",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98",
+            "type": "ShaderNodeTexImage",
+            "scale": null,
+            "vector": null,
+            "image": "gye-limewash-brush-v26.png.001"
+          },
+          {
+            "name": "UV \ub9f5",
+            "type": "ShaderNodeUVMap",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.001",
+            "type": "ShaderNodeTexImage",
+            "scale": null,
+            "vector": null,
+            "image": "plaster-atlas-v1.png"
+          },
+          {
+            "name": "\uc18d\uc131",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc18d\uc131.001",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559.001",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559.002",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc18d\uc131.002",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559.003",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubc94\ud504",
+            "type": "ShaderNodeBump",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc9c0\uc624\uba54\ud2b8\ub9ac",
+            "type": "ShaderNodeNewGeometry",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Hue/Saturation/Value",
+            "type": "ShaderNodeHueSaturation",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Mix (Legacy)",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "RGB to BW",
+            "type": "ShaderNodeRGBToBW",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Math",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Math.001",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Math.002",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Mix (Legacy).001",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Math.003",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 existing density low",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 existing density high",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 original object coordinates",
+            "type": "ShaderNodeTexCoord",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 world physical size",
+            "type": "ShaderNodeVectorTransform",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 metres",
+            "type": "ShaderNodeVectorMath",
+            "scale": 1.0,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 weakly directional trowel planes",
+            "type": "ShaderNodeVectorMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 single-scale hand laid face",
+            "type": "ShaderNodeTexNoise",
+            "scale": 13.333333015441895,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 bounded shallow trowel face gradients",
+            "type": "ShaderNodeValToRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 broad mineral body",
+            "type": "ShaderNodeTexNoise",
+            "scale": 3.5714285373687744,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 bounded shallow trowel face gradients.001",
+            "type": "ShaderNodeValToRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 original mapped limewash brush density",
+            "type": "ShaderNodeRGBToBW",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 brush luma lower range",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 brush luma normalization",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 bounded original brush face low",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 bounded original brush face high",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 broad body independent slope",
+            "type": "ShaderNodeBump",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 original brush independent slope",
+            "type": "ShaderNodeBump",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 shallow trowel facet gradients",
+            "type": "ShaderNodeBump",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 trowel field centre",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 restrained roughness range",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 broad field roughness",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 source roughness centre",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 minor source roughness",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 retain source roughness character",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 matte roughness low",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "HS white r2 matte roughness high",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Lookdev restrained source color grade",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Math.004",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          }
+        ],
+        "links": [
+          [
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "BSDF",
+            "\uba38\ud2f0\ub9ac\uc5bc \ucd9c\ub825",
+            "Surface"
+          ],
+          [
+            "UV \ub9f5",
+            "UV",
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98",
+            "Vector"
+          ],
+          [
+            "\uc18d\uc131",
+            "Vector",
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.001",
+            "Vector"
+          ],
+          [
+            "\uc18d\uc131.001",
+            "Factor",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Factor"
+          ],
+          [
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98",
+            "Color",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color1"
+          ],
+          [
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.001",
+            "Color",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color2"
+          ],
+          [
+            "\uc18d\uc131.001",
+            "Factor",
+            "\uc218\ud559",
+            "Value"
+          ],
+          [
+            "\uc218\ud559",
+            "Value",
+            "\uc218\ud559.001",
+            "Value"
+          ],
+          [
+            "\uc18d\uc131.002",
+            "Factor",
+            "\uc218\ud559.002",
+            "Value"
+          ],
+          [
+            "\uc18d\uc131.001",
+            "Factor",
+            "\uc218\ud559.002",
+            "Value"
+          ],
+          [
+            "\uc218\ud559.001",
+            "Value",
+            "\uc218\ud559.003",
+            "Value"
+          ],
+          [
+            "\uc218\ud559.002",
+            "Value",
+            "\uc218\ud559.003",
+            "Value"
+          ],
+          [
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.001",
+            "Color",
+            "\ubc94\ud504",
+            "Height"
+          ],
+          [
+            "\uc18d\uc131.001",
+            "Factor",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "Factor"
+          ],
+          [
+            "\uc9c0\uc624\uba54\ud2b8\ub9ac",
+            "Normal",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "Color1"
+          ],
+          [
+            "\ubc94\ud504",
+            "Normal",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "Color2"
+          ],
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color",
+            "Hue/Saturation/Value",
+            "Color"
+          ],
+          [
+            "Hue/Saturation/Value",
+            "Color",
+            "Mix (Legacy)",
+            "Color1"
+          ],
+          [
+            "Mix (Legacy)",
+            "Color",
+            "RGB to BW",
+            "Color"
+          ],
+          [
+            "RGB to BW",
+            "Val",
+            "Math",
+            "Value"
+          ],
+          [
+            "RGB to BW",
+            "Val",
+            "Math.001",
+            "Value"
+          ],
+          [
+            "Math",
+            "Value",
+            "Math.002",
+            "Value"
+          ],
+          [
+            "Math.001",
+            "Value",
+            "Math.002",
+            "Value"
+          ],
+          [
+            "Mix (Legacy)",
+            "Color",
+            "Mix (Legacy).001",
+            "Color1"
+          ],
+          [
+            "Math.002",
+            "Value",
+            "Mix (Legacy).001",
+            "Color2"
+          ],
+          [
+            "\uc218\ud559.003",
+            "Value",
+            "Math.003",
+            "Value"
+          ],
+          [
+            "RGB to BW",
+            "Val",
+            "HS white r2 existing density low",
+            "Value"
+          ],
+          [
+            "HS white r2 existing density low",
+            "Value",
+            "HS white r2 existing density high",
+            "Value"
+          ],
+          [
+            "HS white r2 original object coordinates",
+            "Object",
+            "HS white r2 world physical size",
+            "Vector"
+          ],
+          [
+            "HS white r2 world physical size",
+            "Vector",
+            "HS white r2 metres",
+            "Vector"
+          ],
+          [
+            "HS white r2 metres",
+            "Vector",
+            "HS white r2 weakly directional trowel planes",
+            "Vector"
+          ],
+          [
+            "HS white r2 weakly directional trowel planes",
+            "Vector",
+            "HS white r2 single-scale hand laid face",
+            "Vector"
+          ],
+          [
+            "HS white r2 single-scale hand laid face",
+            "Factor",
+            "HS white r2 bounded shallow trowel face gradients",
+            "Factor"
+          ],
+          [
+            "HS white r2 metres",
+            "Vector",
+            "HS white r2 broad mineral body",
+            "Vector"
+          ],
+          [
+            "HS white r2 broad mineral body",
+            "Factor",
+            "HS white r2 bounded shallow trowel face gradients.001",
+            "Factor"
+          ],
+          [
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98",
+            "Color",
+            "HS white r2 original mapped limewash brush density",
+            "Color"
+          ],
+          [
+            "HS white r2 original mapped limewash brush density",
+            "Val",
+            "HS white r2 brush luma lower range",
+            "Value"
+          ],
+          [
+            "HS white r2 brush luma lower range",
+            "Value",
+            "HS white r2 brush luma normalization",
+            "Value"
+          ],
+          [
+            "HS white r2 brush luma normalization",
+            "Value",
+            "HS white r2 bounded original brush face low",
+            "Value"
+          ],
+          [
+            "HS white r2 bounded original brush face low",
+            "Value",
+            "HS white r2 bounded original brush face high",
+            "Value"
+          ],
+          [
+            "HS white r2 bounded shallow trowel face gradients.001",
+            "Color",
+            "HS white r2 broad body independent slope",
+            "Height"
+          ],
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "Color",
+            "HS white r2 broad body independent slope",
+            "Normal"
+          ],
+          [
+            "HS white r2 bounded original brush face high",
+            "Value",
+            "HS white r2 original brush independent slope",
+            "Height"
+          ],
+          [
+            "HS white r2 broad body independent slope",
+            "Normal",
+            "HS white r2 original brush independent slope",
+            "Normal"
+          ],
+          [
+            "HS white r2 bounded shallow trowel face gradients",
+            "Color",
+            "HS white r2 shallow trowel facet gradients",
+            "Height"
+          ],
+          [
+            "HS white r2 original brush independent slope",
+            "Normal",
+            "HS white r2 shallow trowel facet gradients",
+            "Normal"
+          ],
+          [
+            "HS white r2 bounded shallow trowel face gradients",
+            "Color",
+            "HS white r2 trowel field centre",
+            "Value"
+          ],
+          [
+            "HS white r2 trowel field centre",
+            "Value",
+            "HS white r2 restrained roughness range",
+            "Value"
+          ],
+          [
+            "HS white r2 restrained roughness range",
+            "Value",
+            "HS white r2 broad field roughness",
+            "Value"
+          ],
+          [
+            "Math.003",
+            "Value",
+            "HS white r2 source roughness centre",
+            "Value"
+          ],
+          [
+            "HS white r2 source roughness centre",
+            "Value",
+            "HS white r2 minor source roughness",
+            "Value"
+          ],
+          [
+            "HS white r2 broad field roughness",
+            "Value",
+            "HS white r2 retain source roughness character",
+            "Value"
+          ],
+          [
+            "HS white r2 minor source roughness",
+            "Value",
+            "HS white r2 retain source roughness character",
+            "Value"
+          ],
+          [
+            "HS white r2 shallow trowel facet gradients",
+            "Normal",
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "Normal"
+          ],
+          [
+            "HS white r2 retain source roughness character",
+            "Value",
+            "HS white r2 matte roughness low",
+            "Value"
+          ],
+          [
+            "HS white r2 matte roughness low",
+            "Value",
+            "HS white r2 matte roughness high",
+            "Value"
+          ],
+          [
+            "Mix (Legacy).001",
+            "Color",
+            "Lookdev restrained source color grade",
+            "Color1"
+          ],
+          [
+            "Lookdev restrained source color grade",
+            "Color",
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "Base Color"
+          ],
+          [
+            "HS white r2 matte roughness high",
+            "Value",
+            "Math.004",
+            "Value"
+          ],
+          [
+            "Math.004",
+            "Value",
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "Roughness"
+          ]
+        ]
+      },
+      {
+        "object": "Correction.rear room extended lime base",
+        "dimensions": [
+          2.5399999618530273,
+          1.1899998188018799,
+          0.4729999303817749
+        ],
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "material": "LOOKDEV CANDIDATE r1 | Selected timber v2 | sarang | P18 image.sarang.plaster.Gye cared limewash v52",
+        "nodes": [
+          {
+            "name": "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "type": "ShaderNodeBsdfPrincipled",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uba38\ud2f0\ub9ac\uc5bc \ucd9c\ub825",
+            "type": "ShaderNodeOutputMaterial",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98",
+            "type": "ShaderNodeTexImage",
+            "scale": null,
+            "vector": null,
+            "image": "gye-limewash-brush-v26.png.001"
+          },
+          {
+            "name": "UV \ub9f5",
+            "type": "ShaderNodeUVMap",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.001",
+            "type": "ShaderNodeTexImage",
+            "scale": null,
+            "vector": null,
+            "image": "plaster-atlas-v1.png"
+          },
+          {
+            "name": "\uc18d\uc131",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc18d\uc131.001",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559.001",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559.002",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc18d\uc131.002",
+            "type": "ShaderNodeAttribute",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc218\ud559.003",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubc94\ud504",
+            "type": "ShaderNodeBump",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\uc9c0\uc624\uba54\ud2b8\ub9ac",
+            "type": "ShaderNodeNewGeometry",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Hue/Saturation/Value",
+            "type": "ShaderNodeHueSaturation",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Mix (Legacy)",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "RGB to BW",
+            "type": "ShaderNodeRGBToBW",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Math",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Math.001",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Math.002",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Mix (Legacy).001",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Math.003",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Lookdev restrained source color grade",
+            "type": "ShaderNodeMixRGB",
+            "scale": null,
+            "vector": null,
+            "image": null
+          },
+          {
+            "name": "Math.004",
+            "type": "ShaderNodeMath",
+            "scale": null,
+            "vector": null,
+            "image": null
+          }
+        ],
+        "links": [
+          [
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "BSDF",
+            "\uba38\ud2f0\ub9ac\uc5bc \ucd9c\ub825",
+            "Surface"
+          ],
+          [
+            "UV \ub9f5",
+            "UV",
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98",
+            "Vector"
+          ],
+          [
+            "\uc18d\uc131",
+            "Vector",
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.001",
+            "Vector"
+          ],
+          [
+            "\uc18d\uc131.001",
+            "Factor",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Factor"
+          ],
+          [
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98",
+            "Color",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color1"
+          ],
+          [
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.001",
+            "Color",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color2"
+          ],
+          [
+            "\uc18d\uc131.001",
+            "Factor",
+            "\uc218\ud559",
+            "Value"
+          ],
+          [
+            "\uc218\ud559",
+            "Value",
+            "\uc218\ud559.001",
+            "Value"
+          ],
+          [
+            "\uc18d\uc131.002",
+            "Factor",
+            "\uc218\ud559.002",
+            "Value"
+          ],
+          [
+            "\uc18d\uc131.001",
+            "Factor",
+            "\uc218\ud559.002",
+            "Value"
+          ],
+          [
+            "\uc218\ud559.001",
+            "Value",
+            "\uc218\ud559.003",
+            "Value"
+          ],
+          [
+            "\uc218\ud559.002",
+            "Value",
+            "\uc218\ud559.003",
+            "Value"
+          ],
+          [
+            "\uc774\ubbf8\uc9c0 \ud14d\uc2a4\ucc98.001",
+            "Color",
+            "\ubc94\ud504",
+            "Height"
+          ],
+          [
+            "\uc18d\uc131.001",
+            "Factor",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "Factor"
+          ],
+          [
+            "\uc9c0\uc624\uba54\ud2b8\ub9ac",
+            "Normal",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "Color1"
+          ],
+          [
+            "\ubc94\ud504",
+            "Normal",
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "Color2"
+          ],
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc).001",
+            "Color",
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "Normal"
+          ],
+          [
+            "\ubbf9\uc2a4 (\ub808\uac70\uc2dc)",
+            "Color",
+            "Hue/Saturation/Value",
+            "Color"
+          ],
+          [
+            "Hue/Saturation/Value",
+            "Color",
+            "Mix (Legacy)",
+            "Color1"
+          ],
+          [
+            "Mix (Legacy)",
+            "Color",
+            "RGB to BW",
+            "Color"
+          ],
+          [
+            "RGB to BW",
+            "Val",
+            "Math",
+            "Value"
+          ],
+          [
+            "RGB to BW",
+            "Val",
+            "Math.001",
+            "Value"
+          ],
+          [
+            "Math",
+            "Value",
+            "Math.002",
+            "Value"
+          ],
+          [
+            "Math.001",
+            "Value",
+            "Math.002",
+            "Value"
+          ],
+          [
+            "Mix (Legacy)",
+            "Color",
+            "Mix (Legacy).001",
+            "Color1"
+          ],
+          [
+            "Math.002",
+            "Value",
+            "Mix (Legacy).001",
+            "Color2"
+          ],
+          [
+            "\uc218\ud559.003",
+            "Value",
+            "Math.003",
+            "Value"
+          ],
+          [
+            "Mix (Legacy).001",
+            "Color",
+            "Lookdev restrained source color grade",
+            "Color1"
+          ],
+          [
+            "Lookdev restrained source color grade",
+            "Color",
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "Base Color"
+          ],
+          [
+            "Math.003",
+            "Value",
+            "Math.004",
+            "Value"
+          ],
+          [
+            "Math.004",
+            "Value",
+            "\ud504\ub9b0\uc2dc\ud50c\ub4dc BSDF",
+            "Roughness"
+          ]
+        ]
+      }
+    ]
+  }
+]

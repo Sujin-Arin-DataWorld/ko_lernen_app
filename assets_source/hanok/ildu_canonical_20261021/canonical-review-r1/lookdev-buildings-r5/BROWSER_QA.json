@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-22",
+  "connector": "ECC Chrome DevTools page 6",
+  "mobile": {
+    "complete": true,
+    "buildingCount": 15,
+    "viewsChecked": 30,
+    "imagesDecoded": 60,
+    "allDecoded": true,
+    "allNativeLinksAndReceiptsPass": true,
+    "nativeCount": 15,
+    "viewport": [
+      402,
+      874
+    ],
+    "scrollWidth": 402,
+    "frameWidth": 370.3999938964844,
+    "minimumVisibleButtonHeight": 48,
+    "states": {
+      "old": "100",
+      "new": "0",
+      "compare": "50",
+      "range": "63%"
+    },
+    "errorVisible": false
+  },
+  "desktopInteractions": {
+    "viewport": [
+      1024,
+      768
+    ],
+    "scrollWidth": 1012,
+    "baseFrameWidth": 963.8399658203125,
+    "appFrameWidth": 402,
+    "appTogglePressed": "true",
+    "returnedFrameWidth": 963.8399658203125,
+    "next": "right_ansarang",
+    "previous": "left_changgo",
+    "selected": "사당",
+    "imagesLoaded": true,
+    "errorVisible": false
+  },
+  "desktopSettled": {
+    "viewport": [
+      1024,
+      768
+    ],
+    "scrollWidth": 1012,
+    "fullFrameWidth": 976,
+    "appFrameWidth": 402,
+    "restoredFrameWidth": 963.8399658203125,
+    "controlsWithinViewport": true,
+    "errorVisible": false
+  },
+  "desktopRequestedViewport": [
+    1280,
+    960
+  ],
+  "desktopNote": "Connector/browser zoom produced measured CSS viewport 1024x768. Measured bounds were used, not the requested viewport.",
+  "nativeFlutterOrPhysicalDeviceTest": false
+}

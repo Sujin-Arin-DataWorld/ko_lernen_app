@@ -1,0 +1,93 @@
+{
+  "key": "ansarang",
+  "complete": true,
+  "matchedCameraLights": true,
+  "samples": 24,
+  "renders": [
+    {
+      "variant": "source",
+      "view": "hero",
+      "file": "before-hero.png",
+      "cameraLocation": [
+        40.95812225341797,
+        -33.48127746582031,
+        16.023197174072266
+      ],
+      "target": [
+        24.230060577392578,
+        -9.783188819885254,
+        2.780148983001709
+      ],
+      "orthoScale": 16.24683878580729,
+      "resolution": [
+        1100,
+        825
+      ],
+      "sha256": "5d90da46415b12abab6ad61190dfff559437b8a0460ea750609b9fc332ed2c81"
+    },
+    {
+      "variant": "source",
+      "view": "detail",
+      "file": "before-detail.png",
+      "cameraLocation": [
+        27.296871185302734,
+        -42.96051025390625,
+        3.8133907318115234
+      ],
+      "target": [
+        24.230060577392578,
+        -15.080408096313477,
+        2.140584707260132
+      ],
+      "orthoScale": 4.460816268920898,
+      "resolution": [
+        1100,
+        825
+      ],
+      "sha256": "48661428c4abdb492564d4535fc899998bfdd6b5aaf7cbab66c7c49ede3a3079"
+    },
+    {
+      "variant": "R5 candidate",
+      "view": "hero",
+      "file": "after-hero.png",
+      "cameraLocation": [
+        40.95812225341797,
+        -33.48127746582031,
+        16.023197174072266
+      ],
+      "target": [
+        24.230060577392578,
+        -9.783188819885254,
+        2.780148983001709
+      ],
+      "orthoScale": 16.24683878580729,
+      "resolution": [
+        1100,
+        825
+      ],
+      "sha256": "8cf2532e86c3c80517ffb5f8a1c3e2c34812fca18ea946c69def9abb00d05803"
+    },
+    {
+      "variant": "R5 candidate",
+      "view": "detail",
+      "file": "after-detail.png",
+      "cameraLocation": [
+        27.296871185302734,
+        -42.96051025390625,
+        3.8133907318115234
+      ],
+      "target": [
+        24.230060577392578,
+        -15.080408096313477,
+        2.140584707260132
+      ],
+      "orthoScale": 4.460816268920898,
+      "resolution": [
+        1100,
+        825
+      ],
+      "sha256": "cce4245276523215e062208fee755f9d403a2d248595f467dd277de76f4cdee5"
+    }
+  ],
+  "seconds": 122.6
+}

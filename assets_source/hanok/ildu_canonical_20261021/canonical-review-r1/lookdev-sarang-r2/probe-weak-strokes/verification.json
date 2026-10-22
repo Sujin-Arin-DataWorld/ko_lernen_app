@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "exactSourceMeshes": 710,
+  "geometryUvsTransformsModifiersEqual": true,
+  "allRecordedMeshAttributesEqual": true,
+  "sourceMaterialsUnchanged": true,
+  "plaquesMaterialsImagesUvsUnchanged": true,
+  "savedNativeReopened": true,
+  "sourceNativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+  "sourceNativeUnchanged": true,
+  "candidateSha256": "9dffe7bfc350cfeb5392a36ae408e83a26fc73c6e079b0672dfb5375bafe1233",
+  "candidateApproved": false,
+  "appIntegrated": false,
+  "glbConverted": false,
+  "surfaceOnly": true,
+  "noGeometryDisplacement": true,
+  "changedMaterials": 129
+}

@@ -1,0 +1,123 @@
+{
+  "passed": true,
+  "savedNativeReopened": true,
+  "all711ExistingMeshGeometryUvsTransformsAttributesModifiersEqual": true,
+  "plaquesAndPackedImagesUnchanged": true,
+  "lightingUnchanged": true,
+  "native": "sarang-palette-brush-selective.blend",
+  "nativeSha256": "bf5d1fc78b3c5421648cf13a3066f35abfebc0f7671ac673f09de099a1aec0b0",
+  "sourceNative": "sarang-palette-brush-study.blend",
+  "sourceSha256": "1a7c262cd7ec7714c6d4c656f44e38879ab6bbd4939fbc78729b5219b390ee04",
+  "addedMeshes": 0,
+  "placedStrokeObjectCount": 2,
+  "placedStrokes": {
+    "Projection.Numaru floor bearer": [
+      {
+        "start": [
+          11.05,
+          -4.535,
+          1.828
+        ],
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "cross": [
+          0,
+          0,
+          1
+        ],
+        "length": 2.05,
+        "width": 0.047,
+        "pigment": 0.18
+      },
+      {
+        "start": [
+          12.8,
+          -4.535,
+          1.914
+        ],
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "cross": [
+          0,
+          0,
+          1
+        ],
+        "length": 1.6,
+        "width": 0.022,
+        "pigment": -0.12
+      },
+      {
+        "start": [
+          10.6,
+          -4.535,
+          1.779
+        ],
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "cross": [
+          0,
+          0,
+          1
+        ],
+        "length": 1.1,
+        "width": 0.025,
+        "pigment": 0.12
+      }
+    ],
+    "Craft.Numaru continuous post 12.56": [
+      {
+        "start": [
+          12.58,
+          -4.12,
+          2.52
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "cross": [
+          1,
+          0,
+          0
+        ],
+        "length": 1.08,
+        "width": 0.033,
+        "pigment": 0.2
+      },
+      {
+        "start": [
+          12.5,
+          -4.12,
+          2.95
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "cross": [
+          1,
+          0,
+          0
+        ],
+        "length": 0.79,
+        "width": 0.018,
+        "pigment": -0.12
+      }
+    ]
+  },
+  "neutralPigmentOnly": true,
+  "candidateApproved": false,
+  "appIntegrated": false,
+  "glbConverted": false
+}

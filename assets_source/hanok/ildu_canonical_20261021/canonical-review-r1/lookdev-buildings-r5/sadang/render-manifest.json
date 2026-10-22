@@ -1,0 +1,106 @@
+{
+  "key": "sadang",
+  "complete": true,
+  "matchedCameraLights": true,
+  "samples": 24,
+  "renders": [
+    {
+      "variant": "source",
+      "view": "hero",
+      "file": "before-hero.png",
+      "cameraLocation": [
+        7.217304229736328,
+        16.724096298217773,
+        10.129182815551758
+      ],
+      "target": [
+        24.35529327392578,
+        22.627182006835938,
+        3.940465211868286
+      ],
+      "orthoScale": 12.663069400787354,
+      "resolution": [
+        1100,
+        825
+      ],
+      "sha256": "5c0da25d3100e77e369affba520bd9c1c3a544feeeafa3b96a125f0c027241ae"
+    },
+    {
+      "variant": "source",
+      "view": "detail",
+      "file": "before-detail.png",
+      "cameraLocation": [
+        4.423152923583984,
+        21.434186935424805,
+        4.919210433959961
+      ],
+      "target": [
+        23.465362548828125,
+        22.576719284057617,
+        3.7766780853271484
+      ],
+      "orthoScale": 5.236607646942139,
+      "resolution": [
+        1100,
+        825
+      ],
+      "sha256": "d2158f91cff2c1336892c912d46f71164f98c075b7cd9d83425bc73cfc028424"
+    },
+    {
+      "variant": "R5 candidate",
+      "view": "hero",
+      "file": "after-hero.png",
+      "cameraLocation": [
+        7.217304229736328,
+        16.724096298217773,
+        10.129182815551758
+      ],
+      "target": [
+        24.35529327392578,
+        22.627182006835938,
+        3.940465211868286
+      ],
+      "orthoScale": 12.663069400787354,
+      "resolution": [
+        1100,
+        825
+      ],
+      "sha256": "c785658dac684f2372dd3af98d22010df2a32efd83ef502c8604109ff039f8dd"
+    },
+    {
+      "variant": "R5 candidate",
+      "view": "detail",
+      "file": "after-detail.png",
+      "cameraLocation": [
+        4.423152923583984,
+        21.434186935424805,
+        4.919210433959961
+      ],
+      "target": [
+        23.465362548828125,
+        22.576719284057617,
+        3.7766780853271484
+      ],
+      "orthoScale": 5.236607646942139,
+      "resolution": [
+        1100,
+        825
+      ],
+      "sha256": "1431fa7c0dd3b79d790ebd84e904aa4c952de934773c94e9622cb8a1f67d3b9f"
+    }
+  ],
+  "seconds": 120.6,
+  "reviewCameraCorrection": {
+    "sanctuaryMemberCount": 61,
+    "facadeCenter": [
+      23.465362548828125,
+      22.576719284057617,
+      2.8017449378967285
+    ],
+    "frontDirection": [
+      -1.0,
+      0.0,
+      0.0
+    ]
+  }
+}

@@ -195,6 +195,67 @@
       ],
       "views": [
         {
+          "id": "sarang-hero",
+          "label": "전체",
+          "image": "lookdev-sarang-r5/after-hero.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "cab144f08a7836dc0eafc074456104cdbfe21eecd46eadf2c13b882d52efd4c8"
+        },
+        {
+          "id": "sarang-detail",
+          "label": "재료 가까이",
+          "image": "lookdev-sarang-r5/after-numaru.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "cab144f08a7836dc0eafc074456104cdbfe21eecd46eadf2c13b882d52efd4c8"
+        }
+      ],
+      "standaloneViews": [
+        {
+          "id": "sarang-standalone-hero",
+          "label": "전체",
+          "image": "lookdev-standalone-r5/sarang-standalone/after-hero.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "dd5606924f50dd15943d58e8df52c7c378403d19532a9b76d060347bee543348"
+        },
+        {
+          "id": "sarang-standalone-detail",
+          "label": "재료 가까이",
+          "image": "lookdev-standalone-r5/sarang-standalone/after-detail.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "dd5606924f50dd15943d58e8df52c7c378403d19532a9b76d060347bee543348"
+        }
+      ],
+      "hero": "lookdev-sarang-r5/after-hero.png",
+      "model": "models/sarang.glb",
+      "standaloneModel": "models/sarang-standalone.glb",
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "deferred_memory_budget",
+        "message": "사랑채 색·표면 3D는 용량 최적화 대기 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
+        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
+        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "lookdev-sarang-r5/sarang-three-value-brush-candidate.blend",
+      "nativeSha256": "cab144f08a7836dc0eafc074456104cdbfe21eecd46eadf2c13b882d52efd4c8",
+      "materialValidation": "Old bake rejected after actual roof inspection; native source unchanged, conversion in progress",
+      "materialStatus": "canonical_R5_native; interactive_model_surface_not_yet_R5",
+      "structuralNative": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "structuralNativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "historicalMaterialViews": [
+        {
           "id": "front",
           "label": "대표 사선",
           "image": "images/3e599aefecb4ef8c.png",
@@ -283,7 +344,14 @@
           "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
         }
       ],
-      "standaloneViews": [
+      "canonicalMaterial": {
+        "version": "R5",
+        "manifest": "MATERIAL_CANONICAL_PROMOTION_R5.json",
+        "native": "lookdev-sarang-r5/sarang-three-value-brush-candidate.blend",
+        "sha256": "cab144f08a7836dc0eafc074456104cdbfe21eecd46eadf2c13b882d52efd4c8",
+        "viewerUpdated": false
+      },
+      "historicalStandaloneViews": [
         {
           "id": "front",
           "label": "정면",
@@ -349,31 +417,8 @@
           "note": "R9 사랑채의 실제 추가 구도입니다. 독립 지붕의 외곽이 이어지고 새 큰 절단면은 관찰되지 않았습니다. 지붕의 교차 띠와 용마루 아래 가는 밝은 틈은 남아 있으며 전체 표면 결함 해소를 뜻하지 않습니다."
         }
       ],
-      "hero": "images/9fb6aac0db9ed923.png",
-      "model": "models/sarang.glb",
-      "standaloneModel": "models/sarang-standalone.glb",
-      "sharedCurriculum": false,
-      "pbrAvailability": {
-        "status": "deferred_memory_budget",
-        "message": "사랑채 색·표면 3D는 용량 최적화 대기 중입니다."
-      },
-      "newGate": false,
-      "historicalApproval": {
-        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
-        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
-        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
-        "allStageApproval": false
-      },
-      "canonicalDesignation": {
-        "requested": true,
-        "date": "2026-10-21",
-        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
-      },
-      "structureOnly": true,
-      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
-      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+      "standaloneNative": "lookdev-standalone-r5/sarang-standalone/sarang-standalone-r5-brush-candidate.blend",
+      "standaloneNativeSha256": "dd5606924f50dd15943d58e8df52c7c378403d19532a9b76d060347bee543348"
     },
     {
       "key": "ansarang",
@@ -540,6 +585,51 @@
       ],
       "views": [
         {
+          "id": "ansarang-hero",
+          "label": "전체",
+          "image": "lookdev-buildings-r5/ansarang/after-hero.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "df17b8b8d8623dd5084186d6c3c03e6193101eb302be4ef74c15ec26375a516a"
+        },
+        {
+          "id": "ansarang-detail",
+          "label": "재료 가까이",
+          "image": "lookdev-buildings-r5/ansarang/after-detail.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "df17b8b8d8623dd5084186d6c3c03e6193101eb302be4ef74c15ec26375a516a"
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "lookdev-buildings-r5/ansarang/after-hero.png",
+      "model": "models/ansarang.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
+        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
+        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "lookdev-buildings-r5/ansarang/ansarang-r5-brush-candidate.blend",
+      "nativeSha256": "df17b8b8d8623dd5084186d6c3c03e6193101eb302be4ef74c15ec26375a516a",
+      "materialStatus": "canonical_R5_native; interactive_model_surface_not_yet_R5",
+      "structuralNative": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "structuralNativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "historicalMaterialViews": [
+        {
           "id": "front",
           "label": "대표 사선",
           "image": "images/01618e516652a44a.png",
@@ -628,32 +718,13 @@
           "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
         }
       ],
-      "standaloneViews": null,
-      "hero": "images/01618e516652a44a.png",
-      "model": "models/ansarang.glb",
-      "standaloneModel": null,
-      "sharedCurriculum": false,
-      "pbrAvailability": {
-        "status": "pending",
-        "message": "색·표면 3D 전달은 준비 중입니다."
-      },
-      "newGate": false,
-      "historicalApproval": {
-        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
-        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
-        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
-        "allStageApproval": false
-      },
-      "canonicalDesignation": {
-        "requested": true,
-        "date": "2026-10-21",
-        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
-      },
-      "structureOnly": true,
-      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
-      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+      "canonicalMaterial": {
+        "version": "R5",
+        "manifest": "MATERIAL_CANONICAL_PROMOTION_R5.json",
+        "native": "lookdev-buildings-r5/ansarang/ansarang-r5-brush-candidate.blend",
+        "sha256": "df17b8b8d8623dd5084186d6c3c03e6193101eb302be4ef74c15ec26375a516a",
+        "viewerUpdated": false
+      }
     },
     {
       "key": "anchae",
@@ -820,6 +891,51 @@
       ],
       "views": [
         {
+          "id": "anchae-hero",
+          "label": "전체",
+          "image": "lookdev-buildings-r5/anchae/after-hero.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "bb136fad3bbc9ee63f78cdd8f88cb30a2559c5457cfbaa9f7d61c1b8d4ac9b06"
+        },
+        {
+          "id": "anchae-detail",
+          "label": "재료 가까이",
+          "image": "lookdev-buildings-r5/anchae/after-detail.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "bb136fad3bbc9ee63f78cdd8f88cb30a2559c5457cfbaa9f7d61c1b8d4ac9b06"
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "lookdev-buildings-r5/anchae/after-hero.png",
+      "model": "models/anchae.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
+        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
+        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "lookdev-buildings-r5/anchae/anchae-r5-brush-candidate.blend",
+      "nativeSha256": "bb136fad3bbc9ee63f78cdd8f88cb30a2559c5457cfbaa9f7d61c1b8d4ac9b06",
+      "materialStatus": "canonical_R5_native; interactive_model_surface_not_yet_R5",
+      "structuralNative": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "structuralNativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "historicalMaterialViews": [
+        {
           "id": "front",
           "label": "대표 사선",
           "image": "images/0b417c0e0bb62324.png",
@@ -908,32 +1024,13 @@
           "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
         }
       ],
-      "standaloneViews": null,
-      "hero": "images/0b417c0e0bb62324.png",
-      "model": "models/anchae.glb",
-      "standaloneModel": null,
-      "sharedCurriculum": false,
-      "pbrAvailability": {
-        "status": "pending",
-        "message": "색·표면 3D 전달은 준비 중입니다."
-      },
-      "newGate": false,
-      "historicalApproval": {
-        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
-        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
-        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
-        "allStageApproval": false
-      },
-      "canonicalDesignation": {
-        "requested": true,
-        "date": "2026-10-21",
-        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
-      },
-      "structureOnly": true,
-      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
-      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+      "canonicalMaterial": {
+        "version": "R5",
+        "manifest": "MATERIAL_CANONICAL_PROMOTION_R5.json",
+        "native": "lookdev-buildings-r5/anchae/anchae-r5-brush-candidate.blend",
+        "sha256": "bb136fad3bbc9ee63f78cdd8f88cb30a2559c5457cfbaa9f7d61c1b8d4ac9b06",
+        "viewerUpdated": false
+      }
     },
     {
       "key": "sadang",
@@ -1078,6 +1175,51 @@
       ],
       "views": [
         {
+          "id": "sadang-hero",
+          "label": "전체",
+          "image": "lookdev-buildings-r5/sadang/after-hero.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "9ad767f0bf08e60cd41a50cf2f77470c334c7fde3f0f78c8b508cc1678774006"
+        },
+        {
+          "id": "sadang-detail",
+          "label": "재료 가까이",
+          "image": "lookdev-buildings-r5/sadang/after-detail.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "9ad767f0bf08e60cd41a50cf2f77470c334c7fde3f0f78c8b508cc1678774006"
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "lookdev-buildings-r5/sadang/after-hero.png",
+      "model": "models/sadang.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
+        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
+        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "lookdev-buildings-r5/sadang/sadang-r5-brush-candidate.blend",
+      "nativeSha256": "9ad767f0bf08e60cd41a50cf2f77470c334c7fde3f0f78c8b508cc1678774006",
+      "materialStatus": "canonical_R5_native; interactive_model_surface_not_yet_R5",
+      "structuralNative": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "structuralNativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "historicalMaterialViews": [
+        {
           "id": "front",
           "label": "대표 사선",
           "image": "images/46ef19ed36e50482.png",
@@ -1166,32 +1308,13 @@
           "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
         }
       ],
-      "standaloneViews": null,
-      "hero": "images/46ef19ed36e50482.png",
-      "model": "models/sadang.glb",
-      "standaloneModel": null,
-      "sharedCurriculum": false,
-      "pbrAvailability": {
-        "status": "pending",
-        "message": "색·표면 3D 전달은 준비 중입니다."
-      },
-      "newGate": false,
-      "historicalApproval": {
-        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
-        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
-        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
-        "allStageApproval": false
-      },
-      "canonicalDesignation": {
-        "requested": true,
-        "date": "2026-10-21",
-        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
-      },
-      "structureOnly": true,
-      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
-      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+      "canonicalMaterial": {
+        "version": "R5",
+        "manifest": "MATERIAL_CANONICAL_PROMOTION_R5.json",
+        "native": "lookdev-buildings-r5/sadang/sadang-r5-brush-candidate.blend",
+        "sha256": "9ad767f0bf08e60cd41a50cf2f77470c334c7fde3f0f78c8b508cc1678774006",
+        "viewerUpdated": false
+      }
     },
     {
       "key": "jung",
@@ -1336,6 +1459,66 @@
       ],
       "views": [
         {
+          "id": "jung-hero",
+          "label": "전체",
+          "image": "lookdev-buildings-r5/jung/after-hero.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "0e0c8f387a8a4f4bbac82e649401672da40416ebc03aca781c21edc91994f702"
+        },
+        {
+          "id": "jung-detail",
+          "label": "재료 가까이",
+          "image": "lookdev-buildings-r5/jung/after-detail.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "0e0c8f387a8a4f4bbac82e649401672da40416ebc03aca781c21edc91994f702"
+        }
+      ],
+      "standaloneViews": [
+        {
+          "id": "jung-standalone-hero",
+          "label": "전체",
+          "image": "lookdev-standalone-r5/jung-standalone/after-hero.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "0bc8257fdb8d019235f9fc1844eb1fae3c9b4750c5ab185c8f4f76329725e36d"
+        },
+        {
+          "id": "jung-standalone-detail",
+          "label": "재료 가까이",
+          "image": "lookdev-standalone-r5/jung-standalone/after-detail.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "0bc8257fdb8d019235f9fc1844eb1fae3c9b4750c5ab185c8f4f76329725e36d"
+        }
+      ],
+      "hero": "lookdev-buildings-r5/jung/after-hero.png",
+      "model": "models/jung.glb",
+      "standaloneModel": "models/jung-standalone.glb",
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
+        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
+        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "lookdev-buildings-r5/jung/jung-r5-brush-candidate.blend",
+      "nativeSha256": "0e0c8f387a8a4f4bbac82e649401672da40416ebc03aca781c21edc91994f702",
+      "materialStatus": "canonical_R5_native; interactive_model_surface_not_yet_R5",
+      "structuralNative": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "structuralNativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "historicalMaterialViews": [
+        {
           "id": "front",
           "label": "대표 사선",
           "image": "images/7a26430299125dbf.png",
@@ -1432,7 +1615,14 @@
           "note": "121개 표준 구도와 별도로 연결한 접합 맥락 자료입니다."
         }
       ],
-      "standaloneViews": [
+      "canonicalMaterial": {
+        "version": "R5",
+        "manifest": "MATERIAL_CANONICAL_PROMOTION_R5.json",
+        "native": "lookdev-buildings-r5/jung/jung-r5-brush-candidate.blend",
+        "sha256": "0e0c8f387a8a4f4bbac82e649401672da40416ebc03aca781c21edc91994f702",
+        "viewerUpdated": false
+      },
+      "historicalStandaloneViews": [
         {
           "id": "jung-hero",
           "label": "대표 사선",
@@ -1498,31 +1688,8 @@
           "note": "R10 동·서·처마 아래 앞뒤에서 복원 지붕 끝과 경사가 이어지고 밝은 복원 경계가 사라진 것을 확인했습니다. 기존 용마루·끝 기와의 가는 틈, 낮은 구도에서 보이는 마루 아래 바닥·벽의 틈과 밝은 반복 세부는 별도이며 모든 표면 결함 해소 판정은 아닙니다."
         }
       ],
-      "hero": "images/aa37cc75b71b5f82.png",
-      "model": "models/jung.glb",
-      "standaloneModel": "models/jung-standalone.glb",
-      "sharedCurriculum": false,
-      "pbrAvailability": {
-        "status": "pending",
-        "message": "색·표면 3D 전달은 준비 중입니다."
-      },
-      "newGate": false,
-      "historicalApproval": {
-        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
-        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
-        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
-        "allStageApproval": false
-      },
-      "canonicalDesignation": {
-        "requested": true,
-        "date": "2026-10-21",
-        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
-      },
-      "structureOnly": true,
-      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
-      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+      "standaloneNative": "lookdev-standalone-r5/jung-standalone/jung-standalone-r5-brush-candidate.blend",
+      "standaloneNativeSha256": "0bc8257fdb8d019235f9fc1844eb1fae3c9b4750c5ab185c8f4f76329725e36d"
     },
     {
       "key": "arae",
@@ -1667,6 +1834,51 @@
       ],
       "views": [
         {
+          "id": "arae-hero",
+          "label": "전체",
+          "image": "lookdev-buildings-r5/arae/after-hero.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "25842b2bc947699657a0c737191551cc571c5005217e54100e805239c5adc89a"
+        },
+        {
+          "id": "arae-detail",
+          "label": "재료 가까이",
+          "image": "lookdev-buildings-r5/arae/after-detail.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "25842b2bc947699657a0c737191551cc571c5005217e54100e805239c5adc89a"
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "lookdev-buildings-r5/arae/after-hero.png",
+      "model": "models/arae.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
+        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
+        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "lookdev-buildings-r5/arae/arae-r5-brush-candidate.blend",
+      "nativeSha256": "25842b2bc947699657a0c737191551cc571c5005217e54100e805239c5adc89a",
+      "materialStatus": "canonical_R5_native; interactive_model_surface_not_yet_R5",
+      "structuralNative": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "structuralNativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "historicalMaterialViews": [
+        {
           "id": "front",
           "label": "대표 사선",
           "image": "images/eed26dd1671f8dcf.png",
@@ -1755,32 +1967,13 @@
           "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
         }
       ],
-      "standaloneViews": null,
-      "hero": "images/eed26dd1671f8dcf.png",
-      "model": "models/arae.glb",
-      "standaloneModel": null,
-      "sharedCurriculum": false,
-      "pbrAvailability": {
-        "status": "pending",
-        "message": "색·표면 3D 전달은 준비 중입니다."
-      },
-      "newGate": false,
-      "historicalApproval": {
-        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
-        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
-        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
-        "allStageApproval": false
-      },
-      "canonicalDesignation": {
-        "requested": true,
-        "date": "2026-10-21",
-        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
-      },
-      "structureOnly": true,
-      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
-      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+      "canonicalMaterial": {
+        "version": "R5",
+        "manifest": "MATERIAL_CANONICAL_PROMOTION_R5.json",
+        "native": "lookdev-buildings-r5/arae/arae-r5-brush-candidate.blend",
+        "sha256": "25842b2bc947699657a0c737191551cc571c5005217e54100e805239c5adc89a",
+        "viewerUpdated": false
+      }
     },
     {
       "key": "gokgan",
@@ -1914,6 +2107,51 @@
       ],
       "views": [
         {
+          "id": "gokgan-hero",
+          "label": "전체",
+          "image": "lookdev-buildings-r5/gokgan/after-hero.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "b954900cdcf0a35f8edd4f72cbd994e1a9feeae31d56b98d809cdbcf650e1daa"
+        },
+        {
+          "id": "gokgan-detail",
+          "label": "재료 가까이",
+          "image": "lookdev-buildings-r5/gokgan/after-detail.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "b954900cdcf0a35f8edd4f72cbd994e1a9feeae31d56b98d809cdbcf650e1daa"
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "lookdev-buildings-r5/gokgan/after-hero.png",
+      "model": "models/gokgan.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
+        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
+        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "lookdev-buildings-r5/gokgan/gokgan-r5-brush-candidate.blend",
+      "nativeSha256": "b954900cdcf0a35f8edd4f72cbd994e1a9feeae31d56b98d809cdbcf650e1daa",
+      "materialStatus": "canonical_R5_native; interactive_model_surface_not_yet_R5",
+      "structuralNative": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "structuralNativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "historicalMaterialViews": [
+        {
           "id": "front",
           "label": "대표 사선",
           "image": "images/9e64044bd06c3a84.png",
@@ -2002,32 +2240,13 @@
           "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
         }
       ],
-      "standaloneViews": null,
-      "hero": "images/9e64044bd06c3a84.png",
-      "model": "models/gokgan.glb",
-      "standaloneModel": null,
-      "sharedCurriculum": false,
-      "pbrAvailability": {
-        "status": "pending",
-        "message": "색·표면 3D 전달은 준비 중입니다."
-      },
-      "newGate": false,
-      "historicalApproval": {
-        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
-        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
-        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
-        "allStageApproval": false
-      },
-      "canonicalDesignation": {
-        "requested": true,
-        "date": "2026-10-21",
-        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
-      },
-      "structureOnly": true,
-      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
-      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+      "canonicalMaterial": {
+        "version": "R5",
+        "manifest": "MATERIAL_CANONICAL_PROMOTION_R5.json",
+        "native": "lookdev-buildings-r5/gokgan/gokgan-r5-brush-candidate.blend",
+        "sha256": "b954900cdcf0a35f8edd4f72cbd994e1a9feeae31d56b98d809cdbcf650e1daa",
+        "viewerUpdated": false
+      }
     },
     {
       "key": "angotgan",
@@ -2161,6 +2380,51 @@
       ],
       "views": [
         {
+          "id": "angotgan-hero",
+          "label": "전체",
+          "image": "lookdev-buildings-r5/angotgan/after-hero.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "9454564888071fdef82d097ed32626eb975bb3ad0f253e18327ef00c639f7862"
+        },
+        {
+          "id": "angotgan-detail",
+          "label": "재료 가까이",
+          "image": "lookdev-buildings-r5/angotgan/after-detail.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "9454564888071fdef82d097ed32626eb975bb3ad0f253e18327ef00c639f7862"
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "lookdev-buildings-r5/angotgan/after-hero.png",
+      "model": "models/angotgan.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
+        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
+        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "lookdev-buildings-r5/angotgan/angotgan-r5-brush-candidate.blend",
+      "nativeSha256": "9454564888071fdef82d097ed32626eb975bb3ad0f253e18327ef00c639f7862",
+      "materialStatus": "canonical_R5_native; interactive_model_surface_not_yet_R5",
+      "structuralNative": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "structuralNativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "historicalMaterialViews": [
+        {
           "id": "front",
           "label": "대표 사선",
           "image": "images/76ba858d07b7c092.png",
@@ -2257,32 +2521,13 @@
           "note": "R5 밝은 목재 처마의 실제 확대 자료입니다. 전체 부재의 모든 면 수용과 구분합니다."
         }
       ],
-      "standaloneViews": null,
-      "hero": "images/76ba858d07b7c092.png",
-      "model": "models/angotgan.glb",
-      "standaloneModel": null,
-      "sharedCurriculum": false,
-      "pbrAvailability": {
-        "status": "pending",
-        "message": "색·표면 3D 전달은 준비 중입니다."
-      },
-      "newGate": false,
-      "historicalApproval": {
-        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
-        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
-        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
-        "allStageApproval": false
-      },
-      "canonicalDesignation": {
-        "requested": true,
-        "date": "2026-10-21",
-        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
-      },
-      "structureOnly": true,
-      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
-      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+      "canonicalMaterial": {
+        "version": "R5",
+        "manifest": "MATERIAL_CANONICAL_PROMOTION_R5.json",
+        "native": "lookdev-buildings-r5/angotgan/angotgan-r5-brush-candidate.blend",
+        "sha256": "9454564888071fdef82d097ed32626eb975bb3ad0f253e18327ef00c639f7862",
+        "viewerUpdated": false
+      }
     },
     {
       "key": "changgo",
@@ -2383,6 +2628,51 @@
       ],
       "views": [
         {
+          "id": "changgo-hero",
+          "label": "전체",
+          "image": "lookdev-buildings-r5/changgo/after-hero.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "6dc1b764d31622c7e7206fd946cf80cddb538be473fead8a3aedc50dd97b53aa"
+        },
+        {
+          "id": "changgo-detail",
+          "label": "재료 가까이",
+          "image": "lookdev-buildings-r5/changgo/after-detail.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "6dc1b764d31622c7e7206fd946cf80cddb538be473fead8a3aedc50dd97b53aa"
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "lookdev-buildings-r5/changgo/after-hero.png",
+      "model": "models/changgo.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
+        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
+        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "lookdev-buildings-r5/changgo/changgo-r5-brush-candidate.blend",
+      "nativeSha256": "6dc1b764d31622c7e7206fd946cf80cddb538be473fead8a3aedc50dd97b53aa",
+      "materialStatus": "canonical_R5_native; interactive_model_surface_not_yet_R5",
+      "structuralNative": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "structuralNativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "historicalMaterialViews": [
+        {
           "id": "front",
           "label": "대표 사선",
           "image": "images/d332e3159a54e176.png",
@@ -2471,32 +2761,13 @@
           "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
         }
       ],
-      "standaloneViews": null,
-      "hero": "images/d332e3159a54e176.png",
-      "model": "models/changgo.glb",
-      "standaloneModel": null,
-      "sharedCurriculum": false,
-      "pbrAvailability": {
-        "status": "pending",
-        "message": "색·표면 3D 전달은 준비 중입니다."
-      },
-      "newGate": false,
-      "historicalApproval": {
-        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
-        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
-        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
-        "allStageApproval": false
-      },
-      "canonicalDesignation": {
-        "requested": true,
-        "date": "2026-10-21",
-        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
-      },
-      "structureOnly": true,
-      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
-      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+      "canonicalMaterial": {
+        "version": "R5",
+        "manifest": "MATERIAL_CANONICAL_PROMOTION_R5.json",
+        "native": "lookdev-buildings-r5/changgo/changgo-r5-brush-candidate.blend",
+        "sha256": "6dc1b764d31622c7e7206fd946cf80cddb538be473fead8a3aedc50dd97b53aa",
+        "viewerUpdated": false
+      }
     },
     {
       "key": "toilet",
@@ -2608,6 +2879,51 @@
       ],
       "views": [
         {
+          "id": "toilet-hero",
+          "label": "전체",
+          "image": "lookdev-buildings-r5/toilet/after-hero.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "67ba5f446aa96b5023f67cb5460ac8f1227c2413983448d461d6e885a120e922"
+        },
+        {
+          "id": "toilet-detail",
+          "label": "재료 가까이",
+          "image": "lookdev-buildings-r5/toilet/after-detail.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "67ba5f446aa96b5023f67cb5460ac8f1227c2413983448d461d6e885a120e922"
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "lookdev-buildings-r5/toilet/after-hero.png",
+      "model": "models/toilet.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
+        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
+        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "lookdev-buildings-r5/toilet/toilet-r5-brush-candidate.blend",
+      "nativeSha256": "67ba5f446aa96b5023f67cb5460ac8f1227c2413983448d461d6e885a120e922",
+      "materialStatus": "canonical_R5_native; interactive_model_surface_not_yet_R5",
+      "structuralNative": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "structuralNativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "historicalMaterialViews": [
+        {
           "id": "front",
           "label": "대표 사선",
           "image": "images/03f21e33e35cdf24.png",
@@ -2696,32 +3012,13 @@
           "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
         }
       ],
-      "standaloneViews": null,
-      "hero": "images/03f21e33e35cdf24.png",
-      "model": "models/toilet.glb",
-      "standaloneModel": null,
-      "sharedCurriculum": false,
-      "pbrAvailability": {
-        "status": "pending",
-        "message": "색·표면 3D 전달은 준비 중입니다."
-      },
-      "newGate": false,
-      "historicalApproval": {
-        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
-        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
-        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
-        "allStageApproval": false
-      },
-      "canonicalDesignation": {
-        "requested": true,
-        "date": "2026-10-21",
-        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
-      },
-      "structureOnly": true,
-      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
-      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+      "canonicalMaterial": {
+        "version": "R5",
+        "manifest": "MATERIAL_CANONICAL_PROMOTION_R5.json",
+        "native": "lookdev-buildings-r5/toilet/toilet-r5-brush-candidate.blend",
+        "sha256": "67ba5f446aa96b5023f67cb5460ac8f1227c2413983448d461d6e885a120e922",
+        "viewerUpdated": false
+      }
     },
     {
       "key": "toilet1",
@@ -2833,6 +3130,52 @@
       ],
       "views": [
         {
+          "id": "toilet1-hero",
+          "label": "전체",
+          "image": "lookdev-buildings-r5/toilet1/after-hero.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "18bd38953c5f5cef1f02f77c2af20a7ec713b4d1901575de19f27f0018154439"
+        },
+        {
+          "id": "toilet1-detail",
+          "label": "재료 가까이",
+          "image": "lookdev-buildings-r5/toilet1/after-detail.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "18bd38953c5f5cef1f02f77c2af20a7ec713b4d1901575de19f27f0018154439"
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "lookdev-buildings-r5/toilet1/after-hero.png",
+      "model": "models/toilet1.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
+        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
+        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "lookdev-buildings-r5/toilet1/toilet1-r5-brush-candidate.blend",
+      "nativeSha256": "18bd38953c5f5cef1f02f77c2af20a7ec713b4d1901575de19f27f0018154439",
+      "unreviewedMaterialCandidate": "building-pbr\\toilet1\\toilet1.glb",
+      "materialStatus": "canonical_R5_native; interactive_model_surface_not_yet_R5",
+      "structuralNative": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "structuralNativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "historicalMaterialViews": [
+        {
           "id": "front",
           "label": "대표 사선",
           "image": "images/06f1ab2fb422ad0e.png",
@@ -2921,32 +3264,13 @@
           "note": "이 렌더에서 실제로 보이는 면의 검수입니다. 가려진 면·작은 철물 전체를 수용한 기록은 아닙니다."
         }
       ],
-      "standaloneViews": null,
-      "hero": "images/06f1ab2fb422ad0e.png",
-      "model": "models/toilet1.glb",
-      "standaloneModel": null,
-      "sharedCurriculum": false,
-      "pbrAvailability": {
-        "status": "pending",
-        "message": "색·표면 3D 전달은 준비 중입니다."
-      },
-      "newGate": false,
-      "historicalApproval": {
-        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
-        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
-        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
-        "allStageApproval": false
-      },
-      "canonicalDesignation": {
-        "requested": true,
-        "date": "2026-10-21",
-        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
-      },
-      "structureOnly": true,
-      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
-      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+      "canonicalMaterial": {
+        "version": "R5",
+        "manifest": "MATERIAL_CANONICAL_PROMOTION_R5.json",
+        "native": "lookdev-buildings-r5/toilet1/toilet1-r5-brush-candidate.blend",
+        "sha256": "18bd38953c5f5cef1f02f77c2af20a7ec713b4d1901575de19f27f0018154439",
+        "viewerUpdated": false
+      }
     },
     {
       "key": "main_gate",
@@ -3091,6 +3415,51 @@
       ],
       "views": [
         {
+          "id": "main_gate-hero",
+          "label": "전체",
+          "image": "lookdev-buildings-r5/main_gate/after-hero.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "c6369a07672a7006b842d507ac2a758a53fa367ddf5348395682e151135f6e41"
+        },
+        {
+          "id": "main_gate-detail",
+          "label": "재료 가까이",
+          "image": "lookdev-buildings-r5/main_gate/after-detail.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "c6369a07672a7006b842d507ac2a758a53fa367ddf5348395682e151135f6e41"
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "lookdev-buildings-r5/main_gate/after-hero.png",
+      "model": "models/main_gate.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": false,
+      "historicalApproval": {
+        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
+        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
+        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": true,
+      "native": "lookdev-buildings-r5/main_gate/main_gate-r5-brush-candidate.blend",
+      "nativeSha256": "c6369a07672a7006b842d507ac2a758a53fa367ddf5348395682e151135f6e41",
+      "materialStatus": "canonical_R5_native; interactive_model_surface_not_yet_R5",
+      "structuralNative": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "structuralNativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "historicalMaterialViews": [
+        {
           "id": "main_gate-front",
           "label": "정면",
           "image": "images/df1d959d763d6d16.png",
@@ -3115,32 +3484,13 @@
           "note": "R12 문 표면의 실제 렌더입니다. 이전 재질 버튼은 같은 구도의 R9 출처를 표시합니다. 수용한 표면 범위와 남아 있는 제한은 검수 근거에 따릅니다."
         }
       ],
-      "standaloneViews": null,
-      "hero": "images/df1d959d763d6d16.png",
-      "model": "models/main_gate.glb",
-      "standaloneModel": null,
-      "sharedCurriculum": false,
-      "pbrAvailability": {
-        "status": "pending",
-        "message": "색·표면 3D 전달은 준비 중입니다."
-      },
-      "newGate": false,
-      "historicalApproval": {
-        "status": "기존 R12 정본 유지 · 이번 정본 지정에 포함",
-        "scope": "기존 canonical/manifest.json의 R12 정본 기록과 이번 전체 정본 지정 지시를 연결했습니다. 과거 건물별 모든 면·공정의 개별 승인 발언이 확인됐다는 뜻은 아닙니다.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고",
-        "source": "이 대화 · 현재 사용자 정본 지정 + 기존 R12 canonical/manifest.json",
-        "allStageApproval": false
-      },
-      "canonicalDesignation": {
-        "requested": true,
-        "date": "2026-10-21",
-        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
-      },
-      "structureOnly": true,
-      "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
-      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+      "canonicalMaterial": {
+        "version": "R5",
+        "manifest": "MATERIAL_CANONICAL_PROMOTION_R5.json",
+        "native": "lookdev-buildings-r5/main_gate/main_gate-r5-brush-candidate.blend",
+        "sha256": "c6369a07672a7006b842d507ac2a758a53fa367ddf5348395682e151135f6e41",
+        "viewerUpdated": false
+      }
     },
     {
       "key": "left_changgo",
@@ -3213,6 +3563,54 @@
       ],
       "views": [
         {
+          "id": "left_changgo-hero",
+          "label": "전체",
+          "image": "lookdev-buildings-r5/left_changgo/after-hero.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "237cf14ede53373ed39879d13ac6dad8fd9d598ba898415d8e094b6ef1e124ac"
+        },
+        {
+          "id": "left_changgo-detail",
+          "label": "재료 가까이",
+          "image": "lookdev-buildings-r5/left_changgo/after-detail.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "237cf14ede53373ed39879d13ac6dad8fd9d598ba898415d8e094b6ef1e124ac"
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "lookdev-buildings-r5/left_changgo/after-hero.png",
+      "model": "models/left_changgo-pbr.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": true,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": true,
+      "historicalApproval": {
+        "status": "이 세션 제작본 · 정본 승격 확정",
+        "scope": "2026-10-21 사용자가 이 세션의 협문 두 개와 사당문을 직접 정본 지정했습니다. R6c 원본과 그 부재로 만든 공정을 연결합니다. 앱·실기기·출시 승인은 별도입니다.",
+        "quote": "협문두개랑 사당문은 이 세션에서 너가 작업한걸로 정본승격이야.",
+        "source": "이 대화 · 사용자 직접 발언",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": false,
+      "native": "lookdev-buildings-r5/left_changgo/left_changgo-r5-brush-candidate.blend",
+      "nativeSha256": "237cf14ede53373ed39879d13ac6dad8fd9d598ba898415d8e094b6ef1e124ac",
+      "materialMode": "approved-native-shader-baked-PBR",
+      "materialReceipt": "left-pbr-export.json",
+      "materialTextureCount": 4,
+      "nativeMaterialColorSource": "actual source shader bake, no arbitrary recolor",
+      "structuralNative": "../left-new.blend",
+      "structuralNativeSha256": "b0431b15ebe83529c59307cabea2e66be481ecc0a406df4f68e30e868606fed0",
+      "historicalMaterialViews": [
+        {
           "id": "hero",
           "label": "전체",
           "image": "images/left-hero.png",
@@ -3255,36 +3653,14 @@
           "sourceVersion": "최신 R6c · 도면 재제작"
         }
       ],
-      "standaloneViews": null,
-      "hero": "images/2383bdbe16376cff.png",
-      "model": "models/left_changgo-pbr.glb",
-      "standaloneModel": null,
-      "sharedCurriculum": true,
-      "pbrAvailability": {
-        "status": "pending",
-        "message": "색·표면 3D 전달은 준비 중입니다."
+      "canonicalMaterial": {
+        "version": "R5",
+        "manifest": "MATERIAL_CANONICAL_PROMOTION_R5.json",
+        "native": "lookdev-buildings-r5/left_changgo/left_changgo-r5-brush-candidate.blend",
+        "sha256": "237cf14ede53373ed39879d13ac6dad8fd9d598ba898415d8e094b6ef1e124ac",
+        "viewerUpdated": false
       },
-      "newGate": true,
-      "historicalApproval": {
-        "status": "이 세션 제작본 · 정본 승격 확정",
-        "scope": "2026-10-21 사용자가 이 세션의 협문 두 개와 사당문을 직접 정본 지정했습니다. R6c 원본과 그 부재로 만든 공정을 연결합니다. 앱·실기기·출시 승인은 별도입니다.",
-        "quote": "협문두개랑 사당문은 이 세션에서 너가 작업한걸로 정본승격이야.",
-        "source": "이 대화 · 사용자 직접 발언",
-        "allStageApproval": false
-      },
-      "canonicalDesignation": {
-        "requested": true,
-        "date": "2026-10-21",
-        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
-      },
-      "structureOnly": false,
-      "native": "../left-new.blend",
-      "nativeSha256": "b0431b15ebe83529c59307cabea2e66be481ecc0a406df4f68e30e868606fed0",
-      "materialMode": "approved-native-shader-baked-PBR",
-      "materialReceipt": "left-pbr-export.json",
-      "materialTextureCount": 4,
-      "nativeMaterialColorSource": "actual source shader bake, no arbitrary recolor"
+      "materialStatus": "canonical_R5_native; interactive_model_surface_not_yet_R5"
     },
     {
       "key": "right_ansarang",
@@ -3357,6 +3733,54 @@
       ],
       "views": [
         {
+          "id": "right_ansarang-hero",
+          "label": "전체",
+          "image": "lookdev-buildings-r5/right_ansarang/after-hero.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "eb9064848e456d2faefdbf3cf1fd6cb2e4344cdd8b9b58adb0e259d10252519e"
+        },
+        {
+          "id": "right_ansarang-detail",
+          "label": "재료 가까이",
+          "image": "lookdev-buildings-r5/right_ansarang/after-detail.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "eb9064848e456d2faefdbf3cf1fd6cb2e4344cdd8b9b58adb0e259d10252519e"
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "lookdev-buildings-r5/right_ansarang/after-hero.png",
+      "model": "models/right_ansarang-pbr.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": true,
+      "pbrAvailability": {
+        "status": "pending",
+        "message": "색·표면 3D 전달은 준비 중입니다."
+      },
+      "newGate": true,
+      "historicalApproval": {
+        "status": "이 세션 제작본 · 정본 승격 확정",
+        "scope": "2026-10-21 사용자가 이 세션의 협문 두 개와 사당문을 직접 정본 지정했습니다. R6c 원본과 그 부재로 만든 공정을 연결합니다. 앱·실기기·출시 승인은 별도입니다.",
+        "quote": "협문두개랑 사당문은 이 세션에서 너가 작업한걸로 정본승격이야.",
+        "source": "이 대화 · 사용자 직접 발언",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": false,
+      "native": "lookdev-buildings-r5/right_ansarang/right_ansarang-r5-brush-candidate.blend",
+      "nativeSha256": "eb9064848e456d2faefdbf3cf1fd6cb2e4344cdd8b9b58adb0e259d10252519e",
+      "materialMode": "approved-native-shader-baked-PBR",
+      "materialReceipt": "right-pbr-export.json",
+      "materialTextureCount": 4,
+      "nativeMaterialColorSource": "actual source shader bake, no arbitrary recolor",
+      "structuralNative": "../right-new.blend",
+      "structuralNativeSha256": "6995b49bcbabf69dcca3e4a94cf4a3ec2b8af892f5d1223eb045133e229e88ca",
+      "historicalMaterialViews": [
+        {
           "id": "hero",
           "label": "전체",
           "image": "images/right-hero.png",
@@ -3399,36 +3823,14 @@
           "sourceVersion": "최신 R6c · 도면 재제작"
         }
       ],
-      "standaloneViews": null,
-      "hero": "images/0670907d40b7e3b6.png",
-      "model": "models/right_ansarang-pbr.glb",
-      "standaloneModel": null,
-      "sharedCurriculum": true,
-      "pbrAvailability": {
-        "status": "pending",
-        "message": "색·표면 3D 전달은 준비 중입니다."
+      "canonicalMaterial": {
+        "version": "R5",
+        "manifest": "MATERIAL_CANONICAL_PROMOTION_R5.json",
+        "native": "lookdev-buildings-r5/right_ansarang/right_ansarang-r5-brush-candidate.blend",
+        "sha256": "eb9064848e456d2faefdbf3cf1fd6cb2e4344cdd8b9b58adb0e259d10252519e",
+        "viewerUpdated": false
       },
-      "newGate": true,
-      "historicalApproval": {
-        "status": "이 세션 제작본 · 정본 승격 확정",
-        "scope": "2026-10-21 사용자가 이 세션의 협문 두 개와 사당문을 직접 정본 지정했습니다. R6c 원본과 그 부재로 만든 공정을 연결합니다. 앱·실기기·출시 승인은 별도입니다.",
-        "quote": "협문두개랑 사당문은 이 세션에서 너가 작업한걸로 정본승격이야.",
-        "source": "이 대화 · 사용자 직접 발언",
-        "allStageApproval": false
-      },
-      "canonicalDesignation": {
-        "requested": true,
-        "date": "2026-10-21",
-        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
-      },
-      "structureOnly": false,
-      "native": "../right-new.blend",
-      "nativeSha256": "6995b49bcbabf69dcca3e4a94cf4a3ec2b8af892f5d1223eb045133e229e88ca",
-      "materialMode": "approved-native-shader-baked-PBR",
-      "materialReceipt": "right-pbr-export.json",
-      "materialTextureCount": 4,
-      "nativeMaterialColorSource": "actual source shader bake, no arbitrary recolor"
+      "materialStatus": "canonical_R5_native; interactive_model_surface_not_yet_R5"
     },
     {
       "key": "sadangmun",
@@ -3521,6 +3923,62 @@
       ],
       "views": [
         {
+          "id": "sadangmun-hero",
+          "label": "전체",
+          "image": "lookdev-buildings-r5/sadangmun/after-hero.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "631767b183d2ef7802303b0ddb29fae78b38e8a91ea0c2ad957483098fbb551b"
+        },
+        {
+          "id": "sadangmun-detail",
+          "label": "재료 가까이",
+          "image": "lookdev-buildings-r5/sadangmun/after-detail.png",
+          "sourceVersion": "R5 정본 재질",
+          "nativeSha256": "631767b183d2ef7802303b0ddb29fae78b38e8a91ea0c2ad957483098fbb551b"
+        }
+      ],
+      "standaloneViews": null,
+      "hero": "lookdev-buildings-r5/sadangmun/after-hero.png",
+      "model": "models/sadangmun-pbr.glb",
+      "standaloneModel": null,
+      "sharedCurriculum": false,
+      "pbrAvailability": {
+        "status": "review_candidate",
+        "message": "표시 방식에서 색·표면 3D 후보를 열 수 있습니다. 앱 최종 품질은 검증 중입니다."
+      },
+      "pbrCandidate": {
+        "url": "../exports/sadangmun-pilot-r25/sadangmun.glb",
+        "sha256": "1ac3790b4573273e1971725b42044e792b01acdde5969696be8da0e8d3863882",
+        "bytes": 43230412,
+        "sourceVersion": "R12 / PBR R25",
+        "visualApproval": false,
+        "runtimePromoted": false
+      },
+      "newGate": true,
+      "historicalApproval": {
+        "status": "이 세션 제작본 · 정본 승격 확정",
+        "scope": "2026-10-21 사용자가 이 세션의 협문 두 개와 사당문을 직접 정본 지정했습니다. R6c 원본과 그 부재로 만든 공정을 연결합니다. 앱·실기기·출시 승인은 별도입니다. 사당문 색상은 별도 통과 발언이 있습니다.",
+        "quote": "협문두개랑 사당문은 이 세션에서 너가 작업한걸로 정본승격이야.",
+        "source": "이 대화 · 사용자 직접 발언",
+        "allStageApproval": false
+      },
+      "canonicalDesignation": {
+        "requested": true,
+        "date": "2026-10-21",
+        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
+        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
+      },
+      "structureOnly": false,
+      "native": "lookdev-buildings-r5/sadangmun/sadangmun-r5-brush-candidate.blend",
+      "nativeSha256": "631767b183d2ef7802303b0ddb29fae78b38e8a91ea0c2ad957483098fbb551b",
+      "materialMode": "approved-native-shader-baked-PBR",
+      "materialReceipt": "shrine-pbr-export.json",
+      "materialTextureCount": 12,
+      "nativeMaterialColorSource": "actual source shader bake, no arbitrary recolor",
+      "structuralNative": "../shrine-new.blend",
+      "structuralNativeSha256": "d0424a1c0e5d8032a7dbb68fa2cad308655d0e9e36b9502bd648d46899d73f20",
+      "historicalMaterialViews": [
+        {
           "id": "hero",
           "label": "전체",
           "image": "images/shrine-hero.png",
@@ -3563,44 +4021,14 @@
           "sourceVersion": "최신 R6c · 도면 재제작"
         }
       ],
-      "standaloneViews": null,
-      "hero": "images/0ff94ed2af7bec98.png",
-      "model": "models/sadangmun-pbr.glb",
-      "standaloneModel": null,
-      "sharedCurriculum": false,
-      "pbrAvailability": {
-        "status": "review_candidate",
-        "message": "표시 방식에서 색·표면 3D 후보를 열 수 있습니다. 앱 최종 품질은 검증 중입니다."
+      "canonicalMaterial": {
+        "version": "R5",
+        "manifest": "MATERIAL_CANONICAL_PROMOTION_R5.json",
+        "native": "lookdev-buildings-r5/sadangmun/sadangmun-r5-brush-candidate.blend",
+        "sha256": "631767b183d2ef7802303b0ddb29fae78b38e8a91ea0c2ad957483098fbb551b",
+        "viewerUpdated": false
       },
-      "pbrCandidate": {
-        "url": "../exports/sadangmun-pilot-r25/sadangmun.glb",
-        "sha256": "1ac3790b4573273e1971725b42044e792b01acdde5969696be8da0e8d3863882",
-        "bytes": 43230412,
-        "sourceVersion": "R12 / PBR R25",
-        "visualApproval": false,
-        "runtimePromoted": false
-      },
-      "newGate": true,
-      "historicalApproval": {
-        "status": "이 세션 제작본 · 정본 승격 확정",
-        "scope": "2026-10-21 사용자가 이 세션의 협문 두 개와 사당문을 직접 정본 지정했습니다. R6c 원본과 그 부재로 만든 공정을 연결합니다. 앱·실기기·출시 승인은 별도입니다. 사당문 색상은 별도 통과 발언이 있습니다.",
-        "quote": "협문두개랑 사당문은 이 세션에서 너가 작업한걸로 정본승격이야.",
-        "source": "이 대화 · 사용자 직접 발언",
-        "allStageApproval": false
-      },
-      "canonicalDesignation": {
-        "requested": true,
-        "date": "2026-10-21",
-        "scope": "원본 3D·기존 공정 자료 정본 승격 요청. 실기기·앱 출시 승인과 별도.",
-        "quote": "일두고택 3D 완성본 그리고 각 건물별 건설공정과정 전부 다 커밋, 정본으로 승격시키고"
-      },
-      "structureOnly": false,
-      "native": "../shrine-new.blend",
-      "nativeSha256": "d0424a1c0e5d8032a7dbb68fa2cad308655d0e9e36b9502bd648d46899d73f20",
-      "materialMode": "approved-native-shader-baked-PBR",
-      "materialReceipt": "shrine-pbr-export.json",
-      "materialTextureCount": 12,
-      "nativeMaterialColorSource": "actual source shader bake, no arbitrary recolor"
+      "materialStatus": "canonical_R5_native; interactive_model_surface_not_yet_R5"
     },
     {
       "key": "estate-context",
@@ -3655,7 +4083,8 @@
       },
       "structureOnly": true,
       "native": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
-      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68"
+      "nativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "materialStatus": "conversion_not_approved; restyle direction under review"
     }
   ],
   "scope": "11 buildings, 4 gate instances, shared walls and courtyard",
@@ -3663,6 +4092,7 @@
   "stageApproval": false,
   "instanceStageCount": 160,
   "sourceVersion": "R12 건축 + 최신 R6c 세 문 + 마당 R5·담장 R3",
-  "modelMaterialMode": "구조 검토용 GLB; 재질 정본은 Blender 원본과 해당 렌더",
-  "approvalPolicy": "과거 개별 승인 근거와 현재 정본 지정을 구분. 앱·출시 승인을 추론하지 않음."
+  "modelMaterialMode": "Approved native PBR for completed material exports; incomplete structural assets explicitly labelled.",
+  "approvalPolicy": "과거 개별 승인 근거와 현재 정본 지정을 구분. 앱·출시 승인을 추론하지 않음.",
+  "canonicalMaterialPromotion": "MATERIAL_CANONICAL_PROMOTION_R5.json"
 }

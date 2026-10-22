@@ -1,0 +1,29 @@
+{
+  "status": "R5 native materials designated canonical by current human instruction",
+  "approved": true,
+  "appIntegrated": false,
+  "glbConverted": false,
+  "sourceSha256": "509ffb8a8d714663096c5c7e6d6f0d121a8720f23b281905ebf1cbe328d89c1d",
+  "native": "sarang-three-value-brush-candidate.blend",
+  "nativeSha256": "cab144f08a7836dc0eafc074456104cdbfe21eecd46eadf2c13b882d52efd4c8",
+  "originalMeshCount": 711,
+  "originalGeometryUvsAttributesPlaquesLightingPreserved": true,
+  "renderedImagePairs": 4,
+  "visualAssessment": "Broad colour planes, reduced wood grain; whole-building and 402px whole-Numaru effect restrained. User review pending.",
+  "externalResourcesInstalled": false,
+  "canonicalPromotion": false,
+  "authority": {
+    "date": "2026-10-22",
+    "source": "direct user message in this conversation",
+    "quote": "오 훨씬 좋아졌다 이런식으로 다른 건물도 건물에 맞게 적용해줘.",
+    "scope": "Sarang R5 visual direction accepted; extend with building-specific material adaptation",
+    "native": "sarang-three-value-brush-candidate.blend",
+    "sha256": "cab144f08a7836dc0eafc074456104cdbfe21eecd46eadf2c13b882d52efd4c8",
+    "canonicalPromotion": false,
+    "appReleaseApproval": false
+  },
+  "canonical": true,
+  "promotion": "../MATERIAL_CANONICAL_PROMOTION_R5.json",
+  "publicationAuthorized": true,
+  "glbViewerUpdated": false
+}

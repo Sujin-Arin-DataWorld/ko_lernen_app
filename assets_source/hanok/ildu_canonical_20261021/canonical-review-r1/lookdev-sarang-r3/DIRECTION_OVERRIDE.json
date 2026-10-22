@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-22",
+  "source": "latest direct user clarification",
+  "meaningOfWarmth": "careful human brushwork and harmonious material expression, not warmer hues",
+  "temperatureGlazeWithdrawn": true,
+  "withdrawnNative": "sarang-r3-warm-refined.blend",
+  "withdrawnNativeMustNotBeAdopted": true,
+  "preserveFixCheckpoint": "sarang-r3-fix-checkpoint.blend",
+  "fixCheckpointSha256": "509ffb8a8d714663096c5c7e6d6f0d121a8720f23b281905ebf1cbe328d89c1d",
+  "unlitDiagnosticIsNotAStyleCandidate": true,
+  "keepExistingPalette": true,
+  "nextTask": "make material brushwork coherent and illustratorly without more micro noise, hue warming or geometry restyling"
+}

@@ -1,0 +1,83 @@
+{
+  "sourceSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+  "views": {
+    "hero": {
+      "position": [
+        29.4,
+        -30.2,
+        15.45
+      ],
+      "target": [
+        7.4,
+        1.8,
+        2.85
+      ],
+      "ortho": 22,
+      "resolution": [
+        1200,
+        900
+      ]
+    },
+    "detail": {
+      "position": [
+        16,
+        -18,
+        5.3
+      ],
+      "target": [
+        11.5,
+        -2.8,
+        2.7
+      ],
+      "ortho": 6,
+      "resolution": [
+        1100,
+        950
+      ]
+    }
+  },
+  "renders": [
+    {
+      "view": "hero",
+      "variant": "original full-roof native",
+      "file": "before-hero.png",
+      "cameraLocation": [
+        29.4,
+        -30.2,
+        15.45
+      ],
+      "target": [
+        7.4,
+        1.8,
+        2.85
+      ],
+      "orthoScale": 22,
+      "resolution": [
+        1200,
+        900
+      ],
+      "sha256": "dcdf0a1203fdedba0dabc12d156b5e76c7a1d106f9d864e76683be94e12e895c"
+    },
+    {
+      "view": "detail",
+      "variant": "original full-roof native",
+      "file": "before-detail.png",
+      "cameraLocation": [
+        16,
+        -18,
+        5.3
+      ],
+      "target": [
+        11.5,
+        -2.8,
+        2.7
+      ],
+      "orthoScale": 6,
+      "resolution": [
+        1100,
+        950
+      ],
+      "sha256": "004f51757453b72169e5baadb16c635a3f94f99dbba999568e4eb5228f75bee0"
+    }
+  ]
+}

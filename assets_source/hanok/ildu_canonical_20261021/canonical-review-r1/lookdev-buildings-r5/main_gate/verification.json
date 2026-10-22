@@ -1,0 +1,1436 @@
+{
+  "key": "main_gate",
+  "name": "대문",
+  "version": "building-r5-2",
+  "sourceNative": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\estate-yard-wall-r1\\ildu-estate-yard-wall-r1.blend",
+  "sourceSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+  "candidateNative": "main_gate-r5-brush-candidate.blend",
+  "candidateSha256": "c6369a07672a7006b842d507ac2a758a53fa367ddf5348395682e151135f6e41",
+  "passed": true,
+  "reopened": true,
+  "meshCount": 184,
+  "geometryUVsTransformsModifiersEqual": true,
+  "attributesStagesPropertiesEqual": true,
+  "sourceMaterialGraphsEqual": true,
+  "sourceImageBytesEqual": true,
+  "originalPlaquesAndAnonymousPatternsUnchanged": {
+    "PhotoGate.entry.leaf1.batten nail": [
+      "HS gate r1 | main_gate | 9e58c0cd2436"
+    ],
+    "PhotoGate.entry.leaf1.hinge strap": [
+      "HS gate r1 | main_gate | 9e58c0cd2436"
+    ],
+    "PhotoGate.entry.leaf1.small iron pull": [
+      "HS gate r1 | main_gate | 0259398ba772"
+    ],
+    "PhotoGate.entry.leaf2.batten nail": [
+      "HS gate r1 | main_gate | 9e58c0cd2436"
+    ],
+    "PhotoGate.entry.leaf2.hinge strap": [
+      "HS gate r1 | main_gate | 9e58c0cd2436"
+    ],
+    "PhotoGate.entry.leaf2.small iron pull": [
+      "HS gate r1 | main_gate | 0259398ba772"
+    ],
+    "PhotoGate.plaque red frame": [
+      "HS gate r1 | main_gate | eecbae31403c"
+    ],
+    "PhotoGate.plaque upright": [
+      "HS gate r1 | main_gate | eecbae31403c"
+    ],
+    "PhotoGate.plaque0.photo inscription": [
+      "HS gate r1 | main_gate | 6050dcbdc34a"
+    ],
+    "PhotoGate.plaque0.solid board": [
+      "HS gate r1 | main_gate | eecbae31403c"
+    ],
+    "PhotoGate.plaque1.photo inscription": [
+      "HS gate r1 | main_gate | 0ab1e24eca72"
+    ],
+    "PhotoGate.plaque1.solid board": [
+      "HS gate r1 | main_gate | eecbae31403c"
+    ],
+    "PhotoGate.plaque2.photo inscription": [
+      "HS gate r1 | main_gate | 1b1267db4123"
+    ],
+    "PhotoGate.plaque2.solid board": [
+      "HS gate r1 | main_gate | eecbae31403c"
+    ],
+    "PhotoGate.plaque3.photo inscription": [
+      "HS gate r1 | main_gate | 1c3b55602f03"
+    ],
+    "PhotoGate.plaque3.solid board": [
+      "HS gate r1 | main_gate | eecbae31403c"
+    ],
+    "PhotoGate.plaque4.photo inscription": [
+      "HS gate r1 | main_gate | 5a56523f7962"
+    ],
+    "PhotoGate.plaque4.solid board": [
+      "HS gate r1 | main_gate | eecbae31403c"
+    ],
+    "PhotoGate.white tablet-1": [
+      "HS gate r1 | main_gate | 9ddd8b968875"
+    ],
+    "PhotoGate.white tablet1": [
+      "HS gate r1 | main_gate | 59814a55107e"
+    ]
+  },
+  "roles": {
+    "stone": 11,
+    "lattice": 66,
+    "wood": 95,
+    "paper": 8,
+    "plaster": 13,
+    "preserve": 20,
+    "tile": 37
+  },
+  "materials": [
+    {
+      "source": "HS gate r1 | main_gate | 540b5f5942f7",
+      "candidate": "R5 stone | HS gate r1 | main_gate | 540b5f5942f7",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye stone metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | main_gate | Gye cared pine main_gate v56 joinery tone 4",
+      "candidate": "R5 lattice | Selected timber v2 | main_gate | Gye cared pine main_gate v56 joinery tone 4",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS gate r1 | main_gate | ebbb4dc5a463",
+      "candidate": "R5 wood | HS gate r1 | main_gate | ebbb4dc5a463",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | main_gate | Gye cared pine main_gate v56 joinery tone 0",
+      "candidate": "R5 lattice | Selected timber v2 | main_gate | Gye cared pine main_gate v56 joinery tone 0",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS gate r1 | main_gate | dc5c38b1a5e0",
+      "candidate": "R5 wood | HS gate r1 | main_gate | dc5c38b1a5e0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS gate r1 | main_gate | d909c35d3c12",
+      "candidate": "R5 paper | HS gate r1 | main_gate | d909c35d3c12",
+      "role": "paper",
+      "mapping": [
+        "OBJECT",
+        2,
+        0
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | main_gate | Gye cared pine main_gate v56 joinery tone 3",
+      "candidate": "R5 lattice | Selected timber v2 | main_gate | Gye cared pine main_gate v56 joinery tone 3",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS gate r1 | main_gate | da15d68a4075",
+      "candidate": "R5 wood | HS gate r1 | main_gate | da15d68a4075",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | main_gate | Gye cared pine main_gate v56 joinery tone 1",
+      "candidate": "R5 lattice | Selected timber v2 | main_gate | Gye cared pine main_gate v56 joinery tone 1",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 5db6be276242",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 5db6be276242",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS gate r1 | main_gate | b39e37aec677",
+      "candidate": "R5 wood | HS gate r1 | main_gate | b39e37aec677",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | main_gate | Gye cared pine main_gate v56 joinery tone 2",
+      "candidate": "R5 lattice | Selected timber v2 | main_gate | Gye cared pine main_gate v56 joinery tone 2",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 44087d373968",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 44087d373968",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 3ecdb405708a",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 3ecdb405708a",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 5185aba3bf2e",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 5185aba3bf2e",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "Selected timber v2 | main_gate | Gye cared pine main_gate v56 floor tone 0 v66 boards",
+      "candidate": "R5 wood | Selected timber v2 | main_gate | Gye cared pine main_gate v56 floor tone 0 v66 boards",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 6e38395c3bf7",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 6e38395c3bf7",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 8ff6791087ec",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 8ff6791087ec",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS gate r1 | main_gate | b85355a5295b",
+      "candidate": "R5 wood | HS gate r1 | main_gate | b85355a5295b",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS gate r1 | main_gate | d6c07c92fa73",
+      "candidate": "R5 wood | HS gate r1 | main_gate | d6c07c92fa73",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | main_gate | Gye cared pine main_gate v56 floor tone 4 v66 frame",
+      "candidate": "R5 wood | Selected timber v2 | main_gate | Gye cared pine main_gate v56 floor tone 4 v66 frame",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS gate r1 | main_gate | dbf5ca7230d4",
+      "candidate": "R5 wood | HS gate r1 | main_gate | dbf5ca7230d4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 59d60273c135",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 59d60273c135",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 2552c5ffc85d",
+      "candidate": "R5 plaster | HS gate r1 | main_gate | 2552c5ffc85d",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye lime metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | main_gate | Gye cared pine main_gate v56 boards tone 0",
+      "candidate": "R5 wood | Selected timber v2 | main_gate | Gye cared pine main_gate v56 boards tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 499e9cbb2e04",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 499e9cbb2e04",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 296389f7ddae",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 296389f7ddae",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | main_gate | Gye cared pine main_gate v56 boards tone 2",
+      "candidate": "R5 wood | Selected timber v2 | main_gate | Gye cared pine main_gate v56 boards tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 38fa5ca4b8e9",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 38fa5ca4b8e9",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 3e185182217f",
+      "candidate": "R5 stone | HS gate r1 | main_gate | 3e185182217f",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye stone metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | main_gate | Gye cared pine main_gate v56 joinery tone 0.001",
+      "candidate": "R5 lattice | Selected timber v2 | main_gate | Gye cared pine main_gate v56 joinery tone 0.001",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 9d6d342880c7",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 9d6d342880c7",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | main_gate | Gye cared pine main_gate v56 joinery tone 1.001",
+      "candidate": "R5 lattice | Selected timber v2 | main_gate | Gye cared pine main_gate v56 joinery tone 1.001",
+      "role": "lattice",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS gate r1 | main_gate | c79d928024f6",
+      "candidate": "R5 wood | HS gate r1 | main_gate | c79d928024f6",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "Selected timber v2 | main_gate | Gye cared pine main_gate v56 frame tone 0",
+      "candidate": "R5 wood | Selected timber v2 | main_gate | Gye cared pine main_gate v56 frame tone 0",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 371a3f0fc7f3",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 371a3f0fc7f3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 80dbbdb7c2ac",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 80dbbdb7c2ac",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 321e343251f5",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 321e343251f5",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 369be3fab72c",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 369be3fab72c",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | c0c9249eab2f",
+      "candidate": "R5 wood | HS gate r1 | main_gate | c0c9249eab2f",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | main_gate | Gye cared pine main_gate v56 posts tone 4",
+      "candidate": "R5 wood | Selected timber v2 | main_gate | Gye cared pine main_gate v56 posts tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | e1d21eb66015",
+      "candidate": "R5 wood | HS gate r1 | main_gate | e1d21eb66015",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 85cb7d244039",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 85cb7d244039",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 79ae39d00a08",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 79ae39d00a08",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 5fbd52a856d9",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 5fbd52a856d9",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 9c1cb03f0cc5",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 9c1cb03f0cc5",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 5ccd750e9164",
+      "candidate": "R5 plaster | HS gate r1 | main_gate | 5ccd750e9164",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye lime metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 674fd6fde77c",
+      "candidate": "R5 plaster | HS gate r1 | main_gate | 674fd6fde77c",
+      "role": "plaster",
+      "mapping": [
+        "OBJECT",
+        0,
+        1
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 3d6ebe641f4a",
+      "candidate": "R5 stone | HS gate r1 | main_gate | 3d6ebe641f4a",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye stone metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | main_gate | Gye cared pine main_gate v56 frame tone 1",
+      "candidate": "R5 wood | Selected timber v2 | main_gate | Gye cared pine main_gate v56 frame tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | d87562ee3799",
+      "candidate": "R5 wood | HS gate r1 | main_gate | d87562ee3799",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 13ab34865733",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 13ab34865733",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 5a2fb96166b9",
+      "candidate": "R5 stone | HS gate r1 | main_gate | 5a2fb96166b9",
+      "role": "stone",
+      "mapping": [
+        "UV",
+        "Gye stone metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | main_gate | Gye cared pine main_gate v56 boards tone 3",
+      "candidate": "R5 wood | Selected timber v2 | main_gate | Gye cared pine main_gate v56 boards tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 9ab8e226b569",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 9ab8e226b569",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | d75cb05b2039",
+      "candidate": "R5 wood | HS gate r1 | main_gate | d75cb05b2039",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r2 | main_gate | bf28f5ce04a3",
+      "candidate": "R5 tile | HS gate r2 | main_gate | bf28f5ce04a3",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye ceramic metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS gate r2 | main_gate | cd9b57d91446",
+      "candidate": "R5 tile | HS gate r2 | main_gate | cd9b57d91446",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye ceramic metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | main_gate | Gye cared pine main_gate v56 frame tone 4",
+      "candidate": "R5 wood | Selected timber v2 | main_gate | Gye cared pine main_gate v56 frame tone 4",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | main_gate | Gye cared pine main_gate v56 boards tone 1",
+      "candidate": "R5 wood | Selected timber v2 | main_gate | Gye cared pine main_gate v56 boards tone 1",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | e22287d94047",
+      "candidate": "R5 wood | HS gate r1 | main_gate | e22287d94047",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | d3b5fd5cc32a",
+      "candidate": "R5 wood | HS gate r1 | main_gate | d3b5fd5cc32a",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r2 | main_gate | d9d2b1fd4b4d",
+      "candidate": "R5 plaster | HS gate r2 | main_gate | d9d2b1fd4b4d",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye lime metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | main_gate | Gye cared pine main_gate v56 frame tone 2",
+      "candidate": "R5 wood | Selected timber v2 | main_gate | Gye cared pine main_gate v56 frame tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 4901368d5474",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 4901368d5474",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | main_gate | Gye cared pine main_gate v56 frame tone 3",
+      "candidate": "R5 wood | Selected timber v2 | main_gate | Gye cared pine main_gate v56 frame tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r2 | main_gate | bbdf27823613",
+      "candidate": "R5 tile | HS gate r2 | main_gate | bbdf27823613",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye ceramic metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS gate r2 | main_gate | c9f6ac84b133",
+      "candidate": "R5 tile | HS gate r2 | main_gate | c9f6ac84b133",
+      "role": "tile",
+      "mapping": [
+        "UV",
+        "Gye ceramic metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 5afb197de696",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 5afb197de696",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 14d84a4af11c",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 14d84a4af11c",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 4aa74ab2cac7",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 4aa74ab2cac7",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | d6cfe1bd93d8",
+      "candidate": "R5 wood | HS gate r1 | main_gate | d6cfe1bd93d8",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | bfee39dd7e66",
+      "candidate": "R5 wood | HS gate r1 | main_gate | bfee39dd7e66",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r2 | main_gate | 3182302ba280",
+      "candidate": "R5 plaster | HS gate r2 | main_gate | 3182302ba280",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye lime metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS gate r1 | main_gate | b9b6e7cee3b2",
+      "candidate": "R5 plaster | HS gate r1 | main_gate | b9b6e7cee3b2",
+      "role": "plaster",
+      "mapping": [
+        "UV",
+        "Gye lime metres"
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "HS gate r1 | main_gate | a4f1d6550b04",
+      "candidate": "R5 wood | HS gate r1 | main_gate | a4f1d6550b04",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.19499999284744263,
+        0.10499999672174454,
+        0.04699999839067459,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_joinery"
+    },
+    {
+      "source": "HS gate r1 | main_gate | c4557dc073a7",
+      "candidate": "R5 paper | HS gate r1 | main_gate | c4557dc073a7",
+      "role": "paper",
+      "mapping": [
+        "OBJECT",
+        0,
+        2
+      ],
+      "palette": null,
+      "paletteAuthority": "original material pigment retained"
+    },
+    {
+      "source": "Selected timber v2 | main_gate | Gye cared pine main_gate v56 floor tone 2",
+      "candidate": "R5 wood | Selected timber v2 | main_gate | Gye cared pine main_gate v56 floor tone 2",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS gate r1 | main_gate | ccaec3491fb3",
+      "candidate": "R5 wood | HS gate r1 | main_gate | ccaec3491fb3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 44e13d059e69",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 44e13d059e69",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 0480f898cc46",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 0480f898cc46",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 056f310dd160",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 056f310dd160",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.23499999940395355,
+        0.1459999978542328,
+        0.0729999989271164,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_floor"
+    },
+    {
+      "source": "HS gate r1 | main_gate | db57a3bad0db",
+      "candidate": "R5 wood | HS gate r1 | main_gate | db57a3bad0db",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "Selected timber v2 | main_gate | Gye cared pine main_gate v56 posts tone 3",
+      "candidate": "R5 wood | Selected timber v2 | main_gate | Gye cared pine main_gate v56 posts tone 3",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    },
+    {
+      "source": "HS gate r1 | main_gate | 666e760392be",
+      "candidate": "R5 wood | HS gate r1 | main_gate | 666e760392be",
+      "role": "wood",
+      "mapping": [
+        "UV",
+        "Gye member grain v25"
+      ],
+      "palette": [
+        0.17000000178813934,
+        0.09600000083446503,
+        0.0430000014603138,
+        1.0
+      ],
+      "paletteAuthority": "Shared warm timber palette: wood_frame"
+    }
+  ],
+  "views": {
+    "hero": {
+      "position": [
+        6.490718364715576,
+        -32.01932907104492,
+        12.481834411621094
+      ],
+      "target": [
+        -6.503958225250244,
+        -13.610204696655273,
+        2.194382667541504
+      ],
+      "ortho": 13.221782989501955,
+      "resolution": [
+        1100,
+        825
+      ]
+    },
+    "detail": {
+      "position": [
+        -4.121601104736328,
+        -37.65840148925781,
+        2.9575982093811035
+      ],
+      "target": [
+        -6.503958225250244,
+        -16.0006103515625,
+        1.6581307649612427
+      ],
+      "ortho": 3.4652467727661134,
+      "resolution": [
+        1100,
+        825
+      ]
+    }
+  },
+  "bounds": {
+    "bounds": [
+      [
+        -11.91840648651123,
+        -16.755475997924805,
+        -0.03999999910593033
+      ],
+      [
+        -1.0895103216171265,
+        -10.464932441711426,
+        4.428765296936035
+      ]
+    ],
+    "span": 10.828896164894104
+  },
+  "sourceSpecificPalettes": true,
+  "newUVs": 0,
+  "newMeshes": 0,
+  "objectAttachedUVlessProjection": true,
+  "sceneLightBaked": false,
+  "lightingUnchangedAfterReopen": true,
+  "canonicalPromoted": false,
+  "glbConverted": false,
+  "appIntegrated": false,
+  "producerFiles": {
+    "restyle_building.py": "cefa711d1f3f70f389a53c241e13cb11a5062faf86aa135de39d21fb4dd6af05",
+    "material_rules.py": "71b4126f57eec61de897090e1b465d197e9f784ad68116c0a26e2c9201b67d31"
+  }
+}

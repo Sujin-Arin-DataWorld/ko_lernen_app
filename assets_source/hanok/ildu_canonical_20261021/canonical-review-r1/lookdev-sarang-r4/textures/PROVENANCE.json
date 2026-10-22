@@ -1,0 +1,9 @@
+{
+  "tool": "built-in image_gen",
+  "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a1501f-48a0-72b0-952f-b9030f42cafe\\exec-67111596-cc96-46d5-962d-011fa88b51bb.png",
+  "file": "material-brush-atlas-r1.png",
+  "sha256": "29884bf83d55d2f04d448b0294e9465cac780ed0cdc4bcf008ae682c17cb499f",
+  "prompt": "../PROMPTS.md",
+  "use": "neutral pigment load mask, no generated architecture",
+  "humanPaintedProvenance": false
+}

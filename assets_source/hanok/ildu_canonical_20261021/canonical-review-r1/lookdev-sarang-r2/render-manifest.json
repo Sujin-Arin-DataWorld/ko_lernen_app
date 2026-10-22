@@ -1,0 +1,305 @@
+{
+  "renders": [
+    {
+      "variant": "r1 previous candidate, matched lighting",
+      "view": "hero",
+      "file": "before-hero.png",
+      "cameraLocation": [
+        29.4,
+        -30.2,
+        15.45
+      ],
+      "target": [
+        7.4,
+        1.8,
+        2.85
+      ],
+      "orthoScale": 22,
+      "resolution": [
+        1400,
+        1050
+      ],
+      "sha256": "5136827b7cb0e9d26d69e22344c911e61d47701ec899f62e18482737359a485f"
+    },
+    {
+      "variant": "r1 previous candidate, matched lighting",
+      "view": "front",
+      "file": "before-front.png",
+      "cameraLocation": [
+        6.4,
+        -22,
+        3.5
+      ],
+      "target": [
+        6.4,
+        0,
+        3.35
+      ],
+      "orthoScale": 12.8,
+      "resolution": [
+        1400,
+        840
+      ],
+      "sha256": "2cdca28709d7959b955a5b6525adc7437339372f2195aee011ea15ed00638de7"
+    },
+    {
+      "variant": "r1 previous candidate, matched lighting",
+      "view": "wood",
+      "file": "before-wood.png",
+      "cameraLocation": [
+        18,
+        -15,
+        5.0
+      ],
+      "target": [
+        12.5,
+        -3.0,
+        2.3
+      ],
+      "orthoScale": 3.2,
+      "resolution": [
+        1100,
+        900
+      ],
+      "sha256": "0c1fab165b6150bd88cb0cb391e2f01604455bcd727aa59590aac296bd8bdc09"
+    },
+    {
+      "variant": "r1 previous candidate, matched lighting",
+      "view": "stone",
+      "file": "before-stone.png",
+      "cameraLocation": [
+        6.5,
+        -8.5,
+        4.8
+      ],
+      "target": [
+        4.0,
+        -1.9,
+        0.63
+      ],
+      "orthoScale": 3.6,
+      "resolution": [
+        1100,
+        900
+      ],
+      "sha256": "d0b4b2e3ef6094804a7d3284fd5d75808944d25f0ce03b76346877883b97d582"
+    },
+    {
+      "variant": "r1 previous candidate, matched lighting",
+      "view": "tile",
+      "file": "before-tile.png",
+      "cameraLocation": [
+        17,
+        -12,
+        13
+      ],
+      "target": [
+        13,
+        -1.9,
+        4.3
+      ],
+      "orthoScale": 4.5,
+      "resolution": [
+        1100,
+        900
+      ],
+      "sha256": "7541af71a227a39945840c401c7ff8b22bfe1de2c37eb45991a5fe5a12f93780"
+    },
+    {
+      "variant": "r1 previous candidate, matched lighting",
+      "view": "eaves",
+      "file": "before-eaves.png",
+      "cameraLocation": [
+        13.5,
+        -12,
+        3.7
+      ],
+      "target": [
+        12.5,
+        -4.5,
+        3.9
+      ],
+      "orthoScale": 2.8,
+      "resolution": [
+        1300,
+        650
+      ],
+      "sha256": "fdeca7e3fa8b086d01ded777a6046bc9f6b28a1800509cf7eb739b592b8bbe56"
+    },
+    {
+      "variant": "r1 previous candidate, matched lighting",
+      "view": "wall",
+      "file": "before-wall.png",
+      "cameraLocation": [
+        23,
+        1,
+        4.3
+      ],
+      "target": [
+        14.6,
+        1.6,
+        2.8
+      ],
+      "orthoScale": 3.1,
+      "resolution": [
+        1100,
+        900
+      ],
+      "sha256": "6ac16599a2feb123c74681b4ce7b83aed05e19891624dbab55a1000747b5a1b8"
+    },
+    {
+      "variant": "r2 surface candidate, unapproved",
+      "view": "hero",
+      "file": "after-hero.png",
+      "cameraLocation": [
+        29.4,
+        -30.2,
+        15.45
+      ],
+      "target": [
+        7.4,
+        1.8,
+        2.85
+      ],
+      "orthoScale": 22,
+      "resolution": [
+        1400,
+        1050
+      ],
+      "sha256": "743fcc770da6411b69b8b61eb60c6974caee1f23789dc64d60fd367c27c7cdbc"
+    },
+    {
+      "variant": "r2 surface candidate, unapproved",
+      "view": "front",
+      "file": "after-front.png",
+      "cameraLocation": [
+        6.4,
+        -22,
+        3.5
+      ],
+      "target": [
+        6.4,
+        0,
+        3.35
+      ],
+      "orthoScale": 12.8,
+      "resolution": [
+        1400,
+        840
+      ],
+      "sha256": "edb82632d0b4899d2890367801da3abaefc1ddef6e29d9d3e81bfba3d5b590e8"
+    },
+    {
+      "variant": "r2 surface candidate, unapproved",
+      "view": "wood",
+      "file": "after-wood.png",
+      "cameraLocation": [
+        18,
+        -15,
+        5.0
+      ],
+      "target": [
+        12.5,
+        -3.0,
+        2.3
+      ],
+      "orthoScale": 3.2,
+      "resolution": [
+        1100,
+        900
+      ],
+      "sha256": "3e2762ef3efb0e0a6a2569e95618e42ad689d19f4330f39738a615b8c3d36426"
+    },
+    {
+      "variant": "r2 surface candidate, unapproved",
+      "view": "stone",
+      "file": "after-stone.png",
+      "cameraLocation": [
+        6.5,
+        -8.5,
+        4.8
+      ],
+      "target": [
+        4.0,
+        -1.9,
+        0.63
+      ],
+      "orthoScale": 3.6,
+      "resolution": [
+        1100,
+        900
+      ],
+      "sha256": "3125343bc89d31c8035f76ce2adf3ef0b942f4c45eb7672749f46bfcb7e7832a"
+    },
+    {
+      "variant": "r2 surface candidate, unapproved",
+      "view": "tile",
+      "file": "after-tile.png",
+      "cameraLocation": [
+        17,
+        -12,
+        13
+      ],
+      "target": [
+        13,
+        -1.9,
+        4.3
+      ],
+      "orthoScale": 4.5,
+      "resolution": [
+        1100,
+        900
+      ],
+      "sha256": "2fa8793f20f43926d37958c5d434573ce49122e0a4af89e863324f633d305121"
+    },
+    {
+      "variant": "r2 surface candidate, unapproved",
+      "view": "eaves",
+      "file": "after-eaves.png",
+      "cameraLocation": [
+        13.5,
+        -12,
+        3.7
+      ],
+      "target": [
+        12.5,
+        -4.5,
+        3.9
+      ],
+      "orthoScale": 2.8,
+      "resolution": [
+        1300,
+        650
+      ],
+      "sha256": "b5d5fcc42f4e00dec1aac536bab6493e5875528a9429b4f37f8a451e562792f0"
+    },
+    {
+      "variant": "r2 surface candidate, unapproved",
+      "view": "wall",
+      "file": "after-wall.png",
+      "cameraLocation": [
+        23,
+        1,
+        4.3
+      ],
+      "target": [
+        14.6,
+        1.6,
+        2.8
+      ],
+      "orthoScale": 3.1,
+      "resolution": [
+        1100,
+        900
+      ],
+      "sha256": "c17cd6f9ee9db7ba54e6b1787ee8066a262f00561785ff032ed98d8de33de4f5"
+    }
+  ],
+  "samples": 40,
+  "matchedLightsAndCameras": true,
+  "candidateApproved": false,
+  "seconds": 356.9,
+  "previousNativeSha256": "47f1879e48e85cdacab7c4f9762e6772f72d174da97c46d75d237f0aa3b9d9d1",
+  "candidateNativeSha256": "7f04ba42cc0431ef7789e9ab28c514da4f1f464988779fa30ca3d5c6b40a3e36",
+  "nativeFile": "sarang-handpaint-candidate.blend"
+}

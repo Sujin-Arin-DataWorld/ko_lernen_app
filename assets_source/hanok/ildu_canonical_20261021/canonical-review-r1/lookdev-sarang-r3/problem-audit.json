@@ -1,0 +1,637 @@
+{
+  "boards": [
+    {
+      "name": "V25.left boarding continuous backing",
+      "visible": true,
+      "materials": [
+        "HANDPAINT r2 wood | Selected timber v2 | sarang | Gye cared pine sarang v56 boards tone 3.001",
+        "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+      ],
+      "min": [
+        -0.01850000023841858,
+        0.07999999821186066,
+        1.097000002861023
+      ],
+      "max": [
+        0.016499999910593033,
+        4.0,
+        1.9270000457763672
+      ]
+    },
+    {
+      "name": "V25.left boarding end post",
+      "visible": true,
+      "materials": [
+        "HANDPAINT r2 wood | Selected timber v2 | sarang | Gye cared pine sarang v56 posts tone 3.001",
+        "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 posts tone 2",
+        "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 posts tone 3"
+      ],
+      "min": [
+        -0.13199999928474426,
+        0.054999999701976776,
+        1.100000023841858
+      ],
+      "max": [
+        -0.052000001072883606,
+        4.005000114440918,
+        1.940000057220459
+      ]
+    },
+    {
+      "name": "V25.left horizontal boarding",
+      "visible": true,
+      "materials": [
+        "HANDPAINT r2 wood | Selected timber v2 | sarang | Gye cared pine sarang v56 boards tone 2.002",
+        "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+      ],
+      "min": [
+        -0.0925000011920929,
+        0.09000000357627869,
+        1.100000023841858
+      ],
+      "max": [
+        0.0024999999441206455,
+        3.9860000610351562,
+        1.371999979019165
+      ]
+    },
+    {
+      "name": "V25.left horizontal boarding.001",
+      "visible": true,
+      "materials": [
+        "HANDPAINT r2 wood | Selected timber v2 | sarang | Gye cared pine sarang v56 boards tone 2.002",
+        "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+      ],
+      "min": [
+        -0.0925000011920929,
+        0.09000000357627869,
+        1.378000020980835
+      ],
+      "max": [
+        0.0024999999441206455,
+        3.9860000610351562,
+        1.649999976158142
+      ]
+    },
+    {
+      "name": "V25.left horizontal boarding.002",
+      "visible": true,
+      "materials": [
+        "HANDPAINT r2 wood | Selected timber v2 | sarang | Gye cared pine sarang v56 boards tone 3.001",
+        "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+      ],
+      "min": [
+        -0.0925000011920929,
+        0.09000000357627869,
+        1.656000018119812
+      ],
+      "max": [
+        0.0024999999441206455,
+        3.9860000610351562,
+        1.9279999732971191
+      ]
+    }
+  ],
+  "rays": [
+    {
+      "z": 1.1,
+      "object": null
+    },
+    {
+      "z": 1.11,
+      "y": -0.68817,
+      "object": "GyeCraft.sarang.irregular paving 4",
+      "material": "HANDPAINT r2 stone | Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52"
+    },
+    {
+      "z": 1.12,
+      "y": -0.68817,
+      "object": "GyeCraft.sarang.irregular paving 4",
+      "material": "HANDPAINT r2 stone | Selected timber v2 | sarang | P18 image.sarang.stone.Gye cared warm fieldstone v52"
+    },
+    {
+      "z": 1.13,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.14,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.15,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.16,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.17,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.18,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.19,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.2,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.21,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.22,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.23,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.24,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.25,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.26,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.27,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.28,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.29,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.3,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.31,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.32,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.33,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.34,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.35,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.36,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.37,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.38,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.39,
+      "object": null
+    },
+    {
+      "z": 1.4,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.41,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.42,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.43,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.44,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.45,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.46,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.47,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.48,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.49,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.5,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.51,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.52,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.53,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.54,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.55,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.56,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.57,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.58,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.59,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.6,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.61,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.62,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.63,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.64,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.65,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.001",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 2"
+    },
+    {
+      "z": 1.66,
+      "object": null
+    },
+    {
+      "z": 1.67,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.002",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1"
+    },
+    {
+      "z": 1.68,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.002",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1"
+    },
+    {
+      "z": 1.69,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.002",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1"
+    },
+    {
+      "z": 1.7,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.002",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1"
+    },
+    {
+      "z": 1.71,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.002",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1"
+    },
+    {
+      "z": 1.72,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.002",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1"
+    },
+    {
+      "z": 1.73,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.002",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1"
+    },
+    {
+      "z": 1.74,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.002",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1"
+    },
+    {
+      "z": 1.75,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.002",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1"
+    },
+    {
+      "z": 1.76,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.002",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1"
+    },
+    {
+      "z": 1.77,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.002",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1"
+    },
+    {
+      "z": 1.78,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.002",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1"
+    },
+    {
+      "z": 1.79,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.002",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1"
+    },
+    {
+      "z": 1.8,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.002",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1"
+    },
+    {
+      "z": 1.81,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.002",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1"
+    },
+    {
+      "z": 1.82,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.002",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1"
+    },
+    {
+      "z": 1.83,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.002",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1"
+    },
+    {
+      "z": 1.84,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.002",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1"
+    },
+    {
+      "z": 1.85,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.002",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1"
+    },
+    {
+      "z": 1.86,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.002",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1"
+    },
+    {
+      "z": 1.87,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.002",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1"
+    },
+    {
+      "z": 1.88,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.002",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1"
+    },
+    {
+      "z": 1.89,
+      "y": 0.0525,
+      "object": "Craft.Sarang broad apron boards.002",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 boards tone 1"
+    },
+    {
+      "z": 1.9,
+      "y": 0.01,
+      "object": "FloorRepair.Craft.Sarang maru cross members",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 0"
+    },
+    {
+      "z": 1.91,
+      "y": 0.01,
+      "object": "FloorRepair.Craft.Sarang maru cross members",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 0"
+    },
+    {
+      "z": 1.92,
+      "y": 0.01,
+      "object": "FloorRepair.Craft.Sarang maru cross members",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 0"
+    },
+    {
+      "z": 1.93,
+      "y": 0.01,
+      "object": "FloorRepair.Craft.Sarang maru cross members",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 0"
+    },
+    {
+      "z": 1.94,
+      "y": 0.01,
+      "object": "FloorRepair.Craft.Sarang maru cross members",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 0"
+    },
+    {
+      "z": 1.95,
+      "y": 0.01,
+      "object": "FloorRepair.Craft.Sarang maru cross members",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 0"
+    },
+    {
+      "z": 1.96,
+      "y": 0.01,
+      "object": "FloorRepair.Craft.Sarang maru cross members",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 0"
+    },
+    {
+      "z": 1.97,
+      "y": 0.01,
+      "object": "FloorRepair.Craft.Sarang maru cross members",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 0"
+    },
+    {
+      "z": 1.98,
+      "y": 0.01,
+      "object": "FloorRepair.Craft.Sarang maru cross members",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 0"
+    },
+    {
+      "z": 1.99,
+      "y": 0.01,
+      "object": "FloorRepair.Craft.Sarang maru cross members",
+      "material": "HANDPAINT r2 wood | Selected timber v2 | sarang | P18 image.sarang.wood.Gye cared pine sarang v69 floor tone 0"
+    },
+    {
+      "z": 2.0,
+      "y": 1.26627,
+      "object": "Sarang.front bay 1",
+      "material": "HANDPAINT r2 plaster | HS white r2 | sarang | plaster | Selected timber v2 | sarang | P18 image.sarang.plaster.Gye cared limewash v52"
+    }
+  ]
+}
