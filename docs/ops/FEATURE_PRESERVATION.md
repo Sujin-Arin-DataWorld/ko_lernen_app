@@ -6,7 +6,7 @@
 
 - 비공개 저장소: [https://github.com/Sujin-Arin-DataWorld/hangulsori-archive](https://github.com/Sujin-Arin-DataWorld/hangulsori-archive)
 - 보관 브랜치: `archive/preserved-learning-rewards-20261023-192613`
-- 검증 기록 포함 커밋: `ae869134007ff4a30ad140f1da53496210024aa6`
+- 검증 기록 포함 원격 커밋: `ee571ef9f1521dca9fabcbba490d500914f78708`
 - 원본 스냅샷 커밋: `ede3ed8ffb3066d3186936ea74394713a1ca3e75`
 - 기준 Git 이력: 같은 저장소의 `preserved-bases/<variant>` 브랜치. 정확한 SHA는 feature_preservation.json 참조.
 - 큰 파일은 40MiB 조각과 전체 SHA-256을 기록하며 같은 내용은 공통 Git 객체를 공유한다.
@@ -36,8 +36,10 @@
 
 ## 원격 검증 및 이번 삭제 결과
 
-- 기능 보관 ref 원격 SHA 확인: 진행 중 — 완료 전 기능 출처 워크트리 삭제 금지.
+- 기능 보관 ref 원격 SHA 확인: 완료.
 - 기준 이력 18개 원격 SHA 확인: 완료.
 - 추가 4개 출처 WIP/Graphify 보관: `archive/cleanup-overlays-20261023` / `60393ab8816a782aa1219ccf9b9886664855b195`. 원격 확인 완료.
-- 이번에 실제 제거한 워크트리: 4개, 논리 파일 합계 10.49GiB. 정확한 경로·HEAD·보관 근거·공간 관측치는 [worktree_cleanup_20261023.json](worktree_cleanup_20261023.json)에 기록한다.
+- 이번에 실제 제거한 워크트리: 10개, 논리 파일 합계 57.46GiB. 정확한 경로·HEAD·보관 근거·공간 관측치는 [worktree_cleanup_20261023.json](worktree_cleanup_20261023.json)에 기록한다.
 - 이 변경은 다른 세션의 630개 staged 변경을 포함하지 않는다. 로컬 기본 체크아웃의 HEAD와 index를 보존하면서 원격 main에 운영 문서를 발행한다. 기존 워크트리는 최신 원격 운영 문서를 읽고, 없어진 경로를 자동 재생성하지 않는다.
+- 발행 검증에서 Playwright·에셋 파이프라인은 통과했다. 콘텐츠 테스트 1,361개(20개 skip)는 통과했지만 setup-python의 마지막 pip 캐시 저장이 `/home/runner/.cache/pip` 부재로 실패했다. 전체 CI를 성공으로 간주하지 않으며 이 정리에서 CI 설정이나 앱 소스를 수정하지 않았다. 실행 URL과 상태는 삭제 기록 JSON에 보존한다.
+- stagedPatch의 각 SHA는 보관 manifest.objects에 있는 Git 경로를 가리킨다. 해당 경로를 보관 ref에서 `git show`로 읽고 배열 순서대로 결합하면 원래 staged diff를 얻는다. 최종 파일 추출과 index 상태 복원은 구분해서 검증한다.

@@ -22020,9 +22020,9 @@
     "semantic_hash": ""
   },
   "docs/ops/feature_preservation.json": {
-    "mtime": 1792778038.70987,
-    "seen": 1792778617.6089668,
-    "ast_hash": "da22e0666fb5e22c0b8aa839d7c41368",
+    "mtime": 1792779902.672778,
+    "seen": 1792779921.6731017,
+    "ast_hash": "49061f523093af73e64358a6c231a429",
     "semantic_hash": ""
   },
   "tool/restore_feature.py": {
@@ -22032,9 +22032,15 @@
     "semantic_hash": ""
   },
   "docs/ops/FEATURE_PRESERVATION.md": {
-    "mtime": 1792778038.7118726,
-    "seen": 1792778617.6089761,
-    "ast_hash": "05c80177e1efa4786dd3aa4c97bcee32",
+    "mtime": 1792779902.7811048,
+    "seen": 1792779921.6731207,
+    "ast_hash": "3314d452b088436757980ea4703070ce",
+    "semantic_hash": ""
+  },
+  "docs/ops/worktree_cleanup_20261023.json": {
+    "mtime": 1792779902.7735903,
+    "seen": 1792779921.6731067,
+    "ast_hash": "e2c38d114ffc003f9dddb79eb50cff42",
     "semantic_hash": ""
   }
 }

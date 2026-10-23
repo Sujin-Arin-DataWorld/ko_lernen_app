@@ -4,7 +4,7 @@
   "archiveRepository": "https://github.com/Sujin-Arin-DataWorld/hangulsori-archive",
   "archiveRef": "archive/preserved-learning-rewards-20261023-192613",
   "snapshotCommit": "ede3ed8ffb3066d3186936ea74394713a1ca3e75",
-  "verifiedArchiveCommit": "ae869134007ff4a30ad140f1da53496210024aa6",
+  "verifiedArchiveCommit": "ee571ef9f1521dca9fabcbba490d500914f78708",
   "features": [
     "하회탈/탈선비",
     "보자기/일반 보상",
@@ -96,7 +96,7 @@
     "hanok-warm-stone-20260923": "R12 mapping uses 103 Python source tools"
   },
   "sourceOfTruth": "Archive contains source/WIP variants, not runtime/approval promotion. Recheck remote refs and source state before deletion.",
-  "remoteArchiveVerified": false,
+  "remoteArchiveVerified": true,
   "additionalOverlays": {
     "ref": "archive/cleanup-overlays-20261023",
     "commit": "60393ab8816a782aa1219ccf9b9886664855b195",
@@ -124,5 +124,6 @@
       }
     ]
   },
-  "allBaseRefsVerified": true
+  "allBaseRefsVerified": true,
+  "verifiedPayloadSourceCommit": "ae869134007ff4a30ad140f1da53496210024aa6"
 }
