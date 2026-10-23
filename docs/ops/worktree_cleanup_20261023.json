@@ -1,0 +1,102 @@
+{
+  "date": "2026-10-23",
+  "removedCount": 4,
+  "removedLogicalBytes": 11267256949,
+  "observedFreeSpaceIncreaseBytes": 11431456768,
+  "measurementNote": "Observed C: change during this cleanup; concurrent archive object writes/renders affect free space. Logical checkout size is separate.",
+  "removed": [
+    {
+      "name": "cp2026-b3-reasons-metrics-20260917",
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\cp2026-b3-reasons-metrics-20260917",
+      "head": "4a6c9a6d8d2887245ff0d01a9c64ceb3ae24cab6",
+      "archiveProof": {
+        "ref": "refs/heads/archive/cleanup-overlays-20261023",
+        "commit": "20968c866e8139224f00d88f078afab487664715",
+        "baseRef": "refs/heads/preserved-bases/cp2026-b3-reasons-metrics-20260917",
+        "baseCommit": "4a6c9a6d8d2887245ff0d01a9c64ceb3ae24cab6"
+      },
+      "fileCount": 41928,
+      "logicalBytes": 3331073053,
+      "verifiedArchiveFiles": 36,
+      "time": 1792778511.1321712,
+      "freeBefore": 49399808000,
+      "removed": true,
+      "freeAfter": 52829855744,
+      "branchesUnchanged": true,
+      "stashesUnchanged": true
+    },
+    {
+      "name": "main-wip-before-pull-20260915",
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\main-wip-before-pull-20260915",
+      "head": "3b59048c1d819b9024a1e1d3d1d1d203a18adfc9",
+      "archiveProof": {
+        "ref": "refs/heads/archive/cleanup-overlays-20261023",
+        "commit": "20968c866e8139224f00d88f078afab487664715",
+        "baseRef": "refs/heads/preserved-bases/main-wip-before-pull-20260915",
+        "baseCommit": "3b59048c1d819b9024a1e1d3d1d1d203a18adfc9"
+      },
+      "fileCount": 9206,
+      "logicalBytes": 2450227177,
+      "verifiedArchiveFiles": 27,
+      "time": 1792778532.5912976,
+      "freeBefore": 52829851648,
+      "removed": true,
+      "freeAfter": 55302057984,
+      "branchesUnchanged": true,
+      "stashesUnchanged": true
+    },
+    {
+      "name": "release-ui-audit-20261006",
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\release-ui-audit-20261006",
+      "head": "27f7e00e70498ea6fe5b6ad2a64c4a1e4280f080",
+      "archiveProof": {
+        "ref": "refs/heads/archive/cleanup-overlays-20261023",
+        "commit": "60393ab8816a782aa1219ccf9b9886664855b195",
+        "baseRef": "refs/heads/preserved-bases/release-ui-audit-20261006",
+        "baseCommit": "27f7e00e70498ea6fe5b6ad2a64c4a1e4280f080"
+      },
+      "fileCount": 11644,
+      "logicalBytes": 3161631366,
+      "verifiedArchiveFiles": 20,
+      "time": 1792778609.2226403,
+      "freeBefore": 57641648128,
+      "removed": true,
+      "freeAfter": 60831264768,
+      "branchesUnchanged": true,
+      "stashesUnchanged": true
+    },
+    {
+      "name": "scene-assets-live-20260830",
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\scene-assets-live-20260830",
+      "head": "f394e7c30138733a0104ef369e01f8b6f6d2d9df",
+      "archiveProof": {
+        "ref": "refs/heads/archive/cleanup-overlays-20261023",
+        "commit": "20968c866e8139224f00d88f078afab487664715",
+        "baseRef": "refs/heads/preserved-bases/scene-assets-live-20260830",
+        "baseCommit": "f394e7c30138733a0104ef369e01f8b6f6d2d9df"
+      },
+      "fileCount": 7197,
+      "logicalBytes": 2324325353,
+      "verifiedArchiveFiles": 24,
+      "time": 1792778538.791798,
+      "freeBefore": 55302057984,
+      "removed": true,
+      "freeAfter": 57644859392,
+      "branchesUnchanged": true,
+      "stashesUnchanged": true
+    }
+  ],
+  "protectedDependencies": {
+    "c-app-integration-20261012": "Lernen assets junction target",
+    "hanok-hwalju-20260928": "7 external Blender textures",
+    "hanok-warm-stone-20260923": "R12 mapping uses 103 Python source tools"
+  },
+  "preservedLocalPrimaryHead": "afd4c4dc524d89c316b23fd001dac37e087796cd",
+  "primaryStagedChangesLeftUntouched": 630,
+  "previousRetirements": {
+    "count": 17,
+    "lastApprovedEightObservedGainGiB": 12.5,
+    "recovery": "Earlier per-file receipts and content-addressed vault remain at local _codex_artifacts/worktree-retirement-20261023. These are separate from the feature remote archive."
+  },
+  "sourceBranchesAndStashes": "Preserved; no history rewrite, branch deletion or stash removal."
+}

@@ -8196,9 +8196,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1791034071.7617347,
-    "seen": 1791118818.1947997,
-    "ast_hash": "5a228cb731fa8083883354b68a1bdb3e",
+    "mtime": 1792778038.708872,
+    "seen": 1792778617.608975,
+    "ast_hash": "54c6363ff37245cdda7fc5a8a94f7026",
     "semantic_hash": ""
   },
   "BETA_INSTALL_GUIDE.md": {
@@ -9233,7 +9233,7 @@
     "ast_hash": "266732a149ac7d488a96593e5622ffcb",
     "semantic_hash": ""
   },
-  "docs/\uc5d0\uc14b-\uc694\uccad\uc11c.md": {
+  "docs/에셋-요청서.md": {
     "mtime": 1791029069.4440365,
     "seen": 1791118818.1956785,
     "ast_hash": "22f2db883fb95d0f9e2d652ce89b416b",
@@ -10319,7 +10319,7 @@
     "ast_hash": "d5190f47e0b014b02128ac4ee092c2be",
     "semantic_hash": ""
   },
-  "docs/\ub525\ub9ac\uc11c\uce58-\ud55c\uc625\uacfc\ud55c\uae00\uc18c\ub9ac.md": {
+  "docs/딥리서치-한옥과한글소리.md": {
     "mtime": 1791029069.442605,
     "seen": 1791118818.1956742,
     "ast_hash": "638f6d887ad5b0740cbc6abf6e7688f7",
@@ -13061,7 +13061,7 @@
     "ast_hash": "121a0e3036249eac08c0d68696a4078c",
     "semantic_hash": ""
   },
-  "graphify-out/memory/query_20260831_154623_\ub180\uc774\uacf5\uc6d0_scene_\ubc0f_c1_c2_listening_card_\uc774\ubbf8\uc9c0_\uc791\uc5c5\uc5d0\uc11c_\ud655\uc815\ud55c_\uc790\uc0b0.md": {
+  "graphify-out/memory/query_20260831_154623_놀이공원_scene_및_c1_c2_listening_card_이미지_작업에서_확정한_자산.md": {
     "mtime": 1791029069.6378958,
     "seen": 1791118818.1957014,
     "ast_hash": "f6ffd83881251a1249535cfc77cd0664",
@@ -13517,7 +13517,7 @@
     "ast_hash": "ae254754b8dceb51a2c7d31afb80e311",
     "semantic_hash": ""
   },
-  "docs/Hangul Sori \uc571 \uc810\uac80 \ud6c4 \uac1c\uc120 \uc0ac\ud56d \uc9c0\uc2dc\uc11c.md": {
+  "docs/Hangul Sori 앱 점검 후 개선 사항 지시서.md": {
     "mtime": 1791029067.6365142,
     "seen": 1791118818.1949413,
     "ast_hash": "ab03ebaec487a269b8f1d9d67bd255aa",
@@ -14754,8 +14754,8 @@
     "semantic_hash": ""
   },
   "tool/graphify_prune.sh": {
-    "mtime": 1791029073.5052865,
-    "seen": 1791118818.1928687,
+    "mtime": 1792777925.5019586,
+    "seen": 1792778617.6089716,
     "ast_hash": "444bf15934059390454a5a3f22b62b78",
     "semantic_hash": ""
   },
@@ -22017,6 +22017,24 @@
     "mtime": 1791143221.8451054,
     "seen": 1791144611.9476085,
     "ast_hash": "042191967c5ad3595858fbe753452d5a",
+    "semantic_hash": ""
+  },
+  "docs/ops/feature_preservation.json": {
+    "mtime": 1792778038.70987,
+    "seen": 1792778617.6089668,
+    "ast_hash": "da22e0666fb5e22c0b8aa839d7c41368",
+    "semantic_hash": ""
+  },
+  "tool/restore_feature.py": {
+    "mtime": 1792778038.7108707,
+    "seen": 1792778617.6089735,
+    "ast_hash": "0135b799bbcc1d4de5c132dd6a4d8e96",
+    "semantic_hash": ""
+  },
+  "docs/ops/FEATURE_PRESERVATION.md": {
+    "mtime": 1792778038.7118726,
+    "seen": 1792778617.6089761,
+    "ast_hash": "05c80177e1efa4786dd3aa4c97bcee32",
     "semantic_hash": ""
   }
 }
