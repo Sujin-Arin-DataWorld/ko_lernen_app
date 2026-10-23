@@ -20219,6 +20219,300 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'{count} Silben · Start: Zeile {row}, Spalte {column}'**
   String practiceHintWordPath(int count, int row, int column);
+
+  /// No description provided for @pathV2Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Lernpfad'**
+  String get pathV2Title;
+
+  /// No description provided for @pathV2ChooseBand.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Lernziel'**
+  String get pathV2ChooseBand;
+
+  /// No description provided for @pathV2Goal.
+  ///
+  /// In de, this message translates to:
+  /// **'Danach kannst du …'**
+  String get pathV2Goal;
+
+  /// No description provided for @pathV2Progress.
+  ///
+  /// In de, this message translates to:
+  /// **'{done} von {total} verfügbaren Pflichtaktivitäten bearbeitet'**
+  String pathV2Progress(int done, int total);
+
+  /// No description provided for @pathV2Partial.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieser Abschnitt wird noch ergänzt. Bearbeitete Aktivitäten bestätigen noch nicht das gesamte Lernziel.'**
+  String get pathV2Partial;
+
+  /// No description provided for @pathV2Today.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein nächster Schritt'**
+  String get pathV2Today;
+
+  /// No description provided for @pathV2Start.
+  ///
+  /// In de, this message translates to:
+  /// **'Loslegen'**
+  String get pathV2Start;
+
+  /// No description provided for @pathV2Resume.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiterlernen'**
+  String get pathV2Resume;
+
+  /// No description provided for @pathV2Retry.
+  ///
+  /// In de, this message translates to:
+  /// **'Erneut versuchen'**
+  String get pathV2Retry;
+
+  /// No description provided for @pathV2Error.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Lernpfad konnte nicht geladen oder gespeichert werden. Deine bisherigen Daten werden beibehalten.'**
+  String get pathV2Error;
+
+  /// No description provided for @pathV2PrepareTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Was brauchst du für diese Aufgabe?'**
+  String get pathV2PrepareTitle;
+
+  /// No description provided for @pathV2PrepareBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier kommen koreanische Wörter und Sätze vor. Du kannst zuerst Zeichen üben, mit den Erklärungen weiterlernen oder die Vorbereitung später nachholen. Dein gewähltes Lernziel bleibt gleich.'**
+  String get pathV2PrepareBody;
+
+  /// No description provided for @pathV2Prepare.
+  ///
+  /// In de, this message translates to:
+  /// **'Zeichen kurz vorbereiten'**
+  String get pathV2Prepare;
+
+  /// No description provided for @pathV2Supported.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit Erklärungen weiter'**
+  String get pathV2Supported;
+
+  /// No description provided for @pathV2Later.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorbereitung später'**
+  String get pathV2Later;
+
+  /// No description provided for @pathV2All.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Lernabschnitte'**
+  String get pathV2All;
+
+  /// No description provided for @pathV2Activities.
+  ///
+  /// In de, this message translates to:
+  /// **'Aktivitäten in diesem Abschnitt'**
+  String get pathV2Activities;
+
+  /// No description provided for @pathV2Free.
+  ///
+  /// In de, this message translates to:
+  /// **'Frei üben'**
+  String get pathV2Free;
+
+  /// No description provided for @pathV2Hanok.
+  ///
+  /// In de, this message translates to:
+  /// **'Zum Ildu-Haus'**
+  String get pathV2Hanok;
+
+  /// No description provided for @pathV2Legacy.
+  ///
+  /// In de, this message translates to:
+  /// **'Bisherigen Lernpfad öffnen'**
+  String get pathV2Legacy;
+
+  /// No description provided for @pathV2Listening.
+  ///
+  /// In de, this message translates to:
+  /// **'Hören'**
+  String get pathV2Listening;
+
+  /// No description provided for @pathV2Speaking.
+  ///
+  /// In de, this message translates to:
+  /// **'Sprechen'**
+  String get pathV2Speaking;
+
+  /// No description provided for @pathV2Reading.
+  ///
+  /// In de, this message translates to:
+  /// **'Lesen'**
+  String get pathV2Reading;
+
+  /// No description provided for @pathV2Writing.
+  ///
+  /// In de, this message translates to:
+  /// **'Schreiben'**
+  String get pathV2Writing;
+
+  /// No description provided for @pathV2Unchecked.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch nicht bestätigt'**
+  String get pathV2Unchecked;
+
+  /// No description provided for @pathV2Confirmed.
+  ///
+  /// In de, this message translates to:
+  /// **'{count} begrenzte Aufgaben bestätigt'**
+  String pathV2Confirmed(int count);
+
+  /// No description provided for @pathV2Pending.
+  ///
+  /// In de, this message translates to:
+  /// **'Weitere Lern- und Transferaufgaben werden vorbereitet.'**
+  String get pathV2Pending;
+
+  /// No description provided for @pathV2Episode.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein kleiner Vorfall im Hof'**
+  String get pathV2Episode;
+
+  /// No description provided for @pathV2Continue.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiter'**
+  String get pathV2Continue;
+
+  /// No description provided for @pathV2ChooseSign.
+  ///
+  /// In de, this message translates to:
+  /// **'Welcher Silbenblock passt zu diesen Zeichen?'**
+  String get pathV2ChooseSign;
+
+  /// No description provided for @pathV2Practice.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit Hilfe üben'**
+  String get pathV2Practice;
+
+  /// No description provided for @pathV2Check.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt selbst ausprobieren'**
+  String get pathV2Check;
+
+  /// No description provided for @pathV2Help.
+  ///
+  /// In de, this message translates to:
+  /// **'Zeig mir einen Hinweis'**
+  String get pathV2Help;
+
+  /// No description provided for @pathV2Hint.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Zeichen ergeben {answer}. Mit dem Hinweis kannst du die Geschichte fortsetzen.'**
+  String pathV2Hint(String answer);
+
+  /// No description provided for @pathV2Wrong.
+  ///
+  /// In de, this message translates to:
+  /// **'Schau noch einmal auf den kurzen Strich. Du kannst einen Hinweis verwenden.'**
+  String get pathV2Wrong;
+
+  /// No description provided for @pathV2ResultSupported.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Schilder sind zurück! Du hast die Aufgabe mit Unterstützung gelöst.'**
+  String get pathV2ResultSupported;
+
+  /// No description provided for @pathV2ResultIndependent.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Schilder sind zurück! Du hast 아 und 어 in dieser Aufgabe selbst zugeordnet.'**
+  String get pathV2ResultIndependent;
+
+  /// No description provided for @pathV2Scope.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein erster Schritt beim Lesen: 아 und 어 zuordnen. Hören, Sprechen und freies Schreiben sind noch offen.'**
+  String get pathV2Scope;
+
+  /// No description provided for @pathV2Return.
+  ///
+  /// In de, this message translates to:
+  /// **'Zurück zu meinen Lernzielen'**
+  String get pathV2Return;
+
+  /// No description provided for @pathV2Listen.
+  ///
+  /// In de, this message translates to:
+  /// **'Laut anhören'**
+  String get pathV2Listen;
+
+  /// No description provided for @pathV2AudioUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Ton ist gerade nicht verfügbar. Du kannst die Zeichen weiter üben; das zählt nicht als Hörnachweis.'**
+  String get pathV2AudioUnavailable;
+
+  /// No description provided for @pathV2Recheck.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Inhalt wurde überarbeitet. Beginne einen neuen Versuch; bisherige Ergebnisse bleiben erhalten.'**
+  String get pathV2Recheck;
+
+  /// No description provided for @pathV2Restart.
+  ///
+  /// In de, this message translates to:
+  /// **'Neuen Versuch starten'**
+  String get pathV2Restart;
+
+  /// No description provided for @pathV2Local.
+  ///
+  /// In de, this message translates to:
+  /// **'Neue Fortschritte dieses Lernpfads werden vorerst auf diesem Gerät gespeichert.'**
+  String get pathV2Local;
+
+  /// No description provided for @pathV2Foundation.
+  ///
+  /// In de, this message translates to:
+  /// **'Einstieg'**
+  String get pathV2Foundation;
+
+  /// No description provided for @pathV2Review.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch einmal üben'**
+  String get pathV2Review;
+
+  /// No description provided for @pathV2TaskContext.
+  ///
+  /// In de, this message translates to:
+  /// **'Wende das Gelernte in einer kurzen Aufgabe an. Erklärungen und Beispiele stehen dir zuerst zur Verfügung.'**
+  String get pathV2TaskContext;
+
+  /// No description provided for @pathV2FirstGoal.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute lernst du die Zeichen 아 und 어 kennen und bringst sie an ihren Platz. Du kannst auch ohne Ton mitmachen.'**
+  String get pathV2FirstGoal;
+
+  /// No description provided for @pathV2PrepareRelated.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine Grundlage kurz üben'**
+  String get pathV2PrepareRelated;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

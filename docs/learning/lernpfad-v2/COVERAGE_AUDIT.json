@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourcePhaseCount": 30,
+  "sourceTaskCount": 902,
+  "grammarRows": 356,
+  "grammarRoles": {
+    "new": 336,
+    "spiral": 20
+  },
+  "linkedGrammarRows": 356,
+  "taskSkills": {
+    "reading": 413,
+    "listening": 51,
+    "writing": 396,
+    "speaking": 42
+  },
+  "dependencyAudit": {
+    "grammarNodesChecked": 336,
+    "cycles": 0,
+    "originalTaskEdges": 0,
+    "derivedPreparationEdges": 948,
+    "meaning": "declared graph consistency only; not proof that every teaching prerequisite has been authored"
+  },
+  "routes": {
+    "phaseTask": "/learning-phase/task",
+    "foundation": "/path/foundation",
+    "path": "/path/v2"
+  },
+  "coverage": "partial_not_full_curriculum_completion",
+  "sources": {
+    "assets/data/phase_tasks.json": "b8c25c68d5bafeb45d34d029a10ff392b025e88bb9b4334d65a8244238f408f4",
+    "assets/data/learning_phases.json": "fbc36fbaa28d33df1466243de12d1a59abbab46edc741cd7851ff47289893d86",
+    "assets/data/curriculum_manifest.json": "2222d49c02dce92dc092be06c958dd6b2b535d13fb0c0d7184ec91037018541b",
+    "tools/content_factory/cefr_matrix/phases.json": "b61c70b52e7f773c76336c5ab65638ca4c1af2d39fcf2f26f6793d06333a64d9"
+  },
+  "unverified": [
+    "teacher_item_review",
+    "beginner_observation",
+    "audio_listening_review",
+    "full_band_transfer",
+    "physical_device_qa",
+    "cross_device_extension_sync",
+    "historical_episode_expansion"
+  ]
+}

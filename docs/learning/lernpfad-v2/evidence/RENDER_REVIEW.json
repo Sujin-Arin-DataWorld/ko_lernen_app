@@ -1,0 +1,64 @@
+{
+  "contract": "First gated Lernpfad Flutter widget increment: goals first, honest partial coverage, canonical Joy, saved supported result. Automated/layout scope only; physical screen readers, native TTS, learner fun and approved mockup parity remain unverified.",
+  "targetViewports": [
+    "390x844",
+    "320x640 text200",
+    "800x600"
+  ],
+  "renderedEvidence": [
+    {
+      "viewport": "390x844",
+      "artifact": "f0-goal.png",
+      "observation": "Goal and available activity count precede the next task; no full-band completion percentage."
+    },
+    {
+      "viewport": "320x640 text200",
+      "artifact": "de-320-text200.png",
+      "observation": "German goal wraps at 200 percent text; no RenderFlex overflow in widget test."
+    },
+    {
+      "viewport": "390x844",
+      "artifact": "f0-supported-result.png",
+      "observation": "Original canonical wing-open Joy follows durable completion; supported result, narrow scope and return CTA."
+    },
+    {
+      "viewport": "800x600",
+      "artifact": "catalog-error.png",
+      "observation": "Catalog error retains retry and previous-path escape."
+    }
+  ],
+  "accessibility": {
+    "status": "pass",
+    "evidence": "Scoped automated check: Android 48dp tap guideline on teaching, actual Noto/Paperlogy fonts, 200 percent German reflow, reduced motion. Physical TalkBack/VoiceOver and complete audit pending."
+  },
+  "responsive": {
+    "status": "pass",
+    "evidence": "Widget sizes 320x640 at 200 percent text and 390x844 at 100 percent; scrollable lesson and goals; captured below."
+  },
+  "contentStates": {
+    "loading": {
+      "status": "pass",
+      "evidence": "Delayed catalog future shows indicator then error/retry; widget regression."
+    },
+    "empty": {
+      "status": "pass",
+      "evidence": "Empty record shows zero completion and unconfirmed skills; C2 selection creates no evidence."
+    },
+    "error": {
+      "status": "pass",
+      "evidence": "Catalog retry, native rejected/uncertain write recovery, failed wrong-answer transition regression."
+    },
+    "partial": {
+      "status": "pass",
+      "evidence": "Every band states incomplete curriculum; no total CEFR percentage or completion seal."
+    },
+    "success": {
+      "status": "pass",
+      "evidence": "Actual path to lesson to receipt to path widget interaction; supported result never becomes independent."
+    },
+    "permission": {
+      "status": "not-applicable",
+      "reason": "First lesson requests no microphone or new platform permission. Audio unavailable fallback tested; future microphone tasks remain under existing PhaseTaskScreen."
+    }
+  }
+}

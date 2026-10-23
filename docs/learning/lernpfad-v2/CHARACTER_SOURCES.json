@@ -1,0 +1,1149 @@
+{
+  "authority": "Direct user instruction, 2026-10-23",
+  "scope": "Lernpfad v2 and subsequent episode media. Preserve character identity, voice and role. No new character generation.",
+  "roots": [
+    "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택",
+    "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본",
+    "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비변신-도깨비소개_확정",
+    "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전",
+    "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정",
+    "C:\\Users\\vjinn\\.codex\\generated_images\\Persona"
+  ],
+  "runtime": [
+    {
+      "asset": "assets/illustrations/lernpfad/joy_guide.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-75fbc678-9c71-4a8f-af27-8920e62b9896.png",
+      "sha256": "c1d79c59ea954d2bacee01abe48d4283d6e8ee7dc3fd47a9a30d80b58742a588",
+      "usage": "episode introduction and guidance"
+    },
+    {
+      "asset": "assets/illustrations/lernpfad/joy_resolved.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-dbbba68f-00b2-451c-8dc1-d24169650b4f.png",
+      "sha256": "f70f5fcee6770a0953071afb4cd526ec88dce3fef17ec1cf313ac4328e7a4db5",
+      "usage": "saved episode resolution"
+    },
+    {
+      "characterId": "sujin",
+      "asset": "assets/illustrations/personas/v3/sujin.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\sujin1.png",
+      "sha256": "60b0f18338a6efc940377d725ab41ecac9ebb1365b094e9f63fa58d71459015c",
+      "usage": "existing PersonaPresentationCatalog portrait; verified same bytes"
+    },
+    {
+      "characterId": "christian",
+      "asset": "assets/illustrations/personas/v3/christian.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-1dd0dec1-48ac-42af-ae84-ff3f2f438e8c.png",
+      "sha256": "c19b6505130593fdad3f4506114e213a38529f8efe17eb9e58a224a0497c5272",
+      "usage": "existing PersonaPresentationCatalog portrait; verified same bytes"
+    },
+    {
+      "characterId": "maya",
+      "asset": "assets/illustrations/personas/v3/maya.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-39c49342-d7be-4513-a050-15229da81608.png",
+      "sha256": "7c229f106e750ddedf58f05f0626ca2defb30fd17aa8491f967756856d59e053",
+      "usage": "existing PersonaPresentationCatalog portrait; verified same bytes"
+    },
+    {
+      "characterId": "hyuna",
+      "asset": "assets/illustrations/personas/v3/hyuna.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-1e1c3e35-df8a-4302-ae05-528cf4e56b83.png",
+      "sha256": "6de9257ddd6a49069ace126fb06c3ce44091c2f66f48118d7c45540ea438aa33",
+      "usage": "existing PersonaPresentationCatalog portrait; verified same bytes"
+    },
+    {
+      "characterId": "andrea",
+      "asset": "assets/illustrations/personas/v3/andrea.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-644210e4-dff8-4ca2-9745-c27574357de5.png",
+      "sha256": "4b2456144f4228a9a3ecd9c76b2f878303b698b484df86db9de89931376b3e5f",
+      "usage": "existing PersonaPresentationCatalog portrait; verified same bytes"
+    },
+    {
+      "characterId": "lena",
+      "asset": "assets/illustrations/personas/v3/lena.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-690470b8-e77e-403e-a400-e1df67d5257d.png",
+      "sha256": "00744ab82f07314f9091f6f8d5a3f0683ba3f289ddae5684c492a6e172e209cf",
+      "usage": "existing PersonaPresentationCatalog portrait; verified same bytes"
+    },
+    {
+      "characterId": "daniel",
+      "asset": "assets/illustrations/personas/v3/daniel.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-e3135ef3-00f7-4dc1-8d29-b9676f3527c1.png",
+      "sha256": "dce49e967e3024696b41aef91153152d5b3e751128d3257422ab76fd88abe4f1",
+      "usage": "existing PersonaPresentationCatalog portrait; verified same bytes"
+    },
+    {
+      "characterId": "minho",
+      "asset": "assets/illustrations/personas/v3/minho.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-cf6d364d-8ee4-4bed-886a-7415be8dc1d3.png",
+      "sha256": "fe8828ceb25306d80928d5e89afa3cd0ae9dc4dd849d0366ed1493f996a7aa49",
+      "usage": "existing PersonaPresentationCatalog portrait; verified same bytes"
+    },
+    {
+      "characterId": "dongsun",
+      "asset": "assets/illustrations/personas/v3/dongsun.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-3cfc6420-4e48-4f47-936b-ededc09a4842.png",
+      "sha256": "54f59e190f5dc1d85bcf015f97c5ff410c26ee21add2586398dd20d1ff6a10d5",
+      "usage": "existing PersonaPresentationCatalog portrait; verified same bytes"
+    },
+    {
+      "characterId": "byeongcheol",
+      "asset": "assets/illustrations/personas/v3/byeongcheol.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-edf6336b-f6b0-4874-b4cf-c2e12c796a44.png",
+      "sha256": "c4c6b2d184291e4e1291d7975dce7f30190bcecdc4040031bbefed1cbfc5ca13",
+      "usage": "existing PersonaPresentationCatalog portrait; verified same bytes"
+    },
+    {
+      "characterId": "jun",
+      "asset": "assets/illustrations/personas/v3/jun-16.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-aa6286fa-a67c-4a65-a4e3-8a67ef7b0ee4.png",
+      "sha256": "164cd0422d4d27082b5feb5d04775277d1cbc4ae8eab61c83d0d09825f00887f",
+      "usage": "existing PersonaPresentationCatalog portrait; verified same bytes"
+    }
+  ],
+  "sourceInventory": [
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\backho.mp4",
+      "sha256": "56df30ebec7ee7555aa7ae2dc04eee5470d5fc7d1cb8cec04dc00984451e2939",
+      "bytes": 10231724,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\baekho-divine-blue-v2.png",
+      "sha256": "5e29f67b90fb42912aaff6ae2c9de40758c123350a1a30dc907735e168087bb9",
+      "bytes": 2313232,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\baekho.png",
+      "sha256": "1a8d0bb2e3e11a39c6b055ac2736cc43222006d266ac35a80685f00d45a23e34",
+      "bytes": 1420799,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\baekho2.png",
+      "sha256": "bca6fcfc39454a3a9f5345a245171414f0ffa3faeb14ada103aa42ddbac5a40b",
+      "bytes": 1246572,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\baekho3.png",
+      "sha256": "1440bac2026699fb4b6ed93bd1a0e7639031f5c1530114ff0ba6dc1c480b4a5d",
+      "bytes": 1176849,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\baekho4.png",
+      "sha256": "ff1604f3ef3e28002c71cd30d9ae9bbf38cdc235abfb2e4f375756b4f226c507",
+      "bytes": 1186899,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-01f6b364-e18f-4aca-a25f-dca0ad526a85.png",
+      "sha256": "be49e615c8c071baa91cdc1cde5569b25e929562b984d981cff2b87c3c1638a9",
+      "bytes": 2157153,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-1446c7b6-0530-4cd8-9d11-8b4d74a3aed6.png",
+      "sha256": "c773821852d1be537a7e714af0f9e90dee8a20e1c87ae6a755f9458d7357a6f2",
+      "bytes": 1491239,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-2283fd5e-881e-4887-b4e5-528dd38f289c.png",
+      "sha256": "444eed7e6e7188432b5fe0c6e125dc5790d84a71c93255e9149396b12ee20a2f",
+      "bytes": 1204432,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-30d21a2c-448c-4b93-bc3b-d0b78de87417.png",
+      "sha256": "a2328c8584e3c850c283fb13b63be2a9ea2100f1d70a6d38a6c9f27d98e26815",
+      "bytes": 1359291,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-59fe7aff-0d16-40cf-8904-8f433de124e4.png",
+      "sha256": "8d7137edfe97df4c63b5048962c6660e189c9ad37b6031799b152abf38065479",
+      "bytes": 2055808,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-bcc22cf1-dc2e-410b-9e03-a4d8ef1f36ac.png",
+      "sha256": "7b093f824f33088fda12baccdd6798fafe806eb47e53a584ad6bff4e54f40ef3",
+      "bytes": 1909008,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-c6c5a017-21a5-4a45-b756-84554126b0f9.png",
+      "sha256": "ea15d486f232e67344ffa2f7c9f15ef05148e616578a8bcdf6bdec6265bca34a",
+      "bytes": 2331382,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-d9e47a8d-6278-485e-a4f3-effc288da9a4.png",
+      "sha256": "9dd03e4c62fb4513b5c97f788d48189bce939e510d39a1b34a2bd9b0415bfbe2",
+      "bytes": 1360856,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택\\exec-da0092d4-29ab-4c7d-99ac-3d6628855a4e.png",
+      "sha256": "8eace5ec15342a2d816f095bd1953aa73c22cdf4c9c1b8fe06a235b458ac4f98",
+      "bytes": 1307614,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-257d9975-6169-40f6-9211-ae5befad4040.png",
+      "sha256": "15c3c966c0ae190c11777977587943cdef1975d7e186349b4dc7408987749d29",
+      "bytes": 1761640,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-5561ef5d-bb97-4c8a-90ce-d4116dbc6308.png",
+      "sha256": "bdad3e0399a759910c2c37b4fc19d260bccd80a780f5151cab472e44d631e2dd",
+      "bytes": 1797351,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-650591bb-9572-4933-8bfe-7b40158e8d0b.png",
+      "sha256": "d115cbe75e764067839af9ed8a3d5c4bcbf8e3ed46b24316b784555fc2d01e46",
+      "bytes": 1741766,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-75fbc678-9c71-4a8f-af27-8920e62b9896.png",
+      "sha256": "c1d79c59ea954d2bacee01abe48d4283d6e8ee7dc3fd47a9a30d80b58742a588",
+      "bytes": 1204646,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-8137b153-99b0-4479-bcd5-5a2c51b09523.png",
+      "sha256": "8eecf53fb59c514b220c8ed333aa6329550b81a15fecda33792f37442e5b8895",
+      "bytes": 1043646,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-dbbba68f-00b2-451c-8dc1-d24169650b4f.png",
+      "sha256": "f70f5fcee6770a0953071afb4cd526ec88dce3fef17ec1cf313ac4328e7a4db5",
+      "bytes": 1402533,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-eb5d3bc0-92dd-4576-8dbb-f06adb1ab9c4.png",
+      "sha256": "ff2b5d56516f066c5c254c57bede99c52105bbd3f390a3b410c0546d02d42ebe",
+      "bytes": 1183302,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-fb0af650-849a-4385-8c42-520916394aea.png",
+      "sha256": "0d793e51b645df67603b90b6fcedb3a358f03f1d714838f8d9ccf1ab8b3228cc",
+      "bytes": 1074419,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본\\exec-fc1aa3c7-a499-47d7-a30f-959de1616753.png",
+      "sha256": "3c71c31741eceec5ec482a4efb51b9d3e9c346e443858eec32d0117637c467b9",
+      "bytes": 1153512,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비변신-도깨비소개_확정\\exec-09ef8b7c-06ef-4a3c-909a-2fa3fe6e5739.png",
+      "sha256": "e6ca1ddb4b60529d4371f4bc7ad6a407d639870ded5638b265f0d49eef0b4aa0",
+      "bytes": 2562155,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비변신-도깨비소개_확정\\exec-0ec802f0-9c97-4173-9173-2b05fbab9ac8.png",
+      "sha256": "eeddd24a0d0281f268968870fad4f5824e0607739ff324d0ad75e33cf89e08a1",
+      "bytes": 2422243,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비변신-도깨비소개_확정\\exec-13f11698-1207-48f1-a3fe-04e6253e57cb.png",
+      "sha256": "8776e14cb6abd67e9df23ee97d8b30e19ad84099b9d381f12904ed71bf9a5ce6",
+      "bytes": 2012689,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비변신-도깨비소개_확정\\exec-432c674c-ec2f-436b-b77d-b0ff79d6a6fb.png",
+      "sha256": "26f4ed1ee4275906055db93cf2092ba174e427c91b7febba92301c9a3dac49cf",
+      "bytes": 2650060,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비변신-도깨비소개_확정\\exec-7acc6c7f-a2b0-4929-97a9-390814335715.png",
+      "sha256": "a4196cb06ef03865b53f142a9b6c1126e5c199d44b5e6afa574648fd6cf88e4a",
+      "bytes": 1698610,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비변신-도깨비소개_확정\\exec-9f7b585f-4881-42ec-93c5-7b3a384f5da9.png",
+      "sha256": "19526008586a8ceffcec18be75923bbc72d3b01693ab7763e80636f9fb98ebed",
+      "bytes": 2579658,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-07f95974-1ed0-4159-bbad-f77f0acdebaa.png",
+      "sha256": "2999c46b1493ceb5c7df1854ff64516c2fc05088a7f070e9198412c821efaa78",
+      "bytes": 2704915,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-1221c95a-5c44-493e-93f0-a113f27a8125.png",
+      "sha256": "8b7b0e9ef8709dd1471e23599dfb6931b39848ef2ab01924bdf0a3bf98a8cbbe",
+      "bytes": 2103893,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-184e0b70-ed75-4277-a33c-8260ac2985f5.png",
+      "sha256": "0319f9d857dff49581575159c271086dd4d94240fa5c42a62ab6f10dabed6694",
+      "bytes": 2228448,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-18536749-83f1-47ec-b29e-eca57272b165.png",
+      "sha256": "6b8c3792bc4c4593b6b2eacdd93bcc1fec73d9dfb570da9d078ed29d5e43fffa",
+      "bytes": 2172461,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-194eb7e6-295a-453f-acba-0f55f23f8db7.png",
+      "sha256": "4c5f6a11c6988b8ab888c5b99b651021b54d3b55b0dbeeff6f636f39a0a875e9",
+      "bytes": 2159450,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-19c84f1c-d2d2-4b41-9769-20c00e6e7b51.png",
+      "sha256": "7f219ae7d9bf4e8cbcd1b3b20b168df6d7cae86d79e5137e45120bc11eeb71e4",
+      "bytes": 2192639,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-1dffc936-f573-4638-a290-f715684dfdad.png",
+      "sha256": "68ecc3eae13df26f0b1b395143444977ab554ca92890b644f4f59fcc0afdd700",
+      "bytes": 2201478,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-213e3b21-0d8c-43e3-b40b-47f2e09cacaa.png",
+      "sha256": "853235d1c5ff6952285cbc732e8dff8249694d7109174fdef9a76b3f6b3455cc",
+      "bytes": 2207645,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-259dfbf0-8f5d-42dc-b235-a3ff38f1821a.png",
+      "sha256": "055405c9323860c254276719f80daf915175c1c5d3ed8cb27870169595e9edc0",
+      "bytes": 2346560,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-27274463-f244-42c3-a263-f8f88c23a378.png",
+      "sha256": "265edb93639dba892f2c3ead7323a98df89d7ae4b0571a13c394c4f2e7dcf159",
+      "bytes": 2170041,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-31e07be1-655a-4fd6-8c30-72b3c9b82aa5.png",
+      "sha256": "5444f1b258f6cbe06402a8a210f95d24947611eb0a75f6fd9e1c409716523381",
+      "bytes": 2196199,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-33955262-114b-4389-bb37-512609cd5ba1.png",
+      "sha256": "55e99a8da1359ce89c042e85e521ffbcfe5d4c062059bd4fec0e5428a50ab577",
+      "bytes": 2562289,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-35cd5587-1726-4401-a29a-3c0a2510e8ba.png",
+      "sha256": "81858209286e735e7fe7f92a89b4b08cce1458b5e3d45b38a92a23c112c17391",
+      "bytes": 2322356,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-392f6abd-72c3-4b03-883c-fdcf6a63e575.png",
+      "sha256": "2a0baeb8a8f609e4f168b50db40f56ae855aaa76119bb0079b0eecd998cd0804",
+      "bytes": 2186958,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-3daec65a-69d6-4359-a821-647c8f509ae1.png",
+      "sha256": "9cb61f7cf76baa9a77a8d8fab17a53d06ce2268c38d5a38c696454e5f53d93b5",
+      "bytes": 2219443,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-4783054e-103e-49fb-91cf-67aaa4fa1fbf.png",
+      "sha256": "e98dcbfeeae9411e170f863028bfa56c352d3d872d2bf96bf1caef5a419a37ed",
+      "bytes": 2485247,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-51b8c701-72f6-4553-90ea-a948728ee819.png",
+      "sha256": "fb01d00c4427a496d1dbe9aed92ac9599fac854eb5743bc8a38f532268d1be80",
+      "bytes": 2019273,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-651fe091-210b-4335-b488-6f6eca20cf4a.png",
+      "sha256": "e73b64f1cb32b0c4d4ac2e9a883821e7c45568c1fabecf2c9e1627cae66c152b",
+      "bytes": 2226505,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-674cff4f-4a4b-4dd2-b1b6-df06b478771a.png",
+      "sha256": "d41229585f57c99ca42b64e8fb4085e2596d43a7746ce5b7ba5bf9b704959cbc",
+      "bytes": 2182052,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-72c4950e-c703-4c70-88d1-2b7243c203d3.png",
+      "sha256": "ae45919f6cc9978c08cd68e8d4329972a5011f1dde5c4d4ed6a2e65fbe221f44",
+      "bytes": 2207368,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-8345468d-a1ab-43a8-903a-37be1c40cb11.png",
+      "sha256": "2a86e46d35459d00269f45d111f7e4c56b4b89db929a1be43af87cc08071640c",
+      "bytes": 2764582,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-8f8d23e9-2467-4879-b74b-e7f8ea38caeb.png",
+      "sha256": "ee3c6d916133bc9c21b37881c5b97f6acbfb7a590f2f9dd2ad48ca768168fe8d",
+      "bytes": 2154382,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-95e73594-176d-4fa0-b76e-a9ed3330a1b9.png",
+      "sha256": "aef245d72a647c24e6ed9d5c88dc56162e8473c72b7210ce00e16748591e9fa8",
+      "bytes": 2315939,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-9625dbde-638b-4f81-8e81-d875c91f91fa.png",
+      "sha256": "fc6a56e9a286afb82312013bff56a8087f8c0c9520a643056307fb2b2ebba0fb",
+      "bytes": 2140115,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-9741ac84-26a9-4e77-a0e5-4cfc2b2ab650.png",
+      "sha256": "13ffd9a7fa3f428e17bf0c35d5d677fe6eecb9c6a45603916adafb6a4e905cf3",
+      "bytes": 2184987,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-9cea6781-843c-40e8-a72d-a26b1a0ceb76.png",
+      "sha256": "d387c920dc9cddb7ac95646018bc9ebeb05c7d747b89b5b905457f291556024f",
+      "bytes": 2153318,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-a1d3cd8e-5745-49f4-b2d5-cf014f5fc6d2.png",
+      "sha256": "f9bc5734b8da73b00e6ba3e03f41eb4cee22719f66fd3dde267aa3ceaf52b591",
+      "bytes": 2628545,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-a854a913-b4c0-4ad0-bf5e-f4437dda47dd.png",
+      "sha256": "627f8d877a1effc947e42a0f750c58940d9b96cfaeb0f1e3e001061cbdf57fb8",
+      "bytes": 2164713,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-ada010a3-28d4-4f5b-87da-e9081eee5f92.png",
+      "sha256": "f2edde54745e437b488a39cd35cfd48f2c4e8c08389b578979e9f298b38d7aac",
+      "bytes": 2151085,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-b2462324-03e3-48fa-8bc0-15c152ebd61b.png",
+      "sha256": "4f0efff3ebfd56863e6306d761afa09080d335fa8b7d16ce57c1d077ac2de572",
+      "bytes": 2171097,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-bb31c887-e65c-40e9-8174-fd8ba49fb883.png",
+      "sha256": "c78e2e26527e3e0181f26ab736b6338d19844460ab2f640ece807316ea8908c6",
+      "bytes": 2326338,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-c9b9341c-33df-4781-b8ed-10bb3f6fc5ab.png",
+      "sha256": "d68fe96e8bc4fa520b2a6eef17b73564f61893e57f03bf46216dd4b9d27c67cf",
+      "bytes": 2171931,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-cb532a61-4202-43d1-884d-1a73e819a1fd.png",
+      "sha256": "949e94106d4ddbc0e930ccf9e8fdb33dab5273c9774cfc18b92a8a4eba97bca5",
+      "bytes": 2267478,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-d6d8cdf2-cb61-48d6-90c3-c3a550b7c425.png",
+      "sha256": "214ebe22b92f62dc93f9ca511c91dfe4978f2ea17206cd8c0fcb1a664731d3a3",
+      "bytes": 2596952,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-d8f32401-4538-4c4f-a3d5-bdc5b48d6a4d.png",
+      "sha256": "cb8484dbe7019de7e5a0f0714283136173aaa07708e949546598108c9d7c10a4",
+      "bytes": 2457113,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-e0ae9bd0-253b-42e1-b3a6-40fa122ffc87.png",
+      "sha256": "181d35f9e157fb2352bebf34f947c55ae06ffd06f61da879441e62cde56df678",
+      "bytes": 2285838,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-e6f73f58-88d7-4f3a-a158-903f3220435b.png",
+      "sha256": "8ed2d343fa0bd5a091bc2b24ebc06ec628946ac5084ddaa35df6fc1214e46042",
+      "bytes": 2215348,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-e76b5531-28c3-4633-a203-f673f4a6997c.png",
+      "sha256": "88e293bffd05480aacf41afe85a48507c0195208c944b685c0f24c6a13fec72f",
+      "bytes": 2350769,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-eb8a6b5f-1623-4d1d-a282-a7b4a35b456c.png",
+      "sha256": "ef6ee60366fb44f29015b407a56a5943a2dd82a688eb6a94f517cf91a9f079eb",
+      "bytes": 2111987,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-f000fe79-27ba-48fb-a0ee-a2595cdf05b2.png",
+      "sha256": "bc15e526aee76d584150d76d4c390172503ab4fdd585f098000cb92b15069ae2",
+      "bytes": 2268427,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-f69af609-6ad2-4247-918d-6e29d726082d.png",
+      "sha256": "4f862e8e0c8a7007de4c842c8c0526f280ee3bc365e82bbef6adc1ff2ca0cd79",
+      "bytes": 2412718,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비엽전\\exec-fee56b8f-68e7-497e-8d02-7c5180822267.png",
+      "sha256": "bd3598e98ac3fcb7ce55e75664fbd5014acba713ad537be0a1b91ce8f16527f2",
+      "bytes": 2153883,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\1.도깨비다른포즈.png",
+      "sha256": "2e1c3fd6f47b0930233c70a7b9e2f93dd2d374d404136e28480dd4ddc74b8202",
+      "bytes": 1555994,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\10푸른 불꽃의 도깨비 전사.png",
+      "sha256": "2910db8e6c0a9870a572633026e5405b970d71a21bceb4f5802911a4b16fa301",
+      "bytes": 1978065,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\2.도깨비다른포즈2.png",
+      "sha256": "facaa51a5a420fd57fa07a805607d083592e801cbc6e39ff049a32818f3f04ba",
+      "bytes": 1645436,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\3도깨비불-도깨비.png",
+      "sha256": "fd2ff0fc837dbba6a06679970f2bf938811b3a319e6838a8c8fbc9364e71b2c8",
+      "bytes": 1623276,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\4도깨비불-도깨비2.png",
+      "sha256": "217c2f319f6fd8a563cb6bcb588fce1af073f768a7b965d4f2668bb2651b0412",
+      "bytes": 1568433,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\5-1.png",
+      "sha256": "277ceddf849d7434cdd1b8c67de3eb011387b87d79e71d37ac7845ac0eebb6b6",
+      "bytes": 1593971,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\5도깨비불-도깨비3.png",
+      "sha256": "8161885cd8ce197176763385a503a3a5d89de1de471dd657ee8bc4ca6ad21665",
+      "bytes": 1741281,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\6-1.png",
+      "sha256": "d6cb01762da48d4aa25e088cfe0cbc2fd70e2b2dce538c74e690940e6833769a",
+      "bytes": 1477511,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\6도깨비불-도깨비4.png",
+      "sha256": "690d6640d37c1147cd25d104458b8854c3356fc8001ab352ecb3fdd70c4b8819",
+      "bytes": 1511005,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\7마법도깨비.png",
+      "sha256": "7ff0d796117d1928ae819e30be6f497e338c191e95eeba695b36b4035f61f5ed",
+      "bytes": 2363492,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\8마법도깨비2.png",
+      "sha256": "d06a7b3537b369f76f011d58ef9c3c167a292203fc7c8ca8e2976fda471c4c97",
+      "bytes": 2156247,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\9마법도깨비3.png",
+      "sha256": "eae43a7054b800e42796f03ea319704b27a636f3b122bd771e57b65b724ab34c",
+      "bytes": 2236848,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\ChatGPT 이미지 2026년 10월 5일 오전 03_53_18.png",
+      "sha256": "17f67e5f3af18b76480869750687fd50702b04a67a94614cfa726ed233fa73ab",
+      "bytes": 2319647,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\decoration_dokkaebi_fire.png",
+      "sha256": "9848a7c6fa2cb93b305ea3180043c1fc96321179c54e3d1731706891646001e5",
+      "bytes": 766647,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\doccabi6.mp4",
+      "sha256": "48e0709b87fb10b8df595444a6b0ce8cc73c95a2ca573ca233a8dd41ba9235b9",
+      "bytes": 846685,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\doggabi.mp4",
+      "sha256": "d948bd61971814ca8941eed43e6561912e6e7d3596be4041c4768c2dfc1baf6d",
+      "bytes": 882021,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\doggabi5.mp4",
+      "sha256": "cd5df882ef472695ad63b4fcb1280e422ca41e5833a527992c6c444d71ebba3e",
+      "bytes": 4904803,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\dokkabi.mp4",
+      "sha256": "9f153772937adf29ccd63817daa998698e2513975980cfd76219f56d410ed280",
+      "bytes": 1060731,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\dokkabi_front.mp4",
+      "sha256": "2cecd97e2750efcf3b26a6eb4db499bddda32950cf37150158e2cf4de4b345c3",
+      "bytes": 898019,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-019f1146-56dc-4d4c-b172-1d476d843d35.png",
+      "sha256": "c984261b9ff9e6e2aecb344167aae36492ad721b2b3b0aa561e312006783b8a0",
+      "bytes": 1509760,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-0319e802-c7f0-4d45-8438-0a3e808f2316.png",
+      "sha256": "5db52880efe74dfe870f1a8cd83b18b7053e3ce2b1d1c5760b63bdfbf8edb634",
+      "bytes": 1375114,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-097ea4be-0e3e-478a-a773-a8c2dfee9c56.png",
+      "sha256": "6fc39d13ca61b8fe796d6d4c40583b4850299e2cedb46ca7d8f30e05ad2c22eb",
+      "bytes": 1317794,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-1356613d-7ba7-4597-83c4-d944937cfd19.png",
+      "sha256": "0801bdbba752d460060a9bd209bbfe04fecdcbdb1c3edb554cdf2dd871ba3a20",
+      "bytes": 1182960,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-13a40ebf-9f06-4af6-a59e-3bdd51148b84.png",
+      "sha256": "381d6de590a6c8236ccad0168d49a28b01463b18f5c91d12ff6e1595823c5bbc",
+      "bytes": 1442238,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-1b002a71-470a-49df-a389-95bdfcd1a5d5.png",
+      "sha256": "0034af3c7b6f58b2e2f96afeb8820de976fe0d2240c131cf5181899a2edc0f22",
+      "bytes": 1362355,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-1b7ba70e-b67f-42a9-bc78-100a4007279c.png",
+      "sha256": "874dcdaecc8094f989c6c132f6513d138f014560cec0d7efe1d1b868bc45ef25",
+      "bytes": 1225948,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-2b9411ef-cf80-4893-98a8-57eec1053896.png",
+      "sha256": "badf40200faa0f03214318b779a357346c651c0ea35820b0a9ebf01e383de156",
+      "bytes": 1863955,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-2e63d0d3-b999-4901-92ff-51141cfcaf47.png",
+      "sha256": "6c15c359a1b82002f832b98ba8500270e3cdb839581fdb7a0312f2dbbe1f8091",
+      "bytes": 1317084,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-36c091d4-a11a-47ca-b206-bfd432627c9a.png",
+      "sha256": "8d607dfe7d6539d31735a860a5333c9df5bbf66ba4d12217903abef01a30b950",
+      "bytes": 1180027,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-53de2d3f-06a2-4844-8ad8-79730feb490f.png",
+      "sha256": "e329487b7384dcb4d56935b83ae108a3113beb2516fdf7a31a925eafd5f3b640",
+      "bytes": 1652076,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-555c1c76-6917-4a38-9000-c0301926f3da.png",
+      "sha256": "8f40bcf5c47279ee43a9f8700c68378d2df12cb953e69bc7d13b8a846b940100",
+      "bytes": 1525570,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-56668781-3a17-4ba8-bdbc-edf70f513f85.png",
+      "sha256": "966b93f97c0971e0dee15f8634659d7d5bb3529173d501e4a02a6d97ad3940ac",
+      "bytes": 1146130,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-5c87a51a-f4fd-4919-94fc-7764a7e7c217.png",
+      "sha256": "0d943d2bd9a4cc0d6ecedae54c42b04797aca4b015f36b1610f89b121b284147",
+      "bytes": 1184059,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-5f73b718-8312-48a8-96a8-c75b72a4bed7.png",
+      "sha256": "f926350da5f55113b5b0731e4c7c7e0d527a80d2431f03cff8139d3c4ec518c0",
+      "bytes": 1154061,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-6c60fa24-5e0e-4e63-8e50-832f8f3e896e.png",
+      "sha256": "f1244d947a0837ccc9fe798d239ddeedcdbe8ae9e4493649b363fb6c042ff109",
+      "bytes": 1340646,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-6f0e4c98-f120-4b62-947a-112b68c4cc6a.png",
+      "sha256": "81628856fa9edd797ab7b7ad4f12a3fca82d297492f0bf84b84f5553622f81cd",
+      "bytes": 1784623,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-7cf7e920-158a-43a9-8e5f-ee32bcba0527.png",
+      "sha256": "813a1c01ba475017bc74d38b807dba8d330990b723926cc66a06545a13587443",
+      "bytes": 2391032,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-8972ab73-0e68-4449-840a-95c6f1ed0efa.png",
+      "sha256": "62f59455fc29e72d2c08440edf69510adc1f616aaab74e22e133a458c3469796",
+      "bytes": 1365228,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-8aedc4f0-0101-4b9c-8ef0-a28156dcc1f6.png",
+      "sha256": "b19949686c0ea77f32ebaeb54122e94e9004bdd8825b1abdbf16d0823f527cd3",
+      "bytes": 1128496,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-a60c9a8f-6ebb-4c95-84e5-beaa66fd2b9b.png",
+      "sha256": "149327eb410efd24d9cf717bfc15682f95a8e9a0dba45de997f3a3870164a42c",
+      "bytes": 1953738,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-ad6f4ccd-1e38-40cf-9cec-39bfe22e835b.png",
+      "sha256": "3da752955511546de2781e341b2714878218b5a7d83f81b276a4c227152b35d6",
+      "bytes": 1461552,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-afc0c2d1-c7ef-42b0-9b5c-9577e18fb028.png",
+      "sha256": "9e89b2f074385f428c131bd3e68db8691b53c3e0844f7aa90427c35d1216f4d8",
+      "bytes": 1171597,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-b442dfe7-b022-48f6-bd16-07947c87f727.png",
+      "sha256": "f00560dc0f9ad708abc1cdde89e9e96c3443a54e3fbe553cec95f4a32162f6be",
+      "bytes": 1326231,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-b8f11b19-b2a6-4863-bd9a-63f05d62e133.png",
+      "sha256": "cbfd2e911ec3327ce4963c8744bac04ed0d34b03149d101ef578fd819ec81860",
+      "bytes": 1392174,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-c46f2aeb-c59f-4531-9842-ee65da472c18.png",
+      "sha256": "740dec4ab7fd24c019a1c555e78828f826dae2472fa8bd5aaf4ee79ab1702813",
+      "bytes": 1214308,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-c6453a26-af82-4747-850d-f21d423a6d26.png",
+      "sha256": "9ddf630f23610a28ad583b708609bf2ee9a58b6812f28e0ea7df84ff851f70e9",
+      "bytes": 1408941,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-cd45b068-59f3-4086-915c-6c83c23a54db.png",
+      "sha256": "158ae3788ab9e7ba7becd164c05157d9d2ac7139182a6ea614b22f8ea9d5f4b6",
+      "bytes": 1364263,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-d4e8086f-ce0f-400d-a5cc-a0ca16bcd2c7.png",
+      "sha256": "a762fdbbcf5a55a29d6033feb9ed03e655c254cb1ee516169e677b66652d16af",
+      "bytes": 1167987,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-d8c20eeb-4f60-412f-a009-7952242db2d6.png",
+      "sha256": "0f858d4d4c750c24586b87130ac648e769406adaa95dc53068713ab48572b3d9",
+      "bytes": 1447988,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-e2c40c49-b827-4920-ae49-66986c8054ef.png",
+      "sha256": "9b16b3e7e05e2239ce3aab2b4044d5b642545f05b18f422d9b72546929e8766b",
+      "bytes": 1451285,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-f1ef439a-90d3-48ba-846d-343d89c46905.png",
+      "sha256": "4695e7c88b7f1cc7c5b848ed9a440375f4f6923770160f5bd90c4a6a6e6c32a6",
+      "bytes": 1520643,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\exec-f7c30602-de9d-401f-ba7b-e93dd511b0e3.png",
+      "sha256": "6b547d9dd0ab5088a3be21c5e9e96cdf8f616c52c954187eba927c54731d18d9",
+      "bytes": 1399133,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\gemini_generated_video_5dc2f044.mp4",
+      "sha256": "cfbe5ff0317f743d7a9266097c21de79d774a42514b323db15d4a37ce5ac7cf7",
+      "bytes": 6874360,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\gemini_generated_video_7312599d.mp4",
+      "sha256": "9c0f69b1edd89e8f573c2df8008407277a52119022ed26f64661a96afd2a061c",
+      "bytes": 4547845,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\making_money.mp4",
+      "sha256": "6e850b717ec285fd1d9be057da361fed629c178e750a15c77b592cbda6f91ff5",
+      "bytes": 4501874,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\도깨비 돈만들기.png",
+      "sha256": "8490405dbaf3781a728fe335341df1606738f61b4955bfaf06a59ec3c4a10971",
+      "bytes": 324638,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\도깨비.mp4",
+      "sha256": "48e0709b87fb10b8df595444a6b0ce8cc73c95a2ca573ca233a8dd41ba9235b9",
+      "bytes": 846685,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\돈만들기.png",
+      "sha256": "335dd69f0a2a18d65434d3ef0aee0358c66a6e3241b77f9ec04434a27ab5b18c",
+      "bytes": 314648,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\불꽃액자_20261004_v1\\frame_a.png",
+      "sha256": "e35aa7aced1b5c3e590314e43ba5f7fc1c040a58e28a9062800ee01e3a48215e",
+      "bytes": 1930209,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\불꽃액자_20261004_v1\\frame_b.png",
+      "sha256": "6c8bbc7f869bb5ff71b1a202b1441007e42a420f9a064203edad9b4cf13b7d54",
+      "bytes": 1867970,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\불꽃액자_20261004_v1\\frame_c.png",
+      "sha256": "2ad2bad267d9759e1ff2e16b62b5a7e576914676c68db5b54b6aced1d3c67ec8",
+      "bytes": 1856688,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\불꽃액자_20261004_v2_16장\\frame_a.png",
+      "sha256": "e35aa7aced1b5c3e590314e43ba5f7fc1c040a58e28a9062800ee01e3a48215e",
+      "bytes": 1930209,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\불꽃액자_20261004_v2_16장\\frame_b.png",
+      "sha256": "6c8bbc7f869bb5ff71b1a202b1441007e42a420f9a064203edad9b4cf13b7d54",
+      "bytes": 1867970,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\불꽃액자_20261004_v2_16장\\frame_c.png",
+      "sha256": "2ad2bad267d9759e1ff2e16b62b5a7e576914676c68db5b54b6aced1d3c67ec8",
+      "bytes": 1856688,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\불꽃액자_20261004_v2_16장\\frame_d.png",
+      "sha256": "4c4139fffa963ecd01d47f1bbcd3df7363ee4de67ab8cc7bed15e35f8221ec46",
+      "bytes": 1920864,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\불꽃액자_20261004_v2_16장\\frame_e.png",
+      "sha256": "c72e9e61eb4c854ccf046f100aed667b578a9f8df07caf6f7a9f180ee2b3d0da",
+      "bytes": 1963488,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\불꽃액자_20261004_v2_16장\\frame_f.png",
+      "sha256": "bb96258cad021c766faf61eec12070466e0bbcec1612ead7e590696f975ce033",
+      "bytes": 1955771,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\불꽃액자_20261004_v2_16장\\frame_g.png",
+      "sha256": "f8969d8075b05e6efb46404536ee9355641f608ef68578492527f4ba395fe3a1",
+      "bytes": 1958573,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\불꽃액자_20261004_v2_16장\\frame_h.png",
+      "sha256": "280e04630b960c51fe856a78b1513acd0bcedd50bc247dc7746b628d814d4b1f",
+      "bytes": 1839057,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\불꽃액자_20261004_v2_16장\\frame_i.png",
+      "sha256": "0a883b80de40dc100066fd4af8d74e5e06f32fb5b91348e4e0f3c73671eb261a",
+      "bytes": 1873597,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\불꽃액자_20261004_v2_16장\\frame_j.png",
+      "sha256": "5d9e9784cd9b6e9e1ece3e55981a3f40d1d66d6f9016b75d01ca91a8ddefb6c8",
+      "bytes": 1865398,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\불꽃액자_20261004_v2_16장\\frame_k.png",
+      "sha256": "90182326a2d7d28d70e922a4c8c24ae42242d7c7caacb1a09ce78b30665144fb",
+      "bytes": 1898879,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\불꽃액자_20261004_v2_16장\\frame_l.png",
+      "sha256": "7c23e3d892288f9329b89f17932c6a4f5245dcdfb48d19747ac966a03165b020",
+      "bytes": 1950736,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\불꽃액자_20261004_v2_16장\\frame_m.png",
+      "sha256": "4094b8b0bd882f4fd4b285a34efbb844b900a1ccfb931d224f8792f928b43512",
+      "bytes": 1961610,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\불꽃액자_20261004_v2_16장\\frame_n.png",
+      "sha256": "4cc2eda61fd22c799c32ea3c627be1d6581ee6a81b2d8dc2c9018c7db62b9032",
+      "bytes": 1957658,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\불꽃액자_20261004_v2_16장\\frame_o.png",
+      "sha256": "24c8cd88026ecbdefec106d7a5ec55eeed482c6e5b1963eb968b4bd71b417bd5",
+      "bytes": 1905076,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\불꽃액자_20261004_v2_16장\\frame_p.png",
+      "sha256": "06395f0087cb47cb04c0512f88cd10b7a4b6632de06fa89ce325f06b32435d9b",
+      "bytes": 1862078,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\양옆잘린 변신동영상.mp4",
+      "sha256": "b75f64c320accb50b66413c0300d9be449cbdc36cc0204d304fc77d78214933f",
+      "bytes": 15743186,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\중간동작_20261004_v2\\01_hand_lower.png",
+      "sha256": "d5ae14544a89f4570af04a34f7dfac358b72d8848c1037185eb3117e2eaac0bd",
+      "bytes": 1509710,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\중간동작_20261004_v2\\02_load_weight.png",
+      "sha256": "d4bf1265f8be02f7e5c03b4345968d41af54f49b00b50289adc7d8e1d40e723d",
+      "bytes": 1440924,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\중간동작_20261004_v2\\03_lift_low.png",
+      "sha256": "d2a0c17f6cb2976a36fe54ea23dafb27aa8264a2d363bbe19d248e3e5d4b60a4",
+      "bytes": 1346869,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\중간동작_20261004_v2\\04_lift_chest.png",
+      "sha256": "930fe54eb806e928870e9b3bf558f0dd093102a954db34b5c8a64631c352b015",
+      "bytes": 1327097,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\중간동작_20261004_v2\\04b_lift_diagonal.png",
+      "sha256": "0f8640f2d70333d393424b07b6b1791949aa89bf3c250a27e38dca9250d9e5f8",
+      "bytes": 1252616,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\중간동작_20261004_v2\\05_overhead_load.png",
+      "sha256": "76ae389a64ea7546ef4563bb1d0a53d4eef959ba92ec57253a138ad7bd1eb822",
+      "bytes": 1370185,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\중간동작_20261004_v2\\06_downswing_early.png",
+      "sha256": "8a8c71b9e66aaf6fbd9ea97ff86645fceec9c8da529a35655e9fbc6ad6c3a422",
+      "bytes": 1453841,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\중간동작_20261004_v2\\06b_downswing_mid.png",
+      "sha256": "bd65658f66606957cff6fb20b2d4bc5e3406e17608d271dfc51b40708acb826a",
+      "bytes": 1489829,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\중간동작_20261004_v2\\07_strike_contact.png",
+      "sha256": "8adc46bfa89642feea23975396ecd9efe80b7eafdc453920aa546a29f9743b71",
+      "bytes": 1492441,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\중간동작_20261004_v2\\08_recover_shoulder.png",
+      "sha256": "2a5af51910226eefaa44fd1969f5c4dc4a79e67f7482cb668e7a0f8ad03bff9a",
+      "bytes": 1529234,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-1dd0dec1-48ac-42af-ae84-ff3f2f438e8c.png",
+      "sha256": "c19b6505130593fdad3f4506114e213a38529f8efe17eb9e58a224a0497c5272",
+      "bytes": 2048373,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-1e1c3e35-df8a-4302-ae05-528cf4e56b83.png",
+      "sha256": "6de9257ddd6a49069ace126fb06c3ce44091c2f66f48118d7c45540ea438aa33",
+      "bytes": 1944111,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-39c49342-d7be-4513-a050-15229da81608.png",
+      "sha256": "7c229f106e750ddedf58f05f0626ca2defb30fd17aa8491f967756856d59e053",
+      "bytes": 1966271,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-3cfc6420-4e48-4f47-936b-ededc09a4842.png",
+      "sha256": "54f59e190f5dc1d85bcf015f97c5ff410c26ee21add2586398dd20d1ff6a10d5",
+      "bytes": 2071293,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-5ec1bad6-c41d-4c90-b75b-6a84a7369f2a.png",
+      "sha256": "81f327c49bb35e34c5558feb77bfb7aa9c05d3328f0b301eb52fae7d4fc5414e",
+      "bytes": 1894653,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-644210e4-dff8-4ca2-9745-c27574357de5.png",
+      "sha256": "4b2456144f4228a9a3ecd9c76b2f878303b698b484df86db9de89931376b3e5f",
+      "bytes": 2018243,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-690470b8-e77e-403e-a400-e1df67d5257d.png",
+      "sha256": "00744ab82f07314f9091f6f8d5a3f0683ba3f289ddae5684c492a6e172e209cf",
+      "bytes": 2065540,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-aa6286fa-a67c-4a65-a4e3-8a67ef7b0ee4.png",
+      "sha256": "164cd0422d4d27082b5feb5d04775277d1cbc4ae8eab61c83d0d09825f00887f",
+      "bytes": 1863780,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-cf6d364d-8ee4-4bed-886a-7415be8dc1d3.png",
+      "sha256": "fe8828ceb25306d80928d5e89afa3cd0ae9dc4dd849d0366ed1493f996a7aa49",
+      "bytes": 1928989,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-e3135ef3-00f7-4dc1-8d29-b9676f3527c1.png",
+      "sha256": "dce49e967e3024696b41aef91153152d5b3e751128d3257422ab76fd88abe4f1",
+      "bytes": 2002309,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\exec-edf6336b-f6b0-4874-b4cf-c2e12c796a44.png",
+      "sha256": "c4c6b2d184291e4e1291d7975dce7f30190bcecdc4040031bbefed1cbfc5ca13",
+      "bytes": 2041351,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\sujin1.png",
+      "sha256": "60b0f18338a6efc940377d725ab41ecac9ebb1365b094e9f63fa58d71459015c",
+      "bytes": 1936749,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    },
+    {
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\sujin2.png",
+      "sha256": "82d8471bf36d34890160265666ead04a3dfe94ab83ff03acd1c78fbdd6bc07c2",
+      "bytes": 1969000,
+      "status": "authoritative_directory_member_not_yet_assigned_to_a_runtime_state"
+    }
+  ],
+  "notes": [
+    "Runtime mappings are a subset of authoritative sources; inventory alone does not mean deployed.",
+    "Existing PersonaPresentationCatalog owns identity and relationships. Verify exact portrait source per person before adding an episode.",
+    "Transformation and coin art may only react to actual owning service results; media never awards currency.",
+    "Newest explicit Dokkaebi roots supersede the older generic Dokkaebi folder for this work."
+  ]
+}

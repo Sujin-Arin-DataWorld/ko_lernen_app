@@ -135,6 +135,7 @@ flutter:
 
   assets:
     - assets/data/
+    - assets/illustrations/lernpfad/
     - assets/tts/v3/female/
     - assets/tts/v3/male/
     - assets/tts/recorded_jamo/

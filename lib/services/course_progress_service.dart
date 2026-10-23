@@ -7,6 +7,9 @@ import 'package:flutter/foundation.dart' show visibleForTesting;
 import '../models/course_mastery.dart';
 import '../models/course_practice_context.dart';
 import '../models/curriculum.dart';
+import '../models/lernpfad.dart';
+import 'lernpfad_catalog.dart';
+import 'lernpfad_lease.dart';
 import 'account/reconciliation_errors.dart';
 import 'course_mastery_service.dart';
 import 'course_segment_catalog.dart';
@@ -67,6 +70,70 @@ class CourseProgressService {
   Future<void> _tail = Future<void>.value();
 
   Future<void> get packCompletionDrain => _tail;
+
+  /// Extension writes share the existing course queue but never manufacture a
+  /// CourseMastery v5 entry. Original phase evidence is read by the projector.
+  Future<LernpfadState> readLernpfad(
+    LernpfadCatalog catalog,
+    LernpfadLease lease,
+  ) => _serializedOperation(() async {
+    lease.assertCurrent();
+    late LernpfadState state;
+    // A previous uncertain native write must be refreshed even when the next
+    // action is opening the screen. Returning identical bytes performs no write.
+    await Storage.mutateLernpfad(lease.owner, (before) {
+      state = LernpfadState.decode(before, catalog);
+      return before;
+    }, assertCurrentWrite: lease.assertCurrent);
+    lease.assertCurrent();
+    return state;
+  });
+
+  Future<LernpfadState> mutateLernpfad(
+    LernpfadCatalog catalog,
+    LernpfadLease lease,
+    LernpfadState Function(LernpfadState) mutate,
+  ) => _serializedOperation(() async {
+    lease.assertCurrent();
+    PackCompletionStorage.assertAdmission();
+    late LernpfadState next;
+    await Storage.mutateLernpfad(lease.owner, (before) {
+      final current = LernpfadState.decode(before, catalog);
+      next = mutate(current);
+      // Validate the exact bytes we are about to persist, including unknown
+      // version rejection. Failed writes never publish an optimistic state.
+      return LernpfadState.decode(next.encode(), catalog).encode();
+    }, assertCurrentWrite: lease.assertCurrent);
+    lease.assertCurrent();
+    return next;
+  });
+
+  /// Compare the durable cursor as well as the account lease. Two open lesson
+  /// routes must not overwrite each other's help flag or restart position.
+  Future<LernpfadState> saveFoundationRun(
+    LernpfadCatalog catalog,
+    LernpfadLease lease,
+    FoundationRun candidate, {
+    required FoundationRun? expected,
+  }) => mutateLernpfad(catalog, lease, (state) {
+    final lesson = catalog.lessonById(candidate.lessonId);
+    if (lesson == null || !candidate.current(lesson)) {
+      throw const FormatException('Unknown or revised foundation lesson');
+    }
+    if (state.receipts.any((r) => r.run.attemptId == candidate.attemptId)) {
+      return state.record(candidate, lesson);
+    }
+    final actual = jsonEncode(state.active?.toJson());
+    if (actual == jsonEncode(candidate.toJson())) {
+      return state; // Exact retry after an uncertain native write.
+    }
+    if (actual != jsonEncode(expected?.toJson())) {
+      throw FoundationCursorConflict();
+    }
+    return candidate.complete(lesson)
+        ? state.record(candidate, lesson)
+        : state.withRun(candidate);
+  });
 
   void invalidatePackCompletionCache() {
     _serviceFuture = null;

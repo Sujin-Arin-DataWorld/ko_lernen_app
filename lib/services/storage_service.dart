@@ -6190,6 +6190,80 @@ class Storage {
       'kl_course_mastery_v2';
   static const String ilduWorldStatePreferenceKey = 'kl_ildu_world_state_v1';
 
+  static Future<void>? _lernpfadMutation;
+  static String lernpfadKey(String owner) =>
+      'kl_lernpfad_v2_${Uri.encodeComponent(owner)}';
+
+  static String lernpfadRawJson(String owner) {
+    final key = lernpfadKey(owner);
+    if (_unknownStrictKeys.contains(key)) {
+      throw PreferenceOutcomeUnknownException(key);
+    }
+    final raw = _prefs?.get(key);
+    if (raw != null && raw is! String) {
+      throw const FormatException('Invalid Lernpfad data');
+    }
+    return raw as String? ?? '';
+  }
+
+  /// One strict key holds the cursor and original F0 receipts. No second write
+  /// can leave a completed story without its support/evaluation context.
+  /// CourseProgressService owns admission; reset drains this native write too.
+  static Future<void> mutateLernpfad(
+    String owner,
+    String Function(String before) mutate, {
+    required void Function() assertCurrentWrite,
+    PreferenceStringStore? preferences,
+  }) {
+    if (_learningResetCount > 0) {
+      return Future.error(const StaleLocalDataLifetimeException());
+    }
+    final lifetime = LocalDataLifetime.capture();
+    final key = lernpfadKey(owner);
+    final operation = (_lernpfadMutation ?? Future<void>.value()).then((
+      _,
+    ) async {
+      void check() {
+        lifetime.assertCurrent();
+        assertCurrentWrite();
+      }
+
+      check();
+      final store = preferences ?? _stringStore();
+      if (_unknownStrictKeys.contains(key)) {
+        await _refreshUnknownStringKeys(store, [key]);
+        check();
+      }
+      final before = await _prepareStringMutation(store, key);
+      check();
+      final encoded = mutate(before.value ?? '');
+      if (encoded == (before.value ?? '')) {
+        return;
+      }
+      await _ssStrict(
+        key,
+        encoded,
+        preferences: store,
+        beforeState: before,
+        assertCurrentWrite: check,
+      );
+      check();
+    });
+    final drain = operation.then<void>(
+      (_) {},
+      onError: (Object _, StackTrace __) {},
+    );
+    _lernpfadMutation = drain;
+    unawaited(
+      drain.then((_) {
+        if (identical(_lernpfadMutation, drain)) {
+          _lernpfadMutation = null;
+        }
+      }),
+    );
+    return operation;
+  }
+
   /// Backward-compatible spelling for callers that already write the
   /// canonical snapshot. The v1 key is migration input only.
   static const String courseMasteryPreferenceKey =
@@ -8368,6 +8442,7 @@ class Storage {
     operation = () async {
       try {
         await Future.wait([
+          if (_lernpfadMutation case final pendingLernpfad?) pendingLernpfad,
           if (_contentLearningMutation case final pendingContentLearning?)
             pendingContentLearning,
           if (_hanokPracticeMutation case final pendingPractice?)

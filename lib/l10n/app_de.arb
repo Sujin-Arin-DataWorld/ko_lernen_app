@@ -5715,5 +5715,78 @@
         "type": "int"
       }
     }
-  }
+  },
+  "pathV2Title": "Dein Lernpfad",
+  "pathV2ChooseBand": "Dein Lernziel",
+  "pathV2Goal": "Danach kannst du …",
+  "pathV2Progress": "{done} von {total} verfügbaren Pflichtaktivitäten bearbeitet",
+  "@pathV2Progress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "pathV2Partial": "Dieser Abschnitt wird noch ergänzt. Bearbeitete Aktivitäten bestätigen noch nicht das gesamte Lernziel.",
+  "pathV2Today": "Dein nächster Schritt",
+  "pathV2Start": "Loslegen",
+  "pathV2Resume": "Weiterlernen",
+  "pathV2Retry": "Erneut versuchen",
+  "pathV2Error": "Dein Lernpfad konnte nicht geladen oder gespeichert werden. Deine bisherigen Daten werden beibehalten.",
+  "pathV2PrepareTitle": "Was brauchst du für diese Aufgabe?",
+  "pathV2PrepareBody": "Hier kommen koreanische Wörter und Sätze vor. Du kannst zuerst Zeichen üben, mit den Erklärungen weiterlernen oder die Vorbereitung später nachholen. Dein gewähltes Lernziel bleibt gleich.",
+  "pathV2Prepare": "Zeichen kurz vorbereiten",
+  "pathV2Supported": "Mit Erklärungen weiter",
+  "pathV2Later": "Vorbereitung später",
+  "pathV2All": "Alle Lernabschnitte",
+  "pathV2Activities": "Aktivitäten in diesem Abschnitt",
+  "pathV2Free": "Frei üben",
+  "pathV2Hanok": "Zum Ildu-Haus",
+  "pathV2Legacy": "Bisherigen Lernpfad öffnen",
+  "pathV2Listening": "Hören",
+  "pathV2Speaking": "Sprechen",
+  "pathV2Reading": "Lesen",
+  "pathV2Writing": "Schreiben",
+  "pathV2Unchecked": "Noch nicht bestätigt",
+  "pathV2Confirmed": "{count} begrenzte Aufgaben bestätigt",
+  "@pathV2Confirmed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "pathV2Pending": "Weitere Lern- und Transferaufgaben werden vorbereitet.",
+  "pathV2Episode": "Ein kleiner Vorfall im Hof",
+  "pathV2Continue": "Weiter",
+  "pathV2ChooseSign": "Welcher Silbenblock passt zu diesen Zeichen?",
+  "pathV2Practice": "Mit Hilfe üben",
+  "pathV2Check": "Jetzt selbst ausprobieren",
+  "pathV2Help": "Zeig mir einen Hinweis",
+  "pathV2Hint": "Diese Zeichen ergeben {answer}. Mit dem Hinweis kannst du die Geschichte fortsetzen.",
+  "@pathV2Hint": {
+    "placeholders": {
+      "answer": {
+        "type": "String"
+      }
+    }
+  },
+  "pathV2Wrong": "Schau noch einmal auf den kurzen Strich. Du kannst einen Hinweis verwenden.",
+  "pathV2ResultSupported": "Die Schilder sind zurück! Du hast die Aufgabe mit Unterstützung gelöst.",
+  "pathV2ResultIndependent": "Die Schilder sind zurück! Du hast 아 und 어 in dieser Aufgabe selbst zugeordnet.",
+  "pathV2Scope": "Ein erster Schritt beim Lesen: 아 und 어 zuordnen. Hören, Sprechen und freies Schreiben sind noch offen.",
+  "pathV2Return": "Zurück zu meinen Lernzielen",
+  "pathV2Listen": "Laut anhören",
+  "pathV2AudioUnavailable": "Der Ton ist gerade nicht verfügbar. Du kannst die Zeichen weiter üben; das zählt nicht als Hörnachweis.",
+  "pathV2Recheck": "Der Inhalt wurde überarbeitet. Beginne einen neuen Versuch; bisherige Ergebnisse bleiben erhalten.",
+  "pathV2Restart": "Neuen Versuch starten",
+  "pathV2Local": "Neue Fortschritte dieses Lernpfads werden vorerst auf diesem Gerät gespeichert.",
+  "pathV2Foundation": "Einstieg",
+  "pathV2Review": "Noch einmal üben",
+  "pathV2TaskContext": "Wende das Gelernte in einer kurzen Aufgabe an. Erklärungen und Beispiele stehen dir zuerst zur Verfügung.",
+  "pathV2FirstGoal": "Heute lernst du die Zeichen 아 und 어 kennen und bringst sie an ihren Platz. Du kannst auch ohne Ton mitmachen.",
+  "pathV2PrepareRelated": "Eine Grundlage kurz üben"
 }

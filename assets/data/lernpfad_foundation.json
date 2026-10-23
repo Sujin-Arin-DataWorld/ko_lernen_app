@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "lessons": [
+    {
+      "id": "F0.1.sound-signs",
+      "bandId": "F0.1",
+      "revision": 1,
+      "introduced": [
+        "ㅇ",
+        "ㅏ",
+        "ㅓ"
+      ],
+      "evidenceScope": "taught_symbol_recognition",
+      "title": {
+        "ko": "소리표의 자리를 되찾기",
+        "en": "Put the sound signs back",
+        "de": "Die Lautschilder zurückbringen"
+      },
+      "story": {
+        "ko": "일두고택 마당의 현대 학습용 소리표가 섞였어요. Joy와 함께 아와 어의 자리를 찾아주세요.",
+        "en": "The modern practice signs in Ildu’s courtyard have been mixed up. Help Joy find the places for 아 and 어.",
+        "de": "Die heutigen Übungsschilder im Hof von Ildu sind durcheinandergeraten. Hilf Joy, die Plätze für 아 und 어 zu finden."
+      },
+      "teaching": [
+        {
+          "target": "아",
+          "parts": [
+            "ㅇ",
+            "ㅏ"
+          ],
+          "explanation": {
+            "ko": "ㅏ는 모음이에요. 음절 첫자리의 ㅇ은 소리가 없어요. ㅇ을 왼쪽에, ㅏ를 오른쪽에 놓으면 아가 돼요.",
+            "en": "ㅏ is a vowel. At the start of a syllable, ㅇ is silent. Put ㅇ on the left and ㅏ on the right to make 아.",
+            "de": "ㅏ ist ein Vokal. Am Silbenanfang ist ㅇ stumm. Mit ㅇ links und ㅏ rechts entsteht 아."
+          }
+        },
+        {
+          "target": "어",
+          "parts": [
+            "ㅇ",
+            "ㅓ"
+          ],
+          "explanation": {
+            "ko": "이번에는 ㅓ예요. 짧은 획이 왼쪽을 향해요. 첫자리 ㅇ과 합치면 어가 돼요. 소리를 듣고 아와 비교해 보세요.",
+            "en": "Now try ㅓ. Its short stroke points left. Together with initial ㅇ it makes 어. Listen and compare it with 아.",
+            "de": "Jetzt kommt ㅓ. Der kurze Strich zeigt nach links. Mit ㅇ am Anfang entsteht 어. Hör zu und vergleiche den Laut mit 아."
+          }
+        }
+      ],
+      "practice": [
+        {
+          "id": "p-a",
+          "parts": [
+            "ㅇ",
+            "ㅏ"
+          ],
+          "answer": "아",
+          "options": [
+            "어",
+            "아"
+          ]
+        },
+        {
+          "id": "p-eo",
+          "parts": [
+            "ㅇ",
+            "ㅓ"
+          ],
+          "answer": "어",
+          "options": [
+            "아",
+            "어"
+          ]
+        }
+      ],
+      "assessment": [
+        {
+          "id": "a-eo",
+          "parts": [
+            "ㅇ",
+            "ㅓ"
+          ],
+          "answer": "어",
+          "options": [
+            "어",
+            "아"
+          ]
+        },
+        {
+          "id": "a-a",
+          "parts": [
+            "ㅇ",
+            "ㅏ"
+          ],
+          "answer": "아",
+          "options": [
+            "아",
+            "어"
+          ]
+        }
+      ],
+      "followup": {
+        "ko": "다른 날에도 두 소리표를 찾아보세요. 아직 새 단어를 읽을 수 있다는 뜻은 아니에요.",
+        "en": "Try the two signs again another day. This does not yet confirm that you can read unfamiliar words.",
+        "de": "Probiere die beiden Schilder an einem anderen Tag erneut. Damit ist noch nicht bestätigt, dass du unbekannte Wörter lesen kannst."
+      },
+      "reviewStatus": "authored_candidate_requires_learner_and_audio_review"
+    }
+  ]
+}

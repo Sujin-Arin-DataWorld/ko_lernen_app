@@ -5533,5 +5533,78 @@
         "type": "int"
       }
     }
-  }
+  },
+  "pathV2Title": "Your learning path",
+  "pathV2ChooseBand": "Your learning goal",
+  "pathV2Goal": "What you will be able to do",
+  "pathV2Progress": "{done} of {total} available required activities completed",
+  "@pathV2Progress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "pathV2Partial": "This section is still being expanded. Completing its available activities does not yet confirm the whole learning goal.",
+  "pathV2Today": "Your next step",
+  "pathV2Start": "Begin",
+  "pathV2Resume": "Resume learning",
+  "pathV2Retry": "Try again",
+  "pathV2Error": "Your path could not be loaded or saved. Your previous data is preserved.",
+  "pathV2PrepareTitle": "What do you need for this activity?",
+  "pathV2PrepareBody": "This activity contains Korean words and sentences. Practise letters first, continue with explanations, or prepare later. Your chosen goal stays the same.",
+  "pathV2Prepare": "Prepare with letters",
+  "pathV2Supported": "Continue with explanations",
+  "pathV2Later": "Prepare later",
+  "pathV2All": "All learning sections",
+  "pathV2Activities": "Activities in this section",
+  "pathV2Free": "Free practice",
+  "pathV2Hanok": "Visit Ildu House",
+  "pathV2Legacy": "Open the previous learning path",
+  "pathV2Listening": "Listening",
+  "pathV2Speaking": "Speaking",
+  "pathV2Reading": "Reading",
+  "pathV2Writing": "Writing",
+  "pathV2Unchecked": "Not yet confirmed",
+  "pathV2Confirmed": "{count} bounded tasks confirmed",
+  "@pathV2Confirmed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "pathV2Pending": "Further teaching and transfer activities are being prepared.",
+  "pathV2Episode": "A small incident in the courtyard",
+  "pathV2Continue": "Continue",
+  "pathV2ChooseSign": "Which syllable block matches these letters?",
+  "pathV2Practice": "Practise with support",
+  "pathV2Check": "Try it independently",
+  "pathV2Help": "Show me a hint",
+  "pathV2Hint": "These letters make {answer}. The hint lets you continue the story.",
+  "@pathV2Hint": {
+    "placeholders": {
+      "answer": {
+        "type": "String"
+      }
+    }
+  },
+  "pathV2Wrong": "Look at the short stroke again. You can use a hint.",
+  "pathV2ResultSupported": "The signs are back! You solved the activity with support.",
+  "pathV2ResultIndependent": "The signs are back! You matched 아 and 어 independently in this activity.",
+  "pathV2Scope": "A first step in reading: matching 아 and 어. Listening, speaking and free writing are still to come.",
+  "pathV2Return": "Back to my learning goals",
+  "pathV2Listen": "Listen to the sound",
+  "pathV2AudioUnavailable": "Audio is unavailable right now. You can continue practising the signs; this does not count as listening evidence.",
+  "pathV2Recheck": "This content has changed. Start a new attempt; previous results are kept.",
+  "pathV2Restart": "Start a new attempt",
+  "pathV2Local": "New progress in this path is currently saved on this device.",
+  "pathV2Foundation": "Foundation",
+  "pathV2Review": "Practise again",
+  "pathV2TaskContext": "Use what you have learned in a short activity. Explanations and examples come first.",
+  "pathV2FirstGoal": "Today you will learn 아 and 어 and put their signs in place. You can take part without audio too.",
+  "pathV2PrepareRelated": "Practise a related foundation"
 }

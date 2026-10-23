@@ -11877,4 +11877,170 @@ class AppL10nEn extends AppL10n {
   String practiceHintWordPath(int count, int row, int column) {
     return '$count syllables · Start: row $row, column $column';
   }
+
+  @override
+  String get pathV2Title => 'Your learning path';
+
+  @override
+  String get pathV2ChooseBand => 'Your learning goal';
+
+  @override
+  String get pathV2Goal => 'What you will be able to do';
+
+  @override
+  String pathV2Progress(int done, int total) {
+    return '$done of $total available required activities completed';
+  }
+
+  @override
+  String get pathV2Partial =>
+      'This section is still being expanded. Completing its available activities does not yet confirm the whole learning goal.';
+
+  @override
+  String get pathV2Today => 'Your next step';
+
+  @override
+  String get pathV2Start => 'Begin';
+
+  @override
+  String get pathV2Resume => 'Resume learning';
+
+  @override
+  String get pathV2Retry => 'Try again';
+
+  @override
+  String get pathV2Error =>
+      'Your path could not be loaded or saved. Your previous data is preserved.';
+
+  @override
+  String get pathV2PrepareTitle => 'What do you need for this activity?';
+
+  @override
+  String get pathV2PrepareBody =>
+      'This activity contains Korean words and sentences. Practise letters first, continue with explanations, or prepare later. Your chosen goal stays the same.';
+
+  @override
+  String get pathV2Prepare => 'Prepare with letters';
+
+  @override
+  String get pathV2Supported => 'Continue with explanations';
+
+  @override
+  String get pathV2Later => 'Prepare later';
+
+  @override
+  String get pathV2All => 'All learning sections';
+
+  @override
+  String get pathV2Activities => 'Activities in this section';
+
+  @override
+  String get pathV2Free => 'Free practice';
+
+  @override
+  String get pathV2Hanok => 'Visit Ildu House';
+
+  @override
+  String get pathV2Legacy => 'Open the previous learning path';
+
+  @override
+  String get pathV2Listening => 'Listening';
+
+  @override
+  String get pathV2Speaking => 'Speaking';
+
+  @override
+  String get pathV2Reading => 'Reading';
+
+  @override
+  String get pathV2Writing => 'Writing';
+
+  @override
+  String get pathV2Unchecked => 'Not yet confirmed';
+
+  @override
+  String pathV2Confirmed(int count) {
+    return '$count bounded tasks confirmed';
+  }
+
+  @override
+  String get pathV2Pending =>
+      'Further teaching and transfer activities are being prepared.';
+
+  @override
+  String get pathV2Episode => 'A small incident in the courtyard';
+
+  @override
+  String get pathV2Continue => 'Continue';
+
+  @override
+  String get pathV2ChooseSign => 'Which syllable block matches these letters?';
+
+  @override
+  String get pathV2Practice => 'Practise with support';
+
+  @override
+  String get pathV2Check => 'Try it independently';
+
+  @override
+  String get pathV2Help => 'Show me a hint';
+
+  @override
+  String pathV2Hint(String answer) {
+    return 'These letters make $answer. The hint lets you continue the story.';
+  }
+
+  @override
+  String get pathV2Wrong =>
+      'Look at the short stroke again. You can use a hint.';
+
+  @override
+  String get pathV2ResultSupported =>
+      'The signs are back! You solved the activity with support.';
+
+  @override
+  String get pathV2ResultIndependent =>
+      'The signs are back! You matched 아 and 어 independently in this activity.';
+
+  @override
+  String get pathV2Scope =>
+      'A first step in reading: matching 아 and 어. Listening, speaking and free writing are still to come.';
+
+  @override
+  String get pathV2Return => 'Back to my learning goals';
+
+  @override
+  String get pathV2Listen => 'Listen to the sound';
+
+  @override
+  String get pathV2AudioUnavailable =>
+      'Audio is unavailable right now. You can continue practising the signs; this does not count as listening evidence.';
+
+  @override
+  String get pathV2Recheck =>
+      'This content has changed. Start a new attempt; previous results are kept.';
+
+  @override
+  String get pathV2Restart => 'Start a new attempt';
+
+  @override
+  String get pathV2Local =>
+      'New progress in this path is currently saved on this device.';
+
+  @override
+  String get pathV2Foundation => 'Foundation';
+
+  @override
+  String get pathV2Review => 'Practise again';
+
+  @override
+  String get pathV2TaskContext =>
+      'Use what you have learned in a short activity. Explanations and examples come first.';
+
+  @override
+  String get pathV2FirstGoal =>
+      'Today you will learn 아 and 어 and put their signs in place. You can take part without audio too.';
+
+  @override
+  String get pathV2PrepareRelated => 'Practise a related foundation';
 }

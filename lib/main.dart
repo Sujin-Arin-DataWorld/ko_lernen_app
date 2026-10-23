@@ -97,6 +97,8 @@ import 'screens/gye_members_screen.dart';
 import 'screens/gye_screen.dart';
 import 'screens/gye_tab_screen.dart';
 import 'screens/learning_path_screen.dart';
+import 'screens/lernpfad_screen.dart';
+import 'screens/foundation_lesson_screen.dart';
 import 'screens/learning_phases_screen.dart';
 import 'services/learning_phase_catalog.dart';
 import 'screens/legacy_vocab_screen.dart';
@@ -1399,6 +1401,23 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/path':
+              return SoriTransitions.page(
+                (_) => const bool.fromEnvironment('LERNPFAD_V2')
+                    ? const LernpfadScreen()
+                    : const LearningPathScreen(),
+                settings: settings,
+              );
+            case '/path/v2':
+              return SoriTransitions.page(
+                (_) => const LernpfadScreen(),
+                settings: settings,
+              );
+            case '/path/foundation':
+              return SoriTransitions.page(
+                (_) => const FoundationLessonScreen(),
+                settings: settings,
+              );
+            case '/path/legacy':
               return SoriTransitions.page(
                 (_) => const LearningPathScreen(),
                 settings: settings,

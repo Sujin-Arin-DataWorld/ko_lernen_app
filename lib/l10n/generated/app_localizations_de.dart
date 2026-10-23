@@ -11934,4 +11934,170 @@ class AppL10nDe extends AppL10n {
   String practiceHintWordPath(int count, int row, int column) {
     return '$count Silben · Start: Zeile $row, Spalte $column';
   }
+
+  @override
+  String get pathV2Title => 'Dein Lernpfad';
+
+  @override
+  String get pathV2ChooseBand => 'Dein Lernziel';
+
+  @override
+  String get pathV2Goal => 'Danach kannst du …';
+
+  @override
+  String pathV2Progress(int done, int total) {
+    return '$done von $total verfügbaren Pflichtaktivitäten bearbeitet';
+  }
+
+  @override
+  String get pathV2Partial =>
+      'Dieser Abschnitt wird noch ergänzt. Bearbeitete Aktivitäten bestätigen noch nicht das gesamte Lernziel.';
+
+  @override
+  String get pathV2Today => 'Dein nächster Schritt';
+
+  @override
+  String get pathV2Start => 'Loslegen';
+
+  @override
+  String get pathV2Resume => 'Weiterlernen';
+
+  @override
+  String get pathV2Retry => 'Erneut versuchen';
+
+  @override
+  String get pathV2Error =>
+      'Dein Lernpfad konnte nicht geladen oder gespeichert werden. Deine bisherigen Daten werden beibehalten.';
+
+  @override
+  String get pathV2PrepareTitle => 'Was brauchst du für diese Aufgabe?';
+
+  @override
+  String get pathV2PrepareBody =>
+      'Hier kommen koreanische Wörter und Sätze vor. Du kannst zuerst Zeichen üben, mit den Erklärungen weiterlernen oder die Vorbereitung später nachholen. Dein gewähltes Lernziel bleibt gleich.';
+
+  @override
+  String get pathV2Prepare => 'Zeichen kurz vorbereiten';
+
+  @override
+  String get pathV2Supported => 'Mit Erklärungen weiter';
+
+  @override
+  String get pathV2Later => 'Vorbereitung später';
+
+  @override
+  String get pathV2All => 'Alle Lernabschnitte';
+
+  @override
+  String get pathV2Activities => 'Aktivitäten in diesem Abschnitt';
+
+  @override
+  String get pathV2Free => 'Frei üben';
+
+  @override
+  String get pathV2Hanok => 'Zum Ildu-Haus';
+
+  @override
+  String get pathV2Legacy => 'Bisherigen Lernpfad öffnen';
+
+  @override
+  String get pathV2Listening => 'Hören';
+
+  @override
+  String get pathV2Speaking => 'Sprechen';
+
+  @override
+  String get pathV2Reading => 'Lesen';
+
+  @override
+  String get pathV2Writing => 'Schreiben';
+
+  @override
+  String get pathV2Unchecked => 'Noch nicht bestätigt';
+
+  @override
+  String pathV2Confirmed(int count) {
+    return '$count begrenzte Aufgaben bestätigt';
+  }
+
+  @override
+  String get pathV2Pending =>
+      'Weitere Lern- und Transferaufgaben werden vorbereitet.';
+
+  @override
+  String get pathV2Episode => 'Ein kleiner Vorfall im Hof';
+
+  @override
+  String get pathV2Continue => 'Weiter';
+
+  @override
+  String get pathV2ChooseSign => 'Welcher Silbenblock passt zu diesen Zeichen?';
+
+  @override
+  String get pathV2Practice => 'Mit Hilfe üben';
+
+  @override
+  String get pathV2Check => 'Jetzt selbst ausprobieren';
+
+  @override
+  String get pathV2Help => 'Zeig mir einen Hinweis';
+
+  @override
+  String pathV2Hint(String answer) {
+    return 'Diese Zeichen ergeben $answer. Mit dem Hinweis kannst du die Geschichte fortsetzen.';
+  }
+
+  @override
+  String get pathV2Wrong =>
+      'Schau noch einmal auf den kurzen Strich. Du kannst einen Hinweis verwenden.';
+
+  @override
+  String get pathV2ResultSupported =>
+      'Die Schilder sind zurück! Du hast die Aufgabe mit Unterstützung gelöst.';
+
+  @override
+  String get pathV2ResultIndependent =>
+      'Die Schilder sind zurück! Du hast 아 und 어 in dieser Aufgabe selbst zugeordnet.';
+
+  @override
+  String get pathV2Scope =>
+      'Ein erster Schritt beim Lesen: 아 und 어 zuordnen. Hören, Sprechen und freies Schreiben sind noch offen.';
+
+  @override
+  String get pathV2Return => 'Zurück zu meinen Lernzielen';
+
+  @override
+  String get pathV2Listen => 'Laut anhören';
+
+  @override
+  String get pathV2AudioUnavailable =>
+      'Der Ton ist gerade nicht verfügbar. Du kannst die Zeichen weiter üben; das zählt nicht als Hörnachweis.';
+
+  @override
+  String get pathV2Recheck =>
+      'Der Inhalt wurde überarbeitet. Beginne einen neuen Versuch; bisherige Ergebnisse bleiben erhalten.';
+
+  @override
+  String get pathV2Restart => 'Neuen Versuch starten';
+
+  @override
+  String get pathV2Local =>
+      'Neue Fortschritte dieses Lernpfads werden vorerst auf diesem Gerät gespeichert.';
+
+  @override
+  String get pathV2Foundation => 'Einstieg';
+
+  @override
+  String get pathV2Review => 'Noch einmal üben';
+
+  @override
+  String get pathV2TaskContext =>
+      'Wende das Gelernte in einer kurzen Aufgabe an. Erklärungen und Beispiele stehen dir zuerst zur Verfügung.';
+
+  @override
+  String get pathV2FirstGoal =>
+      'Heute lernst du die Zeichen 아 und 어 kennen und bringst sie an ihren Platz. Du kannst auch ohne Ton mitmachen.';
+
+  @override
+  String get pathV2PrepareRelated => 'Eine Grundlage kurz üben';
 }
