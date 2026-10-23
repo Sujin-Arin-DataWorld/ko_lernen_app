@@ -1,0 +1,32 @@
+flowchart LR
+  subgraph storyPath ["역사 미스터리 설계안"]
+    arrival["현재 일두고택 입장"] --> everyday["현대의 작은 사건"]
+    everyday --> clue["흩어진 기록 조사"]
+    clue --> rebuild["후대의 정리 흔적"]
+    rebuild --> memory["1498년 맥락 이해"]
+    memory --> resolve["창작 기록 연결"]
+    resolve --> nextHouse["다른 고택으로 확장"]
+  end
+  subgraph learningPath ["한글 첫걸음"]
+    sounds["소리와 기본 모음"] --> letters["자음과 음절 조립"]
+    letters --> contrast["격음 경음 복합 모음"]
+    contrast --> finals["받침 겹받침 연음"]
+    finals --> useWords["낱말 읽기 확장"]
+  end
+  subgraph historyRule ["자료와 창작 구분"]
+    fact["무오사화와 정여창"]
+    house["현재 건물은 후대 중건"]
+    fiction["전달자와 낱장은 창작"]
+  end
+  oral["인사 요청 감사 병행"]
+  arrival --> oral
+  oral -->|"도움받아 사용"| everyday
+  arrival --> sounds
+  letters -->|"배운 범위로 참여"| everyday
+  useWords -->|"다시 사용"| resolve
+  fact -.->|"검증된 배경"| memory
+  house -.->|"연대 구분"| rebuild
+  fiction -.->|"허구 사건"| clue
+  style storyPath fill:#FFECBD,stroke:#FFC943
+  style learningPath fill:#CDF4D3,stroke:#66D575
+  style historyRule fill:#C2E5FF,stroke:#3DADFF

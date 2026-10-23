@@ -1,0 +1,43 @@
+{
+  "local_design_date": "2026-10-23",
+  "captured_utc": "2026-10-23T09:45:42.892039+00:00",
+  "checkout": "C:\\dev\\hangulsori\\ko_lernen_app",
+  "head": "afd4c4dc524d89c316b23fd001dac37e087796cd",
+  "branch": "main",
+  "dirty_path_count": 630,
+  "files": [
+    {
+      "path": "tools/content_factory/cefr_matrix/phases.json",
+      "bytes": 1383033,
+      "sha256": "b61c70b52e7f773c76336c5ab65638ca4c1af2d39fcf2f26f6793d06333a64d9"
+    },
+    {
+      "path": "tools/content_factory/cefr_matrix/ko.json",
+      "bytes": 144468,
+      "sha256": "c642d91721753ea990a5b7c0373b9cb1da8923ae984e0c583de2825fc26cb4cf"
+    },
+    {
+      "path": "tools/content_factory/cefr_matrix/taxonomy.json",
+      "bytes": 92267,
+      "sha256": "d9ac29c81b1caa065be206a230f9f3329f04b62c87b6f637491bb84b2c6d382d"
+    },
+    {
+      "path": "assets/data/learning_phases.json",
+      "bytes": 63586,
+      "sha256": "fbc36fbaa28d33df1466243de12d1a59abbab46edc741cd7851ff47289893d86"
+    },
+    {
+      "path": "assets/data/curriculum_manifest.json",
+      "bytes": 217939,
+      "sha256": "2222d49c02dce92dc092be06c958dd6b2b535d13fb0c0d7184ec91037018541b"
+    }
+  ],
+  "phase_count": 30,
+  "grammar_rows": 356,
+  "roles": {
+    "new": 336,
+    "spiral": 20
+  },
+  "proposal": "CURRICULUM_FOUNDATION_TO_C2.md",
+  "status": "proposal_not_runtime_changed"
+}
