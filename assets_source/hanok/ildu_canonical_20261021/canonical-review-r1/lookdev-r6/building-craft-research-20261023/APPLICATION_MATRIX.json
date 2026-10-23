@@ -1,0 +1,712 @@
+{
+  "schemaVersion": 1,
+  "researchDate": "2026-10-23",
+  "catalogPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\catalog.json",
+  "catalogSha256": "4f511d3c06b1dcc995cdf94f578b70f400f0ca96bc14fcf65e689eacaec9c6d1",
+  "catalogEntryCount": 16,
+  "repositoryHead": "bbe88e7d22bd1893b762609ed5a8990e1e84db5a",
+  "status": "research_and_work_criteria_only",
+  "geometryChanged": false,
+  "nativeChanged": false,
+  "newRenderProduced": false,
+  "canonicalPromoted": false,
+  "runtimeIntegrated": false,
+  "reviewBaseline": {
+    "warmNative": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\numaru-detail-study\\sarang-numaru-warm-detail.blend",
+    "receiptPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\lookdev-r6\\numaru-detail-study\\warm-verification.json",
+    "receiptSha256": "69891b098f9bd1d3cfcf4d29a82921c4b04fa11aad4607a14f73ea443d3ad11c",
+    "nativeSha256RecordedInReceipt": "45960aa804ab5aa7d17918b10c593ea0fa6d00a888d9a70a6d8cf02260a7cf35",
+    "note": "receipt verified; native not rehashed in this research pass"
+  },
+  "evidenceCodes": {
+    "D": "site-specific document/photo",
+    "G": "generic craft/material",
+    "I": "art interpretation",
+    "U": "unconfirmed"
+  },
+  "localDrawings": [
+    {
+      "id": "D047",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\canonical\\references\\ildu_Blueprint\\도면_국가민속문화재_함양_일두_고택_기록화사업_중문채_창호상세도.jpg",
+      "sha256": "408869e3413446dc28fb73184da7970e3574a9d32c5be4508cb83d7c8d1ee026",
+      "targetKey": "jung",
+      "observation": "들기름 칠 / 창호지 바르기(단면); 창호별 철물 차이",
+      "visuallyRead": true,
+      "evidenceScope": "2007 survey sheet, not timber species identification or present condition survey"
+    },
+    {
+      "id": "D059",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\canonical\\references\\ildu_Blueprint\\도면_국가민속문화재_함양_일두_고택_기록화보고서_안채_창호_상세도1.jpg",
+      "sha256": "c97dbe932b940a1aff1dcecf0899012f01f0f4c62ea09bb10e825fc6909a6d7a",
+      "targetKey": "anchae",
+      "observation": "판장문·띠살문·격자살문; WD8 560x540 방1 작은 격자창, 눈곱재기 명칭 확인 아님",
+      "visuallyRead": true,
+      "evidenceScope": "2007 survey sheet, not timber species identification or present condition survey"
+    },
+    {
+      "id": "D018",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\canonical\\references\\ildu_Blueprint\\도면_국가민속문화재_함양_일두_고택_기록화사업_곳간채_창호부호도,창호일람표.jpg",
+      "sha256": "64746c480e7eee1e536eb0cdfb14c72faac57d262d4892df6adccb923da4f2b4",
+      "targetKey": "gokgan",
+      "observation": "판재문, 상부 40x40 살; 세부 부호와 모델 위치 대조 필요",
+      "visuallyRead": true,
+      "evidenceScope": "2007 survey sheet, not timber species identification or present condition survey"
+    },
+    {
+      "id": "D037",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\canonical\\references\\ildu_Blueprint\\도면_국가민속문화재_함양_일두_고택_기록화사업_안곳간채_창호부호도,창호도.jpg",
+      "sha256": "d10406122d1845677c2ef05393afd0a183aaa2c70a113bc2c1984c841ace358e",
+      "targetKey": "angotgan",
+      "observation": "정면 판문과 좌·우·뒤 세 줄 살 창",
+      "visuallyRead": true,
+      "evidenceScope": "2007 survey sheet, not timber species identification or present condition survey"
+    },
+    {
+      "id": "D057",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\canonical\\references\\ildu_Blueprint\\도면_국가민속문화재_함양_일두_고택_기록화사업_별당_창호도.jpg",
+      "sha256": "9d1c744c309843bb765746893e913c1b39e0480acc5ffeb09daa25290ccf89b2",
+      "targetKey": null,
+      "observation": "별당 창호 및 부엌·다락 창 차이; ansarang 키와 동명/부호 대조 전 자동 대응 금지",
+      "visuallyRead": true,
+      "evidenceScope": "2007 survey sheet, not timber species identification or present condition survey"
+    },
+    {
+      "id": "D027",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\canonical\\references\\ildu_Blueprint\\도면_국가민속문화재_함양_일두_고택_기록화사업_아래채_창호부호도1.jpg",
+      "sha256": "f1ee0d094e88c01d48d5e647be82de6a97e82a28513ee3b6a09c764bd6f458b3",
+      "targetKey": "arae",
+      "observation": "마루·툇마루·방 및 창호 위치; 마감표로 사용 금지",
+      "visuallyRead": true,
+      "evidenceScope": "2007 survey sheet, not timber species identification or present condition survey"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "한국학중앙연구원: 함양 일두고택",
+      "url": "https://encykorea.aks.ac.kr/Article/E0062205"
+    },
+    {
+      "id": "S2",
+      "title": "국가유산청: 2007 전통가옥 기록화 보고서 등록",
+      "url": "https://digital.khs.go.kr/record/recordDetailReport.do?ichDataUid=13897469727560800355&bizId=BIZ200700002080&pageSe=bizDetail"
+    },
+    {
+      "id": "S3",
+      "title": "한국관광공사: 2019 일두고택 현장 기사",
+      "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=15a9cb58-9217-49d5-b21b-a1457c14918c"
+    },
+    {
+      "id": "S4",
+      "title": "한국관광공사: 정여창 가문의 역사를 느낄 수 있는 함양 일두고택",
+      "url": "https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=2e60e9bf-1201-422c-bc28-aca9724e0830"
+    },
+    {
+      "id": "S5",
+      "title": "국가유산청: 2021 정기조사 일두고택 자료 목록",
+      "url": "https://digital.khs.go.kr/buis/buisDetail.do?bizUid=13898748261851900019&ctptNo=1483801860000&ctptUid=13898859686647401778&nation=&stakeholdersSes="
+    },
+    {
+      "id": "T1",
+      "title": "국립문화유산연구원: 기와 제작 기법",
+      "url": "https://portal.nrich.go.kr/kor/archeologyUsrView.do?idx=23283&menuIdx=567"
+    },
+    {
+      "id": "T2",
+      "title": "국가유산진흥원: 기와, 하늘-선 / 김창대 제와장",
+      "url": "https://www.kh.or.kr/brd/board/741/l/menu/740?bbIdx=110415&brdType=R&searchField=&searchText=&thisPage=1"
+    },
+    {
+      "id": "T3",
+      "title": "보물 해남 미황사 대웅전 기와의 물성 및 형태 연구",
+      "url": "https://kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003021832"
+    },
+    {
+      "id": "W1",
+      "title": "국립산림과학원 연구진: 조선 후기 영건의궤 국용목재 수종 연구, 2021",
+      "url": "https://www.woodj.org/archive/view_article?pid=wood-49-5-462"
+    },
+    {
+      "id": "G1",
+      "title": "AURI: 한옥 고치는 책Ⅰ",
+      "url": "https://www.auri.re.kr/publicationFileDirect.es?bid=paper&list_no=729&seq=1"
+    }
+  ],
+  "buildings": [
+    {
+      "key": "sarang",
+      "name": "사랑채",
+      "buildingId": "sarangchae",
+      "catalogMemberCount": 710,
+      "currentCatalogNative": "lookdev-sarang-r5/sarang-three-value-brush-candidate.blend",
+      "currentCatalogNativeSha256": "cab144f08a7836dc0eafc074456104cdbfe21eecd46eadf2c13b882d52efd4c8",
+      "sourcePartsPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\building-workbench-20261017\\models\\export-proof.json",
+      "sourcePartsSha256": "6e6ccf4776ea1cdaa95b93a74a08dd5355f4c3235f7ea33dbffe4877cd0b24ec",
+      "sourceSelectionKind": "connected WB exact sourceObject/memberId proof",
+      "sourcePartCount": 710,
+      "targetExamples": [
+        {
+          "sourceObject": "Continuity.numaru corner posts",
+          "memberId": "ildu.r12.connected.member.5b7bbf9ae85f1eb0a83d",
+          "reviewStage": 5
+        },
+        {
+          "sourceObject": "Sarang.dark original plaque",
+          "memberId": "ildu.sarangchae.part.3933c1d7d7849522a0d8",
+          "reviewStage": 16
+        },
+        {
+          "sourceObject": "Continuity.numaru front changho.leaf1.rear paper rail",
+          "memberId": "ildu.r12.connected.member.a9bbab2d40a5381ad238",
+          "reviewStage": 15
+        },
+        {
+          "sourceObject": "HwaljuFix.02-main-left pale sleeve",
+          "memberId": "ildu.sarangchae.part.13bf8f59624dc0cd08f5",
+          "reviewStage": 5
+        }
+      ],
+      "visualDirection": "따뜻한 황갈색·옅은 적갈색 목재, 정돈된 회벽, 차분한 회흑색 기와",
+      "application": "기둥의 길이결, 넓은 마루의 판목결, 난간 절단면을 구분. 누마루 아래 판벽은 별도 판재 결. 활주와 돌기둥 받침의 재료 경계 확인. 충효절의 종이 벽서와 목판 현판을 혼동하지 않음. 누마루 안쪽→기존 석가산 시점 추가 검수",
+      "localEvidenceIds": [],
+      "status": "research_criteria_added_not_rendered",
+      "speciesAssignment": "retain_unverified_do_not_infer_from_color",
+      "requiresExactPartSelectionBeforeEdit": true
+    },
+    {
+      "key": "ansarang",
+      "name": "안사랑채",
+      "buildingId": "ansarang",
+      "catalogMemberCount": 385,
+      "currentCatalogNative": "lookdev-buildings-r5/ansarang/ansarang-r5-brush-candidate.blend",
+      "currentCatalogNativeSha256": "df17b8b8d8623dd5084186d6c3c03e6193101eb302be4ef74c15ec26375a516a",
+      "sourcePartsPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\building-workbench-20261017\\models\\export-proof.json",
+      "sourcePartsSha256": "6e6ccf4776ea1cdaa95b93a74a08dd5355f4c3235f7ea33dbffe4877cd0b24ec",
+      "sourceSelectionKind": "connected WB exact sourceObject/memberId proof",
+      "sourcePartCount": 385,
+      "targetExamples": [
+        {
+          "sourceObject": "V28.ansarang.front joinery0.leaf1.hanji backing",
+          "memberId": "ildu.ansarang.part.ba940fd78e730ff4774e",
+          "reviewStage": 13
+        },
+        {
+          "sourceObject": "Ansarang v72 front maru joist 1",
+          "memberId": "ildu.ansarang.part.2e5e27a960a2a93bd451",
+          "reviewStage": 12
+        },
+        {
+          "sourceObject": "Sep29.ansarang.left kitchen.firebox back",
+          "memberId": "ildu.ansarang.part.8946ab13c7956ebe77bb",
+          "reviewStage": 10
+        }
+      ],
+      "visualDirection": "작은 창호와 마루를 가까이 보는 차분한 생활 공간",
+      "application": "창살의 앞면·옆면, 종이 배면, 문틀과 판재 결의 크기를 다르게. 현재 모델의 부엌·온돌·마루 구분을 유지. 별당 도면 대응은 명칭 대조 후 확정",
+      "localEvidenceIds": [],
+      "status": "research_criteria_added_not_rendered",
+      "speciesAssignment": "retain_unverified_do_not_infer_from_color",
+      "requiresExactPartSelectionBeforeEdit": true
+    },
+    {
+      "key": "anchae",
+      "name": "안채",
+      "buildingId": "anchae",
+      "catalogMemberCount": 882,
+      "currentCatalogNative": "lookdev-buildings-r5/anchae/anchae-r5-brush-candidate.blend",
+      "currentCatalogNativeSha256": "bb136fad3bbc9ee63f78cdd8f88cb30a2559c5457cfbaa9f7d61c1b8d4ac9b06",
+      "sourcePartsPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\building-workbench-20261017\\models\\export-proof.json",
+      "sourcePartsSha256": "6e6ccf4776ea1cdaa95b93a74a08dd5355f4c3235f7ea33dbffe4877cd0b24ec",
+      "sourceSelectionKind": "connected WB exact sourceObject/memberId proof",
+      "sourcePartCount": 882,
+      "targetExamples": [
+        {
+          "sourceObject": "North.anchae.hall room 1.room warm paper floor",
+          "memberId": "ildu.anchae.part.898078fc3b493ae39032",
+          "reviewStage": 11
+        },
+        {
+          "sourceObject": "North.anchae.kitchen annex",
+          "memberId": "ildu.anchae.part.5e51b4022968570f3c68",
+          "reviewStage": 9
+        },
+        {
+          "sourceObject": "AnchaePilot.hardware.North.anchae.daechong rear door 4.leaf1.iron ring.0.forged ring",
+          "memberId": "ildu.r12.connected.member.3899fce82b11c0a9d7ca",
+          "reviewStage": 13
+        }
+      ],
+      "visualDirection": "부엌·방·대청의 재료 차이가 읽히는 생활 중심",
+      "application": "판장문과 종이 창호를 분리. 대청 바닥은 넓고 조용한 결, 종이는 미색의 확산광. 기존 아궁이/부엌 부재의 흙·쇠·그을음은 위치를 확인한 부분에만. 외벽 전체를 검게 만들지 않음",
+      "localEvidenceIds": [
+        "D059"
+      ],
+      "status": "research_criteria_added_not_rendered",
+      "speciesAssignment": "retain_unverified_do_not_infer_from_color",
+      "requiresExactPartSelectionBeforeEdit": true
+    },
+    {
+      "key": "sadang",
+      "name": "사당",
+      "buildingId": "sadang",
+      "catalogMemberCount": 229,
+      "currentCatalogNative": "lookdev-buildings-r5/sadang/sadang-r5-brush-candidate.blend",
+      "currentCatalogNativeSha256": "9ad767f0bf08e60cd41a50cf2f77470c334c7fde3f0f78c8b508cc1678774006",
+      "sourcePartsPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\building-workbench-20261017\\models\\export-proof.json",
+      "sourcePartsSha256": "6e6ccf4776ea1cdaa95b93a74a08dd5355f4c3235f7ea33dbffe4877cd0b24ec",
+      "sourceSelectionKind": "connected WB exact sourceObject/memberId proof",
+      "sourcePartCount": 229,
+      "targetExamples": [
+        {
+          "sourceObject": "North.sadang.dancheong painted beam",
+          "memberId": "ildu.sadang.part.93b405f0bb759475c412",
+          "reviewStage": 5
+        },
+        {
+          "sourceObject": "North.sadang.dancheong carved bracket.lower seating block",
+          "memberId": "ildu.sadang.part.bb153ae1ac69dbe68cbf",
+          "reviewStage": 5
+        }
+      ],
+      "visualDirection": "기존 단청과 목재·회벽의 대비, 깊지만 읽히는 처마",
+      "application": "공통 주황 목재 필터에서 기존 채색 면 제외. 남아 있는 문양·색 경계를 유지하고 안료층의 잔잔한 표면만 다듬음. 민가 일반 설명을 이유로 단청을 지우지 않음",
+      "localEvidenceIds": [],
+      "status": "research_criteria_added_not_rendered",
+      "speciesAssignment": "retain_unverified_do_not_infer_from_color",
+      "requiresExactPartSelectionBeforeEdit": true
+    },
+    {
+      "key": "jung",
+      "name": "중문간채",
+      "buildingId": "jungmunganchae",
+      "catalogMemberCount": 244,
+      "currentCatalogNative": "lookdev-buildings-r5/jung/jung-r5-brush-candidate.blend",
+      "currentCatalogNativeSha256": "0e0c8f387a8a4f4bbac82e649401672da40416ebc03aca781c21edc91994f702",
+      "sourcePartsPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\building-workbench-20261017\\models\\export-proof.json",
+      "sourcePartsSha256": "6e6ccf4776ea1cdaa95b93a74a08dd5355f4c3235f7ea33dbffe4877cd0b24ec",
+      "sourceSelectionKind": "connected WB exact sourceObject/memberId proof",
+      "sourcePartCount": 244,
+      "targetExamples": [
+        {
+          "sourceObject": "V26.Jung.WD01 door.leaf1.back rail",
+          "memberId": "ildu.jungmunganchae.part.dc0d30a99c70beed8f2b",
+          "reviewStage": 11
+        },
+        {
+          "sourceObject": "V26.Jung.WD02 door.leaf1.rear paper rail",
+          "memberId": "ildu.jungmunganchae.part.3c9b82454ee0c361ebeb",
+          "reviewStage": 11
+        }
+      ],
+      "visualDirection": "안팎을 연결하는 판문·종이·쇠의 차이",
+      "application": "047의 마감별로 선택. 들기름 마감은 약한 넓은 반사, 철물은 국소적인 금속 반사. 현재 문짝/축/개폐 범위를 보존하고 열고 닫을 때 앞뒤 재질 확인",
+      "localEvidenceIds": [
+        "D047"
+      ],
+      "status": "research_criteria_added_not_rendered",
+      "speciesAssignment": "retain_unverified_do_not_infer_from_color",
+      "requiresExactPartSelectionBeforeEdit": true
+    },
+    {
+      "key": "arae",
+      "name": "아랫채",
+      "buildingId": "araechae",
+      "catalogMemberCount": 259,
+      "currentCatalogNative": "lookdev-buildings-r5/arae/arae-r5-brush-candidate.blend",
+      "currentCatalogNativeSha256": "25842b2bc947699657a0c737191551cc571c5005217e54100e805239c5adc89a",
+      "sourcePartsPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\building-workbench-20261017\\models\\export-proof.json",
+      "sourcePartsSha256": "6e6ccf4776ea1cdaa95b93a74a08dd5355f4c3235f7ea33dbffe4877cd0b24ec",
+      "sourceSelectionKind": "connected WB exact sourceObject/memberId proof",
+      "sourcePartCount": 259,
+      "targetExamples": [
+        {
+          "sourceObject": "North.arae.left maru side",
+          "memberId": "ildu.araechae.part.7380132a40ba744b303b",
+          "reviewStage": 10
+        },
+        {
+          "sourceObject": "North.arae.door stepping stone",
+          "memberId": "ildu.araechae.part.8d142353e56bc69255b0",
+          "reviewStage": 12
+        }
+      ],
+      "visualDirection": "소박한 툇마루·방·벽의 연속",
+      "application": "027 위치도에 따라 마루판 결 방향과 문틀을 검수. 사랑채보다 장식을 늘리지 않고 작은 부재의 선명도·벽의 평온한 면으로 구분",
+      "localEvidenceIds": [
+        "D027"
+      ],
+      "status": "research_criteria_added_not_rendered",
+      "speciesAssignment": "retain_unverified_do_not_infer_from_color",
+      "requiresExactPartSelectionBeforeEdit": true
+    },
+    {
+      "key": "gokgan",
+      "name": "곳간채",
+      "buildingId": "gokgan",
+      "catalogMemberCount": 75,
+      "currentCatalogNative": "lookdev-buildings-r5/gokgan/gokgan-r5-brush-candidate.blend",
+      "currentCatalogNativeSha256": "b954900cdcf0a35f8edd4f72cbd994e1a9feeae31d56b98d809cdbcf650e1daa",
+      "sourcePartsPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\building-workbench-20261017\\models\\export-proof.json",
+      "sourcePartsSha256": "6e6ccf4776ea1cdaa95b93a74a08dd5355f4c3235f7ea33dbffe4877cd0b24ec",
+      "sourceSelectionKind": "connected WB exact sourceObject/memberId proof",
+      "sourcePartCount": 75,
+      "targetExamples": [
+        {
+          "sourceObject": "North.gokgan.central door sideboards",
+          "memberId": "ildu.gokgan.part.31fed9d17d20cd2f5625",
+          "reviewStage": 9
+        },
+        {
+          "sourceObject": "North.gokgan.side vents vertical grille",
+          "memberId": "ildu.gokgan.part.e0c6777325ace2e9a478",
+          "reviewStage": 9
+        }
+      ],
+      "visualDirection": "판문의 넓은 결, 통풍 살과 그 안쪽의 깊이",
+      "application": "018에 기록된 판문/통풍창을 기준으로 현재 객체 대응 확인. 문짝의 앞면·마구리·자물쇠를 각각 처리. 곡간(穀間) 설명을 키 이름만 보고 자동 적용하지 않음",
+      "localEvidenceIds": [
+        "D018"
+      ],
+      "status": "research_criteria_added_not_rendered",
+      "speciesAssignment": "retain_unverified_do_not_infer_from_color",
+      "requiresExactPartSelectionBeforeEdit": true
+    },
+    {
+      "key": "angotgan",
+      "name": "안채곳간채",
+      "buildingId": "anchae-store",
+      "catalogMemberCount": 108,
+      "currentCatalogNative": "lookdev-buildings-r5/angotgan/angotgan-r5-brush-candidate.blend",
+      "currentCatalogNativeSha256": "9454564888071fdef82d097ed32626eb975bb3ad0f253e18327ef00c639f7862",
+      "sourcePartsPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\building-workbench-20261017\\models\\export-proof.json",
+      "sourcePartsSha256": "6e6ccf4776ea1cdaa95b93a74a08dd5355f4c3235f7ea33dbffe4877cd0b24ec",
+      "sourceSelectionKind": "connected WB exact sourceObject/memberId proof",
+      "sourcePartCount": 108,
+      "targetExamples": [
+        {
+          "sourceObject": "North.angotgan.front plank wall",
+          "memberId": "ildu.anchae-store.part.a1d0c23e0dbf6cf3fdb8",
+          "reviewStage": 9
+        }
+      ],
+      "visualDirection": "닫힌 판문과 작은 환기 틈의 대비",
+      "application": "037의 정면 판문과 좌·우·뒤의 살 창을 확인. 틈은 검은 칠이 아니라 기존 개구부와 조명으로 표현. 사용 위치가 확인되지 않은 곡식·자루 소품을 추가하지 않음",
+      "localEvidenceIds": [
+        "D037"
+      ],
+      "status": "research_criteria_added_not_rendered",
+      "speciesAssignment": "retain_unverified_do_not_infer_from_color",
+      "requiresExactPartSelectionBeforeEdit": true
+    },
+    {
+      "key": "changgo",
+      "name": "창고",
+      "buildingId": "changgo",
+      "catalogMemberCount": 209,
+      "currentCatalogNative": "lookdev-buildings-r5/changgo/changgo-r5-brush-candidate.blend",
+      "currentCatalogNativeSha256": "6dc1b764d31622c7e7206fd946cf80cddb538be473fead8a3aedc50dd97b53aa",
+      "sourcePartsPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\building-workbench-20261017\\models\\export-proof.json",
+      "sourcePartsSha256": "6e6ccf4776ea1cdaa95b93a74a08dd5355f4c3235f7ea33dbffe4877cd0b24ec",
+      "sourceSelectionKind": "connected WB exact sourceObject/memberId proof",
+      "sourcePartCount": 209,
+      "targetExamples": [
+        {
+          "sourceObject": "V34.changgo.frame.closed door stops",
+          "memberId": "ildu.changgo.part.c80f817a585947b9a636",
+          "reviewStage": 8
+        },
+        {
+          "sourceObject": "V28.changgo.floor",
+          "memberId": "ildu.changgo.part.fa9f34dc5c5749489dd1",
+          "reviewStage": 8
+        }
+      ],
+      "visualDirection": "넓은 목재/흙벽 면과 낮은 기단의 묵직함",
+      "application": "현재 객체별 판벽·미장·초석을 분리. 공식 현장기사의 안채 뒤 곡간과 동일 건물인지 배치도 대조 후 확정. 숯·자갈 기초는 교육 자료 후보이며 외관에 노출시키지 않음",
+      "localEvidenceIds": [],
+      "status": "research_criteria_added_not_rendered",
+      "speciesAssignment": "retain_unverified_do_not_infer_from_color",
+      "requiresExactPartSelectionBeforeEdit": true
+    },
+    {
+      "key": "toilet",
+      "name": "북측 측간",
+      "buildingId": "toilet-north",
+      "catalogMemberCount": 83,
+      "currentCatalogNative": "lookdev-buildings-r5/toilet/toilet-r5-brush-candidate.blend",
+      "currentCatalogNativeSha256": "67ba5f446aa96b5023f67cb5460ac8f1227c2413983448d461d6e885a120e922",
+      "sourcePartsPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\building-workbench-20261017\\models\\export-proof.json",
+      "sourcePartsSha256": "6e6ccf4776ea1cdaa95b93a74a08dd5355f4c3235f7ea33dbffe4877cd0b24ec",
+      "sourceSelectionKind": "connected WB exact sourceObject/memberId proof",
+      "sourcePartCount": 83,
+      "targetExamples": [
+        {
+          "sourceObject": "V28.toilet.door jamb",
+          "memberId": "ildu.toilet-north.part.57c943edada1675f2af4",
+          "reviewStage": 8
+        },
+        {
+          "sourceObject": "V28.toilet.front wall",
+          "memberId": "ildu.toilet-north.part.4d0dc17c71b162ec820e",
+          "reviewStage": 7
+        }
+      ],
+      "visualDirection": "작은 규모의 판문·미장·기와",
+      "application": "기존 단순 구조 유지. 목재의 섬유와 흙의 미세 표면을 절제해 표현. 측간이라는 이유로 부패·과도한 얼룩을 넣지 않음. 창건 당시 형태라는 설명은 보류",
+      "localEvidenceIds": [],
+      "status": "research_criteria_added_not_rendered",
+      "speciesAssignment": "retain_unverified_do_not_infer_from_color",
+      "requiresExactPartSelectionBeforeEdit": true
+    },
+    {
+      "key": "toilet1",
+      "name": "남측 측간",
+      "buildingId": "toilet-south",
+      "catalogMemberCount": 83,
+      "currentCatalogNative": "lookdev-buildings-r5/toilet1/toilet1-r5-brush-candidate.blend",
+      "currentCatalogNativeSha256": "18bd38953c5f5cef1f02f77c2af20a7ec713b4d1901575de19f27f0018154439",
+      "sourcePartsPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\building-workbench-20261017\\models\\export-proof.json",
+      "sourcePartsSha256": "6e6ccf4776ea1cdaa95b93a74a08dd5355f4c3235f7ea33dbffe4877cd0b24ec",
+      "sourceSelectionKind": "connected WB exact sourceObject/memberId proof",
+      "sourcePartCount": 83,
+      "targetExamples": [
+        {
+          "sourceObject": "V28.toilet1.door jamb",
+          "memberId": "ildu.toilet-south.part.7dd6c7195e2c4e5e8216",
+          "reviewStage": 8
+        },
+        {
+          "sourceObject": "V28.toilet1.front wall",
+          "memberId": "ildu.toilet-south.part.47a1952c95eb9bc890f9",
+          "reviewStage": 7
+        }
+      ],
+      "visualDirection": "북측과 같은 재료군, 실제 노출면별 차이",
+      "application": "별도 건물 키·부재/문 위치를 유지. 지붕과 벽의 색을 일률적으로 복제하지 않고 현재 사진 근거가 있는 차이만 채택",
+      "localEvidenceIds": [],
+      "status": "research_criteria_added_not_rendered",
+      "speciesAssignment": "retain_unverified_do_not_infer_from_color",
+      "requiresExactPartSelectionBeforeEdit": true
+    },
+    {
+      "key": "main_gate",
+      "name": "대문",
+      "buildingId": "main-gate",
+      "catalogMemberCount": 184,
+      "currentCatalogNative": "lookdev-buildings-r5/main_gate/main_gate-r5-brush-candidate.blend",
+      "currentCatalogNativeSha256": "c6369a07672a7006b842d507ac2a758a53fa367ddf5348395682e151135f6e41",
+      "sourcePartsPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\building-workbench-20261017\\models\\export-proof.json",
+      "sourcePartsSha256": "6e6ccf4776ea1cdaa95b93a74a08dd5355f4c3235f7ea33dbffe4877cd0b24ec",
+      "sourceSelectionKind": "connected WB exact sourceObject/memberId proof",
+      "sourcePartCount": 184,
+      "targetExamples": [
+        {
+          "sourceObject": "PhotoGate.courtyard door frame.rail",
+          "memberId": "ildu.main-gate.part.db56475e4dd711ec85a1",
+          "reviewStage": 9
+        },
+        {
+          "sourceObject": "PhotoGate.plaque red frame",
+          "memberId": "ildu.main-gate.part.0ef489c3bd4fb39e00a4",
+          "reviewStage": 11
+        }
+      ],
+      "visualDirection": "판문의 두께·쇠고리·토석벽·정려패",
+      "application": "바깥/안쪽 판재 결과 문고리의 접촉 부분을 구분. 정려패의 색과 글자 보존. 왕실 장식이나 귀면 막새 추가 금지. 기존 대문-행랑 범위를 재해석하지 않음",
+      "localEvidenceIds": [],
+      "status": "research_criteria_added_not_rendered",
+      "speciesAssignment": "retain_unverified_do_not_infer_from_color",
+      "requiresExactPartSelectionBeforeEdit": true
+    },
+    {
+      "key": "left_changgo",
+      "name": "사랑채 왼쪽 협문",
+      "buildingId": "hyeopmun",
+      "catalogMemberCount": 680,
+      "currentCatalogNative": "lookdev-buildings-r5/left_changgo/left_changgo-r5-brush-candidate.blend",
+      "currentCatalogNativeSha256": "237cf14ede53373ed39879d13ac6dad8fd9d598ba898415d8e094b6ef1e124ac",
+      "sourcePartsPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\pbr\\left\\left_changgo-source-parts.json",
+      "sourcePartsSha256": "230669fe0eb6421660d0b807c86c90c3f6934b0a7add4b28d64e6f0197e733ce",
+      "sourceSelectionKind": "replacement gate sidecar; legacy WB gate selection excluded",
+      "sourcePartCount": 680,
+      "targetExamples": [
+        {
+          "sourceObject": "left.door.board 01",
+          "sourceProperties": {
+            "source": "new construction from drawing",
+            "owner": "left",
+            "drawingSheet": "080",
+            "drawingMeasurement": "THK25"
+          }
+        },
+        {
+          "sourceObject": "left.foundation.perimeter fieldstone",
+          "sourceProperties": {
+            "source": "new construction from drawing",
+            "owner": "left",
+            "surfaceRole": "irregular dressed walking stone"
+          }
+        },
+        {
+          "sourceObject": "left.roof.barge cap tile",
+          "sourceProperties": {
+            "source": "new construction from drawing",
+            "owner": "left"
+          }
+        }
+      ],
+      "visualDirection": "문턱·판문·담장 만나는 부분의 손질",
+      "application": "새 실측 제작 부재 목록과 080 등 기존 출처를 사용. 굽은 하부 부재는 현 형상을 유지하고 옆결/절단면만 구별. 예전 R12 협문 객체 목록을 재사용하지 않음",
+      "localEvidenceIds": [],
+      "status": "research_criteria_added_not_rendered",
+      "speciesAssignment": "retain_unverified_do_not_infer_from_color",
+      "requiresExactPartSelectionBeforeEdit": true
+    },
+    {
+      "key": "right_ansarang",
+      "name": "안채 연결 협문",
+      "buildingId": "hyeopmun",
+      "catalogMemberCount": 530,
+      "currentCatalogNative": "lookdev-buildings-r5/right_ansarang/right_ansarang-r5-brush-candidate.blend",
+      "currentCatalogNativeSha256": "eb9064848e456d2faefdbf3cf1fd6cb2e4344cdd8b9b58adb0e259d10252519e",
+      "sourcePartsPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\pbr\\right\\right_ansarang-source-parts.json",
+      "sourcePartsSha256": "b1581e507a13c5281a6395f152f75ead93ef19f8322c5b362cfe14d0a9de97d4",
+      "sourceSelectionKind": "replacement gate sidecar; legacy WB gate selection excluded",
+      "sourcePartCount": 530,
+      "targetExamples": [
+        {
+          "sourceObject": "right.door.board 01",
+          "sourceProperties": {
+            "source": "new construction from drawing",
+            "owner": "right",
+            "drawingSheet": "089",
+            "drawingMeasurement": "THK30"
+          }
+        },
+        {
+          "sourceObject": "right.roof.barge cap tile",
+          "sourceProperties": {
+            "source": "new construction from drawing",
+            "owner": "right"
+          }
+        }
+      ],
+      "visualDirection": "좁은 통로의 목재·돌·담장 접합",
+      "application": "새 제작 부재의 `drawingSheet`에 따라 선택. 문짝 두께·돌계단의 넓은 면·판문 뒤 철물을 확대/개폐 상태에서 확인",
+      "localEvidenceIds": [],
+      "status": "research_criteria_added_not_rendered",
+      "speciesAssignment": "retain_unverified_do_not_infer_from_color",
+      "requiresExactPartSelectionBeforeEdit": true
+    },
+    {
+      "key": "sadangmun",
+      "name": "사당문",
+      "buildingId": "sadang-gate",
+      "catalogMemberCount": 445,
+      "currentCatalogNative": "lookdev-buildings-r5/sadangmun/sadangmun-r5-brush-candidate.blend",
+      "currentCatalogNativeSha256": "631767b183d2ef7802303b0ddb29fae78b38e8a91ea0c2ad957483098fbb551b",
+      "sourcePartsPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\surface-redesign-20261018\\gate-rebuild\\drawing-r4\\canonical-review-r1\\pbr\\shrine\\sadangmun-source-parts.json",
+      "sourcePartsSha256": "80c99d93b0f1664d30e88b3f702be136681bcd3280e01cc19f2219449cec9b69",
+      "sourceSelectionKind": "replacement gate sidecar; legacy WB gate selection excluded",
+      "sourcePartCount": 445,
+      "targetExamples": [
+        {
+          "sourceObject": "shrine.door.board 01",
+          "sourceProperties": {
+            "source": "new construction from drawing",
+            "owner": "shrine",
+            "drawingThickness": 0.03,
+            "drawingHeight": 1.5
+          }
+        },
+        {
+          "sourceObject": "shrine.roof.barge cap tile",
+          "sourceProperties": {
+            "source": "new construction from drawing",
+            "owner": "shrine"
+          }
+        }
+      ],
+      "visualDirection": "사당 경계의 판문·철물·담장, 기존 승인색",
+      "application": "사당 본체의 단청을 문 전체에 복제하지 않음. 이 문의 사진·도면·기존 재질만 사용. 정면/배면/열린 상태에서 바닥 및 기둥 접촉 확인",
+      "localEvidenceIds": [],
+      "status": "research_criteria_added_not_rendered",
+      "speciesAssignment": "retain_unverified_do_not_infer_from_color",
+      "requiresExactPartSelectionBeforeEdit": true
+    },
+    {
+      "key": "estate-context",
+      "name": "돌담·마당",
+      "buildingId": null,
+      "catalogMemberCount": 374,
+      "currentCatalogNative": "../estate-yard-wall-r1/ildu-estate-yard-wall-r1.blend",
+      "currentCatalogNativeSha256": "586b8a5328e7c0deaeff5f340639708c927ea224a429aca70dc313adadddff68",
+      "sourcePartsPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\building-workbench-20261017\\models\\export-proof.json",
+      "sourcePartsSha256": "6e6ccf4776ea1cdaa95b93a74a08dd5355f4c3235f7ea33dbffe4877cd0b24ec",
+      "sourceSelectionKind": "connected WB exact sourceObject/memberId proof",
+      "sourcePartCount": 374,
+      "targetExamples": [
+        {
+          "sourceObject": "ConnectionGarden.open path stone lip",
+          "memberId": "ildu.r12.connected.member.b49715a127aa26de71ea",
+          "reviewStage": 1
+        },
+        {
+          "sourceObject": "ConnectionGarden.wall1.cover",
+          "memberId": "ildu.r12.connected.member.f660f140bdfa2e93974c",
+          "reviewStage": 1
+        },
+        {
+          "sourceObject": "North.site.jar yard east lower.cover",
+          "memberId": "ildu.r12.connected.member.e2525eeeb70be5127542",
+          "reviewStage": 1
+        }
+      ],
+      "visualDirection": "토석담의 흙과 돌, 다져진 땅, 정원과 통로",
+      "application": "개별 돌의 넓은 색면과 사이 흙을 분리. 기존 석가산·소나무 배치 보존. 배수로·기단 가장자리·디딤돌을 검수하고 확인 없는 꽃밭/이끼/물길은 추가하지 않음",
+      "localEvidenceIds": [],
+      "status": "research_criteria_added_not_rendered",
+      "speciesAssignment": "retain_unverified_do_not_infer_from_color",
+      "requiresExactPartSelectionBeforeEdit": true
+    }
+  ],
+  "standaloneVariants": [
+    {
+      "key": "sarang-standalone",
+      "inheritCriteriaFrom": "sarang",
+      "exactPartCount": 829,
+      "sourcePartsPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\building-workbench-20261017\\models\\export-proof.json",
+      "status": "separate_source_selection_and_visual_review_required"
+    },
+    {
+      "key": "jung-standalone",
+      "inheritCriteriaFrom": "jung",
+      "exactPartCount": 605,
+      "sourcePartsPath": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r12-app-integration-20261015\\building-workbench-20261017\\models\\export-proof.json",
+      "status": "separate_source_selection_and_visual_review_required"
+    }
+  ],
+  "unconfirmed": [
+    "all current roof tiles handmade",
+    "Gaepyeong clay source",
+    "all lattice Chunyang pine",
+    "oak/zelkova assigned by load",
+    "Ildu eye-sized peek window classification/location",
+    "lifting-door mechanism at each proposed window",
+    "Jirisan backdrop from specific viewing axis",
+    "lotus/demon maksae inference",
+    "annual autumn repapering schedule"
+  ],
+  "preserve": [
+    "geometry",
+    "UV",
+    "transforms",
+    "memberId",
+    "reviewStage",
+    "existing door rigs",
+    "plaques and lettering",
+    "painted pattern boundaries",
+    "estate layout"
+  ],
+  "scopeNote": "16 catalog entries include gates and context, not a historical building count. 2007 drawings and modern photos do not establish one Joseon-year reconstruction."
+}

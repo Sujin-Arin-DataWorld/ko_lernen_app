@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "checks": {
+    "allCatalogKeysCoveredExactly": true,
+    "catalogHashMatches": true,
+    "allPartsCountsMatchCatalog": true,
+    "allReferencedPartsFilesAndHashesMatch": true,
+    "allSixDrawingHashesMatch": true,
+    "allBuildingsHaveExistingTargetExamples": true,
+    "baselineReceiptUnchanged": true,
+    "criteriaLinkedFromCurrentDocs": true
+  },
+  "reportSha256": "2af244cf4b5991503c1f3e303d779c9cea9407b43b07cd223b7f6dfe10599c7b",
+  "matrixSha256": "1d47389f2f2b0a4a8ef80c8e4ddb1445eb2f0105ec2b276a4b423c34dbd25b75",
+  "scope": "document and source mapping verification only; no new visual/runtime verification"
+}

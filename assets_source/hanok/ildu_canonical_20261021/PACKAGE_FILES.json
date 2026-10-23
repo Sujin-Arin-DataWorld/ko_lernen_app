@@ -2182,6 +2182,36 @@
       "sha256": "0316e09d8e327d5b41aefa72e549971105a98b95766421a4cde00a3adc344ded"
     },
     {
+      "path": "canonical-review-r1/lookdev-r6/CRAFT_DIRECTION.md",
+      "bytes": 7110,
+      "sha256": "3f1447088acbfb43f893b03b679089f8588684c68cdfc47345747e66e79d6736"
+    },
+    {
+      "path": "canonical-review-r1/lookdev-r6/WORK.md",
+      "bytes": 7292,
+      "sha256": "a3497539844800733694348b12cb88d5830ef8556f139a57236cb03d50c0d6ff"
+    },
+    {
+      "path": "canonical-review-r1/lookdev-r6/building-craft-research-20261023/APPLICATION_MATRIX.json",
+      "bytes": 37084,
+      "sha256": "1d47389f2f2b0a4a8ef80c8e4ddb1445eb2f0105ec2b276a4b423c34dbd25b75"
+    },
+    {
+      "path": "canonical-review-r1/lookdev-r6/building-craft-research-20261023/REPORT.md",
+      "bytes": 17847,
+      "sha256": "2af244cf4b5991503c1f3e303d779c9cea9407b43b07cd223b7f6dfe10599c7b"
+    },
+    {
+      "path": "canonical-review-r1/lookdev-r6/building-craft-research-20261023/VERIFICATION.json",
+      "bytes": 659,
+      "sha256": "8bcda3a1941ff1fcbd1fe8430c838e26f6281ce6494eeeb672c45a7d9f50709d"
+    },
+    {
+      "path": "canonical-review-r1/lookdev-r6/numaru-detail-study/DIRECTION.md",
+      "bytes": 3761,
+      "sha256": "24a7f697e21e0ab1637934ab1a40f33129db502c48db636a81a5b5787a0d211b"
+    },
+    {
       "path": "canonical-review-r1/lookdev-sarang-r1/README.md",
       "bytes": 6089,
       "sha256": "b2997dbc6bfac03395b4f21ad5781ec557a739999bef501add455f524c73c754"
