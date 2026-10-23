@@ -219,7 +219,7 @@
     "recovery": "Earlier per-file receipts and content-addressed vault remain at local _codex_artifacts/worktree-retirement-20261023. These are separate from the feature remote archive."
   },
   "sourceBranchesAndStashes": "Preserved; no history rewrite, branch deletion or stash removal.",
-  "conversationTotalOldWorktreesRemoved": 27,
+  "conversationTotalOldWorktreesRemoved": 29,
   "verification": {
     "removedCount": 10,
     "registrationsBefore": 38,
@@ -246,8 +246,8 @@
   "publicationCiEvidence": {
     "commit": "3f4f957b67f2b760dd30a12e14392969ac0f518e",
     "runUrl": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/40000612165",
-    "status": "in_progress",
-    "conclusion": "",
+    "status": "completed",
+    "conclusion": "failure",
     "jobs": [
       {
         "name": "Select required checks",
@@ -261,8 +261,8 @@
       },
       {
         "name": "Analyze & Build",
-        "status": "in_progress",
-        "conclusion": ""
+        "status": "completed",
+        "conclusion": "success"
       },
       {
         "name": "Asset pipeline gates",
@@ -285,5 +285,12 @@
   "temporaryPolicyCheckout": {
     "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\feature-preservation-policy-20261023",
     "cleanupGate": "Remove after publication and exact-main required checks; preserve source branch. Final local receipt records whether it was removed."
+  },
+  "followUpHanokV2Retirement": {
+    "worktrees": 2,
+    "removedRejectedImages": 1,
+    "removedLogicalBytes": 5124975795,
+    "observedFreeSpaceIncreaseBytes": 5237207040,
+    "details": "hanok_legacy_retirement_20261023.json"
   }
 }

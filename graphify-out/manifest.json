@@ -8196,9 +8196,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1792778038.708872,
-    "seen": 1792778617.608975,
-    "ast_hash": "54c6363ff37245cdda7fc5a8a94f7026",
+    "mtime": 1792781026.1174035,
+    "seen": 1792781107.3252957,
+    "ast_hash": "30de771c30480734776bd6062bdf3f34",
     "semantic_hash": ""
   },
   "BETA_INSTALL_GUIDE.md": {
@@ -22020,9 +22020,9 @@
     "semantic_hash": ""
   },
   "docs/ops/feature_preservation.json": {
-    "mtime": 1792779902.672778,
-    "seen": 1792779921.6731017,
-    "ast_hash": "49061f523093af73e64358a6c231a429",
+    "mtime": 1792781026.1071932,
+    "seen": 1792781107.3252783,
+    "ast_hash": "0c1aaff82ceea3e77431906fb4b08be3",
     "semantic_hash": ""
   },
   "tool/restore_feature.py": {
@@ -22032,15 +22032,27 @@
     "semantic_hash": ""
   },
   "docs/ops/FEATURE_PRESERVATION.md": {
-    "mtime": 1792779902.7811048,
-    "seen": 1792779921.6731207,
-    "ast_hash": "3314d452b088436757980ea4703070ce",
+    "mtime": 1792781026.1162288,
+    "seen": 1792781107.3252976,
+    "ast_hash": "3ca9e883307ab5f135d55dfca8c5a7a4",
     "semantic_hash": ""
   },
   "docs/ops/worktree_cleanup_20261023.json": {
-    "mtime": 1792779902.7735903,
-    "seen": 1792779921.6731067,
-    "ast_hash": "e2c38d114ffc003f9dddb79eb50cff42",
+    "mtime": 1792781102.6369815,
+    "seen": 1792781107.3252866,
+    "ast_hash": "57710f9483c322e7038eadbf5c04b00f",
+    "semantic_hash": ""
+  },
+  "docs/ops/hanok_legacy_retirement_20261023.json": {
+    "mtime": 1792781026.1050186,
+    "seen": 1792781107.3252833,
+    "ast_hash": "f4a2b73cb20eab66208a85e2a74bd48f",
+    "semantic_hash": ""
+  },
+  "docs/ops/HANOK_LEGACY_RETIREMENT_20261023.md": {
+    "mtime": 1792781026.1142275,
+    "seen": 1792781107.3253002,
+    "ast_hash": "41e5db84b80154ed54c6b02eecb31be6",
     "semantic_hash": ""
   }
 }

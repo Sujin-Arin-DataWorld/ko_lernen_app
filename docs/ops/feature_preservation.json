@@ -125,5 +125,22 @@
     ]
   },
   "allBaseRefsVerified": true,
-  "verifiedPayloadSourceCommit": "ae869134007ff4a30ad140f1da53496210024aa6"
+  "verifiedPayloadSourceCommit": "ae869134007ff4a30ad140f1da53496210024aa6",
+  "legacyHanokV2Archive": {
+    "ref": "refs/heads/archive/hanok-v2-leftovers-20261023",
+    "commit": "00ecce35d3735838e59c947b8fa56e712b9bc866",
+    "variants": [
+      {
+        "name": "free-access-20260905",
+        "baseCommit": "3a4bc9bc936450cf0dc2d78801dd2bde9db5adb1",
+        "baseRef": "preserved-bases/free-access-20260905"
+      },
+      {
+        "name": "scenario-persona-repair",
+        "baseCommit": "c89907e64bd8d3702f185799eb0e25ba7968148d",
+        "baseRef": "preserved-bases/scenario-persona-repair"
+      }
+    ],
+    "remoteVerified": true
+  }
 }
