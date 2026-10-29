@@ -1231,6 +1231,8 @@ class Storage {
   static Future<void> _recoveredBookMutation = Future<void>.value();
   static Future<void> _recoveredWordMutation = Future<void>.value();
   static Future<void> _pronunciationProgressMutation = Future<void>.value();
+  static int _pronunciationProgressMutationCount = 0;
+  static int _pronunciationProgressMutationGeneration = 0;
   static Future<void> _catalogHistoryMutation = Future<void>.value();
   static Future<void>? _contentLearningMutation;
   static String? _contentLearningConfirmedRaw;
@@ -1791,6 +1793,9 @@ class Storage {
     if (_vocabProgressMutationCount > 0) {
       drains.add(_vocabProgressMutation);
     }
+    if (_pronunciationProgressMutationCount > 0) {
+      drains.add(_pronunciationProgressMutation);
+    }
     final grammarPlanMutation = _grammarPlanMutation;
     if (_grammarPlanMutationCount > 0 && grammarPlanMutation != null) {
       drains.add(grammarPlanMutation);
@@ -1849,6 +1854,8 @@ class Storage {
     _recoveredBookMutation = Future<void>.value();
     _recoveredWordMutation = Future<void>.value();
     _pronunciationProgressMutation = Future<void>.value();
+    _pronunciationProgressMutationCount = 0;
+    _pronunciationProgressMutationGeneration++;
     _catalogHistoryMutation = Future<void>.value();
     _catalogHistoryMutationCount = 0;
     _catalogHistoryResetting = 0;
@@ -4733,7 +4740,27 @@ class Storage {
     double score, {
     PreferenceStringStore? preferences,
   }) {
-    final operation = _pronunciationProgressMutation.then((_) async {
+    if (_learningResetCount > 0 || _srsResetDrainPending) {
+      return Future<bool>.error(const StaleLocalDataLifetimeException());
+    }
+    final lifetime = LocalDataLifetime.capture();
+    final identity = cloudWriteSessionController.identityEpoch;
+    final generation = _pronunciationProgressMutationGeneration;
+    final idle = _pronunciationProgressMutationCount == 0;
+    final previous = _pronunciationProgressMutation;
+    _pronunciationProgressMutationCount++;
+    void assertCurrentWrite() {
+      if (_learningResetCount > 0 ||
+          _srsResetDrainPending ||
+          generation != _pronunciationProgressMutationGeneration ||
+          identity != cloudWriteSessionController.identityEpoch) {
+        throw const StaleLocalDataLifetimeException();
+      }
+      lifetime.assertCurrent();
+    }
+
+    Future<bool> write() async {
+      assertCurrentWrite();
       final normalizedId = assessmentId.trim();
       if (normalizedId.isEmpty ||
           normalizedId.length > 128 ||
@@ -4747,6 +4774,7 @@ class Storage {
         throw PreferenceWriteException(_pronunciationProgressKey);
       }
       await store.reload();
+      assertCurrentWrite();
       final current = _readPronunciationProgress(preferences: store);
       if (current.assessmentIds.contains(normalizedId) ||
           current.count >= 100) {
@@ -4761,9 +4789,19 @@ class Storage {
         _pronunciationProgressKey,
         jsonEncode(next.toJson()),
         preferences: store,
+        assertCurrentWrite: assertCurrentWrite,
       );
+      assertCurrentWrite();
       return true;
-    });
+    }
+
+    final operation =
+        (idle ? Future<bool>.microtask(write) : previous.then((_) => write()))
+            .whenComplete(() {
+              if (generation == _pronunciationProgressMutationGeneration) {
+                _pronunciationProgressMutationCount--;
+              }
+            });
     _pronunciationProgressMutation = operation.then<void>(
       (_) {},
       onError: (Object _, StackTrace __) {},
@@ -8392,6 +8430,8 @@ class Storage {
           if (_yeopjeonMutationCount > 0) _yeopjeonMutation,
           if (_srsReviewMutationCount > 0) _srsReviewMutation,
           if (_vocabProgressMutationCount > 0) _vocabProgressMutation,
+          if (_pronunciationProgressMutationCount > 0)
+            _pronunciationProgressMutation,
           if (_grammarPlanMutationCount > 0 && _grammarPlanMutation != null)
             _grammarPlanMutation!,
           if (_confirmedChoiceMutationCount > 0)

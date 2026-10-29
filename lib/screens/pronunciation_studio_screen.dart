@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/pronunciation_phrase.dart';
 import '../services/analytics_service.dart';
+import '../services/account/cloud_write_session.dart';
+import '../services/local_data_lifetime.dart';
 import '../services/learner_level_selection.dart';
 import '../services/pronunciation_assessment_client.dart';
 import '../services/pronunciation_phrase_loader.dart';
@@ -87,6 +89,10 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
   PronunciationAssessmentResult? _result;
   int _operationGeneration = 0;
   bool _disposed = false;
+  late LocalDataLifetimeLease _dataLifetime;
+  late int _identityEpoch;
+  Future<void>? _recorderTransition;
+  Future<void> _ownerCleanup = Future<void>.value();
 
   PronunciationPhrase? get _currentPhrase {
     if (_phrases.isEmpty) {
@@ -98,6 +104,10 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
   @override
   void initState() {
     super.initState();
+    _dataLifetime = LocalDataLifetime.capture();
+    _identityEpoch = cloudWriteSessionController.identityEpoch;
+    LocalDataLifetime.changes.addListener(_onOwnerChanged);
+    cloudWriteSessionController.changes.addListener(_onOwnerChanged);
     _recorder = widget.recorder ?? RecordPronunciationRecorder();
     _playback = widget.playback ?? AudioplayersPronunciationPlayback();
     _gateway =
@@ -107,6 +117,8 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
 
   @override
   void dispose() {
+    LocalDataLifetime.changes.removeListener(_onOwnerChanged);
+    cloudWriteSessionController.changes.removeListener(_onOwnerChanged);
     _disposed = true;
     _operationGeneration++;
     _playbackGeneration++;
@@ -124,6 +136,8 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
       _disposeRecorder(
         wasRecording: wasRecording,
         audioSubscription: audioSubscription,
+        recorderTransition: _recorderTransition,
+        ownerCleanup: _ownerCleanup,
       ),
     );
     unawaited(SoriSpeech.stop().catchError((Object _) {}));
@@ -132,12 +146,87 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
   }
 
   bool _isCurrentOperation(int generation) =>
-      !_disposed && mounted && generation == _operationGeneration;
+      !_disposed &&
+      mounted &&
+      generation == _operationGeneration &&
+      _dataLifetime.isCurrent &&
+      _identityEpoch == cloudWriteSessionController.identityEpoch;
+
+  void _onOwnerChanged() {
+    if (_dataLifetime.isCurrent &&
+        _identityEpoch == cloudWriteSessionController.identityEpoch) {
+      return; // Permission-only changes preserve the same recording owner.
+    }
+    _dataLifetime = LocalDataLifetime.capture();
+    _identityEpoch = cloudWriteSessionController.identityEpoch;
+    final generation = ++_operationGeneration;
+    _playbackGeneration++;
+    _stopTimer?.cancel();
+    _stopTimer = null;
+    final wasRecording = _recording;
+    final recorderTransition = _recorderTransition;
+    final subscription = _audioSubscription;
+    _audioSubscription = null;
+    final done = _audioDone;
+    if (done != null && !done.isCompleted) {
+      done.complete();
+    }
+    _audio.clear();
+    _recordingReferenceText = null;
+    // Drop private audio and assessment ownership synchronously, before a
+    // retained button callback or delayed cloud result can cross accounts.
+    setState(() {
+      _capturedAttempt = null;
+      _journeyCapture = null;
+      _learningAttempt = null;
+      _result = null;
+      _assessmentFailure = null;
+      _notice = null;
+      _recording = false;
+      _preparingRecording = false;
+      _finishingRecording = false;
+      _assessing = false;
+      _replaying = false;
+      _audioTransition = true;
+    });
+    _ownerCleanup = _ownerCleanup.then((_) async {
+      // A start/stop already inside the platform plugin must settle before a
+      // new account can start capture on that same recorder instance.
+      await recorderTransition;
+      try {
+        if (wasRecording) {
+          await _recorder.stop();
+        }
+      } catch (_) {
+        // Retirement still clears the captured stream and playback below.
+      }
+      try {
+        await subscription?.cancel();
+      } catch (_) {}
+      try {
+        await _stopPlayback();
+      } catch (_) {}
+      if (_isCurrentOperation(generation)) {
+        setState(() => _audioTransition = false);
+      }
+    });
+  }
 
   Future<void> _disposeRecorder({
     required bool wasRecording,
     StreamSubscription<Uint8List>? audioSubscription,
+    Future<void>? recorderTransition,
+    Future<void>? ownerCleanup,
   }) async {
+    // A pending native start/stop owns the recorder until its stale branch and
+    // account-retirement cleanup have finished. Disposing sooner can race the
+    // platform operation or leave it calling stop on an already disposed plugin.
+    try {
+      await ownerCleanup;
+    } catch (_) {}
+    try {
+      await recorderTransition;
+    } catch (_) {}
     try {
       if (wasRecording) {
         await _recorder.stop();
@@ -273,6 +362,8 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
     _audio.clear();
     _recordingReferenceText = phrase.ko;
     _captureStreamFailed = false;
+    final startSettled = Completer<void>();
+    _recorderTransition = startSettled.future;
     try {
       final stream = await _recorder.startPcm16Stream();
       if (!_isCurrentOperation(generation)) {
@@ -328,6 +419,11 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
       if (_isCurrentOperation(generation)) {
         _showRecorderFailure();
       }
+    } finally {
+      startSettled.complete();
+      if (identical(_recorderTransition, startSettled.future)) {
+        _recorderTransition = null;
+      }
     }
   }
 
@@ -344,6 +440,8 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
     });
     final subscription = _audioSubscription;
     _audioSubscription = null;
+    final stopSettled = Completer<void>();
+    _recorderTransition = stopSettled.future;
     try {
       final referenceText = _recordingReferenceText;
       if (referenceText == null) {
@@ -387,6 +485,16 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
       _recordingReferenceText = null;
       _showRecorderFailure();
     } finally {
+      // This subscription was detached from the field before stop began. An
+      // ownership reset cannot cancel that field anymore, so finish owns its
+      // cancellation even when the operation became stale during native stop.
+      try {
+        await subscription?.cancel();
+      } catch (_) {}
+      stopSettled.complete();
+      if (identical(_recorderTransition, stopSettled.future)) {
+        _recorderTransition = null;
+      }
       if (_isCurrentOperation(generation)) {
         setState(() => _finishingRecording = false);
       }
