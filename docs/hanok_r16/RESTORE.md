@@ -38,3 +38,5 @@ rtk proxy python -X utf8 tool/hanok_scene/restore_ildu_r16.py C:/dev/r16-restore
 - manifest SHA-256: `93fad17a506fb324abf3f340db03da98c5ec87acb568ce9fecd6562c8468f840`
 
 같은 복원 도구에 위의 commit과 `roof-native`를 전달하면 `sarang/full.blend`, `sarang/stage.blend`, `jung/full.blend`, `jung/stage.blend`를 새 폴더로 복원한다. `roof-source`는 보완 부재·맵, `roof-tools`는 제작·복원 코드다. 공정 진도나 보상은 새로 생성하지 않는다.
+
+`roof-tools`는 제작 당시 실행한 코드의 보존 기록이다. 다른 경로로 복원해 재렌더링할 때는 main의 `tool/hanok_scene/render_ildu_roof_variants.py`를 사용한다. 이 도구는 검증 기록의 과거 절대경로를 입력으로 사용하지 않고 `--package-root` 아래 `roof-variants/native/<sarang|jung>/<full|stage>.blend`를 해시로 확인한다. 같은 패키지의 갤러리는 `family-r16/`, 보완 부재는 `roof-variants/input/`, 검증 JSON은 `roof-variants/<building>-<kind>-verified.json`에 배치한다. 검증 JSON 안의 `native` 문자열은 출처 기록으로 남긴다.

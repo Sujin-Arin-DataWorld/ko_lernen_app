@@ -38,3 +38,5 @@ jobs:
         run: |
           python3 -m compileall -q tool/hanok_scene
           node --input-type=module --check < docs/hanok_r16/estate/viewer.js
+      - name: Reject historical absolute paths when rerendering restored roofs
+        run: python3 -m unittest discover -s tool/hanok_scene -p test_roof_renderer.py
