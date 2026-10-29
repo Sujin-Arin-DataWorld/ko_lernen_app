@@ -1044,7 +1044,8 @@ class COnboardingSetup extends StatelessWidget {
                       for (final p in copy.setup.purposes)
                         SizedBox(
                           width:
-                              bounds.maxWidth < 340 &&
+                              bounds.maxWidth <
+                                      SoriBreakpoints.introAccessibleStack &&
                                   MediaQuery.textScalerOf(context).scale(15) >
                                       22
                               ? bounds.maxWidth
@@ -1495,7 +1496,7 @@ class _COnboardingSoundSceneState
           dimension: 100,
           child: CIntroArt('speaker'),
         );
-        if (bounds.maxWidth < 340 &&
+        if (bounds.maxWidth < SoriBreakpoints.introAccessibleStack &&
             MediaQuery.textScalerOf(context).scale(20) > 28) {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,

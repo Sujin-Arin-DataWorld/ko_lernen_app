@@ -58,6 +58,10 @@ class SoriBreakpoints {
   /// Deck judgment labels become full-width rows at this component width.
   static const double contentActionStack = 320;
 
+  /// Einleitung purpose cards and listening controls stack at enlarged text
+  /// sizes below this content width, preserving the approved phone layout.
+  static const double introAccessibleStack = 340;
+
   /// Very narrow phone content where two comparison panels must stack.
   static const double narrowPhone = 360;
 

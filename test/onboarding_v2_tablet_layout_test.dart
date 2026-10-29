@@ -255,6 +255,14 @@ void main() {
       }
       final taegoElement = tester.element(taegoTile);
       final joyElement = tester.element(joyTile);
+      Finder badgeFor(Finder tile) => find.descendant(
+        of: tile,
+        matching: find.byWidgetPredicate(
+          (widget) => widget is IntroMedal && widget.label == '✓',
+        ),
+      );
+      final taegoBadgeElement = tester.element(badgeFor(taegoTile));
+      final joyBadgeElement = tester.element(badgeFor(joyTile));
       expect(find.byType(CharacterClipPlayer), findsNothing);
       expect(find.byType(OnboardingCharacterMedia), findsNothing);
 
@@ -284,7 +292,10 @@ void main() {
       expect(joySemantics.flagsCollection.isButton, isTrue);
       expect(find.byType(CharacterClipPlayer), findsNothing);
       expect(find.byType(OnboardingCharacterMedia), findsNothing);
-      for (final (tile, selected) in [(taegoTile, false), (joyTile, true)]) {
+      for (final (tile, selected, badgeElement) in [
+        (taegoTile, false, taegoBadgeElement),
+        (joyTile, true, joyBadgeElement),
+      ]) {
         final rim = tester.widget<IntroCompanionPortraitRim>(
           find.descendant(
             of: tile,
@@ -292,16 +303,16 @@ void main() {
           ),
         );
         expect(rim.selected, selected);
-        expect(
-          find.descendant(
-            of: tile,
-            matching: find.byWidgetPredicate(
-              (widget) => widget is IntroMedal && widget.label == '✓',
-            ),
-          ),
-          selected ? findsOneWidget : findsNothing,
+        final badge = badgeFor(tile);
+        expect(badge, findsOneWidget);
+        expect(tester.element(badge), same(badgeElement));
+        final opacity = tester.widget<Opacity>(
+          find.ancestor(of: badge, matching: find.byType(Opacity)).first,
         );
+        // Reduced motion makes the mounted badge's final visibility immediate.
+        expect(opacity.opacity, selected ? 1 : 0);
       }
+      expect(find.bySemanticsLabel('✓'), findsNothing);
       expect(tester.element(taegoTile), same(taegoElement));
       expect(tester.element(joyTile), same(joyElement));
       expect(tester.getRect(taegoTile), beforeTaego);

@@ -153,9 +153,10 @@ void main() {
     // 2026-10-03: +3 — persona portrait, scene introduction and touch motion.
     // 2026-10-04: +5 — tactile reveal and auxiliary catalog/settings entrances.
     // 2026-10-18: +1 — approved Einleitung reference typography/material roles.
-    expect(actual, hasLength(153));
+    // 2026-10-29: +1 — bounded Einleitung contact, selection and scene motion.
+    expect(actual, hasLength(154));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(153));
+    expect(listed, hasLength(154));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

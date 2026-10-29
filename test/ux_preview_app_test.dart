@@ -374,7 +374,7 @@ void main() {
     await tester.pumpWidget(const UxPreviewApp(initialPanelId: '06A'));
     await tester.pump();
 
-    expect(find.text('Alltag & Reisen'), findsWidgets);
+    expect(find.text('Alltag & Reise'), findsWidgets);
     expect(find.textContaining('A1'), findsWidgets);
     expect(find.text('Keine Lernbegleitung'), findsOneWidget);
   });

@@ -1,6 +1,6 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.82
+- **Version:** 1.83
 - **Created:** 2026-08-21
 - **Branch:** `session/textured-ui-runtime-20261002`
 - **Base:** `origin/main@34f1b0ca5`
@@ -24,7 +24,7 @@ display rules are in [`TACTILE_DESIGN_CONTRACT.md`](assets/TACTILE_DESIGN_CONTRA
 No character-selection, learning-reward, speaker-identity or TTS policy is added.
 The four-entry catalog proposal from `16de196e5` is implemented in Flutter with
 device-local, account-owned history; the browser prototype is not bundled.
-The native Sori component inventory below remains the same 144 files.
+The current native Sori component inventory below covers 154 files.
 
 Phase 5C entry and onboarding is merged as PR #199. Its app commit is
 `1dbabd9ea38484706543592fbf731402087a2d7d`, exact PR head is
@@ -210,7 +210,7 @@ current ratchet:
 |---|---:|---|
 | Registered route cases | 86 | Every case is inventoried below |
 | `lib/screens` Dart files | 130 | 2026-10-18 inventory: includes route, embedded, preview, and quest surfaces; 127 public screen-like owners are named below |
-| `lib/widgets/sori` Dart files | 153 | Existing system plus the bounded approved Einleitung reference roles; no parallel general-purpose system permitted |
+| `lib/widgets/sori` Dart files | 154 | Existing system plus the bounded approved Einleitung reference roles and interaction motion; no parallel general-purpose system permitted |
 | Test files | 470 | Includes the permanent full-closeout inventory guard |
 | Raw screen `TextStyle` | 131 lexical; clean-code guard ≤217 | Must not increase; migrate by touched surface |
 | Raw screen `fontSize` | 159; `FontWeight.w800` 28 and `w900` 10 | Reduce through tokens, never raise ratchets |
@@ -381,6 +381,7 @@ use it rather than reproduce it locally.
 | Confirmed cloth reveal | `bojagi_reveal` | One finite cloth-opening animation; actual decoration appears only after a successful service receipt. Reduced motion shows its final state immediately. |
 | Learning companion | `learning_companion` | Compact sitting2 or Joy video grounded to the next activity card, with hidden and large-text layouts. |
 | Approved Einleitung reference | `intro_tokens` | Bounded typography, material and geometry roles for approved Welcome/01-07 and the level sheet only. Latin Roboto/RobotoCondensed/Lora/NotoSerif faces preserve the reviewed reference; Korean learning and mixed-language copy explicitly use bundled NotoSansKR. Existing Sori interface/learning font contracts remain unchanged. Native controls, 48dp targets, reduced motion and a separate enlarged-text layout retain their existing owners; do not export these reference metrics as another app-wide theme. |
+| Einleitung interaction motion | `intro_motion` | Bounded contact and state feedback for the approved Einleitung flow. `IntroPressable` composes the existing `SoriPressable` input owner with a 100ms press, 180ms release and 1.5dp paint offset while retaining layout and hit-test bounds. Selection feedback lasts 180ms; scene feedback lasts 160ms with a 4dp paint offset and disposes the outgoing scene immediately. Reduced motion, disabled tickers and background lifecycle states expose the stable target; keyboard, cancel, haptic, focus, scroll and state ownership remain with the existing native controls and scene subtree. |
 | Scenario personas | `persona_portrait`, `persona_scene_intro`, `persona_card_motion` | Approved original artwork and finite card entrance/hover/focus feedback shared by persona browsing and dialogue; identity, activation, and voice remain owned by existing components. Reduced motion keeps static states readable. |
 |---|---|---|
 | Foundations and frames | `tokens`, `type_scale`, `window_class`, `responsive`, `screen_background`, `standard_page`, `study_frame`, `app_bar`, `adaptive_navigation`, `page_header`, `section_header`, `scroll_if_needed`, `lazy_scroll_reveal`, `motion`, `pressable`, `chrome_row`, `level_filter_bar`, `home_action`, `collapsing_header`, `avatar`, `settings_button` | Retain. Phase 1A removes appbar truncation and strengthens frame/reduced-motion tests. No new token layer. `chrome_row` (W3 §17) adds the single post-app-bar chrome row; it composes `tokens`/`pressable` and introduces no new primitive family. `level_filter_bar` (W3 §17/검수#5) adds the single-row horizontal level filter that replaces the smalltalk/listening raw Wrap/Row level chips; it composes `chip`/`hanok_tokens`/`tokens` and introduces no new primitive family. `home_action` (W3 §4.16) adds the single AppBar-leading home escape hatch (`pushNamedAndRemoveUntil('/', …)` with an optional round-active leave-confirmation sheet); it composes `button`/`pressable`/`sheet`/`tokens` and introduces no new primitive family. `collapsing_header` (W-E §E3, 2026-09-03) adds the single pinned/collapsing `SliverPersistentHeader` wrapper used by Sori Stage catalog-style screens; it composes `page_header`/`tokens` (via `SoriMotion`) and introduces no new primitive family. `avatar` (W-G §G3, 2026-09-03) adds the single 40dp profile-entry circle (initials or `Mascot.tiger` fallback) that replaces the raw profile `IconButton` in every Sori Stage root header; it composes `pressable`/`mascot`/`tokens` and introduces no new primitive family. |
