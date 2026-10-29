@@ -5,11 +5,31 @@ printing speech audio, Korean reference text, account identifiers, or secret
 values. It does not authorize a deploy. Run deployment and physical-device
 checks only in their separately approved release step.
 
-## Beta cost policy
+## Current release policy (2026-10-29)
 
-Beta builds default to local recording practice. The Dart define
-`ENABLE_FREE_PRONUNCIATION_ASSESSMENT` defaults to `false`. It controls only
-whether scored assessment is offered; it does not change content access or the
+Cloud pronunciation assessment is disabled until subscription launch. Local
+recording, replay, comparison and existing model-voice listening remain available.
+There is no subscription purchase flow or server entitlement enforcement yet;
+Azure billing reactivation does not authorize enabling assessment.
+
+The production client release constant and server release policy are both false.
+The legacy `ENABLE_FREE_PRONUNCIATION_ASSESSMENT` build define cannot enable a
+production client, and even `PRONUNCIATION_ASSESSMENT_MODE=azure_f0` cannot enable
+the server while its release lock is false. Keep the repository variable false
+and the deployed server mode disabled. No request may reach Auth, Firestore,
+Secret Manager value access or Azure through the disabled handler. Old clients
+are also blocked at that server boundary.
+
+To launch this feature later requires a separately approved implementation of
+server-owned subscriber entitlements, cost controls, user consent, regression
+checks and release approval. The historical F0 procedure below documents the
+retained provider implementation; it is not permission to re-enable free beta.
+
+## Historical beta cost policy
+
+Beta builds used the Dart define `ENABLE_FREE_PRONUNCIATION_ASSESSMENT` to
+control whether scored assessment was offered. That define is now ignored.
+The retained provider infrastructure does not change content access or the
 common server quota. Stopping a recording does not upload it. Learners can replay
 their recording on the device and continue without a scored result. Temporary
 recording playback files, where required by the platform, are separate from
@@ -26,7 +46,7 @@ is never seen at deploy time; a disabled deployment binds the secret but
 rejects every request before reading it. Redeploy when changing this server
 mode. There is no paid fallback.
 
-Free assessment must remain disabled until all of the following are verified:
+Historical F0 prerequisites (insufficient to override the current release lock):
 
 1. The Azure resource associated with `AZURE_SPEECH_KEY` is a dedicated
    `SpeechServices` resource with SKU **F0** in **germanywestcentral**. Verify

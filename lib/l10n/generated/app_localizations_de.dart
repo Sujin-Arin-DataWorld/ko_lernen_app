@@ -8623,11 +8623,12 @@ class AppL10nDe extends AppL10n {
       'Höre zuerst zu. Nimm bis zu 10 Sekunden auf und vergleiche deine Stimme mit dem Beispiel.';
 
   @override
-  String get pronunciationScoringSoonTitle => 'Bewertung kommt bald';
+  String get pronunciationScoringSoonTitle =>
+      'Automatische Bewertung ist deaktiviert';
 
   @override
   String get pronunciationScoringSoonBody =>
-      'Die automatische Aussprache-Bewertung ist noch nicht freigeschaltet. Anhören, Aufnehmen und Vergleichen funktionieren schon jetzt.';
+      'Du kannst weiterhin zuhören, deine Stimme aufnehmen und die Aufnahmen selbst vergleichen.';
 
   @override
   String get pronunciationPhrasesLoading =>

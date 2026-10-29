@@ -12,6 +12,7 @@ const {PronunciationRequestError, pronunciationProviderBreaker,
 } = require("./pronunciation_request_guard");
 
 const {freeTierAssessmentEnabled} = require("./pronunciation_free_tier");
+const {pronunciationAssessmentReleaseEnabled} = require("./assessment_release_policy");
 
 initializeApp();
 const AZURE_SPEECH_KEY = defineSecret("AZURE_SPEECH_KEY");
@@ -75,7 +76,7 @@ exports.assessPronunciation = onCall({
   let stage = "mode";
   let providerHttpStatus;
   try {
-    if (!freeTierAssessmentEnabled(process.env)) {
+    if (!pronunciationAssessmentReleaseEnabled || !freeTierAssessmentEnabled(process.env)) {
       throw unavailable("disabled");
     }
     const validated = validatePronunciationRequest(request);

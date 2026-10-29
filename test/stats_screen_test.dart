@@ -128,6 +128,34 @@ void main() {
       ],
     ),
     (
+      name: 'DST fall-back Sunday keeps Monday through Sunday calendar labels',
+      now: DateTime(2026, 10, 25, 23, 30),
+      streak: 7,
+      labels: const [
+        'Monday: completed',
+        'Tuesday: completed',
+        'Wednesday: completed',
+        'Thursday: completed',
+        'Friday: completed',
+        'Saturday: completed',
+        'Sunday: today, completed',
+      ],
+    ),
+    (
+      name: 'UTC Sunday keeps calendar labels independent of local DST',
+      now: DateTime.utc(2026, 10, 25, 23, 30),
+      streak: 7,
+      labels: const [
+        'Monday: completed',
+        'Tuesday: completed',
+        'Wednesday: completed',
+        'Thursday: completed',
+        'Friday: completed',
+        'Saturday: completed',
+        'Sunday: today, completed',
+      ],
+    ),
+    (
       name: 'Sunday includes the completed current week',
       now: DateTime(2026, 11, 1),
       streak: 7,
@@ -155,6 +183,7 @@ void main() {
           ),
         );
         await tester.pump();
+        expect(find.text('Mo'), findsOneWidget);
         await tester.ensureVisible(find.text('Mo'));
         await tester.pump();
 

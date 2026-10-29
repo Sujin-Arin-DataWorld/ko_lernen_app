@@ -4617,7 +4617,14 @@ class Storage {
     if (last.isNotEmpty) {
       final lastDate = DateTime.tryParse(last);
       if (lastDate != null) {
-        final diff = DateTime.parse(today).difference(lastDate).inDays;
+        // Compare calendar dates: a local day can be 23 or 25 hours at DST.
+        final todayDate = DateTime.parse(today);
+        final diff =
+            DateTime.utc(todayDate.year, todayDate.month, todayDate.day)
+                .difference(
+                  DateTime.utc(lastDate.year, lastDate.month, lastDate.day),
+                )
+                .inDays;
         if (diff == 1) {
           newStreak = streakDays + 1;
         } else if (diff == 2 && freezes > 0) {
