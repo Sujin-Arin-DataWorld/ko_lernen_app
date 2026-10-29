@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
-import '../../widgets/sori/pressable.dart';
+import '../../widgets/sori/intro_motion.dart';
 import 'c_intro_art.dart';
 import 'onboarding_v2_presentation.dart';
 
@@ -82,9 +82,10 @@ class _ReferenceCompanionCard extends StatelessWidget {
         key: ValueKey('onboarding-v2-companion-semantics-${companion.id}'),
         button: true,
         selected: selected,
+        inMutuallyExclusiveGroup: true,
         label: '${companion.name}. $role',
         onTap: onTap,
-        child: SoriPressable(
+        child: IntroPressable(
           key: ValueKey('onboarding-v2-companion-${companion.id}'),
           onTap: onTap,
           pressScale: .995,
@@ -133,12 +134,14 @@ class _ReferenceCompanionCard extends StatelessWidget {
                       scale: s,
                     ),
                   ),
-                  if (selected)
-                    Positioned(
-                      left: (taego ? 11 : 132) * s,
-                      top: 239 * s,
+                  Positioned(
+                    left: (taego ? 11 : 132) * s,
+                    top: 239 * s,
+                    child: IntroSelectionMotion(
+                      selected: selected,
                       child: IntroMedal('✓', size: 46 * s),
                     ),
+                  ),
                   Positioned(
                     left: 3 * s,
                     right: 3 * s,
@@ -165,7 +168,7 @@ class _ReferenceCompanionCard extends StatelessWidget {
                       line: 26,
                       scale: s,
                       center: true,
-                      color: IntroPalette.blue,
+                      color: IntroPalette.mutedInk,
                     ),
                   ),
                 ],

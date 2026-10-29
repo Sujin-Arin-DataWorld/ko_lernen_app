@@ -5,7 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/widgets/sori/intro_tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
-/// 기존 인터페이스/학습 폰트의 라틴·한글과 Einleitung의 라틴 역할을 검사한다.
+/// 인터페이스/학습 폰트와 Einleitung의 라틴·한글 표시 서체를 검사한다.
 ///
 /// 2026-08-19 발견: `PretendardStd-*.otf` 5개가 라틴 전용 서브셋이라 한글 글리프가
 /// 0개였고, 한국어 전부가 OS 폴백 폰트로 그려지고 있었다. pubspec 주석은
@@ -26,6 +26,11 @@ const _introLatinFaces = [
   'assets/fonts/NotoSerif/NotoSerif-Variable.ttf',
 ];
 
+const _introKoreanDisplayFaces = [
+  'assets/fonts/MaruBuri/MaruBuri-Regular.otf',
+  'assets/fonts/MaruBuri/MaruBuri-SemiBold.otf',
+];
+
 void main() {
   test(
     'interface lettering is distinct from Korean, German and English learning copy',
@@ -44,7 +49,14 @@ void main() {
     final assets = RegExp(
       r'asset:\s*(assets/fonts/\S+\.(?:otf|ttf))',
     ).allMatches(pubspec).map((m) => m.group(1)!).toList();
-    expect(assets, unorderedEquals([..._koreanFaces, ..._introLatinFaces]));
+    expect(
+      assets,
+      unorderedEquals([
+        ..._koreanFaces,
+        ..._introLatinFaces,
+        ..._introKoreanDisplayFaces,
+      ]),
+    );
     const requiredLatin = <String, int>{
       'A': 0x41,
       'a': 0x61,
@@ -71,10 +83,13 @@ void main() {
     }
   });
 
-  test('original interface and learning faces retain complete Korean', () {
-    for (final asset in _koreanFaces) {
+  test('learning and introduction display faces retain complete Korean', () {
+    for (final asset in [..._koreanFaces, ..._introKoreanDisplayFaces]) {
       final cps = _cmapCodepoints(File(asset).readAsBytesSync());
-      expect(cps, containsAll([0x3131, 0x314F, 0xAC00, 0xD7A3]));
+      expect(
+        cps,
+        containsAll([0x3131, 0x314F, 0xAC00, 0xD7A3, ...'안녕하세요'.runes]),
+      );
       final hangul = cps.where((c) => c >= 0xAC00 && c <= 0xD7A3).length;
       expect(hangul, 11172, reason: '$asset 한글 음절 $hangul/11172');
     }
@@ -86,6 +101,7 @@ void main() {
     expect(IntroFonts.serif, 'Lora');
     expect(IntroFonts.brand, 'NotoSerif');
     expect(IntroFonts.korean, SoriFonts.korean);
+    expect(IntroFonts.koreanDisplay, 'MaruBuri');
 
     final koreanStyles = {
       'sound glyph': IntroTypography.soundGlyph(44),
@@ -93,8 +109,20 @@ void main() {
       'book Korean': IntroTypography.bookInk(18, 24, true, false),
     };
     for (final entry in koreanStyles.entries) {
-      expect(entry.value.fontFamily, 'NotoSansKR', reason: entry.key);
+      expect(
+        entry.value.fontFamily,
+        IntroFonts.koreanDisplay,
+        reason: entry.key,
+      );
     }
+    expect(IntroTypography.soundGlyph(44).fontWeight?.value, 600);
+    expect(IntroTypography.koreanSample.fontWeight?.value, 400);
+    expect(IntroTypography.bookInk(18, 24, true, false).fontWeight?.value, 600);
+    expect(
+      IntroTypography.bookInk(18, 24, true, false).color,
+      IntroPalette.calligraphyInk,
+    );
+    expect(IntroPalette.calligraphyInk.toARGB32(), 0xFF071C21);
     final mixedStyles = {
       'setup': IntroTypography.setupWords(18, 1, false, IntroPalette.ink),
       'companion': IntroTypography.companionWords(

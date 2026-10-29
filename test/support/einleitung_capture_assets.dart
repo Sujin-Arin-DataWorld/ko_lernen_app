@@ -6,7 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 bool _fontsLoaded = false;
 
-/// The four introduction faces plus the two existing main-branch text families.
+/// The introduction Latin and Korean display faces plus the main text families.
 /// Does not depend on gallery fonts or the broader C integration test helpers.
 Future<void> loadEinleitungFonts() async {
   if (_fontsLoaded) {
@@ -19,6 +19,10 @@ Future<void> loadEinleitungFonts() async {
     ],
     'Lora': ['assets/fonts/Lora/Lora-Variable.ttf'],
     'NotoSerif': ['assets/fonts/NotoSerif/NotoSerif-Variable.ttf'],
+    'MaruBuri': [
+      'assets/fonts/MaruBuri/MaruBuri-Regular.otf',
+      'assets/fonts/MaruBuri/MaruBuri-SemiBold.otf',
+    ],
     'NotoSansKR': ['assets/fonts/NotoSansKR/NotoSansKR-Variable.ttf'],
     'Paperlogy': [
       'assets/fonts/Paperlogy/Paperlogy-Regular.ttf',

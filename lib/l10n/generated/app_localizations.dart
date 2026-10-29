@@ -16449,7 +16449,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2PurposeLifeTravelTitle.
   ///
   /// In de, this message translates to:
-  /// **'Alltag & Reisen'**
+  /// **'Alltag & Reise'**
   String get onboardingV2PurposeLifeTravelTitle;
 
   /// No description provided for @onboardingV2PurposeLifeTravelBody.

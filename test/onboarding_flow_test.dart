@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -21,20 +20,12 @@ import 'package:ko_lernen_app/services/course_progress_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 
-import 'support/real_fonts.dart';
+import 'support/einleitung_capture_assets.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   setUpAll(() async {
-    await loadSoriRealFonts(materialIcons: true);
-    // Exercise fixed reference controls with their production font metrics.
-    for (final family in ['Roboto', 'RobotoCondensed', 'Lora', 'NotoSerif']) {
-      final loader = FontLoader(family);
-      loader.addFont(
-        rootBundle.load('assets/fonts/$family/$family-Variable.ttf'),
-      );
-      await loader.load();
-    }
+    await loadEinleitungFonts();
   });
   setUp(() async {
     Storage.resetForTesting();

@@ -1,7 +1,7 @@
 {
   "generatedAt": "2026-10-18",
   "referenceFolder": "C:/Users/vjinn/.codex/generated_images/einleitung_setting_rats확정",
-  "status": "Reviewed whole PNG assets used by the final Figma and Flutter implementation; see einleitung_verification.json for delivery gates",
+  "status": "Reviewed whole PNGs retained;2026-10-29 user-authorized exact original extractions INCLUDING text recorded per asset. Prior generated assets retained for native/English/adaptive layouts. Figma/runtime verification tracked separately.",
   "files": [
     {
       "name": "intro-jade-surface",
@@ -149,11 +149,11 @@
     },
     {
       "name": "intro-cloud-mark",
-      "source": "C:/Users/vjinn/.codex/generated_images/01a14d68-68e9-78c3-8e50-146dae12bb6f/exec-4306bdda-60ca-4e29-a737-d1e869d3f171.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a14d68-68e9-78c3-8e50-146dae12bb6f\\exec-d84fefd7-5e20-4733-8c02-fe24e9b76956.png",
       "asset": "assets/illustrations/einleitung_generated/intro-cloud-mark.png",
-      "generation": "image_gen built-in; new whole portrait or mark; reference-guided; no screenshot crop",
-      "sha256": "d85fc91299b03696ff9f285e5d6d9f2bc9a35470fd0f84d524e41a4826ce5e14",
-      "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+      "sha256": "c728baced6dd3bff2729bf2a28dbf62e3954ad91a04594e04dc923fbd530f6a5",
+      "generation": "User-provided original whole PNG; no crop, resize, recolor or regeneration",
+      "designReview": "2026-10-29 exact original and optical geometry verified; Figma first, runtime review pending"
     },
     {
       "name": "intro-welcome-scene",
@@ -258,6 +258,118 @@
       "sha256": "1fca7f57aafc7799d9055a2be9dc5246063f51f10ee92aa6ec0c88920421d97c",
       "generation": "User-provided original PNG",
       "designReview": "Designer scoped PASS; exact whole-file source SHA verified"
+    },
+    {
+      "name": "intro-chevron",
+      "source": "C:\\dev\\hangulsori\\_codex_artifacts\\einleitung-main-integration-20261018\\polish-20261029\\user-chevron-original.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-chevron.png",
+      "sha256": "d3a29d5361ecabfb2afd1a81a9c4b20e9cc28bf6b4d4f31807c3cfa7d347baf4",
+      "generation": "User-provided original whole PNG; no crop, resize, recolor or regeneration",
+      "designReview": "2026-10-29 exact original and optical geometry verified; Figma first, runtime review pending"
+    },
+    {
+      "name": "intro-scholar-original-de-hero",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\einleitung5.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-scholar-original-de-hero.png",
+      "sha256": "4d87ea16ae81851651a953181d109f8787eca3009596bf50c0f8b58f10214dcc",
+      "generation": "None; explicit user-authorized lossless original-image extraction including text on2026-10-29.",
+      "provenanceKind": "user_authorized_original_extraction",
+      "language": "de",
+      "containsOriginalText": true,
+      "sourceSha256": "285599737eb0a7bf309748c71987eac6e4c4ad0089ee02cb79872c6cf388f783",
+      "sourceCanvasPx": [
+        853,
+        1844
+      ],
+      "cropRectPx": [
+        54,
+        278,
+        799,
+        1289
+      ],
+      "cropRectConvention": "left/top inclusive; right/bottom exclusive",
+      "canvasPx": [
+        745,
+        1011
+      ],
+      "extraction": "Pillow Image.crop integer rectangle; lossless PNG encoding; no resize, resampling, color conversion, synthesis, cleanup, or text replacement",
+      "pixelEqualityVerified": true,
+      "pixelSha256": "2a0b55a490167858ca8ab06f8ca4cb34c435533d7e4034f6ab6cffdaa8a6d8e9",
+      "authorizationDate": "2026-10-29",
+      "designReview": "2026-10-29: exact source pixel equality verified; imported unchanged into Figma; native and Figma hero geometry/content reviewed with no duplicate overlays. Renderer sampling differences remain; no global pixel-parity claim."
+    },
+    {
+      "name": "intro-hanok-original-de-hero",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\einleitung6.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-hanok-original-de-hero.png",
+      "sha256": "b18933bb3c404dd1aabffeced0c0db7ec988b4ad4e6f956dae47fcd70d5f39a7",
+      "generation": "None; explicit user-authorized lossless original-image extraction including text on2026-10-29.",
+      "provenanceKind": "user_authorized_original_extraction",
+      "language": "de",
+      "containsOriginalText": true,
+      "sourceSha256": "d7ac0e8deb8039e6d59017e7b0c2c15a82d3b3d5cb523f145479735b8df5de61",
+      "sourceCanvasPx": [
+        853,
+        1844
+      ],
+      "cropRectPx": [
+        54,
+        278,
+        799,
+        1255
+      ],
+      "cropRectConvention": "left/top inclusive; right/bottom exclusive",
+      "canvasPx": [
+        745,
+        977
+      ],
+      "extraction": "Pillow Image.crop integer rectangle; lossless PNG encoding; no resize, resampling, color conversion, synthesis, cleanup, or text replacement",
+      "pixelEqualityVerified": true,
+      "pixelSha256": "3fc3ce1693b4d26acdd0d1b0864c940989862e3002035e7172bc3aa05eccf5b0",
+      "authorizationDate": "2026-10-29",
+      "designReview": "2026-10-29: exact source pixel equality verified; imported unchanged into Figma; native and Figma hero geometry/content reviewed with no duplicate overlays. Renderer sampling differences remain; no global pixel-parity claim."
+    },
+    {
+      "name": "intro-sound-original-de-hero",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\einleitung3.png",
+      "asset": "assets/illustrations/einleitung_generated/intro-sound-original-de-hero.png",
+      "sha256": "8061c95c316924e6a86092746948be13ae466bf6d171360112dcc907ac7cdf64",
+      "generation": "None; explicit user-authorized lossless original-image extraction including text on2026-10-29.",
+      "provenanceKind": "user_authorized_original_extraction",
+      "language": "de",
+      "containsOriginalText": true,
+      "sourceSha256": "dabe8e033784f6239960dd6d216a1cd40c074e8aeaf876dd0d9c28f446af056f",
+      "sourceCanvasPx": [
+        853,
+        1844
+      ],
+      "cropRectPx": [
+        54,
+        278,
+        799,
+        1340
+      ],
+      "cropRectConvention": "left/top inclusive; right/bottom exclusive",
+      "canvasPx": [
+        745,
+        1062
+      ],
+      "extraction": "Pillow Image.crop integer rectangle; lossless PNG encoding; no resize, resampling, color conversion, synthesis, cleanup, or text replacement",
+      "pixelEqualityVerified": true,
+      "pixelSha256": "6aa0c274d8d93dd8384405fb4e3d6f870753ecf84f92d561b6993567a48a6beb",
+      "authorizationDate": "2026-10-29",
+      "designReview": "2026-10-29: exact source pixel equality verified; imported unchanged into Figma; native and Figma hero geometry/content reviewed with no duplicate overlays. Renderer sampling differences remain; no global pixel-parity claim."
     }
-  ]
+  ],
+  "originalExtractionAuthorization": {
+    "date": "2026-10-29",
+    "scope": [
+      "03/07",
+      "05/07",
+      "06/07"
+    ],
+    "kind": "user_authorized_original_extraction",
+    "instruction": "Use exact original image pixels INCLUDING text instead of font matching or image generation. This supersedes prior no-crop instructions only for explicitly requested hero extractions.",
+    "notGenerated": true
+  }
 }

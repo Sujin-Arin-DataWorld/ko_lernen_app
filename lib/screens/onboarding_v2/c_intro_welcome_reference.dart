@@ -3,7 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
-import '../../widgets/sori/pressable.dart';
+import '../../widgets/sori/intro_motion.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/type_scale.dart';
 import '../../widgets/sori/intro_tokens.dart';
@@ -249,10 +249,10 @@ class CIntroWelcomeReference extends StatelessWidget {
       label: t.welcomeStart,
       onTap: action,
       child: ExcludeSemantics(
-        child: SoriPressable(
+        child: IntroPressable(
           onTap: action,
-          pressScale: .985,
-          surfaceDepth: 1.5,
+          pressScale: .995,
+          surfaceDepth: 0,
           surfaceRadius: 25 * scale,
           surfaceEdgeColor: const Color(0xff3c2a16),
           child: Container(

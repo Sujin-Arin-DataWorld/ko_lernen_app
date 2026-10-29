@@ -4,8 +4,8 @@ import '../../models/learner_level.dart';
 import '../../widgets/sori/intro_tokens.dart';
 export '../../widgets/sori/intro_tokens.dart';
 
-/// Whole, newly generated assets. Provenance is in
-/// tool/einleitung_generated_assets.json. No screenshot atlas or source rects.
+/// Complete assets with provenance in tool/einleitung_generated_assets.json.
+/// Includes user-authorized original 03/05/06 artwork with its lettering intact.
 class CIntroArt extends StatelessWidget {
   const CIntroArt(this.name, {super.key, this.fit = BoxFit.contain});
   final String name;
@@ -164,38 +164,21 @@ class IntroAssetBody extends StatelessWidget {
 class IntroChevron extends StatelessWidget {
   const IntroChevron({super.key});
   @override
-  Widget build(BuildContext context) =>
-      const CustomPaint(size: Size(10, 16), painter: _IntroChevronPainter());
-}
-
-class _IntroChevronPainter extends CustomPainter {
-  const _IntroChevronPainter();
-  @override
-  void paint(Canvas canvas, Size size) {
-    final path = Path()
-      ..moveTo(1, 1)
-      ..lineTo(8, 8)
-      ..lineTo(1, 15);
-    canvas.drawPath(
-      path.shift(const Offset(1, 0)),
-      Paint()
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 2.5
-        ..strokeCap = StrokeCap.round
-        ..strokeJoin = StrokeJoin.round
-        ..color = const Color(0xffffe8ac),
-    );
-    canvas.drawPath(
-      path,
-      Paint()
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 2
-        ..strokeCap = StrokeCap.round
-        ..strokeJoin = StrokeJoin.round
-        ..color = IntroPalette.ink,
-    );
-  }
-
-  @override
-  bool shouldRepaint(_IntroChevronPainter oldDelegate) => false;
+  Widget build(BuildContext context) => const ExcludeSemantics(
+    child: SizedBox(
+      width: 12,
+      height: 19,
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          IntroAssetBody(
+            name: 'chevron',
+            canvas: Size(1254, 1254),
+            body: Rect.fromLTRB(402, 251, 884, 1012),
+            visibleWidth: 12,
+          ),
+        ],
+      ),
+    ),
+  );
 }

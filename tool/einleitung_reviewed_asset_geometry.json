@@ -276,5 +276,158 @@
   "jadeGlaze": {
     "color": "#094838",
     "opacity": 0.6
+  },
+  "cloud": {
+    "canvas": [
+      1254,
+      1254
+    ],
+    "body": [
+      129,
+      349,
+      1182,
+      884
+    ],
+    "wholeFrame": [
+      14,
+      43,
+      55,
+      55
+    ],
+    "alphaThreshold": 128
+  },
+  "chevron": {
+    "canvas": [
+      1254,
+      1254
+    ],
+    "body": [
+      402,
+      251,
+      884,
+      1012
+    ],
+    "visibleWidth": 12,
+    "visibleHeight": 18.946058091286307,
+    "ctaRight": 24,
+    "ctaTop": 16.5,
+    "alphaThreshold": 128
+  },
+  "originalExtractedHeroes": {
+    "05": {
+      "name": "intro-scholar-original-de-hero",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\einleitung5.png",
+      "sourceSha256": "285599737eb0a7bf309748c71987eac6e4c4ad0089ee02cb79872c6cf388f783",
+      "sourceCanvasPx": [
+        853,
+        1844
+      ],
+      "asset": "assets/illustrations/einleitung_generated/intro-scholar-original-de-hero.png",
+      "sha256": "4d87ea16ae81851651a953181d109f8787eca3009596bf50c0f8b58f10214dcc",
+      "canvasPx": [
+        745,
+        1011
+      ],
+      "cropRectPx": [
+        54,
+        278,
+        799,
+        1289
+      ],
+      "cropRectConvention": "left/top inclusive; right/bottom exclusive",
+      "referenceFrame402": [
+        0,
+        122,
+        402,
+        545.5328859060403
+      ],
+      "provenanceKind": "user_authorized_original_extraction",
+      "authorizationDate": "2026-10-29",
+      "pixelEqualityVerified": true,
+      "layoutScope": "German reference layout only; preserve existing native/English/adaptive paths",
+      "referenceFrameConvention": "x,y,width,height after safe top padding; whole extracted PNG drawn with uniform scaling"
+    },
+    "06": {
+      "name": "intro-hanok-original-de-hero",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\einleitung6.png",
+      "sourceSha256": "d7ac0e8deb8039e6d59017e7b0c2c15a82d3b3d5cb523f145479735b8df5de61",
+      "sourceCanvasPx": [
+        853,
+        1844
+      ],
+      "asset": "assets/illustrations/einleitung_generated/intro-hanok-original-de-hero.png",
+      "sha256": "b18933bb3c404dd1aabffeced0c0db7ec988b4ad4e6f956dae47fcd70d5f39a7",
+      "canvasPx": [
+        745,
+        977
+      ],
+      "cropRectPx": [
+        54,
+        278,
+        799,
+        1255
+      ],
+      "cropRectConvention": "left/top inclusive; right/bottom exclusive",
+      "referenceFrame402": [
+        0,
+        122,
+        402,
+        527.186577181208
+      ],
+      "provenanceKind": "user_authorized_original_extraction",
+      "authorizationDate": "2026-10-29",
+      "pixelEqualityVerified": true,
+      "layoutScope": "German reference layout only; preserve existing native/English/adaptive paths",
+      "referenceFrameConvention": "x,y,width,height after safe top padding; whole extracted PNG drawn with uniform scaling"
+    },
+    "03": {
+      "name": "intro-sound-original-de-hero",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\einleitung3.png",
+      "sourceSha256": "dabe8e033784f6239960dd6d216a1cd40c074e8aeaf876dd0d9c28f446af056f",
+      "sourceCanvasPx": [
+        853,
+        1844
+      ],
+      "asset": "assets/illustrations/einleitung_generated/intro-sound-original-de-hero.png",
+      "sha256": "8061c95c316924e6a86092746948be13ae466bf6d171360112dcc907ac7cdf64",
+      "canvasPx": [
+        745,
+        1062
+      ],
+      "cropRectPx": [
+        54,
+        278,
+        799,
+        1340
+      ],
+      "cropRectConvention": "left/top inclusive; right/bottom exclusive",
+      "referenceFrame402": [
+        0,
+        122,
+        402,
+        573.0523489932885
+      ],
+      "provenanceKind": "user_authorized_original_extraction",
+      "authorizationDate": "2026-10-29",
+      "pixelEqualityVerified": true,
+      "referenceHotspots": {
+        "listen": [
+          180.2255,
+          610.874,
+          192.097,
+          63.672
+        ],
+        "speaker": [
+          30.217,
+          568.787,
+          140.295,
+          124.107
+        ]
+      },
+      "referenceContentTop": 706,
+      "storyIndex": 1,
+      "layoutScope": "German reference layout only; preserve existing native/English/adaptive paths",
+      "referenceFrameConvention": "x,y,width,height after safe top padding; whole extracted PNG drawn with uniform scaling"
+    }
   }
 }

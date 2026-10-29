@@ -251,6 +251,12 @@ flutter:
     - family: NotoSerif
       fonts:
         - asset: assets/fonts/NotoSerif/NotoSerif-Variable.ttf
+    - family: MaruBuri
+      fonts:
+        - asset: assets/fonts/MaruBuri/MaruBuri-Regular.otf
+          weight: 400
+        - asset: assets/fonts/MaruBuri/MaruBuri-SemiBold.otf
+          weight: 600
     - family: Paperlogy
       fonts:
         - asset: assets/fonts/Paperlogy/Paperlogy-Regular.ttf

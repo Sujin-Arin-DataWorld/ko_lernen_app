@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../features/onboarding_v2/curriculum_evidence_projector.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/learner_level.dart';
-import '../../widgets/sori/pressable.dart';
+import '../../widgets/sori/intro_motion.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/sheet.dart';
 import '../../widgets/sori/toast.dart';
@@ -94,78 +94,15 @@ class COnboardingFrame extends StatelessWidget {
                     : reference
                     ? 934 - ctaTop - 58 - backGap - 48
                     : 20.0;
-                return Stack(
-                  children: [
-                    const Positioned.fill(
-                      child: ColoredBox(color: IntroPalette.paper),
-                    ),
-                    Positioned(
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      height: w,
-                      child: const CIntroArt('jade-surface', fit: BoxFit.cover),
-                    ),
-                    Positioned(
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      height: w,
-                      child: const ColoredBox(color: Color(0x99094838)),
-                    ),
-                    Positioned(
-                      top: math.min(
-                        // Layout below stays stable when the selected option changes.
-                        (step == 1
-                                    ? 307
-                                    : step == 7
-                                    ? 230.075943
-                                    : 307) *
-                                w /
-                                402 -
-                            0,
-                        bounds.maxHeight - 120,
+                return _IntroScrollSurface(
+                  key: bodyKey,
+                  backgroundBuilder: (scrollOffset) => Stack(
+                    children: [
+                      const Positioned.fill(
+                        child: ColoredBox(color: IntroPalette.paper),
                       ),
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.vertical(
-                          top: Radius.circular(
-                            step == 1 ? IntroGeometry.paper : 0,
-                          ),
-                        ),
-                        child: ColoredBox(
-                          color: IntroPalette.paper,
-                          child: Stack(
-                            children: [
-                              Positioned(
-                                bottom: 0,
-                                left: 0,
-                                right: 0,
-                                height:
-                                    (step == 7 ? 703.924057 : 627) * w / 402,
-                                child: const CIntroArt(
-                                  'paper-footer',
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    if (step == 7)
                       Positioned(
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        height: 526 * w / 402,
-                        child: const ColoredBox(color: Color(0xff06523e)),
-                      ),
-                    if (step == 7)
-                      Positioned(
-                        top: 0,
+                        top: -scrollOffset,
                         left: 0,
                         right: 0,
                         height: w,
@@ -174,103 +111,175 @@ class COnboardingFrame extends StatelessWidget {
                           fit: BoxFit.cover,
                         ),
                       ),
-                    if (step == 7)
                       Positioned(
-                        top: 0,
+                        top: -scrollOffset,
                         left: 0,
                         right: 0,
                         height: w,
                         child: const ColoredBox(color: Color(0x99094838)),
                       ),
-                    Column(
-                      children: [
-                        Expanded(
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                              top: MediaQuery.paddingOf(context).top,
-                            ),
-                            child: SingleChildScrollView(
-                              key: bodyKey,
-                              child: Stack(
-                                children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.stretch,
-                                    children: [hero, body],
-                                  ),
-                                  if (step == 7 && reference)
-                                    Positioned(
-                                      left: 291 * w / 402,
-                                      top: 105 * w / 402,
-                                      width: 215 * w / 402,
-                                      height: 102.527534 * w / 402,
-                                      child: IgnorePointer(
-                                        child: Transform(
-                                          transform: Matrix4.identity()
-                                            ..setEntry(0, 0, 0)
-                                            ..setEntry(1, 1, 0)
-                                            ..setEntry(0, 1, 1)
-                                            ..setEntry(1, 0, 1),
-                                          alignment: Alignment.topLeft,
-                                          child: const CIntroArt('plum-branch'),
-                                        ),
-                                      ),
-                                    ),
-                                  Positioned(
-                                    top: 43,
-                                    left: 18,
-                                    right: 18,
-                                    child: _IntroHeader(
-                                      step: step,
-                                      progress: progress,
-                                    ),
-                                  ),
-                                ],
-                              ),
+                      Positioned(
+                        key: const ValueKey('c-onboarding-paper-surface'),
+                        top:
+                            math.min(
+                              // Layout below stays stable when the selected option changes.
+                              (step == 1
+                                          ? 307
+                                          : step == 7
+                                          ? 230.075943
+                                          : 307) *
+                                      w /
+                                      402 -
+                                  0,
+                              bounds.maxHeight - 120,
+                            ) -
+                            scrollOffset,
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(
+                              step == 1 ? IntroGeometry.paper : 0,
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(
-                            16,
-                            step == 2 && reference ? 4 : 12,
-                            16,
-                            math.max(
-                              footerBottom,
-                              MediaQuery.paddingOf(context).bottom,
-                            ),
-                          ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              IntroAction(
-                                key: continueKey,
-                                label: continueLabel,
-                                onTap: onContinue,
-                                stableLabelCandidates: continueLabelCandidates,
-                              ),
-                              if (onBack != null) ...[
-                                SizedBox(height: backGap),
-                                SoriTextAction(
-                                  key: backKey,
-                                  label: AppL10n.of(context).onboardingV2Back,
-                                  onPressed: onBack,
-                                  style: TextButton.styleFrom(
-                                    minimumSize: const Size(96, 48),
-                                    padding: const EdgeInsets.only(
-                                      top: IntroSpacing.backBaselineInset,
-                                    ),
-                                    alignment: Alignment.topCenter,
+                          child: ColoredBox(
+                            color: IntroPalette.paper,
+                            child: Stack(
+                              children: [
+                                Positioned(
+                                  bottom: 0,
+                                  left: 0,
+                                  right: 0,
+                                  height:
+                                      (step == 7 ? 703.924057 : 627) * w / 402,
+                                  child: const CIntroArt(
+                                    'paper-footer',
+                                    fit: BoxFit.cover,
                                   ),
-                                  textStyle: IntroTypography.backAction(step),
                                 ),
                               ],
-                            ],
+                            ),
                           ),
                         ),
-                      ],
-                    ),
-                  ],
+                      ),
+                      if (step == 7)
+                        Positioned(
+                          top: -scrollOffset,
+                          left: 0,
+                          right: 0,
+                          height: 526 * w / 402,
+                          child: const ColoredBox(color: Color(0xff06523e)),
+                        ),
+                      if (step == 7)
+                        Positioned(
+                          top: -scrollOffset,
+                          left: 0,
+                          right: 0,
+                          height: w,
+                          child: const CIntroArt(
+                            'jade-surface',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      if (step == 7)
+                        Positioned(
+                          top: -scrollOffset,
+                          left: 0,
+                          right: 0,
+                          height: w,
+                          child: const ColoredBox(color: Color(0x99094838)),
+                        ),
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            top: MediaQuery.paddingOf(context).top,
+                          ),
+                          child: SingleChildScrollView(
+                            key: bodyKey,
+                            child: Stack(
+                              children: [
+                                Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: [hero, body],
+                                ),
+                                if (step == 7 && reference)
+                                  Positioned(
+                                    left: 291 * w / 402,
+                                    top: 105 * w / 402,
+                                    width: 215 * w / 402,
+                                    height: 102.527534 * w / 402,
+                                    child: IgnorePointer(
+                                      child: Transform(
+                                        transform: Matrix4.identity()
+                                          ..setEntry(0, 0, 0)
+                                          ..setEntry(1, 1, 0)
+                                          ..setEntry(0, 1, 1)
+                                          ..setEntry(1, 0, 1),
+                                        alignment: Alignment.topLeft,
+                                        child: const CIntroArt('plum-branch'),
+                                      ),
+                                    ),
+                                  ),
+                                Positioned(
+                                  top: 43,
+                                  left: 18,
+                                  right: 18,
+                                  child: _IntroHeader(
+                                    step: step,
+                                    progress: progress,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(
+                          16,
+                          step == 2 && reference ? 4 : 12,
+                          16,
+                          math.max(
+                            footerBottom,
+                            MediaQuery.paddingOf(context).bottom,
+                          ),
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            IntroAction(
+                              key: continueKey,
+                              label: continueLabel,
+                              onTap: onContinue,
+                              stableLabelCandidates: continueLabelCandidates,
+                            ),
+                            if (onBack != null) ...[
+                              SizedBox(height: backGap),
+                              SoriTextAction(
+                                key: backKey,
+                                label: AppL10n.of(context).onboardingV2Back,
+                                onPressed: onBack,
+                                style: TextButton.styleFrom(
+                                  minimumSize: const Size(96, 48),
+                                  padding: const EdgeInsets.only(
+                                    top: IntroSpacing.backBaselineInset,
+                                  ),
+                                  alignment: Alignment.topCenter,
+                                ),
+                                textStyle: IntroTypography.backAction(step),
+                              ),
+                            ],
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 );
               },
             ),
@@ -278,6 +287,63 @@ class COnboardingFrame extends StatelessWidget {
         ),
       ),
     ),
+  );
+}
+
+/// Keeps material boundaries attached to content without owning its scroll
+/// position. Only the decorative layer rebuilds as the native scroller moves.
+class _IntroScrollSurface extends StatefulWidget {
+  const _IntroScrollSurface({
+    super.key,
+    required this.backgroundBuilder,
+    required this.child,
+  });
+
+  final Widget Function(double offset) backgroundBuilder;
+  final Widget child;
+
+  @override
+  State<_IntroScrollSurface> createState() => _IntroScrollSurfaceState();
+}
+
+class _IntroScrollSurfaceState extends State<_IntroScrollSurface> {
+  final _offset = ValueNotifier<double>(0);
+
+  @override
+  void dispose() {
+    _offset.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => Stack(
+    children: [
+      Positioned.fill(
+        child: ValueListenableBuilder<double>(
+          valueListenable: _offset,
+          builder: (context, offset, child) => widget.backgroundBuilder(offset),
+        ),
+      ),
+      NotificationListener<ScrollNotification>(
+        onNotification: (notification) {
+          if (notification.depth == 0 &&
+              notification.metrics.axis == Axis.vertical) {
+            _offset.value = notification.metrics.pixels;
+          }
+          return false;
+        },
+        child: NotificationListener<ScrollMetricsNotification>(
+          onNotification: (notification) {
+            if (notification.depth == 0 &&
+                notification.metrics.axis == Axis.vertical) {
+              _offset.value = notification.metrics.pixels;
+            }
+            return false;
+          },
+          child: widget.child,
+        ),
+      ),
+    ],
   );
 }
 
@@ -331,7 +397,7 @@ class IntroAction extends StatelessWidget {
       selected: selected,
       label: label,
       onTap: onTap,
-      child: SoriPressable(
+      child: IntroPressable(
         onTap: onTap,
         pressScale: .995,
         surfaceDepth: 0,
@@ -387,7 +453,7 @@ class IntroAction extends StatelessWidget {
                             if (arrow)
                               Positioned(
                                 right: gold ? 24 : 13,
-                                top: gold ? 18 : 19,
+                                top: gold ? 16.5 : 19,
                                 child: gold
                                     ? const IntroChevron()
                                     : const Icon(
@@ -494,7 +560,7 @@ class _IntroHeader extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         const Positioned(
-          left: -3,
+          left: -4,
           top: 0,
           width: 55,
           height: 55,
@@ -602,7 +668,7 @@ class _IntroHero extends StatelessWidget {
               button: onPreview != null,
               label: previewLabel,
               onTap: onPreview,
-              child: SoriPressable(
+              child: IntroPressable(
                 key: previewKey,
                 onTap: onPreview,
                 pressScale: .997,
@@ -925,7 +991,7 @@ class COnboardingSetup extends StatelessWidget {
                                         ? t.introA2Hint
                                         : level.name,
                                     size: 13,
-                                    color: IntroPalette.blue,
+                                    color: IntroPalette.mutedInk,
                                   ),
                               ],
                             ),
@@ -965,7 +1031,7 @@ class COnboardingSetup extends StatelessWidget {
                   t.onboardingCLevelRange,
                   center: true,
                   size: 15,
-                  color: IntroPalette.blue,
+                  color: IntroPalette.mutedInk,
                 ),
                 const SizedBox(height: IntroSpacing.sectionGap),
                 CIntroText(t.onboardingCInterest, size: 23, bold: true),
@@ -977,17 +1043,23 @@ class COnboardingSetup extends StatelessWidget {
                     children: [
                       for (final p in copy.setup.purposes)
                         SizedBox(
-                          width: (bounds.maxWidth - 10) / 2,
+                          width:
+                              bounds.maxWidth < 340 &&
+                                  MediaQuery.textScalerOf(context).scale(15) >
+                                      22
+                              ? bounds.maxWidth
+                              : (bounds.maxWidth - 10) / 2,
                           child: Semantics(
                             label: p.title,
                             selected: p.id == selectedPurposeId,
+                            inMutuallyExclusiveGroup: true,
                             button: true,
                             onTap: () => onPurposeChanged(p.id),
-                            child: SoriPressable(
+                            child: IntroPressable(
                               key: ValueKey('onboarding-purpose-${p.id}'),
                               onTap: () => onPurposeChanged(p.id),
-                              pressScale: .985,
-                              surfaceDepth: 2,
+                              pressScale: .995,
+                              surfaceDepth: 0,
                               surfaceEdgeColor: const Color(0xffc8b394),
                               surfaceRadius: 14,
                               child: ExcludeSemantics(
@@ -1036,15 +1108,15 @@ class COnboardingSetup extends StatelessWidget {
                   t.onboardingCLater,
                   size: 15,
                   center: true,
-                  color: IntroPalette.blue,
+                  color: IntroPalette.mutedInk,
                 ),
                 const SizedBox(height: 4),
                 CIntroText(
                   t.introNextPath,
                   size: 14,
                   bold: true,
+                  color: IntroPalette.emphasisInk,
                   center: true,
-                  color: IntroPalette.blue,
                 ),
               ],
             ),
@@ -1191,7 +1263,7 @@ class COnboardingSetup extends StatelessWidget {
                             t.onboardingCLater,
                             center: true,
                             size: 15,
-                            color: IntroPalette.blue,
+                            color: IntroPalette.mutedInk,
                           ),
                           const SizedBox(height: IntroSpacing.actionGap),
                           IntroAction(
@@ -1244,7 +1316,7 @@ class _LevelOption extends StatelessWidget {
     selected: selected,
     label: '$label. $hint',
     onTap: onTap,
-    child: SoriPressable(
+    child: IntroPressable(
       onTap: onTap,
       child: ExcludeSemantics(
         child: IntroPanel(
@@ -1261,7 +1333,7 @@ class _LevelOption extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CIntroText(label, size: 21, bold: true),
-                    CIntroText(hint, size: 12, color: IntroPalette.blue),
+                    CIntroText(hint, size: 12, color: IntroPalette.mutedInk),
                   ],
                 ),
               ),
@@ -1280,33 +1352,107 @@ class _LevelOption extends StatelessWidget {
 }
 
 class COnboardingSoundScene extends StatefulWidget {
-  const COnboardingSoundScene({super.key, this.reference = false});
+  const COnboardingSoundScene({
+    super.key,
+    this.reference = false,
+    this.originalArtwork = false,
+  });
   final bool reference;
+  final bool originalArtwork;
   @override
   State<COnboardingSoundScene> createState() => _COnboardingSoundSceneState();
 }
 
 class _COnboardingSoundSceneState
     extends OnboardingDemoSpeechState<COnboardingSoundScene> {
+  Future<void> _listen() async {
+    await demoSpeak('가');
+    if (mounted && context.mounted && demoAudioFailed) {
+      soriToast(context, AppL10n.of(context).onboardingDemoAudioUnavailable);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final label = demoPlaying
+        ? AppL10n.of(context).onboardingDemoStop
+        : AppL10n.of(context).onboardingJourneyListen;
+    if (widget.originalArtwork) {
+      Widget hitTarget({required Key key, bool speaker = false}) => TextButton(
+        key: key,
+        onPressed: _listen,
+        style: ButtonStyle(
+          padding: const WidgetStatePropertyAll(EdgeInsets.zero),
+          minimumSize: const WidgetStatePropertyAll(Size(48, 48)),
+          overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+          backgroundColor: WidgetStatePropertyAll(
+            demoPlaying && !speaker
+                ? const Color(0xffeeb74f)
+                : Colors.transparent,
+          ),
+          side: WidgetStateProperty.resolveWith(
+            (states) =>
+                states.contains(WidgetState.focused) ||
+                    states.contains(WidgetState.hovered)
+                ? const BorderSide(color: IntroPalette.jade, width: 2)
+                : BorderSide.none,
+          ),
+          shape: WidgetStatePropertyAll(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(speaker ? 32 : 16),
+            ),
+          ),
+        ),
+        child: Semantics(
+          selected: demoPlaying,
+          label: label,
+          excludeSemantics: true,
+          child: demoPlaying && !speaker
+              ? Center(
+                  child: Text(
+                    label,
+                    style: IntroTypography.primaryAction(20, true),
+                  ),
+                )
+              : const SizedBox.expand(),
+        ),
+      );
+      return LayoutBuilder(
+        builder: (context, bounds) {
+          final s = bounds.maxWidth / 402;
+          return Stack(
+            children: [
+              Positioned(
+                left: 30.217 * s,
+                top: 0,
+                width: 140.295 * s,
+                height: 124.107 * s,
+                child: hitTarget(
+                  key: const ValueKey('c-onboarding-original-speaker'),
+                  speaker: true,
+                ),
+              ),
+              Positioned(
+                left: 180.2255 * s,
+                top: 42.087 * s,
+                width: 192.097 * s,
+                height: 63.672 * s,
+                child: hitTarget(
+                  key: const ValueKey('c-onboarding-original-listen'),
+                ),
+              ),
+            ],
+          );
+        },
+      );
+    }
     final action = IntroAction(
       key: const ValueKey('c-onboarding-original-listen'),
-      label: demoPlaying
-          ? AppL10n.of(context).onboardingDemoStop
-          : AppL10n.of(context).onboardingJourneyListen,
+      label: label,
       selected: demoPlaying,
       compactGold: widget.reference,
       arrow: false,
-      onTap: () async {
-        await demoSpeak('가');
-        if (mounted && context.mounted && demoAudioFailed) {
-          soriToast(
-            context,
-            AppL10n.of(context).onboardingDemoAudioUnavailable,
-          );
-        }
-      },
+      onTap: _listen,
     );
     if (widget.reference) {
       return LayoutBuilder(
@@ -1343,12 +1489,31 @@ class _COnboardingSoundSceneState
         },
       );
     }
-    return Row(
-      children: [
-        const SizedBox.square(dimension: 100, child: CIntroArt('speaker')),
-        const SizedBox(width: 12),
-        Expanded(child: action),
-      ],
+    return LayoutBuilder(
+      builder: (context, bounds) {
+        const speaker = SizedBox.square(
+          dimension: 100,
+          child: CIntroArt('speaker'),
+        );
+        if (bounds.maxWidth < 340 &&
+            MediaQuery.textScalerOf(context).scale(20) > 28) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const Center(child: speaker),
+              const SizedBox(height: IntroSpacing.inlineGap),
+              action,
+            ],
+          );
+        }
+        return Row(
+          children: [
+            speaker,
+            const SizedBox(width: 12),
+            Expanded(child: action),
+          ],
+        );
+      },
     );
   }
 }
@@ -1490,11 +1655,16 @@ class COnboardingStory extends StatelessWidget {
                   body,
                   size: 16,
                   center: true,
-                  color: IntroPalette.blue,
+                  color: IntroPalette.mutedInk,
                 ),
                 if (pageIndex == 0) ...[
                   const SizedBox(height: IntroSpacing.captionGap),
-                  CIntroText(t.introNextSample, size: 14, center: true),
+                  CIntroText(
+                    t.introNextSample,
+                    size: 14,
+                    center: true,
+                    color: IntroPalette.emphasisInk,
+                  ),
                 ],
               ],
             ),
@@ -1605,7 +1775,7 @@ class COnboardingCompanion extends StatelessWidget {
                             CIntroText(
                               t.onboardingCGyeBody,
                               size: 12,
-                              color: IntroPalette.blue,
+                              color: IntroPalette.mutedInk,
                             ),
                           ],
                         ),
@@ -1659,9 +1829,10 @@ class COnboardingCompanion extends StatelessWidget {
         key: ValueKey('onboarding-v2-companion-semantics-${companion.id}'),
         button: true,
         selected: selected,
+        inMutuallyExclusiveGroup: true,
         label: '${companion.name}. $role',
         onTap: () => onCompanionChanged(companion.id),
-        child: SoriPressable(
+        child: IntroPressable(
           key: ValueKey('onboarding-v2-companion-${companion.id}'),
           onTap: () => onCompanionChanged(companion.id),
           pressScale: .995,
@@ -1691,12 +1862,14 @@ class COnboardingCompanion extends StatelessWidget {
                               selected: selected,
                             ),
                           ),
-                          if (selected)
-                            const Positioned(
-                              left: 9,
-                              bottom: 9,
-                              child: IntroMedal('✓', size: 43),
+                          Positioned(
+                            left: 9,
+                            bottom: 9,
+                            child: IntroSelectionMotion(
+                              selected: selected,
+                              child: const IntroMedal('✓', size: 43),
                             ),
+                          ),
                         ],
                       ),
                     ),
@@ -1716,7 +1889,7 @@ class COnboardingCompanion extends StatelessWidget {
                       role,
                       size: 12,
                       center: true,
-                      color: IntroPalette.blue,
+                      color: IntroPalette.mutedInk,
                     ),
                   ),
                 ],

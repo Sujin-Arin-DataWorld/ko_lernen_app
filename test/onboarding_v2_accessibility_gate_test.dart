@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/features/guide/guide_hub_screen.dart';
 import 'package:ko_lernen_app/features/guide/guide_progress_service.dart';
@@ -19,19 +18,12 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/character_clip.dart';
 import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
 
-import 'support/real_fonts.dart';
+import 'support/einleitung_capture_assets.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   setUpAll(() async {
-    await loadSoriRealFonts(materialIcons: true);
-    for (final family in ['Roboto', 'RobotoCondensed', 'Lora', 'NotoSerif']) {
-      final loader = FontLoader(family);
-      loader.addFont(
-        rootBundle.load('assets/fonts/$family/$family-Variable.ttf'),
-      );
-      await loader.load();
-    }
+    await loadEinleitungFonts();
   });
 
   group('Onboarding V2 compact accessibility gate', () {

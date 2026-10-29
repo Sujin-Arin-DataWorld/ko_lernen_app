@@ -8,6 +8,7 @@ abstract final class IntroFonts {
   static const serif = 'Lora';
   static const brand = 'NotoSerif';
   static const korean = 'NotoSansKR';
+  static const koreanDisplay = 'MaruBuri';
 }
 
 abstract final class IntroLayout {
@@ -71,7 +72,9 @@ abstract final class IntroPalette {
   static const ink = Color(0xff102722);
   static const paper = Color(0xfffff2dc);
   static const brass = Color(0xffd7ac61);
-  static const blue = Color(0xff164e68);
+  static const mutedInk = Color(0xff425d54);
+  static const emphasisInk = Color(0xff1d5146);
+  static const calligraphyInk = Color(0xff071c21);
   static const white = Color(0xfffffaf0);
 }
 
@@ -84,7 +87,7 @@ abstract final class IntroTypography {
     color: IntroPalette.ink,
   );
 
-  static const secondaryInk = TextStyle(color: IntroPalette.blue);
+  static const secondaryInk = TextStyle(color: IntroPalette.mutedInk);
 
   static TextStyle gyeBody(double s) => TextStyle(
     fontFamily: IntroFonts.condensed,
@@ -149,7 +152,7 @@ abstract final class IntroTypography {
     fontSize: 15 * s,
     letterSpacing: 0,
     height: 1.25,
-    color: IntroPalette.blue,
+    color: IntroPalette.mutedInk,
   );
 
   static TextStyle storyTitle(
@@ -179,7 +182,8 @@ abstract final class IntroTypography {
   );
 
   static TextStyle soundGlyph(double size) => TextStyle(
-    fontFamily: IntroFonts.korean,
+    fontFamily: IntroFonts.koreanDisplay,
+    fontWeight: FontWeight.w600,
     fontSize: size,
     height: 1.05,
     color: IntroPalette.jade,
@@ -193,7 +197,10 @@ abstract final class IntroTypography {
     color: Color(0xffffe6a1),
   );
 
-  static const koreanSample = TextStyle(fontFamily: IntroFonts.korean);
+  static const koreanSample = TextStyle(
+    fontFamily: IntroFonts.koreanDisplay,
+    fontWeight: FontWeight.w400,
+  );
 
   static const romanizedSample = TextStyle(fontFamily: IntroFonts.serif);
 
@@ -205,11 +212,15 @@ abstract final class IntroTypography {
 
   static TextStyle bookInk(double size, double line, bool korean, bool bold) =>
       TextStyle(
-        fontFamily: korean ? IntroFonts.korean : IntroFonts.sans,
+        fontFamily: korean ? IntroFonts.koreanDisplay : IntroFonts.sans,
         fontSize: size,
         height: line / size,
-        fontWeight: bold ? FontWeight.w700 : FontWeight.w400,
-        color: IntroPalette.ink,
+        fontWeight: korean
+            ? FontWeight.w600
+            : bold
+            ? FontWeight.w700
+            : FontWeight.w400,
+        color: korean ? IntroPalette.calligraphyInk : IntroPalette.ink,
       );
 
   static TextStyle storyBody(
@@ -286,7 +297,7 @@ abstract final class IntroTypography {
     fontSize: step == 7 ? 18 : 20,
     height: 1.25,
     letterSpacing: 0,
-    color: step == 7 ? const Color(0xff101b1b) : IntroPalette.blue,
+    color: step == 7 ? const Color(0xff101b1b) : IntroPalette.mutedInk,
   );
 
   static TextStyle body(double size, bool bold, Color color) => TextStyle(

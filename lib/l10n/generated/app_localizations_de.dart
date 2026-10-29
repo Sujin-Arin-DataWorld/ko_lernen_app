@@ -9716,7 +9716,7 @@ class AppL10nDe extends AppL10n {
       '침묵을 동의로 보면 질문의 틀만으로도 참여를 제한할 수 있습니다.';
 
   @override
-  String get onboardingV2PurposeLifeTravelTitle => 'Alltag & Reisen';
+  String get onboardingV2PurposeLifeTravelTitle => 'Alltag & Reise';
 
   @override
   String get onboardingV2PurposeLifeTravelBody =>

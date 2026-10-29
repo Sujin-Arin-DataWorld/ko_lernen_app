@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "verifiedAt": "2026-10-18T20:46:13.302706+00:00",
-  "status": "LOCAL_FLUTTER_AND_BROWSER_VERIFIED_DELIVERY_TRACKED_IN_GITHUB",
+  "status": "UPDATED_BY_20261029_POLISH_RECORD",
   "worktree": "C:/dev/hangulsori/ko_lernen_app_worktrees/einleitung-settings-parity-20261018",
   "branch": "session/einleitung-reviewed-main-20261018",
   "baseHead": "44727c1921b4b7f40748ac0d210d0ca62a094028",
@@ -31,32 +31,33 @@
     },
     "comparisonBoard": "108:35",
     "stateRegistry": "tool/einleitung_figma_state.json",
-    "status": "Previously reviewed same in-scope frame IDs; exact raster identity is not claimed.",
+    "status": "2026-10-29 original hero crops applied in03/05/06; see latest verification.",
     "previewDestinationExcluded": "89:32"
   },
   "assets": {
     "status": "PASS",
-    "generatedFiles": 32,
-    "bytes": 57771539,
+    "generatedFiles": 36,
+    "bytes": 61769691,
     "allCurrentManifestSha256Verified": true,
-    "mockupCropsUsed": false,
+    "mockupCropsUsed": true,
     "sourceMastersPreserved": true,
     "manifest": {
-      "path": "tool/einleitung_generated_assets.json",
-      "sha256": "2a704725c27f280a201cd5e7ff73d2b4b2d20d77c1bde5ee2ff4cf3e94561dea",
-      "bytes": 17682
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\einleitung-settings-parity-20261018\\tool\\einleitung_generated_assets.json",
+      "bytes": 23496,
+      "sha256": "5414175bc0dafe337cad8bbf74a582bc365e15b01983c8b1b1e35ff75bb6072d"
     },
     "http": {
       "url": "http://127.0.0.1:7392",
       "passed": true,
-      "count": 32,
+      "count": 36,
       "receipt": {
-        "path": "tool/einleitung_http_verification.json",
-        "bytes": 8312,
-        "sha256": "619db6dfdcc1f516fbd676cb32ab149509dd9e47161189802acff1050f3a63b9"
+        "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\einleitung-settings-parity-20261018\\tool\\einleitung_http_verification.json",
+        "bytes": 9629,
+        "sha256": "138259b7d405661d05ba458dbea133ae2ff89cc3483bf58ad5c5d4af2631c1fe"
       },
-      "scope": "Final release build: all 32 PNGs served with HTTP 200, image/png and exact reviewed SHA-256."
-    }
+      "scope": "2026-10-29 release build:36 PNGs verified HTTP200, image/png, exact SHA-256."
+    },
+    "cropAuthorization": "Explicit user override on2026-10-29 for03/05/06 lettering and icons."
   },
   "implementation": {
     "status": "LOCAL_IMPLEMENTATION_VERIFIED",
@@ -401,5 +402,6 @@
       "consoleCutoffUtc": "2026-10-18T20:40:00Z"
     },
     "ci": "Exact correction commit and merged-main runs must pass separately."
-  }
+  },
+  "latestVerification": "tool/einleitung_polish_verification.json"
 }

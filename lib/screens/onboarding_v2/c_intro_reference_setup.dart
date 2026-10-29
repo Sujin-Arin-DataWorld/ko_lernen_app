@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
-import '../../widgets/sori/pressable.dart';
+import '../../widgets/sori/intro_motion.dart';
 import '../../widgets/sori/button.dart';
 import 'c_intro_art.dart';
 import 'onboarding_v2_presentation.dart';
@@ -84,7 +84,7 @@ class IntroReferenceSetup extends StatelessWidget {
                 label: '$label. ${t.onboardingCChange}',
                 button: true,
                 onTap: onChooseLevel,
-                child: SoriPressable(
+                child: IntroPressable(
                   key: const ValueKey('c-onboarding-change-level'),
                   onTap: onChooseLevel,
                   pressScale: .995,
@@ -125,7 +125,7 @@ class IntroReferenceSetup extends StatelessWidget {
                           ),
                           at(
                             91,
-                            level == null && !beginnerSelected ? 4 : 11,
+                            level == null && !beginnerSelected ? 4 : 8,
                             beginnerSelected ? 232 : 166,
                             60,
                             level == null && !beginnerSelected
@@ -139,7 +139,7 @@ class IntroReferenceSetup extends StatelessWidget {
                           if (beginnerSelected || level != null)
                             at(
                               91,
-                              37,
+                              40,
                               190,
                               23,
                               words(
@@ -149,7 +149,7 @@ class IntroReferenceSetup extends StatelessWidget {
                                     ? t.introA2Hint
                                     : level.name,
                                 14.5,
-                                color: IntroPalette.blue,
+                                color: IntroPalette.mutedInk,
                               ),
                             ),
                           if (!beginnerSelected)
@@ -226,7 +226,7 @@ class IntroReferenceSetup extends StatelessWidget {
                 t.onboardingCLevelRange,
                 16,
                 center: true,
-                color: IntroPalette.blue,
+                color: IntroPalette.mutedInk,
               ),
             ),
             at(
@@ -260,7 +260,7 @@ class IntroReferenceSetup extends StatelessWidget {
                 t.onboardingCLater,
                 16,
                 center: true,
-                color: IntroPalette.blue,
+                color: IntroPalette.mutedInk,
               ),
             ),
             at(
@@ -273,7 +273,7 @@ class IntroReferenceSetup extends StatelessWidget {
                 13.5,
                 bold: true,
                 center: true,
-                color: IntroPalette.blue,
+                color: IntroPalette.emphasisInk,
               ),
             ),
           ],
@@ -311,9 +311,10 @@ class _InterestCard extends StatelessWidget {
     return Semantics(
       label: title,
       selected: selected,
+      inMutuallyExclusiveGroup: true,
       button: true,
       onTap: onTap,
-      child: SoriPressable(
+      child: IntroPressable(
         key: ValueKey('onboarding-purpose-$id'),
         onTap: onTap,
         pressScale: .995,
@@ -395,12 +396,15 @@ class _InterestCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                Positioned(
-                  top: 6 * s,
-                  right: 6 * s,
+              ],
+              Positioned(
+                top: 6 * s,
+                right: 6 * s,
+                child: IntroSelectionMotion(
+                  selected: selected,
                   child: IntroMedal('✓', size: 34 * s),
                 ),
-              ],
+              ),
             ],
           ),
         ),
@@ -458,9 +462,10 @@ class IntroReferenceLevelSheet extends StatelessWidget {
       ) => Semantics(
         label: '$code. $hint',
         selected: selected,
+        inMutuallyExclusiveGroup: true,
         button: true,
         onTap: () => onSelect(isBeginner ? 'A1' : code, isBeginner),
-        child: SoriPressable(
+        child: IntroPressable(
           key: ValueKey(
             isBeginner ? 'onboarding-v3-new' : 'onboarding-v2-level-$code',
           ),
@@ -518,17 +523,19 @@ class IntroReferenceLevelSheet extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         words(code, 24, bold: true),
-                        words(hint, 14, color: IntroPalette.blue),
+                        words(hint, 14, color: IntroPalette.mutedInk),
                       ],
                     )
                   else
                     words(code, 35, serif: true, bold: true),
-                  if (selected)
-                    Positioned(
-                      top: 11 * s,
-                      right: 11 * s,
+                  Positioned(
+                    top: 11 * s,
+                    right: 11 * s,
+                    child: IntroSelectionMotion(
+                      selected: selected,
                       child: IntroMedal('✓', size: 34 * s),
                     ),
+                  ),
                 ],
               ),
             ),
@@ -635,7 +642,7 @@ class IntroReferenceLevelSheet extends StatelessWidget {
                 392,
                 370,
                 23,
-                words(t.introLevelLater, 15.5, color: IntroPalette.blue),
+                words(t.introLevelLater, 15.5, color: IntroPalette.mutedInk),
               ),
               at(16, 429, 370, 58, apply),
             ],

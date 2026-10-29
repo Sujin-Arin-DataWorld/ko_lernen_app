@@ -1,7 +1,6 @@
 import 'dart:ui' show Tristate;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/c_onboarding.dart';
@@ -9,19 +8,12 @@ import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_setup_screen.dart
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_presentation.dart';
 import 'package:ko_lernen_app/theme.dart';
-import 'support/real_fonts.dart';
+import 'support/einleitung_capture_assets.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   setUpAll(() async {
-    await loadSoriRealFonts(materialIcons: true);
-    for (final family in ['Roboto', 'RobotoCondensed', 'Lora', 'NotoSerif']) {
-      final loader = FontLoader(family);
-      loader.addFont(
-        rootBundle.load('assets/fonts/$family/$family-Variable.ttf'),
-      );
-      await loader.load();
-    }
+    await loadEinleitungFonts();
   });
   for (final locale in ['de', 'en']) {
     for (final entry in const [

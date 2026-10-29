@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:ui' show Tristate;
 
@@ -7,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/learner_level.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/c_intro_art.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/c_onboarding.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_companion_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_setup_screen.dart';
@@ -91,6 +93,26 @@ void main() {
           );
           expect(action.hitTestable(), findsOneWidget);
           expect(tester.getSize(action).height, greaterThanOrEqualTo(48));
+          if (configuration.width == 320 && configuration.scale == 2) {
+            if (page == 1) {
+              for (final purpose in copy.setup.purposes) {
+                final card = find.byKey(
+                  ValueKey('onboarding-purpose-${purpose.id}'),
+                );
+                expect(tester.getSize(card).width, 288);
+                _expectWholeWords(tester, find.text(purpose.title));
+              }
+            } else if (page == 3) {
+              _expectWholeWords(
+                tester,
+                find.text(
+                  lookupAppL10n(
+                    Locale(configuration.language),
+                  ).onboardingJourneyListen,
+                ),
+              );
+            }
+          }
           if (captureDirectory.isNotEmpty) {
             await expectLater(
               find.byType(Scaffold),
@@ -117,8 +139,247 @@ void main() {
               );
             }
           }
+          if ((configuration.height == 874 && (page == 1 || page == 7)) ||
+              (configuration.width == 320 && page == 4)) {
+            final paper = find.byKey(
+              const ValueKey('c-onboarding-paper-surface'),
+            );
+            final paperTop = tester.getTopLeft(paper).dy;
+            final actionRect = tester.getRect(action);
+            final scrollable = find
+                .descendant(
+                  of: find.byType(COnboardingFrame),
+                  matching: find.byType(Scrollable),
+                )
+                .first;
+            final position = tester.state<ScrollableState>(scrollable).position;
+            expect(position.maxScrollExtent, greaterThan(0));
+            position.jumpTo(position.maxScrollExtent);
+            await tester.pumpAndSettle();
+            expect(
+              tester.getTopLeft(paper).dy,
+              closeTo(paperTop - position.pixels, .1),
+            );
+            expect(tester.getRect(action), actionRect);
+            expect(tester.takeException(), isNull);
+          }
         },
       );
+    }
+  }
+
+  if (captureDirectory.isNotEmpty) {
+    testWidgets('native selected-state interaction evidence', (tester) async {
+      stubSoriSpeech();
+      final copy = onboardingV2Copy(lookupAppL10n(const Locale('de')));
+      Future<void> capture(String state) async {
+        await settleEinleitungCaptureAssets(tester);
+        expect(tester.takeException(), isNull);
+        await expectLater(
+          find.byType(Scaffold),
+          matchesGoldenFile(
+            Uri.file('$captureDirectory/$state-de-402-934-1x.png'),
+          ),
+        );
+      }
+
+      String? purpose;
+      await _pump(
+        tester,
+        StatefulBuilder(
+          builder: (context, setState) => OnboardingSetupScreen(
+            copy: copy,
+            selectedPurposeId: purpose,
+            selectedLevelCode: 'A2',
+            onPurposeChanged: (id) => setState(() => purpose = id),
+            onLevelChanged: (_) {},
+            onContinue: (_) {},
+          ),
+        ),
+        size: const Size(402, 934),
+        reducedMotion: false,
+      );
+      for (final item in copy.setup.purposes) {
+        await _tap(tester, 'onboarding-purpose-${item.id}');
+        expect(purpose, item.id);
+        await capture('intro-interest-${item.id}-selected');
+      }
+
+      String? companion;
+      await _pump(
+        tester,
+        StatefulBuilder(
+          builder: (context, setState) => OnboardingCompanionScreen(
+            copy: copy,
+            selectedCompanionId: companion,
+            onCompanionChanged: (id) => setState(() => companion = id),
+            onContinue: (_) {},
+            onBack: () {},
+          ),
+        ),
+        size: const Size(402, 934),
+        reducedMotion: false,
+      );
+      await capture('intro-companion-before-selection');
+      final companionScroll = tester
+          .state<ScrollableState>(
+            find
+                .descendant(
+                  of: find.byKey(
+                    const ValueKey('onboarding-v2-companion-scroll'),
+                  ),
+                  matching: find.byType(Scrollable),
+                )
+                .first,
+          )
+          .position;
+      Map<String, Object> geometry() => {
+        'scrollOffset': companionScroll.pixels,
+        'maxScrollExtent': companionScroll.maxScrollExtent,
+        'viewportHeight': companionScroll.viewportDimension,
+        for (final name in ['taego-close', 'joy-close'])
+          name: () {
+            final rect = tester.getRect(
+              find.byWidgetPredicate(
+                (widget) => widget is CIntroArt && widget.name == name,
+              ),
+            );
+            return [rect.left, rect.top, rect.width, rect.height];
+          }(),
+      };
+      final before = geometry();
+      final observations = <Map<String, Object>>[
+        {'state': 'none', 'geometry': before},
+      ];
+      for (final id in [
+        OnboardingV2Ids.companionJoy,
+        OnboardingV2Ids.companionTaego,
+      ]) {
+        final card = find.byKey(ValueKey('onboarding-v2-companion-$id'));
+        expect(card.hitTestable(), findsOneWidget);
+        // These cards are already visible. ensureVisible would intentionally
+        // scroll the page before the tap and contaminate the state comparison.
+        await tester.tap(card);
+        await tester.pumpAndSettle();
+        expect(companion, id);
+        expect(
+          geometry(),
+          before,
+          reason: 'Selection keeps both portraits still',
+        );
+        observations.add({'state': id, 'geometry': geometry()});
+        await capture('intro-companion-$id-selected');
+      }
+      File(
+        '$captureDirectory/intro-companion-interaction-geometry.json',
+      ).writeAsStringSync(
+        const JsonEncoder.withIndent('  ').convert(observations),
+      );
+    });
+
+    for (final configuration in [
+      (language: 'de', width: 402.0, height: 874.0, scale: 1.0),
+      (language: 'en', width: 402.0, height: 874.0, scale: 1.0),
+      (language: 'de', width: 402.0, height: 934.0, scale: 1.3),
+      (language: 'de', width: 320.0, height: 740.0, scale: 2.0),
+    ]) {
+      for (final page in [1, 3, 4, 7]) {
+        testWidgets(
+          'native bottom-scroll evidence $page ${configuration.language} '
+          '${configuration.width} ${configuration.height} ${configuration.scale}',
+          (tester) async {
+            stubSoriSpeech();
+            final t = lookupAppL10n(Locale(configuration.language));
+            final copy = onboardingV2Copy(t);
+            final Widget screen = switch (page) {
+              1 => OnboardingSetupScreen(
+                copy: copy,
+                selectedPurposeId: OnboardingV2Ids.purposeLifeTravel,
+                selectedLevelCode: 'A2',
+                onPurposeChanged: (_) {},
+                onLevelChanged: (_) {},
+                onContinue: (_) {},
+              ),
+              7 => OnboardingCompanionScreen(
+                copy: copy,
+                selectedCompanionId: OnboardingV2Ids.companionTaego,
+                onCompanionChanged: (_) {},
+                onContinue: (_) {},
+                onBack: () {},
+              ),
+              _ => OnboardingStoryScreen(
+                copy: copy,
+                pageIndex: page - 2,
+                selectedLevel: LearnerLevel.a2,
+                onContinue: (_) {},
+                onPrevious: (_) {},
+              ),
+            };
+            await _pump(
+              tester,
+              screen,
+              language: configuration.language,
+              size: Size(configuration.width, configuration.height),
+              textScale: configuration.scale,
+              reducedMotion: false,
+            );
+            await settleEinleitungCaptureAssets(tester);
+            final scrollable = find
+                .descendant(
+                  of: find.byType(COnboardingFrame),
+                  matching: find.byType(Scrollable),
+                )
+                .first;
+            final position = tester.state<ScrollableState>(scrollable).position;
+            position.jumpTo(position.maxScrollExtent);
+            await tester.pumpAndSettle();
+            // Save even when a following fit assertion reveals a real problem.
+            await expectLater(
+              find.byType(Scaffold),
+              matchesGoldenFile(
+                Uri.file(
+                  '$captureDirectory/intro-${page.toString().padLeft(2, '0')}-bottom-${configuration.language}-${configuration.width.toInt()}-${configuration.height.toInt()}-${configuration.scale.toString().replaceFirst(RegExp(r'\.0$'), '')}x.png',
+                ),
+              ),
+            );
+            expect(tester.takeException(), isNull);
+            expect(position.pixels, closeTo(position.maxScrollExtent, .1));
+            final action = find.byKey(
+              ValueKey(switch (page) {
+                1 => 'onboarding-v2-setup-continue',
+                7 => 'onboarding-v2-companion-continue',
+                _ => 'onboarding-v2-story-next',
+              }),
+            );
+            expect(action.hitTestable(), findsOneWidget);
+            expect(tester.getSize(action).height, greaterThanOrEqualTo(48));
+            final body = switch (page) {
+              1 => t.introNextPath,
+              3 => t.onboardingCSoundBody,
+              4 => t.onboardingCGamesBody,
+              _ => t.onboardingCGyeBody,
+            };
+            final paragraph = find.byWidgetPredicate(
+              (widget) =>
+                  widget is Text &&
+                  _normalizedText(
+                        widget.data ?? widget.textSpan!.toPlainText(),
+                      ) ==
+                      _normalizedText(body),
+            );
+            expect(paragraph, findsOneWidget);
+            _expectCompleteParagraph(tester, paragraph);
+            final visible = tester.getRect(scrollable);
+            final bodyRect = tester.getRect(paragraph);
+            expect(bodyRect.top, greaterThanOrEqualTo(visible.top - .1));
+            expect(bodyRect.bottom, lessThanOrEqualTo(visible.bottom + .1));
+            expect(
+              bodyRect.bottom,
+              lessThanOrEqualTo(tester.getRect(action).top),
+            );
+          },
+        );
+      }
     }
   }
 
@@ -325,33 +586,132 @@ void main() {
   testWidgets('original sound CTA speaks ga and cancels safely on leaving', (
     tester,
   ) async {
-    final speech = stubSoriSpeech(completeSpeak: false);
-    final copy = onboardingV2Copy(lookupAppL10n(const Locale('de')));
-    await _pump(
-      tester,
-      OnboardingStoryScreen(
-        copy: copy,
-        pageIndex: 1,
-        onContinue: (_) {},
-        onPrevious: (_) {},
-      ),
-    );
-    await _tap(tester, 'c-onboarding-original-listen');
-    expect(speech.spoken, ['가']);
-    expect(
-      tester
-          .widget<IntroAction>(
-            find.byKey(const ValueKey('c-onboarding-original-listen')),
-          )
-          .selected,
-      isTrue,
-    );
-    await tester.pumpWidget(const SizedBox());
-    await tester.pump();
-    expect(speech.stops, greaterThan(0));
-    speech.speakCompleter!.complete(true);
-    await tester.pump();
-    expect(tester.takeException(), isNull);
+    final semantics = tester.ensureSemantics();
+    try {
+      final speech = stubSoriSpeech(completeSpeak: false);
+      final copy = onboardingV2Copy(lookupAppL10n(const Locale('de')));
+      await _pump(
+        tester,
+        OnboardingStoryScreen(
+          copy: copy,
+          pageIndex: 1,
+          onContinue: (_) {},
+          onPrevious: (_) {},
+        ),
+        size: const Size(402, 934),
+      );
+      final listen = find.byKey(const ValueKey('c-onboarding-original-listen'));
+      final listenRect = tester.getRect(listen);
+      expect(listenRect.left, closeTo(180.2255, .001));
+      expect(listenRect.top, closeTo(610.874, .001));
+      expect(listenRect.width, closeTo(192.097, .001));
+      expect(listenRect.height, closeTo(63.672, .001));
+      await _tap(tester, 'c-onboarding-original-listen');
+      expect(speech.spoken, ['가']);
+      expect(
+        tester
+            .getSemantics(listen)
+            .getSemanticsData()
+            .flagsCollection
+            .isSelected,
+        Tristate.isTrue,
+      );
+      expect(
+        find.text(lookupAppL10n(const Locale('de')).onboardingDemoStop),
+        findsOneWidget,
+      );
+      expect(find.byType(BottomSheet), findsNothing);
+      await _tap(tester, 'c-onboarding-original-listen');
+      expect(speech.stops, greaterThan(0));
+      expect(
+        tester
+            .getSemantics(listen)
+            .getSemanticsData()
+            .flagsCollection
+            .isSelected,
+        Tristate.isFalse,
+      );
+      await _tap(tester, 'c-onboarding-original-speaker');
+      expect(speech.spoken, ['가', '가']);
+      final stopsBeforeLeaving = speech.stops;
+      await tester.pumpWidget(const SizedBox());
+      await tester.pump();
+      expect(speech.stops, greaterThan(stopsBeforeLeaving));
+      speech.speakCompleter!.complete(true);
+      await tester.pump();
+      expect(tester.takeException(), isNull);
+    } finally {
+      semantics.dispose();
+    }
+  });
+
+  testWidgets('original German heroes preserve reading and preview semantics', (
+    tester,
+  ) async {
+    final semantics = tester.ensureSemantics();
+    try {
+      stubSoriSpeech();
+      final t = lookupAppL10n(const Locale('de'));
+      for (final entry in [
+        (
+          index: 1,
+          name: 'sound',
+          title: t.onboardingCSoundTitle,
+          reading: 'ㄱ + ㅏ = 가',
+          height: 573.052349,
+        ),
+        (
+          index: 3,
+          name: 'scholar',
+          title: t.onboardingCBookTitle,
+          reading: '안녕하세요',
+          height: 545.532886,
+        ),
+        (
+          index: 4,
+          name: 'hanok',
+          title: t.onboardingCHanokTitle,
+          reading: t.onboardingCBuild,
+          height: 527.186577,
+        ),
+      ]) {
+        await _pump(
+          tester,
+          OnboardingStoryScreen(
+            copy: onboardingV2Copy(t),
+            pageIndex: entry.index,
+            onContinue: (_) {},
+            onPrevious: (_) {},
+          ),
+          size: const Size(402, 934),
+        );
+        final art = find.byWidgetPredicate(
+          (widget) =>
+              widget is CIntroArt &&
+              widget.name == '${entry.name}-original-de-hero',
+        );
+        expect(art, findsOneWidget);
+        final rect = tester.getRect(art);
+        expect(rect.left, 0);
+        expect(rect.top, 122);
+        expect(rect.width, 402);
+        expect(rect.height, closeTo(entry.height, .001));
+        expect(find.text(entry.title), findsNothing);
+        final heading = find.bySemanticsLabel(
+          RegExp(RegExp.escape(entry.title)),
+        );
+        final data = tester.getSemantics(heading).getSemanticsData();
+        expect(data.flagsCollection.isHeader, isTrue);
+        expect(data.label, contains(entry.reading));
+        expect(
+          find.byKey(ValueKey('c-onboarding-preview-${entry.index + 2}')),
+          findsOneWidget,
+        );
+        expect(tester.takeException(), isNull);
+      }
+    } finally {
+      semantics.dispose();
+    }
   });
 
   testWidgets(
@@ -411,8 +771,37 @@ void main() {
   );
 }
 
+void _expectWholeWords(WidgetTester tester, Finder finder) {
+  final paragraph = tester.renderObject<RenderParagraph>(finder);
+  final text = paragraph.text.toPlainText();
+  for (final word in RegExp(r'\S+').allMatches(text)) {
+    final boxes = paragraph.getBoxesForSelection(
+      TextSelection(baseOffset: word.start, extentOffset: word.end),
+    );
+    expect(boxes.length, 1, reason: 'Keep "${word.group(0)}" on one line.');
+  }
+}
+
 IntroAction _mainAction(WidgetTester tester, String key) =>
     tester.widget<IntroAction>(find.byKey(ValueKey(key)));
+
+String _normalizedText(String value) =>
+    value.replaceAll(RegExp(r'\s+'), ' ').trim();
+
+void _expectCompleteParagraph(WidgetTester tester, Finder finder) {
+  final paragraph = tester.renderObject<RenderParagraph>(finder);
+  final natural = TextPainter(
+    text: paragraph.text,
+    textDirection: paragraph.textDirection,
+    textScaler: paragraph.textScaler,
+    locale: paragraph.locale,
+    strutStyle: paragraph.strutStyle,
+    textHeightBehavior: paragraph.textHeightBehavior,
+    textWidthBasis: paragraph.textWidthBasis,
+  )..layout(maxWidth: paragraph.size.width);
+  expect(paragraph.size.height, greaterThanOrEqualTo(natural.height - .1));
+  natural.dispose();
+}
 
 Future<void> _tap(WidgetTester tester, String key) async {
   final finder = find.byKey(ValueKey(key));
@@ -429,6 +818,7 @@ Future<void> _pump(
   String language = 'de',
   Size size = const Size(390, 844),
   double textScale = 1,
+  bool reducedMotion = true,
 }) async {
   tester.view.physicalSize = size;
   tester.view.devicePixelRatio = 1;
@@ -442,7 +832,7 @@ Future<void> _pump(
       localizationsDelegates: AppL10n.localizationsDelegates,
       builder: (context, child) => MediaQuery(
         data: MediaQuery.of(context).copyWith(
-          disableAnimations: true,
+          disableAnimations: reducedMotion,
           textScaler: TextScaler.linear(textScale),
         ),
         child: child!,

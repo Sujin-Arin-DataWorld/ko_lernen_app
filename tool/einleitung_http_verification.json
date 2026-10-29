@@ -1,7 +1,7 @@
 {
   "url": "http://127.0.0.1:7392",
   "passed": true,
-  "count": 32,
+  "count": 36,
   "assets": [
     {
       "asset": "assets/illustrations/einleitung_generated/intro-jade-surface.png",
@@ -133,8 +133,8 @@
       "asset": "assets/illustrations/einleitung_generated/intro-cloud-mark.png",
       "status": 200,
       "contentType": "image/png",
-      "bytes": 688363,
-      "sha256": "d85fc91299b03696ff9f285e5d6d9f2bc9a35470fd0f84d524e41a4826ce5e14"
+      "bytes": 512974,
+      "sha256": "c728baced6dd3bff2729bf2a28dbf62e3954ad91a04594e04dc923fbd530f6a5"
     },
     {
       "asset": "assets/illustrations/einleitung_generated/intro-welcome-scene.png",
@@ -226,6 +226,34 @@
       "contentType": "image/png",
       "bytes": 1703962,
       "sha256": "1fca7f57aafc7799d9055a2be9dc5246063f51f10ee92aa6ec0c88920421d97c"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-chevron.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 367228,
+      "sha256": "d3a29d5361ecabfb2afd1a81a9c4b20e9cc28bf6b4d4f31807c3cfa7d347baf4"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-scholar-original-de-hero.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1307647,
+      "sha256": "4d87ea16ae81851651a953181d109f8787eca3009596bf50c0f8b58f10214dcc"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-hanok-original-de-hero.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1385985,
+      "sha256": "b18933bb3c404dd1aabffeced0c0db7ec988b4ad4e6f956dae47fcd70d5f39a7"
+    },
+    {
+      "asset": "assets/illustrations/einleitung_generated/intro-sound-original-de-hero.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1112681,
+      "sha256": "8061c95c316924e6a86092746948be13ae466bf6d171360112dcc907ac7cdf64"
     }
   ]
 }

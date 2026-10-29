@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import '../../widgets/sori/button.dart';
 
 import '../../l10n/generated/app_localizations.dart';
-import '../../widgets/sori/pressable.dart';
+import '../../widgets/sori/intro_motion.dart';
 import 'c_intro_art.dart';
 import 'c_onboarding.dart';
 
-/// Native text over complete generated scenes. Coordinates follow Figma 77:2.
+/// Reviewed reference artwork with native actions and accessible reading text.
 class IntroReferenceStoryHero extends StatelessWidget {
   const IntroReferenceStoryHero({
     super.key,
@@ -42,6 +42,61 @@ class IntroReferenceStoryHero extends StatelessWidget {
             height: h * s,
             child: child,
           );
+      if (Localizations.localeOf(context).languageCode == 'de' &&
+          const [1, 3, 4].contains(index)) {
+        final t = AppL10n.of(context);
+        final artwork = switch (index) {
+          1 => (name: 'sound-original-de-hero', height: 573.052349),
+          3 => (name: 'scholar-original-de-hero', height: 545.532886),
+          _ => (name: 'hanok-original-de-hero', height: 527.186577),
+        };
+        final reading = switch (index) {
+          1 => 'ㄱ + ㅏ = 가. 가 · ga.',
+          3 =>
+            '${t.grammarBookExample}. 안녕하세요. annyeonghaseyo. '
+                '${t.introGreetingTranslation}. ${labels.join('. ')}',
+          _ => labels.join('. '),
+        };
+        return SizedBox(
+          height: contentTop[index] * s,
+          child: Stack(
+            children: [
+              at(
+                0,
+                122,
+                402,
+                artwork.height,
+                Semantics(
+                  container: true,
+                  header: true,
+                  button: true,
+                  label: '$title. $reading',
+                  hint: previewLabel,
+                  onTap: onPreview,
+                  child: IntroPressable(
+                    key: ValueKey('c-onboarding-preview-${index + 2}'),
+                    onTap: onPreview,
+                    pressScale: .997,
+                    surfaceDepth: 0,
+                    child: CIntroArt(artwork.name),
+                  ),
+                ),
+              ),
+              if (index == 1)
+                at(
+                  0,
+                  568.787,
+                  402,
+                  126.265349,
+                  const COnboardingSoundScene(
+                    reference: true,
+                    originalArtwork: true,
+                  ),
+                ),
+            ],
+          ),
+        );
+      }
       return SizedBox(
         height: index == 2
             ? math.max(contentTop[index] * s, 607 * s + 48 + 2)
@@ -58,7 +113,7 @@ class IntroReferenceStoryHero extends StatelessWidget {
                 button: true,
                 label: previewLabel,
                 onTap: onPreview,
-                child: SoriPressable(
+                child: IntroPressable(
                   key: ValueKey('c-onboarding-preview-${index + 2}'),
                   onTap: onPreview,
                   pressScale: .997,
@@ -317,7 +372,7 @@ class IntroReferenceStoryBody extends StatelessWidget {
         double size,
         double line, {
         bool bold = false,
-        Color color = IntroPalette.blue,
+        Color color = IntroPalette.mutedInk,
         Key? key,
       }) => Text(
         value,
@@ -368,7 +423,12 @@ class IntroReferenceStoryBody extends StatelessWidget {
             text(body, bodySize, bodyLine),
             if (index == 0) ...[
               SizedBox(height: 4 * s),
-              text(t.introNextSample, 14.5, 20, color: IntroPalette.ink),
+              text(
+                t.introNextSample,
+                14.5,
+                20,
+                color: IntroPalette.emphasisInk,
+              ),
             ],
           ],
         ),

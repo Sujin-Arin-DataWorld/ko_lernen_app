@@ -29,7 +29,7 @@ import 'package:ko_lernen_app/widgets/sori/card.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
-import 'support/real_fonts.dart';
+import 'support/einleitung_capture_assets.dart';
 
 const _safeInsets = EdgeInsets.only(top: 44, bottom: 34);
 
@@ -56,15 +56,7 @@ typedef _EntryFixture = ({
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   setUpAll(() async {
-    await loadSoriRealFonts(materialIcons: true);
-    // The reference controls use the bundled fonts, not test Ahem metrics.
-    for (final family in ['Roboto', 'RobotoCondensed', 'Lora', 'NotoSerif']) {
-      final loader = FontLoader(family);
-      loader.addFont(
-        rootBundle.load('assets/fonts/$family/$family-Variable.ttf'),
-      );
-      await loader.load();
-    }
+    await loadEinleitungFonts();
   });
 
   setUp(() async {

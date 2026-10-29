@@ -10,14 +10,15 @@ import 'package:ko_lernen_app/features/onboarding_v2/onboarding_journey_reposito
 import 'package:ko_lernen_app/features/onboarding_v2/onboarding_journey_state.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/learner_level.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/c_intro_art.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/c_onboarding.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_companion_screen.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_setup_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_journey_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'support/einleitung_capture_assets.dart';
-import 'support/real_fonts.dart';
 import 'support/sori_speech_stubs.dart';
 
 const _scrollKey = ValueKey('onboarding-v2-companion-scroll');
@@ -31,14 +32,7 @@ const _cases = [
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   setUpAll(() async {
-    await loadSoriRealFonts(materialIcons: true);
-    for (final family in ['Roboto', 'RobotoCondensed', 'Lora', 'NotoSerif']) {
-      final loader = FontLoader(family);
-      loader.addFont(
-        rootBundle.load('assets/fonts/$family/$family-Variable.ttf'),
-      );
-      await loader.load();
-    }
+    await loadEinleitungFonts();
   });
   setUp(() async {
     stubSoriSpeech();
@@ -112,7 +106,11 @@ void main() {
       await tester.tap(_card(id));
       await tester.pump(const Duration(milliseconds: 16));
       _expectSelection(tester, id);
-      before.expectUnchanged(tester, 'pending pointer $id');
+      before.expectUnchanged(
+        tester,
+        'pending pointer $id',
+        portraitsSettled: false,
+      );
     }
     expect(fixture.repository.state!.companionDraft, isNull);
     blocker.complete();
@@ -207,6 +205,188 @@ void main() {
       }
     },
   );
+
+  for (final config in [
+    (size: const Size(402, 934), scale: 1.0, language: 'de', keyboard: false),
+    (size: const Size(320, 640), scale: 2.0, language: 'en', keyboard: true),
+  ]) {
+    testWidgets('all four interests save one choice via '
+        '${config.keyboard ? 'keyboard' : 'touch'} ${config.language}', (
+      tester,
+    ) async {
+      final semantics = tester.ensureSemantics();
+      try {
+        final fixture = await _pumpJourney(
+          tester,
+          size: config.size,
+          textScale: config.scale,
+          reducedMotion: config.keyboard,
+          language: config.language,
+          phase: OnboardingPhase.setup,
+          purpose: null,
+        );
+        for (final choice in _purposeChoices) {
+          final card = find.byKey(ValueKey('onboarding-purpose-${choice.id}'));
+          await tester.ensureVisible(card);
+          await tester.pumpAndSettle();
+          expect(card.hitTestable(), findsOneWidget);
+          if (config.keyboard) {
+            final context = tester.element(
+              find
+                  .descendant(of: card, matching: find.byType(MouseRegion))
+                  .first,
+            );
+            final focus = Focus.of(context)..requestFocus();
+            await tester.pump();
+            await tester.sendKeyEvent(LogicalKeyboardKey.space);
+            await tester.pumpAndSettle();
+            expect(focus.hasFocus, isTrue);
+          } else {
+            await tester.tap(card);
+            await tester.pumpAndSettle();
+          }
+          _expectPurpose(tester, choice.id);
+          final selectedSemantics = find
+              .ancestor(of: card, matching: find.byType(Semantics))
+              .first;
+          expect(
+            tester
+                .getSemantics(selectedSemantics)
+                .getSemanticsData()
+                .flagsCollection
+                .isSelected,
+            Tristate.isTrue,
+          );
+          expect(fixture.repository.state!.purposeDraft, choice.purpose);
+          expect(tester.takeException(), isNull);
+        }
+        expect(fixture.repository.saved.length, 4);
+        expect(fixture.gateway.calls, 0);
+      } finally {
+        semantics.dispose();
+      }
+    });
+  }
+
+  testWidgets(
+    'rapid interest choices retain the latest intent through saving',
+    (tester) async {
+      final fixture = await _pumpJourney(
+        tester,
+        size: const Size(402, 934),
+        phase: OnboardingPhase.setup,
+        purpose: null,
+      );
+      final blocker = Completer<void>();
+      fixture.repository.nextSaveBlocker = blocker;
+      for (final id in ['lifeTravel', 'peopleCulture', 'lifeTravel']) {
+        tester
+            .widget<OnboardingSetupScreen>(find.byType(OnboardingSetupScreen))
+            .onPurposeChanged(id);
+        await tester.pump(const Duration(milliseconds: 16));
+        _expectPurpose(tester, id);
+      }
+      blocker.complete();
+      await tester.pumpAndSettle();
+      _expectPurpose(tester, 'lifeTravel');
+      expect(fixture.repository.saved.map((state) => state.purposeDraft), [
+        OnboardingPurpose.dailyTravel,
+        OnboardingPurpose.peopleCulture,
+        OnboardingPurpose.dailyTravel,
+      ]);
+      expect(
+        fixture.repository.state!.purposeDraft,
+        OnboardingPurpose.dailyTravel,
+      );
+      expect(fixture.gateway.calls, 0);
+    },
+  );
+
+  testWidgets('failed interest save restores its durable single selection', (
+    tester,
+  ) async {
+    final fixture = await _pumpJourney(
+      tester,
+      size: const Size(402, 934),
+      phase: OnboardingPhase.setup,
+    );
+    fixture.repository.failNextSave = true;
+    tester
+        .widget<OnboardingSetupScreen>(find.byType(OnboardingSetupScreen))
+        .onPurposeChanged('kContent');
+    await tester.pumpAndSettle();
+    _expectPurpose(tester, 'lifeTravel');
+    expect(fixture.repository.saved, isEmpty);
+    expect(
+      fixture.repository.state!.purposeDraft,
+      OnboardingPurpose.dailyTravel,
+    );
+    expect(fixture.gateway.calls, 0);
+  });
+
+  testWidgets('Continue waits for the selected interest and permits retry', (
+    tester,
+  ) async {
+    final fixture = await _pumpJourney(
+      tester,
+      size: const Size(402, 934),
+      phase: OnboardingPhase.setup,
+    );
+    final blocker = Completer<void>();
+    fixture.repository.nextSaveBlocker = blocker;
+    fixture.repository.failNextSave = true;
+    tester
+        .widget<OnboardingSetupScreen>(find.byType(OnboardingSetupScreen))
+        .onPurposeChanged('kContent');
+    await tester.pump();
+    void continueSetup() => tester
+        .widget<IntroAction>(
+          find.byKey(const ValueKey('onboarding-v2-setup-continue')),
+        )
+        .onTap!();
+    continueSetup();
+    await tester.pump();
+    expect(fixture.repository.state!.phase, OnboardingPhase.setup);
+    blocker.complete();
+    await tester.pumpAndSettle();
+    expect(fixture.repository.state!.phase, OnboardingPhase.setup);
+    _expectPurpose(tester, 'lifeTravel');
+    continueSetup();
+    await tester.pumpAndSettle();
+    expect(fixture.repository.state!.phase, OnboardingPhase.story);
+    expect(
+      fixture.repository.state!.purposeDraft,
+      OnboardingPurpose.dailyTravel,
+    );
+    expect(fixture.gateway.calls, 0);
+  });
+}
+
+const _purposeChoices = [
+  (id: 'lifeTravel', purpose: OnboardingPurpose.dailyTravel),
+  (id: 'peopleCulture', purpose: OnboardingPurpose.peopleCulture),
+  (id: 'studyWork', purpose: OnboardingPurpose.studyWork),
+  (id: 'kContent', purpose: OnboardingPurpose.kContent),
+];
+
+void _expectPurpose(WidgetTester tester, String id) {
+  expect(
+    tester
+        .widget<OnboardingSetupScreen>(find.byType(OnboardingSetupScreen))
+        .selectedPurposeId,
+    id,
+  );
+  for (final choice in _purposeChoices) {
+    final node = find
+        .ancestor(
+          of: find.byKey(ValueKey('onboarding-purpose-${choice.id}')),
+          matching: find.byType(Semantics),
+        )
+        .first;
+    final properties = tester.widget<Semantics>(node).properties;
+    expect(properties.selected, choice.id == id);
+    expect(properties.inMutuallyExclusiveGroup, isTrue);
+  }
 }
 
 Finder _card(String id) => find.byKey(ValueKey('onboarding-v2-companion-$id'));
@@ -272,15 +452,25 @@ class _Layout {
       ),
       taego = tester.getRect(_card('taego')),
       joy = tester.getRect(_card('joy')),
+      taegoPortrait = tester.getRect(_portrait('taego-close')),
+      joyPortrait = tester.getRect(_portrait('joy-close')),
       cta = tester.getRect(find.byKey(_continueKey));
 
   final Element screen;
   final ScrollableState scrollState;
   final ScrollPosition position;
   final double pixels, extent, viewport;
-  final Rect hero, taego, joy, cta;
+  final Rect hero, taego, joy, taegoPortrait, joyPortrait, cta;
 
-  void expectUnchanged(WidgetTester tester, String reason) {
+  static Finder _portrait(String name) => find.byWidgetPredicate(
+    (widget) => widget is CIntroArt && widget.name == name,
+  );
+
+  void expectUnchanged(
+    WidgetTester tester,
+    String reason, {
+    bool portraitsSettled = true,
+  }) {
     final now = _Layout.read(tester);
     expect(now.screen, same(screen), reason: '$reason: screen identity');
     expect(
@@ -300,6 +490,17 @@ class _Layout {
       (name: 'hero', before: hero, after: now.hero),
       (name: 'Taego', before: taego, after: now.taego),
       (name: 'Joy', before: joy, after: now.joy),
+      // The approved contact motion transforms paint for 100/180ms. Assert
+      // the final portrait pixels after release, while input/layout bounds
+      // above remain invariant even during a rapid pointer sequence.
+      if (portraitsSettled)
+        (
+          name: 'Taego portrait',
+          before: taegoPortrait,
+          after: now.taegoPortrait,
+        ),
+      if (portraitsSettled)
+        (name: 'Joy portrait', before: joyPortrait, after: now.joyPortrait),
       (name: 'CTA', before: cta, after: now.cta),
     ]) {
       expect(pair.after, pair.before, reason: '$reason: ${pair.name} bounds');
@@ -313,6 +514,9 @@ Future<({_DraftRepository repository, _NoCommitGateway gateway})> _pumpJourney(
   double textScale = 1,
   bool reducedMotion = false,
   OnboardingCompanion? selected,
+  OnboardingPhase phase = OnboardingPhase.companion,
+  OnboardingPurpose? purpose = OnboardingPurpose.dailyTravel,
+  String language = 'de',
 }) async {
   tester.view.physicalSize = size;
   tester.view.devicePixelRatio = 1;
@@ -320,9 +524,9 @@ Future<({_DraftRepository repository, _NoCommitGateway gateway})> _pumpJourney(
   addTearDown(tester.view.resetDevicePixelRatio);
   final state = OnboardingJourneyState.initial(DateTime.utc(2026, 10, 18))
       .copyWith(
-        phase: OnboardingPhase.companion,
+        phase: phase,
         storyPage: StoryPageId.heritageJourney,
-        purposeDraft: OnboardingPurpose.dailyTravel,
+        purposeDraft: purpose,
         levelDraft: LearnerLevel.a1,
         companionDraft: selected,
       );
@@ -336,7 +540,7 @@ Future<({_DraftRepository repository, _NoCommitGateway gateway})> _pumpJourney(
   await tester.pumpWidget(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      locale: const Locale('de'),
+      locale: Locale(language),
       supportedLocales: AppL10n.supportedLocales,
       localizationsDelegates: AppL10n.localizationsDelegates,
       builder: (context, child) => MediaQuery(
@@ -349,7 +553,9 @@ Future<({_DraftRepository repository, _NoCommitGateway gateway})> _pumpJourney(
       home: OnboardingV2JourneyScreen(
         firstRunCoordinator: coordinator,
         initialResolution: FirstRunResolution(
-          entry: FirstRunEntry.companion,
+          entry: phase == OnboardingPhase.setup
+              ? FirstRunEntry.setup
+              : FirstRunEntry.companion,
           state: state,
           migratedLegacyState: false,
         ),
@@ -358,7 +564,12 @@ Future<({_DraftRepository repository, _NoCommitGateway gateway})> _pumpJourney(
   );
   await tester.pumpAndSettle();
   await settleEinleitungCaptureAssets(tester);
-  expect(_screen, findsOneWidget);
+  expect(
+    phase == OnboardingPhase.setup
+        ? find.byType(OnboardingSetupScreen)
+        : _screen,
+    findsOneWidget,
+  );
   expect(tester.takeException(), isNull);
   return (repository: repository, gateway: gateway);
 }
