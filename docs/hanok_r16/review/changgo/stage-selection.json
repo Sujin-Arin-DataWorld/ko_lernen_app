@@ -1,0 +1,3291 @@
+{
+  "key": "changgo",
+  "buildingId": "changgo",
+  "name": "창고",
+  "selectorAuthority": "canonical-review catalog and preserved GLB/native explicit reviewStage",
+  "canonicalCatalogSha256": "4f511d3c06b1dcc995cdf94f578b70f400f0ca96bc14fcf65e689eacaec9c6d1",
+  "steps": [
+    {
+      "sequence": 1,
+      "processId": "ildu.changgo-foundation",
+      "label": "터 닦기 · 기단",
+      "isFinal": false,
+      "visibleObjects": [
+        "V28.changgo.foundation.core",
+        "V28.changgo.foundation.post stone",
+        "V28.changgo.foundation.post stone.001",
+        "V28.changgo.foundation.post stone.002",
+        "V28.changgo.foundation.post stone.003",
+        "V28.changgo.foundation.post stone.004",
+        "V28.changgo.foundation.stone.face0",
+        "V28.changgo.foundation.stone.face0.001",
+        "V28.changgo.foundation.stone.face0.002",
+        "V28.changgo.foundation.stone.face0.003",
+        "V28.changgo.foundation.stone.face0.004",
+        "V28.changgo.foundation.stone.face1",
+        "V28.changgo.foundation.stone.face1.001",
+        "V28.changgo.foundation.stone.face1.002",
+        "V28.changgo.foundation.stone.face1.003",
+        "V28.changgo.foundation.stone.face1.004",
+        "V28.changgo.foundation.stone.face2",
+        "V28.changgo.foundation.stone.face2.001",
+        "V28.changgo.foundation.stone.face2.002",
+        "V28.changgo.foundation.stone.face2.003",
+        "V28.changgo.foundation.stone.face2.004",
+        "V28.changgo.foundation.stone.face3",
+        "V28.changgo.foundation.stone.face3.001",
+        "V28.changgo.foundation.stone.face3.002",
+        "V28.changgo.foundation.stone.face3.003",
+        "V28.changgo.foundation.stone.face3.004"
+      ],
+      "visibleOriginals": [
+        "V28.changgo.foundation.core",
+        "V28.changgo.foundation.post stone",
+        "V28.changgo.foundation.post stone.001",
+        "V28.changgo.foundation.post stone.002",
+        "V28.changgo.foundation.post stone.003",
+        "V28.changgo.foundation.post stone.004",
+        "V28.changgo.foundation.stone.face0",
+        "V28.changgo.foundation.stone.face0.001",
+        "V28.changgo.foundation.stone.face0.002",
+        "V28.changgo.foundation.stone.face0.003",
+        "V28.changgo.foundation.stone.face0.004",
+        "V28.changgo.foundation.stone.face1",
+        "V28.changgo.foundation.stone.face1.001",
+        "V28.changgo.foundation.stone.face1.002",
+        "V28.changgo.foundation.stone.face1.003",
+        "V28.changgo.foundation.stone.face1.004",
+        "V28.changgo.foundation.stone.face2",
+        "V28.changgo.foundation.stone.face2.001",
+        "V28.changgo.foundation.stone.face2.002",
+        "V28.changgo.foundation.stone.face2.003",
+        "V28.changgo.foundation.stone.face2.004",
+        "V28.changgo.foundation.stone.face3",
+        "V28.changgo.foundation.stone.face3.001",
+        "V28.changgo.foundation.stone.face3.002",
+        "V28.changgo.foundation.stone.face3.003",
+        "V28.changgo.foundation.stone.face3.004"
+      ],
+      "visibleProxies": [],
+      "newMembers": 26,
+      "newOriginalMembers": 26,
+      "visibleMembers": 26,
+      "visibleSetSha256": "34a53a3e134cbd172298ff3435f6d920a3d29f53f29dbeef218e5f8518192eb8",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 2,
+      "processId": "ildu.changgo-posts",
+      "label": "기둥",
+      "isFinal": false,
+      "visibleObjects": [
+        "V28.changgo.foundation.core",
+        "V28.changgo.foundation.post stone",
+        "V28.changgo.foundation.post stone.001",
+        "V28.changgo.foundation.post stone.002",
+        "V28.changgo.foundation.post stone.003",
+        "V28.changgo.foundation.post stone.004",
+        "V28.changgo.foundation.stone.face0",
+        "V28.changgo.foundation.stone.face0.001",
+        "V28.changgo.foundation.stone.face0.002",
+        "V28.changgo.foundation.stone.face0.003",
+        "V28.changgo.foundation.stone.face0.004",
+        "V28.changgo.foundation.stone.face1",
+        "V28.changgo.foundation.stone.face1.001",
+        "V28.changgo.foundation.stone.face1.002",
+        "V28.changgo.foundation.stone.face1.003",
+        "V28.changgo.foundation.stone.face1.004",
+        "V28.changgo.foundation.stone.face2",
+        "V28.changgo.foundation.stone.face2.001",
+        "V28.changgo.foundation.stone.face2.002",
+        "V28.changgo.foundation.stone.face2.003",
+        "V28.changgo.foundation.stone.face2.004",
+        "V28.changgo.foundation.stone.face3",
+        "V28.changgo.foundation.stone.face3.001",
+        "V28.changgo.foundation.stone.face3.002",
+        "V28.changgo.foundation.stone.face3.003",
+        "V28.changgo.foundation.stone.face3.004",
+        "V28.changgo.frame.post"
+      ],
+      "visibleOriginals": [
+        "V28.changgo.foundation.core",
+        "V28.changgo.foundation.post stone",
+        "V28.changgo.foundation.post stone.001",
+        "V28.changgo.foundation.post stone.002",
+        "V28.changgo.foundation.post stone.003",
+        "V28.changgo.foundation.post stone.004",
+        "V28.changgo.foundation.stone.face0",
+        "V28.changgo.foundation.stone.face0.001",
+        "V28.changgo.foundation.stone.face0.002",
+        "V28.changgo.foundation.stone.face0.003",
+        "V28.changgo.foundation.stone.face0.004",
+        "V28.changgo.foundation.stone.face1",
+        "V28.changgo.foundation.stone.face1.001",
+        "V28.changgo.foundation.stone.face1.002",
+        "V28.changgo.foundation.stone.face1.003",
+        "V28.changgo.foundation.stone.face1.004",
+        "V28.changgo.foundation.stone.face2",
+        "V28.changgo.foundation.stone.face2.001",
+        "V28.changgo.foundation.stone.face2.002",
+        "V28.changgo.foundation.stone.face2.003",
+        "V28.changgo.foundation.stone.face2.004",
+        "V28.changgo.foundation.stone.face3",
+        "V28.changgo.foundation.stone.face3.001",
+        "V28.changgo.foundation.stone.face3.002",
+        "V28.changgo.foundation.stone.face3.003",
+        "V28.changgo.foundation.stone.face3.004",
+        "V28.changgo.frame.post"
+      ],
+      "visibleProxies": [],
+      "newMembers": 1,
+      "newOriginalMembers": 1,
+      "visibleMembers": 27,
+      "visibleSetSha256": "62ab615286b83a03b72ee053cf653345caa420d2d0e3b1655887637632bb0a56",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 3,
+      "processId": "ildu.changgo-beams",
+      "label": "보와 도리",
+      "isFinal": false,
+      "visibleObjects": [
+        "PhotoWarehouse.gable cross tie",
+        "V28.changgo.foundation.core",
+        "V28.changgo.foundation.post stone",
+        "V28.changgo.foundation.post stone.001",
+        "V28.changgo.foundation.post stone.002",
+        "V28.changgo.foundation.post stone.003",
+        "V28.changgo.foundation.post stone.004",
+        "V28.changgo.foundation.stone.face0",
+        "V28.changgo.foundation.stone.face0.001",
+        "V28.changgo.foundation.stone.face0.002",
+        "V28.changgo.foundation.stone.face0.003",
+        "V28.changgo.foundation.stone.face0.004",
+        "V28.changgo.foundation.stone.face1",
+        "V28.changgo.foundation.stone.face1.001",
+        "V28.changgo.foundation.stone.face1.002",
+        "V28.changgo.foundation.stone.face1.003",
+        "V28.changgo.foundation.stone.face1.004",
+        "V28.changgo.foundation.stone.face2",
+        "V28.changgo.foundation.stone.face2.001",
+        "V28.changgo.foundation.stone.face2.002",
+        "V28.changgo.foundation.stone.face2.003",
+        "V28.changgo.foundation.stone.face2.004",
+        "V28.changgo.foundation.stone.face3",
+        "V28.changgo.foundation.stone.face3.001",
+        "V28.changgo.foundation.stone.face3.002",
+        "V28.changgo.foundation.stone.face3.003",
+        "V28.changgo.foundation.stone.face3.004",
+        "V28.changgo.frame.bracket.lower seating block",
+        "V28.changgo.frame.bracket.shaped timber shoulder",
+        "V28.changgo.frame.bracket.upper bearing",
+        "V28.changgo.frame.cross beam",
+        "V28.changgo.frame.long beam",
+        "V28.changgo.frame.post"
+      ],
+      "visibleOriginals": [
+        "PhotoWarehouse.gable cross tie",
+        "V28.changgo.foundation.core",
+        "V28.changgo.foundation.post stone",
+        "V28.changgo.foundation.post stone.001",
+        "V28.changgo.foundation.post stone.002",
+        "V28.changgo.foundation.post stone.003",
+        "V28.changgo.foundation.post stone.004",
+        "V28.changgo.foundation.stone.face0",
+        "V28.changgo.foundation.stone.face0.001",
+        "V28.changgo.foundation.stone.face0.002",
+        "V28.changgo.foundation.stone.face0.003",
+        "V28.changgo.foundation.stone.face0.004",
+        "V28.changgo.foundation.stone.face1",
+        "V28.changgo.foundation.stone.face1.001",
+        "V28.changgo.foundation.stone.face1.002",
+        "V28.changgo.foundation.stone.face1.003",
+        "V28.changgo.foundation.stone.face1.004",
+        "V28.changgo.foundation.stone.face2",
+        "V28.changgo.foundation.stone.face2.001",
+        "V28.changgo.foundation.stone.face2.002",
+        "V28.changgo.foundation.stone.face2.003",
+        "V28.changgo.foundation.stone.face2.004",
+        "V28.changgo.foundation.stone.face3",
+        "V28.changgo.foundation.stone.face3.001",
+        "V28.changgo.foundation.stone.face3.002",
+        "V28.changgo.foundation.stone.face3.003",
+        "V28.changgo.foundation.stone.face3.004",
+        "V28.changgo.frame.bracket.lower seating block",
+        "V28.changgo.frame.bracket.shaped timber shoulder",
+        "V28.changgo.frame.bracket.upper bearing",
+        "V28.changgo.frame.cross beam",
+        "V28.changgo.frame.long beam",
+        "V28.changgo.frame.post"
+      ],
+      "visibleProxies": [],
+      "newMembers": 6,
+      "newOriginalMembers": 6,
+      "visibleMembers": 33,
+      "visibleSetSha256": "7cebcaca4b1ed4121fefcfb8d2e4961ae41b44dd3941999746cf1f0a6787fabe",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 4,
+      "processId": "ildu.changgo-rafters",
+      "label": "서까래와 산자",
+      "isFinal": false,
+      "visibleObjects": [
+        "PhotoWarehouse.gable cross tie",
+        "PhotoWarehouse.gable king post",
+        "V28.changgo.foundation.core",
+        "V28.changgo.foundation.post stone",
+        "V28.changgo.foundation.post stone.001",
+        "V28.changgo.foundation.post stone.002",
+        "V28.changgo.foundation.post stone.003",
+        "V28.changgo.foundation.post stone.004",
+        "V28.changgo.foundation.stone.face0",
+        "V28.changgo.foundation.stone.face0.001",
+        "V28.changgo.foundation.stone.face0.002",
+        "V28.changgo.foundation.stone.face0.003",
+        "V28.changgo.foundation.stone.face0.004",
+        "V28.changgo.foundation.stone.face1",
+        "V28.changgo.foundation.stone.face1.001",
+        "V28.changgo.foundation.stone.face1.002",
+        "V28.changgo.foundation.stone.face1.003",
+        "V28.changgo.foundation.stone.face1.004",
+        "V28.changgo.foundation.stone.face2",
+        "V28.changgo.foundation.stone.face2.001",
+        "V28.changgo.foundation.stone.face2.002",
+        "V28.changgo.foundation.stone.face2.003",
+        "V28.changgo.foundation.stone.face2.004",
+        "V28.changgo.foundation.stone.face3",
+        "V28.changgo.foundation.stone.face3.001",
+        "V28.changgo.foundation.stone.face3.002",
+        "V28.changgo.foundation.stone.face3.003",
+        "V28.changgo.foundation.stone.face3.004",
+        "V28.changgo.frame.bracket.lower seating block",
+        "V28.changgo.frame.bracket.shaped timber shoulder",
+        "V28.changgo.frame.bracket.upper bearing",
+        "V28.changgo.frame.cross beam",
+        "V28.changgo.frame.long beam",
+        "V28.changgo.frame.post",
+        "V28.changgo.roof.eave beam",
+        "V28.changgo.roof.lower exposed rafters",
+        "V28.changgo.roof.rafters",
+        "V31.changgo.roof.gable upright boards",
+        "V31.changgo.roof.gable upright boards.001",
+        "V31.changgo.roof.gable upright boards.002",
+        "V31.changgo.roof.gable upright boards.003"
+      ],
+      "visibleOriginals": [
+        "PhotoWarehouse.gable cross tie",
+        "PhotoWarehouse.gable king post",
+        "V28.changgo.foundation.core",
+        "V28.changgo.foundation.post stone",
+        "V28.changgo.foundation.post stone.001",
+        "V28.changgo.foundation.post stone.002",
+        "V28.changgo.foundation.post stone.003",
+        "V28.changgo.foundation.post stone.004",
+        "V28.changgo.foundation.stone.face0",
+        "V28.changgo.foundation.stone.face0.001",
+        "V28.changgo.foundation.stone.face0.002",
+        "V28.changgo.foundation.stone.face0.003",
+        "V28.changgo.foundation.stone.face0.004",
+        "V28.changgo.foundation.stone.face1",
+        "V28.changgo.foundation.stone.face1.001",
+        "V28.changgo.foundation.stone.face1.002",
+        "V28.changgo.foundation.stone.face1.003",
+        "V28.changgo.foundation.stone.face1.004",
+        "V28.changgo.foundation.stone.face2",
+        "V28.changgo.foundation.stone.face2.001",
+        "V28.changgo.foundation.stone.face2.002",
+        "V28.changgo.foundation.stone.face2.003",
+        "V28.changgo.foundation.stone.face2.004",
+        "V28.changgo.foundation.stone.face3",
+        "V28.changgo.foundation.stone.face3.001",
+        "V28.changgo.foundation.stone.face3.002",
+        "V28.changgo.foundation.stone.face3.003",
+        "V28.changgo.foundation.stone.face3.004",
+        "V28.changgo.frame.bracket.lower seating block",
+        "V28.changgo.frame.bracket.shaped timber shoulder",
+        "V28.changgo.frame.bracket.upper bearing",
+        "V28.changgo.frame.cross beam",
+        "V28.changgo.frame.long beam",
+        "V28.changgo.frame.post",
+        "V28.changgo.roof.eave beam",
+        "V28.changgo.roof.lower exposed rafters",
+        "V28.changgo.roof.rafters",
+        "V31.changgo.roof.gable upright boards",
+        "V31.changgo.roof.gable upright boards.001",
+        "V31.changgo.roof.gable upright boards.002",
+        "V31.changgo.roof.gable upright boards.003"
+      ],
+      "visibleProxies": [],
+      "newMembers": 8,
+      "newOriginalMembers": 8,
+      "visibleMembers": 41,
+      "visibleSetSha256": "fb257d00054b775de1497134fd2db8fe26e57a58d66198ab427e3fedadfdce3f",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 5,
+      "processId": "ildu.changgo-roof-bed",
+      "label": "지붕 바탕",
+      "isFinal": false,
+      "visibleObjects": [
+        "PhotoWarehouse.gable cross tie",
+        "PhotoWarehouse.gable king post",
+        "V28.changgo.foundation.core",
+        "V28.changgo.foundation.post stone",
+        "V28.changgo.foundation.post stone.001",
+        "V28.changgo.foundation.post stone.002",
+        "V28.changgo.foundation.post stone.003",
+        "V28.changgo.foundation.post stone.004",
+        "V28.changgo.foundation.stone.face0",
+        "V28.changgo.foundation.stone.face0.001",
+        "V28.changgo.foundation.stone.face0.002",
+        "V28.changgo.foundation.stone.face0.003",
+        "V28.changgo.foundation.stone.face0.004",
+        "V28.changgo.foundation.stone.face1",
+        "V28.changgo.foundation.stone.face1.001",
+        "V28.changgo.foundation.stone.face1.002",
+        "V28.changgo.foundation.stone.face1.003",
+        "V28.changgo.foundation.stone.face1.004",
+        "V28.changgo.foundation.stone.face2",
+        "V28.changgo.foundation.stone.face2.001",
+        "V28.changgo.foundation.stone.face2.002",
+        "V28.changgo.foundation.stone.face2.003",
+        "V28.changgo.foundation.stone.face2.004",
+        "V28.changgo.foundation.stone.face3",
+        "V28.changgo.foundation.stone.face3.001",
+        "V28.changgo.foundation.stone.face3.002",
+        "V28.changgo.foundation.stone.face3.003",
+        "V28.changgo.foundation.stone.face3.004",
+        "V28.changgo.frame.bracket.lower seating block",
+        "V28.changgo.frame.bracket.shaped timber shoulder",
+        "V28.changgo.frame.bracket.upper bearing",
+        "V28.changgo.frame.cross beam",
+        "V28.changgo.frame.long beam",
+        "V28.changgo.frame.post",
+        "V28.changgo.roof boarding",
+        "V28.changgo.roof.eave beam",
+        "V28.changgo.roof.lower exposed rafters",
+        "V28.changgo.roof.rafters",
+        "V31.changgo.roof.gable upright boards",
+        "V31.changgo.roof.gable upright boards.001",
+        "V31.changgo.roof.gable upright boards.002",
+        "V31.changgo.roof.gable upright boards.003"
+      ],
+      "visibleOriginals": [
+        "PhotoWarehouse.gable cross tie",
+        "PhotoWarehouse.gable king post",
+        "V28.changgo.foundation.core",
+        "V28.changgo.foundation.post stone",
+        "V28.changgo.foundation.post stone.001",
+        "V28.changgo.foundation.post stone.002",
+        "V28.changgo.foundation.post stone.003",
+        "V28.changgo.foundation.post stone.004",
+        "V28.changgo.foundation.stone.face0",
+        "V28.changgo.foundation.stone.face0.001",
+        "V28.changgo.foundation.stone.face0.002",
+        "V28.changgo.foundation.stone.face0.003",
+        "V28.changgo.foundation.stone.face0.004",
+        "V28.changgo.foundation.stone.face1",
+        "V28.changgo.foundation.stone.face1.001",
+        "V28.changgo.foundation.stone.face1.002",
+        "V28.changgo.foundation.stone.face1.003",
+        "V28.changgo.foundation.stone.face1.004",
+        "V28.changgo.foundation.stone.face2",
+        "V28.changgo.foundation.stone.face2.001",
+        "V28.changgo.foundation.stone.face2.002",
+        "V28.changgo.foundation.stone.face2.003",
+        "V28.changgo.foundation.stone.face2.004",
+        "V28.changgo.foundation.stone.face3",
+        "V28.changgo.foundation.stone.face3.001",
+        "V28.changgo.foundation.stone.face3.002",
+        "V28.changgo.foundation.stone.face3.003",
+        "V28.changgo.foundation.stone.face3.004",
+        "V28.changgo.frame.bracket.lower seating block",
+        "V28.changgo.frame.bracket.shaped timber shoulder",
+        "V28.changgo.frame.bracket.upper bearing",
+        "V28.changgo.frame.cross beam",
+        "V28.changgo.frame.long beam",
+        "V28.changgo.frame.post",
+        "V28.changgo.roof boarding",
+        "V28.changgo.roof.eave beam",
+        "V28.changgo.roof.lower exposed rafters",
+        "V28.changgo.roof.rafters",
+        "V31.changgo.roof.gable upright boards",
+        "V31.changgo.roof.gable upright boards.001",
+        "V31.changgo.roof.gable upright boards.002",
+        "V31.changgo.roof.gable upright boards.003"
+      ],
+      "visibleProxies": [],
+      "newMembers": 1,
+      "newOriginalMembers": 1,
+      "visibleMembers": 42,
+      "visibleSetSha256": "1fc10189bff42266ede9cd71435fd80502f925c9578e3821fbce71191a26a03e",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 6,
+      "processId": "ildu.changgo-roof-tiles",
+      "label": "기와",
+      "isFinal": false,
+      "visibleObjects": [
+        "PhotoWarehouse.gable cross tie",
+        "PhotoWarehouse.gable king post",
+        "V28.changgo.foundation.core",
+        "V28.changgo.foundation.post stone",
+        "V28.changgo.foundation.post stone.001",
+        "V28.changgo.foundation.post stone.002",
+        "V28.changgo.foundation.post stone.003",
+        "V28.changgo.foundation.post stone.004",
+        "V28.changgo.foundation.stone.face0",
+        "V28.changgo.foundation.stone.face0.001",
+        "V28.changgo.foundation.stone.face0.002",
+        "V28.changgo.foundation.stone.face0.003",
+        "V28.changgo.foundation.stone.face0.004",
+        "V28.changgo.foundation.stone.face1",
+        "V28.changgo.foundation.stone.face1.001",
+        "V28.changgo.foundation.stone.face1.002",
+        "V28.changgo.foundation.stone.face1.003",
+        "V28.changgo.foundation.stone.face1.004",
+        "V28.changgo.foundation.stone.face2",
+        "V28.changgo.foundation.stone.face2.001",
+        "V28.changgo.foundation.stone.face2.002",
+        "V28.changgo.foundation.stone.face2.003",
+        "V28.changgo.foundation.stone.face2.004",
+        "V28.changgo.foundation.stone.face3",
+        "V28.changgo.foundation.stone.face3.001",
+        "V28.changgo.foundation.stone.face3.002",
+        "V28.changgo.foundation.stone.face3.003",
+        "V28.changgo.foundation.stone.face3.004",
+        "V28.changgo.frame.bracket.lower seating block",
+        "V28.changgo.frame.bracket.shaped timber shoulder",
+        "V28.changgo.frame.bracket.upper bearing",
+        "V28.changgo.frame.cross beam",
+        "V28.changgo.frame.long beam",
+        "V28.changgo.frame.post",
+        "V28.changgo.roof",
+        "V28.changgo.roof boarding",
+        "V28.changgo.roof.001",
+        "V28.changgo.roof.002",
+        "V28.changgo.roof.003",
+        "V28.changgo.roof.004",
+        "V28.changgo.roof.005",
+        "V28.changgo.roof.eave beam",
+        "V28.changgo.roof.lower exposed rafters",
+        "V28.changgo.roof.rafters",
+        "V28.changgo.roof.ridge stack",
+        "V28.changgo.roof.ridge stack.001",
+        "V28.changgo.roof.ridge stack.002",
+        "V28.changgo.roof.ridge stack.003",
+        "V28.changgo.roof.round tile ends",
+        "V31.changgo.roof.gable upright boards",
+        "V31.changgo.roof.gable upright boards.001",
+        "V31.changgo.roof.gable upright boards.002",
+        "V31.changgo.roof.gable upright boards.003",
+        "V31.changgo.roof.ridge cap joint",
+        "V31.changgo.roof.ridge end border",
+        "V31.changgo.roof.ridge end plate",
+        "V33.changgo.roof curved rake caps",
+        "V33.changgo.roof curved rake caps.001",
+        "V33.changgo.roof curved rake caps.002",
+        "V33.changgo.roof curved rake caps.003",
+        "V33.changgo.roof curved rake caps.004",
+        "V33.changgo.roof curved rake caps.005",
+        "V33.changgo.roof rake terminal"
+      ],
+      "visibleOriginals": [
+        "PhotoWarehouse.gable cross tie",
+        "PhotoWarehouse.gable king post",
+        "V28.changgo.foundation.core",
+        "V28.changgo.foundation.post stone",
+        "V28.changgo.foundation.post stone.001",
+        "V28.changgo.foundation.post stone.002",
+        "V28.changgo.foundation.post stone.003",
+        "V28.changgo.foundation.post stone.004",
+        "V28.changgo.foundation.stone.face0",
+        "V28.changgo.foundation.stone.face0.001",
+        "V28.changgo.foundation.stone.face0.002",
+        "V28.changgo.foundation.stone.face0.003",
+        "V28.changgo.foundation.stone.face0.004",
+        "V28.changgo.foundation.stone.face1",
+        "V28.changgo.foundation.stone.face1.001",
+        "V28.changgo.foundation.stone.face1.002",
+        "V28.changgo.foundation.stone.face1.003",
+        "V28.changgo.foundation.stone.face1.004",
+        "V28.changgo.foundation.stone.face2",
+        "V28.changgo.foundation.stone.face2.001",
+        "V28.changgo.foundation.stone.face2.002",
+        "V28.changgo.foundation.stone.face2.003",
+        "V28.changgo.foundation.stone.face2.004",
+        "V28.changgo.foundation.stone.face3",
+        "V28.changgo.foundation.stone.face3.001",
+        "V28.changgo.foundation.stone.face3.002",
+        "V28.changgo.foundation.stone.face3.003",
+        "V28.changgo.foundation.stone.face3.004",
+        "V28.changgo.frame.bracket.lower seating block",
+        "V28.changgo.frame.bracket.shaped timber shoulder",
+        "V28.changgo.frame.bracket.upper bearing",
+        "V28.changgo.frame.cross beam",
+        "V28.changgo.frame.long beam",
+        "V28.changgo.frame.post",
+        "V28.changgo.roof",
+        "V28.changgo.roof boarding",
+        "V28.changgo.roof.001",
+        "V28.changgo.roof.002",
+        "V28.changgo.roof.003",
+        "V28.changgo.roof.004",
+        "V28.changgo.roof.005",
+        "V28.changgo.roof.eave beam",
+        "V28.changgo.roof.lower exposed rafters",
+        "V28.changgo.roof.rafters",
+        "V28.changgo.roof.ridge stack",
+        "V28.changgo.roof.ridge stack.001",
+        "V28.changgo.roof.ridge stack.002",
+        "V28.changgo.roof.ridge stack.003",
+        "V28.changgo.roof.round tile ends",
+        "V31.changgo.roof.gable upright boards",
+        "V31.changgo.roof.gable upright boards.001",
+        "V31.changgo.roof.gable upright boards.002",
+        "V31.changgo.roof.gable upright boards.003",
+        "V31.changgo.roof.ridge cap joint",
+        "V31.changgo.roof.ridge end border",
+        "V31.changgo.roof.ridge end plate",
+        "V33.changgo.roof curved rake caps",
+        "V33.changgo.roof curved rake caps.001",
+        "V33.changgo.roof curved rake caps.002",
+        "V33.changgo.roof curved rake caps.003",
+        "V33.changgo.roof curved rake caps.004",
+        "V33.changgo.roof curved rake caps.005",
+        "V33.changgo.roof rake terminal"
+      ],
+      "visibleProxies": [],
+      "newMembers": 21,
+      "newOriginalMembers": 21,
+      "visibleMembers": 63,
+      "visibleSetSha256": "6986a0fe5b8c3562271b64c9e2e133d7e80d15afa0db2bda4ddf46d6fe2a345a",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 7,
+      "processId": "ildu.changgo-walls",
+      "label": "벽체 채움",
+      "isFinal": false,
+      "visibleObjects": [
+        "PhotoWarehouse.end lime plaster",
+        "PhotoWarehouse.end ochre infill",
+        "PhotoWarehouse.gable cross tie",
+        "PhotoWarehouse.gable king post",
+        "PhotoWarehouse.gable ochre",
+        "V28.changgo.end boards",
+        "V28.changgo.end boards.001",
+        "V28.changgo.end boards.002",
+        "V28.changgo.end boards.003",
+        "V28.changgo.foundation.core",
+        "V28.changgo.foundation.post stone",
+        "V28.changgo.foundation.post stone.001",
+        "V28.changgo.foundation.post stone.002",
+        "V28.changgo.foundation.post stone.003",
+        "V28.changgo.foundation.post stone.004",
+        "V28.changgo.foundation.stone.face0",
+        "V28.changgo.foundation.stone.face0.001",
+        "V28.changgo.foundation.stone.face0.002",
+        "V28.changgo.foundation.stone.face0.003",
+        "V28.changgo.foundation.stone.face0.004",
+        "V28.changgo.foundation.stone.face1",
+        "V28.changgo.foundation.stone.face1.001",
+        "V28.changgo.foundation.stone.face1.002",
+        "V28.changgo.foundation.stone.face1.003",
+        "V28.changgo.foundation.stone.face1.004",
+        "V28.changgo.foundation.stone.face2",
+        "V28.changgo.foundation.stone.face2.001",
+        "V28.changgo.foundation.stone.face2.002",
+        "V28.changgo.foundation.stone.face2.003",
+        "V28.changgo.foundation.stone.face2.004",
+        "V28.changgo.foundation.stone.face3",
+        "V28.changgo.foundation.stone.face3.001",
+        "V28.changgo.foundation.stone.face3.002",
+        "V28.changgo.foundation.stone.face3.003",
+        "V28.changgo.foundation.stone.face3.004",
+        "V28.changgo.frame.bracket.lower seating block",
+        "V28.changgo.frame.bracket.shaped timber shoulder",
+        "V28.changgo.frame.bracket.upper bearing",
+        "V28.changgo.frame.cross beam",
+        "V28.changgo.frame.long beam",
+        "V28.changgo.frame.post",
+        "V28.changgo.front ochre band",
+        "V28.changgo.rear boards",
+        "V28.changgo.rear boards.001",
+        "V28.changgo.rear boards.002",
+        "V28.changgo.rear boards.003",
+        "V28.changgo.rear ochre band",
+        "V28.changgo.roof",
+        "V28.changgo.roof boarding",
+        "V28.changgo.roof.001",
+        "V28.changgo.roof.002",
+        "V28.changgo.roof.003",
+        "V28.changgo.roof.004",
+        "V28.changgo.roof.005",
+        "V28.changgo.roof.eave beam",
+        "V28.changgo.roof.gable timber",
+        "V28.changgo.roof.lower exposed rafters",
+        "V28.changgo.roof.rafters",
+        "V28.changgo.roof.ridge stack",
+        "V28.changgo.roof.ridge stack.001",
+        "V28.changgo.roof.ridge stack.002",
+        "V28.changgo.roof.ridge stack.003",
+        "V28.changgo.roof.round tile ends",
+        "V31.changgo.roof.gable upright boards",
+        "V31.changgo.roof.gable upright boards.001",
+        "V31.changgo.roof.gable upright boards.002",
+        "V31.changgo.roof.gable upright boards.003",
+        "V31.changgo.roof.ridge cap joint",
+        "V31.changgo.roof.ridge end border",
+        "V31.changgo.roof.ridge end plate",
+        "V33.changgo.roof curved rake caps",
+        "V33.changgo.roof curved rake caps.001",
+        "V33.changgo.roof curved rake caps.002",
+        "V33.changgo.roof curved rake caps.003",
+        "V33.changgo.roof curved rake caps.004",
+        "V33.changgo.roof curved rake caps.005",
+        "V33.changgo.roof rake terminal"
+      ],
+      "visibleOriginals": [
+        "PhotoWarehouse.end lime plaster",
+        "PhotoWarehouse.end ochre infill",
+        "PhotoWarehouse.gable cross tie",
+        "PhotoWarehouse.gable king post",
+        "PhotoWarehouse.gable ochre",
+        "V28.changgo.end boards",
+        "V28.changgo.end boards.001",
+        "V28.changgo.end boards.002",
+        "V28.changgo.end boards.003",
+        "V28.changgo.foundation.core",
+        "V28.changgo.foundation.post stone",
+        "V28.changgo.foundation.post stone.001",
+        "V28.changgo.foundation.post stone.002",
+        "V28.changgo.foundation.post stone.003",
+        "V28.changgo.foundation.post stone.004",
+        "V28.changgo.foundation.stone.face0",
+        "V28.changgo.foundation.stone.face0.001",
+        "V28.changgo.foundation.stone.face0.002",
+        "V28.changgo.foundation.stone.face0.003",
+        "V28.changgo.foundation.stone.face0.004",
+        "V28.changgo.foundation.stone.face1",
+        "V28.changgo.foundation.stone.face1.001",
+        "V28.changgo.foundation.stone.face1.002",
+        "V28.changgo.foundation.stone.face1.003",
+        "V28.changgo.foundation.stone.face1.004",
+        "V28.changgo.foundation.stone.face2",
+        "V28.changgo.foundation.stone.face2.001",
+        "V28.changgo.foundation.stone.face2.002",
+        "V28.changgo.foundation.stone.face2.003",
+        "V28.changgo.foundation.stone.face2.004",
+        "V28.changgo.foundation.stone.face3",
+        "V28.changgo.foundation.stone.face3.001",
+        "V28.changgo.foundation.stone.face3.002",
+        "V28.changgo.foundation.stone.face3.003",
+        "V28.changgo.foundation.stone.face3.004",
+        "V28.changgo.frame.bracket.lower seating block",
+        "V28.changgo.frame.bracket.shaped timber shoulder",
+        "V28.changgo.frame.bracket.upper bearing",
+        "V28.changgo.frame.cross beam",
+        "V28.changgo.frame.long beam",
+        "V28.changgo.frame.post",
+        "V28.changgo.front ochre band",
+        "V28.changgo.rear boards",
+        "V28.changgo.rear boards.001",
+        "V28.changgo.rear boards.002",
+        "V28.changgo.rear boards.003",
+        "V28.changgo.rear ochre band",
+        "V28.changgo.roof",
+        "V28.changgo.roof boarding",
+        "V28.changgo.roof.001",
+        "V28.changgo.roof.002",
+        "V28.changgo.roof.003",
+        "V28.changgo.roof.004",
+        "V28.changgo.roof.005",
+        "V28.changgo.roof.eave beam",
+        "V28.changgo.roof.gable timber",
+        "V28.changgo.roof.lower exposed rafters",
+        "V28.changgo.roof.rafters",
+        "V28.changgo.roof.ridge stack",
+        "V28.changgo.roof.ridge stack.001",
+        "V28.changgo.roof.ridge stack.002",
+        "V28.changgo.roof.ridge stack.003",
+        "V28.changgo.roof.round tile ends",
+        "V31.changgo.roof.gable upright boards",
+        "V31.changgo.roof.gable upright boards.001",
+        "V31.changgo.roof.gable upright boards.002",
+        "V31.changgo.roof.gable upright boards.003",
+        "V31.changgo.roof.ridge cap joint",
+        "V31.changgo.roof.ridge end border",
+        "V31.changgo.roof.ridge end plate",
+        "V33.changgo.roof curved rake caps",
+        "V33.changgo.roof curved rake caps.001",
+        "V33.changgo.roof curved rake caps.002",
+        "V33.changgo.roof curved rake caps.003",
+        "V33.changgo.roof curved rake caps.004",
+        "V33.changgo.roof curved rake caps.005",
+        "V33.changgo.roof rake terminal"
+      ],
+      "visibleProxies": [],
+      "newMembers": 14,
+      "newOriginalMembers": 14,
+      "visibleMembers": 77,
+      "visibleSetSha256": "539d936c96006d05691b127fd90454240730936a7911734cd068a9786ea1f16d",
+      "noNewGeometry": false
+    },
+    {
+      "sequence": 8,
+      "processId": "ildu.changgo-complete",
+      "label": "문과 창호 · 마감 · 완성",
+      "isFinal": true,
+      "visibleObjects": [
+        "GyeCraft.changgo.irregular paving 0",
+        "GyeCraft.changgo.irregular paving 1",
+        "GyeCraft.changgo.irregular paving 2",
+        "GyeCraft.changgo.irregular paving 3",
+        "GyeCraft.changgo.irregular paving 4",
+        "PhotoWarehouse.end lime plaster",
+        "PhotoWarehouse.end ochre infill",
+        "PhotoWarehouse.gable cross tie",
+        "PhotoWarehouse.gable king post",
+        "PhotoWarehouse.gable ochre",
+        "V28.changgo.bay1.leaf1.V34 meeting bead",
+        "V28.changgo.bay1.leaf1.back rail",
+        "V28.changgo.bay1.leaf1.boards",
+        "V28.changgo.bay1.leaf1.boards.001",
+        "V28.changgo.bay1.leaf1.boards.002",
+        "V28.changgo.bay1.leaf1.boards.003",
+        "V28.changgo.bay1.leaf1.canonical nail",
+        "V28.changgo.bay1.leaf1.hinge strap",
+        "V28.changgo.bay1.leaf1.iron backplate",
+        "V28.changgo.bay1.leaf1.iron handle",
+        "V28.changgo.bay1.leaf2.back rail",
+        "V28.changgo.bay1.leaf2.boards",
+        "V28.changgo.bay1.leaf2.boards.001",
+        "V28.changgo.bay1.leaf2.boards.002",
+        "V28.changgo.bay1.leaf2.boards.003",
+        "V28.changgo.bay1.leaf2.canonical nail",
+        "V28.changgo.bay1.leaf2.hinge strap",
+        "V28.changgo.bay1.leaf2.iron backplate",
+        "V28.changgo.bay1.leaf2.iron handle",
+        "V28.changgo.bay2.leaf1.V34 meeting bead",
+        "V28.changgo.bay2.leaf1.back rail",
+        "V28.changgo.bay2.leaf1.boards",
+        "V28.changgo.bay2.leaf1.boards.001",
+        "V28.changgo.bay2.leaf1.boards.002",
+        "V28.changgo.bay2.leaf1.boards.003",
+        "V28.changgo.bay2.leaf1.canonical nail",
+        "V28.changgo.bay2.leaf1.hinge strap",
+        "V28.changgo.bay2.leaf1.iron backplate",
+        "V28.changgo.bay2.leaf1.iron handle",
+        "V28.changgo.bay2.leaf2.back rail",
+        "V28.changgo.bay2.leaf2.boards",
+        "V28.changgo.bay2.leaf2.boards.001",
+        "V28.changgo.bay2.leaf2.boards.002",
+        "V28.changgo.bay2.leaf2.boards.003",
+        "V28.changgo.bay2.leaf2.canonical nail",
+        "V28.changgo.bay2.leaf2.hinge strap",
+        "V28.changgo.bay2.leaf2.iron backplate",
+        "V28.changgo.bay2.leaf2.iron handle",
+        "V28.changgo.bay3.leaf1.V34 meeting bead",
+        "V28.changgo.bay3.leaf1.back rail",
+        "V28.changgo.bay3.leaf1.boards",
+        "V28.changgo.bay3.leaf1.boards.001",
+        "V28.changgo.bay3.leaf1.boards.002",
+        "V28.changgo.bay3.leaf1.boards.003",
+        "V28.changgo.bay3.leaf1.canonical nail",
+        "V28.changgo.bay3.leaf1.hinge strap",
+        "V28.changgo.bay3.leaf1.iron backplate",
+        "V28.changgo.bay3.leaf1.iron handle",
+        "V28.changgo.bay3.leaf2.back rail",
+        "V28.changgo.bay3.leaf2.boards",
+        "V28.changgo.bay3.leaf2.boards.001",
+        "V28.changgo.bay3.leaf2.boards.002",
+        "V28.changgo.bay3.leaf2.boards.003",
+        "V28.changgo.bay3.leaf2.canonical nail",
+        "V28.changgo.bay3.leaf2.hinge strap",
+        "V28.changgo.bay3.leaf2.iron backplate",
+        "V28.changgo.bay3.leaf2.iron handle",
+        "V28.changgo.bay4.leaf1.V34 meeting bead",
+        "V28.changgo.bay4.leaf1.back rail",
+        "V28.changgo.bay4.leaf1.boards",
+        "V28.changgo.bay4.leaf1.boards.001",
+        "V28.changgo.bay4.leaf1.boards.002",
+        "V28.changgo.bay4.leaf1.boards.003",
+        "V28.changgo.bay4.leaf1.canonical nail",
+        "V28.changgo.bay4.leaf1.hinge strap",
+        "V28.changgo.bay4.leaf1.iron backplate",
+        "V28.changgo.bay4.leaf1.iron handle",
+        "V28.changgo.bay4.leaf2.back rail",
+        "V28.changgo.bay4.leaf2.boards",
+        "V28.changgo.bay4.leaf2.boards.001",
+        "V28.changgo.bay4.leaf2.boards.002",
+        "V28.changgo.bay4.leaf2.boards.003",
+        "V28.changgo.bay4.leaf2.canonical nail",
+        "V28.changgo.bay4.leaf2.hinge strap",
+        "V28.changgo.bay4.leaf2.iron backplate",
+        "V28.changgo.bay4.leaf2.iron handle",
+        "V28.changgo.bay5.leaf1.V34 meeting bead",
+        "V28.changgo.bay5.leaf1.back rail",
+        "V28.changgo.bay5.leaf1.boards",
+        "V28.changgo.bay5.leaf1.boards.001",
+        "V28.changgo.bay5.leaf1.boards.002",
+        "V28.changgo.bay5.leaf1.boards.003",
+        "V28.changgo.bay5.leaf1.canonical nail",
+        "V28.changgo.bay5.leaf1.hinge strap",
+        "V28.changgo.bay5.leaf1.iron backplate",
+        "V28.changgo.bay5.leaf1.iron handle",
+        "V28.changgo.bay5.leaf2.back rail",
+        "V28.changgo.bay5.leaf2.boards",
+        "V28.changgo.bay5.leaf2.boards.001",
+        "V28.changgo.bay5.leaf2.boards.002",
+        "V28.changgo.bay5.leaf2.boards.003",
+        "V28.changgo.bay5.leaf2.canonical nail",
+        "V28.changgo.bay5.leaf2.hinge strap",
+        "V28.changgo.bay5.leaf2.iron backplate",
+        "V28.changgo.bay5.leaf2.iron handle",
+        "V28.changgo.bay6.leaf1.V34 meeting bead",
+        "V28.changgo.bay6.leaf1.back rail",
+        "V28.changgo.bay6.leaf1.boards",
+        "V28.changgo.bay6.leaf1.boards.001",
+        "V28.changgo.bay6.leaf1.boards.002",
+        "V28.changgo.bay6.leaf1.boards.003",
+        "V28.changgo.bay6.leaf1.canonical nail",
+        "V28.changgo.bay6.leaf1.hinge strap",
+        "V28.changgo.bay6.leaf1.iron backplate",
+        "V28.changgo.bay6.leaf1.iron handle",
+        "V28.changgo.bay6.leaf2.back rail",
+        "V28.changgo.bay6.leaf2.boards",
+        "V28.changgo.bay6.leaf2.boards.001",
+        "V28.changgo.bay6.leaf2.boards.002",
+        "V28.changgo.bay6.leaf2.boards.003",
+        "V28.changgo.bay6.leaf2.canonical nail",
+        "V28.changgo.bay6.leaf2.hinge strap",
+        "V28.changgo.bay6.leaf2.iron backplate",
+        "V28.changgo.bay6.leaf2.iron handle",
+        "V28.changgo.end boards",
+        "V28.changgo.end boards.001",
+        "V28.changgo.end boards.002",
+        "V28.changgo.end boards.003",
+        "V28.changgo.finish.approach stone",
+        "V28.changgo.finish.approach stone.001",
+        "V28.changgo.finish.approach stone.002",
+        "V28.changgo.finish.approach stone.003",
+        "V28.changgo.finish.approach stone.004",
+        "V28.changgo.floor",
+        "V28.changgo.floor.001",
+        "V28.changgo.floor.002",
+        "V28.changgo.floor.003",
+        "V28.changgo.foundation.core",
+        "V28.changgo.foundation.post stone",
+        "V28.changgo.foundation.post stone.001",
+        "V28.changgo.foundation.post stone.002",
+        "V28.changgo.foundation.post stone.003",
+        "V28.changgo.foundation.post stone.004",
+        "V28.changgo.foundation.stone.face0",
+        "V28.changgo.foundation.stone.face0.001",
+        "V28.changgo.foundation.stone.face0.002",
+        "V28.changgo.foundation.stone.face0.003",
+        "V28.changgo.foundation.stone.face0.004",
+        "V28.changgo.foundation.stone.face1",
+        "V28.changgo.foundation.stone.face1.001",
+        "V28.changgo.foundation.stone.face1.002",
+        "V28.changgo.foundation.stone.face1.003",
+        "V28.changgo.foundation.stone.face1.004",
+        "V28.changgo.foundation.stone.face2",
+        "V28.changgo.foundation.stone.face2.001",
+        "V28.changgo.foundation.stone.face2.002",
+        "V28.changgo.foundation.stone.face2.003",
+        "V28.changgo.foundation.stone.face2.004",
+        "V28.changgo.foundation.stone.face3",
+        "V28.changgo.foundation.stone.face3.001",
+        "V28.changgo.foundation.stone.face3.002",
+        "V28.changgo.foundation.stone.face3.003",
+        "V28.changgo.foundation.stone.face3.004",
+        "V28.changgo.frame.bracket.lower seating block",
+        "V28.changgo.frame.bracket.shaped timber shoulder",
+        "V28.changgo.frame.bracket.upper bearing",
+        "V28.changgo.frame.cross beam",
+        "V28.changgo.frame.long beam",
+        "V28.changgo.frame.post",
+        "V28.changgo.front ochre band",
+        "V28.changgo.rear boards",
+        "V28.changgo.rear boards.001",
+        "V28.changgo.rear boards.002",
+        "V28.changgo.rear boards.003",
+        "V28.changgo.rear ochre band",
+        "V28.changgo.roof",
+        "V28.changgo.roof boarding",
+        "V28.changgo.roof.001",
+        "V28.changgo.roof.002",
+        "V28.changgo.roof.003",
+        "V28.changgo.roof.004",
+        "V28.changgo.roof.005",
+        "V28.changgo.roof.eave beam",
+        "V28.changgo.roof.gable timber",
+        "V28.changgo.roof.lower exposed rafters",
+        "V28.changgo.roof.rafters",
+        "V28.changgo.roof.ridge stack",
+        "V28.changgo.roof.ridge stack.001",
+        "V28.changgo.roof.ridge stack.002",
+        "V28.changgo.roof.ridge stack.003",
+        "V28.changgo.roof.round tile ends",
+        "V31.changgo.roof.gable upright boards",
+        "V31.changgo.roof.gable upright boards.001",
+        "V31.changgo.roof.gable upright boards.002",
+        "V31.changgo.roof.gable upright boards.003",
+        "V31.changgo.roof.ridge cap joint",
+        "V31.changgo.roof.ridge end border",
+        "V31.changgo.roof.ridge end plate",
+        "V33.changgo.roof curved rake caps",
+        "V33.changgo.roof curved rake caps.001",
+        "V33.changgo.roof curved rake caps.002",
+        "V33.changgo.roof curved rake caps.003",
+        "V33.changgo.roof curved rake caps.004",
+        "V33.changgo.roof curved rake caps.005",
+        "V33.changgo.roof rake terminal",
+        "V34.changgo.frame.closed door stops",
+        "V34.changgo.frame.closed door stops.001",
+        "V34.changgo.frame.closed door stops.002",
+        "V34.changgo.frame.closed door stops.003"
+      ],
+      "visibleOriginals": [
+        "GyeCraft.changgo.irregular paving 0",
+        "GyeCraft.changgo.irregular paving 1",
+        "GyeCraft.changgo.irregular paving 2",
+        "GyeCraft.changgo.irregular paving 3",
+        "GyeCraft.changgo.irregular paving 4",
+        "PhotoWarehouse.end lime plaster",
+        "PhotoWarehouse.end ochre infill",
+        "PhotoWarehouse.gable cross tie",
+        "PhotoWarehouse.gable king post",
+        "PhotoWarehouse.gable ochre",
+        "V28.changgo.bay1.leaf1.V34 meeting bead",
+        "V28.changgo.bay1.leaf1.back rail",
+        "V28.changgo.bay1.leaf1.boards",
+        "V28.changgo.bay1.leaf1.boards.001",
+        "V28.changgo.bay1.leaf1.boards.002",
+        "V28.changgo.bay1.leaf1.boards.003",
+        "V28.changgo.bay1.leaf1.canonical nail",
+        "V28.changgo.bay1.leaf1.hinge strap",
+        "V28.changgo.bay1.leaf1.iron backplate",
+        "V28.changgo.bay1.leaf1.iron handle",
+        "V28.changgo.bay1.leaf2.back rail",
+        "V28.changgo.bay1.leaf2.boards",
+        "V28.changgo.bay1.leaf2.boards.001",
+        "V28.changgo.bay1.leaf2.boards.002",
+        "V28.changgo.bay1.leaf2.boards.003",
+        "V28.changgo.bay1.leaf2.canonical nail",
+        "V28.changgo.bay1.leaf2.hinge strap",
+        "V28.changgo.bay1.leaf2.iron backplate",
+        "V28.changgo.bay1.leaf2.iron handle",
+        "V28.changgo.bay2.leaf1.V34 meeting bead",
+        "V28.changgo.bay2.leaf1.back rail",
+        "V28.changgo.bay2.leaf1.boards",
+        "V28.changgo.bay2.leaf1.boards.001",
+        "V28.changgo.bay2.leaf1.boards.002",
+        "V28.changgo.bay2.leaf1.boards.003",
+        "V28.changgo.bay2.leaf1.canonical nail",
+        "V28.changgo.bay2.leaf1.hinge strap",
+        "V28.changgo.bay2.leaf1.iron backplate",
+        "V28.changgo.bay2.leaf1.iron handle",
+        "V28.changgo.bay2.leaf2.back rail",
+        "V28.changgo.bay2.leaf2.boards",
+        "V28.changgo.bay2.leaf2.boards.001",
+        "V28.changgo.bay2.leaf2.boards.002",
+        "V28.changgo.bay2.leaf2.boards.003",
+        "V28.changgo.bay2.leaf2.canonical nail",
+        "V28.changgo.bay2.leaf2.hinge strap",
+        "V28.changgo.bay2.leaf2.iron backplate",
+        "V28.changgo.bay2.leaf2.iron handle",
+        "V28.changgo.bay3.leaf1.V34 meeting bead",
+        "V28.changgo.bay3.leaf1.back rail",
+        "V28.changgo.bay3.leaf1.boards",
+        "V28.changgo.bay3.leaf1.boards.001",
+        "V28.changgo.bay3.leaf1.boards.002",
+        "V28.changgo.bay3.leaf1.boards.003",
+        "V28.changgo.bay3.leaf1.canonical nail",
+        "V28.changgo.bay3.leaf1.hinge strap",
+        "V28.changgo.bay3.leaf1.iron backplate",
+        "V28.changgo.bay3.leaf1.iron handle",
+        "V28.changgo.bay3.leaf2.back rail",
+        "V28.changgo.bay3.leaf2.boards",
+        "V28.changgo.bay3.leaf2.boards.001",
+        "V28.changgo.bay3.leaf2.boards.002",
+        "V28.changgo.bay3.leaf2.boards.003",
+        "V28.changgo.bay3.leaf2.canonical nail",
+        "V28.changgo.bay3.leaf2.hinge strap",
+        "V28.changgo.bay3.leaf2.iron backplate",
+        "V28.changgo.bay3.leaf2.iron handle",
+        "V28.changgo.bay4.leaf1.V34 meeting bead",
+        "V28.changgo.bay4.leaf1.back rail",
+        "V28.changgo.bay4.leaf1.boards",
+        "V28.changgo.bay4.leaf1.boards.001",
+        "V28.changgo.bay4.leaf1.boards.002",
+        "V28.changgo.bay4.leaf1.boards.003",
+        "V28.changgo.bay4.leaf1.canonical nail",
+        "V28.changgo.bay4.leaf1.hinge strap",
+        "V28.changgo.bay4.leaf1.iron backplate",
+        "V28.changgo.bay4.leaf1.iron handle",
+        "V28.changgo.bay4.leaf2.back rail",
+        "V28.changgo.bay4.leaf2.boards",
+        "V28.changgo.bay4.leaf2.boards.001",
+        "V28.changgo.bay4.leaf2.boards.002",
+        "V28.changgo.bay4.leaf2.boards.003",
+        "V28.changgo.bay4.leaf2.canonical nail",
+        "V28.changgo.bay4.leaf2.hinge strap",
+        "V28.changgo.bay4.leaf2.iron backplate",
+        "V28.changgo.bay4.leaf2.iron handle",
+        "V28.changgo.bay5.leaf1.V34 meeting bead",
+        "V28.changgo.bay5.leaf1.back rail",
+        "V28.changgo.bay5.leaf1.boards",
+        "V28.changgo.bay5.leaf1.boards.001",
+        "V28.changgo.bay5.leaf1.boards.002",
+        "V28.changgo.bay5.leaf1.boards.003",
+        "V28.changgo.bay5.leaf1.canonical nail",
+        "V28.changgo.bay5.leaf1.hinge strap",
+        "V28.changgo.bay5.leaf1.iron backplate",
+        "V28.changgo.bay5.leaf1.iron handle",
+        "V28.changgo.bay5.leaf2.back rail",
+        "V28.changgo.bay5.leaf2.boards",
+        "V28.changgo.bay5.leaf2.boards.001",
+        "V28.changgo.bay5.leaf2.boards.002",
+        "V28.changgo.bay5.leaf2.boards.003",
+        "V28.changgo.bay5.leaf2.canonical nail",
+        "V28.changgo.bay5.leaf2.hinge strap",
+        "V28.changgo.bay5.leaf2.iron backplate",
+        "V28.changgo.bay5.leaf2.iron handle",
+        "V28.changgo.bay6.leaf1.V34 meeting bead",
+        "V28.changgo.bay6.leaf1.back rail",
+        "V28.changgo.bay6.leaf1.boards",
+        "V28.changgo.bay6.leaf1.boards.001",
+        "V28.changgo.bay6.leaf1.boards.002",
+        "V28.changgo.bay6.leaf1.boards.003",
+        "V28.changgo.bay6.leaf1.canonical nail",
+        "V28.changgo.bay6.leaf1.hinge strap",
+        "V28.changgo.bay6.leaf1.iron backplate",
+        "V28.changgo.bay6.leaf1.iron handle",
+        "V28.changgo.bay6.leaf2.back rail",
+        "V28.changgo.bay6.leaf2.boards",
+        "V28.changgo.bay6.leaf2.boards.001",
+        "V28.changgo.bay6.leaf2.boards.002",
+        "V28.changgo.bay6.leaf2.boards.003",
+        "V28.changgo.bay6.leaf2.canonical nail",
+        "V28.changgo.bay6.leaf2.hinge strap",
+        "V28.changgo.bay6.leaf2.iron backplate",
+        "V28.changgo.bay6.leaf2.iron handle",
+        "V28.changgo.end boards",
+        "V28.changgo.end boards.001",
+        "V28.changgo.end boards.002",
+        "V28.changgo.end boards.003",
+        "V28.changgo.finish.approach stone",
+        "V28.changgo.finish.approach stone.001",
+        "V28.changgo.finish.approach stone.002",
+        "V28.changgo.finish.approach stone.003",
+        "V28.changgo.finish.approach stone.004",
+        "V28.changgo.floor",
+        "V28.changgo.floor.001",
+        "V28.changgo.floor.002",
+        "V28.changgo.floor.003",
+        "V28.changgo.foundation.core",
+        "V28.changgo.foundation.post stone",
+        "V28.changgo.foundation.post stone.001",
+        "V28.changgo.foundation.post stone.002",
+        "V28.changgo.foundation.post stone.003",
+        "V28.changgo.foundation.post stone.004",
+        "V28.changgo.foundation.stone.face0",
+        "V28.changgo.foundation.stone.face0.001",
+        "V28.changgo.foundation.stone.face0.002",
+        "V28.changgo.foundation.stone.face0.003",
+        "V28.changgo.foundation.stone.face0.004",
+        "V28.changgo.foundation.stone.face1",
+        "V28.changgo.foundation.stone.face1.001",
+        "V28.changgo.foundation.stone.face1.002",
+        "V28.changgo.foundation.stone.face1.003",
+        "V28.changgo.foundation.stone.face1.004",
+        "V28.changgo.foundation.stone.face2",
+        "V28.changgo.foundation.stone.face2.001",
+        "V28.changgo.foundation.stone.face2.002",
+        "V28.changgo.foundation.stone.face2.003",
+        "V28.changgo.foundation.stone.face2.004",
+        "V28.changgo.foundation.stone.face3",
+        "V28.changgo.foundation.stone.face3.001",
+        "V28.changgo.foundation.stone.face3.002",
+        "V28.changgo.foundation.stone.face3.003",
+        "V28.changgo.foundation.stone.face3.004",
+        "V28.changgo.frame.bracket.lower seating block",
+        "V28.changgo.frame.bracket.shaped timber shoulder",
+        "V28.changgo.frame.bracket.upper bearing",
+        "V28.changgo.frame.cross beam",
+        "V28.changgo.frame.long beam",
+        "V28.changgo.frame.post",
+        "V28.changgo.front ochre band",
+        "V28.changgo.rear boards",
+        "V28.changgo.rear boards.001",
+        "V28.changgo.rear boards.002",
+        "V28.changgo.rear boards.003",
+        "V28.changgo.rear ochre band",
+        "V28.changgo.roof",
+        "V28.changgo.roof boarding",
+        "V28.changgo.roof.001",
+        "V28.changgo.roof.002",
+        "V28.changgo.roof.003",
+        "V28.changgo.roof.004",
+        "V28.changgo.roof.005",
+        "V28.changgo.roof.eave beam",
+        "V28.changgo.roof.gable timber",
+        "V28.changgo.roof.lower exposed rafters",
+        "V28.changgo.roof.rafters",
+        "V28.changgo.roof.ridge stack",
+        "V28.changgo.roof.ridge stack.001",
+        "V28.changgo.roof.ridge stack.002",
+        "V28.changgo.roof.ridge stack.003",
+        "V28.changgo.roof.round tile ends",
+        "V31.changgo.roof.gable upright boards",
+        "V31.changgo.roof.gable upright boards.001",
+        "V31.changgo.roof.gable upright boards.002",
+        "V31.changgo.roof.gable upright boards.003",
+        "V31.changgo.roof.ridge cap joint",
+        "V31.changgo.roof.ridge end border",
+        "V31.changgo.roof.ridge end plate",
+        "V33.changgo.roof curved rake caps",
+        "V33.changgo.roof curved rake caps.001",
+        "V33.changgo.roof curved rake caps.002",
+        "V33.changgo.roof curved rake caps.003",
+        "V33.changgo.roof curved rake caps.004",
+        "V33.changgo.roof curved rake caps.005",
+        "V33.changgo.roof rake terminal",
+        "V34.changgo.frame.closed door stops",
+        "V34.changgo.frame.closed door stops.001",
+        "V34.changgo.frame.closed door stops.002",
+        "V34.changgo.frame.closed door stops.003"
+      ],
+      "visibleProxies": [],
+      "newMembers": 132,
+      "newOriginalMembers": 132,
+      "visibleMembers": 209,
+      "visibleSetSha256": "cca379cf4464ee5e139158b1dcf5d66e23eba11dc15d5beae5b70cbb6e1064f5",
+      "noNewGeometry": false
+    }
+  ],
+  "originalObjectCount": 209,
+  "proxyObjectCount": 0,
+  "baseline": {
+    "GyeCraft.changgo.irregular paving 0": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.changgo.irregular paving 1": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.changgo.irregular paving 2": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.changgo.irregular paving 3": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "GyeCraft.changgo.irregular paving 4": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "PhotoWarehouse.end lime plaster": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "PhotoWarehouse.end ochre infill": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "PhotoWarehouse.gable cross tie": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "PhotoWarehouse.gable king post": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "PhotoWarehouse.gable ochre": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay1.leaf1.V34 meeting bead": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay1.leaf1.back rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay1.leaf1.boards": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay1.leaf1.boards.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay1.leaf1.boards.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay1.leaf1.boards.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay1.leaf1.canonical nail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay1.leaf1.hinge strap": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay1.leaf1.iron backplate": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay1.leaf1.iron handle": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay1.leaf2.back rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay1.leaf2.boards": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay1.leaf2.boards.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay1.leaf2.boards.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay1.leaf2.boards.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay1.leaf2.canonical nail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay1.leaf2.hinge strap": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay1.leaf2.iron backplate": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay1.leaf2.iron handle": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay2.leaf1.V34 meeting bead": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay2.leaf1.back rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay2.leaf1.boards": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay2.leaf1.boards.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay2.leaf1.boards.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay2.leaf1.boards.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay2.leaf1.canonical nail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay2.leaf1.hinge strap": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay2.leaf1.iron backplate": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay2.leaf1.iron handle": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay2.leaf2.back rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay2.leaf2.boards": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay2.leaf2.boards.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay2.leaf2.boards.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay2.leaf2.boards.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay2.leaf2.canonical nail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay2.leaf2.hinge strap": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay2.leaf2.iron backplate": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay2.leaf2.iron handle": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay3.leaf1.V34 meeting bead": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay3.leaf1.back rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay3.leaf1.boards": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay3.leaf1.boards.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay3.leaf1.boards.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay3.leaf1.boards.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay3.leaf1.canonical nail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay3.leaf1.hinge strap": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay3.leaf1.iron backplate": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay3.leaf1.iron handle": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay3.leaf2.back rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay3.leaf2.boards": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay3.leaf2.boards.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay3.leaf2.boards.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay3.leaf2.boards.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay3.leaf2.canonical nail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay3.leaf2.hinge strap": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay3.leaf2.iron backplate": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay3.leaf2.iron handle": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay4.leaf1.V34 meeting bead": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay4.leaf1.back rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay4.leaf1.boards": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay4.leaf1.boards.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay4.leaf1.boards.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay4.leaf1.boards.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay4.leaf1.canonical nail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay4.leaf1.hinge strap": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay4.leaf1.iron backplate": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay4.leaf1.iron handle": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay4.leaf2.back rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay4.leaf2.boards": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay4.leaf2.boards.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay4.leaf2.boards.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay4.leaf2.boards.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay4.leaf2.canonical nail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay4.leaf2.hinge strap": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay4.leaf2.iron backplate": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay4.leaf2.iron handle": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay5.leaf1.V34 meeting bead": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay5.leaf1.back rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay5.leaf1.boards": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay5.leaf1.boards.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay5.leaf1.boards.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay5.leaf1.boards.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay5.leaf1.canonical nail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay5.leaf1.hinge strap": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay5.leaf1.iron backplate": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay5.leaf1.iron handle": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay5.leaf2.back rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay5.leaf2.boards": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay5.leaf2.boards.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay5.leaf2.boards.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay5.leaf2.boards.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay5.leaf2.canonical nail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay5.leaf2.hinge strap": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay5.leaf2.iron backplate": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay5.leaf2.iron handle": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay6.leaf1.V34 meeting bead": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay6.leaf1.back rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay6.leaf1.boards": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay6.leaf1.boards.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay6.leaf1.boards.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay6.leaf1.boards.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay6.leaf1.canonical nail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay6.leaf1.hinge strap": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay6.leaf1.iron backplate": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay6.leaf1.iron handle": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay6.leaf2.back rail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay6.leaf2.boards": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay6.leaf2.boards.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay6.leaf2.boards.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay6.leaf2.boards.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay6.leaf2.canonical nail": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay6.leaf2.hinge strap": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay6.leaf2.iron backplate": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.bay6.leaf2.iron handle": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.end boards": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.end boards.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.end boards.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.end boards.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.finish.approach stone": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.finish.approach stone.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.finish.approach stone.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.finish.approach stone.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.finish.approach stone.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.floor": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.floor.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.floor.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.floor.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.core": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.post stone": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.post stone.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.post stone.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.post stone.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.post stone.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.stone.face0": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.stone.face0.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.stone.face0.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.stone.face0.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.stone.face0.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.stone.face1": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.stone.face1.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.stone.face1.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.stone.face1.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.stone.face1.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.stone.face2": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.stone.face2.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.stone.face2.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.stone.face2.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.stone.face2.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.stone.face3": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.stone.face3.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.stone.face3.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.stone.face3.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.foundation.stone.face3.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.frame.bracket.lower seating block": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.frame.bracket.shaped timber shoulder": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.frame.bracket.upper bearing": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.frame.cross beam": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.frame.long beam": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.frame.post": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.front ochre band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.rear boards": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.rear boards.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.rear boards.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.rear boards.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.rear ochre band": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.roof": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.roof boarding": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.roof.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.roof.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.roof.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.roof.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.roof.005": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.roof.eave beam": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.roof.gable timber": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.roof.lower exposed rafters": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.roof.rafters": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.roof.ridge stack": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.roof.ridge stack.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.roof.ridge stack.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.roof.ridge stack.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V28.changgo.roof.round tile ends": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V31.changgo.roof.gable upright boards": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V31.changgo.roof.gable upright boards.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V31.changgo.roof.gable upright boards.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V31.changgo.roof.gable upright boards.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V31.changgo.roof.ridge cap joint": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V31.changgo.roof.ridge end border": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V31.changgo.roof.ridge end plate": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V33.changgo.roof curved rake caps": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V33.changgo.roof curved rake caps.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V33.changgo.roof curved rake caps.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V33.changgo.roof curved rake caps.003": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V33.changgo.roof curved rake caps.004": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V33.changgo.roof curved rake caps.005": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V33.changgo.roof rake terminal": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V34.changgo.frame.closed door stops": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V34.changgo.frame.closed door stops.001": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V34.changgo.frame.closed door stops.002": {
+      "hideRender": false,
+      "hideViewport": false
+    },
+    "V34.changgo.frame.closed door stops.003": {
+      "hideRender": false,
+      "hideViewport": false
+    }
+  },
+  "requiredStage": {
+    "GyeCraft.changgo.irregular paving 0": 8,
+    "GyeCraft.changgo.irregular paving 1": 8,
+    "GyeCraft.changgo.irregular paving 2": 8,
+    "GyeCraft.changgo.irregular paving 3": 8,
+    "GyeCraft.changgo.irregular paving 4": 8,
+    "PhotoWarehouse.end lime plaster": 7,
+    "PhotoWarehouse.end ochre infill": 7,
+    "PhotoWarehouse.gable cross tie": 3,
+    "PhotoWarehouse.gable king post": 4,
+    "PhotoWarehouse.gable ochre": 7,
+    "V28.changgo.bay1.leaf1.V34 meeting bead": 8,
+    "V28.changgo.bay1.leaf1.back rail": 8,
+    "V28.changgo.bay1.leaf1.boards": 8,
+    "V28.changgo.bay1.leaf1.boards.001": 8,
+    "V28.changgo.bay1.leaf1.boards.002": 8,
+    "V28.changgo.bay1.leaf1.boards.003": 8,
+    "V28.changgo.bay1.leaf1.canonical nail": 8,
+    "V28.changgo.bay1.leaf1.hinge strap": 8,
+    "V28.changgo.bay1.leaf1.iron backplate": 8,
+    "V28.changgo.bay1.leaf1.iron handle": 8,
+    "V28.changgo.bay1.leaf2.back rail": 8,
+    "V28.changgo.bay1.leaf2.boards": 8,
+    "V28.changgo.bay1.leaf2.boards.001": 8,
+    "V28.changgo.bay1.leaf2.boards.002": 8,
+    "V28.changgo.bay1.leaf2.boards.003": 8,
+    "V28.changgo.bay1.leaf2.canonical nail": 8,
+    "V28.changgo.bay1.leaf2.hinge strap": 8,
+    "V28.changgo.bay1.leaf2.iron backplate": 8,
+    "V28.changgo.bay1.leaf2.iron handle": 8,
+    "V28.changgo.bay2.leaf1.V34 meeting bead": 8,
+    "V28.changgo.bay2.leaf1.back rail": 8,
+    "V28.changgo.bay2.leaf1.boards": 8,
+    "V28.changgo.bay2.leaf1.boards.001": 8,
+    "V28.changgo.bay2.leaf1.boards.002": 8,
+    "V28.changgo.bay2.leaf1.boards.003": 8,
+    "V28.changgo.bay2.leaf1.canonical nail": 8,
+    "V28.changgo.bay2.leaf1.hinge strap": 8,
+    "V28.changgo.bay2.leaf1.iron backplate": 8,
+    "V28.changgo.bay2.leaf1.iron handle": 8,
+    "V28.changgo.bay2.leaf2.back rail": 8,
+    "V28.changgo.bay2.leaf2.boards": 8,
+    "V28.changgo.bay2.leaf2.boards.001": 8,
+    "V28.changgo.bay2.leaf2.boards.002": 8,
+    "V28.changgo.bay2.leaf2.boards.003": 8,
+    "V28.changgo.bay2.leaf2.canonical nail": 8,
+    "V28.changgo.bay2.leaf2.hinge strap": 8,
+    "V28.changgo.bay2.leaf2.iron backplate": 8,
+    "V28.changgo.bay2.leaf2.iron handle": 8,
+    "V28.changgo.bay3.leaf1.V34 meeting bead": 8,
+    "V28.changgo.bay3.leaf1.back rail": 8,
+    "V28.changgo.bay3.leaf1.boards": 8,
+    "V28.changgo.bay3.leaf1.boards.001": 8,
+    "V28.changgo.bay3.leaf1.boards.002": 8,
+    "V28.changgo.bay3.leaf1.boards.003": 8,
+    "V28.changgo.bay3.leaf1.canonical nail": 8,
+    "V28.changgo.bay3.leaf1.hinge strap": 8,
+    "V28.changgo.bay3.leaf1.iron backplate": 8,
+    "V28.changgo.bay3.leaf1.iron handle": 8,
+    "V28.changgo.bay3.leaf2.back rail": 8,
+    "V28.changgo.bay3.leaf2.boards": 8,
+    "V28.changgo.bay3.leaf2.boards.001": 8,
+    "V28.changgo.bay3.leaf2.boards.002": 8,
+    "V28.changgo.bay3.leaf2.boards.003": 8,
+    "V28.changgo.bay3.leaf2.canonical nail": 8,
+    "V28.changgo.bay3.leaf2.hinge strap": 8,
+    "V28.changgo.bay3.leaf2.iron backplate": 8,
+    "V28.changgo.bay3.leaf2.iron handle": 8,
+    "V28.changgo.bay4.leaf1.V34 meeting bead": 8,
+    "V28.changgo.bay4.leaf1.back rail": 8,
+    "V28.changgo.bay4.leaf1.boards": 8,
+    "V28.changgo.bay4.leaf1.boards.001": 8,
+    "V28.changgo.bay4.leaf1.boards.002": 8,
+    "V28.changgo.bay4.leaf1.boards.003": 8,
+    "V28.changgo.bay4.leaf1.canonical nail": 8,
+    "V28.changgo.bay4.leaf1.hinge strap": 8,
+    "V28.changgo.bay4.leaf1.iron backplate": 8,
+    "V28.changgo.bay4.leaf1.iron handle": 8,
+    "V28.changgo.bay4.leaf2.back rail": 8,
+    "V28.changgo.bay4.leaf2.boards": 8,
+    "V28.changgo.bay4.leaf2.boards.001": 8,
+    "V28.changgo.bay4.leaf2.boards.002": 8,
+    "V28.changgo.bay4.leaf2.boards.003": 8,
+    "V28.changgo.bay4.leaf2.canonical nail": 8,
+    "V28.changgo.bay4.leaf2.hinge strap": 8,
+    "V28.changgo.bay4.leaf2.iron backplate": 8,
+    "V28.changgo.bay4.leaf2.iron handle": 8,
+    "V28.changgo.bay5.leaf1.V34 meeting bead": 8,
+    "V28.changgo.bay5.leaf1.back rail": 8,
+    "V28.changgo.bay5.leaf1.boards": 8,
+    "V28.changgo.bay5.leaf1.boards.001": 8,
+    "V28.changgo.bay5.leaf1.boards.002": 8,
+    "V28.changgo.bay5.leaf1.boards.003": 8,
+    "V28.changgo.bay5.leaf1.canonical nail": 8,
+    "V28.changgo.bay5.leaf1.hinge strap": 8,
+    "V28.changgo.bay5.leaf1.iron backplate": 8,
+    "V28.changgo.bay5.leaf1.iron handle": 8,
+    "V28.changgo.bay5.leaf2.back rail": 8,
+    "V28.changgo.bay5.leaf2.boards": 8,
+    "V28.changgo.bay5.leaf2.boards.001": 8,
+    "V28.changgo.bay5.leaf2.boards.002": 8,
+    "V28.changgo.bay5.leaf2.boards.003": 8,
+    "V28.changgo.bay5.leaf2.canonical nail": 8,
+    "V28.changgo.bay5.leaf2.hinge strap": 8,
+    "V28.changgo.bay5.leaf2.iron backplate": 8,
+    "V28.changgo.bay5.leaf2.iron handle": 8,
+    "V28.changgo.bay6.leaf1.V34 meeting bead": 8,
+    "V28.changgo.bay6.leaf1.back rail": 8,
+    "V28.changgo.bay6.leaf1.boards": 8,
+    "V28.changgo.bay6.leaf1.boards.001": 8,
+    "V28.changgo.bay6.leaf1.boards.002": 8,
+    "V28.changgo.bay6.leaf1.boards.003": 8,
+    "V28.changgo.bay6.leaf1.canonical nail": 8,
+    "V28.changgo.bay6.leaf1.hinge strap": 8,
+    "V28.changgo.bay6.leaf1.iron backplate": 8,
+    "V28.changgo.bay6.leaf1.iron handle": 8,
+    "V28.changgo.bay6.leaf2.back rail": 8,
+    "V28.changgo.bay6.leaf2.boards": 8,
+    "V28.changgo.bay6.leaf2.boards.001": 8,
+    "V28.changgo.bay6.leaf2.boards.002": 8,
+    "V28.changgo.bay6.leaf2.boards.003": 8,
+    "V28.changgo.bay6.leaf2.canonical nail": 8,
+    "V28.changgo.bay6.leaf2.hinge strap": 8,
+    "V28.changgo.bay6.leaf2.iron backplate": 8,
+    "V28.changgo.bay6.leaf2.iron handle": 8,
+    "V28.changgo.end boards": 7,
+    "V28.changgo.end boards.001": 7,
+    "V28.changgo.end boards.002": 7,
+    "V28.changgo.end boards.003": 7,
+    "V28.changgo.finish.approach stone": 8,
+    "V28.changgo.finish.approach stone.001": 8,
+    "V28.changgo.finish.approach stone.002": 8,
+    "V28.changgo.finish.approach stone.003": 8,
+    "V28.changgo.finish.approach stone.004": 8,
+    "V28.changgo.floor": 8,
+    "V28.changgo.floor.001": 8,
+    "V28.changgo.floor.002": 8,
+    "V28.changgo.floor.003": 8,
+    "V28.changgo.foundation.core": 1,
+    "V28.changgo.foundation.post stone": 1,
+    "V28.changgo.foundation.post stone.001": 1,
+    "V28.changgo.foundation.post stone.002": 1,
+    "V28.changgo.foundation.post stone.003": 1,
+    "V28.changgo.foundation.post stone.004": 1,
+    "V28.changgo.foundation.stone.face0": 1,
+    "V28.changgo.foundation.stone.face0.001": 1,
+    "V28.changgo.foundation.stone.face0.002": 1,
+    "V28.changgo.foundation.stone.face0.003": 1,
+    "V28.changgo.foundation.stone.face0.004": 1,
+    "V28.changgo.foundation.stone.face1": 1,
+    "V28.changgo.foundation.stone.face1.001": 1,
+    "V28.changgo.foundation.stone.face1.002": 1,
+    "V28.changgo.foundation.stone.face1.003": 1,
+    "V28.changgo.foundation.stone.face1.004": 1,
+    "V28.changgo.foundation.stone.face2": 1,
+    "V28.changgo.foundation.stone.face2.001": 1,
+    "V28.changgo.foundation.stone.face2.002": 1,
+    "V28.changgo.foundation.stone.face2.003": 1,
+    "V28.changgo.foundation.stone.face2.004": 1,
+    "V28.changgo.foundation.stone.face3": 1,
+    "V28.changgo.foundation.stone.face3.001": 1,
+    "V28.changgo.foundation.stone.face3.002": 1,
+    "V28.changgo.foundation.stone.face3.003": 1,
+    "V28.changgo.foundation.stone.face3.004": 1,
+    "V28.changgo.frame.bracket.lower seating block": 3,
+    "V28.changgo.frame.bracket.shaped timber shoulder": 3,
+    "V28.changgo.frame.bracket.upper bearing": 3,
+    "V28.changgo.frame.cross beam": 3,
+    "V28.changgo.frame.long beam": 3,
+    "V28.changgo.frame.post": 2,
+    "V28.changgo.front ochre band": 7,
+    "V28.changgo.rear boards": 7,
+    "V28.changgo.rear boards.001": 7,
+    "V28.changgo.rear boards.002": 7,
+    "V28.changgo.rear boards.003": 7,
+    "V28.changgo.rear ochre band": 7,
+    "V28.changgo.roof": 6,
+    "V28.changgo.roof boarding": 5,
+    "V28.changgo.roof.001": 6,
+    "V28.changgo.roof.002": 6,
+    "V28.changgo.roof.003": 6,
+    "V28.changgo.roof.004": 6,
+    "V28.changgo.roof.005": 6,
+    "V28.changgo.roof.eave beam": 4,
+    "V28.changgo.roof.gable timber": 7,
+    "V28.changgo.roof.lower exposed rafters": 4,
+    "V28.changgo.roof.rafters": 4,
+    "V28.changgo.roof.ridge stack": 6,
+    "V28.changgo.roof.ridge stack.001": 6,
+    "V28.changgo.roof.ridge stack.002": 6,
+    "V28.changgo.roof.ridge stack.003": 6,
+    "V28.changgo.roof.round tile ends": 6,
+    "V31.changgo.roof.gable upright boards": 4,
+    "V31.changgo.roof.gable upright boards.001": 4,
+    "V31.changgo.roof.gable upright boards.002": 4,
+    "V31.changgo.roof.gable upright boards.003": 4,
+    "V31.changgo.roof.ridge cap joint": 6,
+    "V31.changgo.roof.ridge end border": 6,
+    "V31.changgo.roof.ridge end plate": 6,
+    "V33.changgo.roof curved rake caps": 6,
+    "V33.changgo.roof curved rake caps.001": 6,
+    "V33.changgo.roof curved rake caps.002": 6,
+    "V33.changgo.roof curved rake caps.003": 6,
+    "V33.changgo.roof curved rake caps.004": 6,
+    "V33.changgo.roof curved rake caps.005": 6,
+    "V33.changgo.roof rake terminal": 6,
+    "V34.changgo.frame.closed door stops": 8,
+    "V34.changgo.frame.closed door stops.001": 8,
+    "V34.changgo.frame.closed door stops.002": 8,
+    "V34.changgo.frame.closed door stops.003": 8
+  },
+  "lineage": {
+    "GyeCraft.changgo.irregular paving 0": {
+      "sourceObject": "GyeCraft.changgo.irregular paving 0",
+      "processId": null,
+      "original": true
+    },
+    "GyeCraft.changgo.irregular paving 1": {
+      "sourceObject": "GyeCraft.changgo.irregular paving 1",
+      "processId": null,
+      "original": true
+    },
+    "GyeCraft.changgo.irregular paving 2": {
+      "sourceObject": "GyeCraft.changgo.irregular paving 2",
+      "processId": null,
+      "original": true
+    },
+    "GyeCraft.changgo.irregular paving 3": {
+      "sourceObject": "GyeCraft.changgo.irregular paving 3",
+      "processId": null,
+      "original": true
+    },
+    "GyeCraft.changgo.irregular paving 4": {
+      "sourceObject": "GyeCraft.changgo.irregular paving 4",
+      "processId": null,
+      "original": true
+    },
+    "PhotoWarehouse.end lime plaster": {
+      "sourceObject": "PhotoWarehouse.end lime plaster",
+      "processId": "ildu.changgo-walls",
+      "original": true
+    },
+    "PhotoWarehouse.end ochre infill": {
+      "sourceObject": "PhotoWarehouse.end ochre infill",
+      "processId": "ildu.changgo-walls",
+      "original": true
+    },
+    "PhotoWarehouse.gable cross tie": {
+      "sourceObject": "PhotoWarehouse.gable cross tie",
+      "processId": "ildu.changgo-beams",
+      "original": true
+    },
+    "PhotoWarehouse.gable king post": {
+      "sourceObject": "PhotoWarehouse.gable king post",
+      "processId": "ildu.changgo-rafters",
+      "original": true
+    },
+    "PhotoWarehouse.gable ochre": {
+      "sourceObject": "PhotoWarehouse.gable ochre",
+      "processId": "ildu.changgo-walls",
+      "original": true
+    },
+    "V28.changgo.bay1.leaf1.V34 meeting bead": {
+      "sourceObject": "V28.changgo.bay1.leaf1.V34 meeting bead",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay1.leaf1.back rail": {
+      "sourceObject": "V28.changgo.bay1.leaf1.back rail",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay1.leaf1.boards": {
+      "sourceObject": "V28.changgo.bay1.leaf1.boards",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay1.leaf1.boards.001": {
+      "sourceObject": "V28.changgo.bay1.leaf1.boards.001",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay1.leaf1.boards.002": {
+      "sourceObject": "V28.changgo.bay1.leaf1.boards.002",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay1.leaf1.boards.003": {
+      "sourceObject": "V28.changgo.bay1.leaf1.boards.003",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay1.leaf1.canonical nail": {
+      "sourceObject": "V28.changgo.bay1.leaf1.canonical nail",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay1.leaf1.hinge strap": {
+      "sourceObject": "V28.changgo.bay1.leaf1.hinge strap",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay1.leaf1.iron backplate": {
+      "sourceObject": "V28.changgo.bay1.leaf1.iron backplate",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay1.leaf1.iron handle": {
+      "sourceObject": "V28.changgo.bay1.leaf1.iron handle",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay1.leaf2.back rail": {
+      "sourceObject": "V28.changgo.bay1.leaf2.back rail",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay1.leaf2.boards": {
+      "sourceObject": "V28.changgo.bay1.leaf2.boards",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay1.leaf2.boards.001": {
+      "sourceObject": "V28.changgo.bay1.leaf2.boards.001",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay1.leaf2.boards.002": {
+      "sourceObject": "V28.changgo.bay1.leaf2.boards.002",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay1.leaf2.boards.003": {
+      "sourceObject": "V28.changgo.bay1.leaf2.boards.003",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay1.leaf2.canonical nail": {
+      "sourceObject": "V28.changgo.bay1.leaf2.canonical nail",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay1.leaf2.hinge strap": {
+      "sourceObject": "V28.changgo.bay1.leaf2.hinge strap",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay1.leaf2.iron backplate": {
+      "sourceObject": "V28.changgo.bay1.leaf2.iron backplate",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay1.leaf2.iron handle": {
+      "sourceObject": "V28.changgo.bay1.leaf2.iron handle",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay2.leaf1.V34 meeting bead": {
+      "sourceObject": "V28.changgo.bay2.leaf1.V34 meeting bead",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay2.leaf1.back rail": {
+      "sourceObject": "V28.changgo.bay2.leaf1.back rail",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay2.leaf1.boards": {
+      "sourceObject": "V28.changgo.bay2.leaf1.boards",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay2.leaf1.boards.001": {
+      "sourceObject": "V28.changgo.bay2.leaf1.boards.001",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay2.leaf1.boards.002": {
+      "sourceObject": "V28.changgo.bay2.leaf1.boards.002",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay2.leaf1.boards.003": {
+      "sourceObject": "V28.changgo.bay2.leaf1.boards.003",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay2.leaf1.canonical nail": {
+      "sourceObject": "V28.changgo.bay2.leaf1.canonical nail",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay2.leaf1.hinge strap": {
+      "sourceObject": "V28.changgo.bay2.leaf1.hinge strap",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay2.leaf1.iron backplate": {
+      "sourceObject": "V28.changgo.bay2.leaf1.iron backplate",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay2.leaf1.iron handle": {
+      "sourceObject": "V28.changgo.bay2.leaf1.iron handle",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay2.leaf2.back rail": {
+      "sourceObject": "V28.changgo.bay2.leaf2.back rail",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay2.leaf2.boards": {
+      "sourceObject": "V28.changgo.bay2.leaf2.boards",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay2.leaf2.boards.001": {
+      "sourceObject": "V28.changgo.bay2.leaf2.boards.001",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay2.leaf2.boards.002": {
+      "sourceObject": "V28.changgo.bay2.leaf2.boards.002",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay2.leaf2.boards.003": {
+      "sourceObject": "V28.changgo.bay2.leaf2.boards.003",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay2.leaf2.canonical nail": {
+      "sourceObject": "V28.changgo.bay2.leaf2.canonical nail",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay2.leaf2.hinge strap": {
+      "sourceObject": "V28.changgo.bay2.leaf2.hinge strap",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay2.leaf2.iron backplate": {
+      "sourceObject": "V28.changgo.bay2.leaf2.iron backplate",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay2.leaf2.iron handle": {
+      "sourceObject": "V28.changgo.bay2.leaf2.iron handle",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay3.leaf1.V34 meeting bead": {
+      "sourceObject": "V28.changgo.bay3.leaf1.V34 meeting bead",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay3.leaf1.back rail": {
+      "sourceObject": "V28.changgo.bay3.leaf1.back rail",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay3.leaf1.boards": {
+      "sourceObject": "V28.changgo.bay3.leaf1.boards",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay3.leaf1.boards.001": {
+      "sourceObject": "V28.changgo.bay3.leaf1.boards.001",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay3.leaf1.boards.002": {
+      "sourceObject": "V28.changgo.bay3.leaf1.boards.002",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay3.leaf1.boards.003": {
+      "sourceObject": "V28.changgo.bay3.leaf1.boards.003",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay3.leaf1.canonical nail": {
+      "sourceObject": "V28.changgo.bay3.leaf1.canonical nail",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay3.leaf1.hinge strap": {
+      "sourceObject": "V28.changgo.bay3.leaf1.hinge strap",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay3.leaf1.iron backplate": {
+      "sourceObject": "V28.changgo.bay3.leaf1.iron backplate",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay3.leaf1.iron handle": {
+      "sourceObject": "V28.changgo.bay3.leaf1.iron handle",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay3.leaf2.back rail": {
+      "sourceObject": "V28.changgo.bay3.leaf2.back rail",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay3.leaf2.boards": {
+      "sourceObject": "V28.changgo.bay3.leaf2.boards",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay3.leaf2.boards.001": {
+      "sourceObject": "V28.changgo.bay3.leaf2.boards.001",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay3.leaf2.boards.002": {
+      "sourceObject": "V28.changgo.bay3.leaf2.boards.002",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay3.leaf2.boards.003": {
+      "sourceObject": "V28.changgo.bay3.leaf2.boards.003",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay3.leaf2.canonical nail": {
+      "sourceObject": "V28.changgo.bay3.leaf2.canonical nail",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay3.leaf2.hinge strap": {
+      "sourceObject": "V28.changgo.bay3.leaf2.hinge strap",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay3.leaf2.iron backplate": {
+      "sourceObject": "V28.changgo.bay3.leaf2.iron backplate",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay3.leaf2.iron handle": {
+      "sourceObject": "V28.changgo.bay3.leaf2.iron handle",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay4.leaf1.V34 meeting bead": {
+      "sourceObject": "V28.changgo.bay4.leaf1.V34 meeting bead",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay4.leaf1.back rail": {
+      "sourceObject": "V28.changgo.bay4.leaf1.back rail",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay4.leaf1.boards": {
+      "sourceObject": "V28.changgo.bay4.leaf1.boards",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay4.leaf1.boards.001": {
+      "sourceObject": "V28.changgo.bay4.leaf1.boards.001",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay4.leaf1.boards.002": {
+      "sourceObject": "V28.changgo.bay4.leaf1.boards.002",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay4.leaf1.boards.003": {
+      "sourceObject": "V28.changgo.bay4.leaf1.boards.003",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay4.leaf1.canonical nail": {
+      "sourceObject": "V28.changgo.bay4.leaf1.canonical nail",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay4.leaf1.hinge strap": {
+      "sourceObject": "V28.changgo.bay4.leaf1.hinge strap",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay4.leaf1.iron backplate": {
+      "sourceObject": "V28.changgo.bay4.leaf1.iron backplate",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay4.leaf1.iron handle": {
+      "sourceObject": "V28.changgo.bay4.leaf1.iron handle",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay4.leaf2.back rail": {
+      "sourceObject": "V28.changgo.bay4.leaf2.back rail",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay4.leaf2.boards": {
+      "sourceObject": "V28.changgo.bay4.leaf2.boards",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay4.leaf2.boards.001": {
+      "sourceObject": "V28.changgo.bay4.leaf2.boards.001",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay4.leaf2.boards.002": {
+      "sourceObject": "V28.changgo.bay4.leaf2.boards.002",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay4.leaf2.boards.003": {
+      "sourceObject": "V28.changgo.bay4.leaf2.boards.003",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay4.leaf2.canonical nail": {
+      "sourceObject": "V28.changgo.bay4.leaf2.canonical nail",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay4.leaf2.hinge strap": {
+      "sourceObject": "V28.changgo.bay4.leaf2.hinge strap",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay4.leaf2.iron backplate": {
+      "sourceObject": "V28.changgo.bay4.leaf2.iron backplate",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay4.leaf2.iron handle": {
+      "sourceObject": "V28.changgo.bay4.leaf2.iron handle",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay5.leaf1.V34 meeting bead": {
+      "sourceObject": "V28.changgo.bay5.leaf1.V34 meeting bead",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay5.leaf1.back rail": {
+      "sourceObject": "V28.changgo.bay5.leaf1.back rail",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay5.leaf1.boards": {
+      "sourceObject": "V28.changgo.bay5.leaf1.boards",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay5.leaf1.boards.001": {
+      "sourceObject": "V28.changgo.bay5.leaf1.boards.001",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay5.leaf1.boards.002": {
+      "sourceObject": "V28.changgo.bay5.leaf1.boards.002",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay5.leaf1.boards.003": {
+      "sourceObject": "V28.changgo.bay5.leaf1.boards.003",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay5.leaf1.canonical nail": {
+      "sourceObject": "V28.changgo.bay5.leaf1.canonical nail",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay5.leaf1.hinge strap": {
+      "sourceObject": "V28.changgo.bay5.leaf1.hinge strap",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay5.leaf1.iron backplate": {
+      "sourceObject": "V28.changgo.bay5.leaf1.iron backplate",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay5.leaf1.iron handle": {
+      "sourceObject": "V28.changgo.bay5.leaf1.iron handle",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay5.leaf2.back rail": {
+      "sourceObject": "V28.changgo.bay5.leaf2.back rail",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay5.leaf2.boards": {
+      "sourceObject": "V28.changgo.bay5.leaf2.boards",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay5.leaf2.boards.001": {
+      "sourceObject": "V28.changgo.bay5.leaf2.boards.001",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay5.leaf2.boards.002": {
+      "sourceObject": "V28.changgo.bay5.leaf2.boards.002",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay5.leaf2.boards.003": {
+      "sourceObject": "V28.changgo.bay5.leaf2.boards.003",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay5.leaf2.canonical nail": {
+      "sourceObject": "V28.changgo.bay5.leaf2.canonical nail",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay5.leaf2.hinge strap": {
+      "sourceObject": "V28.changgo.bay5.leaf2.hinge strap",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay5.leaf2.iron backplate": {
+      "sourceObject": "V28.changgo.bay5.leaf2.iron backplate",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay5.leaf2.iron handle": {
+      "sourceObject": "V28.changgo.bay5.leaf2.iron handle",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay6.leaf1.V34 meeting bead": {
+      "sourceObject": "V28.changgo.bay6.leaf1.V34 meeting bead",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay6.leaf1.back rail": {
+      "sourceObject": "V28.changgo.bay6.leaf1.back rail",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay6.leaf1.boards": {
+      "sourceObject": "V28.changgo.bay6.leaf1.boards",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay6.leaf1.boards.001": {
+      "sourceObject": "V28.changgo.bay6.leaf1.boards.001",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay6.leaf1.boards.002": {
+      "sourceObject": "V28.changgo.bay6.leaf1.boards.002",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay6.leaf1.boards.003": {
+      "sourceObject": "V28.changgo.bay6.leaf1.boards.003",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay6.leaf1.canonical nail": {
+      "sourceObject": "V28.changgo.bay6.leaf1.canonical nail",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay6.leaf1.hinge strap": {
+      "sourceObject": "V28.changgo.bay6.leaf1.hinge strap",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay6.leaf1.iron backplate": {
+      "sourceObject": "V28.changgo.bay6.leaf1.iron backplate",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay6.leaf1.iron handle": {
+      "sourceObject": "V28.changgo.bay6.leaf1.iron handle",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay6.leaf2.back rail": {
+      "sourceObject": "V28.changgo.bay6.leaf2.back rail",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay6.leaf2.boards": {
+      "sourceObject": "V28.changgo.bay6.leaf2.boards",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay6.leaf2.boards.001": {
+      "sourceObject": "V28.changgo.bay6.leaf2.boards.001",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay6.leaf2.boards.002": {
+      "sourceObject": "V28.changgo.bay6.leaf2.boards.002",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay6.leaf2.boards.003": {
+      "sourceObject": "V28.changgo.bay6.leaf2.boards.003",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay6.leaf2.canonical nail": {
+      "sourceObject": "V28.changgo.bay6.leaf2.canonical nail",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay6.leaf2.hinge strap": {
+      "sourceObject": "V28.changgo.bay6.leaf2.hinge strap",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay6.leaf2.iron backplate": {
+      "sourceObject": "V28.changgo.bay6.leaf2.iron backplate",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.bay6.leaf2.iron handle": {
+      "sourceObject": "V28.changgo.bay6.leaf2.iron handle",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V28.changgo.end boards": {
+      "sourceObject": "V28.changgo.end boards",
+      "processId": "ildu.changgo-walls",
+      "original": true
+    },
+    "V28.changgo.end boards.001": {
+      "sourceObject": "V28.changgo.end boards.001",
+      "processId": "ildu.changgo-walls",
+      "original": true
+    },
+    "V28.changgo.end boards.002": {
+      "sourceObject": "V28.changgo.end boards.002",
+      "processId": "ildu.changgo-walls",
+      "original": true
+    },
+    "V28.changgo.end boards.003": {
+      "sourceObject": "V28.changgo.end boards.003",
+      "processId": "ildu.changgo-walls",
+      "original": true
+    },
+    "V28.changgo.finish.approach stone": {
+      "sourceObject": "V28.changgo.finish.approach stone",
+      "processId": null,
+      "original": true
+    },
+    "V28.changgo.finish.approach stone.001": {
+      "sourceObject": "V28.changgo.finish.approach stone.001",
+      "processId": null,
+      "original": true
+    },
+    "V28.changgo.finish.approach stone.002": {
+      "sourceObject": "V28.changgo.finish.approach stone.002",
+      "processId": null,
+      "original": true
+    },
+    "V28.changgo.finish.approach stone.003": {
+      "sourceObject": "V28.changgo.finish.approach stone.003",
+      "processId": null,
+      "original": true
+    },
+    "V28.changgo.finish.approach stone.004": {
+      "sourceObject": "V28.changgo.finish.approach stone.004",
+      "processId": null,
+      "original": true
+    },
+    "V28.changgo.floor": {
+      "sourceObject": "V28.changgo.floor",
+      "processId": null,
+      "original": true
+    },
+    "V28.changgo.floor.001": {
+      "sourceObject": "V28.changgo.floor.001",
+      "processId": null,
+      "original": true
+    },
+    "V28.changgo.floor.002": {
+      "sourceObject": "V28.changgo.floor.002",
+      "processId": null,
+      "original": true
+    },
+    "V28.changgo.floor.003": {
+      "sourceObject": "V28.changgo.floor.003",
+      "processId": null,
+      "original": true
+    },
+    "V28.changgo.foundation.core": {
+      "sourceObject": "V28.changgo.foundation.core",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.post stone": {
+      "sourceObject": "V28.changgo.foundation.post stone",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.post stone.001": {
+      "sourceObject": "V28.changgo.foundation.post stone.001",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.post stone.002": {
+      "sourceObject": "V28.changgo.foundation.post stone.002",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.post stone.003": {
+      "sourceObject": "V28.changgo.foundation.post stone.003",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.post stone.004": {
+      "sourceObject": "V28.changgo.foundation.post stone.004",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.stone.face0": {
+      "sourceObject": "V28.changgo.foundation.stone.face0",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.stone.face0.001": {
+      "sourceObject": "V28.changgo.foundation.stone.face0.001",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.stone.face0.002": {
+      "sourceObject": "V28.changgo.foundation.stone.face0.002",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.stone.face0.003": {
+      "sourceObject": "V28.changgo.foundation.stone.face0.003",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.stone.face0.004": {
+      "sourceObject": "V28.changgo.foundation.stone.face0.004",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.stone.face1": {
+      "sourceObject": "V28.changgo.foundation.stone.face1",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.stone.face1.001": {
+      "sourceObject": "V28.changgo.foundation.stone.face1.001",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.stone.face1.002": {
+      "sourceObject": "V28.changgo.foundation.stone.face1.002",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.stone.face1.003": {
+      "sourceObject": "V28.changgo.foundation.stone.face1.003",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.stone.face1.004": {
+      "sourceObject": "V28.changgo.foundation.stone.face1.004",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.stone.face2": {
+      "sourceObject": "V28.changgo.foundation.stone.face2",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.stone.face2.001": {
+      "sourceObject": "V28.changgo.foundation.stone.face2.001",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.stone.face2.002": {
+      "sourceObject": "V28.changgo.foundation.stone.face2.002",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.stone.face2.003": {
+      "sourceObject": "V28.changgo.foundation.stone.face2.003",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.stone.face2.004": {
+      "sourceObject": "V28.changgo.foundation.stone.face2.004",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.stone.face3": {
+      "sourceObject": "V28.changgo.foundation.stone.face3",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.stone.face3.001": {
+      "sourceObject": "V28.changgo.foundation.stone.face3.001",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.stone.face3.002": {
+      "sourceObject": "V28.changgo.foundation.stone.face3.002",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.stone.face3.003": {
+      "sourceObject": "V28.changgo.foundation.stone.face3.003",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.foundation.stone.face3.004": {
+      "sourceObject": "V28.changgo.foundation.stone.face3.004",
+      "processId": "ildu.changgo-foundation",
+      "original": true
+    },
+    "V28.changgo.frame.bracket.lower seating block": {
+      "sourceObject": "V28.changgo.frame.bracket.lower seating block",
+      "processId": "ildu.changgo-beams",
+      "original": true
+    },
+    "V28.changgo.frame.bracket.shaped timber shoulder": {
+      "sourceObject": "V28.changgo.frame.bracket.shaped timber shoulder",
+      "processId": "ildu.changgo-beams",
+      "original": true
+    },
+    "V28.changgo.frame.bracket.upper bearing": {
+      "sourceObject": "V28.changgo.frame.bracket.upper bearing",
+      "processId": "ildu.changgo-beams",
+      "original": true
+    },
+    "V28.changgo.frame.cross beam": {
+      "sourceObject": "V28.changgo.frame.cross beam",
+      "processId": "ildu.changgo-beams",
+      "original": true
+    },
+    "V28.changgo.frame.long beam": {
+      "sourceObject": "V28.changgo.frame.long beam",
+      "processId": "ildu.changgo-beams",
+      "original": true
+    },
+    "V28.changgo.frame.post": {
+      "sourceObject": "V28.changgo.frame.post",
+      "processId": "ildu.changgo-posts",
+      "original": true
+    },
+    "V28.changgo.front ochre band": {
+      "sourceObject": "V28.changgo.front ochre band",
+      "processId": "ildu.changgo-walls",
+      "original": true
+    },
+    "V28.changgo.rear boards": {
+      "sourceObject": "V28.changgo.rear boards",
+      "processId": "ildu.changgo-walls",
+      "original": true
+    },
+    "V28.changgo.rear boards.001": {
+      "sourceObject": "V28.changgo.rear boards.001",
+      "processId": "ildu.changgo-walls",
+      "original": true
+    },
+    "V28.changgo.rear boards.002": {
+      "sourceObject": "V28.changgo.rear boards.002",
+      "processId": "ildu.changgo-walls",
+      "original": true
+    },
+    "V28.changgo.rear boards.003": {
+      "sourceObject": "V28.changgo.rear boards.003",
+      "processId": "ildu.changgo-walls",
+      "original": true
+    },
+    "V28.changgo.rear ochre band": {
+      "sourceObject": "V28.changgo.rear ochre band",
+      "processId": "ildu.changgo-walls",
+      "original": true
+    },
+    "V28.changgo.roof": {
+      "sourceObject": "V28.changgo.roof",
+      "processId": "ildu.changgo-roof-tiles",
+      "original": true
+    },
+    "V28.changgo.roof boarding": {
+      "sourceObject": "V28.changgo.roof boarding",
+      "processId": "ildu.changgo-roof-bed",
+      "original": true
+    },
+    "V28.changgo.roof.001": {
+      "sourceObject": "V28.changgo.roof.001",
+      "processId": "ildu.changgo-roof-tiles",
+      "original": true
+    },
+    "V28.changgo.roof.002": {
+      "sourceObject": "V28.changgo.roof.002",
+      "processId": "ildu.changgo-roof-tiles",
+      "original": true
+    },
+    "V28.changgo.roof.003": {
+      "sourceObject": "V28.changgo.roof.003",
+      "processId": "ildu.changgo-roof-tiles",
+      "original": true
+    },
+    "V28.changgo.roof.004": {
+      "sourceObject": "V28.changgo.roof.004",
+      "processId": "ildu.changgo-roof-tiles",
+      "original": true
+    },
+    "V28.changgo.roof.005": {
+      "sourceObject": "V28.changgo.roof.005",
+      "processId": "ildu.changgo-roof-tiles",
+      "original": true
+    },
+    "V28.changgo.roof.eave beam": {
+      "sourceObject": "V28.changgo.roof.eave beam",
+      "processId": "ildu.changgo-rafters",
+      "original": true
+    },
+    "V28.changgo.roof.gable timber": {
+      "sourceObject": "V28.changgo.roof.gable timber",
+      "processId": "ildu.changgo-walls",
+      "original": true
+    },
+    "V28.changgo.roof.lower exposed rafters": {
+      "sourceObject": "V28.changgo.roof.lower exposed rafters",
+      "processId": "ildu.changgo-rafters",
+      "original": true
+    },
+    "V28.changgo.roof.rafters": {
+      "sourceObject": "V28.changgo.roof.rafters",
+      "processId": "ildu.changgo-rafters",
+      "original": true
+    },
+    "V28.changgo.roof.ridge stack": {
+      "sourceObject": "V28.changgo.roof.ridge stack",
+      "processId": "ildu.changgo-roof-tiles",
+      "original": true
+    },
+    "V28.changgo.roof.ridge stack.001": {
+      "sourceObject": "V28.changgo.roof.ridge stack.001",
+      "processId": "ildu.changgo-roof-tiles",
+      "original": true
+    },
+    "V28.changgo.roof.ridge stack.002": {
+      "sourceObject": "V28.changgo.roof.ridge stack.002",
+      "processId": "ildu.changgo-roof-tiles",
+      "original": true
+    },
+    "V28.changgo.roof.ridge stack.003": {
+      "sourceObject": "V28.changgo.roof.ridge stack.003",
+      "processId": "ildu.changgo-roof-tiles",
+      "original": true
+    },
+    "V28.changgo.roof.round tile ends": {
+      "sourceObject": "V28.changgo.roof.round tile ends",
+      "processId": "ildu.changgo-roof-tiles",
+      "original": true
+    },
+    "V31.changgo.roof.gable upright boards": {
+      "sourceObject": "V31.changgo.roof.gable upright boards",
+      "processId": "ildu.changgo-rafters",
+      "original": true
+    },
+    "V31.changgo.roof.gable upright boards.001": {
+      "sourceObject": "V31.changgo.roof.gable upright boards.001",
+      "processId": "ildu.changgo-rafters",
+      "original": true
+    },
+    "V31.changgo.roof.gable upright boards.002": {
+      "sourceObject": "V31.changgo.roof.gable upright boards.002",
+      "processId": "ildu.changgo-rafters",
+      "original": true
+    },
+    "V31.changgo.roof.gable upright boards.003": {
+      "sourceObject": "V31.changgo.roof.gable upright boards.003",
+      "processId": "ildu.changgo-rafters",
+      "original": true
+    },
+    "V31.changgo.roof.ridge cap joint": {
+      "sourceObject": "V31.changgo.roof.ridge cap joint",
+      "processId": "ildu.changgo-roof-tiles",
+      "original": true
+    },
+    "V31.changgo.roof.ridge end border": {
+      "sourceObject": "V31.changgo.roof.ridge end border",
+      "processId": "ildu.changgo-roof-tiles",
+      "original": true
+    },
+    "V31.changgo.roof.ridge end plate": {
+      "sourceObject": "V31.changgo.roof.ridge end plate",
+      "processId": "ildu.changgo-roof-tiles",
+      "original": true
+    },
+    "V33.changgo.roof curved rake caps": {
+      "sourceObject": "V33.changgo.roof curved rake caps",
+      "processId": "ildu.changgo-roof-tiles",
+      "original": true
+    },
+    "V33.changgo.roof curved rake caps.001": {
+      "sourceObject": "V33.changgo.roof curved rake caps.001",
+      "processId": "ildu.changgo-roof-tiles",
+      "original": true
+    },
+    "V33.changgo.roof curved rake caps.002": {
+      "sourceObject": "V33.changgo.roof curved rake caps.002",
+      "processId": "ildu.changgo-roof-tiles",
+      "original": true
+    },
+    "V33.changgo.roof curved rake caps.003": {
+      "sourceObject": "V33.changgo.roof curved rake caps.003",
+      "processId": "ildu.changgo-roof-tiles",
+      "original": true
+    },
+    "V33.changgo.roof curved rake caps.004": {
+      "sourceObject": "V33.changgo.roof curved rake caps.004",
+      "processId": "ildu.changgo-roof-tiles",
+      "original": true
+    },
+    "V33.changgo.roof curved rake caps.005": {
+      "sourceObject": "V33.changgo.roof curved rake caps.005",
+      "processId": "ildu.changgo-roof-tiles",
+      "original": true
+    },
+    "V33.changgo.roof rake terminal": {
+      "sourceObject": "V33.changgo.roof rake terminal",
+      "processId": "ildu.changgo-roof-tiles",
+      "original": true
+    },
+    "V34.changgo.frame.closed door stops": {
+      "sourceObject": "V34.changgo.frame.closed door stops",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V34.changgo.frame.closed door stops.001": {
+      "sourceObject": "V34.changgo.frame.closed door stops.001",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V34.changgo.frame.closed door stops.002": {
+      "sourceObject": "V34.changgo.frame.closed door stops.002",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    },
+    "V34.changgo.frame.closed door stops.003": {
+      "sourceObject": "V34.changgo.frame.closed door stops.003",
+      "processId": "ildu.changgo-complete",
+      "original": true
+    }
+  },
+  "nullProcessOriginals": [
+    "GyeCraft.changgo.irregular paving 0",
+    "GyeCraft.changgo.irregular paving 1",
+    "GyeCraft.changgo.irregular paving 2",
+    "GyeCraft.changgo.irregular paving 3",
+    "GyeCraft.changgo.irregular paving 4",
+    "V28.changgo.finish.approach stone",
+    "V28.changgo.finish.approach stone.001",
+    "V28.changgo.finish.approach stone.002",
+    "V28.changgo.finish.approach stone.003",
+    "V28.changgo.finish.approach stone.004",
+    "V28.changgo.floor",
+    "V28.changgo.floor.001",
+    "V28.changgo.floor.002",
+    "V28.changgo.floor.003"
+  ],
+  "legacyDisplayPolicyDifferences": [],
+  "legacyPolicyUnmodified": true,
+  "processIdsAndOrderPreserved": true,
+  "sourceDataEdited": false
+}

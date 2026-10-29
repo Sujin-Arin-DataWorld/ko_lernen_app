@@ -1,0 +1,9692 @@
+[
+  {
+    "name": "Correction.rear room extended masonry",
+    "lo": [
+      7.909999847412109,
+      3.9100000858306885,
+      1.059999942779541
+    ],
+    "hi": [
+      10.449999809265137,
+      5.099999904632568,
+      1.4500000476837158
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Small softened handmade edges",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Craft.Numaru dressed foundation",
+    "lo": [
+      10.03559684753418,
+      -4.531203269958496,
+      2.7858510293299332e-05
+    ],
+    "hi": [
+      15.132749557495117,
+      5.675236701965332,
+      0.3807395100593567
+    ],
+    "vertices": 13194,
+    "polygons": 13180,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Craft.Numaru dressed foundation.001",
+    "lo": [
+      10.024002075195312,
+      -4.538692951202393,
+      7.274782547028735e-05
+    ],
+    "hi": [
+      15.142483711242676,
+      5.6726460456848145,
+      0.3808709383010864
+    ],
+    "vertices": 19566,
+    "polygons": 19548,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Craft.Numaru dressed foundation.002",
+    "lo": [
+      10.034971237182617,
+      -4.537067413330078,
+      3.527166882122401e-06
+    ],
+    "hi": [
+      15.131927490234375,
+      5.673688888549805,
+      0.3809947967529297
+    ],
+    "vertices": 22836,
+    "polygons": 22814,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Craft.Numaru dressed foundation.003",
+    "lo": [
+      10.019822120666504,
+      1.592040777206421,
+      0.00051731220446527
+    ],
+    "hi": [
+      15.124198913574219,
+      5.670973300933838,
+      0.3804735839366913
+    ],
+    "vertices": 8652,
+    "polygons": 8644,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Craft.Numaru dressed foundation.004",
+    "lo": [
+      10.016806602478027,
+      -3.625260829925537,
+      0.00012800096010323614
+    ],
+    "hi": [
+      15.138836860656738,
+      4.9204277992248535,
+      0.38094475865364075
+    ],
+    "vertices": 19896,
+    "polygons": 19878,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Craft.Sarang dressed foundation",
+    "lo": [
+      -0.6422229409217834,
+      -0.6966986656188965,
+      6.964019848965108e-05
+    ],
+    "hi": [
+      10.707176208496094,
+      5.676788330078125,
+      1.0157443284988403
+    ],
+    "vertices": 59754,
+    "polygons": 59700,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Craft.Sarang dressed foundation.001",
+    "lo": [
+      -0.6404703259468079,
+      -0.6964640617370605,
+      0.0002578301646281034
+    ],
+    "hi": [
+      10.713587760925293,
+      5.678719520568848,
+      1.0159447193145752
+    ],
+    "vertices": 53778,
+    "polygons": 53728,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Craft.Sarang dressed foundation.002",
+    "lo": [
+      -0.6415542960166931,
+      -0.6970139145851135,
+      0.0008590946672484279
+    ],
+    "hi": [
+      10.70310115814209,
+      5.679524898529053,
+      1.0158696174621582
+    ],
+    "vertices": 58235,
+    "polygons": 58182,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Craft.Sarang dressed foundation.003",
+    "lo": [
+      -0.6558469533920288,
+      -0.7025920748710632,
+      4.4051183067495e-05
+    ],
+    "hi": [
+      10.701366424560547,
+      5.677645683288574,
+      1.0159947872161865
+    ],
+    "vertices": 46860,
+    "polygons": 46816,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Craft.Sarang dressed foundation.004",
+    "lo": [
+      -0.6417821049690247,
+      -0.6983570456504822,
+      9.549041715217754e-05
+    ],
+    "hi": [
+      10.713343620300293,
+      5.679056644439697,
+      1.0158934593200684
+    ],
+    "vertices": 62676,
+    "polygons": 62620,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Craft.Sarang landing cap",
+    "lo": [
+      -0.6630448698997498,
+      -0.6956087350845337,
+      1.0021740198135376
+    ],
+    "hi": [
+      8.934577941894531,
+      0.3169919550418854,
+      1.1000001430511475
+    ],
+    "vertices": 8820,
+    "polygons": 8814,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Craft.Sarang landing cap.001",
+    "lo": [
+      0.21394102275371552,
+      -0.7002686262130737,
+      1.0020027160644531
+    ],
+    "hi": [
+      9.810518264770508,
+      0.32020336389541626,
+      1.100000023841858
+    ],
+    "vertices": 8820,
+    "polygons": 8814,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Craft.Sarang landing cap.002",
+    "lo": [
+      1.0837862491607666,
+      -0.70039963722229,
+      1.0020651817321777
+    ],
+    "hi": [
+      10.679506301879883,
+      0.31603893637657166,
+      1.0999999046325684
+    ],
+    "vertices": 8820,
+    "polygons": 8814,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Craft.Sarang landing cap.003",
+    "lo": [
+      1.9551693201065063,
+      -0.6970451474189758,
+      1.0020790100097656
+    ],
+    "hi": [
+      7.1934099197387695,
+      0.32096537947654724,
+      1.100000023841858
+    ],
+    "vertices": 5880,
+    "polygons": 5876,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Craft.Sarang landing cap.004",
+    "lo": [
+      2.8303544521331787,
+      -0.6991095542907715,
+      1.002038598060608
+    ],
+    "hi": [
+      8.06305980682373,
+      0.3172158896923065,
+      1.100000023841858
+    ],
+    "vertices": 5880,
+    "polygons": 5876,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Craft.Sarang platform inner core",
+    "lo": [
+      -0.6600000262260437,
+      0.26499998569488525,
+      0.9700000286102295
+    ],
+    "hi": [
+      10.680000305175781,
+      5.675000190734863,
+      1.100000023841858
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Small softened handmade edges",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "GyeCraft.sarang.irregular paving 0",
+    "lo": [
+      -0.6584565043449402,
+      -4.473752498626709,
+      0.48100030422210693
+    ],
+    "hi": [
+      15.099740028381348,
+      5.671473026275635,
+      1.1235355138778687
+    ],
+    "vertices": 876,
+    "polygons": 516,
+    "modifiers": [
+      [
+        "Small chipped paving corners",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "GyeCraft.sarang.irregular paving 1",
+    "lo": [
+      -0.6586875915527344,
+      -4.473937511444092,
+      0.4810616672039032
+    ],
+    "hi": [
+      15.102182388305664,
+      5.672642707824707,
+      1.1233001947402954
+    ],
+    "vertices": 746,
+    "polygons": 440,
+    "modifiers": [
+      [
+        "Small chipped paving corners",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "GyeCraft.sarang.irregular paving 2",
+    "lo": [
+      -0.6587159037590027,
+      -4.474535942077637,
+      0.48104438185691833
+    ],
+    "hi": [
+      15.099743843078613,
+      5.672488212585449,
+      1.1229259967803955
+    ],
+    "vertices": 1056,
+    "polygons": 623,
+    "modifiers": [
+      [
+        "Small chipped paving corners",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "GyeCraft.sarang.irregular paving 3",
+    "lo": [
+      -0.6590103507041931,
+      -4.473008155822754,
+      0.48108628392219543
+    ],
+    "hi": [
+      15.099746704101562,
+      5.672192573547363,
+      1.123599648475647
+    ],
+    "vertices": 950,
+    "polygons": 558,
+    "modifiers": [
+      [
+        "Small chipped paving corners",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "GyeCraft.sarang.irregular paving 4",
+    "lo": [
+      -0.6575682163238525,
+      -4.474790573120117,
+      0.4810140132904053
+    ],
+    "hi": [
+      15.100028038024902,
+      5.671895980834961,
+      1.122902512550354
+    ],
+    "vertices": 1158,
+    "polygons": 679,
+    "modifiers": [
+      [
+        "Small chipped paving corners",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "GyeStyle.Sarang hand-cut post feet",
+    "lo": [
+      -0.23062467575073242,
+      -4.225491523742676,
+      0.42399999499320984
+    ],
+    "hi": [
+      14.782021522521973,
+      5.442437171936035,
+      1.9249907732009888
+    ],
+    "vertices": 368,
+    "polygons": 230,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        "material_index",
+        "FACE",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "GyeStyle.Sarang irregular stone facing",
+    "lo": [
+      -1.2974430322647095,
+      -5.230301380157471,
+      0.006000000052154064
+    ],
+    "hi": [
+      14.735809326171875,
+      -0.6859999895095825,
+      1.443440318107605
+    ],
+    "vertices": 2192,
+    "polygons": 1370,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        "material_index",
+        "FACE",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.02-main-left pale sleeve",
+    "lo": [
+      -0.9569999575614929,
+      -0.9469999670982361,
+      1.2400000095367432
+    ],
+    "hi": [
+      -0.8630000948905945,
+      -0.8530001044273376,
+      2.359999895095825
+    ],
+    "vertices": 64,
+    "polygons": 34,
+    "modifiers": [
+      [
+        "Small softened handmade edges",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.02-main-left stone foot",
+    "lo": [
+      -1.0999996662139893,
+      -1.090000033378601,
+      1.100000023841858
+    ],
+    "hi": [
+      -0.7200004458427429,
+      -0.7099999785423279,
+      1.2400000095367432
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Small softened handmade edges",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.03-numaru-inner pale sleeve",
+    "lo": [
+      9.633000373840332,
+      -4.947000026702881,
+      0.5699999928474426
+    ],
+    "hi": [
+      9.72700023651123,
+      -4.853000164031982,
+      1.690000057220459
+    ],
+    "vertices": 64,
+    "polygons": 34,
+    "modifiers": [
+      [
+        "Small softened handmade edges",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.03-numaru-inner stone foot",
+    "lo": [
+      9.49000072479248,
+      -5.090000152587891,
+      0.4300000071525574
+    ],
+    "hi": [
+      9.869999885559082,
+      -4.710000038146973,
+      0.5699999928474426
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Small softened handmade edges",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.04-numaru-outer pale sleeve",
+    "lo": [
+      15.713000297546387,
+      -5.251999855041504,
+      0.14000000059604645
+    ],
+    "hi": [
+      15.807000160217285,
+      -5.1579999923706055,
+      1.2599999904632568
+    ],
+    "vertices": 64,
+    "polygons": 34,
+    "modifiers": [
+      [
+        "Small softened handmade edges",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.04-numaru-outer stone foot",
+    "lo": [
+      15.570000648498535,
+      -5.394999980926514,
+      0.0
+    ],
+    "hi": [
+      15.949999809265137,
+      -5.014999866485596,
+      0.14000000059604645
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Small softened handmade edges",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.left front apron masonry 0-0",
+    "lo": [
+      -0.6069999933242798,
+      -1.2799999713897705,
+      0.0
+    ],
+    "hi": [
+      0.19366668164730072,
+      -0.690000057220459,
+      0.36666667461395264
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Stone arris",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_vert",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_edge",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.left front apron masonry 0-1",
+    "lo": [
+      0.19966667890548706,
+      -1.2799999713897705,
+      0.0
+    ],
+    "hi": [
+      1.000333309173584,
+      -0.690000057220459,
+      0.36666667461395264
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Stone arris",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_vert",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_edge",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.left front apron masonry 0-2",
+    "lo": [
+      1.006333351135254,
+      -1.2799999713897705,
+      0.0
+    ],
+    "hi": [
+      1.806999921798706,
+      -0.690000057220459,
+      0.36666667461395264
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Stone arris",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_vert",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_edge",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.left front apron masonry 1-0",
+    "lo": [
+      -0.6069999933242798,
+      -1.2799999713897705,
+      0.36666667461395264
+    ],
+    "hi": [
+      0.19366668164730072,
+      -0.690000057220459,
+      0.7333333492279053
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Stone arris",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_vert",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_edge",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.left front apron masonry 1-1",
+    "lo": [
+      0.19966667890548706,
+      -1.2799999713897705,
+      0.36666667461395264
+    ],
+    "hi": [
+      1.000333309173584,
+      -0.690000057220459,
+      0.7333333492279053
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Stone arris",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_vert",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_edge",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.left front apron masonry 1-2",
+    "lo": [
+      1.006333351135254,
+      -1.2799999713897705,
+      0.36666667461395264
+    ],
+    "hi": [
+      1.806999921798706,
+      -0.690000057220459,
+      0.7333333492279053
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Stone arris",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_vert",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_edge",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.left front apron masonry 2-0",
+    "lo": [
+      -0.6069999933242798,
+      -1.2799999713897705,
+      0.7333333492279053
+    ],
+    "hi": [
+      0.19366668164730072,
+      -0.690000057220459,
+      1.100000023841858
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Stone arris",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_vert",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_edge",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.left front apron masonry 2-1",
+    "lo": [
+      0.19966667890548706,
+      -1.2799999713897705,
+      0.7333333492279053
+    ],
+    "hi": [
+      1.000333309173584,
+      -0.690000057220459,
+      1.100000023841858
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Stone arris",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_vert",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_edge",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.left front apron masonry 2-2",
+    "lo": [
+      1.006333351135254,
+      -1.2799999713897705,
+      0.7333333492279053
+    ],
+    "hi": [
+      1.806999921798706,
+      -0.690000057220459,
+      1.100000023841858
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Stone arris",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_vert",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_edge",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.left terrace masonry 0-0",
+    "lo": [
+      -1.309999942779541,
+      -1.2769999504089355,
+      0.0
+    ],
+    "hi": [
+      -0.6100000143051147,
+      -0.49300000071525574,
+      0.36666667461395264
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Stone arris",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_vert",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_edge",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.left terrace masonry 0-1",
+    "lo": [
+      -1.309999942779541,
+      -0.4869999885559082,
+      0.0
+    ],
+    "hi": [
+      -0.6100000143051147,
+      0.296999990940094,
+      0.36666667461395264
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Stone arris",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_vert",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_edge",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.left terrace masonry 1-0",
+    "lo": [
+      -1.309999942779541,
+      -1.2769999504089355,
+      0.36666667461395264
+    ],
+    "hi": [
+      -0.6100000143051147,
+      -0.49300000071525574,
+      0.7333333492279053
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Stone arris",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_vert",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_edge",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.left terrace masonry 1-1",
+    "lo": [
+      -1.309999942779541,
+      -0.4869999885559082,
+      0.36666667461395264
+    ],
+    "hi": [
+      -0.6100000143051147,
+      0.296999990940094,
+      0.7333333492279053
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Stone arris",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_vert",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_edge",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.left terrace masonry 2-0",
+    "lo": [
+      -1.309999942779541,
+      -1.2769999504089355,
+      0.7333333492279053
+    ],
+    "hi": [
+      -0.6100000143051147,
+      -0.49300000071525574,
+      1.100000023841858
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Stone arris",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_vert",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_edge",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.left terrace masonry 2-1",
+    "lo": [
+      -1.309999942779541,
+      -0.4869999885559082,
+      0.7333333492279053
+    ],
+    "hi": [
+      -0.6100000143051147,
+      0.296999990940094,
+      1.100000023841858
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Stone arris",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_vert",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_edge",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.numaru front apron masonry 0-0",
+    "lo": [
+      10.322999954223633,
+      -5.159999847412109,
+      0.0
+    ],
+    "hi": [
+      11.204999923706055,
+      -4.510000228881836,
+      0.4300000071525574
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Stone arris",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_vert",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_edge",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.numaru front apron masonry 0-1",
+    "lo": [
+      11.211000442504883,
+      -5.159999847412109,
+      0.0
+    ],
+    "hi": [
+      12.093000411987305,
+      -4.510000228881836,
+      0.4300000071525574
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Stone arris",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_vert",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_edge",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.numaru front apron masonry 0-2",
+    "lo": [
+      12.098999977111816,
+      -5.159999847412109,
+      0.0
+    ],
+    "hi": [
+      12.980999946594238,
+      -4.510000228881836,
+      0.4300000071525574
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Stone arris",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_vert",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_edge",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.numaru front apron masonry 0-3",
+    "lo": [
+      12.987000465393066,
+      -5.159999847412109,
+      0.0
+    ],
+    "hi": [
+      13.869000434875488,
+      -4.510000228881836,
+      0.4300000071525574
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Stone arris",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_vert",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_edge",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.numaru front apron masonry 0-4",
+    "lo": [
+      13.875,
+      -5.159999847412109,
+      0.0
+    ],
+    "hi": [
+      14.756999969482422,
+      -4.510000228881836,
+      0.4300000071525574
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Stone arris",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_vert",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_edge",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HwaljuFix.numaru inner apron masonry 0-0",
+    "lo": [
+      9.34000015258789,
+      -5.1570000648498535,
+      0.0
+    ],
+    "hi": [
+      10.319999694824219,
+      -4.183000087738037,
+      0.4300000071525574
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Stone arris",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_vert",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_edge",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Sarang.foundation core",
+    "lo": [
+      0.0,
+      -3.994999885559082,
+      0.0
+    ],
+    "hi": [
+      14.545000076293945,
+      5.204999923706055,
+      0.8899999856948853
+    ],
+    "vertices": 16,
+    "polygons": 10,
+    "modifiers": [
+      [
+        "Small softened handmade edges",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Sarang.main front post.stone foot",
+    "lo": [
+      -0.20999999344348907,
+      -0.20999999344348907,
+      1.0499999523162842
+    ],
+    "hi": [
+      10.78499984741211,
+      0.20999999344348907,
+      1.1799999475479126
+    ],
+    "vertices": 40,
+    "polygons": 30,
+    "modifiers": [
+      [
+        "Small softened handmade edges",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Sarang.numaru front measured post.stone foot",
+    "lo": [
+      10.364999771118164,
+      -4.204999923706055,
+      0.4300000071525574
+    ],
+    "hi": [
+      14.755000114440918,
+      -3.7850000858306885,
+      0.5600000023841858
+    ],
+    "vertices": 24,
+    "polygons": 18,
+    "modifiers": [
+      [
+        "Small softened handmade edges",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Sarang.rear post.stone foot",
+    "lo": [
+      -0.20999999344348907,
+      3.7750000953674316,
+      1.0800000429153442
+    ],
+    "hi": [
+      10.78499984741211,
+      5.414999961853027,
+      1.2100000381469727
+    ],
+    "vertices": 40,
+    "polygons": 30,
+    "modifiers": [
+      [
+        "Small softened handmade edges",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Sarang.room front post.stone foot",
+    "lo": [
+      2.384999990463257,
+      1.125,
+      1.7799999713897705
+    ],
+    "hi": [
+      10.78499984741211,
+      1.5449999570846558,
+      1.909999966621399
+    ],
+    "vertices": 32,
+    "polygons": 24,
+    "modifiers": [
+      [
+        "Small softened handmade edges",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Sarang.wing platform",
+    "lo": [
+      10.055000305175781,
+      -4.474999904632568,
+      0.35499998927116394
+    ],
+    "hi": [
+      15.104999542236328,
+      5.59499979019165,
+      0.4749999940395355
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Small softened handmade edges",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Sarang.wing post.stone foot",
+    "lo": [
+      11.680000305175781,
+      -1.5449999570846558,
+      0.4300000071525574
+    ],
+    "hi": [
+      14.755000114440918,
+      4.884999752044678,
+      1.1799999475479126
+    ],
+    "vertices": 48,
+    "polygons": 36,
+    "modifiers": [
+      [
+        "Small softened handmade edges",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Support.rear post plinth",
+    "lo": [
+      2.380000114440918,
+      4.989999771118164,
+      1.1433446407318115
+    ],
+    "hi": [
+      14.760000228881836,
+      5.420000076293945,
+      1.3454999923706055
+    ],
+    "vertices": 48,
+    "polygons": 36,
+    "modifiers": [
+      [
+        "Small softened handmade edges",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Support.room main masonry",
+    "lo": [
+      2.7200000286102295,
+      1.434999942779541,
+      1.065000057220459
+    ],
+    "hi": [
+      10.449999809265137,
+      3.9100000858306885,
+      1.4500000476837158
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Small softened handmade edges",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Support.room wing front masonry",
+    "lo": [
+      11.989999771118164,
+      -1.2200000286102295,
+      0.8199999928474426
+    ],
+    "hi": [
+      14.454999923706055,
+      1.2699999809265137,
+      1.4500000476837158
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Small softened handmade edges",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Support.room wing rear masonry",
+    "lo": [
+      11.989999771118164,
+      1.399999976158142,
+      0.8199999928474426
+    ],
+    "hi": [
+      14.454999923706055,
+      5.099999904632568,
+      1.4500000476837158
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Small softened handmade edges",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "Support.wing dividing plinth",
+    "lo": [
+      11.989999771118164,
+      1.2400000095367432,
+      0.8199999928474426
+    ],
+    "hi": [
+      14.454999923706055,
+      1.4299999475479126,
+      1.9229999780654907
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Small softened handmade edges",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "V25.landing masonry 0-0",
+    "lo": [
+      1.810213565826416,
+      -1.2895621061325073,
+      0.019999995827674866
+    ],
+    "hi": [
+      2.914367437362671,
+      -0.5732964873313904,
+      0.4399999976158142
+    ],
+    "vertices": 3290,
+    "polygons": 3288,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "V25.landing masonry 0-1",
+    "lo": [
+      2.9095687866210938,
+      -1.295114278793335,
+      0.019999995827674866
+    ],
+    "hi": [
+      4.097836017608643,
+      -0.5693039298057556,
+      0.4399999976158142
+    ],
+    "vertices": 3454,
+    "polygons": 3452,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "V25.landing masonry 0-2",
+    "lo": [
+      4.088618755340576,
+      -1.2889677286148071,
+      0.019999995827674866
+    ],
+    "hi": [
+      5.106601715087891,
+      -0.5707637071609497,
+      0.4399999976158142
+    ],
+    "vertices": 3208,
+    "polygons": 3206,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "V25.landing masonry 0-3",
+    "lo": [
+      5.095201015472412,
+      -1.285893201828003,
+      0.019999995827674866
+    ],
+    "hi": [
+      6.060159206390381,
+      -0.5720536112785339,
+      0.4399999976158142
+    ],
+    "vertices": 3126,
+    "polygons": 3124,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "V25.landing masonry 1-0",
+    "lo": [
+      1.8087314367294312,
+      -1.2936701774597168,
+      0.4399999678134918
+    ],
+    "hi": [
+      2.6765639781951904,
+      -0.572672963142395,
+      0.85999995470047
+    ],
+    "vertices": 2962,
+    "polygons": 2960,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "V25.landing masonry 1-1",
+    "lo": [
+      2.6674234867095947,
+      -1.2905700206756592,
+      0.4399999678134918
+    ],
+    "hi": [
+      3.6364896297454834,
+      -0.5704443454742432,
+      0.85999995470047
+    ],
+    "vertices": 3126,
+    "polygons": 3124,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "V25.landing masonry 1-2",
+    "lo": [
+      3.6266396045684814,
+      -1.2924447059631348,
+      0.4399999678134918
+    ],
+    "hi": [
+      4.655524730682373,
+      -0.5718722939491272,
+      0.85999995470047
+    ],
+    "vertices": 3208,
+    "polygons": 3206,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "V25.landing masonry 1-3",
+    "lo": [
+      4.647572040557861,
+      -1.2940608263015747,
+      0.4399999678134918
+    ],
+    "hi": [
+      6.057506084442139,
+      -0.5721732974052429,
+      0.85999995470047
+    ],
+    "vertices": 3782,
+    "polygons": 3780,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "V25.landing masonry 2-0",
+    "lo": [
+      1.8061400651931763,
+      -1.2916617393493652,
+      0.85999995470047
+    ],
+    "hi": [
+      2.9156386852264404,
+      -0.5729904770851135,
+      1.279999852180481
+    ],
+    "vertices": 3290,
+    "polygons": 3288,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "V25.landing masonry 2-1",
+    "lo": [
+      2.9101736545562744,
+      -1.2965049743652344,
+      0.85999995470047
+    ],
+    "hi": [
+      4.093943119049072,
+      -0.5724971294403076,
+      1.279999852180481
+    ],
+    "vertices": 3454,
+    "polygons": 3452,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "V25.landing masonry 2-2",
+    "lo": [
+      4.088542938232422,
+      -1.296209692955017,
+      0.85999995470047
+    ],
+    "hi": [
+      5.103398323059082,
+      -0.5705874562263489,
+      1.279999852180481
+    ],
+    "vertices": 3208,
+    "polygons": 3206,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "V25.landing masonry 2-3",
+    "lo": [
+      5.097263336181641,
+      -1.2931370735168457,
+      0.85999995470047
+    ],
+    "hi": [
+      6.058132648468018,
+      -0.5709823966026306,
+      1.279999852180481
+    ],
+    "vertices": 3126,
+    "polygons": 3124,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "V25.stair cheek",
+    "lo": [
+      3.1475000381469727,
+      -2.9800000190734863,
+      0.02500000037252903
+    ],
+    "hi": [
+      4.71750020980835,
+      -1.2799999713897705,
+      1.3023309707641602
+    ],
+    "vertices": 16,
+    "polygons": 12,
+    "modifiers": [
+      [
+        "Small softened handmade edges",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "V25.stair tread 1",
+    "lo": [
+      3.330731153488159,
+      -2.992770195007324,
+      0.01199999451637268
+    ],
+    "hi": [
+      4.539733409881592,
+      -2.6337695121765137,
+      0.2133333384990692
+    ],
+    "vertices": 2462,
+    "polygons": 2460,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "V25.stair tread 2",
+    "lo": [
+      3.329124689102173,
+      -2.654226779937744,
+      0.011999979615211487
+    ],
+    "hi": [
+      4.541078090667725,
+      -2.2907092571258545,
+      0.4266666769981384
+    ],
+    "vertices": 2854,
+    "polygons": 2852,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "V25.stair tread 3",
+    "lo": [
+      3.3252670764923096,
+      -2.3102030754089355,
+      0.01199999451637268
+    ],
+    "hi": [
+      4.53895902633667,
+      -1.9492090940475464,
+      0.6399999856948853
+    ],
+    "vertices": 3246,
+    "polygons": 3244,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "V25.stair tread 4",
+    "lo": [
+      3.3237571716308594,
+      -1.974279522895813,
+      0.01199999451637268
+    ],
+    "hi": [
+      4.5366106033325195,
+      -1.6081898212432861,
+      0.8533333539962769
+    ],
+    "vertices": 3638,
+    "polygons": 3636,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "V25.stair tread 5",
+    "lo": [
+      3.3242557048797607,
+      -1.6320725679397583,
+      0.011999964714050293
+    ],
+    "hi": [
+      4.545835971832275,
+      -1.270513653755188,
+      1.0666667222976685
+    ],
+    "vertices": 4030,
+    "polygons": 4028,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "V25.upper entry slab 0",
+    "lo": [
+      2.717532157897949,
+      -0.6019598245620728,
+      1.2799999713897705
+    ],
+    "hi": [
+      3.9037275314331055,
+      0.01278066635131836,
+      1.659999966621399
+    ],
+    "vertices": 3148,
+    "polygons": 3146,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "V25.upper entry slab 1",
+    "lo": [
+      3.9003918170928955,
+      -0.6056255102157593,
+      1.2799999713897705
+    ],
+    "hi": [
+      5.149145603179932,
+      0.015044059604406357,
+      1.659999966621399
+    ],
+    "vertices": 3224,
+    "polygons": 3222,
+    "modifiers": [],
+    "attributes": [
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "Gye cared stone metres v52",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        "P18 surface UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 cut UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber UV",
+        "CORNER",
+        "FLOAT_VECTOR"
+      ],
+      [
+        "P18 long timber sample",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 real cut face",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 image eligible",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 surface swatch",
+        "CORNER",
+        "INT"
+      ],
+      [
+        "P18 member roughness",
+        "CORNER",
+        "FLOAT"
+      ],
+      [
+        "P18 source member id",
+        "POINT",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HS6 seated entry bedding 0",
+    "lo": [
+      2.735032081604004,
+      -0.5894598364830017,
+      1.1050000190734863
+    ],
+    "hi": [
+      3.886227607727051,
+      0.00028067827224731445,
+      1.2850000858306885
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Soft dressed contact edge",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        "UV 맵",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_vert",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_edge",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ]
+    ]
+  },
+  {
+    "name": "HS6 seated entry bedding 1",
+    "lo": [
+      3.9178919792175293,
+      -0.5931255221366882,
+      1.1050000190734863
+    ],
+    "hi": [
+      5.131645679473877,
+      0.0025440454483032227,
+      1.2850000858306885
+    ],
+    "vertices": 8,
+    "polygons": 6,
+    "modifiers": [
+      [
+        "Soft dressed contact edge",
+        "BEVEL"
+      ]
+    ],
+    "attributes": [
+      [
+        "UV 맵",
+        "CORNER",
+        "FLOAT2"
+      ],
+      [
+        ".select_vert",
+        "POINT",
+        "BOOLEAN"
+      ],
+      [
+        ".select_edge",
+        "EDGE",
+        "BOOLEAN"
+      ],
+      [
+        ".select_poly",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "sharp_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_vert",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_edge",
+        "CORNER",
+        "BOOLEAN"
+      ],
+      [
+        ".uv_select_face",
+        "FACE",
+        "BOOLEAN"
+      ],
+      [
+        "position",
+        "POINT",
+        "FLOAT_VECTOR"
+      ],
+      [
+        ".edge_verts",
+        "EDGE",
+        "INT32_2D"
+      ],
+      [
+        ".corner_vert",
+        "CORNER",
+        "INT"
+      ],
+      [
+        ".corner_edge",
+        "CORNER",
+        "INT"
+      ]
+    ]
+  }
+]

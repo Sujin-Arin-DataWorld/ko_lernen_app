@@ -666,9 +666,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/package.json": {
-    "mtime": 1793243099.1475003,
-    "seen": 1793243906.71284,
-    "ast_hash": "5e3e470017f3355ad05b451240f12a45",
+    "mtime": 1793250707.6349916,
+    "seen": 1793251189.397176,
+    "ast_hash": "9a2b66db90cc08385374e939d9feaa21",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/postcss.config.mjs": {
@@ -738,9 +738,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/tests/deployment-contract.test.mjs": {
-    "mtime": 1792356755.1672764,
-    "seen": 1792357268.4529042,
-    "ast_hash": "ca605ce8962654214f4f1bdae01a2023",
+    "mtime": 1793250707.6370692,
+    "seen": 1793251189.4034002,
+    "ast_hash": "b714e07536db8d897a95bff11c98bf7d",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/tests/release-safety.test.mjs": {
@@ -23070,9 +23070,9 @@
     "semantic_hash": ""
   },
   "docs/ops/FEATURE_PRESERVATION.md": {
-    "mtime": 1793241685.088231,
-    "seen": 1793242280.4124033,
-    "ast_hash": "3ca9e883307ab5f135d55dfca8c5a7a4",
+    "mtime": 1793250438.1232255,
+    "seen": 1793251190.2460282,
+    "ast_hash": "39301da2304b18d8b7fcf9826837802e",
     "semantic_hash": ""
   },
   "docs/ops/worktree_cleanup_20261023.json": {
@@ -23103,6 +23103,2544 @@
     "mtime": 1793241510.4555492,
     "seen": 1793242279.949765,
     "ast_hash": "140e91f62ed4d54810fdc695974c9f13",
+    "semantic_hash": ""
+  },
+  ".superdesign/resume.json": {
+    "mtime": 1793250436.6002073,
+    "seen": 1793251189.3296258,
+    "ast_hash": "dccff5a262136b1ef4094c915050af69",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/APP_ASSET_CONTRACT.json": {
+    "mtime": 1793250436.6012988,
+    "seen": 1793251189.3516114,
+    "ast_hash": "f226eb69350a0472c4b74d92c84185d1",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/ARCHIVE.json": {
+    "mtime": 1793250436.6040041,
+    "seen": 1793251189.3516154,
+    "ast_hash": "bbd0c07f67e5e84ccc09a3c9848fdbb2",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/CANONICAL_PROMOTION_R16.json": {
+    "mtime": 1793250436.605165,
+    "seen": 1793251189.351619,
+    "ast_hash": "7bf47d9a398f2433e88a6397e4954c47",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/NATIVE_PACK_VERIFICATION.json": {
+    "mtime": 1793250436.609252,
+    "seen": 1793251189.351622,
+    "ast_hash": "4ba8db1404653615e100196c11d677c3",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/ROOF_VARIANT_POLICY.json": {
+    "mtime": 1793250436.6116748,
+    "seen": 1793251189.3516247,
+    "ast_hash": "4819c2cc5f5facf39f21d97aac257992",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/SOURCE_PROCESS_CATALOG.json": {
+    "mtime": 1793250436.6141977,
+    "seen": 1793251189.3516273,
+    "ast_hash": "801575084e0fadb8735658201a68e1b9",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/estate/RENDER_MANIFEST.json": {
+    "mtime": 1793250436.6154518,
+    "seen": 1793251189.3516297,
+    "ast_hash": "db536bd44f46625c13846c3b108eaa08",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/estate/viewer.js": {
+    "mtime": 1793250436.9652328,
+    "seen": 1793251189.3516328,
+    "ast_hash": "4b68c77363833bee15c4569c2a061dc8",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/AFTER_MOVE_BLENDER.json": {
+    "mtime": 1793250436.9662323,
+    "seen": 1793251189.3516352,
+    "ast_hash": "8a79b117c84527c07f975cd3d529b00f",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/AFTER_MOVE_ROOFS.json": {
+    "mtime": 1793250436.9673114,
+    "seen": 1793251189.3516376,
+    "ast_hash": "9d755c8c62eb0490dbc3f1b121832d88",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/BLENDER_PORTABILITY.json": {
+    "mtime": 1793250436.96831,
+    "seen": 1793251189.3516395,
+    "ast_hash": "52d04b619f688d160318bbe79055df82",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/BUILDING_TRANSFER_INVENTORY_R16.json": {
+    "mtime": 1793250436.9708002,
+    "seen": 1793251189.3516421,
+    "ast_hash": "2bb1d0e2d8bcc6449bfc6faead14fc6d",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/CURRENT_SCOPE.json": {
+    "mtime": 1793250436.9826968,
+    "seen": 1793251189.3516452,
+    "ast_hash": "91ba3e1fc6c1dde3e0cb3e13997802df",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/DESIGN_CANVAS.json": {
+    "mtime": 1793250436.9848325,
+    "seen": 1793251189.3516474,
+    "ast_hash": "f2781a930b049183196ff7a1013a36b2",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/ESTATE_ACCESSIBILITY_QA.json": {
+    "mtime": 1793250436.9862778,
+    "seen": 1793251189.3516507,
+    "ast_hash": "db32dfd192a1d443c447f48a3e0c53d2",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/ESTATE_BROWSER_QA.json": {
+    "mtime": 1793250436.9862778,
+    "seen": 1793251189.351653,
+    "ast_hash": "40a6a72836cd2758ff6928d8c19159fd",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/FAMILY_VISUAL_REVIEW_R16.json": {
+    "mtime": 1793250436.9892135,
+    "seen": 1793251189.3516557,
+    "ast_hash": "4485cd60adc651c821f4d488caa07de5",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/GATE_BROWSER_QA.json": {
+    "mtime": 1793250436.9906154,
+    "seen": 1793251189.3516579,
+    "ast_hash": "a46c0a9f81c8446e34efbe946aa9147e",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/PROCESS_STYLE_SCOPE_R16.json": {
+    "mtime": 1793250436.994251,
+    "seen": 1793251189.3516603,
+    "ast_hash": "a47a67c878be9044d47043fd8427224f",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/PROGRESS.json": {
+    "mtime": 1793250436.9953754,
+    "seen": 1793251189.3516629,
+    "ast_hash": "b05cea197f89fe734ca482fc2f85bbee",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/R16_BROWSER_QA.json": {
+    "mtime": 1793250436.9963777,
+    "seen": 1793251189.3516655,
+    "ast_hash": "33704771d6373170b92af912a73ff855",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/REFERENCE_LOCK.json": {
+    "mtime": 1793250436.9973757,
+    "seen": 1793251189.3516676,
+    "ast_hash": "bf74a158ff8a36aae1337e562de49a07",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/RENDER_1_2_PRESERVATION.json": {
+    "mtime": 1793250436.9983747,
+    "seen": 1793251189.3516703,
+    "ast_hash": "9220a5a8f4b59a38c600e7230f5abd1e",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/SARANG_PLAQUE_FRONT_INSPECTION.json": {
+    "mtime": 1793250437.000421,
+    "seen": 1793251189.351673,
+    "ast_hash": "c9fb47ae59c474cce29a1bf452de6355",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/WOOD_DIRECTION_R12.json": {
+    "mtime": 1793250437.0025735,
+    "seen": 1793251189.3516748,
+    "ast_hash": "e9dfc243f8b4ae97b31058b0b586bcbf",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/clean-source-probe.json": {
+    "mtime": 1793250437.0055172,
+    "seen": 1793251189.3516774,
+    "ast_hash": "cb24ffd21f96c3a46e6af89f4efa2a48",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/grain-coordinates-r16.json": {
+    "mtime": 1793250437.0087955,
+    "seen": 1793251189.3516805,
+    "ast_hash": "b83a3b69ac30afc28e3dbad8b6e70c92",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/guardian-probe-r6.json": {
+    "mtime": 1793250437.0101469,
+    "seen": 1793251189.3516836,
+    "ast_hash": "aabd907ceb27c346f099646756b8109d",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/inspect-result.json": {
+    "mtime": 1793250437.011189,
+    "seen": 1793251189.351686,
+    "ast_hash": "62900e41a8a58a1505956eaa5d39feef",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/jung-full-standalone-verified.json": {
+    "mtime": 1793250437.0132926,
+    "seen": 1793251189.351688,
+    "ast_hash": "d00a49245880155346ee69084c5feeaa",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/jung-stage-standalone-verified.json": {
+    "mtime": 1793250437.0143363,
+    "seen": 1793251189.3516908,
+    "ast_hash": "f6350c3bb7c39e51d6a555b38b9f8779",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/original-finials-r11.json": {
+    "mtime": 1793250437.0153825,
+    "seen": 1793251189.3516932,
+    "ast_hash": "b5e4b5d8ae846f754ad1672abcc5df75",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/paper-ground-source-audit-r14.json": {
+    "mtime": 1793250437.0173824,
+    "seen": 1793251189.3516955,
+    "ast_hash": "204cf89a15193941d8ea18b98ac88335",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/probe.json": {
+    "mtime": 1793250437.0183818,
+    "seen": 1793251189.3516982,
+    "ast_hash": "6351e4b4e1295de499d17830bc27ddba",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/proxy-stage-state-r16.json": {
+    "mtime": 1793250437.0203972,
+    "seen": 1793251189.3517008,
+    "ast_hash": "a85b7d1281cef9fb74e47e57b8fa4686",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/reference-sampled-colours.json": {
+    "mtime": 1793250437.0213983,
+    "seen": 1793251189.351712,
+    "ast_hash": "f7e474b65737823671f6b0a7fbcba654",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/sarang-full-standalone-verified.json": {
+    "mtime": 1793250437.026903,
+    "seen": 1793251189.3517146,
+    "ast_hash": "af4e1807342c5b808f9219962fc4b78c",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/sarang-stage-standalone-verified.json": {
+    "mtime": 1793250437.0337355,
+    "seen": 1793251189.3517165,
+    "ast_hash": "baf17911120db8e396fff1da25ebea20",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/stage-state-diff-r16.json": {
+    "mtime": 1793250437.0613806,
+    "seen": 1793251189.3517194,
+    "ast_hash": "c443b04d0fc26b0a5a4573a78e0082a1",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/stone-islands-r10.json": {
+    "mtime": 1793250437.0624099,
+    "seen": 1793251189.3517215,
+    "ast_hash": "ba66579d969109da3a65ebb0efb3d8cd",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/stone-structure-r10.json": {
+    "mtime": 1793250437.064619,
+    "seen": 1793251189.3517241,
+    "ast_hash": "e3ba5545deae724892b17c30dc41e88e",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/stone_module_check_r11.json": {
+    "mtime": 1793250437.0681074,
+    "seen": 1793251189.3517263,
+    "ast_hash": "7fab240281806fbf6d308975b3a35978",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/stone_review_refine_r12_check.json": {
+    "mtime": 1793250437.0691402,
+    "seen": 1793251189.351729,
+    "ast_hash": "572af4626a1f454ccc145337d290e316",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/wall-source-r5.json": {
+    "mtime": 1793250437.0709534,
+    "seen": 1793251189.3517318,
+    "ast_hash": "e4968c2b2433567b05999ccab1dccbfd",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/wood-inspection-r14.json": {
+    "mtime": 1793250437.0868058,
+    "seen": 1793251189.3517346,
+    "ast_hash": "82d6193becf311b58c388fa60716fb02",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/wood-node-probe.json": {
+    "mtime": 1793250437.0882373,
+    "seen": 1793251189.3517373,
+    "ast_hash": "db38a93c1c1df5416ea7c14e9534e7a5",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/wood-review-refine-r12-receipt.json": {
+    "mtime": 1793250437.0971403,
+    "seen": 1793251189.35174,
+    "ast_hash": "cab76b73e9a5dee68bdd1c3de6726c75",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/AUDIT.json": {
+    "mtime": 1793250437.099199,
+    "seen": 1793251189.3517427,
+    "ast_hash": "fb73dbd5f767053bf55fcded48317ba2",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/MANIFEST.json": {
+    "mtime": 1793250437.1002014,
+    "seen": 1793251189.3517463,
+    "ast_hash": "53fff071d4297b8805d011c3e991efff",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/STAGE_VISUAL_REVIEW.json": {
+    "mtime": 1793250437.1016765,
+    "seen": 1793251189.351749,
+    "ast_hash": "2aad4f504c635884d710438e2b749ba4",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/anchae/construction-binding.json": {
+    "mtime": 1793250437.1599824,
+    "seen": 1793251189.3517513,
+    "ast_hash": "1afe2682fa8c9202efd0b8ccc6bca26b",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/anchae/material-error.json": {
+    "mtime": 1793250437.2347565,
+    "seen": 1793251189.3517532,
+    "ast_hash": "23e8f72fbcda788b6661a30c59997b7b",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/anchae/stage-renders.json": {
+    "mtime": 1793250437.2453356,
+    "seen": 1793251189.3517559,
+    "ast_hash": "20918e35b2bb7e431185a83ed358954a",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/anchae/stage-selection.json": {
+    "mtime": 1793250437.2749438,
+    "seen": 1793251189.3517609,
+    "ast_hash": "b32b68a1e7afeefb3229d755f65b9bdd",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/angotgan/construction-binding.json": {
+    "mtime": 1793250437.3891497,
+    "seen": 1793251189.3517632,
+    "ast_hash": "a55f203dba370f80b8a4f5c3c28cb3b0",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/angotgan/first-pass.json": {
+    "mtime": 1793250437.3931394,
+    "seen": 1793251189.351767,
+    "ast_hash": "629bd6fcde0635f967d8f8b3aa8c73c8",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/angotgan/stage-renders.json": {
+    "mtime": 1793250437.4108233,
+    "seen": 1793251189.3517709,
+    "ast_hash": "8bb942d84c0fb3fe53a2f47c7f2a844c",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/angotgan/stage-selection.json": {
+    "mtime": 1793250437.4122384,
+    "seen": 1793251189.3517735,
+    "ast_hash": "1434b761958a2fae739b744450162cea",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/angotgan/verification.json": {
+    "mtime": 1793250437.458149,
+    "seen": 1793251189.351776,
+    "ast_hash": "6eec766f184abe173663662a95126819",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/ansarang/construction-binding.json": {
+    "mtime": 1793250437.460296,
+    "seen": 1793251189.3517785,
+    "ast_hash": "4ee32ac9b4f18fe8879f0e2d634e4ffc",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/ansarang/stage-renders.json": {
+    "mtime": 1793250437.4827054,
+    "seen": 1793251189.3517818,
+    "ast_hash": "1c33b2031e3406a738e99c6aad863c0b",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/ansarang/stage-selection.json": {
+    "mtime": 1793250437.4845328,
+    "seen": 1793251189.3517845,
+    "ast_hash": "98359b2587431f652ee88dc7c8a7b0d2",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/arae/construction-binding.json": {
+    "mtime": 1793250437.5689266,
+    "seen": 1793251189.351787,
+    "ast_hash": "39e91a54d009434243b0d6b9c5098854",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/arae/first-pass.json": {
+    "mtime": 1793250437.57313,
+    "seen": 1793251189.3517895,
+    "ast_hash": "7484000f6069c49dfb5fbc49c3d98348",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/arae/stage-renders.json": {
+    "mtime": 1793250437.588625,
+    "seen": 1793251189.3517923,
+    "ast_hash": "435cf5f1b9e48f4b293c4ff3d8c9bee5",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/arae/stage-selection.json": {
+    "mtime": 1793250437.5914962,
+    "seen": 1793251189.3517952,
+    "ast_hash": "29c4505b6b0af9555c28c753a77279be",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/arae/verification.json": {
+    "mtime": 1793250437.643128,
+    "seen": 1793251189.3517983,
+    "ast_hash": "ab87b1cd9b18e29f0fef42706b84d538",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/build-queue.json": {
+    "mtime": 1793250437.644129,
+    "seen": 1793251189.3518002,
+    "ast_hash": "afc11fb461082552adecc262597d4942",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/changgo/construction-binding.json": {
+    "mtime": 1793250437.6462095,
+    "seen": 1793251189.3518028,
+    "ast_hash": "d6695dd290262a5e0afc685f06a0ac20",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/changgo/first-pass.json": {
+    "mtime": 1793250437.6483457,
+    "seen": 1793251189.3518052,
+    "ast_hash": "2c187c9f0321e5d6f1371ff02ca2e754",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/changgo/stage-renders.json": {
+    "mtime": 1793250437.667169,
+    "seen": 1793251189.3518076,
+    "ast_hash": "db2ebd2a6c4384ae59cabbd59a0f01a9",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/changgo/stage-selection.json": {
+    "mtime": 1793250437.6688044,
+    "seen": 1793251189.3518095,
+    "ast_hash": "e16bbd099e5c393425ffb9981e95ab31",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/changgo/verification.json": {
+    "mtime": 1793250437.7017245,
+    "seen": 1793251189.3518116,
+    "ast_hash": "1ce67195ec8fd1070c1d3b5e02852576",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/gallery-check.json": {
+    "mtime": 1793250437.7032347,
+    "seen": 1793251189.3518136,
+    "ast_hash": "8edbc28cf4981a475c0da7695725d4aa",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/gallery-data.json": {
+    "mtime": 1793250437.7037761,
+    "seen": 1793251189.3518155,
+    "ast_hash": "576a9bd3ef15b5020afece09eb4cb82f",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/gokgan/construction-binding.json": {
+    "mtime": 1793250437.7125194,
+    "seen": 1793251189.3518174,
+    "ast_hash": "126a82e7edee3a969703f40ec3c306c1",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/gokgan/first-pass.json": {
+    "mtime": 1793250437.7145193,
+    "seen": 1793251189.3518195,
+    "ast_hash": "4857a289f01bcf1dab12dda267070803",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/gokgan/stage-renders.json": {
+    "mtime": 1793250437.7302642,
+    "seen": 1793251189.3518217,
+    "ast_hash": "6b9544df10f6bc4323fd5c1da7a83d01",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/gokgan/stage-selection.json": {
+    "mtime": 1793250437.731545,
+    "seen": 1793251189.3518238,
+    "ast_hash": "8df6ccf73b738e1007b83e3f383ad517",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/gokgan/verification.json": {
+    "mtime": 1793250437.7732852,
+    "seen": 1793251189.351826,
+    "ast_hash": "2834b1e1a975a52bc6d2a9a331d63780",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/jung/construction-binding.json": {
+    "mtime": 1793250437.7763834,
+    "seen": 1793251189.3518279,
+    "ast_hash": "81499226973a7f1a17093960c89edc35",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/jung/first-pass.json": {
+    "mtime": 1793250437.7794003,
+    "seen": 1793251189.3518302,
+    "ast_hash": "c182396767cf3a585d0f5e4431b2bfde",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/jung/stage-renders.json": {
+    "mtime": 1793250437.7941408,
+    "seen": 1793251189.3518324,
+    "ast_hash": "40608bf8afa1793141b364021a70e751",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/jung/stage-selection.json": {
+    "mtime": 1793250437.7951632,
+    "seen": 1793251189.3518345,
+    "ast_hash": "bc35b13a267000f657d23bd9f788970e",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/jung/verification.json": {
+    "mtime": 1793250437.8369236,
+    "seen": 1793251189.351837,
+    "ast_hash": "ed72b0ced7520d2f85ee68d750ffd13c",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sadang/construction-binding.json": {
+    "mtime": 1793250437.8549447,
+    "seen": 1793251189.35184,
+    "ast_hash": "d76b4cf7f1af1e155ba159ca763086fe",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sadang/first-pass.json": {
+    "mtime": 1793250437.8569746,
+    "seen": 1793251189.3518424,
+    "ast_hash": "d7c0c4cd1f38593304bb744c4bd2a672",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sadang/stage-renders.json": {
+    "mtime": 1793250437.8718636,
+    "seen": 1793251189.3518448,
+    "ast_hash": "5cde6bdb3941824b9a2d12e8a353bb1b",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sadang/stage-selection.json": {
+    "mtime": 1793250437.872864,
+    "seen": 1793251189.3518474,
+    "ast_hash": "fd06422858e7983f30cea5db2659f3a3",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sadang/verification.json": {
+    "mtime": 1793250437.9156494,
+    "seen": 1793251189.3518496,
+    "ast_hash": "4bba695b46188042ebd84f39717c1423",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sarang/stage-renders.json": {
+    "mtime": 1793250437.9450212,
+    "seen": 1793251189.3518515,
+    "ast_hash": "39626a0f8d8cc4cf9ba8dd28d9496975",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sarang/stage-selection.json": {
+    "mtime": 1793250437.947089,
+    "seen": 1793251189.3518553,
+    "ast_hash": "9f0253fbc4830b26fb3e25f9f44a73ba",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/stages-queue.json": {
+    "mtime": 1793250437.9976714,
+    "seen": 1793251189.3518577,
+    "ast_hash": "26e11f632502b88f23600a98078268a4",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet1/construction-binding.json": {
+    "mtime": 1793250438.0511684,
+    "seen": 1793251189.3518603,
+    "ast_hash": "633c87803bed99c22e6158eccac0afea",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet1/first-pass.json": {
+    "mtime": 1793250438.0571637,
+    "seen": 1793251189.3518622,
+    "ast_hash": "63eef77fa1055d4c4f50ef3e981b51b2",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet1/stage-renders.json": {
+    "mtime": 1793250438.0885487,
+    "seen": 1793251189.3518646,
+    "ast_hash": "0e42a75e706e74ad5a4eb8740570396e",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet1/stage-selection.json": {
+    "mtime": 1793250438.089773,
+    "seen": 1793251189.3518667,
+    "ast_hash": "23d9b7c0c06fe3a01d0f2b194e195c2c",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet1/verification.json": {
+    "mtime": 1793250438.1221857,
+    "seen": 1793251189.3518689,
+    "ast_hash": "c0e70f177e0b6018481e535883e4bc85",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet/construction-binding.json": {
+    "mtime": 1793250437.99991,
+    "seen": 1793251189.351871,
+    "ast_hash": "c62081b14b55c0be4e8b853d4a1e2271",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet/first-pass.json": {
+    "mtime": 1793250438.0020792,
+    "seen": 1793251189.3518739,
+    "ast_hash": "c71418117d2100ae9268b826feb4cc4d",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet/stage-renders.json": {
+    "mtime": 1793250438.0151517,
+    "seen": 1793251189.3518765,
+    "ast_hash": "7884be5473c0164fd1f129908b7575de",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet/stage-selection.json": {
+    "mtime": 1793250438.0172722,
+    "seen": 1793251189.3518791,
+    "ast_hash": "e19d30c090959a09718305a06f6a7d1c",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet/verification.json": {
+    "mtime": 1793250438.0482702,
+    "seen": 1793251189.3518815,
+    "ast_hash": "1f983af457f6b19b404f137f8529d526",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/build_ildu_roof_variant.py": {
+    "mtime": 1793250438.1330848,
+    "seen": 1793251189.8760679,
+    "ast_hash": "3b04886c21c8f2b3b4f067fe8ec1aee7",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/compose_ildu_estate.py": {
+    "mtime": 1793250438.134488,
+    "seen": 1793251189.8760712,
+    "ast_hash": "d716f5f881f28d72c9175c395a9b41c9",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/audit_paper_ground_r14.py": {
+    "mtime": 1793250438.1417887,
+    "seen": 1793251189.8760734,
+    "ast_hash": "6374872aecc4a113f38d4060fc4f7e3f",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/audit_sarang_hybrid.py": {
+    "mtime": 1793250438.1428652,
+    "seen": 1793251189.8760767,
+    "ast_hash": "6f0fc610d01f9b3ce483596444996529",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/build_family_r16.py": {
+    "mtime": 1793250438.1449418,
+    "seen": 1793251189.8760796,
+    "ast_hash": "57f058cf2d1178cc11a1e3d7e7298f8d",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/build_structural_stone_r10.py": {
+    "mtime": 1793250438.1459708,
+    "seen": 1793251189.876082,
+    "ast_hash": "0c862d95b372d82bc4b9305843d7aa53",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/check_family_gallery_r16.cjs": {
+    "mtime": 1793250438.1469986,
+    "seen": 1793251189.8760834,
+    "ast_hash": "5798b1305e6ac765ec49846da76c4ca3",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/compare_colour_regions.py": {
+    "mtime": 1793250438.1480484,
+    "seen": 1793251189.876086,
+    "ast_hash": "8ea6bb461f4e9d61e43a1ec7d3d57fdb",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/construction_stages_r16.py": {
+    "mtime": 1793250438.1490853,
+    "seen": 1793251189.876088,
+    "ast_hash": "5f7dec2760cf09e13adc07d722a34c62",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/debug_stage_state_r16.py": {
+    "mtime": 1793250438.1501222,
+    "seen": 1793251189.8760896,
+    "ast_hash": "4285233bcdf9323a3e9837c597bf3e69",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/export_guardian_review_r12.py": {
+    "mtime": 1793250438.1511216,
+    "seen": 1793251189.8760924,
+    "ast_hash": "43dc56c4d16f1ce2ffc70066c399299a",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/final_guardian_surface_r7.py": {
+    "mtime": 1793250438.1536376,
+    "seen": 1793251189.876094,
+    "ast_hash": "84a185992a95414bfc929381e2790c8c",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/finish_family_r16.py": {
+    "mtime": 1793250438.155001,
+    "seen": 1793251189.8760965,
+    "ast_hash": "b11a71679fcaaca34003493daff6866a",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/finish_fit_r7.py": {
+    "mtime": 1793250438.156032,
+    "seen": 1793251189.8760984,
+    "ast_hash": "bc2d0fe32ed59bb74c7feae56a32474e",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/finish_guardian_r6.py": {
+    "mtime": 1793250438.1570315,
+    "seen": 1793251189.8761005,
+    "ast_hash": "90358e4e3b93b2b3622013aa320e6c88",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/finish_stone_r4.py": {
+    "mtime": 1793250438.1580322,
+    "seen": 1793251189.876103,
+    "ast_hash": "137f2231c74474a11141213eb704d8c6",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/finish_surface_r5.py": {
+    "mtime": 1793250438.1580322,
+    "seen": 1793251189.8761053,
+    "ast_hash": "325fd093d0c27fd3c07f5d2a874a66d4",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/finish_wood_r14.py": {
+    "mtime": 1793250438.1590626,
+    "seen": 1793251189.8761075,
+    "ast_hash": "61d86a30f2fd983e85c8751492f3137b",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/fit_reference_colour_r3.py": {
+    "mtime": 1793250438.1600957,
+    "seen": 1793251189.87611,
+    "ast_hash": "b9727343f205b9983dacc190e2b0ac01",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/fit_stone_guardian_r7.py": {
+    "mtime": 1793250438.1611583,
+    "seen": 1793251189.876113,
+    "ast_hash": "ef1f74472e58da0707226b4a8c7e00f4",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/grain_individual_r15.py": {
+    "mtime": 1793250438.163177,
+    "seen": 1793251189.8765924,
+    "ast_hash": "aea6eaf32062b70b19983c3dc0ca2b61",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/guardian_exact_r12.py": {
+    "mtime": 1793250438.1641767,
+    "seen": 1793251189.8765965,
+    "ast_hash": "89904c36bc85f16e51d8eb91e95d51c7",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/guardian_mount_r12.py": {
+    "mtime": 1793250438.1662068,
+    "seen": 1793251189.8765993,
+    "ast_hash": "18624e832e9dd0af46191fdac1b2d0a0",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/guardian_sculpt_r11.py": {
+    "mtime": 1793250438.1676922,
+    "seen": 1793251189.8766022,
+    "ast_hash": "54e1009a6ca4d0bc46d66e0de6608bae",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/guardian_volume_r11.py": {
+    "mtime": 1793250438.16976,
+    "seen": 1793251189.8766057,
+    "ast_hash": "b9d0e1c9d74006c3ccbe8f246123c7f9",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/inspect_building_transfer_r16.py": {
+    "mtime": 1793250438.16976,
+    "seen": 1793251189.87661,
+    "ast_hash": "8821f6df461e3833604d675a588e15c3",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/inspect_grain_coordinates_r16.py": {
+    "mtime": 1793250438.1711867,
+    "seen": 1793251189.8766139,
+    "ast_hash": "3f7c164f9cd71a1429a2e2e098f63fd1",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/inspect_original_finials_r11.py": {
+    "mtime": 1793250438.1722653,
+    "seen": 1793251189.8766165,
+    "ast_hash": "09eedefdc16cddab5f66947349bd69c3",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/inspect_process_scope_r16.py": {
+    "mtime": 1793250438.1733499,
+    "seen": 1793251189.8766181,
+    "ast_hash": "02509dee0acce211d669ce3dd31bce83",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/inspect_proxy_stage_r16.py": {
+    "mtime": 1793250438.1733499,
+    "seen": 1793251189.87662,
+    "ast_hash": "4a21d342da62f8ce4cc0c147ad776b67",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/inspect_result.py": {
+    "mtime": 1793250438.1746428,
+    "seen": 1793251189.876623,
+    "ast_hash": "f8a371ebae737d9a426d5e175c440851",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/inspect_stone_islands_r10.py": {
+    "mtime": 1793250438.1756678,
+    "seen": 1793251189.8766246,
+    "ast_hash": "72038ed38151f9fc73e7b8b753dde350",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/inspect_stone_structure_r10.py": {
+    "mtime": 1793250438.1767023,
+    "seen": 1793251189.8766267,
+    "ast_hash": "77bc43d6c4db1582932553443db2e1d3",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/inspect_wood_r12.py": {
+    "mtime": 1793250438.1767023,
+    "seen": 1793251189.8766284,
+    "ast_hash": "f2bc04dede7c23927cb8dedc38513aea",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/inspect_wood_r14.py": {
+    "mtime": 1793250438.177729,
+    "seen": 1793251189.8766308,
+    "ast_hash": "6ae2755d98e0c991c50c97f9cdf71b9c",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/interior_warmth_refine_r12.py": {
+    "mtime": 1793250438.1787632,
+    "seen": 1793251189.876633,
+    "ast_hash": "03557132461ab9ad2fdf51be6e8b2be1",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/make_family_gallery_r16.py": {
+    "mtime": 1793250438.179804,
+    "seen": 1793251189.8766348,
+    "ast_hash": "4abcaa6244296ef70b95c5a0c7c196ae",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/make_stage_contacts_r16.py": {
+    "mtime": 1793250438.1808467,
+    "seen": 1793251189.8766377,
+    "ast_hash": "51c65cbfb88463b2afcd06b812256a2c",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/polish_stone_guardian_r6.py": {
+    "mtime": 1793250438.1818483,
+    "seen": 1793251189.8766408,
+    "ast_hash": "c7a8e445367fb4b7e6d3a430654b4e95",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/portable_materials_r16.py": {
+    "mtime": 1793250438.1833844,
+    "seen": 1793251189.8766427,
+    "ast_hash": "98405f84ab58b1f0aa61e41df4eecea7",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/prepare_guardian_depth_r12.py": {
+    "mtime": 1793250438.1844523,
+    "seen": 1793251189.8766453,
+    "ast_hash": "ddd175c39699081c7e56dfab69cab8a5",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/preview_exact_r12.py": {
+    "mtime": 1793250438.1855075,
+    "seen": 1793251189.876648,
+    "ast_hash": "33cbb2111d52bf89238d52156d3a6dbf",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/preview_guardian_r11.py": {
+    "mtime": 1793250438.1865287,
+    "seen": 1793251189.8766506,
+    "ast_hash": "2fa6be33a52b7cfd726c9c7a56781df8",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/preview_stone_r11.py": {
+    "mtime": 1793250438.1875274,
+    "seen": 1793251189.876653,
+    "ast_hash": "48b0750cc3e050407ccf2bffdc810b51",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/probe.py": {
+    "mtime": 1793250438.1885276,
+    "seen": 1793251189.876655,
+    "ast_hash": "da75d3ba1b5841f903f65493e6efb4a6",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/probe_clean_sources.py": {
+    "mtime": 1793250438.1895273,
+    "seen": 1793251189.8766575,
+    "ast_hash": "caaf562b07282c0a1e6c01f1de1c5472",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/probe_guardian_r6.py": {
+    "mtime": 1793250438.190556,
+    "seen": 1793251189.87666,
+    "ast_hash": "85b8ec89781635541101bb66e1a48c7d",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/probe_pixel_space.py": {
+    "mtime": 1793250438.1915846,
+    "seen": 1793251189.8766625,
+    "ast_hash": "ee19db7750d09fea01e1fef4d41ce2aa",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/probe_stone_r9.py": {
+    "mtime": 1793250438.1915846,
+    "seen": 1793251189.876665,
+    "ast_hash": "53e07089ac7721d6c388092baea88667",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/probe_wall_r5.py": {
+    "mtime": 1793250438.1930883,
+    "seen": 1793251189.8766675,
+    "ast_hash": "5299d89a4677129a0829110baed7cfa2",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/probe_wood_range.py": {
+    "mtime": 1793250438.194168,
+    "seen": 1793251189.8766708,
+    "ast_hash": "cefa43e524a1e94d52fe7c96fb21901b",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/produce.py": {
+    "mtime": 1793250438.194168,
+    "seen": 1793251189.8766725,
+    "ast_hash": "7241648b2bdc83799e15f2d467e7a0fe",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/produce_exact_r12.py": {
+    "mtime": 1793250438.1952045,
+    "seen": 1793251189.8766744,
+    "ast_hash": "5ee3595c26c34d4f647068fdf40ccaef",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/produce_palette_r13.py": {
+    "mtime": 1793250438.1962352,
+    "seen": 1793251189.876677,
+    "ast_hash": "9b2694f79bde47c86267ebad9801736a",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/produce_review_refined_r12.py": {
+    "mtime": 1793250438.1972835,
+    "seen": 1793251189.8766804,
+    "ast_hash": "3a8085b8be36409831ff11b9bc1481c1",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/produce_sculpt_r11.py": {
+    "mtime": 1793250438.1983345,
+    "seen": 1793251189.8766825,
+    "ast_hash": "22ae03c44274dd832bf194620d846305",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/produce_wood_r14.py": {
+    "mtime": 1793250438.1983345,
+    "seen": 1793251189.8766854,
+    "ast_hash": "5884e40f0edc0618fc6f1213c6b8afce",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/produce_wood_r15.py": {
+    "mtime": 1793250438.1998906,
+    "seen": 1793251189.8766878,
+    "ast_hash": "57c782518b7eb16e8d53fb3a33afe8bc",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/produce_wood_r16.py": {
+    "mtime": 1793250438.200731,
+    "seen": 1793251189.8766904,
+    "ast_hash": "51572978483a4655aa61fef6b749b1a3",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/rebuild_relief_r8.py": {
+    "mtime": 1793250438.2017732,
+    "seen": 1793251189.876693,
+    "ast_hash": "30ab3760474c9d444af63b866ce5eb72",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/record_fit_r7.py": {
+    "mtime": 1793250438.20288,
+    "seen": 1793251189.8766954,
+    "ast_hash": "7f0d6bf9ef3973da58201b80111d2fe1",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/record_guardian_r6.py": {
+    "mtime": 1793250438.2043912,
+    "seen": 1793251189.8766973,
+    "ast_hash": "1b635118ef8c60c0bd108b6cd00990e0",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/record_reference_r3.py": {
+    "mtime": 1793250438.2054088,
+    "seen": 1793251189.8766994,
+    "ast_hash": "8511a64846ae89253256753ebcad9176",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/record_wood_r15.py": {
+    "mtime": 1793250438.2054088,
+    "seen": 1793251189.8767014,
+    "ast_hash": "2eed747ae751b8760d94ef910a8b4758",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/refine_sarang.py": {
+    "mtime": 1793250438.206409,
+    "seen": 1793251189.876704,
+    "ast_hash": "33213c283e5a26b9384d7b9d03a4c834",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/render_construction_r16.py": {
+    "mtime": 1793250438.207409,
+    "seen": 1793251189.8767061,
+    "ast_hash": "e4ac264b5bb303265063dcf49df25e3a",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/render_detail_r4.py": {
+    "mtime": 1793250438.2084086,
+    "seen": 1793251189.876708,
+    "ast_hash": "328e72bc91c08c8f828d6327a969d328",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/render_sarang_final.py": {
+    "mtime": 1793250438.2094307,
+    "seen": 1793251189.876711,
+    "ast_hash": "7ea6d1cdeeb398417608db31645b83cf",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/render_surface_r5.py": {
+    "mtime": 1793250438.210462,
+    "seen": 1793251189.8767128,
+    "ast_hash": "1ee765b78ba5b90a46726d59a190e044",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/run_batch.py": {
+    "mtime": 1793250438.2114873,
+    "seen": 1793251189.8767145,
+    "ast_hash": "7428544258e1123826f2383d7b7225a3",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/run_family_r16.py": {
+    "mtime": 1793250438.2125218,
+    "seen": 1793251189.876717,
+    "ast_hash": "e326910dcbf4984b39fdef79c8d99cae",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/sample_palette_r13.py": {
+    "mtime": 1793250438.2135494,
+    "seen": 1793251189.8767195,
+    "ast_hash": "a15181fca8e16105dd9ac301b542bff5",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/sample_reference_palette.py": {
+    "mtime": 1793250438.2145972,
+    "seen": 1793251189.8767216,
+    "ast_hash": "f8babfdcd32431e0770877b44be8e3e7",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/sarang_calibrated.py": {
+    "mtime": 1793250438.2167687,
+    "seen": 1793251189.876724,
+    "ast_hash": "0572b7b0955aa37a02a5bdfa68c3e4eb",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/sarang_detail_r4.py": {
+    "mtime": 1793250438.2182393,
+    "seen": 1793251189.8767266,
+    "ast_hash": "93313bfbadba52c00db367e2b7dcfcef",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/sarang_guardian_r6.py": {
+    "mtime": 1793250438.2194095,
+    "seen": 1793251189.8767285,
+    "ast_hash": "20c673244bdb23d58bf7152a89c9caa0",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/sarang_master.py": {
+    "mtime": 1793250438.2204106,
+    "seen": 1793251189.8767304,
+    "ast_hash": "3b8bd47b678840b2d9210476963f2d69",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/sarang_material_balance.py": {
+    "mtime": 1793250438.2214086,
+    "seen": 1793251189.8767326,
+    "ast_hash": "3b9a74411f4c4a9a64a7adec798d5d85",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/sarang_material_rebuild.py": {
+    "mtime": 1793250438.222443,
+    "seen": 1793251189.8767352,
+    "ast_hash": "32bc17bd22cd870fa530cd8863a87c73",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/sarang_minerals.py": {
+    "mtime": 1793250438.223505,
+    "seen": 1793251189.876737,
+    "ast_hash": "cb50292d436c73152b1e49486a34b65e",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/sarang_reference_colour_r3.py": {
+    "mtime": 1793250438.2245297,
+    "seen": 1793251189.8767393,
+    "ast_hash": "902ddc591ced583ebf99b66aac996054",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/sarang_surface_r5.py": {
+    "mtime": 1793250438.2255654,
+    "seen": 1793251189.8767414,
+    "ast_hash": "8c7555da2530f2dfcae38cf4de4b7ad7",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/sarang_wood.py": {
+    "mtime": 1793250438.2266016,
+    "seen": 1793251189.8767433,
+    "ast_hash": "96af35a462a0e19b7d47f81e18b98480",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/sarang_wood_calibrate.py": {
+    "mtime": 1793250438.227648,
+    "seen": 1793251189.8767457,
+    "ast_hash": "770581e09c828c6cd7ebdad29569a1d0",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/sarang_wood_finish.py": {
+    "mtime": 1793250438.2286851,
+    "seen": 1793251189.876748,
+    "ast_hash": "482cd206242452c0060bfe08507e694b",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/stone_material_r12.py": {
+    "mtime": 1793250438.2298474,
+    "seen": 1793251189.876751,
+    "ast_hash": "d1aa1df3d8a0ac5b5586aefe5c53b9b9",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/stone_review_refine_r12.py": {
+    "mtime": 1793250438.2309084,
+    "seen": 1793251189.876753,
+    "ast_hash": "11dd3276bca5e7112d79a74b8bc91778",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/stone_shape_r11.py": {
+    "mtime": 1793250438.231925,
+    "seen": 1793251189.8767552,
+    "ast_hash": "28df344210d49add5634a19d975ba75f",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/stone_shape_r12.py": {
+    "mtime": 1793250438.2329261,
+    "seen": 1793251189.8767576,
+    "ast_hash": "1780e5eea8c5997dacf40052459dce5f",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/validate_family_r16.py": {
+    "mtime": 1793250438.2342992,
+    "seen": 1793251189.8767602,
+    "ast_hash": "d951a0ea1d238d0e029d9e3bc1464132",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/verify_stone_r10.py": {
+    "mtime": 1793250438.2353442,
+    "seen": 1793251189.8767629,
+    "ast_hash": "4f7fcf0f5edf8416734e7e12e9f8efcd",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/verify_wood_r14.py": {
+    "mtime": 1793250438.236374,
+    "seen": 1793251189.8767657,
+    "ast_hash": "5302eb8d338003153dd389cd5bb931b0",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/warmth_material_r12.py": {
+    "mtime": 1793250438.2374117,
+    "seen": 1793251189.8767674,
+    "ast_hash": "eb456a851a1dcd5304c4ac729462763d",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/wood_balance_r16.py": {
+    "mtime": 1793250438.2384112,
+    "seen": 1793251189.8767695,
+    "ast_hash": "4a7eee6eb8208d2c6805a201af91159a",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/wood_individual_r14.py": {
+    "mtime": 1793250438.2394109,
+    "seen": 1793251189.8767717,
+    "ast_hash": "2e0ae29859fcaa31c31313fba291e9f4",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/wood_material_r12.py": {
+    "mtime": 1793250438.2397676,
+    "seen": 1793251189.8767734,
+    "ast_hash": "6c88c0fee31ef6efe3ce680513e0dddb",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/wood_review_diagnostic_r12.py": {
+    "mtime": 1793250438.2407246,
+    "seen": 1793251189.8767757,
+    "ast_hash": "e9bc604274d00d402b7ad98cf580dfea",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/wood_review_refine_r12.py": {
+    "mtime": 1793250438.2417746,
+    "seen": 1793251189.8767774,
+    "ast_hash": "fb9480c2fc505418cfa4226a00523918",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/wrap_guardian_r9.py": {
+    "mtime": 1793250438.243281,
+    "seen": 1793251189.8767798,
+    "ast_hash": "bd936202c9a37e3c40a6135484e0ab00",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/render_ildu_estate_layer.py": {
+    "mtime": 1793250438.244313,
+    "seen": 1793251189.8767822,
+    "ast_hash": "50750231c2392d7c59449cfacf605a76",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/render_ildu_roof_variants.py": {
+    "mtime": 1793250438.2453551,
+    "seen": 1793251189.8767843,
+    "ast_hash": "f4eb9b8f566cdc6efd15bcc533d438d1",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/restore_ildu_r16.py": {
+    "mtime": 1793250438.2463932,
+    "seen": 1793251189.8767872,
+    "ast_hash": "b85a98494350ad51a4db4e1bfa66fcd4",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/test_roof_renderer.py": {
+    "mtime": 1793250438.247426,
+    "seen": 1793251189.8767898,
+    "ast_hash": "26d6a67b62c5eee155e4e702ea048980",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/validate_ildu_r16.py": {
+    "mtime": 1793250438.247426,
+    "seen": 1793251189.8767927,
+    "ast_hash": "f2374993311b4d5aefeda8e524455ea4",
+    "semantic_hash": ""
+  },
+  ".github/workflows/hanok-r16.yml": {
+    "mtime": 1793250436.589429,
+    "seen": 1793251190.1560588,
+    "ast_hash": "1964c6ed5297652dd806cca2c1feda8d",
+    "semantic_hash": ""
+  },
+  ".superdesign/design-system.md": {
+    "mtime": 1793250436.5924034,
+    "seen": 1793251190.1570683,
+    "ast_hash": "7fd42e06dfa4bfba1f68da8e0c436f7f",
+    "semantic_hash": ""
+  },
+  ".superdesign/init/components.md": {
+    "mtime": 1793250436.5945897,
+    "seen": 1793251190.1570714,
+    "ast_hash": "fcb2a85dc4e470475195081d4d3a5cf7",
+    "semantic_hash": ""
+  },
+  ".superdesign/init/extractable-components.md": {
+    "mtime": 1793250436.5945897,
+    "seen": 1793251190.1570737,
+    "ast_hash": "2cc1fb3776dae7e37b1f49803d4d9071",
+    "semantic_hash": ""
+  },
+  ".superdesign/init/layouts.md": {
+    "mtime": 1793250436.5961242,
+    "seen": 1793251190.157076,
+    "ast_hash": "b705c44b35774b2b2fbe61fa239318f4",
+    "semantic_hash": ""
+  },
+  ".superdesign/init/pages.md": {
+    "mtime": 1793250436.597134,
+    "seen": 1793251190.1570785,
+    "ast_hash": "cd285cc8bf3692533c9f9553e19fe82c",
+    "semantic_hash": ""
+  },
+  ".superdesign/init/routes.md": {
+    "mtime": 1793250436.597134,
+    "seen": 1793251190.1570804,
+    "ast_hash": "28b96bb0fed262edc9bb1deb226a1df8",
+    "semantic_hash": ""
+  },
+  ".superdesign/init/theme.md": {
+    "mtime": 1793250436.598207,
+    "seen": 1793251190.1570826,
+    "ast_hash": "fb215331d65a3e40e3f4f44040b1324c",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/APP_INTEGRATION.md": {
+    "mtime": 1793250436.6028032,
+    "seen": 1793251190.2428598,
+    "ast_hash": "259d1fc671150c21f1f58c97345e31ec",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/ESTATE_IMPLEMENTATION_PLAN.md": {
+    "mtime": 1793250436.6061678,
+    "seen": 1793251190.242863,
+    "ast_hash": "e1ee35312ec40a23c51278873f40383e",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/ESTATE_SCREEN_DESIGN.md": {
+    "mtime": 1793250436.6072462,
+    "seen": 1793251190.2428646,
+    "ast_hash": "ffca0e34aa9ed126c7b60ac57cc07ae8",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/README.md": {
+    "mtime": 1793250436.609252,
+    "seen": 1793251190.2428677,
+    "ast_hash": "5e470889c66e5a530e5838baf7e4d7c8",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/RESTORE.md": {
+    "mtime": 1793250436.6107428,
+    "seen": 1793251190.2428699,
+    "ast_hash": "1e6c843fc79a8b0087c26c71fae2631f",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/estate/index.html": {
+    "mtime": 1793250436.7443545,
+    "seen": 1793251190.2428715,
+    "ast_hash": "80eea97cbcd2951bdfe106379e1b4701",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/README.md": {
+    "mtime": 1793250437.1016765,
+    "seen": 1793251190.2428741,
+    "ast_hash": "440b23b834bf23ddaf2c436363672c07",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/index.html": {
+    "mtime": 1793250437.774326,
+    "seen": 1793251190.2428772,
+    "ast_hash": "5ec2f2a9411232791c2c4491b9e084fb",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/GEMINI_REVIEW.md": {
+    "mtime": 1793250438.13552,
+    "seen": 1793251190.2848516,
+    "ast_hash": "d88034f73e6c33b4bc558734592f4ff2",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/PORTABLE_MATERIALS_R16_NOTES.md": {
+    "mtime": 1793250438.1365664,
+    "seen": 1793251190.2848558,
+    "ast_hash": "2c7b11c7a36deafbe167c4f85a1a8a58",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/REQUEST.md": {
+    "mtime": 1793250438.137607,
+    "seen": 1793251190.2848587,
+    "ast_hash": "6ffb2d7113a4767496ff1ef24eea86c5",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/REVIEW_3D_R11.md": {
+    "mtime": 1793250438.1386058,
+    "seen": 1793251190.2848606,
+    "ast_hash": "2742198c314ba7961d7106adf84878f1",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/REVIEW_ART_R11.md": {
+    "mtime": 1793250438.139606,
+    "seen": 1793251190.284863,
+    "ast_hash": "332679365897e578883963a69a298cbe",
+    "semantic_hash": ""
+  },
+  "tool/hanok_scene/r16/SARANG_ART_PLAN.md": {
+    "mtime": 1793250438.1417887,
+    "seen": 1793251190.2848656,
+    "ast_hash": "9b2dbbab74327af4f00129d3c3f089b1",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/estate/complete.png": {
+    "mtime": 1793250436.7428098,
+    "seen": 1793251190.305735,
+    "ast_hash": "dfa8682d13b790cfe4ffb68a73f0ba83",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/estate/standalone/jung/full.png": {
+    "mtime": 1793250436.753365,
+    "seen": 1793251190.305738,
+    "ast_hash": "8aa47445011fc48732193eb2f76527f4",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/estate/standalone/jung/stages/05.png": {
+    "mtime": 1793250436.761176,
+    "seen": 1793251190.3057399,
+    "ast_hash": "d16fb7fe4a8c3237aa6e66607b56eedb",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/estate/standalone/jung/stages/06.png": {
+    "mtime": 1793250436.7745798,
+    "seen": 1793251190.305742,
+    "ast_hash": "98593db725572aa6cf95dc8c30aaed1c",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/estate/standalone/jung/stages/07.png": {
+    "mtime": 1793250436.7829227,
+    "seen": 1793251190.3057456,
+    "ast_hash": "008f13ad050aee637fc992a593035a67",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/estate/standalone/jung/stages/08.png": {
+    "mtime": 1793250436.7940304,
+    "seen": 1793251190.3057485,
+    "ast_hash": "486e17a9a751ca91a5c3d6d8ce91394a",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/estate/standalone/jung/stages/09.png": {
+    "mtime": 1793250436.799639,
+    "seen": 1793251190.3057504,
+    "ast_hash": "ef681f8a539bf5650146970144b2e025",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/estate/standalone/jung/stages/10.png": {
+    "mtime": 1793250436.8082914,
+    "seen": 1793251190.305752,
+    "ast_hash": "1788b5e0a21c1bb3b99ea26fe824339a",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/estate/standalone/jung/stages/11.png": {
+    "mtime": 1793250436.8137336,
+    "seen": 1793251190.3057547,
+    "ast_hash": "b8ebddfd78887b2516a8e2b2b6a01ecc",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/estate/standalone/jung/stages/12.png": {
+    "mtime": 1793250436.8224065,
+    "seen": 1793251190.3057566,
+    "ast_hash": "d91dd17a72c2a65732af7bbcf9cbee2f",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/estate/standalone/sarang/full.png": {
+    "mtime": 1793250436.8334289,
+    "seen": 1793251190.305759,
+    "ast_hash": "adcfd088b54fd0d8ea681478774ab94b",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/estate/standalone/sarang/stages/08.png": {
+    "mtime": 1793250436.8510308,
+    "seen": 1793251190.3057616,
+    "ast_hash": "a7fa31485f68846ffafc82810c78cc12",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/estate/standalone/sarang/stages/09.png": {
+    "mtime": 1793250436.865901,
+    "seen": 1793251190.3057635,
+    "ast_hash": "45a3ac195296b5d9cb5f0d7b4b88fc94",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/estate/standalone/sarang/stages/10.png": {
+    "mtime": 1793250436.8760695,
+    "seen": 1793251190.3057656,
+    "ast_hash": "4bf7bd2828bbd23afc5e4eb72b8e9853",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/estate/standalone/sarang/stages/11.png": {
+    "mtime": 1793250436.897134,
+    "seen": 1793251190.3057683,
+    "ast_hash": "8bda5ee93b971a0b07af7ada544e5836",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/estate/standalone/sarang/stages/12.png": {
+    "mtime": 1793250436.9119086,
+    "seen": 1793251190.3057702,
+    "ast_hash": "59047996521de510690c9d1cd2829337",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/estate/standalone/sarang/stages/13.png": {
+    "mtime": 1793250436.9312782,
+    "seen": 1793251190.305772,
+    "ast_hash": "b0b65e0f1fa4224e1d7c659af912b821",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/estate/standalone/sarang/stages/14.png": {
+    "mtime": 1793250436.9406035,
+    "seen": 1793251190.3057737,
+    "ast_hash": "111f104e26ab6bb962b0c36db2fa75df",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/estate/standalone/sarang/stages/15.png": {
+    "mtime": 1793250436.9529822,
+    "seen": 1793251190.3057756,
+    "ast_hash": "158fb1f65029bbe8cc87463b92c15939",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/estate/standalone/sarang/stages/16.png": {
+    "mtime": 1793250436.963233,
+    "seen": 1793251190.3057775,
+    "ast_hash": "6a77fe8dcb862cf1c1dcc0a63617456b",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/estate-320-large-text.png": {
+    "mtime": 1793250437.0065985,
+    "seen": 1793251190.305779,
+    "ast_hash": "e8eae6a12fc05fad15bade67975a7d76",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/estate-mobile-390.png": {
+    "mtime": 1793250437.0087955,
+    "seen": 1793251190.3057818,
+    "ast_hash": "4c4621487f7354d6dbfd210c959cb195",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/remote-gate-left.png": {
+    "mtime": 1793250437.0225651,
+    "seen": 1793251190.3057842,
+    "ast_hash": "069174cddcc2260bbf5015aece3b6603",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/remote-sarang-full.png": {
+    "mtime": 1793250437.0245996,
+    "seen": 1793251190.3057861,
+    "ast_hash": "993cd0d3c8460ffd756408efa925a469",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/remote-sarang-stage8.png": {
+    "mtime": 1793250437.0258625,
+    "seen": 1793251190.3057883,
+    "ast_hash": "23365dc412d58970a016ec43b51d6cc4",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/sarang-plaque-dark-front.png": {
+    "mtime": 1793250437.0292163,
+    "seen": 1793251190.3057897,
+    "ast_hash": "d53d81a4eed2c0f4888dd6e7b416df4b",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/sarang-plaque-light-front.png": {
+    "mtime": 1793250437.031218,
+    "seen": 1793251190.3057914,
+    "ast_hash": "3e09a92041c382e7d3ff722956eabca3",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/process-evidence/sarang-standalone-mobile.png": {
+    "mtime": 1793250437.03521,
+    "seen": 1793251190.3057938,
+    "ast_hash": "c42903ede83be7df5209c2da9c37bc43",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/analysis/anchae.png": {
+    "mtime": 1793250437.1083868,
+    "seen": 1793251190.3057961,
+    "ast_hash": "eda9bdbebcad46b3b60f45cc94f95cc7",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/analysis/angotgan.png": {
+    "mtime": 1793250437.1131287,
+    "seen": 1793251190.3057978,
+    "ast_hash": "26c9c17084bb4b27ac8c69f03f0a4799",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/analysis/ansarang.png": {
+    "mtime": 1793250437.1196148,
+    "seen": 1793251190.3058,
+    "ast_hash": "eed5c39e22ab53cc2935c375ec38a811",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/analysis/arae.png": {
+    "mtime": 1793250437.1257148,
+    "seen": 1793251190.3058014,
+    "ast_hash": "88af55967fd106335a207ba5afab4fcb",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/analysis/changgo.png": {
+    "mtime": 1793250437.1286497,
+    "seen": 1793251190.3058035,
+    "ast_hash": "32c3f177007c475bed7f5ae3a74118cc",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/analysis/gokgan.png": {
+    "mtime": 1793250437.1336358,
+    "seen": 1793251190.3058062,
+    "ast_hash": "ebb9f8ad9f28ed4948cfd398d0e3e672",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/analysis/jung.png": {
+    "mtime": 1793250437.1372235,
+    "seen": 1793251190.305808,
+    "ast_hash": "7ad48c863a46fe11dc4b128d168cf23d",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/analysis/sadang.png": {
+    "mtime": 1793250437.1422613,
+    "seen": 1793251190.3058097,
+    "ast_hash": "2e706db0db4b83d793c2a981a1c07716",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/analysis/sarang.png": {
+    "mtime": 1793250437.1481647,
+    "seen": 1793251190.3058112,
+    "ast_hash": "7d6125f9e655fdcb00f6178cae69dcd7",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/analysis/toilet.png": {
+    "mtime": 1793250437.1524408,
+    "seen": 1793251190.305813,
+    "ast_hash": "7455cfa21b6339e2f78d1faaae4d7d67",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/analysis/toilet1.png": {
+    "mtime": 1793250437.1565378,
+    "seen": 1793251190.3058147,
+    "ast_hash": "42a208580311b2e44006bef68c23cfc6",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/anchae/first-pass.png": {
+    "mtime": 1793250437.1743345,
+    "seen": 1793251190.3058176,
+    "ast_hash": "f4ec0f3343269d3f4d3ffde7c8195b7e",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/anchae/full.png": {
+    "mtime": 1793250437.2015827,
+    "seen": 1793251190.3058205,
+    "ast_hash": "50a46b964fdba687803acb888748c7b6",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/anchae/stages/01.png": {
+    "mtime": 1793250437.3038907,
+    "seen": 1793251190.3058245,
+    "ast_hash": "a2173c42149e23f017b08c3e1c702eb4",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/anchae/stages/02.png": {
+    "mtime": 1793250437.3200576,
+    "seen": 1793251190.3058271,
+    "ast_hash": "0de435078e56874d2dca6231c8cb9e66",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/anchae/stages/03.png": {
+    "mtime": 1793250437.3297367,
+    "seen": 1793251190.3058286,
+    "ast_hash": "8b9fcac87da7cbf1b797546e9bf56a20",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/anchae/stages/04.png": {
+    "mtime": 1793250437.335405,
+    "seen": 1793251190.3058305,
+    "ast_hash": "73412e35004fc2f55bd2bb096d66363f",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/anchae/stages/05.png": {
+    "mtime": 1793250437.3384159,
+    "seen": 1793251190.3058321,
+    "ast_hash": "73412e35004fc2f55bd2bb096d66363f",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/anchae/stages/06.png": {
+    "mtime": 1793250437.3437283,
+    "seen": 1793251190.3058348,
+    "ast_hash": "d9859fd3eed8df835e7f7312de6ab874",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/anchae/stages/07.png": {
+    "mtime": 1793250437.3467562,
+    "seen": 1793251190.305837,
+    "ast_hash": "b3c5991073a8d25d643ad53acaf0097a",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/anchae/stages/08.png": {
+    "mtime": 1793250437.3513796,
+    "seen": 1793251190.3058386,
+    "ast_hash": "d64a38dbd334473531a03c656eb6758d",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/anchae/stages/09.png": {
+    "mtime": 1793250437.355926,
+    "seen": 1793251190.305841,
+    "ast_hash": "ff905593f93985b94887ab11baa11a28",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/anchae/stages/10.png": {
+    "mtime": 1793250437.3591952,
+    "seen": 1793251190.305843,
+    "ast_hash": "ff905593f93985b94887ab11baa11a28",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/anchae/stages/11.png": {
+    "mtime": 1793250437.3649602,
+    "seen": 1793251190.3058448,
+    "ast_hash": "8e8d18e5deaf44c0e257fa0bc0ec955d",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/anchae/stages/12.png": {
+    "mtime": 1793250437.3690646,
+    "seen": 1793251190.3058467,
+    "ast_hash": "f182ab124c202c2e9bd30f7185f3f234",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/anchae/stages/13.png": {
+    "mtime": 1793250437.3745415,
+    "seen": 1793251190.3058486,
+    "ast_hash": "03a95fe6910845410a18a8170c187ea5",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/anchae/stages/14.png": {
+    "mtime": 1793250437.3788862,
+    "seen": 1793251190.305851,
+    "ast_hash": "00c035b9d6d08dbd1fe16b3b23bb5a87",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/angotgan/first-pass.png": {
+    "mtime": 1793250437.400702,
+    "seen": 1793251190.3058536,
+    "ast_hash": "9ab9e306d4b9ef3d260104e376cff47c",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/angotgan/full.png": {
+    "mtime": 1793250437.4086373,
+    "seen": 1793251190.3058562,
+    "ast_hash": "4125b8d4fc21270ae85a2e437b58019f",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/angotgan/stages/01.png": {
+    "mtime": 1793250437.4172683,
+    "seen": 1793251190.3058586,
+    "ast_hash": "31c21c0e75f3c2121b83929da271989c",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/angotgan/stages/02.png": {
+    "mtime": 1793250437.4217741,
+    "seen": 1793251190.3058605,
+    "ast_hash": "601c6f5a9abf9e87a8f3a6271a5c4cd5",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/angotgan/stages/03.png": {
+    "mtime": 1793250437.4242601,
+    "seen": 1793251190.3058624,
+    "ast_hash": "e49686dd0f261f09c60df8942ac0d825",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/angotgan/stages/04.png": {
+    "mtime": 1793250437.4285016,
+    "seen": 1793251190.3058643,
+    "ast_hash": "b8c15ab5ef88077fe560caad5383d3d0",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/angotgan/stages/05.png": {
+    "mtime": 1793250437.433391,
+    "seen": 1793251190.3058665,
+    "ast_hash": "63b3bbde667e063472d5cb27c8ee7b44",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/angotgan/stages/06.png": {
+    "mtime": 1793250437.4354045,
+    "seen": 1793251190.305869,
+    "ast_hash": "16ee2b08c437f7f670e0e611f01b2164",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/angotgan/stages/07.png": {
+    "mtime": 1793250437.4401124,
+    "seen": 1793251190.3058717,
+    "ast_hash": "a780cc02bd316e29623f52657c801a96",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/angotgan/stages/08.png": {
+    "mtime": 1793250437.4425578,
+    "seen": 1793251190.3058753,
+    "ast_hash": "a780cc02bd316e29623f52657c801a96",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/angotgan/stages/09.png": {
+    "mtime": 1793250437.446114,
+    "seen": 1793251190.3058786,
+    "ast_hash": "ebb4e4a01b4f665f6181a0c2de524362",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/angotgan/stages/10.png": {
+    "mtime": 1793250437.4491138,
+    "seen": 1793251190.3058805,
+    "ast_hash": "748dfc43d50f324eba9542d8e93b668f",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/angotgan/stages/11.png": {
+    "mtime": 1793250437.4543304,
+    "seen": 1793251190.3058825,
+    "ast_hash": "f57df9e4c3306fb86831d73f0374efab",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/ansarang/first-pass.png": {
+    "mtime": 1793250437.474579,
+    "seen": 1793251190.3058846,
+    "ast_hash": "6ecb4eb40a221469b561019b8ca02e40",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/ansarang/full.png": {
+    "mtime": 1793250437.4815798,
+    "seen": 1793251190.3058863,
+    "ast_hash": "94a5f997ca8b054c33fc230213093618",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/ansarang/stages/01.png": {
+    "mtime": 1793250437.489184,
+    "seen": 1793251190.3058882,
+    "ast_hash": "4a528f8351328a4b5e1f221d0f383f79",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/ansarang/stages/02.png": {
+    "mtime": 1793250437.492755,
+    "seen": 1793251190.30589,
+    "ast_hash": "69d369de2a4a38b2e3d48b759ccfb16f",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/ansarang/stages/03.png": {
+    "mtime": 1793250437.497119,
+    "seen": 1793251190.305892,
+    "ast_hash": "2a7a31ef3afb51fcdd1a141412daae1f",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/ansarang/stages/04.png": {
+    "mtime": 1793250437.5007224,
+    "seen": 1793251190.3058937,
+    "ast_hash": "28e5ac08c49339c553ee0700c8079960",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/ansarang/stages/05.png": {
+    "mtime": 1793250437.505112,
+    "seen": 1793251190.305896,
+    "ast_hash": "430e19372b4210efa6f2c2f91f20f24c",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/ansarang/stages/06.png": {
+    "mtime": 1793250437.5095818,
+    "seen": 1793251190.3058975,
+    "ast_hash": "9e10fb02cadcf17ef0a1ffc1355c7145",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/ansarang/stages/07.png": {
+    "mtime": 1793250437.515119,
+    "seen": 1793251190.3058996,
+    "ast_hash": "d8d1dbd8e0ce8b33699be25f4d6760f6",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/ansarang/stages/08.png": {
+    "mtime": 1793250437.530746,
+    "seen": 1793251190.305902,
+    "ast_hash": "c1a8c273bf9764f4fb82e8975fa3567a",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/ansarang/stages/09.png": {
+    "mtime": 1793250437.5364163,
+    "seen": 1793251190.305904,
+    "ast_hash": "49b82177a9ef4f26d30c1579a987998c",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/ansarang/stages/10.png": {
+    "mtime": 1793250437.5425289,
+    "seen": 1793251190.305907,
+    "ast_hash": "168aeb8fca5c5c19a1abdcfce975a7c7",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/ansarang/stages/11.png": {
+    "mtime": 1793250437.5465248,
+    "seen": 1793251190.305909,
+    "ast_hash": "a613551130cc4abebfd9f976b947e76a",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/ansarang/stages/12.png": {
+    "mtime": 1793250437.5510783,
+    "seen": 1793251190.305911,
+    "ast_hash": "57c2586ea87e4291c29c04ed3e3a472e",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/ansarang/stages/13.png": {
+    "mtime": 1793250437.5563602,
+    "seen": 1793251190.3059137,
+    "ast_hash": "1d6222431280c88804745e25b70f1e6c",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/ansarang/stages/14.png": {
+    "mtime": 1793250437.561165,
+    "seen": 1793251190.305916,
+    "ast_hash": "1b11354bcb8f2c37d5e03908d3623339",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/arae/first-pass.png": {
+    "mtime": 1793250437.5804,
+    "seen": 1793251190.3059182,
+    "ast_hash": "1c225a04e2ed6c49e03849788e42205f",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/arae/full.png": {
+    "mtime": 1793250437.5866232,
+    "seen": 1793251190.30592,
+    "ast_hash": "9d140720a9dae99a89312e391004fec2",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/arae/stages/01.png": {
+    "mtime": 1793250437.5961642,
+    "seen": 1793251190.3059213,
+    "ast_hash": "c40cc20b4ab48853aa94fd4913590ec9",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/arae/stages/02.png": {
+    "mtime": 1793250437.5992517,
+    "seen": 1793251190.3059242,
+    "ast_hash": "b704b42ab86537d355068da7f439238a",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/arae/stages/03.png": {
+    "mtime": 1793250437.6027513,
+    "seen": 1793251190.3059266,
+    "ast_hash": "55475ab3e0136e438faabd0b2c4f9b8b",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/arae/stages/04.png": {
+    "mtime": 1793250437.6072667,
+    "seen": 1793251190.3059292,
+    "ast_hash": "fb1d6e65af013917383f8d03a0a33bdd",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/arae/stages/05.png": {
+    "mtime": 1793250437.6123638,
+    "seen": 1793251190.305931,
+    "ast_hash": "6733a81930cfec513329ee4c26e293de",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/arae/stages/06.png": {
+    "mtime": 1793250437.6166847,
+    "seen": 1793251190.3059328,
+    "ast_hash": "296a9ae25aa965d11919efce6d23c8cb",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/arae/stages/07.png": {
+    "mtime": 1793250437.6222837,
+    "seen": 1793251190.305935,
+    "ast_hash": "a741fc5306bd6cc06e030e71271e414d",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/arae/stages/08.png": {
+    "mtime": 1793250437.624586,
+    "seen": 1793251190.3059366,
+    "ast_hash": "290a81767b3f569e148c99a378aeaee4",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/arae/stages/09.png": {
+    "mtime": 1793250437.6282563,
+    "seen": 1793251190.305939,
+    "ast_hash": "923dc872929f081b13c82e3256e03cc3",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/arae/stages/10.png": {
+    "mtime": 1793250437.632779,
+    "seen": 1793251190.3059404,
+    "ast_hash": "cce860014aa4f21a171612e4683f6ab5",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/arae/stages/11.png": {
+    "mtime": 1793250437.6364427,
+    "seen": 1793251190.3059423,
+    "ast_hash": "15c6935fd597cadf249c54d860d252d0",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/arae/stages/12.png": {
+    "mtime": 1793250437.6395257,
+    "seen": 1793251190.3059442,
+    "ast_hash": "e75b0214769dab335e985111b6a245e6",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/changgo/first-pass.png": {
+    "mtime": 1793250437.6552415,
+    "seen": 1793251190.3059473,
+    "ast_hash": "d54f52f9e414fea22fabd070119b377c",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/changgo/full.png": {
+    "mtime": 1793250437.66553,
+    "seen": 1793251190.3059497,
+    "ast_hash": "453b520fa5c04ad974a3fa3fbfe33880",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/changgo/stages/01.png": {
+    "mtime": 1793250437.6720676,
+    "seen": 1793251190.305952,
+    "ast_hash": "07efb173473876ce4064305d1b072b30",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/changgo/stages/02.png": {
+    "mtime": 1793250437.6753073,
+    "seen": 1793251190.3059545,
+    "ast_hash": "6e51115deb2a5ee6b2d6f53188554bab",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/changgo/stages/03.png": {
+    "mtime": 1793250437.6795359,
+    "seen": 1793251190.3059564,
+    "ast_hash": "87f8964dbfe3b810658b6875d6d3fe36",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/changgo/stages/04.png": {
+    "mtime": 1793250437.683102,
+    "seen": 1793251190.3059595,
+    "ast_hash": "26cd5fe57fb65af708d699deffaeb703",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/changgo/stages/05.png": {
+    "mtime": 1793250437.6871035,
+    "seen": 1793251190.305962,
+    "ast_hash": "97383162b8321965d271f4c1e533cf0e",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/changgo/stages/06.png": {
+    "mtime": 1793250437.6901011,
+    "seen": 1793251190.3059635,
+    "ast_hash": "dea0ee722ebf877c4f855a85861968d0",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/changgo/stages/07.png": {
+    "mtime": 1793250437.6946163,
+    "seen": 1793251190.3059661,
+    "ast_hash": "ee47b54f793c8c86341903f87186c550",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/changgo/stages/08.png": {
+    "mtime": 1793250437.6978824,
+    "seen": 1793251190.305968,
+    "ast_hash": "61a56b9b0afd5d08d4c2615482b11368",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/gallery-desktop.png": {
+    "mtime": 1793250437.7095113,
+    "seen": 1793251190.3059702,
+    "ast_hash": "19afc41e161688fbe8fe8ce300ea5e4e",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/gallery-mobile.png": {
+    "mtime": 1793250437.71051,
+    "seen": 1793251190.3059719,
+    "ast_hash": "2676323b1839ddb444da0b96cd859304",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/gokgan/first-pass.png": {
+    "mtime": 1793250437.722143,
+    "seen": 1793251190.305974,
+    "ast_hash": "ebbfddeb183ce2d145626da793797a5c",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/gokgan/full.png": {
+    "mtime": 1793250437.7290845,
+    "seen": 1793251190.305976,
+    "ast_hash": "e3a2ec3bd18516226debaeb561c949db",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/gokgan/stages/01.png": {
+    "mtime": 1793250437.7356114,
+    "seen": 1793251190.3059776,
+    "ast_hash": "fdc92300cddcdfd55aead3f50f178cdb",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/gokgan/stages/02.png": {
+    "mtime": 1793250437.7387578,
+    "seen": 1793251190.30598,
+    "ast_hash": "e01cb4c51e48f1dab7b7a3a14377a8a9",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/gokgan/stages/03.png": {
+    "mtime": 1793250437.742269,
+    "seen": 1793251190.3059816,
+    "ast_hash": "a56a2bd5ad7f990a2ce8b314307b9e7b",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/gokgan/stages/04.png": {
+    "mtime": 1793250437.7453425,
+    "seen": 1793251190.3059835,
+    "ast_hash": "fe045130fdb6283f38f920d5efd1e937",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/gokgan/stages/05.png": {
+    "mtime": 1793250437.7493677,
+    "seen": 1793251190.3059852,
+    "ast_hash": "9f6f172d8455706a2706ecb6eade7e90",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/gokgan/stages/06.png": {
+    "mtime": 1793250437.7539852,
+    "seen": 1793251190.3059876,
+    "ast_hash": "7134754b7511023aecd374586ea62127",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/gokgan/stages/07.png": {
+    "mtime": 1793250437.7570417,
+    "seen": 1793251190.3059893,
+    "ast_hash": "27ab55c71e4ebf3b70298cb7cb2f4ec0",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/gokgan/stages/08.png": {
+    "mtime": 1793250437.7611294,
+    "seen": 1793251190.3059912,
+    "ast_hash": "034687854996e8655b4cbe352ab52bd2",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/gokgan/stages/09.png": {
+    "mtime": 1793250437.7641978,
+    "seen": 1793251190.3059928,
+    "ast_hash": "a86cf59b33da7ec6c48f94db71823727",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/gokgan/stages/10.png": {
+    "mtime": 1793250437.7672682,
+    "seen": 1793251190.3059947,
+    "ast_hash": "3482d682d74e5afec6bf9692586cdf1f",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/gokgan/stages/11.png": {
+    "mtime": 1793250437.7692692,
+    "seen": 1793251190.3059971,
+    "ast_hash": "3482d682d74e5afec6bf9692586cdf1f",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/jung/first-pass.png": {
+    "mtime": 1793250437.7860136,
+    "seen": 1793251190.3059986,
+    "ast_hash": "553c060093ee345ca28878e032a32081",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/jung/full.png": {
+    "mtime": 1793250437.7919512,
+    "seen": 1793251190.3060005,
+    "ast_hash": "d7302e58377de0b3cdf48ce6889ef28c",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/jung/stages/01.png": {
+    "mtime": 1793250437.7977834,
+    "seen": 1793251190.3060024,
+    "ast_hash": "c0d0b22f5655c19753998aed315dcd30",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/jung/stages/02.png": {
+    "mtime": 1793250437.8008173,
+    "seen": 1793251190.3060048,
+    "ast_hash": "f5c70e4659513bbb960b1a72879fe238",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/jung/stages/03.png": {
+    "mtime": 1793250437.8036702,
+    "seen": 1793251190.3060067,
+    "ast_hash": "8c991b4daa0f9310e46d907731619579",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/jung/stages/04.png": {
+    "mtime": 1793250437.8067513,
+    "seen": 1793251190.3060083,
+    "ast_hash": "743057e87736d3dd40f961c6fb7e473f",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/jung/stages/05.png": {
+    "mtime": 1793250437.8098137,
+    "seen": 1793251190.30601,
+    "ast_hash": "43e8743122ba894fdd64bcbb15cb18e8",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/jung/stages/06.png": {
+    "mtime": 1793250437.811877,
+    "seen": 1793251190.3060129,
+    "ast_hash": "5984ff830b786b3bed8da234a9a058ea",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/jung/stages/07.png": {
+    "mtime": 1793250437.81522,
+    "seen": 1793251190.3060148,
+    "ast_hash": "76e98bca535f6a28842f3158c0e13b81",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/jung/stages/08.png": {
+    "mtime": 1793250437.8202603,
+    "seen": 1793251190.3060162,
+    "ast_hash": "b7967c45baafcf1dae6fdd3406529e8d",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/jung/stages/09.png": {
+    "mtime": 1793250437.8233182,
+    "seen": 1793251190.306018,
+    "ast_hash": "009bf158e521db0a8fdd45116b97b35e",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/jung/stages/10.png": {
+    "mtime": 1793250437.828063,
+    "seen": 1793251190.3060205,
+    "ast_hash": "3ff39b1d22f50928ae6464d003be405f",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/jung/stages/11.png": {
+    "mtime": 1793250437.8301215,
+    "seen": 1793251190.3060222,
+    "ast_hash": "d1923878d981fb5a302d6fd4193a4691",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/jung/stages/12.png": {
+    "mtime": 1793250437.8335514,
+    "seen": 1793251190.3060238,
+    "ast_hash": "97e0d32d793de50ab957472aa6ac2612",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/reference.jpg": {
+    "mtime": 1793250437.8524516,
+    "seen": 1793251190.3060255,
+    "ast_hash": "9711e26fb8f2a4b5e1fb96667cc3d281",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sadang/first-pass.png": {
+    "mtime": 1793250437.8637478,
+    "seen": 1793251190.3060281,
+    "ast_hash": "a64e1b43ac5fd8f59dd349f538db5460",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sadang/full.png": {
+    "mtime": 1793250437.8698645,
+    "seen": 1793251190.306031,
+    "ast_hash": "cd838b678b5e34b6a37bf5eda9014226",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sadang/stages/01.png": {
+    "mtime": 1793250437.8760011,
+    "seen": 1793251190.3060334,
+    "ast_hash": "797d01ced28e5d6e22b7928452f468c8",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sadang/stages/02.png": {
+    "mtime": 1793250437.878049,
+    "seen": 1793251190.306036,
+    "ast_hash": "d70909b766667d9081db311321f729e1",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sadang/stages/03.png": {
+    "mtime": 1793250437.8815906,
+    "seen": 1793251190.306038,
+    "ast_hash": "15eccb385fae67a037d79fc8930a18fa",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sadang/stages/04.png": {
+    "mtime": 1793250437.8855915,
+    "seen": 1793251190.3060396,
+    "ast_hash": "09063f3a4c25eb2d483858f9067cbcbd",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sadang/stages/05.png": {
+    "mtime": 1793250437.8875926,
+    "seen": 1793251190.306041,
+    "ast_hash": "66032c03798f6ee63c8b6d36337c7561",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sadang/stages/06.png": {
+    "mtime": 1793250437.8905926,
+    "seen": 1793251190.306043,
+    "ast_hash": "97bfd2e14c9be3ed0444ed5235ecd0db",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sadang/stages/07.png": {
+    "mtime": 1793250437.894103,
+    "seen": 1793251190.3060446,
+    "ast_hash": "663a6d9ab1b1fbb6e5b0831a2aaa7fd5",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sadang/stages/08.png": {
+    "mtime": 1793250437.8972216,
+    "seen": 1793251190.3060465,
+    "ast_hash": "ffb51d99b333a04a74d09ae3c3c22f50",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sadang/stages/09.png": {
+    "mtime": 1793250437.9006634,
+    "seen": 1793251190.3060482,
+    "ast_hash": "3069cfbdd80da5142779a6b569281c54",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sadang/stages/10.png": {
+    "mtime": 1793250437.9048312,
+    "seen": 1793251190.3060503,
+    "ast_hash": "bbe1b113689c2ccc2fc229620b9e4b1d",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sadang/stages/11.png": {
+    "mtime": 1793250437.908085,
+    "seen": 1793251190.3060527,
+    "ast_hash": "b559fe614dff71dd9e315bdbd32bf2e3",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sadang/stages/12.png": {
+    "mtime": 1793250437.9130862,
+    "seen": 1793251190.3060539,
+    "ast_hash": "ed56447c952d7e8a1666650781016813",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sarang/full.png": {
+    "mtime": 1793250437.9256465,
+    "seen": 1793251190.3060563,
+    "ast_hash": "bae79aee816341413f26e3024fdd44d3",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sarang/main-wood.png": {
+    "mtime": 1793250437.9359696,
+    "seen": 1793251190.306058,
+    "ast_hash": "e639353af6f4ebccbabe3727a39063ac",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sarang/numaru-wood.png": {
+    "mtime": 1793250437.943969,
+    "seen": 1793251190.3060606,
+    "ast_hash": "bad1080c282c057a6b0ff4febb8d2941",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sarang/stages/01.png": {
+    "mtime": 1793250437.9508893,
+    "seen": 1793251190.3060627,
+    "ast_hash": "be602cdf03577baa2fbf6ba7014fab8c",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sarang/stages/02.png": {
+    "mtime": 1793250437.955268,
+    "seen": 1793251190.306065,
+    "ast_hash": "55fd3a7cde46ca5d27bc19498dd70bd2",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sarang/stages/03.png": {
+    "mtime": 1793250437.9574797,
+    "seen": 1793251190.3060675,
+    "ast_hash": "f13967215371a8625004c3c031e9d1c7",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sarang/stages/04.png": {
+    "mtime": 1793250437.9585066,
+    "seen": 1793251190.306069,
+    "ast_hash": "f13967215371a8625004c3c031e9d1c7",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sarang/stages/05.png": {
+    "mtime": 1793250437.9620464,
+    "seen": 1793251190.3060708,
+    "ast_hash": "1c154ac7e9a3762074d763ea046daf9f",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sarang/stages/06.png": {
+    "mtime": 1793250437.9630451,
+    "seen": 1793251190.306073,
+    "ast_hash": "b0bd2db31b6a7e12b900892798c4fb77",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sarang/stages/07.png": {
+    "mtime": 1793250437.966823,
+    "seen": 1793251190.306075,
+    "ast_hash": "42ad729e8ea191e0e760b9d05de4b6b1",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sarang/stages/08.png": {
+    "mtime": 1793250437.9714916,
+    "seen": 1793251190.3060768,
+    "ast_hash": "ed6ac33c55981b707cf05c0d1b23b34f",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sarang/stages/09.png": {
+    "mtime": 1793250437.9734929,
+    "seen": 1793251190.3060782,
+    "ast_hash": "14a051ace45c0373777d6a46fe56b90b",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sarang/stages/10.png": {
+    "mtime": 1793250437.9746294,
+    "seen": 1793251190.3060803,
+    "ast_hash": "14a051ace45c0373777d6a46fe56b90b",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sarang/stages/11.png": {
+    "mtime": 1793250437.9787588,
+    "seen": 1793251190.3060822,
+    "ast_hash": "ed0e97df6409b9258cc87647cf79dacf",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sarang/stages/12.png": {
+    "mtime": 1793250437.9812622,
+    "seen": 1793251190.306084,
+    "ast_hash": "02ba851ed6f3af4ead67b02e245e6dc6",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sarang/stages/13.png": {
+    "mtime": 1793250437.98487,
+    "seen": 1793251190.3060856,
+    "ast_hash": "4e83b10c24d8a2f55a309b61ab43396e",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sarang/stages/14.png": {
+    "mtime": 1793250437.9886813,
+    "seen": 1793251190.306088,
+    "ast_hash": "ba3a2b221d6e29075491f6ad39433bd4",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sarang/stages/15.png": {
+    "mtime": 1793250437.9935892,
+    "seen": 1793251190.3060906,
+    "ast_hash": "884c054229df1c5a97c1cbbef7af36c7",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/sarang/stages/16.png": {
+    "mtime": 1793250437.9976714,
+    "seen": 1793251190.306092,
+    "ast_hash": "0eb7f29ccf9e98ec026a4647c69f1cc3",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet1/first-pass.png": {
+    "mtime": 1793250438.078302,
+    "seen": 1793251190.3060935,
+    "ast_hash": "b85cdcd6f300adbe68090a61af29832e",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet1/full.png": {
+    "mtime": 1793250438.0863352,
+    "seen": 1793251190.3060951,
+    "ast_hash": "72bf8e841f1ea2700f0ec64e23c34f5e",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet1/stages/01.png": {
+    "mtime": 1793250438.0929215,
+    "seen": 1793251190.3060973,
+    "ast_hash": "18c8138ccbffb3f0c0aa58257df0b857",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet1/stages/02.png": {
+    "mtime": 1793250438.0949993,
+    "seen": 1793251190.3060992,
+    "ast_hash": "0b7a6cb9afa045d8c9047c08244e0d62",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet1/stages/03.png": {
+    "mtime": 1793250438.098398,
+    "seen": 1793251190.3061008,
+    "ast_hash": "ca46a43ff5c46378e71500b30cefe1e1",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet1/stages/04.png": {
+    "mtime": 1793250438.1017246,
+    "seen": 1793251190.3061028,
+    "ast_hash": "662a4ac8ef3185ec9258072065cd2f9d",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet1/stages/05.png": {
+    "mtime": 1793250438.103912,
+    "seen": 1793251190.3061044,
+    "ast_hash": "50a7d9033eb35e072e9bd55c4c04002a",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet1/stages/06.png": {
+    "mtime": 1793250438.1079433,
+    "seen": 1793251190.3061066,
+    "ast_hash": "a4ccdd9df4e096755c5dd547d3013e4d",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet1/stages/07.png": {
+    "mtime": 1793250438.1129584,
+    "seen": 1793251190.3061082,
+    "ast_hash": "2edd3543d8ad1954145021d8ed4766a1",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet1/stages/08.png": {
+    "mtime": 1793250438.116623,
+    "seen": 1793251190.3061101,
+    "ast_hash": "b39a9428be6ddc124fdad62116cf907c",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet1/stages/09.png": {
+    "mtime": 1793250438.1199555,
+    "seen": 1793251190.3061125,
+    "ast_hash": "598a5cef12aea2a626ed3cc2e795d757",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet/first-pass.png": {
+    "mtime": 1793250438.008691,
+    "seen": 1793251190.3061142,
+    "ast_hash": "50938c0c3372e7806fc78d42535dcade",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet/full.png": {
+    "mtime": 1793250438.0141506,
+    "seen": 1793251190.3061159,
+    "ast_hash": "c0a820d93e0b40eb058159c3ebcafed6",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet/stages/01.png": {
+    "mtime": 1793250438.019707,
+    "seen": 1793251190.3061175,
+    "ast_hash": "12d9f44bfd7fd2b6969afe0d9d1ec1e3",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet/stages/02.png": {
+    "mtime": 1793250438.0222957,
+    "seen": 1793251190.3061194,
+    "ast_hash": "d610697c11d2e8268d8b50210d145f80",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet/stages/03.png": {
+    "mtime": 1793250438.0244298,
+    "seen": 1793251190.3061225,
+    "ast_hash": "003c82e816862d2f3f8760811a02dc7b",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet/stages/04.png": {
+    "mtime": 1793250438.026507,
+    "seen": 1793251190.306124,
+    "ast_hash": "97f7f53a7b039eec3aafbd22b28f5a1e",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet/stages/05.png": {
+    "mtime": 1793250438.0286345,
+    "seen": 1793251190.3061266,
+    "ast_hash": "148078935e9cf5c6660c058475b61b4b",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet/stages/06.png": {
+    "mtime": 1793250438.034943,
+    "seen": 1793251190.3061287,
+    "ast_hash": "2139ff99be99ed02d059dc0d6917cf02",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet/stages/07.png": {
+    "mtime": 1793250438.0380855,
+    "seen": 1793251190.3061302,
+    "ast_hash": "9552916eec750a5db5d3c10538f75466",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet/stages/08.png": {
+    "mtime": 1793250438.0425086,
+    "seen": 1793251190.3061316,
+    "ast_hash": "d51f08e65a5698cdf0790259320201b7",
+    "semantic_hash": ""
+  },
+  "docs/hanok_r16/review/toilet/stages/09.png": {
+    "mtime": 1793250438.04622,
+    "seen": 1793251190.3061333,
+    "ast_hash": "02296796839226a7c321c8ca3e066948",
     "semantic_hash": ""
   }
 }

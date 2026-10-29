@@ -1,0 +1,11 @@
+{
+  "complete": true,
+  "largeText320px": {
+    "font": "32px",
+    "reduced": "true",
+    "scrollWidth": 305,
+    "viewport": 320
+  },
+  "settingsReopenAt200Percent": true,
+  "progressRewardWrites": false
+}

@@ -1,0 +1,348 @@
+{
+  "schemaVersion": 1,
+  "directiveDate": "2026-10-29",
+  "source": "direct user message in this conversation",
+  "buildings": [
+    "sarangchae",
+    "jungmunganchae"
+  ],
+  "constructionView": "standalone_complete_roof_at_each_earned_process_stage",
+  "connectedEstateView": "connected_clipped_roof",
+  "switchTrigger": "existing physical connection state",
+  "inventedProcessThreshold": false,
+  "sameLogicalBuildingIds": true,
+  "sameProcessIdsAndOrder": true,
+  "newProgressOrReward": false,
+  "showFullFinishedBuildingBeforeEarnedStage": false,
+  "existing22ConnectedNativesUnchanged": true,
+  "standaloneReady": true,
+  "status": "native, stage and render verified; private remote restored",
+  "sourceGeometry": "existing verified R12 standalone complements and six continuous Jung ceramic meshes; concealed ends are source-generator reconstructions, not newly surveyed evidence",
+  "standaloneBuildings": {
+    "sarang": {
+      "complete": true,
+      "key": "sarang",
+      "fullImage": "estate/standalone/sarang/full.png",
+      "fullImageSha256": "296f318ae87a227a5f4bca6ddad78ffef69873ac26dc0af942349af82613101a",
+      "stages": [
+        {
+          "sequence": 1,
+          "processId": "ildu.sarangchae-site",
+          "label": "터 닦기",
+          "reviewImage": "review/sarang/stages/01.png",
+          "sha256": "69973914307c443d0eb1a62dc7d267e7e568fd677ad2b0c0cccf0aef57db35ec",
+          "reusedUnchangedEarlierStage": true,
+          "standaloneRoofMembers": 0
+        },
+        {
+          "sequence": 2,
+          "processId": "ildu.sarangchae-foundation",
+          "label": "기단",
+          "reviewImage": "review/sarang/stages/02.png",
+          "sha256": "9df47a54b76b573629b07ef51f55cd98f0193b5a9ead77b2b4d6239d7901207b",
+          "reusedUnchangedEarlierStage": true,
+          "standaloneRoofMembers": 0
+        },
+        {
+          "sequence": 3,
+          "processId": "ildu.sarangchae-choseok",
+          "label": "초석",
+          "reviewImage": "review/sarang/stages/03.png",
+          "sha256": "56fd11b72d4cffe0431366c3a5f549d9e41ca1f30c8727cfd0978a1b1f25aadc",
+          "reusedUnchangedEarlierStage": true,
+          "standaloneRoofMembers": 0
+        },
+        {
+          "sequence": 4,
+          "processId": "ildu.sarangchae-fitting",
+          "label": "목재 치목",
+          "reviewImage": "review/sarang/stages/04.png",
+          "sha256": "56fd11b72d4cffe0431366c3a5f549d9e41ca1f30c8727cfd0978a1b1f25aadc",
+          "reusedUnchangedEarlierStage": true,
+          "standaloneRoofMembers": 0
+        },
+        {
+          "sequence": 5,
+          "processId": "ildu.sarangchae-columns",
+          "label": "기둥",
+          "reviewImage": "review/sarang/stages/05.png",
+          "sha256": "fc0bc5e720c9091caa2e9b37c7d89d546c9ab78e4b5ff80539535a844bdb6433",
+          "reusedUnchangedEarlierStage": true,
+          "standaloneRoofMembers": 0
+        },
+        {
+          "sequence": 6,
+          "processId": "ildu.sarangchae-beams",
+          "label": "보",
+          "reviewImage": "review/sarang/stages/06.png",
+          "sha256": "c3afa8762ff6a76ed21c86367786a3770091eebfdc85082752ad7c380d3b1769",
+          "reusedUnchangedEarlierStage": true,
+          "standaloneRoofMembers": 0
+        },
+        {
+          "sequence": 7,
+          "processId": "ildu.sarangchae-purlins",
+          "label": "도리",
+          "reviewImage": "review/sarang/stages/07.png",
+          "sha256": "56b947721f5a2641f8f307138be9f33497fe71b00cf89d815241f597cfc954f4",
+          "reusedUnchangedEarlierStage": true,
+          "standaloneRoofMembers": 0
+        },
+        {
+          "sequence": 8,
+          "processId": "ildu.sarangchae-rafters",
+          "label": "서까래",
+          "reviewImage": "estate/standalone/sarang/stages/08.png",
+          "sha256": "474d1422b0ea96b11ce0df20e556b8a108807f9fd19c527f8dc5d682817a9281",
+          "reusedUnchangedEarlierStage": false,
+          "standaloneRoofMembers": 103
+        },
+        {
+          "sequence": 9,
+          "processId": "ildu.sarangchae-decking",
+          "label": "마루판",
+          "reviewImage": "estate/standalone/sarang/stages/09.png",
+          "sha256": "c36c4686f011d15e6538479a1af5ea0ed118f7531ec09a3d2f28fde00a335f72",
+          "reusedUnchangedEarlierStage": false,
+          "standaloneRoofMembers": 104
+        },
+        {
+          "sequence": 10,
+          "processId": "ildu.sarangchae-earth-roof",
+          "label": "지붕 흙",
+          "reviewImage": "estate/standalone/sarang/stages/10.png",
+          "sha256": "8142e74ecc970987caa938118955dcd2a791619abaa95acb8614d6765a69cf74",
+          "reusedUnchangedEarlierStage": false,
+          "standaloneRoofMembers": 104
+        },
+        {
+          "sequence": 11,
+          "processId": "ildu.sarangchae-tiles",
+          "label": "기와",
+          "reviewImage": "estate/standalone/sarang/stages/11.png",
+          "sha256": "9d7cd52351ed578b106ea104a39fa214374694f343c136f496760baade012ef5",
+          "reusedUnchangedEarlierStage": false,
+          "standaloneRoofMembers": 118
+        },
+        {
+          "sequence": 12,
+          "processId": "ildu.sarangchae-walls",
+          "label": "벽체",
+          "reviewImage": "estate/standalone/sarang/stages/12.png",
+          "sha256": "c390cc4a73138728e3be121c3146d7d3a04ccce6dfe86ff29390cf28b0c8d2cd",
+          "reusedUnchangedEarlierStage": false,
+          "standaloneRoofMembers": 119
+        },
+        {
+          "sequence": 13,
+          "processId": "ildu.sarangchae-ondol",
+          "label": "온돌",
+          "reviewImage": "estate/standalone/sarang/stages/13.png",
+          "sha256": "c94d475177e456763e6c8b49566147310b2ce86cf26b1d81f34ad0767c714f64",
+          "reusedUnchangedEarlierStage": false,
+          "standaloneRoofMembers": 119
+        },
+        {
+          "sequence": 14,
+          "processId": "ildu.sarangchae-maru",
+          "label": "마루",
+          "reviewImage": "estate/standalone/sarang/stages/14.png",
+          "sha256": "88869dbb98e940f2b64f735db1f7af7390aab4435c7268372370582e861289e2",
+          "reusedUnchangedEarlierStage": false,
+          "standaloneRoofMembers": 119
+        },
+        {
+          "sequence": 15,
+          "processId": "ildu.sarangchae-changho",
+          "label": "창호",
+          "reviewImage": "estate/standalone/sarang/stages/15.png",
+          "sha256": "17a807835e489a625bb86950586a8e832240248a3689c23706bf8c52d924ec20",
+          "reusedUnchangedEarlierStage": false,
+          "standaloneRoofMembers": 119
+        },
+        {
+          "sequence": 16,
+          "processId": "ildu.sarangchae-complete",
+          "label": "완성",
+          "reviewImage": "estate/standalone/sarang/stages/16.png",
+          "sha256": "3e3b6fb9c2a948154836654f53886f12b3d6cb663bd29fd9bcdb0a2fa6a7a4c7",
+          "reusedUnchangedEarlierStage": false,
+          "standaloneRoofMembers": 119
+        }
+      ],
+      "firstChangedStage": 8,
+      "fullNativeSha256": "ef7b1ac264d26c56f121aa25e0af05a21ffb92fc1071b3eabe508ee93392b200",
+      "stageNativeSha256": "943b172dc8d1cc68d6cd0010c2a090a819a82b58b244a98649dafe1209112bb4",
+      "cameraLightingAndMaterialsPreserved": true,
+      "logicalStageIdsUnchanged": true,
+      "runtimeIntegrated": false
+    },
+    "jung": {
+      "complete": true,
+      "key": "jung",
+      "fullImage": "estate/standalone/jung/full.png",
+      "fullImageSha256": "4c79a08bf3271b4c71ad36cfb10ca76c504fd7e8e3b94d304a7cff6534881a35",
+      "stages": [
+        {
+          "sequence": 1,
+          "processId": "ildu.jungmunganchae-site-route",
+          "label": "터와 통로",
+          "reviewImage": "review/jung/stages/01.png",
+          "sha256": "9e75806e73de809cd3bfbdc6f3a31d18e7bdc1ffe9414520e87e1ac90d6a1fad",
+          "reusedUnchangedEarlierStage": true,
+          "standaloneRoofMembers": 0
+        },
+        {
+          "sequence": 2,
+          "processId": "ildu.jungmunganchae-stone-foundation",
+          "label": "돌기단",
+          "reviewImage": "review/jung/stages/02.png",
+          "sha256": "3b490e88006f708128ea7a3c517e6a4c09be6e7f317b0a173e0f19d4437626ff",
+          "reusedUnchangedEarlierStage": true,
+          "standaloneRoofMembers": 0
+        },
+        {
+          "sequence": 3,
+          "processId": "ildu.jungmunganchae-posts",
+          "label": "기둥",
+          "reviewImage": "review/jung/stages/03.png",
+          "sha256": "3b9b976908ef72094172cfb00ec026cde7d060093333a4d58a2673d2452c1eb7",
+          "reusedUnchangedEarlierStage": true,
+          "standaloneRoofMembers": 0
+        },
+        {
+          "sequence": 4,
+          "processId": "ildu.jungmunganchae-beams-purlins",
+          "label": "보와 도리",
+          "reviewImage": "review/jung/stages/04.png",
+          "sha256": "7da52cb2cea59a8076d898d8cf410b78cbf233c9ac0a029fc7ae4eb75ba8e180",
+          "reusedUnchangedEarlierStage": true,
+          "standaloneRoofMembers": 0
+        },
+        {
+          "sequence": 5,
+          "processId": "ildu.jungmunganchae-rafters-eaves",
+          "label": "서까래와 처마",
+          "reviewImage": "estate/standalone/jung/stages/05.png",
+          "sha256": "0bdc822aa66aecf6b121095cfc4d771b4c06a408b61b59bc5730f8816eb3eaf1",
+          "reusedUnchangedEarlierStage": false,
+          "standaloneRoofMembers": 332
+        },
+        {
+          "sequence": 6,
+          "processId": "ildu.jungmunganchae-roof-bed",
+          "label": "지붕 바탕",
+          "reviewImage": "estate/standalone/jung/stages/06.png",
+          "sha256": "7932f49676d8f932d55871828b4557cef780e0ca91199930a1ff383a618543b6",
+          "reusedUnchangedEarlierStage": false,
+          "standaloneRoofMembers": 332
+        },
+        {
+          "sequence": 7,
+          "processId": "ildu.jungmunganchae-tiles",
+          "label": "기와",
+          "reviewImage": "estate/standalone/jung/stages/07.png",
+          "sha256": "3f9cc14f3578dee7dbd1c4d6acb566d99f29a709cea63e2c53cb66ae85b79220",
+          "reusedUnchangedEarlierStage": false,
+          "standaloneRoofMembers": 360
+        },
+        {
+          "sequence": 8,
+          "processId": "ildu.jungmunganchae-room-walls",
+          "label": "방 벽체",
+          "reviewImage": "estate/standalone/jung/stages/08.png",
+          "sha256": "98775e441aaf66b44f02a1450747165c43a48cb2e4e5f594e8292e144b4645a2",
+          "reusedUnchangedEarlierStage": false,
+          "standaloneRoofMembers": 361
+        },
+        {
+          "sequence": 9,
+          "processId": "ildu.jungmunganchae-ondol-floors",
+          "label": "온돌과 바닥",
+          "reviewImage": "estate/standalone/jung/stages/09.png",
+          "sha256": "e57aa04e4154a699607fb722d3a1a36742a2976d5dd2ff86c4f36dd492e4acc9",
+          "reusedUnchangedEarlierStage": false,
+          "standaloneRoofMembers": 361
+        },
+        {
+          "sequence": 10,
+          "processId": "ildu.jungmunganchae-open-maru",
+          "label": "열린 마루",
+          "reviewImage": "estate/standalone/jung/stages/10.png",
+          "sha256": "b9f02a5b343c9f34356cc3e2e1a3a13adffc5487302346f54a10ef5016fd5bf6",
+          "reusedUnchangedEarlierStage": false,
+          "standaloneRoofMembers": 361
+        },
+        {
+          "sequence": 11,
+          "processId": "ildu.jungmunganchae-gate-changho",
+          "label": "문과 창호",
+          "reviewImage": "estate/standalone/jung/stages/11.png",
+          "sha256": "03e554ff23925eef68f1a71d8bae6ece0b9548f65daeb0d18554dcae1ba14cff",
+          "reusedUnchangedEarlierStage": false,
+          "standaloneRoofMembers": 361
+        },
+        {
+          "sequence": 12,
+          "processId": "ildu.jungmunganchae-complete-use",
+          "label": "완성 · 사용",
+          "reviewImage": "estate/standalone/jung/stages/12.png",
+          "sha256": "31d0418c4c8d7a330116643b2e12b02fc3f762be0e98008e9bddc8e15527e9d7",
+          "reusedUnchangedEarlierStage": false,
+          "standaloneRoofMembers": 361
+        }
+      ],
+      "firstChangedStage": 5,
+      "fullNativeSha256": "41f3920ee311406fe087a40c346101979547daf5706034ef01a1a57560328a54",
+      "stageNativeSha256": "d756c5d780537bd1d73d00300499c9b6d81976d7f8467506603ed0e28c8e4aeb",
+      "cameraLightingAndMaterialsPreserved": true,
+      "logicalStageIdsUnchanged": true,
+      "runtimeIntegrated": false
+    }
+  },
+  "natives": [
+    {
+      "building": "sarang",
+      "kind": "full",
+      "variant": "roof-native",
+      "path": "sarang/full.blend",
+      "sha256": "ef7b1ac264d26c56f121aa25e0af05a21ffb92fc1071b3eabe508ee93392b200",
+      "bytes": 225553575,
+      "archiveCommit": "a3ebf0c614ccec1864324f6e2641c9f895ddaf6f"
+    },
+    {
+      "building": "sarang",
+      "kind": "stage",
+      "variant": "roof-native",
+      "path": "sarang/stage.blend",
+      "sha256": "943b172dc8d1cc68d6cd0010c2a090a819a82b58b244a98649dafe1209112bb4",
+      "bytes": 225760470,
+      "archiveCommit": "a3ebf0c614ccec1864324f6e2641c9f895ddaf6f"
+    },
+    {
+      "building": "jung",
+      "kind": "full",
+      "variant": "roof-native",
+      "path": "jung/full.blend",
+      "sha256": "41f3920ee311406fe087a40c346101979547daf5706034ef01a1a57560328a54",
+      "bytes": 153264993,
+      "archiveCommit": "a3ebf0c614ccec1864324f6e2641c9f895ddaf6f"
+    },
+    {
+      "building": "jung",
+      "kind": "stage",
+      "variant": "roof-native",
+      "path": "jung/stage.blend",
+      "sha256": "d756c5d780537bd1d73d00300499c9b6d81976d7f8467506603ed0e28c8e4aeb",
+      "bytes": 153380200,
+      "archiveCommit": "a3ebf0c614ccec1864324f6e2641c9f895ddaf6f"
+    }
+  ],
+  "archive": {
+    "remote": "https://github.com/Sujin-Arin-DataWorld/hangulsori-archive.git",
+    "ref": "refs/heads/archive/ildu-r16-roofs-20261029",
+    "commit": "a3ebf0c614ccec1864324f6e2641c9f895ddaf6f",
+    "manifestSha256": "93fad17a506fb324abf3f340db03da98c5ec87acb568ce9fecd6562c8468f840",
+    "restoreTool": "tool/hanok_scene/restore_ildu_r16.py"
+  }
+}

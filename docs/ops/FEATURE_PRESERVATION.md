@@ -47,3 +47,9 @@
 ## 한옥 구버전 추가 정리
 
 [한옥 V1·V2 및 초기 V3 확인](HANOK_LEGACY_RETIREMENT_20261023.md)에서 남은 V2 사본 2개 워크트리·거절 이미지 1개의 보관과 삭제, 현재 V3 자산·현재 Blender 의존성 유지 근거를 확인한다. 구버전 폴더를 다시 만들지 않는다.
+
+## 일두고택 R16 제작 정본
+
+2026-10-29 사용자가 R16 전체의 제작 정본 승격과 main 발행을 명시적으로 요청했다. [R16 정본 등록](../hanok_r16/CANONICAL_PROMOTION_R16.json)은 11동·128공정 이미지와 텍스처를 내장한 Blender 22개의 정확한 해시를 기록한다. [ARCHIVE.json](../hanok_r16/ARCHIVE.json)의 고정 비공개 원격 커밋과 [복원 도구](../../tool/hanok_scene/restore_ildu_r16.py)로 해당 원본, 현재 협문 6개 사본, 필요한 입력·도면·제작 도구와 이전 R12 자료를 각각 복원한다.
+
+계속 편집할 로컬 패키지는 `C:/dev/hangulsori/_codex_artifacts/ildu-r16-publication-20261028`이다. 예전 40.88GiB R12 artifact 폴더는 전체 원격 바이트 대조·독립 복원·원래 경로 부재 상태의 재열기 검증 이후에만 정리한다. 별도 R12 Git worktree, hwalju/warm-stone과 다른 세션의 의존성 삭제는 이 지시에 포함되지 않는다. 정본 승격은 제작 아트의 승인 상태이며 Flutter의 현재 에셋 선택·공정 정책·진도·보상·기기·배포 완료를 변경하지 않는다.

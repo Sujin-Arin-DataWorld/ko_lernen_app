@@ -1,0 +1,677 @@
+{
+  "GyeCraft.gokgan.integrated foundation face 0": {
+    "memberId": "ildu.gokgan.part.6d94259f07915d4aa765",
+    "sourceObject": "GyeCraft.gokgan.integrated foundation face 0",
+    "reviewStage": 2,
+    "processId": "ildu.gokgan-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "GyeCraft.gokgan.integrated foundation face 1": {
+    "memberId": "ildu.gokgan.part.f035d042a8f2c8986ccf",
+    "sourceObject": "GyeCraft.gokgan.integrated foundation face 1",
+    "reviewStage": 2,
+    "processId": "ildu.gokgan-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "GyeCraft.gokgan.integrated foundation face 2": {
+    "memberId": "ildu.gokgan.part.ead9c3379dcec35c7cad",
+    "sourceObject": "GyeCraft.gokgan.integrated foundation face 2",
+    "reviewStage": 2,
+    "processId": "ildu.gokgan-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "GyeCraft.gokgan.integrated foundation face 3": {
+    "memberId": "ildu.gokgan.part.7befe7aca05d5c8de0c0",
+    "sourceObject": "GyeCraft.gokgan.integrated foundation face 3",
+    "reviewStage": 2,
+    "processId": "ildu.gokgan-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "GyeCraft.gokgan.integrated foundation face 4": {
+    "memberId": "ildu.gokgan.part.13761a3e5b3273a9dffa",
+    "sourceObject": "GyeCraft.gokgan.integrated foundation face 4",
+    "reviewStage": 2,
+    "processId": "ildu.gokgan-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "GyeCraft.gokgan.irregular paving 0": {
+    "memberId": "ildu.gokgan.part.b5a3325dc59541efcf40",
+    "sourceObject": "GyeCraft.gokgan.irregular paving 0",
+    "reviewStage": 10,
+    "processId": "ildu.gokgan-stone-path",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "paving"
+  },
+  "GyeCraft.gokgan.irregular paving 1": {
+    "memberId": "ildu.gokgan.part.fe9429233401ca0c142f",
+    "sourceObject": "GyeCraft.gokgan.irregular paving 1",
+    "reviewStage": 10,
+    "processId": "ildu.gokgan-stone-path",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "paving"
+  },
+  "GyeCraft.gokgan.irregular paving 2": {
+    "memberId": "ildu.gokgan.part.09891e49ee64ee0dea56",
+    "sourceObject": "GyeCraft.gokgan.irregular paving 2",
+    "reviewStage": 10,
+    "processId": "ildu.gokgan-stone-path",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "paving"
+  },
+  "GyeCraft.gokgan.irregular paving 3": {
+    "memberId": "ildu.gokgan.part.1ca64bdd0fdde08983f8",
+    "sourceObject": "GyeCraft.gokgan.irregular paving 3",
+    "reviewStage": 10,
+    "processId": "ildu.gokgan-stone-path",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "paving"
+  },
+  "GyeCraft.gokgan.irregular paving 4": {
+    "memberId": "ildu.gokgan.part.8bf5ec7825eac6010fbc",
+    "sourceObject": "GyeCraft.gokgan.irregular paving 4",
+    "reviewStage": 10,
+    "processId": "ildu.gokgan-stone-path",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "paving"
+  },
+  "North.gokgan.central door sideboards": {
+    "memberId": "ildu.gokgan.part.31fed9d17d20cd2f5625",
+    "sourceObject": "North.gokgan.central door sideboards",
+    "reviewStage": 9,
+    "processId": "ildu.gokgan-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.gokgan.central grain door.leaf1.forged hinge": {
+    "memberId": "ildu.gokgan.part.c275ecf37e0f51fb81e8",
+    "sourceObject": "North.gokgan.central grain door.leaf1.forged hinge",
+    "reviewStage": 9,
+    "processId": "ildu.gokgan-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.gokgan.central grain door.leaf1.iron ring": {
+    "memberId": "ildu.gokgan.part.806828fa23342947a649",
+    "sourceObject": "North.gokgan.central grain door.leaf1.iron ring",
+    "reviewStage": 9,
+    "processId": "ildu.gokgan-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.gokgan.central grain door.leaf1.nail": {
+    "memberId": "ildu.gokgan.part.efe1079e3e81fa416d80",
+    "sourceObject": "North.gokgan.central grain door.leaf1.nail",
+    "reviewStage": 9,
+    "processId": "ildu.gokgan-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.gokgan.central grain door.leaf1.rear rail": {
+    "memberId": "ildu.gokgan.part.a473348919285bbf3c6d",
+    "sourceObject": "North.gokgan.central grain door.leaf1.rear rail",
+    "reviewStage": 9,
+    "processId": "ildu.gokgan-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.gokgan.central grain door.leaf1.solid board": {
+    "memberId": "ildu.gokgan.part.127ba18226579b5ad959",
+    "sourceObject": "North.gokgan.central grain door.leaf1.solid board",
+    "reviewStage": 9,
+    "processId": "ildu.gokgan-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.gokgan.central grain door.leaf2.forged hinge": {
+    "memberId": "ildu.gokgan.part.b5d4a4e472de1e012f6d",
+    "sourceObject": "North.gokgan.central grain door.leaf2.forged hinge",
+    "reviewStage": 9,
+    "processId": "ildu.gokgan-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.gokgan.central grain door.leaf2.iron ring": {
+    "memberId": "ildu.gokgan.part.e26b5aefade675a05d91",
+    "sourceObject": "North.gokgan.central grain door.leaf2.iron ring",
+    "reviewStage": 9,
+    "processId": "ildu.gokgan-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.gokgan.central grain door.leaf2.nail": {
+    "memberId": "ildu.gokgan.part.d835623a0287474e3088",
+    "sourceObject": "North.gokgan.central grain door.leaf2.nail",
+    "reviewStage": 9,
+    "processId": "ildu.gokgan-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.gokgan.central grain door.leaf2.rear rail": {
+    "memberId": "ildu.gokgan.part.040ad5c10ad1c1485793",
+    "sourceObject": "North.gokgan.central grain door.leaf2.rear rail",
+    "reviewStage": 9,
+    "processId": "ildu.gokgan-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.gokgan.central grain door.leaf2.solid board": {
+    "memberId": "ildu.gokgan.part.a764dfad2c3b14eb6410",
+    "sourceObject": "North.gokgan.central grain door.leaf2.solid board",
+    "reviewStage": 9,
+    "processId": "ildu.gokgan-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.gokgan.central threshold step": {
+    "memberId": "ildu.gokgan.part.1fb983dd1e7c75a0dd61",
+    "sourceObject": "North.gokgan.central threshold step",
+    "reviewStage": 2,
+    "processId": "ildu.gokgan-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "North.gokgan.central threshold step.recessed earth mortar": {
+    "memberId": "ildu.gokgan.part.060bd955017c3672ce08",
+    "sourceObject": "North.gokgan.central threshold step.recessed earth mortar",
+    "reviewStage": 2,
+    "processId": "ildu.gokgan-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "North.gokgan.foundation": {
+    "memberId": "ildu.gokgan.part.57588036866b5a4dbb8d",
+    "sourceObject": "North.gokgan.foundation",
+    "reviewStage": 2,
+    "processId": "ildu.gokgan-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "North.gokgan.foundation individual plinth": {
+    "memberId": "ildu.gokgan.part.bfa6988cce2514b0dd56",
+    "sourceObject": "North.gokgan.foundation individual plinth",
+    "reviewStage": 2,
+    "processId": "ildu.gokgan-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "padstones"
+  },
+  "North.gokgan.foundation.recessed earth mortar": {
+    "memberId": "ildu.gokgan.part.413430d7a09b5d6a77b0",
+    "sourceObject": "North.gokgan.foundation.recessed earth mortar",
+    "reviewStage": 2,
+    "processId": "ildu.gokgan-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "North.gokgan.frame longitudinal beam": {
+    "memberId": "ildu.gokgan.part.656648ae3a09c87b884d",
+    "sourceObject": "North.gokgan.frame longitudinal beam",
+    "reviewStage": 4,
+    "processId": "ildu.gokgan-beams",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.gokgan.frame mortise peg": {
+    "memberId": "ildu.gokgan.part.f2f837954dd51f47f8f0",
+    "sourceObject": "North.gokgan.frame mortise peg",
+    "reviewStage": 4,
+    "processId": "ildu.gokgan-beams",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.gokgan.frame square post": {
+    "memberId": "ildu.gokgan.part.324a733fb794cb64189c",
+    "sourceObject": "North.gokgan.frame square post",
+    "reviewStage": 3,
+    "processId": "ildu.gokgan-posts",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "posts"
+  },
+  "North.gokgan.frame transverse beam": {
+    "memberId": "ildu.gokgan.part.db88db43783eed0b26b4",
+    "sourceObject": "North.gokgan.frame transverse beam",
+    "reviewStage": 4,
+    "processId": "ildu.gokgan-beams",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "North.gokgan.hip roof curved cover tiles": {
+    "memberId": "ildu.gokgan.part.1ebd087b04bba386454f",
+    "sourceObject": "North.gokgan.hip roof curved cover tiles",
+    "reviewStage": 7,
+    "processId": "ildu.gokgan-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.gokgan.hip roof curved cover tiles.001": {
+    "memberId": "ildu.gokgan.part.03142f4667f323394b88",
+    "sourceObject": "North.gokgan.hip roof curved cover tiles.001",
+    "reviewStage": 7,
+    "processId": "ildu.gokgan-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.gokgan.hip roof curved cover tiles.002": {
+    "memberId": "ildu.gokgan.part.0c0d686d5d338c0fef1c",
+    "sourceObject": "North.gokgan.hip roof curved cover tiles.002",
+    "reviewStage": 7,
+    "processId": "ildu.gokgan-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.gokgan.hip roof curved cover tiles.003": {
+    "memberId": "ildu.gokgan.part.6292c1eb9a05fc5ad321",
+    "sourceObject": "North.gokgan.hip roof curved cover tiles.003",
+    "reviewStage": 7,
+    "processId": "ildu.gokgan-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.gokgan.hip roof curved cover tiles.004": {
+    "memberId": "ildu.gokgan.part.3d00a83e373a65e5ffa9",
+    "sourceObject": "North.gokgan.hip roof curved cover tiles.004",
+    "reviewStage": 7,
+    "processId": "ildu.gokgan-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.gokgan.hip roof curved cover tiles.005": {
+    "memberId": "ildu.gokgan.part.8846a30019a2b8f01ccd",
+    "sourceObject": "North.gokgan.hip roof curved cover tiles.005",
+    "reviewStage": 7,
+    "processId": "ildu.gokgan-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.gokgan.hip roof fascia": {
+    "memberId": "ildu.gokgan.part.4ea3ac6b15e8f909346d",
+    "sourceObject": "North.gokgan.hip roof fascia",
+    "reviewStage": 5,
+    "processId": "ildu.gokgan-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "North.gokgan.hip roof five ridge courses": {
+    "memberId": "ildu.gokgan.part.34da1de17f35702cf470",
+    "sourceObject": "North.gokgan.hip roof five ridge courses",
+    "reviewStage": 7,
+    "processId": "ildu.gokgan-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.gokgan.hip roof five ridge courses.001": {
+    "memberId": "ildu.gokgan.part.d42ac68112ec76096ccf",
+    "sourceObject": "North.gokgan.hip roof five ridge courses.001",
+    "reviewStage": 7,
+    "processId": "ildu.gokgan-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.gokgan.hip roof five ridge courses.002": {
+    "memberId": "ildu.gokgan.part.3adbd4b963462e18d674",
+    "sourceObject": "North.gokgan.hip roof five ridge courses.002",
+    "reviewStage": 7,
+    "processId": "ildu.gokgan-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.gokgan.hip roof five ridge courses.003": {
+    "memberId": "ildu.gokgan.part.629db3e39f5a7d92ff41",
+    "sourceObject": "North.gokgan.hip roof five ridge courses.003",
+    "reviewStage": 7,
+    "processId": "ildu.gokgan-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.gokgan.hip roof five ridge courses.004": {
+    "memberId": "ildu.gokgan.part.1f2b59b397be21d42895",
+    "sourceObject": "North.gokgan.hip roof five ridge courses.004",
+    "reviewStage": 7,
+    "processId": "ildu.gokgan-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.gokgan.hip roof rafter": {
+    "memberId": "ildu.gokgan.part.93d82c6c21f5ff14a0c3",
+    "sourceObject": "North.gokgan.hip roof rafter",
+    "reviewStage": 5,
+    "processId": "ildu.gokgan-rafters",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "North.gokgan.hip roof three hip courses": {
+    "memberId": "ildu.gokgan.part.ff7c0e2db5d3af86992f",
+    "sourceObject": "North.gokgan.hip roof three hip courses",
+    "reviewStage": 7,
+    "processId": "ildu.gokgan-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.gokgan.hip roof three hip courses.001": {
+    "memberId": "ildu.gokgan.part.81488162b259b73e4959",
+    "sourceObject": "North.gokgan.hip roof three hip courses.001",
+    "reviewStage": 7,
+    "processId": "ildu.gokgan-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.gokgan.hip roof three hip courses.002": {
+    "memberId": "ildu.gokgan.part.9bb38f90244cdcce0dda",
+    "sourceObject": "North.gokgan.hip roof three hip courses.002",
+    "reviewStage": 7,
+    "processId": "ildu.gokgan-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.gokgan.hip roof tiled channels": {
+    "memberId": "ildu.gokgan.part.80a35a848ee9267d7d0d",
+    "sourceObject": "North.gokgan.hip roof tiled channels",
+    "reviewStage": 7,
+    "processId": "ildu.gokgan-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.gokgan.hip roof tiled channels.001": {
+    "memberId": "ildu.gokgan.part.e8e264388495eeeb2693",
+    "sourceObject": "North.gokgan.hip roof tiled channels.001",
+    "reviewStage": 7,
+    "processId": "ildu.gokgan-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.gokgan.hip roof tiled channels.002": {
+    "memberId": "ildu.gokgan.part.93fbf97dc63c78d57086",
+    "sourceObject": "North.gokgan.hip roof tiled channels.002",
+    "reviewStage": 7,
+    "processId": "ildu.gokgan-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.gokgan.hip roof tiled channels.003": {
+    "memberId": "ildu.gokgan.part.245036e6dd49641cec30",
+    "sourceObject": "North.gokgan.hip roof tiled channels.003",
+    "reviewStage": 7,
+    "processId": "ildu.gokgan-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.gokgan.hip roof tiled channels.004": {
+    "memberId": "ildu.gokgan.part.bcad003516c56ee6fc91",
+    "sourceObject": "North.gokgan.hip roof tiled channels.004",
+    "reviewStage": 7,
+    "processId": "ildu.gokgan-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.gokgan.hip roof tiled channels.005": {
+    "memberId": "ildu.gokgan.part.31739a3c4450592ae940",
+    "sourceObject": "North.gokgan.hip roof tiled channels.005",
+    "reviewStage": 7,
+    "processId": "ildu.gokgan-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.gokgan.hip roof white ends": {
+    "memberId": "ildu.gokgan.part.7b8571ef64d38ecd7bf4",
+    "sourceObject": "North.gokgan.hip roof white ends",
+    "reviewStage": 7,
+    "processId": "ildu.gokgan-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "North.gokgan.roof packed ridge core": {
+    "memberId": "ildu.gokgan.part.5bf5d26cdf06e5ce4c7e",
+    "sourceObject": "North.gokgan.roof packed ridge core",
+    "reviewStage": 6,
+    "processId": "ildu.gokgan-roof-bed",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_earth"
+  },
+  "North.gokgan.roof solid bedding": {
+    "memberId": "ildu.gokgan.part.fde18742ea4c573bf406",
+    "sourceObject": "North.gokgan.roof solid bedding",
+    "reviewStage": 6,
+    "processId": "ildu.gokgan-roof-bed",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_earth"
+  },
+  "North.gokgan.side centre plinth": {
+    "memberId": "ildu.gokgan.part.6cdaeb03a5d6a4e5e574",
+    "sourceObject": "North.gokgan.side centre plinth",
+    "reviewStage": 2,
+    "processId": "ildu.gokgan-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "padstones"
+  },
+  "North.gokgan.side centre post": {
+    "memberId": "ildu.gokgan.part.2092a7ea59149f85daed",
+    "sourceObject": "North.gokgan.side centre post",
+    "reviewStage": 3,
+    "processId": "ildu.gokgan-posts",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "posts"
+  },
+  "North.gokgan.side lime band": {
+    "memberId": "ildu.gokgan.part.b049a5da631cc156a820",
+    "sourceObject": "North.gokgan.side lime band",
+    "reviewStage": 8,
+    "processId": "ildu.gokgan-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.gokgan.side lime band.head/sill": {
+    "memberId": "ildu.gokgan.part.ec4fa672d9732498d2a3",
+    "sourceObject": "North.gokgan.side lime band.head/sill",
+    "reviewStage": 8,
+    "processId": "ildu.gokgan-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.gokgan.side lime band.jamb": {
+    "memberId": "ildu.gokgan.part.8f155b81cce37b832263",
+    "sourceObject": "North.gokgan.side lime band.jamb",
+    "reviewStage": 8,
+    "processId": "ildu.gokgan-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.gokgan.side siding": {
+    "memberId": "ildu.gokgan.part.e2ce3536439dde5a1cf4",
+    "sourceObject": "North.gokgan.side siding",
+    "reviewStage": 8,
+    "processId": "ildu.gokgan-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.gokgan.side siding rail": {
+    "memberId": "ildu.gokgan.part.234ee5e33bab2bf4991d",
+    "sourceObject": "North.gokgan.side siding rail",
+    "reviewStage": 8,
+    "processId": "ildu.gokgan-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.gokgan.side vents black void": {
+    "memberId": "ildu.gokgan.part.405f57aff5e2c8236aa5",
+    "sourceObject": "North.gokgan.side vents black void",
+    "reviewStage": 9,
+    "processId": "ildu.gokgan-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.gokgan.side vents vertical grille": {
+    "memberId": "ildu.gokgan.part.e0c6777325ace2e9a478",
+    "sourceObject": "North.gokgan.side vents vertical grille",
+    "reviewStage": 9,
+    "processId": "ildu.gokgan-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.gokgan.side vents.rail": {
+    "memberId": "ildu.gokgan.part.a979be37716bf9230048",
+    "sourceObject": "North.gokgan.side vents.rail",
+    "reviewStage": 9,
+    "processId": "ildu.gokgan-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.gokgan.side vents.stile": {
+    "memberId": "ildu.gokgan.part.02212a8e462e939a8342",
+    "sourceObject": "North.gokgan.side vents.stile",
+    "reviewStage": 9,
+    "processId": "ildu.gokgan-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.gokgan.siding middle rail": {
+    "memberId": "ildu.gokgan.part.9de067ba310fca45b460",
+    "sourceObject": "North.gokgan.siding middle rail",
+    "reviewStage": 8,
+    "processId": "ildu.gokgan-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.gokgan.store slatted opening black void": {
+    "memberId": "ildu.gokgan.part.0ba503fafcadf7b3cc0f",
+    "sourceObject": "North.gokgan.store slatted opening black void",
+    "reviewStage": 9,
+    "processId": "ildu.gokgan-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.gokgan.store slatted opening vertical grille": {
+    "memberId": "ildu.gokgan.part.5eda2d240faf230bd86d",
+    "sourceObject": "North.gokgan.store slatted opening vertical grille",
+    "reviewStage": 9,
+    "processId": "ildu.gokgan-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.gokgan.store slatted opening.rail": {
+    "memberId": "ildu.gokgan.part.9267a3165ba30da702a6",
+    "sourceObject": "North.gokgan.store slatted opening.rail",
+    "reviewStage": 9,
+    "processId": "ildu.gokgan-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.gokgan.store slatted opening.stile": {
+    "memberId": "ildu.gokgan.part.0018b79465431483d30b",
+    "sourceObject": "North.gokgan.store slatted opening.stile",
+    "reviewStage": 9,
+    "processId": "ildu.gokgan-doors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "North.gokgan.upper store lime band": {
+    "memberId": "ildu.gokgan.part.eacf36523fbbb078792c",
+    "sourceObject": "North.gokgan.upper store lime band",
+    "reviewStage": 8,
+    "processId": "ildu.gokgan-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.gokgan.upper store lime band.head/sill": {
+    "memberId": "ildu.gokgan.part.dad6110d8146cc95d428",
+    "sourceObject": "North.gokgan.upper store lime band.head/sill",
+    "reviewStage": 8,
+    "processId": "ildu.gokgan-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.gokgan.upper store lime band.jamb": {
+    "memberId": "ildu.gokgan.part.8e660b812c8da787965a",
+    "sourceObject": "North.gokgan.upper store lime band.jamb",
+    "reviewStage": 8,
+    "processId": "ildu.gokgan-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "North.gokgan.vertical store siding": {
+    "memberId": "ildu.gokgan.part.9dc8ca6457029705169f",
+    "sourceObject": "North.gokgan.vertical store siding",
+    "reviewStage": 8,
+    "processId": "ildu.gokgan-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  }
+}

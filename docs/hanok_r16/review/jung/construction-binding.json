@@ -1,0 +1,2198 @@
+{
+  "GyeCraft.jung.irregular paving 0": {
+    "memberId": "ildu.jungmunganchae.part.dae8cd84d84a6e8465fb",
+    "sourceObject": "GyeCraft.jung.irregular paving 0",
+    "reviewStage": 12,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.jung.irregular paving 1": {
+    "memberId": "ildu.jungmunganchae.part.08697ab6a76be86a34bd",
+    "sourceObject": "GyeCraft.jung.irregular paving 1",
+    "reviewStage": 12,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.jung.irregular paving 2": {
+    "memberId": "ildu.jungmunganchae.part.dcaae1d02a24e7637b4f",
+    "sourceObject": "GyeCraft.jung.irregular paving 2",
+    "reviewStage": 12,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.jung.irregular paving 3": {
+    "memberId": "ildu.jungmunganchae.part.5e0de8d5e8fdd04fe016",
+    "sourceObject": "GyeCraft.jung.irregular paving 3",
+    "reviewStage": 12,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "GyeCraft.jung.irregular paving 4": {
+    "memberId": "ildu.jungmunganchae.part.51839dad40f970236311",
+    "sourceObject": "GyeCraft.jung.irregular paving 4",
+    "reviewStage": 12,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "paving"
+  },
+  "Jung.attic rafter": {
+    "memberId": "ildu.jungmunganchae.part.e995f09d6037233334dd",
+    "sourceObject": "Jung.attic rafter",
+    "reviewStage": 5,
+    "processId": "ildu.jungmunganchae-rafters-eaves",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "Jung.attic strut": {
+    "memberId": "ildu.jungmunganchae.part.c147c7b89a6387d776df",
+    "sourceObject": "Jung.attic strut",
+    "reviewStage": 4,
+    "processId": "ildu.jungmunganchae-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "purlins"
+  },
+  "Jung.ban-chim labelled cabinet": {
+    "memberId": "ildu.jungmunganchae.part.252ce6d7731f5ce8a6cb",
+    "sourceObject": "Jung.ban-chim labelled cabinet",
+    "reviewStage": 8,
+    "processId": "ildu.jungmunganchae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "Jung.ban-chim recess face": {
+    "memberId": "ildu.jungmunganchae.part.ad328a437a835d43e159",
+    "sourceObject": "Jung.ban-chim recess face",
+    "reviewStage": 8,
+    "processId": "ildu.jungmunganchae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "Jung.ban-chim unresolved closed face": {
+    "memberId": "ildu.jungmunganchae.part.8fa39361bd02a56f33f2",
+    "sourceObject": "Jung.ban-chim unresolved closed face",
+    "reviewStage": 8,
+    "processId": "ildu.jungmunganchae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "Jung.ban-chim unresolved closed face.001": {
+    "memberId": "ildu.jungmunganchae.part.5336e3543c2b80127f03",
+    "sourceObject": "Jung.ban-chim unresolved closed face.001",
+    "reviewStage": 8,
+    "processId": "ildu.jungmunganchae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "Jung.ban-chim unresolved closed face.002": {
+    "memberId": "ildu.jungmunganchae.part.1492153ae25a5c0bde0f",
+    "sourceObject": "Jung.ban-chim unresolved closed face.002",
+    "reviewStage": 8,
+    "processId": "ildu.jungmunganchae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "Jung.ban-chim unresolved closed face.003": {
+    "memberId": "ildu.jungmunganchae.part.9052f582a43af528bca0",
+    "sourceObject": "Jung.ban-chim unresolved closed face.003",
+    "reviewStage": 8,
+    "processId": "ildu.jungmunganchae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "Jung.ban-chim unresolved closed face.rail": {
+    "memberId": "ildu.jungmunganchae.part.bf9d5ad58623fb83ebc7",
+    "sourceObject": "Jung.ban-chim unresolved closed face.rail",
+    "reviewStage": 8,
+    "processId": "ildu.jungmunganchae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "Jung.ban-chim unresolved closed face.recessed backing": {
+    "memberId": "ildu.jungmunganchae.part.0dc077dd47a78fe4ccb6",
+    "sourceObject": "Jung.ban-chim unresolved closed face.recessed backing",
+    "reviewStage": 8,
+    "processId": "ildu.jungmunganchae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "Jung.cross beam": {
+    "memberId": "ildu.jungmunganchae.part.cff72512a1a94f23b40e",
+    "sourceObject": "Jung.cross beam",
+    "reviewStage": 4,
+    "processId": "ildu.jungmunganchae-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "Jung.foundation core": {
+    "memberId": "ildu.jungmunganchae.part.eb51c9b53470bd984d2b",
+    "sourceObject": "Jung.foundation core",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Jung.front gate stone stairs.core": {
+    "memberId": "ildu.jungmunganchae.part.29ddaa705eca0358f3d6",
+    "sourceObject": "Jung.front gate stone stairs.core",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Jung.front gate stone stairs.core.001": {
+    "memberId": "ildu.jungmunganchae.part.2dc4ef0ebdd470ed2292",
+    "sourceObject": "Jung.front gate stone stairs.core.001",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Jung.front gate stone stairs.core.002": {
+    "memberId": "ildu.jungmunganchae.part.d181a84b7e55a0b7f395",
+    "sourceObject": "Jung.front gate stone stairs.core.002",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Jung.front gate stone stairs.core.003": {
+    "memberId": "ildu.jungmunganchae.part.68411b906646886f6c93",
+    "sourceObject": "Jung.front gate stone stairs.core.003",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Jung.front gate stone stairs.core.004": {
+    "memberId": "ildu.jungmunganchae.part.8e7ac059a4e9236c2437",
+    "sourceObject": "Jung.front gate stone stairs.core.004",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Jung.front gate stone stairs.worn tread": {
+    "memberId": "ildu.jungmunganchae.part.219b3832cee7411452e2",
+    "sourceObject": "Jung.front gate stone stairs.worn tread",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Jung.front gate stone stairs.worn tread.001": {
+    "memberId": "ildu.jungmunganchae.part.6efa76120d5f445f420d",
+    "sourceObject": "Jung.front gate stone stairs.worn tread.001",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Jung.front gate stone stairs.worn tread.002": {
+    "memberId": "ildu.jungmunganchae.part.fdbc7961181a35a3d662",
+    "sourceObject": "Jung.front gate stone stairs.worn tread.002",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Jung.front gate stone stairs.worn tread.003": {
+    "memberId": "ildu.jungmunganchae.part.5670fe697ac1b4b7a74b",
+    "sourceObject": "Jung.front gate stone stairs.worn tread.003",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Jung.front gate stone stairs.worn tread.004": {
+    "memberId": "ildu.jungmunganchae.part.4d31a97a71bad49ae40d",
+    "sourceObject": "Jung.front gate stone stairs.worn tread.004",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Jung.front maru stone stairs.core": {
+    "memberId": "ildu.jungmunganchae.part.f27d479ff42bc362bfe5",
+    "sourceObject": "Jung.front maru stone stairs.core",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Jung.front maru stone stairs.core.001": {
+    "memberId": "ildu.jungmunganchae.part.6685deadc86446508cfd",
+    "sourceObject": "Jung.front maru stone stairs.core.001",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Jung.front maru stone stairs.core.002": {
+    "memberId": "ildu.jungmunganchae.part.b97acfee8c7a55a23208",
+    "sourceObject": "Jung.front maru stone stairs.core.002",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Jung.front maru stone stairs.core.003": {
+    "memberId": "ildu.jungmunganchae.part.47350f13f32a553261be",
+    "sourceObject": "Jung.front maru stone stairs.core.003",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Jung.front maru stone stairs.worn tread": {
+    "memberId": "ildu.jungmunganchae.part.bdb0c797d63b3a9d15f3",
+    "sourceObject": "Jung.front maru stone stairs.worn tread",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Jung.front maru stone stairs.worn tread.001": {
+    "memberId": "ildu.jungmunganchae.part.00963b1a5a65f8280b85",
+    "sourceObject": "Jung.front maru stone stairs.worn tread.001",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Jung.front maru stone stairs.worn tread.002": {
+    "memberId": "ildu.jungmunganchae.part.03bc4ecfc20dc1e53e8c",
+    "sourceObject": "Jung.front maru stone stairs.worn tread.002",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Jung.front maru stone stairs.worn tread.003": {
+    "memberId": "ildu.jungmunganchae.part.3d36759f538759b406c5",
+    "sourceObject": "Jung.front maru stone stairs.worn tread.003",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Jung.front maru stone stairs.worn tread.004": {
+    "memberId": "ildu.jungmunganchae.part.6a1f10b12316228f684d",
+    "sourceObject": "Jung.front maru stone stairs.worn tread.004",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Jung.longitudinal beam": {
+    "memberId": "ildu.jungmunganchae.part.678e09ef76e743d2eb36",
+    "sourceObject": "Jung.longitudinal beam",
+    "reviewStage": 4,
+    "processId": "ildu.jungmunganchae-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "Jung.main roof": {
+    "memberId": "ildu.jungmunganchae.part.b48d83a9e8cb63e75d48",
+    "sourceObject": "Jung.main roof",
+    "reviewStage": 7,
+    "processId": "ildu.jungmunganchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "Jung.main roof.001": {
+    "memberId": "ildu.jungmunganchae.part.8ca43943fb2f6b977089",
+    "sourceObject": "Jung.main roof.001",
+    "reviewStage": 7,
+    "processId": "ildu.jungmunganchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "Jung.main roof.002": {
+    "memberId": "ildu.jungmunganchae.part.be27d603235e360c08e7",
+    "sourceObject": "Jung.main roof.002",
+    "reviewStage": 7,
+    "processId": "ildu.jungmunganchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "Jung.main roof.003": {
+    "memberId": "ildu.jungmunganchae.part.ccc59f1b51fcb57575c1",
+    "sourceObject": "Jung.main roof.003",
+    "reviewStage": 7,
+    "processId": "ildu.jungmunganchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "Jung.main roof.004": {
+    "memberId": "ildu.jungmunganchae.part.a2bf3201f422ea75a907",
+    "sourceObject": "Jung.main roof.004",
+    "reviewStage": 7,
+    "processId": "ildu.jungmunganchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "Jung.main roof.005": {
+    "memberId": "ildu.jungmunganchae.part.cd339243fc83b11dd721",
+    "sourceObject": "Jung.main roof.005",
+    "reviewStage": 7,
+    "processId": "ildu.jungmunganchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "Jung.main roof.gable timber": {
+    "memberId": "ildu.jungmunganchae.part.ab4ca12bcf7483c3706d",
+    "sourceObject": "Jung.main roof.gable timber",
+    "reviewStage": 8,
+    "processId": "ildu.jungmunganchae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "Jung.main roof.lower exposed rafters": {
+    "memberId": "ildu.jungmunganchae.part.5e922b716fe94aa832a6",
+    "sourceObject": "Jung.main roof.lower exposed rafters",
+    "reviewStage": 5,
+    "processId": "ildu.jungmunganchae-rafters-eaves",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "Jung.main roof.rafters": {
+    "memberId": "ildu.jungmunganchae.part.7273beb93019641adcf3",
+    "sourceObject": "Jung.main roof.rafters",
+    "reviewStage": 5,
+    "processId": "ildu.jungmunganchae-rafters-eaves",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "Jung.main roof.ridge stack": {
+    "memberId": "ildu.jungmunganchae.part.814d84581bf1db59d094",
+    "sourceObject": "Jung.main roof.ridge stack",
+    "reviewStage": 7,
+    "processId": "ildu.jungmunganchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "Jung.main roof.ridge stack.001": {
+    "memberId": "ildu.jungmunganchae.part.b18329fca82cf054ed79",
+    "sourceObject": "Jung.main roof.ridge stack.001",
+    "reviewStage": 7,
+    "processId": "ildu.jungmunganchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "Jung.main roof.ridge stack.002": {
+    "memberId": "ildu.jungmunganchae.part.b6eff950adec175b5295",
+    "sourceObject": "Jung.main roof.ridge stack.002",
+    "reviewStage": 7,
+    "processId": "ildu.jungmunganchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "Jung.main roof.ridge stack.003": {
+    "memberId": "ildu.jungmunganchae.part.0b44e58b1af4bb90d94d",
+    "sourceObject": "Jung.main roof.ridge stack.003",
+    "reviewStage": 7,
+    "processId": "ildu.jungmunganchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "Jung.main roof.round tile ends": {
+    "memberId": "ildu.jungmunganchae.part.6736894be04445681c80",
+    "sourceObject": "Jung.main roof.round tile ends",
+    "reviewStage": 7,
+    "processId": "ildu.jungmunganchae-tiles",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_tiles"
+  },
+  "Jung.maru bearer": {
+    "memberId": "ildu.jungmunganchae.part.e031414db07d3aabff93",
+    "sourceObject": "Jung.maru bearer",
+    "reviewStage": 10,
+    "processId": "ildu.jungmunganchae-open-maru",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "Jung.maru floor": {
+    "memberId": "ildu.jungmunganchae.part.5fe4f822ceab69839d92",
+    "sourceObject": "Jung.maru floor",
+    "reviewStage": 10,
+    "processId": "ildu.jungmunganchae-open-maru",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "Jung.maru floor beam": {
+    "memberId": "ildu.jungmunganchae.part.fec9286e077a19e38752",
+    "sourceObject": "Jung.maru floor beam",
+    "reviewStage": 4,
+    "processId": "ildu.jungmunganchae-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "Jung.maru floor.001": {
+    "memberId": "ildu.jungmunganchae.part.5e9cf5859cca000bb36a",
+    "sourceObject": "Jung.maru floor.001",
+    "reviewStage": 10,
+    "processId": "ildu.jungmunganchae-open-maru",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "Jung.maru floor.002": {
+    "memberId": "ildu.jungmunganchae.part.81769ca772d515128966",
+    "sourceObject": "Jung.maru floor.002",
+    "reviewStage": 10,
+    "processId": "ildu.jungmunganchae-open-maru",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "Jung.maru floor.003": {
+    "memberId": "ildu.jungmunganchae.part.586e23712ecc4b2205b4",
+    "sourceObject": "Jung.maru floor.003",
+    "reviewStage": 10,
+    "processId": "ildu.jungmunganchae-open-maru",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "Jung.plinth cap": {
+    "memberId": "ildu.jungmunganchae.part.a2940e898090f692049b",
+    "sourceObject": "Jung.plinth cap",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Jung.rear attachment board panels": {
+    "memberId": "ildu.jungmunganchae.part.8537873ac324fa546926",
+    "sourceObject": "Jung.rear attachment board panels",
+    "reviewStage": 8,
+    "processId": "ildu.jungmunganchae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "Jung.rear attachment board panels.001": {
+    "memberId": "ildu.jungmunganchae.part.5e0d4b4ff0c42332e527",
+    "sourceObject": "Jung.rear attachment board panels.001",
+    "reviewStage": 8,
+    "processId": "ildu.jungmunganchae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "Jung.rear attachment board panels.002": {
+    "memberId": "ildu.jungmunganchae.part.0aa14c11b0a7c4272794",
+    "sourceObject": "Jung.rear attachment board panels.002",
+    "reviewStage": 8,
+    "processId": "ildu.jungmunganchae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "Jung.rear attachment board panels.003": {
+    "memberId": "ildu.jungmunganchae.part.6117832e98d777d9d9d1",
+    "sourceObject": "Jung.rear attachment board panels.003",
+    "reviewStage": 8,
+    "processId": "ildu.jungmunganchae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "Jung.rear attachment board panels.rail": {
+    "memberId": "ildu.jungmunganchae.part.d059296eef5cb93fb1e4",
+    "sourceObject": "Jung.rear attachment board panels.rail",
+    "reviewStage": 8,
+    "processId": "ildu.jungmunganchae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "Jung.rear attachment board panels.recessed backing": {
+    "memberId": "ildu.jungmunganchae.part.3c1a7ffff6e13793c194",
+    "sourceObject": "Jung.rear attachment board panels.recessed backing",
+    "reviewStage": 8,
+    "processId": "ildu.jungmunganchae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "Jung.rear maru panel band": {
+    "memberId": "ildu.jungmunganchae.part.db301c09ae2c60745766",
+    "sourceObject": "Jung.rear maru panel band",
+    "reviewStage": 10,
+    "processId": "ildu.jungmunganchae-open-maru",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "Jung.rear maru white panel": {
+    "memberId": "ildu.jungmunganchae.part.17240722407441ba525b",
+    "sourceObject": "Jung.rear maru white panel",
+    "reviewStage": 10,
+    "processId": "ildu.jungmunganchae-open-maru",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "Jung.registered post.capital": {
+    "memberId": "ildu.jungmunganchae.part.6dc48bef01969f9148b0",
+    "sourceObject": "Jung.registered post.capital",
+    "reviewStage": 4,
+    "processId": "ildu.jungmunganchae-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "Jung.registered post.capital tongue": {
+    "memberId": "ildu.jungmunganchae.part.27e0f22b4a6b1596b368",
+    "sourceObject": "Jung.registered post.capital tongue",
+    "reviewStage": 4,
+    "processId": "ildu.jungmunganchae-beams-purlins",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "beams"
+  },
+  "Jung.registered post.stone foot": {
+    "memberId": "ildu.jungmunganchae.part.691f0fbf7f5692d77967",
+    "sourceObject": "Jung.registered post.stone foot",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "padstones"
+  },
+  "Jung.registered post.wood": {
+    "memberId": "ildu.jungmunganchae.part.bdbc7012b5462af5d739",
+    "sourceObject": "Jung.registered post.wood",
+    "reviewStage": 3,
+    "processId": "ildu.jungmunganchae-posts",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "posts"
+  },
+  "Jung.room subfloor infill": {
+    "memberId": "ildu.jungmunganchae.part.5ca9fb982113d782af4f",
+    "sourceObject": "Jung.room subfloor infill",
+    "reviewStage": 9,
+    "processId": "ildu.jungmunganchae-ondol-floors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "ondol"
+  },
+  "Jung.room1 floor": {
+    "memberId": "ildu.jungmunganchae.part.44632b9b3351a753c0d4",
+    "sourceObject": "Jung.room1 floor",
+    "reviewStage": 9,
+    "processId": "ildu.jungmunganchae-ondol-floors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "ondol"
+  },
+  "Jung.room2 floor": {
+    "memberId": "ildu.jungmunganchae.part.944b3e89c489277dc1af",
+    "sourceObject": "Jung.room2 floor",
+    "reviewStage": 9,
+    "processId": "ildu.jungmunganchae-ondol-floors",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "ondol"
+  },
+  "PhotoRepair.jung.curved threshold": {
+    "memberId": "ildu.jungmunganchae.part.97c5a05d49d59920d726",
+    "sourceObject": "PhotoRepair.jung.curved threshold",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "PhotoRepair.jung.passage earth": {
+    "memberId": "ildu.jungmunganchae.part.43eac8b8991711d0b948",
+    "sourceObject": "PhotoRepair.jung.passage earth",
+    "reviewStage": 12,
+    "processId": null,
+    "reviewOnly": true,
+    "assignmentStatus": "unresolved_process",
+    "role": "ground_surface"
+  },
+  "PhotoRepair.jung.passage outer jamb": {
+    "memberId": "ildu.jungmunganchae.part.3abc126fa5afa4d3380b",
+    "sourceObject": "PhotoRepair.jung.passage outer jamb",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "PhotoRepair.jung.passage outer lintel": {
+    "memberId": "ildu.jungmunganchae.part.1c42ac51b3de65f9b324",
+    "sourceObject": "PhotoRepair.jung.passage outer lintel",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "PhotoRepair.jung.roof lime backing": {
+    "memberId": "ildu.jungmunganchae.part.9998eef64275f43c2b1d",
+    "sourceObject": "PhotoRepair.jung.roof lime backing",
+    "reviewStage": 6,
+    "processId": "ildu.jungmunganchae-roof-bed",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "roof_earth"
+  },
+  "PhotoRepair.jung.wooden pivot peg": {
+    "memberId": "ildu.jungmunganchae.part.c8cf15de611e5e89b09f",
+    "sourceObject": "PhotoRepair.jung.wooden pivot peg",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "Ref.Jung exposed floor joists": {
+    "memberId": "ildu.jungmunganchae.part.eb091dcff17b88accfc7",
+    "sourceObject": "Ref.Jung exposed floor joists",
+    "reviewStage": 10,
+    "processId": "ildu.jungmunganchae-open-maru",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "maru"
+  },
+  "Ref.Jung fieldstone plinth.face0": {
+    "memberId": "ildu.jungmunganchae.part.589c553b969e16cef793",
+    "sourceObject": "Ref.Jung fieldstone plinth.face0",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Ref.Jung fieldstone plinth.face0.001": {
+    "memberId": "ildu.jungmunganchae.part.69b3b4bdd12aa021c1b3",
+    "sourceObject": "Ref.Jung fieldstone plinth.face0.001",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Ref.Jung fieldstone plinth.face0.002": {
+    "memberId": "ildu.jungmunganchae.part.712fe5a72a426d58bf75",
+    "sourceObject": "Ref.Jung fieldstone plinth.face0.002",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Ref.Jung fieldstone plinth.face0.003": {
+    "memberId": "ildu.jungmunganchae.part.d8b6ffbe711b8ab755ea",
+    "sourceObject": "Ref.Jung fieldstone plinth.face0.003",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Ref.Jung fieldstone plinth.face0.004": {
+    "memberId": "ildu.jungmunganchae.part.97635346088c310a5a32",
+    "sourceObject": "Ref.Jung fieldstone plinth.face0.004",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Ref.Jung fieldstone plinth.face1": {
+    "memberId": "ildu.jungmunganchae.part.d68b2ed5ecc8c5a108a6",
+    "sourceObject": "Ref.Jung fieldstone plinth.face1",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Ref.Jung fieldstone plinth.face1.001": {
+    "memberId": "ildu.jungmunganchae.part.349c0c2969e3d3405d90",
+    "sourceObject": "Ref.Jung fieldstone plinth.face1.001",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Ref.Jung fieldstone plinth.face1.002": {
+    "memberId": "ildu.jungmunganchae.part.1bf5b6e489e0245abca0",
+    "sourceObject": "Ref.Jung fieldstone plinth.face1.002",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Ref.Jung fieldstone plinth.face1.003": {
+    "memberId": "ildu.jungmunganchae.part.1a48a0f16f349eb69a4c",
+    "sourceObject": "Ref.Jung fieldstone plinth.face1.003",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Ref.Jung fieldstone plinth.face1.004": {
+    "memberId": "ildu.jungmunganchae.part.15ca8f6e619f9f3c6ca8",
+    "sourceObject": "Ref.Jung fieldstone plinth.face1.004",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Ref.Jung fieldstone plinth.face2": {
+    "memberId": "ildu.jungmunganchae.part.aa1d9e783ec8d0864837",
+    "sourceObject": "Ref.Jung fieldstone plinth.face2",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Ref.Jung fieldstone plinth.face2.001": {
+    "memberId": "ildu.jungmunganchae.part.3fd8d2497c742247a0c1",
+    "sourceObject": "Ref.Jung fieldstone plinth.face2.001",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Ref.Jung fieldstone plinth.face2.002": {
+    "memberId": "ildu.jungmunganchae.part.4b38f3c016dfa67afddb",
+    "sourceObject": "Ref.Jung fieldstone plinth.face2.002",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Ref.Jung fieldstone plinth.face2.003": {
+    "memberId": "ildu.jungmunganchae.part.9161eef95a75ef9a66d9",
+    "sourceObject": "Ref.Jung fieldstone plinth.face2.003",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Ref.Jung fieldstone plinth.face2.004": {
+    "memberId": "ildu.jungmunganchae.part.750de2e92634f0e32bd9",
+    "sourceObject": "Ref.Jung fieldstone plinth.face2.004",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Ref.Jung fieldstone plinth.face3": {
+    "memberId": "ildu.jungmunganchae.part.4f8bec3532d6dc9bc91e",
+    "sourceObject": "Ref.Jung fieldstone plinth.face3",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Ref.Jung fieldstone plinth.face3.001": {
+    "memberId": "ildu.jungmunganchae.part.f1c627fbdab53424bb15",
+    "sourceObject": "Ref.Jung fieldstone plinth.face3.001",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Ref.Jung fieldstone plinth.face3.002": {
+    "memberId": "ildu.jungmunganchae.part.a54aa140f6e51d6599f3",
+    "sourceObject": "Ref.Jung fieldstone plinth.face3.002",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Ref.Jung fieldstone plinth.face3.003": {
+    "memberId": "ildu.jungmunganchae.part.0ab9d7504d8a38c08710",
+    "sourceObject": "Ref.Jung fieldstone plinth.face3.003",
+    "reviewStage": 2,
+    "processId": "ildu.jungmunganchae-stone-foundation",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "foundation"
+  },
+  "Ref.Jung interior ceiling batten": {
+    "memberId": "ildu.jungmunganchae.part.7b05e5dba9e85a9cd55a",
+    "sourceObject": "Ref.Jung interior ceiling batten",
+    "reviewStage": 8,
+    "processId": "ildu.jungmunganchae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "Ref.Jung interior ceiling boards": {
+    "memberId": "ildu.jungmunganchae.part.4be1278c0b3a8d608b5a",
+    "sourceObject": "Ref.Jung interior ceiling boards",
+    "reviewStage": 8,
+    "processId": "ildu.jungmunganchae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "Ref.Jung stored solid tiles": {
+    "memberId": "ildu.jungmunganchae.part.386b6cc505ac0fe33fe3",
+    "sourceObject": "Ref.Jung stored solid tiles",
+    "reviewStage": 12,
+    "processId": "ildu.jungmunganchae-complete-use",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Ref.Jung stored solid tiles.001": {
+    "memberId": "ildu.jungmunganchae.part.6ee2090971a3a7bcb956",
+    "sourceObject": "Ref.Jung stored solid tiles.001",
+    "reviewStage": 12,
+    "processId": "ildu.jungmunganchae-complete-use",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Ref.Jung stored solid tiles.002": {
+    "memberId": "ildu.jungmunganchae.part.8042d14aa6c28a801b84",
+    "sourceObject": "Ref.Jung stored solid tiles.002",
+    "reviewStage": 12,
+    "processId": "ildu.jungmunganchae-complete-use",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Ref.Jung stored solid tiles.003": {
+    "memberId": "ildu.jungmunganchae.part.da837dbbb52cfa00c613",
+    "sourceObject": "Ref.Jung stored solid tiles.003",
+    "reviewStage": 12,
+    "processId": "ildu.jungmunganchae-complete-use",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Ref.Jung stored solid tiles.004": {
+    "memberId": "ildu.jungmunganchae.part.5fc5a10bc9ef97fe8a91",
+    "sourceObject": "Ref.Jung stored solid tiles.004",
+    "reviewStage": 12,
+    "processId": "ildu.jungmunganchae-complete-use",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Ref.Jung stored solid tiles.005": {
+    "memberId": "ildu.jungmunganchae.part.fb54a07a5730d5c017f8",
+    "sourceObject": "Ref.Jung stored solid tiles.005",
+    "reviewStage": 12,
+    "processId": "ildu.jungmunganchae-complete-use",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "finish"
+  },
+  "Ref.Jung.main roof.eave beam.square fascia": {
+    "memberId": "ildu.jungmunganchae.part.d710bd8b2fa5bb4f99c3",
+    "sourceObject": "Ref.Jung.main roof.eave beam.square fascia",
+    "reviewStage": 5,
+    "processId": "ildu.jungmunganchae-rafters-eaves",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "rafters"
+  },
+  "V26.Jung.WD01 door.leaf1.back rail": {
+    "memberId": "ildu.jungmunganchae.part.dc0d30a99c70beed8f2b",
+    "sourceObject": "V26.Jung.WD01 door.leaf1.back rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD01 door.leaf1.iron pull": {
+    "memberId": "ildu.jungmunganchae.part.470d126a4843847989bc",
+    "sourceObject": "V26.Jung.WD01 door.leaf1.iron pull",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD01 door.leaf1.plank": {
+    "memberId": "ildu.jungmunganchae.part.5f8ec3dc7363fbbbbc11",
+    "sourceObject": "V26.Jung.WD01 door.leaf1.plank",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD01 door.leaf2.back rail": {
+    "memberId": "ildu.jungmunganchae.part.2bf99027164d96f40538",
+    "sourceObject": "V26.Jung.WD01 door.leaf2.back rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD01 door.leaf2.iron pull": {
+    "memberId": "ildu.jungmunganchae.part.a8d046d7c91b088689e9",
+    "sourceObject": "V26.Jung.WD01 door.leaf2.iron pull",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD01 door.leaf2.plank": {
+    "memberId": "ildu.jungmunganchae.part.3bd7b20a3a44316cf850",
+    "sourceObject": "V26.Jung.WD01 door.leaf2.plank",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD01 gate jamb": {
+    "memberId": "ildu.jungmunganchae.part.dc1cad488d70f96c2d16",
+    "sourceObject": "V26.Jung.WD01 gate jamb",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD01 gate lintel": {
+    "memberId": "ildu.jungmunganchae.part.b2bef67f31579a062427",
+    "sourceObject": "V26.Jung.WD01 gate lintel",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD01 gate upper closure": {
+    "memberId": "ildu.jungmunganchae.part.1e31f41df2fb79c45109",
+    "sourceObject": "V26.Jung.WD01 gate upper closure",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf1.hanji backing": {
+    "memberId": "ildu.jungmunganchae.part.5663c5665cc81c69958c",
+    "sourceObject": "V26.Jung.WD02 door.leaf1.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf1.horizontal band": {
+    "memberId": "ildu.jungmunganchae.part.c126c3a58fa67f5b9746",
+    "sourceObject": "V26.Jung.WD02 door.leaf1.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf1.lock rail": {
+    "memberId": "ildu.jungmunganchae.part.a1d913a4a17df7cf6218",
+    "sourceObject": "V26.Jung.WD02 door.leaf1.lock rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf1.lower moulding.rail": {
+    "memberId": "ildu.jungmunganchae.part.72cdf886c451c3cee3ba",
+    "sourceObject": "V26.Jung.WD02 door.leaf1.lower moulding.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf1.lower moulding.stile": {
+    "memberId": "ildu.jungmunganchae.part.be79be3295bc614062ee",
+    "sourceObject": "V26.Jung.WD02 door.leaf1.lower moulding.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf1.rail": {
+    "memberId": "ildu.jungmunganchae.part.e1048792ab794c8281aa",
+    "sourceObject": "V26.Jung.WD02 door.leaf1.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf1.rear paper rail": {
+    "memberId": "ildu.jungmunganchae.part.3c9b82454ee0c361ebeb",
+    "sourceObject": "V26.Jung.WD02 door.leaf1.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf1.rebated bead.rail": {
+    "memberId": "ildu.jungmunganchae.part.147165bd3c0d4397f2d0",
+    "sourceObject": "V26.Jung.WD02 door.leaf1.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf1.rebated bead.stile": {
+    "memberId": "ildu.jungmunganchae.part.177e00b3f8c67b1715c6",
+    "sourceObject": "V26.Jung.WD02 door.leaf1.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf1.recessed lower board": {
+    "memberId": "ildu.jungmunganchae.part.02f10252d35a5fd44d4e",
+    "sourceObject": "V26.Jung.WD02 door.leaf1.recessed lower board",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf1.stile": {
+    "memberId": "ildu.jungmunganchae.part.e288e1dd85b3f7617f3d",
+    "sourceObject": "V26.Jung.WD02 door.leaf1.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf1.vertical sal": {
+    "memberId": "ildu.jungmunganchae.part.370a883fcf0afbf261af",
+    "sourceObject": "V26.Jung.WD02 door.leaf1.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf2.hanji backing": {
+    "memberId": "ildu.jungmunganchae.part.badbf6d5a50006cca89e",
+    "sourceObject": "V26.Jung.WD02 door.leaf2.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf2.horizontal band": {
+    "memberId": "ildu.jungmunganchae.part.c41c8ca447c4eb2b25cd",
+    "sourceObject": "V26.Jung.WD02 door.leaf2.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf2.lock rail": {
+    "memberId": "ildu.jungmunganchae.part.3eaba80ae8d4a5f0a854",
+    "sourceObject": "V26.Jung.WD02 door.leaf2.lock rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf2.lower moulding.rail": {
+    "memberId": "ildu.jungmunganchae.part.807c157830bc5a423e20",
+    "sourceObject": "V26.Jung.WD02 door.leaf2.lower moulding.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf2.lower moulding.stile": {
+    "memberId": "ildu.jungmunganchae.part.bb3ae0d3389b338a1523",
+    "sourceObject": "V26.Jung.WD02 door.leaf2.lower moulding.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf2.rail": {
+    "memberId": "ildu.jungmunganchae.part.893096bcddd4869302f7",
+    "sourceObject": "V26.Jung.WD02 door.leaf2.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf2.rear paper rail": {
+    "memberId": "ildu.jungmunganchae.part.97196d9ef3ea3025971c",
+    "sourceObject": "V26.Jung.WD02 door.leaf2.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf2.rebated bead.rail": {
+    "memberId": "ildu.jungmunganchae.part.7c8123eb08941dfe6f17",
+    "sourceObject": "V26.Jung.WD02 door.leaf2.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf2.rebated bead.stile": {
+    "memberId": "ildu.jungmunganchae.part.db5eb93d2d49b93f1ace",
+    "sourceObject": "V26.Jung.WD02 door.leaf2.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf2.recessed lower board": {
+    "memberId": "ildu.jungmunganchae.part.de6c0afba5f772ad2406",
+    "sourceObject": "V26.Jung.WD02 door.leaf2.recessed lower board",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf2.stile": {
+    "memberId": "ildu.jungmunganchae.part.57f4701af2ca2bfaba5b",
+    "sourceObject": "V26.Jung.WD02 door.leaf2.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf2.vertical sal": {
+    "memberId": "ildu.jungmunganchae.part.c0578ebdd9f0cf342a40",
+    "sourceObject": "V26.Jung.WD02 door.leaf2.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf3.hanji backing": {
+    "memberId": "ildu.jungmunganchae.part.65780d03d94996b4f990",
+    "sourceObject": "V26.Jung.WD02 door.leaf3.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf3.horizontal band": {
+    "memberId": "ildu.jungmunganchae.part.5ec1edb71a4b7c5ec1bb",
+    "sourceObject": "V26.Jung.WD02 door.leaf3.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf3.lock rail": {
+    "memberId": "ildu.jungmunganchae.part.33e6119a6450b34a09cb",
+    "sourceObject": "V26.Jung.WD02 door.leaf3.lock rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf3.lower moulding.rail": {
+    "memberId": "ildu.jungmunganchae.part.003f496be5de32ef6a99",
+    "sourceObject": "V26.Jung.WD02 door.leaf3.lower moulding.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf3.lower moulding.stile": {
+    "memberId": "ildu.jungmunganchae.part.7d02ca6af62ef046c09b",
+    "sourceObject": "V26.Jung.WD02 door.leaf3.lower moulding.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf3.rail": {
+    "memberId": "ildu.jungmunganchae.part.b57f0ab9577e326ac17a",
+    "sourceObject": "V26.Jung.WD02 door.leaf3.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf3.rear paper rail": {
+    "memberId": "ildu.jungmunganchae.part.65938667617cbc62de08",
+    "sourceObject": "V26.Jung.WD02 door.leaf3.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf3.rebated bead.rail": {
+    "memberId": "ildu.jungmunganchae.part.e46b8ed76264c048d431",
+    "sourceObject": "V26.Jung.WD02 door.leaf3.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf3.rebated bead.stile": {
+    "memberId": "ildu.jungmunganchae.part.a47d8cb276d83c63fdad",
+    "sourceObject": "V26.Jung.WD02 door.leaf3.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf3.recessed lower board": {
+    "memberId": "ildu.jungmunganchae.part.2c821fb1526b35e4ccf9",
+    "sourceObject": "V26.Jung.WD02 door.leaf3.recessed lower board",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf3.stile": {
+    "memberId": "ildu.jungmunganchae.part.ad27a0f6675ee5c59cee",
+    "sourceObject": "V26.Jung.WD02 door.leaf3.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf3.vertical sal": {
+    "memberId": "ildu.jungmunganchae.part.c880fe53a73e950f82ae",
+    "sourceObject": "V26.Jung.WD02 door.leaf3.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf4.hanji backing": {
+    "memberId": "ildu.jungmunganchae.part.103b1727278274f707dd",
+    "sourceObject": "V26.Jung.WD02 door.leaf4.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf4.horizontal band": {
+    "memberId": "ildu.jungmunganchae.part.6f733c4644e087738b25",
+    "sourceObject": "V26.Jung.WD02 door.leaf4.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf4.lock rail": {
+    "memberId": "ildu.jungmunganchae.part.44303a24af5a64d6d301",
+    "sourceObject": "V26.Jung.WD02 door.leaf4.lock rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf4.lower moulding.rail": {
+    "memberId": "ildu.jungmunganchae.part.c6bc67c751acb24736b2",
+    "sourceObject": "V26.Jung.WD02 door.leaf4.lower moulding.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf4.lower moulding.stile": {
+    "memberId": "ildu.jungmunganchae.part.8582d8d746c2cc7a1fe7",
+    "sourceObject": "V26.Jung.WD02 door.leaf4.lower moulding.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf4.rail": {
+    "memberId": "ildu.jungmunganchae.part.23b88b6682350bb6374a",
+    "sourceObject": "V26.Jung.WD02 door.leaf4.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf4.rear paper rail": {
+    "memberId": "ildu.jungmunganchae.part.195fb4b30dac0a4a3acd",
+    "sourceObject": "V26.Jung.WD02 door.leaf4.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf4.rebated bead.rail": {
+    "memberId": "ildu.jungmunganchae.part.55a928ffbf4381f02dd6",
+    "sourceObject": "V26.Jung.WD02 door.leaf4.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf4.rebated bead.stile": {
+    "memberId": "ildu.jungmunganchae.part.15dc68078811d48aff51",
+    "sourceObject": "V26.Jung.WD02 door.leaf4.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf4.recessed lower board": {
+    "memberId": "ildu.jungmunganchae.part.60ca28dc1f2e79f9ac63",
+    "sourceObject": "V26.Jung.WD02 door.leaf4.recessed lower board",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf4.stile": {
+    "memberId": "ildu.jungmunganchae.part.08ff044c8aab2f83e2fd",
+    "sourceObject": "V26.Jung.WD02 door.leaf4.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 door.leaf4.vertical sal": {
+    "memberId": "ildu.jungmunganchae.part.9e1407933cd3d33573b4",
+    "sourceObject": "V26.Jung.WD02 door.leaf4.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 partition wall": {
+    "memberId": "ildu.jungmunganchae.part.1f5b2dcfde93a393847f",
+    "sourceObject": "V26.Jung.WD02 partition wall",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 partition wall.head/sill": {
+    "memberId": "ildu.jungmunganchae.part.3a1c3cb02eec33419e9f",
+    "sourceObject": "V26.Jung.WD02 partition wall.head/sill",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD02 partition wall.jamb": {
+    "memberId": "ildu.jungmunganchae.part.d067fbd3fa48bc0cd5ea",
+    "sourceObject": "V26.Jung.WD02 partition wall.jamb",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD03 door.leaf1.hanji backing": {
+    "memberId": "ildu.jungmunganchae.part.125db47c350f639922e7",
+    "sourceObject": "V26.Jung.WD03 door.leaf1.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD03 door.leaf1.horizontal band": {
+    "memberId": "ildu.jungmunganchae.part.8fed25a3f2841f523c5b",
+    "sourceObject": "V26.Jung.WD03 door.leaf1.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD03 door.leaf1.rail": {
+    "memberId": "ildu.jungmunganchae.part.9a4215c8c566768f8247",
+    "sourceObject": "V26.Jung.WD03 door.leaf1.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD03 door.leaf1.rear paper rail": {
+    "memberId": "ildu.jungmunganchae.part.bb44b2e3b7bd3384ff87",
+    "sourceObject": "V26.Jung.WD03 door.leaf1.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD03 door.leaf1.rebated bead.rail": {
+    "memberId": "ildu.jungmunganchae.part.b4e58943ab012ec9a8c3",
+    "sourceObject": "V26.Jung.WD03 door.leaf1.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD03 door.leaf1.rebated bead.stile": {
+    "memberId": "ildu.jungmunganchae.part.a1e7c2827660f537a6dc",
+    "sourceObject": "V26.Jung.WD03 door.leaf1.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD03 door.leaf1.stile": {
+    "memberId": "ildu.jungmunganchae.part.c74e5b442c95d88d13ab",
+    "sourceObject": "V26.Jung.WD03 door.leaf1.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD03 door.leaf1.vertical sal": {
+    "memberId": "ildu.jungmunganchae.part.738cd13e60c23378d255",
+    "sourceObject": "V26.Jung.WD03 door.leaf1.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD03 door.leaf2.hanji backing": {
+    "memberId": "ildu.jungmunganchae.part.96f4a93b5801fdda65a7",
+    "sourceObject": "V26.Jung.WD03 door.leaf2.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD03 door.leaf2.horizontal band": {
+    "memberId": "ildu.jungmunganchae.part.a34a6f274fff3db171cc",
+    "sourceObject": "V26.Jung.WD03 door.leaf2.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD03 door.leaf2.rail": {
+    "memberId": "ildu.jungmunganchae.part.5e5661c21a527d02a4b9",
+    "sourceObject": "V26.Jung.WD03 door.leaf2.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD03 door.leaf2.rear paper rail": {
+    "memberId": "ildu.jungmunganchae.part.3081a17a766d0107b6b6",
+    "sourceObject": "V26.Jung.WD03 door.leaf2.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD03 door.leaf2.rebated bead.rail": {
+    "memberId": "ildu.jungmunganchae.part.892b8df2309c2b91a424",
+    "sourceObject": "V26.Jung.WD03 door.leaf2.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD03 door.leaf2.rebated bead.stile": {
+    "memberId": "ildu.jungmunganchae.part.67d4bcd0f182884bc456",
+    "sourceObject": "V26.Jung.WD03 door.leaf2.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD03 door.leaf2.stile": {
+    "memberId": "ildu.jungmunganchae.part.cbfa02202c72743d1c69",
+    "sourceObject": "V26.Jung.WD03 door.leaf2.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD03 door.leaf2.vertical sal": {
+    "memberId": "ildu.jungmunganchae.part.62a985983584888a256c",
+    "sourceObject": "V26.Jung.WD03 door.leaf2.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD03 rear room1 wall": {
+    "memberId": "ildu.jungmunganchae.part.f6a905897d62912b4dd8",
+    "sourceObject": "V26.Jung.WD03 rear room1 wall",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD03 rear room1 wall.head/sill": {
+    "memberId": "ildu.jungmunganchae.part.689748c867db1add4598",
+    "sourceObject": "V26.Jung.WD03 rear room1 wall.head/sill",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD03 rear room1 wall.jamb": {
+    "memberId": "ildu.jungmunganchae.part.52c1c1ea288f4a1e4785",
+    "sourceObject": "V26.Jung.WD03 rear room1 wall.jamb",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD04 door.leaf1.hanji backing": {
+    "memberId": "ildu.jungmunganchae.part.4caf7b50c36b788899d3",
+    "sourceObject": "V26.Jung.WD04 door.leaf1.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD04 door.leaf1.horizontal band": {
+    "memberId": "ildu.jungmunganchae.part.e806bfc660d06b196fb2",
+    "sourceObject": "V26.Jung.WD04 door.leaf1.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD04 door.leaf1.rail": {
+    "memberId": "ildu.jungmunganchae.part.828616e74d962bcad5be",
+    "sourceObject": "V26.Jung.WD04 door.leaf1.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD04 door.leaf1.rear paper rail": {
+    "memberId": "ildu.jungmunganchae.part.2e0f28d05b39c59c78a5",
+    "sourceObject": "V26.Jung.WD04 door.leaf1.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD04 door.leaf1.rebated bead.rail": {
+    "memberId": "ildu.jungmunganchae.part.648714bf3ca2f06fe40e",
+    "sourceObject": "V26.Jung.WD04 door.leaf1.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD04 door.leaf1.rebated bead.stile": {
+    "memberId": "ildu.jungmunganchae.part.1c7c1edc07cfb3b348d5",
+    "sourceObject": "V26.Jung.WD04 door.leaf1.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD04 door.leaf1.stile": {
+    "memberId": "ildu.jungmunganchae.part.a88bb5c14f2791473588",
+    "sourceObject": "V26.Jung.WD04 door.leaf1.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD04 door.leaf1.vertical sal": {
+    "memberId": "ildu.jungmunganchae.part.6c8e1c5b748b328bce0a",
+    "sourceObject": "V26.Jung.WD04 door.leaf1.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD04 door.leaf2.hanji backing": {
+    "memberId": "ildu.jungmunganchae.part.9019a3247bdaeaf3ee8d",
+    "sourceObject": "V26.Jung.WD04 door.leaf2.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD04 door.leaf2.horizontal band": {
+    "memberId": "ildu.jungmunganchae.part.7aefbc1333759076197a",
+    "sourceObject": "V26.Jung.WD04 door.leaf2.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD04 door.leaf2.rail": {
+    "memberId": "ildu.jungmunganchae.part.6b7c39bb1d5a9dbc380c",
+    "sourceObject": "V26.Jung.WD04 door.leaf2.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD04 door.leaf2.rear paper rail": {
+    "memberId": "ildu.jungmunganchae.part.2f6dfca5d2caafd3968f",
+    "sourceObject": "V26.Jung.WD04 door.leaf2.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD04 door.leaf2.rebated bead.rail": {
+    "memberId": "ildu.jungmunganchae.part.26345c3156b8da1583e8",
+    "sourceObject": "V26.Jung.WD04 door.leaf2.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD04 door.leaf2.rebated bead.stile": {
+    "memberId": "ildu.jungmunganchae.part.8ee3deb919322b487faa",
+    "sourceObject": "V26.Jung.WD04 door.leaf2.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD04 door.leaf2.stile": {
+    "memberId": "ildu.jungmunganchae.part.5f73d6a35714a72b7f4a",
+    "sourceObject": "V26.Jung.WD04 door.leaf2.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD04 door.leaf2.vertical sal": {
+    "memberId": "ildu.jungmunganchae.part.2cb7b17618b454777037",
+    "sourceObject": "V26.Jung.WD04 door.leaf2.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD04 front room1 wall": {
+    "memberId": "ildu.jungmunganchae.part.b6a281bdbdfd1fb0eb64",
+    "sourceObject": "V26.Jung.WD04 front room1 wall",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD04 front room1 wall.head/sill": {
+    "memberId": "ildu.jungmunganchae.part.1811fffd28ad053c1ab3",
+    "sourceObject": "V26.Jung.WD04 front room1 wall.head/sill",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD04 front room1 wall.jamb": {
+    "memberId": "ildu.jungmunganchae.part.f4c89b2422f991861a0c",
+    "sourceObject": "V26.Jung.WD04 front room1 wall.jamb",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD05 door.leaf1.hanji backing": {
+    "memberId": "ildu.jungmunganchae.part.f7948034eccd3a62a22b",
+    "sourceObject": "V26.Jung.WD05 door.leaf1.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD05 door.leaf1.horizontal band": {
+    "memberId": "ildu.jungmunganchae.part.f319b876be3bbd037438",
+    "sourceObject": "V26.Jung.WD05 door.leaf1.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD05 door.leaf1.rail": {
+    "memberId": "ildu.jungmunganchae.part.c0c76e3e0ad83f7bb17e",
+    "sourceObject": "V26.Jung.WD05 door.leaf1.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD05 door.leaf1.rear paper rail": {
+    "memberId": "ildu.jungmunganchae.part.90d64bf82bc1c3f1a335",
+    "sourceObject": "V26.Jung.WD05 door.leaf1.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD05 door.leaf1.rebated bead.rail": {
+    "memberId": "ildu.jungmunganchae.part.e667aebf4378d5efbb4e",
+    "sourceObject": "V26.Jung.WD05 door.leaf1.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD05 door.leaf1.rebated bead.stile": {
+    "memberId": "ildu.jungmunganchae.part.a51b201d99056da60049",
+    "sourceObject": "V26.Jung.WD05 door.leaf1.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD05 door.leaf1.stile": {
+    "memberId": "ildu.jungmunganchae.part.6951636f06a73eb80cd5",
+    "sourceObject": "V26.Jung.WD05 door.leaf1.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD05 door.leaf1.vertical sal": {
+    "memberId": "ildu.jungmunganchae.part.5002f2f22032af8b64b2",
+    "sourceObject": "V26.Jung.WD05 door.leaf1.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD05 partition wall": {
+    "memberId": "ildu.jungmunganchae.part.c36c034d55838180ea23",
+    "sourceObject": "V26.Jung.WD05 partition wall",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD05 partition wall.head/sill": {
+    "memberId": "ildu.jungmunganchae.part.75db78a5c81a7e966469",
+    "sourceObject": "V26.Jung.WD05 partition wall.head/sill",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD05 partition wall.jamb": {
+    "memberId": "ildu.jungmunganchae.part.e0bcf4f603c2ac97631e",
+    "sourceObject": "V26.Jung.WD05 partition wall.jamb",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD06 door.leaf1.boards": {
+    "memberId": "ildu.jungmunganchae.part.affd40fac93033394662",
+    "sourceObject": "V26.Jung.WD06 door.leaf1.boards",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD06 door.leaf1.rail": {
+    "memberId": "ildu.jungmunganchae.part.26763d6c7a55939df7fe",
+    "sourceObject": "V26.Jung.WD06 door.leaf1.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD06 door.leaf1.stile": {
+    "memberId": "ildu.jungmunganchae.part.b838badfb29a807f7ac3",
+    "sourceObject": "V26.Jung.WD06 door.leaf1.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD06 partition wall": {
+    "memberId": "ildu.jungmunganchae.part.1bdd7cd3987f7ca7ee55",
+    "sourceObject": "V26.Jung.WD06 partition wall",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD06 partition wall.head/sill": {
+    "memberId": "ildu.jungmunganchae.part.27e1cf5e4d5bd0502c69",
+    "sourceObject": "V26.Jung.WD06 partition wall.head/sill",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD06 partition wall.jamb": {
+    "memberId": "ildu.jungmunganchae.part.2e53e22b06a67b0acdb7",
+    "sourceObject": "V26.Jung.WD06 partition wall.jamb",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD07 door.leaf1.hanji backing": {
+    "memberId": "ildu.jungmunganchae.part.5679a85a4038df50735a",
+    "sourceObject": "V26.Jung.WD07 door.leaf1.hanji backing",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD07 door.leaf1.horizontal band": {
+    "memberId": "ildu.jungmunganchae.part.4f9ec5a7c9a87c76c4d9",
+    "sourceObject": "V26.Jung.WD07 door.leaf1.horizontal band",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD07 door.leaf1.rail": {
+    "memberId": "ildu.jungmunganchae.part.0bb1b270e2950df1aadb",
+    "sourceObject": "V26.Jung.WD07 door.leaf1.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD07 door.leaf1.rear paper rail": {
+    "memberId": "ildu.jungmunganchae.part.77918c214b48892dcde3",
+    "sourceObject": "V26.Jung.WD07 door.leaf1.rear paper rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD07 door.leaf1.rebated bead.rail": {
+    "memberId": "ildu.jungmunganchae.part.68c03f4b44d1f426ab21",
+    "sourceObject": "V26.Jung.WD07 door.leaf1.rebated bead.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD07 door.leaf1.rebated bead.stile": {
+    "memberId": "ildu.jungmunganchae.part.3d5776b420cf99c2aa76",
+    "sourceObject": "V26.Jung.WD07 door.leaf1.rebated bead.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD07 door.leaf1.stile": {
+    "memberId": "ildu.jungmunganchae.part.09717726e8d37f00bb7d",
+    "sourceObject": "V26.Jung.WD07 door.leaf1.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD07 door.leaf1.vertical sal": {
+    "memberId": "ildu.jungmunganchae.part.9226c1d9a859be42dfff",
+    "sourceObject": "V26.Jung.WD07 door.leaf1.vertical sal",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD07 rear room2 wall": {
+    "memberId": "ildu.jungmunganchae.part.c2a572cd4d5653c0e2ba",
+    "sourceObject": "V26.Jung.WD07 rear room2 wall",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD07 rear room2 wall.head/sill": {
+    "memberId": "ildu.jungmunganchae.part.b9575d172f319e9a4b7c",
+    "sourceObject": "V26.Jung.WD07 rear room2 wall.head/sill",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WD07 rear room2 wall.jamb": {
+    "memberId": "ildu.jungmunganchae.part.c2023de75c26b562560f",
+    "sourceObject": "V26.Jung.WD07 rear room2 wall.jamb",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WW01 front room2 wall": {
+    "memberId": "ildu.jungmunganchae.part.c9f435e03c694543538b",
+    "sourceObject": "V26.Jung.WW01 front room2 wall",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WW01 front room2 wall.head/sill": {
+    "memberId": "ildu.jungmunganchae.part.eeedb51d31f8976666cd",
+    "sourceObject": "V26.Jung.WW01 front room2 wall.head/sill",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WW01 front room2 wall.jamb": {
+    "memberId": "ildu.jungmunganchae.part.72cc9e51471395358349",
+    "sourceObject": "V26.Jung.WW01 front room2 wall.jamb",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WW01 window bars": {
+    "memberId": "ildu.jungmunganchae.part.79a246f67b9b525ab05f",
+    "sourceObject": "V26.Jung.WW01 window bars",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WW01 window paper": {
+    "memberId": "ildu.jungmunganchae.part.a74cd80679a59541f45e",
+    "sourceObject": "V26.Jung.WW01 window paper",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WW01 window.rail": {
+    "memberId": "ildu.jungmunganchae.part.238c6989308374673592",
+    "sourceObject": "V26.Jung.WW01 window.rail",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.WW01 window.stile": {
+    "memberId": "ildu.jungmunganchae.part.f270e011ff2ca02a5695",
+    "sourceObject": "V26.Jung.WW01 window.stile",
+    "reviewStage": 11,
+    "processId": "ildu.jungmunganchae-gate-changho",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "doors"
+  },
+  "V26.Jung.gate end wall boards": {
+    "memberId": "ildu.jungmunganchae.part.a2d8c1e9c57aa55f7a33",
+    "sourceObject": "V26.Jung.gate end wall boards",
+    "reviewStage": 8,
+    "processId": "ildu.jungmunganchae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V26.Jung.gate end wall middle band": {
+    "memberId": "ildu.jungmunganchae.part.968ad96ef7e9d0cc261f",
+    "sourceObject": "V26.Jung.gate end wall middle band",
+    "reviewStage": 8,
+    "processId": "ildu.jungmunganchae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  },
+  "V26.Jung.gate end wall upper": {
+    "memberId": "ildu.jungmunganchae.part.73e372b88ba915c06d02",
+    "sourceObject": "V26.Jung.gate end wall upper",
+    "reviewStage": 8,
+    "processId": "ildu.jungmunganchae-room-walls",
+    "reviewOnly": true,
+    "assignmentStatus": "source_evidence_assigned",
+    "role": "walls"
+  }
+}
