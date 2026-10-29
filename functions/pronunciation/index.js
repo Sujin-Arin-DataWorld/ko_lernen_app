@@ -17,7 +17,7 @@ initializeApp();
 const AZURE_SPEECH_KEY = defineSecret("AZURE_SPEECH_KEY");
 const AZURE_SPEECH_REGION = "germanywestcentral";
 
-async function callAzure({audio, referenceText, signal}) {
+async function callAzure({audio, referenceText, signal, recordStatus}) {
   const url = new URL(
     `https://${AZURE_SPEECH_REGION}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`,
   );
@@ -41,6 +41,7 @@ async function callAzure({audio, referenceText, signal}) {
     body: pcm16ToWav(audio),
     signal,
   });
+  recordStatus(response.status);
   if (!response.ok) {
     throw new PronunciationRequestError("unavailable", "Pronunciation assessment unavailable.");
   }
@@ -52,6 +53,16 @@ function unavailable(state = "uncertain") {
   return new HttpsError("unavailable", "Pronunciation assessment unavailable.", {state, retryAfterSeconds: 30});
 }
 
+function recordUnavailable(stage, providerHttpStatus) {
+  // Only fixed local stages and a numeric HTTP status; never pass the error,
+  // request, provider body, reference text, IDs, headers, or audio to the sink.
+  const details = {event: "pronunciation_unavailable", stage};
+  if (Number.isInteger(providerHttpStatus) && providerHttpStatus >= 100 && providerHttpStatus <= 599) {
+    details.providerHttpStatus = providerHttpStatus;
+  }
+  try { console.warn("Pronunciation assessment unavailable.", details); } catch { /* preserve response */ }
+}
+
 exports.assessPronunciation = onCall({
   region: "europe-west3", enforceAppCheck: true, consumeAppCheckToken: true,
   timeoutSeconds: 30, memory: "256MiB", minInstances: 0, maxInstances: 1, concurrency: 1,
@@ -61,6 +72,8 @@ exports.assessPronunciation = onCall({
   // secret is read, so a disabled deployment binds it but never reads it.
   secrets: [AZURE_SPEECH_KEY],
 }, async (request) => {
+  let stage = "mode";
+  let providerHttpStatus;
   try {
     if (!freeTierAssessmentEnabled(process.env)) {
       throw unavailable("disabled");
@@ -74,24 +87,31 @@ exports.assessPronunciation = onCall({
       throw new HttpsError("unauthenticated", "Account unavailable.");
     }
     const input = {...validated, accountCreatedAt: Date.parse(user?.metadata?.creationTime)};
+    stage = "receipt-claim";
     const receipts = new PronunciationReceipts(getFirestore());
     const claim = await receipts.claim(input);
     if (claim.state === "completed") return claim.replay;
     if (claim.state === "pending") throw new HttpsError("aborted", "Assessment in progress.", {state: "pending", retryAfterSeconds: 2});
     if (claim.state !== "claimed") throw unavailable();
     if (!pronunciationProviderBreaker.allow()) {
+      stage = "provider-breaker";
       await receipts.transition(input, claim.ownerToken, "refunded");
       throw unavailable("not-started");
     }
     // Commit the dispatch marker before Azure; a crash after this point is
     // uncertain, never proof that the provider did not process this request.
+    stage = "receipt-dispatch";
     if (!await receipts.transition(input, claim.ownerToken, "pending")) throw unavailable();
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 15000);
     try {
-      const raw = await callAzure({...input, signal: controller.signal});
+      stage = "provider";
+      const raw = await callAzure({...input, signal: controller.signal,
+        recordStatus: (status) => { providerHttpStatus = status; }});
+      stage = "assessment-parse";
       const parsed = parseAzureAssessment(raw, input.assessmentId);
       pronunciationProviderBreaker.recordSuccess();
+      stage = "receipt-complete";
       if (!await receipts.transition(input, claim.ownerToken, "completed", parsed)) throw unavailable();
       return parsed;
     } catch (error) {
@@ -103,6 +123,10 @@ exports.assessPronunciation = onCall({
       clearTimeout(timeout);
     }
   } catch (error) {
+    if ((error instanceof HttpsError && error.code === "unavailable") ||
+        !(error instanceof HttpsError || error instanceof ServiceCostError || error instanceof PronunciationRequestError)) {
+      recordUnavailable(stage, providerHttpStatus);
+    }
     if (error instanceof HttpsError) throw error;
     if (error instanceof ServiceCostError) recordCostApprovalFailure(error, "pronunciation", console);
     if (error instanceof PronunciationRequestError || error instanceof ServiceCostError) throw new HttpsError(error.code, error.message);

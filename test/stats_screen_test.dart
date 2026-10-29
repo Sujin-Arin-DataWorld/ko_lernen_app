@@ -55,44 +55,118 @@ void main() {
     await _seedStats(populated: true);
     _configureViewport(tester, const Size(390, 844));
     final semantics = tester.ensureSemantics();
+    try {
+      await tester.pumpWidget(
+        _host(
+          locale: const Locale('de'),
+          child: StatsScreen(now: _fixedFriday),
+        ),
+      );
+      await tester.pump();
 
-    await tester.pumpWidget(
-      _host(
-        locale: const Locale('de'),
-        child: StatsScreen(now: _fixedFriday),
-      ),
-    );
-    await tester.pump();
+      for (final label in const ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So']) {
+        expect(find.text(label), findsOneWidget);
+      }
+      await tester.ensureVisible(find.text('Mi'));
+      await tester.pump();
+      expect(find.bySemanticsLabel('Mittwoch: geschafft'), findsOneWidget);
+      expect(
+        find.bySemanticsLabel('Freitag: heute, geschafft'),
+        findsOneWidget,
+      );
+      expect(find.bySemanticsLabel('Samstag: noch offen'), findsOneWidget);
 
-    for (final label in const ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So']) {
-      expect(find.text(label), findsOneWidget);
+      await tester.pumpWidget(
+        _host(
+          locale: const Locale('en'),
+          child: StatsScreen(now: _fixedFriday),
+        ),
+      );
+      await tester.pump();
+
+      for (final label in const ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']) {
+        expect(find.text(label), findsOneWidget);
+      }
+      await tester.ensureVisible(find.text('We'));
+      await tester.pump();
+      expect(find.bySemanticsLabel('Wednesday: completed'), findsOneWidget);
+      expect(find.bySemanticsLabel('Friday: today, completed'), findsOneWidget);
+      expect(find.bySemanticsLabel('Saturday: not completed'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    } finally {
+      semantics.dispose();
     }
-    await tester.ensureVisible(find.text('Mi'));
-    await tester.pump();
-    expect(find.bySemanticsLabel('Mittwoch: noch offen'), findsOneWidget);
-    expect(find.bySemanticsLabel('Freitag: heute, geschafft'), findsOneWidget);
-    expect(find.bySemanticsLabel('Samstag: geschafft'), findsOneWidget);
-
-    await tester.pumpWidget(
-      _host(
-        locale: const Locale('en'),
-        child: StatsScreen(now: _fixedFriday),
-      ),
-    );
-    await tester.pump();
-
-    for (final label in const ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']) {
-      expect(find.text(label), findsOneWidget);
-    }
-    await tester.ensureVisible(find.text('We'));
-    await tester.pump();
-    expect(find.bySemanticsLabel('Wednesday: not completed'), findsOneWidget);
-    expect(find.bySemanticsLabel('Friday: today, completed'), findsOneWidget);
-    expect(find.bySemanticsLabel('Saturday: completed'), findsOneWidget);
-    expect(tester.takeException(), isNull);
-
-    semantics.dispose();
   });
+
+  for (final example in [
+    (
+      name: 'Thursday two-day streak ends today',
+      now: DateTime(2026, 10, 29),
+      streak: 2,
+      labels: const [
+        'Monday: not completed',
+        'Tuesday: not completed',
+        'Wednesday: completed',
+        'Thursday: today, completed',
+        'Friday: not completed',
+        'Saturday: not completed',
+        'Sunday: not completed',
+      ],
+    ),
+    (
+      name: 'Monday clips a streak spanning the previous week',
+      now: DateTime(2026, 10, 26),
+      streak: 10,
+      labels: const [
+        'Monday: today, completed',
+        'Tuesday: not completed',
+        'Wednesday: not completed',
+        'Thursday: not completed',
+        'Friday: not completed',
+        'Saturday: not completed',
+        'Sunday: not completed',
+      ],
+    ),
+    (
+      name: 'Sunday includes the completed current week',
+      now: DateTime(2026, 11, 1),
+      streak: 7,
+      labels: const [
+        'Monday: completed',
+        'Tuesday: completed',
+        'Wednesday: completed',
+        'Thursday: completed',
+        'Friday: completed',
+        'Saturday: completed',
+        'Sunday: today, completed',
+      ],
+    ),
+  ]) {
+    testWidgets('weekly chart ${example.name}', (tester) async {
+      await _seedStats(populated: true);
+      await Storage.setStreakDays(example.streak);
+      _configureViewport(tester, const Size(390, 844));
+      final semantics = tester.ensureSemantics();
+      try {
+        await tester.pumpWidget(
+          _host(
+            locale: const Locale('en'),
+            child: StatsScreen(now: example.now),
+          ),
+        );
+        await tester.pump();
+        await tester.ensureVisible(find.text('Mo'));
+        await tester.pump();
+
+        for (final label in example.labels) {
+          expect(find.bySemanticsLabel(label), findsOneWidget);
+        }
+        expect(tester.takeException(), isNull);
+      } finally {
+        semantics.dispose();
+      }
+    });
+  }
 
   testWidgets('protected stats render exactly and do not write storage', (
     tester,
