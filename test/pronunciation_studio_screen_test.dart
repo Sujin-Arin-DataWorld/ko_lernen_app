@@ -9,6 +9,8 @@ import 'package:ko_lernen_app/models/pronunciation_phrase.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/screens/pronunciation_studio_screen.dart';
 import 'package:ko_lernen_app/services/pronunciation_assessment_client.dart';
+import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
+import 'package:ko_lernen_app/services/local_data_lifetime.dart';
 import 'package:ko_lernen_app/services/pronunciation_recorder.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/tts_service.dart';
@@ -278,7 +280,10 @@ void main() {
       // W10 T-V3(2026-09-05): 바깥 컨테이너가 ListView → SoriAdaptiveStudyBody
       // (SingleChildScrollView 로 내려감) 로 바뀌었다 — 스크롤 위젯 타입만
       // 갱신, 단언 대상(다음 phrase 노출)은 그대로다.
-      await tester.drag(find.byType(SingleChildScrollView), const Offset(0, 1000));
+      await tester.drag(
+        find.byType(SingleChildScrollView),
+        const Offset(0, 1000),
+      );
       await tester.pump();
       expect(find.text(c2.ko), findsOneWidget);
     },
@@ -639,6 +644,185 @@ void main() {
     await recorder.close();
   });
 
+  for (final boundary in ['identity', 'reset', 'permission']) {
+    testWidgets('$boundary boundary fences a pending pronunciation result', (
+      tester,
+    ) async {
+      cloudWriteSessionController.acquire('pronunciation-owner-a');
+      addTearDown(cloudWriteSessionController.clear);
+      await Storage.setPronunciationConsent(true);
+      final recorder = _FakeRecorder(
+        permission: true,
+        chunks: [
+          Uint8List.fromList([0, 0, 1, 0]),
+        ],
+      );
+      final gateway = _HoldingSuccessGateway();
+      await tester.pumpWidget(_app(recorder, gateway: gateway));
+      await tester.pumpAndSettle();
+      await _captureAndAssess(
+        tester,
+        callStarted: () => gateway.calls > 0,
+        settle: false,
+      );
+      expect(gateway.calls, 1);
+      if (boundary == 'identity') {
+        cloudWriteSessionController.acquire('pronunciation-owner-b');
+      } else if (boundary == 'reset') {
+        LocalDataLifetime.invalidate();
+      } else {
+        cloudWriteSessionController.transition(CloudWriteMode.quiesced);
+      }
+      // Resolve before the next frame: mounted alone is not an ownership fence.
+      gateway.complete();
+      await tester.runAsync(() async {
+        await Future<void>.delayed(const Duration(milliseconds: 30));
+      });
+      await tester.pumpAndSettle();
+      expect(Storage.pronunciationPassCount, boundary == 'permission' ? 1 : 0);
+      expect(tester.takeException(), isNull);
+    });
+  }
+
+  testWidgets(
+    'retained score callback cannot submit the prior identity recording',
+    (tester) async {
+      cloudWriteSessionController.acquire('pronunciation-owner-a');
+      addTearDown(cloudWriteSessionController.clear);
+      await Storage.setPronunciationConsent(true);
+      final recorder = _FakeRecorder(
+        permission: true,
+        chunks: [
+          Uint8List.fromList([0, 0, 1, 0]),
+        ],
+      );
+      final gateway = _FailingGateway();
+      await tester.pumpWidget(_app(recorder, gateway: gateway));
+      await tester.pumpAndSettle();
+      _invokeButton(tester, 'Record my voice');
+      await tester.pump();
+      await tester.pump();
+      _invokeButton(tester, 'Stop recording');
+      await tester.runAsync(() async {
+        await Future<void>.delayed(const Duration(milliseconds: 30));
+      });
+      await tester.pumpAndSettle();
+      final score = find.byKey(const ValueKey('pronunciation-assess-action'));
+      await _scrollUntilBuilt(tester, score);
+      final oldScore = tester.widget<SoriButton>(score).onTap!;
+      cloudWriteSessionController.acquire('pronunciation-owner-b');
+      oldScore();
+      await tester.pumpAndSettle();
+      expect(gateway.calls, 0);
+      expect(
+        find.byKey(const ValueKey('pronunciation-replay-action')),
+        findsNothing,
+      );
+      expect(Storage.pronunciationPassCount, 0);
+    },
+  );
+
+  testWidgets(
+    'owner retirement waits for a pending microphone start before fresh capture',
+    (tester) async {
+      cloudWriteSessionController.acquire('pronunciation-owner-a');
+      addTearDown(cloudWriteSessionController.clear);
+      final recorder = _DelayedStartRecorder();
+      await tester.pumpWidget(_app(recorder));
+      await tester.pumpAndSettle();
+      _invokeButton(tester, 'Record my voice');
+      await tester.pump();
+      await tester.pump();
+      expect(recorder.startCalls, 1);
+      cloudWriteSessionController.acquire('pronunciation-owner-b');
+      await tester.pump();
+      await tester.pump();
+      expect(
+        tester
+            .widget<SoriButton>(
+              find.byKey(const ValueKey('pronunciation-record-action')),
+            )
+            .onTap,
+        isNull,
+      );
+      recorder.started.complete(const Stream<Uint8List>.empty());
+      await tester.pumpAndSettle();
+      expect(recorder.stopCalls, greaterThanOrEqualTo(1));
+      expect(
+        tester
+            .widget<SoriButton>(
+              find.byKey(const ValueKey('pronunciation-record-action')),
+            )
+            .onTap,
+        isNotNull,
+      );
+      expect(
+        find.byKey(const ValueKey('pronunciation-replay-action')),
+        findsNothing,
+      );
+    },
+  );
+
+  testWidgets(
+    'owner retirement cancels a subscription captured by pending stop',
+    (tester) async {
+      cloudWriteSessionController.acquire('pronunciation-stop-owner-a');
+      addTearDown(cloudWriteSessionController.clear);
+      final recorder = _HoldingStopStreamRecorder();
+      await tester.pumpWidget(_app(recorder));
+      await tester.pumpAndSettle();
+      _invokeButton(tester, 'Record my voice');
+      await tester.pump();
+      await tester.pump();
+      recorder.controller.add(Uint8List.fromList([0, 0, 1, 0]));
+      await tester.pump();
+      _invokeButton(tester, 'Stop recording');
+      await tester.pump();
+      expect(recorder.stopCalls, 1);
+      cloudWriteSessionController.acquire('pronunciation-stop-owner-b');
+      await tester.pump();
+      recorder.stopped.complete();
+      await tester.pumpAndSettle();
+      final cancelledBeforeDisposal = recorder.cancelCalls;
+      final freshCaptureBlockedUntilCancel =
+          tester
+              .widget<SoriButton>(
+                find.byKey(const ValueKey('pronunciation-record-action')),
+              )
+              .onTap ==
+          null;
+      recorder.cancelled.complete();
+      await tester.pumpAndSettle();
+      await tester.pumpWidget(const SizedBox());
+      await tester.pumpAndSettle();
+      expect(cancelledBeforeDisposal, 1);
+      expect(freshCaptureBlockedUntilCancel, isTrue);
+      expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets(
+    'dispose waits for pending recorder start before final plugin disposal',
+    (tester) async {
+      final recorder = _DisposalBarrierRecorder();
+      await tester.pumpWidget(_app(recorder));
+      await tester.pumpAndSettle();
+      _invokeButton(tester, 'Record my voice');
+      await tester.pump();
+      await tester.pump();
+      expect(recorder.startCalls, 1);
+      await tester.pumpWidget(const SizedBox());
+      await tester.pump();
+      final disposedBeforeStartSettled = recorder.disposeCalls;
+      recorder.started.complete(const Stream<Uint8List>.empty());
+      await tester.pumpAndSettle();
+      expect(disposedBeforeStartSettled, 0);
+      expect(recorder.transitions, ['start', 'stop', 'dispose']);
+      expect(recorder.disposeCalls, 1);
+      expect(tester.takeException(), isNull);
+    },
+  );
+
   testWidgets('dispose while assessing suppresses late score persistence', (
     tester,
   ) async {
@@ -755,6 +939,83 @@ Future<void> _scrollUntilBuilt(WidgetTester tester, Finder target) async {
     await tester.ensureVisible(target);
     await tester.pump();
   }
+}
+
+class _HoldingStopStreamRecorder implements PronunciationRecorder {
+  _HoldingStopStreamRecorder() {
+    controller = StreamController<Uint8List>(
+      onCancel: () {
+        cancelCalls++;
+        return cancelled.future;
+      },
+    );
+  }
+  late final StreamController<Uint8List> controller;
+  final stopped = Completer<void>();
+  final cancelled = Completer<void>();
+  int cancelCalls = 0;
+  int stopCalls = 0;
+  @override
+  Future<bool> requestPermission() async => true;
+  @override
+  Future<Stream<Uint8List>> startPcm16Stream() async => controller.stream;
+  @override
+  Future<void> stop() async {
+    stopCalls++;
+    await stopped.future;
+  }
+
+  @override
+  Future<void> dispose() async {
+    await controller.close();
+  }
+}
+
+class _DisposalBarrierRecorder implements PronunciationRecorder {
+  final started = Completer<Stream<Uint8List>>();
+  final transitions = <String>[];
+  int startCalls = 0;
+  int disposeCalls = 0;
+  @override
+  Future<bool> requestPermission() async => true;
+  @override
+  Future<Stream<Uint8List>> startPcm16Stream() {
+    startCalls++;
+    transitions.add('start');
+    return started.future;
+  }
+
+  @override
+  Future<void> stop() async {
+    transitions.add('stop');
+  }
+
+  @override
+  Future<void> dispose() async {
+    disposeCalls++;
+    transitions.add('dispose');
+  }
+}
+
+class _DelayedStartRecorder implements PronunciationRecorder {
+  final started = Completer<Stream<Uint8List>>();
+  int startCalls = 0;
+  int stopCalls = 0;
+  @override
+  Future<bool> requestPermission() async => true;
+  @override
+  Future<Stream<Uint8List>> startPcm16Stream() {
+    startCalls++;
+    return started.future;
+  }
+
+  @override
+  Future<void> stop() async {
+    stopCalls++;
+  }
+
+  @override
+  Future<void> dispose() async {}
 }
 
 class _FakeRecorder implements PronunciationRecorder {
