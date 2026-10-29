@@ -143,6 +143,10 @@ receipt에는 생성한 prefix, 3/3 통과, cleanup 성공을 남기되 UID나 S
 route는 이 legacy smoke만으로 증명되지 않으므로 승인된 test account와 실제 route로
 별도 검증한다.
 
+승인된 실행은 `GCLOUD_PROJECT=ko-lernen-app npm run smoke -- --allow-production-smoke`
+처럼 프로젝트와 opt-in 인자를 모두 명시한다. 자동 `node --test` 탐색 환경에서는
+인자가 있어도 SDK를 읽기 전에 거부한다. 이 인자는 별도 운영 smoke 승인을 대신하지 않는다.
+
 ## 5. Pronunciation callable
 
 먼저 Secret payload를 읽지 않고 `AZURE_SPEECH_KEY` 존재 metadata를 확인한다.
