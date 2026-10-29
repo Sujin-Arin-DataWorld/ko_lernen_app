@@ -1,0 +1,29 @@
+lesson_id,decision,quest,source_stage_candidates,change,media_and_checks,scope_limit
+F0.1.sound-signs,retain_reframe,LQ-01,S02,현대 소리표를 연이의 공부책 첫 아 복원으로 개정; 각성 뒤 어 학습; 수진 선행 안내,아/어 감수 음성; 조립 시범; 별도 문자 확인,첫 아의 도움 참여로 이야기 진행 가능; 발음 합격 아님
+F0.1.above-below,retain_reframe,LQ-01,S02,깨어난 탈선비와 오/우 위아래 배치; 아/어 재등장,가로/세로 조립; 감수 음성; 다른 보기,네 음절 범위의 재인과 조합
+F0.1.straight-lines,retain_extend,LQ-01,S03_partial,으/이와 기본 모음 정리; 다시 듣기 기능을 실제 사용; 오이/아이 뜻은 별도 하위 활동,오이/아이 시범 그림과 다른 대상 그림; 의미 음성,숫자와 치아 등 다의어를 동시에 요구하지 않음
+F0.2.first-names,retain,LQ-02_preparation,S04_partial,ㄴ/ㅁ 결합을 낱말 준비 활동으로 재사용; 미학습 이름 읽기 제외,니/무 등 배운 자모의 새 조합; 낱말 의미와 구분,이름 소개 문법을 이 수업에서 모두 확인하지 않음
+F0.2.two-boxes,retain_extend,LQ-02_preparation,S05_partial,ㄱ/ㄷ 준비 활동 유지; 도구 낱말은 전체 자모와 의미를 준비한 뒤 하위 활동으로 추가,도구 실제 그림; 의미 시범; 새 도구 그림 확인,음절 조합에서 도구 의미를 자동 추정하지 않음
+F0.2.ribbon,retain_extend,LQ-02_preparation,S04_S05_partial,ㄹ/ㅂ 준비 활동 유지; 마루 뜻과 실물을 별도 소개한 뒤 연결,ㄹ 감수 음성; 마루 그림; 다른 구도의 같은 대상,영어 r/l의 단순 대입으로 발음 판정하지 않음
+F0.2.two-tracks,retain,LQ-02_preparation,S05_partial,ㅅ/ㅈ 결합 후 모자와 다음 구간에서 회수,새 조합과 낱말 목표 분리; 실제 소리 확인은 별도 문항,선택형 성공을 발화로 기록하지 않음
+F0.2.warm-breath,retain,LQ-02_preparation,S07_h_only,ㅎ의 하/허 등 결합 유지; 후속 거센소리와 혼동 시 짧게 회수,감수 음성; 안정된 글자 시범,ㅎ 경험만으로 격음 전체를 배웠다고 하지 않음
+F0.2.tree-and-hat,retain_extend,LQ-02,S04_S06_partial,번역 뜻 선택에서 실제 그림/소리/물건 푯말 사용으로 확대; 나무의 식물 뜻 유지,같은 개념의 다른 그림; 음성 식별은 별도 항목,목재 뜻은 새 하위 활동으로 지도; 같은 그림 외우기와 구분
+F0.2.sea-and-bridge,retain_reframe,LQ-02_followup,S05_S06_partial,바다/건너는 다리 뜻 연습 유지; 파란 점 추리를 제거하고 고택 밖 사진의 학습 도움으로 사용,다른 바다와 건너는 다리 그림; 후속 실제 지도,신체 다리 뜻이나 역사 단서로 자동 확대하지 않음
+F0.3.double-strokes,retain,LQ-03_preparation,S10_partial,ㅑ/ㅕ를 별도 작은 활동으로 지도; 같은 여행 사진 대사 대신 수업별 필요 안내,짝별 음성; 새 조합; 한 번에 모든 이중모음 평가 금지,다른 자모를 배우기 전 야구 전체를 요구하지 않음
+F0.3.two-below,retain,LQ-03_preparation,S10_partial,ㅛ/ㅠ 분산 시범; 후속 도움 표현에서 재등장,모형과 감수 음성; 새 배열,요 종결형 문법 전체 숙달 아님
+F0.3.air-one,retain,LQ-03_preparation,S07_partial,ㅋ/ㅌ을 ㄱ/ㄷ과 한 쌍씩 비교; 창고 자재 전체 어휘 암기와 분리,감수 음성과 입 모양; 기류 시각 도움,그림 바람 세기만 보고 청각 구별했다고 하지 않음
+F0.3.air-two,retain,LQ-03_preparation,S07_partial,ㅍ/ㅊ을 ㅂ/ㅈ과 한 쌍씩 비교; 커피 등 실제 낱말은 의미 선행,기존 커피 이미지/음성 탐색 후 적합한 항목만 연결,카페 요청 전체를 이미 배웠다고 보지 않음
+F0.3.firm-one,retain,LQ-03_preparation,S08_partial,ㄲ/ㄸ 별도 시범; 목을 조이라는 단독 지시를 감수된 비교 안내로 교체,감수 소리 비교; 혼동별 회복,발음 자동 합격이나 통과 관문 없음
+F0.3.firm-two,retain_split_activities,LQ-03_preparation,S08_partial,ㅃ/ㅆ/ㅉ를 멈출 수 있는 하위 활동으로 분리; 씨의 뜻은 식물 장면에서 별도 소개,각 목표별 시범/확인; 세 목표를 한 문항으로 평가하지 않음,꽃씨 단서 공개 시점 변경 없음
+F0.3.near-vowels,retain,LQ-03_preparation,S03_deferred,ㅐ/ㅔ 표기 확인과 낱말 뜻을 연결; 교재 첫 소개 시점과 앱 배치 차이를 기록,표기 구별; 감수 음성; 뜻이 있는 단어,두 소리를 항상 귀로 구별해야 한다는 합격 기준 금지
+F0.3.corner-vowels,retain,LQ-03_preparation,S11_partial,ㅘ/ㅝ 작은 묶음으로 시범; 익힌 낱말에서 회수,글자 조립; 실제 음성,새 활용 문법을 소리 설명에 숨겨 평가하지 않음
+F0.3.round-corner,retain,LQ-03_preparation,S11_partial,ㅟ/ㅚ 표기와 음성 경험; 위치 위 뜻은 그림으로 별도,시범과 다른 조합; 발음 허용 범위 감수,낱말 의미와 글자 구성을 구분
+F0.3.first-finals,retain_reframe,LQ-03,S12_partial,받침 아래 자리 시범 후 문/길 등의 뜻과 이름표 연결,미니맵 시범과 새 배치; 문/길 감수 음성,미학습 건물명/한자 해독을 요구하지 않음
+F0.3.silent-or-sounding,retain_reframe,LQ-03,S12_partial,아/방의 ㅇ 위치 비교; ㄷ 등 준비 뒤 마당 이름표 하위 활동,방/마당 그림과 음성; 초성/종성 비교,마당 뜻을 가르치기 전 이름표 정답으로 요구하지 않음
+F0.4.closed-endings,retain_extend,LQ-04_preparation,S13_S14_exposure,기본 받침과 집/책/밥 뜻을 지도; 겹받침 전체 규칙은 선택 경험/후속 반복으로 표시,받침 시범; 낱말별 감수 음성; 후속 연결,겹받침 전체 합격을 A1 진입 조건으로 두지 않음
+F0.4.wide-vowels,retain,LQ-04_preparation,S11_partial,ㅙ/ㅞ 표기 경험과 짧은 도움; 익힌 목표 중 헷갈리는 것 재확인,표기 조합; 단어별 음성,ㅐ/ㅔ 계열 강제 청각 변별 금지
+F0.4.small-pair,retain,LQ-04_preparation,S10_partial,ㅒ/ㅖ 소수 목표 비교; 네/예의 응답 기능은 구어 경로에서 재사용,감수 음성; 글자 모양; 상황 응답,걔 등의 관계 의미를 별도로 설명
+F0.4.last-vowel,retain,LQ-04_preparation,S11_partial,ㅢ 표기를 익히고 문맥별 소리는 도움으로 제공,낱말별 감수 음성; 선택 가능한 보충,모든 의 발음 규칙을 필수 숙달로 두지 않음
+F0.4.linked-sounds,retain_extend,LQ-04_preparation,S15,쉬운 연음부터 시범; 겹받침 연음/ㅎ은 관련 낱말의 후속 활동으로 회수,문이/물이 등 감수 음성; 다른 익힌 낱말 확인,연음을 조사/어미 문법 숙달로 합산하지 않음
+F0.4.first-input,retain_extend,LQ-04,S13_relocated,나무/모자 입력 유지; 집의 의미와 ㅈㅣㅂ 입력 하위 활동 추가,키보드 시범; 모형 없는 제한 회상; 조각 대안,따라 입력/회상 입력/조각 구성을 구분
+F0.4.space-and-place,reframe_preserve_previous,LQ-04,S13_relocated_S16_S17_oral,주 장면을 이 집 쪽지로 개정; 구 위치 문구는 배운 내용/이력으로 보존; A1 재요청으로 연결,지시어 이 의미 선행; 띄어쓰기; 이후 피날레 회수,새 필수 단서와 보상 없음; 옛 시도 삭제 없음

@@ -1,0 +1,5 @@
+# Frozen authoring/source snapshots retain original bytes, including Markdown
+# hard-break spaces and mixed historical line endings, for hash verification.
+# New production planning documents use the repository's normal text rules.
+manuscripts/** -text -whitespace
+reference/** -text -whitespace

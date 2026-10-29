@@ -1,0 +1,201 @@
+{
+  "meanings": {
+    "SOUP": {
+      "word": "국",
+      "copy": [
+        "국은 이 사진의 먹는 국이에요.",
+        "국 is soup in this photo.",
+        "국 ist die Suppe auf diesem Foto."
+      ],
+      "brief": "국그릇의 국. 나라의 국이라는 한자어 뜻 없음. 같은 범주의 다른 그릇/구도를 T1/T2/I1/R1로 구분."
+    },
+    "CLOTHES": {
+      "word": "옷",
+      "copy": [
+        "옷은 몸에 입는 옷이에요.",
+        "옷 means clothes worn on the body.",
+        "옷 bedeutet Kleidung, die man am Körper trägt."
+      ],
+      "brief": "성별·신분 규칙 없는 현대 상의/하의 학습 사진. 한국어 글자/브랜드 없음."
+    },
+    "RICE": {
+      "word": "밥",
+      "copy": [
+        "여기서 밥은 익힌 쌀밥이에요.",
+        "Here, 밥 means cooked rice.",
+        "Hier bedeutet 밥 gekochten Reis."
+      ],
+      "brief": "그릇에 담긴 익힌 쌀밥. 벼/생쌀/전체 식사 의미를 동시에 요구하지 않음."
+    },
+    "NECK": {
+      "word": "목",
+      "copy": [
+        "이 사진의 목은 머리와 몸통 사이의 부분이에요.",
+        "목 is the neck between the head and torso in this picture.",
+        "목 ist hier der Hals zwischen Kopf und Rumpf."
+      ],
+      "brief": "목 위치를 분명히 가리킨 중립 인체 학습 그림. 통증·질환·성별 추정 없음."
+    },
+    "DAY": {
+      "word": "낮",
+      "copy": [
+        "낮은 해가 떠 있는 시간이에요.",
+        "낮 is daytime, when the sun is up.",
+        "낮 ist die Zeit zwischen Sonnenaufgang und Sonnenuntergang."
+      ],
+      "brief": "밝은 낮의 현대 참고 사진과 선택 언어 뜻 안내. 고택의 실제 시간/기억 사건을 변경하지 않음."
+    },
+    "HOUSE": {
+      "word": "집",
+      "copy": [
+        "집은 사람이 지내는 집이에요. 지금은 사진 속 집을 가리켜요.",
+        "집 means a house where people live. Here it refers to the house in the picture.",
+        "집 bedeutet ein Haus, in dem Menschen wohnen. Hier ist das Haus auf dem Bild gemeint."
+      ],
+      "brief": "이미 정본으로 확인한 고택 그림의 학습 참조 또는 별도 현대 집 사진. 새 R16 배치/완공 이미지를 만들지 않음. I/R에는 정답 집 자막·자모·로마자 없음. 설명 언어 house/Haus 힌트 사용 여부를 별도 기록."
+    },
+    "BOOK": {
+      "word": "책",
+      "copy": [
+        "책은 읽는 책이에요. ㅊ·ㅐ 아래의 받침 ㄱ도 함께 봐요.",
+        "책 means a book to read. Notice final ㄱ below ㅊ and ㅐ.",
+        "책 bedeutet ein Buch zum Lesen. Beachte das ㄱ unter ㅊ und ㅐ."
+      ],
+      "brief": "현대 학습용 일반 책. 낡은 공부책·남은말첩·연이 편지·새 유물이나 단서로 제시하지 않음."
+    },
+    "CHAIR": {
+      "word": "의자",
+      "copy": [
+        "의자는 사람이 앉는 의자예요. 글자와 실제 낱말 소리를 함께 봐요.",
+        "의자 is a chair for sitting on. Look at the word and listen to its actual sound.",
+        "의자 ist ein Stuhl zum Sitzen. Sieh dir das Wort an und hör auf seinen tatsächlichen Klang."
+      ],
+      "brief": "현대 의자 학습 사진. 고택 가구를 새로 배치한 역사 주장 아님. T1/T2와 다른 의자 R1 사용."
+    },
+    "WATER": {
+      "word": "물",
+      "copy": [
+        "물은 이 장면에서 마시는 물이에요.",
+        "물 means drinking water in this scene.",
+        "물 bedeutet in dieser Szene Trinkwasser."
+      ],
+      "brief": "마실 물로 명확히 설명한 학습 사진. 투명한 액체 사진만으로 술/물 등을 추리시키지 않음. 요청/띄어쓰기 문항에는 선택 언어로 물이라는 대상 뜻을 명시해도 되며 순수 시각 인식으로 기록하지 않음."
+    },
+    "TREE": {
+      "word": "나무",
+      "copy": [
+        "이번 나무는 자라는 식물이에요. 목재 뜻은 별도로 배운 내용이에요.",
+        "나무 here is a living tree. The timber meaning was learned separately.",
+        "나무 bezeichnet hier einen lebenden Baum. Die Bedeutung Holz wurde gesondert gelernt."
+      ],
+      "brief": "입문2에서 배운 살아 있는 나무 범주. 새로운 구도의 사진이며 목재 더미 아님."
+    },
+    "HAT": {
+      "word": "모자",
+      "copy": [
+        "모자는 머리에 쓰는 물건이에요.",
+        "모자 is a hat worn on the head.",
+        "모자 ist ein Hut, den man auf dem Kopf trägt."
+      ],
+      "brief": "입문2에서 배운 범주의 챙 있는 모자. 로고/정답 글자 없음. 요청 상황에서는 모자를 가리키는 손짓/뜻 안내 제공."
+    },
+    "SEA": {
+      "word": "바다",
+      "copy": [
+        "바다는 넓은 바닷물이 있는 곳이에요.",
+        "바다 is the sea, a wide area of seawater.",
+        "바다 ist das Meer, eine große Fläche mit Meerwasser."
+      ],
+      "brief": "입문2에서 배운 바다의 다른 해안 구도. 지도 지명/역사 단서 없음."
+    },
+    "BRIDGE": {
+      "word": "다리",
+      "copy": [
+        "여기서 다리는 물을 건너는 다리예요.",
+        "다리 here is a bridge for crossing water.",
+        "다리 ist hier eine Brücke zum Überqueren von Wasser."
+      ],
+      "brief": "물 위를 건너는 다리 사진. 신체 다리 뜻은 미학습이므로 오답 그림으로 사용하지 않음."
+    }
+  },
+  "note_copy": [
+    [
+      "N-LAMP·원문·사랑채 완공 확인 뒤",
+      "드디어 이 집에 다시 불이 켜지는구나!",
+      "At last, the lights are on in this house again!",
+      "Endlich brennt in diesem Haus wieder Licht!"
+    ],
+    [
+      "N-PLAYER·극중 쪽지 작성·실제 발화와 별도",
+      "집",
+      "House",
+      "Haus"
+    ],
+    [
+      "N-KEPT·쪽지 보관 성공을 확인한 뒤",
+      "집이라고 적힌 첫 쪽지를 서안에 남겼어요.",
+      "The first note, with 집 written on it, has been left on the writing desk.",
+      "Der erste Zettel mit dem Wort 집 liegt jetzt auf dem Schreibpult."
+    ],
+    [
+      "N-BOOKMARK·v3.5 원문·보관 확인 뒤",
+      "처음 쓴 낱말이 ‘집’이라니, 허허, 좋은 시작일세.",
+      "Your first written word is 집. Heh, a good beginning.",
+      "Dein erstes geschriebenes Wort ist 집. Hoho, ein guter Anfang."
+    ],
+    [
+      "N-WAIT·사랑채 완공 전",
+      "첫 낱말은 연습 기록에 남겨 둘게요. 사랑채의 등불이 켜지면 쪽지를 남기는 장면으로 이어가요.",
+      "We'll keep the first word in your practice record. When the lamp is lit in the completed sarangchae, we'll continue to the note scene.",
+      "Das erste Wort bleibt in deiner Übungsaufzeichnung. Wenn in der fertigen Sarangchae die Lampe brennt, geht es mit der Zettelszene weiter."
+    ],
+    [
+      "N-PENDING·보관 확인 실패",
+      "아직 쪽지 보관을 확인하지 못했어요. 방금 쓴 내용은 그대로 두고 다시 확인할게요.",
+      "The note hasn't been confirmed as kept yet. We'll keep what you entered and check again.",
+      "Es ist noch nicht bestätigt, dass der Zettel aufbewahrt wurde. Deine Eingabe bleibt erhalten; wir prüfen es noch einmal."
+    ],
+    [
+      "N-SKIP·지금은 멈추기 선택",
+      "괜찮아요. 같은 자리에서 다시 시작할 수 있어요.",
+      "That's fine. You can return to the same point.",
+      "Das ist in Ordnung. Du kannst an derselben Stelle weitermachen."
+    ]
+  ],
+  "keyboard_author_reference": {
+    "아": [
+      "d",
+      "k"
+    ],
+    "집": [
+      "w",
+      "l",
+      "q"
+    ],
+    "나무": [
+      "s",
+      "k",
+      "a",
+      "n"
+    ],
+    "모자": [
+      "a",
+      "h",
+      "w",
+      "k"
+    ],
+    "바다": [
+      "q",
+      "k",
+      "e",
+      "k"
+    ],
+    "다리": [
+      "e",
+      "k",
+      "f",
+      "l"
+    ],
+    "scope": "표준 두벌식의 제작자용 키 참조. 실제 장치/IME/접근성 도구에서 확인하기 전 키보드 동작 완료라고 하지 않는다. 학습자에게 라틴 키 암기를 요구하지 않고 한글 자모 면/조각 대안을 제공한다. 삭제키 횟수/IME 조합중 상태를 정답 기준으로 삼지 않는다."
+  }
+}
