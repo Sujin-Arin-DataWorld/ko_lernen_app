@@ -83,21 +83,15 @@ class AccountSwitchJournal {
     }
     final sourceUid = json['sourceUid'];
     if (sourceUid is! String || sourceUid.isEmpty) {
-      throw const FormatException(
-        'Invalid account switch journal sourceUid.',
-      );
+      throw const FormatException('Invalid account switch journal sourceUid.');
     }
     final targetUid = json['targetUid'];
     if (targetUid is! String || targetUid.isEmpty) {
-      throw const FormatException(
-        'Invalid account switch journal targetUid.',
-      );
+      throw const FormatException('Invalid account switch journal targetUid.');
     }
     final provider = json['provider'];
     if (provider is! String || provider.isEmpty) {
-      throw const FormatException(
-        'Invalid account switch journal provider.',
-      );
+      throw const FormatException('Invalid account switch journal provider.');
     }
     final operationId = json['operationId'];
     if (operationId is! String || operationId.isEmpty) {
@@ -263,6 +257,7 @@ class AccountSwitchCoordinator {
     required this.sessions,
     required this.identity,
     required this.journalStore,
+    this.reconciliationJournalStore,
     required this.localPreflight,
     required this.ownershipTransition,
     required this.rebindPush,
@@ -277,6 +272,7 @@ class AccountSwitchCoordinator {
   final CloudWriteSessionController sessions;
   final AccountSwitchIdentity identity;
   final AccountSwitchJournalStore journalStore;
+  final AccountTransitionJournalStore? reconciliationJournalStore;
   final AccountSwitchLocalPreflight localPreflight;
   final AccountSwitchOwnershipTransition ownershipTransition;
   final AccountSwitchPushRebind rebindPush;
@@ -399,17 +395,71 @@ class AccountSwitchCoordinator {
     required String? liveUid,
     required Map<String, PackCatalogEntry> catalog,
   }) async {
-    final journal = await journalStore.read();
-    if (journal == null) {
-      return const AccountSwitchResult(AccountSwitchStatus.failed);
+    final identityEpoch = sessions.identityEpoch;
+    final initialSession = sessions.current;
+    AccountSwitchJournal? journal;
+    AccountTransitionJournal? reconciliationJournal;
+    bool ownsIdentity() =>
+        liveUid != null &&
+        identity.currentUid == liveUid &&
+        !identity.currentIsAnonymous &&
+        sessions.identityEpoch == identityEpoch &&
+        sessions.current == initialSession;
+    try {
+      journal = await journalStore.read();
+      if (journal == null) {
+        return const AccountSwitchResult(AccountSwitchStatus.failed);
+      }
+      if (!ownsIdentity() || liveUid != journal.targetUid) {
+        return const AccountSwitchResult(AccountSwitchStatus.mergeDeferred);
+      }
+      if (!ownsIdentity() ||
+          await journalStore.read() != journal ||
+          !ownsIdentity()) {
+        return const AccountSwitchResult(AccountSwitchStatus.mergeDeferred);
+      }
+      if (initialSession?.mode == CloudWriteMode.ready) {
+        // The pending switch still owns these local payloads. Do not leave an
+        // ordinary-backup lease open while its durable session is unresolved.
+        sessions.transition(CloudWriteMode.blocked);
+        return const AccountSwitchResult(AccountSwitchStatus.mergeDeferred);
+      }
+      reconciliationJournal = await reconciliationJournalStore?.read();
+      if (!ownsIdentity() ||
+          await journalStore.read() != journal ||
+          !ownsIdentity()) {
+        return const AccountSwitchResult(AccountSwitchStatus.mergeDeferred);
+      }
+    } catch (_) {
+      return const AccountSwitchResult(AccountSwitchStatus.mergeDeferred);
     }
-    if (liveUid == null ||
-        liveUid != journal.targetUid ||
-        identity.currentIsAnonymous) {
-      await clearReconciliationJournal();
-      await journalStore.clear();
-      AccountFailureDiagnostics.log('switch.resume.discarded', null);
-      return const AccountSwitchResult(AccountSwitchStatus.failed);
+    if (reconciliationJournal != null) {
+      final persisted = reconciliationJournal;
+      if (persisted.session.uid != journal.targetUid ||
+          persisted.session.mode != CloudWriteMode.reconciling ||
+          persisted.reconciliationOperationId != journal.operationId ||
+          persisted.replacementProvider != null ||
+          persisted.replacementTargetUid != null ||
+          persisted.replacementRequestKey != null ||
+          persisted.replacementPhase != null ||
+          persisted.replacementOperationId != null ||
+          persisted.replacementOperationVersion != null) {
+        return const AccountSwitchResult(AccountSwitchStatus.mergeDeferred);
+      }
+      try {
+        // Restore only this validated durable operation. The controller rejects
+        // a different current session or an epoch older than its own history.
+        sessions.resume(persisted.session, expectedUid: journal.targetUid);
+        if (sessions.current != persisted.session ||
+            sessions.identityEpoch !=
+                identityEpoch + (initialSession == null ? 1 : 0) ||
+            identity.currentUid != liveUid ||
+            identity.currentIsAnonymous) {
+          return const AccountSwitchResult(AccountSwitchStatus.mergeDeferred);
+        }
+      } catch (_) {
+        return const AccountSwitchResult(AccountSwitchStatus.mergeDeferred);
+      }
     }
 
     final current = sessions.current;
@@ -425,6 +475,11 @@ class AccountSwitchCoordinator {
       reconciling = sessions.transition(CloudWriteMode.reconciling);
     }
 
+    if (sessions.current != reconciling ||
+        identity.currentUid != liveUid ||
+        identity.currentIsAnonymous) {
+      return const AccountSwitchResult(AccountSwitchStatus.mergeDeferred);
+    }
     return _merge(journal, reconciling, catalog);
   }
 
@@ -450,14 +505,6 @@ class AccountSwitchCoordinator {
 
     switch (result.status) {
       case AccountReconciliationStatus.completed:
-      case AccountReconciliationStatus.blocked:
-        if (result.status == AccountReconciliationStatus.blocked) {
-          AccountFailureDiagnostics.log(
-            'switch.mergeBlocked',
-            null,
-            detail: 'conflicts=${result.conflicts.length}',
-          );
-        }
         if (sessions.current == session) {
           sessions.transition(CloudWriteMode.ready);
         }
@@ -476,6 +523,17 @@ class AccountSwitchCoordinator {
       case AccountReconciliationStatus.invalid:
       case AccountReconciliationStatus.tooLarge:
       case AccountReconciliationStatus.stale:
+      case AccountReconciliationStatus.blocked:
+        // A blocked merge has not applied a cloud-authoritative snapshot.
+        // Keep recovery authority closed to ordinary backups until a later
+        // reconciliation actually completes.
+        if (result.status == AccountReconciliationStatus.blocked) {
+          AccountFailureDiagnostics.log(
+            'switch.mergeBlocked',
+            null,
+            detail: 'conflicts=${result.conflicts.length}',
+          );
+        }
         AccountFailureDiagnostics.log(
           'switch.mergeDeferred',
           null,

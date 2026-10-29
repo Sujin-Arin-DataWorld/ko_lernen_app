@@ -40,7 +40,10 @@ void main() {
         expect(harness.reconcileLastTargetUid, harness.targetUid);
         expect(harness.reconcileLastSession?.mode, CloudWriteMode.reconciling);
         expect(harness.reconcileLastSession?.uid, harness.targetUid);
-        expect(harness.reconcileLastOperationId, journalAtReconcile.operationId);
+        expect(
+          harness.reconcileLastOperationId,
+          journalAtReconcile.operationId,
+        );
 
         expect(result.status, AccountSwitchStatus.completed);
         expect(result.targetUid, harness.targetUid);
@@ -148,33 +151,85 @@ void main() {
       },
     );
 
-    test('a blocked merge still completes with the cloud copy winning', () async {
-      final harness = _Harness()
-        ..reconcileResult = const AccountReconciliationResult(
-          AccountReconciliationStatus.blocked,
-          conflicts: [
-            AccountReconciliationConflict(
-              kind: AccountReconciliationConflictKind.packProgress,
-              id: 'pack-a',
-            ),
-          ],
+    for (final hasConflicts in [false, true]) {
+      test(
+        'blocked merge retains recovery authority and never authorizes backup conflicts=$hasConflicts',
+        () async {
+          final harness = _Harness()
+            ..reconcileResult = AccountReconciliationResult(
+              AccountReconciliationStatus.blocked,
+              conflicts: hasConflicts
+                  ? const [
+                      AccountReconciliationConflict(
+                        kind: AccountReconciliationConflictKind.packProgress,
+                        id: 'pack-a',
+                      ),
+                    ]
+                  : const [],
+            );
+          final result = await harness.coordinator.switchToExisting(
+            provider: AccountLinkProvider.google,
+            credential: _credential(),
+            sourceUid: harness.sourceUid,
+            catalog: harness.catalog,
+          );
+          // The UI starts CloudSync.backup only for completed. A blocked merge
+          // contains no merged snapshot and has not made the cloud copy local.
+          expect(result.status, AccountSwitchStatus.mergeDeferred);
+          expect(harness.sessions.current?.mode, CloudWriteMode.reconciling);
+          expect(harness.journalStore.value, isNotNull);
+          expect(harness.journalStore.clearCalls, 0);
+          expect(harness.counters.clearReconciliationJournalCalls, 0);
+          expect(harness.counters.activateBackfillCalls, 0);
+        },
+      );
+    }
+
+    test(
+      'a blocked switch resumes and activates backfill only after success',
+      () async {
+        final harness = _Harness()
+          ..reconcileResult = const AccountReconciliationResult(
+            AccountReconciliationStatus.blocked,
+            conflicts: [
+              AccountReconciliationConflict(
+                kind: AccountReconciliationConflictKind.packProgress,
+                id: 'pack-a',
+              ),
+            ],
+          );
+
+        final result = await harness.coordinator.switchToExisting(
+          provider: AccountLinkProvider.google,
+          credential: _credential(),
+          sourceUid: harness.sourceUid,
+          catalog: harness.catalog,
         );
 
-      final result = await harness.coordinator.switchToExisting(
-        provider: AccountLinkProvider.google,
-        credential: _credential(),
-        sourceUid: harness.sourceUid,
-        catalog: harness.catalog,
-      );
-
-      expect(result.status, AccountSwitchStatus.completed);
-      expect(result.targetUid, harness.targetUid);
-      expect(harness.journalStore.value, isNull);
-      expect(harness.counters.clearReconciliationJournalCalls, 1);
-      expect(harness.sessions.current?.mode, CloudWriteMode.ready);
-      expect(harness.sessions.current?.uid, harness.targetUid);
-      expect(harness.counters.activateBackfillCalls, 1);
-    });
+        expect(result.status, AccountSwitchStatus.mergeDeferred);
+        expect(harness.journalStore.value, isNotNull);
+        expect(harness.counters.activateBackfillCalls, 0);
+        harness.reconcileResult = const AccountReconciliationResult(
+          AccountReconciliationStatus.completed,
+        );
+        final resumed = await harness.coordinator.resume(
+          liveUid: harness.targetUid,
+          catalog: harness.catalog,
+        );
+        expect(resumed.status, AccountSwitchStatus.completed);
+        expect(resumed.targetUid, harness.targetUid);
+        expect(harness.journalStore.value, isNull);
+        expect(harness.counters.clearReconciliationJournalCalls, 1);
+        expect(harness.sessions.current?.mode, CloudWriteMode.ready);
+        expect(harness.sessions.current?.uid, harness.targetUid);
+        expect(harness.counters.activateBackfillCalls, 1);
+        await harness.coordinator.resume(
+          liveUid: harness.targetUid,
+          catalog: harness.catalog,
+        );
+        expect(harness.counters.activateBackfillCalls, 1);
+      },
+    );
 
     test('a reconcile exception is treated as a deferred merge', () async {
       final harness = _Harness()..reconcileThrows = () => StateError('boom');
@@ -221,37 +276,40 @@ void main() {
   });
 
   group('AccountSwitchCoordinator.resume', () {
-    test('resume acquires the target session and completes the merge', () async {
-      final harness = _Harness();
-      final journal = AccountSwitchJournal(
-        version: AccountSwitchJournal.currentVersion,
-        sourceUid: harness.sourceUid,
-        targetUid: harness.targetUid,
-        provider: AccountLinkProvider.google.name,
-        operationId: 'resume-op-1',
-        createdAtMillis: 1000,
-      );
-      harness.journalStore.value = journal;
-      harness.sessions.clear();
-      harness.identity.currentUid = harness.targetUid;
-      harness.identity.currentIsAnonymous = false;
+    test(
+      'resume acquires the target session and completes the merge',
+      () async {
+        final harness = _Harness();
+        final journal = AccountSwitchJournal(
+          version: AccountSwitchJournal.currentVersion,
+          sourceUid: harness.sourceUid,
+          targetUid: harness.targetUid,
+          provider: AccountLinkProvider.google.name,
+          operationId: 'resume-op-1',
+          createdAtMillis: 1000,
+        );
+        harness.journalStore.value = journal;
+        harness.sessions.clear();
+        harness.identity.currentUid = harness.targetUid;
+        harness.identity.currentIsAnonymous = false;
 
-      final result = await harness.coordinator.resume(
-        liveUid: harness.targetUid,
-        catalog: harness.catalog,
-      );
+        final result = await harness.coordinator.resume(
+          liveUid: harness.targetUid,
+          catalog: harness.catalog,
+        );
 
-      expect(result.status, AccountSwitchStatus.completed);
-      expect(harness.sessions.current?.uid, harness.targetUid);
-      expect(harness.sessions.current?.mode, CloudWriteMode.ready);
-      expect(harness.journalStore.value, isNull);
-      expect(harness.counters.clearReconciliationJournalCalls, 1);
-      expect(harness.reconcileLastSession?.mode, CloudWriteMode.reconciling);
-      expect(harness.reconcileLastOperationId, 'resume-op-1');
-    });
+        expect(result.status, AccountSwitchStatus.completed);
+        expect(harness.sessions.current?.uid, harness.targetUid);
+        expect(harness.sessions.current?.mode, CloudWriteMode.ready);
+        expect(harness.journalStore.value, isNull);
+        expect(harness.counters.clearReconciliationJournalCalls, 1);
+        expect(harness.reconcileLastSession?.mode, CloudWriteMode.reconciling);
+        expect(harness.reconcileLastOperationId, 'resume-op-1');
+      },
+    );
 
     test(
-      'resume discards the journal when the live uid does not match the target',
+      'resume retains the journal when the live uid does not match the target',
       () async {
         final harness = _Harness();
         final journal = AccountSwitchJournal(
@@ -269,9 +327,9 @@ void main() {
           catalog: harness.catalog,
         );
 
-        expect(result.status, AccountSwitchStatus.failed);
-        expect(harness.journalStore.value, isNull);
-        expect(harness.counters.clearReconciliationJournalCalls, 1);
+        expect(result.status, AccountSwitchStatus.mergeDeferred);
+        expect(harness.journalStore.value, journal);
+        expect(harness.counters.clearReconciliationJournalCalls, 0);
         expect(harness.reconcileCalls, 0);
       },
     );
@@ -489,9 +547,8 @@ class _Harness {
   int localPreflightCalls = 0;
   Future<void> Function()? localPreflightOverride;
 
-  AccountReconciliationResult reconcileResult = const AccountReconciliationResult(
-    AccountReconciliationStatus.completed,
-  );
+  AccountReconciliationResult reconcileResult =
+      const AccountReconciliationResult(AccountReconciliationStatus.completed);
   Object? Function()? reconcileThrows;
   int reconcileCalls = 0;
   String? reconcileLastTargetUid;

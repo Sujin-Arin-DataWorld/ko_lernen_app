@@ -1932,9 +1932,9 @@
     "semantic_hash": ""
   },
   "lib/services/auth_service.dart": {
-    "mtime": 1793279445.600897,
-    "seen": 1793281015.3168857,
-    "ast_hash": "14e73efc6175234a540217472a90d256",
+    "mtime": 1793282677.04494,
+    "seen": 1793289124.2526574,
+    "ast_hash": "dd8579af4dd9e480471c6d8c5f56940d",
     "semantic_hash": ""
   },
   "lib/services/book_analysis_service.dart": {
@@ -14340,9 +14340,9 @@
     "semantic_hash": ""
   },
   "lib/services/account/account_switch_coordinator.dart": {
-    "mtime": 1793279445.5808725,
-    "seen": 1793281015.3168547,
-    "ast_hash": "acb64eb276f3444f0a63acdbaf6495c4",
+    "mtime": 1793289152.0791805,
+    "seen": 1793289561.5167463,
+    "ast_hash": "dd6502b52661bd92cc6f50b1a3ec26a3",
     "semantic_hash": ""
   },
   "lib/widgets/sori/illustrated_card_grid.dart": {
@@ -14406,9 +14406,9 @@
     "semantic_hash": ""
   },
   "test/services/account/account_switch_coordinator_test.dart": {
-    "mtime": 1793279446.3879764,
-    "seen": 1793281015.318201,
-    "ast_hash": "6de4090808b759ac5b8a7efdb0831cb2",
+    "mtime": 1793282758.546404,
+    "seen": 1793289124.461011,
+    "ast_hash": "292a942c80931027f410f44ea69042d5",
     "semantic_hash": ""
   },
   "test/services/account/anonymous_credential_link_test.dart": {
@@ -25671,6 +25671,12 @@
     "mtime": 1793279441.6057656,
     "seen": 1793281015.3210573,
     "ast_hash": "37fb762015b7a19f7041ee79029cc404",
+    "semantic_hash": ""
+  },
+  "test/services/account/account_switch_restart_test.dart": {
+    "mtime": 1793289185.02055,
+    "seen": 1793289561.7294075,
+    "ast_hash": "60e78de8350bd66823daaa5c32825a3c",
     "semantic_hash": ""
   }
 }

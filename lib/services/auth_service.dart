@@ -2528,6 +2528,11 @@ class AuthService {
       sessions: cloudWriteSessionController,
       identity: const _FirebaseAccountSwitchIdentity(),
       journalStore: SharedPreferencesAccountSwitchJournalStore(preferences),
+      reconciliationJournalStore:
+          SharedPreferencesAccountTransitionJournalStore(
+            preferences,
+            storageKey: AccountSwitchJournal.reconciliationStorageKey,
+          ),
       localPreflight: () async {
         await PackCompletionStorage.retire();
         await LocalAccountReconciliationStore.load();
