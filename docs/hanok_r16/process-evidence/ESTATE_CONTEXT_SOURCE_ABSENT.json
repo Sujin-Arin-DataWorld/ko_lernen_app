@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "oldSourceAbsent": true,
+  "sourceSha256": "3195809855213946a330048b3b86cd3f75ccddac045dbaf640909cee4de36d48",
+  "contextMembers": 671,
+  "images": [
+    {
+      "name": "02.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "10.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "74-color.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "74-normal.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "74-roughness.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "75-color.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "75-normal.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "75-roughness.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "77-color.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "77-normal.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "77-roughness.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "78-color.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "78-normal.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "78-roughness.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "79-color.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "79-normal.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "79-roughness.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "canonical-gate.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "canonical.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "gye-clay-matte-v26.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "gye-fieldstone-brush-v26.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "gye-fieldstone-brush-v26.png.003",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "gye-fieldstone-brush-v26.png.004",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "gye-grass-painted-albedo-v2.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "gye-limewash-brush-v26.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "gye-maintained-pine-brush-v25.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "hanji-atlas-v1.png.001",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "hanok-clay-normal-v1.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "hanok-clay-v1.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "hanok-cream-plaster-painted-v1.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "hanok-granite-normal-v1.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "hanok-granite-v1.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "hanok-pine-endgrain-normal-v1.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "hanok-pine-endgrain-v1.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "hanok-pine-longgrain-normal-v1.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "hanok-pine-longgrain-v1.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "hanok-stone-painted-v2.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "hyeopmun_try03_blueprint_colored.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "hyeopmun_try03_blueprint_colored.png.001",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "hyeopmun_try03_blueprint_colored.png.002",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "plaster-atlas-v1.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "plaster-atlas-v1.png.001",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "plaster-atlas-v1.png.002",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "plaster-atlas-v1.png.005",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "plaster-atlas-v1.png.006",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "Quiet courtyard earth pigment",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "Quiet courtyard fine relief",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "stone-atlas-v1.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "stone-atlas-v1.png.001",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "stone-atlas-v1.png.002",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "stone-atlas-v1.png.005",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "stone-atlas-v1.png.006",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "stone-atlas-v1.png.007",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "stone-atlas-v1.png.008",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "stone-atlas-v1.png.009",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "tile-blue-charcoal-v1.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "tile-blue-charcoal-v1.png.001",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "tile-blue-charcoal-v1.png.002",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "wood-endgrain-atlas-v1.png.001",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "wood-large-surfaces-atlas-v1.png",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "wood-long-members-trim-v1.png.001",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    },
+    {
+      "name": "wood-longitudinal-atlas-v1.png.001",
+      "packed": true,
+      "externalRequired": false,
+      "path": null
+    }
+  ],
+  "externalImagesRequired": false,
+  "sourceUnchanged": true
+}
