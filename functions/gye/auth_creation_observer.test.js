@@ -56,6 +56,39 @@ test("creation logs classify identities without logging their attributes", async
   assert.ok(!JSON.stringify(logs).includes("491234"));
 });
 
+test("creation events use their provider project when the legacy environment is absent", async (t) => {
+  const previousProject = process.env.GCLOUD_PROJECT;
+  t.after(() => {
+    if (previousProject === undefined) delete process.env.GCLOUD_PROJECT;
+    else process.env.GCLOUD_PROJECT = previousProject;
+  });
+  const logs = [];
+  const warnings = [];
+  t.mock.method(logger, "info", (...args) => logs.push(args));
+  t.mock.method(logger, "warn", (...args) => warnings.push(args));
+
+  for (const resource of [
+    "projects/demo-hangul-sori",
+    { name: "projects/demo-hangul-sori", service: "firebaseauth.googleapis.com" },
+  ]) {
+    delete process.env.GCLOUD_PROJECT;
+    await deployed.on_auth_account_created({ uid: "private-uid", providerData: [] }, {
+      eventId: "local-creation-event",
+      eventType: typeof resource === "string"
+        ? "providers/firebase.auth/eventTypes/user.create"
+        : "google.firebase.auth.user.create",
+      resource,
+      timestamp: "2026-10-28T00:00:00Z",
+    });
+    assert.deepEqual(logs.at(-1), ["Auth account creation observed", {
+      event: "auth_account_created", schemaVersion: 1, accountKind: "anonymous",
+    }]);
+  }
+  assert.equal(logs.length, 2);
+  assert.deepEqual(warnings, []);
+  assert.ok(!JSON.stringify(logs).includes("private-uid"));
+});
+
 test("B1 metric selects the real observer's anonymous creation log contract", () => {
   const script = fs.readFileSync(path.join(__dirname, "../../tool/ops/log_metrics.py"), "utf8");
   assert.ok(script.includes('"auth_anonymous_account_created"'));

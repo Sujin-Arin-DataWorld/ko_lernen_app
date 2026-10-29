@@ -597,7 +597,9 @@ class _StreakWeekHeatmap extends StatelessWidget {
         runSpacing: Spacing.sm,
         children: List.generate(7, (i) {
           final isToday = i == today;
-          final isDone = streak > (6 - i);
+          // Project the current streak backwards from today, never into
+          // weekdays that have not happened yet.
+          final isDone = i <= today && streak > (today - i);
           final status = switch ((isToday, isDone)) {
             (true, true) => _StreakDayStatus.todayCompleted,
             (true, false) => _StreakDayStatus.today,
