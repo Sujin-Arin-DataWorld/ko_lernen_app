@@ -1,0 +1,493 @@
+{
+  "schema": "hangulsori/season1-mockup-asset-reuse-ledger/1.0",
+  "date": "2026-10-30",
+  "status": "planning_only_no_images_generated_no_app_changes",
+  "inventory_source": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-union-audit-20261010\\INDEX.md",
+  "canonical_registry": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-union-audit-20261010\\CANONICAL_SOURCES.json",
+  "incremental_change_receipt": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-union-audit-20261010\\changes-season1-20261030.json",
+  "broad_rescan_performed": false,
+  "canonical_hanok_direction_thread": "01a12775-dac1-7942-88e0-6842577140b3",
+  "review_viewports": {
+    "primary": [
+      390,
+      844
+    ],
+    "small_qa": [
+      320,
+      568
+    ],
+    "default_text_scale": 1.0,
+    "large_text_qa": "separate_capture"
+  },
+  "counts": {
+    "p0_screen_templates": 10,
+    "p0_required_state_exports": 24,
+    "small_qa_repeat_exports": 24,
+    "first_priority_scenes": 2,
+    "reused_portrait_masters": 3,
+    "scene_families": 3,
+    "standalone_prop_sets_planned": 2,
+    "live_glyph_component_sets": 1,
+    "motion_keyframe_pairs_planned": 4,
+    "images_generated": 0,
+    "figma_writes": 0,
+    "app_files_changed": 0
+  },
+  "authority_limits": [
+    "Canonical artwork authority is separate from this mockup composition, its visual approval, runtime integration, device QA and release.",
+    "No new character, expression or architecture generation is authorized by this ledger.",
+    "Only five selected images were visually inspected; other source families remain inventory references.",
+    "A review image hash match does not establish native GLB/PBR integration or a confirmed story trigger.",
+    "Legacy snapshot paths were resolved narrowly to current files; the registry itself was not edited."
+  ],
+  "assets": [
+    {
+      "id": "A01",
+      "family": "Persona",
+      "snapshot_image_id": "I1250",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\Persona\\sujin1.png",
+      "sha256": "60b0f18338a6efc940377d725ab41ecac9ebb1365b094e9f63fa58d71459015c",
+      "snapshot_sha_match": true,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "current_file_hash_verified": true,
+      "visually_inspected": true,
+      "observed": "Full standing Sujin, teal jacket, brown book held against body, other hand at chin; textured tactile surfaces.",
+      "use": [
+        "M02",
+        "M03",
+        "M07",
+        "M08",
+        "M09"
+      ],
+      "reuse": "existing_original_without_redraw",
+      "visual_approval": "source_directory_authority_only_new_composition_unapproved",
+      "runtime_binding": {
+        "checkout": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012",
+        "asset": "assets/illustrations/personas/v3/sujin.png",
+        "sha256_match": true,
+        "source": "lib/models/persona_presentation.dart:43"
+      }
+    },
+    {
+      "id": "A02",
+      "family": "TalSunbi",
+      "snapshot_image_id": "I1380",
+      "snapshot_path": "C:\\Users\\vjinn\\.codex\\generated_images\\TalSunbi\\TalSunbi.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\탈선비확정\\TalSunbi.png",
+      "sha256": "3ca5cf78d7eaa1f9b50e2aa767aa0399653dbfbf2f0be01a84448f57dbf16fb1",
+      "snapshot_sha_match": true,
+      "dimensions": [
+        1086,
+        1448
+      ],
+      "mode": "RGBA",
+      "current_file_hash_verified": true,
+      "visually_inspected": true,
+      "observed": "Standing scholar with wooden Hahoe mask, dark gat, cream robe, green tie, folded fan; one palm extended.",
+      "use": [
+        "M04",
+        "M05",
+        "M06",
+        "M10"
+      ],
+      "reuse": "existing_original_without_redraw",
+      "visual_approval": "source_directory_authority_only_new_composition_unapproved",
+      "gap": "Awakening entry and reading poses need existing-state mapping; this static palm-out pose is not proof of an awakening clip.",
+      "runtime_different_bytes": {
+        "asset": "assets/illustrations/tactile/hahoe_scholar.png",
+        "sha256": "83aa8e95bac147b57447ae2363e074310e07c970a757aebc602a64ccf8a1c1d7",
+        "visually_inspected": false,
+        "alias_equivalence_claimed": false
+      }
+    },
+    {
+      "id": "A03",
+      "family": "Dokkaebi",
+      "snapshot_image_id": "I1386",
+      "snapshot_path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비\\1.도깨비다른포즈.png",
+      "path": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\1.도깨비다른포즈.png",
+      "sha256": "2e1c3fd6f47b0930233c70a7b9e2f93dd2d374d404136e28480dd4ddc74b8202",
+      "snapshot_sha_match": true,
+      "dimensions": [
+        1086,
+        1448
+      ],
+      "mode": "RGBA",
+      "current_file_hash_verified": true,
+      "visually_inspected": true,
+      "observed": "Standing Dokkaebi, small horns, patterned headband and red/cream robe, green trousers; one hand rests on wooden club and other hand at chin.",
+      "use": [
+        "M04",
+        "M08",
+        "M09",
+        "M10"
+      ],
+      "reuse": "existing_original_without_redraw",
+      "visual_approval": "source_directory_authority_only_new_composition_unapproved",
+      "gap": "LQ-05 arms-open and stepping-aside existing poses not mapped. Do not draw new arms or imply inspected pose matches those actions.",
+      "reward_source_exclusion": "C:\\Users\\vjinn\\.codex\\generated_images\\도깨비확정\\도깨비엽전 is a distinct reward source; no coin animation is required by this gatekeeper slice.",
+      "runtime_different_bytes": {
+        "asset": "assets/illustrations/tactile/dokkaebi.png",
+        "sha256": "813a1c01ba475017bc74d38b807dba8d330990b723926cc66a06545a13587443",
+        "visually_inspected": false,
+        "alias_equivalence_claimed": false
+      }
+    },
+    {
+      "id": "A04",
+      "family": "R16_sarang",
+      "contract": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\APP_ASSET_CONTRACT.json",
+      "contract_relative_path": "review/sarang/full.png",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\sarang\\full.png",
+      "sha256": "d59c1c82c83ecbd710eacee53a686b23c93f111a8c3c99b6a14c6eb5e265203b",
+      "contract_sha_match": true,
+      "dimensions": [
+        1800,
+        1200
+      ],
+      "mode": "RGB",
+      "current_file_hash_verified": true,
+      "visually_inspected": true,
+      "observed": "Complete Sarangchae isolated on light review backdrop; tiled roofs, warm timber and pale masonry.",
+      "use": [
+        "P1_complete_sarang_return_reference"
+      ],
+      "reuse": "canonical_architecture_reference_only_at_actual_complete_state",
+      "visual_approval": "R16_canonical_artwork_per_contract_new_UI_composition_unapproved",
+      "not_for": [
+        "M02_preconstruction_book_scene",
+        "inferred_runtime_completion"
+      ],
+      "gap": "Not an approved interior, desk prop, alpha cutout or phone scene background."
+    },
+    {
+      "id": "A05",
+      "family": "R16_jung_midway",
+      "contract": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\APP_ASSET_CONTRACT.json",
+      "contract_relative_path": "review/jung/stages/06.png",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-r16-publication-20261028\\family-r16\\jung\\stages\\06.png",
+      "sha256": "c9219cefe65eb6c0e8a1fc5225d7d4c13121888f11977d22055fd1312cf7323e",
+      "contract_sha_match": true,
+      "dimensions": [
+        800,
+        533
+      ],
+      "mode": "RGB",
+      "current_file_hash_verified": true,
+      "visually_inspected": true,
+      "observed": "Narrow stone base and timber structure with exposed roof bed/rafters on light review backdrop; no complete tile roof or completed wall composition.",
+      "building_id": "jungmunganchae",
+      "process_id": "ildu.jungmunganchae-roof-bed",
+      "sequence": 6,
+      "use": [
+        "M08",
+        "M09",
+        "M10"
+      ],
+      "reuse": "same_native_geometry_and_stage_for_future_scene_composite",
+      "visual_approval": "R16_canonical_artwork_per_contract_new_UI_composition_unapproved",
+      "numeric_story_hook_binding": "authored_proposal_not_confirmed_runtime_trigger",
+      "gap": "800px review render is not a final portrait background. Scene camera, background and actor grounding remain to be composed without changing geometry."
+    }
+  ],
+  "unselected_source_families": [
+    {
+      "family": "Baekho",
+      "registry_family": "백호정본채택",
+      "current_directory": "C:\\Users\\vjinn\\.codex\\generated_images\\백호정본채택",
+      "status": "inventory_only_not_visually_inspected_in_this_task",
+      "use": "P1 testimony/finale only when canonical reveal permits; not a new P0 character"
+    },
+    {
+      "family": "Joy",
+      "registry_family": "까치정본",
+      "current_directory": "C:\\Users\\vjinn\\.codex\\generated_images\\까치정본",
+      "status": "inventory_only_not_visually_inspected_in_this_task",
+      "use": "Book discovery existing pose mapping needed; filenames alone do not prove character identity"
+    },
+    {
+      "family": "Dancheong",
+      "registry_family": "단청",
+      "current_directory": "C:\\Users\\vjinn\\.codex\\generated_images\\단청",
+      "status": "registry_inventory_only_current_directory_not_verified",
+      "use": "No automatic surface replacement or architecture restyling"
+    },
+    {
+      "family": "Bojagi",
+      "registry_field": "bojagi_pair",
+      "status": "registry_inventory_only_not_visually_inspected_in_this_task",
+      "use": "Later story/reward source distinction required; no invented reward from LQ-05"
+    },
+    {
+      "family": "Hanok_approved_tab",
+      "thread_id": "01a12775-dac1-7942-88e0-6842577140b3",
+      "status": "authority_reference_only_exact_current_screen_capture_missing",
+      "use": "M01 current entry composition must be captured before visual parity review"
+    }
+  ],
+  "planned_composites": [
+    {
+      "id": "S01",
+      "name": "current_hanok_entry",
+      "method": "capture_and_reuse_current_approved_entry",
+      "asset_ids": [],
+      "gap": "Exact current 100% text-scale capture required; do not reconstruct an unviewed tab from prose."
+    },
+    {
+      "id": "S02",
+      "name": "book_close_scene",
+      "method": "new_composite_existing_persona_plus_standalone_book_prop",
+      "asset_ids": [
+        "A01"
+      ],
+      "prop_ids": [
+        "P01"
+      ],
+      "gap": "Approved interior/desk source not mapped. Keep tight book composition and do not assert a canonical interior."
+    },
+    {
+      "id": "S03",
+      "name": "jung_midway_gatekeeper",
+      "method": "new_scene_composite_same_R16_native_geometry",
+      "asset_ids": [
+        "A01",
+        "A03",
+        "A05"
+      ],
+      "prop_ids": [
+        "P02"
+      ],
+      "gap": "Readiness mapping, scene camera, alpha/background and existing action poses need production validation."
+    }
+  ],
+  "planned_props": [
+    {
+      "id": "P01",
+      "name": "study_book_first_page",
+      "states": [
+        "scattered_or_blank_first_page",
+        "first_syllable_restored"
+      ],
+      "status": "source_not_mapped_new_standalone_prop_candidate",
+      "text_policy": "No generated glyphs or baked UI text. Live lesson tokens layered separately.",
+      "not_for": "F0.4 first 집 note or final letter without separate source contract"
+    },
+    {
+      "id": "P02",
+      "name": "practice_name_cards",
+      "states": [
+        "민수",
+        "하린"
+      ],
+      "status": "new_UI_prop_candidate_from_authored_role_cards",
+      "text_policy": "Reviewed Hangul names as live text; no real personal data or inferred nationality."
+    }
+  ],
+  "live_glyph_set": {
+    "id": "G01",
+    "pieces": [
+      "ㅇ",
+      "ㅏ",
+      "ㅓ",
+      "ㅗ",
+      "ㅜ",
+      "ㅡ",
+      "ㅣ"
+    ],
+    "method": "font_or_vector_UI_components",
+    "generation_required": false,
+    "no_answer_leak": "Complete model absent before I/R first response; support exposure logged separately."
+  },
+  "runtime_observations": [
+    {
+      "checkout": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023",
+      "head": "6fadd838e2a8ad378b92b38d06d86541782a7db8",
+      "files": [
+        "lib/main.dart:1403",
+        "lib/screens/foundation_lesson_screen.dart:143",
+        "lib/screens/foundation_lesson_screen.dart:334"
+      ],
+      "observed": "Existing /path, /path/v2, /path/foundation; save busy/error/pending states and return to /path/v2. Proposed M02-M10 story presentation is not established by these routes.",
+      "app_run_performed": false
+    },
+    {
+      "checkout": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\c-app-integration-20261012",
+      "head": "2d68784d3b642a14fe174de26d55b0c82209a694",
+      "files": [
+        "lib/main.dart:1365",
+        "lib/models/ildu_construction_art.dart:47",
+        "assets/data/ildu_construction_art_v1.json"
+      ],
+      "observed": "Existing /hanok/construction uses single-view Hyeopmun/Changgo construction learning art. It is not R16 11-building season story runtime.",
+      "app_run_performed": false
+    }
+  ],
+  "source_documents": [
+    {
+      "path": "../manuscripts/season1-rpg-v35/README.md",
+      "role": "scope_and_runtime_boundary"
+    },
+    {
+      "path": "../manuscripts/season1-rpg-v35/STORY_MANAGER_GUIDE.md",
+      "role": "story_master_and_reveal_rules"
+    },
+    {
+      "path": "../manuscripts/foundation-1-v35/01_FIRST_SOUND.md",
+      "role": "M02_to_M07_exact_content"
+    },
+    {
+      "path": "../manuscripts/foundation-1-v35/02_TWO_MORE_SOUNDS.md",
+      "role": "M05_M07_content_swap"
+    },
+    {
+      "path": "../manuscripts/foundation-1-v35/03_TWO_LINES.md",
+      "role": "M05_M07_content_swap"
+    },
+    {
+      "path": "../manuscripts/a1-1-v35/LQ05_GATEKEEPER.md",
+      "role": "M08_to_M10_scene_sequence"
+    },
+    {
+      "path": "../manuscripts/a1-1-v35/COMMON_COPY.md",
+      "role": "help_privacy_save_review_contracts"
+    },
+    {
+      "path": "../reference/R16_APP_ASSET_CONTRACT.json",
+      "role": "exact_building_process_and_art_hashes"
+    }
+  ],
+  "skills_applied": [
+    {
+      "path": "C:\\Users\\vjinn\\.agents\\skills\\microinteractions\\SKILL.md",
+      "application": "Explicit trigger/rules/feedback/loops for assembly, help, retry, save, same-audio replay and return; 8 diagnostic criteria reserved for rendered test.",
+      "observed_score": null,
+      "score_reason": "No mockup or interactive prototype produced; not fairly scoreable."
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\skills\\mobile-native\\SKILL.md",
+      "application": "Separate safe-area/keyboard/small-screen review from real-device verification. No web CSS implementation claim."
+    }
+  ],
+  "official_references": [
+    {
+      "url": "https://developer.android.com/design/ui/mobile/guides/foundations/accessibility",
+      "checked": "2026-10-30",
+      "page_last_updated": "2023-05-08",
+      "application": "48dp interactive targets, visible alternative to gestures, readable contrast; no claim of a new 2026 standard."
+    }
+  ],
+  "remaining_gaps": [
+    "Current approved Hanok entry render/capture at default 100% text scale.",
+    "Canonical interior/desk and standalone study-book source mapping.",
+    "Existing TalSunbi awakening, Dokkaebi arms-open/stepping-aside and Joy discovery pose mapping.",
+    "R16 geometry-preserving scene camera/background work and actual story-ready trigger integration.",
+    "Reviewed recordings, TTS/media owner, exact same-audio replay and playback-failure UI.",
+    "Human KO teaching and EN/de-DE localization review for proposed interface CTA copy.",
+    "Rendered EN/de-DE, 320px, large-text, keyboard, reduced-motion, contrast and overlap checks.",
+    "Real persistence, conflict recovery, no duplicate credit, native/device and user approval gates."
+  ],
+  "workflow": {
+    "status": "proposed_modes_not_existing_routes",
+    "capture_count_policy": "10 templates / 24 representative state captures; teaching, guided practice, preparation checks and remaining source-ordered activities are required even when not assigned another capture row.",
+    "after_awakening_next": "M05.teach_first",
+    "m05_modes": [
+      "teach_first",
+      "guided_practice",
+      "preparation_check",
+      "separate_check"
+    ],
+    "unit_sequences": [
+      {
+        "unit_id": "F0.1.sound-signs",
+        "preceding_first_a": "M03 U1-T01/U1-P01 then M04 story awakening",
+        "before_separate_check": [
+          [
+            "U1-T02",
+            "U1-T03"
+          ],
+          [
+            "U1-P02"
+          ],
+          [
+            "U1-T04",
+            "U1-T05"
+          ],
+          [
+            "U1-P03",
+            "U1-P04"
+          ],
+          "preparation_check"
+        ],
+        "representative_capture": "M05-A",
+        "capture_content": "U1-I01",
+        "after_capture": "Remaining source-ordered I, oral experience and END before M06; an individual capture does not complete the unit."
+      },
+      {
+        "unit_id": "F0.1.above-below",
+        "before_separate_check": [
+          [
+            "U2-T01",
+            "U2-P01"
+          ],
+          [
+            "U2-T02",
+            "U2-P02"
+          ],
+          [
+            "U2-T03",
+            "U2-T04"
+          ],
+          [
+            "U2-P03",
+            "U2-P04"
+          ],
+          "preparation_check"
+        ],
+        "representative_capture": "M05-C",
+        "capture_content": "U2-I01",
+        "after_capture": "Remaining source-ordered activities and END before M06; next U3 starts its own teaching."
+      },
+      {
+        "unit_id": "F0.1.straight-lines",
+        "before_separate_check": [
+          [
+            "U3-T01",
+            "U3-P01"
+          ],
+          [
+            "U3-T02",
+            "U3-P02"
+          ],
+          [
+            "U3-T03",
+            "U3-T04"
+          ],
+          [
+            "U3-P03",
+            "U3-P04"
+          ],
+          "preparation_check"
+        ],
+        "representative_capture": "M05-D",
+        "capture_content": "U3-I01",
+        "after_capture": "Remaining source-ordered activities and END before M06."
+      }
+    ],
+    "preparation_checks": [
+      "Required target teaching and P practice actually provided",
+      "Explanation-language instruction understood/provided",
+      "Piece selection then target-position action demonstrated and available as a drag alternative",
+      "Reviewed audio available for listening tasks; otherwise no listening assessment and retain letter/story path"
+    ],
+    "separate_check_rules": [
+      "Hide the current complete answer model before the first I response",
+      "Keep teaching, P support, answer exposure, raw first response and later assisted retry distinct",
+      "No direct jump from first 아 awakening to an untaught 어 confirmation",
+      "Missing preparation returns to the corresponding T/P rather than recording a learner error"
+    ]
+  }
+}

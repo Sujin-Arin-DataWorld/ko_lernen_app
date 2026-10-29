@@ -2,6 +2,8 @@
 
 입문1~4와 A1.1 상세 원고, 전체 100단원·11동128공정 서사, 본편/쿠키 각10초 대본을 보존한 문서 패키지다.
 
+**후속 제작:** [10챕터·NPC 이벤트·목업·영상 계획](production/README.md). 고유 사건42개, 목업 틀10종·상태24개, 선택 영상12편(편집안75초)을 기획했다. 처음 제작할 대표 장면은 첫 공부책과 중문 문지기다. 현재는 문서이며 이미지·영상·앱 구현은 별도다.
+
 - [전체 이야기 집필본](manuscripts/season1-rpg-v35/README.md)
 - [스토리텔러 마스터](manuscripts/season1-rpg-v35/STORY_MANAGER_GUIDE.md)
 - [A1.1 상세 6단원·91 제작 문항](manuscripts/a1-1-v35/README.md)

@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "revision": "ildu-r16",
+  "designation": "R16 building artwork and native editing canonical",
+  "approved": true,
+  "approval": {
+    "date": "2026-10-29",
+    "source": "direct human user message in this conversation",
+    "request": "일단 r16 작업한거 전부 정본승격 커밋 푸시 메인에 병합하고, 일두고택 전체 완성된 화면도 만들어야돼."
+  },
+  "buildingCount": 11,
+  "stageCount": 128,
+  "nativeCount": 22,
+  "scope": [
+    "11 complete building artworks",
+    "128 process artworks with existing IDs and order",
+    "22 texture-packed full/stage Blender natives",
+    "original production scripts and historical evidence"
+  ],
+  "contract": "APP_ASSET_CONTRACT.json",
+  "contractSha256": "15541911a96ddc747bb2960102f3d983aabcc84541750c2bf1fb3439d6220a75",
+  "gallery": "review/index.html",
+  "archive": "ARCHIVE.json",
+  "natives": [
+    {
+      "building": "sarang",
+      "kind": "full",
+      "variant": "r16-native",
+      "path": "sarang/full.blend",
+      "sha256": "b001666cef8bf9d0a23157c2aebb220d1df22f3b00698482e8277e9680049d12",
+      "bytes": 210589215
+    },
+    {
+      "building": "sarang",
+      "kind": "stage",
+      "variant": "r16-native",
+      "path": "sarang/stage.blend",
+      "sha256": "e472d6d44973a541bc871254a0c949f3439351401cf6956df41698e4f3c5f578",
+      "bytes": 210803614
+    },
+    {
+      "building": "ansarang",
+      "kind": "full",
+      "variant": "r16-native",
+      "path": "ansarang/full.blend",
+      "sha256": "06d3925b6ebd508967bb6b2c46d509e58e32c6d4c52b0df280a1d52a741e88f9",
+      "bytes": 169872330
+    },
+    {
+      "building": "ansarang",
+      "kind": "stage",
+      "variant": "r16-native",
+      "path": "ansarang/stage.blend",
+      "sha256": "48f51680ee187f41c90fa9e8e9efc14a54601702d5725eb1fd83fc02ba520a25",
+      "bytes": 169930805
+    },
+    {
+      "building": "anchae",
+      "kind": "full",
+      "variant": "r16-native",
+      "path": "anchae/full.blend",
+      "sha256": "3602b84f788337f1037b104daf525a95067e0def74e261a267b765064e818613",
+      "bytes": 210509709
+    },
+    {
+      "building": "anchae",
+      "kind": "stage",
+      "variant": "r16-native",
+      "path": "anchae/stage.blend",
+      "sha256": "c1f6c07756ab2fe9636d1a25305746a7bb6179a291d4f6ed11e584af42542c47",
+      "bytes": 210671204
+    },
+    {
+      "building": "sadang",
+      "kind": "full",
+      "variant": "r16-native",
+      "path": "sadang/full.blend",
+      "sha256": "cccb2806bf97555eae3429faeec42752fb94e19d00ba456a97064efff964f8b6",
+      "bytes": 124717531
+    },
+    {
+      "building": "sadang",
+      "kind": "stage",
+      "variant": "r16-native",
+      "path": "sadang/stage.blend",
+      "sha256": "117ca49764b59b5ac8ccc6edd9ca5174fcf5fc1010ad6153ed740eb2dc4b3012",
+      "bytes": 124735197
+    },
+    {
+      "building": "jung",
+      "kind": "full",
+      "variant": "r16-native",
+      "path": "jung/full.blend",
+      "sha256": "5257728066bd62b8a38fbf897890b093ab98523316665927f00e7049fb8ac1ab",
+      "bytes": 121456708
+    },
+    {
+      "building": "jung",
+      "kind": "stage",
+      "variant": "r16-native",
+      "path": "jung/stage.blend",
+      "sha256": "1f2290ce6c4ed7fb4992d83accb8881ea8018a415eb94845cfc434df04565f11",
+      "bytes": 121488610
+    },
+    {
+      "building": "arae",
+      "kind": "full",
+      "variant": "r16-native",
+      "path": "arae/full.blend",
+      "sha256": "b97426e3ed7e673a484bb4ca822289a4fc42fe7da2bfd6899daa08ffc69e035c",
+      "bytes": 113586199
+    },
+    {
+      "building": "arae",
+      "kind": "stage",
+      "variant": "r16-native",
+      "path": "arae/stage.blend",
+      "sha256": "fff63830a310bf060378c6b90b69caa8b5d256043086739286a49676498a377b",
+      "bytes": 113629256
+    },
+    {
+      "building": "gokgan",
+      "kind": "full",
+      "variant": "r16-native",
+      "path": "gokgan/full.blend",
+      "sha256": "302449fce492fe60e949757b44157cba0fd7849bd75022193b9a028ff5f0e8d8",
+      "bytes": 86719834
+    },
+    {
+      "building": "gokgan",
+      "kind": "stage",
+      "variant": "r16-native",
+      "path": "gokgan/stage.blend",
+      "sha256": "41bad121ab6bd6f8131451437f22f2c8377c59d5e66c397dd1baf5efeb3fdd8a",
+      "bytes": 86737149
+    },
+    {
+      "building": "angotgan",
+      "kind": "full",
+      "variant": "r16-native",
+      "path": "angotgan/full.blend",
+      "sha256": "e8f600ba76db069d1c70517ee29be321df5817e8441160e52ac98413e426b4ae",
+      "bytes": 76069063
+    },
+    {
+      "building": "angotgan",
+      "kind": "stage",
+      "variant": "r16-native",
+      "path": "angotgan/stage.blend",
+      "sha256": "6370e61ab337a4dbf451dd9e02eaf4f65794fd94b11870bdf79f2a58769caa10",
+      "bytes": 76091193
+    },
+    {
+      "building": "changgo",
+      "kind": "full",
+      "variant": "r16-native",
+      "path": "changgo/full.blend",
+      "sha256": "cbab7c5857cbb8d5d278629b6da6058f603a4a9aaa9d90f6d3f3cf4f1bd32a85",
+      "bytes": 91359181
+    },
+    {
+      "building": "changgo",
+      "kind": "stage",
+      "variant": "r16-native",
+      "path": "changgo/stage.blend",
+      "sha256": "af708cfac5c6d21004f6a894cbef8cdc40c60ebec41974380475a631bc5ccdd9",
+      "bytes": 91390720
+    },
+    {
+      "building": "toilet",
+      "kind": "full",
+      "variant": "r16-native",
+      "path": "toilet/full.blend",
+      "sha256": "001c38ecb9fdd10aeef7595b734796889b3661076efcc84823332651f3317b4f",
+      "bytes": 73935414
+    },
+    {
+      "building": "toilet",
+      "kind": "stage",
+      "variant": "r16-native",
+      "path": "toilet/stage.blend",
+      "sha256": "d015775d7e15178f14ce617366daadc8bd291f9044bae5e2c906f362739b91f5",
+      "bytes": 73958210
+    },
+    {
+      "building": "toilet1",
+      "kind": "full",
+      "variant": "r16-native",
+      "path": "toilet1/full.blend",
+      "sha256": "d4877d10cf9cedc0a38804cd16e5ed4616d254cc9a8588e1a881b864bab5e8ef",
+      "bytes": 43689661
+    },
+    {
+      "building": "toilet1",
+      "kind": "stage",
+      "variant": "r16-native",
+      "path": "toilet1/stage.blend",
+      "sha256": "5365313cfbac869dd13d7f331c80f3fcd81f73d632fbac647dfd379e205c668d",
+      "bytes": 43710702
+    }
+  ],
+  "sourceHistory": {
+    "archiveVariant": "r12-source",
+    "originalAndIntermediateBytesPreserved": true,
+    "historicalAuditApprovalFlagsRetained": true
+  },
+  "gates": {
+    "scope": "separate current-gate delivery retained for continued editing",
+    "archiveVariant": "current-gates",
+    "packedNativeCount": 6
+  },
+  "plaques": {
+    "building": "sarang",
+    "labels": [
+      "文獻世家",
+      "忠孝節義"
+    ],
+    "firstStage": 16,
+    "stageLabel": "완성",
+    "packedLettering": true,
+    "evidence": "process-evidence/SARANG_PLAQUE_FRONT_INSPECTION.json"
+  },
+  "estate": {
+    "status": "assembly and screen in progress",
+    "design": "ESTATE_SCREEN_DESIGN.md",
+    "existingLayoutSha256": "3195809855213946a330048b3b86cd3f75ccddac045dbaf640909cee4de36d48",
+    "placementVisualReview": "pending",
+    "characters": "secondary decoration"
+  },
+  "runtimeIntegrated": false,
+  "glbPbrBakeComplete": false,
+  "runtimeProgressPolicyChanged": false,
+  "deviceQaComplete": false,
+  "deployed": false,
+  "validation": {
+    "nativeReopen": "process-evidence/BLENDER_PORTABILITY.json",
+    "galleryInteraction": "process-evidence/R16_BROWSER_QA.json",
+    "gates": "process-evidence/GATE_BROWSER_QA.json"
+  },
+  "limitations": [
+    "Review-scale wood grain variation limits remain in STAGE_VISUAL_REVIEW.json",
+    "GLB PBR baking and runtime asset switching require separate verification",
+    "Completed artwork does not award learner completion, ownership or rewards"
+  ],
+  "archiveCommit": "4f016f35b2e7b90a7dc8e976e4cb4986effeee5d",
+  "archiveManifestSha256": "e5a78950e0eb89db2dab623716f2d58581cd9ca436b92a15a9fa5b867ca8377c",
+  "roofVariantPolicy": "ROOF_VARIANT_POLICY.json",
+  "roofVariantPolicySha256": "65ad375cc0e3272a10842cefc95740eed7ec12e7839bb0a533b360bef0c9b353",
+  "standaloneNativeCount": 4,
+  "totalBuildingNativeCount": 26,
+  "standaloneNatives": [
+    {
+      "building": "sarang",
+      "kind": "full",
+      "variant": "roof-native",
+      "path": "sarang/full.blend",
+      "sha256": "ef7b1ac264d26c56f121aa25e0af05a21ffb92fc1071b3eabe508ee93392b200",
+      "bytes": 225553575,
+      "archiveCommit": "a3ebf0c614ccec1864324f6e2641c9f895ddaf6f"
+    },
+    {
+      "building": "sarang",
+      "kind": "stage",
+      "variant": "roof-native",
+      "path": "sarang/stage.blend",
+      "sha256": "943b172dc8d1cc68d6cd0010c2a090a819a82b58b244a98649dafe1209112bb4",
+      "bytes": 225760470,
+      "archiveCommit": "a3ebf0c614ccec1864324f6e2641c9f895ddaf6f"
+    },
+    {
+      "building": "jung",
+      "kind": "full",
+      "variant": "roof-native",
+      "path": "jung/full.blend",
+      "sha256": "41f3920ee311406fe087a40c346101979547daf5706034ef01a1a57560328a54",
+      "bytes": 153264993,
+      "archiveCommit": "a3ebf0c614ccec1864324f6e2641c9f895ddaf6f"
+    },
+    {
+      "building": "jung",
+      "kind": "stage",
+      "variant": "roof-native",
+      "path": "jung/stage.blend",
+      "sha256": "d756c5d780537bd1d73d00300499c9b6d81976d7f8467506603ed0e28c8e4aeb",
+      "bytes": 153380200,
+      "archiveCommit": "a3ebf0c614ccec1864324f6e2641c9f895ddaf6f"
+    }
+  ],
+  "completedEstateView": {
+    "artReady": true,
+    "reviewScreen": "estate/index.html",
+    "renderManifest": "estate/RENDER_MANIFEST.json",
+    "imageSha256": "11a77f254f74242862f2a176f447cbb4a3a677dd2345f868c5b05041f5720f59",
+    "surveyedLayoutPreserved": true,
+    "runtimeIntegrated": false,
+    "limitation": "Depth-composed individual layers; cross-layer indirect light is not a single-scene path-traced result"
+  }
+}

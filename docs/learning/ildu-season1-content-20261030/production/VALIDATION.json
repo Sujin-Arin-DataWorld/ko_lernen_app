@@ -1,0 +1,96 @@
+{
+  "status": "DOCUMENT_PACKAGE_QA_PASS",
+  "base_manuscript_commit": "fdd2625edab36e6e238761aed1d01447d0e1d939",
+  "checked_head": "fdd2625edab36e6e238761aed1d01447d0e1d939",
+  "checks": [
+    {
+      "name": "119 frozen files remain byte-identical",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "production structured JSON parses",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all new local Markdown links exist",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "24 mockup state exports",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "12 selected video beats",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "42 routed chapter events",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact existing15fact universe",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "42unique event IDs matchCSV",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fact prerequisites follow earlier reveals",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "all15facts revealed without additions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "canonical33semantic hooks34phases",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no event grants mastery construction currency",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "12beats75seconds21editingcuts",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "each10second ending retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "selected5asset hashes match currentfiles",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "independent plan review exists",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "main630staged index preserved",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "limitations": [
+    "Document identity, references and coverage only",
+    "Image/video generation, actual UI/learning evidence, runtime and device QA not performed"
+  ]
+}

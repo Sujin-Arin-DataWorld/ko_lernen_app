@@ -1,0 +1,30 @@
+{
+  "kind": "production_planning_source_evidence",
+  "date": "2026-10-30 Europe/Berlin",
+  "canon_precedence": "STORY_V3_5.md governs narrative; WORLD_CONTRACT_V3_2.json supplies existing15factIDs only",
+  "sources": [
+    {
+      "path": "reference/WORLD_CONTRACT_V3_2.json",
+      "original": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023\\docs\\learning\\lernpfad-v2\\season1-v3\\WORLD_CONTRACT_V3_2.json",
+      "sha256": "d471b04ad3f4d5351be62c13bb00797f5df7d595cf89d2433e99c3adedee1685"
+    },
+    {
+      "path": "reference/CANONICAL_PROMOTION_R16.json",
+      "original": "git8841f12cbbfc9f82dc26efea860d62038ad6eeed:docs/hanok_r16/CANONICAL_PROMOTION_R16.json",
+      "sha256": "384b07d14464a86dc02bc274d6a50336f356ad7b4b7ecc7027e8825021480865"
+    }
+  ],
+  "document_graph": {
+    "command": "graphify update .",
+    "mode": "AST-only sparse-document scope",
+    "local_archive": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-commit-20261030\\graphify-docs-20261029T235317Z",
+    "paid_extraction": false,
+    "app_graph_replaced": false
+  },
+  "format_only_finalization": {
+    "path": "production/CHAPTER_EVENT_DESIGN.md",
+    "change": "remove blank line atEOF only; all other bytes unchanged",
+    "before_sha256": "7c2b522cda1d847eda23eaf621fbb1be46577aeb874b2c6587e9ace1151c8064",
+    "after_sha256": "15a865be489268eab69d0d7771ad24e89a90490687b78e0b584fd3227e02e1ff"
+  }
+}
