@@ -66,10 +66,10 @@
     "semantic_hash": ""
   },
   "android/app/google-services.json": {
-    "mtime": 1793307128.8099735,
-    "seen": 1793307679.8015177,
-    "ast_hash": "bed84ae639f042fa175706b9d41e539b",
-    "semantic_hash": "bed84ae639f042fa175706b9d41e539b"
+    "mtime": 1793312203.5304153,
+    "seen": 1793312546.766507,
+    "ast_hash": "aba6506a32bdcb18de7b2cbbd69dbb71",
+    "semantic_hash": ""
   },
   "android/app/src/main/kotlin/com/sujinarin/ko_lernen_app/KoreanProofreadingGateway.kt": {
     "mtime": 1793307128.815627,
