@@ -14931,13 +14931,13 @@ abstract class AppL10n {
   /// No description provided for @pronunciationScoringSoonTitle.
   ///
   /// In de, this message translates to:
-  /// **'Bewertung kommt bald'**
+  /// **'Automatische Bewertung ist deaktiviert'**
   String get pronunciationScoringSoonTitle;
 
   /// No description provided for @pronunciationScoringSoonBody.
   ///
   /// In de, this message translates to:
-  /// **'Die automatische Aussprache-Bewertung ist noch nicht freigeschaltet. Anhören, Aufnehmen und Vergleichen funktionieren schon jetzt.'**
+  /// **'Du kannst weiterhin zuhören, deine Stimme aufnehmen und die Aufnahmen selbst vergleichen.'**
   String get pronunciationScoringSoonBody;
 
   /// No description provided for @pronunciationPhrasesLoading.

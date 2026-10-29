@@ -67,6 +67,8 @@ function harness({providerTimeoutMs = 15000} = {}) {
     setTimeout: (fn, delay) => setTimeout(fn, Math.min(delay, providerTimeoutMs)), clearTimeout,
     fetch: async (...args) => { calls.push(args); return provider(...args); },
     require: (name) => {
+      // Retain provider/receipt regression coverage behind the release lock.
+      if (name === "./assessment_release_policy") return {pronunciationAssessmentReleaseEnabled: true};
       if (name === "firebase-admin/app") return {initializeApp() {}};
       if (name === "firebase-admin/auth") return {getAuth: () => ({getUser: async (uid) => {
         if (user instanceof Error) throw user;

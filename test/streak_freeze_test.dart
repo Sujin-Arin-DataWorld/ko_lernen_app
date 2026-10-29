@@ -47,6 +47,33 @@ void main() {
       expect(Storage.streakDays, 4);
     });
 
+    test('next calendar day across spring DST keeps the streak', () async {
+      await _resetStorage({
+        'kl_last_open_date': '2026-03-29',
+        'kl_streak_days': 5,
+      });
+
+      await Storage.touchStreak(now: _d(2026, 3, 30));
+
+      expect(Storage.streakDays, 6);
+      expect(Storage.lastOpenDate, '2026-03-30');
+    });
+
+    test(
+      'one missed calendar day across spring DST resets without a freeze',
+      () async {
+        await _resetStorage({
+          'kl_last_open_date': '2026-03-28',
+          'kl_streak_days': 5,
+        });
+
+        await Storage.touchStreak(now: _d(2026, 3, 30));
+
+        expect(Storage.streakDays, 1);
+        expect(Storage.streakFreezes, 0);
+      },
+    );
+
     test('skip 1 day with no freeze → reset to 1', () async {
       await _resetStorage({
         'kl_last_open_date': '2026-01-01',
@@ -117,18 +144,38 @@ void main() {
       expect(Storage.streakFreezeLastUsed, '2026-01-03');
     });
 
-    test('skip 1 day on day-6 with freeze → reaches 7, refill keeps tokens', () async {
-      // Streak=6 → use freeze to reach 7 → refill grants +1 back.
-      await _resetStorage({
-        'kl_last_open_date': '2026-01-06',
-        'kl_streak_days': 6,
-        'kl_streak_freezes': 1,
-      });
-      await Storage.touchStreak(now: _d(2026, 1, 8)); // 1 missed day
-      expect(Storage.streakDays, 7);
-      // Used -1, milestone +1 → net 1.
-      expect(Storage.streakFreezes, 1);
-      expect(Storage.streakFreezeLastUsed, '2026-01-08');
-    });
+    test(
+      'one missed calendar day across spring DST consumes one freeze',
+      () async {
+        await _resetStorage({
+          'kl_last_open_date': '2026-03-28',
+          'kl_streak_days': 5,
+          'kl_streak_freezes': 1,
+        });
+
+        await Storage.touchStreak(now: _d(2026, 3, 30));
+
+        expect(Storage.streakDays, 6);
+        expect(Storage.streakFreezes, 0);
+        expect(Storage.streakFreezeLastUsed, '2026-03-30');
+      },
+    );
+
+    test(
+      'skip 1 day on day-6 with freeze → reaches 7, refill keeps tokens',
+      () async {
+        // Streak=6 → use freeze to reach 7 → refill grants +1 back.
+        await _resetStorage({
+          'kl_last_open_date': '2026-01-06',
+          'kl_streak_days': 6,
+          'kl_streak_freezes': 1,
+        });
+        await Storage.touchStreak(now: _d(2026, 1, 8)); // 1 missed day
+        expect(Storage.streakDays, 7);
+        // Used -1, milestone +1 → net 1.
+        expect(Storage.streakFreezes, 1);
+        expect(Storage.streakFreezeLastUsed, '2026-01-08');
+      },
+    );
   });
 }

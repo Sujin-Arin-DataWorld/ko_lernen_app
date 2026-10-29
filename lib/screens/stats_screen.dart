@@ -577,7 +577,11 @@ class _StreakWeekHeatmap extends StatelessWidget {
     final locale = Localizations.localeOf(context).toString();
     final today = now.weekday - DateTime.monday;
 
-    DateTime dayAt(int index) => now.add(Duration(days: index - today));
+    // Weekday labels follow calendar dates even when DST changes the day's
+    // length. Subtracting 24-hour periods can skip Monday or repeat Sunday.
+    DateTime dayAt(int index) => now.isUtc
+        ? DateTime.utc(now.year, now.month, now.day + index - today)
+        : DateTime(now.year, now.month, now.day + index - today);
     String shortWeekday(int index) {
       final abbreviation = DateFormat.E(
         locale,

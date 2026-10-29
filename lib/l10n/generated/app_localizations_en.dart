@@ -8582,11 +8582,11 @@ class AppL10nEn extends AppL10n {
       'Listen first. Record up to 10 seconds, then listen to your voice and compare.';
 
   @override
-  String get pronunciationScoringSoonTitle => 'Scoring coming soon';
+  String get pronunciationScoringSoonTitle => 'Automatic scoring is turned off';
 
   @override
   String get pronunciationScoringSoonBody =>
-      'Automatic pronunciation scoring is not switched on yet. Listening, recording and comparing already work.';
+      'You can still listen, record your voice and compare the recordings yourself.';
 
   @override
   String get pronunciationPhrasesLoading => 'Loading pronunciation practice …';
