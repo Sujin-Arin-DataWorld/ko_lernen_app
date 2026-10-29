@@ -8839,8 +8839,7 @@ class AppL10nDe extends AppL10n {
       'course': 'Dein geführter Weg durch echte Situationen.',
       'hangul': 'Silben bauen und sicher lesen.',
       'calligraphy': 'Jeden Tag ein Schriftzeichen entdecken.',
-      'pronunciation':
-          'Hören, nachsprechen und auf Wunsch bewerten. Bewertung folgt später.',
+      'pronunciation': 'Hören, aufnehmen und vergleichen.',
       'vocab_packs': 'Wörter nach Alltagsthema lernen.',
       'srs': 'Wörter genau im richtigen Moment auffrischen.',
       'hard_words': 'Gezielt an deinen Stolperwörtern arbeiten.',
